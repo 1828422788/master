@@ -5,7 +5,7 @@ Feature: 数据大屏-m边框
 #    And I wait for "Dashboard" will be visible
 
   @v33gs
-  Scenario: 边框默认设置样式1
+  Scenario: 边框默认设置样式1 RZY-1916,RZY-1980
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -45,7 +45,7 @@ Feature: 数据大屏-m边框
 
  ######################################无耻的分割线################################
 
-  Scenario: 边框样式2
+  Scenario: 边框样式2 RZY-1980
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -100,7 +100,7 @@ Feature: 数据大屏-m边框
 
 ######################################无耻的分割线################################
 
-  Scenario: 边框样式3
+  Scenario: 边框样式3 RZY-1980
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

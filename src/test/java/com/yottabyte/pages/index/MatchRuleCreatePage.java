@@ -35,8 +35,16 @@ public class MatchRuleCreatePage extends PageTemplate {
         return rule;
     }
 
+    @FindBy(xpath = "//label[text()='索引名']/following-sibling::div//i")
+    private WebElement IndexName;
+
     public WebElement getIndexName() {
-        return getDropdownList("索引名");
+        IndexName.click();
+        return getLastDropdownList();
+    }
+
+    public WebElement getLastDropdownList() {
+        return webDriver.findElement(By.xpath("(//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical'])[last()]"));
     }
 
     public WebElement getTopicName() {

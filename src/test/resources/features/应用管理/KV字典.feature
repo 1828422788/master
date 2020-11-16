@@ -40,13 +40,27 @@ Feature: 应用KV字典
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "__admin__" from the "Role"
     And I click the "NextButton" button under some element
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     And I wait for "ImportSuccess" will be visible
     And I will see the element "ImportSuccess" name is "添加成功"
 
     Examples:
       | appName |
       | KVApp   |
+
+  Scenario: 添加KV字典
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "KVApp" then i click the "编辑" button
+    Then I will see the "app.CreatePage" page
+    And I click the "AddKVStore" button
+    And I set the parameter "KVName" with value "AutoTestForKVStore"
+    And I set the parameter "KVFieldInput" with value "apachecity"
+    And I click the "AddKVField" button
+    And I set the parameter "KVFieldInput" with value "count"
+    And I click the "AddKVField" button
+    And I set the parameter "KVFieldInput" with value "appname"
+    And I click the "CreateKVStore" button
+    And I click the "SaveButton" button under some element
 
   Scenario Outline: 添加KV字典失败校验
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -68,22 +82,6 @@ Feature: 应用KV字典
       | test | @!    | 字段名称仅支持字母、数字、下划线 |
       | test | te te | 字段名称仅支持字母、数字、下划线 |
       | test | 测试    | 字段名称仅支持字母、数字、下划线 |
-
-  Scenario: 添加KV字典
-    Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "KVApp" then i click the "编辑" button
-    Then I will see the "app.CreatePage" page
-    And I click the "AddKVStore" button
-    And I set the parameter "KVName" with value "AutoTestForKVStore"
-    And I set the parameter "KVFieldInput" with value "apachecity"
-    And I click the "AddKVField" button
-    And I set the parameter "KVFieldInput" with value "count"
-    And I click the "AddKVField" button
-    And I set the parameter "KVFieldInput" with value "appname"
-    And I click the "CreateKVStore" button
-    And I click the "SaveButton" button under some element
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "更新成功"
 
   Scenario: 存储kvstore
     Given open the "app.ListPage" page for uri "/app/list/"

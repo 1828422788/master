@@ -6,24 +6,25 @@ Feature: 趋势图新建-timechart
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
+    And I wait for "Loading" will be invisible
 
   Scenario Outline: timechart1
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/timechart_<caseNum>"
     And I compare source image "actual/timechart_<caseNum>" with target image "expect/timechart_<caseNum>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "timechart_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -38,10 +39,10 @@ Feature: 趋势图新建-timechart
   Scenario Outline: timechart2
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I click the "Settings" button
     And I click the "Xaxis" button
@@ -68,11 +69,11 @@ Feature: 趋势图新建-timechart
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/timechart_<caseNum>"
     And I compare source image "actual/timechart_<caseNum>" with target image "expect/timechart_<caseNum>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "timechart_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -84,10 +85,10 @@ Feature: 趋势图新建-timechart
   Scenario Outline: timechart3
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I click the "Settings" button
     And I click the "Xaxis" button
@@ -110,11 +111,11 @@ Feature: 趋势图新建-timechart
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/timechart_<caseNum>"
     And I compare source image "actual/timechart_<caseNum>" with target image "expect/timechart_<caseNum>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "timechart_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -125,10 +126,10 @@ Feature: 趋势图新建-timechart
   Scenario Outline: timechart_pile
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I click the "Settings" button
     And I click the "Xaxis" button
@@ -149,15 +150,37 @@ Feature: 趋势图新建-timechart
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/timechart_<caseNum>"
     And I compare source image "actual/timechart_<caseNum>" with target image "expect/timechart_<caseNum>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "timechart_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
       |  caseNum    | color    |button    |   spl|
       | area_pile   | Yellow   | Smooth   | tag:sample04061424_chart \| timechart cont=true span=30m rendertype=\"area\" count() min(apache.resp_len) by apache.status  |
       | column_pile | Red      |          | tag:sample04061424_chart \| timechart cont=true span=30m rendertype=\"column\" count() min(apache.resp_len) by apache.status  |
+
+  Scenario Outline: sparkline
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
+    And I wait for "500" millsecond
+    And I click the "SearchButton" button under some element
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button under some element
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "2000" millsecond
+    And take part of "StatisticalChart" with name "actual/<caseNum>"
+    And I compare source image "actual/<caseNum>" with target image "<caseNum>"
+    Then I click the "NextButton" button under some element
+
+    When I set the parameter "NameInput" with value "<caseNum>"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I click the "NextButton" button under some element
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      |  caseNum    |   spl|
+      | sparkline   | tag:sample04061424_chart \| stats sparkline(sum(raw_message_length),30m), count(apache.clientip) as ip_count by apache.status \| sort by apache.status     |
 

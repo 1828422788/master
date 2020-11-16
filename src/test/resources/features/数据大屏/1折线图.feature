@@ -5,7 +5,7 @@ Feature: 数据大屏-a折线图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 折线图-搜索
+  Scenario: 折线图-搜索 RZY-1904,RZY-1942
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -34,7 +34,8 @@ Feature: 数据大屏-a折线图
     And I set the parameter "XaxisShift" with value "5"
     And I choose the "倾斜" from the "XaxisAngle"
      #显示分割线this.colorPicker("x轴", "文本")
-    And I switch the "XaxisSeparator" button to "enable"
+    And I click the "XaxisSeparator" button
+#    And I switch the "XaxisSeparator" button to "enable"
        #分割线的设置
     And I set the parameter "XDividingLineBold" with value "3"
 
@@ -140,7 +141,7 @@ Feature: 数据大屏-a折线图
 
 ##################################无耻的分割线##############################
 
-  Scenario: 折线图-静态数据
+  Scenario: 折线图-静态数据 RZY-1944,RZY-1945
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -163,6 +164,14 @@ Feature: 数据大屏-a折线图
     And I choose the "bolder" from the "ExampleWordBold"
     And I choose the "居中" from the "ExampleHorizontal"
     And I choose the "顶部" from the "ExampleVertical"
+
+    #数据系列
+    And I click the "DataSeries" button
+    And I wait for "FirstSeriesBold" will be visible
+    And I set the parameter "FirstSeriesBold" with value "5"
+    And I click the "Smooth" button
+    And I click the "Area" button
+
     #尺寸
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button

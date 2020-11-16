@@ -4,11 +4,12 @@ Feature: 定时任务复制
   Scenario Outline: create_new
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I drag the element "SearchPageSvg" to the "right" side
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>1000000,1,0)"
     And I click the "ResourceAll" button
-    And I click the "DateEditor" button
+    And I click the "DateEditor" button under some element
     And I click the "<time>" button
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -40,17 +41,19 @@ Feature: 定时任务复制
     And I wait for element "SelectedUser" change text to username
     And I will see the input element "Number" value will be "20000"
     And I set the parameter "Number" with value "123"
-    And I click the "SaveButton" button
+    And I click the "SaveButton" button under some element
     And I wait for "EnsureButton" will be visible
     And I will see the success message "保存成功"
     And I click the "EnsureButton" button
     Then I will see the "timedTask.ListPage" page
 
     When the data name is "{'column':'1','name':'copytask'}" then i click the "复制" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "复制成功"
     And I wait for "SuccessMessage" will be invisible
     And I will see the search result contains "{'column':'1','name':'copytask(副本)'}"
     And the data name is "{'column':'1','name':'copytask(副本)'}" then I "open" the switch
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "开启成功"
 
 
@@ -85,6 +88,7 @@ Feature: 定时任务复制
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I click the "Ensure" button under some element
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
 
     Examples:

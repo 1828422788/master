@@ -13,12 +13,12 @@ Feature: 报表禁用/启用
     And I choose the "PDF" from the "ReportType"
     And I set the parameter "Hour" with value "15"
     And I set the parameter "Minute" with value "50"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
     When I choose the "table_Order" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "table_Order"
-    When I click the "FinishButton" button
+    When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button

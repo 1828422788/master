@@ -5,7 +5,7 @@ Feature: 数据大屏-g字符云图
 #    And I wait for "Dashboard" will be visible
 
 
-  Scenario: 字符云图样式-搜索
+  Scenario: 字符云图样式-搜索 RZY-3736,RZY-3738
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -34,6 +34,8 @@ Feature: 数据大屏-g字符云图
 #    And I wait for "chartStartColor" will be visible
     And I click the "chartStartColor" button under some element
     And I click the "red" button
+    And I wait for "2000" millsecond
+    And I choose the "cursive" from the "FontType"
     #最大字号
     And I set the parameter "maxFont" with value "50"
     #3 全局样式修改名成
@@ -76,7 +78,7 @@ Feature: 数据大屏-g字符云图
 
 ######################################无耻的分割线################################
 
-  Scenario: 字符云图数据之静态数据
+  Scenario: 字符云图数据之静态数据 RZY-3662
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

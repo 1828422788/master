@@ -21,6 +21,7 @@ Feature: 仪表盘循序图
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
+    And I wait for "1000" millsecond
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -31,8 +32,8 @@ Feature: 仪表盘循序图
     And I wait for "SuccessCreate" will be visible
 
     Examples:
-      | spl                                                                                                  | name   |
-      | tag:sample04061424* \|sort by +apache.clientip\| stats count() by hostname,apache.clientip \|limit 5 | 仪表盘循序图 |
+      | spl                                                                                                        | name   |
+      | tag:sample04061424_chart \|sort by +apache.clientip\| stats count() by hostname,apache.clientip \|limit 5  | 仪表盘循序图 |
 
   @dashboard
   Scenario Outline: 新建标签页
@@ -69,7 +70,7 @@ Feature: 仪表盘循序图
       | 仪表盘循序图 |
 
   @dashboard
-  Scenario Outline: 修改为循序图
+  Scenario Outline: 修改为循序图 RZY-3757,RZY-315
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -78,6 +79,7 @@ Feature: 仪表盘循序图
     And I wait for "500" millsecond
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
+    And I wait for "2000" millsecond
     And I wait for "Other" will be visible
     And I click the "Other" button under some element
     And I wait for "<image>" will be visible
@@ -96,10 +98,13 @@ Feature: 仪表盘循序图
     And I choose the "apache.clientip" from the "DataValue"
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
+    And I click the "Setting" button under some element
+#    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/<name>"
+    And I wait for "2000" millsecond
+    And I click the "TrendTitle" button under some element
+    And I wait for "3000" millsecond
+#    And take part of "FullScreen" with name "dashboard/<name>"
 #    Then I compare source image "dashboard/<name>" with target image "dashboard/<image>"
 
     Examples:
@@ -107,7 +112,7 @@ Feature: 仪表盘循序图
       | 仪表盘循序图 | Sequence |
 
   @dashboard
-  Scenario Outline: 验证配置是否在高级编辑中体现
+  Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3757 RZY-1366
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -118,10 +123,10 @@ Feature: 仪表盘循序图
 
     Examples:
       | name   | json                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-      | 仪表盘循序图 | {\n  "title": "仪表盘循序图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "tag:sample04061424* \|sort by +apache.clientip\| stats count() by hostname,apache.clientip \|limit 5",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "sequence",\n    "field": "hostname",\n    "fromField": "apache.clientip",\n    "toField": "hostname",\n    "labelField": "apache.clientip",\n    "category": "apache.clientip"\n  }\n} |
+      | 仪表盘循序图 | {\n  "title": "仪表盘循序图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "tag:sample04061424_chart \|sort by +apache.clientip\| stats count() by hostname,apache.clientip \|limit 5",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "sequence",\n    "field": "hostname",\n    "fromField": "apache.clientip",\n    "toField": "hostname",\n    "labelField": "apache.clientip",\n    "category": "apache.clientip"\n  }\n} |
 
   @dashboard
-  Scenario Outline: RZY-1365:两个字段为同一个值
+  Scenario Outline: 两个字段为同一个值 RZY-1365:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -139,7 +144,7 @@ Feature: 仪表盘循序图
 
     Examples:
       | name   | json                                                                                                                                                                                                                                                                                                                                                                          |
-      | 仪表盘循序图 | {"title": "仪表盘循序图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424* \| stats count() by hostname,apache.clientip \|limit 5","startTime": "now/d","endTime": "now"},"chart": {"chartType": "sequence","field": "hostname","fromField": "hostname","toField": "hostname","labelField": "apache.clientip","category": "apache.clientip"}} |
+      | 仪表盘循序图 | {"title": "仪表盘循序图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart \| stats count() by hostname,apache.clientip \|limit 5","startTime": "now/d","endTime": "now"},"chart": {"chartType": "sequence","field": "hostname","fromField": "hostname","toField": "hostname","labelField": "apache.clientip","category": "apache.clientip"}} |
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘

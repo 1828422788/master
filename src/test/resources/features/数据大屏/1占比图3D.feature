@@ -6,7 +6,7 @@ Feature: 数据大屏-r占比图3D
 #    And I wait for "Dashboard" will be visible
 
 
-  Scenario: 占比图3D数据之样式-搜索
+  Scenario: 占比图3D数据之样式-搜索 RZY-4364
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -55,13 +55,13 @@ Feature: 数据大屏-r占比图3D
     And I click the "backgroundAuto" button
     #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/2800000"
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/280"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-
+    And I wait for "1500" millsecond
     And I choose the "p" from the "percent3dDataSearchCategory"
     #值范围使其处于正常范围
     #正常
@@ -100,7 +100,7 @@ Feature: 数据大屏-r占比图3D
 ######################################无耻的分割线################################
 
 
-  Scenario: 占比图3D数据之静态数据
+  Scenario: 占比图3D数据之静态数据 RZY-3782
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -115,7 +115,7 @@ Feature: 数据大屏-r占比图3D
     And I click the "Style" button
      #数据设置
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/2800000"
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/280"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -127,7 +127,7 @@ Feature: 数据大屏-r占比图3D
     And I click the "Ensure" button
 
     And I wait for "tipsText" will be invisible
-
+    And I wait for "1500" millsecond
     And I choose the "p" from the "percent3dDataSearchCategory"
      #值范围使其处于异常范围
     #正常
@@ -166,7 +166,7 @@ Feature: 数据大屏-r占比图3D
 
 ######################################无耻的分割线################################
 
-  Scenario: 占比图3D数据之绑定搜索
+  Scenario: 占比图3D数据之绑定搜索 RZY-4365
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -178,7 +178,7 @@ Feature: 数据大屏-r占比图3D
     And I click the "otherSearch" button under some element
     And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
-    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/2800000"
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/280"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -204,7 +204,7 @@ Feature: 数据大屏-r占比图3D
      #对占比图的参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-
+    And I wait for "1500" millsecond
     And I choose the "p" from the "percent3dDataSearchCategory"
      #值范围使其处于严重范围
     #正常

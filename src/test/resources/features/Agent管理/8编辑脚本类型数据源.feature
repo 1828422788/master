@@ -32,12 +32,13 @@ Feature: Agent编辑脚本类型数据源
   Scenario: 文件目录数据源禁用
     Given the data name "autohekascripttest" in agent table "ScriptTable" then i click the "close" switch
     Then I wait for loading invisible
-    Then I will see the element "ScriptSwitchStatus" name is "已禁用"
+    And I wait for element "ScriptSwitchStatus" change text to "已禁用"
+
 
   Scenario: 文件目录数据源启用
     Given the data name "autohekascripttest" in agent table "ScriptTable" then i click the "open" switch
     Then I wait for loading invisible
-    Then I will see the element "ScriptSwitchStatus" name is "已启用"
+    And I wait for element "ScriptSwitchStatus" change text to "已启用"
 
   Scenario:编辑修改可执行文件
     And I click the "EditAutoScript" button

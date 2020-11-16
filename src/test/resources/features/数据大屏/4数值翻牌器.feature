@@ -5,7 +5,7 @@ Feature: 数据大屏-a数值翻牌器
 #    And I wait for "Dashboard" will be visible
 
 
-  Scenario: 数值翻牌器-样式搜索
+  Scenario: 数值翻牌器-样式搜索 RZY-1912,RZY-1967,RZY-1968
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

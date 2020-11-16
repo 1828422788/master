@@ -33,7 +33,6 @@ Feature: 数据集-e对节点的操作
     And I click the "save" button
     Then I will see the "B" result will be "after"
 
-
   Scenario: RZY-4494:修改节点的约束语句
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When the data name is "node_op_jnd" then i click the "编辑" button

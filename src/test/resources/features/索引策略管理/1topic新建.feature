@@ -1,8 +1,12 @@
-@indexSetting
+@indexSetting @topictest
 Feature: topic新建（RZY-2430）
 
   Background:
+<<<<<<< HEAD
     Given open the "index.TopicSetting" page for uri "/topicsettings/"
+=======
+    Given open the "index.TopicSetting" page for uri "/indexmatchrules/topicsettings/"
+>>>>>>> V3.5
 
   Scenario Outline:新建topic
     When I click the "CreateButton" button

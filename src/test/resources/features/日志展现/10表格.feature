@@ -4,8 +4,9 @@ Feature: 日志展现_表格
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I drag the element "SearchPageSvg" to the "left" side
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 13"
-   And I click the "SearchButton" button
+   And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the "trend.CreatePage" page
 
@@ -51,17 +52,16 @@ Feature: 日志展现_表格
     And I wait for "1000" millsecond
     And I click the "<color>" button
 
-    #改进RZY-5672
-#    And I set the parameter "LowerLimitValue" with value "4"
-#    And I set the parameter "MiddleValue" with value "7"
-#    And I set the parameter "UpperLimitValue" with value "39"
+    And I set the parameter "LowerLimitValue" with value "4"
+    And I set the parameter "MiddleValue" with value "7"
+    And I set the parameter "UpperLimitValue" with value "39"
     And I click the "CreateEnsureButton" button
 
     And I wait for "ChartView" will be visible
 #    And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/8表格/<caseNum>_<color>"
-#    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>_<color>" with target image "expect/高级搜索视图/8表格/<caseNum>_<color>"
+    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>_<color>" with target image "expect/高级搜索视图/8表格/<caseNum>_<color>"
 
     Examples:
       |   color      | caseNum  |
@@ -91,7 +91,9 @@ Feature: 日志展现_表格
     And I click the "CreateEnsureButton" button
 
     And I wait for "ChartView" will be visible
-#    And I drag the scroll bar to the element "ChartView"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "ChartView" will be visible
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/8表格/<caseNum>"
     Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"

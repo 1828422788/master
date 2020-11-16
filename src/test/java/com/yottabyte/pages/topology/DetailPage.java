@@ -30,7 +30,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "icon-bianji1")
     private WebElement switchButton;
 
-    @FindBy(xpath = "//input[@placeholder='请输入节点名称']")
+    @FindBy(xpath = "//input[@placeholder='请输入节点名称！']")
     private WebElement nodeName;
 
     @FindBy(xpath = "//input[@placeholder='请输入节点分组']")

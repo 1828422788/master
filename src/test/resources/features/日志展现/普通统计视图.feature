@@ -6,10 +6,11 @@ Feature: 日志展现_普通统计视图
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I drag the element "SearchPageSvg" to the "left" side
 
   Scenario Outline: count(RZY-807,808,809,810)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I wait for "1000" millsecond
@@ -34,7 +35,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: count_independent(RZY-2718)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I wait for "1000" millsecond
@@ -66,7 +67,7 @@ Feature: 日志展现_普通统计视图
     And I click the "StartTimeField" button
     And I click the "ApplyCustomTime" button
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -107,7 +108,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: dataslice(RZY-814,3137)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -138,7 +139,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: timehistogram(RZY-815)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -170,7 +171,7 @@ Feature: 日志展现_普通统计视图
     And I click the "StartTimeField" button
     And I click the "ApplyCustomTime" button
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -195,7 +196,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: datehistogram(RZY-816)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -219,7 +220,7 @@ Feature: 日志展现_普通统计视图
 # can not compare, because of same values
   Scenario Outline: classifyfieldvalue(RZY-817)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -245,7 +246,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: fieldnumber1(RZY-2727)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -282,7 +283,7 @@ Feature: 日志展现_普通统计视图
     And I click the "StartTimeField" button
     And I click the "ApplyCustomTime" button
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -307,10 +308,36 @@ Feature: 日志展现_普通统计视图
       |  总计     |  曲线图   |   7     | 天   |
       |  平均值   |  面积图   |   1     |  周  |
 
+  Scenario Outline: fieldnumber3
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    And I click the "FieldNumber" button
+    And I wait for "1000" millsecond
+    And I choose the "apache.resp_len" from the "YAxis" in config
+    And I choose the "apache.clientip" from the "GroupField" in config
+    And I click the "SelfRadio" button
+    And I wait for "2000" millsecond  
+    And I choose the "36.46.208.22" from the "SelfRadioField" in config
+    And I choose the "<chart>" from the "PresentType" in config
+    When I set the parameter "TimeSpan" with value "<timeSpan>"
+    And I click the "Generate" button
+    And I wait for "4000" millsecond
+    And I wait for "Chart" will be visible
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/2727_字段数值/2727_<chart>_<timeSpan>_clientip"
+    Then I compare source image "actual/普通统计视图/2727_字段数值/2727_<chart>_<timeSpan>_clientip" with target image "expect/普通统计视图/2727_字段数值/2727_<chart>_<timeSpan>_clientip"
+
+    Examples:
+      | chart     | timeSpan|
+      |  柱状图   |   1     |
 
   Scenario Outline: totalpercent(RZY-819,2730)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -336,7 +363,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: percentdegree(RZY-821, 3136)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -361,7 +388,7 @@ Feature: 日志展现_普通统计视图
   Scenario: multilevelstats_step1(RZY-822)
     # types of chart
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -382,7 +409,7 @@ Feature: 日志展现_普通统计视图
   Scenario: multilevelstats_step2(RZY-822)
     # types of chart
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -410,7 +437,7 @@ Feature: 日志展现_普通统计视图
   Scenario: multilevelstats_step3(RZY-822)
     # types of chart
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -445,7 +472,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario:geogrdistr(RZY-825)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -470,6 +497,155 @@ Feature: 日志展现_普通统计视图
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/825_地理分布/825_sichuan"
     Then I compare source image "actual/普通统计视图/825_地理分布/825_sichuan" with target image "expect/普通统计视图/825_地理分布/825_sichuan"
+
+  Scenario Outline: check_field
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    And I click the "<stat>" button
+    And I wait for "1000" millsecond
+    And I click the "<button>" button
+    And I will see the message "<message>"
+    
+  Examples: 
+    |     stat                |  button      | message                |
+    |                         | AddButton    | 请选择统计字段         |
+    | TimeSlice               | Generate     | 请选择统计字段         |
+    | DataSlice               | Generate     | 请选择统计字段         |
+    | TimeHistogram           | Generate     | 请填写合理的时间间隔！ |
+    | DataHistogram           | Generate     | 请选择统计字段         |
+    | ClassifyFieldValue      | Generate     | 请选择统计字段         |
+    | FieldNumber             | Generate     | 请选择y轴字段！        |
+#    | TotalPercent            | Generate     | 请选择统计字段         |
+    | PercentDegree           | Generate     | 请选择统计字段         |
+    | MultilevelStatistics    | Generate     | 请选择统计字段         |
+    | GeographicalDistribution| Generate     | 请选择统计字段         |
+
+  Scenario Outline: check_field2
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    And I click the "<stat>" button
+    And I wait for "1000" millsecond
+    Then I choose the "apache.resp_len" from the "<field>" in config
+    And I click the "Generate" button
+    And I will see the message "<message>"
+
+    Examples:
+      |     stat                | message                |     field     |
+#      | TimeSlice               | 请正确填写时间分段!    | FieldValue    |
+      | DataSlice               | 请填写合理的数值分段！ | FieldValue    |
+      | DataHistogram           | 请填写合理的数值间隔！ | FieldValue    |
+#      | FieldNumber             | 请选择分组字段！        | YAxis         |
+      | PercentDegree           | 请输入目标值。         | FieldValue    |
+
+  Scenario Outline: check_field3
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    And I click the "TimeHistogram" button
+    And I wait for "1000" millsecond
+    Then I set the parameter "TimeSpan" with value "<value>"
+    And I click the "Generate" button
+    And I will see the message "请输入正整数"
+
+    Examples:
+      |     value     |
+      | a             |
+      | 0             |
+
+  Scenario Outline: check_field4
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    And I click the "<stat>" button
+    And I wait for "1000" millsecond
+    Then I choose the "apache.resp_len" from the "FieldValue" in config
+    And I click the "<button>" button
+    Then I set the parameter "<field>" with value "a"
+    And I click the "Generate" button
+    And I will see the message "<message>"
+
+    Examples:
+      |     stat                | field          | message                       |  button       |
+      | DataSlice               | StartDataValue | 请填写合理的数值分段！        |               |
+#      | DataHistogram           | DataSpan       |                               |               |
+      | TotalPercent            | PercentInput   | 请输入正确的数值(0<数值<100)  |    AddPercent |
+      | PercentDegree           | GoalValue      | 请填写合理的数值！            |               |
+
+  Scenario Outline: check_field5
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    And I click the "FieldNumber" button
+    And I wait for "1000" millsecond
+    And I choose the "apache.resp_len" from the "YAxis" in config
+    And I choose the "apache.clientip" from the "GroupField" in config
+    And I set the parameter "<field>" with value "<value>"
+    And I click the "<button>" button
+    When I click the "Generate" button
+    And I will see the message "<message>"
+
+  Examples:
+    | value      |  message              | field          |  button    |
+    |            | 请输入时间桶!         | TimeSpan       |            |
+    | a          | 请输入正整数          | TimeSpan       |            |
+    |            | 请正确填写分组字段值! | GroupValue     |            |
+    | a          | 请正确填写分组字段值! | GroupValue     |            |
+    |            | 请正确填写分组字段值! |                | SelfRadio  |
+
+  Scenario: check_field6
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    And I click the "TotalPercent" button
+    And I wait for "1000" millsecond
+    Then I choose the "apache.resp_len" from the "FieldValue" in config
+    And I click the "DeleteIcon" button
+    And I click the "DeleteIcon" button
+    And I click the "DeleteIcon" button
+    And I click the "DeleteIcon" button
+    And I click the "DeleteIcon" button
+    When I click the "Generate" button
+    And I will see the message "添加百分比"
+
+  Scenario: check_field7
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    And I click the "MultilevelStatistics" button
+    And I wait for "1000" millsecond
+    And I choose the "apache.status" from the "FieldValue" in config
+    And I click the "Generate" button
+
+    And I click the "NextStep" button
+    And I click the "Generate" button
+    And I will see the message "请选择统计字段"
+    And I click the "Ensure" button
+    And I choose the "apache.clientip" from the "FieldValue" in config
+    And I click the "Generate" button
+    And I will see the message "请选择step1字段!"
+    And I click the "Ensure" button
+    # Click checkbox with 200
+    When I click the "Field" button
+    And I click the "Generate" button
+    And I click the "StatisticsGram" button
+    And I click the "Generate" button
+    And I will see the message "请输入时间桶!"
 
 
 

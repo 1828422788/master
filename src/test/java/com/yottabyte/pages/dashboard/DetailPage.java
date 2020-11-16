@@ -10,6 +10,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -22,6 +23,8 @@ import java.util.List;
 public class DetailPage extends PageTemplate {
     public DetailPage(WebDriver driver) {
         super(driver);
+        driver.manage().window().setSize(new Dimension(1920,1080));
+//        driver.manage().window().fullscreen();
     }
 
     @FindBy(className = "el-loading-mask")
@@ -75,6 +78,12 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'恢复')][@class='action']")
     private WebElement recoverTag;
 
+    @FindBy(xpath = "//div[@class='ant-modal-body']//span[text()='确定']/ancestor::button")
+    private WebElement ensureErrorSplButton;
+
+    @FindBy(xpath = "//div[@class='ant-checkbox-group']//span[@class='ant-checkbox']")
+    private WebElement listForBang;
+
     @FindBy(xpath = "//span[text()='移出标签页']")
     private WebElement moveoutTag;
 
@@ -83,6 +92,12 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='存为报表']")
     private WebElement saveAsReport;
+
+    @FindBy(xpath = "//span[text()='更多配置']")
+    private WebElement moreConfig;
+
+    @FindBy(xpath = "(//span[text()='通用配置'])[2]")
+    private WebElement moreConfigs;
 
     @FindBy(className = "ant-message-success")
     private WebElement successMessage;
@@ -168,6 +183,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//a[contains(text(),'UIautotest')]")
     private WebElement uiautotest;
 
+    @FindBy(xpath = "//li[contains(text(),' 测试市')]")
+    private WebElement ceshishi;
+
     @FindBy(xpath = "//a[contains(text(),'测试标签页移出')]")
     private WebElement testMoveTag;
 
@@ -182,6 +200,9 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//input[@placeholder='请输入选项值']")
     private WebElement choiceValue;
+
+    @FindBy(xpath = "//input[@placeholder='请输入']")
+    private WebElement filterValue;
 
     @FindBy(xpath = "//*[@placeholder='请输入趋势图名称']")
     private WebElement trendName;
@@ -237,7 +258,22 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'校验')]/ancestor::button/following-sibling::button")
     private WebElement ensureEdit;
 
-    @FindBy(xpath = "//div[@id='fullscreenAll']//div[@id]/div")
+    @FindBy(xpath = "//div[text()='仪表盘多Y轴图']/parent::div")
+    private WebElement multiYaxisArea;
+
+    @FindBy(xpath = "//div[text()='仪表盘和弦图']/parent::div")
+    private WebElement chordChart;
+
+    @FindBy(xpath = "//div[text()='仪表盘饼状图']/parent::div")
+    private WebElement dimensionChart;
+
+    @FindBy(xpath = "//div[text()='仪表盘曲线图']/parent::div")
+    private WebElement sequenceChart;
+
+    @FindBy(xpath = "//div[text()='404']/ancestor::div[contains(@class,'sc-AxirZ')]")
+    private WebElement multiYaxisLegend;
+
+    @FindBy(xpath = "//div[@id='fullscreenAll']//div[@id]/div[1]")
     private WebElement trendTitle;
 
     @FindBy(xpath = "//span[text()='second'][@class='main']")
@@ -276,6 +312,9 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(className = "widget-chartType-selection-popover")
     private WebElement selectionPopover;
+
+    @FindBy(xpath = "(//*[name()='text'])[text()]")
+    private WebElement xaxisField;
 
     @FindBy(xpath = "//div[@class='el-dialog__wrapper yw-modal-plain yw-selection-modal dialog-fade-leave-active dialog-fade-leave-to']")
     private WebElement fadingLeave;
@@ -319,7 +358,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='ant-modal-body']//i/ancestor::div")
     private WebElement message;
 
-    @FindBy(xpath = "(//div[@id='fullscreenAll']//div[@id]/div/following-sibling::div)[2]/i")
+    @FindBy(xpath = "//div[contains(@class,'yw-chart-action')]/i[1]")
     private WebElement describe;
 
     @FindBy(xpath = "//div[text()='测试描述']")
@@ -330,6 +369,9 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//div[text()='首行']/preceding-sibling::div/i[2]")
     private WebElement deleteRowIcon;
+
+    @FindBy(xpath = "//div[@id='fullscreenAll']/div/div/i[last()]")
+    private WebElement deleteNoNameRowIcon;
 
     @FindBy(xpath = "//div[text()='首行']")
     private WebElement firstRow;
@@ -346,8 +388,20 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='行布局趋势图1']/following-sibling::div[1]/i")
     private WebElement moreXuanTing;
 
+    @FindBy(xpath = "//div[text()='行布局趋势图2']/following-sibling::div[1]/i[2]")
+    private WebElement moreXuanTing2;
+
+    @FindBy(xpath = "//div[text()='行布局趋势图2']/following-sibling::div[1]/i[3]")
+    private WebElement deleteTrend2;
+
     @FindBy(xpath = "//div[text()='行布局趋势图1']")
     private WebElement trendOne;
+
+    @FindBy(xpath = "//div[text()='行布局趋势图2']")
+    private WebElement trendTwo;
+
+    @FindBy(xpath = "//div[text()='行布局趋势图3']")
+    private WebElement trendThree;
 
     @FindBy(xpath = "//span[text()='删除']")
     private WebElement chartDelete;
@@ -357,6 +411,18 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='江苏']")
     private WebElement jiangsu;
+
+    @FindBy(xpath = "//span[text()='上海市']")
+    private WebElement  shanghai;
+
+    @FindBy(xpath = "//span[text()='成都市 ']")
+    private WebElement  chengdushi;
+
+    @FindBy(xpath = "//span[text()='成都市']")
+    private WebElement  chengDuShi;
+
+    @FindBy(xpath = "//li[text()='成都市']")
+    private WebElement  chengdushiList;
 
     @FindBy(xpath = "(//*[name()='rect'])[3]")
     private WebElement zhutiao;
@@ -385,10 +451,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='钻取变量单值value']/following-sibling::div[last()]/div/div[last()]/div/span")
     private WebElement singleValue1;
 
-    @FindBy(xpath = "//span[text()='南京市']")
-    private WebElement nanjing;
-
-    @FindBy(xpath = "//div[@class='ant-select ant-select-enabled']")
+    @FindBy(xpath = "//label[text()='点击图表时']/following-sibling::div[@class='ant-select ant-select-enabled']")
     private WebElement drillAction;
 
     @FindBy(xpath = "//label[contains(text(),'自定义URL')]/following-sibling::textarea")
@@ -415,11 +478,32 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='=']//i")
     private WebElement paramValue;
 
+    @FindBy(xpath = "//div[text()='=']/div[2]//i")
+    private WebElement paramValue1;
+
     @FindBy(className = "is-multiple")
     private WebElement paramDropdown;
 
     @FindBy(xpath = "//span[text()='${click.value2}']")
     private WebElement clickValue;
+
+    @FindBy(xpath = "//span[text()='${click.value}']")
+    private WebElement clickValue1;
+
+    @FindBy(xpath = "//span[text()='${start},${end}']")
+    private WebElement startEnd;
+
+    @FindBy(xpath = "//span[text()='+ 新建']/ancestor::button")
+    private WebElement newCreat;
+
+    @FindBy(xpath = "(//input[@class='ant-input'])[not(@placeholder)]/preceding-sibling::div")
+    private WebElement optionItems;
+
+    @FindBy(xpath = "(//input[@class='ant-input'])[not(@placeholder)]")
+    private WebElement tokenInput;
+
+    @FindBy(xpath = "(//input[@class='ant-input'])[not(@placeholder)]/following-sibling::div")
+    private WebElement optionFilterValue;
 
     @FindBy(xpath = "//div[contains(@class,'yw-filter-container')]//input[@class='ant-input']")
     private WebElement geoCity;
@@ -430,7 +514,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='事件列表']/ancestor::div/following-sibling::div//i")
     private WebElement iconRight;
 
-    @FindBy(xpath = "//span[text()='apache.geo.city']/following-sibling::pre/span")
+    @FindBy(xpath = "//span[text()='apache.geo.city']/following-sibling::span/pre/span")
     private WebElement cityTd;
 
     @FindBy(className = "ant-select-selection")
@@ -466,6 +550,42 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='filter']/ancestor::div/following-sibling::div/input")
     private WebElement filterInput;
 
+    @FindBy(xpath = "//span[text()='南京市']")
+    private WebElement nanjingshi;
+
+    @FindBy(xpath = "//li[text()='南京市']")
+    private WebElement nanjingshiList;
+
+    @FindBy(xpath = "//div[text()='南京市']")
+    private WebElement nanJing;
+
+    @FindBy(xpath = "//div[text()='成都市']")
+    private WebElement chengDu;
+
+    @FindBy(xpath = "//div[text()='缺少动态字段值']")
+    private WebElement tipOfLack;
+
+    @FindBy(xpath = "//div[text()='请填写查询语句']")
+    private WebElement splOfLack;
+
+    @FindBy(xpath = "//div[@class='ant-message-notice']//span")
+    private WebElement noticeMessage;
+
+    @FindBy(xpath = "//p[text()='缺少选中的字段']")
+    private WebElement lackField;
+
+    @FindBy(xpath = "//div[text()='无效标识 包含（.）']")
+    private WebElement errorContainPoin;
+
+    @FindBy(xpath = "//div[text()='请填写查询语句']")
+    private WebElement errorNoSpl;
+
+    @FindBy(xpath = "//p[text()='搜索语句须为stats类型']")
+    private WebElement errorSpl;
+
+    @FindBy(xpath = "//span[text()='filter']/ancestor::div/following-sibling::div//input")
+    private WebElement filterDropDown1;
+
     @FindBy(xpath = "//th[text()='appname']")
     private WebElement appname;
 
@@ -489,6 +609,24 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(id = "filter_trendDescription")
     private WebElement chartDesc;
+
+    @FindBy(xpath = "//div[text()='请选择输入项']/ancestor::div[@class='ant-select-selection__rendered']")
+    private WebElement showFilterConfig;
+
+    @FindBy(xpath = "//div[text()='请选择输入项']/ancestor::div[@class='ant-select-selection__rendered']/following-sibling::span[@class='ant-select-selection__clear']")
+    private WebElement cleanShowFilterConfig;
+
+    @FindBy(xpath = "//div[text()='请选择条件']/ancestor::div[@class='ant-select-selection__rendered']")
+    private WebElement showCondition;
+
+    @FindBy(xpath = "//div[text()='请选择条件']/ancestor::div[@class='ant-select-selection__rendered']/following-sibling::span[@class='ant-select-selection__clear']")
+    private WebElement cleanShowConditio;
+
+    @FindBy(xpath = "//input[@placeholder='请输入值']")
+    private WebElement showValue;
+
+    @FindBy(xpath = "//div[text()='请补全展示条件']")
+    private WebElement tipErrorShowCondition;
 
     @FindBy(className = "icon-fanyeqishangjiantou")
     private WebElement eventIcon;
@@ -599,6 +737,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'名称')]/following-sibling::span/input")
     private WebElement tagName;
 
+    @FindBy(xpath = "//span[contains(text(),'插入图表')]/following-sibling::span/input")
+    private WebElement chartForAdd;
+
     @FindBy(xpath = "//span[contains(text(),'行布局')]/preceding-sibling::span")
     private WebElement rowLayout;
 
@@ -629,6 +770,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='今天']/following-sibling::i[4]")
     private WebElement delete;
 
+    @FindBy(xpath = "//div[text()='仪表盘单值']/following-sibling::div/label")
+    private WebElement timeRangeDanzhi;
+
     @FindBy(xpath = "//label[text()='本月']/following-sibling::i[4]")
     private WebElement deleteForTable;
 
@@ -656,6 +800,26 @@ public class DetailPage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
+    public WebElement getShowCondition() {
+        showCondition.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getShowFilterConfig() {
+        showFilterConfig.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getOptionItems() {
+        optionItems.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getOptionFilterValue() {
+        optionFilterValue.click();
+        return super.getLastDropdownList();
+    }
+
     public WebElement getCheckbox(String name) {
         return webDriver.findElement(By.xpath("//span[text()='" + name + "']/ancestor::label"));
     }
@@ -668,6 +832,30 @@ public class DetailPage extends PageTemplate {
         return addFilter;
     }
 
+    public WebElement getShowValue() {
+        return showValue;
+    }
+
+    public WebElement getCleanShowFilterConfig() {
+        return cleanShowFilterConfig;
+    }
+
+    public WebElement getCleanShowConditio() {
+        return cleanShowConditio;
+    }
+
+    public WebElement getTipErrorShowCondition() {
+        return tipErrorShowCondition;
+    }
+
+    public WebElement getMoreConfig() {
+        return moreConfig;
+    }
+
+    public WebElement getMoreConfigs() {
+        return moreConfigs;
+    }
+
     public WebElement getAddInput() {
         return addInput;
     }
@@ -678,6 +866,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getTimeRangee() {
         return timeRangee;
+    }
+
+    public WebElement getTimeRangeDanzhi() {
+        return timeRangeDanzhi;
     }
 
     public WebElement getSetGlobalTimeRange() {
@@ -708,6 +900,8 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getDeleteRowIcon() { return deleteRowIcon; }
 
+    public WebElement getDeleteNoNameRowIcon() { return deleteNoNameRowIcon; }
+
     public WebElement getFirstRow() { return firstRow; }
 
     public WebElement getInnerInputFilter() { return innerInputFilter; }
@@ -716,7 +910,15 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getMoreXuanTing() { return moreXuanTing; }
 
+    public WebElement getMoreXuanTing2() { return moreXuanTing2; }
+
+    public WebElement getDeleteTrend2() { return deleteTrend2; }
+
     public WebElement getTrendOne() { return trendOne; }
+
+    public WebElement getTrendTwo() { return trendTwo; }
+
+    public WebElement getTrendThree() { return trendThree; }
 
     public WebElement getChartDelete() { return chartDelete; }
 
@@ -767,6 +969,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getUIAutoTest() {
         return uiAutoTest;
+    }
+
+    public WebElement getCeshishi() {
+        return ceshishi;
     }
 
     public WebElement getFirstAutoTest() {
@@ -859,6 +1065,10 @@ public class DetailPage extends PageTemplate {
 
     public List<WebElement> getLiList() {
         return liList;
+    }
+
+    public WebElement getNightMode() {
+        return getSwitchButton("夜间模式");
     }
 
     public WebElement getOpenEdit() {
@@ -986,6 +1196,10 @@ public class DetailPage extends PageTemplate {
         return filterInput;
     }
 
+    public WebElement getFilterDropDown1() {
+        return filterDropDown1;
+    }
+
     public WebElement getSingleChoice() {
         return singleChoice;
     }
@@ -1039,6 +1253,22 @@ public class DetailPage extends PageTemplate {
         return clickValue;
     }
 
+    public WebElement getClickValue1() {
+        return clickValue1;
+    }
+
+    public WebElement getStartEnd() {
+        return startEnd;
+    }
+
+    public WebElement getNewCreat() {
+        return newCreat;
+    }
+
+    public WebElement getTokenInput() {
+        return tokenInput;
+    }
+
     public WebElement getParamDropdown() {
 //        return paramDropdown;
         return super.getLastDropdownList();
@@ -1046,6 +1276,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getParamValue() {
         return paramValue;
+    }
+
+    public WebElement getParamValue1() {
+        return paramValue1;
     }
 
     public WebElement getInputSettingTitle() {
@@ -1060,8 +1294,36 @@ public class DetailPage extends PageTemplate {
         return targetParam;
     }
 
-    public WebElement getNanjing() {
-        return nanjing;
+    public WebElement getNanjingshi() { return nanjingshi; }
+
+    public WebElement getNanjingshiList() { return nanjingshiList; }
+
+    public WebElement getNanjing() { return nanJing; }
+
+    public WebElement getChengdu() { return chengDu; }
+
+    public WebElement getTipOfLack() { return tipOfLack; }
+
+    public WebElement getSplOfLack() { return splOfLack; }
+
+    public WebElement getNoticeMessage() {
+        return noticeMessage;
+    }
+
+    public WebElement getLackField() {
+        return lackField;
+    }
+
+    public WebElement getErrorContainPoin() {
+        return errorContainPoin;
+    }
+
+    public WebElement getErrorNoSpl() {
+        return errorNoSpl;
+    }
+
+    public WebElement getErrorSpl() {
+        return errorSpl;
     }
 
     public WebElement getDashboardMenu() {
@@ -1099,6 +1361,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//button[text()='最近7天']")
     private WebElement recentSevenDay;
 
+    @FindBy(xpath = "//div[text()='最近7天']")
+    private WebElement recentSevenDay1;
+
     public WebElement getCustom() {
         return custom;
     }
@@ -1118,6 +1383,22 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getJiangsu() {
         return jiangsu;
+    }
+
+    public WebElement getShanghai() {
+        return shanghai;
+    }
+
+    public WebElement getChengdushi() {
+        return chengdushi;
+    }
+
+    public WebElement getChengDuShi() {
+        return chengDuShi;
+    }
+
+    public WebElement getChengdushiList() {
+        return chengdushiList;
     }
 
     public WebElement getZhutiao() {
@@ -1331,6 +1612,26 @@ public class DetailPage extends PageTemplate {
         return super.getButton("校验");
     }
 
+    public WebElement getMultiYaxisArea() {
+        return multiYaxisArea;
+    }
+
+    public WebElement getChordChart() {
+        return chordChart;
+    }
+
+    public WebElement getDimensionChart() {
+        return dimensionChart;
+    }
+
+    public WebElement getSequenceChart() {
+        return sequenceChart;
+    }
+
+    public WebElement getMultiYaxisLegend() {
+        return multiYaxisLegend;
+    }
+
     public WebElement getEnsureEdit() {
         return ensureEdit;
     }
@@ -1349,6 +1650,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getContent() {
         return content;
+    }
+
+    public WebElement getXaxisField() {
+        return xaxisField;
     }
 
     public WebElement getGenerate() {
@@ -1386,6 +1691,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getRecentSevenDay() {
         return this.getDateButton(recentSevenDay);
+    }
+
+    public WebElement getRecentSevenDay1() {
+        return this.getDateButton(recentSevenDay1);
     }
 
     public List<WebElement> getTableList() {
@@ -1474,6 +1783,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getChoiceValue() {
         return choiceValue;
+    }
+
+    public WebElement getFilterValue() {
+        return filterValue;
     }
 
     public WebElement getFilterToken() {
@@ -1608,6 +1921,8 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getTagName() { return tagName; }
 
+    public WebElement getChartForAdd() { return chartForAdd; }
+
     public WebElement getRowLayout() { return rowLayout; }
 
     public WebElement getJoinRow() { return joinRow; }
@@ -1620,29 +1935,21 @@ public class DetailPage extends PageTemplate {
         return super.getButton("确定");
     }
 
-    public WebElement getEnsureMoveTagButton() {
-        return ensureList.get(4);
-    }
+    public WebElement getEnsureErrorSplButton() { return ensureErrorSplButton; }
 
-    public WebElement getEnsureDeleteTagButton() {
-        return ensureList.get(6);
-    }
+    public WebElement getListForBang() { return listForBang; }
 
-    public WebElement getEnsureCreateFilter() {
-        return ensureList.get(8);
-    }
+    public WebElement getEnsureMoveTagButton() { return ensureList.get(4); }
 
-    public WebElement getEnsureCreateInput() {
-        return ensureList.get(9);
-    }
+    public WebElement getEnsureDeleteTagButton() { return ensureList.get(6); }
 
-    public WebElement getChartTitle() {
-        return this.getInput("图表标题");
-    }
+    public WebElement getEnsureCreateFilter() { return ensureList.get(8); }
 
-    public WebElement getEnsure() {
-        return super.getButton("确定");
-    }
+    public WebElement getEnsureCreateInput() { return ensureList.get(9); }
+
+    public WebElement getChartTitle() { return this.getInput("图表标题"); }
+
+    public WebElement getEnsure() { return super.getButton("确定"); }
 
     public WebElement getInputElement(String name) {
         return webDriver.findElement(By.xpath("//label[contains(text(),'" + name + "')]/following-sibling::div//input"));
@@ -1681,6 +1988,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getOpenDrilldown() {
         return getSwitchButton("启用钻取");
+    }
+
+    public WebElement getOpenShowCondition() {
+        return getSwitchButton("启用展示条件");
     }
 
     public WebElement getEnsureAddTrend() {

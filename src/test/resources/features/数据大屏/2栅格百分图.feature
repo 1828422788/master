@@ -5,7 +5,7 @@ Feature: 数据大屏-h栅格百分图
 #    And I wait for "Dashboard" will be visible
 
 
-  Scenario: 栅格百分图样式-搜索
+  Scenario: 栅格百分图样式-搜索 RZY-4359,RZY-3657
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -56,13 +56,14 @@ Feature: 数据大屏-h栅格百分图
     And I click the "backgroundAuto" button
      #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/28000"
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/280"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-    And I choose the "num" from the "gridDataSearchCategory"
+    And I wait for "1500" millsecond
+    And I choose the "p" from the "gridDataSearchCategory"
         #保存
     And I wait for "Save" will be visible
     And I wait for "2000" millsecond
@@ -143,7 +144,7 @@ Feature: 数据大屏-h栅格百分图
 
 ######################################无耻的分割线################################
 
-  Scenario: 栅格百分图数据之绑定搜索
+  Scenario: 栅格百分图数据之绑定搜索 RZY-4362
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -183,8 +184,8 @@ Feature: 数据大屏-h栅格百分图
      #对栅格百分图的参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-
-    And I choose the "num" from the "gridDataSearchCategory"
+    And I wait for "1500" millsecond
+    And I choose the "p" from the "gridDataSearchCategory"
    #保存
     And I wait for "Save" will be visible
     And I wait for "2000" millsecond

@@ -1,18 +1,18 @@
-@auth
+@authtest1
 Feature: 权限-KV字典
 
   Scenario Outline: 授权可使用应用功能
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    When I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可查看应用,可查看仪表盘,可查看搜索页"
+    And I "checked" the checkbox which name is "全选" in trend page
+    And I "unchecked" the checkbox which name is "全选" in trend page
+    And I "checked" the checkbox which name is "可查看搜索页"
+    And I click the "Resource" button
+    And I "checked" the checkbox which name is "可查看仪表盘"
+    And I click the "App" button
+    And I "checked" the checkbox which name is "可查看应用"
     And I click the "SaveButton" button
-    And I will see the success message "更新成功"
 
     Examples:
       | name              |
@@ -76,9 +76,8 @@ Feature: 权限-KV字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'应用'}" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    And I click the "App" button
     And I "checked" the checkbox which name is "KVAuth" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
@@ -101,8 +100,6 @@ Feature: 权限-KV字典
     And I set the parameter "KVFieldInput" with value "appname"
     And I click the "CreateKVStore" button
     And I click the "SaveButton" button under some element
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "更新成功"
 
   Scenario: 授权读取权限
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -114,6 +111,7 @@ Feature: 权限-KV字典
     When I "check" the function "读取" which name is "AutoTest" in tiny table
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
+    And I logout current user
 
   Scenario: 验证读取权限
     Given I login user "AutoTest" with password "All#123456"
@@ -126,6 +124,7 @@ Feature: 权限-KV字典
     And I choose the "授权" from the "KVDropdownList"
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
+    And I logout current user
 
   Scenario: 授权读取+编辑权限
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -137,6 +136,7 @@ Feature: 权限-KV字典
     When I "check" the function "读取,编辑" which name is "AutoTest" in tiny table
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
+    And I logout current user
 
   Scenario: 验证读取+编辑权限
     Given I login user "AutoTest" with password "All#123456"
@@ -150,6 +150,7 @@ Feature: 权限-KV字典
     And I set the parameter "KVTag" with value "test"
     And I click the "Ensure" button under some element
     Then I will see the element "MessageContent" value is "修改成功"
+    And I logout current user
 
   Scenario: 授权读取+编辑+转授权限
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -161,6 +162,7 @@ Feature: 权限-KV字典
     When I "check" the function "转授" which name is "AutoTest" in tiny table
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
+    And I logout current user
 
   Scenario: 验证读取+编辑+转授权限
     Given I login user "AutoTest" with password "All#123456"
@@ -174,6 +176,7 @@ Feature: 权限-KV字典
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
+    And I logout current user
 
   Scenario: 验证
     Given I login user "验证授权用户" with password "All#123456"
@@ -182,6 +185,7 @@ Feature: 权限-KV字典
     Then I will see the "app.CreatePage" page
     And I click the "KvDropdown" button
     Then I will see the "DeleteKV" is "disabled"
+    And I logout current user
 
   Scenario: 存储kvstore
     Given I login user "AutoTest" with password "All#123456"
@@ -193,6 +197,7 @@ Feature: 权限-KV字典
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I logout current user
 
   Scenario: 验证是否成功
     Given I login user "AutoTest" with password "All#123456"
@@ -205,6 +210,7 @@ Feature: 权限-KV字典
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the element "Thead" name is "apache.geo.city  count()  appname  apachecity "
+    And I logout current user
 
   Scenario: 授权读取+编辑+转授+删除权限
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -216,6 +222,7 @@ Feature: 权限-KV字典
     When I "check" the function "删除" which name is "AutoTest" in tiny table
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
+    And I logout current user
 
   Scenario: 验证读取+编辑+转授+删除权限
     Given I login user "AutoTest" with password "All#123456"
@@ -227,6 +234,7 @@ Feature: 权限-KV字典
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the element "MessageContent" value is "删除成功"
+    And I logout current user
 
   Scenario Outline: 删除app
     Given open the "app.ListPage" page for uri "/app/list/"

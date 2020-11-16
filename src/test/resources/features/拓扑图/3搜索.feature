@@ -12,8 +12,8 @@ Feature: 拓扑图搜索（RZY-354至355）
     Then I will see the search result "{'column':'0','name':'拓扑图无标签','contains':'no'}"
 
     Examples:
-      | group            | name        |
-      | default_Topology | 拓扑图AutoTest |
+      | group       | name        |
+      | AutoTestTag | 拓扑图AutoTest |
 
   Scenario Outline: 根据输入内容搜索（RZY-354）
     Given I set the parameter "SearchInput" with value "<name>"

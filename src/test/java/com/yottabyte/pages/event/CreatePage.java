@@ -29,6 +29,28 @@ public class CreatePage extends PageTemplate {
     @FindBy(id = "register_alias")
     private WebElement alias;
 
+    @FindBy(id = "register_conditionField")
+    private WebElement conditionField;
+
+    @FindBy(id = "register_conditionValue")
+    private WebElement conditionValue;
+
+    @FindBy(className = "ant-select-selection__rendered")
+    private WebElement selectCondition;
+
+    public WebElement getSelectCondition() {
+        selectCondition.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getConditionField() {
+        return conditionField;
+    }
+
+    public WebElement getConditionValue() {
+        return conditionValue;
+    }
+
     public WebElement getSave() {
         return super.getButton("保 存");
     }

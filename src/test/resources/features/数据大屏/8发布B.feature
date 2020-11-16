@@ -8,8 +8,8 @@ Feature: 数据大屏-所有控件发布
     And switch to window "<name>"
     And I close all tabs except main tab
     And I wait for "Loading" will be invisible
-    And I wait for "1000" millsecond
-    Then take a screenshot with name "galaxee/<name>"
+    And I wait for "2000" millsecond
+#    Then take a screenshot with name "galaxee/<name>"
 
 
     Examples:
@@ -30,21 +30,21 @@ Feature: 数据大屏-所有控件发布
       |雷达图数据之静态数据   |
       |雷达图数据之绑定搜索 |
 
-| 力图-样式搜索 |
-|力图-静态数据  |
-|力图-绑定搜索|
+      | 力图-样式搜索 |
+      |力图-静态数据  |
+      |力图-绑定搜索|
 
-| 桑基图-样式搜索  |
-|桑基图-静态数据  |
-|桑基图-绑定搜索 |
+      | 桑基图-样式搜索  |
+      |桑基图-静态数据  |
+      |桑基图-绑定搜索 |
 
-|字符云图样式-搜索    |
-|字符云图数据之静态数据  |
-|字符云图数据之绑定搜索 |
+      |字符云图样式-搜索    |
+      |字符云图数据之静态数据  |
+      |字符云图数据之绑定搜索 |
 
-|栅格百分图样式-搜索    |
-|栅格百分图数据之静态数据   |
-|栅格百分图数据之绑定搜索 |
+      |栅格百分图样式-搜索    |
+      |栅格百分图数据之静态数据   |
+      |栅格百分图数据之绑定搜索 |
 
 
       |中国地图-样式搜索   |

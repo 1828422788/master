@@ -5,7 +5,7 @@ Feature: 数据大屏-e柱图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 柱图-图例-分组-静态数据
+  Scenario: 柱图-图例-分组-静态数据 RZY-1906,RZY-2018,RZY-2019,RZY-2020,RZY-2022,RZY-2023
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -60,7 +60,8 @@ Feature: 数据大屏-e柱图
     #添加分组
     And I click the "AddGroup" button
     And I choose the "apache.method" from the "Group"
-    And I switch the "Pile" button to "enable"
+    And I click the "Pile" button
+#    And I switch the "Pile" button to "enable"
 
        #保存
     And I wait for "Save" will be visible
@@ -125,7 +126,8 @@ Feature: 数据大屏-e柱图
     And I set the parameter "XaxisShift" with value "5"
     And I choose the "倾斜" from the "XaxisAngle"
      #显示分割线
-    And I switch the "XaxisSeparator" button to "enable"
+    And I click the "XaxisSeparator" button
+#    And I switch the "XaxisSeparator" button to "enable"
        #分割线的设置
        And I set the parameter "XDividingLineBold" with value "3"
 

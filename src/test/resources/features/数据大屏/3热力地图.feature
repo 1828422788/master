@@ -4,7 +4,7 @@ Feature: 数据大屏-j热力地图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 热力地图-样式搜索
+  Scenario: 热力地图-样式搜索 RZY-3051,RZY-3213,RZY-3211
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -41,31 +41,31 @@ Feature: 数据大屏-j热力地图
     And I set the parameter "AreaColor" with value "#253D58"
 #    And I click the "EnsureColor" button
     And I click the button "EnsureColor" if exist
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #边界颜色
     And I wait for "BoundaryColor" will be visible
     And I set the parameter "BoundaryColor" with value "#85DEDE"
 #    And I click the "EnsureColor" button
     And I click the button "EnsureColor" if exist
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
 #  标注色(起)
     And I wait for "markColor1" will be visible
     And I set the parameter "markColor1" with value "#C11970"
 #    And I click the "EnsureColor" button
     And I click the button "EnsureColor" if exist
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
 #  标注色(中)
     And I wait for "markColor2" will be visible
     And I set the parameter "markColor2" with value "#EAEBB3"
 #    And I click the "EnsureColor" button
     And I click the button "EnsureColor" if exist
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
 #  标注色(止)
     And I wait for "markColor3" will be visible
     And I set the parameter "markColor3" with value "#53B11D"
 #    And I click the "EnsureColor" button
     And I click the button "EnsureColor" if exist
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #缩放
     And I set the parameter "Scaling" with value "1.5"
     #尺寸

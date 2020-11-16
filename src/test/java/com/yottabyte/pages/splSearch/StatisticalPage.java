@@ -32,6 +32,9 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='生成']/ancestor::button)[last()]")
     private WebElement generate;
 
+    @FindBy(xpath = "(//span[text()='确定']/ancestor::button)[last()]")
+    private WebElement ensure;
+
     @FindBy(xpath = "//*[local-name()='g' and @class='vx-group']/ancestor::div[1]")
     private WebElement chart;
 
@@ -142,7 +145,10 @@ public class StatisticalPage extends PageTemplate {
     private WebElement classifyFieldValue;
 
 // 字段数值
-//分组字段值 usage of this field to write in tests
+//分组字段值
+
+    @FindBy(xpath = "//span[text()='Top']/ancestor::label/following-sibling::input")
+    private WebElement groupValue;
 
     @FindBy(xpath = "//span[text()='字段数值']")
     private WebElement fieldNumber;
@@ -285,6 +291,8 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='自选']")
     private WebElement selfRadio;
 
+    @FindBy(xpath = "//span[text()='自选']/ancestor::label/following-sibling::div")
+    private WebElement selfRadioField;
 
     @FindBy(xpath = "(//p[text()='时间桶'])[last()]/following-sibling::div/button")
     private WebElement generateWithGram;
@@ -351,6 +359,9 @@ public class StatisticalPage extends PageTemplate {
 
     @FindBy(xpath = "(//a[@class='img iconfont icon-shanchuxuanting_icon'])[last()]")
     private WebElement delete;
+
+    @FindBy(xpath = "(//p[text()='百分比']/following-sibling::div//i)[1]")
+    private WebElement deleteIcon;
 
     @FindBy(xpath = "(//span[@class='el-color-picker__color-inner'])[last()]")
     private WebElement colorPicker;
@@ -454,6 +465,10 @@ public class StatisticalPage extends PageTemplate {
 
     public WebElement getDelete() {
         return delete;
+    }
+
+    public WebElement getDeleteIcon() {
+        return deleteIcon;
     }
 
     public WebElement getMaxInput() {
@@ -638,6 +653,11 @@ public class StatisticalPage extends PageTemplate {
         return selfRadio;
     }
 
+    public WebElement getSelfRadioField() {
+        selfRadioField.click();
+        return this.getLastDropdownList();
+    }
+
     public WebElement getTimeBucketDropdownButton() {
         timeDropdown.click();
         return this.getLastDropdownList();
@@ -683,6 +703,10 @@ public class StatisticalPage extends PageTemplate {
         return generate;
     }
 
+    public WebElement getEnsure() {
+        return ensure;
+    }
+
 //    public WebElement getEnsureButton() {
 //        return ensureButtonList.get(ensureButtonList.size() - 1);
 //    }
@@ -711,6 +735,10 @@ public class StatisticalPage extends PageTemplate {
 
     public WebElement getFieldNumber() {
         return fieldNumber;
+    }
+
+    public WebElement getGroupValue() {
+        return groupValue;
     }
 
     public WebElement getTimeSlice() {

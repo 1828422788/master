@@ -5,7 +5,7 @@ Feature: 数据大屏-h滚动柱形图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 滚动柱形图样式-搜索
+  Scenario: 滚动柱形图样式-搜索 RZY-3713,RZY-3714
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -40,7 +40,7 @@ Feature: 数据大屏-h滚动柱形图
     And  I wait for "rollHistFontColor" will be visible
     And I set the parameter "rollHistFontColor" with value "#DD6D6D"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #字体粗细
     And I choose the "bold" from the "RollHistWordBold"
     #图表颜色1
@@ -48,13 +48,13 @@ Feature: 数据大屏-h滚动柱形图
     And  I wait for "chartColor1" will be visible
     And I set the parameter "chartColor1" with value "#EA90E8"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #图表颜色2
 #    And I click the "chartColor2" button
     And  I wait for "chartColor2" will be visible
     And I set the parameter "chartColor2" with value "#FFEA00"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #4 全局样式修改名成
     And I click the "globalStyle" button
     And I set the parameter "globalStyleName" with value "滚动柱形图样式修改"
@@ -99,7 +99,7 @@ Feature: 数据大屏-h滚动柱形图
 
 ######################################无耻的分割线################################
 
-  Scenario: 滚动柱形图数据之静态数据
+  Scenario: 滚动柱形图数据之静态数据 RZY-3656
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

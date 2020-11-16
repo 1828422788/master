@@ -14,7 +14,7 @@ Feature: 报表新建_从趋势图
     And I choose the "PDF" from the "ReportType"
     And I set the parameter "Hour" with value "17"
     And I set the parameter "Minute" with value "10"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
     When I choose the "<chart1>" from the "ChartList"
     And I click the "ChartListButton" button
@@ -28,7 +28,7 @@ Feature: 报表新建_从趋势图
     When I choose the "<chart4>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart4>"
-    When I click the "FinishButton" button
+    When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
@@ -96,7 +96,7 @@ Feature: 报表新建_从趋势图
     And I choose the "PDF" from the "ReportType"
     And I set the parameter "Hour" with value "17"
     And I set the parameter "Minute" with value "20"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
     When I choose the "<chart1>" from the "ChartList"
     And I click the "ChartListButton" button
@@ -113,7 +113,7 @@ Feature: 报表新建_从趋势图
     When I choose the "<chart5>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart5>"
-    When I click the "FinishButton" button
+    When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button

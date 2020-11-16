@@ -5,7 +5,7 @@ Feature: 数据大屏-s水球图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 水球图-样式搜索
+  Scenario: 水球图-样式搜索 RZY-3031,RZY-3182,RZY-3183
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -23,14 +23,16 @@ Feature: 数据大屏-s水球图
      # 水波动画
     And I wait for "WaterWavePainting" will be visible
     And I click the "WaterWavePainting" button
-    And I switch the "WaterWaveSwitchLabel" button to "disable"
+#    And I switch the "WaterWaveSwitchLabel" button to "disable"
+    And I click the "WaterWaveSwitchLabel" button
     #形状
     And I click the "LiquidShapeHeader" button
     And I choose the "pin" from the "LiquidShape"
     #外边框
     And I wait for "OuterFrame" will be visible
     And I click the "OuterFrame" button
-    And I switch the "OuterFrameSwitch" button to "disable"
+    And I click the "OuterFrameSwitch" button
+#    And I switch the "OuterFrameSwitch" button to "disable"
     #标签
     And I click the "Tag" button
     And I set the parameter "TagWordSize" with value "70"

@@ -32,7 +32,7 @@ Feature: 仪表盘攻击地图
 
     Examples:
       | spl                                                                                                                                                                                                                                                                                    | name    |
-      | tag:sample* \| parse field=apache.request_query \"^gw_address=(?<gw_address>\\\d+\\\.\\\d+\\\.\\\d+\\\.\\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 | 仪表盘攻击地图 |
+      | tag:sample04061424_chart \| parse field=apache.request_query \"^gw_address=(?<gw_address>\\\d+\\\.\\\d+\\\.\\\d+\\\.\\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 | 仪表盘攻击地图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
@@ -69,7 +69,7 @@ Feature: 仪表盘攻击地图
       | 仪表盘攻击地图 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 修改为攻击地图
+  Scenario Outline: 修改为攻击地图 RZY-314,RZY-3761
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -78,6 +78,7 @@ Feature: 仪表盘攻击地图
     And I wait for "500" millsecond
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
+    And I wait for "2000" millsecond
     And I wait for "Map" will be visible
     And I click the "Map" button
     And I click the "<targetName>" button
@@ -95,11 +96,14 @@ Feature: 仪表盘攻击地图
     And I choose the "cnt" from the "DataValue"
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
-    And I wait for "Progress" will be invisible
+    And I click the "Setting" button under some element
+#    Then I hide the element "SettingContent"
+#    And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
-    And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/<name>"
+    And I wait for "2000" millsecond
+    And I click the "TrendTitle" button under some element
+    And I wait for "3000" millsecond
+#    And take part of "FullScreen" with name "dashboard/<name>"
 #    Then I compare source image "dashboard/<name>" with target image "dashboard/<targetName>"
 
     Examples:
@@ -107,7 +111,7 @@ Feature: 仪表盘攻击地图
       | 仪表盘攻击地图 | Attackmap  |
 
   @dashboard
-  Scenario Outline: 验证配置是否在高级编辑中体现
+  Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3761
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"

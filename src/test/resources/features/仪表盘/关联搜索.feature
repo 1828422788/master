@@ -1,7 +1,7 @@
 Feature: 仪表盘关联搜索
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 新建字段提取
+  Scenario Outline: 新建字段提取 RZY-3222
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
@@ -27,7 +27,7 @@ Feature: 仪表盘关联搜索
       | ^(?<ENTRY_ID>[^\t]+)\t(?<STEP_ID>[^\t]+)\t(?<CREATE_DATE>[^\t]+)                             | 仪表盘关联搜索_workflow | workflow | auto_test_dashboard_workflow |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 上传日志
+  Scenario Outline: 上传日志 RZY-3222
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "<appName>"
     And I set the parameter "Tag" with value "<appName>"
@@ -65,7 +65,7 @@ Feature: 仪表盘关联搜索
       | 仪表盘关联搜索 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 新建趋势图
+  Scenario Outline: 新建趋势图 RZY-3223
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
     And I click the "Create" button
@@ -122,6 +122,7 @@ Feature: 仪表盘关联搜索
     And I wait for loading invisible
     And I click the detail which name is "仪表盘关联搜索"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "1500" millsecond
     When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
     And I set the parameter "<json>" to json editor
@@ -141,6 +142,7 @@ Feature: 仪表盘关联搜索
     And I wait for loading invisible
     And I click the detail which name is "仪表盘关联搜索"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "1500" millsecond
     When the chart title is "仪表盘workflow" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -150,11 +152,12 @@ Feature: 仪表盘关联搜索
     Then I will see the success message "配置成功"
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 添加输入项
+  Scenario Outline: 添加输入项 RZY-3224,RZY-3224
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘关联搜索"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "1500" millsecond
     When I click the "AddEventButton" button
     And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "<name>"
@@ -170,7 +173,7 @@ Feature: 仪表盘关联搜索
       | workflow |
 
   @dashboard @dashboardSmoke
-  Scenario: 验证return搜索结果
+  Scenario: 验证return搜索结果 RZY-3226
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "tag:auto_test_dashboard_return AND return.EPORT_ID:000000001203094955 | table return.EPORT_ID,tag,return.CUS_ID | rename return.CUS_ID as CUS_ID,return.EPORT_ID as EPORT_ID"
@@ -190,7 +193,7 @@ Feature: 仪表盘关联搜索
     And I compare with list "ReturnList"
 
   @dashboard @dashboardSmoke
-  Scenario: 验证workflow搜索结果
+  Scenario: 验证workflow搜索结果 RZY-3227,RZY-3228
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "tag:auto_test_dashboard_workflow AND workflow.ENTRY_ID:531620160167359680 | table tag,workflow.ENTRY_ID | rename workflow.ENTRY_ID as ENTRY_ID"

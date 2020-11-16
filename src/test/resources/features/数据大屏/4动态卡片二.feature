@@ -4,7 +4,7 @@ Feature: 数据大屏-g动态卡片二
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 动态卡片二样式搜索
+  Scenario: 动态卡片二样式搜索 RZY-4828
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

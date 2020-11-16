@@ -32,7 +32,7 @@ Feature: 仪表盘漏斗图
 
     Examples:
       | spl                                                         | name   |
-      | tag:*display \| stats count() by apache.clientip \| limit 8 | 仪表盘漏斗图 |
+      | tag:sample04061424_display \| stats count() by apache.clientip \| limit 8 | 仪表盘漏斗图 |
 
   @dashboard
   Scenario Outline: 新建标签页
@@ -69,7 +69,7 @@ Feature: 仪表盘漏斗图
       | 仪表盘漏斗图 |
 
   @dashboard
-  Scenario Outline: 修改为漏斗图
+  Scenario Outline: 修改为漏斗图 RZY-3402
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"

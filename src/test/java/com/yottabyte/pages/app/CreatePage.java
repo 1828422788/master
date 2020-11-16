@@ -147,6 +147,198 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "ant-select-search__field")
     private WebElement KVTag;
 
+    @FindBy(xpath = "//div[text()='字段配置']")
+    private WebElement fieldConfig;
+
+    @FindBy(id = "FieldConfig_name")
+    private WebElement fieldConfigName;
+
+    @FindBy(id = "FieldAliasModal_name")
+    private WebElement fieldAliasModalName;
+
+    @FindBy(xpath = "(//input[contains(@id,'original')])[last()]")
+    private WebElement originalField;
+
+    @FindBy(xpath = "(//input[contains(@id,'alias')])[last()]")
+    private WebElement fieldAlias;
+
+    @FindBy(xpath = "//a[text()='添加别名映射']")
+    private WebElement addAlias;
+
+    @FindBy(xpath = "(//a[text()='删除'])[last()]")
+    private WebElement deleteAlias;
+
+    @FindBy(xpath = "//div[text()='字段查找']")
+    private WebElement fieldSearch;
+
+    @FindBy(xpath = "//div[text()='字段转换']")
+    private WebElement fieldConvert;
+
+    @FindBy(xpath = "//div[text()='字段萃取']")
+    private WebElement fieldExtract;
+
+    @FindBy(id = "FieldConfig_name")
+    private WebElement fieldSearchName;
+
+    @FindBy(id = "FieldConfig_csvPath")
+    private WebElement csvPath;
+
+    @FindBy(xpath = "(//input[contains(@id,'.input')])[last()]")
+    private WebElement searchInputField;
+
+    @FindBy(xpath = "(//input[contains(@id,'.event')])[last()]")
+    private WebElement eventField;
+
+    @FindBy(xpath = "(//div[contains(@id,'.match_type')])[last()]")
+    private WebElement matchType;
+
+    @FindBy(xpath = "//a[text()='添加查找输出字段']")
+    private WebElement addOutputField;
+
+    @FindBy(xpath = "(//input[contains(@id,'.output')])[last()]")
+    private WebElement outputField;
+
+    @FindBy(id = "FieldConfig_regex")
+    private WebElement fieldConfigRegex;
+
+    @FindBy(id = "FieldConfig_format")
+    private WebElement fieldConfigFormat;
+
+    @FindBy(partialLinkText = "添加字段转换")
+    private WebElement addFieldConvertRule;
+
+    @FindBy(xpath = "(//input[contains(@id,'.name')])[last()]")
+    private WebElement lastNameInput;
+
+    @FindBy(xpath = "(//div[@class='ant-select-selection__rendered'])[last()]")
+    private WebElement fieldConvertRule;
+
+    @FindBy(id = "FieldConfig_delims")
+    private WebElement fieldConfigDelims;
+
+    @FindBy(id = "FieldConfig_fields")
+    private WebElement fieldConfigFields;
+
+    @FindBy(xpath = "(//span[text()='保存'])[last()]/ancestor::button")
+    private WebElement saveButton;
+
+    @FindBy(className = "ant-form-explain")
+    private WebElement warningInfo;
+
+    public WebElement getWarningInfo() {
+        return warningInfo;
+    }
+
+    public WebElement getFieldAliasModalName() {
+        return fieldAliasModalName;
+    }
+
+    public WebElement getFieldConfigFields() {
+        return fieldConfigFields;
+    }
+
+    public WebElement getFieldConfigDelims() {
+        return fieldConfigDelims;
+    }
+
+    public WebElement getFieldConvertRule() {
+        fieldConvertRule.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getLastNameInput() {
+        return lastNameInput;
+    }
+
+    public WebElement getAddFieldConvertRule() {
+        return addFieldConvertRule;
+    }
+
+    public WebElement getFieldExtract() {
+        return fieldExtract;
+    }
+
+    public WebElement getFieldConfigFormat() {
+        return fieldConfigFormat;
+    }
+
+    public WebElement getFieldConfigRegex() {
+        return fieldConfigRegex;
+    }
+
+    public WebElement getAddFieldConvert() {
+        return super.getButton("添加字段转换");
+    }
+
+    public WebElement getFieldConvert() {
+        return fieldConvert;
+    }
+
+    public WebElement getAddOutputField() {
+        return addOutputField;
+    }
+
+    public WebElement getOutputField() {
+        return outputField;
+    }
+
+    public WebElement getMatchType() {
+        matchType.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getAddFieldSearch() {
+        return super.getButton("添加字段查找");
+    }
+
+    public WebElement getFieldSearchName() {
+        return fieldSearchName;
+    }
+
+    public WebElement getCsvPath() {
+        return csvPath;
+    }
+
+    public WebElement getSearchInputField() {
+        return searchInputField;
+    }
+
+    public WebElement getEventField() {
+        return eventField;
+    }
+
+    public WebElement getFieldSearch() {
+        return fieldSearch;
+    }
+
+    public WebElement getDeleteAlias() {
+        return deleteAlias;
+    }
+
+    public WebElement getAddAlias() {
+        return addAlias;
+    }
+
+    public WebElement getFieldConfigName() {
+        return fieldConfigName;
+    }
+
+    public WebElement getOriginalField() {
+        return originalField;
+    }
+
+    public WebElement getFieldAlias() {
+        return fieldAlias;
+    }
+
+    public WebElement getAddFieldAlias() {
+        return super.getButton("添加字段别名");
+    }
+
+    public WebElement getFieldConfig() {
+        return fieldConfig;
+    }
+
     public WebElement getKVTag() {
         return KVTag;
     }
@@ -262,7 +454,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSaveButton() {
-        return super.getButton("保存");
+        return saveButton;
     }
 
     public WebElement getImportButton() {

@@ -4,7 +4,7 @@ Feature: 数据大屏-i中国地图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 中国地图-样式搜索
+  Scenario: 中国地图-样式搜索 RZY-1909,RZY-2250,RZY-2251,RZY-1939,RZY-1989
    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -100,7 +100,7 @@ Feature: 数据大屏-i中国地图
 #####################################无耻的分割线################################
 
 
-  Scenario: 中国地图四川-静态数据
+  Scenario: 中国地图四川-静态数据 RZY-2382
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -160,7 +160,7 @@ Feature: 数据大屏-i中国地图
 
 ######################################无耻的分割线################################
 
-  Scenario: 中国地图四川-绑定搜索
+  Scenario: 中国地图四川-绑定搜索 RZY-2382
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     And I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

@@ -26,13 +26,13 @@ Feature: Agent编辑性能数据类型数据源
   Scenario: 性能数据源禁用
     Given the data name ".*" in agent table "FuctionTypeTable" then i click the "close" switch
     Then I wait for loading invisible
-    Then I will see the element "FuctionTypeSwitchStatus" name is "已禁用"
+    And I wait for element "FuctionTypeSwitchStatus" change text to "已禁用"
 
 
   Scenario: 性能数据源启用
     Given the data name ".*" in agent table "FuctionTypeTable" then i click the "open" switch
     Then I wait for loading invisible
-    Then I will see the element "FuctionTypeSwitchStatus" name is "已启用"
+    And I wait for element "FuctionTypeSwitchStatus" change text to "已启用"
 
 
   Scenario Outline: 性能数据源修改appname成功

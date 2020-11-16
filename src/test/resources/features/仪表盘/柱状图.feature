@@ -33,7 +33,7 @@ Feature: 仪表盘柱状图
 
     Examples:
       | spl                                                              | name   |
-      | tag:*display \| stats count() by apache.clientip,apache.resp_len | 仪表盘柱状图 |
+      | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len | 仪表盘柱状图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
@@ -70,7 +70,7 @@ Feature: 仪表盘柱状图
       | 仪表盘柱状图 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 修改为柱状图
+  Scenario Outline: 修改为柱状图 RZY-303
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -122,7 +122,7 @@ Feature: 仪表盘柱状图
     When the chart title is "仪表盘柱状图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10"
+    And I set the parameter "Spl" with value "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10"
     And I click the "Ensure" button
     And I wait for "500" millsecond
     Then I will see the success message "配置成功"
@@ -132,7 +132,7 @@ Feature: 仪表盘柱状图
     And I wait for "500" millsecond
 
   @dashboard
-  Scenario: 序列图支持的钻取变量click.name
+  Scenario: 序列图支持的钻取变量click.name RZY-3255
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘柱状图"
@@ -143,7 +143,7 @@ Feature: 仪表盘柱状图
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
-    And I set the parameter "Spl" with value "* | stats count() by ${click.name}"
+    And I set the parameter "Spl" with value "tag:sample04061424_display | stats count() by ${click.name}"
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
@@ -153,11 +153,11 @@ Feature: 仪表盘柱状图
     And I click the "Zhutiao" button
     Then I wait for title change text to "搜索"
     And I will see the "splSearch.SearchPage" page
-    Then I will see the "SearchInput" result will be "* | stats count() by apache.clientip"
+    Then I will see the "SearchInput" result will be "tag:sample04061424_display | stats count() by apache.clientip"
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
-  Scenario: 序列图支持的钻取变量click.value
+  Scenario: 序列图支持的钻取变量click.value RZY-3257
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘柱状图"
@@ -183,7 +183,7 @@ Feature: 仪表盘柱状图
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
-  Scenario: 序列图支持的钻取变量click.name2
+  Scenario: 序列图支持的钻取变量click.name2 RZY-3258
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘柱状图"
@@ -194,7 +194,7 @@ Feature: 仪表盘柱状图
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
-    And I set the parameter "Spl" with value "* | stats ${click.name2} by appname"
+    And I set the parameter "Spl" with value "tag:sample04061424_display | stats ${click.name2} by appname"
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
@@ -205,11 +205,11 @@ Feature: 仪表盘柱状图
     And switch to another window
 #    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
-    Then I will see the "SearchInput" result will be "* | stats count() by appname"
+    Then I will see the "SearchInput" result will be "tag:sample04061424_display | stats count() by appname"
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
-  Scenario: 序列图支持的钻取变量click.value2
+  Scenario: 序列图支持的钻取变量click.value2 RZY-3259
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘柱状图"
@@ -220,7 +220,7 @@ Feature: 仪表盘柱状图
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
-    And I set the parameter "Spl" with value "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==${click.value2}"
+    And I set the parameter "Spl" with value "tag:sample04061424_display | stats count() as cn by apache.resp_len,apache.clientip | where cn==${click.value2}"
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
@@ -231,7 +231,7 @@ Feature: 仪表盘柱状图
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
-    Then I will see the "SearchInput" result will contain "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==2"
+    Then I will see the "SearchInput" result will contain "tag:sample04061424_display | stats count() as cn by apache.resp_len,apache.clientip | where cn=="
 #    Then I will see the "SearchInput" result will be "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==6"
 
   @cleanDashboard

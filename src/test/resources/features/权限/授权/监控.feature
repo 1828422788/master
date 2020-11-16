@@ -1,16 +1,14 @@
-@auth
+@authtest
 Feature: 权限-监控
 
   Scenario Outline: 勾选所需功能权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
-    When I "unchecked" the checkbox which name is "全选"
-    When I "checked" the checkbox which name is "可查看监控,新建监控"
+    And I "unchecked" the checkbox which name is "全选"
+    And I click the "Resource" button
+    And I "checked" the checkbox which name is "可查看监控,可查看仪表盘"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 
@@ -20,30 +18,21 @@ Feature: 权限-监控
       | __user_验证授权用户__   |
 
   Scenario: 验证无新建监控的权限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    And I "unchecked" the checkbox which name is "新建监控"
-    And I click the "SaveButton" button
-    Then I will see the success message "更新成功"
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     Then I will see the "CreateAlert" doesn't exist
 
-  Scenario: 验证可新建监控
+  Scenario: 授权可新建监控
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I click the "Resource" button
     And I "checked" the checkbox which name is "新建监控"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
+
+  Scenario: 验证可新建监控
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
@@ -58,17 +47,22 @@ Feature: 权限-监控
     And I click the "CreateButton" button
     Then I will see the success message "创建成功"
 
-  Scenario Outline: 验证无任何权限
+  Scenario Outline: 授权无任何权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Alert" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'监控'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+    Examples:
+      | name         |
+      | AutoTest用户创建 |
+
+  Scenario Outline: 验证无任何权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
@@ -78,18 +72,23 @@ Feature: 权限-监控
       | name         |
       | AutoTest用户创建 |
 
-  Scenario Outline: 验证有读取权限
+  Scenario Outline: 授权读取
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Alert" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'监控'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     When I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
+
+    Examples:
+      | name         |
+      | AutoTest用户创建 |
+
+  Scenario Outline: 验证读取
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
@@ -114,9 +113,8 @@ Feature: 权限-监控
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Alert" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'监控'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "删除,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -160,9 +158,8 @@ Feature: 权限-监控
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Alert" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'监控'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -206,13 +203,12 @@ Feature: 权限-监控
       | name             |
       | AutoTest权限验证修改名称 |
 
-  Scenario Outline: 验证有读取+转授权限
+  Scenario Outline: 授权有读取+转授权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Alert" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'监控'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -220,13 +216,18 @@ Feature: 权限-监控
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Alert" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'监控'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
+
+    Examples:
+      | name         |
+      | AutoTestAuth |
+
+  Scenario Outline: 验证有读取+转授权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
@@ -259,9 +260,8 @@ Feature: 权限-监控
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for loading invisible
-    Then I click the "Alert" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'监控'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -269,9 +269,8 @@ Feature: 权限-监控
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for loading invisible
-    Then I click the "Alert" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'监控'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
@@ -315,9 +314,8 @@ Feature: 权限-监控
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Alert" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'监控'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -370,9 +368,8 @@ Feature: 权限-监控
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Alert" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'监控'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -380,9 +377,8 @@ Feature: 权限-监控
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Alert" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'监控'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
@@ -431,18 +427,16 @@ Feature: 权限-监控
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Alert" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'监控'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Alert" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'监控'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
@@ -489,9 +483,8 @@ Feature: 权限-监控
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Alert" button
-    And I wait for loading invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'监控'}" button
     And I "checked" the checkbox which name is "AutoTest权限验证修改名称" in auth table
     When the data name is "AutoTest权限验证修改名称" then I click the "无限期" button in auth table
     And I click the "Customize" button
@@ -637,7 +630,7 @@ Feature: 权限-监控
     Then I will see the success message "删除成功"
 
     Examples:
-      | authRole | authName | function | name       |
+      | authRole | authName | function | name   |
       | 用户分组     | 验证授权用户分组 | 读取,编辑,删除 | 测试二次授权 |
 
   Scenario: 修改名称

@@ -5,7 +5,7 @@ Feature: 数据大屏-p地理分布
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 地理分布样式-搜索
+  Scenario: 地理分布样式-搜索 RZY-3054,RZY-3020,RZY-3021
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -28,6 +28,7 @@ Feature: 数据大屏-p地理分布
     And I set the parameter "ChartYaxis" with value "120"
     #样式设置
     And I click the "GlobelabelMapHeader" button
+    And I wait for "2000" millsecond
     #区域颜色
 #    And I click the "AreaColor" button
     And I wait for "AreaColor" will be visible

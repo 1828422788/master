@@ -1,4 +1,4 @@
-@role @roleSmoke
+#@role @roleSmoke
 Feature: 角色可转授功能权限
 
   Scenario Outline: 添加用户
@@ -43,7 +43,7 @@ Feature: 角色可转授功能权限
     And I will see the "users.CreatePage" page
     And I click the "EditButton" button
     And I choose the "AutoTestCopy" from the "ManageRole"
-    And I click the "Save" button
+#    And I click the "Save" button
 
   Scenario: 分配搜索权限
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
@@ -53,23 +53,27 @@ Feature: 角色可转授功能权限
     And I click the "Ensure" button
     Then I will see the message "保存成功"
 
-  Scenario Outline: 给角色授权
+  Scenario: 给角色授权
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    When the data name is "<name>" then i click the "授权" button
+    When the data name is "AutoTestEdit" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "全选"
-    When I "checked" the checkbox which name is "<function>"
+    When I "checked" the checkbox which name is "可查看敏感内容,可下载搜索结果(download指令)"
+    And I click the "{'FunctionButton':'用户与验证'}" button
+    When I "checked" the checkbox which name is "可转授功能权限"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
 
-    Examples:
-      | name         | function                                    |
-      | AutoTestEdit | 可转授功能权限,可查看搜索权限,可查看敏感内容,可下载搜索结果(download指令) |
-      | AutoTestCopy | 可查看搜索页,可查看搜索权限                              |
+  Scenario: 给角色授权
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    When the data name is "AutoTestCopy" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    When I "checked" the checkbox which name is "全选"
+    When I "unchecked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "可查看搜索页"
+    And I click the "SaveButton" button
+    Then I will see the success message "更新成功"
 
   Scenario: 验证可转授功能权限
     Given I login user "AutoTestRole" with password "All#123456"

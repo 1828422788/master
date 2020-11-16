@@ -4,10 +4,11 @@ Feature: 日志展现_timechart
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I drag the element "SearchPageSvg" to the "left" side
 
   Scenario Outline: timechart（RZY-3092,3247,3094,3248,3096,3249,3098,3250)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I wait for "Chart" will be visible
@@ -27,7 +28,7 @@ Feature: 日志展现_timechart
 
   Scenario Outline: timechart（RZY-3093,3095)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Settings" button
@@ -63,7 +64,7 @@ Feature: 日志展现_timechart
 
   Scenario Outline: timechart(RZY-3097,3099)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Settings" button
@@ -93,33 +94,36 @@ Feature: 日志展现_timechart
       | 3097_scatter| 0      | 200   | Green      | tag:sample04061424_chart \| timechart sep=\"-sep分格-\" format=\"$VAL-分格2-$AGG\" cont=true span=30m bins=100 startindex=1 endindex=8 limit=5 rendertype=\"scatter\"  count() min(apache.resp_len) by apache.status |
       | 3099_column | 0      | 160   | Red        | tag:sample04061424_chart \| timechart sep=\"-sep分格-\" format=\"$VAL-分格2-$AGG\" cont=true span=30m bins=100 startindex=1 endindex=8 limit=5 rendertype=\"column\" count() min(apache.resp_len) by apache.status |
 
-    Scenario Outline: timechart_pile
-      When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-      And I click the "SearchButton" button
-      And I wait for element "SearchStatus" change text to "搜索完成!"
-      And I will see the "trend.CreatePage" page
-      And I click the "Settings" button
-      And I click the "Xaxis" button
-      And I click the "ThirdLabel" button
-      And I click the "AscendingOrder" button
-      And I click the "Yaxis" button
-      And I set the parameter "Unit" with value "个"
-      And I click the "<button>" button
-      And I click the "Exhibition" button
-      And I click the "AddColor" button
-      And I click the "<color>" button
-      And I click the "Pile" button
-      And I click the "Generate" button
+  Scenario Outline: timechart_pile
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Settings" button
+    And I click the "Xaxis" button
+    And I click the "ThirdLabel" button
+    And I click the "AscendingOrder" button
+    And I click the "Yaxis" button
+    And I set the parameter "Unit" with value "个"
+    And I click the "<button>" button
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "<color>" button
+    And I click the "Pile" button
+    And I click the "Generate" button
 
-      And I click the "Settings" button
-      And I wait for "Chart" will be visible
-      And I drag the scroll bar to the element "Chart"
-      And I wait for "2000" millsecond
-      And take part of "Chart" with name "actual/高级搜索视图/7timechart/<caseNum>"
-      Then I compare source image "actual/高级搜索视图/7timechart/<caseNum>" with target image "expect/高级搜索视图/7timechart/<caseNum>"
+    And I click the "Settings" button
+    And I wait for "Chart" will be visible
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "Chart" will be visible
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/高级搜索视图/7timechart/<caseNum>"
+    Then I compare source image "actual/高级搜索视图/7timechart/<caseNum>" with target image "expect/高级搜索视图/7timechart/<caseNum>"
 
-      Examples:
-        |  caseNum    | color    |button    |   spl|
-        | area_pile   | Yellow   | Smooth   | tag:sample04061424_chart \| timechart cont=true span=30m rendertype=\"area\" count() min(apache.resp_len) by apache.status  |
-        | column_pile | Red      |          | tag:sample04061424_chart \| timechart cont=true span=30m rendertype=\"column\" count() min(apache.resp_len) by apache.status  |
+    Examples:
+      |  caseNum    | color    |button    |   spl|
+      | area_pile   | Yellow   | Smooth   | tag:sample04061424_chart \| timechart cont=true span=30m rendertype=\"area\" count() min(apache.resp_len) by apache.status  |
+      | column_pile | Red      |          | tag:sample04061424_chart \| timechart cont=true span=30m rendertype=\"column\" count() min(apache.resp_len) by apache.status  |
 

@@ -28,6 +28,18 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-input__inner")
     private WebElement name;
 
+    @FindBy(xpath = "(//span[contains(text(),'确定')][not(@class)]/ancestor::button)[2]")
+    private WebElement ensureT;
+
+    @FindBy(xpath = "(//span[contains(text(),'取消')][not(@class)]/ancestor::button)[2]")
+    private WebElement cancelT;
+
+    @FindBy(xpath = "//div[@class='el-message-box__message']/p[text()='操作成功']")
+    private WebElement oprateSuccess;
+
+    @FindBy(xpath = "//div[@class='el-message-box__message']/p[text()='删除成功！']")
+    private WebElement deleteSuccess;
+
     @FindBy(xpath = "(//div[@class='screenshot'])[2]")
     private WebElement bank;
 
@@ -76,6 +88,18 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='数据']")
     private WebElement data;
 
+    @FindBy(xpath = "//div[contains(text(),'银行运维')]")
+    private WebElement bankTemplate;
+
+    @FindBy(xpath = "//div[contains(text(),'模版test')]")
+    private WebElement templateTest;
+
+    @FindBy(xpath = "//div[contains(text(),'银行运维')]/parent::div[@class='info']/following-sibling::div[@class='delete']/i[@class]")
+    private WebElement bankTemplateDelete;
+
+    @FindBy(xpath = "//div[contains(text(),'模版test')]/parent::div[@class='info']/following-sibling::div[@class='delete']/i[@class]")
+    private WebElement templateDelete;
+
    // @FindBy(xpath = "(//span[contains(text(),'搜索')][not(@class)])[last()]")
    @FindBy(xpath = "//button[@class='el-button yw-searchbar__append el-button--default']/span[contains(text(),'搜索')]")
     private WebElement search;
@@ -94,6 +118,12 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//span[contains(text(),'确定')][not(@class)])[last()]")
     private WebElement ensureDelete;
+
+    @FindBy(xpath = "//p[text()='请正确填写大屏名称！']")
+    private WebElement tipOfCreat;
+
+    @FindBy(xpath = "(//span[contains(text(),'确定')]/parent::button)[last()]")
+    private WebElement tipOfEnsure;
 
     @FindBy(className = "percentchart")
     private WebElement percent;
@@ -139,6 +169,14 @@ public class CreatePage extends PageTemplate {
 //    @FindBy(xpath = "(//input[@class='el-color-dropdown__value'])[last()]")
 //    private WebElement colorInput;
 
+//    @FindBy(xpath = "//label[contains(text(),'背景颜色')]/following-sibling::div")
+//    private WebElement pageBackgroundColor;
+
+//    public WebElement getPageBackgroundColor() { return this.colorInput("页面设置", "背景颜色"); }
+
+    @FindBy(xpath = "//div[@class='preview']")
+    private WebElement pageBackground;
+
     @FindBy(xpath = "//div[@class='sp-container sp-light sp-alpha-enabled sp-clear-enabled sp-palette-buttons-disabled']//div[@class='sp-button-container sp-cf']/button[text()='choose']")
     private WebElement ensureColor;
 
@@ -162,6 +200,9 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//div[text()='数据系列']/following-sibling::div//label[contains(text(),'类型')]//following-sibling::div//i)[2]")
     private WebElement secondSeriesType;
+
+    @FindBy(xpath = "(//div[text()='数据系列']/following-sibling::div//label[contains(text(),'粗细')]/following-sibling::div//input)[1]")
+    private WebElement firstSeriesBold;
 
     @FindBy(xpath = "(//div[text()='数据系列']/following-sibling::div//label[contains(text(),'粗细')]/following-sibling::div//input)[2]")
     private WebElement secondSeriesBold;
@@ -263,11 +304,14 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//li[contains(text(),'标题')]")
     private WebElement title;
 
+    @FindBy(xpath = "//li[contains(text(),'表格')]")
+    private WebElement table;
+
     @FindBy(className = "el-color-picker__color-inner")
     private WebElement colorInner;
 
-    @FindBy(className = "table")
-    private WebElement table;
+//    @FindBy(className = "table")
+//    private WebElement table;
 
     @FindBy(xpath = "//label[contains(text(),'背景颜色')]/following-sibling::div//div[@class='el-color-picker__trigger']")
     private WebElement tableHeaderBgColor;
@@ -277,6 +321,18 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//div[text()='标号']")
     private WebElement orderNum;
+
+    @FindBy(xpath = "//div[text()='apache.clientip']")
+    private WebElement itemApacheClientip;
+
+    @FindBy(xpath = "(//label[contains(text(),'标号')]/following-sibling::label)[1]")
+    private WebElement tableOrderNum;
+
+    @FindBy(xpath = "//label[contains(text(),'标号重复滚动')]/following-sibling::label/div[@class='el-switch__label el-switch__label--left']")
+    private WebElement tableOrderNumRoll;
+
+    @FindBy(xpath = "//span[text()='6']")
+    private WebElement orderNumSix;
 
     @FindBy(xpath = "//div[text()='count()']")
     private WebElement count;
@@ -289,6 +345,12 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//div[@class='divergent-list'])[2]//img")
     private WebElement color1;
+
+    @FindBy(xpath = "//span[text()='时间']/following-sibling::i")
+    private WebElement timeDelete;
+
+    @FindBy(xpath = "//span[text()='成功率']/following-sibling::i")
+    private WebElement passRatioDelete;
 
     @FindBy(xpath = "//div[@class='panel-style-setting table-color-setting-modal']//div[@class='el-tab-pane'][not(@style='display: none;')]//label[contains(text(),'风格')]/following-sibling::div//i")
     private WebElement numberStyle;
@@ -353,11 +415,61 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//li[contains(text(),'图表')]/ul")
     private  WebElement chartDropdown;
 
+    @FindBy(xpath = "//div[@class='back']")
+    private  WebElement backGalaxee;
+
+    @FindBy(xpath = "(//div[text()='列配置']/following-sibling::div//label[contains(text(),'风格')]//following-sibling::div//i)[2]")
+    private  WebElement styleColumnConfig;
+
+    @FindBy(xpath = "(//div[text()='列配置']/following-sibling::div//label[contains(text(),'颜色')]//following-sibling::div//i)[1]")
+    private  WebElement colorColumnConfig;
+
+    @FindBy(xpath = "//span[text()='自定义']")
+    private  WebElement customConfig;
+
+    @FindBy(xpath = "(//span[text()='值'])[3]")
+    private  WebElement colorValue;
+
+    @FindBy(xpath = "(//span[text()='范围'])[3]")
+    private  WebElement colorRange;
+
+    @FindBy(xpath = "(//span[text()='梯度'])[3]")
+    private  WebElement colorGradient;
+
+    @FindBy(xpath = "//span[text()='添加值颜色']")
+    private  WebElement addValueColor;
+
+    @FindBy(xpath = "//span[text()='添加范围颜色']")
+    private  WebElement addRangeColor;
+
+    @FindBy(xpath = "//div[@class='preset-btn-container']/label[contains(text(),'预设置')]/following-sibling::span")
+    private  WebElement colorPreConfig;
+
+    @FindBy(xpath = "//div[@class='sequential-list']/label[contains(text(),'连续')]")
+    private  WebElement preConfigSeries;
+
+    @FindBy(xpath = "//div[@class='divergent-list']/label[contains(text(),'离散')]")
+    private  WebElement preConfigSpread;
+
+    @FindBy(xpath = "//input[@placeholder='Please input']")
+    private WebElement columnValue;
+
+    @FindBy(xpath = "//div[@class='color-picker']/following-sibling::a")
+    private WebElement valueColorDelete;
+
     @FindBy(xpath = "//div[@class='panel-search-option']/div/button/span")
     private WebElement dataSearch;
 
+    @FindBy(xpath = "//div[contains(text(),'页面设置')]/following-sibling::div//label[contains(text(),'背景颜色')]/following-sibling::div//span[@class='sp-original-input-container']//input")
+    private WebElement pageBackgroundColor;
+    public WebElement getPageBackgroundColor() { return pageBackgroundColor; }
+
     public WebElement getDataSearch() {
         return dataSearch;
+    }
+
+    public WebElement getBackGalaxee() {
+        return backGalaxee;
     }
 
     public WebElement getMapDropdown() {
@@ -530,6 +642,10 @@ public class CreatePage extends PageTemplate {
         return orderNum;
     }
 
+    public WebElement getItemApacheClientip() {
+        return itemApacheClientip;
+    }
+
     public WebElement getNumberWidth() {
         return columnsWidth.get(0);
     }
@@ -540,6 +656,66 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getColumnConfig() {
         return this.header("列配置");
+    }
+
+    public WebElement getTableOrderNum() {
+        return tableOrderNum;
+    }
+
+    public WebElement getTableOrderNumRoll() {
+        return tableOrderNumRoll;
+    }
+
+    public WebElement getOrderNumSix() {
+        return orderNumSix;
+    }
+
+    public WebElement getCustomConfig() {
+        return customConfig;
+    }
+
+    public WebElement getAddValueColor() {
+        return addValueColor;
+    }
+
+    public WebElement getAddRangeColor() {
+        return addRangeColor;
+    }
+
+    public WebElement getColorPreConfig() {
+        return colorPreConfig;
+    }
+
+    public WebElement getPreConfigSeries() {
+        return preConfigSeries;
+    }
+
+    public WebElement getPreConfigSpread() {
+        return preConfigSpread;
+    }
+
+    public WebElement getColumnValue() {
+        return columnValue;
+    }
+
+    public WebElement getValueColorDelete() {
+        return valueColorDelete;
+    }
+
+    public WebElement getStyleColumnConfig() {
+        styleColumnConfig.click();
+        return getLastDropdownList();
+    }
+
+    public WebElement getColorValue() { return colorValue; }
+
+    public WebElement getColorRange() { return colorRange; }
+
+    public WebElement getColorGradient() { return colorGradient; }
+
+    public WebElement getColorColumnConfig() {
+//        colorColumnConfig.click();
+        return colorColumnConfig;
     }
 
     public WebElement getRowNumber() {
@@ -583,8 +759,12 @@ public class CreatePage extends PageTemplate {
         return this.dropdownList("", "数据项");
     }
 
-    public WebElement getTable() {
-        return table;
+    public WebElement getTimeDelete() {
+        return timeDelete;
+    }
+
+    public WebElement getPassRatioDelete() {
+        return passRatioDelete;
     }
 
     public WebElement getTitleWordBold() {
@@ -605,6 +785,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getTitleImg() {
         return title;
+    }
+
+    public WebElement getTable() {
+        return table;
     }
 
     public WebElement getContent() {
@@ -907,6 +1091,22 @@ public class CreatePage extends PageTemplate {
         return pie;
     }
 
+    public WebElement getBankTemplate() {
+        return bankTemplate;
+    }
+
+    public WebElement getTemplateTest() {
+        return templateTest;
+    }
+
+    public WebElement getBankTemplateDelete() {
+        return bankTemplateDelete;
+    }
+
+    public WebElement getTemplateDelete() {
+        return templateDelete;
+    }
+
     public WebElement getChartWordSize() {
         return this.input("图表颜色标签", "标签字号");
     }
@@ -986,6 +1186,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSecondArea() {
         return secondArea;
+    }
+
+    public WebElement getFirstSeriesBold() {
+        return firstSeriesBold;
     }
 
     public WebElement getSecondSeriesBold() {
@@ -1168,6 +1372,10 @@ public class CreatePage extends PageTemplate {
         return ensureColor;
     }
 
+    public WebElement getPageBackground() {
+        return pageBackground;
+    }
+
     public WebElement getXColorInput() {
         return this.colorInput("x轴", "颜色");
     }
@@ -1244,6 +1452,14 @@ public class CreatePage extends PageTemplate {
         return ensureDelete;
     }
 
+    public WebElement getTipOfCreat() {
+        return tipOfCreat;
+    }
+
+    public WebElement getTipOfEnsure() {
+        return tipOfEnsure;
+    }
+
     public WebElement getDelete() {
         return delete;
     }
@@ -1269,6 +1485,12 @@ public class CreatePage extends PageTemplate {
         return successMessage;
     }
 
+    @FindBy(xpath = "//p[text()='操作成功]")
+    private WebElement successOperate;
+    public WebElement getSuccessOperate() {
+        return successOperate;
+    }
+
     public WebElement getSaveAsTemplate() {
         return super.getButton("保存为模版");
     }
@@ -1289,6 +1511,24 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSecondYaxis() {
         return this.dropdownList("", "Y轴2");
+    }
+
+    public WebElement getColumnName(){return this.dropdownList("","名称");}
+
+    public WebElement getColumnValue1() {
+        return this.dropdownList("", "值 1");
+    }
+
+    public WebElement getColumnValue2() {
+        return this.dropdownList("", "值 2");
+    }
+
+    public WebElement getTimeField() {
+        return this.dropdownList("", "时间字段");
+    }
+
+    public WebElement getValueField() {
+        return this.dropdownList("", "数值字段");
     }
 
     public WebElement getXaxisField() {
@@ -1335,6 +1575,22 @@ public class CreatePage extends PageTemplate {
         return name;
     }
 
+    public WebElement getEnsureT() {
+        return ensureT;
+    }
+
+    public WebElement getCancelT() {
+        return cancelT;
+    }
+
+    public WebElement getDeleteSuccess() {
+        return deleteSuccess;
+    }
+
+    public WebElement getOprateSuccess() {
+        return oprateSuccess;
+    }
+
     public WebElement getCreate() {
         return super.getButton("创建");
     }
@@ -1343,12 +1599,18 @@ public class CreatePage extends PageTemplate {
         return super.getContainsTextButton("确定");
     }
 
+    public WebElement getCancel() {
+        return super.getContainsTextButton("取消");
+    }
+
     public WebElement getSave() {
         return super.getButton("保存");
     }
 
+    @FindBy(xpath = "//span[text()='发布']/parent::button")
+    private WebElement release;
     public WebElement getRelease() {
-        return super.getButton("发布");
+        return release;
     }
 
     private WebElement colorPicker(String title, String name) {
@@ -1778,9 +2040,6 @@ private WebElement dataType;
       @FindBy(xpath = "//label[contains(text(),'光环颜色')]/following-sibling::div")
       private WebElement haloColor;
       public WebElement getHaloColor(){ return this.colorInput("齿轮组合", "光环颜色");}
-      //背景颜色
-      @FindBy(xpath = "//label[contains(text(),'背景颜色')]/following-sibling::div")
-      private WebElement backgroundColor;
       public WebElement getBackgroundColor(){
           return this.colorInput("齿轮组合", "背景颜色");
       }
@@ -2108,6 +2367,14 @@ private WebElement dataType;
     public WebElement getTextWordBold() {
         return this.dropdownList("图表", "字体粗细");
     }
+    //值阈Min
+    public WebElement getThresholdMin() {
+        return this.input("图表", "值阈Min");
+    }
+    //缓存值
+    public WebElement getCacheValue() {
+        return this.input("图表", "缓存值");
+    }
     //环柱渐变色1
 //    @FindBy(xpath = "//label[contains(text(),'渐变色1')]/following-sibling::div")
 //    private WebElement gradation1;
@@ -2272,6 +2539,63 @@ private WebElement dataType;
 //      @FindBy(xpath = "//label[contains(text(),'条颜色')]/following-sibling::div")
 //      private WebElement aspectColor;
       public WebElement getAspectColor(){return this.colorInput("水平胶囊", "条颜色");}
+
+//3D柱图
+    @FindBy(xpath = "//li[text()='3D柱图']/i")
+    private WebElement column3D;
+    public WebElement getColumn3D(){return column3D;}
+
+    //样式中的3D柱图
+    @FindBy(xpath = "//div[text()='3D柱图']/i")
+    private WebElement styleColumn3D;
+    public WebElement getStyleColumn3D(){return styleColumn3D;}
+    //字体大小
+    public WebElement getColumnWordSize() {
+        return this.input("3D柱图", "字体大小");
+    }
+    //字体颜色
+    public WebElement getColumnFontColor(){return this.colorInput("3D柱图", "字体颜色");}
+    //轴颜色
+    public WebElement getAxisColor(){return this.colorInput("3D柱图", "轴颜色");}
+    //柱1颜色
+    public WebElement getColumnOneColor(){return this.colorInput("3D柱图", "柱1颜色");}
+    //柱2颜色
+    public WebElement getColumnTwoColor(){return this.colorInput("3D柱图", "柱2颜色");}
+
+//日历图
+    @FindBy(xpath = "//li[text()='日历图']/i")
+    private WebElement calendar;
+    public WebElement getCalendar(){return calendar;}
+
+    //样式中的日历图
+    @FindBy(xpath = "//div[text()='日历图']/i")
+    private WebElement styleCalendar;
+    public WebElement getStyleCalendar(){return styleCalendar;}
+    //字体大小
+    public WebElement getCalendarTopMargin() {
+        return this.input("日历图", "上边距");
+    }
+    //月份字号
+    public WebElement getCalendarMonthSize() {
+        return this.input("日历图", "月份字号");
+    }
+    //星期字号
+    public WebElement getCalendarWeekSize() {
+        return this.input("日历图", "星期字号");
+    }
+    //表格大小
+    public WebElement getCalendarTableSize() {
+        return this.input("日历图", "表格大小");
+    }
+    //月份颜色
+    public WebElement getCalendarMonthColor(){return this.colorInput("日历图", "月份颜色");}
+    //星期颜色
+    public WebElement getCalendarWeekColor(){return this.colorInput("日历图", "星期颜色");}
+    //标注颜色
+    public WebElement getCalendarTaggingColor(){return this.colorInput("日历图", "标注颜色");}
+    //背景颜色
+    public WebElement getCalendarBackgroundColor(){return this.colorInput("日历图", "背景颜色");}
+
 
 //综合列表
     @FindBy(xpath = "//li[text()='综合列表']/i")
@@ -2533,6 +2857,7 @@ public WebElement getTitleHorizontal(){return this.dropdownList("标题","对齐
     @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div")
     private WebElement numberFontColor;
     public WebElement getNumberFontColor(){return this.colorInput("翻转", "字体颜色");}
+
     //字体粗细
     public WebElement getFlipNumberWordBold(){return this.dropdownList("翻转","字体粗细");}
     //对齐方式

@@ -22,6 +22,7 @@ Feature: 事件操作编辑（RZY-1390）
     And I click the "Today" button
     And I click the "SearchButton" button
     And I click the "RightIcon" button
+    And I wait for "EventOperate" will be visible
     And I click the "EventOperate" button
     And I click the "EventOperatorAutoTest" button
     And the page's title will contains "_百度搜索"
@@ -41,19 +42,20 @@ Feature: 事件操作编辑（RZY-1390）
     Then I will see the message "提交事件操作成功"
     And open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Given I set the parameter "SearchInput" with value "hostname:192.168.1.171"
+    Given I set the parameter "SearchInput" with value "logtype:apache"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
     And I click the "RightIcon" button
+    And I wait for "EventOperate" will be visible
     And I click the "EventOperate" button
     And I click the "EventOperatorAutoTest" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I will see the input element "SearchInput" value will be "hostname:192.168.1.171"
+    Then I will see the input element "SearchInput" value will be "logtype:apache"
 
     Examples:
       | field   | action | inputName | url                  |
-      | logtype | 搜索     | Spl       | hostname:${hostname} |
+      | logtype | 搜索     | Spl       | logtype:${logtype} |
 
   Scenario Outline: 美化格式（RZY-1379，RZY-1388）
     And the data name is "{'column':'1','name':'AutoTest'}" then i click the "编辑" button
@@ -66,7 +68,7 @@ Feature: 事件操作编辑（RZY-1390）
     Then I will see the message "提交事件操作成功"
     And open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Given I set the parameter "SearchInput" with value "hostname:192.168.1.171"
+    Given I set the parameter "SearchInput" with value "logtype:apache"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -89,7 +91,7 @@ Feature: 事件操作编辑（RZY-1390）
     Then I will see the message "提交事件操作成功"
     And open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Given I set the parameter "SearchInput" with value "hostname:192.168.1.171"
+    Given I set the parameter "SearchInput" with value "logtype:apache"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button

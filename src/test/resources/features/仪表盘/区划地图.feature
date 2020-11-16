@@ -32,7 +32,7 @@ Feature: 仪表盘区划地图
 
     Examples:
       | spl                                                                                            | name    |
-      | tag:sample04061424* \| stats count() by apache.geo.country,apache.geo.province,apache.geo.city | 仪表盘区划地图 |
+      | tag:sample04061424 \| stats count() by apache.geo.country,apache.geo.province,apache.geo.city | 仪表盘区划地图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
@@ -88,11 +88,19 @@ Feature: 仪表盘区划地图
     And I choose the "apache.geo.country" from the "DataValue"
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
-    And I wait for "Progress" will be invisible
+    And I click the "Setting" button under some element
+#    Then I hide the element "SettingContent"
+#    And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "2000" millsecond
     And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/<name>"
+    And I wait for "3000" millsecond
+#    And I wait for "1000" millsecond
+#    Then I hide the element "SettingContent"
+#    And I wait for "Progress" will be invisible
+#    Then I will see the "dashboard.DetailPage" page
+#    And I click the "TrendTitle" button
+#    And take part of "FullScreen" with name "dashboard/<name>"
 #    Then I compare source image "dashboard/<name>" with target image "dashboard/<targetName>"
 
     Examples:

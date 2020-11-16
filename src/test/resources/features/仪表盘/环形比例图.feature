@@ -69,7 +69,7 @@ Feature: 仪表盘环形比例图
       | 仪表盘环形比例图 |
 
   @dashboard @dashboardSmoke
-  Scenario: 修改为环形比例图
+  Scenario: 修改为环形比例图 RZY-4388
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘环形比例图"
@@ -78,6 +78,7 @@ Feature: 仪表盘环形比例图
     And I wait for "500" millsecond
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
+    And I wait for "2000" millsecond
     And I wait for "Other" will be visible
     And I click the "Other" button under some element
     And I click the "Annular" button
@@ -97,10 +98,12 @@ Feature: 仪表盘环形比例图
     And I choose the "2" from the "DataPrecision"
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
+    And I click the "Setting" button under some element
+#    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/仪表盘环形比例图"
+    And I wait for "3000" millsecond
+#    And take part of "FullScreen" with name "dashboard/仪表盘环形比例图"
 #    Then I compare source image "dashboard/仪表盘环形比例图" with target image "dashboard/Annular"
 
   @dashboard @dashboardSmoke
@@ -128,8 +131,9 @@ Feature: 仪表盘环形比例图
     And I wait for "1000" millsecond
     Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/仪表盘环形比例图修改展示区间"
+    And I wait for "2000" millsecond
+    And I click the "TrendTitle" button under some element
+#    And take part of "FullScreen" with name "dashboard/仪表盘环形比例图修改展示区间"
 #    Then I compare source image "dashboard/仪表盘环形比例图修改展示区间" with target image "dashboard/AnnularChangeRange"
 
   @cleanDashboard

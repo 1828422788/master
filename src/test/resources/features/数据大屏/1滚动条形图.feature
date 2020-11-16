@@ -5,7 +5,7 @@ Feature: 数据大屏-g滚动条形图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 滚动条形图样式-搜索
+  Scenario: 滚动条形图样式-搜索 RZY-3715,RZY-3717
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -84,7 +84,7 @@ Feature: 数据大屏-g滚动条形图
 #      |滚动条形图样式-搜索    |
 ##################################无耻的分割线###############################
 
-  Scenario: 滚动条形图数据之静态数据
+  Scenario: 滚动条形图数据之静态数据 RZY-3655
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

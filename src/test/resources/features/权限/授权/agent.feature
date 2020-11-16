@@ -9,6 +9,8 @@ Feature: 权限-agent
     And I "unchecked" the checkbox which name is "全选" in trend page
     And I click the "Data" button
     And I "checked" the checkbox which name is "可查看 Agent 管理"
+    And I click the "Resource" button
+    And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
 
   Scenario: 验证无新建分组权限

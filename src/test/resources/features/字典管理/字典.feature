@@ -21,7 +21,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for "1000" millsecond
+    Then I refresh the website
+    And I wait for loading invisible
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
     Then I wait for loading invisible
     Then I will see the "TotalItem" result will be "<totalItem>"
@@ -47,7 +48,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for "1000" millsecond
+    Then I refresh the website
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "下载" button
 
     Examples:
@@ -67,7 +69,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for "1000" millsecond
+    Then I refresh the website
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     And I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
@@ -101,7 +104,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for "1000" millsecond
+    Then I refresh the website
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
@@ -135,7 +139,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for "1000" millsecond
+    Then I refresh the website
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
@@ -169,7 +174,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for "1000" millsecond
+    Then I refresh the website
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
@@ -193,7 +199,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for "1000" millsecond
+    Then I refresh the website
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
@@ -226,7 +233,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for "1000" millsecond
+    Then I refresh the website
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
     Then I wait for "PopUpWindow" will be visible
 #    Then I set the parameter "Tag" with value "tag"
@@ -255,7 +263,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for "1000" millsecond
+    Then I refresh the website
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
     Then I wait for "PopUpWindow" will be visible
     Then I click the "ClearIconOld" button
@@ -283,7 +292,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for "1000" millsecond
+    Then I refresh the website
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
     Then I wait for "PopUpWindow" will be visible
     And I choose the "<twoTag>" from the "TagList" in config
@@ -312,7 +322,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for "1000" millsecond
+    Then I refresh the website
+    And I wait for loading invisible
     And I choose the "<dictionaryNameWithOutCsv>" from the "ResourceDropdown" in config
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'0','name':'<dictionaryName>'}"
@@ -334,7 +345,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for "1000" millsecond
+    Then I refresh the website
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
     Then I wait for "PopUpWindow" will be visible
     Then I click the "ClearIconOld" button
@@ -362,7 +374,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for "1000" millsecond
+    Then I refresh the website
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
     And I wait for "PopUpWindow" will be visible
     And I wait for loading invisible
@@ -392,7 +405,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for "1000" millsecond
+    Then I refresh the website
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
     And I wait for "PopUpWindow" will be visible
     And I wait for "1500" millsecond
@@ -427,7 +441,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for "1000" millsecond
+    Then I refresh the website
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
     And I wait for "PopUpWindow" will be visible
     And I wait for loading invisible
@@ -440,6 +455,7 @@ Feature: 字典管理
     Then I click the "EnsureButton2" button
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
     Then I set the parameter "UserFilter" with value "<user>"
+    Then I wait for loading invisible
     Then I "unchecked" the label before "<user>" in the dictionary
     Then I click the "AuthCancelButton" button
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
@@ -462,7 +478,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for "1000" millsecond
+    Then I refresh the website
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
     And I wait for "PopUpWindow" will be visible
     And I wait for loading invisible
@@ -503,7 +520,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for "1000" millsecond
+    Then I refresh the website
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
     Then I set the parameter "UserFilter" with value "<user>"
     Then I wait for "2000" millsecond
@@ -541,7 +559,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for "1000" millsecond
+    Then I refresh the website
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
     Then I set the parameter "UserFilter" with value "<user>"
     Then I wait for "2000" millsecond
@@ -597,39 +616,3 @@ Feature: 字典管理
 #    Examples:
 #      | dictionaryName | user | customizeDate |
 #      | wymtest1.csv   | wym  | 23:59:59      |
-
-
-  Scenario Outline: RZY-4158删除字典
-
-    Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
-    Then I wait for loading invisible
-    Then I will see the "TotalItem" result will be "<totalItem>"
-    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "删除" button
-    Then I wait for "500" millsecond
-    Then I will see the success message "确认删除 [<dictionaryName>] ?"
-    Then I click the "EnsureButton" button
-    Then I wait for "2000" millsecond
-    Then I will see the success message "删除成功"
-    Then I click the "EnsureButton" button
-
-
-    Examples:
-      | dictionaryName                  | totalItem |
-      | wymtestcreate.csv               | 1         |
-      | wymtestdownload.csv             | 1         |
-      | wymtestchangetag.csv            | 1         |
-      | wymtestauthorizecancel.csv      | 1         |
-      | wymtestrevokeauthsave.csv       | 1         |
-      | wymtestrevokeauthexit.csv       | 1         |
-      | wymtestdifname.csv              | 1         |
-      | wymtestsamename.csv             | 1         |
-      | wymtestcanceledit.csv           | 1         |
-      | wymtestsaveedit.csv             | 1         |
-      | wymtestaddonetagatlistpage.csv  | 1         |
-      | wymtestchangetagatlistpage.csv  | 1         |
-      | wymtestaddmoretagatlistpage.csv | 1         |
-      | wymtestauthorizesave.csv        | 1         |
-      | wymtestcleartagatlistpage.csv   | 1         |
-      | wymtest.csv                     | 1         |
-      | wymtestcurrentdate.csv          | 1         |
-      | wymtestnextday.csv              | 1         |

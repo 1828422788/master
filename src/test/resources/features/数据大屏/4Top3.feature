@@ -5,7 +5,7 @@
 #      And I wait for "Dashboard" will be visible
 
 
-  Scenario: Top3样式-搜索
+  Scenario: Top3样式-搜索 RZY-3750,RZY-3751
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       And I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -36,7 +36,7 @@
      And I wait for "Top3numberTypefaceColor" will be visible
      And I set the parameter "Top3numberTypefaceColor" with value "#9FF50B"
      And I click the "EnsureColor" button
-     And I wait for "EnsureColor" will be invisible
+#     And I wait for "EnsureColor" will be invisible
      #数值字体粗细的设置
      And I choose the "bold" from the "Top3WordBold"
       #不显示单位
@@ -83,7 +83,7 @@
 
 #############################无耻的分割线################################
 
-    Scenario: Top3数据之静态数据      
+    Scenario: Top3数据之静态数据 RZY-3662
 
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button

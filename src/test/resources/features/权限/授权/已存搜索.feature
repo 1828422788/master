@@ -5,12 +5,12 @@ Feature: 权限-已存搜索
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "全选"
-    When I "checked" the checkbox which name is "可查看搜索页,可查看已存搜索"
+    When I "checked" the checkbox which name is "可查看搜索页"
+    And I click the "Resource" button
+    When I "checked" the checkbox which name is "可查看已存搜索"
+    And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 
@@ -25,16 +25,16 @@ Feature: 权限-已存搜索
     Given open the "splSearch.SearchPage" page for uri "/search/"
     Then I will see the "SavedSearch" doesn't exist
 
-  Scenario: 新建已存搜索
+  Scenario: 授权新建已存搜索
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I click the "Resource" button
     When I "checked" the checkbox which name is "新建已存搜索"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+  Scenario: 验证新建已存搜索
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -47,6 +47,7 @@ Feature: 权限-已存搜索
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for loading invisible
     Then I click the "{'TabButton':'已存搜索'}" button
     And I wait for loading invisible
@@ -54,6 +55,12 @@ Feature: 权限-已存搜索
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+    Examples:
+      | name           |
+      | AutoTestCreate |
+
+  Scenario Outline: 验证无读取权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "splSearch.SavedSearchPage" page for uri "/savedsearches/"
@@ -67,6 +74,7 @@ Feature: 权限-已存搜索
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'已存搜索'}" button
     And I wait for "Loading" will be invisible
@@ -75,6 +83,12 @@ Feature: 权限-已存搜索
     When I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+    Examples:
+      | name           |
+      | AutoTestCreate |
+
+  Scenario Outline: 验证读取
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "splSearch.SavedSearchPage" page for uri "/savedsearches/"
@@ -111,6 +125,7 @@ Feature: 权限-已存搜索
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'已存搜索'}" button
     And I wait for "Loading" will be invisible
@@ -118,6 +133,12 @@ Feature: 权限-已存搜索
     When I "unchecked" function "删除,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+    Examples:
+      | name           |
+      | AutoTestCreate |
+
+  Scenario Outline: 授权读取+编辑
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "splSearch.SavedSearchPage" page for uri "/savedsearches/"

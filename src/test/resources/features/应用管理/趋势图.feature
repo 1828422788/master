@@ -45,7 +45,7 @@ Feature: 应用趋势图
     And I click the "ResultDataset" button
     And I click the "Ensure" button
     And I click the "NextButton" button under some element
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     And I wait for "ImportSuccess" will be visible
     And I will see the element "ImportSuccess" name is "添加成功"
 
@@ -183,8 +183,6 @@ Feature: 应用趋势图
     And I wait for loading invisible
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "更新成功"
 
   Scenario Outline: 趋势图删除
     Given open the "app.ListPage" page for uri "/app/list/"

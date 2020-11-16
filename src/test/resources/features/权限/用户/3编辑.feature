@@ -11,7 +11,7 @@ Feature: 用户编辑（RZY-1554）
     And I set the parameter "FullName" with value "<FullName>"
     And I set the parameter "Email" with value "<Email>"
     And I set the parameter "Telephone" with value "<Telephone>"
-    And I click the "Save" button
+    And I let element "Telephone" lose focus
 
     Examples:
       | UserName        | FullName | Email                            | Telephone   |

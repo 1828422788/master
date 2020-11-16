@@ -34,7 +34,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "number")
     private List<WebElement> numberList;
 
-    @FindBy(xpath = "(//span[contains(text(),'查看')][not(@class)])[last()]")
+    @FindBy(xpath = "(//a[contains(text(),'查看')])[1]")
     private WebElement lookUpButton;
 
     @FindBy(className = "chart")
@@ -80,8 +80,6 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getLookUpButton() {
-        WebElement number = numberList.get(numberList.size() - 1);
-        number.click();
         return lookUpButton;
     }
 

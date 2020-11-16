@@ -1,5 +1,5 @@
 @galaxeeD0
-Feature: 数据大屏-所有控件删除
+Feature: 数据大屏-所有控件删除 RZY-1963
 
   Scenario Outline: 数据大屏-所有控件删除
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -40,6 +40,11 @@ Feature: 数据大屏-所有控件删除
       |滚动列表数据之静态数据 |
       |滚动列表数据之绑定搜索 |
 
+      |3D柱图-搜索   |
+      |3D柱图-静态数据 |
+
+      |日历图-搜索 |
+      |日历图-静态数据 |
 
       |滚动列表2样式-搜索    |
       |滚动列表2数据之静态数据 |

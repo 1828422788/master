@@ -5,7 +5,7 @@
 #      Given I will see the "PublicNavBarPage" page
 #      And I wait for "Dashboard" will be visible
 
-    Scenario: 攻击地图3DII之样式-搜索
+    Scenario: 攻击地图3DII之样式-搜索 RZY-1911,RZY-4348
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -33,7 +33,7 @@
       And I wait for "EventColor" will be visible
       And I set the parameter "EventColor" with value "#F2321D"
       And I click the "EnsureColor" button
-      And I wait for "EnsureColor" will be invisible
+#      And I wait for "EnsureColor" will be invisible
       #3 全局样式修改名成
       And I click the "globalStyle" button
       And I set the parameter "globalStyleName" with value "攻击地图3DII样式修改"
@@ -146,7 +146,7 @@
 
 ######################################无耻的分割线################################
 
-    Scenario: 攻击地图3DII之数据设置(数据源类型：绑定搜索)
+    Scenario: 攻击地图3DII之数据设置(数据源类型：绑定搜索) RZY-4135
 
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       And I click the "Create" button

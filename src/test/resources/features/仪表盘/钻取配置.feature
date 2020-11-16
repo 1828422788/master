@@ -64,7 +64,7 @@ Feature: 仪表盘钻取配置
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
   @dashboard @dashboardSmoke
-  Scenario: 开启钻取配置
+  Scenario: 开启钻取配置(RZY-4479)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
@@ -75,7 +75,7 @@ Feature: 仪表盘钻取配置
     And I wait for "500" millsecond
 
   @dashboard @dashboardSmoke
-  Scenario: 在当前页面跳转到搜索页-自动
+  Scenario: 在当前页面跳转到搜索页-自动 RZY-318
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
@@ -92,7 +92,7 @@ Feature: 仪表盘钻取配置
     Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 'apache.geo.province':江苏"
 
   @dashboard @dashboardSmoke
-  Scenario: 在新标签页跳转到搜索页-自动
+  Scenario: 在新标签页跳转到搜索页-自动 RZY-318
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
@@ -109,7 +109,7 @@ Feature: 仪表盘钻取配置
     Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 'apache.geo.province':江苏"
 
   @dashboard @dashboardSmoke
-  Scenario: 在当前页面跳转到搜索页-自定义
+  Scenario: 在当前页面跳转到搜索页-自定义 RZY-3439
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
@@ -119,7 +119,7 @@ Feature: 仪表盘钻取配置
     And I click the "DrillSetting" button
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
-    And I set the parameter "Spl" with value "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10"
+    And I set the parameter "Spl" with value "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10"
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
@@ -128,11 +128,11 @@ Feature: 仪表盘钻取配置
     And I click the "Jiangsu" button
     Then I wait for title change text to "搜索"
     And I will see the "splSearch.SearchPage" page
-    Then I will see the "SearchInput" result will be "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10"
+    Then I will see the "SearchInput" result will be "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10"
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard @dashboardSmoke
-  Scenario: 在新标签页跳转到搜索页-自定义
+  Scenario: 在新标签页跳转到搜索页-自定义 RZY-3439
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
@@ -142,7 +142,7 @@ Feature: 仪表盘钻取配置
     And I click the "DrillSetting" button
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
-    And I set the parameter "Spl" with value "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10"
+    And I set the parameter "Spl" with value "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10"
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
@@ -151,11 +151,11 @@ Feature: 仪表盘钻取配置
     And I click the "Jiangsu" button
     And switch to another window
     And I will see the "splSearch.SearchPage" page
-    Then I will see the "SearchInput" result will be "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10"
+    Then I will see the "SearchInput" result will be "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10"
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 在当前页面跳转到自定义URL
+  Scenario Outline: 在当前页面跳转到自定义URL RZY-319
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
@@ -177,7 +177,7 @@ Feature: 仪表盘钻取配置
       | /alerts/               | 监控        |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 在新标签跳转到自定义URL
+  Scenario Outline: 在新标签跳转到自定义URL RZY-319
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
@@ -283,11 +283,47 @@ Feature: 仪表盘钻取配置
     And I click the "ParamValue" button
     And I click the "ClickValue" button
     And I click the "Ensure" button
-    And I click the "Nanjing" button
+    And I click the "Nanjingshi" button
     And switch to another window
     And I close all tabs except main tab
     And I wait for "Progress" will be invisible
     Then I will see the element "GeoCity" attribute "Value" is "南京市"
+
+  @dashboard @dashboardSmoke
+  Scenario: 单引号和双引号包裹 RZY-1740
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试钻取配置"
+    Then I will see the "dashboard.DetailPage" page
+    When the chart title is "仪表盘钻取配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Configs" button
+    And I wait for loading invisible
+    And I set the parameter "Spl" with value "* AND NOT tag:${double_quotes|d} | stats count() by ${single_quotes|s}"
+    And I click the "Ensure" button
+    And I wait for "Progress" will be invisible
+    When I click the "AddEventButton" button
+    And I click the "AddInput" button
+    And I wait for loading invisible
+    And I set the parameter "FilterTitle" with value "single_quotes"
+    And I set the parameter "FilterToken" with value "single_quotes"
+    And I set the parameter "FilterDefaultValue" with value "appname"
+    Then I click the "Ensure" button
+    And I click the "AddEventButton" button
+    And I click the "AddInput" button
+    And I wait for loading invisible
+    And I set the parameter "FilterTitle" with value "double_quotes"
+    And I set the parameter "FilterToken" with value "double_quotes"
+    And I set the parameter "FilterDefaultValue" with value "sample04061424_display"
+    Then I click the "Ensure" button
+    And I wait for "Progress" will be invisible
+    And I set value with element "TableList"
+    When the chart title is "仪表盘钻取配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Configs" button
+    And I wait for loading invisible
+    And I set the parameter "Spl" with value "* AND NOT tag:"sample04061424_display" | stats count() by 'appname'"
+    And I click the "Ensure" button
+    And I wait for "Progress" will be invisible
+    Then I compare with list "TableList"
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘

@@ -34,7 +34,7 @@ Feature: 仪表盘热力地图
 
     Examples:
       | spl                                       | name    |
-      | tag:* \| stats count() by apache.geo.city | 仪表盘热力地图 |
+      | appname:apache \| stats count() by apache.geo.city | 仪表盘热力地图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
@@ -71,7 +71,7 @@ Feature: 仪表盘热力地图
       | 仪表盘热力地图 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 修改为热力地图
+  Scenario Outline: 修改为热力地图 RZY-313
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -103,7 +103,7 @@ Feature: 仪表盘热力地图
       | 仪表盘热力地图 | Heatmap    |
 
   @dashboard
-  Scenario Outline: 验证配置是否在高级编辑中体现
+  Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3758
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -113,12 +113,12 @@ Feature: 仪表盘热力地图
     Then I will see the "TextLayer" result will be "<json>"
 
     Examples:
-      | name    | json                                                                                                                                                                                                                                                                                                                                                                           |
-      | 仪表盘热力地图 | {\n  "title": "仪表盘热力地图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "tag:* \| stats count() by apache.geo.city",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "heatmap",\n    "field": "count()",\n    "category": "apache.geo.city"\n  }\n} |
+      | name        | json                                                                                                                                                                                                                                                                                                                                                                           |
+      | 仪表盘热力地图 | {\n  "title": "仪表盘热力地图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "appname:apache \| stats count() by apache.geo.city",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "heatmap",\n    "field": "count()",\n    "category": "apache.geo.city"\n  }\n} |
 
 
   @dashboard
-  Scenario: RZY-1362:修改field为空
+  Scenario: 修改field为空 RZY-3759
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘热力地图"
@@ -126,13 +126,13 @@ Feature: 仪表盘热力地图
     And I wait for "500" millsecond
     When the chart title is "仪表盘热力地图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{"title": "仪表盘热力地图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:* | stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "heatmap","field": "","category": "apache.geo.city"}}" to json editor
+    And I set the parameter "{"title": "仪表盘热力地图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "appname:apache | stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "heatmap","field": "","category": "apache.geo.city"}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     Then I wait for element "ErrorMessage" change text to "chart -> field 字段值不能为空"
 
   @dashboard
-  Scenario: RZY-1362:修改field为不存在
+  Scenario: 修改field为不存在 RZY-3759
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘热力地图"
@@ -140,7 +140,7 @@ Feature: 仪表盘热力地图
     And I wait for "500" millsecond
     When the chart title is "仪表盘热力地图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{"title": "仪表盘热力地图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:* | stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "heatmap","field": "qwertcount()","category": "apache.geo.city"}}" to json editor
+    And I set the parameter "{"title": "仪表盘热力地图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "appname:apache | stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "heatmap","field": "qwertcount()","category": "apache.geo.city"}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     Then I will see the success message "校验通过"
@@ -149,7 +149,7 @@ Feature: 仪表盘热力地图
     Then I wait for "NoData" will be visible
 
   @dashboard
-  Scenario: RZY-1362:修改field为'apache.clientip'
+  Scenario: 修改field为'apache.clientip' RZY-3759
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘热力地图"
@@ -157,7 +157,7 @@ Feature: 仪表盘热力地图
     And I wait for "500" millsecond
     When the chart title is "仪表盘热力地图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
-    Then I set the parameter "{"title": "仪表盘热力地图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:* | stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "heatmap","field": "apache.geo.city","category": ""}}" to json editor
+    Then I set the parameter "{"title": "仪表盘热力地图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "appname:apache | stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "heatmap","field": "apache.geo.city","category": ""}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     Then I will see the success message "校验通过"
@@ -166,7 +166,7 @@ Feature: 仪表盘热力地图
     Then I wait for "NoData" will be visible
 
   @dashboard
-  Scenario: RZY-1362:修改category为其他值
+  Scenario: 修改category为其他值 RZY-3760
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘热力地图"
@@ -174,7 +174,7 @@ Feature: 仪表盘热力地图
     And I wait for "500" millsecond
     When the chart title is "仪表盘热力地图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
-    Then I set the parameter "{"title": "仪表盘热力地图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:* | stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "heatmap","field": "count()","category": "qwerty"}}" to json editor
+    Then I set the parameter "{"title": "仪表盘热力地图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "appname:apache | stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "heatmap","field": "count()","category": "qwerty"}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     Then I will see the success message "校验通过"

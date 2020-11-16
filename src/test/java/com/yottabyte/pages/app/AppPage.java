@@ -110,6 +110,10 @@ public class AppPage extends PageTemplate {
         return this.getElementWithLinkName("路由");
     }
 
+    public WebElement getIndex() {
+        return this.getElementWithLinkName("索引");
+    }
+
     public WebElement getIngestpriority() {
         return this.getElementWithLinkName("入库优先级");
     }

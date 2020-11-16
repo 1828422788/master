@@ -6,7 +6,7 @@ Feature: 数据大屏-l滚动列表三
 #    And I wait for "Dashboard" will be visible
 
 
-  Scenario: 滚动列表3样式-搜索
+  Scenario: 滚动列表3样式-搜索 RZY-4823,RZY-4379
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -148,7 +148,7 @@ Feature: 数据大屏-l滚动列表三
 ##################################无耻的分割线###############################
 
 
-  Scenario: 滚动列表3数据之绑定搜索
+  Scenario: 滚动列表3数据之绑定搜索 RZY-4380
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

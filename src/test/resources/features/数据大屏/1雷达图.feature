@@ -5,7 +5,7 @@ Feature: 数据大屏-d雷达图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 雷达图样式-搜索
+  Scenario: 雷达图样式-搜索 RZY-3783,RZY-3784
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -35,7 +35,7 @@ Feature: 数据大屏-d雷达图
     And I wait for "radarColor" will be visible
     And I set the parameter "radarColor" with value "#EAEE0E"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #字体粗细
     And I choose the "bold" from the "RadarWordBold"
      #区域边框颜色
@@ -43,25 +43,25 @@ Feature: 数据大屏-d雷达图
     And I wait for "areaBorderColor" will be visible
     And I set the parameter "areaBorderColor" with value "#DB13ED"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
      #区域颜色
 #     And I click the "radarAreaColor" button
     And I wait for "radarAreaColor" will be visible
     And I set the parameter "radarAreaColor" with value "#A1A937"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #辐射线颜色
 #    And I click the "radarLineColor" button
     And I wait for "radarLineColor" will be visible
     And I set the parameter "radarLineColor" with value "#EE2415"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
      #分割线颜色
 #    And I click the "splitLineColor" button
     And I wait for "splitLineColor" will be visible
     And I set the parameter "splitLineColor" with value "#32CC49"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #雷达图占比大小
     And I set the parameter "proportionOfRadarChart" with value "80"
     #3 全局样式修改名称
@@ -105,7 +105,7 @@ Feature: 数据大屏-d雷达图
 #      |雷达图样式-搜索|
 
  ##################################无耻的分割线################################
-  Scenario: 雷达图数据之静态数据
+  Scenario: 雷达图数据之静态数据 RZY-3781
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

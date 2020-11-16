@@ -67,6 +67,10 @@ Feature: 应用新建（RZY-1899）
     And I set the parameter "Url" with value "/indexmatchrules/"
     And I click the "SaveMenuButton" button
     And I click the "AddMenuButton" button under some element
+    And I set the parameter "MenuName" with value "索引"
+    And I set the parameter "Url" with value "/indexsettings/"
+    And I click the "SaveMenuButton" button
+    And I click the "AddMenuButton" button under some element
     And I set the parameter "MenuName" with value "入库优先级"
     And I set the parameter "Url" with value "/ingestpriority/"
     And I click the "SaveMenuButton" button

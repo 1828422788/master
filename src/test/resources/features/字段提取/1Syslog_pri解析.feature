@@ -58,7 +58,7 @@ Feature: 字段提取Syslog_pri解析
 
     Examples:
       | appName         | log        | result                                                                                                 | result1                                                                                                                                    | searchResult                                                                                                    |
-      | wym_test_syslog | syslog.log | Object\npri:"30"\nraw_message:"<30>Oct 9 22:33:20 hlfedora auditd[1787]: The audit daemon is exiting." | Object\nfacility:"daemon"\npri:"30"\nseverity:"info"\nraw_message:"<30>Oct 9 22:33:20 hlfedora auditd[1787]: The audit daemon is exiting." | {'other.facility':'other.facility：daemon ','other.pri':'other.pri：30 ','other.severity':'other.severity：info '} |
+      | wym_test_syslog | syslog.log | Object\npri:"30"\nraw_message:"<30>Oct 9 22:33:20 hlfedora auditd[1787]: The audit daemon is exiting." | Object\nfacility:"daemon"\npri:"30"\nseverity:"info"\nraw_message:"<30>Oct 9 22:33:20 hlfedora auditd[1787]: The audit daemon is exiting." | {'other.facility':'other.facility: daemon ','other.pri':'other.pri: 30 ','other.severity':'other.severity: info '} |
 
 
   Scenario Outline: syslog_pri解析详情验证

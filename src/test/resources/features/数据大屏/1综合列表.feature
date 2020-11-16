@@ -5,7 +5,7 @@ Feature: 数据大屏-m综合列表
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 综合列表样式-搜索
+  Scenario: 综合列表样式-搜索 RZY-4832,RZY-4833
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -37,19 +37,19 @@ Feature: 数据大屏-m综合列表
     And I wait for "listTitleColor" will be visible
     And I set the parameter "listTitleColor" with value "#DEE119"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #数值颜色
 #    And I click the "numberColor" button
     And I wait for "ListNumberColor" will be visible
     And I set the parameter "ListNumberColor" with value "#58DA29"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #条颜色
 #    And I click the "aspectColor" button
     And I wait for "ListAspectColor" will be visible
     And I set the parameter "ListAspectColor" with value "#E047FF"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #缩略比例
     And I choose the "1" from the "abbRatio"
     #单位不显示
@@ -98,7 +98,7 @@ Feature: 数据大屏-m综合列表
 
 ######################################无耻的分割线################################
 
-  Scenario: 综合列表数据之静态数据
+  Scenario: 综合列表数据之静态数据 RZY-3661
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

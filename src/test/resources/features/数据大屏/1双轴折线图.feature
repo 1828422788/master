@@ -5,7 +5,7 @@ Feature: 数据大屏-b双轴折线图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 双轴折线图-X轴-布局-搜索
+  Scenario: 双轴折线图-X轴-布局-搜索 RZY-1905,RZY-2012,RZY-2013,RZY-2016,RZY-2017,RZY-2015
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -52,7 +52,8 @@ Feature: 数据大屏-b双轴折线图
     And I set the parameter "XaxisShift" with value "5"
     And I choose the "倾斜" from the "XaxisAngle"
      #显示分割线
-    And I switch the "XaxisSeparator" button to "enable"
+    And I click the "XaxisSeparator" button
+#    And I switch the "XaxisSeparator" button to "enable"
        #分割线的设置
     And I set the parameter "XDividingLineBold" with value "3"
 
@@ -110,6 +111,16 @@ Feature: 数据大屏-b双轴折线图
     And I set the parameter "LayoutLeft" with value "20"
     And I set the parameter "LayoutRight" with value "20"
 
+#数据系列
+    And I click the "DataSeries" button
+    And I wait for "FirstSeriesBold" will be visible
+    And I set the parameter "FirstSeriesBold" with value "5"
+    And I click the "Smooth" button
+    And I click the "Area" button
+    And I set the parameter "SecondSeriesBold" with value "5"
+    And I click the "SecondSmooth" button
+    And I click the "SecondArea" button
+
     And I wait for "Save" will be visible
     And I wait for "2000" millsecond
     And I click the "Save" button
@@ -117,28 +128,9 @@ Feature: 数据大屏-b双轴折线图
     Then I will see the success message "保存成功"
 
 
-#  Scenario Outline: 双轴折线图-XY轴-布局-搜索发布页截图
-#    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-#    And switch to window "<name>"
-#    And I close all tabs except main tab
-#    And I wait for "Loading" will be invisible
-#    And I wait for "1000" millsecond
-#    Then take a screenshot with name "galaxee/<name>"
-#    #删除
-#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-#    Then I click the "Ensure" button
-#
-#
-#
-#    Examples:
-#      | name |
-#      | 双轴折线图-XY轴-布局-搜索|
-
 ##################################无耻的分割线##############################
 
-  Scenario: 双轴折线图-静态数据
+  Scenario: 双轴折线图-静态数据 RZY-2014
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -196,22 +188,6 @@ Feature: 数据大屏-b双轴折线图
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
-
-#  Scenario Outline: 双轴折线图-静态数据发布并截图
-#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-#    And switch to window "<name>"
-#    And I close all tabs except main tab
-#    And I wait for loading invisible
-#    Then take a screenshot with name "galaxee/<name>"
-#    #删除
-#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-#    Then I click the "Ensure" button
-#
-#    Examples:
-#      |name            |
-#      |双轴折线图-静态数据|
 
 ##################################无耻的分割线###############################
 
@@ -273,20 +249,5 @@ Feature: 数据大屏-b双轴折线图
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
-#  Scenario Outline: 双轴折线图-绑定搜索发布并截图
-#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-#    And switch to window "<name>"
-#    And I close all tabs except main tab
-#    And I wait for loading invisible
-#    Then take a screenshot with name "galaxee/<name>"
-#    #删除
-#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-#    Then I click the "Ensure" button
-#
-#    Examples:
-#      |name       |
-#      |双轴折线图-绑定搜索|
 
 

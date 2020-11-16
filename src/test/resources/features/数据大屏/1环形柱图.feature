@@ -4,7 +4,7 @@ Feature: 数据大屏-p环形柱图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 环形柱图样式-搜索
+  Scenario: 环形柱图样式-搜索 RZY-3723,RZY-3724
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -38,24 +38,26 @@ Feature: 数据大屏-p环形柱图
     And I wait for "EnsureColor" will be invisible
   #文本字体粗细
     And I choose the "bolder" from the "TextWordBold"
+    And I set the parameter "ThresholdMin" with value "2"
+    And I set the parameter "CacheValue" with value "114"
   #环柱渐变色1
 #    And I click the "gradation1" button
     And I wait for "gradation1" will be visible
     And I set the parameter "gradation1" with value "#D931DC"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
   #环柱渐变色2
 #    And I click the "gradation2" button
     And I wait for "gradation2" will be visible
     And I set the parameter "gradation2" with value "#8CD927"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
   #环柱渐变色3
 #    And I click the "gradation3" button
     And I wait for "gradation3" will be visible
     And I set the parameter "gradation3" with value "#D75541"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #3 全局样式修改名成
     And I click the "globalStyle" button
     And I set the parameter "globalStyleName" with value "环形柱图样式修改"
@@ -99,7 +101,7 @@ Feature: 数据大屏-p环形柱图
 
 ##################################无耻的分割线###############################
 
-  Scenario: 环形柱图数据之静态数据
+  Scenario: 环形柱图数据之静态数据 RZY-3660
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

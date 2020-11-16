@@ -65,7 +65,7 @@ Feature: 字段提取正则片段解析
 
     Examples:
       | appName                 | log        | result                                                                                                                                                                                            | searchResult                           |
-      | wym_test_regexfragment1 | regex1.log | Object\nuser:"enable_15"\nraw_message:"2014-11-07 11:18:33 192.168.1.1 FW-LZQ-MGJZZS-ASA5505-01 %ASA-5-111010: User \'enable_15\', running \'CLI\' from IP 192.168.1.11, executed \'debug http\'" | {"other.user":"other.user：enable_15 "} |
+      | wym_test_regexfragment1 | regex1.log | Object\nuser:"enable_15"\nraw_message:"2014-11-07 11:18:33 192.168.1.1 FW-LZQ-MGJZZS-ASA5505-01 %ASA-5-111010: User \'enable_15\', running \'CLI\' from IP 192.168.1.11, executed \'debug http\'" | {"other.user":"other.user: enable_15 "} |
 
 
   Scenario Outline: RZY-2872:建立正则片段解析规则2
@@ -109,5 +109,5 @@ Feature: 字段提取正则片段解析
 
     Examples:
       | appName                 | log        | result                                                                                                                                                                                            | searchResult                           |
-      | wym_test_regexfragment2 | regex2.log | Object\nuser:"enable_15"\nraw_message:"2014-11-07 11:18:33 192.168.1.1 FW-LZQ-MGJZZS-ASA5505-01 %ASA-5-111010: User \'enable_15\', running \'CLI\' from IP 192.168.1.11, executed \'debug http\'" | {"other.user":"other.user：enable_15 "} |
+      | wym_test_regexfragment2 | regex2.log | Object\nuser:"enable_15"\nraw_message:"2014-11-07 11:18:33 192.168.1.1 FW-LZQ-MGJZZS-ASA5505-01 %ASA-5-111010: User \'enable_15\', running \'CLI\' from IP 192.168.1.11, executed \'debug http\'" | {"other.user":"other.user: enable_15 "} |
 

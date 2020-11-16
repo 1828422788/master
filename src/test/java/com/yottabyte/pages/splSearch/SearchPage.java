@@ -56,8 +56,37 @@ public class SearchPage extends ListPageFactory {
     @FindBy(className = "CodeMirror")
     private WebElement searchInput;
 
+    /**
+     * 已存搜索相关
+     */
+    @FindBy(xpath = "//span[text()='已存搜索']")
+    private WebElement savedSearch;
+
+    public WebElement getSavedSearch() {
+        return savedSearch;
+    }
+
+    public WebElement getEnsureCreateSavedSearch() {
+        return super.getButton("确 定");
+    }
+
     @FindBy(xpath = "//span[text()='已存搜索']")
     private WebElement openSavedSearchButton;
+
+    public WebElement getSavedSearchList() {
+        String xpath = "//span[text()='已存搜索']/i";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownList();
+    }
+
+    @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")
+    private WebElement savedSearchName;
+
+    public WebElement getSavedSearchName() {
+        return savedSearchName;
+    }
 
     @FindBy(xpath = "//div[@class='yw-search-form-el-input normal-input margin-left el-input']/input")
     private WebElement searchSavedList;
@@ -128,6 +157,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(tagName = "thead")
     private WebElement thead;
 
+<<<<<<< HEAD
     public WebElement getSavedSearch() {
         com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(openSavedSearchButton));
         openSavedSearchButton.click();
@@ -143,8 +173,24 @@ public class SearchPage extends ListPageFactory {
         return savedSearchName;
     }
 
+=======
+>>>>>>> V3.5
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div")
     private WebElement appIcon;
+
+    @FindBy(xpath = "//tbody/tr")
+    private List<WebElement> trList;
+
+    @FindBy(xpath = "//div[text()='统计']/span")
+    private WebElement countNum;
+
+    public WebElement getCountNum() {
+        return countNum;
+    }
+
+    public List<WebElement> getTrList() {
+        return trList;
+    }
 
     public WebElement getThead() {
         return thead;
@@ -482,6 +528,21 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//label[contains(text(),'最大行数')]/following-sibling::div//i")
     private WebElement maxLineDropdown;
 
+<<<<<<< HEAD
+=======
+    //@FindBy(xpath = "//button[@class='el-button yw-search-pages-download el-button--primary']/span")
+    //@FindBy(xpath = "//svg/use/svg[@id='icon-sousuoye_xiazai']::parent")
+    @FindBy(xpath = "//span[contains(text(),'事件列表')]/following-sibling::i[@class='anticon css-ifnfqv _1Csj3jD9igXHB0MQUflN8F']")
+    private WebElement downloadEvent;
+
+    @FindBy(xpath = "//div[contains(text(),'下载任务')]")
+    private WebElement downloadTipsText;
+
+    public WebElement getDownloadTipsText() {
+        return downloadTipsText;
+    }
+
+>>>>>>> V3.5
     @FindBy(xpath = "//div[@class='yw-search-info-content error-status']/span")
     private WebElement noDataInfo;
 
@@ -545,6 +606,9 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "(//li[text()='查看上下文sample'])[last()]")
     private WebElement contextSample;
+
+    @FindBy(xpath = "(//li[text()='测试应用条件'])[last()]")
+    private WebElement condition;
 
     @FindBy(xpath = "//span[text()='hostname']/following-sibling::pre")
     private WebElement clientip;
@@ -627,10 +691,16 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//label[text()='文件类型']/following-sibling::div")
     private WebElement fileType;
 
+    public WebElement getCondition() {
+        return condition;
+    }
+
     public SearchPage(WebDriver driver) {
         super(driver);
-        driver.manage().window().setPosition(new Point(0, 0));
-        driver.manage().window().setSize(new Dimension(1800, 970));
+        driver.manage().window().fullscreen();
+//        driver.manage().window().setSize(new Dimension(1800, 970));
+//        driver.manage().window().setPosition(new Point(0, 0));
+
     }
 
     public WebElement getDeleteApp() {
@@ -839,6 +909,13 @@ public class SearchPage extends ListPageFactory {
         return noDataInfo;
     }
 
+<<<<<<< HEAD
+=======
+    public WebElement getDownloadEvent() {
+        return downloadEvent;
+    }
+
+>>>>>>> V3.5
     public WebElement getMaxLineDropdown() {
         maxLineDropdown.click();
         return dropdownList.get(dropdownList.size() - 1);
@@ -857,6 +934,10 @@ public class SearchPage extends ListPageFactory {
         return webDriver.findElement(By.xpath(xpath));
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> V3.5
     public WebElement getDocumentTypeList() {
         String xpath = "//div/label[contains(text(),'文件类型')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
         WebElement element = webDriver.findElement(By.xpath(xpath));
@@ -920,10 +1001,6 @@ public class SearchPage extends ListPageFactory {
 
     public WebElement getEnsureCreateOfflineTask() {
         return ensureList.get(4);
-    }
-
-    public WebElement getEnsureCreateSavedSearch() {
-        return super.getButton("确 定");
     }
 
     @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::input")

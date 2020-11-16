@@ -32,7 +32,7 @@ Feature: 仪表盘矩阵热力图
 
     Examples:
       | spl                                                         | name     |
-      | tag:*display \| stats count() by apache.clientip \| limit 8 | 仪表盘矩阵热力图 |
+      | tag:sample04061424_display \| stats count() by apache.clientip \| limit 8 | 仪表盘矩阵热力图 |
 
   @dashboard
   Scenario Outline: 新建标签页
@@ -65,7 +65,7 @@ Feature: 仪表盘矩阵热力图
     And I click the "Ensure" button
 
   @dashboard
-  Scenario: 修改为矩阵热力图
+  Scenario: 修改为矩阵热力图 RZY-3403
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘矩阵热力图"

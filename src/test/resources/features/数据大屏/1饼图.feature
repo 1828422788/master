@@ -5,7 +5,7 @@ Feature: 数据大屏-n饼图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 饼图-样式搜索
+  Scenario: 饼图-样式搜索 RZY-1908,RZY-2032,RZY-2036,RZY-2033
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -25,10 +25,11 @@ Feature: 数据大屏-n饼图
     And I wait for "TagWordColor" will be visible
     And I set the parameter "TagWordColor" with value "#DFFE19"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     And I choose the "lighter" from the "TagBold"
     #半径
     And I click the "Radius" button
+    And I wait for "500" millsecond
     And I set the parameter "InnerRadius" with value "20%"
     And I wait for "OuterRadius" will be visible
     And I set the parameter "OuterRadius" with value "80%"

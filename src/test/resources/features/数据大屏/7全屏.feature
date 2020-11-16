@@ -4,7 +4,7 @@ Feature: 数据大屏-l全屏
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 全屏
+  Scenario: 全屏 RZY-1915
 
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
@@ -57,7 +57,7 @@ Feature: 数据大屏-l全屏
 #    Examples:
 #      |name            |
 #      | 全屏|
-  Scenario: 验证编辑界面发布
+  Scenario: 验证编辑界面发布 
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -98,7 +98,7 @@ Feature: 数据大屏-l全屏
     Then I will see the success message "保存成功"
     And I close all tabs except main tab
 
-  Scenario: 验证大屏共享
+  Scenario: 验证大屏共享 RZY-4616
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "全屏" then I click the "iconfont icon-bianji" edit button
     And switch to another window

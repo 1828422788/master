@@ -32,7 +32,7 @@ Feature: 仪表盘区间图
 
     Examples:
       | spl                                                                                                                        | name   |
-      | tag:*display \| bucket timestamp span=1h as ts \| stats count('apache.status') as 'count' by ts \| esma count timefield=ts | 仪表盘区间图 |
+      | tag:sample04061424_display \| bucket timestamp span=1h as ts \| stats count('apache.status') as 'count' by ts \| esma count timefield=ts | 仪表盘区间图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
@@ -69,7 +69,7 @@ Feature: 仪表盘区间图
       | 仪表盘区间图 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 修改为区间图
+  Scenario Outline: 修改为区间图 RZY-308
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -78,6 +78,7 @@ Feature: 仪表盘区间图
     And I wait for "500" millsecond
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
+    And I wait for "2000" millsecond
     And I wait for "Compound" will be visible
     And I click the "Compound" button
     And I click the "<targetName>" button
@@ -92,11 +93,14 @@ Feature: 仪表盘区间图
     And I choose the "lower95" from the "LowerLimit"
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
-    And I wait for "Progress" will be invisible
+    And I click the "Setting" button under some element
+#    Then I hide the element "SettingContent"
+#    And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
-    And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/<name>"
+    And I wait for "2000" millsecond
+    And I click the "TrendTitle" button under some element
+    And I wait for "3000" millsecond
+#    And take part of "FullScreen" with name "dashboard/<name>"
 #    Then I compare source image "dashboard/<name>" with target image "dashboard/<targetName>"
 
     Examples:
@@ -104,7 +108,7 @@ Feature: 仪表盘区间图
       | 仪表盘区间图 | Rangeline  |
 
   @dashboard
-  Scenario Outline: 验证配置是否在高级编辑中体现
+  Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3703
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -119,7 +123,7 @@ Feature: 仪表盘区间图
       | 仪表盘区间图 |  \n  "chart": {\n    "chartType": "rangeline",\n    "xAxis": {\n      "field": "ts"\n    },\n    "precision": "",\n    "yAxis": {\n      "field": "count",\n      "predictField": "_predict_count",\n      "anomalyField": ""\n    },\n    "boundary": {\n      "upperField": "upper95",\n      "lowerField": "lower95"\n    } |
 
   @dashboard
-  Scenario: RZY-1362:修改chartType为其他值
+  Scenario: 修改chartType为其他值 RZY-3704
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘区间图"
@@ -127,10 +131,28 @@ Feature: 仪表盘区间图
     And I wait for "500" millsecond
     When the chart title is "仪表盘区间图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{"title": "仪表盘区间图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | bucket timestamp span=1h as ts | stats count('apache.status') as 'count' by ts | esma count timefield=ts","startTime": "now/d","endTime": "now"},"chart": {"chartType": "qwertyuiop","xAxis": {"field": "ts"},"precision": "","yAxis": {"field": "count","predictField": "_predict_count","anomalyField": ""},"boundary": {"upperField": "upper95","lowerField": "lower95"}}}" to json editor
+    And I set the parameter "{"title": "仪表盘区间图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | bucket timestamp span=1h as ts | stats count('apache.status') as 'count' by ts | esma count timefield=ts","startTime": "now/d","endTime": "now"},"chart": {"chartType": "qwertyuiop","xAxis": {"field": "ts"},"precision": "","yAxis": {"field": "count","predictField": "_predict_count","anomalyField": ""},"boundary": {"upperField": "upper95","lowerField": "lower95"}}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     Then I wait for element "ErrorMessage" change text to "chart -> chartType 字段值不支持qwertyuiop"
+
+  @dashboard
+  Scenario: 修改yAxis:field为不存在 RZY-3706
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘区间图"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
+    When the chart title is "仪表盘区间图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{"title": "仪表盘区间图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | bucket timestamp span=1h as ts | stats count('apache.status') as 'count' by ts | esma count timefield=ts","startTime": "now/d","endTime": "now"},"chart": {"chartType": "rangeline","xAxis": {"field": "ts"},"precision": "","yAxis": {"field": "countqwerty","predictField": "","anomalyField": ""},"boundary": {"upperField": "upper95","lowerField": "lower95"}}}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    Then I will see the success message "校验通过"
+    And I click the "Ensure" button
+    Then I wait for element "SuccessMessage" change text to "配置成功"
+    And I wait for "2000" millsecond
+    Then I wait for "NoData" will be visible
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘

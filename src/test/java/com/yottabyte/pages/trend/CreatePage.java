@@ -166,6 +166,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "((//span[text()='展开信息'])[last()]/ancestor::div/following-sibling::div)[1]")
     private WebElement infoField;
 
+    @FindBy(xpath = "((//span[text()='列信息'])[last()]/ancestor::div/following-sibling::div)[1]")
+    private WebElement infoColumn;
+
     @FindBy(xpath = "(//span[text()='标签位置'])[last()]/ancestor::div/following-sibling::div")
     private WebElement labelLocation;
 
@@ -825,6 +828,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='字段值']/ancestor::div/following-sibling::div//i")
     private WebElement dataValue;
 
+    @FindBy(xpath = "(//span[text()='字段值'])[2]/parent::div/following-sibling::div//i")
+    private WebElement dataValue2;
+
     public WebElement getStatisticalChart() {
         return statisticalChart;
     }
@@ -872,6 +878,27 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//span[text()='类型'])[last()]/ancestor::div/following-sibling::div")
     private WebElement typeDropdown;
+
+    @FindBy(className = "_3YQ9T5DTgCrQ0NSzwkV6a5")
+    private WebElement searchStatus;
+
+    @FindBy(xpath = "//span[text()='dataset_1']")
+    private WebElement dataset_1;
+
+    @FindBy(xpath = "//span[text()='all_']")
+    private WebElement allResources;
+
+    public WebElement getDataset_1() {
+        return dataset_1;
+    }
+
+    public WebElement getAllResources() {
+        return allResources;
+    }
+
+    public WebElement getSearchStatus() {
+        return searchStatus;
+    }
 
     public WebElement getTypeDropdown() {
         typeDropdown.click();
@@ -1010,6 +1037,11 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getDataValue() {
         dataValue.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getDataValue2() {
+        dataValue2.click();
         return super.getLastDropdownList();
     }
 
@@ -1277,6 +1309,11 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getInfoField() {
         infoField.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getInfoColumn() {
+        infoColumn.click();
         return super.getLastDropdownList();
     }
 

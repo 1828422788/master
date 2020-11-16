@@ -32,7 +32,7 @@ Feature: 仪表盘条形图
 
     Examples:
       | spl                                                                          | name   |
-      | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | 仪表盘条形图 |
+      | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | 仪表盘条形图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
@@ -69,7 +69,7 @@ Feature: 仪表盘条形图
       | 仪表盘条形图 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 修改为条形图
+  Scenario Outline: 修改为条形图 RZY-300
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"

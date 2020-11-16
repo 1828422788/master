@@ -60,9 +60,6 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='新建用户']/preceding-sibling::span")
     private WebElement createUser;
 
-    @FindBy(xpath = "(//a[text()='仪表盘'])[last()]")
-    private WebElement dashboard;
-
     @FindBy(xpath = "(//a[text()='定时任务'])[last()]")
     private WebElement schedule;
 
@@ -78,8 +75,24 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(xpath = "(//a[text()='知识'])[last()]")
     private WebElement knowledge;
 
+    public WebElement getUserGroup() {
+        return this.getMenuButton("用户分组");
+    }
+
+    public WebElement getUserAndValidate() {
+        return this.getFunctionButton("用户与验证");
+    }
+
+    public WebElement getIndex() {
+        return this.getSubMenuButton("索引");
+    }
+
     public WebElement getAgent() {
         return this.getMenuButton("Agent 管理");
+    }
+
+    public WebElement getResourceAuth() {
+        return this.getFunctionButton("资源权限");
     }
 
     public WebElement getData() {
@@ -119,7 +132,7 @@ public class AuthorizationPage extends PageTemplate {
     }
 
     public WebElement getDashboard() {
-        return dashboard;
+        return this.getFunctionButton("仪表盘");
     }
 
     public WebElement getResourceName(String name) {
@@ -175,8 +188,8 @@ public class AuthorizationPage extends PageTemplate {
     }
 
     public WebElement getTabButton(String tabName) {
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loading));
-        return webDriver.findElement(By.xpath("//a[text()='" + tabName + "']"));
+        String xpath = "//div[text()='" + tabName + "']";
+        return webDriver.findElement(By.xpath(xpath));
     }
 
     public WebElement getCreateGroupButton(String value) {
@@ -232,6 +245,11 @@ public class AuthorizationPage extends PageTemplate {
 
     private WebElement getMenuButton(String menuName) {
         String xpath = "//p[text()='" + menuName + "']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    private WebElement getSubMenuButton(String name) {
+        String xpath = "//div[text()='" + name + "']";
         return webDriver.findElement(By.xpath(xpath));
     }
 

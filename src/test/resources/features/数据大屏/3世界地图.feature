@@ -5,7 +5,7 @@ Feature: 数据大屏-l世界地图
 #    And I wait for "Dashboard" will be visible
 
 
-  Scenario: 世界地图-样式搜索
+  Scenario: 世界地图-样式搜索 RZY-1970,RZY-1971
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

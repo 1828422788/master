@@ -58,7 +58,7 @@ Feature: 字段提取IP格式转换
 
     Examples:
       | appName      | log    | result                                            | result1                                               | searchResult                            |
-      | wym_test_ip | ip.log | Object\nip:"3651919938"\nraw_message:"3651919938" | Object\nip:"217.171.224.66"\nraw_message:"3651919938" | {'other.ip':'other.ip：217.171.224.66 '} |
+      | wym_test_ip | ip.log | Object\nip:"3651919938"\nraw_message:"3651919938" | Object\nip:"217.171.224.66"\nraw_message:"3651919938" | {'other.ip':'other.ip: 217.171.224.66 '} |
 
 
   Scenario Outline: 详情验证

@@ -1,6 +1,10 @@
 @dataset @dataseta @dataset1
 Feature: 数据集-a新建
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> V3.5
   @tc4082
   Scenario Outline: RZY-4082:新建数据集
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -32,7 +36,12 @@ Feature: 数据集-a新建
       | JNDTest | jnd   | *   |
 
 # # ################################## 插播几条查询的case，依赖与上一条case的新建
+<<<<<<< HEAD
   @tc4075
+=======
+
+ @tc4075
+>>>>>>> V3.5
   Scenario Outline: RZY-4075:按资源查询
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
@@ -74,17 +83,24 @@ Feature: 数据集-a新建
     And I set the parameter "Tag" with value "<Type>"
     And I choose the "<Type>" from the "TagDropdown"
     And I click the "Ensure" button
-#    Then I will see the success message "修改成功"
+   #Then I will see the success message "修改成功"
     And I wait for loading invisible
+<<<<<<< HEAD
 #    And I will see the data "{'column':'0','name':'JNDTest'}" values1 "{'column':'6','name':'1pre_package,auto_package'}" values2 "{'column':'6','name':'auto_package,1pre_package'}"
     And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'6','name':'1pre_package'}"
+=======
+    Then I will see the data "{'column':'0','name':'<name>'}" values "{'column':'6','name':'1pre_package'}"
+    #And I will see the data "{'column':'0','name':'JNDTest'}" values1 "{'column':'6','name':'1pre_package,auto_package'}" values2 "{'column':'6','name':'auto_package,1pre_package'}"
+
+>>>>>>> V3.5
 
     Examples:
       | name    | Type         |
       | JNDTest | 1pre_package |
 
  ####################插播完毕#######继续新建
-
+ 
+  @tc4086
   Scenario: 新建数据集失败-RZY-4086:3个提示
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
@@ -95,7 +111,7 @@ Feature: 数据集-a新建
     Then I will see the element "tipsAlias" name is "请输入别名"
     Then I will see the element "tipsYuJu" name is "请输入约束语句"
 
-
+  @tc4087
   Scenario: 新建数据集失败-RZY-4087:2个提示
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
@@ -106,6 +122,10 @@ Feature: 数据集-a新建
     Then I will see the element "tipsAlias" name is "请输入别名"
     Then I will see the element "tipsYuJu" name is "请输入约束语句"
 
+<<<<<<< HEAD
+=======
+  @tc4088
+>>>>>>> V3.5
   Scenario: 新建数据集失败-RZY-4088:1个提示
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button

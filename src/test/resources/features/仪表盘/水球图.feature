@@ -32,7 +32,7 @@ Feature: 仪表盘水球图
 
     Examples:
       | spl                                                          | name   |
-      | tag:*display \| stats count() by apache.clientip \| limit 10 | 仪表盘水球图 |
+      | tag:sample04061424_display \| stats count() by apache.clientip \| limit 10 | 仪表盘水球图 |
 
   @dashboard
   Scenario Outline: 新建标签页
@@ -69,7 +69,7 @@ Feature: 仪表盘水球图
       | 仪表盘水球图 |
 
   @dashboard
-  Scenario Outline: 修改为字符云图
+  Scenario Outline: 修改为水球图 RZY-311
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -101,7 +101,7 @@ Feature: 仪表盘水球图
       | 仪表盘水球图 |
 
   @dashboard
-  Scenario Outline: 验证配置是否在高级编辑中体现
+  Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3753
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -112,10 +112,10 @@ Feature: 仪表盘水球图
 
     Examples:
       | name   | json                                                                                                                                                                                                                                                                                                                                               |
-      | 仪表盘水球图 | {\n  "title": "仪表盘水球图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "tag:*display \| stats count() by apache.clientip \| limit 10",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "liquidfill",\n    "field": "count()",\n    "precision": ""\n  }\n} |
+      | 仪表盘水球图 | {\n  "title": "仪表盘水球图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "tag:sample04061424_display \| stats count() by apache.clientip \| limit 10",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "liquidfill",\n    "field": "count()",\n    "precision": ""\n  }\n} |
 
   @dashboard
-  Scenario: RZY-1362:修改field为空
+  Scenario: 修改field为空 RZY-1362
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘水球图"
@@ -123,13 +123,13 @@ Feature: 仪表盘水球图
     And I wait for "500" millsecond
     When the chart title is "仪表盘水球图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{"title": "仪表盘水球图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats count() by apache.clientip | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "liquidfill","field": "","precision": ""}}" to json editor
+    And I set the parameter "{"title": "仪表盘水球图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "liquidfill","field": "","precision": ""}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     Then I wait for element "ErrorMessage" change text to "chart -> field 字段值不能为空"
 
   @dashboard
-  Scenario: RZY-1362:修改field为不存在
+  Scenario: 修改field为不存在 RZY-1362
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘水球图"
@@ -137,7 +137,7 @@ Feature: 仪表盘水球图
     And I wait for "500" millsecond
     When the chart title is "仪表盘水球图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{"title": "仪表盘水球图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats count() by apache.clientip | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "liquidfill","field": "qwertycount()","precision": ""}}" to json editor
+    And I set the parameter "{"title": "仪表盘水球图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "liquidfill","field": "qwertycount()","precision": ""}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     Then I will see the success message "校验通过"
@@ -147,7 +147,7 @@ Feature: 仪表盘水球图
     Then I wait for "NoData" will be visible
 
   @dashboard
-  Scenario: RZY-1362:修改field为'apache.clientip'
+  Scenario: 修改field为'apache.clientip' RZY-1362
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘水球图"
@@ -155,7 +155,7 @@ Feature: 仪表盘水球图
     And I wait for "500" millsecond
     When the chart title is "仪表盘水球图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
-    Then I set the parameter "{"title": "仪表盘水球图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats count() by apache.clientip | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "liquidfill","field": "apache.clientip","precision": ""}}" to json editor
+    Then I set the parameter "{"title": "仪表盘水球图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "liquidfill","field": "apache.clientip","precision": ""}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     Then I will see the success message "校验通过"

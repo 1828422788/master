@@ -1,6 +1,7 @@
+@incident @newcru
 Feature: 事件管理-合并策略-11个
 
-  @incident @newcru1 @newcru
+  @cruxee @newcru1 @newcru
   Scenario Outline: 合并2组_高_字段统计_分组条件name_归并告警数量18条
     Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/policy/list/"
     And I click the "CreateCruxeePolicy" button
@@ -30,7 +31,7 @@ Feature: 事件管理-合并策略-11个
       | CruxeePolicyName    | SendPolicyName |
       | 合并2组_高_字段统计_分组条件name_归并告警数量18条  | 邮件_all_20分钟 |
 
-  @incident @newcru2 @newcru
+  @newcru2 @newcru
   Scenario Outline: 合并2组_高_事件_分组条件alertid_name包含停止或连续6小时
     Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/policy/list/"
     And I click the "CreateCruxeePolicy" button
@@ -212,3 +213,4 @@ Feature: 事件管理-合并策略-11个
       | 合并1组_低_连续统计_无分组_未收到新告警的时间1小时  |
       | 合并2组_高_事件_分组条件alertid_name包含停止或连续6小时  |
       | 合并2组_高_字段统计_分组条件name_归并告警数量18条         |
+      | 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则 |

@@ -25,7 +25,7 @@ Feature: 应用安装（RZY-1988）
     And I click the "ResultDataset" button
     And I click the "Ensure" button
     And I click the "NextButton" button under some element
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     And I wait for "ImportSuccess" will be visible
     And I will see the element "ImportSuccess" name is "添加成功"
 
@@ -109,7 +109,7 @@ Feature: 应用安装（RZY-1988）
     And I click the "ResultDataset" button
     And I click the "Ensure" button
     And I click the "NextButton" button under some element
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     And I wait for "ImportSuccess" will be visible
     And I wait for element "ImportSuccess" change text to "添加失败"
 
