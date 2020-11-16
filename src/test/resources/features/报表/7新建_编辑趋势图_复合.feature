@@ -78,38 +78,43 @@ Feature: 报表新建_编辑_复合
     And I click the "FirstLabel" button
     And I click the "AscendingOrder" button
     And I click the "Yaxis" button
-    And I click the "AddField" button
-    And I set the parameter "FieldValue" with value "max(apache.resp_len)"
-    And I choose the "面积图" from the "TypeChartField"
-    And I set the parameter "Unit" with value "面"
-    And I click the "Smooth" button
-    And I click the "ConnectEmptyData" button
     And I set the parameter "Min" with value "1"
     And I set the parameter "Max" with value "170000"
+    And I set the parameter "Unit" with value "面"
+    And I click the "AddConfigFields" button
+    And I set the parameter "FieldValue" with value "max(apache.resp_len)"
+    And I choose the "面积图" from the "TypeChartField"
+    And I click the "Smooth" button
+    And I click the "ConnectEmptyData" button
+    And I click the "AddColor" button
+    And I click the "Red" button
 
-    And I click the "AddField" button
-    And I drag the scroll bar to the element "FieldValue"
-    And I set the parameter "FieldValue" with value "min(apache.resp_len)"
-    And I choose the "柱状图" from the "TypeChartField"
+    And I click the "Yaxis2" button
     And I set the parameter "Unit" with value "柱"
     And I set the parameter "Min" with value "2"
     And I set the parameter "Max" with value ""
+    And I click the "AddConfigFields" button
+    And I set the parameter "FieldValue" with value "min(apache.resp_len)"
+    And I choose the "柱状图" from the "TypeChartField"
+    And I wait for "AddColor" will be visible
+    And I click the "AddColor" button
+    And I click the "Green" button
 
     And I click the "AddField" button
-    And I drag the scroll bar to the element "FieldValue"
-    And I set the parameter "FieldValue" with value "sum(apache.status)"
-    And I choose the "散点图" from the "TypeChartField"
+    And I click the "Yaxis3" button
     And I set the parameter "Unit" with value "散"
     And I set the parameter "Min" with value ""
     And I set the parameter "Max" with value "49000"
-    
+    And I click the "AddConfigFields" button
+    And I set the parameter "FieldValue" with value "sum(apache.status)"
+    And I choose the "散点图" from the "TypeChartField"
+    And I drag the scroll bar to the element "AddColor"
+    And I click the "AddColor" button
+    And I click the "Orange" button
+
     And I click the "Group" button
     And I click the "AddField" button
     And I set the parameter "FieldValue" with value "apache.status"
-
-    And I click the "Exhibition" button
-    And I click the "AddColor" button
-    And I click the "Red" button
     And I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 

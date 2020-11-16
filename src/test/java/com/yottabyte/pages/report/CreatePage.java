@@ -382,6 +382,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'Y轴')])[last()]")
     private WebElement yaxis;
 
+    @FindBy(xpath = "(//div[contains(text(),'Y轴 2')])[last()]")
+    private WebElement yaxis2;
+
+    @FindBy(xpath = "(//div[contains(text(),'Y轴 3')])[last()]")
+    private WebElement yaxis3;
+
     @FindBy(xpath = "(//div[contains(text(),'X轴')])[last()]")
     private WebElement xaxis;
 
@@ -448,7 +454,7 @@ public class CreatePage extends PageTemplate {
 //-----------------------------------------------
 //Inputs ----------------------------------------
 
-    @FindBy(xpath = "(//span[text()='单位'])[last()]/ancestor::div/following-sibling::input")
+    @FindBy(xpath = "(//span[contains(text(),'单位')])[last()]/ancestor::div/following-sibling::input")
     private WebElement unit;
 
     @FindBy(xpath = "//span[text()='图标名称']/ancestor::div/following-sibling::div[1]//input")
@@ -493,10 +499,10 @@ public class CreatePage extends PageTemplate {
 //------------------------------------------------
 //Dropdown Fields---------------------------------
 
-    @FindBy(xpath = "(//span[text()='字段值'])[last()]/ancestor::div/following-sibling::input")
+    @FindBy(xpath = "(//span[contains(text(),'字段值')])[last()]/ancestor::div/following-sibling::input")
     private WebElement fieldValue;
 
-    @FindBy(xpath = "(//span[text()='类型'])[last()]/ancestor::div/following-sibling::div[1]")
+    @FindBy(xpath = "(//span[contains(text(),'类型')])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement typeChartField;
 
     @FindBy(xpath = "(//span[text()='数值字段'][last()])/ancestor::div/following-sibling::input")
@@ -589,10 +595,10 @@ public class CreatePage extends PageTemplate {
 //---------------------------------
 //Switches ------------------------
 
-    @FindBy(xpath = "(//span[text()='平滑'])[last()]/ancestor::div/following-sibling::button")
+    @FindBy(xpath = "(//span[contains(text(),'平滑')])[last()]/ancestor::div/following-sibling::button")
     private WebElement smooth;
 
-    @FindBy(xpath = "(//span[text()='连接空数据'])[last()]/ancestor::div/following-sibling::button")
+    @FindBy(xpath = "(//span[contains(text(),'连接空数据')])[last()]/ancestor::div/following-sibling::button")
     private WebElement connectEmptyData;
 
     @FindBy(xpath = "//span[text()='堆叠']/ancestor::div/following-sibling::button")
@@ -692,8 +698,11 @@ public class CreatePage extends PageTemplate {
 //---------------------------------
 // text - button ------------------
 
-    @FindBy(xpath = "(//p[text()='+ 添加'])[last()]")
+    @FindBy(xpath = "(//p[text()='+ 添加'])[last()] | (//i[contains(@class,'anticon-plus')])")
     private WebElement addField;
+
+    @FindBy(xpath = "(//p[text()='添加字段配置'])[last()]")
+    private WebElement addConfigFields;
 
     @FindBy(xpath = "//div[contains(text(),'添加颜色区间')]")
     private WebElement addRange;
@@ -1504,6 +1513,14 @@ public class CreatePage extends PageTemplate {
         return yaxis;
     }
 
+    public WebElement getYaxis2() {
+        return yaxis2;
+    }
+
+    public WebElement getYaxis3() {
+        return yaxis3;
+    }
+
     public WebElement getXaxis() {
         return xaxis;
     }
@@ -1578,6 +1595,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getAddField() {
         return addField;
+    }
+
+    public WebElement getAddConfigFields() {
+        return addConfigFields;
     }
 
     public WebElement getDivide() {
