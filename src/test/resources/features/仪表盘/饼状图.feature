@@ -185,7 +185,7 @@ Feature: 仪表盘饼状图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "DimensionChart" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | field         | byField               |   image                 |
