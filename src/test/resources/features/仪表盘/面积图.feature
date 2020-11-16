@@ -32,7 +32,7 @@ Feature: 仪表盘面积图
 
     Examples:
       | spl                                                                                                                    | name   |
-      | tag:*display \| bucket timestamp span=30m as ts \| stats count() as cnt by apache.status,ts \| sort by cnt \| limit 20 | 仪表盘面积图 |
+      | tag:sample04061424_display \| bucket timestamp span=30m as ts \| stats count() as cnt by apache.status,ts \| sort by cnt \| limit 20 | 仪表盘面积图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页

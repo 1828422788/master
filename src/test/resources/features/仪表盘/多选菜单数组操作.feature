@@ -51,7 +51,7 @@ Feature: 仪表盘多选菜单数组操作
 
     Examples:
       | name                | spl                                   |
-      | 仪表盘多选菜单数组     | tag:sample04061425_chart \|stats count() by 'apache.geo.city'  |
+      | 仪表盘多选菜单数组     | tag:sample04061424_chart \|stats count() by 'apache.geo.city'  |
 
   @dashboard @dashboardSmoke
   Scenario: 添加下拉多选输入项与趋势图

@@ -32,7 +32,7 @@ Feature: 仪表盘旭日图
 
     Examples:
       | spl                                                                          | name   |
-      | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | 仪表盘旭日图 |
+      | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | 仪表盘旭日图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页

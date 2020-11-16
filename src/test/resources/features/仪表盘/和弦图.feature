@@ -141,7 +141,7 @@ Feature: 仪表盘和弦图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "ChordChart" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | chartType |   image                |
@@ -167,7 +167,7 @@ Feature: 仪表盘和弦图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "ChordChart" with name "actual/和弦图_fromField_toField"
-#    And I compare source image "actual/和弦图_fromField_toField" with target image "expect/和弦图_fromField_toField"
+    And I compare source image "actual/和弦图_fromField_toField" with target image "expect/和弦图_fromField_toField"
 
   @dashboard @dashboardSmoke
   Scenario: weightField字段修改为不存在的值 RZY-3701
@@ -187,7 +187,7 @@ Feature: 仪表盘和弦图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "ChordChart" with name "actual/和弦图_weightField"
-#    And I compare source image "actual/和弦图_weightField" with target image "expect/和弦图_weightField"
+    And I compare source image "actual/和弦图_weightField" with target image "expect/和弦图_weightField"
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘

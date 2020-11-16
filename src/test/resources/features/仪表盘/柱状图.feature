@@ -33,7 +33,7 @@ Feature: 仪表盘柱状图
 
     Examples:
       | spl                                                              | name   |
-      | tag:*display \| stats count() by apache.clientip,apache.resp_len | 仪表盘柱状图 |
+      | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len | 仪表盘柱状图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
@@ -122,7 +122,7 @@ Feature: 仪表盘柱状图
     When the chart title is "仪表盘柱状图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10"
+    And I set the parameter "Spl" with value "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10"
     And I click the "Ensure" button
     And I wait for "500" millsecond
     Then I will see the success message "配置成功"
