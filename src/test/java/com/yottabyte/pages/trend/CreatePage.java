@@ -242,10 +242,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//th[last()]/i")
     private WebElement pencil;
 
-    @FindBy(xpath = "//div[text()='表格颜色设置']/ancestor::div[2]")
+    @FindBy(xpath = "//div[text()='表格样式设置']/ancestor::div[2]")
     private WebElement colorPanel;
 
-    @FindBy(xpath = "//label[text()='color']/following-sibling::div")
+    @FindBy(xpath = "//label[contains(text(),'表格颜色')]/following-sibling::div")
     private WebElement colorType;
 
     @FindBy(xpath = "//div[text()='Select']/following-sibling::div")
@@ -277,10 +277,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@value='max']/ancestor::div/preceding-sibling::div[1]/input")
     private WebElement intervalInput;
 
-    @FindBy(xpath="(//span[@class='css-j4ndc3'])[last()]/ancestor::div[1]")
+    @FindBy(xpath="(//span[@class='css-trkpwz'])[last()-1]/ancestor::div[1]")
     private WebElement changeColor;
 
-    @FindBy(xpath="(//div[text()='Hex'])[last()]/preceding-sibling::input")
+    @FindBy(xpath="(//div[text()='Hex'])[last()-1]/preceding-sibling::input")
     private WebElement colorCode;
 
     @FindBy(xpath = "//input[@value='min']/ancestor::label/following-sibling::i")
