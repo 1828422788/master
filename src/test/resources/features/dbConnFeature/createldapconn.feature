@@ -5,7 +5,6 @@ Feature: 新建ldap连接配置
     Given open the "dbConnection.LdapConnListPage" page for uri "/ldapconnection/"
     And I click the "CreateLdapConn" button
 
-#    And open the "dbConnection.LdapConnCreatePage" page for uri "/ldapconnection/new/"
     And I wait for loading complete
     And I wait for "2000" millsecond
 
