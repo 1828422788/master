@@ -180,7 +180,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//tbody")
     private WebElement BackUpTable;
 
-    @FindBy(xpath = "//div[text()='输出配置']/following-sibling::div//tbody//tr//span")
+    @FindBy(xpath = "//div[text()='输出配置']")
     private WebElement OutputEdit;
 
     public WebElement getOutputEdit() {
@@ -315,6 +315,13 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//button[@id='ConfigModify_compressed']")
     private WebElement Compressed;
+
+    public WebElement getEdit() {
+        return Edit;
+    }
+
+    @FindBy(xpath = "//span[text()='编 辑']//ancestor::button")
+    private WebElement Edit;
 
     public WebElement getDataSourceSwitchStatus() {
         return getSwitchStatus("autohekafiletest");
@@ -578,19 +585,19 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='ant-modal-title']")
     private WebElement AgentConfigurationTitle;
 
-    @FindBy(xpath = "(//div[text()='输出配置']/following-sibling::div//tbody/tr/td)[1]")
+    @FindBy(xpath = "//span[text()='压缩：']/following-sibling::span")
     private WebElement CompressStatus;
 
     public WebElement getCompressStatus() {
         return CompressStatus;
     }
-    @FindBy(xpath = "(//div[text()='输出配置']/following-sibling::div//tbody/tr/td)[2]")
+    @FindBy(xpath = "//span[text()='发送速率限制：']/following-sibling::span")
     private WebElement SendSpeedStatus;
 
     public WebElement getSendSpeedStatus() {
         return SendSpeedStatus;
     }
-    @FindBy(xpath = "(//div[text()='输出配置']/following-sibling::div//tbody/tr/td)[3]")
+    @FindBy(xpath = "//span[text()='单行日志最大长度：']/following-sibling::span")
     private WebElement LogLengthStatus;
 
     public WebElement getLogLengthStatus() {
@@ -612,8 +619,9 @@ public class CreatePage extends PageTemplate {
         return this.getContainsInputElement("名称");
     }
 
+
     public WebElement getCreate() {
-        return super.getButton("添加");
+        return webDriver.findElement(By.xpath("//span[text()='添加数据']//ancestor::button"));
     }
 
     public WebElement getCleanOutput() {
@@ -942,11 +950,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSwitchStatus(String name) {
-        return webDriver.findElement(By.xpath("//td[text()='" + name +"']/following-sibling::td//span[@class='_3c6He8Je7GGUAtVZrEV7Nd']"));
+        return webDriver.findElement(By.xpath("//td[text()='" + name +"']/preceding-sibling::td//span[@class='_3c6He8Je7GGUAtVZrEV7Nd']"));
     }
 
     public WebElement getBackUpSwitchStatus(String name) {
-        return webDriver.findElement(By.xpath("//label[@title='" + name + "']/parent::div/following-sibling::div//span[@class='ant-form-item-children']"));
+        return webDriver.findElement(By.xpath("//label[@title='" + name + "']/parent::div/preceding-sibling::div//span[@class='ant-form-item-children']"));
     }
 
 

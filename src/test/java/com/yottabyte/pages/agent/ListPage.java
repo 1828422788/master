@@ -128,6 +128,10 @@ public class ListPage extends ListPageFactory {
         return super.getButton("批量操作");
     }
 
+    public WebElement getAgentMultiCHooseButton(){
+        return super.getButton("请选择");
+    }
+
     public WebElement getAllButton() {
         return AllButton;
     }
