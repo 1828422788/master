@@ -128,8 +128,9 @@ Feature: 仪表盘关联搜索
     And I set the parameter "<json>" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    Then I will see the success message "校验通过"
-    Then I click the "Ensure" button
+    And I wait for "1000" millsecond
+#    Then I will see the success message "校验通过"
+    Then I click the "Ensure" button under some element
 
     Examples:
       | name       | json                                                                                                                                                                                                                                                                                                                                                                                                                                                             |

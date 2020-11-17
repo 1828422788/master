@@ -29,7 +29,7 @@ Feature: Agent分组采集
     And  I wait for loading invisible
     And I click the "GroupButton" button
     Then I will see the element "GroupMemo" name is "<message>"
-    And I click the "FinishButton" button
+    And I click the "FinishGroupButton" button
 
 #  @indexSettingSmoke
     Examples: 成功

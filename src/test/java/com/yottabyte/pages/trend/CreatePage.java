@@ -828,7 +828,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "ant-popover-inner-content")
     private WebElement content;
 
-    @FindBy(xpath = "(//label[text()='今天']/following-sibling::i)[2]")
+    @FindBy(xpath = "(//label[text()='实时now/天']/following-sibling::i)[2]")
     private WebElement setting;
 
     @FindBy(xpath = "//span[text()='数值字段']/ancestor::div/following-sibling::div//i")

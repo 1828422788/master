@@ -311,7 +311,7 @@ Feature: 仪表盘高级编辑
     Then I wait for title change text to "搜索"
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424 | where apache.status<400 && apache.status>200 | stats count() as cnt"
-    Then I will see the input element "TimeRange" value will contains "昨天"
+    Then I will see the input element "TimeRange" value will contains "-1d/d,now/d"
 
   @dashboard @dashboardSmoke
   Scenario Outline: 高级搜索钻取修改校验query,timeRange RZY-1492,RZY-1493

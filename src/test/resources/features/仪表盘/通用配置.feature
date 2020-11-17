@@ -83,7 +83,7 @@ Feature: 仪表盘通用配置
     And I close all tabs except main tab
     Then I will see the "splSearch.SearchPage" page
     Then I will see the element "SearchInput" name is "tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 | stats count() by apache.geo.city"
-    Then I will see the input element "TimeRange" value will contains "昨天"
+    Then I will see the input element "TimeRange" value will contains "-1d/d,now/d"
 
   @dashboard @dashboardSmoke
   Scenario: 修改图表描述 RZY-295

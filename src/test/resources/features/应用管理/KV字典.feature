@@ -16,6 +16,7 @@ Feature: 应用KV字典
     And I set the parameter "MenuName" with value "搜索"
     And I set the parameter "Url" with value "/search/"
     And I click the "SaveMenuButton" button
+    And I wait for "AddMenuButton" will be visible
     And I click the "AddMenuButton" button under some element
     And I set the parameter "MenuName" with value "仪表盘"
     And I set the parameter "Url" with value "/dashboard/"

@@ -129,7 +129,7 @@ Feature: 仪表盘钻取配置
     Then I wait for title change text to "搜索"
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10"
-    Then I will see the input element "TimeRange" value will contains "今天"
+    Then I will see the input element "TimeRange" value will contains "now/d,now"
 
   @dashboard @dashboardSmoke
   Scenario: 在新标签页跳转到搜索页-自定义 RZY-3439
@@ -152,7 +152,7 @@ Feature: 仪表盘钻取配置
     And switch to another window
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10"
-    Then I will see the input element "TimeRange" value will contains "今天"
+    Then I will see the input element "TimeRange" value will contains "now/d,now"
 
   @dashboard @dashboardSmoke
   Scenario Outline: 在当前页面跳转到自定义URL RZY-319

@@ -4,15 +4,17 @@ Feature: Agent分组设置
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
     And I wait for loading invisible
-    And I close all tabs except main tab
-    And I click the "More" button
-    And I click the "AgentGroupButton" button
-    And switch to another window
-    And I close all tabs except main tab
-    And I will see the "agent.GroupPage" page
-    And I wait for loading invisible
+#    When I click the detail which column is "0" in agent page
+#    And I close all tabs except main tab
+#    And I click the "More" button
+#    And I click the "AgentGroupButton" button
+#    And switch to another window
+#    And I close all tabs except main tab
+#    And I will see the "agent.GroupPage" page
+#    And I wait for loading invisible
 
   Scenario Outline: 新建Agent分组设置成功
+    Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
     And I click the "CreateAgentGroupButton" button
     And I set the parameter "Name" with value "<name>"
     When I set the parameter "Description" with value "<description>"
@@ -29,6 +31,7 @@ Feature: Agent分组设置
       | sunxc_test |             | __admin__ |
 
   Scenario: Agent分组重名新建失败
+    Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
     And I click the "CreateAgentGroupButton" button
     And I set the parameter "Name" with value "sunxctest"
     And I choose the "__admin__" from the "Role"
@@ -36,6 +39,7 @@ Feature: Agent分组设置
     Then I will see the message "操作失败，原因：1062-Duplicate entry '1-sunxctest' for key 'domain_id_name'"
 
   Scenario: Agent分组未填写名称新建失败
+    Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
     And I click the "CreateAgentGroupButton" button
     And I choose the "__admin__" from the "Role"
     And I click the "Save" button
@@ -48,13 +52,13 @@ Feature: Agent分组设置
 #    Then I will see the element "searchRole" name is "请选择角色"
 
   Scenario Outline: Agent分组添加和跳转
-    And I click the "Back" button
     And I will see the "agent.ListPage" page
+    And I click the "AgentMultiButton" button
     Then the column is "1" then i click the "分组" button in agent page
     And  I wait for loading invisible
     And I click the "GroupButton" button
     Then I will see the element "GroupMemo" name is "<message>"
-    And I click the "FinishButton" button
+    And I click the "FinishGroupButton" button
     And I click the "OpenGroupButton" button
     And I wait for loading invisible
     And I wait for loading complete
@@ -65,7 +69,6 @@ Feature: Agent分组设置
       | 成功加入分组 [ sunxctest ] |
 
   Scenario Outline: Agent从分组设置页面跳转
-    And I click the "Back" button
     And I will see the "agent.ListPage" page
     And I click the "OpenGroupButton" button
     And I click the "More" button
@@ -79,13 +82,13 @@ Feature: Agent分组设置
       | 成功加入分组 [ sunxctest ] |
 
   Scenario Outline: Agent移出分组
-    And I click the "Back" button
     And I will see the "agent.ListPage" page
+    And I click the "AgentMultiButton" button
     Then the column is "1" then i click the "分组" button in agent page
     And  I wait for loading invisible
     And I click the "MoveGroupButton" button
     Then I will see the element "GroupMemo" name is "<message>"
-    And I click the "FinishButton" button
+    And I click the "FinishGroupButton" button
 
     Examples:
       | message              |
@@ -93,14 +96,13 @@ Feature: Agent分组设置
 
 
   Scenario Outline: Agent批量操作加入分组
-    And I click the "Back" button
-    And I will see the "agent.ListPage" page
-    When the column is "1" then i "checked" the agent label in agent page
     And I click the "AgentMultiButton" button
+    When the column is "1" then i "checked" the agent label in agent page
+    And I click the "AgentMultiCHooseButton" button
     And I click the "MultiGruopButton" button
     And I click the "GroupButton" button
     Then I will see the element "GroupMemo" name is "<message>"
-    And I click the "FinishButton" button
+    And I click the "FinishGroupButton" button
     And I click the "OpenGroupButton" button
     Then I will see the agent search result contains "1"
 
@@ -109,21 +111,20 @@ Feature: Agent分组设置
       | 成功加入分组 [ sunxctest ] |
 
   Scenario Outline: Agent批量操作移出分组
-    And I click the "Back" button
-    And I will see the "agent.ListPage" page
-    When the column is "1" then i "checked" the agent label in agent page
     And I click the "AgentMultiButton" button
+    When the column is "1" then i "checked" the agent label in agent page
+    And I click the "AgentMultiCHooseButton" button
     And I click the "MultiGruopButton" button
     And I click the "MoveGroupButton" button
     Then I will see the element "GroupMemo" name is "<message>"
-    And I click the "FinishButton" button
+    And I click the "FinishGroupButton" button
 
     Examples:
       | message              |
       | 成功移出分组 [ sunxctest ] |
 
   Scenario Outline: 编辑Agent资源分组
-    And I click the "OpenGroupButton" button
+    Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
     And I set the parameter "Name" with value "<name>"
     When I set the parameter "Description" with value "<description>"
     And I click the "Update" button
@@ -139,6 +140,7 @@ Feature: Agent分组设置
 
 
   Scenario Outline: 删除Agent分组
+    Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
     And I click the "<name>" button
     And I click the "More" button
     And I click the "Delete" button
