@@ -1,4 +1,4 @@
-@v32tc @clean @cleanalerts
+@v32tc @clean @cleanalert
 Feature: 监控删除
 
   @delalerts

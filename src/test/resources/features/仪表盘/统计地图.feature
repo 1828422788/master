@@ -96,7 +96,10 @@ Feature: 仪表盘统计地图
     And I click the "Geostatsmap" button
     And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
+<<<<<<< HEAD
     And I wait for "1000" millsecond
+=======
+>>>>>>> V3.5
     And I wait for "TrendTitle" will be visible
     And I click the "TrendTitle" button under some element
     And I wait for "3000" millsecond

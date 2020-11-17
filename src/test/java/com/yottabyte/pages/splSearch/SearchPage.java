@@ -56,8 +56,37 @@ public class SearchPage extends ListPageFactory {
     @FindBy(className = "CodeMirror")
     private WebElement searchInput;
 
+    /**
+     * 已存搜索相关
+     */
+    @FindBy(xpath = "//span[text()='已存搜索']")
+    private WebElement savedSearch;
+
+    public WebElement getSavedSearch() {
+        return savedSearch;
+    }
+
+    public WebElement getEnsureCreateSavedSearch() {
+        return super.getButton("确 定");
+    }
+
     @FindBy(xpath = "//span[text()='已存搜索']")
     private WebElement openSavedSearchButton;
+
+    public WebElement getSavedSearchList() {
+        String xpath = "//span[text()='已存搜索']/i";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownList();
+    }
+
+    @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")
+    private WebElement savedSearchName;
+
+    public WebElement getSavedSearchName() {
+        return savedSearchName;
+    }
 
     @FindBy(xpath = "//div[@class='yw-search-form-el-input normal-input margin-left el-input']/input")
     private WebElement searchSavedList;
@@ -127,9 +156,6 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(tagName = "thead")
     private WebElement thead;
-
-    @FindBy(xpath = "//span[text()='已存搜索']")
-    private WebElement savedSearch;
 
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div")
     private WebElement appIcon;
@@ -491,7 +517,10 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//div[contains(text(),'下载任务')]")
     private WebElement downloadTipsText;
-    public WebElement getDownloadTipsText(){return downloadTipsText;}
+
+    public WebElement getDownloadTipsText() {
+        return downloadTipsText;
+    }
 
     @FindBy(xpath = "//div[@class='yw-search-info-content error-status']/span")
     private WebElement noDataInfo;
@@ -859,10 +888,6 @@ public class SearchPage extends ListPageFactory {
         return noDataInfo;
     }
 
-    public WebElement getSavedSearch() {
-        return savedSearch;
-    }
-
     public WebElement getDownloadEvent() {
         return downloadEvent;
     }
@@ -945,10 +970,6 @@ public class SearchPage extends ListPageFactory {
 
     public WebElement getEnsureCreateOfflineTask() {
         return ensureList.get(4);
-    }
-
-    public WebElement getEnsureCreateSavedSearch() {
-        return super.getButton("确 定");
     }
 
     @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::input")

@@ -23,11 +23,10 @@ public class LdapConnListPage extends ListPageFactory {
         return super.getButton("新建");
     }
 
-    //    @FindBy(xpath = "//form[@class='ant-form ant-form-horizontal']/descendant::label[contains(text(),'名称')]/following::span[@class='ant-form-item-children']/input[@placeholder='请输入']")
     @FindBy(xpath = "//label[contains(text(),'名称')]/following::span[@class='ant-form-item-children']/input[@placeholder='请输入']")
     private WebElement newLdapConnName;
 
-    public WebElement getNewDbConnName() {
+    public WebElement getNewLdapConnName() {
         return newLdapConnName;
     }
 
