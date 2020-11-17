@@ -199,11 +199,7 @@ Feature: 仪表盘曲线图
     Then I wait for element "ErrorMessage" change text to "chart -> field 字段值不能为空"
 
   @dashboard @dashboardSmoke
-
   Scenario Outline: field byFields RZY-1286,RZY-1287,RZY-1299
-
-  Scenario Outline: field byFields RZY-1286,RZY-1287
-
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘曲线图"
@@ -228,11 +224,7 @@ Feature: 仪表盘曲线图
       | apache.clientippppp| apache.resp_len | 序列图_xAxis_Field_error     |
 
   @dashboard @dashboardSmoke
-
   Scenario Outline: labelRotate-right-horizontal-vertical RZY-1291,RZY-1292,RZY-1293
-
-  Scenario Outline: labelRotate-left-right-horizontal-vertical RZY-1325,RZY-1326,RZY-1327,RZY-1328
-
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
