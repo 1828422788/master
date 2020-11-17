@@ -36,7 +36,7 @@ public class ListPage extends ListPageFactory {
         return MultiGruopButton;
     }
 
-    @FindBy(xpath = "//li/span[text()='分组']")
+    @FindBy(xpath = "//div[@class='ant-popover _3J5Pw1DBfL5ONdRgQNn9yD ant-popover-placement-bottom']//span[contains(text(),'分组')]/ancestor::li")
     private WebElement MultiGruopButton;
 
     @FindBy(xpath = "//span[text()='验证组内权限']")
@@ -199,8 +199,14 @@ public class ListPage extends ListPageFactory {
         return webDriver.findElement(By.xpath(xpath));
     }
 
+    public WebElement getFinishGroupButton() {
+        String xpath = "(//span[text()='完成']//ancestor::button)[last()]";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
     public WebElement getFinishButton() {
-        return super.getButton("完成");
+        String xpath = "//span[text()='完成']//ancestor::button)[1]";
+        return webDriver.findElement(By.xpath(xpath));
     }
 
 
