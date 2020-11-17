@@ -77,6 +77,7 @@ Feature: 趋势图新建_复合
     And I click the "Smooth" button
     And I click the "ConnectEmptyData" button
 
+    And I click the "AddField" button
     And I click the "Yaxis2" button
     And I set the parameter "Unit" with value "柱"
     And I set the parameter "Min" with value "2"

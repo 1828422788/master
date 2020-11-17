@@ -84,6 +84,7 @@ Feature: 报表新建_编辑_复合word
     And I click the "AddColor" button
     And I click the "Red" button
 
+    And I click the "AddField" button
     And I click the "Yaxis2" button
     And I set the parameter "Unit" with value "柱"
     And I set the parameter "Min" with value "2"

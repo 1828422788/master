@@ -454,7 +454,7 @@ public class CreatePage extends PageTemplate {
 //-----------------------------------------------
 //Inputs ----------------------------------------
 
-    @FindBy(xpath = "//span[contains(text(),'单位')]/ancestor::div[1]/following-sibling::input")
+    @FindBy(xpath = "(//span[contains(text(),'单位')]/ancestor::div[1]/following-sibling::input)[last()]")
     private WebElement unit;
 
     @FindBy(xpath = "//span[text()='图标名称']/ancestor::div/following-sibling::div[1]//input")
