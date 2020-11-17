@@ -3,7 +3,7 @@ Feature: Agent编辑性能数据类型数据源
 
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
-    When I click the detail which column is "1" in agent page
+    When I click the detail which column is "0" in agent page
     And switch to another window
     And I close all tabs except main tab
     And I wait for loading invisible

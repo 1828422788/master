@@ -612,16 +612,15 @@ public class CreatePage extends PageTemplate {
         return getEditAutoScript;
     }
 
-//    @FindBy(xpath = "//div[@class='ant-select-selection-selected-value']")
-//    private WebElement Frequency;
+    @FindBy(xpath = "//span[text()='添加数据']//ancestor::button")
+    private WebElement Create;
 
     public WebElement getGroupName() {
         return this.getContainsInputElement("名称");
     }
 
-
     public WebElement getCreate() {
-        return webDriver.findElement(By.xpath("//span[text()='添加数据']//ancestor::button"));
+        return Create;
     }
 
     public WebElement getCleanOutput() {
