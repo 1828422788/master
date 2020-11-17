@@ -234,7 +234,7 @@ Feature: 仪表盘详情页
     And I click the "Shortcut" button
     And I click the "Yesterday" button
     And I wait for "Progress" will be invisible
-    Then I will see the "DropdownLink" result will be "昨天"
+    Then I will see the "DropdownLink" result will be "最近1d/天"
 
   Scenario: 关闭过滤输入项自动更新(RZY-4637,)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -252,7 +252,7 @@ Feature: 仪表盘详情页
     And I will see the "DropdownLink" result will be "最近1天"
     And I click the "Update" button
     And I wait for "Progress" will be invisible
-    Then I will see the "DropdownLink" result will be "今天"
+    Then I will see the "DropdownLink" result will be "实时now/天"
     And I click the "settingIcon" button
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "enable"
