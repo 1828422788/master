@@ -27,13 +27,13 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(className = "ant-modal-close")
     private WebElement closeSPL;
 
-    @FindBy(xpath = "//div[@id='dimensions']/span/span/span")
+    @FindBy(xpath = "(//div[@id='dimensions']/span/span/i)[1]")
     private WebElement elementInDimensions;
 
-    @FindBy(xpath = "//div[@id='values']/span/span/span")
+    @FindBy(xpath = "(//div[@id='values']/span/span/i)[1]")
     private WebElement elementInValues;
 
-    @FindBy(xpath = "//div[@id='byFields']/span/span/span")
+    @FindBy(xpath = "(//div[@id='byFields']/span/span/i)[1]")
     private WebElement elementInCompare;
 
     @FindBy(xpath = "//i[@title='同环比']")
