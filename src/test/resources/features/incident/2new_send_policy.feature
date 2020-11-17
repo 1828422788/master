@@ -1,6 +1,7 @@
+@incident @sendpolicy
 Feature: 事件管理_发送策略_4个
 
-  @incident4 @newsend @incident
+  @cruxee @incident4 @newsend
   Scenario Outline: 新建2个发送策略
     Given open the "incident.SendPolicyPage" page for uri "/app/incident/sender-policy/list/"
     And I click the "CreateSendPolicy" button

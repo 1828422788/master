@@ -1,6 +1,7 @@
+@incident @recieve
 Feature: 事件管理_用户接收组_7个
 
-  @incident @newrec @incident3
+  @cruxee @newrec @incident3
   Scenario Outline: 新建3个接收组
     Given open the "incident.SendPolicyPage" page for uri "/app/incident/sender-policy/list/"
     And I click the "NoticeReceiveGroup" button
@@ -25,8 +26,7 @@ Feature: 事件管理_用户接收组_7个
       | delete_响应组 | 日志易用户体验组 | kongfeili       |
       | update_响应组 | 日志易用户体验组 | Leibniz         |
 
-
-  @editrec @incident
+  @editrec
   Scenario Outline: 测试编辑接收组
     Given open the "incident.SendPolicyPage" page for uri "/app/incident/sender-policy/list/"
     And I click the "NoticeReceiveGroup" button
