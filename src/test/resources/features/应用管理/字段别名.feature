@@ -92,7 +92,7 @@ Feature: 应用字段别名
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "AppFieldConfig" then i click the "打开" button
     Then I will see the "splSearch.SearchPage" page
-    And I set the parameter "SearchInput" with value "*|stats count() by app"
+    And I set the parameter "SearchInput" with value "*|stats count() by app|limit 1"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button

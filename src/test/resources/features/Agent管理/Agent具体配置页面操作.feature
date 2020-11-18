@@ -37,14 +37,14 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I wait for "ChangeMemo" will be visible
 
   Scenario: 从Agent具体配置页面返回Agent主页面
-    And I click the "BackList" button
+    And I click the "Backup" button
     Then I will see the element "AgentMainTitle" name is "Agent 管理"
 
   Scenario: 从Agent添加页面返回Agent具体配置
     And I click the "Create" button
     And I click the "Backup" button
     And I wait for loading invisible
-    Then I will see the element "AgentTitle" name is "Agent 具体配置"
+    Then I will see the element "AgentTitle" name is "Agent详情"
 
   Scenario: 修改&重启Agent高级配置
     And I click the "Senior" button

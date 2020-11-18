@@ -1,19 +1,25 @@
 @all @logDisplay @logDisplayTable
 Feature: 日志展现_表格
-  
+
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I drag the element "SearchPageSvg" to the "left" side
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 13"
-   And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the "trend.CreatePage" page
 
   Scenario Outline: table_default
     When I click the "Pencil" button
     And I will see the element "SelectedValueColorType" contains "无"
-    And I click the "CreateEnsureButton" button
+    And I choose the "梯度" from the "ColorType"
+
+    And I set the parameter "FontColor" with value "#de2626"
+    And I choose the "粗体" from the "FontStyle" in config
+    And I set the parameter "ColumnWidth" with value "15"
+    And I choose the "居中" from the "Alignment" in config
+    And I click the "CancelButton" button
 
     And I wait for "ChartView" will be visible
 #    And I drag the scroll bar to the element "ChartView"
@@ -30,6 +36,11 @@ Feature: 日志展现_表格
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
     And I choose the "梯度" from the "ColorType"
+
+    And I set the parameter "FontColor" with value "#5522e0"
+    And I choose the "斜体" from the "FontStyle" in config
+    And I set the parameter "ColumnWidth" with value "80"
+    And I choose the "居右" from the "Alignment" in config
 
     And I click the "CreateEnsureButton" button
 
@@ -88,6 +99,11 @@ Feature: 日志展现_表格
     #GREEN
     And I set the parameter "ColorCode" with value "#00FF00"
     And I click the "ChangeColor" button
+
+    And I set the parameter "FontColor" with value "#5522e0"
+    And I choose the "下划线" from the "FontStyle" in config
+    And I set the parameter "ColumnWidth" with value "80"
+    And I will see the element "SelectedAlignment" contains "居左"
     And I click the "CreateEnsureButton" button
 
     And I wait for "ChartView" will be visible
@@ -180,6 +196,9 @@ Feature: 日志展现_表格
     And I set the parameter "ColorCode" with value "#FF00FF"
     And I click the "CustomColor" button
     And I click the "DeleteLastValue" button
+    And I set the parameter "FontColor" with value "#744e78"
+    And I choose the "粗体" from the "FontStyle" in config
+    And I will see the element "SelectedAlignment" contains "居左"
 
     And I click the "CreateEnsureButton" button
 

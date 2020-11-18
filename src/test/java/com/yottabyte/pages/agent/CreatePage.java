@@ -659,9 +659,6 @@ public class CreatePage extends PageTemplate {
         return super.getButton("完成");
     }
 
-    public WebElement getBackList() {
-        return super.getButton("返回列表");}
-
     public WebElement getSenior() {
         return super.getButton("高级");
     }
