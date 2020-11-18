@@ -42,7 +42,6 @@ Feature: 创建接收告警邮件用户、用户组
 #      And I click the "OkButton" button
     And I click the "Ensure" button
 
-
     Examples:
       | UserGroupName | UserGroupDes | message |
       | 日志易用户体验组    | 测试incident策略 | 创建成功    |

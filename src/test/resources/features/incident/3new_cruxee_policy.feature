@@ -1,7 +1,7 @@
 @incident
 Feature: 事件管理-合并策略-11个
 
-  @newcru1
+  @newcru1 @newcru
   Scenario Outline: 合并2组_高_字段统计_分组条件name_归并告警数量18条
     Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/policy/list/"
     And I click the "CreateCruxeePolicy" button
@@ -45,6 +45,8 @@ Feature: 事件管理-合并策略-11个
     And I set the parameter "AppConditionInput" with value "事件"
 
     And I click the "AddSecondAppCondition" button
+    And I wait for loading complete
+    And I wait for "2000" millsecond
     And I choose the "alert_id" from the "AppConditionSecondFieldslist" in config
     And I choose the ">" from the "AppConditionSecondOperatorsList" in config
     And I set the parameter "AppConditionSecondInput" with value "0"
@@ -122,7 +124,8 @@ Feature: 事件管理-合并策略-11个
     And I choose the "最后一条告警的字段" from the "StopConditionNameslist" in config
     And I choose the "priority" from the "StopConditionLastAlertFieldNamesList" in config
     And I choose the ">" from the "StopConditionLastAlertFieldOperatorsList" in config
-    And I set the parameter "StopConditionLastAlertFieldInput" with value "60"
+#    And I set the parameter "StopConditionLastAlertFieldInput" with value "60"
+    And I choose the "(10) 恢复" from the "StopConditionLastAlertPriorityList" in config
 
     And I choose1 the "<SendPolicyName>" from the "SendPolicyNameslist" in config
 
