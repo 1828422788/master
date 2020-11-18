@@ -69,7 +69,7 @@ Feature: 仪表盘网络节点图
       | 仪表盘网络节点图 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 修改为网络节点图 RZY-306
+  Scenario Outline: 修改为网络节点图 RZY-
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -77,32 +77,45 @@ Feature: 仪表盘网络节点图
     And I wait for "Progress" will be invisible
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
-#    And I wait for "Relation" will be visible
-#    And I click the "Relation" button
-#    And I click the "<targetName>" button
+    And I wait for "Other" will be visible
+    And I click the "Other" button
+    And I click the "<targetName>" button
 #    And I hide the element "Content"
-#    And I wait for "1000" millsecond
-#    And I click the "Setting" button under some element
-#    And I choose the "apache.x_forward" from the "DataValue"
-#    And I click the "Target" button
-#    And I choose the "apache.resp_len" from the "DataValue"
-#    And I click the "Weight" button
-#    And I choose the "count()" from the "DataValue"
-#    And I click the "Exhibition" button
-#    And I click the "StartColour" button
-#    And I click the "Purple" button
-#    Then I click the "Generate" button
-#    And I wait for "1000" millsecond
+    And I wait for "1000" millsecond
+    And I click the "Setting" button under some element
+    And I click the "Exhibition" button
+    And I set the parameter "Repulsion" with value "30"
+    And I click the "AddColor" button
+    And I click the "Red" button
+    And I click the "Generate" button
+    And I wait for "3000" millsecond
+    And I click the "Setting" button under some element
 #    Then I hide the element "SettingContent"
 #    And I wait for "Progress" will be invisible
-#    Then I will see the "dashboard.DetailPage" page
-#    And I click the "TrendTitle" button
-#    And take part of "FullScreen" with name "dashboard/<name>"
-#    Then I compare source image "dashboard/<name>" with target image "dashboard/<targetName>"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "2000" millsecond
+    And I move the mouse pointer to the "TrendTitle"
+    And I click the "TrendTitle" button
+    And I wait for "3000" millsecond
 
     Examples:
-      | name         | targetName |
-      | 仪表盘网络节点图 | Sankey     |
+      | name          | targetName  |
+      | 仪表盘网络节点图 | NetworkNode |
+
+  @dashboard
+  Scenario Outline: 验证配置是否在高级编辑中体现 RZY-4836
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    Then I will see the "TextLayer" result will contain "<json>"
+
+    Examples:
+      | name          | json                                                                                                                                                                                                                                                                                                                                                                           |
+      | 仪表盘网络节点图 |  \n  "chart": {\n    "chartType": "networknode",\n    "fromField": "apache.method",\n    "toField": "apache.geo.province",\n    "portField": "apache.geo.city",\n    "repulsionField": 30,\n    "precision": "",\n    "expendLevel": 1,\n    "indicatorsField": []\n  } |
+
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘

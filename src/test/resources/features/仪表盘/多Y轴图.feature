@@ -115,6 +115,7 @@ Feature: 仪表盘多Y轴图
 #    And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
+    And I move the mouse pointer to the "TrendTitle"
     And I click the "TrendTitle" button
     And I wait for "3000" millsecond
 #    And take part of "FullScreen" with name "dashboard/<name>"
