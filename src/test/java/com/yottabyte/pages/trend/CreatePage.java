@@ -248,9 +248,8 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'表格颜色')]/following-sibling::div")
     private WebElement colorType;
 
-    @FindBy(xpath = "//div[text()='Select']/following-sibling::div")
+    @FindBy(xpath = "//label[contains(text(),'表格颜色')]/following-sibling::div//div[text()='Select']/following-sibling::div")
     private WebElement selectedValueColorType;
-
 
     @FindBy(xpath = "//label[text()='预设置']/following-sibling::span")
     private WebElement selectColor;
@@ -309,6 +308,24 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//span[text()='值']/following-sibling::i)[last()]")
     private WebElement deleteLastValue;
+
+    @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div//span/span")
+    private WebElement changeFontColor;
+
+    @FindBy(xpath = "(//div[text()='Hex'])[last()]/preceding-sibling::input")
+    private WebElement fontColor;
+
+    @FindBy(xpath = "//label[contains(text(),'字体样式')]/following-sibling::div")
+    private WebElement fontStyle;
+
+    @FindBy(xpath = "//label[contains(text(),'列宽度')]/following-sibling::div//input")
+    private WebElement columnWidth;
+
+    @FindBy(xpath = "//label[contains(text(),'对齐方式')]/following-sibling::div")
+    private WebElement alignment;
+
+    @FindBy(xpath = "//label[contains(text(),'对齐方式')]/following-sibling::div//div[text()='Select']/following-sibling::div")
+    private WebElement selectedAlignment;
 
 //----------------------------------------------------
 // other ----------------------------
@@ -1543,6 +1560,10 @@ public class CreatePage extends PageTemplate {
         return getContainsTextButton("确 定");
     }
 
+    public WebElement getCancelButton() {
+        return getContainsTextButton("取 消");
+    }
+
     public WebElement getGenerate() {
         return generate;
     }
@@ -2174,6 +2195,31 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getDeleteLastValue() {
         return deleteLastValue;
+    }
+
+    public WebElement getFontColor() {
+        WebDriverWait wait = new WebDriverWait(webDriver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(changeFontColor));
+        changeFontColor.click();
+        return fontColor;
+    }
+
+    public WebElement getFontStyle() {
+        fontStyle.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getColumnWidth() {
+        return columnWidth;
+    }
+
+    public WebElement getAlignment() {
+        alignment.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getSelectedAlignment() {
+        return  selectedAlignment;
     }
 //-----------------------------------------------------
 
