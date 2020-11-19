@@ -99,11 +99,6 @@ Feature: 仪表盘多Y轴图
     And I choose the "柱状图" from the "TypeDropdown"
     And I set the parameter "Unit" with value "柱"
     And I set the parameter "Min" with value "2"
-#    And I click the "AddField" button
-#    And I choose the "sum(apache.status)" from the "DataValue"
-#    And I choose the "散点图" from the "TypeDropdown"
-#    And I set the parameter "Unit" with value "散"
-#    And I set the parameter "Max" with value "49000"
     And I click the "Group" button
     And I click the "AddField" button
     And I choose the "apache.status" from the "DataValue"
@@ -113,8 +108,6 @@ Feature: 仪表盘多Y轴图
     Then I click the "Generate" button
     And I wait for "3000" millsecond
     And I click the "Setting" button under some element
-#    Then I hide the element "SettingContent"
-#    And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I move the mouse pointer to the "TrendTitle"
