@@ -13,7 +13,7 @@ Feature: Agent管理ip操作
     And I set the parameter "Memo" with value "<memory>"
     And I click the "MemoEnsure" button
     And  I wait for loading invisible
-    Then I will see the search result contains "{'column':'3','name':'<memory>'}"
+    Then I will see the search result contains "{'column':'2','name':'<memory>'}"
 
 #  @indexSettingSmoke
     Examples: 备注成功

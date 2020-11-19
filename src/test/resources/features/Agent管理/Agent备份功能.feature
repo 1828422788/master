@@ -9,20 +9,21 @@ Feature: Agent备份功能
     And I close all tabs except main tab
     And I wait for loading invisible
     And I will see the "agent.CreatePage" page
+    And I click the "DetailMoreButton" button
     And I click the "BackUp" button
     And I wait for loading invisible
 
   Scenario: Agent备份，添加备份页面的修改&重启Agent高级配置
-    And I click the "Senior" button
+    And I click the "BackupSenior" button
     And I click the "ChangeConfiguration" button
 #    Then I will see the element "ChangeMemo" name is "提交修改 Agent 配置成功，正在尝试重启。"
 
   Scenario: Agent备份，添加备份页面的下载Agent高级配置
-    And I click the "Senior" button
+    And I click the "BackupSenior" button
     And I click the "DownloadConfiguration" button
 
   Scenario: Agent备份，添加备份页面的关闭Agent高级配置
-    And I click the "Senior" button
+    And I click the "BackupSenior" button
     And I click the "Cancle" button
     Then I wait for loading invisible
 #    And I will see the "AgentConfigurationTitle" doesn't exist

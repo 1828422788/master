@@ -44,7 +44,7 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I click the "Create" button
     And I click the "Backup" button
     And I wait for loading invisible
-    Then I will see the element "AgentTitle" name is "Agent详情"
+    Then I will see the element "AgentTitle" contains "Agent详情"
 
   Scenario: 修改&重启Agent高级配置
     And I click the "Senior" button

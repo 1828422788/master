@@ -295,19 +295,13 @@ public class CreatePage extends PageTemplate {
     private WebElement EditAutoFile;
 
     public WebElement getCleanOutputCache() {
-        return CleanOutputCache;
+        return getLiElement("清理输出源缓存");
     }
 
     public WebElement getCleanInputCache() {
 
-        return CleanInputCache;
+        return getLiElement("清理输入源缓存");
     }
-
-    @FindBy(xpath = "//span[text()='清理输入源缓存']//ancestor::li")
-    private WebElement CleanInputCache;
-
-    @FindBy(xpath = "//span[text()='清理输出源缓存']//ancestor::li")
-    private WebElement CleanOutputCache;
 
     public WebElement getCompressed() {
         return Compressed;
@@ -660,8 +654,19 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSenior() {
+        return getLiElement("高级");
+    }
+
+    public WebElement getBackupSenior() {
         return super.getButton("高级");
     }
+
+    public WebElement getDetailMoreButton() {
+        return DetailMoreButton;
+    }
+
+    @FindBy(xpath = "//span[contains(text(),'更多')]")
+    private WebElement DetailMoreButton;
 
     public WebElement getAddBackUP() {
         return super.getButton("添加备份");
@@ -676,7 +681,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getBackUp() {
-        return super.getButton("备份配置");
+        return webDriver.findElement(By.xpath("//li[text()='备份配置']"));
     }
 
     public WebElement getDocument() {
@@ -950,8 +955,14 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getBackUpSwitchStatus(String name) {
-        return webDriver.findElement(By.xpath("//label[@title='" + name + "']/parent::div/preceding-sibling::div//span[@class='ant-form-item-children']"));
+        return webDriver.findElement(By.xpath("//label[@title='" + name + "']/parent::div/following-sibling::div//span[@class='ant-form-item-children']"));
     }
+
+    public WebElement getLiElement(String name) {
+        return webDriver.findElement(By.xpath("//span[text()='" + name + "']//ancestor::li"));
+    }
+
+
 
 
     public WebElement getDropDownListElement(String name) {
