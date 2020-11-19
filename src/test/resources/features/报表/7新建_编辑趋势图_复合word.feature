@@ -81,8 +81,6 @@ Feature: 报表新建_编辑_复合word
     And I choose the "面积图" from the "TypeChartField"
     And I click the "Smooth" button
     And I click the "ConnectEmptyData" button
-    And I click the "AddColor" button
-    And I click the "Red" button
 
     And I click the "AddField" button
     And I click the "Yaxis2" button
@@ -92,9 +90,6 @@ Feature: 报表新建_编辑_复合word
     And I click the "AddConfigFields" button
     And I set the parameter "FieldValue" with value "min(apache.resp_len)"
     And I choose the "柱状图" from the "TypeChartField"
-    And I wait for "AddColor" will be visible
-    And I click the "AddColor" button
-    And I click the "Green" button
 
     And I click the "AddField" button
     And I click the "Yaxis3" button
@@ -104,13 +99,13 @@ Feature: 报表新建_编辑_复合word
     And I click the "AddConfigFields" button
     And I set the parameter "FieldValue" with value "sum(apache.status)"
     And I choose the "散点图" from the "TypeChartField"
-    And I drag the scroll bar to the element "AddColor"
-    And I click the "AddColor" button
-    And I click the "Orange" button
 
     And I click the "Group" button
     And I click the "AddField" button
     And I set the parameter "FieldValue" with value "apache.status"
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "Red" button
     And I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
