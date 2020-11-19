@@ -87,10 +87,12 @@ Feature: 仪表盘多Y轴图
     And I choose the "apache.resp_len" from the "DataValue"
     And I click the "Yaxis" button
     And I click the "AddField" button
+    And I click the "YaxisTwo" button
+    And I click the "AddConfigFields" button
 #    And I choose the "max(apache.resp_len)" from the "DataValue"
 #    And I choose the "面积图" from the "TypeDropdown"
 #    And I set the parameter "Unit" with value "面"
-#    And I click the "Smooth" button
+#    And I click the "AddConfigFields" button
 #    And I click the "ConnectEmptyData" button
 #    And I click the "AddField" button
     And I choose the "max(apache.resp_len)" from the "DataValue2"
