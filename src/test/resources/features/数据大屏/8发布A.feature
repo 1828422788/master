@@ -6,9 +6,10 @@ Feature: 数据大屏-所有控件发布
     And I wait for "7000" millsecond
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
-    And I close all tabs except main tab
-    And I wait for "Loading" will be invisible
+    And I wait for "loadingPage" will be invisible
     And I wait for "2000" millsecond
+    And I close all tabs except main tab
+    And I wait for "1000" millsecond
 #    Then take a screenshot with name "galaxee/<name>"
 
 
