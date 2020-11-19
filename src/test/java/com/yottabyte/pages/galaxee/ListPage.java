@@ -27,6 +27,9 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "loading")
     private WebElement loading;
 
+    @FindBy(className = "galaxee-start-mask")
+    private WebElement loadingPage;
+
     public WebElement getDeleteGalaxeeTest() {
         return deleteGalaxeeTest;
     }
@@ -41,6 +44,10 @@ public class ListPage extends PageTemplate {
 
     public WebElement getLoading() {
         return loading;
+    }
+
+    public WebElement getLoadingPage() {
+        return loadingPage;
     }
 
 
