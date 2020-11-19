@@ -854,7 +854,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='字段值']/ancestor::div/following-sibling::div//i")
     private WebElement dataValue;
 
-    @FindBy(xpath = "(//span[text()='字段值'])[2]/parent::div/following-sibling::div//i")
+    @FindBy(xpath = "//div[text()='Y轴 2']")
+    private WebElement yaxisTwo;
+
+    @FindBy(xpath = "(//span[text()='字段值：'])[2]/parent::div/following-sibling::div//i")
     private WebElement dataValue2;
 
     public WebElement getStatisticalChart() {
@@ -902,7 +905,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//*[@class='anticon-spin'])[2]")
     private WebElement loading;
 
-    @FindBy(xpath = "(//span[text()='类型'])[last()]/ancestor::div/following-sibling::div")
+    @FindBy(xpath = "(//span[text()='类型：'])[last()]/ancestor::div/following-sibling::div")
     private WebElement typeDropdown;
 
     @FindBy(className = "_3YQ9T5DTgCrQ0NSzwkV6a5")
@@ -1059,6 +1062,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSettingContent() {
         return settingContent;
+    }
+
+    public WebElement getYaxisTwo() {
+        return yaxisTwo;
     }
 
     public WebElement getDataValue() {
