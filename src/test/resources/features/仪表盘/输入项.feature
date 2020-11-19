@@ -107,6 +107,7 @@ Feature: 仪表盘输入项
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "DeleteChart" will be visible
     And I click the "DeleteChart" button
     And I click the "Ensure" button
 
@@ -203,6 +204,7 @@ Feature: 仪表盘输入项
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "DeleteChart" will be visible
     And I click the "DeleteChart" button
     And I click the "Ensure" button
     And I click the "FilterTime" button
@@ -742,6 +744,7 @@ Feature: 仪表盘输入项
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
+    And I move the mouse pointer to the "FilterName"
     And I click the "FilterName" button
     And I click the "DeleteTag" button
     And I click the "Ensure" button under some element

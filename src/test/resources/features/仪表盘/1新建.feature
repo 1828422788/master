@@ -26,7 +26,7 @@ Feature: 仪表盘新建（RZY-208至RZY-210）
 
   Scenario: 验证新建成功RZY-208，RZY-4472，RZY-4473）
     Then I will see the data "FirstAutoTest" values "{'column':'5','name':'AutoTest'}"
-    Then I will see the data "FirstAutoTest" values "{'column':'4','name':'app之api全部用例'}"
+#    Then I will see the data "FirstAutoTest" values "{'column':'4','name':'app之api全部用例'}"
 
   Scenario Outline: 仪表盘授权-数据用户浏览者
     Given the data name is "<name>" then i click the "授权" button

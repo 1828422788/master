@@ -131,6 +131,7 @@ Feature: 仪表盘过滤项
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "FilterDropdown" will be visible
     And I choose the "<city>" from the "FilterDropdown"
     And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible
@@ -233,6 +234,7 @@ Feature: 仪表盘过滤项
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "FilterDropdown" will be visible
     And I choose the "<city>" from the "FilterDropdown"
     And I wait for "1000" millsecond
     And I click the "Update" button

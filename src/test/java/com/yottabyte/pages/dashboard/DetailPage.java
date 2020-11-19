@@ -225,7 +225,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//*[@class='el-dialog__body']/following-sibling::div//button/span[contains(text(),'确定')])[last()]")
     private WebElement settingEnsure;
 
-    @FindBy(xpath = "//div[text()='仪表盘所用趋势图']/following-sibling::div//*[@class='anticon css-ifnfqv'][2]")
+    @FindBy(xpath = "//div[text()='仪表盘所用趋势图']/following-sibling::div[1]/*[@class='anticon css-ifnfqv'][2]")
     private WebElement deleteChart;
 
     @FindBy(xpath = "//div[text()='是否删除图表?']/ancestor::div[@class='el-dialog el-dialog--tiny']//button")
@@ -273,7 +273,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='404']/ancestor::div[contains(@class,'sc-gsTCUz')]")
     private WebElement multiYaxisLegend;
 
-    @FindBy(xpath = "//div[contains(@class,'sc-AxjAm')]")
+    @FindBy(xpath = "//div[contains(@class,'sc-bdfBwQ')]")
     private WebElement lineChartLegend;
 
     @FindBy(xpath = "//div[@id='fullscreenAll']//div[@id]/div[1]")
@@ -396,6 +396,9 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//div[text()='行布局趋势图2']/following-sibling::div[1]/i[3]")
     private WebElement deleteTrend2;
+
+    @FindBy(xpath = "//div[text()='行布局趋势图1']/following-sibling::div[1]/i[3]")
+    private WebElement deleteTrend1;
 
     @FindBy(xpath = "//div[text()='行布局趋势图1']")
     private WebElement trendOne;
@@ -916,6 +919,8 @@ public class DetailPage extends PageTemplate {
     public WebElement getMoreXuanTing2() { return moreXuanTing2; }
 
     public WebElement getDeleteTrend2() { return deleteTrend2; }
+
+    public WebElement getDeleteTrend1() { return deleteTrend1; }
 
     public WebElement getTrendOne() { return trendOne; }
 
