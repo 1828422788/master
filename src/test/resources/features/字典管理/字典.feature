@@ -355,7 +355,7 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     And I will see the success message "修改成功"
     Then I click the "EnsureButton" button
-    Then I wait for "1000" millsecond
+    Then I wait for loading invisible
     And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'3','name':'<newTag>'}"
 
     Examples:
