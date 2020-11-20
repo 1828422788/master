@@ -1,5 +1,15 @@
-#@dashboard @dashboardSmoke
+@dashboard @dashboardSmoke
 Feature: 仪表盘调用链
+
+  @dashboard @dashboardSmoke
+  Scenario: 上传日志
+    Given open the "localUpload.ListPage" page for uri "/sources/input/os/"
+    When I set the parameter "AppName" with value "zipkin"
+    And I set the parameter "Tag" with value "zipkin"
+    And I upload a file with name "/src/test/resources/testdata/log/zipkin.txt"
+    And I click the "UploadButton" button
+    And I wait for "VerifyText" will be visible
+    Then I wait for element "VerifyText" change text to "上传完成"
 
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -11,6 +21,19 @@ Feature: 仪表盘调用链
     Examples:
       | name   |
       | 仪表盘调用链 |
+
+  Scenario Outline: 新建标签页
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "仪表盘<name>"
+    Then I will see the "dashboard.DetailPage" page
+    When I set the parameter "TagName" with value "<name>"
+    And I click the "EnsureCreateTagButton" button
+    And I wait for loading complete
+    And I back to before
+
+    Examples:
+      | name |
+      | 调用链  |
 
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
@@ -30,28 +53,125 @@ Feature: 仪表盘调用链
     And I wait for "SuccessCreate" will be visible
 
     Examples:
-      | spl                                                                                                                                                                                                                                                   | name   |
-      | tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, collector_recv_timestamp | 仪表盘调用链 |
+      | spl                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | name   |
+      | appname:zipkin \| parse \"^(?<datetime>\\\d{4}\/\\\d\\\d\/\\\d\\\d \\\d\\\d:\\\d\\\d:\\\d\\\d.\\\d{3})\\\s\\\[(?<threadname>\\\S+)\\\]\\\s(?<level>\\\S+)\\\s+(?<functionname>\\\S+)\\\s\\\S+\\\s\\\S+\\\s(?<jsonstring>.*)\" \| jpath input=jsonstring output=traceid path=\"traceId\" \| jpath input=jsonstring output=spanid path=\"id\" \| jpath input=jsonstring output=parentid path=\"parentId\" \| jpath input=jsonstring output=binnaryannotations path=\"binaryAnnotations[*].value\" \| jpath input=jsonstring output=duration path=\"duration\" \| jpath input=jsonstring output=modulename path=\"name\" \| where mvindex(duration, 0)>0 && mvindex(traceid,0)==\"511f8756ce1d0b8a\" \| jpath input=jsonstring output=timestamp path=\"timestamp\" \| table spanid, parentid, duration, timestamp, binnaryannotations, modulename | 仪表盘调用链 |
 
-  Scenario Outline: 新建标签页
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the detail which name is "仪表盘<name>"
-    Then I will see the "dashboard.DetailPage" page
-    When I set the parameter "TagName" with value "<name>"
-    And I click the "EnsureCreateTagButton" button
-    And I wait for loading complete
-    And I back to before
-
-    Examples:
-      | name |
-      | 调用链  |
-
-  Scenario: 添加图表
+  Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘调用链"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
-    And I choose the "添加图表" from the "EventList"
-    And I "checked" the checkbox which name is "仪表盘调用链"
+    And I click the "AddChart" button
+    And I wait for "SpinDot" will be invisible
+    And I set the parameter "SearchChartInput" with value "<name>"
+    And I wait for loading invisible
+    And I click the "{'Checkbox':'<name>'}" button
     And I click the "Ensure" button
+
+    Examples:
+      | name       |
+      | 仪表盘调用链 |
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 修改为调用链 RZY-RZY-3404
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    And I click the "ChartType" button
+    Then I will see the "trend.CreatePage" page
+    And I wait for "Other" will be visible
+    And I click the "Other" button
+    And I click the "Chain" button
+    And I wait for "1000" millsecond
+    And I click the "Setting" button under some element
+    And I wait for "500" millsecond
+    And I choose the "modulename" from the "function"
+    And I wait for "1000" millsecond
+    And I choose the "parentid" from the "ParentId"
+    And I wait for "1000" millsecond
+    And I choose the "spanid" from the "ChildId"
+    And I click the "Time" button
+    And I choose the "timestamp" from the "StartTime"
+    And I wait for "1000" millsecond
+    And I choose the "duration" from the "KeepTime"
+    And I click the "Divide" button
+    And I choose the "modulename" from the "FieldValue"
+    And I click the "Info" button
+    And I choose the "binnaryannotations" from the "InfoField"
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I wait for "500" millsecond
+    And I click the "Red" button
+    And I click the "Generate" button
+    And I wait for "3000" millsecond
+    And I click the "Setting" button under some element
+#    Then I hide the element "SettingContent"
+#    And I wait for "Progress" will be invisible
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "2000" millsecond
+    And I move the mouse pointer to the "TrendTitle"
+    And I click the "TrendTitle" button
+    And I wait for "3000" millsecond
+
+    Examples:
+      | name    |
+      | 仪表盘调用链 |
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 修改为调用链 RZY-RZY-4837
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    And I click the "ChartType" button
+    Then I will see the "trend.CreatePage" page
+    And I wait for "Other" will be visible
+    And I click the "Other" button
+    And I click the "Chain" button
+    And I wait for "1000" millsecond
+    And I click the "Setting" button under some element
+    And I click the "Exhibition" button
+    And I choose the "tree" from the "TracingType"
+    And I wait for "500" millsecond
+    And I click the "Generate" button
+    And I wait for "3000" millsecond
+    And I click the "Setting" button under some element
+#    Then I hide the element "SettingContent"
+#    And I wait for "Progress" will be invisible
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "2000" millsecond
+    And I move the mouse pointer to the "TrendTitle"
+    And I click the "TrendTitle" button
+    And I wait for "3000" millsecond
+
+    Examples:
+      | name    |
+      | 仪表盘调用链 |
+
+  @cleanDashboard
+  Scenario Outline: 删除仪表盘
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    Then I will see the success message "删除仪表盘成功"
+
+    Examples:
+      | name   |
+      | 仪表盘调用链 |
+
+  @cleanDashboard
+  Scenario Outline: 删除仪表盘所建趋势图
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I will see the success message "删除成功"
+
+    Examples:
+      | name   |
+      | 仪表盘调用链 |

@@ -13,7 +13,7 @@ Feature: 仪表盘新建（RZY-208至RZY-210）
     Then I will see the element "DataUser" value is "浏览者"
     And I choose the "AutoTest" from the "LastDropdownList"
 #    And I set the parameter "AppOwningInput" with value "app之api全部用例"
-    And I choose the "app之api全部用例" from the "BelongedApp"
+#    And I choose the "app之api全部用例" from the "BelongedApp"
     And I choose the "<datauser>" from the "DataUserItems"
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
