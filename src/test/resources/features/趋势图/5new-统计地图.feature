@@ -11,9 +11,6 @@ Feature: 趋势图新建_统计地图
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "2000" millsecond
     And I click the "SearchButton" button under some element
-    And I wait for "2000" millsecond
-    And I click the "SearchButton" button under some element
-    And I wait for "40000" millsecond
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
@@ -25,7 +22,7 @@ Feature: 趋势图新建_统计地图
 
     And I click the "Type" button
     And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "MapSettings" will be visible
     And I wait for "3000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
 #    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -45,9 +42,6 @@ Feature: 趋势图新建_统计地图
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "2000" millsecond
     And I click the "SearchButton" button under some element
-    And I wait for "2000" millsecond
-    And I click the "SearchButton" button under some element
-    And I wait for "40000" millsecond
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
@@ -69,7 +63,7 @@ Feature: 趋势图新建_统计地图
 
     And I click the "Settings" button
     And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "MapSettings" will be visible
     And I wait for "3000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
 #    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -113,7 +107,7 @@ Feature: 趋势图新建_统计地图
 
     And I click the "Settings" button
     And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "MapSettings" will be visible
     And I wait for "15000" millsecond
     And take part of "StatisticalChart" with name "actual/online/<chartType>_<mapName>"
 #    And I compare source image "actual/online/<chartType>_<mapName>" with target image "expect/online/<chartType>_<mapName>"

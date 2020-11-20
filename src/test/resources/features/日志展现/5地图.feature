@@ -170,7 +170,6 @@ Feature: 日志展现_地图
   Scenario Outline: statMap(RZY-2795,2797)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button under some element
-    And I wait for "10000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -179,6 +178,7 @@ Feature: 日志展现_地图
 
     And I click the "Type" button
     And I wait for "StatisticalChart" will be visible
+    And I wait for "MapSettings" will be visible
     And I wait for "3000" millsecond
     And take part of "StatisticalChart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
 #    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
@@ -191,7 +191,6 @@ Feature: 日志展现_地图
   Scenario Outline: statMap(RZY-2796)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
-    And I wait for "10000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -210,6 +209,7 @@ Feature: 日志展现_地图
 
     And I click the "Settings" button
     And I wait for "StatisticalChart" will be visible
+    And I wait for "MapSettings" will be visible
     And I wait for "3000" millsecond
     And take part of "StatisticalChart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
 #    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
@@ -240,6 +240,7 @@ Feature: 日志展现_地图
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "StatisticalChart" will be visible
+    And I wait for "MapSettings" will be visible
     And I wait for "3000" millsecond
     And take part of "StatisticalChart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
 #    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
