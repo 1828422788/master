@@ -128,8 +128,8 @@ Feature: Agent分组设置
 
   Scenario Outline: 编辑Agent资源分组
     Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
-    And I wait for loading complete
-    And I click the "<name>" button
+    And I wait for loading invisible
+    And I click the "OpenGroupButton" button
     And I set the parameter "Name" with value "<name>"
     When I set the parameter "Description" with value "<description>"
     And I click the "Update" button
@@ -146,7 +146,7 @@ Feature: Agent分组设置
 
   Scenario Outline: 删除Agent分组
     Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
-    And I wait for loading complete
+    And I wait for loading invisible
     And I click the "<name>" button
     And I click the "More" button
     And I click the "Delete" button
