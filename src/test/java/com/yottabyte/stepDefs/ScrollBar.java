@@ -173,7 +173,8 @@ public class ScrollBar {
     public void JavascriptDragToFixedSide(String source) {
         WebElement sourceElement = GetElementFromPage.getWebElementWithName(source);
             int sourceX = sourceElement.getLocation().getX();
-            if (sourceX<50){
+            if (sourceX<199){
+                new Actions(webDriver).dragAndDropBy(sourceElement, -(sourceX - 21), 0).build().perform();
                 new Actions(webDriver).dragAndDropBy(sourceElement, 200, 0).build().perform();
             }else if(sourceX>228){
                 new Actions(webDriver).dragAndDropBy(sourceElement, -(sourceX - 228), 0).build().perform();

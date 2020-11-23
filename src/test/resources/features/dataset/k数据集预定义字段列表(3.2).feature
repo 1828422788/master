@@ -137,7 +137,6 @@ Feature: 数据集-k预定义字段列表
     And I click the "RecentSevenDay" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
-#    And I drag the element "SearchPageSvg" to the "right" side
   #验证字段
     Then I will see the "fieldOne" result will be "apache.status"
     Then I will see the "fieldTwo" result will be "appname"
