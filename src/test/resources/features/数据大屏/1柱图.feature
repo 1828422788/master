@@ -148,6 +148,7 @@ Feature: 数据大屏-e柱图
 #Y轴
     And I click the "YaxisHeader" button
      #文本
+    And I wait for "YaxisWordSize" will be visible
     And I set the parameter "YaxisWordSize" with value "20"
 #    And I click the "YaxisWordColor" button
     And I wait for "YColorInput" will be visible
