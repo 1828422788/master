@@ -21,4 +21,25 @@ public class ListPage extends ListPageFactory {
     public WebElement getSuccessMessage() {
         return successMessage;
     }
+
+    // 搜索输入框
+    @FindBy(xpath = "//input[@placeholder='请输入名称']")
+    private WebElement macroListSearchInput;
+    public WebElement getMacroListSearchInput() {
+        return macroListSearchInput;
+    }
+
+    @FindBy(xpath = "(//a[contains(text(),'删除')])")
+    private WebElement macroListDeleteButton;
+    public WebElement getMacroListDeleteButton() throws InterruptedException {
+        Thread.sleep(2000);
+        return macroListDeleteButton;
+    }
+
+    @FindBy(className = "ant-btn-primary")
+    private WebElement confirmDelMacroButton;
+    public WebElement getConfirmDelMacroButton() throws InterruptedException {
+        Thread.sleep(2000);
+        return confirmDelMacroButton;
+    }
 }

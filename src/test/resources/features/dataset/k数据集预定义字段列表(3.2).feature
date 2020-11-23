@@ -125,10 +125,11 @@ Feature: 数据集-k预定义字段列表
     And I click the "allDelete" button
     And I click the "save" button
 
+  @tc4496
   Scenario: RZY-4496:数据集字段在搜索页面的应用
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-#    And I drag the element "SearchPageSvg" to the "right" side
+    And I drag the element "SearchPageSvg" to the fixed side
 
     And I click the "hrField" button
 

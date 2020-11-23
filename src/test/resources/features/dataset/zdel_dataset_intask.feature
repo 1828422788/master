@@ -1,4 +1,4 @@
-@dataset @ddataset
+@dataset @ddataset @ddatasetref
 Feature: 清理数据集与定时任务关联用例
 
   @deldatasettask
