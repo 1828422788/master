@@ -1,4 +1,4 @@
-@dragAndDrop @dragAndDropCompound
+@dragAndDrop @dragAndDropCompound @trend
 Feature:拖拽生成趋势图_复合
 
   Background:

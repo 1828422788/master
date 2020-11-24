@@ -18,7 +18,7 @@ Feature: 新建数据集all_、安装app
 
     And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'all_'}" values "{'column':'2','name':'all_'}"
-    And I will see the data "{'column':'0','name':'all_'}" values "{'column':'3','name':'无'}"
+    And I will see the data "{'column':'0','name':'all_'}" values "{'column':'4','name':'无'}"
 
     Examples: 新建成功
       | name    | alias  | Spl  |
