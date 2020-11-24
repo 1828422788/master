@@ -31,6 +31,7 @@ Feature: 仪表盘统计地图
     When I set the parameter "TagName" with value "<name>"
     And I click the "EnsureCreateTagButton" button
     And I wait for loading complete
+    And I wait for "5000" millsecond
     And I back to before
 
     Examples:

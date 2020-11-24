@@ -72,6 +72,7 @@ Feature: 应用字段别名
     And I set the parameter "FieldAlias" with value "<alias>"
     And I click the "SaveButton" button under some element
     Then I will see the element "WarningInfo" value is "<warning>"
+    And I wait for "5000" millsecond
 
     Examples:
       | name | original | alias | warning        |
@@ -83,7 +84,7 @@ Feature: 应用字段别名
 
   Scenario: 验证字段别名
     Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I set the parameter "SearchInput" with value "*|stats count() by appname"
+    And I set the parameter "SearchInput" with value "*|stats count() by appname|limit 1"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -113,7 +114,7 @@ Feature: 应用字段别名
 
   Scenario: 验证多个字段别名映射
     Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I set the parameter "SearchInput" with value "* | stats count() by apache.geo.province,appname"
+    And I set the parameter "SearchInput" with value "* | stats count() by apache.geo.province,appname|limit 1"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -122,7 +123,7 @@ Feature: 应用字段别名
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "AppFieldConfig" then i click the "打开" button
     Then I will see the "splSearch.SearchPage" page
-    And I set the parameter "SearchInput" with value "* | stats count() by province,app"
+    And I set the parameter "SearchInput" with value "* | stats count() by province,app|limit 1"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -164,7 +165,7 @@ Feature: 应用字段别名
 
   Scenario: 验证多个字段别名
     Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I set the parameter "SearchInput" with value "* | stats count() by apache.geo.province,appname"
+    And I set the parameter "SearchInput" with value "* | stats count() by apache.geo.province,appname|limit 1"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -173,7 +174,7 @@ Feature: 应用字段别名
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "AppFieldConfig" then i click the "打开" button
     Then I will see the "splSearch.SearchPage" page
-    And I set the parameter "SearchInput" with value "* | stats count() by province,app"
+    And I set the parameter "SearchInput" with value "* | stats count() by province,app|limit 1"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button

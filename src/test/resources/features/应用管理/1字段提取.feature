@@ -194,6 +194,7 @@ Feature: 应用字段提取（RZY-2129）
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "dictionary.ListPage" page
     Then the data name is "字典管理app.csv" then i click the "标签" button
+    And I wait for "Tag" will be visible
     Then I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "Group"
     Then I click the "EnsureButton" button
