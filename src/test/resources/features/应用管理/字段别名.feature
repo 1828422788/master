@@ -72,6 +72,7 @@ Feature: 应用字段别名
     And I set the parameter "FieldAlias" with value "<alias>"
     And I click the "SaveButton" button under some element
     Then I will see the element "WarningInfo" value is "<warning>"
+    And I wait for "5000" millsecond
 
     Examples:
       | name | original | alias | warning        |
