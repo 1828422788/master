@@ -142,7 +142,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[contains(text(),'字段值')])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement fieldValue;
 
-    @FindBy(xpath = "(//span[contains(text(),'类型')])[last()]/ancestor::div/following-sibling::div[1]")
+    @FindBy(xpath = "(//span[contains(text(),'类型')])[last()]/ancestor::div[1]/following-sibling::div[1]")
     private WebElement typeChartField;
 
     @FindBy(xpath = "((//span[text()='数值字段'][last()])/ancestor::div/following-sibling::div)[1]")
