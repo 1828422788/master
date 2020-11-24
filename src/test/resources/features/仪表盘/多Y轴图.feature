@@ -295,7 +295,7 @@ Feature: 仪表盘多Y轴图
       |  max(apache.resp_len)    |   多Y轴图_byFields_max(apache.resp_len)   |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: legend RZY-1342,RZY-3744
+  Scenario Outline: legend RZY-1342,RZY-1344
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘多Y轴图"

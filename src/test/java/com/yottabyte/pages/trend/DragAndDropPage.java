@@ -30,10 +30,13 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(xpath = "(//div[@id='dimensions']/span/span/i)[1]")
     private WebElement elementInDimensions;
 
-    @FindBy(xpath = "(//div[@id='values']/span/span/i)[1]")
+    @FindBy(xpath = "(//div[@id='values']/span/i)[1]")
     private WebElement elementInValues;
 
-    @FindBy(xpath = "(//div[@id='byFields']/span/span/i)[1]")
+    @FindBy(xpath = "(//div[@id='values2']/span/i)[1]")
+    private WebElement elementInValues2;
+
+    @FindBy(xpath = "(//div[@id='byFields']/span/i)[1]")
     private WebElement elementInCompare;
 
     @FindBy(xpath = "//i[@title='同环比']")
@@ -127,6 +130,21 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(xpath = "//div[@class='ant-tabs-nav-wrap']/div/div/div/div[3]")
     private WebElement customTimeTab;
 
+    @FindBy(xpath = "//span[text() = '启用数值2']/preceding-sibling::span")
+    private WebElement addValueField;
+
+    @FindBy(xpath = "//label[text() = '数值']/i")
+    private WebElement editFirstField;
+
+    @FindBy(xpath = "//label[text() = '数值2']/i")
+    private WebElement editSecondField;
+
+    @FindBy(xpath = "(//span[text()='展示颜色'])[last()]/ancestor::div/following-sibling::div/span")
+    private WebElement editColor;
+
+    @FindBy(xpath = "(//span[contains(text(),'函数')])[last()]/ancestor::div[1]/following-sibling::div[1]")
+    private WebElement typeFunction;
+
     //Charts --------------------------------------------------------------------------
     public WebElement getLine() {
         return getElementByTitle("曲线图");
@@ -205,6 +223,10 @@ public class DragAndDropPage extends CreatePage {
         return getElementById("values");
     }
 
+    public WebElement getValues2() {
+        return getElementById("values2");
+    }
+
     public WebElement getCompareBy() {
         return getElementById("byFields");
     }
@@ -254,6 +276,10 @@ public class DragAndDropPage extends CreatePage {
         return elementInValues;
     }
 
+    public WebElement getElementInValues2() {
+        return elementInValues2;
+    }
+
     public WebElement getElementInCompare() {
         return elementInCompare;
     }
@@ -265,8 +291,6 @@ public class DragAndDropPage extends CreatePage {
     public WebElement getCompareField() {
         return compareField;
     }
-
-
 
     //--------------------------------------------------------------------------------------
 
@@ -449,6 +473,27 @@ public class DragAndDropPage extends CreatePage {
 
     public WebElement getOverview() {
         return overview;
+    }
+
+    public WebElement getAddValueField() {
+        return addValueField;
+    }
+
+    public WebElement getEditFirstField() {
+        return editFirstField;
+    }
+
+    public WebElement getEditSecondField() {
+        return editSecondField;
+    }
+
+    public WebElement getEditColor() {
+        return editColor;
+    }
+
+    public WebElement getTypeFunction() {
+        typeFunction.click();
+        return super.getLastDropdownList();
     }
 
     private WebElement getElementById(String name){
