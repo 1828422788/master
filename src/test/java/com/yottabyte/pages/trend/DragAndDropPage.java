@@ -139,7 +139,7 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(xpath = "//label[text() = '数值2']/i")
     private WebElement editSecondField;
 
-    @FindBy(xpath = "//span[text()='展示颜色']/ancestor::div/following-sibling::div/span")
+    @FindBy(xpath = "(//span[text()='展示颜色'])[last()]/ancestor::div/following-sibling::div/span")
     private WebElement editColor;
 
     @FindBy(xpath = "(//span[contains(text(),'函数')])[last()]/ancestor::div[1]/following-sibling::div[1]")
