@@ -243,7 +243,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "IpZifu" button
+    And I click the "IpZifu" button under some element
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
