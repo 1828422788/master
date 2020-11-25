@@ -87,6 +87,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[@id='EditDatabase_app_ids']//i[contains(@class,'anticon-close-circle')]")
     private WebElement deleteApp;
 
+    @FindBy(className = "ant-select-selection__rendered")
+    private WebElement beforeDeleteApp;
+
 
     //新建数据集弹窗中的汇聚继承
     @FindBy(xpath = "//label[@title='父子行为']/parent::div/following-sibling::div//span[text()='汇聚']")
@@ -95,6 +98,10 @@ public class ListPage extends ListPageFactory {
     private WebElement number;
     @FindBy(xpath = "//li[contains(text(),'字符串')]")
     private WebElement strStr;
+
+    public WebElement getBeforeDeleteApp() {
+        return beforeDeleteApp;
+    }
 
     public WebElement getAppList() {
         appList.click();
