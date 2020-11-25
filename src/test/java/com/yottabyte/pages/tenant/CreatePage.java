@@ -30,23 +30,6 @@ public class CreatePage extends PageTemplate {
     private WebElement domainName;
     public WebElement getDomainName(){return domainName;}
 
-/*
-    public WebElement getSupportFeature() {
-        return getDropdownList("支持特性");
-    }
-    public WebElement getDropdownList(String text) {
-        String xpath = "//label[contains(text(),'" + text + "')]/parent::div/div/div";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        element.click();
-        return getLastDropdownList();
-
-    }
-    public WebElement getLastDropdownList() {
-        return webDriver.findElement(By.xpath("(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]"));
-    }
-*/
-
-
     public WebElement getDropdownList(String text) {
         String xpath = "//label[contains(text(),'" + text + "')]/parent::div/div/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
@@ -59,8 +42,6 @@ public class CreatePage extends PageTemplate {
     public WebElement getExcessBehavior() {
         return  getDropdownList("超额行为");
     }
-
-
 
     @FindBy(xpath = "//label[contains(text(),'每日限额')]/parent::div/div/div/input")
     private WebElement dailyLimit;
