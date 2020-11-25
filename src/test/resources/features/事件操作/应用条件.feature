@@ -22,7 +22,6 @@ Feature: 事件操作应用条件
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
-  @test
   Scenario: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "eventTest"
@@ -70,3 +69,150 @@ Feature: 事件操作应用条件
     And I click the "EventOperate" button
     Then I will see the "Condition" doesn't exist
 
+  Scenario: 修改事件操作设置应用条件为等于
+    Given open the "event.ListPage" page for uri "/event/action/"
+    When the data name is "{'column':'1','name':'测试应用条件'}" then i click the "编辑" button
+    Then I will see the "event.CreatePage" page
+    And I set the parameter "ConditionField" with value "other.num"
+    And I choose the "等于" from the "SelectCondition"
+    And I set the parameter "conditionValue" with value "222"
+    And I click the "Save" button
+    And I wait for "Message" will be visible
+    Then I will see the message "提交事件操作成功"
+
+  Scenario: 验证应用条件为等于时生效
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成"
+    When I set the parameter "SearchInput" with value "appname:eventTest AND other.num:222"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "RightIcon" button
+    And I wait for "EventOperate" will be visible
+    And I click the "EventOperate" button
+    Then I wait for "Condition" will be visible
+
+  Scenario: 验证应用条件为等于时生效
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成"
+    When I set the parameter "SearchInput" with value "appname:eventTest AND other.num:111"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "RightIcon" button
+    And I wait for "EventOperate" will be visible
+    And I click the "EventOperate" button
+    Then I will see the "Condition" doesn't exist
+
+  Scenario: 修改事件操作设置应用条件为不等于
+    Given open the "event.ListPage" page for uri "/event/action/"
+    When the data name is "{'column':'1','name':'测试应用条件'}" then i click the "编辑" button
+    Then I will see the "event.CreatePage" page
+    And I set the parameter "ConditionField" with value "other.num"
+    And I choose the "不等于" from the "SelectCondition"
+    And I set the parameter "conditionValue" with value "111"
+    And I click the "Save" button
+    And I wait for "Message" will be visible
+    Then I will see the message "提交事件操作成功"
+
+  Scenario: 验证应用条件为不等于时生效
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成"
+    When I set the parameter "SearchInput" with value "appname:eventTest AND other.num:222"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "RightIcon" button
+    And I wait for "EventOperate" will be visible
+    And I click the "EventOperate" button
+    Then I wait for "Condition" will be visible
+
+  Scenario: 验证应用条件为不等于时生效
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成"
+    When I set the parameter "SearchInput" with value "appname:eventTest AND other.num:111"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "RightIcon" button
+    And I wait for "EventOperate" will be visible
+    And I click the "EventOperate" button
+    Then I will see the "Condition" doesn't exist
+
+  Scenario: 修改事件操作设置应用条件为大于
+    Given open the "event.ListPage" page for uri "/event/action/"
+    When the data name is "{'column':'1','name':'测试应用条件'}" then i click the "编辑" button
+    Then I will see the "event.CreatePage" page
+    And I set the parameter "ConditionField" with value "other.num"
+    And I choose the "大于" from the "SelectCondition"
+    And I set the parameter "conditionValue" with value "200"
+    And I click the "Save" button
+    And I wait for "Message" will be visible
+    Then I will see the message "提交事件操作成功"
+
+  Scenario: 验证应用条件为大于时生效
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成"
+    When I set the parameter "SearchInput" with value "appname:eventTest AND other.num:222"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "RightIcon" button
+    And I wait for "EventOperate" will be visible
+    And I click the "EventOperate" button
+    Then I wait for "Condition" will be visible
+
+  Scenario: 验证应用条件为大于时生效
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成"
+    When I set the parameter "SearchInput" with value "appname:eventTest AND other.num:111"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "RightIcon" button
+    And I wait for "EventOperate" will be visible
+    And I click the "EventOperate" button
+    Then I will see the "Condition" doesn't exist
+
+  Scenario: 修改事件操作设置应用条件为小于
+    Given open the "event.ListPage" page for uri "/event/action/"
+    When the data name is "{'column':'1','name':'测试应用条件'}" then i click the "编辑" button
+    Then I will see the "event.CreatePage" page
+    And I set the parameter "ConditionField" with value "other.num"
+    And I choose the "小于" from the "SelectCondition"
+    And I set the parameter "conditionValue" with value "200"
+    And I click the "Save" button
+    And I wait for "Message" will be visible
+    Then I will see the message "提交事件操作成功"
+
+  Scenario: 验证应用条件为小于时生效
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成"
+    When I set the parameter "SearchInput" with value "appname:eventTest AND other.num:111"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "RightIcon" button
+    And I wait for "EventOperate" will be visible
+    And I click the "EventOperate" button
+    Then I wait for "Condition" will be visible
+
+  Scenario: 验证应用条件为小于时生效
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成"
+    When I set the parameter "SearchInput" with value "appname:eventTest AND other.num:222"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "RightIcon" button
+    And I wait for "EventOperate" will be visible
+    And I click the "EventOperate" button
+    Then I will see the "Condition" doesn't exist

@@ -7,7 +7,7 @@ Feature: 角色编辑（RZY-522）
   Scenario Outline: 编辑角色
     Given the data name is "<OldName>" then i click the "编辑" button
     And I will see the "roles.CreatePage" page
-#    And I wait for element "RoleName" change text to "<OldName>"
+    And I wait for "1000" millsecond
     When I set the parameter "RoleName" with value "<RoleName>"
     And I set the parameter "RoleDes" with value "<RoleDes>"
     And I click the "Save" button

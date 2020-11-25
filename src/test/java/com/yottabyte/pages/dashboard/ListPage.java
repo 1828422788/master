@@ -53,6 +53,29 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='删除']")
     private WebElement empowerDelete;
 
+    @FindBy(xpath = "(//tbody[@class='ant-table-tbody']/tr/td[@class='ant-table-selection-column']//span)[1]")
+    private WebElement listItemOne;
+
+    @FindBy(xpath = "(//tbody[@class='ant-table-tbody']/tr/td[@class='ant-table-selection-column']//span)[4]")
+    private WebElement listItemTwo;
+
+    @FindBy(xpath = "(//tbody[@class='ant-table-tbody']/tr/td[@class='ant-table-selection-column']//span)[7]")
+    private WebElement listItemThree;
+
+    @FindBy(xpath = "//span[text()='添加资源标签']")
+    private WebElement addResouceTag;
+
+    @FindBy(xpath = "//div[@class='ant-popover-inner-content']//li/span[text()='删除']")
+    private WebElement multiDelete;
+
+    @FindBy(xpath = "//div[text()='请输入标签名称']")
+    private WebElement multiAddTag;
+
+    public WebElement getMultiAddTag() {
+        multiAddTag.click();
+        return super.getLastDropdownList();
+    }
+
     public WebElement getBelongedApp() {
         belongedApp.click();
         return super.getLastDropdownList();
@@ -107,6 +130,23 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getEmpowerDelete() { return empowerDelete; }
 
+    public WebElement getListItemOne() { return listItemOne; }
+
+    public WebElement getListItemTwo() { return listItemTwo; }
+
+    public WebElement getListItemThree() { return listItemThree; }
+
+    public WebElement getAddResouceTag() { return addResouceTag; }
+
+    public WebElement getMultiDelete() { return multiDelete; }
+
+    public WebElement getMultiOperate(){
+        return super.getButton("批量操作");
+    }
+
+    public WebElement getMultiChooseButton(){
+        return super.getButton("请选择");
+    }
 
     public WebElement getInput(String name) {
         return webDriver.findElement(By.xpath("(//span[text()='" + name + "'])[last()]/following-sibling::span//input"));
