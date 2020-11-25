@@ -4,6 +4,7 @@ Feature: 用户登陆（RZY-1152、RZY-1153）
   @logout
   Scenario Outline: 登陆失败
     Given I logout current user
+    And I refresh the website
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "<usernameValue>"
