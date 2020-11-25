@@ -12,6 +12,7 @@ Feature: 权限-全链路
     And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name              |
@@ -22,6 +23,7 @@ Feature: 权限-全链路
     Given I login user "AutoTest" with password "All#123456"
     And open the "fulllink.ListPage" page for uri "/fulllink/"
     Then I will see the "Create" doesn't exist
+    Then I logout current user
 
   Scenario Outline: 勾选新建权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -31,6 +33,7 @@ Feature: 权限-全链路
     When I "checked" the checkbox which name is "新建全链路"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name              |
@@ -43,6 +46,7 @@ Feature: 权限-全链路
     And I set the parameter "Name" with value "权限测试"
     And I click the "Ensure" button
     Then I will see the success message "创建成功"
+    Then I logout current user
 
   Scenario Outline: 授权无任何权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -54,6 +58,7 @@ Feature: 权限-全链路
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name |
@@ -63,6 +68,7 @@ Feature: 权限-全链路
     Given I login user "AutoTest" with password "All#123456"
     And open the "fulllink.ListPage" page for uri "/fulllink/"
     Then I will see the search result "{'column':'0','name':'权限测试','contains':'no'}"
+    Then I logout current user
 
   Scenario Outline: 授权读取
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -75,6 +81,7 @@ Feature: 权限-全链路
     When I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name |
@@ -87,6 +94,7 @@ Feature: 权限-全链路
     And the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
+    Then I logout current user
 
     Examples:
       | name |
@@ -105,6 +113,7 @@ Feature: 权限-全链路
     When I "checked" function "读取,编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name |
@@ -128,6 +137,7 @@ Feature: 权限-全链路
     And the data name is "权限测试重命名" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
+    Then I logout current user
 
     Examples:
       | name |
@@ -146,6 +156,7 @@ Feature: 权限-全链路
     When I "checked" function "读取,编辑,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name    |
@@ -175,6 +186,7 @@ Feature: 权限-全链路
     And I set the parameter "Name" with value "权限测试Rename"
     And I click the "Ensure" button
     Then I will see the success message "修改成功"
+    Then I logout current user
 
     Examples:
       | name    |
@@ -219,6 +231,7 @@ Feature: 权限-全链路
     When I "checked" function "读取,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name       |
@@ -236,6 +249,7 @@ Feature: 权限-全链路
     Given I login user "验证授权用户" with password "All#123456"
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
     Then the data name is "<name>" then i will see "授权" button
+    Then I logout current user
 
     Examples:
       | name       |
@@ -254,6 +268,7 @@ Feature: 权限-全链路
     When I "checked" function "读取,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name       |
@@ -296,6 +311,7 @@ Feature: 权限-全链路
     When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name       |
@@ -324,6 +340,7 @@ Feature: 权限-全链路
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
+    Then I logout current user
 
     Examples:
       | name       |
@@ -348,6 +365,7 @@ Feature: 权限-全链路
     When I "unchecked" function "编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name |
@@ -368,6 +386,7 @@ Feature: 权限-全链路
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
+    Then I logout current user
 
     Examples:
       | name |
@@ -391,6 +410,7 @@ Feature: 权限-全链路
     And I "checked" the checkbox which name is "二次授权测试" in auth table
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
+    Then I logout current user
 
   Scenario Outline: 二次授权读取
     Given I login user "AutoTest" with password "All#123456"
@@ -401,6 +421,7 @@ Feature: 权限-全链路
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
+    Then I logout current user
 
     Examples:
       | authRole | authName | function | name   |
@@ -413,6 +434,7 @@ Feature: 权限-全链路
     And the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
+    Then I logout current user
 
     Examples:
       | name   |
@@ -427,6 +449,7 @@ Feature: 权限-全链路
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
+    Then I logout current user
 
     Examples:
       | authRole | authName        | function | name   |
@@ -450,6 +473,7 @@ Feature: 权限-全链路
     And the data name is "二次授权测试重命名" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
+    Then I logout current user
 
     Examples:
       | name   |
@@ -464,6 +488,7 @@ Feature: 权限-全链路
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
+    Then I logout current user
 
     Examples:
       | authRole | authName | function | name      |
@@ -492,6 +517,7 @@ Feature: 权限-全链路
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
+    Then I logout current user
 
     Examples:
       | name      |

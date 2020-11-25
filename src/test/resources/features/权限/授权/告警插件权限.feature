@@ -134,6 +134,7 @@ Feature: 权限-授权告警插件
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Resource" will be visible
     And I click the "Resource" button
     And I "checked" the checkbox which name is "可查看告警插件"
     And I click the "SaveButton" button

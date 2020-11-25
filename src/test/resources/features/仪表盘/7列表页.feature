@@ -26,7 +26,7 @@ Feature: 仪表盘列表页
       | 仪表盘批量2 |
       | 仪表盘批量3 |
 
-  Scenario:批量添加标签
+  Scenario:批量添加标签 RZY-4838
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the "MultiOperate" button
@@ -45,7 +45,7 @@ Feature: 仪表盘列表页
     Then I will see the success message "更新成功"
 
 
-  Scenario: 验证批量添加标签成功
+  Scenario: 验证批量添加标签成功 RZY-4839
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I wait for "3500" millsecond
@@ -53,7 +53,7 @@ Feature: 仪表盘列表页
     Then I will see the data "仪表盘批量2" values "{'column':'5','name':'AutoTest'}"
     Then I will see the data "仪表盘批量1" values "{'column':'5','name':'AutoTest'}"
 
-  Scenario:批量删除仪表盘
+  Scenario:批量删除仪表盘 RZY-4840
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the "MultiOperate" button
@@ -70,7 +70,7 @@ Feature: 仪表盘列表页
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
 
-  Scenario Outline: 验证删除成功(RZY-214)
+  Scenario Outline: 验证删除成功 RZY-4840
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"

@@ -917,6 +917,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='all_']")
     private WebElement allResources;
 
+    @FindBy(xpath = "//*[@cy='33']")
+    private  WebElement chartElement;
+
+    public WebElement getChartElement() {
+        return chartElement;
+    }
+
     public WebElement getDataset_1() {
         return dataset_1;
     }
