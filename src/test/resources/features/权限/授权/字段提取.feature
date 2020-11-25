@@ -1,4 +1,4 @@
-#@auth
+@authtest1
 Feature: 权限-字段提取
 
   Scenario Outline: 授权功能权限
@@ -13,6 +13,7 @@ Feature: 权限-字段提取
     And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name              |
@@ -25,6 +26,7 @@ Feature: 权限-字段提取
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
     Then I will see the "CreateButton" doesn't exist
+    Then I logout current user
 
   Scenario: 验证有新建权限
     Given I login user "AutoTest" with password "All#123456"
@@ -45,6 +47,7 @@ Feature: 权限-字段提取
     And I set the parameter "Logtype" with value "other"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
+    Then I logout current user
 
   Scenario: 取消读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -58,12 +61,14 @@ Feature: 权限-字段提取
     And I "unchecked" the checkbox which name is "AutoTestUserCreate" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
   Scenario: 验证无读取权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I will see the search result "{'column':'0','name':'AutoTestUserCreate','contains':'no'}"
+    Then I logout current user
 
   Scenario Outline: 授权读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -78,6 +83,7 @@ Feature: 权限-字段提取
     When I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name               |
@@ -104,6 +110,7 @@ Feature: 权限-字段提取
     And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
+    Then I logout current user
 
     Examples:
       | name               |
@@ -121,6 +128,7 @@ Feature: 权限-字段提取
     When I "unchecked" function "删除,转授" from the auth table which name is "AutoTestUserCreate"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
   Scenario: 验证读取+编辑权限
     Given I login user "AutoTest" with password "All#123456"
@@ -153,6 +161,7 @@ Feature: 权限-字段提取
     And the data name is "{'column':'1','name':'AutoTestUserRename'}" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
+    Then I logout current user
 
   Scenario Outline: 授权读取+编辑+删除权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -166,6 +175,7 @@ Feature: 权限-字段提取
     When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name                   |
@@ -209,6 +219,7 @@ Feature: 权限-字段提取
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
+    Then I logout current user
 
     Examples:
       | name                   |
@@ -246,6 +257,7 @@ Feature: 权限-字段提取
     And I click the "NextButton" button under some element
     And I click the "Done" button under some element
     Then I will see the message "没有编辑权限"
+    Then I logout current user
 
     Examples:
       | name                       |
@@ -259,6 +271,7 @@ Feature: 权限-字段提取
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
+    Then I logout current user
 
   Scenario Outline: 授权读取+转授权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -287,6 +300,7 @@ Feature: 权限-字段提取
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name               |
@@ -308,6 +322,7 @@ Feature: 权限-字段提取
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看复制授权" button
+    Then I logout current user
 
     Examples:
       | name               |
@@ -336,6 +351,7 @@ Feature: 权限-字段提取
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name               |
@@ -378,6 +394,7 @@ Feature: 权限-字段提取
     When I set the parameter "Name" with value "Auto副本"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
+    Then I logout current user
 
     Examples:
       | name               |
@@ -406,6 +423,7 @@ Feature: 权限-字段提取
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name   |
@@ -439,6 +457,7 @@ Feature: 权限-字段提取
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
+    Then I logout current user
 
     Examples:
       | name   |
@@ -484,6 +503,7 @@ Feature: 权限-字段提取
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name   |
@@ -518,6 +538,7 @@ Feature: 权限-字段提取
     When I set the parameter "Name" with value "副本"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
+    Then I logout current user
 
     Examples:
       | name   |
@@ -574,6 +595,7 @@ Feature: 权限-字段提取
     When I set the parameter "Name" with value "测试有效期限"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
+    Then I logout current user
 
     Examples:
       | name |
@@ -625,6 +647,7 @@ Feature: 权限-字段提取
     And I upload a file with name "/src/test/resources/testdata/log/<log>"
     And I click the "UploadButton" button
     And I wait for element "VerifyText" change text to "上传完成"
+    Then I logout current user
 
     Examples:
       | appName        | log            |
@@ -651,6 +674,7 @@ Feature: 权限-字段提取
     And I click the "Done" button
     And I wait for "Message" will be visible
     Then I will see the message "没有编辑权限"
+    Then I logout current user
 
     Examples:
       | authRole | authName | function | name     |
@@ -682,6 +706,7 @@ Feature: 权限-字段提取
     When I set the parameter "Name" with value "测试AuthRename"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
+    Then I logout current user
 
     Examples:
       | authRole | authName        | function | name     |
@@ -698,6 +723,7 @@ Feature: 权限-字段提取
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "RightIcon" button
     Then I will see the spl search result "<result>"
+    Then I logout current user
 
     Examples:
       | tag            | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
@@ -740,6 +766,7 @@ Feature: 权限-字段提取
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
+    Then I logout current user
 
     Examples:
       | authRole | authName | function | name         |
@@ -750,6 +777,7 @@ Feature: 权限-字段提取
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I will see the search result "{'column':'1','name':'测试有效期限','contains':'no'}"
+    Then I logout current user
 
   Scenario Outline: 删除字段提取
     Given open the "configs.ListPage" page for uri "/configs/"

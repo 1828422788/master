@@ -12,6 +12,7 @@ Feature: 权限-字典
     And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name              |
@@ -23,6 +24,7 @@ Feature: 权限-字典
     And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then I will see the "UploadButton" doesn't exist
+    Then I logout current user
 
   Scenario: 勾选可新建字典权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -32,6 +34,7 @@ Feature: 权限-字典
     And I "checked" the checkbox which name is "新建字典"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
   Scenario: 验证可新建字典权限
     Given I login user "AutoTest" with password "All#123456"
@@ -44,6 +47,7 @@ Feature: 权限-字典
     And I click the "EnsureUpload" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建字典成功"
+    Then I logout current user
 
   Scenario: 授权无读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -57,12 +61,14 @@ Feature: 权限-字典
     And I "unchecked" the checkbox which name is "权限测试.csv" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
   Scenario: 验证无读取权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then I will see the search result "{'column':'0','name':'权限测试.csv','contains':'no'}"
+    Then I logout current user
 
   Scenario: 授权有读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -75,6 +81,7 @@ Feature: 权限-字典
     When I "checked" function "读取" from the auth table which name is "权限测试.csv"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
   Scenario: 验证有读取权限
     Given I login user "AutoTest" with password "All#123456"
@@ -84,6 +91,7 @@ Feature: 权限-字典
     When the data name is "权限测试.csv" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
+    Then I logout current user
 
   Scenario Outline: 授权读取+编辑权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -121,6 +129,7 @@ Feature: 权限-字典
     When the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
+    Then I logout current user
 
     Examples:
       | name     |
@@ -167,6 +176,7 @@ Feature: 权限-字典
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
+    Then I logout current user
 
     Examples:
       | name         |
@@ -201,6 +211,7 @@ Feature: 权限-字典
     And I wait for "EnsureButton" will be visible
     And I click the "EnsureButton" button
     Then I wait for element "SuccessMessage" change text to "删除成功"
+    Then I logout current user
 
     Examples:
       | name         |
@@ -236,6 +247,7 @@ Feature: 权限-字典
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name                   |
@@ -246,6 +258,7 @@ Feature: 权限-字典
     And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then I will see the search result "{'column':'0','name':'权限测试.csv','contains':'no'}"
+    Then I logout current user
 
   Scenario Outline: 授权读取+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -272,6 +285,7 @@ Feature: 权限-字典
     And I wait for "EnsureButton" will be visible
     And I click the "EnsureButton" button
     Then I wait for element "SuccessMessage" change text to "删除成功"
+    Then I logout current user
 
     Examples:
       | name     |
@@ -292,6 +306,7 @@ Feature: 权限-字典
     And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then the data name is "AutoTestUserCreate.csv" then i will see "授权" button
+    Then I logout current user
 
   Scenario Outline: 授权读取+编辑+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -316,6 +331,7 @@ Feature: 权限-字典
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name                   |
@@ -350,6 +366,7 @@ Feature: 权限-字典
     And I set the parameter "GroupInput" with value "字典分组AutoTest"
     And I choose the "字典分组AutoTest" from the "Group"
     And I click the "Save" button
+    Then I logout current user
 
     Examples:
       | name                   |
@@ -378,6 +395,7 @@ Feature: 权限-字典
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name                   |
@@ -401,6 +419,7 @@ Feature: 权限-字典
     And I wait for "EnsureButton" will be visible
     And I click the "EnsureButton" button
     Then I wait for element "SuccessMessage" change text to "删除成功"
+    Then I logout current user
 
   Scenario: 再次创建字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
@@ -433,6 +452,7 @@ Feature: 权限-字典
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name                   |
@@ -473,6 +493,7 @@ Feature: 权限-字典
     And I wait for "EnsureButton" will be visible
     And I click the "EnsureButton" button
     Then I wait for element "SuccessMessage" change text to "删除成功"
+    Then I logout current user
 
     Examples:
       | name                   |
@@ -493,6 +514,7 @@ Feature: 权限-字典
     When I "check" the function "读取" which name is "AutoTest" in tiny table
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
+    Then I logout current user
 
   Scenario: 验证用户读取权限
     Given I login user "AutoTest" with password "All#123456"
@@ -502,6 +524,7 @@ Feature: 权限-字典
     When the data name is "AuthTest.csv" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
+    Then I logout current user
 
   Scenario: 授权对应角色的读取权限
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
@@ -517,6 +540,7 @@ Feature: 权限-字典
     When I "check" the function "读取" which name is "__user_AutoTest__" in tiny table
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
+    Then I logout current user
 
   Scenario: 验证角色读取权限
     Given I login user "AutoTest" with password "All#123456"
@@ -526,6 +550,7 @@ Feature: 权限-字典
     When the data name is "AuthTest.csv" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
+    Then I logout current user
 
   Scenario: 授权对应用户分组的读取权限
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
@@ -543,6 +568,7 @@ Feature: 权限-字典
     When I "check" the function "读取" which name is "AutoTestGroup" in tiny table
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
+    Then I logout current user
 
   Scenario: 验证用户分组读取权限
     Given I login user "AutoTest" with password "All#123456"
@@ -552,6 +578,7 @@ Feature: 权限-字典
     When the data name is "AuthTest.csv" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
+    Then I logout current user
 
   Scenario: 给用户授权所有权限
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
@@ -559,6 +586,7 @@ Feature: 权限-字典
     And I "check" the checkbox which name is "AutoTest" in tiny table
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
+    Then I logout current user
 
   Scenario Outline: 二次授权读取
     Given I login user "AutoTest" with password "All#123456"
@@ -576,6 +604,7 @@ Feature: 权限-字典
     When the data name is "AuthTest.csv" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
+    Then I logout current user
 
     Examples:
       | authRole | authName | function |
@@ -613,6 +642,7 @@ Feature: 权限-字典
     When the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
+    Then I logout current user
 
     Examples:
       | authRole | authName        | function | name         |
@@ -656,6 +686,7 @@ Feature: 权限-字典
     And I wait for "EnsureButton" will be visible
     And I click the "EnsureButton" button
     Then I wait for element "SuccessMessage" change text to "删除成功"
+    Then I logout current user
 
     Examples:
       | authRole | authName | function | name         |
