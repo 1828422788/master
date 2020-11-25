@@ -1,4 +1,3 @@
-@yibiaopanshuruxiang
 Feature: 仪表盘多选菜单数组操作
 
   @dashboard @dashboardSmoke

@@ -8,6 +8,7 @@ Feature: 路由新建（RZY-1481）
   Scenario Outline: RZY-1481:新建-路由规则
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
+    And I wait for loading invisible
     When I choose the "iisidx" from the "IndexName"
     And I set the parameter "Desc" with value "<desc>"
     And I set the parameter "Rule" with value "<rule>"

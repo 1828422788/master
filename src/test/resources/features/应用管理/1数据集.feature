@@ -149,7 +149,8 @@ Feature: 应用数据集
     And I wait for loading invisible
     When I click the "EditEvent" button
     Then I will see the "dataset.ListPage" page
-    And I move the mouse pointer to the "DeleteApp"
+    And I wait for "BeforeDeleteApp" will be visible
+    And I move the mouse pointer to the "BeforeDeleteApp"
     And I click the "DeleteApp" button
     Then I will see the "dataset.DetailPage" page
     And I click the "Save" button

@@ -1,4 +1,3 @@
-@dashboard @dashboardSmoke
 Feature: 仪表盘调用链
 
   @dashboard @dashboardSmoke
@@ -11,6 +10,7 @@ Feature: 仪表盘调用链
     And I wait for "VerifyText" will be visible
     Then I wait for element "VerifyText" change text to "上传完成"
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -22,6 +22,7 @@ Feature: 仪表盘调用链
       | name   |
       | 仪表盘调用链 |
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘<name>"
@@ -36,6 +37,7 @@ Feature: 仪表盘调用链
       | name |
       | 调用链  |
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
@@ -57,6 +59,7 @@ Feature: 仪表盘调用链
       | spl                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | name   |
       | appname:zipkin \| parse \"^(?<datetime>\\\d{4}\/\\\d\\\d\/\\\d\\\d \\\d\\\d:\\\d\\\d:\\\d\\\d.\\\d{3})\\\s\\\[(?<threadname>\\\S+)\\\]\\\s(?<level>\\\S+)\\\s+(?<functionname>\\\S+)\\\s\\\S+\\\s\\\S+\\\s(?<jsonstring>.*)\" \| jpath input=jsonstring output=traceid path=\"traceId\" \| jpath input=jsonstring output=spanid path=\"id\" \| jpath input=jsonstring output=parentid path=\"parentId\" \| jpath input=jsonstring output=binnaryannotations path=\"binaryAnnotations[*].value\" \| jpath input=jsonstring output=duration path=\"duration\" \| jpath input=jsonstring output=modulename path=\"name\" \| where mvindex(duration, 0)>0 && mvindex(traceid,0)==\"511f8756ce1d0b8a\" \| jpath input=jsonstring output=timestamp path=\"timestamp\" \| table spanid, parentid, duration, timestamp, binnaryannotations, modulename | 仪表盘调用链 |
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘调用链"

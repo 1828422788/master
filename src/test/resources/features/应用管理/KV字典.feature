@@ -72,6 +72,7 @@ Feature: 应用KV字典
     And I set the parameter "KVFieldInput" with value "<input>"
     And I click the "CreateKVStore" button
     Then I will see the element "MessageContent" name is "<message>"
+    Then I wait for "5000" millsecond
 
     Examples:
       | name | input | message          |

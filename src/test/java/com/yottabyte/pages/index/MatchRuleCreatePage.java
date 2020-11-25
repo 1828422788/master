@@ -35,17 +35,33 @@ public class MatchRuleCreatePage extends PageTemplate {
         return rule;
     }
 
-    @FindBy(xpath = "//label[text()='索引名']/following-sibling::div//i")
-    private WebElement IndexName;
+//    @FindBy(xpath = "//label[text()='索引名']/following-sibling::div//i")
+//    private WebElement IndexName;
+//
+//    public WebElement getIndexName() {
+//        IndexName.click();
+//        return getLastDropdownList();
+//    }
 
-    public WebElement getIndexName() {
-        IndexName.click();
-        return getLastDropdownList();
-    }
+//    public WebElement getDropdownList(String name) {
+//        WebElement icon = webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::div"));
+//        icon.click();
+//        return webDriver.findElement(By.xpath("(//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical'])[last()]"));
+//    }
 
-    public WebElement getLastDropdownList() {
+    public WebElement getDropdownList(String text) {
+        String xpath = "//label[contains(text(),'" + text + "')]/parent::div/div/div";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        element.click();
         return webDriver.findElement(By.xpath("(//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical'])[last()]"));
     }
+    public WebElement getIndexName() {
+        return getDropdownList("索引名");
+    }
+
+//    public WebElement getLastDropdownList() {
+//        return webDriver.findElement(By.xpath("(//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical'])[last()]"));
+//    }
 
     public WebElement getTopicName() {
         return getDropdownList("topic名");
@@ -79,11 +95,7 @@ public class MatchRuleCreatePage extends PageTemplate {
         return getContainsTextButton("保存");
     }
 
-    public WebElement getDropdownList(String name) {
-        WebElement icon = webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::div"));
-        icon.click();
-        return webDriver.findElement(By.xpath("(//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical'])[last()]"));
-    }
+
 
     public WebElement getInputElement(String name) {
         return webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::div//input"));

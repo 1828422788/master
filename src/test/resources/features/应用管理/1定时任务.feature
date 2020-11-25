@@ -186,6 +186,7 @@ Feature: 应用定时任务(RZY-2123)
     And I will see the "timedTask.ListPage" page
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
