@@ -27,12 +27,12 @@ Feature: table下载
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
 
     #下载到本地
-#    Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
-#    When I set the parameter "DbListPageSearchInput" with value "<name>.csv"
-#    And I wait for "2000" millsecond
-#    Given the data name is "<name>.csv" then i click the "下载" button
+    Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
+    When I set the parameter "DbListPageSearchInput" with value "<name>.csv"
+    And I wait for "2000" millsecond
+    Given the data name is "<name>.csv" then i click the "下载" button
 
-    Examples: 新建成功
+    Examples:
       | name                                                   | splQuery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
       | chart_over_timestamp_span1h | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display  \| chart count() over timestamp span=\"1h\" |
       | chart_over_timestamp_span1d | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display \| chart count() over timestamp span=\"1d\" |

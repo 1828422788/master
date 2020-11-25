@@ -1,4 +1,4 @@
-@alldownload @dlevent
+@olddlevent
 Feature: 事件搜索下载
 
   Background:
