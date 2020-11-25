@@ -201,3 +201,89 @@ Feature:拖拽生成趋势图_复合
     Examples:
       |  chartType |  chart_1  | chart_2  | color_1 | color_2 |
       |  Multiaxis |  曲线图   | 散点图   | Orange  | Red     |
+
+  Scenario Outline: drag_and_drop_multiaxis_3
+    And I drag the element "Clientip" to the "Dimensions"
+    And I drag the element "Resplen" to the "Values"
+    And I wait for "3000" millsecond
+    And I wait for "OtherChart" will be visible
+    And I click the "AddValueField" button
+    And I click the "<chartType>" button
+    And I wait for "2000" millsecond
+    Then I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
+    And I drag the element "Resplen" to the "Values2"
+    And I drag the element "Method" to the "CompareBy"
+    And I wait for "2000" millsecond
+    Then I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
+    When I click the "ElementInDimensions" button
+    And I click the "DescendingOrder" button
+    And I hide the element "Panel"
+    And I wait for "2000" millsecond
+    And I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
+
+    And I wait for "EditFirstField" will be visible
+    And I click the "EditFirstField" button
+    And I set the parameter "Unit" with value "曲"
+    And I set the parameter "Max" with value "15"
+    And I click the "Clientip" button
+    And I wait for "2000" millsecond
+    And I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
+    And I wait for "ElementInValues" will be visible
+    When I click the "ElementInValues" button
+    And I wait for "Smooth" will be visible
+    And I choose the "<chart_1>" from the "TypeChartField" in config
+    And I choose the "计数" from the "TypeFunction" in config
+    And I click the "ConnectEmptyData" button
+    And I click the "Clientip" button
+    And I wait for "2000" millsecond
+    And I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
+
+    And I wait for "EditSecondField" will be visible
+    And I click the "EditSecondField" button
+    And I set the parameter "Unit" with value "面"
+    And I set the parameter "Max" with value "8000"
+    And I click the "Clientip" button
+    And I wait for "2000" millsecond
+    And I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
+    And I wait for "ElementInValues2" will be visible
+    When I click the "ElementInValues2" button
+    And I wait for "Smooth" will be visible
+    And I choose the "<chart_2>" from the "TypeChartField" in config
+    And I choose the "平均值" from the "TypeFunction" in config
+    And I click the "Smooth" button
+    And I click the "Clientip" button
+    And I wait for "2000" millsecond
+    And I wait for "Chart" will be visible
+    And I wait for "AddColor" will be visible
+    And I click the "AddColor" button
+    And I wait for "<color>" will be visible
+    And I wait for "1500" millsecond
+    And I click the "<color>" button
+    And I wait for "3000" millsecond
+    And I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
+
+
+    And I click the "CheckSPL" button
+    And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.resp_len),avg(apache.resp_len) by apache.clientip,apache.method"
+    When I click the "CloseSPL" button
+    And I wait for "2000" millsecond
+    Then take part of "Chart" with name "actual/拖拽_<chartType>_对比"
+    And I compare source image "actual/拖拽_<chartType>_对比" with target image "expect/拖拽_<chartType>_对比"
+    And I click the "NextButton" button under some element
+
+    When I will see the "trend.CreatePage" page
+    And I set the parameter "NameInput" with value "拖拽_<chartType>_对比"
+    And I set the parameter "DescribeInput" with value "<chart_1>_<chart_2>_<color>"
+    And I click the "NextButton" button under some element
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      |  chartType |  chart_1  | chart_2  | color   |
+      |  Multiaxis |  曲线图   | 面积图   | Red     |
