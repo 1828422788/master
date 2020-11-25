@@ -1,4 +1,3 @@
-@tongyongpeizhiybp
 Feature: 仪表盘通用配置
 
   @dashboard @dashboardSmoke

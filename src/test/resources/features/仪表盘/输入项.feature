@@ -1,4 +1,3 @@
-@yibiaopanshuruxiang
 Feature: 仪表盘输入项
 
   @dashboard @dashboardSmoke
