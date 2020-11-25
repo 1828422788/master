@@ -29,6 +29,7 @@ Feature: 展示趋势图
       | Single_trend        |
       | Single_Background   |
       | Heatmap             |
+      | Multiaxis_对比      |
       | Multiaxis_曲散      |
       | Multiaxis_柱面      |
       | Bar                 |

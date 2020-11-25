@@ -133,7 +133,7 @@ Feature: 拖拽生成趋势图_序列
     Examples:
       |  chartType |  button_dim      | button           | unit | min | max | color  |
       |  Area      |  DescendingOrder | Smooth           | pcs. |     | 25  | Yellow |
-      |  Column    |  FirstLabel      |                  | r.   | 1   |     | Orange |
+      |  Column    |  AscendingOrder  |                  | r.   | 1   |     | Orange |
 
   Scenario Outline: drag_and_drop_order_scatter
     And I drag the element "Clientip" to the "Dimensions"
