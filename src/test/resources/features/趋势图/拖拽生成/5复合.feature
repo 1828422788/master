@@ -97,7 +97,6 @@ Feature:拖拽生成趋势图_复合
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
 
-
     And I click the "CheckSPL" button
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats avg(apache.resp_len),dc(apache.resp_len) by apache.clientip"
     When I click the "CloseSPL" button
@@ -183,7 +182,6 @@ Feature:拖拽生成趋势图_复合
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
 
-
     And I click the "CheckSPL" button
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.resp_len),max(apache.resp_len) by apache.clientip"
     When I click the "CloseSPL" button
@@ -237,6 +235,7 @@ Feature:拖拽生成趋势图_复合
     And I wait for "Smooth" will be visible
     And I choose the "<chart_1>" from the "TypeChartField" in config
     And I choose the "计数" from the "TypeFunction" in config
+    And I will see the "EditColor" doesn't exist
     And I click the "ConnectEmptyData" button
     And I click the "Clientip" button
     And I wait for "2000" millsecond
@@ -256,6 +255,7 @@ Feature:拖拽生成趋势图_复合
     And I wait for "Smooth" will be visible
     And I choose the "<chart_2>" from the "TypeChartField" in config
     And I choose the "平均值" from the "TypeFunction" in config
+    And I will see the "EditColor" doesn't exist
     And I click the "Smooth" button
     And I click the "Clientip" button
     And I wait for "2000" millsecond
