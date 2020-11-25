@@ -1,10 +1,10 @@
-@vdl
+@oldvdl
 Feature: 处理下载结果
 
   Background:
     Given open the "splSearch.OfflineTaskPageNohup" page for uri "/download/#"
 
-  @vdlevent
+  @oldvdlevent
   Scenario Outline: 下载比较
     Then I compare source download file "<name>.csv" with target download files "<name>.csv"
 
