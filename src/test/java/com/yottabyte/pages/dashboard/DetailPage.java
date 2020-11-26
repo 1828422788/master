@@ -33,6 +33,12 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'确定')]")
     private List<WebElement> ensureList;
 
+    @FindBy(xpath = "//th[text()='apache.geo.city']/i")
+    private WebElement chartEditor;
+
+    @FindBy(xpath = "//th[text()='count()']/i")
+    private WebElement chartEditorNumber;
+
     @FindBy(className = "control-panel-content")
     private WebElement filter;
 
@@ -796,6 +802,24 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='AutoTest(副本)']")
     private WebElement autotestCopy;
+
+    @FindBy(xpath = "//label[text()='表格颜色：']/following-sibling::div//span/i")
+    private WebElement chartEditorColor;
+
+    @FindBy(xpath = "//span[text()='默 认']/parent::button")
+    private WebElement colorValueDefault;
+
+    @FindBy(xpath = "//span[text()='随 机']/parent::button")
+    private WebElement colorValueRandom;
+
+    @FindBy(xpath = "//span[text()='南京市']/parent::td/following-sibling::td/div")
+    private WebElement valueOfNanjing;
+
+    @FindBy(xpath = "//span[text()='确 定']/parent::button")
+    private WebElement chartEditorEnsure;
+
+    @FindBy(xpath = "//span[text()='南京市']/parent::td/following-sibling::td")
+    private WebElement valueOfNanjingTd;
 
     public WebElement getAutotestCopy() {
         return autotestCopy;
@@ -1571,6 +1595,14 @@ public class DetailPage extends PageTemplate {
         return singleChartFieldA;
     }
 
+    public WebElement getChartEditor() {
+        return chartEditor;
+    }
+
+    public WebElement getChartEditorNumber() {
+        return chartEditorNumber;
+    }
+
     public WebElement getIconLoading() {
         return iconLoading;
     }
@@ -1951,6 +1983,16 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getListForBang() { return listForBang; }
 
+    public WebElement getColorValueDefault() { return colorValueDefault; }
+
+    public WebElement getColorValueRandom() { return colorValueRandom; }
+
+    public WebElement getValueOfNanjing() { return valueOfNanjing; }
+
+    public WebElement getChartEditorEnsure() { return chartEditorEnsure; }
+
+    public WebElement getValueOfNanjingTd() { return valueOfNanjingTd; }
+
     public WebElement getEnsureMoveTagButton() { return ensureList.get(4); }
 
     public WebElement getEnsureDeleteTagButton() { return ensureList.get(6); }
@@ -1996,6 +2038,11 @@ public class DetailPage extends PageTemplate {
     private WebElement getInput(String name) {
         String xpath = "//label[text()='" + name + "']/ancestor::div/following-sibling::div//input";
         return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getChartEditorColor() {
+        chartEditorColor.click();
+        return super.getLastDropdownList();
     }
 
     public WebElement getOpenDrilldown() {
