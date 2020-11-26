@@ -11,6 +11,7 @@ Feature: 权限-下载管理
     And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name              |
@@ -29,6 +30,7 @@ Feature: 权限-下载管理
     And I click the "Today" button
     And I click the "SearchButton" button
     Then I wait for element "SearchStatus" change text to "搜索出错!"
+    Then I logout current user
 
   Scenario Outline: 勾选下载管理
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -37,6 +39,7 @@ Feature: 权限-下载管理
     When I "checked" the checkbox which name is "可下载搜索结果(download指令)"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name              |
@@ -82,3 +85,4 @@ Feature: 权限-下载管理
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
+    Then I logout current user

@@ -28,6 +28,20 @@ Feature: 权限-字段提取
     Then I will see the "CreateButton" doesn't exist
     Then I logout current user
 
+  Scenario Outline: 授权新建
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "<name>" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I click the "Resource" button
+    When I "checked" the checkbox which name is "新建字段提取"
+    And I click the "SaveButton" button
+    And I will see the success message "更新成功"
+    Then I logout current user
+
+    Examples:
+      | name              |
+      | __user_AutoTest__ |
+
   Scenario: 验证有新建权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
