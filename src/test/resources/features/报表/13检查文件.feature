@@ -30,6 +30,7 @@ Feature: 报表_检查文件
       |   Attackmap_China    |
       |   Attackmap_World    |
       |   Heatmap            |
+      |   Multiaxis_2        |
       |   Multiaxis          |
       |   Rangeline          |
       |   Sankey_Mult        |
@@ -73,6 +74,7 @@ Feature: 报表_检查文件
       |   Attackmap_China    |
       |   Attackmap_World    |
       |   Heatmap            |
+      |   Multiaxis_2        |
       |   Multiaxis          |
       |   Rangeline          |
       |   Sankey_Mult        |
@@ -116,6 +118,7 @@ Feature: 报表_检查文件
       |   Attackmap_China    |
       |   Attackmap_World    |
       |   Heatmap            |
+      |   Multiaxis_2        |
       |   Multiaxis          |
       |   Rangeline          |
       |   Sankey_Mult        |

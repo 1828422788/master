@@ -46,8 +46,8 @@ Feature: 仪表盘表格样式设置
     And I wait for "SuccessCreate" will be visible
 
     Examples:
-      | spl                                                                                                                 | name   |
-      | * \| stats sparkline(sum(raw_message_length),30m),count(apache.clientip) as ip_count by appname \| sort by ip_count | 仪表盘表格样式 |
+      | spl                                                           | name   |
+      | tag:sample04061424_chart \|stats count() by 'apache.geo.city' | 仪表盘表格样式 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 添加图表
@@ -66,3 +66,34 @@ Feature: 仪表盘表格样式设置
     Examples:
       | name         |
       | 仪表盘表格样式 |
+  @dashboard @dashboardSmoke
+  Scenario: 编辑图表样式-颜色-值-默认
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "仪表盘表格样式设置"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "ChartEditorNumber" will be visible
+    When I click the "ChartEditorNumber" button
+#    And I click the "ChartEditorNumber" button
+    And I choose the "值" from the "ChartEditorColor"
+    And I wait for "500" millsecond
+    And I click the "ColorValueDefault" button
+    And I wait for "500" millsecond
+    And I click the "ChartEditorEnsure" button
+    Then I will see the element "ValueOfNanjing" style contains "background-color: rgb(230, 247, 255)"
+
+  @dashboard @dashboardSmoke
+  Scenario: 编辑图表样式-颜色-值-随机
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "仪表盘表格样式设置"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "ChartEditorNumber" will be visible
+    When I click the "ChartEditorNumber" button
+#    And I click the "ChartEditorNumber" button
+    And I choose the "值" from the "ChartEditorColor"
+    And I wait for "500" millsecond
+    And I click the "ColorValueRandom" button
+    And I wait for "500" millsecond
+    And I click the "ChartEditorEnsure" button
+    Then I will see the "ValueOfNanjing" is not exist
+    Then I will see the element "ValueOfNanjingTd" style contains "background-color"
+

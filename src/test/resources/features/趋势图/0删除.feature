@@ -78,6 +78,7 @@ Feature: 趋势图删除（RZY-1891）
     @cleanTrendCompound
     Examples:
       | name                                     |
+      | Multiaxis_4841                           |
       | Multiaxis_2523                           |
       | Rangeline_2516                           |
 

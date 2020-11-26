@@ -128,3 +128,79 @@ Feature: 报表新建_编辑_复合
     Examples:
       |  reportType |   typeChart    |  name      |
       |  EXCEL      | Multiaxis      | Multiaxis  |
+
+  Scenario Outline: new_report_trend_multiaxis_2
+    When I set the parameter "Name" with value "<name>_<reportType>"
+    And I choose the "<reportType>" from the "ReportType"
+    And I click the "NextButton" button under some element
+    Then I wait for "ChartListButton" will be visible
+    When I choose the "table_<typeChart>" from the "ChartList"
+    And I click the "ChartListButton" button
+    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
+    And I click the "ChosenTrendLast" button
+    And I click the "EditButton" button
+
+    Then I set the parameter "TrendNameField" with value "<name>"
+    And I set the parameter "TrendDescribeField" with value "<typeChart>"
+    And I click the "TrendChartType" button
+    And I click the "Compound" button
+    And I click the "<typeChart>" button
+
+    When I click the "ParameterSetting" button
+    And I click the "Xaxis" button
+    And I set the parameter "FieldValue" with value "apache.resp_len"
+    And I click the "FirstLabel" button
+    And I click the "AscendingOrder" button
+    And I click the "Yaxis" button
+    And I set the parameter "Min" with value "1"
+    And I set the parameter "Max" with value "170000"
+    And I set the parameter "Unit" with value "面"
+    And I click the "AddConfigFields" button
+    And I set the parameter "FieldValue" with value "max(apache.resp_len)"
+    And I choose the "面积图" from the "TypeChartField"
+    And I wait for "SliderHandle" will be visible
+    And I drag the element "SliderHandle" by "-60" pixels
+    And I click the "AddColor" button
+    And I click the "Green" button
+    And I click the "Smooth" button
+    And I click the "ConnectEmptyData" button
+
+    And I click the "AddField" button
+    And I click the "Yaxis2" button
+    And I set the parameter "Unit" with value "柱"
+    And I set the parameter "Min" with value "2"
+    And I set the parameter "Max" with value ""
+    And I click the "AddConfigFields" button
+    And I set the parameter "FieldValue" with value "min(apache.resp_len)"
+    And I choose the "柱状图" from the "TypeChartField"
+    And I click the "AddColor" button
+    And I click the "Red" button
+
+    And I click the "AddField" button
+    And I click the "Yaxis3" button
+    And I set the parameter "Unit" with value "散"
+    And I set the parameter "Min" with value ""
+    And I set the parameter "Max" with value "49000"
+    And I click the "AddConfigFields" button
+    And I set the parameter "FieldValue" with value "sum(apache.status)"
+    And I choose the "散点图" from the "TypeChartField"
+    And I click the "AddColor" button
+    And I click the "Orange" button
+
+    And I click the "ParameterSetting" button
+    Then I click the "EnsureButton" button
+
+    When I click the "FinishButton" button under some element
+    And I wait for "EnsureButton" will be visible
+    Then I will see the success message "保存成功"
+    And I click the "EnsureButton" button
+
+    @report @reportChartsPDF
+    Examples:
+      |  reportType |   typeChart    |  name        |
+      |  PDF        | Multiaxis      | Multiaxis_2  |
+
+    @reportChartsEXCEL
+    Examples:
+      |  reportType |   typeChart    |  name        |
+      |  EXCEL      | Multiaxis      | Multiaxis_2  |
