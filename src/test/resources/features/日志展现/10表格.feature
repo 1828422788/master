@@ -46,7 +46,8 @@ Feature: 日志展现_表格
 
     And I wait for "ChartView" will be visible
 #    And I drag the scroll bar to the element "ChartView"
-    And I wait for "2000" millsecond
+    And I will see the element "Cell" style contains "color: rgb(85, 34, 224);"
+    And I wait for "3000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/8表格/<caseNum>"
     Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
 
@@ -110,7 +111,8 @@ Feature: 日志展现_表格
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "ChartView" will be visible
-    And I wait for "2000" millsecond
+    And I will see the element "Cell" style contains "color: rgb(85, 34, 224);"
+    And I wait for "3000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/8表格/<caseNum>"
     Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
 
@@ -204,7 +206,8 @@ Feature: 日志展现_表格
 
     And I wait for "ChartView" will be visible
 #    And I drag the scroll bar to the element "ChartView"
-    And I wait for "2000" millsecond
+    And I will see the element "Cell" style contains "color: rgb(116, 78, 120);"
+    And I wait for "3000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/8表格/<caseNum>"
     Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
 
