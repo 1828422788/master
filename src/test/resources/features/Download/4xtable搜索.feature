@@ -1,4 +1,4 @@
-@alldownload
+@oldalldownload
 Feature: bucket下载
 
   Background:

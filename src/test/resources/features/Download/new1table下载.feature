@@ -1,4 +1,4 @@
-@newalldownload
+@alldownload
 Feature: table下载
 
   Background:

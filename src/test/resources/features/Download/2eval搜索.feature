@@ -1,4 +1,4 @@
-@alldownload
+@oldalldownload
 Feature: eval下载
 
   Background:

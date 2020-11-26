@@ -1,4 +1,4 @@
-@alldownload
+@oldalldownload
 Feature: stats下载
 
   Background:

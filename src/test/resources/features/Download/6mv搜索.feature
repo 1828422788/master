@@ -1,4 +1,4 @@
-@alldownload
+@oldalldownload
 Feature: MV下载
 
   Background:
