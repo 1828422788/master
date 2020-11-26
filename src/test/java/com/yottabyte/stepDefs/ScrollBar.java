@@ -181,4 +181,16 @@ public class ScrollBar {
             }
     }
 
+    /**
+     * 把一个元素拖拽动几个像素
+     *
+     * @param source 想要拖拽的元素名称
+     * @param pixels 如果大于零，拖拽到向右；否则向左
+     */
+    @And("^I drag the element \"([^\"]*)\" by \"([^\"]*)\" pixels$")
+    public void DragByPix(String source, int pixels) {
+        WebElement sourceElement = GetElementFromPage.getWebElementWithName(source);
+        new Actions(webDriver).dragAndDropBy(sourceElement, pixels, 0).build().perform();
+    }
+
 }

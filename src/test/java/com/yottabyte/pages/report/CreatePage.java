@@ -724,6 +724,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='报表类型']/following-sibling::div//div[@class='ant-select-selection-selected-value']")
     private WebElement defaultReportType;
 
+    @FindBy(xpath = "//div[contains(@class,'ant-slider-handle')]")
+    private WebElement sliderHandle;
+
+    public WebElement getSliderHandle() {
+        return sliderHandle;
+    }
+
     public WebElement getDefaultReportType() {
         return defaultReportType;
     }

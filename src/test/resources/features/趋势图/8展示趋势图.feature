@@ -87,6 +87,7 @@ Feature: 展示趋势图
     @viewTrendCompound
     Examples:
       | name                                     |
+      | Multiaxis_4841                           |
       | Multiaxis_2523                           |
       | Rangeline_2516                           |
 

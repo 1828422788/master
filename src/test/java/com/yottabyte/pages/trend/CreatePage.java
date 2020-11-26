@@ -918,7 +918,14 @@ public class CreatePage extends PageTemplate {
     private WebElement allResources;
 
     @FindBy(xpath = "//*[@cy='33']")
-    private  WebElement chartElement;
+    private WebElement chartElement;
+
+    @FindBy(xpath = "//div[contains(@class,'ant-slider-handle')]")
+    private WebElement sliderHandle;
+
+    public WebElement getSliderHandle() {
+        return sliderHandle;
+    }
 
     public WebElement getChartElement() {
         return chartElement;
