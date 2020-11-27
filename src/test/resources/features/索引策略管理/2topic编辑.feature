@@ -2,15 +2,7 @@
 Feature: topic编辑（RZY-2428）
 
   Background:
-<<<<<<< HEAD
-<<<<<<< HEAD
-    Given open the "index.TopicSetting" page for uri "/topicsettings/"
-=======
     Given open the "index.TopicSetting" page for uri "/indexmatchrules/topicsettings/"
->>>>>>> V3.5
-=======
-    Given open the "index.TopicSetting" page for uri "/indexmatchrules/topicsettings/"
->>>>>>> 5de9a0fa880b8d2b85102ab3f607855ddb1f6505
 
   Scenario Outline:
     When the data name is "topictest" then i click the "编辑" button

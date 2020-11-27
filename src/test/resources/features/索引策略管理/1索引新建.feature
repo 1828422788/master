@@ -186,20 +186,17 @@ Feature: 索引信息新建
     And I set the parameter "DivideTime" with value "10"
     And I set the parameter "SavedSize" with value "2"
     And I choose the "TB" from the "SavedSizeDropDown"
-<<<<<<< HEAD
     And I choose the "2份" from the "IndexDataDropDown"
     And I switch the "副本存留" button to "checked"
     And I set the parameter "SavedCopy" with value "20"
     And I click the "CreateButton" button
     And I will see the element "Message" name is "保存成功"
 
-=======
 #    And I choose the "2份" from the "IndexDataDropDown"
 #    And I switch the "副本存留" button to "checked"
 #    And I set the parameter "SavedCopy" with value "20"
 #    And I click the "CreateButton" button
 #    And I will see the element "Message" name is "保存成功"
->>>>>>> V3.5
   @second @indexSettingSmoke
   Scenario: 新建索引(索引冻结和索引下沉)
     Given I click the "AddButton" button
@@ -209,7 +206,6 @@ Feature: 索引信息新建
     And I set the parameter "SavedTime" with value "130"
     And I set the parameter "DivideTime" with value "8"
     And I set the parameter "SavedSize" with value "5"
-<<<<<<< HEAD
     And I switch the "索引冻结" button to "checked"
     And I set the parameter "Freeze" with value "30"
     And I switch the "索引下沉" button to "checked"
@@ -218,7 +214,6 @@ Feature: 索引信息新建
     And I click the "CreateButton" button
     And I will see the element "Message" name is "保存成功"
 
-=======
 #    And I switch the "索引冻结" button to "checked"
 #    And I set the parameter "Freeze" with value "30"
 #    And I switch the "索引下沉" button to "checked"
@@ -226,7 +221,6 @@ Feature: 索引信息新建
 #    And I set the parameter "SinkNAS" with value "50"
 #    And I click the "CreateButton" button
 #    And I will see the element "Message" name is "保存成功"
->>>>>>> V3.5
   @second @indexSettingSmoke
   Scenario Outline: 新建索引(开启副本存留)失败
     Given I click the "AddButton" button
@@ -235,7 +229,6 @@ Feature: 索引信息新建
     And I set the parameter "Desc" with value "<desc>"
     And I set the parameter "SavedTime" with value "<savedTime>"
     And I set the parameter "DivideTime" with value "<divideTime>"
-<<<<<<< HEAD
     And I choose the "2份" from the "IndexDataDropDown"
     And I switch the "副本存留" button to "checked"
     And I set the parameter "SavedCopy" with value "<savedCopy>"
@@ -243,22 +236,17 @@ Feature: 索引信息新建
     And I will see the element "Message" name is "<message>"
 
 
-=======
 #    And I choose the "2份" from the "IndexDataDropDown"
 #    And I switch the "副本存留" button to "checked"
 #    And I set the parameter "SavedCopy" with value "<savedCopy>"
 #    And I click the "CreateButton" button
 #    And I will see the element "Message" name is "<message>"
->>>>>>> V3.5
     Examples:
       | name | desc | savedTime | divideTime | savedCopy | message                    |
       | test |      | 120       | 10         |           | 副本存留时间不能为空           |
       | test |      | 120       | 10         | abc       | 副本存留时间应为正整数          |
       | test |      | 120       | 10         | 10.8      | 副本存留时间应为正整数          |
-<<<<<<< HEAD
 
-=======
->>>>>>> V3.5
   @second @indexSettingSmoke
   Scenario Outline: 新建索引(开启索引冻结)失败
     Given I click the "AddButton" button
@@ -267,7 +255,6 @@ Feature: 索引信息新建
     And I set the parameter "Desc" with value "<desc>"
     And I set the parameter "SavedTime" with value "<savedTime>"
     And I set the parameter "DivideTime" with value "<divideTime>"
-<<<<<<< HEAD
     And I switch the "索引冻结" button to "checked"
     And I set the parameter "Freeze" with value "<freeze>"
     And I click the "CreateButton" button
@@ -275,21 +262,15 @@ Feature: 索引信息新建
 
 
 
-=======
 #    And I switch the "索引冻结" button to "checked"
 #    And I set the parameter "Freeze" with value "<freeze>"
 #    And I click the "CreateButton" button
 #    And I will see the element "Message" name is "<message>"
->>>>>>> V3.5
     Examples:
       | name | desc | savedTime | divideTime | freeze | message                  |
       | test |      | 120       | 10         |        | 索引冻结时间不能为空         |
       | test |      | 120       | 10         | abc    | 索引冻结时间应为正整数        |
       | test |      | 120       | 10         | 10.8   | 索引冻结时间应为正整数        |
-<<<<<<< HEAD
-
-=======
->>>>>>> V3.5
   @second @indexSettingSmoke
   Scenario Outline: 新建索引(开启索引下沉)失败
     Given I click the "AddButton" button
@@ -298,7 +279,6 @@ Feature: 索引信息新建
     And I set the parameter "Desc" with value "<desc>"
     And I set the parameter "SavedTime" with value "<savedTime>"
     And I set the parameter "DivideTime" with value "<divideTime>"
-<<<<<<< HEAD
     And I switch the "索引下沉" button to "checked"
     And I set the parameter "SinkHDD" with value "<hdd>"
     And I set the parameter "SinkNAS" with value "<nas>"
@@ -306,19 +286,9 @@ Feature: 索引信息新建
     And I will see the element "Message" name is "<message>"
 
 
-=======
 #    And I switch the "索引下沉" button to "checked"
 #    And I set the parameter "SinkHDD" with value "<hdd>"
 #    And I set the parameter "SinkNAS" with value "<nas>"
 #    And I click the "CreateButton" button
 #    And I will see the element "Message" name is "<message>"
->>>>>>> V3.5
-    Examples:
-      | name | desc | savedTime | divideTime |  hdd  |  nas  |   message                                   |
-      | test |      | 120       | 10         |       |       |  请填写索引下沉到HDD时间或索引下沉到NAS时间        |
-      | test |      | 120       | 10         |  abc  |       |  索引下沉到HDD时间应为正整数                     |
-<<<<<<< HEAD
       | test |      | 120       | 10         |       |  1.1  |  索引下沉到NAS时间应为正整数                     |
-=======
-      | test |      | 120       | 10         |       |  1.1  |  索引下沉到NAS时间应为正整数                     |
->>>>>>> V3.5

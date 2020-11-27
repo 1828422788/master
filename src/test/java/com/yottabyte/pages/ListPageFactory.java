@@ -50,7 +50,6 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(xpath = "//div[text()='请选择应用']")
     private WebElement app;
 
-<<<<<<< HEAD
     @FindBy(xpath = "//span[@class='ant-badge']/i")
     private WebElement userIcon;
 
@@ -64,7 +63,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     public WebElement getLoginUserName() {
         return loginUserName;
     }
-=======
+
     @FindBy(xpath = "//div[@class='ant-popover _1HlalPPMzGz9AUFUs3fnQU ant-popover-placement-bottom']//span[contains(text(),'启动')]/ancestor::li")
     private WebElement enableResources;
 
@@ -76,7 +75,6 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
 
     @FindBy(xpath = "//div[@class='ant-modal-root']//*[contains(@class, \"ant-modal\")]")
     private WebElement modal;
->>>>>>> 5de9a0fa880b8d2b85102ab3f607855ddb1f6505
 
     public WebElement getApp() {
         app.click();
@@ -187,19 +185,33 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
         return webDriver.findElement(By.xpath(xpath));
     }
 
-    public WebElement getBatchControl(){ return this.getButton("批量操作"); }
+    public WebElement getBatchControl() {
+        return this.getButton("批量操作");
+    }
 
-    public WebElement getSelectBatchOperation(){ return this.getButton("请选择"); }
+    public WebElement getSelectBatchOperation() {
+        return this.getButton("请选择");
+    }
 
-    public WebElement getCompleteBatchControl(){ return this.getButton("完成"); }
+    public WebElement getCompleteBatchControl() {
+        return this.getButton("完成");
+    }
 
-    public WebElement getEnableResources() { return enableResources; }
+    public WebElement getEnableResources() {
+        return enableResources;
+    }
 
-    public WebElement getAddResourceTags() { return addResourceTags; }
+    public WebElement getAddResourceTags() {
+        return addResourceTags;
+    }
 
-    public WebElement getDeleteResources() { return deleteResources; }
+    public WebElement getDeleteResources() {
+        return deleteResources;
+    }
 
-    public WebElement getModal() { return modal; }
+    public WebElement getModal() {
+        return modal;
+    }
 
     @Override
     protected void load() {

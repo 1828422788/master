@@ -88,11 +88,7 @@ Feature: 权限-collect指令
 
   Scenario Outline: 删除索引
     Given open the "index.ListPage" page for uri "/indexsettings/"
-<<<<<<< HEAD
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
-=======
     When the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
->>>>>>> V3.5
     Then I click the "Ensure" button
 
     Examples:

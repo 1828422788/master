@@ -319,63 +319,60 @@ public class IChooseValueFromSelectList {
             if (value != null && value.trim().length() != 0) {
                 for (WebElement e : elements) {
                     ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
-<<<<<<< HEAD
                     String TmpText = e.getText();
                     if (value.equals(TmpText)) {
-=======
-                    String curText = e.getText();
-                    if (value.equals(curText)) {
->>>>>>> V3.5
-                        e.click();
-                        break;
+                        String curText = e.getText();
+                        if (value.equals(curText)) {
+                            e.click();
+                            break;
+                        }
                     }
                 }
             }
+
         }
 
+//    @And("^I choose3 the \"([^\"]*)\" from the \"([^\"]*)\"$")
+//    public void iChooseTheFromThe3(List<String> values, String selectListName) {
+//        Object o = GetElementFromPage.getWebElementWithName(selectListName);
+//        WebElement element = (WebElement) o;
+//        iChooseTheFromThe3(values, element);
+//    }
+
+//    public void iChooseTheFromThe3(List<String> values, WebElement parentElement) {
+//        List<WebElement> elements = parentElement.findElements(By.xpath("//li"));
+//        for (String value : values) {
+//            if (value != null && value.trim().length() != 0) {
+//                for (WebElement e : elements) {
+//                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+//                    String TmpText = e.getText();
+//                    if (value.equals(TmpText)) {
+//                        e.click();
+//                        break;
+//                    }
+//                }
+//            }
+//        }
+//
+//    }
+
+//    @And("^I choose contain the \"([^\"]*)\" from the \"([^\"]*)\"$")
+//    public void iChooseTheFromTheContain(List<String> values, String selectListName) {
+//        Object o = GetElementFromPage.getWebElementWithName(selectListName);
+//        WebElement element = (WebElement) o;
+//        List<WebElement> elements = element.findElements(By.xpath("//span"));
+//        for (String value : values) {
+//            if (value != null && value.trim().length() != 0) {
+//                for (WebElement e : elements) {
+//                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+//                    String curElementText = e.getText();
+//                    if (curElementText.contains(value)) {
+//                        e.click();
+//                        break;
+//                    }
+//                }
+//            }
+//        }
+//    }
     }
-
-    @And("^I choose3 the \"([^\"]*)\" from the \"([^\"]*)\"$")
-    public void iChooseTheFromThe3(List<String> values, String selectListName) {
-        Object o = GetElementFromPage.getWebElementWithName(selectListName);
-        WebElement element = (WebElement) o;
-        iChooseTheFromThe3(values, element);
-    }
-
-    public void iChooseTheFromThe3(List<String> values, WebElement parentElement) {
-        List<WebElement> elements = parentElement.findElements(By.xpath("//li"));
-        for (String value : values) {
-            if (value != null && value.trim().length() != 0) {
-                for (WebElement e : elements) {
-                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
-                    String TmpText = e.getText();
-                    if (value.equals(TmpText)) {
-                        e.click();
-                        break;
-                    }
-                }
-            }
-        }
-
-    }
-
-    @And("^I choose contain the \"([^\"]*)\" from the \"([^\"]*)\"$")
-    public void iChooseTheFromTheContain(List<String> values, String selectListName) {
-        Object o = GetElementFromPage.getWebElementWithName(selectListName);
-        WebElement element = (WebElement) o;
-        List<WebElement> elements = element.findElements(By.xpath("//span"));
-        for (String value : values) {
-            if (value != null && value.trim().length() != 0) {
-                for (WebElement e : elements) {
-                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
-                    String curElementText = e.getText();
-                    if (curElementText.contains(value)) {
-                        e.click();
-                        break;
-                    }
-                }
-            }
-        }
-    }
-
 }

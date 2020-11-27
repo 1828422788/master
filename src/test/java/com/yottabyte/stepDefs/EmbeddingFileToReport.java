@@ -11,18 +11,15 @@ import cucumber.api.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-<<<<<<< HEAD
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-=======
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
->>>>>>> V3.5
 
 /**
  * @author sunxj
@@ -45,7 +42,6 @@ public class EmbeddingFileToReport {
             e.printStackTrace();
         }
     }
-<<<<<<< HEAD
 //
 //    @Then("^I download file \"([^\"]*)\" to local$")
 //    public void downloadFileToLocal(String fileName) {
@@ -72,7 +68,6 @@ public class EmbeddingFileToReport {
 //        }
 //    }
 
-=======
 
     @Then("^I download file \"([^\"]*)\" to local$")
     public void downloadFileToLocal(String fileName) {
@@ -137,5 +132,4 @@ public class EmbeddingFileToReport {
             }
         }
     }
->>>>>>> V3.5
 }

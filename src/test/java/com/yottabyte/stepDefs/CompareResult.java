@@ -2,6 +2,7 @@ package com.yottabyte.stepDefs;
 
 //import com.spire.xls.Workbook;
 //import com.spire.xls.Worksheet;
+
 import com.yottabyte.utils.EmbeddingFile;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.ImageComparison;
@@ -17,16 +18,13 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import javax.imageio.ImageIO;
-<<<<<<< HEAD
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-=======
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBuffer;
 import java.io.*;
->>>>>>> V3.5
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -209,8 +207,6 @@ public class CompareResult {
         }
     }
 
-<<<<<<< HEAD
-=======
     public static boolean getFtpDownloadFiletoLocal(String sourceDownloadFile) {
         String linuxCmd = "wget ftp://172.18.0.22:/target/download-files/*";
 //        Process p = Runtime.getRuntime().exec(linuxCmd);
@@ -286,7 +282,6 @@ public class CompareResult {
 //        }
     }
 
->>>>>>> V3.5
     /**
      * 比较两个文本文件是否相等，
      *
@@ -300,16 +295,12 @@ public class CompareResult {
         FileInputStream fis1 = null;
         FileInputStream fis2 = null;
         try {
-<<<<<<< HEAD
-            fis1 = new FileInputStream(curPath + "/" + sourceDownloadFile);
-            fis2 = new FileInputStream(curPath + "/target/download-files/" + targetDownloadFile);
-=======
+//            fis1 = new FileInputStream(curPath + "/" + sourceDownloadFile);
+//            fis2 = new FileInputStream(curPath + "/target/download-files/" + targetDownloadFile);
 //          fis1 = new FileInputStream(curPath + "/" + sourceDownloadFile);
             fis1 = new FileInputStream("/opt/expect/" + sourceDownloadFile);
 //          fis2 = new FileInputStream(curPath + "/target/download-files/" + targetDownloadFile);
             fis2 = new FileInputStream("/var/lib/jenkins/workspace/downloadFile/" + targetDownloadFile);
->>>>>>> V3.5
-
             int len1 = fis1.available();//返回总的字节数
             int len2 = fis2.available();
 
@@ -338,15 +329,11 @@ public class CompareResult {
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-<<<<<<< HEAD
-        } catch (IOException e) {
-            e.printStackTrace();
-=======
-//            Assert.fail();
         } catch (IOException e) {
             e.printStackTrace();
 //            Assert.fail();
->>>>>>> V3.5
+
+//            Assert.fail();
         } finally {//关闭文件流，防止内存泄漏
             if (fis1 != null) {
                 try {
@@ -367,9 +354,6 @@ public class CompareResult {
         }
     }
 
-<<<<<<< HEAD
-
-=======
     public ArrayList<String> readFromTextFile(String pathname) {
         ArrayList<String> strArray = new ArrayList<String>();
         File filename = new File(pathname);
@@ -453,7 +437,7 @@ public class CompareResult {
      * @param targetDownloadFile 目标文件路径名称
      */
     @And("^I compare1 source bucket file \"([^\"]*)\" with target bucket files \"([^\"]*)\" without \"([^\"]*)\"$")
-    public void compareBucketFile1(String sourceDownloadFile, String targetDownloadFile,int leaveNumber) {
+    public void compareBucketFile1(String sourceDownloadFile, String targetDownloadFile, int leaveNumber) {
         String curPath = System.getProperty("user.dir");
 
         ArrayList<String> fis1 = null;
@@ -476,7 +460,7 @@ public class CompareResult {
                 int col_count2 = col_arry2.length;
                 if (col_count1 == col_count2) {
                     for (int j = 0; j < col_count1; j++) {
-                        if (j==leaveNumber)
+                        if (j == leaveNumber)
                             continue;
                         String cur_ArryValue1 = col_arry1[j];
                         String cur_ArryValue2 = col_arry2[j];
@@ -526,7 +510,7 @@ public class CompareResult {
             System.out.println("Comparing files: " + "<" + sourceReportFile + "> and <" + targetReportFile + ">");
 
             String path1 = curPath + "/" + sourceReportFile.split("\\.")[0];
-            String path2 = PATH+ "/" + targetReportFile.split("\\.")[0];
+            String path2 = PATH + "/" + targetReportFile.split("\\.")[0];
             BufferedImage image1, image2;
 
             //indicates whether pdfs are created or not
@@ -641,5 +625,4 @@ public class CompareResult {
             }
         }
     }
->>>>>>> V3.5
 }

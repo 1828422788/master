@@ -1,11 +1,7 @@
 @dataset @datasetk @dataset2
 Feature: 数据集-k预定义字段列表
 
-<<<<<<< HEAD
-  @rzy4291
-=======
   @tc4291
->>>>>>> V3.5
   Scenario Outline: RZY-4291:新建数据集，对根事件添加字段
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
