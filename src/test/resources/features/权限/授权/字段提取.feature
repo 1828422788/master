@@ -1,4 +1,4 @@
-@authtest1
+@authtest12
 Feature: 权限-字段提取
 
   Scenario Outline: 授权功能权限
@@ -118,8 +118,7 @@ Feature: 权限-字段提取
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
     And I click the "NextButton" button under some element
-    And I click the "Done" button under some element
-    Then I will see the message "没有编辑权限"
+    Then I will see the element "Done" attribute is "disabled"
     Given open the "configs.ListPage" page for uri "/configs/"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
@@ -269,8 +268,7 @@ Feature: 权限-字段提取
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
     And I click the "NextButton" button under some element
-    And I click the "Done" button under some element
-    Then I will see the message "没有编辑权限"
+    Then I will see the element "Done" attribute is "disabled"
     Then I logout current user
 
     Examples:
@@ -454,8 +452,7 @@ Feature: 权限-字段提取
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
     And I click the "NextButton" button
-    And I click the "Done" button
-    Then I will see the message "没有编辑权限"
+    Then I will see the element "Done" attribute is "disabled"
     Given open the "configs.ListPage" page for uri "/configs/"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
@@ -685,9 +682,7 @@ Feature: 权限-字段提取
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
     And I click the "NextButton" button
-    And I click the "Done" button
-    And I wait for "Message" will be visible
-    Then I will see the message "没有编辑权限"
+    Then I will see the element "Done" attribute is "disabled"
     Then I logout current user
 
     Examples:
