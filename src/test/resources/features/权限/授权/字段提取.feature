@@ -1,4 +1,4 @@
-@authtest1
+@authtest12
 Feature: 权限-字段提取
 
   Scenario Outline: 授权功能权限
@@ -118,8 +118,7 @@ Feature: 权限-字段提取
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
     And I click the "NextButton" button under some element
-    And I click the "Done" button under some element
-    Then I will see the message "没有编辑权限"
+    Then I will see the element "Done" attribute is "disabled"
     Given open the "configs.ListPage" page for uri "/configs/"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
@@ -269,8 +268,7 @@ Feature: 权限-字段提取
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
     And I click the "NextButton" button under some element
-    And I click the "Done" button under some element
-    Then I will see the message "没有编辑权限"
+    Then I will see the element "Done" attribute is "disabled"
     Then I logout current user
 
     Examples:
@@ -299,9 +297,8 @@ Feature: 权限-字段提取
     When I "unchecked" function "编辑,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "unchecked" the checkbox which name is "新建字段提取"
+    And I click the "Resource" button
+    When I "checked" the checkbox which name is "新建字段提取"
     And I click the "SaveButton" button
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
@@ -454,8 +451,7 @@ Feature: 权限-字段提取
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
     And I click the "NextButton" button
-    And I click the "Done" button
-    Then I will see the message "没有编辑权限"
+    Then I will see the element "Done" attribute is "disabled"
     Given open the "configs.ListPage" page for uri "/configs/"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
@@ -685,9 +681,7 @@ Feature: 权限-字段提取
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
     And I click the "NextButton" button
-    And I click the "Done" button
-    And I wait for "Message" will be visible
-    Then I will see the message "没有编辑权限"
+    Then I will see the element "Done" attribute is "disabled"
     Then I logout current user
 
     Examples:

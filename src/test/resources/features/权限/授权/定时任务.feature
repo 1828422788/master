@@ -1,4 +1,4 @@
-@authtest1
+@authtest12
 Feature: 权限-定时任务
 
 
@@ -39,8 +39,7 @@ Feature: 权限-定时任务
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I click the "Resource" button
     When I "checked" the checkbox which name is "新建定时任务"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
