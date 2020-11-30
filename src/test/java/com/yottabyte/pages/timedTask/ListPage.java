@@ -14,6 +14,7 @@ public class ListPage extends ListPageFactory {
 
     public ListPage(WebDriver driver) {
         super(driver);
+        driver.manage().window().fullscreen();
     }
 
     @FindBy(xpath = "//*[contains(text(),'编辑')]")
