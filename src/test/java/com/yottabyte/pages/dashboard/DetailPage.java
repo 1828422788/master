@@ -806,11 +806,47 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='表格颜色：']/following-sibling::div//span/i")
     private WebElement chartEditorColor;
 
+    @FindBy(xpath = "//label[text()='字体样式：']/following-sibling::div//span/i")
+    private WebElement chartFontStyle;
+
+    @FindBy(xpath = "//label[text()='对齐方式：']/following-sibling::div//span/i")
+    private WebElement chartAlignment;
+
     @FindBy(xpath = "//span[text()='默 认']/parent::button")
     private WebElement colorValueDefault;
 
     @FindBy(xpath = "//span[text()='随 机']/parent::button")
     private WebElement colorValueRandom;
+
+    @FindBy(xpath = "//span[text()='自定义']/parent::button")
+    private WebElement colorValueCustom;
+
+    @FindBy(xpath = "//span[text()='添加值颜色']/parent::button")
+    private WebElement addValueColor;
+
+    @FindBy(xpath = "//span[text()='添加范围颜色']/parent::button")
+    private WebElement addRangeColor;
+
+    @FindBy(xpath = "//span[text()='值']/following-sibling::input")
+    private WebElement firstValueColor;
+
+    @FindBy(xpath = "//label[text()='下限值']/following-sibling::input")
+    private WebElement lowerLimitValue;
+
+    @FindBy(xpath = "//label[text()='中值']/following-sibling::input")
+    private WebElement medianValue;
+
+    @FindBy(xpath = "//label[text()='上限值']/following-sibling::input")
+    private WebElement upperLimitValue;
+
+    @FindBy(xpath = "//label[text()='字体颜色：']/following-sibling::div//span[@class='css-trkpwz']")
+    private WebElement chartFontColor;
+
+    @FindBy(xpath = "//label[text()='字体颜色：']/following-sibling::div//div[text()='Hex']/preceding-sibling::input")
+    private WebElement chartFontColorValue;
+
+    @FindBy(xpath = "//label[text()='列宽度：']/following-sibling::div//input")
+    private WebElement chartColumnWidth;
 
     @FindBy(xpath = "//span[text()='南京市']/parent::td/following-sibling::td/div")
     private WebElement valueOfNanjing;
@@ -820,6 +856,15 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='南京市']/parent::td/following-sibling::td")
     private WebElement valueOfNanjingTd;
+
+    @FindBy(xpath = "//span[text()='深圳市']/parent::td/following-sibling::td")
+    private WebElement valueOfShenzhenTd;
+
+    @FindBy(xpath = "//span[text()='南京市']/parent::td/following-sibling::td/span")
+    private WebElement valueOfNanjingTdText;
+
+    @FindBy(xpath = "//div[text()='仪表盘表格样式']/parent::div")
+    private WebElement chartStyleTable;
 
     public WebElement getAutotestCopy() {
         return autotestCopy;
@@ -1987,11 +2032,37 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getColorValueRandom() { return colorValueRandom; }
 
+    public WebElement getColorValueCustom() { return colorValueCustom; }
+
+    public WebElement getAddValueColor() { return addValueColor; }
+
+    public WebElement getAddRangeColor() { return addRangeColor; }
+
+    public WebElement getFirstValueColor() { return firstValueColor; }
+
+    public WebElement getLowerLimitValue() { return lowerLimitValue; }
+
+    public WebElement getMedianValue() { return medianValue; }
+
+    public WebElement getUpperLimitValue() { return upperLimitValue; }
+
+    public WebElement getChartFontColor() { return chartFontColor; }
+
+    public WebElement getChartFontColorValue() { return chartFontColorValue; }
+
+    public WebElement getChartColumnWidth() { return chartColumnWidth; }
+
     public WebElement getValueOfNanjing() { return valueOfNanjing; }
 
     public WebElement getChartEditorEnsure() { return chartEditorEnsure; }
 
     public WebElement getValueOfNanjingTd() { return valueOfNanjingTd; }
+
+    public WebElement getValueOfShenzhenTd() { return valueOfShenzhenTd; }
+
+    public WebElement getValueOfNanjingTdText() { return valueOfNanjingTdText; }
+
+    public WebElement getChartStyleTable() { return chartStyleTable; }
 
     public WebElement getEnsureMoveTagButton() { return ensureList.get(4); }
 
@@ -2042,6 +2113,16 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getChartEditorColor() {
         chartEditorColor.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getChartFontStyle() {
+        chartFontStyle.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getChartAlignment() {
+        chartAlignment.click();
         return super.getLastDropdownList();
     }
 
