@@ -30,7 +30,7 @@ Feature: 定时任务批量操作
 
   Scenario: multi_tag
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I click the "TrendMultiButton" button
+    And I click the "MultiButton" button
     And I "checked" the checkbox which name is "test_multi_1" in the list
     And I "checked" the checkbox which name is "test_multi_2" in the list
     And I "checked" the checkbox which name is "test_multi_3" in the list
@@ -67,7 +67,7 @@ Feature: 定时任务批量操作
     
   Scenario: multi_switch
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I click the "TrendMultiButton" button
+    And I click the "MultiButton" button
     And I "checked" the checkbox which name is "test_multi_1" in the list
     And I "checked" the checkbox which name is "test_multi_2" in the list
     And I "checked" the checkbox which name is "test_multi_3" in the list
@@ -97,7 +97,7 @@ Feature: 定时任务批量操作
 
   Scenario: multi_delete
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I click the "TrendMultiButton" button
+    And I click the "MultiButton" button
     And I "checked" the checkbox which name is "test_multi_1" in the list
     And I "checked" the checkbox which name is "test_multi_2" in the list
     And I "checked" the checkbox which name is "test_multi_3" in the list

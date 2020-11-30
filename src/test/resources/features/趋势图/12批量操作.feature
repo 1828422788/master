@@ -26,7 +26,7 @@ Feature: 趋势图批量操作
     |  test_multi_3   |
 
   Scenario: multi_tag
-    And I click the "TrendMultiButton" button
+    And I click the "MultiButton" button
     And I "checked" the checkbox which name is "test_multi_1" in trend list page
     And I "checked" the checkbox which name is "test_multi_2" in trend list page
     And I "checked" the checkbox which name is "test_multi_3" in trend list page
@@ -45,7 +45,7 @@ Feature: 趋势图批量操作
     Then I will see the data "test_multi_3" values "{'column':'4','name':'auto_package'}"
 
   Scenario: multi_delete
-    And I click the "TrendMultiButton" button
+    And I click the "MultiButton" button
     And I "checked" the checkbox which name is "test_multi_1" in trend list page
     And I "checked" the checkbox which name is "test_multi_2" in trend list page
     And I "checked" the checkbox which name is "test_multi_3" in trend list page
