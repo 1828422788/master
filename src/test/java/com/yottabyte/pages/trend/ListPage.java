@@ -53,6 +53,12 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//p[text()='追加合并']/preceding-sibling::div")
     private WebElement unionDataset;
 
+    @FindBy(xpath = "//span[contains(text(),'添加资源标签')]")
+    private WebElement multiTag;
+
+    @FindBy(xpath = "//span[contains(text(),'删除')]")
+    private WebElement multiDelete;
+
     public WebElement getLoading() {
         return loading;
     }
@@ -108,6 +114,23 @@ public class ListPage extends ListPageFactory {
         return this.getLastDropdownList();
     }
 
+    public WebElement getTrendMultiButton() {
+        return super.getButton("批量操作");
+    }
 
+    public WebElement getSelectAction() {
+        return super.getButton("请选择");
+    }
 
+    public WebElement getFinish() {
+        return super.getButton("完成");
+    }
+
+    public WebElement getMultiTag() {
+        return multiTag;
+    }
+
+    public WebElement getMultiDelete() {
+        return multiDelete;
+    }
 }
