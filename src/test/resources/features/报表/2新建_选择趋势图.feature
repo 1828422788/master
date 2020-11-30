@@ -9,8 +9,7 @@ Feature: 报表新建_选择
 
   Scenario Outline: new_report_10_trends
     When I set the parameter "Name" with value "test_10trends"
-    And I set the parameter "Hour" with value "12"
-    And I set the parameter "Minute" with value "00"
+    And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I choose the "PDF" from the "ReportType"
     And I click the "NextButton" button under some element
     And I wait for "2000" millsecond
@@ -58,8 +57,7 @@ Feature: 报表新建_选择
 
   Scenario Outline: new_report_moveTrends
     When I set the parameter "Name" with value "<caseNum>"
-    And I set the parameter "Hour" with value "12"
-    And I set the parameter "Minute" with value "00"
+    And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I choose the "PDF" from the "ReportType"
     And I click the "NextButton" button under some element
     And I wait for "2000" millsecond
@@ -92,8 +90,7 @@ Feature: 报表新建_选择
 
   Scenario: new_report_modifyTrend_cancel
     When I set the parameter "Name" with value "test_modify_cancel"
-    And I set the parameter "Hour" with value "05"
-    And I set the parameter "Minute" with value "00"
+    And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I choose the "PDF" from the "ReportType"
     And I click the "NextButton" button under some element
     And I wait for "2000" millsecond
@@ -121,8 +118,7 @@ Feature: 报表新建_选择
     When I set the parameter "Name" with value "test_no_trends_<type>"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "<type>" from the "ReportType"
-    And I set the parameter "Hour" with value "05"
-    And I set the parameter "Minute" with value "00"
+    And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I click the "NextButton" button under some element
     Then I wait for "FinishButton" will be visible
     When I click the "FinishButton" button under some element
