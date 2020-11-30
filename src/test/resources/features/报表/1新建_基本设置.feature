@@ -111,8 +111,7 @@ Feature: 报表新建_执行计划
     And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I will see the element "SubjectNote" contains "注: 可用变量: 报表名称：<%report_name%>，发送时间：<%report_time%>"
     And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
-    And I set the parameter "Hour" with value "12"
-    And I set the parameter "Minute" with value "00"
+    And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I click the "NextButton" button under some element
     Then I wait for "FinishButton" will be visible
 

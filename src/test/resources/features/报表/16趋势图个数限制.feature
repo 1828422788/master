@@ -32,8 +32,7 @@ Feature: 报表_趋势图个数限制
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     When I set the parameter "Name" with value "test_5trends"
-    And I set the parameter "Hour" with value "12"
-    And I set the parameter "Minute" with value "00"
+    And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I choose the "PDF" from the "ReportType"
     And I click the "NextButton" button under some element
     And I wait for "2000" millsecond
