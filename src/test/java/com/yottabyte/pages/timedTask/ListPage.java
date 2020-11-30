@@ -14,6 +14,7 @@ public class ListPage extends ListPageFactory {
 
     public ListPage(WebDriver driver) {
         super(driver);
+        driver.manage().window().fullscreen();
     }
 
     @FindBy(xpath = "//*[contains(text(),'编辑')]")
@@ -112,6 +113,15 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(xpath = "//span[@class = 'ant-spin-dot ant-spin-dot-spin']")
     private WebElement loading;
+
+    @FindBy(xpath = "//span[contains(text(),'添加资源标签')]")
+    private WebElement multiTag;
+
+    @FindBy(xpath = "//span[contains(text(),'删除')]")
+    private WebElement multiDelete;
+
+    @FindBy(xpath = "//span[contains(text(),'启动')]")
+    private WebElement multiSwitch;
 
     public WebElement getLoading() {
         return loading;
@@ -213,6 +223,31 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getComplementPanel() {
         return complementPanel;
+    }
+
+
+    public WebElement getTrendMultiButton() {
+        return super.getButton("批量操作");
+    }
+
+    public WebElement getSelectAction() {
+        return super.getButton("请选择");
+    }
+
+    public WebElement getFinish() {
+        return super.getButton("完成");
+    }
+
+    public WebElement getMultiTag() {
+        return multiTag;
+    }
+
+    public WebElement getMultiDelete() {
+        return multiDelete;
+    }
+
+    public WebElement getMultiSwitch() {
+        return multiSwitch;
     }
 
 //    public WebElement getEnsureDelete() {

@@ -57,18 +57,9 @@ Feature: 趋势图批量操作
     And I wait for loading complete
     And I click the "Finish" button
 
-  Scenario Outline: verify_delete
-    When I set the parameter "SearchInput" with value "<name>"
+  Scenario: verify_delete
+    When I set the parameter "SearchInput" with value "test_multi"
     And I wait for "2000" millsecond
-    Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
-
-    Examples:
-      |   name          |
-      |  test_multi_1   |
-      |  test_multi_2   |
-      |  test_multi_3   |
-
-
-
-
-
+    Then I will see the search result "{'column':'0','name':'test_multi_1','contains':'no'}"
+    Then I will see the search result "{'column':'0','name':'test_multi_2','contains':'no'}"
+    Then I will see the search result "{'column':'0','name':'test_multi_3','contains':'no'}"

@@ -241,6 +241,26 @@ public class Checkbox {
      *
      * @param status   想要将复选框置为的状态，checked/unchecked
      * @param nameList 想要勾选/取消勾选的名称（支持传入list）
+     *                 仅用于列表页的checkbox(批量操作：报表，定时任务，仪表盘等)
+     */
+    @When("^I \"([^\"]*)\" the checkbox which name is \"([^\"]*)\" in the list$")
+    public void clickCheckboxWithGivenNameInTheList(String status, List<String> nameList) {
+        for (String name : nameList) {
+            String xpath = "(//a[text()='" + name + "'])[1]";
+            WebElement label = webDriver.findElement(By.xpath(xpath));
+            WebElement span = label.findElement(By.xpath("./ancestor::td/preceding-sibling::td//span"));
+            String attribute = span.getAttribute("class");
+            if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
+                span.click();
+            }
+        }
+    }
+
+    /**
+     * 勾选或取消勾选名称前面的checkbox
+     *
+     * @param status   想要将复选框置为的状态，checked/unchecked
+     * @param nameList 想要勾选/取消勾选的名称（支持传入list）
      *                 仅用于趋势图列表页的checkbox
      */
     @When("^I \"([^\"]*)\" the checkbox which name is \"([^\"]*)\" in trend list page$")
