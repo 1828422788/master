@@ -35,6 +35,7 @@ Feature: 日志展现_表格
   Scenario Outline: table_gradient_default
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
+    And I will see the input element "FontColor" value will be "#4a4a4a"
     And I choose the "梯度" from the "ColorType"
 
     And I set the parameter "FontColor" with value "#5522e0"
@@ -46,7 +47,10 @@ Feature: 日志展现_表格
 
     And I wait for "ChartView" will be visible
 #    And I drag the scroll bar to the element "ChartView"
+    And I will see the element "Cell" style contains "background-color: rgb(188, 232, 252);"
     And I will see the element "Cell" style contains "color: rgb(85, 34, 224);"
+    And I will see the element "Cell" style contains "font-style: italic;"
+    And I will see the element "Cell" style contains "text-align: right;"
     And I wait for "3000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/8表格/<caseNum>"
     Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
@@ -71,14 +75,15 @@ Feature: 日志展现_表格
 
     And I wait for "ChartView" will be visible
 #    And I drag the scroll bar to the element "ChartView"
-    And I wait for "2000" millsecond
+    And I will see the element "Cell" style contains "<style>"
+    And I wait for "3000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/8表格/<caseNum>_<color>"
     Then I compare source image "actual/高级搜索视图/8表格/<caseNum>_<color>" with target image "expect/高级搜索视图/8表格/<caseNum>_<color>"
 
     Examples:
-      |   color      | caseNum  |
-      |  Continuity  |  827     |
-      |  Discrete    |  828     |
+      |   color      | caseNum  |  style    |
+      |  Continuity  |  827     | background-color: rgb(225, 245, 254);  |
+      |  Discrete    |  828     | background-color: rgb(229, 28, 35);    |
 
   Scenario Outline: table_interval
     When I click the "Pencil" button
@@ -112,6 +117,8 @@ Feature: 日志展现_表格
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "ChartView" will be visible
     And I will see the element "Cell" style contains "color: rgb(85, 34, 224);"
+    And I will see the element "Cell" style contains "text-decoration: underline;"
+    And I will see the element "Cell" style contains "background-color: rgb(0, 255, 0);"
     And I wait for "3000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/8表格/<caseNum>"
     Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
@@ -146,15 +153,16 @@ Feature: 日志展现_表格
 
     And I wait for "ChartView" will be visible
 #    And I drag the scroll bar to the element "ChartView"
-    And I wait for "2000" millsecond
+    And I will see the element "Cell" style contains "<style>"
+    And I wait for "3000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/8表格/<caseNum>"
     Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
 
     Examples:
-      |  button               | caseNum          |
-      |  DeleteFirstInterval  |  829_del_orange  |
-      |  DeleteSecondInterval |  829_del_yellow  |
-      |  DeleteLastInterval   |  829_del_green   |
+      |  button               | caseNum          |   style   |
+      |  DeleteFirstInterval  |  829_del_orange  | background-color: rgb(0, 255, 0);  |
+      |  DeleteSecondInterval |  829_del_yellow  | background-color: rgb(0, 255, 0);  |
+      |  DeleteLastInterval   |  829_del_green   | background-color: rgb(255, 255, 0);|
 
 
   Scenario Outline: table_value_color
@@ -168,14 +176,15 @@ Feature: 日志展现_表格
 
     And I wait for "ChartView" will be visible
 #    And I drag the scroll bar to the element "ChartView"
-    And I wait for "2000" millsecond
+    And I will see the element "<element>" style contains "<style>"
+    And I wait for "3000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/8表格/<caseNum>"
     Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
 
     Examples:
-      |   button      | caseNum       |
-      |  DefaultColor | defaultColor  |
-      |  AutoColor    |  830_auto     |
+      |   button      | caseNum       |   element  | style    |
+      |  DefaultColor | defaultColor  | Cell2      | background-color: rgb(230, 247, 255); width: 25 |
+      |  AutoColor    |  830_auto     | Cell       | background-color: rgb(3, 169, 244); |
 
 
   Scenario Outline: table_value_customcolor
@@ -201,12 +210,15 @@ Feature: 日志展现_表格
     And I set the parameter "FontColor" with value "#744e78"
     And I choose the "粗体" from the "FontStyle" in config
     And I will see the element "SelectedAlignment" contains "居左"
+    And I choose the "居中" from the "Alignment" in config
 
     And I click the "CreateEnsureButton" button
 
     And I wait for "ChartView" will be visible
 #    And I drag the scroll bar to the element "ChartView"
     And I will see the element "Cell" style contains "color: rgb(116, 78, 120);"
+    And I will see the element "Cell" style contains "font-weight: bold;"
+    And I will see the element "Cell" style contains "text-align: center;"
     And I wait for "3000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/8表格/<caseNum>"
     Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"

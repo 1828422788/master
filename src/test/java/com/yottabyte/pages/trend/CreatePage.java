@@ -923,8 +923,16 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[contains(@class,'ant-slider-handle')]")
     private WebElement sliderHandle;
 
-    @FindBy(xpath = "(//tr/td[2]/span)[1]")
+    @FindBy(xpath = "(//tr/td[2])[1]")
     private WebElement cell;
+
+    //默认
+    @FindBy(xpath = "(//tr[2]/td[2]/div)[1]")
+    private WebElement cell2;
+
+    public WebElement getCell2(){
+        return cell2;
+    }
 
     public WebElement getCell() {
         return cell;
