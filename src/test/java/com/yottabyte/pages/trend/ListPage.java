@@ -114,7 +114,7 @@ public class ListPage extends ListPageFactory {
         return this.getLastDropdownList();
     }
 
-    public WebElement getTrendMultiButton() {
+    public WebElement getMultiButton() {
         return super.getButton("批量操作");
     }
 
