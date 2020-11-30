@@ -125,7 +125,32 @@ Feature: 仪表盘调用链
       | 仪表盘调用链 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 修改为调用链 RZY-RZY-4837
+  Scenario Outline: trace表格展示优化
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "仪表盘调用链" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+#    And I click the "SettingChart" button
+    And I click the "Configs" button
+    And I wait for loading invisible
+    And I set the parameter "Spl" with value "appname:zipkin | parse "(?<jsonstring>\{.*\})$" | jpath input=jsonstring output=traceid path="traceId" | jpath input=jsonstring output=spanid path="id" | jpath input=jsonstring output=parentid path="parentId" | jpath input=jsonstring output=binnaryannotations path="binaryAnnotations[*].endpoint" | jpath input=jsonstring output=annotations path="annotations[*].endpoint" | jpath input=jsonstring output=duration path="duration" | jpath input=jsonstring output=modulename path="name" | where mvindex(duration, 0)>0 && mvindex(traceid,0)=="511f8756ce1d0b8a" | jpath input=jsonstring output=timestamp path="timestamp" | eval annotations=tostring(annotations) | eval binnaryannotations=tostring(binnaryannotations) | table spanid, parentid, duration, timestamp, binnaryannotations, modulename, annotation"
+    And I click the "Ensure" button
+    And I wait for "Progress" will be invisible
+    And I wait for "3000" millsecond
+    And I move the mouse pointer to the "CallChainText"
+    And I click the "ShowDetails" button
+    And I wait for "CallChainDetails" will be visible
+    Then take part of "CallChainDetails" with name "actual/<image>"
+#    And I compare source image "actual/<image>" with target image "expect/<image>"
+
+    Examples:
+      | name       |   image             |
+      | 仪表盘调用链 | 调用链_trace表格优化   |
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 展示修改为-tree RZY-RZY-4837
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -156,26 +181,26 @@ Feature: 仪表盘调用链
       | name    |
       | 仪表盘调用链 |
 
-  @cleanDashboard
-  Scenario Outline: 删除仪表盘
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    When the data name is "<name>" then i click the "删除" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    Then I will see the success message "删除仪表盘成功"
-
-    Examples:
-      | name   |
-      | 仪表盘调用链 |
-
-  @cleanDashboard
-  Scenario Outline: 删除仪表盘所建趋势图
-    Given open the "trend.ListPage" page for uri "/trend/"
-    When the data name is "<name>" then i click the "删除" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    And I will see the success message "删除成功"
-
-    Examples:
-      | name   |
-      | 仪表盘调用链 |
+#  @cleanDashboard
+#  Scenario Outline: 删除仪表盘
+#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+#    When the data name is "<name>" then i click the "删除" button
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button
+#    Then I will see the success message "删除仪表盘成功"
+#
+#    Examples:
+#      | name   |
+#      | 仪表盘调用链 |
+#
+#  @cleanDashboard
+#  Scenario Outline: 删除仪表盘所建趋势图
+#    Given open the "trend.ListPage" page for uri "/trend/"
+#    When the data name is "<name>" then i click the "删除" button
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button
+#    And I will see the success message "删除成功"
+#
+#    Examples:
+#      | name   |
+#      | 仪表盘调用链 |

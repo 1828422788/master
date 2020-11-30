@@ -373,6 +373,15 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='测试描述']")
     private WebElement describeText;
 
+    @FindBy(xpath = "//div[text()='demorpcservice.demo']")
+    private WebElement callChainText;
+
+    @FindBy(xpath = "//div[text()='显示详情']")
+    private WebElement showDetails;
+
+    @FindBy(xpath = "(//div[text()='binnaryannotations'])[2]/parent::div/parent::div")
+    private WebElement callChainDetails;
+
     @FindBy(xpath = "//div[text()='第一行']/preceding-sibling::div/i[1]")
     private WebElement editRowIcon;
 
@@ -1516,6 +1525,18 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getDescribeText() {
         return describeText;
+    }
+
+    public WebElement getCallChainText() {
+        return callChainText;
+    }
+
+    public WebElement getShowDetails() {
+        return showDetails;
+    }
+
+    public WebElement getCallChainDetails() {
+        return callChainDetails;
     }
 
     public WebElement getDescribe() {
