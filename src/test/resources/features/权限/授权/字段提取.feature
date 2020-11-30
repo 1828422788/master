@@ -289,6 +289,9 @@ Feature: 权限-字段提取
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "Resource" button
+    When I "checked" the checkbox which name is "新建字段提取"
+    And I click the "SaveButton" button
     And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字段提取'}" button
@@ -297,9 +300,6 @@ Feature: 权限-字段提取
     When I "unchecked" function "编辑,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    And I click the "Resource" button
-    When I "checked" the checkbox which name is "新建字段提取"
-    And I click the "SaveButton" button
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page

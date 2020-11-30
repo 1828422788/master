@@ -14,6 +14,7 @@ Feature: 权限-定时任务
     And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name              |
@@ -32,6 +33,7 @@ Feature: 权限-定时任务
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     Then I will see the "TimedTask" doesn't exist
+    Then I logout current user
 
   @logout
   Scenario: 授权新建权限
@@ -43,6 +45,7 @@ Feature: 权限-定时任务
     When I "checked" the checkbox which name is "新建定时任务"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
   Scenario: 验证新建权限
     Given I login user "AutoTest" with password "All#123456"
@@ -62,6 +65,7 @@ Feature: 权限-定时任务
     And I click the "EnsureCrontab" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
+    Then I logout current user
 
   @logout
   Scenario: 验证无读取权限
@@ -74,12 +78,14 @@ Feature: 权限-定时任务
     And I "unchecked" the checkbox which name is "AutoTestCreate" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
   Scenario: 授权无读取权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     Then I will see the search result "{'column':'1','name':'AutoTestCreate','contains':'no'}"
+    Then I logout current user
 
   @logout
   Scenario: 授权有读取权限
@@ -93,6 +99,7 @@ Feature: 权限-定时任务
     When I "checked" function "读取" from the auth table which name is "AutoTestCreate"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
   Scenario: 验证有读取权限
     Given I login user "AutoTest" with password "All#123456"
@@ -109,6 +116,7 @@ Feature: 权限-定时任务
     And the data name is "{'column':'1','name':'AutoTestCreate'}" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
+    Then I logout current user
 
   @logout
   Scenario Outline: 授权读取+编辑
@@ -121,6 +129,7 @@ Feature: 权限-定时任务
     When I "unchecked" function "删除,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name               |
@@ -149,6 +158,7 @@ Feature: 权限-定时任务
     And I click the "SaveButton" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
+    Then I logout current user
 
     Examples:
       | name               |
@@ -165,6 +175,7 @@ Feature: 权限-定时任务
     When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name           |
@@ -197,6 +208,7 @@ Feature: 权限-定时任务
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
+    Then I logout current user
 
     Examples:
       | name           |
@@ -213,6 +225,7 @@ Feature: 权限-定时任务
     When I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name           |
@@ -239,6 +252,7 @@ Feature: 权限-定时任务
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
+    Then I logout current user
 
     Examples:
       | name           |
@@ -255,6 +269,7 @@ Feature: 权限-定时任务
     When I "unchecked" function "编辑,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name               |
@@ -281,6 +296,7 @@ Feature: 权限-定时任务
     And I wait for "2000" millsecond
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看复制授权" button
+    Then I logout current user
 
     Examples:
       | name               |
@@ -313,6 +329,7 @@ Feature: 权限-定时任务
     When I "unchecked" function "编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name                   |
@@ -341,6 +358,7 @@ Feature: 权限-定时任务
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
+    Then I logout current user
 
     Examples:
       | name                   |
@@ -354,6 +372,7 @@ Feature: 权限-定时任务
     And I set the parameter "Name" with value "验证有效期限"
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
+    Then I logout current user
 
   @logout
   Scenario: 验证有效期限
@@ -367,6 +386,7 @@ Feature: 权限-定时任务
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'1','name':'验证有效期限'}"
+    Then I logout current user
 
   @logout
   Scenario Outline: 授权读取+编辑+转授
@@ -411,6 +431,7 @@ Feature: 权限-定时任务
     And I click the "SaveButton" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
+    Then I logout current user
 
     Examples:
       | name   |
@@ -472,6 +493,7 @@ Feature: 权限-定时任务
     And I "uncheck" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
+    Then I logout current user
 
   @logout
   Scenario Outline: 二次授权读取
@@ -494,6 +516,7 @@ Feature: 权限-定时任务
     And the data name is "{'column':'1','name':'AutoTestEdit'}" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
+    Then I logout current user
 
     Examples:
       | authRole | authName | function |
@@ -532,6 +555,7 @@ Feature: 权限-定时任务
     And I click the "SaveButton" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
+    Then I logout current user
 
     Examples:
       | authRole | authName        | function | name         |
@@ -574,6 +598,7 @@ Feature: 权限-定时任务
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
+    Then I logout current user
 
     Examples:
       | authRole | authName | function | name           |
