@@ -1,0 +1,112 @@
+@all @report @reportMulti
+Feature: 报表_批量操作
+
+  Background:
+    Given open the "report.ListPage" page for uri "/reports/"
+
+  Scenario Outline: create_report
+    And I click the "NewReportButton" button
+    Then I will see the "report.CreatePage" page
+    And I wait for element "SelectedUser" change text to username
+    When I set the parameter "Name" with value "<name>"
+    And I set the parameter "Describe" with value "AutoCreate"
+    And I choose the "PDF" from the "ReportType"
+    And I set the parameters "Hour" and "Minute" as "5" minutes later from now
+    And I click the "NextButton" button under some element
+    Then I wait for "ChartListButton" will be visible
+    When I choose the "table_Order" from the "ChartList"
+    And I click the "ChartListButton" button
+    Then I will see the element "ChosenTrendLast" contains "table_Order"
+    When I click the "FinishButton" button under some element
+    And I wait for "EnsureButton" will be visible
+    Then I will see the success message "保存成功"
+    And I click the "EnsureButton" button
+
+  Examples:
+    |   name          |
+    |  test_multi_1   |
+    |  test_multi_2   |
+    |  test_multi_3   |
+
+  Scenario: multi_tag
+    And I click the "MultiButton" button
+    And I "checked" the checkbox which name is "test_multi_1" in the list
+    And I "checked" the checkbox which name is "test_multi_2" in the list
+    And I "checked" the checkbox which name is "test_multi_3" in the list
+    And I click the "SelectAction" button
+    And I click the "MultiTag" button
+    And I choose the "auto_package" from the "TagField"
+    And I click the "TagPanel" button
+    And I click the "Ensure" button
+    Then I will see the success message "更新成功"
+    And I wait for loading complete
+    And I click the "Finish" button
+
+  Scenario: verify_tag
+    Then I will see the data "{'column':'1','name':'test_multi_1'}" values "{'column':'7','name':'auto_package'}"
+    And I will see the data "{'column':'1','name':'test_multi_2'}" values "{'column':'7','name':'auto_package'}"
+    And I will see the data "{'column':'1','name':'test_multi_3'}" values "{'column':'7','name':'auto_package'}"
+
+  Scenario: switch_off
+    And the data name is "{'column':'1','name':'test_multi_1'}" then I "close" the switch
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "禁用成功"
+    And I wait for "SuccessMessage" will be invisible
+
+    And the data name is "{'column':'1','name':'test_multi_2'}" then I "close" the switch
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "禁用成功"
+    And I wait for "SuccessMessage" will be invisible
+
+    And the data name is "{'column':'1','name':'test_multi_3'}" then I "close" the switch
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "禁用成功"
+    
+  Scenario: multi_switch
+    And I click the "MultiButton" button
+    And I "checked" the checkbox which name is "test_multi_1" in the list
+    And I "checked" the checkbox which name is "test_multi_2" in the list
+    And I "checked" the checkbox which name is "test_multi_3" in the list
+    And I click the "SelectAction" button
+    And I click the "MultiSwitch" button
+    And I will see the message "确定启用 3 个资源"
+    When I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "更新成功"
+    And I wait for loading complete
+    And I click the "Finish" button
+
+  Scenario: verify_switch
+    When the data name is "{'column':'1','name':'test_multi_1'}" then I "close" the switch
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "禁用成功"
+    And I wait for "SuccessMessage" will be invisible
+    When the data name is "{'column':'1','name':'test_multi_2'}" then I "close" the switch
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "禁用成功"
+    And I wait for "SuccessMessage" will be invisible
+    When the data name is "{'column':'1','name':'test_multi_3'}" then I "close" the switch
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "禁用成功"
+
+
+  Scenario: multi_delete
+    And I click the "MultiButton" button
+    And I "checked" the checkbox which name is "test_multi_1" in the list
+    And I "checked" the checkbox which name is "test_multi_2" in the list
+    And I "checked" the checkbox which name is "test_multi_3" in the list
+    And I click the "SelectAction" button
+    And I click the "MultiDelete" button
+    Then I will see the message "您选中的 3 个资源将被删除，是否继续？"
+    When I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "删除成功"
+    And I wait for loading complete
+    And I click the "Finish" button
+
+  Scenario: verify_delete
+    When I set the parameter "SearchInput" with value "test_multi"
+    And I wait for "2000" millsecond
+    Then I will see the search result "{'column':'1','name':'test_multi_1','contains':'no'}"
+    Then I will see the search result "{'column':'1','name':'test_multi_2','contains':'no'}"
+    Then I will see the search result "{'column':'1','name':'test_multi_3','contains':'no'}"

@@ -246,7 +246,7 @@ public class Checkbox {
     @When("^I \"([^\"]*)\" the checkbox which name is \"([^\"]*)\" in the list$")
     public void clickCheckboxWithGivenNameInTheList(String status, List<String> nameList) {
         for (String name : nameList) {
-            String xpath = "(//a[text()='" + name + "'])[1]";
+            String xpath = "(//a[contains(text(),'" + name + "')])[1]";
             WebElement label = webDriver.findElement(By.xpath(xpath));
             WebElement span = label.findElement(By.xpath("./ancestor::td/preceding-sibling::td//span"));
             String attribute = span.getAttribute("class");
@@ -261,7 +261,7 @@ public class Checkbox {
      *
      * @param status   想要将复选框置为的状态，checked/unchecked
      * @param nameList 想要勾选/取消勾选的名称（支持传入list）
-     *                 仅用于趋势图列表页的checkbox
+     *                 仅用于趋势图列表页的checkbox（批量操作：报表文件，趋势图等）
      */
     @When("^I \"([^\"]*)\" the checkbox which name is \"([^\"]*)\" in trend list page$")
     public void clickCheckboxWithGivenNameInTrendList(String status, List<String> nameList) {
