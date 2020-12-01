@@ -115,7 +115,7 @@ Feature: 仪表盘多Y轴图
       | 仪表盘多Y轴图 | Multiaxis  |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 同一个Y轴多个字段
+  Scenario Outline: 同一个Y轴多个字段 RZY-4856
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -147,7 +147,7 @@ Feature: 仪表盘多Y轴图
       | 仪表盘多Y轴图 | 多Y轴图_multiFieldInAxis |
 
   @dashboard @dashboardSmoke
-  Scenario: 验证边界值范围生效
+  Scenario: 验证边界值范围生效 RZY-4857
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘多Y轴图"
@@ -244,7 +244,7 @@ Feature: 仪表盘多Y轴图
     And I compare source image "actual/多Y轴图_修改Yfield" with target image "expect/多Y轴图_修改Yfield"
 
   @dashboard @dashboardSmoke
-  Scenario Outline: rang RZY-1337,RZY-3730,RZY-3732
+  Scenario Outline: range RZY-1337,RZY-3730,RZY-3732
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘多Y轴图"
