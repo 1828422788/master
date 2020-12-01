@@ -150,6 +150,23 @@ Feature: 仪表盘调用链
       | 仪表盘调用链 | 调用链_trace表格优化   |
 
   @dashboard @dashboardSmoke
+  Scenario: 调用链table折叠 RZY-4858
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘调用链"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    And I wait for "3000" millsecond
+    And I move the mouse pointer to the "CallChainText"
+    And I click the "ShowDetails" button
+    And I wait for "1000" millsecond
+#And I click the "SettingChart" button
+    And I click the "FoldIcon" button
+    Then I will see the "CallChainTextChildNode" doesn't exist
+    And I click the "FoldIcon" button
+    Then I wait for "CallChainTextChildNode" will be visible
+
+  @dashboard @dashboardSmoke
   Scenario Outline: 展示修改为-tree RZY-RZY-4837
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -169,8 +186,6 @@ Feature: 仪表盘调用链
     And I click the "Generate" button
     And I wait for "3000" millsecond
     And I click the "Setting" button under some element
-#    Then I hide the element "SettingContent"
-#    And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I move the mouse pointer to the "TrendTitle"
