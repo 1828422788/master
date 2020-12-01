@@ -125,7 +125,7 @@ Feature: 仪表盘调用链
       | 仪表盘调用链 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: trace表格展示优化
+  Scenario Outline: trace表格展示优化 RZY-4855
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"

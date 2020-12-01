@@ -227,7 +227,7 @@ Feature: 仪表盘表格样式设置
       | 20      | 表格样式_列宽度   |
 
   @dashboard @dashboardSmoke
-  Scenario: 编辑图表样式-对齐方式-居中 RZY-48
+  Scenario: 编辑图表样式-对齐方式-居中 RZY-4854
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
@@ -240,7 +240,7 @@ Feature: 仪表盘表格样式设置
     Then I will see the element "ValueOfNanjingTd" style contains "text-align: center"
 
   @dashboard @dashboardSmoke
-  Scenario: 编辑图表样式-对齐方式-居右 RZY-48
+  Scenario: 编辑图表样式-对齐方式-居右 RZY-4854
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
@@ -253,7 +253,7 @@ Feature: 仪表盘表格样式设置
     Then I will see the element "ValueOfNanjingTd" style contains "text-align: right"
 
   @dashboard @dashboardSmoke
-  Scenario: 编辑图表样式-对齐方式-居左 RZY-48
+  Scenario: 编辑图表样式-对齐方式-居左 RZY-4854
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
