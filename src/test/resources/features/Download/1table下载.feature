@@ -5,8 +5,8 @@ Feature: table下载
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  @dltable
-  Scenario Outline: stats用例结果下载
+  @dlstats
+  Scenario Outline: 下载stats用例结果
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button
