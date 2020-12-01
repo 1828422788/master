@@ -5,7 +5,7 @@ Feature: 事件搜索下载
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  @newdltran
+  @dltran
   Scenario Outline: 执行
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
