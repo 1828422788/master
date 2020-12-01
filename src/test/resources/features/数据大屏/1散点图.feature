@@ -60,8 +60,8 @@ Feature: 数据大屏-d散点图
 #    And I click the "YaxisWordColor" button
     And I wait for "YColorInput" will be visible
     And I set the parameter "YColorInput" with value "#19B535"
-    And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+    And I click the button "EnsureColor" if exist
+#    And I wait for "EnsureColor" will be invisible
     And I choose the "bold" from the "YaxisWordBold"
      # 轴标签
     And I set the parameter "YaxisShift" with value "10"
