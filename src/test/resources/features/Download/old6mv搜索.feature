@@ -5,7 +5,7 @@ Feature: MV下载
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  @dlmv
+  @olddlmv
   Scenario Outline: 执行
     And I wait for "2000" millsecond
     And I wait for loading complete

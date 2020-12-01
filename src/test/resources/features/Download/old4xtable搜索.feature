@@ -6,7 +6,7 @@ Feature: bucket下载
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for loading complete
 
-  @dlxtable
+  @olddlxtable
   Scenario Outline: bucket相关
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
