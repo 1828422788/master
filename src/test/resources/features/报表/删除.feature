@@ -84,40 +84,40 @@ Feature: 报表_删除
 
     Examples:
       |          name        |
-      |   Table              |
-      |   Matrixheatmap      |
-      |   Funnel             |
-      |   Radar              |
-      |   Wordcloud          |
-      |   Liquidfill         |
-      |   Single_range_backgr|
-      |   Single_font        |
-      |   Single_icon        |
-      |   Single             |
-      |   Regionmap_Jiangsu  |
-      |   Regionmap_China    |
-      |   Regionmap_World    |
-      |   Attackmap_China    |
-      |   Attackmap_World    |
-      |   Heatmap            |
-      |   Multiaxis_2        |
-      |   Multiaxis          |
-      |   Rangeline          |
-      |   Sankey_Mult        |
-      |   Force              |
-      |   Sankey             |
-      |   Chord              |
-      |   Bar2               |
-      |   Bar1               |
-      |   Sun                |
-      |   Bar                |
-      |   Rose               |
-      |   Pie                |
-      |   ScatterChart       |
-      |   ColumnChart_Pile   |
-      |   AreaChart_Pile     |
-      |   AreaChart          |
       |   LineChart          |
+      |   AreaChart          |
+      |   AreaChart_Pile     |
+      |   ColumnChart_Pile   |
+      |   ScatterChart       |
+      |   Pie                |
+      |   Rose               |
+      |   Bar                |
+      |   Sun                |
+      |   Bar1               |
+      |   Bar2               |
+      |   Chord              |
+      |   Sankey             |
+      |   Force              |
+      |   Sankey_Mult        |
+      |   Rangeline          |
+      |   Multiaxis          |
+      |   Multiaxis_2        |
+      |   Heatmap            |
+      |   Attackmap_World    |
+      |   Attackmap_China    |
+      |   Regionmap_World    |
+      |   Regionmap_China    |
+      |   Regionmap_Jiangsu  |
+      |   Single             |
+      |   Single_icon        |
+      |   Single_font        |
+      |   Single_range_backgr|
+      |   Liquidfill         |
+      |   Wordcloud          |
+      |   Radar              |
+      |   Funnel             |
+      |   Matrixheatmap      |
+      |   Table              |
 
   @cleanReportEXCEL @cleanReportCharts @cleanAllReports
   Scenario Outline: delete_report_charts_excel
@@ -133,40 +133,40 @@ Feature: 报表_删除
 
     Examples:
       |          name        |
-      |   Table              |
-      |   Matrixheatmap      |
-      |   Funnel             |
-      |   Radar              |
-      |   Wordcloud          |
-      |   Liquidfill         |
-      |   Single_range_backgr|
-#      |   Single_font        |
-#      |   Single_icon        |
-      |   Single             |
-      |   Regionmap_Jiangsu  |
-      |   Regionmap_China    |
-      |   Regionmap_World    |
-      |   Attackmap_China    |
-      |   Attackmap_World    |
-      |   Heatmap            |
-      |   Multiaxis_2        |
-      |   Multiaxis          |
-      |   Rangeline          |
-      |   Sankey_Mult        |
-      |   Force              |
-      |   Sankey             |
-      |   Chord              |
-      |   Bar2               |
-      |   Bar1               |
-      |   Sun                |
-      |   Bar                |
-      |   Rose               |
-      |   Pie                |
-      |   ScatterChart       |
-      |   ColumnChart_Pile   |
-      |   AreaChart_Pile     |
-      |   AreaChart          |
       |   LineChart          |
+      |   AreaChart          |
+      |   AreaChart_Pile     |
+      |   ColumnChart_Pile   |
+      |   ScatterChart       |
+      |   Pie                |
+      |   Rose               |
+      |   Bar                |
+      |   Sun                |
+      |   Bar1               |
+      |   Bar2               |
+      |   Chord              |
+      |   Sankey             |
+      |   Force              |
+      |   Sankey_Mult        |
+      |   Rangeline          |
+      |   Multiaxis          |
+      |   Multiaxis_2        |
+      |   Heatmap            |
+      |   Attackmap_World    |
+      |   Attackmap_China    |
+      |   Regionmap_World    |
+      |   Regionmap_China    |
+      |   Regionmap_Jiangsu  |
+      |   Single             |
+#      |   Single_icon        |
+#      |   Single_font        |
+      |   Single_range_backgr|
+      |   Liquidfill         |
+      |   Wordcloud          |
+      |   Radar              |
+      |   Funnel             |
+      |   Matrixheatmap      |
+      |   Table              |
 
   @cleanReportWORD @cleanReportCharts @cleanAllReports
   Scenario Outline: delete_report_charts_word
@@ -182,40 +182,40 @@ Feature: 报表_删除
 
     Examples:
       |          name        |
-      |   Table              |
-      |   Matrixheatmap      |
-      |   Funnel             |
-      |   Radar              |
-      |   Wordcloud          |
-      |   Liquidfill         |
-      |   Single_range_backgr|
-      |   Single_font        |
-      |   Single_icon        |
-      |   Single             |
-      |   Regionmap_Jiangsu  |
-      |   Regionmap_China    |
-      |   Regionmap_World    |
-      |   Attackmap_China    |
-      |   Attackmap_World    |
-      |   Heatmap            |
-      |   Multiaxis_2        |
-      |   Multiaxis          |
-      |   Rangeline          |
-      |   Sankey_Mult        |
-      |   Force              |
-      |   Sankey             |
-      |   Chord              |
-      |   Bar2               |
-      |   Bar1               |
-      |   Sun                |
-      |   Bar                |
-      |   Rose               |
-      |   Pie                |
-      |   ScatterChart       |
-      |   ColumnChart_Pile   |
-      |   AreaChart_Pile     |
-      |   AreaChart          |
       |   LineChart          |
+      |   AreaChart          |
+      |   AreaChart_Pile     |
+      |   ColumnChart_Pile   |
+      |   ScatterChart       |
+      |   Pie                |
+      |   Rose               |
+      |   Bar                |
+      |   Sun                |
+      |   Bar1               |
+      |   Bar2               |
+      |   Chord              |
+      |   Sankey             |
+      |   Force              |
+      |   Sankey_Mult        |
+      |   Rangeline          |
+      |   Multiaxis          |
+      |   Multiaxis_2        |
+      |   Heatmap            |
+      |   Attackmap_World    |
+      |   Attackmap_China    |
+      |   Regionmap_World    |
+      |   Regionmap_China    |
+      |   Regionmap_Jiangsu  |
+      |   Single             |
+      |   Single_icon        |
+      |   Single_font        |
+      |   Single_range_backgr|
+      |   Liquidfill         |
+      |   Wordcloud          |
+      |   Radar              |
+      |   Funnel             |
+      |   Matrixheatmap      |
+      |   Table              |
 
   @cleanReportData @cleanEssentialData
   Scenario Outline: delete
