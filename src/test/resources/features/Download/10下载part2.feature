@@ -40,4 +40,4 @@ Feature: table下载
       | collect_testmode_false_step2 | index=collectmode tag:\"testmode1\" \| table tag, apache.resp_len, apache.x_forward \| sort by apache.x_forward |
       | collect_to_collect_step2 | index=collecttocollect tag:newcollect \| table tag, apache.resp_len, apache.x_forward \| sort by apache.x_forward |
       | collect_mulparam_step2 | tag:sample04061424 \| collect index=collectmulti marker=\"tag=\\\\\"newtagcollect\\\\\",ip=\\\\\"192.168.1.100\\\\\", apache.status=100, apache.resp_len=23.0\" |
-      | eval_delete_sample_step2                      | starttime=\"now/d\" endtime=\"now/d+24h\" tag:spldelete
+      | eval_delete_sample_step2                      | starttime=\"now/d\" endtime=\"now/d+24h\" tag:spldelete |
