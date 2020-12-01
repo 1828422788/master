@@ -460,6 +460,12 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//*[name()='text'])[text()='64.20.177.254']/preceding-sibling::*")
     private WebElement partOfPie;
 
+    @FindBy(xpath = "(//*[name()='tspan'])[text()='2 柱']")
+    private WebElement multiYminValue;
+
+    @FindBy(xpath = "(//*[name()='tspan'])[text()='0.2M 柱']")
+    private WebElement multiYmaxValue;
+
     @FindBy(xpath = "//span[text()='36.46.208.22']")
     private WebElement tableRow22;
 
@@ -1505,6 +1511,14 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getPartOfPie() {
         return partOfPie;
+    }
+
+    public WebElement getMultiYminValue() {
+        return multiYminValue;
+    }
+
+    public WebElement getMultiYmaxValue() {
+        return multiYmaxValue;
     }
 
     public WebElement getTableRow22() {
