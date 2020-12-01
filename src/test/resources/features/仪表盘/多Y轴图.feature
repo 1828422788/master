@@ -89,12 +89,6 @@ Feature: 仪表盘多Y轴图
     And I click the "AddField" button
     And I click the "YaxisTwo" button
     And I click the "AddConfigFields" button
-#    And I choose the "max(apache.resp_len)" from the "DataValue"
-#    And I choose the "面积图" from the "TypeDropdown"
-#    And I set the parameter "Unit" with value "面"
-#    And I click the "AddConfigFields" button
-#    And I click the "ConnectEmptyData" button
-#    And I click the "AddField" button
     And I choose the "max(apache.resp_len)" from the "DataValue2"
     And I choose the "柱状图" from the "TypeDropdown"
     And I set the parameter "Unit" with value "柱"
@@ -119,6 +113,49 @@ Feature: 仪表盘多Y轴图
     Examples:
       | name    | targetName |
       | 仪表盘多Y轴图 | Multiaxis  |
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 同一个Y轴多个字段
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    And I click the "Setting" button
+    Then I will see the "trend.CreatePage" page
+    And I wait for "2000" millsecond
+    And I click the "Yaxis" button
+    And I click the "Yaxis2" button
+    And I click the "AddConfigFields" button
+    And I choose the "avg(apache.resp_len)" from the "FieldThreeValue"
+    And I choose the "面积图" from the "FieldThreeType"
+    And I set the parameter "Unit" with value "柱"
+    And I set the parameter "Max" with value "200000"
+    Then I click the "Generate" button
+    And I wait for "3000" millsecond
+    And I click the "Setting" button under some element
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "2000" millsecond
+    And I move the mouse pointer to the "TrendTitle"
+    And I click the "TrendTitle" button
+    And I wait for "3000" millsecond
+    Then take part of "MultiYaxisArea" with name "actual/<image>"
+#    And I compare source image "actual/<image>" with target image "expect/<image>"
+
+    Examples:
+      | name        | image                   |
+      | 仪表盘多Y轴图 | 多Y轴图_multiFieldInAxis |
+
+  @dashboard @dashboardSmoke
+  Scenario: 验证边界值范围生效
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘多Y轴图"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    And I wait for "2000" millsecond
+    Then I wait for "MultiYminValue" will be visible
+    Then I wait for "MultiYmaxValue" will be visible
 
   @dashboard @dashboardSmoke
   Scenario Outline: labelRotate-left-right-horizontal-vertical RZY-1325,RZY-1326,RZY-1327,RZY-1328

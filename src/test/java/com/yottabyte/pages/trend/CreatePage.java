@@ -860,6 +860,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='字段值：'])[2]/parent::div/following-sibling::div//i")
     private WebElement dataValue2;
 
+    @FindBy(xpath = "(//span[text()='字段配置 3']/parent::div/parent::div/following-sibling::div//div[@class='ant-select-selection__rendered'])[1]")
+    private WebElement fieldThreeValue;
+
+    @FindBy(xpath = "(//span[text()='字段配置 3']/parent::div/parent::div/following-sibling::div//div[@class='ant-select-selection__rendered'])[2]")
+    private WebElement fieldThreeType;
+
     public WebElement getStatisticalChart() {
         return statisticalChart;
     }
@@ -1104,6 +1110,16 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getDataValue2() {
         dataValue2.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getFieldThreeValue() {
+        fieldThreeValue.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getFieldThreeType() {
+        fieldThreeType.click();
         return super.getLastDropdownList();
     }
 
