@@ -79,6 +79,13 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[contains(text(),'启动')]")
     private WebElement multiSwitch;
 
+    @FindBy(xpath = "//p[text()='暂无数据']")
+    private WebElement noData;
+
+    public WebElement getNoData() {
+        return noData;
+    }
+
     public WebElement getLoading() {
         return loading;
     }
