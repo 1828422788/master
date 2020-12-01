@@ -4,7 +4,7 @@ Feature: 新建collect使用索引
   Background:
     Given open the "index.ListPage" page for uri "/indexsettings/"
 
-  @collectpre
+  @collect0
   Scenario Outline: RZY-1474:新建索引
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
@@ -23,4 +23,4 @@ Feature: 新建collect使用索引
       | collecttocollect | 测试collect前置 | 7         | 1          | 1         | TB                |
       | collecttwo       | 测试collect前置 | 7         | 1          | 1         | TB                |
       | collectmode      | 测试collect前置 | 7         | 1          | 1         | TB                |
-
+      | collectmulti     | 测试collect前置 | 7         | 1          | 1         | TB                |
