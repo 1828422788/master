@@ -195,7 +195,7 @@ Feature: 仪表盘事件列表
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
-    Then I will see the input element "TimeRange" value will contains "30s,window"
+    Then I will see the input element "TimeRange" value will contains "30秒窗口"
 
   @dashboard @dashboardSmoke
   Scenario: 配置字段提取 RZY-3412
@@ -260,7 +260,7 @@ Feature: 仪表盘事件列表
 #    And I close all tabs except main tab
     Then I will see the "splSearch.SearchPage" page
     Then I will see the element "SearchInput" name is "'apache.geo.city': 成都市"
-    Then I will see the input element "TimeRange" value will contains "now/d,now"
+    Then I will see the input element "TimeRange" value will contains "今天"
     And switch to another window
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -352,7 +352,7 @@ Feature: 仪表盘事件列表
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by appname"
-    Then I will see the input element "TimeRange" value will contains "-1000d,now"
+    Then I will see the input element "TimeRange" value will contains "所有时间"
 
   @dashboard @dashboardSmoke
   Scenario Outline: 在新标签跳转到自定义URL RZY-3625
