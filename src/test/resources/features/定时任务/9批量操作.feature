@@ -30,12 +30,14 @@ Feature: 定时任务批量操作
 
   Scenario: multi_tag
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for loading complete
     And I click the "MultiButton" button
     And I "checked" the checkbox which name is "test_multi_1" in the list
     And I "checked" the checkbox which name is "test_multi_2" in the list
     And I "checked" the checkbox which name is "test_multi_3" in the list
     And I click the "SelectAction" button
     And I click the "MultiTag" button
+    And I wait for "Ensure" will be visible
     And I choose the "auto_package" from the "TagField"
     And I click the "TagPanel" button
     And I click the "Ensure" button
@@ -45,12 +47,14 @@ Feature: 定时任务批量操作
 
   Scenario: verify_tag
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for loading complete
     Then I will see the data "{'column':'1','name':'test_multi_1'}" values "{'column':'8','name':'auto_package'}"
     And I will see the data "{'column':'1','name':'test_multi_2'}" values "{'column':'8','name':'auto_package'}"
     And I will see the data "{'column':'1','name':'test_multi_3'}" values "{'column':'8','name':'auto_package'}"
 
   Scenario: switch_off
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for loading complete
     And the data name is "{'column':'1','name':'test_multi_1'}" then I "close" the switch
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "禁用成功"
@@ -67,12 +71,14 @@ Feature: 定时任务批量操作
     
   Scenario: multi_switch
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for loading complete
     And I click the "MultiButton" button
     And I "checked" the checkbox which name is "test_multi_1" in the list
     And I "checked" the checkbox which name is "test_multi_2" in the list
     And I "checked" the checkbox which name is "test_multi_3" in the list
     And I click the "SelectAction" button
     And I click the "MultiSwitch" button
+    And I wait for "Ensure" will be visible
     And I will see the message "确定启用 3 个资源"
     When I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
@@ -82,6 +88,7 @@ Feature: 定时任务批量操作
 
   Scenario: verify_switch
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for loading complete
     When the data name is "{'column':'1','name':'test_multi_1'}" then I "close" the switch
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "禁用成功"
@@ -97,12 +104,14 @@ Feature: 定时任务批量操作
 
   Scenario: multi_delete
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for loading complete
     And I click the "MultiButton" button
     And I "checked" the checkbox which name is "test_multi_1" in the list
     And I "checked" the checkbox which name is "test_multi_2" in the list
     And I "checked" the checkbox which name is "test_multi_3" in the list
     And I click the "SelectAction" button
     And I click the "MultiDelete" button
+    And I wait for "Ensure" will be visible
     Then I will see the message "您选中的 3 个资源将被删除，是否继续？"
     When I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
@@ -112,8 +121,10 @@ Feature: 定时任务批量操作
 
   Scenario: verify_delete
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    When I set the parameter "SearchInput" with value "test_multi"
+    And I wait for loading complete
+    When I set the parameter "SearchInput" with value "test_multi_"
     And I wait for "2000" millsecond
-    Then I will see the search result "{'column':'1','name':'test_multi_1','contains':'no'}"
-    Then I will see the search result "{'column':'1','name':'test_multi_2','contains':'no'}"
-    Then I will see the search result "{'column':'1','name':'test_multi_3','contains':'no'}"
+    Then I wait for "NoData" will be visible
+#    Then I will see the search result "{'column':'1','name':'test_multi_1','contains':'no'}"
+#    Then I will see the search result "{'column':'1','name':'test_multi_2','contains':'no'}"
+#    Then I will see the search result "{'column':'1','name':'test_multi_3','contains':'no'}"

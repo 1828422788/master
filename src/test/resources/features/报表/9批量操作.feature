@@ -1,8 +1,9 @@
-@all @report @reportMulti
+@all @report @reportMulti @Multi123
 Feature: 报表_批量操作
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
+    And I wait for loading complete
 
   Scenario Outline: create_report
     And I click the "NewReportButton" button
@@ -140,10 +141,11 @@ Feature: 报表_批量操作
     And I click the "Finish" button
 
   Scenario: verify_delete
-    When I set the parameter "SearchInput" with value "test_multi"
+    When I set the parameter "SearchInput" with value "test_multi_"
     And I wait for "2000" millsecond
-    Then I will see the search result "{'column':'1','name':'test_multi_1','contains':'no'}"
-    Then I will see the search result "{'column':'1','name':'test_multi_2','contains':'no'}"
-    Then I will see the search result "{'column':'1','name':'test_multi_3','contains':'no'}"
-    Then I will see the search result "{'column':'1','name':'test_multi_file_1','contains':'no'}"
-    Then I will see the search result "{'column':'1','name':'test_multi_file_2','contains':'no'}"
+    Then I wait for "NoData" will be visible
+#    Then I will see the search result "{'column':'1','name':'test_multi_1','contains':'no'}"
+##    Then I will see the search result "{'column':'1','name':'test_multi_2','contains':'no'}"
+##    Then I will see the search result "{'column':'1','name':'test_multi_3','contains':'no'}"
+##    Then I will see the search result "{'column':'1','name':'test_multi_file_1','contains':'no'}"
+##    Then I will see the search result "{'column':'1','name':'test_multi_file_2','contains':'no'}"
