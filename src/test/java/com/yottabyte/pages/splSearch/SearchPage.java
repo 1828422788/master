@@ -522,7 +522,8 @@ public class SearchPage extends ListPageFactory {
         return downloadTipsText;
     }
 
-    @FindBy(xpath = "//div[@class='yw-search-info-content error-status']/span")
+//  @FindBy(xpath = "//div[@class='yw-search-info-content error-status']/span")
+    @FindBy(xpath = "//div[@class='FuxVN2ckQ3GarEY_A-nCW _1-1tE5LfHAmNb4CRGuJvph']/span")
     private WebElement noDataInfo;
 
     //@FindBy(className = "el-time-panel")
