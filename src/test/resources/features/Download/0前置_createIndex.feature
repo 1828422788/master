@@ -15,6 +15,7 @@ Feature: 新建collect使用索引
     And I set the parameter "SavedSize" with value "<savedSize>"
 #    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
     And I click the "CreateButton" button
+    And I wait for "3000" millsecond
     And I will see the element "Message" name is "保存成功"
 
     Examples: 新建成功
@@ -24,3 +25,16 @@ Feature: 新建collect使用索引
       | collecttwo       | 测试collect前置 | 7         | 1          | 1         | TB                |
       | collectmode      | 测试collect前置 | 7         | 1          | 1         | TB                |
       | collectmulti     | 测试collect前置 | 7         | 1          | 1         | TB                |
+
+  @delcollect0
+  Scenario Outline:
+    Given the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
+    And I click the "Ensure" button
+
+    Examples:
+      | name       |
+      | collectone |
+      | collecttocollect |
+      | collecttwo  |
+      | collectmode  |
+      | collectmulti  |
