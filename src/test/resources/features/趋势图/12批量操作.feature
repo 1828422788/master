@@ -67,3 +67,15 @@ Feature: 趋势图批量操作
 #    Then I will see the search result "{'column':'0','name':'test_multi_1','contains':'no'}"
 #    Then I will see the search result "{'column':'0','name':'test_multi_2','contains':'no'}"
 #    Then I will see the search result "{'column':'0','name':'test_multi_3','contains':'no'}"
+
+  Scenario Outline: prompt
+    And I click the "MultiButton" button
+    And I click the "SelectAction" button
+    And I click the "<button>" button
+    And I wait for "EnsureButton" will be visible
+    Then I will see the message "请至少选择一个资源进行操作"
+
+  Examples:
+    | button       |
+    | MultiDelete  |
+    | MultiTag     |
