@@ -1,14 +1,14 @@
 Feature: 仪表盘调用链
 
-#  @dashboard @dashboardSmoke
-#  Scenario: 上传日志
-#    Given open the "localUpload.ListPage" page for uri "/sources/input/os/"
-#    When I set the parameter "AppName" with value "zipkin"
-#    And I set the parameter "Tag" with value "zipkin"
-#    And I upload a file with name "/src/test/resources/testdata/log/zipkin.txt"
-#    And I click the "UploadButton" button
-#    And I wait for "VerifyText" will be visible
-#    Then I wait for element "VerifyText" change text to "上传完成"
+  @dashboard @dashboardSmoke
+  Scenario: 上传日志
+    Given open the "localUpload.ListPage" page for uri "/sources/input/os/"
+    When I set the parameter "AppName" with value "zipkin"
+    And I set the parameter "Tag" with value "zipkin"
+    And I upload a file with name "/src/test/resources/testdata/log/zipkin.txt"
+    And I click the "UploadButton" button
+    And I wait for "VerifyText" will be visible
+    Then I wait for element "VerifyText" change text to "上传完成"
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
