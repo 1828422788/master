@@ -145,7 +145,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I wait for title change text to "搜索"
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by apache.clientip"
-    Then I will see the input element "TimeRange" value will contains "now/d,now"
+    Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard @dashboardSmoke
   Scenario: 钻取变量字符云图click.value RZY-3266
@@ -171,7 +171,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.clientip:64.20.177.254"
-    Then I will see the input element "TimeRange" value will contains "now/d,now"
+    Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard @dashboardSmoke
   Scenario: 钻取变量字符云图click.name2 RZY-3267
@@ -196,7 +196,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to another window
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by appname"
-    Then I will see the input element "TimeRange" value will contains "now/d,now"
+    Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
   Scenario: 钻取变量字符云图click.value2 RZY-3268
@@ -222,7 +222,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==24"
-    Then I will see the input element "TimeRange" value will contains "now/d,now"
+    Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
   Scenario: 钻取变量字符云图row.fieldname RZY-3675
@@ -249,7 +249,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.clientip:64.20.177.254"
-    Then I will see the input element "TimeRange" value will contains "now/d,now"
+    Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
   Scenario: 钻取变量字符云图start end RZY-3676
@@ -276,7 +276,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will contain "starttime="
     Then I will see the "SearchInput" result will contain "endtime="
-    Then I will see the input element "TimeRange" value will contains "now/M,now"
+    Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
   Scenario Outline: 添加区划地图图表 RZY-331
@@ -363,7 +363,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I wait for title change text to "搜索"
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by apache.geo.province"
-    Then I will see the input element "TimeRange" value will contains "now/d,now"
+    Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard @dashboardSmoke
   Scenario: 钻取变量区划地图click.value RZY-3270
@@ -389,7 +389,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.geo.province:台湾"
-    Then I will see the input element "TimeRange" value will contains "now/d,now"
+    Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard @dashboardSmoke
   Scenario: 钻取变量区划地图click.name2 RZY-3269
@@ -415,7 +415,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by apache.geo.province"
     And I wait for "3000" millsecond
-    Then I will see the input element "TimeRange" value will contains "now/d,now"
+    Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
   Scenario: 钻取变量区划地图click.value2 RZY-3272
@@ -466,7 +466,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424 | stats count() by '内蒙古'"
-    Then I will see the input element "TimeRange" value will contains "now/d,now"
+    Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
   Scenario: 钻取变量区划地图start end RZY-3674
@@ -493,7 +493,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will contain "starttime="
     Then I will see the "SearchInput" result will contain "endtime="
-    Then I will see the input element "TimeRange" value will contains "now/M,now"
+    Then I will see the input element "TimeRange" value will contains "本月"
 
   @dashboard
   Scenario Outline: 添加饼图图表
@@ -704,7 +704,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will contain "starttime="
     Then I will see the "SearchInput" result will contain "endtime="
-    Then I will see the input element "TimeRange" value will contains "now/M,now"
+    Then I will see the input element "TimeRange" value will contains "本月"
 
   @dashboard
   Scenario Outline: 添加单值图表
@@ -851,7 +851,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will contain "starttime="
     Then I will see the "SearchInput" result will contain "endtime="
-    Then I will see the input element "TimeRange" value will contains "now/M,now"
+    Then I will see the input element "TimeRange" value will contains "本月"
 
   @dashboard
   Scenario Outline: 添加单值图表value
@@ -1157,7 +1157,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will contain "starttime="
     Then I will see the "SearchInput" result will contain "endtime="
-    Then I will see the input element "TimeRange" value will contains "-7d,now"
+    Then I will see the input element "TimeRange" value will contains "最近7天"
 
 
 

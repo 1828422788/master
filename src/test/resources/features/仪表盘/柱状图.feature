@@ -154,7 +154,7 @@ Feature: 仪表盘柱状图
     Then I wait for title change text to "搜索"
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_display | stats count() by apache.clientip"
-    Then I will see the input element "TimeRange" value will contains "now/d,now"
+    Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
   Scenario: 序列图支持的钻取变量click.value RZY-3257
@@ -180,7 +180,7 @@ Feature: 仪表盘柱状图
 #    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.clientip:36.46.208.22"
-    Then I will see the input element "TimeRange" value will contains "now/d,now"
+    Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
   Scenario: 序列图支持的钻取变量click.name2 RZY-3258
@@ -206,7 +206,7 @@ Feature: 仪表盘柱状图
 #    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_display | stats count() by appname"
-    Then I will see the input element "TimeRange" value will contains "now/d,now"
+    Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
   Scenario: 序列图支持的钻取变量click.value2 RZY-3259
