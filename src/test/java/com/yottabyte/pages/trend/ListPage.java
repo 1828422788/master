@@ -59,6 +59,13 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[contains(text(),'删除')]")
     private WebElement multiDelete;
 
+    @FindBy(xpath = "//p[text()='暂无数据']")
+    private WebElement noData;
+
+    public WebElement getNoData() {
+        return noData;
+    }
+
     public WebElement getLoading() {
         return loading;
     }

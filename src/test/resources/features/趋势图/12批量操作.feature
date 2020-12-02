@@ -1,8 +1,9 @@
-@all @trend @trendMulti
+@all @trend @trendMulti @Multi123
 Feature: 趋势图批量操作
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
+    And I wait for loading complete
 
   Scenario Outline: create_trend
     Then I click the "NewTrendButton" button
@@ -32,6 +33,7 @@ Feature: 趋势图批量操作
     And I "checked" the checkbox which name is "test_multi_3" in trend list page
     And I click the "SelectAction" button
     And I click the "MultiTag" button
+    And I wait for "EnsureButton" will be visible
     And I choose the "auto_package" from the "TagField"
     And I click the "TagPanel" button
     And I click the "EnsureButton" button
@@ -51,6 +53,7 @@ Feature: 趋势图批量操作
     And I "checked" the checkbox which name is "test_multi_3" in trend list page
     And I click the "SelectAction" button
     And I click the "MultiDelete" button
+    And I wait for "EnsureButton" will be visible
     Then I will see the message "您选中的 3 个资源将被删除，是否继续？"
     When I click the "EnsureButton" button
     Then I will see the success message "删除成功"
@@ -58,8 +61,9 @@ Feature: 趋势图批量操作
     And I click the "Finish" button
 
   Scenario: verify_delete
-    When I set the parameter "SearchInput" with value "test_multi"
+    When I set the parameter "SearchInput" with value "test_multi_"
     And I wait for "2000" millsecond
-    Then I will see the search result "{'column':'0','name':'test_multi_1','contains':'no'}"
-    Then I will see the search result "{'column':'0','name':'test_multi_2','contains':'no'}"
-    Then I will see the search result "{'column':'0','name':'test_multi_3','contains':'no'}"
+    Then I wait for "NoData" will be visible
+#    Then I will see the search result "{'column':'0','name':'test_multi_1','contains':'no'}"
+#    Then I will see the search result "{'column':'0','name':'test_multi_2','contains':'no'}"
+#    Then I will see the search result "{'column':'0','name':'test_multi_3','contains':'no'}"
