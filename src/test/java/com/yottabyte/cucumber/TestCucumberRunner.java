@@ -24,7 +24,7 @@ import java.util.List;
         dryRun = false,
         snippets = SnippetType.CAMELCASE,
         glue = {"com.yottabyte"},
-        tags = {"@setup1"}
+        tags = {"@authtest12"}
 )
 /**
  * @param projectName

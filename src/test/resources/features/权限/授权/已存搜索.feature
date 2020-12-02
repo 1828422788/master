@@ -13,6 +13,7 @@ Feature: 权限-已存搜索
     And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name              |

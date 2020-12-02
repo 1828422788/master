@@ -1,4 +1,4 @@
-@authtest12
+#@authtest
 Feature: 权限-定时任务
 
 
