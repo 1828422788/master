@@ -6,7 +6,7 @@ Feature: table下载
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
   @dltable
-  Scenario Outline: 下载stats用例结果
+  Scenario Outline: 下载table用例结果
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button

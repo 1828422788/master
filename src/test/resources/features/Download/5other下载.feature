@@ -1,5 +1,5 @@
 @alldownload
-Feature: table下载
+Feature: 未分类用例下载
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
