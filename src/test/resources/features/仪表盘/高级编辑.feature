@@ -239,6 +239,27 @@ Feature: 仪表盘高级编辑
     Then I will see the success message "校验通过"
 
   @dashboard @dashboardSmoke
+  Scenario Outline: 切换主题 RZY-3444
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
+    When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I click the "Operate" button
+    And I choose the "切换主题" from the "ChartDropdown"
+    And I wait for "2000" millsecond
+    And I will see the "HighJsonEditor" is "ace_dark"
+    Then take part of "HighJsonEditor" with name "actual/<image>"
+#    And I compare source image "actual/<image>" with target image "expect/<image>"
+
+    Examples:
+      | name          |   image        |
+      | 测试高级编辑    | 高级编辑_切换主题 |
+
+
+  @dashboard @dashboardSmoke
   Scenario: 开启钻取配置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -517,4 +538,4 @@ Feature: 仪表盘高级编辑
     Examples:
       | name  |
       | 仪表盘所有 |
-#      | 仪表盘高级编辑饼状图 |
+      | 仪表盘高级编辑饼状图 |

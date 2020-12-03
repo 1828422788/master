@@ -107,6 +107,43 @@ Feature: 仪表盘区划地图
       | name    | targetName |
       | 仪表盘区划地图 | Regionmap  |
 
+  @dashboard @dashboardSmoke
+  Scenario: 区划地图下钻 RZY-3399
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘区划地图"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenDrilldown" button to "enable"
+#    And I click the "OpenDrilldown" button
+    And I wait for "500" millsecond
+    When the chart title is "仪表盘区划地图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "DrillSetting" button
+    And I choose the "地图向下钻取" from the "DrillAction"
+    And I wait for "1000" millsecond
+    And I choose the "apache.geo.province" from the "DrillAction"
+    And I wait for "1000" millsecond
+    And I choose the "apache.geo.city" from the "DrillAction"
+    And I click the "Ensure" button
+    And I click the "ChinaPoint" button
+    And I wait for "NeimengguText" will be visible
+    And I click the "Neimenggu" button
+    And I wait for "TongliaoshiText" will be visible
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 地图下钻 RZY-3769
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    Then I will see the "TextLayer" result will contain "<json>"
+
+    Examples:
+      | name        | json                                                                                                                                                                                                                                                                                                                                                                           |
+      | 仪表盘区划地图 |  \n  "drilldown": {\n    "type": "map"\n  } |
+
   @cleanDashboard
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
