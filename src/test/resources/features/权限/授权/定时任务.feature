@@ -6,6 +6,7 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "l" millsecond
     When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "全选"
     When I "checked" the checkbox which name is "可查看搜索页"
