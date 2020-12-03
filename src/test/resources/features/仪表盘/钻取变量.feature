@@ -276,7 +276,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will contain "starttime="
     Then I will see the "SearchInput" result will contain "endtime="
-    Then I will see the input element "TimeRange" value will contains "今天"
+    Then I will see the input element "TimeRange" value will contains "本月"
 
   @dashboard
   Scenario Outline: 添加区划地图图表 RZY-331
