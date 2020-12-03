@@ -340,6 +340,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='添加颜色范围']")
     private WebElement addColourRange;
 
+    @FindBy(xpath = "//span[text()='61']")
+    private WebElement numberOf61;
+
     @FindBy(className = "chart-color-selector-trigger")
     private WebElement colorTrigger;
 
@@ -406,6 +409,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='中国']")
     private WebElement chinaDadio;
 
+    @FindBy(xpath = "(//*[name()='text'])[text()='中国']/preceding-sibling::*")
+    private WebElement chinaPoint;
+
     @FindBy(xpath = "//div[text()='首行']/following-sibling::div//span[text()='innerFilter']")
     private WebElement innerInputFilter;
 
@@ -466,6 +472,12 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//*[name()='circle'])[1]")
     private WebElement neimenggu;
 
+    @FindBy(xpath = "(//*[name()='text'])[text()='内蒙古']")
+    private WebElement neimengguText;
+
+    @FindBy(xpath = "(//*[name()='text'])[text()='通辽市']")
+    private WebElement tongliaoshiText;
+
     @FindBy(xpath = "(//*[name()='text'])[text()='64.20.177.254']/preceding-sibling::*")
     private WebElement partOfPie;
 
@@ -489,6 +501,12 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//label[text()='点击图表时']/following-sibling::div[@class='ant-select ant-select-enabled']")
     private WebElement drillAction;
+
+    @FindBy(xpath = "//label[text()='省下钻字段']/following-sibling::div[@class='ant-select ant-select-enabled']")
+    private WebElement provinceDrillAction;
+
+    @FindBy(xpath = "//label[text()='市下钻字段']/following-sibling::div[@class='ant-select ant-select-enabled']")
+    private WebElement cityDrillAction;
 
     @FindBy(xpath = "//label[contains(text(),'自定义URL')]/following-sibling::textarea")
     private WebElement url;
@@ -1484,6 +1502,16 @@ public class DetailPage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
+    public WebElement getProvinceDrillAction() {
+        provinceDrillAction.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getCityDrillAction() {
+        cityDrillAction.click();
+        return super.getLastDropdownList();
+    }
+
     public WebElement getDrillSetting() {
         return drillSetting;
     }
@@ -1518,6 +1546,14 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getNeimenggu() {
         return neimenggu;
+    }
+
+    public WebElement getNeimengguText() {
+        return neimengguText;
+    }
+
+    public WebElement getTongliaoshiText() {
+        return tongliaoshiText;
     }
 
     public WebElement getTaiwan() {
@@ -1652,6 +1688,10 @@ public class DetailPage extends PageTemplate {
         return addColourRange;
     }
 
+    public WebElement getNumberOf61() {
+        return numberOf61;
+    }
+
     public WebElement getRange() {
         return this.getTagText("按区间");
     }
@@ -1669,6 +1709,8 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getChinaDadio() { return chinaDadio; }
+
+    public WebElement getChinaPoint() { return chinaPoint; }
 
     public WebElement getProgress() {
         return progress;
