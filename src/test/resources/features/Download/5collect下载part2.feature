@@ -41,7 +41,7 @@ Feature: download_collect验证
       | collect_mulparam_step2                 | index=collectmulti tag:newtagcollect \| table tag, apache.resp_len, apache.status, apache.x_forward \| sort by apache.x_forward |
 
   @collect2
-  Scenario Outline: 下载table用例结果
+  Scenario Outline:
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -56,7 +56,7 @@ Feature: download_collect验证
       | collect_testmode_true_step2 | index=collectmodetrue tag:testmodetrue |
 
   @collect3
-  Scenario Outline: 下载table用例结果
+  Scenario Outline:
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button

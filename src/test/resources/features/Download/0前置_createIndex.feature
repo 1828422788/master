@@ -26,6 +26,7 @@ Feature: 新建collect使用索引
       | collectmodefalse  | 测试collect前置 | 7         | 1          | 1         | TB                |
       | collectmodetrue   | 测试collect前置 | 7         | 1          | 1         | TB                |
       | collectmulti     | 测试collect前置 | 7         | 1          | 1         | TB                |
+      | collectdelete     | 测试collect前置 | 7         | 1          | 1         | TB                |
 
   @delcollect0
   Scenario Outline:
@@ -41,3 +42,4 @@ Feature: 新建collect使用索引
       | collectmodefalse  |
       | collectmodetrue  |
       | collectmulti  |
+      | collectdelete  |
