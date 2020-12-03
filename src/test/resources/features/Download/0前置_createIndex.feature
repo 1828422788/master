@@ -23,12 +23,14 @@ Feature: 新建collect使用索引
       | collectone       | 测试collect前置 | 7         | 1          | 1         | TB                |
       | collecttocollect | 测试collect前置 | 7         | 1          | 1         | TB                |
       | collecttwo       | 测试collect前置 | 7         | 1          | 1         | TB                |
-      | collectmode      | 测试collect前置 | 7         | 1          | 1         | TB                |
+      | collectmodefalse  | 测试collect前置 | 7         | 1          | 1         | TB                |
+      | collectmodetrue   | 测试collect前置 | 7         | 1          | 1         | TB                |
       | collectmulti     | 测试collect前置 | 7         | 1          | 1         | TB                |
 
   @delcollect0
   Scenario Outline:
-    Given the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
+#    Given the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
+    And I click the "删除" button
     And I click the "Ensure" button
 
     Examples:
@@ -36,5 +38,6 @@ Feature: 新建collect使用索引
       | collectone |
       | collecttocollect |
       | collecttwo  |
-      | collectmode  |
+      | collectmodefalse  |
+      | collectmodetrue  |
       | collectmulti  |

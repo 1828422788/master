@@ -1,4 +1,4 @@
-@alldownload
+@alldownload  @extra
 Feature: table下载
 
   Background:
@@ -22,7 +22,7 @@ Feature: table下载
       | eval_delete_collect_sample_step2       | starttime=\"now/d\" endtime=\"now/d+24h\" tag:spldeletecollect \| delete                                                                                     |
       | eval_delete_log_sample_step1           | starttime=\"now/d\" endtime=\"now/d+24h\" tag:spldelete \| delete                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
-  @collect2 @noret
+  @noret
   Scenario Outline: 下载table用例结果
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button

@@ -36,7 +36,7 @@ Feature: download_v3.2新增功能下载
       | name                                   | splQuery                                                                                                                                                        |
       | collect_sample_appcollect_step1        | tag:sample04061424\| collect index=collectone marker=\"appname=\\\\\"appcollect\\\\\"\"                                                                         |
       | collect_appcollect_newtagcollect_step1 | tag:sample04061424\| collect index=collecttwo marker=\"appname=\\\\\"appcollect\\\\\", tag=\\\\\"newtagcollect\\\\\"\"                                          |
-      | collect_testmode_true_step1            | tag:sample04061424 \| collect index=collectmode marker=\"tag=\\\\\"testmodetrue\\\\\"\" testmode=true                                                           |
-      | collect_testmode_false_step1           | tag:sample04061424 \| collect index=collectmode marker=\"tag=\\\\\"testmodefalse\\\\\"\" testmode=false                                                         |
+      | collect_testmode_false_step1           | tag:sample04061424 \| collect index=collectmodefalse marker=\"tag=\\\\\"testmodefalse\\\\\"\" testmode=false                                                         |
+      | collect_testmode_true_step1            | tag:sample04061424 \| collect index=collectmodetrue marker=\"tag=\\\\\"testmodetrue\\\\\"\" testmode=true                                                           |
       | collect_to_collect_step1               | index=collectone appname:appcollect \| collect index=collecttocollect marker=\"tag=\\\\\"newcollect\\\\\"\"                                                     |
       | collect_mulparam_step1                 | tag:sample04061424 \| collect index=collectmulti marker=\"tag=\\\\\"newtagcollect\\\\\",ip=\\\\\"192.168.1.100\\\\\", apache.status=100, apache.resp_len=23.0\" |
