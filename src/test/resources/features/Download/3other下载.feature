@@ -1,5 +1,5 @@
 @alldownload
-Feature: 处理下载结果
+Feature: download_处理下载结果
 
   Background:
     Given open the "splSearch.OfflineTaskPageNohup" page for uri "/download/#"

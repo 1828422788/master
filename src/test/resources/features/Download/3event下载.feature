@@ -1,5 +1,5 @@
 @alldownload
-Feature: 事件搜索下载
+Feature: download_事件搜索下载
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"

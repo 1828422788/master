@@ -1,5 +1,5 @@
 @alldownload
-Feature: collect验证
+Feature: download_collect验证
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"

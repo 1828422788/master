@@ -1,5 +1,5 @@
 @alldownload
-Feature: eval下载
+Feature: download_eval下载
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"

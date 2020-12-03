@@ -1,5 +1,5 @@
 @alldownload
-Feature: v3.2新增功能下载
+Feature: download_v3.2新增功能下载
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"

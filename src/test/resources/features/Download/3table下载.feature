@@ -1,5 +1,5 @@
 @alldownload
-Feature: table下载
+Feature: download_table下载
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
