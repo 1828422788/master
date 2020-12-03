@@ -1,4 +1,3 @@
-@dashboard1203
 Feature: 仪表盘多Y轴图
 
   @dashboard @dashboardSmoke
@@ -366,7 +365,7 @@ Feature: 仪表盘多Y轴图
     And I wait for "Progress" will be invisible
     When the chart title is "仪表盘多Y轴图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
-    Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "yAxis": [      {        "type": "line",        "field": "count(apache.resp_len)",        "smooth": true,        "unit": "",        "connectNull": false,        "range": {          "min": "",          "max": ""        }      }],    "byFields": [      "apache.status"    ],    "legend": {      "placement": "<legend>"    }  }}" to json editor
+    Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "yAxis": [      {        "unit": "",        "range": {          "min": "",          "max": ""        }      }    ],    "yField": [      {        "type": "line",        "field": "count(apache.resp_len)",        "position": 0,        "smooth": true,        "connectNull": false,        "opacity": 0.6,        "color": "#2A76E4"      }    ],    "byFields": [      "apache.status"    ],    "legend": {      "placement": "<legend>"    }  }}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     Then I will see the success message "校验通过"

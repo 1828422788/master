@@ -220,7 +220,7 @@ Feature: 仪表盘表格样式设置
     And I click the "ChartEditorEnsure" button
     And I wait for "2000" millsecond
     Then take part of "ChartStyleTable" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | Width   |   image        |

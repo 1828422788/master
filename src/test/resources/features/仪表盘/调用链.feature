@@ -143,7 +143,7 @@ Feature: 仪表盘调用链
     And I click the "ShowDetails" button
     And I wait for "CallChainDetails" will be visible
     Then take part of "CallChainDetails" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | name       |   image             |
