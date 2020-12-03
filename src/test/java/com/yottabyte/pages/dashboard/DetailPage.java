@@ -132,6 +132,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[@id='filter_type']//i")
     private WebElement inputType;
 
+    @FindBy(xpath = "//div[@id='config']")
+    private WebElement highJsonEditor;
+
     @FindBy(xpath = "//span[text()='添加']")
     private WebElement addChoiceValueButton;
 
@@ -702,6 +705,12 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='新建标签页']")
     private WebElement addTag;
+
+    @FindBy(xpath = "//span[text()='接收标签页 ']/following-sibling::span[@class='ant-dropdown-trigger']")
+    private WebElement tagPageName;
+
+    @FindBy(xpath = "//a[text()='第二个标签']")
+    private WebElement secondTag;
 
     @FindBy(xpath = "//div[text()='暂无数据']")
     private WebElement noData;
@@ -1860,6 +1869,12 @@ public class DetailPage extends PageTemplate {
         return addTag;
     }
 
+    public WebElement getTagPageName() {
+        return tagPageName;
+    }
+
+    public WebElement getSecondTag() { return secondTag; }
+
     public WebElement getUIautotest() {
         return uiautotest;
     }
@@ -1913,6 +1928,10 @@ public class DetailPage extends PageTemplate {
     public WebElement getInputType() {
         inputType.click();
         return super.getLastDropdownList();
+    }
+
+    public WebElement getHighJsonEditor() {
+        return highJsonEditor;
     }
 
     public WebElement getFilterTitle() {
