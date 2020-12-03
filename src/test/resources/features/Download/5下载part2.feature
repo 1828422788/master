@@ -1,4 +1,4 @@
-@alldownload
+@alldownload @collect
 Feature: download_collect验证
 
   Background:

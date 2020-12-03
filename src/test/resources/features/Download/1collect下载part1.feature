@@ -1,4 +1,4 @@
-@alldownload
+@alldownload @collect
 Feature: download_v3.2新增功能下载
 
   Background:
@@ -40,5 +40,3 @@ Feature: download_v3.2新增功能下载
       | collect_testmode_false_step1           | tag:sample04061424 \| collect index=collectmode marker=\"tag=\\\\\"testmodefalse\\\\\"\" testmode=false                                                         |
       | collect_to_collect_step1               | index=collectone appname:appcollect \| collect index=collecttocollect marker=\"tag=\\\\\"newcollect\\\\\"\"                                                     |
       | collect_mulparam_step1                 | tag:sample04061424 \| collect index=collectmulti marker=\"tag=\\\\\"newtagcollect\\\\\",ip=\\\\\"192.168.1.100\\\\\", apache.status=100, apache.resp_len=23.0\" |
-
-                                                                                       |
