@@ -1,6 +1,6 @@
 Feature: 新建数据库连接配置
 
-  @newconn
+  @newconn @splpre
   Scenario Outline: 新建连接配置-4个
     Given open the "dbConnection.dbSettingPage" page for uri "/dbsettings/"
     And I click the "DbConnConfig" button

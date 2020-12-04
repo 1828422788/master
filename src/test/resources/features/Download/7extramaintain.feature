@@ -108,3 +108,4 @@ Feature: collect下载
     Examples:
       | name                         | splQuery                                                |
       | eval_delete_log_sample_step2 | starttime=\"now/d\" endtime=\"now/d+24h\" tag:spldelete |
+s
