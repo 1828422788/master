@@ -121,9 +121,9 @@ Feature: 仪表盘区划地图
     And I click the "DrillSetting" button
     And I choose the "地图向下钻取" from the "DrillAction"
     And I wait for "1000" millsecond
-    And I choose the "apache.geo.province" from the "DrillAction"
+    And I choose the "apache.geo.province" from the "ProvinceDrillAction"
     And I wait for "1000" millsecond
-    And I choose the "apache.geo.city" from the "DrillAction"
+    And I choose the "apache.geo.city" from the "CityDrillAction"
     And I click the "Ensure" button
     And I click the "ChinaPoint" button
     And I wait for "NeimengguText" will be visible
