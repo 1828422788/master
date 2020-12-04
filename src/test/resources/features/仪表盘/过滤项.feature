@@ -524,7 +524,7 @@ Feature: 仪表盘过滤项
     And I wait for loading invisible
 
   @dashboard @dashboardSmoke
-  Scenario: 验证eval(undone)
+  Scenario: 验证eval RZY-1835
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
@@ -532,12 +532,14 @@ Feature: 仪表盘过滤项
     And I wait for "500" millsecond
     When the chart title is "测试仪表盘eval" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{"title": "测试仪表盘eval","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "appname:apache|stats count() by 'apache.status'","startTime": "-1d/d","endTime": "now/d"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "eval","name": "target2","value": "${click.value2}-9101"}]}}" to json editor
+    And I set the parameter "{"title": "测试仪表盘eval","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "appname:apache|stats count() by 'apache.status'","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "eval","name": "filter","value": "${click.value2}-204"}]}}" to json editor
     And I click the "Check" button
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
-
+    Then I wait for "FilterName" will be visible
+    And I click the "NumberOf404" button
+    Then I will see the element "FilterValue" value is "200"
 
   @dashboard @dashboardSmoke
   Scenario Outline: 标题、标识校验（RZY-249,RZY-250）

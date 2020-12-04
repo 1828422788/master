@@ -115,7 +115,7 @@ Feature: 仪表盘多Y轴图
       | 仪表盘多Y轴图 | Multiaxis  |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 同一个Y轴多个字段 RZY-4856
+  Scenario Outline: 同一个Y轴多个字段 RZY-4856,RZY-1332
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"

@@ -343,6 +343,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='61']")
     private WebElement numberOf61;
 
+    @FindBy(xpath = "//span[text()='404']")
+    private WebElement numberOf404;
+
     @FindBy(className = "chart-color-selector-trigger")
     private WebElement colorTrigger;
 
@@ -495,6 +498,9 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//div[text()='钻取变量单值']/following-sibling::div[last()]/div/div[last()]/div/span")
     private WebElement singleValue;
+
+    @FindBy(xpath = "//span[text()='thumbs-up:']/parent::div")
+    private WebElement singleValueDiv;
 
     @FindBy(xpath = "//div[text()='钻取变量单值value']/following-sibling::div[last()]/div/div[last()]/div/span")
     private WebElement singleValue1;
@@ -1584,6 +1590,10 @@ public class DetailPage extends PageTemplate {
         return singleValue;
     }
 
+    public WebElement getSingleValueDiv() {
+        return singleValueDiv;
+    }
+
     public WebElement getSingleValue1() {
         return singleValue1;
     }
@@ -1690,6 +1700,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getNumberOf61() {
         return numberOf61;
+    }
+
+    public WebElement getNumberOf404() {
+        return numberOf404;
     }
 
     public WebElement getRange() {
