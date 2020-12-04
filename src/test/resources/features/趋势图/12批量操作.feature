@@ -1,9 +1,10 @@
-@all @trend @trendMulti @Multi123
+@all @trend @trendMulti
 Feature: 趋势图批量操作
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading complete
+    And I wait for "MultiButton" will be visible
 
   Scenario Outline: create_trend
     Then I click the "NewTrendButton" button
