@@ -73,5 +73,34 @@ public class LdapConnListPage extends ListPageFactory {
         return super.getButton("保存");
     }
 
+    public WebElement getAffirmSaveButton() {
+        return super.getButton("保存成功");
+    }
+
+    @FindBy(xpath = "//label[contains(text(),'SSL')]/following::button[@id='register_enable_ssl']")
+    private WebElement ldapSSlOnOff;
+
+    public WebElement getLdapSSlOnOff() {
+        return ldapSSlOnOff;
+    }
+
+    @FindBy(xpath = "//input[@placeholder='输入关键字']")
+    private WebElement ldapConnNameSearchInput;
+
+    public WebElement getLdapConnNameSearchInput() {
+        return ldapConnNameSearchInput;
+    }
+
+    @FindBy(xpath = "//a[text()='删除']")
+    private WebElement delLdapConnButton;
+
+    public WebElement getDelLdapConnButton() {
+        return delLdapConnButton;
+    }
+
+    public WebElement getAffirmDelLdapConnButton() {
+        return super.getButton("确定");
+    }
+
 }
 
