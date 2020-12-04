@@ -31,6 +31,7 @@ Feature: 定时任务批量操作
   Scenario: multi_tag
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
+    And I wait for "MultiButton" will be visible
     And I click the "MultiButton" button
     And I "checked" the checkbox which name is "test_multi_1" in the list
     And I "checked" the checkbox which name is "test_multi_2" in the list
@@ -48,6 +49,7 @@ Feature: 定时任务批量操作
   Scenario: verify_tag
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
+    And I wait for "MultiButton" will be visible
     Then I will see the data "{'column':'1','name':'test_multi_1'}" values "{'column':'8','name':'auto_package'}"
     And I will see the data "{'column':'1','name':'test_multi_2'}" values "{'column':'8','name':'auto_package'}"
     And I will see the data "{'column':'1','name':'test_multi_3'}" values "{'column':'8','name':'auto_package'}"
@@ -55,6 +57,7 @@ Feature: 定时任务批量操作
   Scenario: switch_off
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
+    And I wait for "MultiButton" will be visible
     And the data name is "{'column':'1','name':'test_multi_1'}" then I "close" the switch
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "禁用成功"
@@ -72,6 +75,7 @@ Feature: 定时任务批量操作
   Scenario: multi_switch
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
+    And I wait for "MultiButton" will be visible
     And I click the "MultiButton" button
     And I "checked" the checkbox which name is "test_multi_1" in the list
     And I "checked" the checkbox which name is "test_multi_2" in the list
@@ -89,6 +93,7 @@ Feature: 定时任务批量操作
   Scenario: verify_switch
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
+    And I wait for "MultiButton" will be visible
     When the data name is "{'column':'1','name':'test_multi_1'}" then I "close" the switch
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "禁用成功"
@@ -105,6 +110,7 @@ Feature: 定时任务批量操作
   Scenario: multi_delete
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
+    And I wait for "MultiButton" will be visible
     And I click the "MultiButton" button
     And I "checked" the checkbox which name is "test_multi_1" in the list
     And I "checked" the checkbox which name is "test_multi_2" in the list
@@ -122,6 +128,7 @@ Feature: 定时任务批量操作
   Scenario: verify_delete
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
+    And I wait for "MultiButton" will be visible
     When I set the parameter "SearchInput" with value "test_multi_"
     And I wait for "2000" millsecond
     Then I wait for "NoData" will be visible
@@ -132,6 +139,7 @@ Feature: 定时任务批量操作
   Scenario Outline: prompt
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
+    And I wait for "MultiButton" will be visible
     And I click the "MultiButton" button
     And I click the "SelectAction" button
     And I click the "<button>" button

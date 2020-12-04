@@ -1,9 +1,10 @@
-@all @report @reportMulti @Multi123
+@all @report @reportMulti
 Feature: 报表_批量操作
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
     And I wait for loading complete
+    And I wait for "MultiButton" will be visible
 
   Scenario Outline: create_report
     And I click the "NewReportButton" button
@@ -22,6 +23,8 @@ Feature: 报表_批量操作
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
+    And I will see the "report.ListPage" page
+    And I wait for "Loading" will be invisible
 
   Examples:
     |   name               |
