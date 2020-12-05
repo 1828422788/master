@@ -49,7 +49,8 @@ Feature: 事件搜索下载
       | tran_sort_ascend | tag:sample04061424 \| transaction apache.status keepevicted=true\| sort by + apache.status |
       | tran_param_max_txn_maxopen10 | tag:sample04061424 \| transaction apache.status maxevents=10 maxopentxn=100 maxopenevents=100 |
       | tran_param_max_txn_maxopen3 | tag:sample04061424 AND apache.status:\"200\" \| transaction apache.status maxevents=3 maxopentxn=100 maxopenevents=100 |
-      | tran_status_contains_maxevents_10 | tag:sample04061424 AND clientconfig \| transaction apache.status  maxevents=10 maxopenevents=100 contains=\"clientconfig\" |
+      #add
+      | tran_status_contains_maxevents_10 | tag:sample04061424 AND clientconfig \| transaction apache.status keepevicted=true maxevents=10 maxopenevents=100 contains=\"clientconfig\" |
       #add
       | tran_status_contains_maxevents_100 | tag:sample04061424 AND clientconfig \| transaction apache.status  keepevicted=true maxevents=100 maxopenevents=100 contains=\"clientconfig\" |
       | tran_method_max_maxopen_contains1 | \"clientconfig\" AND tag:sample04061424 \| transaction apache.method contains=\"clientconfig\"  maxevents=10 maxopenevents=100 |
