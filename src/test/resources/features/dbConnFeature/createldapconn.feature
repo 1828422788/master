@@ -22,6 +22,7 @@ Feature: 新建ldap连接配置
       | ldpconnsample         | dc=example,dc=org | 192.168.1.221 | 389            | cn=admin,dc=example,dc=org         | admin |
       | update_ldpconn         | dc=example,dc=org | 192.168.1.221 | 389            | cn=admin,dc=example,dc=org         | admin |
       | del_ldpconn         | dc=example,dc=org | 192.168.1.221 | 389            | cn=admin,dc=example,dc=org         | admin |
+      | ldpconnsamplessl         | dc=example,dc=org | 192.168.1.221 | 389            | cn=admin,dc=example,dc=org         | admin |
 
   @newldapconnssl
   Scenario Outline: 新建ssl ldap配置-1个
