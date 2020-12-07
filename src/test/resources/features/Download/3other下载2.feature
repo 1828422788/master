@@ -5,7 +5,7 @@ Feature: table下载
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  @newdlother
+  @dlother2
   Scenario Outline: stats用例结果下载
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
@@ -46,10 +46,10 @@ Feature: table下载
       | eval_in_data_list_v_data_list_single | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| sort by apache.x_forward \| limit 3 \| eval list123_1=mvappend(1,2,3) \| eval list123_2=mvappend(4, 5, 6) \| eval is_in=in(list123_1, list123_2) \| table list123_1,is_in |
       | eval_in_string_list_v_string_list | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| sort by apache.x_forward \| limit 1 \| eval citylist=mvappend(\"beijing\", \"tianjin\", \"Shanghai\") \| eval is_in=in(citylist, citylist) \| table citylist, is_in |
       | eval_in_string_list_v_string_list_false | starttime=\"now/d\" endtime=\"now/d+24h\" tag:jpath_mvzip_1 \| eval citylist=mvappend(\"beijing1\", \"tianjin1\", \"Shanghai1\") \| eval is_in=in(json.a[].city, citylist) \| table citylist, json.a[].city, is_in |
-      | kvdict_sample_stats_rename_outputlookup | starttime=\"now/d\" endtime=\"now/d+24h\"  tag:sample04061424 \| stats count() as cnt by apache.status, apache.clientip \| rename apache.status as status, apache.clientip as clientip \| where cnt>2 \| outputlookup kvstoresample |
-      | kvdict_sample_inputlookup | \| inputlookup kvstoresample |
-      | kvstore_sample_stats_rename_outputlookup_csv | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| eval int_x_forward= tolong(apache.x_forward) \| sort by +int_x_forward \| limit 10 \| stats count() as cnt by apache.clientip, apache.status \| outputlookup cnt_ip_status.csv |
-      | kvstore_sample_inputlookup_csv | \| inputlookup cnt_ip_status.csv |
+#      | kvdict_sample_stats_rename_outputlookup | starttime=\"now/d\" endtime=\"now/d+24h\"  tag:sample04061424 \| stats count() as cnt by apache.status, apache.clientip \| rename apache.status as status, apache.clientip as clientip \| where cnt>2 \| outputlookup kvstoresample |
+#      | kvdict_sample_inputlookup | \| inputlookup kvstoresample |
+#      | kvstore_sample_stats_rename_outputlookup_csv | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| eval int_x_forward= tolong(apache.x_forward) \| sort by +int_x_forward \| limit 10 \| stats count() as cnt by apache.clientip, apache.status \| outputlookup cnt_ip_status.csv |
+#      | kvstore_sample_inputlookup_csv | \| inputlookup cnt_ip_status.csv |
       | partition_status_stats_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| partition 5 by apache.status [[ stats count() by apache.status ]] |
       | partition_status_chart_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| partition 3 by apache.status [[ chart count() over apache.status span=\"100\" ]] |
       | newfields_keep_ipstatus_limit_table_ipstatus_tag | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| sort by apache.x_forward \| fields + apache.status, apache.clientip \| limit 10 \| table apache.status, apache.clientip, tag |
