@@ -83,6 +83,7 @@ Feature: 仪表盘单值
     And I click the "Exhibition" button
     And I set the parameter "WordSize" with value "30"
     And I choose the "3" from the "DataPrecision"
+    And I click the "ThousandSeparator" button
     And I set the parameter "Unit" with value "个"
     Then I click the "Generate" button
     And I wait for "1000" millsecond
@@ -96,7 +97,7 @@ Feature: 仪表盘单值
 #    Then I compare source image "dashboard/仪表盘单值" with target image "dashboard/single"
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 验证配置是否在高级编辑中体现
+  Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3737
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -109,6 +110,34 @@ Feature: 仪表盘单值
     Examples:
       | name    | json                                                                                                                                                                                                                                                                                                                                                                                           |
       | 仪表盘单值 |  \n  "chart": {\n    "chartType": "single",\n    "field": "a_",\n    "fontSize": "30",\n    "precision": "3",\n    "useThousandSeparators": false,\n    "unit": "个",\n    "unitPosition": "after",\n    "displayField": "icon",\n    "subtitle": "",\n    "useSparkline": false,\n    "sparklineXAxisField": "",\n    "singleFieldDisplayType": "default",\n    "singleChartIcon": "none",\n |
+
+  @dashboard @dashboardSmoke
+  Scenario: 单值图的千分隔符
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘单值"
+    Then I will see the "dashboard.DetailPage" page
+    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Configs" button
+    And I wait for loading invisible
+    And I wait for "500" millsecond
+    And I set the parameter "Spl" with value "* | stats count()"
+    And I click the "Ensure" button
+    And I wait for "Ensure" will be invisible
+    And I wait for "500" millsecond
+    And I click the "Setting" button
+    Then I will see the "trend.CreatePage" page
+    And I choose the "count()" from the "DataField"
+    Then I click the "Generate" button
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
+#    Then I hide the element "SettingContent"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "2000" millsecond
+    And I click the "TrendTitle" button under some element
+    And I wait for "3000" millsecond
+    Then I will see the "DashboardSingleValue" result will contain ","
+#    Then I will see the "TextLayer" result will be "<json>"
 
   @dashboard @dashboardSmoke
   Scenario Outline: 验证单值图的fontSize RZY-1345,RZY-1346,RZY-1347,RZY-1348,RZY-1349

@@ -234,6 +234,39 @@ Feature: 仪表盘柱状图
     Then I will see the "SearchInput" result will contain "tag:sample04061424_display | stats count() as cn by apache.resp_len,apache.clientip | where cn=="
 #    Then I will see the "SearchInput" result will be "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==6"
 
+  @dashboard
+  Scenario Outline: 序列图支持的钻取变量start end RZY-3262,RZY-3263
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "DrillSetting" button
+    And I wait for "500" millsecond
+    And I choose the "跳转到搜索页" from the "DrillAction"
+    And I click the "Custom" button
+    And I set the parameter "Spl" with value "<spl>"
+    And I click the "DateEditor" button
+    And I click the "Shortcut" button
+    And I click the "WholeTime" button
+    And I "checked" the checkbox which name is "在浏览器新标签页中打开"
+    And I click the "Ensure" button
+    And I wait for "3000" millsecond
+    And I click the "Zhutiao" button
+    And switch to another window
+    And I close all tabs except main tab
+    And I will see the "splSearch.SearchPage" page
+    Then I will see the "SearchInput" result will contain "<SearchInput1>"
+    Then I will see the "SearchInput" result will contain "<SearchInput2>"
+    Then I will see the input element "TimeRange" value will contains "所有时间"
+
+    Examples:
+      | name       |   spl                                       |   SearchInput1   |  SearchInput2 |
+      | 仪表盘柱状图 |   starttime=${start} endtime=${end} *       |  starttime=      |  endtime=      |
+      | 仪表盘柱状图 |   timestamp:[${start} TO ${end}] AND tag:*  |  timestamp:      |  AND tag:*      |
+
+
   @cleanDashboard
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

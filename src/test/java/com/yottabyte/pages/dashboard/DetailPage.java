@@ -279,6 +279,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='仪表盘曲线图']/parent::div")
     private WebElement sequenceChart;
 
+    @FindBy(xpath = "//*[name()='g'][contains(@class,'vx-axis-left')]")
+    private WebElement sequenceChartYaxis;
+
     @FindBy(xpath = "//div[text()='404']/ancestor::div[contains(@class,'sc-gsTCUz')]")
     private WebElement multiYaxisLegend;
 
@@ -498,6 +501,9 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//div[text()='钻取变量单值']/following-sibling::div[last()]/div/div[last()]/div/span")
     private WebElement singleValue;
+
+    @FindBy(xpath = "//div[text()='仪表盘单值']/following-sibling::div[last()]/div/div[last()]/div/span[1]")
+    private WebElement dashboardSingleValue;
 
     @FindBy(xpath = "//span[text()='thumbs-up:']/parent::div")
     private WebElement singleValueDiv;
@@ -1590,6 +1596,10 @@ public class DetailPage extends PageTemplate {
         return singleValue;
     }
 
+    public WebElement getDashboardSingleValue() {
+        return dashboardSingleValue;
+    }
+
     public WebElement getSingleValueDiv() {
         return singleValueDiv;
     }
@@ -1825,6 +1835,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getSequenceChart() {
         return sequenceChart;
+    }
+
+    public WebElement getSequenceChartYaxis() {
+        return sequenceChartYaxis;
     }
 
     public WebElement getMultiYaxisLegend() {
