@@ -119,7 +119,7 @@ Feature: download_事件搜索下载
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
-    Then I choose the "TXT" from the "DocumentTypeList"
+    Then I choose the "JSON" from the "DocumentTypeList"
     Then I choose the "UTF" from the "DocumentEncodeList"
     Then I click the "CreateDownloadTask" button
 #    And I wait for "2000" millsecond
@@ -127,9 +127,9 @@ Feature: download_事件搜索下载
 
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
-    When I set the parameter "DbListPageSearchInput" with value "<name>.txt"
+    When I set the parameter "DbListPageSearchInput" with value "<name>.json"
     And I wait for "1000" millsecond
-    Given the data name is "<name>.txt" then i click the "下载" button
+    Given the data name is "<name>.json" then i click the "下载" button
 
     Examples:
       | name                                          | splQuery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
