@@ -27,10 +27,10 @@ Feature: 事件搜索下载
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
 
     #下载到本地
-#    Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
-#    When I set the parameter "DbListPageSearchInput" with value "<name>.txt"
-#    And I wait for "1000" millsecond
-#    Given the data name is "<name>.txt" then i click the "下载" button
+    Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
+    When I set the parameter "DbListPageSearchInput" with value "<name>.txt"
+    And I wait for "1000" millsecond
+    Given the data name is "<name>.txt" then i click the "下载" button
 
     Examples:
       | name                                          | splQuery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
