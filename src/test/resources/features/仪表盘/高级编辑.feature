@@ -239,6 +239,25 @@ Feature: 仪表盘高级编辑
     Then I will see the success message "校验通过"
 
   @dashboard @dashboardSmoke
+  Scenario: 验证美化JSON RZY-3440
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试高级编辑"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
+    When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{"title": "仪表盘所有","description": "","x": -1,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-2d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Operate" button
+    And I choose the "美化JSON" from the "ChartDropdown"
+    And I wait for "2500" millsecond
+#    Then I will see the "ChartHighEdit" result will contain "<json>"
+    Then take part of "HighJsonEditor" with name "actual/高级编辑_美化JSON"
+#    And I compare source image "actual/高级编辑_美化JSON" with target image "expect/高级编辑_美化JSON"
+
+
+  @dashboard @dashboardSmoke
   Scenario Outline: 切换主题 RZY-3444
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
