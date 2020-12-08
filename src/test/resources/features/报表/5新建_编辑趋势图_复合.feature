@@ -17,14 +17,15 @@ Feature: 报表新建_编辑_复合
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | bucket timestamp span=1h as ts | stats count() as cnt by ts | esma cnt timefield=ts" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Compound" button
     And I click the "<typeChart>" button
@@ -60,14 +61,15 @@ Feature: 报表新建_编辑_复合
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Compound" button
     And I click the "<typeChart>" button
@@ -134,14 +136,15 @@ Feature: 报表新建_编辑_复合
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Compound" button
     And I click the "<typeChart>" button

@@ -18,8 +18,8 @@ Feature: 报表新建_编辑_复合word
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
-    And I set the parameter "ChartListInput" with value "table_<typeChart>"
-    And I click the button with text "table_<typeChart>"
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
     And I wait for "2000" millsecond
     And I click the "EditButton" button
 
@@ -56,13 +56,14 @@ Feature: 报表新建_编辑_复合word
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
-    And I set the parameter "ChartListInput" with value "table_<typeChart>"
-    And I click the button with text "table_<typeChart>"
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
     And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Compound" button
     And I click the "<typeChart>" button
@@ -124,13 +125,14 @@ Feature: 报表新建_编辑_复合word
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
-    And I set the parameter "ChartListInput" with value "table_<typeChart>"
-    And I click the button with text "table_<typeChart>"
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
     And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Compound" button
     And I click the "<typeChart>" button

@@ -3,7 +3,7 @@ Feature: 报表_批量操作
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
-    And I wait for loading complete
+    And I wait for "Loading" will be invisible
     And I wait for "MultiButton" will be visible
 
   Scenario Outline: create_report
@@ -16,9 +16,9 @@ Feature: 报表_批量操作
     And I set the parameters "Hour" and "Minute" as "2" minutes later from now
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_Order" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_Order"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"

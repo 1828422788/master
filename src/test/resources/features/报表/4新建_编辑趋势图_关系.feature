@@ -17,14 +17,15 @@ Feature: 报表新建_编辑_关系
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>"
+    And I set the value "<SPL>" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Connection" button
     And I click the "<typeChart>" button
@@ -51,29 +52,30 @@ Feature: 报表新建_编辑_关系
 
     @report @reportChartsPDF
     Examples:
-      |  reportType |   typeChart    |  name      |       source      |   target             |   weight     |  color   |
-      |  PDF        |  Chord         |  Chord     | apache.clientip   | apache.request_path  |   count()    |  Red     |
-      |  PDF        |  Sankey        |  Sankey    | apache.clientip   | apache.resp_len      |   count()    | Yellow   |
+      |  reportType |   typeChart    |  name      |       source      |   target             |   weight     |  color   | SPL |
+      |  PDF        |  Chord         |  Chord     | apache.clientip   | apache.request_path  |   count()    |  Red     | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart  \| stats count() by apache.clientip,apache.request_path  |
+      |  PDF        |  Sankey        |  Sankey    | apache.clientip   | apache.resp_len      |   count()    | Yellow   | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart  AND NOT apache.clientip:221.226.97.92 AND NOT apache.clientip:117.136.79.162 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 4 |
 
     @reportChartsEXCEL
     Examples:
-      |  reportType |   typeChart    |  name      |       source      |   target             |   weight     |  color   |
-      |  EXCEL      |  Chord         |  Chord     | apache.clientip   | apache.request_path  |   count()    |  Red     |
-      |  EXCEL      |  Sankey        |  Sankey    | apache.clientip   | apache.resp_len      |   count()    | Yellow   |
+      |  reportType |   typeChart    |  name      |       source      |   target             |   weight     |  color   | SPL |
+      |  EXCEL      |  Chord         |  Chord     | apache.clientip   | apache.request_path  |   count()    |  Red     | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart  \| stats count() by apache.clientip,apache.request_path  |
+      |  EXCEL      |  Sankey        |  Sankey    | apache.clientip   | apache.resp_len      |   count()    | Yellow   | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart  AND NOT apache.clientip:221.226.97.92 AND NOT apache.clientip:117.136.79.162 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 4 |
 
   Scenario Outline: new_report_trend_Force
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>_repuls50"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart  | stats count() by apache.clientip,apache.request_path |limit 10" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Connection" button
     And I click the "<typeChart>" button
@@ -114,14 +116,15 @@ Feature: 报表新建_编辑_关系
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>_Mult" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>_Mult"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>_Multistage"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:t_with |transaction json.sid keepevicted=true with states a,b,c in json.module results by flow | stats count() by fromstate,tostate | limit 3" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Connection" button
     And I click the "<typeChart>" button

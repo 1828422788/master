@@ -26,7 +26,7 @@ Feature: 报表_趋势图个数限制
     And I let element "TrendLimit" lose focus
     Then I will see the success message "更新成功"
 
-  Scenario Outline: new_report_5_trends
+  Scenario: new_report_5_trends
     Given open the "report.ListPage" page for uri "/reports/"
     And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
@@ -37,31 +37,53 @@ Feature: 报表_趋势图个数限制
     And I click the "NextButton" button under some element
     And I wait for "2000" millsecond
     Then I wait for "ChartListButton" will be visible
-    When I choose the "<chart1>" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "<chart1>"
-    When I choose the "<chart2>" from the "ChartList"
+    And I click the "ChosenTrendLast" button
+    And I wait for "1000" millsecond
+    And I click the "EditButton" button
+    And I set the parameter "TrendNameField" with value "报表测试_1"
+    And I click the "EnsureButton" button
+    Then I will see the element "ChosenTrendLast" contains "报表测试_1"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "<chart2>"
-    When I choose the "<chart3>" from the "ChartList"
+    And I click the "ChosenTrendLast" button
+    And I wait for "1000" millsecond
+    And I click the "EditButton" button
+    And I set the parameter "TrendNameField" with value "报表测试_2"
+    And I click the "EnsureButton" button
+    Then I will see the element "ChosenTrendLast" contains "报表测试_2"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "<chart3>"
-    When I choose the "<chart4>" from the "ChartList"
+    And I click the "ChosenTrendLast" button
+    And I wait for "1000" millsecond
+    And I click the "EditButton" button
+    And I set the parameter "TrendNameField" with value "报表测试_3"
+    And I click the "EnsureButton" button
+    Then I will see the element "ChosenTrendLast" contains "报表测试_3"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "<chart4>"
-    When I choose the "<chart5>" from the "ChartList"
+    And I click the "ChosenTrendLast" button
+    And I wait for "1000" millsecond
+    And I click the "EditButton" button
+    And I set the parameter "TrendNameField" with value "报表测试_4"
+    And I click the "EnsureButton" button
+    Then I will see the element "ChosenTrendLast" contains "报表测试_4"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "<chart5>"
-    When I choose the "<chart6>" from the "ChartList"
+    And I click the "ChosenTrendLast" button
+    And I wait for "1000" millsecond
+    And I click the "EditButton" button
+    And I set the parameter "TrendNameField" with value "报表测试_5"
+    And I click the "EnsureButton" button
+    Then I will see the element "ChosenTrendLast" contains "报表测试_5"
+    When I choose the "报表测试" from the "ChartList"
     Then I will see the error message "每个报表最多保存5个趋势图"
     When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    Examples:
-      |   chart1      |    chart2      |  chart3   |    chart4   |    chart5    |  chart6     |
-      | table_Order   |table_Dimension | table_Sun | table_Chord | table_Sankey | table_Force |
 
   Scenario: change_limit_default
     Given open the "system.CustomConfigs" page for uri "/system/"

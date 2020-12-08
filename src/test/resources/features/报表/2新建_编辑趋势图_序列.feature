@@ -17,14 +17,15 @@ Feature: 报表新建_编辑_序列
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_Order" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_Order"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<label>_<order>_<unit>_<button>_<min>_<max>_<legendPosition>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart  | stats count() by apache.clientip,apache.method" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "<typeChart>" button
 
@@ -72,14 +73,15 @@ Feature: 报表新建_编辑_序列
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_Order" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_Order"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<label>_<order>_<unit>_Pile_<min>_<max>_<legendPosition>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart  | stats count() by apache.clientip,apache.method" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "<typeChart>" button
 
@@ -128,14 +130,15 @@ Feature: 报表新建_编辑_序列
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_Order" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_Order"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<label>_<unit>_Bubbles_<legendPosition>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart  | stats count() by apache.clientip,apache.method" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "<typeChart>" button
 

@@ -17,14 +17,15 @@ Feature: 报表新建_编辑_其他
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>300,"thumbs-down","thumbs-up")" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Other" button
     And I click the "<typeChart>" button
@@ -57,14 +58,15 @@ Feature: 报表新建_编辑_其他
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>_<iconValue>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>300,"thumbs-down","thumbs-up")" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Other" button
     And I click the "<typeChart>" button
@@ -102,14 +104,15 @@ Feature: 报表新建_编辑_其他
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>_<fontValue>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>300,"thumbs-down","thumbs-up")" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Other" button
     And I click the "<typeChart>" button
@@ -150,14 +153,15 @@ Feature: 报表新建_编辑_其他
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>_Range" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>_Range"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>_<color1>_range"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() as cnt | eval cnt = 99 | eval icon=if(cnt>1000000,"thumbs-down","thumbs-up")" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Other" button
     And I click the "<typeChart>" button
@@ -200,14 +204,15 @@ Feature: 报表新建_编辑_其他
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() as cnt| eval cnt_perc=cnt/1000" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Other" button
     And I click the "<typeChart>" button
@@ -240,14 +245,15 @@ Feature: 报表新建_编辑_其他
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() by apache.geo.city" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Other" button
     And I click the "<typeChart>" button
@@ -285,14 +291,15 @@ Feature: 报表新建_编辑_其他
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_Radar_Matr" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_Radar_Matr"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() by apache.status,apache.geo.city" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Other" button
     And I click the "<typeChart>" button
@@ -332,14 +339,15 @@ Feature: 报表新建_编辑_其他
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>_<label>_<color>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() by apache.clientip | limit 5" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Other" button
     And I click the "<typeChart>" button
@@ -378,14 +386,15 @@ Feature: 报表新建_编辑_其他
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_Radar_Matr" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_Radar_Matr"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() by apache.status,apache.geo.city" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Other" button
     And I click the "<typeChart>" button
@@ -419,14 +428,15 @@ Feature: 报表新建_编辑_其他
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_Funnel" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_Funnel"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() by apache.clientip | limit 5" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Other" button
     And I click the "<typeChart>" button
