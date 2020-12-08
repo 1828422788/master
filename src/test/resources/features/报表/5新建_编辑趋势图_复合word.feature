@@ -25,6 +25,7 @@ Feature: 报表新建_编辑_复合word
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | bucket timestamp span=1h as ts | stats count() as cnt by ts | esma cnt timefield=ts" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Compound" button
     And I click the "<typeChart>" button
