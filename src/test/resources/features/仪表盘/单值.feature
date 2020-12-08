@@ -64,6 +64,7 @@ Feature: 仪表盘单值
 #    And I choose the "添加图表" from the "EventList"
     And I "checked" the checkbox which name is "仪表盘单值"
     And I click the "Ensure" button
+    And I wait for "2000" millsecond
 
   @dashboard @dashboardSmoke
   Scenario: 修改为单值 RZY-342
@@ -109,7 +110,7 @@ Feature: 仪表盘单值
 
     Examples:
       | name    | json                                                                                                                                                                                                                                                                                                                                                                                           |
-      | 仪表盘单值 |  \n  "chart": {\n    "chartType": "single",\n    "field": "a_",\n    "fontSize": "30",\n    "precision": "3",\n    "useThousandSeparators": false,\n    "unit": "个",\n    "unitPosition": "after",\n    "displayField": "icon",\n    "subtitle": "",\n    "useSparkline": false,\n    "sparklineXAxisField": "",\n    "singleFieldDisplayType": "default",\n    "singleChartIcon": "none",\n |
+      | 仪表盘单值 |  \n  "chart": {\n    "chartType": "single",\n    "field": "a_",\n    "fontSize": "30",\n    "precision": "3",\n    "useThousandSeparators": true,\n    "unit": "个",\n    "unitPosition": "after",\n    "displayField": "icon",\n    "subtitle": "",\n    "useSparkline": false,\n    "sparklineXAxisField": "",\n    "singleFieldDisplayType": "default",\n    "singleChartIcon": "none",\n |
 
   @dashboard @dashboardSmoke
   Scenario: 单值图的千分隔符
