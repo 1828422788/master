@@ -140,7 +140,7 @@ Feature: 仪表盘多Y轴图
     And I click the "TrendTitle" button
     And I wait for "3000" millsecond
     Then take part of "MultiYaxisArea" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | name        | image                   |
