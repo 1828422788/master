@@ -18,13 +18,14 @@ Feature: 报表新建_编辑_关系word
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
-    And I set the parameter "ChartListInput" with value "table_<typeChart>"
-    And I click the button with text "table_<typeChart>"
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
     And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>"
+    And I set the value "<SPL>" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Connection" button
     And I click the "<typeChart>" button
@@ -50,9 +51,9 @@ Feature: 报表新建_编辑_关系word
     And I click the "EnsureButton" button
 
     Examples:
-      |  reportType |   typeChart    |  name      |       source      |   target             |   weight     |  color   |
-      |  WORD       |  Chord         |  Chord     | apache.clientip   | apache.request_path  |   count()    |  Red     |
-      |  WORD       |  Sankey        |  Sankey    | apache.clientip   | apache.resp_len      |   count()    | Yellow   |
+      |  reportType |   typeChart    |  name      |       source      |   target             |   weight     |  color   | SPL|
+      |  WORD       |  Chord         |  Chord     | apache.clientip   | apache.request_path  |   count()    |  Red     |  starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart  \| stats count() by apache.clientip,apache.request_path  |
+      |  WORD       |  Sankey        |  Sankey    | apache.clientip   | apache.resp_len      |   count()    | Yellow   | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart  AND NOT apache.clientip:221.226.97.92 AND NOT apache.clientip:117.136.79.162 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 4 |
 
   Scenario Outline: new_report_trend_Force
     When I set the parameter "Name" with value "<name>_<reportType>"
@@ -60,13 +61,14 @@ Feature: 报表新建_编辑_关系word
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
-    And I set the parameter "ChartListInput" with value "table_<typeChart>"
-    And I click the button with text "table_<typeChart>"
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
     And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>_repuls50"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart  | stats count() by apache.clientip,apache.request_path |limit 10" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Connection" button
     And I click the "<typeChart>" button
@@ -102,13 +104,14 @@ Feature: 报表新建_编辑_关系word
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
-    And I set the parameter "ChartListInput" with value "table_<name>"
-    And I click the button with text "table_<name>"
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
     And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>_Multistage"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:t_with |transaction json.sid keepevicted=true with states a,b,c in json.module results by flow | stats count() by fromstate,tostate | limit 3" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Connection" button
     And I click the "<typeChart>" button

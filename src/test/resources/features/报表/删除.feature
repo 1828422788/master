@@ -6,9 +6,11 @@ Feature: 报表_删除
     And I set the parameter "SearchInput" with value "<name>"
     And I wait for "2000" millsecond
     And the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
+    And I wait for "Message" will be visible
     Then I will see the message "此操作将删除 [<name>], 是否继续？"
     When I click the "EnsureButton" button
     And I wait for "500" millsecond
+    And I wait for "Message" will be visible
     Then I will see the message "删除成功"
     And I click the "EnsureButton" button
 
@@ -79,6 +81,7 @@ Feature: 报表_删除
     Then I will see the message "此操作将删除 [<name>_PDF], 是否继续？"
     When I click the "EnsureButton" button
     And I wait for "500" millsecond
+    And I wait for "Message" will be visible
     Then I will see the message "删除成功"
     And I click the "EnsureButton" button
 
@@ -216,40 +219,3 @@ Feature: 报表_删除
       |   Funnel             |
       |   Matrixheatmap      |
       |   Table              |
-
-  @cleanReportData @cleanEssentialData
-  Scenario Outline: delete
-    Given open the "trend.ListPage" page for uri "/trend/"
-    When I set the parameter "SearchInput" with value "<name>"
-    And I wait for "2000" millsecond
-    And the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
-    Then I will see the message "确认删除 [<name>] ?"
-    When I click the "EnsureButton" button
-    Then I will see the success message "删除成功"
-
-    Examples:
-      |   name                 |
-      | LineChart              |
-      | table_Order            |
-      | table_Dimension        |
-      | table_Sun              |
-      | table_Chord            |
-      | table_Sankey           |
-      | table_Force            |
-      | table_Sankey_Mult      |
-      | table_Rangeline        |
-      | table_Multiaxis        |
-      | table_Heatmap          |
-      | table_Regionmap        |
-      | table_Attackmap_World  |
-      | table_Attackmap_China  |
-      | table_Regionmap_Jiangsu|
-      | table_Single           |
-      | table_Wordcloud        |
-      | table_Radar_Matr       |
-      | table_Funnel           |
-      | table_Single_Range     |
-      | table_Liquidfill       |
-
-
-

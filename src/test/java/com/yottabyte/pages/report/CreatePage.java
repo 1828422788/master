@@ -154,7 +154,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[@class='popover-setting-content'])[last()]")
     private WebElement settingContent;
 
-    @FindBy(xpath = "(//span[text()='编辑']/ancestor::button) | (//label[@name='operate_edit']/*)")
+    @FindBy(xpath = "((//span[text()='编辑']/ancestor::button)[last()]) | (//label[@name='operate_edit']/*)")
     private WebElement editButton;
 
     @FindBy(className = "ant-collapse-header")

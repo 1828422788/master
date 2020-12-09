@@ -33,9 +33,9 @@ Feature: 报表新建_执行计划
     And I set the parameter "Minute" with value "<minute>"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_Order" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_Order"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
@@ -57,9 +57,9 @@ Feature: 报表新建_执行计划
     And I set the parameter "Minute" with value "<minute>"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_Order" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_Order"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
@@ -93,9 +93,9 @@ Feature: 报表新建_执行计划
     And I set the parameter "Crontab" with value "0 0/15 9 ? * MON-FRI"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_Order" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_Order"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
@@ -122,9 +122,9 @@ Feature: 报表新建_执行计划
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_Order" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_Order"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"

@@ -18,13 +18,14 @@ Feature: 报表新建_编辑_其他word
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
-    And I set the parameter "ChartListInput" with value "table_<typeChart>"
-    And I click the button with text "table_<typeChart>"
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
     And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>300,"thumbs-down","thumbs-up")" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Other" button
     And I click the "<typeChart>" button
@@ -53,13 +54,14 @@ Feature: 报表新建_编辑_其他word
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
-    And I set the parameter "ChartListInput" with value "table_<typeChart>"
-    And I click the button with text "table_<typeChart>"
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
     And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>_<iconValue>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>300,"thumbs-down","thumbs-up")" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Other" button
     And I click the "<typeChart>" button
@@ -92,13 +94,14 @@ Feature: 报表新建_编辑_其他word
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
-    And I set the parameter "ChartListInput" with value "table_<typeChart>"
-    And I click the button with text "table_<typeChart>"
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
     And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>_<fontValue>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>300,"thumbs-down","thumbs-up")" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Other" button
     And I click the "<typeChart>" button
@@ -131,13 +134,14 @@ Feature: 报表新建_编辑_其他word
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
-    And I set the parameter "ChartListInput" with value "table_<typeChart>_Range"
-    And I click the button with text "table_<typeChart>_Range"
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
     And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>_<color1>_range"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() as cnt | eval cnt = 99 | eval icon=if(cnt>1000000,"thumbs-down","thumbs-up")" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Other" button
     And I click the "<typeChart>" button
@@ -176,13 +180,14 @@ Feature: 报表新建_编辑_其他word
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
-    And I set the parameter "ChartListInput" with value "table_<typeChart>"
-    And I click the button with text "table_<typeChart>"
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
     And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() as cnt| eval cnt_perc=cnt/1000" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Other" button
     And I click the "<typeChart>" button
@@ -211,13 +216,14 @@ Feature: 报表新建_编辑_其他word
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
-    And I set the parameter "ChartListInput" with value "table_<typeChart>"
-    And I click the button with text "table_<typeChart>"
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
     And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() by apache.geo.city" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Other" button
     And I click the "<typeChart>" button
@@ -246,13 +252,14 @@ Feature: 报表新建_编辑_其他word
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
-    And I set the parameter "ChartListInput" with value "table_Radar_Matr"
-    And I click the button with text "table_Radar_Matr"
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
     And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() by apache.status,apache.geo.city" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Other" button
     And I click the "<typeChart>" button
@@ -288,13 +295,14 @@ Feature: 报表新建_编辑_其他word
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
-    And I set the parameter "ChartListInput" with value "table_<typeChart>"
-    And I click the button with text "table_<typeChart>"
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
     And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>_<label>_<color>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() by apache.clientip | limit 5" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Other" button
     And I click the "<typeChart>" button
@@ -328,13 +336,14 @@ Feature: 报表新建_编辑_其他word
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
-    And I set the parameter "ChartListInput" with value "table_Radar_Matr"
-    And I click the button with text "table_Radar_Matr"
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
     And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() by apache.status,apache.geo.city" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Other" button
     And I click the "<typeChart>" button
@@ -364,13 +373,14 @@ Feature: 报表新建_编辑_其他word
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
-    And I set the parameter "ChartListInput" with value "table_Funnel"
-    And I click the button with text "table_Funnel"
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
     And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() by apache.clientip | limit 5" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Other" button
     And I click the "<typeChart>" button

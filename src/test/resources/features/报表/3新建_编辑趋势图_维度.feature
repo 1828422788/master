@@ -17,14 +17,15 @@ Feature: 报表新建_编辑_维度
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_Dimension" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_Dimension"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeInfo>_<color>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart  | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Dimension" button
     And I click the "<typeChart>" button
@@ -68,14 +69,15 @@ Feature: 报表新建_编辑_维度
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_Sun" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_Sun"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "status_province_<color>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart  | stats count() by apache.status,apache.geo.province, apache.geo.city" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Dimension" button
     And I click the "<typeChart>" button
@@ -115,14 +117,15 @@ Feature: 报表新建_编辑_维度
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_Dimension" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_Dimension"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeInfo>_<option>_<color>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart  | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Dimension" button
     And I click the "<typeChart>" button

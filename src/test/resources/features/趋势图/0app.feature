@@ -1,8 +1,7 @@
-@createEssentialData @setup1
+@createEssentialData @setup1 @dataTrendTest
 Feature:新建应用
 
-
-# Upload App with trends for 报表
+#Datasets for trend
   Scenario: upload_app
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for "CreateButton" will be visible

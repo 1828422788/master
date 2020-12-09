@@ -82,6 +82,14 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//p[text()='暂无数据']")
     private WebElement noData;
 
+    @FindBy(xpath = "//li[contains(@class,'ant-pagination-options')]/div[1]")
+    private WebElement pagination;
+
+    public WebElement getPagination() {
+        pagination.click();
+        return this.getLastDropdownList();
+    }
+
     public WebElement getNoData() {
         return noData;
     }

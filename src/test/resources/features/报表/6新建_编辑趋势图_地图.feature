@@ -18,14 +18,15 @@ Feature: 报表新建_编辑_地图
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() by apache.geo.city" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Map" button
     And I click the "<typeChart>" button
@@ -57,14 +58,15 @@ Feature: 报表新建_编辑_地图
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<name>" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<name>"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<region>"
+    And I set the value "<SPL>" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Map" button
     And I click the "Attackmap" button
@@ -92,29 +94,30 @@ Feature: 报表新建_编辑_地图
 
     @report @reportChartsPDF
     Examples:
-      |  reportType |   region         |  name               |
-      |  PDF        |   World          | Attackmap_World     |
-      |  PDF        |   China          | Attackmap_China     |
+      |  reportType |   region         |  name               | SPL |
+      |  PDF        |   World          | Attackmap_World     | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 \|eval clientlon= -0.127758 \| eval clientlat=51.507 |
+      |  PDF        |   China          | Attackmap_China     | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 \|eval clientlon= 114.109467 \| eval clientlat=22.39642   |
 
     @reportChartsEXCEL
     Examples:
-      |  reportType |   region         |  name               |
-      |  EXCEL      |   World          | Attackmap_World     |
-      |  EXCEL      |   China          | Attackmap_China     |
+      |  reportType |   region         |  name               | SPL |
+      |  EXCEL      |   World          | Attackmap_World     | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 \|eval clientlon= -0.127758 \| eval clientlat=51.507 |
+      |  EXCEL      |   China          | Attackmap_China     | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 \|eval clientlon= 114.109467 \| eval clientlat=22.39642   |
 
   Scenario Outline: new_report_trend_regionmap
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
-    When I choose the "<table>" from the "ChartList"
+    When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "<table>"
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>"
+    And I set the value "<SPL>" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Map" button
     And I click the "<typeChart>" button
@@ -140,14 +143,14 @@ Feature: 报表新建_编辑_地图
 
     @report @reportChartsPDF
     Examples:
-      |  reportType |   typeChart |  name             |   divideField       |   province          |   city          |  region |  table                  |
-      |  PDF        | Regionmap   | Regionmap_World   | apache.geo.country  |     无              |   无            |  World  | table_Regionmap         |
-      |  PDF        | Regionmap   | Regionmap_China   | apache.geo.province | apache.geo.province | apache.geo.city |  China  | table_Regionmap         |
-      |  PDF        | Regionmap   | Regionmap_Jiangsu | apache.geo.city     | apache.geo.city     | apache.geo.city |  Jiangsu| table_Regionmap_Jiangsu |
+      |  reportType |   typeChart |  name             |   divideField       |   province          |   city          |  region | SPL |
+      |  PDF        | Regionmap   | Regionmap_World   | apache.geo.country  |     无              |   无            |  World  | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |  PDF        | Regionmap   | Regionmap_China   | apache.geo.province | apache.geo.province | apache.geo.city |  China  | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |  PDF        | Regionmap   | Regionmap_Jiangsu | apache.geo.city     | apache.geo.city     | apache.geo.city |  Jiangsu| starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.city |
 
     @reportChartsEXCEL
     Examples:
-      |  reportType |   typeChart |  name             |   divideField       |   province          |   city          |  region |  table                  |
-      |  EXCEL      | Regionmap   | Regionmap_World   | apache.geo.country  |     无              |   无            |  World  | table_Regionmap         |
-      |  EXCEL      | Regionmap   | Regionmap_China   | apache.geo.province | apache.geo.province | apache.geo.city |  China  | table_Regionmap         |
-      |  EXCEL      | Regionmap   | Regionmap_Jiangsu | apache.geo.city     | apache.geo.city     | apache.geo.city |  Jiangsu| table_Regionmap_Jiangsu |
+      |  reportType |   typeChart |  name             |   divideField       |   province          |   city          |  region | SPL |
+      |  EXCEL      | Regionmap   | Regionmap_World   | apache.geo.country  |     无              |   无            |  World  | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |  EXCEL      | Regionmap   | Regionmap_China   | apache.geo.province | apache.geo.province | apache.geo.city |  China  | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |  EXCEL      | Regionmap   | Regionmap_Jiangsu | apache.geo.city     | apache.geo.city     | apache.geo.city |  Jiangsu| starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.city |
