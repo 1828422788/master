@@ -28,6 +28,7 @@ Feature: 报表禁用/启用
   Scenario Outline: switch_off_on
     And the data name is "{'column':'1','name':'Test_Switch'}" then I "<action>" the switch
     And I wait for "100" millsecond
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "<result>"
 
     Examples:
@@ -40,5 +41,6 @@ Feature: 报表禁用/启用
     Then I will see the message "此操作将删除 [Test_Switch], 是否继续？"
     When I click the "EnsureButton" button
     And I wait for "500" millsecond
+    And I wait for "Message" will be visible
     Then I will see the message "删除成功"
     And I click the "EnsureButton" button

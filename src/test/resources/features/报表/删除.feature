@@ -6,9 +6,11 @@ Feature: 报表_删除
     And I set the parameter "SearchInput" with value "<name>"
     And I wait for "2000" millsecond
     And the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
+    And I wait for "Message" will be visible
     Then I will see the message "此操作将删除 [<name>], 是否继续？"
     When I click the "EnsureButton" button
     And I wait for "500" millsecond
+    And I wait for "Message" will be visible
     Then I will see the message "删除成功"
     And I click the "EnsureButton" button
 
@@ -79,6 +81,7 @@ Feature: 报表_删除
     Then I will see the message "此操作将删除 [<name>_PDF], 是否继续？"
     When I click the "EnsureButton" button
     And I wait for "500" millsecond
+    And I wait for "Message" will be visible
     Then I will see the message "删除成功"
     And I click the "EnsureButton" button
 

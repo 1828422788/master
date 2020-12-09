@@ -32,6 +32,7 @@ Feature: 报表标签
     And I click the "TagPanel" button
     And I click the "EnsureButton" button
     And I wait for "100" millsecond
+    And I wait for "Message" will be visible
     Then I will see the message "修改成功"
     And I click the "EnsureButton" button
     And I refresh the website
@@ -60,5 +61,6 @@ Feature: 报表标签
     Then I will see the message "此操作将删除 [Test_Tag], 是否继续？"
     When I click the "EnsureButton" button
     And I wait for "500" millsecond
+    And I wait for "Message" will be visible
     Then I will see the message "删除成功"
     And I click the "EnsureButton" button
