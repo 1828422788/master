@@ -32,7 +32,7 @@ Feature: 仪表盘多Y轴图
 
     Examples:
       | spl                                                                                                                                                                             | name    |
-      | tag:*display \| stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status \| limit 10 | 仪表盘多Y轴图 |
+      | tag:sample04061424_display \| stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status \| limit 10 | 仪表盘多Y轴图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
@@ -140,7 +140,7 @@ Feature: 仪表盘多Y轴图
     And I click the "TrendTitle" button
     And I wait for "3000" millsecond
     Then take part of "MultiYaxisArea" with name "actual/<image>"
-    And I compare source image "actual/<image>" with target image "expect/<image>"
+#    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | name        | image                   |
