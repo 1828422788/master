@@ -48,7 +48,7 @@ Feature:拖拽生成趋势图_复合
 
     And I wait for "EditFirstField" will be visible
     And I click the "EditFirstField" button
-    And I set the parameter "Unit" with value "散"
+    And I set the parameter "Unit" with value "柱"
     And I set the parameter "Min" with value ""
     And I set the parameter "Max" with value "3000"
     And I click the "Clientip" button
