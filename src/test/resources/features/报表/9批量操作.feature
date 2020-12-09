@@ -98,7 +98,11 @@ Feature: 报表_批量操作
 
   Scenario: multi_delete_files
     When I click the "ReportListButton" button
+    And I wait for "Loading" will be invisible
+    And I wait for "Pagination" will be visible
     And I click the "MultiButton" button
+    And I choose the "30 条/页" from the "Pagination" in config
+    And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "test_multi_file_1" in trend list page
     And I "checked" the checkbox which name is "test_multi_file_2" in trend list page
     And I click the "SelectAction" button

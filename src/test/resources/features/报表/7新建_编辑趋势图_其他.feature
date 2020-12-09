@@ -55,6 +55,7 @@ Feature: 报表新建_编辑_其他
 
   Scenario Outline: new_report_trend_icon
     When I set the parameter "Name" with value "<name>_<reportType>"
+    And I set the parameters "Hour" and "Minute" as "3" minutes later from now
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
@@ -101,6 +102,7 @@ Feature: 报表新建_编辑_其他
 
   Scenario Outline: new_report_trend_font
     When I set the parameter "Name" with value "<name>_<reportType>"
+    And I set the parameters "Hour" and "Minute" as "6" minutes later from now
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
