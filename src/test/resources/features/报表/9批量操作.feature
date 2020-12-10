@@ -102,7 +102,7 @@ Feature: 报表_批量操作
     And I wait for element "SelectedReport" change text to "全部报表文件"
     And I wait for "5000" millsecond
     And I wait for "LastGeneratedReport" will be visible
-    And I choose the "30 条/页" from the "Pagination" in config
+#    And I choose the "30 条/页" from the "Pagination" in config
     And I wait for "Loading" will be invisible
     And I click the "MultiButton" button under some element
     And I "checked" the checkbox which name is "test_multi_file_1" in trend list page

@@ -96,6 +96,6 @@ Feature: 报表_趋势图个数限制
     And I wait for "SuccessMessage" will be invisible
     When I set the parameter "TrendLimit" with value "10"
     And I let element "TrendLimit" lose focus
-    And I wait for "500" millsecond
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
