@@ -1743,7 +1743,7 @@ private WebElement dataType;
     public WebElement getUpdateFrequency(){return updateFrequency;}
 
     //数据源类型
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[2]/div[2]/div[1]/div[1]")
+    @FindBy(xpath = "//label[@class='data-type-label']/following-sibling::div[1]//i[@class]")
     private WebElement dataSourceType;
     public WebElement getDataSourceType(){
          return dataSourceType;
