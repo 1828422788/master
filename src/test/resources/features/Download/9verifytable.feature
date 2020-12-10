@@ -4,6 +4,16 @@ Feature: 处理下载结果
   Background:
     Given open the "splSearch.OfflineTaskPageNohup" page for uri "/download/#"
 
+  @vdltable0
+  Scenario Outline: 下载比较
+    Then I compare source download file "<name>.csv" with target download files "<name>.csv"
+
+    Examples: 新建成功
+      | name                                                   | splQuery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+      | eval_noempty_logic_and | tag:sample04061424 \| eval bool_is_empty=empty(apache.request_path) \| eval bool_not_empty=! empty(apache.request_path) \| eval bool_is_false= false && empty(apache.request_path) \| table bool_is_empty, bool_not_empty,bool_is_false, apache.x_forward \| sort by  apache.x_forward |
+      | eval_relation | tag:sample04061424 \| eval r1_not200=apache.status!=200 \| eval r2_is200=apache.status==200 \| eval r3_big200=apache.status>200 \| eval r4_bigequal200=apache.status>=200 \| eval r5_small200=apache.status<200 \| eval r6_smallequal200=apache.status<=200 \| table r1_not200,r2_is200,r3_big200, r4_bigequal200,r5_small200,r6_smallequal200,apache.status \| sort by apache.status |
+      | eval_connect_table_sort | tag:sample04061424 \| eval ret_connect = appname + apache.clientip + apache.method + \"科罗拉多斯普林斯\"  \| table ret_connect \| sort by ret_connect |
+
   @vdltable
   Scenario Outline: 下载比较
     Then I compare source download file "<name>.csv" with target download files "<name>.csv"
