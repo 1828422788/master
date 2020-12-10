@@ -94,6 +94,7 @@ Feature: 报表新建_选择
     And I click the "EnsureButton" button
     Then I will see the element "ChosenTrendLast" contains "报表测试_10"
     When I choose the "报表测试" from the "ChartList"
+    And I wait for "ErrorMessage" will be visible
     Then I will see the error message "每个报表最多保存10个趋势图"
     When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible

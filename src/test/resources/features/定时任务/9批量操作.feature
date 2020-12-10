@@ -32,11 +32,11 @@ Feature: 定时任务批量操作
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
     And I wait for "MultiButton" will be visible
-    And I click the "MultiButton" button
+    And I click the "MultiButton" button under some element
     And I "checked" the checkbox which name is "test_multi_1" in the list
     And I "checked" the checkbox which name is "test_multi_2" in the list
     And I "checked" the checkbox which name is "test_multi_3" in the list
-    And I click the "SelectAction" button
+    And I click the "SelectAction" button under some element
     And I click the "MultiTag" button
     And I wait for "Ensure" will be visible
     And I choose the "auto_package" from the "TagField"
@@ -76,11 +76,11 @@ Feature: 定时任务批量操作
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
     And I wait for "MultiButton" will be visible
-    And I click the "MultiButton" button
+    And I click the "MultiButton" button under some element
     And I "checked" the checkbox which name is "test_multi_1" in the list
     And I "checked" the checkbox which name is "test_multi_2" in the list
     And I "checked" the checkbox which name is "test_multi_3" in the list
-    And I click the "SelectAction" button
+    And I click the "SelectAction" button under some element
     And I click the "MultiSwitch" button
     And I wait for "Ensure" will be visible
     And I will see the message "确定启用 3 个资源"
@@ -111,11 +111,11 @@ Feature: 定时任务批量操作
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
     And I wait for "MultiButton" will be visible
-    And I click the "MultiButton" button
+    And I click the "MultiButton" button under some element
     And I "checked" the checkbox which name is "test_multi_1" in the list
     And I "checked" the checkbox which name is "test_multi_2" in the list
     And I "checked" the checkbox which name is "test_multi_3" in the list
-    And I click the "SelectAction" button
+    And I click the "SelectAction" button under some element
     And I click the "MultiDelete" button
     And I wait for "Ensure" will be visible
     Then I will see the message "您选中的 3 个资源将被删除，是否继续？"
@@ -140,8 +140,8 @@ Feature: 定时任务批量操作
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
     And I wait for "MultiButton" will be visible
-    And I click the "MultiButton" button
-    And I click the "SelectAction" button
+    And I click the "MultiButton" button under some element
+    And I click the "SelectAction" button under some element
     And I click the "<button>" button
     And I wait for "Ensure" will be visible
     Then I will see the message "请至少选择一个资源进行操作"

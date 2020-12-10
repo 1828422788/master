@@ -28,11 +28,11 @@ Feature: 趋势图批量操作
     |  test_multi_3   |
 
   Scenario: multi_tag
-    And I click the "MultiButton" button
+    And I click the "MultiButton" button under some element
     And I "checked" the checkbox which name is "test_multi_1" in trend list page
     And I "checked" the checkbox which name is "test_multi_2" in trend list page
     And I "checked" the checkbox which name is "test_multi_3" in trend list page
-    And I click the "SelectAction" button
+    And I click the "SelectAction" button under some element
     And I click the "MultiTag" button
     And I wait for "EnsureButton" will be visible
     And I choose the "auto_package" from the "TagField"
@@ -48,11 +48,11 @@ Feature: 趋势图批量操作
     Then I will see the data "test_multi_3" values "{'column':'4','name':'auto_package'}"
 
   Scenario: multi_delete
-    And I click the "MultiButton" button
+    And I click the "MultiButton" button under some element
     And I "checked" the checkbox which name is "test_multi_1" in trend list page
     And I "checked" the checkbox which name is "test_multi_2" in trend list page
     And I "checked" the checkbox which name is "test_multi_3" in trend list page
-    And I click the "SelectAction" button
+    And I click the "SelectAction" button under some element
     And I click the "MultiDelete" button
     And I wait for "EnsureButton" will be visible
     Then I will see the message "您选中的 3 个资源将被删除，是否继续？"
@@ -70,8 +70,8 @@ Feature: 趋势图批量操作
 #    Then I will see the search result "{'column':'0','name':'test_multi_3','contains':'no'}"
 
   Scenario Outline: prompt
-    And I click the "MultiButton" button
-    And I click the "SelectAction" button
+    And I click the "MultiButton" button under some element
+    And I click the "SelectAction" button under some element
     And I click the "<button>" button
     And I wait for "EnsureButton" will be visible
     Then I will see the message "请至少选择一个资源进行操作"

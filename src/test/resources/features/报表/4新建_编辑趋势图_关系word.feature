@@ -4,7 +4,7 @@ Feature: 报表新建_编辑_关系word
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
-    And I click the "NewReportButton" button
+    And I click the "NewReportButton" button under some element
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
