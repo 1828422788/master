@@ -288,6 +288,8 @@ Feature: 仪表盘详情页
     And I click the "settingIcon" button
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "OpenEdit" button to "enable"
+    And I wait for "1000" millsecond
+    And I move the mouse pointer to the "TimeName"
     And I click the "TimeName" button
     And I click the "deleteTimeTag" button
     And I wait for "Ensure" will be visible
