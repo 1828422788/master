@@ -44,6 +44,7 @@ Feature: 报表_批量操作
     And I choose the "auto_package" from the "TagField"
     And I click the "TagPanel" button
     And I click the "Ensure" button
+    And I wait for "Message" will be visible
     Then I will see the success message "更新成功"
     And I wait for loading complete
     And I click the "Finish" button
