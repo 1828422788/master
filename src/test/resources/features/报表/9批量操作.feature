@@ -40,11 +40,11 @@ Feature: 报表_批量操作
     And I "checked" the checkbox which name is "test_multi_3" in the list
     And I click the "SelectAction" button
     And I click the "MultiTag" button
-    And I wait for "Ensure" will be visible
+    And I wait for "EnsureButton" will be visible
     And I choose the "auto_package" from the "TagField"
     And I click the "TagPanel" button
-    And I click the "Ensure" button
-    And I wait for "Message" will be visible
+    And I click the "EnsureButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I wait for loading complete
     And I click the "Finish" button
