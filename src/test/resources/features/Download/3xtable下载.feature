@@ -23,7 +23,7 @@ Feature: download_bucket下载
     Then I choose the "CSV" from the "DocumentTypeList"
     Then I choose the "UTF" from the "DocumentEncodeList"
     Then I click the "CreateDownloadTask" button
-#    And I wait for "2000" millsecond
+    And I wait for "2000" millsecond
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
 
     #下载到本地
@@ -45,7 +45,7 @@ Feature: download_bucket下载
     And I wait for "2000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-    And I wait for "2000" millsecond
+    And I wait for "3000" millsecond
     And I wait for "downloadButton" will be visible
     Then I click the "downloadButton" button
     Then I set the parameter "DownloadName" with value "<name>"
@@ -54,13 +54,13 @@ Feature: download_bucket下载
     Then I choose the "CSV" from the "DocumentTypeList"
     Then I choose the "UTF" from the "DocumentEncodeList"
     Then I click the "CreateDownloadTask" button
-#    And I wait for "2000" millsecond
+    And I wait for "3000" millsecond
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
 
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     When I set the parameter "DbListPageSearchInput" with value "<name>.csv"
-    And I wait for "2000" millsecond
+    And I wait for "3000" millsecond
     Given the data name is "<name>.csv" then i click the "下载" button
 
     Examples:
