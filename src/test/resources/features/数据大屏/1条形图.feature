@@ -14,7 +14,8 @@ Feature: 数据大屏-f条形图
     And I click the "Ensure" button
     #条形图
     And I click the "Chart" button
-    And I wait for "BarHorizontal" will be visible
+    And I wait for "2000" millsecond
+#    And I wait for "BarHorizontal" will be visible
     And I click the "BarHorizontal" button
     #样式
     And I wait for "Style" will be visible

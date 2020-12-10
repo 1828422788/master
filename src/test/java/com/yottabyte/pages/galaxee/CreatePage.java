@@ -1762,7 +1762,7 @@ private WebElement dataType;
     public WebElement getOtherSearch(){return otherSearch;}
 
     //数据源类型-绑定搜索，搜索框
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[2]/div[2]/div[2]/div/div[2]/div[1]/i")
+    @FindBy(xpath = "//div[@class='bind-search-title']/following-sibling::div//i[@class]")
     private WebElement bindingSearchChoose;
     public WebElement getBindingSearchChoose(){return bindingSearchChoose;}
     //选择绑定搜索

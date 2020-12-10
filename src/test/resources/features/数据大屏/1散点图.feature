@@ -28,7 +28,7 @@ Feature: 数据大屏-d散点图
     And I wait for "XColorInput" will be visible
     And I set the parameter "XColorInput" with value "#CF3131"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     And I choose the "bolder" from the "XaxisWordBold"
      #轴标签
     And I set the parameter "XaxisShift" with value "5"
@@ -43,7 +43,7 @@ Feature: 数据大屏-d散点图
     And I wait for "XDividingLineColor" will be visible
     And I set the parameter "XDividingLineColor" with value "#CD9080"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
 
     And I choose the "dotted" from the "XDividingLineType"
      # 轴线
@@ -66,6 +66,7 @@ Feature: 数据大屏-d散点图
      # 轴标签
     And I set the parameter "YaxisShift" with value "10"
     And I choose the "倾斜" from the "YaxisAngle"
+    And I wait for "3000" millsecond
      #分割线
     #分割线的设置
     And I set the parameter "YDividingLineBold" with value "2"
@@ -74,7 +75,7 @@ Feature: 数据大屏-d散点图
     And I wait for "YDividingLineColor" will be visible
     And I set the parameter "YDividingLineColor" with value "#BBB80B"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
 
     And I choose the "dashed" from the "YDividingLineType"
     # 轴线
@@ -82,7 +83,7 @@ Feature: 数据大屏-d散点图
     And I wait for "YLineColor" will be visible
     And I set the parameter "YLineColor" with value "#CBD50D"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     And I set the parameter "YLineBold" with value "4"
 #布局
     And I click the "Layout" button
@@ -146,7 +147,8 @@ Feature: 数据大屏-d散点图
     And I click the "Ensure" button
      #散点图
     And I click the "Chart" button
-    And I wait for "Scatter" will be visible
+    And I wait for "2000" millsecond
+#    And I wait for "Scatter" will be visible
     And I click the "Scatter" button
     And I wait for "Style" will be visible
     And I click the "Style" button

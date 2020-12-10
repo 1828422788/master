@@ -151,7 +151,7 @@ Feature: 数据大屏-q环形占比图
     And I click the "otherSearch" button under some element
     And I hide the element "otherDropdown"
    And I wait for "SplInput" will be visible
-    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/2800000"
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/2800"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button

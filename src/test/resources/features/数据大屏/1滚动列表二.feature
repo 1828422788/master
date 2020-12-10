@@ -15,7 +15,8 @@ Feature: 数据大屏-k滚动列表二
     And I click the "Ensure" button
       #选择滚动列表二
     And I click the "Chart" button
-    And I wait for "rollList2" will be visible
+    And I wait for "2000" millsecond
+#    And I wait for "rollList2" will be visible
     And I click the "rollList2" button
     And I wait for "Style" will be visible
     And I click the "Style" button
@@ -110,7 +111,8 @@ Feature: 数据大屏-k滚动列表二
     And I click the "Ensure" button
            #选择滚动列表二
     And I click the "Chart" button
-    And I wait for "rollList2" will be visible
+    And I wait for "2000" millsecond
+#    And I wait for "rollList2" will be visible
     And I click the "rollList2" button
 
     #  设置图表尺寸位置

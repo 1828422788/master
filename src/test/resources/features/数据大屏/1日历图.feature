@@ -14,7 +14,7 @@ Feature: 数据大屏-d日历图
     And I click the "Ensure" button
     #选择日历图
     And I click the "Chart" button
-    And I wait for "Calendar" will be visible
+    And I wait for "2000" millsecond
     And I click the "Calendar" button
     #日历图
     And I wait for "Style" will be visible
@@ -88,7 +88,7 @@ Feature: 数据大屏-d日历图
     And I click the "Ensure" button
     #选择日历图
     And I click the "Chart" button
-    And I wait for "Calendar" will be visible
+    And I wait for "2000" millsecond
     And I click the "Calendar" button
     #日历图
     And I wait for "Style" will be visible

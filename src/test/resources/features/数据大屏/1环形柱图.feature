@@ -13,6 +13,7 @@ Feature: 数据大屏-p环形柱图
     And I click the "Ensure" button
       #选择环形柱图
     And I click the "Chart" button
+    And I wait for "2000" millsecond
     And I wait for "circularCylinderChart" will be visible
     And I click the "circularCylinderChart" button
 # #设置样式
@@ -110,6 +111,7 @@ Feature: 数据大屏-p环形柱图
     And I click the "Ensure" button
           #选择环形柱图
     And I click the "Chart" button
+    And I wait for "2000" millsecond
     And I wait for "circularCylinderChart" will be visible
     And I click the "circularCylinderChart" button
     And I wait for "Style" will be visible
