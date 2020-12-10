@@ -82,7 +82,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//p[text()='暂无数据']")
     private WebElement noData;
 
-    @FindBy(xpath = "//li[contains(@class,'ant-pagination-options')]/div[1]")
+    @FindBy(xpath = "//div[text() = '10 条/页']/ancestor::li/div[1]")
     private WebElement pagination;
 
     public WebElement getPagination() {

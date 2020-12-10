@@ -13,7 +13,7 @@ Feature: 报表_批量操作
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "PDF" from the "ReportType"
-    And I set the parameters "Hour" and "Minute" as "2" minutes later from now
+    And I set the parameters "Hour" and "Minute" as "3" minutes later from now
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
@@ -23,8 +23,7 @@ Feature: 报表_批量操作
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
-    And I will see the "report.ListPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for "10000" millsecond
 
   Examples:
     |   name               |
@@ -102,9 +101,9 @@ Feature: 报表_批量操作
     And I wait for element "SelectedReport" change text to "全部报表文件"
     And I wait for "5000" millsecond
     And I wait for "LastGeneratedReport" will be visible
-    And I click the "MultiButton" button
     And I choose the "30 条/页" from the "Pagination" in config
     And I wait for "Loading" will be invisible
+    And I click the "MultiButton" button
     And I "checked" the checkbox which name is "test_multi_file_1" in trend list page
     And I "checked" the checkbox which name is "test_multi_file_2" in trend list page
     And I click the "SelectAction" button
