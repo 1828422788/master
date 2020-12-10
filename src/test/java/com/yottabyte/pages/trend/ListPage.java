@@ -32,6 +32,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='确定']/ancestor::button")
     private WebElement ensureButton;
 
+    @FindBy(xpath = "//span[text()='取消']/ancestor::button")
+    private WebElement cancel;
+
     @FindBy(xpath= "//div[@class='ant-modal-content']")
     private WebElement tagPanel;
 
@@ -106,6 +109,10 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getEnsureButton(){
         return ensureButton;
+    }
+
+    public WebElement getCancel() {
+        return cancel;
     }
 
     public WebElement getMessage() {
