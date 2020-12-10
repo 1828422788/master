@@ -38,6 +38,7 @@ Feature: 趋势图批量操作
     And I choose the "auto_package" from the "TagField"
     And I click the "TagPanel" button
     And I click the "EnsureButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I wait for loading complete
     And I click the "Finish" button under some element
@@ -58,6 +59,7 @@ Feature: 趋势图批量操作
     Then I will see the message "您选中的 3 个资源将被删除，是否继续？"
     And I click the "Cancel" button
     When the data name is "{'column':'1','name':'test_multi_3'}" then i click the "删除" button
+    And I wait for "EnsureButton" will be visible
     And I click the "EnsureButton" button under some element
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
