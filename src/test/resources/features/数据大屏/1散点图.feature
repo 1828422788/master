@@ -14,6 +14,7 @@ Feature: 数据大屏-d散点图
     And I click the "Ensure" button
     #散点图
     And I click the "Chart" button
+    And I wait for "500" millsecond
     And I wait for "Scatter" will be visible
     And I click the "Scatter" button
     And I wait for "Style" will be visible
@@ -56,6 +57,7 @@ Feature: 数据大屏-d散点图
 #Y轴
     And I click the "YaxisHeader" button
      #文本
+    And I wait for "500" millsecond
     And I set the parameter "YaxisWordSize" with value "20"
 #    And I click the "YaxisWordColor" button
     And I wait for "YColorInput" will be visible
@@ -147,8 +149,8 @@ Feature: 数据大屏-d散点图
     And I click the "Ensure" button
      #散点图
     And I click the "Chart" button
-    And I wait for "2000" millsecond
-#    And I wait for "Scatter" will be visible
+#    And I wait for "2000" millsecond
+    And I wait for "Scatter" will be visible
     And I click the "Scatter" button
     And I wait for "Style" will be visible
     And I click the "Style" button

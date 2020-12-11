@@ -82,7 +82,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "sunburstchart")
     private WebElement sunburst;
 
-    @FindBy(className = "piechart")
+    @FindBy(xpath = "//li[text()='饼图']")
     private WebElement pie;
 
     @FindBy(xpath = "//div[text()='数据']")
@@ -113,7 +113,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "delete")
     private WebElement delete;
 
-    @FindBy(className = "scatterchart")
+    @FindBy(xpath = "//li[text()='散点图']")
     private WebElement scatter;
 
     @FindBy(xpath = "(//span[contains(text(),'确定')][not(@class)])[last()]")
@@ -131,7 +131,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-upload--text")
     private WebElement upload;
 
-    @FindBy(className = "textarea-icon-padding")
+    @FindBy(xpath = "//textarea[contains(@class, 'textarea-icon-padding')]")
     private WebElement splInput;
 
     @FindBy(xpath = "//i[@class='iconfont icon-shangyi_icon']")
@@ -2446,7 +2446,7 @@ private WebElement dataType;
 
 //滚动柱形图
     //图表中滚动柱形图
-    @FindBy(xpath = "//li[text()='滚动柱形图']/i")
+    @FindBy(xpath = "//li[text()='滚动柱形图']")
     private WebElement rollHistogram;
       public WebElement getRollHistogram(){return rollHistogram;}
       //样式中的滚动柱状图
@@ -2477,7 +2477,7 @@ private WebElement dataType;
 
 
 //滚动列表
-    @FindBy(xpath = "//li[text()='滚动列表']/i")
+    @FindBy(xpath = "//li[text()='滚动列表']")
    private WebElement listOfTurns;
       public WebElement getListOfTurns(){return listOfTurns;}
       //样式中的轮播列表
@@ -2541,7 +2541,7 @@ private WebElement dataType;
       public WebElement getAspectColor(){return this.colorInput("水平胶囊", "条颜色");}
 
 //3D柱图
-    @FindBy(xpath = "//li[text()='3D柱图']/i")
+    @FindBy(xpath = "//li[text()='3D柱图']")
     private WebElement column3D;
     public WebElement getColumn3D(){return column3D;}
 
@@ -2625,7 +2625,7 @@ private WebElement dataType;
 
 
 //滚动列表二
-    @FindBy(xpath = "//li[text()='滚动列表II']/i")
+    @FindBy(xpath = "//li[text()='滚动列表II']")
     private WebElement rollList2;
       public WebElement getRollList2(){return rollList2;}
 

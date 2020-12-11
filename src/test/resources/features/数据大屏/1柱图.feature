@@ -179,7 +179,8 @@ Feature: 数据大屏-e柱图
     And I set the parameter "YLineBold" with value "4"
     #布局
     And I click the "Layout" button
-    And I wait for "LayoutBottom" will be visible
+    And I wait for "500" millsecond
+#    And I wait for "LayoutBottom" will be visible
     And I set the parameter "LayoutBottom" with value "20"
     And I set the parameter "LayoutLeft" with value "20"
     And I set the parameter "LayoutRight" with value "20"
