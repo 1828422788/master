@@ -73,7 +73,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "rangechart")
     private WebElement range;
 
-    @FindBy(className = "rosechart")
+    @FindBy(xpath = "//li[text()='玫瑰图']")
     private WebElement rose;
 
     @FindBy(className = "barcharthorizontal")
@@ -2283,7 +2283,7 @@ private WebElement dataType;
 
 //占比图3D
     //图表中的占比图
-    @FindBy(xpath = "//li[text()='占比图3D']/i")
+    @FindBy(xpath = "//li[text()='占比图3D']")
     private WebElement percent3dChart;
       public WebElement getPercent3dChart(){return percent3dChart;}
 
