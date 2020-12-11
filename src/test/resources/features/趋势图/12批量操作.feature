@@ -60,7 +60,8 @@ Feature: 趋势图批量操作
     And I click the "Cancel" button
     When the data name is "{'column':'1','name':'test_multi_3'}" then i click the "删除" button
     And I wait for "EnsureButton" will be visible
-    And I click the "EnsureButton" button under some element
+    Then I will see the message "确认删除 [test_multi_3] ?"
+    When I click the "EnsureButton" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
     And I wait for "SuccessMessage" will be invisible
