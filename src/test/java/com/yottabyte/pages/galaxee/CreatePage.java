@@ -277,7 +277,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'地图')])/i")
     private WebElement mapHeader;
 
-    @FindBy(className = "worldmap2d")
+    @FindBy(xpath = "//li[text()='世界地图']")
     private WebElement world;
 
 
@@ -290,11 +290,11 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "globelabel")
     private WebElement globelabel;
 
-    @FindBy(className = "attack3d")
+    @FindBy(xpath = "//li[text()='攻击图3D']")
     private WebElement attack3d;
 
 //    @FindBy(className = "flipNumber")
-    @FindBy(xpath = "//li[text()='数值翻牌器']/i")
+    @FindBy(xpath = "//li[text()='数值翻牌器']")
     private WebElement flipNumber;
 
     @FindBy(className = "status")
@@ -1733,7 +1733,7 @@ private WebElement dataType;
 
 
     //攻击图3D II
-    @FindBy(xpath = "//li[text()='攻击图3D II']/i")
+    @FindBy(xpath = "//li[text()='攻击图3D II']")
     private WebElement attackMapThreeDTwo;
     public WebElement getAttackMapThreeDTwo(){return attackMapThreeDTwo;}
 
@@ -2128,7 +2128,7 @@ private WebElement dataType;
 
 //栅格百分图
     //图表中的栅格百分比
-    @FindBy(xpath = "//li[text()='栅格百分图']/i")
+    @FindBy(xpath = "//li[text()='栅格百分图']")
     private WebElement gridPercentChart;
       public WebElement getGridPercentChart(){return gridPercentChart;}
 
@@ -2221,7 +2221,7 @@ private WebElement dataType;
 
 //雷达图
     //图表中的雷达图
-      @FindBy(xpath = "//li[text()='雷达图']/i")
+      @FindBy(xpath = "//li[text()='雷达图']")
       private WebElement radarChart;
       public WebElement getRadarChart(){return radarChart;}
 
