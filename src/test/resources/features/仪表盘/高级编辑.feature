@@ -426,6 +426,7 @@ Feature: 仪表盘高级编辑
     And I click the "Ensure" button
     And I wait for "1000" millsecond
     And I click the "ChartType" button
+    And I wait for "1000" millsecond
     Then I will see the "trend.CreatePage" page
     And I wait for "Dimension" will be visible
     And I click the "Dimension" button under some element

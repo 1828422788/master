@@ -77,6 +77,7 @@ Feature: 仪表盘条形图
     And I wait for "Progress" will be invisible
     And I wait for "500" millsecond
     And I click the "ChartType" button
+    And I wait for "1000" millsecond
     Then I will see the "trend.CreatePage" page
     And I wait for "Dimension" will be visible
     And I click the "Dimension" button

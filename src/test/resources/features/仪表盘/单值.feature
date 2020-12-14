@@ -73,6 +73,7 @@ Feature: 仪表盘单值
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     And I click the "ChartType" button
+    And I wait for "1000" millsecond
     Then I will see the "trend.CreatePage" page
     And I wait for "2000" millsecond
     And I click the "Other" button

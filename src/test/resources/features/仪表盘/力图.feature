@@ -77,6 +77,7 @@ Feature: 仪表盘力图
     And I wait for "Progress" will be invisible
     And I wait for "500" millsecond
     And I click the "ChartType" button
+    And I wait for "1000" millsecond
     Then I will see the "trend.CreatePage" page
     And I wait for "Relation" will be visible
     And I click the "Relation" button

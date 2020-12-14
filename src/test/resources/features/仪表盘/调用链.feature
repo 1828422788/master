@@ -85,6 +85,7 @@ Feature: 仪表盘调用链
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I click the "ChartType" button
+    And I wait for "1000" millsecond
     Then I will see the "trend.CreatePage" page
     And I wait for "Other" will be visible
     And I click the "Other" button

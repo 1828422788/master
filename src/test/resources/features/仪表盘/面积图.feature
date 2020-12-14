@@ -77,6 +77,7 @@ Feature: 仪表盘面积图
     And I wait for "Progress" will be invisible
     And I wait for "ChartType" will be visible
     And I click the "ChartType" button
+    And I wait for "1000" millsecond
     Then I will see the "trend.CreatePage" page
     And I wait for "Order" will be visible
     And I click the "Order" button under some element
