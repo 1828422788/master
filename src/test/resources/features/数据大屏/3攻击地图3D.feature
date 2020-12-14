@@ -13,12 +13,13 @@ Feature: 数据大屏-n攻击地图3D
     And I set the parameter "Name" with value "攻击地图3D样式-搜索"
     And I click the "Ensure" button
     #攻击地图3D
-    And I click the "Map" button
+    And I wait for "Map" will be visible
+    And I move the mouse pointer to the "Map"
     And I click the "Attack3d" button
     And I hide the element "MapDropdown"
     #样式尺寸
     And I wait for "Style" will be visible
-    And I click the "Style" button
+    And I click the "Style" button under some element
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I wait for "Width" will be visible
@@ -99,7 +100,8 @@ Feature: 数据大屏-n攻击地图3D
     And I set the parameter "Name" with value "攻击地图3D-静态数据"
     And I click the "Ensure" button
     #攻击地图3D
-    And I click the "Map" button
+    And I wait for "Map" will be visible
+    And I move the mouse pointer to the "Map"
     And I click the "Attack3d" button
     And I hide the element "MapDropdown"
       #开启背景动画

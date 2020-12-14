@@ -14,7 +14,8 @@ Feature: 数据大屏-g3D柱图
     And I set the parameter "Name" with value "3D柱图-搜索"
     And I click the "Ensure" button
     #选择3D柱图
-    And I click the "Chart" button
+    And I wait for "Chart" will be visible
+    And I move the mouse pointer to the "Chart"
     And I wait for "Column3D" will be visible
     And I click the "Column3D" button
 

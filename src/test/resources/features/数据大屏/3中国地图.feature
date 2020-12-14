@@ -12,7 +12,9 @@ Feature: 数据大屏-i中国地图
     And I set the parameter "Name" with value "中国地图-样式搜索"
     And I click the "Ensure" button
     #中国地图
-    And I click the "Map" button
+    And I wait for "Map" will be visible
+    And I move the mouse pointer to the "Map"
+#    And I click the "Map" button
     And I click the "ChinaMap" button
     And I hide the element "MapDropdown"
 #样式

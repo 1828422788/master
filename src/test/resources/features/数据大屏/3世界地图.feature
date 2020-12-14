@@ -13,7 +13,8 @@ Feature: 数据大屏-l世界地图
     And I set the parameter "Name" with value "世界地图-样式搜索"
     And I click the "Ensure" button
     #世界地图
-    And I click the "Map" button
+    And I wait for "Map" will be visible
+    And I move the mouse pointer to the "Map"
     And I click the "World" button
     And I hide the element "MapDropdown"
 #    样式
@@ -94,7 +95,8 @@ Feature: 数据大屏-l世界地图
     And I set the parameter "Name" with value "世界地图-静态数据"
     And I click the "Ensure" button
     #世界地图
-    And I click the "Map" button
+    And I wait for "Map" will be visible
+    And I move the mouse pointer to the "Map"
     And I click the "World" button
     And I hide the element "MapDropdown"
       #开启背景动画
@@ -171,7 +173,7 @@ Feature: 数据大屏-l世界地图
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button
-    And I wait for "500" millsecond
+    And I wait for "1000" millsecond
     And I click the "bindingSearch" button
       #选择上步添加的搜索
     And I click the "bindingSearchChoose" button

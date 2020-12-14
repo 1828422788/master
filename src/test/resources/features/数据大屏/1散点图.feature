@@ -89,7 +89,7 @@ Feature: 数据大屏-d散点图
     And I set the parameter "YLineBold" with value "4"
 #布局
     And I click the "Layout" button
-    And I wait for "LayoutBottom" will be visible
+    And I wait for "1000" millsecond
     And I set the parameter "LayoutBottom" with value "20"
     And I set the parameter "LayoutLeft" with value "20"
     And I set the parameter "LayoutRight" with value "20"
@@ -182,9 +182,10 @@ Feature: 数据大屏-d散点图
     And I wait for "SearchTip" will be invisible
       #选择静态数据
     And I click the "dataSourceType" button
+
     And I click the "statisticsData" button
     And I click the "Ensure" button
-
+    And I wait for "500" millsecond
     And I wait for "tipsText" will be invisible
 
     And I choose the "count()" from the "Yaxis"
@@ -254,9 +255,11 @@ Feature: 数据大屏-d散点图
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button
+    And I wait for "500" millsecond
     And I click the "bindingSearch" button
       #选择上步添加的搜索
     And I click the "bindingSearchChoose" button
+    And I wait for "500" millsecond
     And I click the "search_widget" button
       #再次点击搜索控件中的【搜索按钮】
     And I click the "pictureTwo" button

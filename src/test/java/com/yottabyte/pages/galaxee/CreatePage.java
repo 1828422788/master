@@ -1478,7 +1478,7 @@ public class CreatePage extends PageTemplate {
 
    // public WebElement getSuccessMessage(){return super.getSuccessMessage();}
 
-    @FindBy(xpath = "//div[@class='el-message-box__message']/p[text()='保存成功']")
+    @FindBy(xpath = "c")
     private WebElement successMessage;
     @Override
     public WebElement getSuccessMessage() {
@@ -2406,7 +2406,7 @@ private WebElement dataType;
 
 //滚动条形图
      //图表中的滚动条形图
-     @FindBy(xpath = "//li[text()='滚动条形图']/i")
+     @FindBy(xpath = "//li[text()='滚动条形图']")
     private WebElement scrollBar;
       public WebElement getScrollBar(){return scrollBar;}
       //样式-滚动条形图
@@ -2563,7 +2563,7 @@ private WebElement dataType;
     public WebElement getColumnTwoColor(){return this.colorInput("3D柱图", "柱2颜色");}
 
 //日历图
-    @FindBy(xpath = "//li[text()='日历图']/i")
+    @FindBy(xpath = "//li[text()='日历图']")
     private WebElement calendar;
     public WebElement getCalendar(){return calendar;}
 
