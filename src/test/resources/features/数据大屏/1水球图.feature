@@ -19,7 +19,7 @@ Feature: 数据大屏-s水球图
     And I wait for "Liquidfill" will be visible
     And I click the "Liquidfill" button
     And I wait for "Style" will be visible
-    And I click the "Style" button
+    And I click the "Style" button under some element
      # 水波动画
     And I wait for "WaterWavePainting" will be visible
     And I click the "WaterWavePainting" button
@@ -111,11 +111,13 @@ Feature: 数据大屏-s水球图
     And I set the parameter "Name" with value "水球图-静态数据"
     And I click the "Ensure" button
     #水球图
+    And I wait for "Chart" will be visible
     And I click the "Chart" button
+
     And I wait for "Liquidfill" will be visible
     And I click the "Liquidfill" button
     And I wait for "Style" will be visible
-    And I click the "Style" button
+    And I click the "Style" button under some element
      #数据设置
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/28000"
@@ -126,6 +128,7 @@ Feature: 数据大屏-s水球图
     And I set the parameter "updateFrequency" with value "0.1"
       #选择静态数据
     And I click the "dataSourceType" button
+    And I wait for "1000" millsecond
     And I click the "statisticsData" button
     And I click the "Ensure" button
     And I wait for "tipsText" will be invisible
@@ -183,6 +186,7 @@ Feature: 数据大屏-s水球图
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button
+    And I wait for "1000" millsecond
     And I click the "bindingSearch" button
       #选择上步添加的搜索
     And I click the "bindingSearchChoose" button

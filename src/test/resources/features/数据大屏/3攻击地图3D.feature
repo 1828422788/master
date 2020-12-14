@@ -13,12 +13,13 @@ Feature: 数据大屏-n攻击地图3D
     And I set the parameter "Name" with value "攻击地图3D样式-搜索"
     And I click the "Ensure" button
     #攻击地图3D
-    And I click the "Map" button
+    And I wait for "Map" will be visible
+    And I move the mouse pointer to the "Map"
     And I click the "Attack3d" button
     And I hide the element "MapDropdown"
     #样式尺寸
     And I wait for "Style" will be visible
-    And I click the "Style" button
+    And I click the "Style" button under some element
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I wait for "Width" will be visible
@@ -99,7 +100,8 @@ Feature: 数据大屏-n攻击地图3D
     And I set the parameter "Name" with value "攻击地图3D-静态数据"
     And I click the "Ensure" button
     #攻击地图3D
-    And I click the "Map" button
+    And I wait for "Map" will be visible
+    And I move the mouse pointer to the "Map"
     And I click the "Attack3d" button
     And I hide the element "MapDropdown"
       #开启背景动画
@@ -115,6 +117,7 @@ Feature: 数据大屏-n攻击地图3D
     And I set the parameter "updateFrequency" with value "0.1"
       #数据设置
     And I click the "dataSourceType" button
+    And I wait for "1000" millsecond
       #选择静态数据
     And I click the "statisticsData" button
     And I click the "Ensure" button
@@ -187,6 +190,7 @@ Feature: 数据大屏-n攻击地图3D
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button
+    And I wait for "1000" millsecond
     And I click the "bindingSearch" button
       #选择上步添加的搜索
     And I click the "bindingSearchChoose" button

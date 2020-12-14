@@ -13,6 +13,7 @@ Feature: 数据大屏-p环形柱图
     And I click the "Ensure" button
       #选择环形柱图
     And I click the "Chart" button
+    And I wait for "2000" millsecond
     And I wait for "circularCylinderChart" will be visible
     And I click the "circularCylinderChart" button
 # #设置样式
@@ -110,6 +111,7 @@ Feature: 数据大屏-p环形柱图
     And I click the "Ensure" button
           #选择环形柱图
     And I click the "Chart" button
+    And I wait for "2000" millsecond
     And I wait for "circularCylinderChart" will be visible
     And I click the "circularCylinderChart" button
     And I wait for "Style" will be visible
@@ -131,6 +133,7 @@ Feature: 数据大屏-p环形柱图
     And I set the parameter "updateFrequency" with value "0.1"
       #选择静态数据
     And I click the "dataSourceType" button
+    And I wait for "1000" millsecond
     And I click the "statisticsData" button
     And I click the "Ensure" button
     And I wait for "tipsText" will be invisible
@@ -200,6 +203,7 @@ Feature: 数据大屏-p环形柱图
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button
+     And I wait for "1000" millsecond
     And I click the "bindingSearch" button
       #选择上步添加的搜索
     And I click the "bindingSearchChoose" button

@@ -30,6 +30,7 @@ Feature: 数据大屏-c区间图
 #    And I click the "Chart" button
     And I wait for "Range" will be visible
     And I click the "Range" button
+    And I wait for "Style" will be visible
     And I click the "Style" button
  # x轴
     And I wait for "XaxisHeader" will be visible
@@ -166,13 +167,14 @@ Feature: 数据大屏-c区间图
     When I click the "Create" button
     And I set the parameter "Name" with value "区间图-图例-静态数据"
     And I click the "Ensure" button
-    And I wait for "500" millsecond
+#    And I wait for "500" millsecond
     #区间图
+    And I wait for "Chart" will be visible
     And I move the mouse pointer to the "Chart"
 #    And I click the "Chart" button
     And I wait for "Range" will be visible
     And I click the "Range" button
-
+    And I wait for "Style" will be visible
     And I click the "Style" button
     #图例
     And I click the "Example" button
@@ -203,6 +205,7 @@ Feature: 数据大屏-c区间图
     And I wait for "SearchTip" will be invisible
       #选择静态数据
     And I click the "dataSourceType" button
+    And I wait for "1000" millsecond
     And I click the "statisticsData" button
     And I click the "Ensure" button
     And I wait for "tipsText" will be invisible
@@ -276,6 +279,7 @@ Feature: 数据大屏-c区间图
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button
+    And I wait for "1000" millsecond
     And I click the "bindingSearch" button
       #选择上步添加的搜索
     And I click the "bindingSearchChoose" button

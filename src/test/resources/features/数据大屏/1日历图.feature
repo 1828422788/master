@@ -13,8 +13,9 @@ Feature: 数据大屏-d日历图
     And I set the parameter "Name" with value "日历图-搜索"
     And I click the "Ensure" button
     #选择日历图
-    And I click the "Chart" button
-    And I wait for "Calendar" will be visible
+    And I wait for "Chart" will be visible
+    And I move the mouse pointer to the "Chart"
+    And I wait for "1000" millsecond
     And I click the "Calendar" button
     #日历图
     And I wait for "Style" will be visible
@@ -87,8 +88,9 @@ Feature: 数据大屏-d日历图
     And I set the parameter "Name" with value "日历图-静态数据"
     And I click the "Ensure" button
     #选择日历图
-    And I click the "Chart" button
-    And I wait for "Calendar" will be visible
+    And I wait for "Chart" will be visible
+    And I move the mouse pointer to the "Chart"
+    And I wait for "1000" millsecond
     And I click the "Calendar" button
     #日历图
     And I wait for "Style" will be visible
@@ -118,6 +120,7 @@ Feature: 数据大屏-d日历图
 
     And I click the "Data" button
     And I click the "dataSourceType" button
+    And I wait for "1000" millsecond
     And I click the "statisticsData" button
     And I click the "Ensure" button
     And I wait for "tipsText" will be invisible

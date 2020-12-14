@@ -49,6 +49,7 @@ Feature: 数据大屏-e柱图
     And I wait for "SearchTip" will be invisible
       #选择静态数据
     And I click the "dataSourceType" button
+    And I wait for "1000" millsecond
     And I click the "statisticsData" button
     And I click the "Ensure" button
 
@@ -179,7 +180,8 @@ Feature: 数据大屏-e柱图
     And I set the parameter "YLineBold" with value "4"
     #布局
     And I click the "Layout" button
-    And I wait for "LayoutBottom" will be visible
+    And I wait for "500" millsecond
+#    And I wait for "LayoutBottom" will be visible
     And I set the parameter "LayoutBottom" with value "20"
     And I set the parameter "LayoutLeft" with value "20"
     And I set the parameter "LayoutRight" with value "20"
@@ -199,6 +201,7 @@ Feature: 数据大屏-e柱图
     And I wait for "Save" will be visible
     And I wait for "2000" millsecond
     And I click the "Save" button
+    And I wait for "2000" millsecond
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
@@ -257,6 +260,7 @@ Feature: 数据大屏-e柱图
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button
+    And I wait for "1000" millsecond
     And I click the "bindingSearch" button
       #选择上步添加的搜索
     And I click the "bindingSearchChoose" button

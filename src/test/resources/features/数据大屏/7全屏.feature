@@ -87,7 +87,7 @@ Feature: 数据大屏-l全屏
 #    And switch to another window
     And I wait for "PictureOne" will be visible
     And I click the "PictureOne" button
-    And I wait for "5000" millsecond
+    And I wait for "6000" millsecond
     And I wait for "Interactive" will be visible
     And I click the "Interactive" button under some element
     And I wait for "500" millsecond

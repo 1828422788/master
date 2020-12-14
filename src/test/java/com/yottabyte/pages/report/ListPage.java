@@ -22,6 +22,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement message;
 
+    @FindBy(xpath = "//div[contains(@class,'ant-message-success')]")
+    private WebElement successMessage;
+
     @FindBy(xpath = "//span[text()='新建']/ancestor::button")
     private WebElement newReportButton;
 
@@ -82,7 +85,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//p[text()='暂无数据']")
     private WebElement noData;
 
-    @FindBy(xpath = "//li[contains(@class,'ant-pagination-options')]/div[1]")
+    @FindBy(className = "ant-select-selection-selected-value")
     private WebElement pagination;
 
     public WebElement getPagination() {
@@ -112,6 +115,10 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getMessage() {
         return message;
+    }
+
+    public WebElement getSuccessMessage() {
+        return successMessage;
     }
 
     public WebElement getEnsureButton() {

@@ -64,6 +64,7 @@ Feature: 趋势图新建-timechart
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -106,6 +107,7 @@ Feature: 趋势图新建-timechart
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -145,6 +147,7 @@ Feature: 趋势图新建-timechart
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -168,6 +171,7 @@ Feature: 趋势图新建-timechart
     And I click the "SearchButton" button under some element
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond

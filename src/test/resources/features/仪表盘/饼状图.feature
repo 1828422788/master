@@ -76,6 +76,7 @@ Feature: 仪表盘饼状图
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I click the "ChartType" button
+    And I wait for "1000" millsecond
     Then I will see the "trend.CreatePage" page
     And I wait for "Dimension" will be visible
     And I click the "Dimension" button under some element

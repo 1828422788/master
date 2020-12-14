@@ -44,6 +44,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='确定']/ancestor::button")
     private WebElement ensure;
 
+    @FindBy(xpath = "//span[text()='取消']/ancestor::button")
+    private WebElement cancel;
+
     // 表体
     @FindBy(className = "el-table__body")
     private WebElement tableBody;
@@ -262,6 +265,10 @@ public class ListPage extends ListPageFactory {
 //    }
     public WebElement getEnsure() {
         return ensure;
+    }
+
+    public WebElement getCancel() {
+        return cancel;
     }
 //    public WebElement getGroup() {
 //        return super.getDropdownList("分组");

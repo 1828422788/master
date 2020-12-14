@@ -9,6 +9,7 @@ Feature: 报表_趋势图个数限制
     And I wait for "SuccessMessage" will be invisible
     When I set the parameter "TrendLimit" with value "<input>"
     And I let element "TrendLimit" lose focus
+    And I wait for "Message" will be visible
     Then I will see the message "报表中趋势图个数限制须为数字"
 
   Examples:
@@ -24,11 +25,12 @@ Feature: 报表_趋势图个数限制
     And I wait for "SuccessMessage" will be invisible
     When I set the parameter "TrendLimit" with value "5"
     And I let element "TrendLimit" lose focus
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
   Scenario: new_report_5_trends
     Given open the "report.ListPage" page for uri "/reports/"
-    And I click the "NewReportButton" button
+    And I click the "NewReportButton" button under some element
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     When I set the parameter "Name" with value "test_5trends"
@@ -78,6 +80,7 @@ Feature: 报表_趋势图个数限制
     And I click the "EnsureButton" button
     Then I will see the element "ChosenTrendLast" contains "报表测试_5"
     When I choose the "报表测试" from the "ChartList"
+    And I wait for "ErrorMessage" will be visible
     Then I will see the error message "每个报表最多保存5个趋势图"
     When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
@@ -93,6 +96,6 @@ Feature: 报表_趋势图个数限制
     And I wait for "SuccessMessage" will be invisible
     When I set the parameter "TrendLimit" with value "10"
     And I let element "TrendLimit" lose focus
-    And I wait for "500" millsecond
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 

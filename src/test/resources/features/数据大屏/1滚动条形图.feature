@@ -13,13 +13,14 @@ Feature: 数据大屏-g滚动条形图
     And I set the parameter "Name" with value "滚动条形图样式-搜索"
     And I click the "Ensure" button
       #选择滚动条形图
-    And I click the "Chart" button
+    And I wait for "Chart" will be visible
+    And I move the mouse pointer to the "Chart"
     And I wait for "scrollBar" will be visible
     And I click the "scrollBar" button
 #修改样式
     # 1 设置图表尺寸位置
     And I wait for "Style" will be visible
-    And I click the "Style" button
+    And I click the "Style" button under some element
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I wait for "Width" will be visible
@@ -92,11 +93,12 @@ Feature: 数据大屏-g滚动条形图
     And I set the parameter "Name" with value "滚动条形图数据之静态数据"
     And I click the "Ensure" button
       #选择滚动条形图
-    And I click the "Chart" button
+    And I wait for "Chart" will be visible
+    And I move the mouse pointer to the "Chart"
     And I wait for "scrollBar" will be visible
     And I click the "scrollBar" button
     And I wait for "Style" will be visible
-    And I click the "Style" button
+    And I click the "Style" button under some element
     #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
@@ -107,6 +109,7 @@ Feature: 数据大屏-g滚动条形图
     And I set the parameter "updateFrequency" with value "0.1"
       #选择静态数据
     And I click the "dataSourceType" button
+    And I wait for "1000" millsecond
     And I click the "statisticsData" button
     And I click the "Ensure" button
 
@@ -162,14 +165,16 @@ Feature: 数据大屏-g滚动条形图
     And I set the parameter "updateFrequency" with value "0.1"
       #添加一个滚动条形图控件
        #选择滚动条形图
-    And I click the "Chart" button
+    And I wait for "Chart" will be visible
+    And I move the mouse pointer to the "Chart"
     And I wait for "scrollBar" will be visible
     And I click the "scrollBar" button
     And I wait for "Style" will be visible
-    And I click the "Style" button
+    And I click the "Style" button under some element
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button
+    And I wait for "1000" millsecond
     And I click the "bindingSearch" button
       #选择上步添加的搜索
     And I click the "bindingSearchChoose" button

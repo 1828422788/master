@@ -14,6 +14,7 @@ Feature: 数据大屏-d散点图
     And I click the "Ensure" button
     #散点图
     And I click the "Chart" button
+    And I wait for "500" millsecond
     And I wait for "Scatter" will be visible
     And I click the "Scatter" button
     And I wait for "Style" will be visible
@@ -28,7 +29,7 @@ Feature: 数据大屏-d散点图
     And I wait for "XColorInput" will be visible
     And I set the parameter "XColorInput" with value "#CF3131"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     And I choose the "bolder" from the "XaxisWordBold"
      #轴标签
     And I set the parameter "XaxisShift" with value "5"
@@ -43,7 +44,7 @@ Feature: 数据大屏-d散点图
     And I wait for "XDividingLineColor" will be visible
     And I set the parameter "XDividingLineColor" with value "#CD9080"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
 
     And I choose the "dotted" from the "XDividingLineType"
      # 轴线
@@ -56,6 +57,7 @@ Feature: 数据大屏-d散点图
 #Y轴
     And I click the "YaxisHeader" button
      #文本
+    And I wait for "500" millsecond
     And I set the parameter "YaxisWordSize" with value "20"
 #    And I click the "YaxisWordColor" button
     And I wait for "YColorInput" will be visible
@@ -66,6 +68,7 @@ Feature: 数据大屏-d散点图
      # 轴标签
     And I set the parameter "YaxisShift" with value "10"
     And I choose the "倾斜" from the "YaxisAngle"
+    And I wait for "3000" millsecond
      #分割线
     #分割线的设置
     And I set the parameter "YDividingLineBold" with value "2"
@@ -74,7 +77,7 @@ Feature: 数据大屏-d散点图
     And I wait for "YDividingLineColor" will be visible
     And I set the parameter "YDividingLineColor" with value "#BBB80B"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
 
     And I choose the "dashed" from the "YDividingLineType"
     # 轴线
@@ -82,11 +85,11 @@ Feature: 数据大屏-d散点图
     And I wait for "YLineColor" will be visible
     And I set the parameter "YLineColor" with value "#CBD50D"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     And I set the parameter "YLineBold" with value "4"
 #布局
     And I click the "Layout" button
-    And I wait for "LayoutBottom" will be visible
+    And I wait for "1000" millsecond
     And I set the parameter "LayoutBottom" with value "20"
     And I set the parameter "LayoutLeft" with value "20"
     And I set the parameter "LayoutRight" with value "20"
@@ -146,6 +149,7 @@ Feature: 数据大屏-d散点图
     And I click the "Ensure" button
      #散点图
     And I click the "Chart" button
+#    And I wait for "2000" millsecond
     And I wait for "Scatter" will be visible
     And I click the "Scatter" button
     And I wait for "Style" will be visible
@@ -178,9 +182,10 @@ Feature: 数据大屏-d散点图
     And I wait for "SearchTip" will be invisible
       #选择静态数据
     And I click the "dataSourceType" button
+    And I wait for "1000" millsecond
     And I click the "statisticsData" button
     And I click the "Ensure" button
-
+    And I wait for "500" millsecond
     And I wait for "tipsText" will be invisible
 
     And I choose the "count()" from the "Yaxis"
@@ -250,9 +255,11 @@ Feature: 数据大屏-d散点图
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button
+    And I wait for "1000" millsecond
     And I click the "bindingSearch" button
       #选择上步添加的搜索
     And I click the "bindingSearchChoose" button
+    And I wait for "500" millsecond
     And I click the "search_widget" button
       #再次点击搜索控件中的【搜索按钮】
     And I click the "pictureTwo" button

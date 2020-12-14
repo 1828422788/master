@@ -64,7 +64,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "linechart")
     private WebElement line;
 
-    @FindBy(className = "linechart2y")
+    @FindBy(xpath = "//li[text()='双轴折线图']")
     private WebElement line2y;
 
     @FindBy(className = "barchart")
@@ -73,7 +73,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "rangechart")
     private WebElement range;
 
-    @FindBy(className = "rosechart")
+    @FindBy(xpath = "//li[text()='玫瑰图']")
     private WebElement rose;
 
     @FindBy(className = "barcharthorizontal")
@@ -82,7 +82,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "sunburstchart")
     private WebElement sunburst;
 
-    @FindBy(className = "piechart")
+    @FindBy(xpath = "//li[text()='饼图']")
     private WebElement pie;
 
     @FindBy(xpath = "//div[text()='数据']")
@@ -113,7 +113,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "delete")
     private WebElement delete;
 
-    @FindBy(className = "scatterchart")
+    @FindBy(xpath = "//li[text()='散点图']")
     private WebElement scatter;
 
     @FindBy(xpath = "(//span[contains(text(),'确定')][not(@class)])[last()]")
@@ -131,7 +131,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-upload--text")
     private WebElement upload;
 
-    @FindBy(className = "textarea-icon-padding")
+    @FindBy(xpath = "//textarea[contains(@class, 'textarea-icon-padding')]")
     private WebElement splInput;
 
     @FindBy(xpath = "//i[@class='iconfont icon-shangyi_icon']")
@@ -277,7 +277,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'地图')])/i")
     private WebElement mapHeader;
 
-    @FindBy(className = "worldmap2d")
+    @FindBy(xpath = "//li[text()='世界地图']")
     private WebElement world;
 
 
@@ -290,11 +290,11 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "globelabel")
     private WebElement globelabel;
 
-    @FindBy(className = "attack3d")
+    @FindBy(xpath = "//li[text()='攻击图3D']")
     private WebElement attack3d;
 
 //    @FindBy(className = "flipNumber")
-    @FindBy(xpath = "//li[text()='数值翻牌器']/i")
+    @FindBy(xpath = "//li[text()='数值翻牌器']")
     private WebElement flipNumber;
 
     @FindBy(className = "status")
@@ -1478,7 +1478,7 @@ public class CreatePage extends PageTemplate {
 
    // public WebElement getSuccessMessage(){return super.getSuccessMessage();}
 
-    @FindBy(xpath = "//div[@class='el-message-box__message']/p[text()='保存成功']")
+    @FindBy(xpath = "c")
     private WebElement successMessage;
     @Override
     public WebElement getSuccessMessage() {
@@ -1733,7 +1733,7 @@ private WebElement dataType;
 
 
     //攻击图3D II
-    @FindBy(xpath = "//li[text()='攻击图3D II']/i")
+    @FindBy(xpath = "//li[text()='攻击图3D II']")
     private WebElement attackMapThreeDTwo;
     public WebElement getAttackMapThreeDTwo(){return attackMapThreeDTwo;}
 
@@ -1743,7 +1743,7 @@ private WebElement dataType;
     public WebElement getUpdateFrequency(){return updateFrequency;}
 
     //数据源类型
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[2]/div[2]/div[1]/div[1]")
+    @FindBy(xpath = "//label[@class='data-type-label']/following-sibling::div[1]//i[@class]")
     private WebElement dataSourceType;
     public WebElement getDataSourceType(){
          return dataSourceType;
@@ -1762,7 +1762,7 @@ private WebElement dataType;
     public WebElement getOtherSearch(){return otherSearch;}
 
     //数据源类型-绑定搜索，搜索框
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[2]/div[2]/div[2]/div/div[2]/div[1]/i")
+    @FindBy(xpath = "//div[@class='bind-search-title']/following-sibling::div//i[@class]")
     private WebElement bindingSearchChoose;
     public WebElement getBindingSearchChoose(){return bindingSearchChoose;}
     //选择绑定搜索
@@ -2128,7 +2128,7 @@ private WebElement dataType;
 
 //栅格百分图
     //图表中的栅格百分比
-    @FindBy(xpath = "//li[text()='栅格百分图']/i")
+    @FindBy(xpath = "//li[text()='栅格百分图']")
     private WebElement gridPercentChart;
       public WebElement getGridPercentChart(){return gridPercentChart;}
 
@@ -2221,7 +2221,7 @@ private WebElement dataType;
 
 //雷达图
     //图表中的雷达图
-      @FindBy(xpath = "//li[text()='雷达图']/i")
+      @FindBy(xpath = "//li[text()='雷达图']")
       private WebElement radarChart;
       public WebElement getRadarChart(){return radarChart;}
 
@@ -2283,7 +2283,7 @@ private WebElement dataType;
 
 //占比图3D
     //图表中的占比图
-    @FindBy(xpath = "//li[text()='占比图3D']/i")
+    @FindBy(xpath = "//li[text()='占比图3D']")
     private WebElement percent3dChart;
       public WebElement getPercent3dChart(){return percent3dChart;}
 
@@ -2406,7 +2406,7 @@ private WebElement dataType;
 
 //滚动条形图
      //图表中的滚动条形图
-     @FindBy(xpath = "//li[text()='滚动条形图']/i")
+     @FindBy(xpath = "//li[text()='滚动条形图']")
     private WebElement scrollBar;
       public WebElement getScrollBar(){return scrollBar;}
       //样式-滚动条形图
@@ -2446,7 +2446,7 @@ private WebElement dataType;
 
 //滚动柱形图
     //图表中滚动柱形图
-    @FindBy(xpath = "//li[text()='滚动柱形图']/i")
+    @FindBy(xpath = "//li[text()='滚动柱形图']")
     private WebElement rollHistogram;
       public WebElement getRollHistogram(){return rollHistogram;}
       //样式中的滚动柱状图
@@ -2477,7 +2477,7 @@ private WebElement dataType;
 
 
 //滚动列表
-    @FindBy(xpath = "//li[text()='滚动列表']/i")
+    @FindBy(xpath = "//li[text()='滚动列表']")
    private WebElement listOfTurns;
       public WebElement getListOfTurns(){return listOfTurns;}
       //样式中的轮播列表
@@ -2541,7 +2541,7 @@ private WebElement dataType;
       public WebElement getAspectColor(){return this.colorInput("水平胶囊", "条颜色");}
 
 //3D柱图
-    @FindBy(xpath = "//li[text()='3D柱图']/i")
+    @FindBy(xpath = "//li[text()='3D柱图']")
     private WebElement column3D;
     public WebElement getColumn3D(){return column3D;}
 
@@ -2563,7 +2563,7 @@ private WebElement dataType;
     public WebElement getColumnTwoColor(){return this.colorInput("3D柱图", "柱2颜色");}
 
 //日历图
-    @FindBy(xpath = "//li[text()='日历图']/i")
+    @FindBy(xpath = "//li[text()='日历图']")
     private WebElement calendar;
     public WebElement getCalendar(){return calendar;}
 
@@ -2625,7 +2625,7 @@ private WebElement dataType;
 
 
 //滚动列表二
-    @FindBy(xpath = "//li[text()='滚动列表II']/i")
+    @FindBy(xpath = "//li[text()='滚动列表II']")
     private WebElement rollList2;
       public WebElement getRollList2(){return rollList2;}
 

@@ -5,7 +5,7 @@ Feature: 报表禁用/启用
     Given open the "report.ListPage" page for uri "/reports/"
 
   Scenario: create_report
-    And I click the "NewReportButton" button
+    And I click the "NewReportButton" button under some element
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     When I set the parameter "Name" with value "Test_Switch"

@@ -76,6 +76,7 @@ Feature: 仪表盘和弦图
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I click the "ChartType" button
+    And I wait for "1000" millsecond
     Then I will see the "trend.CreatePage" page
     And I wait for "2000" millsecond
     And I wait for "Relation" will be visible

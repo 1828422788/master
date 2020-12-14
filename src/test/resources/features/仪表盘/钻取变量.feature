@@ -89,6 +89,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I click the "ChartType" button
+    And I wait for "1000" millsecond
     Then I will see the "trend.CreatePage" page
     And I wait for "Other" will be visible
     And I click the "Other" button
@@ -311,6 +312,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I click the "ChartType" button
+    And I wait for "1000" millsecond
     Then I will see the "trend.CreatePage" page
     And I wait for "Map" will be visible
     And I click the "Map" button
@@ -528,6 +530,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I click the "ChartType" button
+    And I wait for "1000" millsecond
     Then I will see the "trend.CreatePage" page
     And I wait for "Dimension" will be visible
     And I click the "Dimension" button under some element
@@ -739,6 +742,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I click the "ChartType" button
+    And I wait for "1000" millsecond
     Then I will see the "trend.CreatePage" page
     And I wait for "Other" will be visible
     And I click the "Other" button under some element
@@ -886,6 +890,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I click the "ChartType" button
+    And I wait for "1000" millsecond
     Then I will see the "trend.CreatePage" page
     And I wait for "Other" will be visible
     And I click the "Other" button under some element

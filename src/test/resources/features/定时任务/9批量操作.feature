@@ -32,11 +32,11 @@ Feature: 定时任务批量操作
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
     And I wait for "MultiButton" will be visible
-    And I click the "MultiButton" button
+    And I click the "MultiButton" button under some element
     And I "checked" the checkbox which name is "test_multi_1" in the list
     And I "checked" the checkbox which name is "test_multi_2" in the list
     And I "checked" the checkbox which name is "test_multi_3" in the list
-    And I click the "SelectAction" button
+    And I click the "SelectAction" button under some element
     And I click the "MultiTag" button
     And I wait for "Ensure" will be visible
     And I choose the "auto_package" from the "TagField"
@@ -44,7 +44,7 @@ Feature: 定时任务批量操作
     And I click the "Ensure" button
     Then I will see the success message "更新成功"
     And I wait for loading complete
-    And I click the "Finish" button
+    And I click the "Finish" button under some element
 
   Scenario: verify_tag
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -76,11 +76,11 @@ Feature: 定时任务批量操作
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
     And I wait for "MultiButton" will be visible
-    And I click the "MultiButton" button
+    And I click the "MultiButton" button under some element
     And I "checked" the checkbox which name is "test_multi_1" in the list
     And I "checked" the checkbox which name is "test_multi_2" in the list
     And I "checked" the checkbox which name is "test_multi_3" in the list
-    And I click the "SelectAction" button
+    And I click the "SelectAction" button under some element
     And I click the "MultiSwitch" button
     And I wait for "Ensure" will be visible
     And I will see the message "确定启用 3 个资源"
@@ -88,7 +88,7 @@ Feature: 定时任务批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I wait for loading complete
-    And I click the "Finish" button
+    And I click the "Finish" button under some element
 
   Scenario: verify_switch
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -111,19 +111,28 @@ Feature: 定时任务批量操作
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
     And I wait for "MultiButton" will be visible
-    And I click the "MultiButton" button
+    And I click the "MultiButton" button under some element
     And I "checked" the checkbox which name is "test_multi_1" in the list
     And I "checked" the checkbox which name is "test_multi_2" in the list
     And I "checked" the checkbox which name is "test_multi_3" in the list
-    And I click the "SelectAction" button
+    And I click the "SelectAction" button under some element
     And I click the "MultiDelete" button
     And I wait for "Ensure" will be visible
     Then I will see the message "您选中的 3 个资源将被删除，是否继续？"
+    And I click the "Cancel" button
+    When the data name is "{'column':'2','name':'test_multi_3'}" then i click the "删除" button
+    And I click the "Ensure" button under some element
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "删除成功"
+    And I click the "SelectAction" button under some element
+    And I click the "MultiDelete" button
+    And I wait for "Ensure" will be visible
+    Then I will see the message "您选中的 2 个资源将被删除，是否继续？"
     When I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
     And I wait for loading complete
-    And I click the "Finish" button
+    And I click the "Finish" button under some element
 
   Scenario: verify_delete
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -140,8 +149,8 @@ Feature: 定时任务批量操作
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
     And I wait for "MultiButton" will be visible
-    And I click the "MultiButton" button
-    And I click the "SelectAction" button
+    And I click the "MultiButton" button under some element
+    And I click the "SelectAction" button under some element
     And I click the "<button>" button
     And I wait for "Ensure" will be visible
     Then I will see the message "请至少选择一个资源进行操作"

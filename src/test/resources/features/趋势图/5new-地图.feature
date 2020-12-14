@@ -19,11 +19,13 @@ Feature: 趋势图新建_地图
     And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
+    And I wait for "2000" millsecond
     And I click the "Type" button
     And I click the "Map" button
     And I click the "<chartType>" button
 
     And I click the "Type" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -51,6 +53,7 @@ Feature: 趋势图新建_地图
     And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
+    And I wait for "2000" millsecond
     And I click the "Type" button
     And I click the "Map" button
     And I click the "<chartType>" button
@@ -70,6 +73,7 @@ Feature: 趋势图新建_地图
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -96,6 +100,7 @@ Feature: 趋势图新建_地图
     And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
+    And I wait for "2000" millsecond
     And I click the "Type" button
     And I click the "Map" button
     And I click the "<chartType>" button
@@ -112,6 +117,7 @@ Feature: 趋势图新建_地图
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -139,6 +145,7 @@ Feature: 趋势图新建_地图
     And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
+    And I wait for "2000" millsecond
     And I click the "Type" button
     And I click the "Map" button
     And I click the "<chartType>" button
@@ -150,6 +157,7 @@ Feature: 趋势图新建_地图
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -175,6 +183,7 @@ Feature: 趋势图新建_地图
     And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
+    And I wait for "2000" millsecond
     And I click the "Type" button
     And I click the "Map" button
     And I click the "<chartType>" button
@@ -194,6 +203,7 @@ Feature: 趋势图新建_地图
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -221,6 +231,7 @@ Feature: 趋势图新建_地图
     And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
+    And I wait for "2000" millsecond
     And I click the "Type" button
     And I click the "Map" button
     And I click the "<chartType>" button
@@ -228,12 +239,13 @@ Feature: 趋势图新建_地图
     And I click the "Settings" button
     And I click the "Facet" button
     And I click the "AddField" button
-    And I choose the "apache.status" from the "FieldValue"
+    And I choose the "apache.status" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -260,6 +272,7 @@ Feature: 趋势图新建_地图
     And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
+    And I wait for "2000" millsecond
     And I click the "Type" button
     And I click the "Map" button
     And I click the "<chartType>" button
@@ -267,7 +280,7 @@ Feature: 趋势图新建_地图
     And I click the "Settings" button
     And I click the "Facet" button
     And I click the "AddField" button
-    And I choose the "apache.status" from the "FieldValue"
+    And I choose the "apache.status" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
     And I click the "Divide" button
@@ -277,6 +290,7 @@ Feature: 趋势图新建_地图
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
