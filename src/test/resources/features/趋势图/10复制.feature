@@ -19,7 +19,7 @@ Feature: 趋势图复制(RZY-1889)
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Order" button
@@ -27,14 +27,14 @@ Feature: 趋势图复制(RZY-1889)
     And I click the "Settings" button
     And I click the "Bubble" button
     And I click the "AccordingField" button
-    And I choose the "cnt" from the "BubbleSize"
+    And I choose the "cnt" from the "BubbleSize" in config
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Orange" button
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -45,7 +45,7 @@ Feature: 趋势图复制(RZY-1889)
     When I set the parameter "NameInput" with value "Copy_Test"
     And I set the parameter "TagInput" with value "auto_package"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "test_app" from the "AppField"
+    And I choose the "test_app" from the "AppField" in config
     And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 

@@ -23,7 +23,7 @@ Feature: 趋势图新建_维度
     And I click the "<chartType>" button
 
     And I click the "Type" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -44,7 +44,7 @@ Feature: 趋势图新建_维度
 
   Scenario Outline: dimension_labels_bar
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5"
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -65,7 +65,7 @@ Feature: 趋势图新建_维度
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -114,7 +114,7 @@ Feature: 趋势图新建_维度
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -154,18 +154,18 @@ Feature: 趋势图新建_维度
     And I click the "Settings" button
     And I click the "Facet" button
     And I click the "AddField" button
-    And I choose the "apache.method" from the "FieldValue"
+    And I choose the "apache.method" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
     And I wait for "1000" millsecond
-    And I choose the "<typeInfo>" from the "ShowLabel"
+    And I choose the "<typeInfo>" from the "ShowLabel" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -203,7 +203,7 @@ Feature: 趋势图新建_维度
     And I click the "DeleteFirst" button
     And I click the "Facet" button
     And I click the "AddField" button
-    And I choose the "apache.status" from the "FieldValue"
+    And I choose the "apache.status" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
     And I click the "Exhibition" button
@@ -212,7 +212,7 @@ Feature: 趋势图新建_维度
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -245,11 +245,11 @@ Feature: 趋势图新建_维度
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Exhibition" button
-    And I choose the "<option>" from the "DrillDownMode"
+    And I choose the "<option>" from the "DrillDownMode" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I click the "ShenZhen" button
     And I click the "HideElement" button
@@ -287,15 +287,15 @@ Feature: 趋势图新建_维度
     And I click the "Settings" button
     And I click the "Facet" button
     And I click the "AddField" button
-    And I choose the "apache.method" from the "FieldValue"
+    And I choose the "apache.method" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "2"
     And I set the parameter "ColumnNum" with value "1"
     And I click the "Exhibition" button
-    And I choose the "<option>" from the "DrillDownMode"
+    And I choose the "<option>" from the "DrillDownMode" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I click the "ShenZhen" button
     And I click the "HideElement" button

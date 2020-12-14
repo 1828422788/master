@@ -22,7 +22,7 @@ Feature: 趋势图新建_统计地图
     And I click the "<chartType>" button
 
     And I click the "Type" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I wait for "MapSettings" will be visible
     And I wait for "3000" millsecond
@@ -65,7 +65,7 @@ Feature: 趋势图新建_统计地图
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I wait for "MapSettings" will be visible
     And I wait for "3000" millsecond
@@ -111,7 +111,7 @@ Feature: 趋势图新建_统计地图
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I wait for "MapSettings" will be visible
     And I wait for "15000" millsecond

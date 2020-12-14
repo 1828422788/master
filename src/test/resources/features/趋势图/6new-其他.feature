@@ -21,9 +21,9 @@ Feature: 趋势图新建-其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I click the "Type" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
 
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
@@ -57,9 +57,9 @@ Feature: 趋势图新建-其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I click the "Type" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
 
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
@@ -101,7 +101,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
 
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
@@ -142,7 +142,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -183,7 +183,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -223,7 +223,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -261,7 +261,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -292,7 +292,7 @@ Feature: 趋势图新建-其他
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "cnt" from the "NumericField"
+    And I choose the "cnt" from the "NumericField" in config
     And I click the "Exhibition" button
     And I click the "AccordingArea" button
     And I set the parameter "MinRange" with value "<minVal1>"
@@ -308,7 +308,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -353,7 +353,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -385,10 +385,10 @@ Feature: 趋势图新建-其他
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "count()" from the "NumericField"
-    And I choose the "time" from the "DisplayField"
+    And I choose the "count()" from the "NumericField" in config
+    And I choose the "time" from the "DisplayField" in config
     And I click the "Sparkline" button
-    And I choose the "ts" from the "SparklineField"
+    And I choose the "ts" from the "SparklineField" in config
     And I click the "Exhibition" button
     And I set the parameter "FontSize" with value "60"
     And I click the "AddColor" button
@@ -397,7 +397,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -427,11 +427,11 @@ Feature: 趋势图新建-其他
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "count()" from the "NumericField"
-    And I choose the "time" from the "DisplayField"
-    And I choose the "<option>" from the "DisplayedOnChart"
+    And I choose the "count()" from the "NumericField" in config
+    And I choose the "time" from the "DisplayField" in config
+    And I choose the "<option>" from the "DisplayedOnChart" in config
     And I click the "Sparkline" button
-    And I choose the "ts" from the "SparklineField"
+    And I choose the "ts" from the "SparklineField" in config
     And I click the "Exhibition" button
     And I set the parameter "FontSize" with value "60"
     And I set the parameter "Unit" with value "个"
@@ -445,7 +445,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -476,13 +476,13 @@ Feature: 趋势图新建-其他
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "cnt_2" from the "NumericField"
-    And I choose the "time" from the "DisplayField"
+    And I choose the "cnt_2" from the "NumericField" in config
+    And I choose the "time" from the "DisplayField" in config
     And I click the "Sparkline" button
-    And I choose the "ts" from the "SparklineField"
+    And I choose the "ts" from the "SparklineField" in config
     And I click the "Facet" button
     And I click the "AddField" button
-    And I choose the "apache.method" from the "FieldValue"
+    And I choose the "apache.method" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
     And I click the "Exhibition" button
@@ -501,7 +501,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "4000" millsecond
@@ -539,7 +539,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -577,7 +577,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -620,7 +620,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -685,7 +685,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -725,7 +725,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -767,7 +767,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -810,7 +810,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -854,7 +854,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -893,7 +893,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -945,7 +945,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -991,7 +991,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -1015,7 +1015,7 @@ Feature: 趋势图新建-其他
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
 
     And I wait for "StatisticalChart" will be visible
     And I wait for "2000" millsecond
@@ -1061,7 +1061,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
@@ -1111,7 +1111,7 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -1146,7 +1146,7 @@ Feature: 趋势图新建-其他
     And take part of "Chart" with name "actual/<chartType>"
     And I compare source image "actual/<chartType>" with target image "expect/<chartType>"
     Then I click the "NextButton" button under some element
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
 
     When I set the parameter "NameInput" with value "<chartType>"
     And I set the parameter "DescribeInput" with value "AutoCreate"

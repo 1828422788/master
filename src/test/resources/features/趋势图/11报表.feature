@@ -12,7 +12,7 @@ Feature: 趋势图新建_报表
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
 
     And I wait for "Type" will be visible
     And I click the "Type" button
