@@ -169,7 +169,8 @@ Feature: 数据大屏-c区间图
     And I click the "Ensure" button
 #    And I wait for "500" millsecond
     #区间图
-    c
+    And I wait for "Chart" will be visible
+    And I move the mouse pointer to the "Chart"
 #    And I click the "Chart" button
     And I wait for "Range" will be visible
     And I click the "Range" button
