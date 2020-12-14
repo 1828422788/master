@@ -136,7 +136,7 @@ Feature: 数据大屏-d雷达图
     And I set the parameter "updateFrequency" with value "0.1"
       #选择静态数据
     And I click the "dataSourceType" button
-    And I wait for "500" millsecond
+    And I wait for "1000" millsecond
     And I click the "statisticsData" button
     And I click the "Ensure" button
     And I wait for "tipsText" will be invisible
@@ -196,7 +196,7 @@ Feature: 数据大屏-d雷达图
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button
-    And I wait for "500" millsecond
+    And I wait for "1000" millsecond
     And I click the "bindingSearch" button
       #选择上步添加的搜索
     And I click the "bindingSearchChoose" button

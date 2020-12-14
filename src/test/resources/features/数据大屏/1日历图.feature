@@ -120,6 +120,7 @@ Feature: 数据大屏-d日历图
 
     And I click the "Data" button
     And I click the "dataSourceType" button
+    And I wait for "1000" millsecond
     And I click the "statisticsData" button
     And I click the "Ensure" button
     And I wait for "tipsText" will be invisible

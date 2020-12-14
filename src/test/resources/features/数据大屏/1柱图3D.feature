@@ -107,6 +107,7 @@ Feature: 数据大屏-g3D柱图
     And I wait for "SearchTip" will be invisible
       #选择静态数据
     And I click the "dataSourceType" button
+    And I wait for "1000" millsecond
     And I click the "statisticsData" button
     And I click the "Ensure" button
 
