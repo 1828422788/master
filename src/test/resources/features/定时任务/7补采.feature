@@ -38,7 +38,7 @@ Feature:定时任务补采
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
-    And I will see the data "{'column':'0','name':'Test_Complement_2'}" values "{'column':'6','name':'准备执行'}"
+#    And I will see the data "{'column':'0','name':'Test_Complement_2'}" values "{'column':'6','name':'准备执行'}"
     And I will see the data "{'column':'0','name':'Test_Complement_2'}" values "{'column':'5','name':'是'}"
 
   Scenario: create_complement
@@ -55,7 +55,7 @@ Feature:定时任务补采
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
     And I refresh the website
-    And I will see the data "{'column':'0','name':'Test_Complement'}" values "{'column':'6','name':'准备执行'}"
+#    And I will see the data "{'column':'0','name':'Test_Complement'}" values "{'column':'6','name':'准备执行'}"
     And I will see the data "{'column':'0','name':'Test_Complement'}" values "{'column':'5','name':'否'}"
     When the data name is "{'column':'0','name':'Test_Complement'}" then i click the "暂停" button
     And I wait for "SuccessMessage" will be visible
