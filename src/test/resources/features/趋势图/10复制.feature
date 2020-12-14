@@ -19,6 +19,7 @@ Feature: 趋势图复制(RZY-1889)
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
+    And I wait for "1000" millsecond
     And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Order" button
@@ -33,6 +34,7 @@ Feature: 趋势图复制(RZY-1889)
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "1000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
