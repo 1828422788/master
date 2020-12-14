@@ -64,7 +64,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "linechart")
     private WebElement line;
 
-    @FindBy(className = "linechart2y")
+    @FindBy(xpath = "//li[text()='双轴折线图']")
     private WebElement line2y;
 
     @FindBy(className = "barchart")

@@ -13,8 +13,10 @@ Feature: 数据大屏-b双轴折线图
     And I set the parameter "Name" with value "双轴折线图-XY轴-布局-搜索"
     And I click the "Ensure" button
     #双轴折线图
-    And I click the "Chart" button
+    And I wait for "Chart" will be visible
+    And I move the mouse pointer to the "Chart"
     And I wait for "Line2y" will be visible
+    And I move the mouse pointer to the "Line2y"
     And I click the "Line2y" button
     And I click the "Style" button
     #数据
@@ -46,7 +48,7 @@ Feature: 数据大屏-b双轴折线图
     And I wait for "XColorInput" will be visible
     And I set the parameter "XColorInput" with value "#CF3131"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     And I choose the "bolder" from the "XaxisWordBold"
      #轴标签
     And I set the parameter "XaxisShift" with value "5"
@@ -61,7 +63,7 @@ Feature: 数据大屏-b双轴折线图
     And I wait for "XDividingLineColor" will be visible
     And I set the parameter "XDividingLineColor" with value "#CD9080"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
 
     And I choose the "dotted" from the "XDividingLineType"
      # 轴线
@@ -69,7 +71,7 @@ Feature: 数据大屏-b双轴折线图
     And I wait for "xLineColor" will be visible
     And I set the parameter "xLineColor" with value "#26CC55"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     And I set the parameter "XLineBold" with value "4"
 #Y1轴
     And I click the "YaxisHeader" button
@@ -80,7 +82,7 @@ Feature: 数据大屏-b双轴折线图
     And I wait for "YColorInput" will be visible
     And I set the parameter "YColorInput" with value "#19B535"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     And I choose the "bold" from the "YaxisWordBold"
      # 轴标签
     And I set the parameter "YaxisShift" with value "10"
@@ -93,7 +95,7 @@ Feature: 数据大屏-b双轴折线图
     And I wait for "Y1DividingLineColor" will be visible
     And I set the parameter "Y1DividingLineColor" with value "#BBB80B"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
 
     And I choose the "dashed" from the "Y1DividingLineType"
     # 轴线
@@ -101,7 +103,7 @@ Feature: 数据大屏-b双轴折线图
     And I wait for "Y1LineColor" will be visible
     And I set the parameter "Y1LineColor" with value "#CBD50D"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     And I set the parameter "Y1LineBold" with value "4"
 
 #布局
@@ -149,7 +151,7 @@ Feature: 数据大屏-b双轴折线图
     And I wait for "ExampleColor" will be visible
     And I set the parameter "ExampleColor" with value "#D73535"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     And I choose the "bolder" from the "ExampleWordBold"
     And I choose the "居中" from the "ExampleHorizontal"
     And I choose the "顶部" from the "ExampleVertical"
