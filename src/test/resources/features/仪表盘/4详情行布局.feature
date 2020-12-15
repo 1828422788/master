@@ -20,6 +20,7 @@ Feature: 仪表盘详情行布局
     And I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
     And I click the "DateEditor" button
+    And I wait for "Today" will be visible
     And I click the "Today" button
     And I click the "FenPianQuYang" button
     And I alter the input element "FenPianQuYang" value to "0"
@@ -33,7 +34,7 @@ Feature: 仪表盘详情行布局
     And I wait for "SuccessCreate" will be visible
 
     Examples:
-      | name        | spl                                   |
+      | name        | spl                                                           |
       | 行布局趋势图1 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
       | 行布局趋势图2 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
       | 行布局趋势图3 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |

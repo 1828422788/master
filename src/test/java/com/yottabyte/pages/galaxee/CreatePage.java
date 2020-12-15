@@ -1478,7 +1478,7 @@ public class CreatePage extends PageTemplate {
 
    // public WebElement getSuccessMessage(){return super.getSuccessMessage();}
 
-    @FindBy(xpath = "c")
+    @FindBy(xpath = "//div[@class='el-message-box__message']/p[text()='保存成功']")
     private WebElement successMessage;
     @Override
     public WebElement getSuccessMessage() {

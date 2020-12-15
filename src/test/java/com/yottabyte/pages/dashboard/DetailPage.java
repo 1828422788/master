@@ -282,7 +282,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//*[name()='g'][contains(@class,'vx-axis-left')]")
     private WebElement sequenceChartYaxis;
 
-    @FindBy(xpath = "//div[text()='404']/ancestor::div[contains(@class,'sc-gsTCUz')]")
+    @FindBy(xpath = "//div[text()='404']/ancestor::div[contains(@class,'sc-gsTCUz')]/parent::div")
     private WebElement multiYaxisLegend;
 
     @FindBy(xpath = "//div[contains(@class,'sc-bdfBwQ')]")

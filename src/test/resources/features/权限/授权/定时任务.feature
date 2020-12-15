@@ -1,7 +1,6 @@
 @authtest1
 Feature: 权限-定时任务
 
-
   Scenario Outline: 授权功能权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button

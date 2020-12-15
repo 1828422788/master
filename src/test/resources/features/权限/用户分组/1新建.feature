@@ -10,6 +10,7 @@ Feature: 用户分组创建（RZY-545）
     When I set the parameter "UserGroupName" with value "<UserGroupName>"
     When I set the parameter "UserGroupDes" with value "<UserGroupDes>"
     And I click the "CreateButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "<message>"
 
     Examples:
@@ -24,4 +25,5 @@ Feature: 用户分组创建（RZY-545）
     And I click the "Create" button
     Then I will see the "userGroups.CreatePage" page
     And I click the "CreateButton" button
+    And I wait for "ExplainMessage" will be visible
     Then I will see the element "ExplainMessage" name is "请输入名称"

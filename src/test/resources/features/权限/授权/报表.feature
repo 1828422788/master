@@ -5,10 +5,12 @@ Feature: 权限-报表
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "全选"
     And I click the "Resource" button
     When I "checked" the checkbox which name is "可查看报表"
+    When I "unchecked" the checkbox which name is "新建报表"
     And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
@@ -34,6 +36,7 @@ Feature: 权限-报表
     When I set the parameter "NameInput" with value "<name>"
     And I click the "NextButton" button
     And I wait for "SuccessCreate" will be visible
+    Then I logout current user
 
     Examples:
       | name        | spl                                                                                             |
@@ -45,18 +48,23 @@ Feature: 权限-报表
     Given open the "report.ListPage" page for uri "/reports/"
     And I wait for loading invisible
     Then I will see the "Create" doesn't exist
+    Then I logout current user
 
   Scenario: 授权有新建权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "Resource" button
+    And I wait for "1000" millsecond
     When I "checked" the checkbox which name is "新建报表"
     And I click the "ResourceAuth" button
+    And I wait for "1000" millsecond
     Then I click the "{'TabButton':'趋势图'}" button
     And I "checked" the checkbox which name is "ForAutoTest" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
   Scenario: 验证有新建权限
     Given I login user "AutoTest" with password "All#123456"
@@ -73,37 +81,51 @@ Feature: 权限-报表
     And I choose the "ForAutoTest" from the "ChartList"
     And I wait for "TopoTitle" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
+    Then I logout current user
 
   Scenario: 取消读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I click the "ResourceAuth" button
-    And I wait for "Loading" will be invisible
-    Then I click the "Report" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
+    Then I click the "{'TabButton':'报表'}" button
+    And I wait for "1000" millsecond
     And I "checked" the checkbox which name is "AutoTestCreate" in auth table
     And I "unchecked" the checkbox which name is "AutoTestCreate" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
+
+  Scenario: 验证无读取权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "report.ListPage" page for uri "/reports/"
     Then I will see the search result "{'column':'1','name':'AutoTestCreate','contains':'no'}"
+    Then I logout current user
 
   Scenario Outline: 授权读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Report" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    And I wait for loading invisible
+    Then I click the "{'TabButton':'报表'}" button
+    And I wait for "1000" millsecond
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     When I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
+
+    Examples:
+      | name           |
+      | AutoTestCreate |
+
+  Scenario Outline: 验证读取权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "report.ListPage" page for uri "/reports/"
@@ -118,8 +140,11 @@ Feature: 权限-报表
     And I set the parameter "Name" with value "AutoCreate"
     And I click the "NextButton" button
     And I wait for "TopoTitle" will be visible
-    And I click the "Save" button
-    Then I will see the success message "没有相关资源权限"
+    Then I click the "Complete" button
+#    Then I will see the element "Complete" attribute is "disabled"
+#    And I click the "Save" button
+#    Then I will see the success message "没有相关资源权限"
+    Then I logout current user
 
     Examples:
       | name           |
@@ -129,13 +154,21 @@ Feature: 权限-报表
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Report" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    And I wait for loading invisible
+    Then I click the "{'TabButton':'报表'}" button
+    And I wait for "1000" millsecond
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "删除,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
+
+    Examples:
+      | name           |
+      | AutoTestCreate |
+
+  Scenario Outline: 验证读取+编辑权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "report.ListPage" page for uri "/reports/"
@@ -161,6 +194,7 @@ Feature: 权限-报表
     When the data name is "{'column':'1','name':'AutoTestRename'}" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
+    Then I logout current user
 
     Examples:
       | name           |
@@ -170,13 +204,21 @@ Feature: 权限-报表
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Report" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    And I wait for loading invisible
+    Then I click the "{'TabButton':'报表'}" button
+    And I wait for "1000" millsecond
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
+
+    Examples:
+      | name           |
+      | AutoTestRename |
+
+  Scenario Outline: 验证读取+编辑+删除
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "report.ListPage" page for uri "/reports/"
@@ -206,6 +248,7 @@ Feature: 权限-报表
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I wait for element "Message" change text to "删除成功"
+    Then I logout current user
 
     Examples:
       | name           |
@@ -228,13 +271,21 @@ Feature: 权限-报表
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Report" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    And I wait for loading invisible
+    Then I click the "{'TabButton':'报表'}" button
+    And I wait for "1000" millsecond
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
+
+    Examples:
+      | name           |
+      | AutoTestCreate |
+
+  Scenario Outline: 验证读取+删除
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "report.ListPage" page for uri "/reports/"
@@ -258,6 +309,7 @@ Feature: 权限-报表
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I wait for element "Message" change text to "删除成功"
+    Then I logout current user
 
     Examples:
       | name           |
@@ -280,13 +332,21 @@ Feature: 权限-报表
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Report" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    And I wait for loading invisible
+    Then I click the "{'TabButton':'报表'}" button
+    And I wait for "1000" millsecond
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
+
+    Examples:
+      | name           |
+      | AutoTestCreate |
+
+  Scenario Outline: 验证读取+转授权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "report.ListPage" page for uri "/reports/"
@@ -309,6 +369,7 @@ Feature: 权限-报表
     And I wait for "TopoTitle" will be visible
     And I click the "Save" button
     Then I will see the success message "没有相关资源权限"
+    Then I logout current user
 
     Examples:
       | name           |
@@ -318,13 +379,21 @@ Feature: 权限-报表
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Report" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    And I wait for loading invisible
+    Then I click the "{'TabButton':'报表'}" button
+    And I wait for "1000" millsecond
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
+
+    Examples:
+      | name           |
+      | AutoTestCreate |
+
+  Scenario Outline: 验证读取+编辑+转授权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "report.ListPage" page for uri "/reports/"
@@ -356,6 +425,7 @@ Feature: 权限-报表
     And I click the "NextButton" button
     And I click the "Save" button
     Then I will see the success message "保存成功"
+    Then I logout current user
 
     Examples:
       | name           |
@@ -365,9 +435,10 @@ Feature: 权限-报表
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Report" button
+    And I click the "ResourceAuth" button
     And I wait for loading invisible
+    Then I click the "{'TabButton':'报表'}" button
+    And I wait for "1000" millsecond
     And I "checked" the checkbox which name is "AutoTestRename" in auth table
     When the data name is "AutoTestRename" then I click the "无限期" button in auth table
     And I click the "Customize" button
@@ -396,12 +467,20 @@ Feature: 权限-报表
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Report" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    And I wait for loading invisible
+    Then I click the "{'TabButton':'报表'}" button
+    And I wait for "1000" millsecond
     And I "checked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
+
+    Examples:
+      | name           |
+      | AutoTestCreate |
+
+  Scenario Outline: 验证所有权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "report.ListPage" page for uri "/reports/"
@@ -437,6 +516,7 @@ Feature: 权限-报表
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I wait for element "Message" change text to "删除成功"
+    Then I logout current user
 
     Examples:
       | name           |
@@ -479,6 +559,7 @@ Feature: 权限-报表
     When the data name is "{'column':'1','name':'测试二次授权'}" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
+    Then I logout current user
 
     Examples:
       | authName | function |
@@ -579,9 +660,10 @@ Feature: 权限-报表
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Report" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    And I wait for loading invisible
+    Then I click the "{'TabButton':'报表'}" button
+    And I wait for "1000" millsecond
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
