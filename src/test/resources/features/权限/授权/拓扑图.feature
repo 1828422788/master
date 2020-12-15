@@ -1,18 +1,20 @@
-#@auth
+@authtest12
 Feature: 权限-拓扑图
 
   Scenario Outline: 勾选所需功能权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "全选"
-    When I "checked" the checkbox which name is "可查看拓扑图,新建拓扑图"
+    And I click the "Resource" button
+    When I "checked" the checkbox which name is "可查看拓扑图"
+    When I "unchecked" the checkbox which name is "新建拓扑图"
+    And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name              |
@@ -20,30 +22,27 @@ Feature: 权限-拓扑图
       | __user_验证授权用户__   |
 
   Scenario: 验证无新建权限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    And I "unchecked" the checkbox which name is "新建拓扑图"
-    And I click the "SaveButton" button
-    And I will see the success message "更新成功"
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then I will see the "Create" doesn't exist
+    Then I logout current user
 
-  Scenario Outline: 新建拓扑图
+  Scenario: 新建拓扑图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
+    When I "checked" the checkbox which name is "全选"
+    When I "unchecked" the checkbox which name is "全选"
+    And I click the "Resource" button
+    And I wait for loading invisible
     When I "checked" the checkbox which name is "新建拓扑图"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
+
+  Scenario Outline: 验证新建拓扑图
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
@@ -52,6 +51,7 @@ Feature: 权限-拓扑图
     And I set the parameter "NameInput" with value "<name>"
     And I click the "Ensure" button
     Then I will see the success message "创建成功"
+    Then I logout current user
 
     Examples:
       | name     |
@@ -61,17 +61,27 @@ Feature: 权限-拓扑图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
+    And I click the "ResourceAuth" button
+    And I wait for loading invisible
     Then I click the "{'TabButton':'拓扑图'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
+
+    Examples:
+      | name     |
+      | AutoTest |
+
+  Scenario Outline: 验证无读取权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
+    Then I logout current user
 
     Examples:
       | name     |
@@ -81,14 +91,23 @@ Feature: 权限-拓扑图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
+    And I click the "ResourceAuth" button
+    And I wait for loading invisible
     Then I click the "{'TabButton':'拓扑图'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     When I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
+
+    Examples:
+      | name     |
+      | AutoTest |
+
+  Scenario Outline: 验证读取
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
@@ -103,6 +122,7 @@ Feature: 权限-拓扑图
     And I click the "Save" button
     And I wait for "Message" will be visible
     Then I will see the message "保存失败"
+    Then I logout current user
 
     Examples:
       | name     |
@@ -112,13 +132,22 @@ Feature: 权限-拓扑图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
+    And I click the "ResourceAuth" button
+    And I wait for loading invisible
     Then I click the "{'TabButton':'拓扑图'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "删除,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
+
+    Examples:
+      | name     |
+      | AutoTest |
+
+  Scenario Outline: 验证读取+编辑
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
@@ -144,6 +173,7 @@ Feature: 权限-拓扑图
     And I refresh the website
     And I accept alert window
     And open the "topology.ListPage" page for uri "/topology/"
+    Then I logout current user
 
     Examples:
       | name     |
@@ -153,13 +183,21 @@ Feature: 权限-拓扑图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
+    And I click the "ResourceAuth" button
+    And I wait for loading invisible
     Then I click the "{'TabButton':'拓扑图'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+    Examples:
+      | name     |
+      | AutoTest |
+
+  Scenario Outline: 验证读取+编辑+删除
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
@@ -197,23 +235,34 @@ Feature: 权限-拓扑图
       | name     |
       | AutoTest |
 
-  Scenario Outline: 授权读取+删除
+  Scenario: 新建拓扑图测试读取+删除
     Given open the "topology.ListPage" page for uri "/topology/"
     And I wait for loading invisible
     And I click the "Create" button
-    And I set the parameter "NameInput" with value "<name>"
+    And I set the parameter "NameInput" with value "AutoTest"
     And I click the "Ensure" button
     Then I will see the success message "创建成功"
+
+  Scenario Outline: 授权读取+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
+    And I click the "ResourceAuth" button
+    And I wait for loading invisible
     Then I click the "{'TabButton':'拓扑图'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
+
+    Examples:
+      | name     |
+      | AutoTest |
+
+  Scenario Outline: 验证读取+删除
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
@@ -234,6 +283,7 @@ Feature: 权限-拓扑图
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
+    Then I logout current user
 
     Examples:
       | name     |
@@ -250,13 +300,22 @@ Feature: 权限-拓扑图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
+    And I click the "ResourceAuth" button
+    And I wait for loading invisible
     Then I click the "{'TabButton':'拓扑图'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "更新成功"
+    And I wait for "1000" millsecond
+    Then I logout current user
+
+    Examples:
+      | name     |
+      | AutoTest |
+
+  Scenario Outline: 验证读取+转授
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
@@ -287,13 +346,21 @@ Feature: 权限-拓扑图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
+    And I click the "ResourceAuth" button
+    And I wait for loading invisible
     Then I click the "{'TabButton':'拓扑图'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+    Examples:
+      | name     |
+      | AutoTest |
+
+  Scenario Outline: 验证读取+编辑+转授
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
@@ -338,7 +405,9 @@ Feature: 权限-拓扑图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
+    And I click the "ResourceAuth" button
+    And I wait for loading invisible
     Then I click the "{'TabButton':'拓扑图'}" button
     And I wait for loading invisible
     And I "checked" the checkbox which name is "AutoRename" in auth table
@@ -369,12 +438,20 @@ Feature: 权限-拓扑图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
+    And I click the "ResourceAuth" button
+    And I wait for loading invisible
     Then I click the "{'TabButton':'拓扑图'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+    Examples:
+      | name     |
+      | AutoTest |
+
+  Scenario Outline: 验证所有权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
@@ -427,19 +504,49 @@ Feature: 权限-拓扑图
     And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then I will see the search result "{'column':'0','name':'AutoRename','contains':'no'}"
+    Then I logout current user
 
   @logout
   Scenario Outline: 授权读取+删除+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
+    And I click the "ResourceAuth" button
+    And I wait for loading invisible
     Then I click the "{'TabButton':'拓扑图'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
+
+    Examples:
+      | name       |
+      | AutoRename |
+
+  @logout
+  Scenario Outline: 授权读取+删除+转授
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_验证授权用户__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
+    And I click the "ResourceAuth" button
+    And I wait for loading invisible
+    Then I click the "{'TabButton':'拓扑图'}" button
+    And I wait for loading invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
+    And I click the "SaveButton" button
+    And I will see the success message "更新成功"
+    Then I logout current user
+
+    Examples:
+      | name       |
+      | AutoRename |
+
+  Scenario Outline: 授权读取+删除+转授
     And I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
@@ -488,6 +595,7 @@ Feature: 权限-拓扑图
     And I "check" the checkbox which name is "AutoTest" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
+    Then I logout current user
 
   Scenario Outline: 二次授权读取
     Given I login user "AutoTest" with password "All#123456"
