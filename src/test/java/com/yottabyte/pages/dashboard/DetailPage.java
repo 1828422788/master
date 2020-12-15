@@ -505,7 +505,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='仪表盘单值']/following-sibling::div[last()]/div/div[last()]/div/span[1]")
     private WebElement dashboardSingleValue;
 
-    @FindBy(xpath = "//span[text()='thumbs-up:']/parent::div")
+    @FindBy(xpath = "//span[text()='thumbs-up:']/parent::div/parent::div")
     private WebElement singleValueDiv;
 
     @FindBy(xpath = "//div[text()='钻取变量单值value']/following-sibling::div[last()]/div/div[last()]/div/span")
