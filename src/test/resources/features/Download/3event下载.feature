@@ -158,7 +158,7 @@ Feature: download_事件搜索下载
       #add
       | tran_count_where | tag:sample04061424 \| transaction apache.resp_len keepevicted=true \| where _count==4 |
       #add
-      | tran_duration_where | tag:sample04061424 \| transaction apache.resp_len keepevicted=true \| where _duration<500 |
+#      | tran_duration_where | tag:sample04061424 \| transaction apache.resp_len keepevicted=true \| where _duration<500 |
       | tran_endswith_eval_contains | tag:sample04061424 \| transaction apache.clientip endswith=eval(apache.status == 200) maxevents=10 contains=\"Dalvik\" |
       | tran_startswith_endswith_maxspan_5s | starttime = \"now/d\" endtime = \"now\" tag:sample04061424 \| transaction apache.clientip startswith=\"Android\" endswith=\"Dalvik\" maxspan=5s maxevents=50 maxopentxn=1000 maxopenevents=1000 |
       #add
@@ -191,10 +191,10 @@ Feature: download_事件搜索下载
       | iplocation_sample1 | \| makeresults \| eval ip=split(\"202.106.0.20 2400:da00::dbf:0:100 117.50.11.11\", \" \")  \| mvexpand ip \| fields -timestamp \| iplocation ip |
       | iplocation_clientip_sample2 | tag:sample04061424 \| sort by apache.x_foward \| table apache.clientip \| iplocation apache.clientip |
       | iplocation_clientip_zero | \| makeresults \| eval ip=0  \| mvexpand ip \| fields -timestamp \| iplocation ip |
-      | unpivot_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info \| stats avg(json.net.packets_recv), latest('json.net.packets_recv'), es('json.net.packets_recv') \| unpivot |
-      | unpivot_bygroup_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info \| stats latest('json.disk.used'), es('json.disk.used') by json.disk.path \| unpivot |
-      | unpivot_bygroup_header_field | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info \| stats latest('json.disk.used'), es('json.disk.used') by json.disk.path \| unpivot header_field=json.disk.path column_name=function |
-      | unpivot_bygroup_header_field_unpivot | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info \| stats latest('json.disk.used'), es('json.disk.used') by json.disk.path \| unpivot header_field=json.disk.path column_name=function \| unpivot header_field=function |
+#      | unpivot_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info \| stats avg(json.net.packets_recv), latest('json.net.packets_recv'), es('json.net.packets_recv') \| unpivot |
+#      | unpivot_bygroup_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info \| stats latest('json.disk.used'), es('json.disk.used') by json.disk.path \| unpivot |
+#      | unpivot_bygroup_header_field | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info \| stats latest('json.disk.used'), es('json.disk.used') by json.disk.path \| unpivot header_field=json.disk.path column_name=function |
+#      | unpivot_bygroup_header_field_unpivot | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info \| stats latest('json.disk.used'), es('json.disk.used') by json.disk.path \| unpivot header_field=json.disk.path column_name=function \| unpivot header_field=function |
       | foreach_avg_disk_used | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info \| timechart avg(json.disk.used) as a by json.disk.path \| foreach a* [[ eval '<<FIELD>>'='<<FIELD>>'/1024/1024/1024 ]] \| fields -_time |
       | foreach_json_sample | \| makeresults \| eval json.as=\"a\", json.a2=\"b\",json.a3=\"c\" \| foreach json.* [[ eval test = if(empty(test),\"\",tet+\"\")+\"<<FIELD>>\"]] \| fields -timestamp |
       | foreach_apache | tag:sample04061424 \| sort by apache.x_foward \| table apache.geo.l* \| foreach apache.g* [[ eval new_field='<<FIELD>>']] |
