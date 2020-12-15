@@ -15,7 +15,8 @@ Feature: 数据大屏-g水平胶囊
     And I set the parameter "Name" with value "水平胶囊样式-搜索"
     And I click the "Ensure" button
       #选择水平胶囊
-    And I click the "Chart" button
+    And I wait for "Chart" will be visible
+    And I move the mouse pointer to the "Chart"
     And I wait for "horizontalCapsule" will be visible
     And I click the "horizontalCapsule" button
     And I wait for "Style" will be visible
@@ -102,7 +103,8 @@ Feature: 数据大屏-g水平胶囊
     And I set the parameter "Name" with value "水平胶囊数据之静态数据"
     And I click the "Ensure" button
       #选择水平胶囊
-    And I click the "Chart" button
+    And I wait for "Chart" will be visible
+    And I move the mouse pointer to the "Chart"
     And I wait for "horizontalCapsule" will be visible
     And I click the "horizontalCapsule" button
     And I wait for "Style" will be visible
