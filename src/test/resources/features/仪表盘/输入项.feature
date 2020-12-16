@@ -885,6 +885,26 @@ Feature: 仪表盘输入项
     Then I will see the input element "TimeRange" value will contains "上周"
 
   @dashboard @dashboardSmoke
+  Scenario: 钻取配置中link类型为dashboard RZY-1838
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "测试输入项"
+    Then I will see the "dashboard.DetailPage" page
+    When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I wait for "1000" millsecond
+    And I set the parameter "{  "title": "仪表盘1669所用趋势图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "table"  },  "drilldown": {    "type": "dashboard",    "blank": true,    "link": "/dashboard/6/6/?filter=${test}",    "eval": {      "name": "test",      "value": "${click.value2}-55"    }  }}" to json editor
+    And I click the "Check" button
+    Then I will see the success message "校验通过"
+    And I click the "Ensure" button
+    And I wait for "Progress" will be invisible
+    And I click the "NumberOf61" button
+    And I wait for "1000" millsecond
+    And switch to another window
+    And I close all tabs except main tab
+    Then I will see the url contains "/dashboard/6/6/?filter=6"
+    Then I will see the element "FilterValue" value is "6"
+
+  @dashboard @dashboardSmoke
   Scenario Outline: 标题、标识校验（RZY-270,RZY-271）
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
