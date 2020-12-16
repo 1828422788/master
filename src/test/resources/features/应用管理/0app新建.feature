@@ -122,7 +122,9 @@ Feature: 应用新建（RZY-1899）
     And I set the parameter "MenuName" with value "用户分组"
     And I set the parameter "Url" with value "/account/usergroups/"
     And I click the "SaveMenuButton" button
+    And I wait for "SaveMenuButton" will be invisible
     And I click the "AddMenuButton" button under some element
+    And I wait for "MenuName" will be visible
     And I set the parameter "MenuName" with value "用户管理"
     And I set the parameter "Url" with value "/account/users/"
     And I click the "SaveMenuButton" button

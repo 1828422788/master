@@ -23,6 +23,7 @@ Feature: 用户新建（RZY-1164）
   Scenario Outline: 添加普通用户失败
     And I click the "CreateUser" button
     And I will see the "users.CreatePage" page
+    And I wait for "UserName" will be visible
     When I set the parameter "UserName" with value "<UserName>"
     And I set the parameter "Email" with value "<Email>"
     And I set the parameter "Telephone" with value "<Telephone>"

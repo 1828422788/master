@@ -7,6 +7,7 @@ Feature: 用户分组创建（RZY-545）
   Scenario Outline: 用户分组创建
     And I click the "Create" button
     Then I will see the "userGroups.CreatePage" page
+    And I wait for "UserGroupName" will be visible
     When I set the parameter "UserGroupName" with value "<UserGroupName>"
     When I set the parameter "UserGroupDes" with value "<UserGroupDes>"
     And I click the "CreateButton" button

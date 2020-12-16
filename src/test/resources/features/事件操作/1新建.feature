@@ -15,6 +15,7 @@ Feature: 事件操作新建（RZY-1387）
     And I set the parameter "Url" with value "<url>"
     And I choose the "<openUrl>" from the "OpenUrl"
     And I click the "CreateButton" button
+    And I wait for "Message" will be visible
     Then I will see the message "<message>"
     Given open the "event.ListPage" page for uri "/event/action/"
     And I wait for loading invisible
@@ -31,6 +32,7 @@ Feature: 事件操作新建（RZY-1387）
     And I set the parameter "Name" with value "<name>"
     And I set the parameter "Url" with value "<url>"
     And I click the "CreateButton" button
+    And I wait for "Message" will be visible
     Then I will see the message "<message>"
     And open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"

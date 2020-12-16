@@ -1,4 +1,4 @@
-@authtest12
+@authtest1
 Feature: 权限-拓扑图
 
   Scenario Outline: 勾选所需功能权限
@@ -324,6 +324,7 @@ Feature: 权限-拓扑图
     And I wait for loading invisible
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
+    And I wait for "Message" will be visible
     Then I will see the message "保存成功"
     And open the "topology.ListPage" page for uri "/topology/"
     And I login user "AutoTest" with password "All#123456"
@@ -592,6 +593,7 @@ Feature: 权限-拓扑图
     Given open the "topology.ListPage" page for uri "/topology/"
     And I wait for loading invisible
     When the data name is "验证二次授权" then i click the "授权" button
+    And I wait for loading invisible
     And I "check" the checkbox which name is "AutoTest" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
@@ -603,6 +605,7 @@ Feature: 权限-拓扑图
     Given open the "topology.ListPage" page for uri "/topology/"
     And I wait for loading invisible
     When the data name is "验证二次授权" then i click the "授权" button
+    And I wait for loading invisible
     And I choose the "<authRole>" from the "AuthDropdown"
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
@@ -632,6 +635,7 @@ Feature: 权限-拓扑图
     Given open the "topology.ListPage" page for uri "/topology/"
     And I wait for loading invisible
     When the data name is "验证二次授权" then i click the "授权" button
+    And I wait for loading invisible
     And I choose the "<authRole>" from the "AuthDropdown"
     And I wait for loading invisible
     When I "check" the function "<function>" which name is "<authName>" in tiny table
@@ -672,6 +676,7 @@ Feature: 权限-拓扑图
     Given open the "topology.ListPage" page for uri "/topology/"
     And I wait for loading invisible
     When the data name is "验证二次授权" then i click the "授权" button
+    And I wait for loading invisible
     And I choose the "<authRole>" from the "AuthDropdown"
     And I wait for loading invisible
     When I "check" the function "<function>" which name is "<authName>" in tiny table
@@ -756,6 +761,7 @@ Feature: 权限-拓扑图
     And I click the "Save" button
     And I refresh the website
     And I accept alert window
+    Then I logout current user
 
   @cleanAuth
   Scenario Outline: 清理
