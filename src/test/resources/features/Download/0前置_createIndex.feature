@@ -29,8 +29,7 @@ Feature: 新建collect使用索引
 
   @delcollect0
   Scenario Outline:
-#    Given the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
-    And I click the "删除" button
+    Given the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
     And I click the "Ensure" button
 
     Examples:
@@ -42,3 +41,5 @@ Feature: 新建collect使用索引
       | collectmodetrue  |
       | collectmulti  |
       | collectdelete  |
+
+
