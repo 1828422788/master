@@ -302,7 +302,7 @@ Feature: 仪表盘单值
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SingleValueDiv" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | singleChartIcon |   image            |
@@ -325,7 +325,7 @@ Feature: 仪表盘单值
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SingleValueDiv" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | singleChartIcon |   image            |
@@ -348,11 +348,71 @@ Feature: 仪表盘单值
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SingleValueDiv" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | singleChartIcon |   image            |
       |   none          |   单值_图标-无       |
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 默认只改为trending RZY-3745
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘单值"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
+    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "<displayMode>",    "color": "#5C9DF5",    "colorFillingMode": "font",    "liveRefreshMode": false  }}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    Then I wait for element "ErrorMessage" change text to "<ErrorMessage>"
+
+    Examples:
+      | displayMode |  ErrorMessage                      |
+      |   trending  |  chart -> comparsionTime 字段为必填项 |
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 默认-color RZY-3745
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘单值"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
+    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I wait for "500" millsecond
+    And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "default",    "color": "<color>",    "colorFillingMode": "font",    "liveRefreshMode": false  }}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    And I wait for "500" millsecond
+    Then I click the "Ensure" button
+    And I wait for loading invisible
+    And I wait for "2000" millsecond
+    Then take part of "SingleValueDiv" with name "actual/<image>"
+#    And I compare source image "actual/<image>" with target image "expect/<image>"
+
+    Examples:
+      | color   |  image           |
+      | #FFEB3B |  单值_默认_color  |
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 默认-colorFillingMode-background RZY-3745
+    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "default",    "color": "<color>",    "colorFillingMode": "<colorFillingMode>",    "liveRefreshMode": false  }}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    And I wait for "500" millsecond
+    Then I click the "Ensure" button
+    And I wait for loading invisible
+    And I wait for "2000" millsecond
+    Then take part of "SingleValueDiv" with name "actual/<image>"
+#    And I compare source image "actual/<image>" with target image "expect/<image>"
+
+    Examples:
+      | colorFillingMode |   image                    |
+      |   background     |  单值_默认_colorFillingMode  |
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘
