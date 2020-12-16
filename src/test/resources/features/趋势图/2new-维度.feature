@@ -17,10 +17,9 @@ Feature: 趋势图新建_维度
     And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
-    And I wait for "2000" millsecond
-    And I click the "Type" button
-    And I click the "Dimension" button
-    And I click the "<chartType>" button
+    And I click the "Type" button under some element
+    And I click the "Dimension" button under some element
+    And I click the "<chartType>" button under some element
 
     And I click the "Type" button
     And I wait for "2000" millsecond
@@ -51,10 +50,9 @@ Feature: 趋势图新建_维度
     And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
-    And I wait for "2000" millsecond
-    And I click the "Type" button
-    And I click the "Dimension" button
-    And I click the "<chartType>" button
+    And I click the "Type" button under some element
+    And I click the "Dimension" button under some element
+    And I click the "<chartType>" button under some element
     And I click the "Settings" button
     And I click the "Exhibition" button
     And I click the "AddColor" button
@@ -101,10 +99,9 @@ Feature: 趋势图新建_维度
     And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
-    And I wait for "2000" millsecond
-    And I click the "Type" button
-    And I click the "Dimension" button
-    And I click the "<chartType>" button
+    And I click the "Type" button under some element
+    And I click the "Dimension" button under some element
+    And I click the "<chartType>" button under some element
     And I click the "Settings" button
     And I click the "Exhibition" button
     And I click the "AddColor" button
@@ -146,10 +143,9 @@ Feature: 趋势图新建_维度
     And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
-    And I wait for "2000" millsecond
-    And I click the "Type" button
-    And I click the "Dimension" button
-    And I click the "<chartType>" button
+    And I click the "Type" button under some element
+    And I click the "Dimension" button under some element
+    And I click the "<chartType>" button under some element
 
     And I click the "Settings" button
     And I click the "Facet" button
@@ -193,10 +189,9 @@ Feature: 趋势图新建_维度
     And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
-    And I wait for "2000" millsecond
-    And I click the "Type" button
-    And I click the "Dimension" button
-    And I click the "<chartType>" button
+    And I click the "Type" button under some element
+    And I click the "Dimension" button under some element
+    And I click the "<chartType>" button under some element
 
     And I click the "Settings" button
     And I click the "Divide" button
@@ -239,10 +234,9 @@ Feature: 趋势图新建_维度
     And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
-    And I wait for "2000" millsecond
-    And I click the "Type" button
-    And I click the "Dimension" button
-    And I click the "<chartType>" button
+    And I click the "Type" button under some element
+    And I click the "Dimension" button under some element
+    And I click the "<chartType>" button under some element
     And I click the "Settings" button
     And I click the "Exhibition" button
     And I choose the "<option>" from the "DrillDownMode" in config
@@ -280,10 +274,9 @@ Feature: 趋势图新建_维度
     And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
-    And I wait for "2000" millsecond
-    And I click the "Type" button
-    And I click the "Dimension" button
-    And I click the "<chartType>" button
+    And I click the "Type" button under some element
+    And I click the "Dimension" button under some element
+    And I click the "<chartType>" button under some element
     And I click the "Settings" button
     And I click the "Facet" button
     And I click the "AddField" button
