@@ -845,6 +845,9 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I wait for "1000" millsecond
+    And I switch the dashboard "OpenDrilldown" button to "enable"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
     And I wait for "1000" millsecond

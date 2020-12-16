@@ -32,6 +32,7 @@ Feature: 仪表盘详情行布局
     When I set the parameter "NameInput" with value "<name>"
     And I click the "NextButton" button
     And I wait for "SuccessCreate" will be visible
+    And I back to before
 
     Examples:
       | name        | spl                                                           |
