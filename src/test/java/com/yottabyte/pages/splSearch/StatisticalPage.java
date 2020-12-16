@@ -324,9 +324,14 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "(//span[contains(text(),'保存')])[last()]")
     private WebElement saveButton;
 
+    @FindBy(xpath = "//span[text()='保存为']")
+    private WebElement saveAs;
 
+    @FindBy(xpath = "//li[text()='趋势图']")
+    private WebElement saveAsTrend;
 
-
+    @FindBy(xpath = "//label[text()='名称']/following-sibling::input")
+    private WebElement nameInput;
 
     @FindBy(className = "yw-single-chart-container")
     private WebElement chartContainer;
@@ -377,11 +382,6 @@ public class StatisticalPage extends PageTemplate {
 
     @FindBy(className = "icon-bianji")
     private WebElement firstEdit;
-
-
-
-
-
 
     public WebElement getIndependentStats() {
         return independentStats;
@@ -567,6 +567,19 @@ public class StatisticalPage extends PageTemplate {
 
     public WebElement getSaveButton() {
         return saveButton;
+    }
+
+    public WebElement getSaveAsTrend() {
+        saveAs.click();
+        return saveAsTrend;
+    }
+
+    public WebElement getNameInput() {
+        return nameInput;
+    }
+
+    public WebElement getCreateEnsureButton() {
+        return getContainsTextButton("确 定");
     }
 
     public WebElement getLowerLimit() {
