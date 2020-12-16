@@ -26,7 +26,7 @@ Feature: 保存为趋势图_普通统计视图
     When I set the parameter "NameInput" with value "<caseNum>"
     And I click the "CreateEnsureButton" button
     Then I will see the message "创建成功"
-    Then I compare source image "actual/保存为趋势图/普通统计视图/<caseNum>" with target image "expect/保存为趋势图/普通统计视图/<caseNum>"
+#    Then I compare source image "actual/保存为趋势图/普通统计视图/<caseNum>" with target image "expect/保存为趋势图/普通统计视图/<caseNum>"
 
     Examples:
       | chart   | value1                | caseNum            |
@@ -59,7 +59,7 @@ Feature: 保存为趋势图_普通统计视图
     When I set the parameter "NameInput" with value "<caseNum>"
     And I click the "CreateEnsureButton" button
     Then I will see the message "创建成功"
-    Then I compare source image "actual/保存为趋势图/普通统计视图/<caseNum>" with target image "expect/保存为趋势图/普通统计视图/<caseNum>"
+#    Then I compare source image "actual/保存为趋势图/普通统计视图/<caseNum>" with target image "expect/保存为趋势图/普通统计视图/<caseNum>"
 
     Examples:
       | chart   | value1                |     value2    |     caseNum              |
@@ -107,7 +107,7 @@ Feature: 保存为趋势图_普通统计视图
     When I set the parameter "NameInput" with value "<caseNum>"
     And I click the "CreateEnsureButton" button
     Then I will see the message "创建成功"
-    Then I compare source image "actual/保存为趋势图/普通统计视图/<caseNum>" with target image "expect/保存为趋势图/普通统计视图/<caseNum>"
+#    Then I compare source image "actual/保存为趋势图/普通统计视图/<caseNum>" with target image "expect/保存为趋势图/普通统计视图/<caseNum>"
 
     Examples:
       | statisticType | caseNum            |
@@ -147,7 +147,7 @@ Feature: 保存为趋势图_普通统计视图
     When I set the parameter "NameInput" with value "<caseNum>"
     And I click the "CreateEnsureButton" button
     Then I will see the message "创建成功"
-    Then I compare source image "actual/保存为趋势图/普通统计视图/<caseNum>" with target image "expect/保存为趋势图/普通统计视图/<caseNum>"
+#    Then I compare source image "actual/保存为趋势图/普通统计视图/<caseNum>" with target image "expect/保存为趋势图/普通统计视图/<caseNum>"
 
     Examples:
       | fieldValue           | start1 | end1   | start2  |end2    | start3 | end3 | caseNum          |
@@ -170,19 +170,19 @@ Feature: 保存为趋势图_普通统计视图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/保存为趋势图/普通统计视图/<caseNum>"
+    And take part of "Chart" with name "actual/保存为趋势图/普通统计视图/815_时间直方图/<caseNum>"
 
     And I click the "SaveAsTrend" button
     When I set the parameter "NameInput" with value "<caseNum>"
     And I click the "CreateEnsureButton" button
     Then I will see the message "创建成功"
-    Then I compare source image "actual/保存为趋势图/普通统计视图/<caseNum>" with target image "expect/保存为趋势图/普通统计视图/<caseNum>"
+#    Then I compare source image "actual/保存为趋势图/普通统计视图/815_时间直方图/<caseNum>" with target image "expect/保存为趋势图/普通统计视图/815_时间直方图/<caseNum>"
 
     Examples:
       | timeSpan | time   | caseNum              |
-      | 1        |        | 815_时间直方图/815_1h     |
-      | 3600     | 秒     | 815_时间直方图/815_3600s  |
-      | 60       | 分钟   | 815_时间直方图/815_60m    |
+      | 1        |        | 815_1h     |
+      | 3600     | 秒     | 815_3600s  |
+      | 60       | 分钟   | 815_60m    |
 
 
   Scenario Outline: timehistogram(RZY-2725)
@@ -207,18 +207,18 @@ Feature: 保存为趋势图_普通统计视图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/保存为趋势图/普通统计视图/<caseNum>"
+    And take part of "Chart" with name "actual/保存为趋势图/普通统计视图/2725_时间直方图/<caseNum>"
 
     And I click the "SaveAsTrend" button
     When I set the parameter "NameInput" with value "<caseNum>"
     And I click the "CreateEnsureButton" button
     Then I will see the message "创建成功"
-    Then I compare source image "actual/保存为趋势图/普通统计视图/<caseNum>" with target image "expect/保存为趋势图/普通统计视图/<caseNum>"
+#    Then I compare source image "actual/保存为趋势图/普通统计视图/2725_时间直方图/<caseNum>" with target image "expect/保存为趋势图/普通统计视图/2725_时间直方图/<caseNum>"
 
     Examples:
-      | timeSpan | time   | caseNum              |
-      | 7        | 天     | 2725_时间直方图/2725_7d    |
-      | 1        | 周     | 2725_时间直方图/2725_1w    |
+      | timeSpan | time   | caseNum                    |
+      | 7        | 天     | 2725_7d    |
+      | 1        | 周     | 2725_1w    |
 
 
 
@@ -243,7 +243,7 @@ Feature: 保存为趋势图_普通统计视图
     When I set the parameter "NameInput" with value "<caseNum>"
     And I click the "CreateEnsureButton" button
     Then I will see the message "创建成功"
-    Then I compare source image "actual/保存为趋势图/普通统计视图/816_数值直方图/<caseNum>" with target image "expect/保存为趋势图/普通统计视图/816_数值直方图/<caseNum>"
+#    Then I compare source image "actual/保存为趋势图/普通统计视图/816_数值直方图/<caseNum>" with target image "expect/保存为趋势图/普通统计视图/816_数值直方图/<caseNum>"
 
     Examples:
       | number  | caseNum    |
@@ -306,7 +306,7 @@ Feature: 保存为趋势图_普通统计视图
     When I set the parameter "NameInput" with value "2727_<statType>_<chart>_<timeSpan><time>"
     And I click the "CreateEnsureButton" button
     Then I will see the message "创建成功"
-    Then I compare source image "actual/保存为趋势图/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>" with target image "expect/保存为趋势图/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
+#    Then I compare source image "actual/保存为趋势图/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>" with target image "expect/保存为趋势图/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
 
     Examples:
       | statType  | chart   | timeSpan| time |
@@ -348,7 +348,7 @@ Feature: 保存为趋势图_普通统计视图
     When I set the parameter "NameInput" with value "2727_<statType>_<chart>_<timeSpan><time>"
     And I click the "CreateEnsureButton" button
     Then I will see the message "创建成功"
-    Then I compare source image "actual/保存为趋势图/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>" with target image "expect/保存为趋势图/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
+#    Then I compare source image "actual/保存为趋势图/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>" with target image "expect/保存为趋势图/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
 
     Examples:
       | statType  | chart   | timeSpan| time |
@@ -381,7 +381,7 @@ Feature: 保存为趋势图_普通统计视图
     When I set the parameter "NameInput" with value "2727_<chart>_<timeSpan>_clientip"
     And I click the "CreateEnsureButton" button
     Then I will see the message "创建成功"
-    Then I compare source image "actual/保存为趋势图/普通统计视图/2727_字段数值/2727_<chart>_<timeSpan>_clientip" with target image "expect/保存为趋势图/普通统计视图/2727_字段数值/2727_<chart>_<timeSpan>_clientip"
+#    Then I compare source image "actual/保存为趋势图/普通统计视图/2727_字段数值/2727_<chart>_<timeSpan>_clientip" with target image "expect/保存为趋势图/普通统计视图/2727_字段数值/2727_<chart>_<timeSpan>_clientip"
 
     Examples:
       | chart     | timeSpan|
@@ -410,7 +410,7 @@ Feature: 保存为趋势图_普通统计视图
     When I set the parameter "NameInput" with value "<screenName>"
     And I click the "CreateEnsureButton" button
     Then I will see the message "创建成功"
-    Then I compare source image "actual/保存为趋势图/普通统计视图/<screenName>" with target image "expect/保存为趋势图/普通统计视图/<screenName>"
+#    Then I compare source image "actual/保存为趋势图/普通统计视图/<screenName>" with target image "expect/保存为趋势图/普通统计视图/<screenName>"
 
     Examples:
       |  percent1  |   percent2   |  screenName            |
@@ -439,7 +439,7 @@ Feature: 保存为趋势图_普通统计视图
     When I set the parameter "NameInput" with value "<screenName>"
     And I click the "CreateEnsureButton" button
     Then I will see the message "创建成功"
-    Then I compare source image "actual/保存为趋势图/普通统计视图/<screenName>" with target image "expect/保存为趋势图/普通统计视图/<screenName>"
+#    Then I compare source image "actual/保存为趋势图/普通统计视图/<screenName>" with target image "expect/保存为趋势图/普通统计视图/<screenName>"
 
     Examples:
       |  value1     | screenName               |
@@ -471,7 +471,7 @@ Feature: 保存为趋势图_普通统计视图
     When I set the parameter "NameInput" with value "822_chart_step1"
     And I click the "CreateEnsureButton" button
     Then I will see the message "创建成功"
-    Then I compare source image "actual/保存为趋势图/普通统计视图/822_多级统计/822_chart_step1" with target image "expect/保存为趋势图/普通统计视图/822_多级统计/822_chart_step1"
+#    Then I compare source image "actual/保存为趋势图/普通统计视图/822_多级统计/822_chart_step1" with target image "expect/保存为趋势图/普通统计视图/822_多级统计/822_chart_step1"
 
   Scenario: multilevelstats_step2(RZY-822)
     # types of chart
@@ -567,7 +567,7 @@ Feature: 保存为趋势图_普通统计视图
     And I click the "CreateEnsureButton" button
     Then I will see the message "创建成功"
     And I click the "Ensure" button
-    Then I compare source image "actual/保存为趋势图/普通统计视图/825_地理分布/825_world" with target image "expect/保存为趋势图/普通统计视图/825_地理分布/825_world"
+#    Then I compare source image "actual/保存为趋势图/普通统计视图/825_地理分布/825_world" with target image "expect/保存为趋势图/普通统计视图/825_地理分布/825_world"
 
     And I wait for "2000" millsecond
     When I click the "CountryChina" button
@@ -580,7 +580,7 @@ Feature: 保存为趋势图_普通统计视图
     And I click the "CreateEnsureButton" button
     Then I will see the message "创建成功"
     And I click the "Ensure" button
-    Then I compare source image "actual/保存为趋势图/普通统计视图/825_地理分布/825_china" with target image "expect/保存为趋势图/普通统计视图/825_地理分布/825_china"
+#    Then I compare source image "actual/保存为趋势图/普通统计视图/825_地理分布/825_china" with target image "expect/保存为趋势图/普通统计视图/825_地理分布/825_china"
 
     And I wait for "2000" millsecond
     When I click the "ProvinceSichuan" button
@@ -592,4 +592,4 @@ Feature: 保存为趋势图_普通统计视图
     When I set the parameter "NameInput" with value "825_sichuan"
     And I click the "CreateEnsureButton" button
     Then I will see the message "创建成功"
-    Then I compare source image "actual/保存为趋势图/普通统计视图/825_地理分布/825_sichuan" with target image "expect/保存为趋势图/普通统计视图/825_地理分布/825_sichuan"
+#    Then I compare source image "actual/保存为趋势图/普通统计视图/825_地理分布/825_sichuan" with target image "expect/保存为趋势图/普通统计视图/825_地理分布/825_sichuan"
