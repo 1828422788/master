@@ -5,6 +5,7 @@ Feature: 应用新建（RZY-1899）
     Given open the "app.ListPage" page for uri "/app/list/"
     And I click the "CreateButton" button
     Then I will see the "app.CreatePage" page
+    And I wait for loading invisible
 
   Scenario Outline: 新建失败（为空校验）
     When I set the parameter "NameInput" with value "<name>"
@@ -19,6 +20,7 @@ Feature: 应用新建（RZY-1899）
 
   Scenario Outline: 新建失败（菜单栏校验）
     When I click the "AddMenuButton" button
+    And I wait for "MenuName" will be visible
     And I set the parameter "MenuName" with value "<menuName>"
     And I set the parameter "Url" with value "<url>"
     And I click the "SaveMenuButton" button
