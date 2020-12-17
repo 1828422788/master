@@ -20,4 +20,5 @@ Feature: 趋势图_搜索页
     Examples:
       | timePeriod    | name | message           |
       | Today         |      | 请填写名称！            |
+      | Today         |a/b   | 名称格式有误，仅支持中文，数字，字母，中划线以及下划线的组合。 |
       | ThirtySeconds | test | 实时窗口搜索模式无法进行该操作!|

@@ -1,4 +1,3 @@
-@trendView
 Feature: 展示趋势图
 
   Scenario Outline: compare_view
@@ -18,7 +17,7 @@ Feature: 展示趋势图
     And take part of "ChartView" with name "actual/<name>"
     And I compare source image "actual/<name>" with target image "expect/<name>"
 
-    @viewTrendOrder
+    @viewTrendOrder @trendView
     Examples:
       | name                                     |
       | ColumnChart_分面                         |
@@ -39,7 +38,7 @@ Feature: 展示趋势图
       | AreaChart_2005                           |
       | LineChart_2477                           |
 
-    @viewTrendDimension
+    @viewTrendDimension @trendView
     Examples:
       | name                                     |
       | Flame_图外钻取_分面                      |
@@ -72,7 +71,7 @@ Feature: 展示趋势图
       | Pie_2503                                 |
 
 
-    @viewTrendConnection
+    @viewTrendConnection @trendView
     Examples:
       | name                                     |
 #      | Force_分面                               |
@@ -84,14 +83,14 @@ Feature: 展示趋势图
       | Sankey_2507                              |
       | Chord_2505                               |
 
-    @viewTrendCompound
+    @viewTrendCompound @trendView
     Examples:
       | name                                     |
       | Multiaxis_4841                           |
       | Multiaxis_2523                           |
       | Rangeline_2516                           |
 
-    @viewTrendMap
+    @viewTrendMap @trendView
     Examples:
       | name                                     |
       | Regionmap_分面                           |
@@ -106,7 +105,7 @@ Feature: 展示趋势图
       | Regionmap_2545                           |
       | Heatmap_2539                             |
 
-    @viewTrendStatMap
+    @viewTrendStatMap @trendView
     Examples:
       | name                                     |
       | Statisticalmap_2098_param                |
@@ -120,7 +119,7 @@ Feature: 展示趋势图
       | Statisticalmap_ArcGIS                    |
 
 
-    @viewTrendOther
+    @viewTrendOther @trendView
     Examples:
       | name                            |
       | sunburst                        |
@@ -162,7 +161,7 @@ Feature: 展示趋势图
 #      | Wordcloud_2625                  |
       | Single_2549                     |
 
-    @viewTrendTimechart
+    @viewTrendTimechart @trendView
     Examples:
       | name                                     |
       | sparkline                                |
