@@ -259,7 +259,7 @@ Feature: 日志展现_其他_单值
     And I choose the "ts" from the "SparklineField"
     And I click the "Facet" button
     And I click the "AddField" button
-    And I choose the "apache.method" from the "FieldValue"
+    And I choose the "apache.method" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
     And I click the "Exhibition" button

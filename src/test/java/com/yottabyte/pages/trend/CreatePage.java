@@ -420,6 +420,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='显示所有X轴标签'])[last()]/ancestor::div/following-sibling::button")
     private WebElement showAllLabels;
 
+    @FindBy(xpath = "(//span[text()='标签间隔'])[last()]/ancestor::div/following-sibling::input")
+    private WebElement labelInterval;
+
     @FindBy(xpath = "(//span[text()='min']/preceding-sibling::input)[last()]")
     private WebElement min;
 
@@ -1812,6 +1815,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getShowAllLabels() {
         return showAllLabels;
+    }
+
+    public WebElement getLabelInterval() {
+        return labelInterval;
     }
 
     public WebElement getMin() {
