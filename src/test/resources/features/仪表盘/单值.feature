@@ -398,6 +398,11 @@ Feature: 仪表盘单值
 
   @dashboard @dashboardSmoke
   Scenario Outline: 默认-colorFillingMode-background RZY-3745
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘单值"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
     When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "default",    "color": "#FFEB3B",    "colorFillingMode": "<colorFillingMode>",    "liveRefreshMode": false  }}" to json editor
@@ -415,7 +420,12 @@ Feature: 仪表盘单值
       |   background     |  单值_默认_colorFillingMode  |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 默认-colorFillingMode-background RZY-3745
+  Scenario Outline: 默认-liveRefreshMode-true RZY-3745
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘单值"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
     When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "default",    "color": "#FFEB3B",    "colorFillingMode": "font",    "liveRefreshMode": <liveRefreshMode>  }}" to json editor
@@ -425,10 +435,127 @@ Feature: 仪表盘单值
     Then I click the "Ensure" button
     And I wait for loading invisible
     And I wait for "2000" millsecond
+    And I click the "Setting" button
+#    Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
+    And I click the "Exhibition" button
+    Then I will see the checkbox in auth which name is "实时滚动刷新" and status is "checked"
 
     Examples:
       | liveRefreshMode |
       |   true          |
+
+  @dashboard @dashboardSmoke
+  Scenario: 按趋势 RZY-3746
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘单值"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
+    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "trending",    "comparsionTime": "-7d",    "comparsionMode": "percent"  }}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    And I wait for "500" millsecond
+    Then I click the "Ensure" button
+    And I wait for loading invisible
+    And I wait for "2000" millsecond
+    And I click the "Setting" button
+#    Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
+    And I click the "Exhibition" button
+    Then I will see the element "TimeForRatio" value is "一周前"
+    Then I will see the checkbox in auth which name is "百分比" and status is "checked"
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 按趋势只改为ranging RZY-3746
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘单值"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
+    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "<displayMode>",    "comparsionTime": "-7d",    "comparsionMode": "percent"  }}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    Then I wait for element "ErrorMessage" change text to "<ErrorMessage>"
+
+    Examples:
+      | displayMode |  ErrorMessage                       |
+      |   ranging  |  chart -> colorFillingMode 字段为必填项 |
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 按趋势-comparsionTime&comparsionMode RZY-3746
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘单值"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
+    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "trending",    "comparsionTime": "<comparsionTime>",    "comparsionMode": "<comparsionMode>"  }}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    And I wait for "500" millsecond
+    Then I click the "Ensure" button
+    And I wait for loading invisible
+    And I wait for "2000" millsecond
+    And I click the "Setting" button
+#    Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
+    And I click the "Exhibition" button
+    Then I will see the element "TimeForRatio" value is "一天前"
+    And I wait for "1000" millsecond
+    Then I will see the checkbox in auth which name is "绝对值" and status is "checked"
+
+    Examples:
+      | comparsionTime |  comparsionMode   |
+      |       -1d      |     absolute      |
+
+  @dashboard @dashboardSmoke
+  Scenario: 按区间 RZY-3747
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘单值"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
+    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "ranging",    "colorFillingMode": "font",    "colorRanges": [      {        "from": "100",        "to": "300",        "color": "#5C9DF5"      }    ]  }}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    And I wait for "500" millsecond
+    Then I click the "Ensure" button
+    And I wait for loading invisible
+    And I wait for "2000" millsecond
+    And I click the "Setting" button
+#    Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
+    And I click the "Exhibition" button
+    Then take part of "SingleValueExhibition" with name "actual/单值_按区间_展示"
+#    And I compare source image "actual/单值_按区间_展示" with target image "expect/单值_按区间_展示"
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 按区间-from-to RZY-3747
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘单值"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
+    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "<displayMode>",    "colorFillingMode": "font",    "colorRanges": [      {        "color": "#259B24",        "from": "<from>",        "to": "<to>"      }    ]  }}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    Then I wait for element "ErrorMessage" change text to "<ErrorMessage>"
+
+    Examples:
+      | displayMode |  from  |  to  |  ErrorMessage                              |
+      |   default    | 100   | 300  |  chart -> color 字段为必填项                 |
+      |   ranging    | 10000  | 1  |  chart -> colorRanges -> 颜色范围区间结束值需要大于开始值 |
+      |   ranging    |        |    |  chart -> from 字段值不能为空                  |
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘

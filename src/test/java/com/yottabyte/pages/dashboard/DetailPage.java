@@ -754,6 +754,12 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='保存']")
     private WebElement saveTagInput;
 
+    @FindBy(xpath = "//div[@class='ant-select-selection-selected-value']")
+    private WebElement timeForRatio;
+
+    @FindBy(xpath = "//div[@class='ant-popover-inner-content']")
+    private WebElement singleValueExhibition;
+
     @FindBy(xpath = "//input[@placeholder='请输入关键字']")
     private WebElement searchTagInput;
 
@@ -1166,6 +1172,14 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getSaveTagInput() {
         return saveTagInput;
+    }
+
+    public WebElement getTimeForRatio() {
+        return timeForRatio;
+    }
+
+    public WebElement getSingleValueExhibition() {
+        return singleValueExhibition;
     }
 
     public WebElement getTagInput() {
