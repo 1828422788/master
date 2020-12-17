@@ -39,7 +39,7 @@ Feature: 定时任务_结果处理方式
     When I click the "ResultHandling" button under some element
     And I wait for "AddJDBC" will be visible
     And I click the "AddJDBC" button under some element
-    And I click the "Jdbc" button
+    And I click the "Jdbc" button under some element
 
     Then I set the parameter "ConnectName" with value "<connectName>"
     Then I set the parameter "UserName" with value "<userName>"
@@ -49,7 +49,7 @@ Feature: 定时任务_结果处理方式
     Then I choose the "<dbType>" from the "DbType"
     Then I set the parameter "DbName" with value "<dbName>"
     Then I set the parameter "TableName" with value "<tableName>"
-    Then I click the "Verify" button
+    Then I click the "Verify" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "<result>"
 
