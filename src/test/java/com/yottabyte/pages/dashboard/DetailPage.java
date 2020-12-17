@@ -270,6 +270,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='仪表盘多Y轴图']/parent::div")
     private WebElement multiYaxisArea;
 
+    @FindBy(xpath = "//div[text()='仪表盘区间图']/parent::div")
+    private WebElement sectionChartArea;
+
     @FindBy(xpath = "//div[text()='仪表盘和弦图']/parent::div")
     private WebElement chordChart;
 
@@ -1837,6 +1840,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getMultiYaxisArea() {
         return multiYaxisArea;
+    }
+
+    public WebElement getSectionChartArea() {
+        return sectionChartArea;
     }
 
     public WebElement getChordChart() {

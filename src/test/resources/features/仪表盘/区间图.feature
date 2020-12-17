@@ -138,6 +138,44 @@ Feature: 仪表盘区间图
     Then I wait for element "ErrorMessage" change text to "chart -> chartType 字段值不支持qwertyuiop"
 
   @dashboard
+  Scenario: 修改xAxis:field-ma RZY-3705
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘区间图"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
+    When the chart title is "仪表盘区间图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{  "title": "仪表盘区间图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | bucket timestamp span=1h as ts | stats count('apache.status') as 'count' by ts | esma count timefield=ts",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "rangeline",    "xAxis": {      "field": "ma"    },    "precision": "",    "yAxis": {      "field": "count",      "predictField": "_predict_count",      "anomalyField": ""    },    "boundary": {      "upperField": "upper95",      "lowerField": "lower95"    }  }}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    Then I will see the success message "校验通过"
+    And I click the "Ensure" button
+    And I wait for loading invisible
+    And I wait for "2000" millsecond
+    Then take part of "SectionChartArea" with name "actual/区间图_xAxis_ma"
+#    And I compare source image "actual/区间图_xAxis_ma" with target image "expect/区间图_xAxis_ma"
+
+  @dashboard
+  Scenario: 修改xAxis:field-qwert RZY-3705
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘区间图"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
+    When the chart title is "仪表盘区间图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{  "title": "仪表盘区间图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | bucket timestamp span=1h as ts | stats count('apache.status') as 'count' by ts | esma count timefield=ts",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "rangeline",    "xAxis": {      "field": "ma"    },    "precision": "",    "yAxis": {      "field": "count",      "predictField": "_predict_count",      "anomalyField": ""    },    "boundary": {      "upperField": "upper95",      "lowerField": "lower95"    }  }}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    Then I will see the success message "校验通过"
+    And I click the "Ensure" button
+    And I wait for loading invisible
+    And I wait for "2000" millsecond
+    Then take part of "SectionChartArea" with name "actual/区间图_xAxis_qwert"
+#    And I compare source image "actual/区间图_xAxis_qwert" with target image "expect/区间图_xAxis_qwert"
+
+  @dashboard
   Scenario: 修改yAxis:field为不存在 RZY-3706
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
