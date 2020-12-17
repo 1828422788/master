@@ -36,9 +36,9 @@ Feature: 定时任务_结果处理方式
     And I wait for "5000" millsecond
     And I wait for loading complete
     And I wait for "ResultHandling" will be visible
-    When I click the "ResultHandling" button
+    When I click the "ResultHandling" button under some element
     And I wait for "AddJDBC" will be visible
-    And I click the "AddJDBC" button
+    And I click the "AddJDBC" button under some element
     And I click the "Jdbc" button
 
     Then I set the parameter "ConnectName" with value "<connectName>"

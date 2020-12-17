@@ -89,7 +89,7 @@ Feature: 定时任务_基本配置
     And I click the "SaveButton" button under some element
     And I wait for "EnsureButton" will be visible
     And I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I click the "EnsureButton" button under some element
     Then I will see the "timedTask.ListPage" page
 
   Scenario: verify_changes

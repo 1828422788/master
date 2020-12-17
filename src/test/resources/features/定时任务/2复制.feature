@@ -44,7 +44,7 @@ Feature: 定时任务复制
     And I click the "SaveButton" button under some element
     And I wait for "EnsureButton" will be visible
     And I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I click the "EnsureButton" button under some element
     Then I will see the "timedTask.ListPage" page
 
     When the data name is "{'column':'1','name':'copytask'}" then i click the "复制" button
