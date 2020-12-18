@@ -109,7 +109,7 @@ Feature: 仪表盘区划地图
       | 仪表盘区划地图 | Regionmap  |
 
   @dashboard @dashboardSmoke
-  Scenario: 区划地图下钻 RZY-3399
+  Scenario: 区划地图下钻 RZY-3399,RZY-321
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘区划地图"
