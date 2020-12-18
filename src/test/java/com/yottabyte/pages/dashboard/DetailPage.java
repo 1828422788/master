@@ -454,6 +454,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='操作']")
     private WebElement operate;
 
+    @FindBy(xpath = "//span[text()='phplib/xiaomi/Model/Device/Event.php:451']")
+    private WebElement jsonCallerText;
+
     @FindBy(xpath = "//span[text()='江苏']")
     private WebElement jiangsu;
 
@@ -759,6 +762,9 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//div[@class='ant-select-selection-selected-value']")
     private WebElement timeForRatio;
+
+    @FindBy(xpath = "(//div[@class='ant-select-selection-selected-value'])[2]")
+    private WebElement DrillActionText;
 
     @FindBy(xpath = "//div[@class='ant-popover-inner-content']")
     private WebElement singleValueExhibition;
@@ -1181,6 +1187,10 @@ public class DetailPage extends PageTemplate {
         return timeForRatio;
     }
 
+    public WebElement getDrillActionText() {
+        return DrillActionText;
+    }
+
     public WebElement getSingleValueExhibition() {
         return singleValueExhibition;
     }
@@ -1543,6 +1553,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getDrillSetting() {
         return drillSetting;
+    }
+
+    public WebElement getJsonCallerText() {
+        return jsonCallerText;
     }
 
     public WebElement getJiangsu() {

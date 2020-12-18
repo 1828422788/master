@@ -457,8 +457,8 @@ Feature: 仪表盘事件列表
     Then I wait for "FilterName" will be visible
 
   @dashboard @dashboardSmoke
-  Scenario: 管理本页过滤项/输入项 数值 RZY-3626
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+  Scenario: 管理本页过滤项/输入项 数值 RZY-3626,RZY-320
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"pu
     And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
