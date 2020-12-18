@@ -136,7 +136,7 @@ Feature: 仪表盘和弦图
     Then I set the parameter "{  "title": "仪表盘和弦图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method | rename apache.clientip as apache.x_forward_group| rename apache.method as apache.resp_len_group| limit 20",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "<chartType>",    "fromField": "apache.x_forward",    "toField": "apache.resp_len",    "weightField": "count()",    "repulsionField": 8,    "precision": ""  }}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    Then I will see the success message "校验通过"
+#    Then I will see the success message "校验通过"
     And I wait for "500" millsecond
     Then I click the "Ensure" button
     And I wait for loading invisible
