@@ -19,7 +19,7 @@ Feature: 仪表盘详情行布局
     Then I will see the "trend.CreatePage" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
-    And I click the "DateEditor" button
+    And I click the "DateEditor" button under some element
     And I wait for "Today" will be visible
     And I click the "Today" button
     And I click the "FenPianQuYang" button

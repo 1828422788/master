@@ -844,7 +844,7 @@ Feature: 仪表盘输入项
   Scenario: 开启钻取配置(RZY-4479)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I click the detail which name is "测试钻取配置"
+    And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenDrilldown" button to "enable"
@@ -861,7 +861,6 @@ Feature: 仪表盘输入项
     And I wait for "1000" millsecond
     And I set the parameter "{  "title": "仪表盘1669所用趋势图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "table"  },  "drilldown": {    "type": "custom",    "blank": true,    "link": "http://service.exmail.qq.com/cgi-bin/help?subtype=1&no=${test1}&id=${test2}",    "eval": [      {        "name": "test1",        "value": "${click.value2}+991916"      },      {        "name": "test2",        "value": "${click.value2}+10711"      }    ]  }}" to json editor
     And I click the "Check" button
-    And I wait for "10000000" millsecond
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
