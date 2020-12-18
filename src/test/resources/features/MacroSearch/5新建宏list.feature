@@ -1,5 +1,28 @@
-@all @searchMacro @tmacro
+@all @searchMacro @newmacro
 Feature: 搜索宏新建
+
+  @newmacro1
+  Scenario Outline: 创建eval定义的宏-2个
+    Given open the "macroSearch.ListPage" page for uri "/macro/"
+    When I click the "CreateMacroButton" button
+    Then I will see the "macroSearch.CreatePage" page
+    When I set the parameter "MacroName" with value "<name>"
+#    And I choose the "1pre_package" from the "MacroResTag"
+#    And I choose the "无数集app之api全部测试用例" from the "BelongToApps"
+    And I set the parameter "Definition" with value "<definition>"
+    And I click the "MacroEvalCheckbox" button
+    And I set the parameter "MacroParam" with value "<macroParam>"
+    And I set the parameter "ValidateExpression" with value "<validateExpression>"
+    And I set the parameter "ValidateFalseInfo" with value "<validateFalseInfo>"
+
+    And I click the "SaveMacroButton" button
+#    Then I will see the success message "保存成功"
+
+    Examples: 新建成功
+      | name           | definition                       | macroParam | validateExpression | validateFalseInfo |
+      #暂时存在bug
+      | UIAutoTest(3)  | "if(isstr($z$),$x$-$y$,$x$+$y$)" | x,y,z      |                    |                   |
+      | me_substr_1(1) | "substring($x$,2)"               | x          | isstr(x)           | 请 输入字符串           |
 
   @newmacro2
   Scenario Outline:创建宏_3个参数，2个
