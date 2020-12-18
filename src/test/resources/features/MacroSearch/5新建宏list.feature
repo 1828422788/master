@@ -165,29 +165,8 @@ Feature: 搜索宏新建
       | save_stats_avg_ip                           | tag:"sample04061424" \| stats avg(apache.resp_len) as status,count(apache.resp_len) by apache.clientip \| save /data/rizhiyi/spldata/apache_latency.csv                                                                                                                                                                                  |                    |                   |
       | spl_movingavg                               | tag:"sample04061424"\|bucket timestamp span=1h as ts \| stats sum(apache.resp_len) as sum_resp_len by ts \| eval time=formatdate(ts)\| movingavg sum_resp_len,3 as moving_avg_resp_len                                                                                                                                                   |                    |                   |
 
-  Scenario Outline: 验证1-2个参数
-    Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I set the parameter "SearchInput" with value "<splQuery>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I save the result "{'ClientIp':'Column1','Version':'Column2','Count':'Column3'}"
-
-    And I set the parameter "SearchInput" with value "<splQuery1>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I compare with "{'ClientIp':'Column1','Version':'Column2','Count':'Column3'}"
-
-    Examples:
-      | splQuery                                        | splQuery1                                                                                                                                     |
-      | `macrosample_1param(\"23.166.125.53\")`         | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==\"23.166.125.53\"                            |
-      | `macrosample_2param(\"23.166.125.53\",\"1.1\")` | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==\"23.166.125.53\" && apache.version==\"1.1\" |
-
   @newmacro
-  Scenario Outline: 验证（eval）
+  Scenario Outline:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button

@@ -1,11 +1,7 @@
-@all @searchMacro @newmacro
-Feature: 搜索宏新建
+@vdlmacro
+Feature: 验证宏
 
-  @newmacro1
-  Scenario Outline: 创建eval定义的宏-2个
-    Given open the "macroSearch.ListPage" page for uri "/macro/"
-
-  Scenario Outline: 验证1-2个参数
+  Scenario Outline:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
@@ -61,7 +57,6 @@ Feature: 搜索宏新建
       | n1   | `macrosample_1param(\"23.166.125.53\")`         | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==\"23.166.125.53\"                            |
       | n1   | `macrosample_2param(\"23.166.125.53\",\"1.1\")` | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==\"23.166.125.53\" && apache.version==\"1.1\" |
 
-
   Scenario Outline: 验证1-2个参数
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "`<name>`"
@@ -89,7 +84,7 @@ Feature: 搜索宏新建
     And I wait for "2000" millsecond
     Given the data name is "macro_<name>.csv" then i click the "下载" button
 
-    And I set the parameter "SearchInput" with value "<splQuery1>"
+    And I set the parameter "SearchInput" with value "<definition>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -114,7 +109,7 @@ Feature: 搜索宏新建
     Given the data name is "<name>.csv" then i click the "下载" button
 
     Examples:
-      | name                                        | splQuery1                                                                                                                                     |
+      | name                                        | definition                                                                                                                                                                                                                                                                                                                               | validateExpression | validateFalseInfo |
       | lookup_stats                                | tag:"sample04061424" \| stats count() by hostname \| lookup user,department /data/rizhiyi/share/host_user.csv on hostname = host                                                                                                                                                                                                         |                    |                   |
       | mvcount                                     | tag:"sample04061424" \| eval m_ips=split(apache.clientip, ".") \| eval m_paths=split(apache.request_path, "/") \| eval m_ips_count = mvcount(m_ips) \| eval m_paths_count = mvcount(m_paths)  \| table m_ips, m_paths,m_ips_count, m_paths_count                                                                                         |                    |                   |
       | noparam                                     | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip=="23.166.125.53"                                                                                                                                                                                                                         |                    |                   |
@@ -136,3 +131,19 @@ Feature: 搜索宏新建
       | dup_names_1                                 | tag:"sample04061424" \| stats count(apache.status)                                                                                                                                                                                                                                                                                       |                    |                   |
       | save_stats_avg_ip                           | tag:"sample04061424" \| stats avg(apache.resp_len) as status,count(apache.resp_len) by apache.clientip \| save /data/rizhiyi/spldata/apache_latency.csv                                                                                                                                                                                  |                    |                   |
       | spl_movingavg                               | tag:"sample04061424"\|bucket timestamp span=1h as ts \| stats sum(apache.resp_len) as sum_resp_len by ts \| eval time=formatdate(ts)\| movingavg sum_resp_len,3 as moving_avg_resp_len                                                                                                                                                   |                    |                   |
+
+
+  Scenario Outline: 验证（eval）
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I set the parameter "SearchInput" with value "<splQuery>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "RightIcon" button
+    Then I will see the "XValue" result will be "<value>"
+
+    Examples: 新建成功
+      | splQuery                                          | value                |
+      | tag:sample04061424 \| eval x=`UIAutoTest(1,2,3)`  | 3                    |
+      | tag:sample04061424 \| eval x=`UIAutoTest1(1,2,3)` | if(isstr(3),1-2,1+2) |

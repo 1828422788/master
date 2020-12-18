@@ -70,11 +70,11 @@ Feature: 搜索宏新建
       | name                               | definition                                                                                                                  | twoparam    | validateExpression   | validateFalseInfo |
       | map_opt_count_2(2)                 | tag:"sample04061424" \| eval txt=$p_count$\| limit 1 \| table txt \| map " tag:"sample04061424" \| stats $txt$(timestamp) " | p_count,txt | isstr(p_count)       | 输入参数需要字符串         |
       #有bug
-      #|	me_if_excp_2(2)	|	if($x$-$y$,$x$+$y$)	|	x,y	|		|		|
+      |	me_if_excp_2(2)	|	if($x$-$y$,$x$+$y$)	|	x,y	|		|		|
       | app_permission_sample_two_param(2) | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==$x$ && apache.version==$y$ | x,y         | isstr(x) && isstr(y) | 参数错误，请输入正确的参数     |
       | two_param(2)                       | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==$x$ && apache.version==$y$ | x,y         | isstr(x) && isstr(y) | 参数错误，请输入正确的参数     |
        #有bug
-       #|	huanbi_2(2)	|	starttime="now/d" endtime="now" appname:$arg1$ \| bucket timestamp span=1h as ts\|stats $arg2$() as count_ by ts\| eval hour=formatdate(tolong(ts),"HH")\|eval line="今天"\|append [[starttime="-1d/d" endtime="now/d" appname:$arg1$ \| bucket timestamp span=1h as ts\|stats $arg2$() as count_ by ts\| eval hour=formatdate(tolong(ts),"HH")\|eval line="昨天"]] \| append [[starttime="-7d/d" endtime="-6d/d" appname:$arg1$ \| bucket timestamp span=1h as ts\|stats $arg2$() as count_ by ts\| eval hour=formatdate(tolong(ts),"HH")\|eval line="一周前"]]\|rename count_ as "请求量"	|	arg1,arg2	|		|		|
+       |	huanbi_2(2)	|	starttime="now/d" endtime="now" appname:$arg1$ \| bucket timestamp span=1h as ts\|stats $arg2$() as count_ by ts\| eval hour=formatdate(tolong(ts),"HH")\|eval line="今天"\|append [[starttime="-1d/d" endtime="now/d" appname:$arg1$ \| bucket timestamp span=1h as ts\|stats $arg2$() as count_ by ts\| eval hour=formatdate(tolong(ts),"HH")\|eval line="昨天"]] \| append [[starttime="-7d/d" endtime="-6d/d" appname:$arg1$ \| bucket timestamp span=1h as ts\|stats $arg2$() as count_ by ts\| eval hour=formatdate(tolong(ts),"HH")\|eval line="一周前"]]\|rename count_ as "请求量"	|	arg1,arg2	|		|		|
 
   @newmacro5
   Scenario Outline:创建宏_1个参数，7个
@@ -131,7 +131,6 @@ Feature: 搜索宏新建
       | fields_sample                               | starttime="now/d" endtime="now+d/d" tag:"sample04061424" \| stats count() as count_res by appname,apache.clientip \| fields apache.clientip, count_res                                                                                                                                                                                   |                    |                   |
       | where_dc                                    | tag:"sample04061424" \| where apache.status>400 \| stats dc(apache.status)                                                                                                                                                                                                                                                               |                    |                   |
       | where_logic_and                             | tag:"sample04061424" \| where  apache.status > 200 && apache.status < 400                                                                                                                                                                                                                                         \| table apache.status |                    |                   |
-      | start_time_para_mon                         | starttime="now-1M/M-1d/w"  endtime="now" tag:sample04061424                                                                                                                                                                                                                                                                              |                    |                   |
       | parse_eval_stats                            | tag:"sample04061424" \| parse field=apache.clientip "(?<ip_addr>\d+\.\d+\.\d+\.\d+)" \| eval ip_str = "ip:" + ip_addr  \| stats count(appname) by ip_str                                                                                                                                                                                 |                    |                   |
       | autoregress_sample                          | starttime="-5h/h" endtime="now" tag:"sample04061424" \| bucket timestamp span=10m as ts \| stats count(appname) as count_app by ts \| eval time=formatdate(ts) \| autoregress count_app p=6                                                                                                                                              |                    |                   |
       | makesession                                 | transaction apache.clientip maxspan=30m                                                                                                                                                                                                                                                                                                  |                    |                   |
@@ -141,40 +140,3 @@ Feature: 搜索宏新建
       | dup_names_1                                 | tag:"sample04061424" \| stats count(apache.status)                                                                                                                                                                                                                                                                                       |                    |                   |
       | save_stats_avg_ip                           | tag:"sample04061424" \| stats avg(apache.resp_len) as status,count(apache.resp_len) by apache.clientip \| save /data/rizhiyi/spldata/apache_latency.csv                                                                                                                                                                                  |                    |                   |
       | spl_movingavg                               | tag:"sample04061424"\|bucket timestamp span=1h as ts \| stats sum(apache.resp_len) as sum_resp_len by ts \| eval time=formatdate(ts)\| movingavg sum_resp_len,3 as moving_avg_resp_len                                                                                                                                                   |                    |                   |
-
-  Scenario Outline: 验证1-2个参数
-    Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I set the parameter "SearchInput" with value "<splQuery>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I save the result "{'ClientIp':'Column1','Version':'Column2','Count':'Column3'}"
-
-    And I set the parameter "SearchInput" with value "<splQuery1>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I compare with "{'ClientIp':'Column1','Version':'Column2','Count':'Column3'}"
-
-    Examples:
-      | splQuery                                        | splQuery1                                                                                                                                     |
-      | `macrosample_1param(\"23.166.125.53\")`         | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==\"23.166.125.53\"                            |
-      | `macrosample_2param(\"23.166.125.53\",\"1.1\")` | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==\"23.166.125.53\" && apache.version==\"1.1\" |
-
-  @newmacro
-  Scenario Outline: 验证（eval）
-    Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I set the parameter "SearchInput" with value "<splQuery>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I click the "RightIcon" button
-    Then I will see the "XValue" result will be "<value>"
-
-    Examples: 新建成功
-      | splQuery                                          | value                |
-      | tag:sample04061424 \| eval x=`UIAutoTest(1,2,3)`  | 3                    |
-      | tag:sample04061424 \| eval x=`UIAutoTest1(1,2,3)` | if(isstr(3),1-2,1+2) |
