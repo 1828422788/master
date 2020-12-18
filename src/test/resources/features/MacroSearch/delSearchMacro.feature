@@ -2,7 +2,7 @@
 Feature: 搜索宏删除
 
   Background:
-    Given open the "searchMacro.ListPage" page for uri "/macro/"
+    Given open the "macroSearch.ListPage" page for uri "/macro/"
 
   Scenario Outline:
     When the data name is "<name>" then i click the "删除" button
@@ -20,7 +20,7 @@ Feature: 搜索宏删除
 
   @delsmacro
   Scenario Outline: 删除全部搜索宏
-    Given open the "searchMacro.ListPage" page for uri "/macro/"
+    Given open the "macroSearch.ListPage" page for uri "/macro/"
 #    When I set the parameter "MacroListSearchInput" with value "<name>"
     And I click the "MacroListDeleteButton" button
     And I wait for "ConfirmDelMacrotButton" will be visible

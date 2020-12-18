@@ -49,18 +49,13 @@ Feature: download_eval下载
       | iplocation_sample1 | \| makeresults \| eval ip=split(\"202.106.0.20 2400:da00::dbf:0:100 117.50.11.11\", \" \")  \| mvexpand ip \| fields -timestamp \| iplocation ip |
       | iplocation_clientip_sample2 | tag:sample04061424 \| sort by apache.x_foward \| table apache.clientip \| iplocation apache.clientip |
       | iplocation_clientip_zero | \| makeresults \| eval ip=0  \| mvexpand ip \| fields -timestamp \| iplocation ip |
-      | unpivot_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info1152 \| stats avg(json.net.packets_recv), latest('json.net.packets_recv'), es('json.net.packets_recv') \| unpivot |
-      | unpivot_bygroup_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info1152 \| stats latest('json.disk.used'), es('json.disk.used') by json.disk.path \| unpivot |
-      | unpivot_bygroup_header_field | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info1152 \| stats latest('json.disk.used'), es('json.disk.used') by json.disk.path \| unpivot header_field=json.disk.path column_name=function |
-      | unpivot_bygroup_header_field_unpivot | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info1152 \| stats latest('json.disk.used'), es('json.disk.used') by json.disk.path \| unpivot header_field=json.disk.path column_name=function \| unpivot header_field=function |
+#      | unpivot_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info1152 \| stats avg(json.net.packets_recv), latest('json.net.packets_recv'), es('json.net.packets_recv') \| unpivot |
+#      | unpivot_bygroup_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info1152 \| stats latest('json.disk.used'), es('json.disk.used') by json.disk.path \| unpivot |
+#      | unpivot_bygroup_header_field | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info1152 \| stats latest('json.disk.used'), es('json.disk.used') by json.disk.path \| unpivot header_field=json.disk.path column_name=function |
+#      | unpivot_bygroup_header_field_unpivot | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info1152 \| stats latest('json.disk.used'), es('json.disk.used') by json.disk.path \| unpivot header_field=json.disk.path column_name=function \| unpivot header_field=function |
       | foreach_avg_disk_used | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info1152 \| timechart avg(json.disk.used) as a by json.disk.path \| foreach a* [[ eval '<<FIELD>>'='<<FIELD>>'/1024/1024/1024 ]] \| fields -_time |
       | foreach_json_sample | \| makeresults \| eval json.as=\"a\", json.a2=\"b\",json.a3=\"c\" \| foreach json.* [[ eval test = if(empty(test),\"\",tet+\"\")+\"<<FIELD>>\"]] \| fields -timestamp |
       | foreach_apache | tag:sample04061424 \| sort by apache.x_foward \| table apache.geo.l* \| foreach apache.g* [[ eval new_field='<<FIELD>>']] |
-      | autofield_jpath_output_city_sample | tag:json_jpath_mv_where \| jpath output=city path=\"a[*].city\" |
-      | autofield_spl_eval_empty | tag:sample04061424 \| eval path_is_empty=empty(apache.resp_len) |
-      | autofield_spl_eval_match | tag:\"sample04061424\" AND apache.request_query:* \| eval r_match1 = match(apache.request_query, \"b.*e\") |
-      | autofield_spl_eval_parse | tag:sample04061424 AND  apache.x_forward:1\| parse \"(?<digital_list>\\\\d+)\" max_match=100 |
-      | autofield_spl_eval_kvextract | tag:sample04061424 \| sort by -apache.x_forward \| limit 3 \| kvextract apache.request_query clean_keys=true pairdelim=\"&\" kvdelim=\"=\" |
 
   @eval2
   Scenario Outline: stats用例结果下载
@@ -140,7 +135,7 @@ Feature: download_eval下载
       | bug_formatdate_Asia | tag:sample04061424_apachesample_dawn \| eval new_time = 1552237948000 \| eval f_timestamp = formatdate(new_time, \"yyyy-MM-dd HH:mm:ss.SSS\", \"Asia/Shanghai\") \| table f_timestamp,new_time |
       | bug_now_where_count_app | starttime=\"now/d\" endtime=\"now\" tag:sample04061424_apachesample_dawn \| bucket timestamp span=10m as ts\|stats count(appname) as count_app by ts \| eval time=formatdate(ts,\"HH:mm:ss\")\| where count_app>0 |
       | bucket_formatdate_where_count_larger3 | starttime=\"now/d\" endtime=\"now\" tag:sample04061424_apachesample_dawn \| bucket timestamp span=10m as ts\|stats count(appname) as count_app by ts\| eval time_dis=formatdate(now()-ts, \"HH:mm:ss\") \| where count_app>3 |
-      | rate_sample | tag:top_info \| eval retpath=json.disk.path \| eval retused=json.disk.used \| eval used=tolong(retused) \| bucket timestamp span=10m as timestamp \| table used,retpath,timestamp \| stats rate(used) by timestamp,retpath |
+      | rate_sample | tag:rate39 \| eval retpath=json.disk.path \| eval retused=json.disk.used \| eval used=tolong(retused) \| bucket timestamp span=10m as timestamp \| table used,retpath,timestamp \| stats rate(used) by timestamp,retpath |
       | transpose_count | tag:sample04061424 \| stats count() as cnt by apache.method, apache.status \| transpose row=apache.method column=apache.status valuefield=cnt |
       | transpose_pct | tag:sample04061424 \| stats pct(apache.status,1,5,25,50,75,95,99) as pct_ by apache.method \| transpose row=pct_.1 column=apache.method valuefield=pct_.5 |
       | transpose_table | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_apachesample_dawn \| table apache.geo.longitude,apache.geo.latitude, apache.clientip \| transpose row=apache.geo.longitude column=apache.geo.latitude valuefield=apache.clientip |
