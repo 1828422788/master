@@ -199,7 +199,7 @@ Feature: 仪表盘详情页
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
     And I wait for loading invisible
-    And I wait for "2500" millsecond
+    And I wait for "7500" millsecond
     And I wait for "TrendTitle" will be visible
     Then I will see the "TrendTitle" result will be "验证仪表盘全局时间"
 

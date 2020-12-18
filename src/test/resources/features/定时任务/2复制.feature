@@ -81,7 +81,7 @@ Feature: 定时任务复制
     And I will see the input element "Number" value will be "123"
     And I will see the element "Resource" contains "(*)"
     And I will see the element "SelectedGroup" contains "auto_package"
-    And I cancel selection "test_app" from the "TaskApp"
+    And I will see the element "SelectedApp" contains "test_app"
     And I will see the input element "Period" value will be "5"
 
   Scenario Outline: delete_copiedTask

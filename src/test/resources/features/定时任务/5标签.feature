@@ -29,11 +29,11 @@ Feature: 定时任务标签
     And I choose the "auto_package" from the "TagField"
     And I click the "TagPanel" button
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I refresh the website
     And I wait for loading invisible
     Then I will see the data "{'column':'1','name':'Tag_Schedule'}" values "{'column':'8','name':'auto_package'}"
-
 
   Scenario: verify_tag
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -49,8 +49,6 @@ Feature: 定时任务标签
     And I will see the success message "保存成功"
     And I click the "EnsureButton" button
     Then I will see the "timedTask.ListPage" page
-
-
 
   Scenario: delete_schedule
     Given open the "timedTask.ListPage" page for uri "/schedule/"
