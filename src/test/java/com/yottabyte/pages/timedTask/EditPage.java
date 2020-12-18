@@ -120,6 +120,9 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div/div")
     private WebElement appDropdown;
 
+    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//div[@class = 'ant-select-selection-selected-value']")
+    private WebElement selectedApp;
+
     @FindBy(xpath = "//label[text()='count']/following-sibling::input")
     private WebElement count;
 
@@ -144,6 +147,10 @@ public class EditPage extends PageTemplate {
     public WebElement getAppDropdown() {
         appDropdown.click();
         return super.getLastDropdownList();
+    }
+
+    public WebElement getSelectedApp() {
+        return selectedApp;
     }
 
     public WebElement getSelectedUser() {

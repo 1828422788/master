@@ -26,8 +26,8 @@ Feature:定时任务补采
 
   Scenario: create_complement_overwrite
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I click the "Complement" button
-    When I click the "CreateComplement" button
+    And I click the "Complement" button under some element
+    When I click the "CreateComplement" button under some element
     Then I wait for "ComplementPanel" will be visible
     When I choose the "Test_Complement_2" from the "SelectName"
     And I click the "SelectInterval" button
@@ -43,8 +43,8 @@ Feature:定时任务补采
 
   Scenario: create_complement
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I click the "Complement" button
-    When I click the "CreateComplement" button
+    And I click the "Complement" button under some element
+    When I click the "CreateComplement" button under some element
     Then I wait for "ComplementPanel" will be visible
     When I choose the "Test_Complement" from the "SelectName"
     And I click the "SelectInterval" button
@@ -69,8 +69,8 @@ Feature:定时任务补采
 
   Scenario: create_complement_checkfields_name
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I click the "Complement" button
-    When I click the "CreateComplement" button
+    And I click the "Complement" button under some element
+    When I click the "CreateComplement" button under some element
     Then I wait for "ComplementPanel" will be visible
     When I click the "Ensure" button
     And I wait for "Notice" will be visible
@@ -78,8 +78,8 @@ Feature:定时任务补采
 
   Scenario: create_complement_checkfields_interval
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I click the "Complement" button
-    When I click the "CreateComplement" button
+    And I click the "Complement" button under some element
+    When I click the "CreateComplement" button under some element
     Then I wait for "ComplementPanel" will be visible
     When I choose the "Test_Complement" from the "SelectName"
     And I click the "Ensure" button
@@ -88,8 +88,8 @@ Feature:定时任务补采
 
   Scenario: create_complement_checkfields_interval2
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I click the "Complement" button
-    When I click the "CreateComplement" button
+    And I click the "Complement" button under some element
+    When I click the "CreateComplement" button under some element
     Then I wait for "ComplementPanel" will be visible
     When I choose the "Test_Complement" from the "SelectName"
     And I click the "SelectInterval" button
