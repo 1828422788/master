@@ -53,7 +53,7 @@ Feature: download_eval下载
 #      | unpivot_bygroup_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info1152 \| stats latest('json.disk.used'), es('json.disk.used') by json.disk.path \| unpivot |
 #      | unpivot_bygroup_header_field | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info1152 \| stats latest('json.disk.used'), es('json.disk.used') by json.disk.path \| unpivot header_field=json.disk.path column_name=function |
 #      | unpivot_bygroup_header_field_unpivot | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info1152 \| stats latest('json.disk.used'), es('json.disk.used') by json.disk.path \| unpivot header_field=json.disk.path column_name=function \| unpivot header_field=function |
-      | foreach_avg_disk_used | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info1152 \| timechart avg(json.disk.used) as a by json.disk.path \| foreach a* [[ eval '<<FIELD>>'='<<FIELD>>'/1024/1024/1024 ]] \| fields -_time |
+#      | foreach_avg_disk_used | starttime=\"now/d\" endtime=\"now/d+24h\" tag:top_info1152 \| timechart avg(json.disk.used) as a by json.disk.path \| foreach a* [[ eval '<<FIELD>>'='<<FIELD>>'/1024/1024/1024 ]] \| fields -_time |
       | foreach_json_sample | \| makeresults \| eval json.as=\"a\", json.a2=\"b\",json.a3=\"c\" \| foreach json.* [[ eval test = if(empty(test),\"\",tet+\"\")+\"<<FIELD>>\"]] \| fields -timestamp |
       | foreach_apache | tag:sample04061424 \| sort by apache.x_foward \| table apache.geo.l* \| foreach apache.g* [[ eval new_field='<<FIELD>>']] |
 
