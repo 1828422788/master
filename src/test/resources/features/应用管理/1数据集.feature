@@ -32,6 +32,7 @@ Feature: 应用数据集
     And I wait for "CreateButton" will be visible
     And I click the "InstallButton" button
     Then I will see the "app.InstallPage" page
+    And I wait for loading invisible
     And I wait for "AddDataset" will be visible
     And I choose the "__admin__" from the "Role"
     When I upload a file "Upload" with name "/target/download-files/<appName>.tar"

@@ -58,6 +58,7 @@ Feature: 仪表盘柱状图
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
+    And I wait for "500" millsecond
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
     And I set the parameter "SearchChartInput" with value "<name>"
@@ -326,28 +327,28 @@ Feature: 仪表盘柱状图
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will contain "apache.clientip:64.20.177.254"
 
-#  @cleanDashboard
-#  Scenario Outline: 删除仪表盘
-#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-#    When the data name is "<name>" then i click the "删除" button
-#    And I wait for "Ensure" will be visible
-#    And I click the "Ensure" button
-#    And I wait for "500" millsecond
-#    Then I will see the success message "删除仪表盘成功"
-#
-#    Examples:
-#      | name   |
-#      | 仪表盘柱状图 |
-#
-#  @cleanDashboard
-#  Scenario Outline: 删除仪表盘所建趋势图
-#    Given open the "trend.ListPage" page for uri "/trend/"
-#    When the data name is "<name>" then i click the "删除" button
-#    And I wait for "Ensure" will be visible
-#    And I click the "Ensure" button
-#    And I wait for "500" millsecond
-#    And I will see the success message "删除成功"
-#
-#    Examples:
-#      | name   |
-#      | 仪表盘柱状图 |
+  @cleanDashboard
+  Scenario Outline: 删除仪表盘
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    Then I will see the success message "删除仪表盘成功"
+
+    Examples:
+      | name   |
+      | 仪表盘柱状图 |
+
+  @cleanDashboard
+  Scenario Outline: 删除仪表盘所建趋势图
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    And I will see the success message "删除成功"
+
+    Examples:
+      | name   |
+      | 仪表盘柱状图 |

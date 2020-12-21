@@ -165,6 +165,7 @@ Feature: 仪表盘详情页
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
+    And I wait for "500" millsecond
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
     And I set the parameter "SearchChartInput" with value "验证仪表盘全局时间"
