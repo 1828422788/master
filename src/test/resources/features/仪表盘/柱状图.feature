@@ -267,29 +267,87 @@ Feature: 仪表盘柱状图
       | 仪表盘柱状图 |   starttime=${start} endtime=${end} *       |  starttime=      |  endtime=      |
       | 仪表盘柱状图 |   timestamp:[${start} TO ${end}] AND tag:*  |  timestamp:      |  AND tag:*      |
 
-
-  @cleanDashboard
-  Scenario Outline: 删除仪表盘
+  @dashboard
+  Scenario Outline: 序列图支持的钻取变量start,end钻取到标签页 RZY-3264
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    When the data name is "<name>" then i click the "删除" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "DrillSetting" button
     And I wait for "500" millsecond
-    Then I will see the success message "删除仪表盘成功"
+    And I choose the "跳转到标签页" from the "DrillAction"
+    And I click the "TargetTag" button
+    And I choose the "FirstAutoTest" from the "DashboardMenu"
+    And I choose the "testSearch" from the "DashboardMenu"
+    And I click the "TargetParam" button
+    And I choose the "globalTimeRange" from the "InputGroup"
+    And I hide the element "ParamDropdown"
+    And I click the "ParamValue" button
+    And I click the "StartEnd" button
+    And I click the "Ensure" button
+    And I wait for "3000" millsecond
+    And I click the "Zhutiao" button
+    And switch to another window
+    And I close all tabs except main tab
+    And I will see the "splSearch.SearchPage" page
+    Then I will see the url contains "<url>"
+    Then I will see the element "CurrentDashboard" value is "<CurrentDashboard> "
 
     Examples:
-      | name   |
-      | 仪表盘柱状图 |
+      | name       |   url             |  CurrentDashboard |
+      | 仪表盘柱状图 |  globalTimeRange= |  FirstAutoTest    |
 
-  @cleanDashboard
-  Scenario Outline: 删除仪表盘所建趋势图
-    Given open the "trend.ListPage" page for uri "/trend/"
-    When the data name is "<name>" then i click the "删除" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
+  @dashboard
+  Scenario: 序列图支持的钻取变量row.fieldname RZY-3260
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘柱状图"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "仪表盘柱状图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "DrillSetting" button
     And I wait for "500" millsecond
-    And I will see the success message "删除成功"
+    And I choose the "跳转到搜索页" from the "DrillAction"
+    And I click the "Custom" button
+    And I set the parameter "Spl" with value "apache.clientip:${row.apache.clientip}"
+    And I click the "DateEditor" button
+    And I click the "Shortcut" button
+    And I click the "Today" button
+    And I "checked" the checkbox which name is "在浏览器新标签页中打开"
+    And I click the "Ensure" button
+    And I wait for "3000" millsecond
+#    And I move the mouse pointer to the "SwitchToTable"
+    And I click the "SwitchToTable" button
+    And I click the "Ip254" button
+    And switch to another window
+    And I close all tabs except main tab
+    And I will see the "splSearch.SearchPage" page
+    Then I will see the "SearchInput" result will contain "apache.clientip:64.20.177.254"
 
-    Examples:
-      | name   |
-      | 仪表盘柱状图 |
+#  @cleanDashboard
+#  Scenario Outline: 删除仪表盘
+#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+#    When the data name is "<name>" then i click the "删除" button
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button
+#    And I wait for "500" millsecond
+#    Then I will see the success message "删除仪表盘成功"
+#
+#    Examples:
+#      | name   |
+#      | 仪表盘柱状图 |
+#
+#  @cleanDashboard
+#  Scenario Outline: 删除仪表盘所建趋势图
+#    Given open the "trend.ListPage" page for uri "/trend/"
+#    When the data name is "<name>" then i click the "删除" button
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button
+#    And I wait for "500" millsecond
+#    And I will see the success message "删除成功"
+#
+#    Examples:
+#      | name   |
+#      | 仪表盘柱状图 |

@@ -282,6 +282,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='仪表盘曲线图']/parent::div")
     private WebElement sequenceChart;
 
+    @FindBy(xpath = "(//i[@class='anticon css-ifnfqv'])[8]")
+    private WebElement switchToTable;
+
     @FindBy(xpath = "//*[name()='g'][contains(@class,'vx-axis-left')]")
     private WebElement sequenceChartYaxis;
 
@@ -470,13 +473,16 @@ public class DetailPage extends PageTemplate {
     private WebElement  chengDuShi;
 
     @FindBy(xpath = "//li[text()='成都市']")
-    private WebElement  chengdushiList;
+    private WebElement chengdushiList;
 
     @FindBy(xpath = "(//*[name()='rect'])[3]")
     private WebElement zhutiao;
 
     @FindBy(xpath = "(//*[name()='text'])[text()='64.20.177.254']")
     private WebElement ipZifu;
+
+    @FindBy(xpath = "//span[text()='64.20.177.254']")
+    private WebElement ip254;
 
     @FindBy(xpath = "(//*[name()='circle'])[last()]")
     private WebElement taiwan;
@@ -806,6 +812,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//li[text()='FirstAutoTest']")
     private WebElement firstAutoTest;
 
+    @FindBy(xpath = "//span[@class='ant-dropdown-trigger']")
+    private WebElement currentDashboard;
+
     @FindBy(xpath = "//div[text()='返回列表']")
     private WebElement returnToList;
 
@@ -1129,6 +1138,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getFirstAutoTest() {
         return firstAutoTest;
+    }
+
+    public WebElement getCurrentDashboard() {
+        return currentDashboard;
     }
 
     public WebElement getDashboardIcon() {
@@ -1587,6 +1600,10 @@ public class DetailPage extends PageTemplate {
         return ipZifu;
     }
 
+    public WebElement getIp254() {
+        return ip254;
+    }
+
     public WebElement getNeimenggu() {
         return neimenggu;
     }
@@ -1870,6 +1887,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getSequenceChart() {
         return sequenceChart;
+    }
+
+    public WebElement getSwitchToTable() {
+        return switchToTable;
     }
 
     public WebElement getSequenceChartYaxis() {
