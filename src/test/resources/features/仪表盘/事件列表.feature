@@ -153,6 +153,7 @@ Feature: 仪表盘事件列表
     Given open the "event.ListPage" page for uri "/event/action/"
     When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
+    And I wait for "3000" millsecond
     And I wait for loading invisible
     And I choose the "搜索" from the "Action"
     And I set the parameter "Spl" with value "appname:${appname}"

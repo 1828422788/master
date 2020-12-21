@@ -92,16 +92,16 @@ Feature: 仪表盘输入项联动
     And I click the "settingIcon" button
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
-    And I choose the "192.168.1.183" from the "LastFilter"
+    And I choose the "192.168.1.171" from the "LastFilter"
     And I click the "Update" button
     When the chart title is "测试输入项联动" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
-    And I wait for "OpenInSearch" will be visible
+    And I wait for "5000" millsecond
     And I click the "OpenInSearch" button
     And switch to another window
     And I close all tabs except main tab
     Then I will see the "splSearch.SearchPage" page
-    Then I will see the element "SearchInput" name is "logtype:apache AND hostname:192.168.1.183"
+    Then I will see the element "SearchInput" name is "logtype:apache AND hostname:192.168.1.171"
 
   @dashboard @dashboardSmoke
   Scenario: 添加输入项

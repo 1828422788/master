@@ -109,6 +109,7 @@ Feature: 仪表盘输入项
     And I wait for "DeleteChart" will be visible
     And I click the "DeleteChart" button
     And I click the "Ensure" button
+    And I wait for "3000" millsecond
 
   @dashboard @dashboardSmoke
   Scenario: 删除单引号输入项
