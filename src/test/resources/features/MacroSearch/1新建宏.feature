@@ -119,7 +119,7 @@ Feature: 搜索宏新建
     And I set the parameter "ValidateFalseInfo" with value "<validateFalseInfo>"
 
     And I click the "SaveMacroButton" button
-    Then I will see the "<ResultMessage>"
+#    Then I will see the "<ResultMessage>"
 
     Examples: 新建成功
       | name                         | definition                                                                                                                                                                                   | param          | validateExpression | validateFalseInfo | ResultMessage          |
