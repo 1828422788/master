@@ -3,7 +3,7 @@ Feature: 新建collect使用索引
   Background:
     Given open the "index.ListPage" page for uri "/indexsettings/"
 
-  @newcollect @splpre
+  @collect0 @splpre
   Scenario Outline: RZY-1474:新建索引
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page

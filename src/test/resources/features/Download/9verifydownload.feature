@@ -291,3 +291,16 @@ Feature: 处理下载结果
       | esma_sample1 | starttime=\"now/d\" endtime=\"now+d/d\" tag:\"sample04061424_apachesample_dawn\" \| bucket timestamp span=1h as ts \| stats avg(apache.resp_len) as cnt by ts \| esma cnt timefield=ts \|eval r_fmt_time=formatdate(ts) |
       | esma_futurecount | starttime=\"now/d\" endtime=\"now+d/d\" tag:\"sample04061424_apachesample_dawn\" \| bucket timestamp span=1h as ts \| stats count() as cnt by ts \| esma cnt timefield=ts futurecount=30 \|eval new_tt=formatdate(ts,\"HH:mm:ss\") |
       | esma_where_join | starttime=\"now-1d/d\" endtime=\"now/d\" tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats avg(apache.status) as avg_ by ts \| esma avg_ timefield=ts futurecount=24 \| eval r_fmt=formatdate(ts)  \| where typeof(_predict_avg_)==\"double\" \| eval time = formatdate(ts, \"HH:mm\") \| table time, _predict_avg_ \| join type=left time [[ starttime=\"now/d\" endtime=\"now/d+24h\"  tag:\"sample04061424_chart\" \| bucket timestamp span=1h as ts \| stats avg(apache.status) as avg_ by ts \| eval time = formatdate(ts, \"HH:mm\") \| table time, avg_ ]] |
+
+  @dlcollecttxt
+  Scenario Outline: 验证collect
+    Then I compare source download file "<name>.txt" with target download files "<name>.txt"
+
+    Examples:
+      | name                                   | splQuery                                                                                                                                                        |
+      | collect_sample_appcollect_step1        | tag:sample04061424\| collect index=collectone marker=\"appname=\\\\\"appcollect\\\\\"\"                                                                         |
+      | collect_appcollect_newtagcollect_step1 | tag:sample04061424\| collect index=collecttwo marker=\"appname=\\\\\"appcollect\\\\\", tag=\\\\\"newtagcollect\\\\\"\"                                          |
+      | collect_testmode_false_step1           | tag:sample04061424 \| collect index=collectmodefalse marker=\"tag=\\\\\"testmodefalse\\\\\"\" testmode=false                                                         |
+      | collect_testmode_true_step1            | tag:sample04061424 \| collect index=collectmodetrue marker=\"tag=\\\\\"testmodetrue\\\\\"\" testmode=true                                                           |
+      | collect_to_collect_step1               | index=collectone appname:appcollect \| collect index=collecttocollect marker=\"tag=\\\\\"newcollect\\\\\"\"                                                     |
+      | collect_mulparam_step1                 | tag:sample04061424 \| collect index=collectmulti marker=\"tag=\\\\\"newtagcollect\\\\\",ip=\\\\\"192.168.1.100\\\\\", apache.status=100, apache.resp_len=23.0\" |

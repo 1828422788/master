@@ -94,7 +94,6 @@ Feature: 搜索宏新建
     When I set the parameter "MacroName" with value "<name>"
 #    And I choose the "无数集app之api全部测试用例" from the "BelongToApps"
     And I set the parameter "Definition" with value "<definition>"
-#    And I click the "MacroEvalCheckbox" button
     And I set the parameter "MacroParam" with value "<twoparam>"
     And I set the parameter "ValidateExpression" with value "<validateExpression>"
     And I set the parameter "ValidateFalseInfo" with value "<validateFalseInfo>"
@@ -115,7 +114,6 @@ Feature: 搜索宏新建
 #    And I choose the "1pre_package" from the "MacroResTag"
 #    And I choose the "无数集app之api全部测试用例" from the "BelongToApps"
     And I set the parameter "Definition" with value "<definition>"
-#    And I click the "MacroEvalCheckbox" button
     And I set the parameter "MacroParam" with value "<param>"
     And I set the parameter "ValidateExpression" with value "<validateExpression>"
     And I set the parameter "ValidateFalseInfo" with value "<validateFalseInfo>"
@@ -141,7 +139,6 @@ Feature: 搜索宏新建
 #    And I choose the "1pre_package" from the "MacroResTag"
 #    And I choose the "无数集app之api全部测试用例" from the "BelongToApps"
     And I set the parameter "Definition" with value "<definition>"
-#    And I click the "MacroEvalCheckbox" button
     And I set the parameter "ValidateExpression" with value "<validateExpression>"
     And I set the parameter "ValidateFalseInfo" with value "<validateFalseInfo>"
 
