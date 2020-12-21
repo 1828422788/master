@@ -59,6 +59,7 @@ Feature: 仪表盘多选菜单数组操作
     And I click the detail which name is "仪表盘多选菜单数组操作"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
+    And I wait for "500" millsecond
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
     And I set the parameter "SearchChartInput" with value "仪表盘多选菜单数组"
