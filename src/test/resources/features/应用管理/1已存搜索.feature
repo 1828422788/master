@@ -118,6 +118,7 @@ Feature: 应用已存搜索（RZY-2125）
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "testTag"
     And I choose the "testTag" from the "TagDropdown"
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
@@ -152,6 +153,7 @@ Feature: 应用已存搜索（RZY-2125）
     And I will see the element "Title" name is "SavedsearchesApp"
     Then I will see the "splSearch.SavedSearchPage" page
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"

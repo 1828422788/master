@@ -26,6 +26,7 @@ Feature: 拓扑图插图功能
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for "Message" will be visible
     And I will see the message "搜索成功"
     And I click the "OpenChart" button
     And I click the "Apply" button
@@ -35,6 +36,7 @@ Feature: 拓扑图插图功能
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for "Message" will be visible
     And I will see the message "搜索成功"
     And I click the "OpenChart" button
     And I choose the "200-分格2-min(apache.resp_len)" from the "FiledInput"
@@ -45,6 +47,7 @@ Feature: 拓扑图插图功能
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for "Message" will be visible
     And I will see the message "搜索成功"
     And I click the "OpenChart" button
     And I choose the "404-分格2-count()" from the "FiledInput"
@@ -55,6 +58,7 @@ Feature: 拓扑图插图功能
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for "Message" will be visible
     And I will see the message "搜索成功"
     And I click the "OpenChart" button
     And I choose the "404-分格2-min(apache.resp_len)" from the "FiledInput"

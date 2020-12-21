@@ -221,6 +221,7 @@ Feature: 应用监控模块（RZY-2122）
     And I will see the element "Title" name is "AlertApp"
     Then I will see the "alert.ListPage" page
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AlertApp"
