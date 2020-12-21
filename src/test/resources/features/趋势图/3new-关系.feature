@@ -25,10 +25,10 @@ Feature: 趋势图新建_关系
 
     And I click the "Type" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/<chartType>_<caseNum>"
+    And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button under some element
 
@@ -65,10 +65,10 @@ Feature: 趋势图新建_关系
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/<chartType>_repulsion"
+    And take part of "StatisticalChart" with name "actual/<chartType>_repulsion"
 #    And I compare source image "actual/<chartType>_repulsion" with target image "expect/<chartType>_repulsion"
     Then I click the "NextButton" button under some element
 
@@ -103,10 +103,10 @@ Feature: 趋势图新建_关系
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/<chartType>_<button>"
+    And take part of "StatisticalChart" with name "actual/<chartType>_<button>"
     And I compare source image "actual/<chartType>_<button>" with target image "expect/<chartType>_<button>"
     Then I click the "NextButton" button under some element
 

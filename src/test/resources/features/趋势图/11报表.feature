@@ -20,7 +20,7 @@ Feature: 趋势图新建_报表
     And I click the "LineChart" button
 
     And I click the "Type" button
-    And I wait for "Chart" will be visible
+    And I wait for "StatisticalChart" will be visible
 
     And I click the "NextButton" button under some element
     When I set the parameter "NameInput" with value "<trend_name>"

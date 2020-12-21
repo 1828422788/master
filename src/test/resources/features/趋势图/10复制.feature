@@ -35,10 +35,10 @@ Feature: 趋势图复制(RZY-1889)
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/test_original"
+    And take part of "StatisticalChart" with name "actual/test_original"
     And I compare source image "actual/test_original" with target image "expect/ScatterChart_bubbles"
     And I click the "NextButton" button under some element
 
@@ -74,10 +74,10 @@ Feature: 趋势图复制(RZY-1889)
     And I will see the input element "FenPianQuYang" value will be "5000"
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/test_copy"
+    And take part of "StatisticalChart" with name "actual/test_copy"
     And I compare source image "actual/test_copy" with target image "expect/ScatterChart_bubbles"
     And I click the "NextButton" button under some element
 

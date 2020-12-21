@@ -23,10 +23,10 @@ Feature: 趋势图新建_维度
 
     And I click the "Type" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/<chartType>_<caseNum>"
+    And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button under some element
 
@@ -64,10 +64,10 @@ Feature: 趋势图新建_维度
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/<chartType>_<typeInfo>_<option>"
+    And take part of "StatisticalChart" with name "actual/<chartType>_<typeInfo>_<option>"
     And I compare source image "actual/<chartType>_<typeInfo>_<option>" with target image "expect/<chartType>_<typeInfo>_<option>"
     Then I click the "NextButton" button under some element
 
@@ -112,10 +112,10 @@ Feature: 趋势图新建_维度
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/<chartType>_<typeInfo>"
+    And take part of "StatisticalChart" with name "actual/<chartType>_<typeInfo>"
     And I compare source image "actual/<chartType>_<typeInfo>" with target image "expect/<chartType>_<typeInfo>"
     Then I click the "NextButton" button under some element
 
@@ -212,7 +212,7 @@ Feature: 趋势图新建_维度
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_分面"
-    And I compare source image "actual/<chartType>_分面" with target image "expect/<chartType>_分面"
+#    And I compare source image "actual/<chartType>_分面" with target image "expect/<chartType>_分面"
     Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>_分面"
@@ -244,14 +244,14 @@ Feature: 趋势图新建_维度
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
+    And I wait for "StatisticalChart" will be visible
     And I click the "ShenZhen" button
     And I click the "HideElement" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/<chartType>_<option>"
+    And take part of "StatisticalChart" with name "actual/<chartType>_<option>"
     And I compare source image "actual/<chartType>_<option>" with target image "expect/<chartType>_<option>"
     Then I click the "NextButton" button under some element
 

@@ -26,10 +26,10 @@ Feature: 趋势图新建_地图
 
     And I click the "Type" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/<chartType>_<caseNum>"
+    And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button under some element
 
@@ -74,10 +74,10 @@ Feature: 趋势图新建_地图
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/<chartType>_<regionBut>_<caseNum>"
+    And take part of "StatisticalChart" with name "actual/<chartType>_<regionBut>_<caseNum>"
     And I compare source image "actual/<chartType>_<regionBut>_<caseNum>" with target image "expect/<chartType>_<regionBut>_<caseNum>"
     Then I click the "NextButton" button under some element
 
@@ -118,10 +118,10 @@ Feature: 趋势图新建_地图
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/<chartType>_<region>_<caseNum>"
+    And take part of "StatisticalChart" with name "actual/<chartType>_<region>_<caseNum>"
     And I compare source image "actual/<chartType>_<region>_<caseNum>" with target image "expect/<chartType>_<region>_<caseNum>"
     Then I click the "NextButton" button under some element
 
@@ -158,10 +158,10 @@ Feature: 趋势图新建_地图
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/<chartType>_<caseNum>"
+    And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button under some element
 
@@ -204,10 +204,10 @@ Feature: 趋势图新建_地图
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/<chartType>_<region>_<caseNum>"
+    And take part of "StatisticalChart" with name "actual/<chartType>_<region>_<caseNum>"
     And I compare source image "actual/<chartType>_<region>_<caseNum>" with target image "expect/<chartType>_<region>_<caseNum>"
     Then I click the "NextButton" button under some element
 

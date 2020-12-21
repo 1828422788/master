@@ -1112,10 +1112,10 @@ Feature: 趋势图新建-其他
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/<chartType>_1"
+    And take part of "StatisticalChart" with name "actual/<chartType>_1"
     And I compare source image "actual/<chartType>_1" with target image "expect/<chartType>_1"
     And I click the "Click<node>" button
     And I wait for "2000" millsecond
@@ -1141,9 +1141,9 @@ Feature: 趋势图新建-其他
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
 
-    And I wait for "Chart" will be visible
+    And I wait for "StatisticalChart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/<chartType>"
+    And take part of "StatisticalChart" with name "actual/<chartType>"
     And I compare source image "actual/<chartType>" with target image "expect/<chartType>"
     Then I click the "NextButton" button under some element
     And I wait for "2000" millsecond
