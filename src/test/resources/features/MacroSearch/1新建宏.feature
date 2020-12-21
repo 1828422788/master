@@ -1,4 +1,4 @@
-@all @searchMacro @nmacro
+@all @searchMacro @newmacro
 Feature: 搜索宏新建
 
   @nmacro1
@@ -81,17 +81,20 @@ Feature: 搜索宏新建
 
     Examples: 新建成功
       | name                               | definition                                                                                                                  | param       | validateExpression   | validateFalseInfo | ResultMessage |
+      | two_param(2)                       | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==$x$ && apache.version==$y$ | x,y         | isstr(x) && isstr(y) | 参数错误，请输入正确的参数     |               |
+      | two_param                 | tag:sample04061424 \| stats count() as ip_cnt by apache.clientip, apache.version \| where apache.clientip==\"23.166.125.53\" && apache.version==\"1.1\" |  |    |          |               |
       | map_opt_count_2(2)                 | tag:"sample04061424" \| eval txt=$p_count$\| limit 1 \| table txt \| map " tag:"sample04061424" \| stats $txt$(timestamp) " | p_count,txt | isstr(p_count)       | 输入参数需要字符串         |               |
+      | map_opt_count_2        | tag:"sample04061424" \| eval txt="count"\| limit 1 \| table txt \| map " tag:"sample04061424" \| stats count(timestamp) " |  |    |          |               |
+      | map_eval_resplen_stats_count_2(2)  | tag:"sample04061424" \| eval resp_len=$int_resp_len$ \| limit 1 \| table resp_len \| map " tag:"sample04061424" \| stats $fun_name$() " | p_count,txt | isstr(p_count)       | 输入参数需要字符串         |               |
+      | map_eval_resplen_stats_count_2  | tag:"sample04061424" \| eval resp_len=$int_resp_len$ \| limit 1 \| table resp_len \| map " tag:"sample04061424" \| stats $fun_name$() " |  |        |          |               |
       #有bug
       | app_permission_sample_two_param(2) | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==$x$ && apache.version==$y$ | x,y         | isstr(x) && isstr(y) | 参数错误，请输入正确的参数     |               |
-      | two_param(2)                       | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==$x$ && apache.version==$y$ | x,y         | isstr(x) && isstr(y) | 参数错误，请输入正确的参数     |               |
 
   Scenario Outline:创建宏，售前，1个
     Given open the "macroSearch.ListPage" page for uri "/macro/"
     When I click the "CreateMacroButton" button
     Then I will see the "macroSearch.CreatePage" page
     When I set the parameter "MacroName" with value "<name>"
-#    And I choose the "1pre_package" from the "MacroResTag"
 #    And I choose the "无数集app之api全部测试用例" from the "BelongToApps"
     And I set the parameter "Definition" with value "<definition>"
 #    And I click the "MacroEvalCheckbox" button
@@ -106,6 +109,7 @@ Feature: 搜索宏新建
       | name        | definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | twoparam  | validateExpression | validateFalseInfo |
        #有bug
       | huanbi_2(2) | starttime="now/d" endtime="now" appname:$arg1$ \| bucket timestamp span=1h as ts\|stats $arg2$() as count_ by ts\| eval hour=formatdate(tolong(ts),"HH")\|eval line="今天"\|append [[starttime="-1d/d" endtime="now/d" appname:$arg1$ \| bucket timestamp span=1h as ts\|stats $arg2$() as count_ by ts\| eval hour=formatdate(tolong(ts),"HH")\|eval line="昨天"]] \| append [[starttime="-7d/d" endtime="-6d/d" appname:$arg1$ \| bucket timestamp span=1h as ts\|stats $arg2$() as count_ by ts\| eval hour=formatdate(tolong(ts),"HH")\|eval line="一周前"]]\|rename count_ as "请求量" | arg1,arg2 |                    |                   |
+      | huanbi_2  | starttime="now/d" endtime="now\" appname:apache \| bucket timestamp span=1h as ts \|stats count() as count_ by ts\| eval hour=formatdate(tolong(ts),\"HH\")\|eval line=\"今天\"\|append [[starttime=\"-1d/d\" endtime=\"now/d\" appname:apache \| bucket timestamp span=1h as ts\|stats count() as count_ by ts\| eval hour=formatdate(tolong(ts),\"HH\")\|eval line=\"昨天\"]] \| append [[starttime="-7d/d" endtime="-6d/d" appname:apache \| bucket timestamp span=1h as ts\|stats count() as count_ by ts\| eval hour=formatdate(tolong(ts),"\HH\")\|eval line=\"一周前\"]]\|rename count_ as \"请求量\" |     |          |               |
 
   Scenario Outline:创建宏_1个参数，7个
     Given open the "macroSearch.ListPage" page for uri "/macro/"
@@ -126,14 +130,16 @@ Feature: 搜索宏新建
     Examples: 新建成功
       | name                         | definition                                                                                                                                                                                   | param          | validateExpression | validateFalseInfo | ResultMessage          |
       | timechart_hour_1(1)          | tag:sample04061424 \| timechart span=$x$h count() as res_count \| where res_count>0 \| eval f_time=formatdate(_time)                                                                         | x              | isint(x)           |                   |                        |
+      | timechart_hour_1     | tag:sample04061424 \| timechart span=1h count() as res_count \| where res_count>0 \| eval f_time=formatdate(_time)                                                                         |            |          |                   |                        |
       | one_param(1)                 | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==$x$                                                                                         | x              | isstr(x)           | 请输⼊字符串            | success message "保存成功" |
+      | one_param     | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip=="23.166.125.53"                                                                       |            |          |                   |                        |
       | sub_tran_resp_len_1(1)       | tag: sample04061424 AND [[ $resp_len$ \| stats count(appname) by apache.resp_len \| fields apache.resp_len]] \| transaction apache.resp_len contains="$resp_len$"                            | resp_len       |                    |                   |                        |
       | sub_tran_resp_len_param_1(1) | tag:sample04061424 AND [[ apache.resp_len:$param_resp_len$ \| stats count(appanme) by apache.resp_len \| fields apache.resp_len]] \| transaction apache.resp_len contains="$param_resp_len$" | param_resp_len |                    |                   |                        |
       | sub_join_left_1(1)           | tag:"sample04061424" \| stats avg(apache.status) by $cip$ \| join type=left $cip$ [[ tag:"sample04061424" AND $cip$:23.166.125.53 \| stats sum(apache.status) by $cip$ ]]                    | cip            |                    |                   |                        |
       | dup_names_1(1)               | tag:"sample04061424" \| stats avg(apache.status) by $cip$ \| join type=left $cip$ [[ tag:"sample04061424" AND $cip$:23.166.125.53 \| stats sum(apache.status) by $cip$ ]]                    | cip            |                    |                   |                        |
 
   @newmacro
-  Scenario Outline:创建宏_无参数，21
+  Scenario Outline:创建宏_无参，21
     Given open the "macroSearch.ListPage" page for uri "/macro/"
     When I click the "CreateMacroButton" button
     Then I will see the "macroSearch.CreatePage" page
