@@ -23,7 +23,7 @@ Feature: 仪表盘详情行布局
     And I wait for "Today" will be visible
     And I click the "Today" button
     And I click the "FenPianQuYang" button
-    And I alter the input element "FenPianQuYang" value to "0"
+#    And I alter the input element "FenPianQuYang" value to "0"
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -32,7 +32,6 @@ Feature: 仪表盘详情行布局
     When I set the parameter "NameInput" with value "<name>"
     And I click the "NextButton" button
     And I wait for "SuccessCreate" will be visible
-    And I back to before
 
     Examples:
       | name        | spl                                                           |

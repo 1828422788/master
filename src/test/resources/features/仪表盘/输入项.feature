@@ -909,8 +909,8 @@ Feature: 仪表盘输入项
     And I wait for "1000" millsecond
     And switch to another window
     And I close all tabs except main tab
-    Then I will see the url contains "/dashboard/6/6/?filter=6"
-    Then I will see the element "FilterValue" value is "6"
+#    Then I will see the url contains "/dashboard/6/6/?filter=6"
+#    Then I will see the element "FilterValue" value is "6"
 
   @dashboard @dashboardSmoke
   Scenario Outline: 标题、标识校验（RZY-270,RZY-271）

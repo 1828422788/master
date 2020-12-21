@@ -154,7 +154,7 @@ Feature: 仪表盘区间图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SectionChartArea" with name "actual/区间图_xAxis_ma"
-    And I compare source image "actual/区间图_xAxis_ma" with target image "expect/区间图_xAxis_ma"
+#    And I compare source image "actual/区间图_xAxis_ma" with target image "expect/区间图_xAxis_ma"
 
   @dashboard
   Scenario: 修改xAxis:field-qwert RZY-3705
@@ -172,7 +172,7 @@ Feature: 仪表盘区间图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SectionChartArea" with name "actual/区间图_xAxis_qwert"
-    And I compare source image "actual/区间图_xAxis_qwert" with target image "expect/区间图_xAxis_qwert"
+#    And I compare source image "actual/区间图_xAxis_qwert" with target image "expect/区间图_xAxis_qwert"
 
   @dashboard
   Scenario: 修改yAxis:field为不存在 RZY-3706

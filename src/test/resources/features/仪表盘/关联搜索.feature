@@ -90,7 +90,7 @@ Feature: 仪表盘关联搜索
       | 仪表盘workflow | tag:auto_test_dashboard_workflow \| table tag,workflow.ENTRY_ID \| rename workflow.ENTRY_ID as ENTRY_ID                                                                           |
 
   @dashboard @dashboardSmoke
-  Scenario: 在仪表盘中添加趋势图
+  Scenario Outline: 在仪表盘中添加趋势图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘关联搜索"
@@ -99,11 +99,17 @@ Feature: 仪表盘关联搜索
     When I click the "AddEventButton" button
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
-    And I set the parameter "SearchChartInput" with value "仪表盘"
+    And I set the parameter "SearchChartInput" with value "<name>"
     And I wait for loading invisible
-    And I "checked" the checkbox which name is "仪表盘message,仪表盘return,仪表盘workflow"
+    And I "checked" the checkbox which name is "<name>"
     And I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "添加成功"
+
+    Examples:
+      | name     |
+      | 仪表盘message   |
+      | 仪表盘return |
+      | 仪表盘workflow |
 
   @dashboard @dashboardSmoke
   Scenario: 开启钻取配置

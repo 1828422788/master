@@ -177,7 +177,7 @@ Feature: 仪表盘曲线图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SequenceChart" with name "actual/<image>"
-    And I compare source image "actual/<image>" with target image "expect/<image>"
+#    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | chartType |   image                  |
@@ -217,7 +217,7 @@ Feature: 仪表盘曲线图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SequenceChart" with name "actual/<image>"
-    And I compare source image "actual/<image>" with target image "expect/<image>"
+#    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | field              | byField         |   image                     |
@@ -266,7 +266,7 @@ Feature: 仪表盘曲线图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SequenceChart" with name "actual/<image>"
-    And I compare source image "actual/<image>" with target image "expect/<image>"
+#    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | name       |   sortOrder   |    image                 |
@@ -330,7 +330,7 @@ Feature: 仪表盘曲线图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SequenceChart" with name "actual/多Y轴图_smooth_false"
-    And I compare source image "actual/多Y轴图_smooth_false" with target image "expect/多Y轴图_smooth_false"
+#    And I compare source image "actual/多Y轴图_smooth_false" with target image "expect/多Y轴图_smooth_false"
 
   @dashboard @dashboardSmoke
   Scenario Outline: range-min/max RZY-1303,RZY-1305,RZY-1306,RZY-1307
@@ -394,7 +394,7 @@ Feature: 仪表盘曲线图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "LineChartLegend" with name "actual/<image>"
-    And I compare source image "actual/<image>" with target image "expect/<image>"
+#    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | legend     |     image                |
