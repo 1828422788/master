@@ -1,4 +1,4 @@
-@all @searchMacro @newmacro
+@dlother @searchMacro @newmacro
 Feature: 搜索宏新建
 
   @nmacro1
