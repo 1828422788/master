@@ -49,7 +49,6 @@ Feature: 应用角色权限（RZY-2144）
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
-    Then I will see the success message "删除成功"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AuthApp"
 

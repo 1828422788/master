@@ -53,6 +53,7 @@ Feature: 应用新建（RZY-1899）
     And I "check" the checkbox which name is "app所选资源" in tiny table
     And I click the "SaveMenuButton" button
     And I click the "AddMenuButton" button under some element
+    And I wait for "MenuName" will be visible
     And I set the parameter "MenuName" with value "限额"
     And I set the parameter "Url" with value "/account/usage/"
     And I click the "SaveMenuButton" button
@@ -117,6 +118,7 @@ Feature: 应用新建（RZY-1899）
     And I "check" the checkbox which name is "app所选资源" in tiny table
     And I click the "SaveMenuButton" button
     And I click the "AddMenuButton" button under some element
+    And I wait for "MenuName" will be visible
     And I set the parameter "MenuName" with value "角色权限"
     And I set the parameter "Url" with value "/account/roles/"
     And I click the "SaveMenuButton" button

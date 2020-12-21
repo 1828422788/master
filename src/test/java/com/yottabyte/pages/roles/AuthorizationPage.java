@@ -95,6 +95,10 @@ public class AuthorizationPage extends PageTemplate {
         return this.getFunctionButton("资源权限");
     }
 
+    public WebElement getUser() {
+        return this.getMenuButton("用户");
+    }
+
     public WebElement getData() {
         return this.getFunctionButton("数据");
     }
