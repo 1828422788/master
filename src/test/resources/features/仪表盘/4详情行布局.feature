@@ -1,3 +1,4 @@
+@dashboard11
 Feature: 仪表盘详情行布局
 
   @dashboard @dashboardSmoke
