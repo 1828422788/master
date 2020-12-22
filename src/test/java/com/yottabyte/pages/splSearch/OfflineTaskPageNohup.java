@@ -14,8 +14,8 @@ import java.util.List;
 public class OfflineTaskPageNohup extends PageTemplate {
     public OfflineTaskPageNohup(WebDriver driver) {
         super(driver);
-//        driver.manage().window().maximize();
-        driver.manage().window().setSize(new Dimension(1, 1));
+        driver.manage().window().maximize();
+//        driver.manage().window().setSize(new Dimension(1, 1));
 //        driver.manage().window().setPosition(new Point(0, 0));
     }
 
