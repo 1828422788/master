@@ -9,7 +9,8 @@ Feature: 仪表盘详情行布局
     When I set the parameter "TagName" with value "rowLayout"
     And I click the "RowLayout" button
     And I click the "EnsureCreateTagButton" button
-    And I back to before
+    And I wait for "5000" millsecond
+#    And I back to before
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建行布局趋势图
@@ -20,9 +21,9 @@ Feature: 仪表盘详情行布局
     And I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
     And I click the "DateEditor" button under some element
-    And I wait for "Today" will be visible
+    And I wait for "1000" millsecond
     And I click the "Today" button
-    And I click the "FenPianQuYang" button
+#    And I click the "FenPianQuYang" button
 #    And I alter the input element "FenPianQuYang" value to "0"
     And I click the "SearchButton" button
     And I wait for "Header" will be visible

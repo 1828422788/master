@@ -1,6 +1,6 @@
-@dashboard @dashboardSmoke
 Feature: 仪表盘详情页
 
+  @dashboard @dashboardSmoke
   Scenario: 新建第一个tag(RZY-3388)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -11,7 +11,7 @@ Feature: 仪表盘详情页
     And I wait for "2000" millsecond
     And I back to before
 
-
+  @dashboard @dashboardSmoke
   Scenario: 新建待删除tag(RZY-3390)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -26,6 +26,7 @@ Feature: 仪表盘详情页
     And I wait for "3000" millsecond
     And I back to before
 
+  @dashboard @dashboardSmoke
   Scenario: 编辑tag(RZY-4488)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -42,6 +43,7 @@ Feature: 仪表盘详情页
     And I wait for "500" millsecond
     Then I will see the success message "标签名称修改成功"
 
+  @dashboard @dashboardSmoke
   Scenario: 删除tag(RZY-4489)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -55,6 +57,7 @@ Feature: 仪表盘详情页
     And I wait for "1500" millsecond
     Then I will see the success message "标签页删除成功"
 
+  @dashboard @dashboardSmoke
   Scenario: 夜间模式(RZY-237)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -70,6 +73,7 @@ Feature: 仪表盘详情页
     Then I will see the success message "夜间模式已关闭"
 #    And I compare source image "<string>" with target image "<string>"
 
+  @dashboard @dashboardSmoke
   Scenario: 关闭编辑(RZY-228)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -83,6 +87,7 @@ Feature: 仪表盘详情页
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "编辑功能已禁用"
 
+  @dashboard @dashboardSmoke
   Scenario: 验证关闭编辑(RZY-229)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -92,6 +97,7 @@ Feature: 仪表盘详情页
     And I click the "SettingIcon" button
     Then I will see the "EditLayout,RemoveTag,ManualRefresh,AutoRefresh" is "disabled"
 
+  @dashboard @dashboardSmoke
   Scenario: 验证关闭编辑(RZY-229)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -101,6 +107,7 @@ Feature: 仪表盘详情页
     Then I will see the "LiList" is "disabled"
     And I hide the element "EventList"
 
+  @dashboard @dashboardSmoke
   Scenario: 新建标签页，验证搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -113,6 +120,7 @@ Feature: 仪表盘详情页
 #    And I set the parameter "TagInput" with value "testSearch"
 #    And I click the "SaveTagInput" button
 
+  @dashboard @dashboardSmoke
   Scenario: 验证标签搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -123,6 +131,7 @@ Feature: 仪表盘详情页
     Then I will see the "FirstTag" doesn't exist
     Then I click the "TestSearch" button
 
+  @dashboard @dashboardSmoke
   Scenario: 仪表盘搜索，切换 RZY-240
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -136,6 +145,7 @@ Feature: 仪表盘详情页
     And I wait for loading invisible
     Then I will see the url contains "null"
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
@@ -159,6 +169,7 @@ Feature: 仪表盘详情页
       | name            | spl                                   |
       | 验证仪表盘全局时间 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
 
+  @dashboard @dashboardSmoke
   Scenario: 添加趋势图至仪表盘(RZY-3389)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -174,6 +185,7 @@ Feature: 仪表盘详情页
     And I click the "Ensure" button
     And I wait for "1000" millsecond
 
+  @dashboard @dashboardSmoke
   Scenario: 复制标签页(RZY-4484)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -187,6 +199,7 @@ Feature: 仪表盘详情页
     And I wait for "LastTag" will be visible
     Then I will see the element "LastTag" value is "testSearch_copy"
 
+  @dashboard @dashboardSmoke
   Scenario: 高级编辑
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -204,6 +217,7 @@ Feature: 仪表盘详情页
     And I wait for "TrendTitle" will be visible
     Then I will see the "TrendTitle" result will be "验证仪表盘全局时间"
 
+  @dashboard @dashboardSmoke
   Scenario: 新建全局时间选择器(RZY-225,RZY-4566)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -214,7 +228,6 @@ Feature: 仪表盘详情页
     And I set the parameter "inputSettingTitle" with value "全局时间"
     And I wait for "500" millsecond
     And I click the "inputSettingType" button
-
 #    And I choose the "时间范围" from the "LastDropdownList"
     And I click the "timeRangee" button
     Then I wait for "setGlobalTimeRange" will be visible
@@ -223,7 +236,7 @@ Feature: 仪表盘详情页
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "添加输入项成功"
 
-
+  @dashboard @dashboardSmoke
   Scenario: 验证全局时间生效及打开过滤输入项(RZY-4567,RZY-225,RZY-4638,RZY-3392)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -238,6 +251,7 @@ Feature: 仪表盘详情页
     And I wait for "Progress" will be invisible
     Then I will see the "DropdownLink" result will be "昨天"
 
+  @dashboard @dashboardSmoke
   Scenario: 关闭过滤输入项自动更新(RZY-4637,)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -259,6 +273,7 @@ Feature: 仪表盘详情页
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "enable"
 
+  @dashboard @dashboardSmoke
   Scenario: 存为报表(RZY-235)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -281,6 +296,7 @@ Feature: 仪表盘详情页
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
+  @cleanDashboard
   Scenario: 删除全局时间 RZY-4570
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -310,7 +326,7 @@ Feature: 仪表盘详情页
       | name   |
       | 验证仪表盘全局时间 |
 
-
+  @dashboard @dashboardSmoke
   Scenario Outline: 删除报表
     When open the "report.ListPage" page for uri "/reports/"
     And I set the parameter "SearchInput" with value "<name>"
