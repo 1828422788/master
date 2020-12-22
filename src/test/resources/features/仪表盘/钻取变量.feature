@@ -444,7 +444,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
-    Then I will see the "SearchInput" result will be "tag:sample04061424 | stats count() as cn by apache.geo.country,apache.geo.province,apache.geo.city | where cn ==1"
+    Then I will see the "SearchInput" result will be "tag:sample04061424 | stats count() as cn by apache.geo.country,apache.geo.province,apache.geo.city | where cn =="
 
   @dashboard
   Scenario: 钻取变量区划地图row.fieldname RZY-3673
@@ -1170,7 +1170,14 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "SearchInput" result will contain "endtime="
     Then I will see the input element "TimeRange" value will contains "最近7天"
 
-
+  @dashboard
+  Scenario: 统计表 RZY-297
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试钻取变量"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    Then I will see the "ForthIcon" doesn't exist
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘

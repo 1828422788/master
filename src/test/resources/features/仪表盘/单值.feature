@@ -558,6 +558,27 @@ Feature: 仪表盘单值
       |   ranging    | 10000  | 1  |  chart -> colorRanges -> 颜色范围区间结束值需要大于开始值 |
       |   ranging    |        |    |  chart -> from 字段值不能为空                  |
 
+  @dashboard @dashboardSmoke
+  Scenario: 单值 RZY-310
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘单值"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "3000" millsecond
+    And I click the "Setting" button
+    Then I will see the "trend.CreatePage" page
+    And I wait for "2000" millsecond
+    And I click the "Icon" button
+    And I click the "AccordingName" button
+    And I set the parameter "IconName" with value "school"
+    And I click the "Generate" button
+
+    And I click the "Setting" button
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "2000" millsecond
+    Then take part of "SingleValueExhibition" with name "actual/单值_图标_按名称"
+#    And I compare source image "actual/单值_图标_按名称" with target image "expect/单值_图标_按名称"
+
   @cleanDashboard
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

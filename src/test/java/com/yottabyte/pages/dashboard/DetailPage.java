@@ -772,7 +772,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//div[@class='ant-select-selection-selected-value'])[2]")
     private WebElement DrillActionText;
 
-    @FindBy(xpath = "//div[@class='ant-popover-inner-content']")
+    @FindBy(xpath = "(//div[contains(@id, 'fullscreen')])[2]")
     private WebElement singleValueExhibition;
 
     @FindBy(xpath = "//input[@placeholder='请输入关键字']")
@@ -799,6 +799,9 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//a[text()='forDelete']/following-sibling::span[1]")
     private WebElement editTag;
+
+    @FindBy(xpath = "//label[text()='所有时间']/following-sibling::i[4]")
+    private WebElement forthIcon;
 
     @FindBy(xpath = "//a[text()='testSearch']")
     private WebElement testSearch;
@@ -1170,6 +1173,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getEditTag() {
         return editTag;
+    }
+
+    public WebElement getForthIcon() {
+        return forthIcon;
     }
 
     public WebElement getDeleteNewTag() {
