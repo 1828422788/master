@@ -14,7 +14,8 @@ Feature: 仪表盘详情行布局
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建行布局趋势图
-    And open the "trend.ListPage" page for uri "/trend/"
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I wait for loading invisible
     And I click the "CreateButton" button
     And I click the "Create" button
     Then I will see the "trend.CreatePage" page
@@ -37,6 +38,7 @@ Feature: 仪表盘详情行布局
     Examples:
       | name        | spl                                                           |
       | 行布局趋势图1 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
+      | 行布局趋势图2 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
       | 行布局趋势图2 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
       | 行布局趋势图3 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
 

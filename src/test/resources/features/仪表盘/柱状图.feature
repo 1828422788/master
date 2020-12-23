@@ -318,7 +318,7 @@ Feature: 仪表盘柱状图
     And I click the "Today" button
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
-    And I wait for "3000" millsecond
+    And I wait for "500" millsecond
 #    And I move the mouse pointer to the "SwitchToTable"
     And I click the "SwitchToTable" button
     And I click the "Ip254" button

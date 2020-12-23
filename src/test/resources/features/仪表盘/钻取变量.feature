@@ -444,7 +444,8 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
-    Then I will see the "SearchInput" result will be "tag:sample04061424 | stats count() as cn by apache.geo.country,apache.geo.province,apache.geo.city | where cn =="
+    Then I will see the "SearchInput" result will contain "tag:sample04061424 | stats count() as cn by apache.geo.country,apache.geo.province,apache.geo.city | where cn =="
+#    Then I will see the "SearchInput" result will be "tag:sample04061424 | stats count() as cn by apache.geo.country,apache.geo.province,apache.geo.city | where cn =="
 
   @dashboard
   Scenario: 钻取变量区划地图row.fieldname RZY-3673
