@@ -52,8 +52,8 @@ Feature: 报表新建_编辑_关系word
 
     Examples:
       |  reportType |   typeChart    |  name      |       source      |   target             |   weight     |  color   | SPL|
-      |  WORD       |  Chord         |  Chord     | apache.clientip   | apache.request_path  |   count()    |  Red     |  starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart  \| stats count() by apache.clientip,apache.request_path  |
-      |  WORD       |  Sankey        |  Sankey    | apache.clientip   | apache.resp_len      |   count()    | Yellow   | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart  AND NOT apache.clientip:221.226.97.92 AND NOT apache.clientip:117.136.79.162 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 4 |
+      |  WORD       |  Chord         |  Chord     | apache.status     | apache.method        |   cnt        |  Red     |  starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() as cnt by apache.status,apache.method \| sort by cnt, apache.status|
+      |  WORD       |  Sankey        |  Sankey    | apache.clientip   | apache.resp_len      |   count()    | Yellow   | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart  AND NOT apache.clientip:221.226.97.92 AND NOT apache.clientip:117.136.79.162 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 2 |
 
   Scenario Outline: new_report_trend_Force
     When I set the parameter "Name" with value "<name>_<reportType>"
