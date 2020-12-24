@@ -70,6 +70,7 @@ Feature: 趋势图批量操作
     And I wait for "EnsureButton" will be visible
     Then I will see the message "您选中的 2 个资源将被删除，是否继续？"
     When I click the "EnsureButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
     And I wait for loading complete
     And I click the "Finish" button under some element
