@@ -34,6 +34,8 @@ Feature: download_bucket下载
 
     Examples:
       | name        | splQuery                                                                                                                                                                                                                 |
+#      | timechart_minspan30m_bins40                         | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display \| timechart minspan=30m bins=40 count()                                                                                                                                                                                                                                                                                                                                                                                               |
+#      | timechart_startindex_endindex1                      | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424_display\" \| timechart bins=10 span=30m startindex=1 endindex=8 count() max(apache.status) by apache.resp_len                                                                                                                                                                                                                                                                                                                                |
       | rate_sample | tag:rate39 \| eval retpath=json.disk.path \| eval retused=json.disk.used \| eval used=tolong(retused) \| bucket timestamp span=10m as timestamp \| table used,retpath,timestamp \| stats rate(used) by timestamp,retpath |
 
   @dlxtable1

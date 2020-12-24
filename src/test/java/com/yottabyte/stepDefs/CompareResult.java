@@ -290,10 +290,12 @@ public class CompareResult {
         FileInputStream fis1 = null;
         FileInputStream fis2 = null;
         try {
-//          fis1 = new FileInputStream(curPath + "/" + sourceDownloadFile);
-            fis1 = new FileInputStream("/opt/expect/" + sourceDownloadFile);
+            String fis1_path = "/opt/expect/" + sourceDownloadFile;
+            fis1 = new FileInputStream(fis1_path);
 //          fis2 = new FileInputStream(curPath + "/target/download-files/" + targetDownloadFile);
-            fis2 = new FileInputStream("/var/lib/jenkins/workspace/downloadFile/" + targetDownloadFile);
+//            String fis2_path = "/var/lib/jenkins/workspace/downloadFile/" + targetDownloadFile;
+            String fis2_path = "/opt/36actual/" + targetDownloadFile;
+            fis2 = new FileInputStream(fis2_path);
 
             int len1 = fis1.available();//返回总的字节数
             int len2 = fis2.available();
