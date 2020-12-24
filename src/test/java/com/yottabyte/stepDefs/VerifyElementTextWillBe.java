@@ -44,7 +44,7 @@ public class VerifyElementTextWillBe {
     }
 
     /**
-     * 验证某一元素文本内容是否包含
+     * 验证仪表盘高级编辑文本内容是否包含
      *
      * @param excpText
      */
