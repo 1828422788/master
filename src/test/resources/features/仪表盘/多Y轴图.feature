@@ -116,6 +116,22 @@ Feature: 仪表盘多Y轴图
       | name    | targetName |
       | 仪表盘多Y轴图 | Multiaxis  |
 
+  @dashboard
+  Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3725
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    Then I will see the dashboard highEditor text will contain "<json>"
+#    Then I will see the "TextAce" result will be "<json>"
+
+    Examples:
+      | name    | json                                                                                                                                                                                                                                                                                                                                                                           |
+      | 仪表盘多Y轴图 |  \n  "chart": {\n    "chartType": "multiaxis",\n    "xAxis": {\n      "field": "apache.resp_len",\n      "labelRotate": "left",\n      "sortOrder": "default"\n    },\n    "precision": "",\n    "showAllXAxisLabels": false,\n    "labelInterval": "",\n    "customLabel": "",\n    "yAxis": [\n      {\n        "unit": "",\n        "range": {\n          "min": "",\n          "max": ""\n        }\n      },\n      {\n        "unit": "柱",\n        "range": {\n          "min": "2",\n          "max": ""\n        }\n      }\n    ],\n    "yField": [\n      {\n        "type": "line",\n        "field": "count(apache.resp_len)",\n        "position": 0,\n        "smooth": false,\n        "connectNull": false,\n        "opacity": 0.6,\n        "color": "#2A76E4"\n      },\n      {\n        "type": "column",\n        "field": "max(apache.resp_len)",\n        "position": 1,\n        "connectNull": false,\n        "opacity": 0.6,\n        "color": "#FBAD08"\n      }\n    ],\n    "byFields": [\n      "apache.status"\n    ],\n    "legend": {\n      "placement": "bottom"\n    }\n  } |
+
+
   @dashboard @dashboardSmoke
   Scenario Outline: 同一个Y轴多个字段 RZY-4856,RZY-1332
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

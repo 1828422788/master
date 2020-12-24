@@ -44,6 +44,21 @@ public class VerifyElementTextWillBe {
     }
 
     /**
+     * 验证某一元素文本内容是否包含
+     *
+     * @param excpText
+     */
+    @Then("^I will see the dashboard highEditor text will contain \"([^割]*)\"$")
+    public void iWillSeeTheDashboardHighEditorWillContain(String excpText) {
+        WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
+        WebElement element = webDriver.findElement(By.id("ace-nav"));
+        String realText = element.getAttribute("data-ace");
+//        System.out.print(realText);
+        assertTrue(realText.contains(excpText));
+//        assertEquals(excpText, realText);
+    }
+
+    /**
      * 验证输入框中的内容
      *
      * @param elementName

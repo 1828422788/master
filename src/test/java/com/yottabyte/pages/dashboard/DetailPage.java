@@ -881,6 +881,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "ace_text-layer")
     private WebElement textLayer;
 
+    @FindBy(id = "ace-nav")
+    private WebElement textAce;
+
     @FindBy(xpath = "//div[@class='ant-modal-body']//input[@class='ant-input']")
     private WebElement searchChartInput;
 
@@ -1056,6 +1059,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getTextLayer() {
         return textLayer;
+    }
+
+    public WebElement getTextAce() {
+        return textAce;
     }
 
     public WebElement getEditRowIcon() { return editRowIcon; }
