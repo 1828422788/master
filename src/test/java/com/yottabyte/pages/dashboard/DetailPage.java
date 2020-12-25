@@ -285,6 +285,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//i[@class='anticon css-ifnfqv'])[8]")
     private WebElement switchToTable;
 
+    @FindBy(xpath = "(//i[@class='anticon css-ifnfqv'])[7]")
+    private WebElement downloadTableIcon;
+
     @FindBy(xpath = "//*[name()='g'][contains(@class,'vx-axis-left')]")
     private WebElement sequenceChartYaxis;
 
@@ -667,14 +670,20 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//th[text()='appname']")
     private WebElement appname;
 
-    @FindBy(xpath = "//label[contains(text(),'预览')]/following-sibling::div")
+    @FindBy(xpath = "//label[contains(text(),'预览')]/following-sibling::input")
     private WebElement preview;
+
+    @FindBy(xpath = "//label[contains(text(),'文件名称')]/following-sibling::input")
+    private WebElement downloadFileName;
 
     @FindBy(xpath = "//th[text()='EPORT_ID']/ancestor::table")
     private WebElement returnList;
 
     @FindBy(xpath = "//div[contains(text(),'仪表盘workflow')]/following-sibling::div//table")
     private List<WebElement> workflowList;
+
+    @FindBy(xpath = "//div[@class='ant-modal-body']/div/p[contains(text(),'下载任务出错')]")
+    private WebElement duplicateName;
 
     @FindBy(xpath = "//span[text()='在搜索中打开']")
     private WebElement openInSearch;
@@ -1371,6 +1380,14 @@ public class DetailPage extends PageTemplate {
         return preview;
     }
 
+    public WebElement getDownloadFileName() {
+        return downloadFileName;
+    }
+
+    public WebElement getDuplicateName() {
+        return duplicateName;
+    }
+
     public WebElement getMultiSelect() {
         return multiSelect;
     }
@@ -1905,6 +1922,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getSwitchToTable() {
         return switchToTable;
+    }
+
+    public WebElement getDownloadTableIcon() {
+        return downloadTableIcon;
     }
 
     public WebElement getSequenceChartYaxis() {

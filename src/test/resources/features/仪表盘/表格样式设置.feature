@@ -266,6 +266,35 @@ Feature: 仪表盘表格样式设置
     And I click the "ChartEditorEnsure" button
     Then I will see the element "ValueOfNanjingTd" style contains "text-align: left"
 
+  @dashboard @dashboardSmoke
+  Scenario: 文件名称校验 RZY-4878
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "仪表盘表格样式设置"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
+    And I move the mouse pointer to the "DownloadTableIcon"
+    And I click the "DownloadTableIcon" button
+    And I wait for "1000" millsecond
+    And I set the parameter "DownloadFileName" with value " "
+    And I click the "EnsureCreateTagButton" button
+    Then I will see the error message "请填写有效文件名"
+    And I set the parameter "DownloadFileName" with value "汉字Abc！@#¥123"
+    And I click the "EnsureCreateTagButton" button
+    Then I will see the success message "成功提交下载任务"
+
+  @dashboard @dashboardSmoke
+  Scenario: 再次添加同名下载任务 RZY-4879
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "仪表盘表格样式设置"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
+    And I move the mouse pointer to the "DownloadTableIcon"
+    And I click the "DownloadTableIcon" button
+    And I wait for "1000" millsecond
+    And I set the parameter "DownloadFileName" with value "汉字Abc！@#¥123"
+    And I click the "EnsureCreateTagButton" button
+    Then I wait for "DuplicateName" will be visible
+
   @cleanDashboard
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
