@@ -107,12 +107,13 @@ Feature: 仪表盘单值
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
-    Then I will see the "TextLayer" result will contain "<json>"
+#    Then I will see the "TextLayer" result will contain "<json>"
 #    Then I will see the "TextLayer" result will be "<json>"
+    Then I will see the dashboard highEditor text will contain "<json>"
 
     Examples:
       | name    | json                                                                                                                                                                                                                                                                                                                                                                                           |
-      | 仪表盘单值 |  \n  "chart": {\n    "chartType": "single",\n    "field": "a_",\n    "fontSize": "30",\n    "precision": "3",\n    "useThousandSeparators": true,\n    "unit": "个",\n    "unitPosition": "after",\n    "displayField": "icon",\n    "subtitle": "",\n    "useSparkline": false,\n    "sparklineXAxisField": "",\n    "singleFieldDisplayType": "default",\n    "singleChartIcon": "none",\n |
+      | 仪表盘单值 |  \n  "chart": {\n    "chartType": "single",\n    "field": "a_",\n    "fontSize": "30",\n    "precision": "3",\n    "useThousandSeparators": true,\n    "unit": "个",\n    "unitPosition": "after",\n    "displayField": "icon",\n    "subtitle": "",\n    "useSparkline": false,\n    "sparklineXAxisField": "",\n    "singleFieldDisplayType": "default",\n    "singleChartIcon": "none",\n    "displayMode": "default",\n    "color": "#5C9DF5",\n    "colorFillingMode": "font",\n    "liveRefreshMode": false\n  } |
 
   @dashboard @dashboardSmoke
   Scenario: 单值图的千分隔符
