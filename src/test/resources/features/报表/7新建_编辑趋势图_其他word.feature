@@ -380,7 +380,7 @@ Feature: 报表新建_编辑_其他word
 
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the parameter "TrendDescribeField" with value "<typeChart>"
-    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() by apache.clientip | limit 5" to the textarea "TrendSplField"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count() by apache.status,apache.geo.city | limit 5" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Other" button
     And I click the "<typeChart>" button
