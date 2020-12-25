@@ -1,6 +1,6 @@
 Feature: 仪表盘详情行布局
 
-  @dashboard11 @dashboardSmoke
+  @dashboard @dashboardSmoke
   Scenario: 新建一个行布局tag(RZY-4628)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -12,7 +12,7 @@ Feature: 仪表盘详情行布局
     And I wait for "5000" millsecond
 #    And I back to before
 
-  @dashboard11 @dashboardSmoke
+  @dashboard @dashboardSmoke
   Scenario Outline: 新建行布局趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
