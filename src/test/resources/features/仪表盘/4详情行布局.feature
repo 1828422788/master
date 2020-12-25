@@ -22,11 +22,11 @@ Feature: 仪表盘详情行布局
     And I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
     And I click the "DateEditor" button under some element
-    And I wait for "1000" millsecond
+    And I wait for "3000" millsecond
     And I click the "Today" button
 #    And I click the "FenPianQuYang" button
 #    And I alter the input element "FenPianQuYang" value to "0"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     And I wait for "Header" will be visible
@@ -38,7 +38,7 @@ Feature: 仪表盘详情行布局
     Examples:
       | name        | spl                                                           |
       | 行布局趋势图1 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
-      | 行布局趋势图2 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
+      | 行布局趋势图2 | tag:sample04061424 \|stats count() by 'apache.geo.city'   |
       | 行布局趋势图2 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
       | 行布局趋势图3 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
 
