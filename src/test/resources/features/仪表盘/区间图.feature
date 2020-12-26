@@ -117,7 +117,8 @@ Feature: 仪表盘区间图
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
-    Then I will see the "TextLayer" result will contain "<json>"
+#    Then I will see the "TextLayer" result will contain "<json>"
+    Then I will see the dashboard highEditor text will contain "<json>"
 #    Then I will see the "TextLayer" result will be "<json>"
 
     Examples:

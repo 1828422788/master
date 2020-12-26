@@ -121,11 +121,12 @@ Feature: 仪表盘循序图
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
-    Then I will see the "TextLayer" result will be "<json>"
+#    Then I will see the "TextLayer" result will be "<json>"
+    Then I will see the dashboard highEditor text will contain "<json>"
 
     Examples:
       | name   | json                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-      | 仪表盘循序图 | {\n  "title": "仪表盘循序图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "tag:sample04061424_chart \|sort by +apache.clientip\| stats count() by hostname,apache.clientip \|limit 5",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "sequence",\n    "field": "hostname",\n    "fromField": "apache.clientip",\n    "toField": "hostname",\n    "labelField": "apache.clientip",\n    "category": "apache.clientip"\n  }\n} |
+      | 仪表盘循序图 | \n  "chart": {\n    "chartType": "sequence",\n    "field": "hostname",\n    "fromField": "apache.clientip",\n    "toField": "hostname",\n    "labelField": "apache.clientip",\n    "category": "apache.clientip"\n  }\n} |
 
   @dashboard
   Scenario Outline: 两个字段为同一个值 RZY-1365:

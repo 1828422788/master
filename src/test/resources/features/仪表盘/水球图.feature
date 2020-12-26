@@ -110,11 +110,12 @@ Feature: 仪表盘水球图
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
-    Then I will see the "TextLayer" result will be "<json>"
+#    Then I will see the "TextLayer" result will be "<json>"
+    Then I will see the dashboard highEditor text will contain "<json>"
 
     Examples:
       | name   | json                                                                                                                                                                                                                                                                                                                                               |
-      | 仪表盘水球图 | {\n  "title": "仪表盘水球图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "tag:sample04061424_display \| stats count() by apache.clientip \| limit 10",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "liquidfill",\n    "field": "count()",\n    "precision": ""\n  }\n} |
+      | 仪表盘水球图 | \n  "chart": {\n    "chartType": "liquidfill",\n    "field": "count()",\n    "precision": ""\n  }\n} |
 
   @dashboard
   Scenario: 修改field为空 RZY-1362

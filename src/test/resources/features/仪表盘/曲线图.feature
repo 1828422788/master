@@ -122,14 +122,12 @@ Feature: 仪表盘曲线图
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
-    Then I will see the "TextLayer" result will contain "<json>"
-    And I will see the "TextLayer" result will contain "<json1>"
-    And I will see the "TextLayer" result will contain "<json2>"
+    Then I will see the dashboard highEditor text will contain "<json>"
 #    Then I will see the "TextLayer" result will be "<json>"
 
     Examples:
-      | name       | json                                     | json1                                                |  json2                                     |
-      | 仪表盘曲线图 |  \n  "chart": {\n    "chartType": "line",|  \n    "xAxis": {\n      "field": "apache.clientip", | \n    "yAxis": {\n      "field": "count()",|
+      | name       | json                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+      | 仪表盘曲线图 |  \n  "chart": {\n    "chartType": "line",\n    "xAxis": {\n      "field": "apache.clientip",\n      "labelRotate": "right",\n      "sortOrder": "asc"\n    },\n    "precision": "",\n    "showAllXAxisLabels": true,\n    "labelInterval": "",\n    "customLabel": "",\n    "yAxis": {\n      "field": "count()",\n      "smooth": true,\n      "unit": "个",\n      "connectNull": true,\n      "range": {\n        "min": "",\n        "max": ""\n      }\n    },\n    "byFields": [\n      "apache.resp_len"\n    ],\n    "legend": {\n      "placement": "bottom"\n    }\n  }|
 
   @dashboard
   Scenario: 修改chartType为不存在的类型 RZY-1281

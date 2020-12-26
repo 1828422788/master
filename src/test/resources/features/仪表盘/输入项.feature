@@ -613,7 +613,7 @@ Feature: 仪表盘输入项
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "apache.resp_len:>${filter}| table apache.resp_len"
+    And I set the parameter "Spl" with value "tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 | stats count() by apache.status | where apache.status > ${filter}"
     And I click the "Ensure" button under some element
     And I wait for "1000" millsecond
     Then I will see the success message "配置成功"
@@ -631,13 +631,13 @@ Feature: 仪表盘输入项
     And I set the parameter "FilterToken" with value "filter"
     And I choose the "动态菜单" from the "InputType"
     And I click the "SingleChoice" button
-    And I set the parameter "DynamicField" with value "avg_len"
-    And I set the parameter "Spl" with value "* | stats avg(apache.resp_len) as avg_len by apache.clientip"
+    And I set the parameter "DynamicField" with value "apache.status"
+    And I set the parameter "Spl" with value "tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 | stats count() by apache.status "
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "Search" button under some element
     And I wait for loading invisible
-    And I choose the "1441" from the "DefaultDropdownList"
+    And I choose the "404" from the "DefaultDropdownList"
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
@@ -652,7 +652,7 @@ Feature: 仪表盘输入项
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "apache.resp_len:>1441| table apache.resp_len"
+    And I set the parameter "Spl" with value "tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 | stats count() by apache.status | where apache.status > 404"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
@@ -666,17 +666,17 @@ Feature: 仪表盘输入项
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "apache.resp_len:>${filter}| table apache.resp_len"
+    And I set the parameter "Spl" with value "tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 | stats count() by apache.status | where apache.status > ${filter}"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
-    And I choose the "5049" from the "FilterDropdown"
+    And I choose the "405" from the "FilterDropdown"
     And I click the "Update" button
     And I wait for "Progress" will be invisible
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "apache.resp_len:>5049 | table apache.resp_len"
+    And I set the parameter "Spl" with value "tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 | stats count() by apache.status | where apache.status > 405"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
@@ -724,20 +724,23 @@ Feature: 仪表盘输入项
     Then I wait for "FilterName" will be visible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
-    And I set the parameter "Prefix" with value "apache.resp_len:>"
+    And I set the parameter "Prefix" with value "> "
     And I set the parameter "Suffix" with value "| "
     Then I click the "Ensure" button
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "${filter}table apache.resp_len"
+    And I set the parameter "Spl" with value "tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 | stats count() by apache.status | where apache.status ${filter}limit 3"
     And I click the "Ensure" button
+    And I wait for "Progress" will be invisible
+    And I choose the "404" from the "FilterDropdown"
+    And I click the "Update" button
     And I wait for "Progress" will be invisible
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "apache.resp_len:>1441| table apache.resp_len"
+    And I set the parameter "Spl" with value "tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 | stats count() by apache.status | where apache.status > 404 | limit 3"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
