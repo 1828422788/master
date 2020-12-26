@@ -23,7 +23,7 @@ Feature: 搜索宏新建
     And I click the "SaveMacroButton" button
 #    Then I will see the success message "保存成功"
 
-    Examples: 新建成功
+    Examples:
       | name           | definition         | macroParam | validateExpression | validateFalseInfo |
       #暂时存在bug
       | me_substr_1(1) | "substring($x$,2)" | x          | isstr(x)           | 请 输入字符串           |

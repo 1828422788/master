@@ -33,14 +33,17 @@ public class ListPage extends ListPageFactory {
         return macroListSearchInput;
     }
 
-    //@FindBy(xpath = "(//button[contains(text(),'新建')])")
-    @FindBy(className = "_1iMS-rc4SIlJVv6vYm7qsV")
+    @FindBy(xpath = "(//button[contains(text(),'新建')])")
+//    @FindBy(className = "_1iMS-rc4SIlJVv6vYm7qsV")
     private WebElement createMacroButton;
-
-    public WebElement getCreateMacroButton() throws InterruptedException {
-        Thread.sleep(2000);
+    public WebElement getCreateMacroButton() {
         return createMacroButton;
     }
+
+//    public WebElement getCreateMacroButton() throws InterruptedException {
+//        Thread.sleep(2000);
+//        return createMacroButton;
+//    }
 
     @FindBy(xpath = "(//a[contains(text(),'删除')])")
     private WebElement macroListDeleteButton;
