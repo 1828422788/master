@@ -12,6 +12,7 @@ import org.openqa.selenium.support.FindBy;
 public class ListPage extends ListPageFactory {
     public ListPage(WebDriver driver) {
         super(driver);
+        driver.manage().window().maximize();
     }
 
     @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")

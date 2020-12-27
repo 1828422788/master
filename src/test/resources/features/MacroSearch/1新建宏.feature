@@ -7,7 +7,8 @@ Feature: 搜索宏新建
 
   @nmacro1
   Scenario Outline: 创建宏，使用基于eval的定义，1个
-    Given open the "macroSearch.ListPage" page for uri "/macro/"
+#    Given open the "macroSearch.ListPage" page for uri "/macro/"
+    And I wait for "2000" millsecond
     When I click the "CreateMacroButton" button
     Then I will see the "macroSearch.CreatePage" page
     And I wait for "2000" millsecond

@@ -14,7 +14,9 @@ import org.openqa.selenium.support.FindBy;
 public class ListPage extends ListPageFactory {
     public ListPage(WebDriver driver) {
         super(driver);
-        driver.manage().window().maximize();
+
+//        unknown error: Cannot read property 'scrollIntoView' of null
+//        driver.manage().window().maximize();
     }
 
     @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")
@@ -33,17 +35,14 @@ public class ListPage extends ListPageFactory {
         return macroListSearchInput;
     }
 
-    @FindBy(xpath = "(//button[contains(text(),'新建')])")
+    @FindBy(xpath = "(//span[contains(text(),'新建')]/parent::button)")
 //    @FindBy(className = "_1iMS-rc4SIlJVv6vYm7qsV")
     private WebElement createMacroButton;
-    public WebElement getCreateMacroButton() {
+
+    public WebElement getCreateMacroButton() throws InterruptedException {
+        Thread.sleep(2000);
         return createMacroButton;
     }
-
-//    public WebElement getCreateMacroButton() throws InterruptedException {
-//        Thread.sleep(2000);
-//        return createMacroButton;
-//    }
 
     @FindBy(xpath = "(//a[contains(text(),'删除')])")
     private WebElement macroListDeleteButton;
