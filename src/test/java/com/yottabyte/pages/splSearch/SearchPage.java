@@ -1710,4 +1710,101 @@ public class SearchPage extends ListPageFactory {
         return searchPageLeft1;
     }
 
+    @FindBy(xpath = "//span[text()='创建输入项']")
+    private WebElement createInputItem;
+
+    public WebElement getCreateInputItem() {
+        return createInputItem;
+    }
+
+    @FindBy(xpath = "//label[text()='标识']/parent::div/following-sibling::div//input")
+    private WebElement filterToken;
+
+    public WebElement getFilterToken() {
+        return filterToken;
+    }
+
+    @FindBy(xpath = "//div[@id='filter_type']//i")
+    private WebElement inputType;
+
+    public WebElement getInputType() {
+        inputType.click();
+        return super.getLastDropdownList();
+    }
+
+    @FindBy(xpath = "(//span[text()='filter'])[2]")
+    private WebElement inputItem;
+
+    public WebElement getInputItem() {
+        return inputItem;
+    }
+
+    @FindBy(xpath = "(//span[text()='filter'])[2]/following-sibling::span/i[1]")
+    private WebElement inputItemEditor;
+
+    public WebElement getInputItemEditor() {
+        return inputItemEditor;
+    }
+
+    @FindBy(xpath = "(//span[text()='filter'])[2]/following-sibling::span/i[2]")
+    private WebElement inputItemDelete;
+
+    public WebElement getInputItemDelete() {
+        return inputItemDelete;
+    }
+
+    public WebElement getPrefix() {
+        return getInput("标识前缀");
+    }
+
+    public WebElement getPrefixValue() {
+        return getInput("标识值前缀");
+    }
+
+    public WebElement getSuffixValue() {
+        return getInput("标识值后缀");
+    }
+
+    public WebElement getSuffix() {
+        return getInput("标识后缀");
+    }
+
+    public WebElement getSeparate() {
+        return getInput("分隔符");
+    }
+
+    private WebElement getInput(String name) {
+        String xpath = "//label[text()='" + name + "']/ancestor::div/following-sibling::div//input";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    @FindBy(xpath = "//a[text()='添加']")
+    private WebElement addChoiceValueButton;
+
+    public WebElement getAddChoiceValueButton() {
+        return addChoiceValueButton;
+    }
+
+    @FindBy(xpath = "//label[contains(text(),'默认值')]/ancestor::div/following-sibling::div//div[@id]")
+    private WebElement defaultValueIcon;
+
+    public WebElement getDefaultDropdownList() {
+        defaultValueIcon.click();
+        return super.getLastDropdownList();
+    }
+
+    @FindBy(xpath = "//span[text()='单选']")
+    private WebElement singleChoice;
+
+    public WebElement getSingleChoice() {
+        return singleChoice;
+    }
+
+    @FindBy(xpath = "//input[@placeholder='请输入选项值']")
+    private WebElement choiceValue;
+
+    public WebElement getChoiceValue() {
+        return choiceValue;
+    }
+
 }

@@ -6,6 +6,7 @@ import com.yottabyte.utils.Agent;
 import com.yottabyte.utils.GetElementFromPage;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 
@@ -35,6 +36,18 @@ public class SetKeyWithValue {
                 iSetTheParameterWithValue(element, value);
             }
         }
+    }
+
+    /**
+     * 双击（搜索页）
+     *
+     * @param
+     */
+    @When("^I select the 'sample04061424_chart' on search box$")
+    public void selectTheButtonWithText() {
+        WebElement element1 = webDriver.findElement(By.className("CodeMirror"));
+        JavascriptExecutor js = (JavascriptExecutor) webDriver;
+        js.executeScript("arguments[0].CodeMirror.setSelection({line:0,ch:0},{line:0,ch:20});", element1);
     }
 
     /**
