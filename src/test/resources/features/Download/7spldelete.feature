@@ -1,4 +1,4 @@
-@spldelete
+@dlevent @spldelete
 Feature: collect下载
 
   Background:

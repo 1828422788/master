@@ -1,3 +1,4 @@
+@dlother
 Feature: 新建collect使用索引
 
   Background:
@@ -27,19 +28,5 @@ Feature: 新建collect使用索引
       | collectmulti     | 测试collect前置 | 7         | 1          | 1         | TB                |
       | collectdelete     | 测试collect前置 | 7         | 1          | 1         | TB                |
 
-  @delcollect0
-  Scenario Outline:
-    Given the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
-    And I click the "Ensure" button
-
-    Examples:
-      | name       |
-      | collectone |
-      | collecttocollect |
-      | collecttwo  |
-      | collectmodefalse  |
-      | collectmodetrue  |
-      | collectmulti  |
-      | collectdelete  |
 
 

@@ -1,4 +1,4 @@
-@alldownload @dlother
+@alldownload @dleval
 Feature: download_处理下载结果
 
   Background:
