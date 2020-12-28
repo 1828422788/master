@@ -161,3 +161,44 @@ Feature: 报表新建_编辑_维度
       |  reportType |   typeChart    |  name       |  typeInfo     | option         |  color   |
       |  EXCEL      |  Bar           |  Bar1       |  只展示名称    |  柱状外右侧    | Red      |
       |  EXCEL      |  Bar           |  Bar2       |  展示全部      |  柱状内靠左侧  | Green    |
+
+  Scenario Outline: new_report_trend_sunburst
+    When I set the parameter "Name" with value "<name>_<reportType>"
+    And I choose the "<reportType>" from the "ReportType"
+    And I click the "NextButton" button under some element
+    Then I wait for "ChartListButton" will be visible
+    When I choose the "报表测试" from the "ChartList"
+    And I click the "ChartListButton" button
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
+    And I click the "ChosenTrendLast" button
+    And I click the "EditButton" button
+
+    Then I set the parameter "TrendNameField" with value "<name>"
+    And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>"
+    And I set the value "<SPL>" to the textarea "TrendSplField"
+    And I click the "TrendChartType" button
+    And I click the "Dimension" button
+    And I click the "<typeChart>" button
+
+    When I click the "ParameterSetting" button
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "<color>" button
+    When I click the "ParameterSetting" button
+    Then I click the "EnsureButton" button
+
+    When I click the "FinishButton" button under some element
+    And I wait for "EnsureButton" will be visible
+    Then I will see the success message "保存成功"
+    And I click the "EnsureButton" button
+
+    @report @reportChartsPDF
+    Examples:
+      |  reportType | typeChart   | color     |  name     | SPL   |
+      |  PDF        | Sun         | DarkBlue  |Sunburst   | \| makeresults count=10 \| eval app="test_1" \| eval tag="T_1" \| append [[ \| makeresults count=10 \| eval app="test_2" \| eval tag="T_2"]] \| chart rendertype="sunburst" count() over tag by app|
+
+    @reportChartsEXCEL
+    Examples:
+      |  reportType | typeChart   | color     |  name     | SPL   |
+      |  EXCEL      | Sun         | DarkBlue  |Sunburst   | \| makeresults count=10 \| eval app="test_1" \| eval tag="T_1" \| append [[ \| makeresults count=10 \| eval app="test_2" \| eval tag="T_2"]] \| chart rendertype="sunburst" count() over tag by app|
+

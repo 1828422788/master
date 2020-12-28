@@ -92,12 +92,15 @@ Feature: 报表_删除
       |   AreaChart_Pile     |
       |   ColumnChart_Pile   |
       |   ScatterChart       |
+      |   Timechart1         |
+      |   Timechart2         |
       |   Pie                |
       |   Rose               |
       |   Bar                |
       |   Sun                |
       |   Bar1               |
       |   Bar2               |
+      |   Sunburst           |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -141,12 +144,15 @@ Feature: 报表_删除
       |   AreaChart_Pile     |
       |   ColumnChart_Pile   |
       |   ScatterChart       |
+      |   Timechart1         |
+      |   Timechart2         |
       |   Pie                |
       |   Rose               |
       |   Bar                |
       |   Sun                |
       |   Bar1               |
       |   Bar2               |
+      |   Sunburst           |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -190,12 +196,15 @@ Feature: 报表_删除
       |   AreaChart_Pile     |
       |   ColumnChart_Pile   |
       |   ScatterChart       |
+      |   Timechart1         |
+      |   Timechart2         |
       |   Pie                |
       |   Rose               |
       |   Bar                |
       |   Sun                |
       |   Bar1               |
       |   Bar2               |
+      |   Sunburst           |
       |   Chord              |
       |   Sankey             |
       |   Force              |
