@@ -18,3 +18,8 @@ Feature: 索引-yotta默认索引信息编辑（RZY-1477至1480）
       | 1          | 年                  | 保存成功 |
       | 1          | 小时                   | 保存成功        |
       | 1          | 天                   | 保存成功        |
+
+  Scenario: 计划查看
+    Given the data name is "{'column':'0','name':'yotta'}" then i click the "编辑" button
+    And I click the "look" button
+    And I will see the element "ScheduleMessage" name is "计划查看"

@@ -43,6 +43,20 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//p[@class='_1JjlGgMGUnJmBrqR_9PZl8']")
     private WebElement MemoMessage;
 
+    @FindBy(xpath = "//div/div[text()='计划查看']")
+    private WebElement ScheduleMessage;
+
+    public WebElement getScheduleMessage() {
+        return ScheduleMessage;
+    }
+
+    @FindBy(xpath = "//div/span[text()='查看']")
+    private WebElement look;
+
+    public WebElement getLook() {
+        return look;
+    }
+
     public WebElement getMessage() {
         return super.getMessage();
     }
