@@ -15,3 +15,6 @@ Feature: 索引信息删除（RZY-1476）
       | sunxctime  |
       | sunxcsize  |
       | iisidx     |
+      | index_data  |
+      | index_freez  |
+      | index_sink     |
