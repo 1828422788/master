@@ -1,4 +1,4 @@
-@alldownload @dleval
+@alldownload @dlevent
 Feature: download_eval下载
 
   Background:
