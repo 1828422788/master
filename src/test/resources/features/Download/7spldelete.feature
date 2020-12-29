@@ -1,4 +1,4 @@
-@spldelete
+@spldelete @dlother
 Feature: collect下载
 
   Background:

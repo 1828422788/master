@@ -1,4 +1,4 @@
-@alldownload @collect
+@dlother @collect
 Feature: download_v3.2新增功能下载
 
   Background:
