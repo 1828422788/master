@@ -65,17 +65,18 @@ Feature: collect下载
       | name                             | splQuery                                                                                     |
       | eval_delete_collect_sample_step3 | starttime=\"now/d\" endtime=\"now/d+24h\" index=collectdelete tag:spldeletecollect \| delete |
 
-  @spldelete0
-  Scenario Outline: 下载table用例结果
-    Given I set the parameter "SearchInput" with value "<splQuery>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for "2000" millsecond
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I wait for "2000" millsecond
-    Then I will see the "NoDataInfo" result will be "查询无结果。"
-
-    Examples:
-      | name                             | splQuery                                                                           |
-      | eval_delete_collect_sample_step4 | starttime=\"now/d\" endtime=\"now/d+24h\" index=collectdelete tag:spldeletecollect |
+#  @spldelete0
+#  Scenario Outline: 下载table用例结果
+#    Given I set the parameter "SearchInput" with value "<splQuery>"
+#    And I click the "DateEditor" button
+#    And I click the "Today" button
+#    And I click the "SearchButton" button
+#    And I wait for "2000" millsecond
+#    And I wait for element "SearchStatus" change text to "搜索完成!"
+#    And I wait for "2000" millsecond
+#    Then I will see the "NoDataInfo" result will be "查询无结果。"
+#
+#    Examples:
+#      | name                             | splQuery                                                                           |
+#      | eval_delete_collect_sample_step4 | starttime=\"now/d\" endtime=\"now/d+24h\" index=collectdelete tag:spldeletecollect |
+#

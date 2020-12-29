@@ -1,139 +1,94 @@
-Feature: 验证SPL搜索
+@saveds @v36tc
+Feature: 已存搜索新建（RZY-150）
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  @v33events
-  Scenario Outline: 验证事件个数
-    Given I set the parameter "SearchInput" with value "<splQuery>"
-    #Given I set the parameter "SearchInput" with value "tag:sample04061424 | where apache.status>400 | stats dc(apache.status) as ret_dc"
+  Scenario Outline: 新建监控使用已存搜索
+    When I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I wait for "2000" millsecond
-#   Then I will see the number of log is "<eventsum>" when search "<splQuery>"
-    And I wait for element "splStatsRetNum" change text to "<eventsum>"
+    And I click the "SavedSearch" button
+    And I wait for loading invisible
 
-    Examples:
-      | eventsum | splQuery|
-      | 12    | tag:sample04061424 AND logtype:apache AND (NOT apache.request_query:*) \|dedup appname,apache.request_query  keepempty = true |
-  
-  @v33spls
-  Scenario Outline: 验证事件个数,统计表格行数
-    Given I set the parameter "SearchInput" with value "<splQuery>"
-    #Given I set the parameter "SearchInput" with value "tag:sample04061424 | where apache.status>400 | stats dc(apache.status) as ret_dc"
+    And I set the parameter "SavedSearchNameInput" with value "<name>"
+    #And I choose the "<searchResName>" from the "SearchResourceInput"
+    #And I set the parameter "SearchResourceInput" with value "<searchResName>"
+
+    And I click the "EnsureCreateSavedSearch" button
+    Then I will see the success message "<message>"
+
+    @smoke @splSmoke
+    Examples: 保存成功
+      | name | splQuery                                           | searchResName   | message |
+      | multiwordsand | * tag:sample* AND AMAP mac Android            | 1pre_package  | 创建成功 |
+      | where或 | starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip \| where cnt>17 \|\| cnt<33  | 1pre_package  | 创建成功 |
+      | where与 | starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip \| where cnt>17 \&\& cnt<33   | 1pre_package  | 创建成功 |
+      | 扩展搜索chart | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| chart count() as cnt over apache.resp_len span=\"500\"  | 1pre_package  | 创建成功 |
+
+
+  Scenario Outline: 添加已存搜索-增删改查及重名
+    When I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I wait for "2000" millsecond
-#   Then I will see the number of log is "<eventsum>" when search "<splQuery>"
-    And I wait for element "splStatsRetNum" change text to "<splStatsNum>"
-    And I wait for element "splEventRetNum" change text to "<splEventNum>"
+    And I click the "SavedSearch" button
+    And I wait for loading invisible
 
-    Examples:
-      | splEventNum | splStatsNum | splQuery|
-      | 12 | 6    | tag:sample04061424 \| stats count() as cnt, max(apache.status) as r_max by apache.clientip \| stats max(cnt) as max_cnt by r_max \| sort by r_max |
-      | 12 | 1    | tag:sample04061424 \| where apache.status>400 \| stats dc(apache.status) |
+    And I set the parameter "SavedSearchNameInput" with value "<name>"
+    #And I choose the "<searchResName>" from the "SearchResourceInput"
+    #And I set the parameter "SearchResourceInput" with value "<searchResName>"
 
-  @v33spl0
-  Scenario Outline:样例1
-    Given I set the parameter "SearchInput" with value "<splQuery>"
-    #Given I set the parameter "SearchInput" with value "tag:sample04061424 | where apache.status>400 | stats dc(apache.status) as ret_dc"
+    And I click the "EnsureCreateSavedSearch" button
+    Then I will see the success message "<message>"
+
+    @smoke @splSmoke
+    Examples: 保存成功
+      | name | splQuery                                           | searchResName   | message |
+      | test_load  | * tag:sample04061424   | 1pre_package  | 创建成功 |
+      | test_delete | tag:sample04061424           | 1pre_package  | 创建成功 |
+      | test_duplicate_name | tag:sample04061424           | 1pre_package  | 创建成功 |
+      | test_duplicate_name | tag:sample04061424            | 1pre_package  | 创建成功 |
+
+
+  Scenario Outline: 新建索引模式及高基搜索
+    When I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I wait for "2000" millsecond
-    Then I will see the top "<rowNum>" of "<columnName>" is "<value>" when search "<splQuery>"
+    And I click the "SavedSearch" button
+    And I wait for loading invisible
 
-    Examples:
-      | rowNum | splQuery                                                                        | columnName          | value           |
-      | 1      | tag:sample04061424 \| stats count() as cnt, max(apache.status) as r_max by apache.clientip \| stats max(cnt) as max_cnt by r_max \| sort by r_max | r_max,max_cnt  | 502,4 |
-      |        | tag:sample04061424 \| where apache.status>400 \| stats dc(apache.status)      | dc(apache.status)   | 4    |
+    And I set the parameter "SavedSearchNameInput" with value "<name>"
 
-  @v33spl1
-  Scenario Outline: 验证统计表格
-    When open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I set the parameter "SearchInput" with value "<splQuery>"
+    And I click the "EnsureCreateSavedSearch" button
+    Then I will see the success message "<message>"
+
+    @smoke @splSmoke
+    Examples: 保存成功
+      | name  | splQuery                                          | message |
+      | spark_cnt|   tag:"sample04061424" \| stats count() as cnt, max(apache.status) as r_max_status by apache.clientip   | 创建成功 |
+      | base_sample | starttime="now/M" endtime="now/d+24h" tag:"sample04061424" \| stats count() as cnt by apache.clientip | 创建成功 |
+
+  Scenario Outline: 权限及数据集相关
+    When I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I will see the "SearchResult" of "<splQuery>" will between "<range>"
-    And I will see "<rowNum>" rows and "<columnNum>" columns of "<splQuery>" in the table
-    Then take a screenshot
+    And I click the "SavedSearch" button
+    And I wait for loading invisible
 
-    Examples:
-      | range     | rowNum | columnNum | splQuery  |
-      | 23        |        |          | tag:sample04061424 AND (NOT apache.status:200) \| eval status = apache.status \| stats top(status,10)  |
-      | 200,300   |        |          | index=yott* ERROR AND tag:sample04061424*                                                                |
-      | 72        |        | 2        | index=yott* starttime="-5h/h" endtime="now" tag:sample04061424 \| eval time = formatdate(timestamp, "HH") \| stats avg(apache.status) by time \| join type=left time [[ index=machine* starttime="-1000d" endtime="now" appname:houses  \| eval time = tolong(floor(json.median_house_value)) \| stats avg(json.property_tax_rate) by time]] |
-      | 72        | 2      | 3        | tag:sample04061424 \| eval is_resplen_empty=empty(apache.resp_len) \| eval res_str=if(is_resplen_empty,"repslen_empty","resplen_non_null") \| table apache.resp_len, is_resplen_empty, res_str \| where is_resplen_empty==true   |
-      | 70        | 70     | 3        | tag:sample04061424 AND apache.resp_len:* \| eval res_mul=apache.resp_len*apache.status*0 - apache.resp_len*apache.status/apache.status%1000 \| eval r_add=apache.resp_len+apache.status*10-apache.resp_len-9*apache.status \| eval res_concat = appname + apache.clientip + apache.geo.city \| table res_mul, r_add, res_concat  |
-      | 2         | 2      |          | tag:sample04061424 AND NOT apache.resp_len:* \| eval a = coalesce(apache.resp_len,apache.status) \| eval b = coalesce(apache.status,apache.resp_len) \| table a, b   |
+    And I set the parameter "SavedSearchNameInput" with value "<name>"
 
-  Scenario Outline: 根据生成的字段值进行判断
-    Given I set the parameter "SearchInput" with value "<splQuery>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
-    Then I will see the top "<rowNum>" of "<columnName>" is "<value>" when search "<splQuery>"
+    And I click the "EnsureCreateSavedSearch" button
+    Then I will see the success message "<message>"
 
-    Examples:
-      | rowNum | splQuery                                                                                                                                | columnName                      | value |
-      | 3      | tag:sample04061424 \| stats count() as cnt, max(apache.status) as r_max_status by apache.clientip \| top 3 r_max_status                 | r_max_status,count,percent      | 200,13,48.148148148148145,404,5,18.51851851851852,500,5,18.51851851851852 |
-      |        | tag:sample04061424 \| stats count() by hostname \| lookup user,department /data/rizhiyi/share/host_user.csv on hostname = host          | host,user,department            | 192.168.1.26,syd_test,ete     |
-      | 2      | tag:sample04061424\| stats count(apache.clientip) by apache.clientip, apache.method \| limit 2 \| fields apache.clientip apache.method  | apache.clientip,apache.method   | 23.166.125.53,GET,71.221.121.107,GET    |
-      | 4      | tag:sample04061424 \| eval len=if(empty(apache.resp_len),0,1) \| stats top(len,10)                                                      | top(len)                        | 1,70,0,2    |
+    @smoke @splSmoke
+    Examples: 保存成功
+      | name    | splQuery                                        | message |
+      | app_sparksearch_授权	|   tag:sample04061424 \| stats count() as cnt by apache.clientip    | 创建成功 |
+      | spark_dataset|   tag:sample04061424 OR tag:c* \| stats count() as cnt by apache.clientip | 创建成功 |
+      | 系统配置高亮 | GET 200  | 1pre_package | 创建成功 |
 
-
-  Scenario Outline: 根据生成的日志条数进行判断
-    Given I set the parameter "SearchInput" with value "<splQuery>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
-    Then I will see the number of log is "<num>" when search "<splQuery>"
-
-    Examples:
-      | splQuery                                                                                                                       | num |
-      | tag:sample04061424 AND logtype:apache AND (NOT apache.request_query:*) \| dedup appname,apache.request_query keepempty = false | 17  |
-      | tag:sample04061424 \| transaction apache.resp_len \| where _count==4                                                           | 2   |
-      | tag:sample04061424 \| transaction apache.resp_len \| sort by apache.resp_len                                                   | 29  |
-      | tag:sample04061424 AND logtype:apache AND (NOT apache.request_query:*) \|dedup appname,apache.request_query  keepempty = true  | 17  |
-      | tag:sample04061424 \| dedup 3 apache.status,appname keepevents = false \|sort by timestamp                                     | 14  |
-      | tag:sample04061424\| limit 10                                                                                                  | 10  |
-
-  Scenario Outline: 判断是否排序
-    Given I set the parameter "SearchInput" with value "<splQuery>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
-    Then I will see the result order by "<columnName>" when search "<splQuery>"
-
-    Examples:
-      | splQuery                                                                                                                                 | columnName                      |
-      | tag:sample04061424 \| sort by +apache.status,+apache.resp_len\| table apache.status, apache.resp_len                                     | +apache.status,+apache.resp_len |
-      | tag:sample04061424 \| stats count() as cnt, max(apache.status) as r_max by apache.clientip \| top 3 cnt                                  | +cnt                            |
-      | tag:sample04061424 \| stats avg(apache.resp_len) as avg_length, count(apache.clientip) as ip_count by apache.status \| sort by ip_count  | -ip                             |
-      | index=* starttime="-50h" endtime="now" * \| top 10 appname \| limit 10 \|sort by count                                                   | +count                          |
-      | index=* starttime="-50h" endtime="now" * \| stats count() as ct by appname \| limit 10 \| sort by +ct                                    | +ct                             |
-
-#  @all @apl @smoke
-  Scenario Outline: 查询无结果
-    Given I set the parameter "SearchInput" with value "<splQuery>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
-    Then I will see the "NoDataInfo" result will be "查询无结果。"
-
-    Examples:
-      | splQuery            |
-      | no_result0123456789 |
