@@ -235,4 +235,11 @@ public class SetKeyWithValue {
         }
         element.sendKeys(value);
     }
+
+    @And("^I select all text in \"([^\"]*)\" element$")
+    public void iSelectText(String textarea) {
+        WebElement element = GetElementFromPage.getWebElementWithName(textarea);
+        element.click();
+        element.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+    }
 }

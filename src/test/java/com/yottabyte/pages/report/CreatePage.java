@@ -1700,4 +1700,70 @@ public class CreatePage extends PageTemplate {
         return webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::input"));
     }
 
+
+//----富文本编辑-----------
+
+    @FindBy(xpath = "//div[@class='jodit_wysiwyg']")
+    private WebElement textArea;
+
+    @FindBy(xpath = "//div[@class='jodit_wysiwyg']//span")
+    private WebElement textAreaSize;
+
+    @FindBy(xpath = "//div[@class='jodit_wysiwyg']//strong")
+    private WebElement textAreaBold;
+
+    @FindBy(xpath = "//span[text()='上传']")
+    private WebElement uploadImage;
+
+    @FindBy(xpath = "//a[@aria-label='字号']")
+    private WebElement textFontSize;
+
+    @FindBy(xpath = "//a[@aria-label='粗体']")
+    private WebElement bold;
+
+    @FindBy(xpath = "//a[@aria-label='斜体']")
+    private WebElement italics;
+
+    @FindBy(xpath = "//a[@aria-label='下划线']")
+    private WebElement underline;
+
+
+//----------------------------
+
+    public WebElement getTextArea() {
+        return textArea;
+    }
+
+    public WebElement getTextAreaSize(){
+        return textAreaSize;
+    }
+
+    public WebElement getTextAreaBold() {
+        return textAreaBold;
+    }
+
+    public WebElement getUploadImage(){
+        WebElement button = webDriver.findElement(By.xpath("//a[@aria-label='图片']"));
+        button.click();
+        return uploadImage;
+    }
+
+    public WebElement getTextFontSize48() {
+        textFontSize.click();
+        return webDriver.findElement(By.xpath("((//ul[@class='jodit_toolbar'])[last()])//span[text()='48']"));
+    }
+
+    public WebElement getBold() {
+        return bold;
+    }
+
+    public WebElement getItalics() {
+        return italics;
+    }
+
+    public WebElement getUnderline() {
+        return underline;
+    }
+//----------------------------
+
 }
