@@ -39,15 +39,16 @@ public class SetKeyWithValue {
     }
 
     /**
-     * 双击（搜索页）
+     * 选中文本（搜索页）
      *
-     * @param
+     * @param start 起始位置
+     * @param end 结束位置
      */
-    @When("^I select the 'sample04061424_chart' on search box$")
-    public void selectTheButtonWithText() {
+    @When("^I select the string from \"([^\"]*)\" to \"([^\"]*)\" in search box$")
+    public void selectTheButtonWithText(Integer start, Integer end) {
         WebElement element1 = webDriver.findElement(By.className("CodeMirror"));
         JavascriptExecutor js = (JavascriptExecutor) webDriver;
-        js.executeScript("arguments[0].CodeMirror.setSelection({line:0,ch:0},{line:0,ch:20});", element1);
+        js.executeScript("arguments[0].CodeMirror.setSelection({line:0,ch:arguments[1]},{line:0,ch:arguments[2]});", element1, start, end);
     }
 
     /**

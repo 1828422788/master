@@ -1773,6 +1773,10 @@ public class SearchPage extends ListPageFactory {
         return getInput("分隔符");
     }
 
+    public WebElement getDynamicField() {
+        return this.getInput("动态字段值");
+    }
+
     private WebElement getInput(String name) {
         String xpath = "//label[text()='" + name + "']/ancestor::div/following-sibling::div//input";
         return webDriver.findElement(By.xpath(xpath));
@@ -1805,6 +1809,63 @@ public class SearchPage extends ListPageFactory {
 
     public WebElement getChoiceValue() {
         return choiceValue;
+    }
+
+    @FindBy(xpath = "//span[text()='多选']")
+    private WebElement multiSelect;
+
+    public WebElement getMultiSelect() {
+        return multiSelect;
+    }
+
+    @FindBy(xpath = "//textarea[contains(@class,'ant-input')]")
+    private WebElement inputItemSpl;
+
+    public WebElement getInputItemSpl() {
+        return inputItemSpl;
+    }
+
+    @FindBy(className = "ant-select-selection")
+    private WebElement filterDropdown;
+
+    public WebElement getFilterDropdown() {
+        filterDropdown.click();
+        return super.getLastDropdownList();
+    }
+
+    @FindBy(xpath = "(//input[@placeholder='请选择时间'])[last()]")
+    private WebElement inputItemDateEditor;
+
+    public WebElement getInputItemDateEditor() {
+        return inputItemDateEditor;
+    }
+
+    @FindBy(xpath = "(//button[text()='今天'])[last()]")
+    private WebElement inputDateToday;
+
+    public WebElement getInputDateToday() {
+        return inputDateToday;
+    }
+
+    @FindBy(className = "ant-message-notice-content")
+    private WebElement alertMessage;
+
+    public WebElement getAlertMessage() {
+        return alertMessage;
+    }
+
+    @FindBy(xpath = "//div[@class='ReactCodeMirror']/parent::div/following-sibling::div/i")
+    private WebElement openAndHideSplIcon;
+
+    public WebElement getOpenAndHideSplIcon() {
+        return openAndHideSplIcon;
+    }
+
+    @FindBy(xpath = "//div[@class='ant-tooltip-inner']")
+    private WebElement openAndHideTip;
+
+    public WebElement getOpenAndHideTip() {
+        return openAndHideTip;
     }
 
 }
