@@ -1,4 +1,4 @@
-@alldownload @collect
+@alldownload @collect @dlother
 Feature: download_collect验证
 
   Background:

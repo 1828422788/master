@@ -177,3 +177,52 @@ Feature: 报表新建_编辑_序列
       |  reportType | typeChart    | label       | unit | legendPosition |  name        |
       |  EXCEL      | ScatterChart | SecondLabel | 个   | FirstPosition  |ScatterChart  |
 
+  Scenario Outline: new_report_trend_timechart
+    When I set the parameter "Name" with value "<name>_<reportType>"
+    And I choose the "<reportType>" from the "ReportType"
+    And I click the "NextButton" button under some element
+    Then I wait for "ChartListButton" will be visible
+    When I choose the "报表测试" from the "ChartList"
+    And I click the "ChartListButton" button
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
+    And I click the "ChosenTrendLast" button
+    And I click the "EditButton" button
+
+    Then I set the parameter "TrendNameField" with value "<name>"
+    And I set the parameter "TrendDescribeField" with value "<typeChart>_<unit>_<button>_<min>_<max>_<color>"
+    And I set the value "<SPL>" to the textarea "TrendSplField"
+    And I click the "TrendChartType" button
+    And I click the "<typeChart>" button
+
+    When I click the "ParameterSetting" button
+    And I click the "Yaxis" button
+    And I set the parameter "unit" with value "<unit>"
+    And I click the "<button>" button
+    And I set the parameter "Min" with value "<min>"
+    And I set the parameter "Max" with value "<max>"
+
+
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "<color>" button
+    When I click the "ParameterSetting" button
+    Then I click the "EnsureButton" button
+
+    When I click the "FinishButton" button under some element
+    And I wait for "EnsureButton" will be visible
+    Then I will see the success message "保存成功"
+    And I click the "EnsureButton" button
+
+    @report @reportChartsPDF
+    Examples:
+      |  reportType | typeChart   |  unit  |  button        | min |   max  | color  |  name     | SPL   |
+      |  PDF        | ColumnChart |   个   |                |     |   35   | Green  |Timechart1 | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| timechart sep="sep分格" format="$VAL-分格2-$AGG" cont=true span=30m bins=100 startindex=1 endindex=8 limit=5 rendertype="column" count() min(apache.resp_len) by apache.status|
+      |  PDF        | LineChart   |  pcs   |  Smooth        |  4  |   32   | Red    |Timechart2 | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| timechart sep="-sep分格-" format="$VAL-分格2-$AGG" cont=true span=30m bins=100 startindex=0 endindex=8 limit=5 rendertype="line"  count() min(apache.resp_len) by apache.status |
+
+    @reportChartsEXCEL
+    Examples:
+      |  reportType | typeChart   |  unit  |  button        | min |   max  | color  |  name     | SPL   |
+      |  EXCEL      | ColumnChart |   个   |                |     |   35   | Green  |Timechart1 | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| timechart sep="sep分格" format="$VAL-分格2-$AGG" cont=true span=30m bins=100 startindex=1 endindex=8 limit=5 rendertype="column" count() min(apache.resp_len) by apache.status|
+      |  EXCEL      | LineChart   |  pcs   |  Smooth        |  4  |   32   | Red    |Timechart2 | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| timechart sep="-sep分格-" format="$VAL-分格2-$AGG" cont=true span=30m bins=100 startindex=0 endindex=8 limit=5 rendertype="line"  count() min(apache.resp_len) by apache.status |
+
+
