@@ -251,7 +251,7 @@ Feature: 搜索页输入项
       |                  spl                              |
       |  sample04061424_chart stats count() by 'apache.geo.city'  |
 
-  Scenario Outline: 输入项-创建多个与删除
+  Scenario Outline: 输入项-多个输入项联动与删除
     Given I set the parameter "SearchInput" with value "<spl>"
     And I wait for "2000" millsecond
     And I select the string from "0" to "3" in search box
@@ -268,7 +268,16 @@ Feature: 搜索页输入项
     And I click the "CreateInputItem" button
     Then I wait for "filterToken" will be visible
     And I set the parameter "filterToken" with value "filter"
-    And I choose the "文本输入" from the "InputType"
+    And I choose the "下拉菜单" from the "InputType"
+    And I click the "SingleChoice" button
+    And I set the parameter "ChoiceValue" with value "sample04061424_chart"
+    And I click the "AddChoiceValueButton" button
+    And I set the parameter "ChoiceValue" with value "sample04061424_display"
+    And I click the "AddChoiceValueButton" button
+    And I set the parameter "ChoiceValue" with value "sample04061424"
+    And I wait for "2000" millsecond
+    And I choose the "sample04061424_display" from the "DefaultDropdownList"
+    And I set the parameter "Suffix" with value " |"
     And I wait for "500" millsecond
     And I click the "AcceptCreateDownloadTask" button
     Then I wait for "InputItem" will be visible
@@ -285,7 +294,7 @@ Feature: 搜索页输入项
 
     Examples:
       |                  spl                              |
-      |  tag : sample04061424_chart \| stats count() by 'apache.geo.city'  |
+      |  tag : sample04061424_chart stats count() by 'apache.geo.city'  |
 
   Scenario Outline: 输入项-收起/展示搜索语句
     Given I set the parameter "SearchInput" with value "<spl>"
