@@ -1,4 +1,4 @@
-@dlevent
+@dleval
 Feature: 新建collect使用索引
 
   Background:
