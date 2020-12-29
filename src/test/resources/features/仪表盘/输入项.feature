@@ -420,7 +420,7 @@ Feature: 仪表盘输入项
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "apache.geo.city:济南市 | stats count() by apache.geo.city"
+    And I set the parameter "Spl" with value "tag:sample04061424_chart AND apache.geo.city:济南市 | stats count() by apache.geo.city"
     And I click the "Ensure" button
     And I refresh the website
     And I wait for "Progress" will be invisible
@@ -428,7 +428,7 @@ Feature: 仪表盘输入项
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "apache.geo.city:${filter} | stats count() by apache.geo.city"
+    And I set the parameter "Spl" with value "tag:sample04061424_chart AND apache.geo.city:${filter} | stats count() by apache.geo.city"
     And I click the "Ensure" button
     And I choose the "济南市" from the "FilterDropdown"
     And I wait for "Progress" will be invisible
@@ -455,7 +455,7 @@ Feature: 仪表盘输入项
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "apache.geo.city:济南市 | stats count() by apache.geo.city"
+    And I set the parameter "Spl" with value "tag:sample04061424_chart AND (apache.geo.city:济南市) | stats count() by apache.geo.city"
     And I click the "Ensure" button
     And I refresh the website
     And I wait for "Progress" will be invisible
@@ -463,7 +463,7 @@ Feature: 仪表盘输入项
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "apache.geo.city:${filter} | stats count() by apache.geo.city"
+    And I set the parameter "Spl" with value "tag:sample04061424_chart AND (apache.geo.city:${filter}) | stats count() by apache.geo.city"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
     And I choose the "济南市" from the "FilterDropdown"
@@ -497,7 +497,7 @@ Feature: 仪表盘输入项
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "apache.geo.city:北京市 OR apache.geo.city:济南市 OR apache.geo.city:南京市 | stats count() by apache.geo.city"
+    And I set the parameter "Spl" with value "tag:sample04061424_chart AND (apache.geo.city:北京市 OR apache.geo.city:济南市 OR apache.geo.city:南京市) | stats count() by apache.geo.city"
     And I click the "Ensure" button
     And I refresh the website
     And I wait for "Progress" will be invisible
