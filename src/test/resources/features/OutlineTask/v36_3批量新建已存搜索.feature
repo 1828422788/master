@@ -1,12 +1,12 @@
-@newallsaved
-Feature: 新建全部已存搜索用例
+@newallsaved @assist
+Feature: 新建全部已存搜索
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
   @newallsaved
-  Scenario Outline: 新建已存搜索-大于100个
+  Scenario Outline: 新建已存搜
     When I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button

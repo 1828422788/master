@@ -66,10 +66,6 @@ public class SearchPage extends ListPageFactory {
         return savedSearch;
     }
 
-    public WebElement getEnsureCreateSavedSearch() {
-        return super.getButton("确 定");
-    }
-
     @FindBy(xpath = "//span[text()='已存搜索']")
     private WebElement openSavedSearchButton;
 
@@ -79,6 +75,16 @@ public class SearchPage extends ListPageFactory {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
         return getLastDropdownList();
+    }
+
+    @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")
+    private WebElement savedSearchNameInput;
+    public WebElement getSavedSearchNameInput() {
+        return savedSearchNameInput;
+    }
+
+    public WebElement getEnsureCreateSavedSearch() {
+        return super.getButton("确 定");
     }
 
     @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")

@@ -7,9 +7,9 @@ Feature: 已存搜索新建（RZY-150）
 
   Scenario Outline: 新建监控使用已存搜索
     When I set the parameter "SearchInput" with value "<splQuery>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
+#    And I click the "DateEditor" button
+#    And I click the "Today" button
+#    And I click the "SearchButton" button
     And I click the "SavedSearch" button
     And I wait for loading invisible
 
