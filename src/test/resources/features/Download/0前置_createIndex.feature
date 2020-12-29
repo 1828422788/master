@@ -1,4 +1,4 @@
-@dlother
+@dlevent
 Feature: 新建collect使用索引
 
   Background:
