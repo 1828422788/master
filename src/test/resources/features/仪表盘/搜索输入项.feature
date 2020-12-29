@@ -1,4 +1,4 @@
-@dashboard @dashboardSmoke
+@dashboard @dashboard11
 Feature: 搜索页输入项
 
   Background:
