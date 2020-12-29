@@ -182,7 +182,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getMemo() {
         return memo;
-
     }
 
     public WebElement getType(){

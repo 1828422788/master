@@ -294,8 +294,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//td[text()='autohekafiletest']/following-sibling::td//a[text()='编辑']")
     private WebElement EditAutoFile;
 
-    public WebElement getCleanOutputCache() {
-        return getLiElement("清理输出源缓存");
+    public WebElement getJmxInput() {
+        return getLiElement("JmxInput");
+    }
+
+    public WebElement getHostConnectInput() {
+        return getLiElement("HostConnectInput");
     }
 
     public WebElement getCleanInputCache() {
@@ -875,7 +879,13 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCleanCache() {
-        return super.getButton("清理缓存");
+        String xpath = "//span[text()='清理缓存']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getCsvConfing() {
+        String xpath = "//span[text()='CSV文件配置']";
+        return webDriver.findElement(By.xpath(xpath));
     }
 
     public WebElement getClean() {
