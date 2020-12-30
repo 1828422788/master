@@ -512,8 +512,8 @@ Feature: 仪表盘输入项
     Then I wait for "FilterName" will be visible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
-    And I set the parameter "Prefix" with value "appname:* AND apache.geo.city:"
-    And I set the parameter "Suffix" with value " AND tag:* "
+    And I set the parameter "Prefix" with value "(apache.geo.city:"
+    And I set the parameter "Suffix" with value ") AND tag : sample04061424_chart "
     Then I click the "Ensure" button
 
   @dashboard @dashboardSmoke
@@ -525,7 +525,7 @@ Feature: 仪表盘输入项
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "appname:* AND apache.geo.city:北京市 OR apache.geo.city: 南京市 AND tag:* | stats count() by apache.geo.city"
+    And I set the parameter "Spl" with value "(apache.geo.city:北京市 OR apache.geo.city: 南京市) AND tag : sample04061424_chart | stats count() by apache.geo.city"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
     And I set value with element "TableList"
@@ -551,7 +551,7 @@ Feature: 仪表盘输入项
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "${filter} apache.geo.city:成都市 | stats count() by apache.geo.city"
+    And I set the parameter "Spl" with value "${filter} apache.geo.city:成都市) AND tag : sample04061424_chart | stats count() by apache.geo.city"
     And I click the "Ensure" button under some element
     And I wait for "500" millsecond
     Then I will see the success message "配置成功"
@@ -575,6 +575,7 @@ Feature: 仪表盘输入项
     And I set the parameter "ChoiceValue" with value "济南市"
     And I click the "AddChoiceValueButton" button
     And I choose the "北京市" from the "DefaultDropdownList"
+    And I set the parameter "Prefix" with value "("
     And I set the parameter "PrefixValue" with value "apache.geo.city:"
     And I set the parameter "SuffixValue" with value " OR"
     And I set the parameter "Separate" with value ""
