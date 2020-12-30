@@ -1,3 +1,4 @@
+@extra0
 Feature: 新建数据库连接配置
 
   @newconn @splpre

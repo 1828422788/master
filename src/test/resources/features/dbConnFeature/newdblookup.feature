@@ -1,3 +1,4 @@
+@extra0
 Feature: 新建数据库查找
 
   @newdblookup @splpre

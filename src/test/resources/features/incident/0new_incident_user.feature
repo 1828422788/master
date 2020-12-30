@@ -1,3 +1,4 @@
+@incident
 Feature: 创建接收告警邮件用户、用户组
 
   @incident @incident1
@@ -45,29 +46,3 @@ Feature: 创建接收告警邮件用户、用户组
     Examples:
       | UserGroupName | UserGroupDes | message |
       | 日志易用户体验组    | 测试incident策略 | 创建成功    |
-
-  @incidentdel @delcruusers
-  Scenario Outline: 删除4个事件管理体验用户
-    Given open the "users.ListPage" page for uri "/account/users/"
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
-    And I click the "EnsureButton" button
-    And I wait for "SuccessMessage" will be visible
-    And I refresh the website
-    Then I will see the search result "{'column':'1','name':'<name>','contains':'no'}"
-
-    Examples:
-      | name      |
-      | ctest     |
-      | Derek     |
-      | Leibniz   |
-      | kongfeili |
-
-  @incidentdel @delcruusergroup
-  Scenario Outline: 删除用户分组
-    Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
-    And the data name is "{'column':'1','name':'<UserGroupName>'}" then i click the "删除" button
-    And I click the "Ensure" button
-
-    Examples:
-      | UserGroupName |
-      | 日志易用户体验组      |

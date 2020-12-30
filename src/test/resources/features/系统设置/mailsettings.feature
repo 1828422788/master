@@ -1,4 +1,4 @@
-@setting
+@setting @extra0
 Feature: 配置发送邮箱
 
   Background:

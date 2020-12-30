@@ -1,3 +1,4 @@
+@extra0
 Feature: 新建ldap连接配置
 
   @splpre @newldapconn
