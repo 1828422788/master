@@ -26,7 +26,7 @@ Feature: 已存搜索加载（RZY-153）
     And I wait for loading invisible
     Then I will see the search result "{'column':'1','name':'<name>'}"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "加载" button
-#    And switch to window "搜索"
+    And switch to window "搜索"
     Then I will see the "splSearch.SearchPage" page
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the input element "SearchInput" value will be "<expect_spl>"
