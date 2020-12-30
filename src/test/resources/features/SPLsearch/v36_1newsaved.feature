@@ -20,7 +20,6 @@ Feature: 已存搜索新建（RZY-150）
 
     Examples: 保存成功
       | name                              | searchResName | splQuery                                                                                                    |
-      | AutoTest                          | auto_ui       | starttime=\"-2d/w\" endtime=\"now\" tag:ty*                                                                 |
       | spark_count                  | auto_ui       | starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip |
       | 极简模式200status                | auto_ui       | starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip |
       | 200status_continuous_spark   | auto_ui       | tag:continuous                                                                                              |

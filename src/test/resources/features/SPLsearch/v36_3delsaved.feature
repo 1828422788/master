@@ -1,7 +1,9 @@
-@spl @all
+@spl @all @delsaved
 Feature: 已存搜索删除（RZY-154）
 
   Background:
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario Outline: 在已存搜索列表加载
     Given open the "splSearch.SavedSearchPage" page for uri "/savedsearches/"
@@ -14,14 +16,12 @@ Feature: 已存搜索删除（RZY-154）
     And I click the "EnsureDelete" button
 
     Examples:
-      | name        |
+      | name                |
+      | test_load           |
+      | test_delete         |
       | test_duplicate_name |
-      | test_delete |
-      | multiwordsand |
-      | spark_cnt |
-      | base_sample |
+      | test_duplicate_name |
 
-  @v32cleansavedsearch
   Scenario Outline: 在已存搜索列表加载
     Given open the "splSearch.SavedSearchPage" page for uri "/savedsearches/"
     And I set the parameter "SearchInput" with value "<name>"
@@ -32,13 +32,17 @@ Feature: 已存搜索删除（RZY-154）
     And I click the "EnsureDelete" button
 
     Examples:
-      | name        |
-      | where或 |
-      | where与 |
-      | 扩展搜索chart |
-      | multiwordsand |
-      | spark_cnt |
-      | base_sample |
-      | app_sparksearch_授权 |
-      | spark_dataset |
-      | 系统配置高亮 |
+      | name                         |
+      | spark_count                  |
+      | 极简模式200status                |
+      | 200status_continuous_spark   |
+      | app_spark_count_byip_sort_授权 |
+      | offlinetask_sample           |
+      | multiwordsand                |
+      | where或                       |
+      | where与                       |
+      | 扩展搜索chart                    |
+      | 系统配置高亮                       |
+      | spark_cnt                    |
+      | base_sample                  |
+      | spark_dataset                |
