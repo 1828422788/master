@@ -1727,6 +1727,32 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//a[@aria-label='下划线']")
     private WebElement underline;
 
+    @FindBy(xpath = "//a[@aria-label='页眉']")
+    private WebElement header;
+
+    @FindBy(xpath = "//a[@aria-label='页脚']")
+    private WebElement footer;
+
+    @FindBy(xpath = "//p[@name='pageheader']")
+    private WebElement headerText;
+
+    @FindBy(xpath = "//p[@name='pagefooter']")
+    private WebElement footerText;
+
+    @FindBy(xpath = "//a[@aria-label='对齐方式']")
+    private WebElement alignment;
+
+    @FindBy(xpath = "//a[@aria-label='居中']")
+    private WebElement centerAlignment;
+
+    @FindBy(xpath = "//a[@aria-label='右对齐']")
+    private WebElement rightAlignment;
+
+    @FindBy(xpath = "//a[@aria-label='左对齐']")
+    private WebElement leftAlignment;
+
+    @FindBy(xpath = "//a[@aria-label='对齐文本']")
+    private WebElement justifyAlignment;
 
 //----------------------------
 
@@ -1763,6 +1789,42 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getUnderline() {
         return underline;
+    }
+
+    public WebElement getHeader() {
+        return header;
+    }
+
+    public WebElement getFooter() {
+        return footer;
+    }
+
+    public WebElement getFooterText() {
+        return footerText;
+    }
+
+    public WebElement getHeaderText() {
+        return headerText;
+    }
+
+    public WebElement getAlignment() {
+        return alignment;
+    }
+
+    public WebElement getCenterAlignment() {
+        return centerAlignment;
+    }
+
+    public WebElement getRightAlignment() {
+        return rightAlignment;
+    }
+
+    public WebElement getLeftAlignment() {
+        return leftAlignment;
+    }
+
+    public WebElement getJustifyAlignment() {
+        return justifyAlignment;
     }
 //----------------------------
 

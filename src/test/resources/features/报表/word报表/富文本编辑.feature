@@ -10,16 +10,16 @@ Feature:报表_富文本编辑
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I choose the "WORD" from the "ReportType"
 
-  Scenario: fontsize
-    When I set the parameter "Name" with value "FontSize"
+  Scenario Outline: text_style
+    When I set the parameter "Name" with value "<name>"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 
-    And I set the parameter "TextArea" with value "text of 48 font size"
+    And I set the parameter "TextArea" with value "<text> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis aliquet nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempor nisi urna, sed pulvinar sem molestie in. Fusce scelerisque eleifend accumsan. Phasellus laoreet ligula id orci congue rhoncus non rutrum quam. Donec hendrerit faucibus consequat. Etiam tellus tortor, ultrices et tellus eget, sollicitudin scelerisque risus. Integer mattis velit et nunc sollicitudin, non tempus lorem hendrerit."
     And I select all text in "TextArea" element
     And I wait for "2000" millsecond
-    And I click the "TextFontSize48" button
+    And I click the "<button>" button
 
     And I set the parameter "ChartListInput" with value "报表测试"
     And I click the button with text "报表测试"
@@ -28,3 +28,39 @@ Feature:报表_富文本编辑
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
+
+  Examples:
+    |   button        |   name          |      text              |
+    | TextFontSize48  | FontSize        | 48 FONT SIZE 字号:     |
+    | Bold            | BoldText        | BOLD TEXT 粗体:        |
+    | Italics         | ItalicsText     | ITALICS TEXT 斜体:     |
+    | Underline       | UnderlinedText  | UNDERLINED TEXT 下划线:|
+
+  Scenario Outline: text_alignment
+    When I set the parameter "Name" with value "<name>"
+    And I click the "NextButton" button under some element
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "5000" millsecond
+
+    And I set the parameter "TextArea" with value "<text> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis aliquet nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempor nisi urna, sed pulvinar sem molestie in. Fusce scelerisque eleifend accumsan. Phasellus laoreet ligula id orci congue rhoncus non rutrum quam. Donec hendrerit faucibus consequat. Etiam tellus tortor, ultrices et tellus eget, sollicitudin scelerisque risus. Integer mattis velit et nunc sollicitudin, non tempus lorem hendrerit."
+    And I select all text in "TextArea" element
+    And I wait for "2000" millsecond
+    And I click the "Alignment" button
+    And I click the "Alignment" button
+    And I wait for "2000" millsecond
+    And I click the "<button>" button
+
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
+    And I wait for "2000" millsecond
+    When I click the "FinishButton" button under some element
+    And I wait for "EnsureButton" will be visible
+    Then I will see the success message "保存成功"
+    And I click the "EnsureButton" button
+
+   Examples:
+    |   button        |   name          |      text                   |
+    | RightAlignment  | RightAlignment  | RIGHT ALIGNMENT 左对齐:     |
+    | LeftAlignment   | LeftAlignment   | LEFT ALIGNMENT 右对齐:      |
+    | CenterAlignment | CenterAlignment | CENTER ALIGNMENT 居中:      |
+    | JustifyAlignment| JustifyAlignment| JUSTIFY ALIGNMENT 对齐文本: |
