@@ -9,6 +9,8 @@ Feature: 已存搜索新建（RZY-150）
     When I set the parameter "SearchInput" with value "<splQuery>"
     Then I choose1 the "新建" from the "SavedSearchList"
     And I wait for loading complete
+#    And I wait for loading invisible
+
     And I set the parameter "SavedSearchName" with value "<name>"
 #    And I choose the "<searchResName>" from the "GroupComboBox"
     And I click the "EnsureCreateSavedSearch" button
@@ -16,18 +18,19 @@ Feature: 已存搜索新建（RZY-150）
     Then I will see the success message "创建成功"
 
     Examples: 保存成功
-      | name                              | searchResName | splQuery                                                                                                                   |
-      | AutoTest                          | auto_ui       | starttime=\"-2d/w\" endtime=\"now\" tag:ty*                                                                                |
-      | page_spark_count                  | auto_ui       | starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip                |
-      | page_极简模式200status                | auto_ui       | starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip                |
-      | page_200status_continuous_spark   | auto_ui       | tag:continuous                                                                                                             |
-      | page_app_spark_count_byip_sort_授权 | auto_ui       | tag:spark OR tag:c* \| stats count() as cnt by apache.clientip \| sort by cnt                                              |
-      | page_offlinetask_sample           | auto_ui       | * \| transaction apache.status maxspan=1h                                                                                  |
+      | name                              | searchResName | splQuery                                                                                                    |
+      | AutoTest                          | auto_ui       | starttime=\"-2d/w\" endtime=\"now\" tag:ty*                                                                 |
+      | page_spark_count                  | auto_ui       | starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip |
+      | page_极简模式200status                | auto_ui       | starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip |
+      | page_200status_continuous_spark   | auto_ui       | tag:continuous                                                                                              |
+      | page_app_spark_count_byip_sort_授权 | auto_ui       | tag:spark OR tag:c* \| stats count() as cnt by apache.clientip \| sort by cnt                               |
+      | page_offlinetask_sample           | auto_ui       | * \| transaction apache.status maxspan=1h                                                                   |
 
+  @newsaved1
   Scenario Outline: 新建监控使用已存搜索
     When I set the parameter "SearchInput" with value "<splQuery>"
-    And I click the "SavedSearch" button
-    And I wait for loading invisible
+    Then I choose1 the "新建" from the "SavedSearchList"
+    And I wait for loading complete
 
     And I set the parameter "SavedSearchName" with value "<name>"
 #    And I choose the "<searchResName>" from the "GroupComboBox"
@@ -45,8 +48,8 @@ Feature: 已存搜索新建（RZY-150）
 
   Scenario Outline: 添加已存搜索-增删改查及重名
     When I set the parameter "SearchInput" with value "<splQuery>"
-    And I click the "SavedSearch" button
-    And I wait for loading invisible
+    Then I choose1 the "新建" from the "SavedSearchList"
+    And I wait for loading complete
 
     And I set the parameter "SavedSearchName" with value "<name>"
     #And I choose the "<searchResName>" from the "SearchResourceInput"
@@ -63,8 +66,9 @@ Feature: 已存搜索新建（RZY-150）
 
   Scenario Outline: 新建索引模式及高基搜索
     When I set the parameter "SearchInput" with value "<splQuery>"
-    And I click the "SavedSearch" button
-    And I wait for loading invisible
+    Then I choose1 the "新建" from the "SavedSearchList"
+    And I wait for loading complete
+
     And I set the parameter "SavedSearchName" with value "<name>"
     And I click the "EnsureCreateSavedSearch" button
     Then I will see the success message "<message>"
@@ -76,13 +80,13 @@ Feature: 已存搜索新建（RZY-150）
 
   Scenario Outline: 权限及数据集相关
     When I set the parameter "SearchInput" with value "<splQuery>"
-    And I click the "SavedSearch" button
-    And I wait for loading invisible
+    Then I choose1 the "新建" from the "SavedSearchList"
+    And I wait for loading complete
 
     And I set the parameter "SavedSearchName" with value "<name>"
     And I click the "EnsureCreateSavedSearch" button
     Then I will see the success message "<message>"
 
     Examples: 保存成功
-      | name               | splQuery                                                                | message |
-      | spark_dataset      | tag:sample04061424 OR tag:c* \| stats count() as cnt by apache.clientip | 创建成功    |
+      | name          | splQuery                                                                | message |
+      | spark_dataset | tag:sample04061424 OR tag:c* \| stats count() as cnt by apache.clientip | 创建成功    |
