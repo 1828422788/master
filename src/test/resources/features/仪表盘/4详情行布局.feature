@@ -1,18 +1,6 @@
 Feature: 仪表盘详情行布局
 
   @dashboard @dashboardSmoke
-  Scenario: 新建一个行布局tag(RZY-4628)
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    When I click the detail which name is "UIautotest"
-    Then I will see the "dashboard.DetailPage" page
-    When I set the parameter "TagName" with value "rowLayout"
-    And I click the "RowLayout" button
-    And I click the "EnsureCreateTagButton" button
-    And I wait for "5000" millsecond
-#    And I back to before
-
-  @dashboard @dashboardSmoke
   Scenario Outline: 新建行布局趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
@@ -21,8 +9,8 @@ Feature: 仪表盘详情行布局
     Then I will see the "trend.CreatePage" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
-    And I click the "DateEditor" button under some element
-    And I wait for "3000" millsecond
+    And I click the "DateEditor" button
+    And I wait for "500" millsecond
     And I click the "Today" button
 #    And I click the "FenPianQuYang" button
 #    And I alter the input element "FenPianQuYang" value to "0"
@@ -32,15 +20,28 @@ Feature: 仪表盘详情行布局
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "<name>"
+    And I wait for "1000" millsecond
     And I click the "NextButton" button
     And I wait for "SuccessCreate" will be visible
 
     Examples:
       | name        | spl                                                           |
       | 行布局趋势图1 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
-      | 行布局趋势图2 | tag:sample04061424 \|stats count() by 'apache.geo.city'   |
+      | 行布局趋势图2 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
       | 行布局趋势图2 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
       | 行布局趋势图3 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
+
+  @dashboard @dashboardSmoke
+  Scenario: 新建一个行布局标签页(RZY-4628)
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "UIautotest"
+    Then I will see the "dashboard.DetailPage" page
+    When I set the parameter "TagName" with value "rowLayout"
+    And I click the "RowLayout" button
+    And I click the "EnsureCreateTagButton" button
+    And I wait for "5000" millsecond
+#    And I back to before
 
   @dashboard @dashboardSmoke
   Scenario: 添加行(RZY-4629，RZY-3607)
