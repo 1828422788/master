@@ -1712,7 +1712,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']//strong")
     private WebElement textAreaBold;
 
-    @FindBy(xpath = "//span[text()='上传']")
+    @FindBy(xpath = "//span[text()='上传']/following-sibling::input")
     private WebElement uploadImage;
 
     @FindBy(xpath = "//a[@aria-label='字号']")
@@ -1753,6 +1753,9 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//a[@aria-label='对齐文本']")
     private WebElement justifyAlignment;
+
+    @FindBy(xpath = "//a[@aria-label='分割线']")
+    private WebElement dividingLine;
 
 //----------------------------
 
@@ -1825,6 +1828,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getJustifyAlignment() {
         return justifyAlignment;
+    }
+
+    public WebElement getDividingLine() {
+        return dividingLine;
     }
 //----------------------------
 
