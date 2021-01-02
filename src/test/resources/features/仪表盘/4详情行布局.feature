@@ -1,53 +1,90 @@
 Feature: 仪表盘详情行布局
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 新建行布局趋势图
-    Given open the "trend.ListPage" page for uri "/trend/"
-    And I wait for loading invisible
+  Scenario Outline: 新建仪表盘
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the "Create" button
+    When I set the parameter "DashBoardName" with value "<name>"
+    And I click the "Ensure" button
+    Then I will see the success message "新建仪表盘成功"
+
+    Examples:
+      | name   |
+      | 仪表盘行布局 |
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 新建趋势图
+    And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
     And I click the "Create" button
     Then I will see the "trend.CreatePage" page
     And I set the parameter "SearchInput" with value "<spl>"
-    And I wait for "1000" millsecond
     And I click the "DateEditor" button
-    And I wait for "500" millsecond
     And I click the "Today" button
-#    And I click the "FenPianQuYang" button
-#    And I alter the input element "FenPianQuYang" value to "0"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     When I set the parameter "NameInput" with value "<name>"
-    And I wait for "1000" millsecond
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     And I wait for "SuccessCreate" will be visible
 
     Examples:
-      | name        | spl                                                           |
+      | name            | spl                                                       |
       | 行布局趋势图1 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
       | 行布局趋势图2 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
       | 行布局趋势图2 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
       | 行布局趋势图3 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
 
+#  @dashboard @dashboardSmoke
+#  Scenario Outline: 新建行布局趋势图
+#    Given open the "trend.ListPage" page for uri "/trend/"
+#    And I wait for loading invisible
+#    And I click the "CreateButton" button
+#    And I click the "Create" button
+#    Then I will see the "trend.CreatePage" page
+#    And I set the parameter "SearchInput" with value "<spl>"
+#    And I wait for "1000" millsecond
+#    And I click the "DateEditor" button
+#    And I wait for "500" millsecond
+#    And I click the "Today" button
+##    And I click the "FenPianQuYang" button
+##    And I alter the input element "FenPianQuYang" value to "0"
+#    And I click the "SearchButton" button under some element
+#    And I wait for "Header" will be visible
+#    And I click the "NextButton" button
+#    And I wait for "Header" will be visible
+#    And I click the "NextButton" button
+#    When I set the parameter "NameInput" with value "<name>"
+#    And I wait for "1000" millsecond
+#    And I click the "NextButton" button
+#    And I wait for "SuccessCreate" will be visible
+#
+#    Examples:
+#      | name        | spl                                                           |
+#      | 行布局趋势图1 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
+#      | 行布局趋势图2 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
+#      | 行布局趋势图2 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
+#      | 行布局趋势图3 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
+
   @dashboard @dashboardSmoke
   Scenario: 新建一个行布局标签页(RZY-4628)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When I click the detail which name is "UIautotest"
+    When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "rowLayout"
     And I click the "RowLayout" button
     And I click the "EnsureCreateTagButton" button
     And I wait for "5000" millsecond
-#    And I back to before
+    And I back to before
 
   @dashboard @dashboardSmoke
   Scenario: 添加行(RZY-4629，RZY-3607)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When I click the detail which name is "UIautotest"
+    When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
@@ -74,7 +111,7 @@ Feature: 仪表盘详情行布局
   Scenario: 编辑行(RZY-4630)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When I click the detail which name is "UIautotest"
+    When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
     And I move the mouse pointer to the "EditRowIcon"
@@ -88,7 +125,7 @@ Feature: 仪表盘详情行布局
   Scenario: 行布局添加图表(RZY-4631)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When I click the detail which name is "UIautotest"
+    When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
@@ -114,7 +151,7 @@ Feature: 仪表盘详情行布局
   Scenario: 行布局添加全局输入项(RZY-4632)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When I click the detail which name is "UIautotest"
+    When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
@@ -129,7 +166,7 @@ Feature: 仪表盘详情行布局
   Scenario: 行布局添加行内输入项(RZY-4633)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When I click the detail which name is "UIautotest"
+    When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
@@ -147,7 +184,7 @@ Feature: 仪表盘详情行布局
   Scenario: 行布局添加事件列表(RZY-4634)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When I click the detail which name is "UIautotest"
+    When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
@@ -169,7 +206,7 @@ Feature: 仪表盘详情行布局
   Scenario: 删除行(RZY-4635)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When I click the detail which name is "UIautotest"
+    When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
     And I move the mouse pointer to the "DeleteRowIcon"
@@ -183,7 +220,7 @@ Feature: 仪表盘详情行布局
   Scenario: 删除行内图表(RZY-4636)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When I click the detail which name is "UIautotest"
+    When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
 #    And I click the "MoreXuanTing" button
@@ -198,7 +235,7 @@ Feature: 仪表盘详情行布局
   Scenario: 展示条件-文本输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When I click the detail which name is "UIautotest"
+    When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
     And I move the mouse pointer to the "DeleteNoNameRowIcon"
@@ -226,7 +263,7 @@ Feature: 仪表盘详情行布局
   Scenario: 展示条件-文本输入输入项 RZY-4783,RZY-4784
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When I click the detail which name is "UIautotest"
+    When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
@@ -258,7 +295,7 @@ Feature: 仪表盘详情行布局
   Scenario: 展示条件-文本输入输入项 RZY-4784,RZY-4793
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When I click the detail which name is "UIautotest"
+    When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
     And I wait for "500" millsecond
@@ -300,7 +337,7 @@ Feature: 仪表盘详情行布局
   Scenario: 展示条件-文本输入输入项 RZY-4784
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When I click the detail which name is "UIautotest"
+    When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
     And I wait for "500" millsecond
@@ -421,7 +458,7 @@ Feature: 仪表盘详情行布局
   Scenario: 展示条件-时间范围输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When I click the detail which name is "UIautotest"
+    When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
     And I click the "FilterName" button
@@ -445,7 +482,7 @@ Feature: 仪表盘详情行布局
   Scenario: 展示条件-时间范围输入项 RZY-4790
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When I click the detail which name is "UIautotest"
+    When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
@@ -550,7 +587,7 @@ Feature: 仪表盘详情行布局
   Scenario: 展示条件缺失校验 RZY-4792
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When I click the detail which name is "UIautotest"
+    When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
     Then I wait for "FilterName" will be visible
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -572,7 +609,7 @@ Feature: 仪表盘详情行布局
   Scenario: 展示条件-下拉菜单输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When I click the detail which name is "UIautotest"
+    When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
     And I click the "FilterName" button
@@ -602,7 +639,7 @@ Feature: 仪表盘详情行布局
   Scenario: 展示条件-下拉菜单输入项 RZY-4785
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When I click the detail which name is "UIautotest"
+    When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
@@ -634,7 +671,7 @@ Feature: 仪表盘详情行布局
   Scenario: 展示条件-动态菜单输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When I click the detail which name is "UIautotest"
+    When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
     And I click the "FilterName" button
@@ -662,7 +699,7 @@ Feature: 仪表盘详情行布局
   Scenario: 展示条件-动态菜单输入项 RZY-4786
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When I click the detail which name is "UIautotest"
+    When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button under some element

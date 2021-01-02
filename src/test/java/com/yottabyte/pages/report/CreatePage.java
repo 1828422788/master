@@ -1706,14 +1706,20 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']")
     private WebElement textArea;
 
-    @FindBy(xpath = "//div[@class='jodit_wysiwyg']//span")
-    private WebElement textAreaSize;
+    @FindBy(xpath = "//div[@class='jodit_wysiwyg']/span")
+    private WebElement textAreaStyle;
+
+    @FindBy(xpath = "//div[@class='jodit_wysiwyg']/p")
+    private WebElement textAlignment;
 
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']//strong")
     private WebElement textAreaBold;
 
-    @FindBy(xpath = "//span[text()='上传']")
+    @FindBy(xpath = "//span[text()='上传']/following-sibling::input")
     private WebElement uploadImage;
+
+    @FindBy(xpath = "//div[@class='jodit_wysiwyg']//img")
+    private WebElement imageElement;
 
     @FindBy(xpath = "//a[@aria-label='字号']")
     private WebElement textFontSize;
@@ -1721,12 +1727,62 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//a[@aria-label='粗体']")
     private WebElement bold;
 
+    @FindBy(xpath = "//div[@class='jodit_wysiwyg']//strong")
+    private WebElement boldElement;
+
     @FindBy(xpath = "//a[@aria-label='斜体']")
     private WebElement italics;
+
+    @FindBy(xpath = "//div[@class='jodit_wysiwyg']//em")
+    private WebElement italicsElement;
 
     @FindBy(xpath = "//a[@aria-label='下划线']")
     private WebElement underline;
 
+    @FindBy(xpath = "//div[@class='jodit_wysiwyg']//u")
+    private WebElement underlineElement;
+
+    @FindBy(xpath = "//a[@aria-label='页眉']")
+    private WebElement header;
+
+    @FindBy(xpath = "//a[@aria-label='页脚']")
+    private WebElement footer;
+
+    @FindBy(xpath = "//p[@name='pageheader']")
+    private WebElement headerText;
+
+    @FindBy(xpath = "//p[@name='pagefooter']")
+    private WebElement footerText;
+
+    @FindBy(xpath = "//a[@aria-label='对齐方式']")
+    private WebElement alignment;
+
+    @FindBy(xpath = "//a[@aria-label='居中']")
+    private WebElement centerAlignment;
+
+    @FindBy(xpath = "//a[@aria-label='右对齐']")
+    private WebElement rightAlignment;
+
+    @FindBy(xpath = "//a[@aria-label='左对齐']")
+    private WebElement leftAlignment;
+
+    @FindBy(xpath = "//a[@aria-label='对齐文本']")
+    private WebElement justifyAlignment;
+
+    @FindBy(xpath = "//a[@aria-label='分割线']")
+    private WebElement dividingLine;
+
+    @FindBy(xpath = "//hr")
+    private WebElement dividingLineElement;
+
+    @FindBy(xpath = "//a[@aria-label='目录']")
+    private WebElement content;
+
+    @FindBy(xpath = "//a[@aria-label='表格']")
+    private WebElement addTable;
+
+    @FindBy(xpath = "//div[@data-index='12']")
+    private WebElement addTable3x2;
 
 //----------------------------
 
@@ -1734,18 +1790,22 @@ public class CreatePage extends PageTemplate {
         return textArea;
     }
 
-    public WebElement getTextAreaSize(){
-        return textAreaSize;
+    public WebElement getTextAreaStyle() {
+        return textAreaStyle;
     }
 
-    public WebElement getTextAreaBold() {
-        return textAreaBold;
+    public WebElement getTextAlignment() {
+        return textAlignment;
     }
 
     public WebElement getUploadImage(){
         WebElement button = webDriver.findElement(By.xpath("//a[@aria-label='图片']"));
         button.click();
         return uploadImage;
+    }
+
+    public WebElement getImageElement() {
+        return imageElement;
     }
 
     public WebElement getTextFontSize48() {
@@ -1757,12 +1817,80 @@ public class CreatePage extends PageTemplate {
         return bold;
     }
 
+    public WebElement getBoldElement() {
+        return boldElement;
+    }
+
     public WebElement getItalics() {
         return italics;
     }
 
+    public WebElement getItalicsElement() {
+        return italicsElement;
+    }
+
     public WebElement getUnderline() {
         return underline;
+    }
+
+    public WebElement getUnderlineElement() {
+        return underlineElement;
+    }
+
+    public WebElement getHeader() {
+        return header;
+    }
+
+    public WebElement getFooter() {
+        return footer;
+    }
+
+    public WebElement getFooterText() {
+        return footerText;
+    }
+
+    public WebElement getHeaderText() {
+        return headerText;
+    }
+
+    public WebElement getAlignment() {
+        return alignment;
+    }
+
+    public WebElement getCenterAlignment() {
+        return centerAlignment;
+    }
+
+    public WebElement getRightAlignment() {
+        return rightAlignment;
+    }
+
+    public WebElement getLeftAlignment() {
+        return leftAlignment;
+    }
+
+    public WebElement getJustifyAlignment() {
+        return justifyAlignment;
+    }
+
+    public WebElement getDividingLine() {
+        return dividingLine;
+    }
+
+    public WebElement getDividingLineElement() {
+        return dividingLineElement;
+    }
+
+    public WebElement getContent() {
+        return content;
+    }
+
+    public WebElement getAddTable() {
+        return addTable;
+    }
+
+    public WebElement getAddTable3x2() {
+        return addTable3x2;
     }
 //----------------------------
 

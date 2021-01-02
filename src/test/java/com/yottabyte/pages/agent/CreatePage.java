@@ -4,6 +4,7 @@ import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.DropdownUtils;
 import com.yottabyte.utils.WaitForElement;
+import org.openqa.selenium.Beta;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -295,7 +296,7 @@ public class CreatePage extends PageTemplate {
     private WebElement EditAutoFile;
 
     public WebElement getJmxInput() {
-        return getLiElement("JmxInput");
+        return webDriver.findElement(By.xpath("//li[text()='JmxInput']"));
     }
 
     public WebElement getHostConnectInput() {
@@ -888,6 +889,41 @@ public class CreatePage extends PageTemplate {
         return webDriver.findElement(By.xpath(xpath));
     }
 
+    @FindBy(xpath = "//span/a[text()='确定']")
+    private WebElement Csvcertain;
+
+    public WebElement getCsvcertain() {
+        return Csvcertain;
+    }
+
+    public WebElement getCsvSave(){
+        return getButton("添加数据");
+    }
+    public WebElement getjmxRmi(){
+        return getCsvInput(2);
+    }
+
+    public WebElement getuser(){
+        return getCsvInput(3);
+    }
+
+    public WebElement getpassword(){
+        return getCsvInput(4);
+    }
+    public WebElement getwantPorts(){
+        return getCsvInput(5);
+    }
+    public WebElement getappName(){
+        return getCsvInput(6);
+    }
+    public WebElement gettag(){
+        return getCsvInput(7);
+    }
+
+    public WebElement getapplicationName(){
+        return getCsvInput(1);
+    }
+
     public WebElement getClean() {
         return super.getButton("清理");
     }
@@ -972,9 +1008,10 @@ public class CreatePage extends PageTemplate {
         return webDriver.findElement(By.xpath("//span[text()='" + name + "']//ancestor::li"));
     }
 
+    public WebElement getCsvInput(int num){
+        return webDriver.findElement(By.xpath("(//input[contains(@class,'ant-input css-pcxrzr')])['" + num + "']"));
 
-
-
+    }
     public WebElement getDropDownListElement(String name) {
         DropdownUtils dropdownUtils = new DropdownUtils();
         WebElement element = webDriver.findElement(By.xpath("//label[@title='" + name + "']/parent::div/following-sibling::div//div[@class='ant-select-selection__rendered']/following-sibling::span/i"));
