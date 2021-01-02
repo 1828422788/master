@@ -1,4 +1,4 @@
-package com.yottabyte.pages.dbConnection;
+package com.yottabyte.pages.dbConnectionPre;
 
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.ClickEvent;

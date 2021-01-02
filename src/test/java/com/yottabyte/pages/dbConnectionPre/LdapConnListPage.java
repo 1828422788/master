@@ -1,17 +1,9 @@
-package com.yottabyte.pages.dbConnection;
+package com.yottabyte.pages.dbConnectionPre;
 
 import com.yottabyte.pages.ListPageFactory;
-import com.yottabyte.pages.PageTemplate;
-import com.yottabyte.utils.ClickEvent;
-import com.yottabyte.utils.WaitForElement;
-import org.openqa.selenium.By;
-import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.util.List;
 
 public class LdapConnListPage extends ListPageFactory {
     public LdapConnListPage(WebDriver driver) {

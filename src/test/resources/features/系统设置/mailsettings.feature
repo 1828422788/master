@@ -10,6 +10,7 @@ Feature: 配置发送邮箱
     When I set the parameter "SMTPAddress" with value "<SMTPAddress>"
     When I set the parameter "SendEmail" with value "<SendEmail>"
     When I set the parameter "EmailPassword" with value "<EmailPassword>"
+    When I set the parameter "SendEmail" with value "<SendEmail>"
 
     Examples:
       | SMTPPort | SMTPAddress      | SendEmail            | EmailPassword    |

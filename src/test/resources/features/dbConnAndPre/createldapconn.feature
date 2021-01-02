@@ -1,9 +1,8 @@
-@extra0
 Feature: 新建ldap连接配置
 
-  @splpre @newldapconn
+  @extra0 @splpre @newldapconn
   Scenario Outline: 新建ldap配置-3个
-    Given open the "dbConnection.LdapConnListPage" page for uri "/ldapconnection/"
+    Given open the "dbConnectionPre.LdapConnListPage" page for uri "/ldapconnection/"
     And I click the "CreateLdapConn" button
 
     And I wait for loading complete
@@ -27,7 +26,7 @@ Feature: 新建ldap连接配置
 
   @newldapconnssl
   Scenario Outline: 新建ssl ldap配置-1个
-    Given open the "dbConnection.LdapConnListPage" page for uri "/ldapconnection/"
+    Given open the "dbConnectionPre.LdapConnListPage" page for uri "/ldapconnection/"
     And I click the "CreateLdapConn" button
 
     And I wait for loading complete
@@ -48,9 +47,9 @@ Feature: 新建ldap连接配置
       | NewLdapConnName | NewBaseDName      | NewLdapHost   | NewLdapConnPort | NewBindDnName | LdapUserPassword |
       | ldpconnsamplessl         | dc=example,dc=org | 192.168.1.221 | 636            | cn=admin,dc=example,dc=org         | admin |
 
-  @delldapconn
+  @extra0 @delldapconn
   Scenario Outline: 删除ldap连接
-    Given open the "dbConnection.LdapConnListPage" page for uri "/ldapconnection/"
+    Given open the "dbConnectionPre.LdapConnListPage" page for uri "/ldapconnection/"
     And I wait for "1000" millsecond
 
     When I set the parameter "LdapConnNameSearchInput" with value "<LdapConnName>"

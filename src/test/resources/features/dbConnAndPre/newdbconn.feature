@@ -3,7 +3,7 @@ Feature: 新建数据库连接配置
 
   @newconn @splpre
   Scenario Outline: 新建连接配置-4个
-    Given open the "dbConnection.dbSettingPage" page for uri "/dbsettings/"
+    Given open the "dbConnectionPre.dbSettingPage" page for uri "/dbsettings/"
     And I click the "DbConnConfig" button
     And I wait for "1000" millsecond
 
@@ -34,7 +34,7 @@ Feature: 新建数据库连接配置
 
   @editconn
   Scenario Outline:复制
-    Given open the "dbConnection.dbSettingPage" page for uri "/dbsettings/"
+    Given open the "dbConnectionPre.dbSettingPage" page for uri "/dbsettings/"
     And I click the "getNewDbLookup" button
     And I wait for "1000" millsecond
 
@@ -56,7 +56,7 @@ Feature: 新建数据库连接配置
 
   @delconn
   Scenario Outline: 删除连接
-    Given open the "dbConnection.dbSettingPage" page for uri "/dbsettings/"
+    Given open the "dbConnectionPre.dbSettingPage" page for uri "/dbsettings/"
     And I click the "DbConnConfig" button
     And I wait for "1000" millsecond
 

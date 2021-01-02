@@ -3,7 +3,7 @@ Feature: 新建数据库输出
 
   @newdboutput @splpre
   Scenario Outline: 新建数据库输出-3
-    Given open the "dbConnection.DbOutputPage" page for uri "/dbsettings/"
+    Given open the "dbConnectionPre.DbOutputPage" page for uri "/dbsettings/"
 #    And I click the "DbOutputConfig" button
     And I wait for "1000" millsecond
 

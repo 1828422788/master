@@ -1,21 +1,20 @@
-package com.yottabyte.pages.dbConnection;
+package com.yottabyte.pages.dbConnectionPre;
 
 import com.yottabyte.pages.PageTemplate;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-/**
- * @author jiangnd
- */
-
-public class EditPage extends PageTemplate {
-
-    public EditPage(WebDriver driver) {
+public class LdapConnCreatePage extends PageTemplate {
+    public LdapConnCreatePage(WebDriver driver) {
         super(driver);
+//        driver.manage().window().fullscreen();
     }
 
-    @FindBy(xpath = "//input[@placeholder='请输入']")
+    //    @FindBy(xpath = "//label[contains(text(),'名称')]/following::input[@placeholder='请输入']")
+//    @FindBy(xpath = "//label[@title='名称')]/following::input[@placeholder='请输入']")
+//            return webDriver.findElement(By.xpath("//label[contains(text(),'名称')]/following::span[@class='ant-form-item-children']/input[@placeholder='请输入']"));
+    @FindBy(xpath = "//form[@class='ant-form ant-form-horizontal']/descendant::label[contains(text(),'名称')]/following::span[@class='ant-form-item-children']/input[@placeholder='请输入']")
     private WebElement newLdapConnName;
 
     public WebElement getNewDbConnName() {
@@ -66,3 +65,4 @@ public class EditPage extends PageTemplate {
     }
 
 }
+

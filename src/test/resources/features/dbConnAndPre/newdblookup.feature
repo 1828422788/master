@@ -3,7 +3,7 @@ Feature: 新建数据库查找
 
   @newdblookup @splpre
   Scenario Outline: 新建查找-3
-    Given open the "dbConnection.dbSettingPage" page for uri "/dbsettings/"
+    Given open the "dbConnectionPre.dbSettingPage" page for uri "/dbsettings/"
     And I click the "DbLookupConfig" button
     And I wait for "1000" millsecond
 
@@ -50,7 +50,7 @@ Feature: 新建数据库查找
 
   @deldblookup
   Scenario Outline: 删除连接-3
-    Given open the "dbConnection.dbSettingPage" page for uri "/dbsettings/"
+    Given open the "dbConnectionPre.dbSettingPage" page for uri "/dbsettings/"
     And I click the "DbLookupConfig" button
     And I wait for "1000" millsecond
 
