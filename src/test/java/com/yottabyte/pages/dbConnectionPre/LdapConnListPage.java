@@ -76,6 +76,12 @@ public class LdapConnListPage extends ListPageFactory {
         return ldapSSlOnOff;
     }
 
+    @FindBy(xpath = "//span[text()='上传证书']/parent::button/preceding-sibling::input")
+    private WebElement upload;
+    public WebElement getUpload() {
+        return upload;
+    }
+
     @FindBy(xpath = "//input[@placeholder='输入关键字']")
     private WebElement ldapConnNameSearchInput;
 

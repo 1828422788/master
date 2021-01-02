@@ -1,7 +1,6 @@
-@extra0
 Feature: 新建数据库连接配置
 
-  @newconn @splpre
+  @newconn @splpre @extra0
   Scenario Outline: 新建连接配置-4个
     Given open the "dbConnectionPre.dbSettingPage" page for uri "/dbsettings/"
     And I click the "DbConnConfig" button
@@ -26,9 +25,9 @@ Feature: 新建数据库连接配置
 
     Examples:
       | newDbConnName | newDbUserName | newDbUserPassword | newDbRetLines | newDbConnTypeList | newDbConnHost | newDbConnPort | newConnDefaultDb |
-#      | v33dbx        | root          | rizhiyi&2014      | 1000          | mysql             | 192.168.1.183 | 3306          | v33dbx           |
-#      | delv33dbx    | root          | rizhiyi&2014      | 1000          | mysql             | 192.168.1.183 | 3306          | v33dbx           |
-#      | editv33dbx    | root          | rizhiyi&2014      | 1000          | mysql             | 192.168.1.183 | 3306          | v33dbx           |
+      | v33dbx        | root          | rizhiyi&2014      | 1000          | mysql             | 192.168.1.183 | 3306          | v33dbx           |
+      | delv33dbx    | root          | rizhiyi&2014      | 1000          | mysql             | 192.168.1.183 | 3306          | v33dbx           |
+      | editv33dbx    | root          | rizhiyi&2014      | 1000          | mysql             | 192.168.1.183 | 3306          | v33dbx           |
       | v33vertica    | dbadmin          | rizhiyi&2014      | 1000          | vertica             | 192.168.1.221 | 5433      | v33vertica           |
 
 
@@ -54,7 +53,7 @@ Feature: 新建数据库连接配置
       | DbConnName | ReceiveGroupNonMemberValue |
       | v33deldbx | kongfeili |
 
-  @delconn
+  @delconn @cleare0
   Scenario Outline: 删除连接
     Given open the "dbConnectionPre.dbSettingPage" page for uri "/dbsettings/"
     And I click the "DbConnConfig" button
@@ -67,4 +66,9 @@ Feature: 新建数据库连接配置
 
     Examples:
       | DbConnName |
-      | v33dbx_del |
+      | v33dbx        |
+      | delv33dbx    |
+      | editv33dbx    |
+      | v33vertica    |
+
+
