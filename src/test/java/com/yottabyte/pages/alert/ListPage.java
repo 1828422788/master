@@ -91,6 +91,13 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "(//span[@class='status-number hover-number'])[last()]")
     private WebElement alertNum;
 
+    @FindBy(xpath = "(//span[@class='ant-switch-inner']/parent::button")
+//    @FindBy(xpath = "(//button[@class='css-18vwpo7 ant-switch-small ant-switch']")
+    private WebElement alertTurnOn;
+    public WebElement getAlertTurnOn() {
+        return alertTurnOn;
+    }
+
     @FindBy(className = "ant-empty-description")
     private WebElement noneData;
 
@@ -197,10 +204,10 @@ public class ListPage extends ListPageFactory {
         if (element.findElements(By.tagName("tr")).size() > 0) {
             return element.findElements(By.tagName("tr")).get(row - 1).findElement(By.xpath("//td[@class='el-table_1_column_5']//span[contains(text(),'删除')]"));
         } else if (noSearchResultMessage.isDisplayed()) {
-            GetLogger.getLogger().error("没有搜索结果");
+//            GetLogger.getLogger().error("没有搜索结果");
             throw new NoSuchElementException("没有搜索结果");
         } else {
-            GetLogger.getLogger().error("请检查输入");
+//            GetLogger.getLogger().error("请检查输入");
             throw new NoSuchElementException("请检查输入");
         }
     }
@@ -215,7 +222,7 @@ public class ListPage extends ListPageFactory {
         } else if (ElementExist.isElementExist(webDriver, noSearchResultMessage)) {
             return noSearchResultMessage;
         } else {
-            GetLogger.getLogger().error("请检查输入");
+//            GetLogger.getLogger().error("请检查输入");
             throw new NoSuchElementException("请检查输入");
         }
     }

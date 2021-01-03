@@ -46,6 +46,10 @@ public class CustomConfigs extends PageTemplate {
         return super.getInputElement("发送邮箱");
     }
 
+    public WebElement getEmailLogName() {
+        return super.getInputElement("发件箱登录名");
+    }
+
     public WebElement getEmailPassword() {
         return super.getInputElement("邮箱密码");
     }

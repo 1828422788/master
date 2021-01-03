@@ -71,14 +71,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='el-select']//input[@placeholder='请选择']")
     private WebElement alertTypeButton;
 
-    // 执行计划输入框 定时激活时为输入框和单位下拉框;crontab激活时为输入框
-    @FindBy(xpath = "//div[@class='el-form-item__content']/div[@class='el-row']//input")
-    private List<WebElement> alertPlanInputs;
-
-    // 执行计划-crontab按钮
-    @FindBy(xpath = "//span[@class='el-radio-button__inner'][text()='crontab']")
-    private WebElement alertPlanCrontabButton;
-
     // 触发条件的父级元素
     @FindBy(className = "alert-trigger")
     private WebElement alertTrigger;
@@ -430,20 +422,6 @@ public class CreatePage extends PageTemplate {
             return getSelectors(alertPlanInputs.get(1)).findElements(By.tagName("li"));
         } else {
             throw new NoSuchElementException("定时按钮未激活");
-        }
-    }
-
-    public WebElement getAlertPlanCrontabButton() {
-        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(alertPlanCrontabButton));
-        return alertPlanCrontabButton;
-    }
-
-    // 执行计划-crontab-输入框
-    public WebElement getAlertPlanCrontabInput() {
-        if (alertPlanCrontabButton.findElement(By.xpath("./parent::label")).getAttribute("class").contains("is-active")) {
-            return alertPlanInputs.get(0);
-        } else {
-            throw new NoSuchElementException("crontab按钮未激活");
         }
     }
 
@@ -914,13 +892,39 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//div[text()='crontab']/ancestor::span")
     private WebElement crontab;
+    public WebElement getCrontab(){
+        return crontab;
+    }
 
-    @FindBy(xpath = "//div[text()='crontab']/ancestor::span/ancestor::span/following-sibling::div//input")
+//    @FindBy(xpath = "//div[text()='crontab']/ancestor::span/ancestor::span/following-sibling::div//input")
+    @FindBy(xpath = "//label[contains(text(),'执行计划')]/following::div[text()='crontab']/following::input[@placeholder='请输入']")
     private WebElement crontabInput;
 
     public WebElement getCrontabInput() {
-        crontab.click();
         return crontabInput;
+    }
+
+    // 执行计划输入框 定时激活时为输入框和单位下拉框;crontab激活时为输入框
+    @FindBy(xpath = "//div[@class='el-form-item__content']/div[@class='el-row']//input")
+    private List<WebElement> alertPlanInputs;
+
+    // 执行计划-crontab-输入框
+    public WebElement getAlertPlanCrontabInput() {
+        if (alertPlanCrontabButton.findElement(By.xpath("./parent::label")).getAttribute("class").contains("is-active")) {
+            return alertPlanInputs.get(0);
+        } else {
+            throw new NoSuchElementException("crontab按钮未激活");
+        }
+    }
+
+    // 执行计划-crontab按钮
+//    @FindBy(xpath = "//span[@class='el-radio-button__inner'][text()='crontab']")
+    @FindBy(xpath = "//label[contains(text(),'执行计划')]/following::div[text()='crontab']/parent::span/parent::label")
+//    @FindBy(xpath = "//input[@name='frequencyRadio']/parent::span/parent::label")
+    private WebElement alertPlanCrontabButton;
+    public WebElement getAlertPlanCrontabButton() {
+//        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(alertPlanCrontabButton));
+        return alertPlanCrontabButton;
     }
 
 }

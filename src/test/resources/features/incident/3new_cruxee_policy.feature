@@ -1,4 +1,4 @@
-@incident
+@extra0 @incident
 Feature: 事件管理-合并策略-11个
 
   @newcru1 @newcru
