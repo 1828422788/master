@@ -32,9 +32,9 @@ Feature: 仪表盘详情行布局
 
     Examples:
       | name            | spl                                                       |
-      | 行布局趋势图1 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
-      | 行布局趋势图2 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
-      | 行布局趋势图2 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
+      | 行布局趋势图1 | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10 |
+      | 行布局趋势图2 | tag:sample04061424 \| stats count() by apache.geo.country,apache.geo.province,apache.geo.city |
+      | 行布局趋势图2 | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10 |
       | 行布局趋势图3 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
 
 #  @dashboard @dashboardSmoke

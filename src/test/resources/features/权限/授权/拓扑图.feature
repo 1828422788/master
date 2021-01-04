@@ -1,4 +1,4 @@
-@authtest1
+@authtest
 Feature: 权限-拓扑图
 
   Scenario Outline: 勾选所需功能权限

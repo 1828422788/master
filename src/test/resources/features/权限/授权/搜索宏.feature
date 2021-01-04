@@ -501,6 +501,7 @@ Feature: 权限-搜索宏
     And the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
+    Then I logout current user
 
     Examples:
       | authRole | authName | function | name   |
@@ -542,6 +543,7 @@ Feature: 权限-搜索宏
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
+    Then I logout current user
 
     Examples:
       | authRole | authName        | function | name   |
@@ -590,6 +592,7 @@ Feature: 权限-搜索宏
     And I wait for "Ensure" will be visible
     Then I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "删除成功"
+    Then I logout current user
 
     Examples:
       | authRole | authName | function | name   |

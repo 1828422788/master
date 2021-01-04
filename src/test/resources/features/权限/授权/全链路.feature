@@ -1,4 +1,4 @@
-@authtest1
+@authtest
 Feature: 权限-全链路
 
   Scenario Outline: 勾选字段提取所需功能权限

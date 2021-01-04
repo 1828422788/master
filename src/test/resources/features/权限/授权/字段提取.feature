@@ -1,4 +1,4 @@
-@authtest1
+@authtest
 Feature: 权限-字段提取
 
   Scenario Outline: 授权功能权限

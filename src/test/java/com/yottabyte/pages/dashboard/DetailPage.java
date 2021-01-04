@@ -592,7 +592,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//i[contains(@class,'ant-dropdown-trigger')][contains(@class,'anticon css-ifnfqv')])[4]")
     private WebElement eventOperate;
 
-    @FindBy(xpath = "//span[text()='事件列表']/ancestor::div/following-sibling::div//i")
+    @FindBy(xpath = "//div[@class='eventBlock']/i")
     private WebElement iconRight;
 
     @FindBy(xpath = "//span[text()='apache.geo.city']/following-sibling::span/pre/span")

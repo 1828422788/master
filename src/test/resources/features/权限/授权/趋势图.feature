@@ -5,12 +5,15 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
+    And I click the "Resource" button
     When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "全选"
-    And I click the "Resource" button
     And I "checked" the checkbox which name is "可查看趋势图,可查看仪表盘,新建仪表盘"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name              |
@@ -22,14 +25,17 @@ Feature: 权限-趋势图
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
     Then I will see the "Create" doesn't exist
+    Then I logout current user
 
   Scenario: 授权新建权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "Resource" button
     And I "checked" the checkbox which name is "新建趋势图"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
 
   Scenario: 新建趋势图
@@ -50,17 +56,23 @@ Feature: 权限-趋势图
     When I set the parameter "NameInput" with value "AutoTest"
     And I click the "NextButton" button
     And I wait for "SuccessCreate" will be visible
+    Then I logout current user
 
   Scenario Outline: 不授予任何权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
+    And I wait for "1000" millsecond
     Then I click the "{'TabButton':'趋势图'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name     |
@@ -72,6 +84,7 @@ Feature: 权限-趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
     Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
+    Then I logout current user
 
     Examples:
       | name     |
@@ -81,12 +94,16 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
+    And I wait for "1000" millsecond
     Then I click the "{'TabButton':'趋势图'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     When I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
 
     Examples:
@@ -115,6 +132,7 @@ Feature: 权限-趋势图
     When the data name is "<name>" then i click the "复制" button
     And I wait for "Message" will be visible
     Then I will see the message "复制成功"
+    Then I logout current user
 
     Examples:
       | name     |
@@ -124,14 +142,18 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "Resource" button
     When I "unchecked" the checkbox which name is "新建趋势图"
     And I click the "ResourceAuth" button
+    And I wait for "1000" millsecond
     Then I click the "{'TabButton':'趋势图'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     When I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
 
     Examples:
@@ -156,6 +178,7 @@ Feature: 权限-趋势图
     When the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
+    Then I logout current user
 
     Examples:
       | name         |
@@ -165,13 +188,18 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
+    And I wait for "1000" millsecond
     Then I click the "{'TabButton':'趋势图'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     When I "checked" function "读取,编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name         |
@@ -216,10 +244,13 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "Resource" button
     And I "checked" the checkbox which name is "可查看报表,新建报表"
     And I click the "ResourceAuth" button
+    And I wait for "1000" millsecond
     Then I click the "{'TabButton':'趋势图'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I "checked" the checkbox which name is "AutoTest" in auth table
@@ -282,6 +313,7 @@ Feature: 权限-趋势图
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
+    Then I logout current user
 
     Examples:
       | name         |
@@ -301,15 +333,19 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "Resource" button
     And I "checked" the checkbox which name is "新建趋势图"
     And I click the "SaveButton" button
     And I click the "ResourceAuth" button
+    And I wait for "1000" millsecond
     Then I click the "{'TabButton':'趋势图'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name         |
@@ -331,6 +367,7 @@ Feature: 权限-趋势图
     Then I will see the element "NextButton" attribute is "disabled"
     And open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "授权" button
+    And I wait for loading invisible
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
     And I wait for "Message" will be visible
@@ -339,10 +376,11 @@ Feature: 权限-趋势图
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "查看复制展示趋势图授权" button
+    Then the data name is "<name>" then i will see "查看展示趋势图授权" button
     When the data name is "<name>" then i click the "复制" button
     And I wait for "Message" will be visible
     Then I will see the message "复制成功"
+    Then I logout current user
 
     Examples:
       | name         |
@@ -352,22 +390,32 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
+    And I wait for "1000" millsecond
     Then I click the "{'TabButton':'趋势图'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "AutoTest(副本)(副本)" in auth table
     When I "unchecked" function "删除" from the auth table which name is "AutoTest(副本)(副本)"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
+
+  Scenario: 授权读取+编辑+转授权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
-    Then I click the "Trend" button
+    And I click the "ResourceAuth" button
+    And I wait for "1000" millsecond
+    Then I click the "{'TabButton':'趋势图'}" button
     And I wait for loading invisible
     And I "checked" the checkbox which name is "AutoTest(副本)(副本)" in auth table
     And I "unchecked" the checkbox which name is "AutoTest(副本)(副本)" in auth table
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
+    Then I logout current user
 
   Scenario Outline: 验证读取+编辑+转授权限
     Given I login user "AutoTest" with password "All#123456"
@@ -392,6 +440,7 @@ Feature: 权限-趋势图
     And I wait for "SuccessUpdate" will be visible
     And open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "授权" button
+    And I wait for loading invisible
     And I "uncheck" the checkbox which name is "验证授权用户" in tiny table
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
@@ -422,6 +471,7 @@ Feature: 权限-趋势图
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
+    Then I logout current user
 
   Scenario: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -437,10 +487,14 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
+    And I wait for "1000" millsecond
     Then I click the "{'TabButton':'趋势图'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "AutoTest(副本)" in auth table
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
 
   Scenario Outline: 验证添加图表
@@ -456,6 +510,7 @@ Feature: 权限-趋势图
     And I set the parameter "SearchChartInput" with value "<name>"
     And I wait for "SpinDot" will be invisible
     Then I wait for "AutotestCopy" will be visible
+    Then I logout current user
 
     Examples:
       | name         |
@@ -465,12 +520,16 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
+    And I wait for "1000" millsecond
     Then I click the "{'TabButton':'趋势图'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "AutoTest(副本)" in auth table
     And I "unchecked" the checkbox which name is "AutoTest(副本)" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
   Scenario Outline: 验证无趋势图图表
     Given I login user "AutoTest" with password "All#123456"
@@ -485,6 +544,7 @@ Feature: 权限-趋势图
     And I set the parameter "SearchChartInput" with value "<name>"
     And I wait for "SpinDot" will be invisible
     Then I will see the "AutotestCopy" doesn't exist
+    Then I logout current user
 
     Examples:
       | name         |
@@ -506,12 +566,16 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
+    And I wait for "1000" millsecond
     Then I click the "{'TabButton':'趋势图'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name     |
@@ -545,6 +609,7 @@ Feature: 权限-趋势图
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
+    Then I logout current user
 
     Examples:
       | name     |
@@ -554,21 +619,35 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
+    And I wait for "1000" millsecond
     Then I click the "{'TabButton':'趋势图'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
+
+    Examples:
+      | name         |
+      | AutoUserEdit |
+
+  Scenario Outline: 授权读取+删除+转授权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
-    Then I click the "Trend" button
+    And I click the "ResourceAuth" button
+    And I wait for "1000" millsecond
+    Then I click the "{'TabButton':'趋势图'}" button
     And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
+    And I will see the success message "更新成功"
 
     Examples:
       | name         |
@@ -590,6 +669,7 @@ Feature: 权限-趋势图
     Then I will see the element "NextButton" attribute is "disabled"
     And open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "授权" button
+    And I wait for loading invisible
     And I "uncheck" the checkbox which name is "验证授权用户" in tiny table
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
@@ -607,6 +687,7 @@ Feature: 权限-趋势图
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
+    Then I logout current user
 
     Examples:
       | name         |
@@ -616,11 +697,16 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
+    And I wait for "1000" millsecond
     Then I click the "{'TabButton':'趋势图'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
+    Then I logout current user
 
     Examples:
       | name             |
@@ -649,6 +735,7 @@ Feature: 权限-趋势图
     And I wait for "SuccessUpdate" will be visible
     And open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<newName>" then i click the "授权" button
+    And I wait for loading invisible
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
@@ -684,18 +771,26 @@ Feature: 权限-趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
     When the data name is "AutoEditCopy(副本)" then i click the "授权" button
+    And I wait for loading invisible
     And I "check" the checkbox which name is "AutoTest" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
+
+  Scenario: 给AutoTest用户授权
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
+    And I wait for "1000" millsecond
     Then I click the "{'TabButton':'趋势图'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "AutoEditCopy(副本)" in auth table
     And I "unchecked" the checkbox which name is "AutoEditCopy(副本)" in auth table
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
+    Then I logout current user
 
   Scenario Outline: 二次授权读取
     Given I login user "AutoTest" with password "All#123456"
@@ -703,11 +798,19 @@ Feature: 权限-趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
     When the data name is "{'column':'0','name':'<name>'}" then i click the "授权" button
+    And I wait for loading invisible
     And I choose the "<authRole>" from the "AuthDropdown"
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     And I wait for "Message" will be visible
     Then I will see the message "保存成功"
+    Then I logout current user
+
+    Examples:
+      | authRole | authName | function | name             |
+      | 用户       | 验证授权用户   | 读取       | AutoEditCopy(副本) |
+
+  Scenario Outline: 验证二次授权读取
     Given I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
@@ -724,6 +827,7 @@ Feature: 权限-趋势图
     When the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
+    Then I logout current user
 
     Examples:
       | authRole | authName | function | name             |
@@ -735,11 +839,20 @@ Feature: 权限-趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
     When the data name is "{'column':'0','name':'<name>'}" then i click the "授权" button
+    And I wait for loading invisible
     And I choose the "<authRole>" from the "AuthDropdown"
     And I wait for loading invisible
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
+    Then I logout current user
+
+    Examples:
+      | authRole | authName        | function | name             |
+      | 角色       | __user_验证授权用户__ | 编辑       | AutoEditCopy(副本) |
+
+
+  Scenario Outline: 验证二次授权读取+编辑
     Given I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
@@ -762,6 +875,7 @@ Feature: 权限-趋势图
     And I set the parameter "NameInput" with value "AutoEditCopy"
     And I click the "NextButton" button
     And I wait for "SuccessUpdate" will be visible
+    Then I logout current user
 
     Examples:
       | authRole | authName        | function | name             |
@@ -773,11 +887,20 @@ Feature: 权限-趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
     When the data name is "{'column':'0','name':'<name>'}" then i click the "授权" button
+    And I wait for loading invisible
     And I choose the "<authRole>" from the "AuthDropdown"
     And I wait for loading invisible
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
+    Then I logout current user
+
+    Examples:
+      | authRole | authName | function | name         |
+      | 用户分组     | 验证授权用户分组 | 读取,编辑,删除 | AutoEditCopy |
+
+
+  Scenario Outline: 验证二次授权读取+编辑+删除
     Given I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
@@ -818,15 +941,18 @@ Feature: 权限-趋势图
     When the data name is "<name>" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
+    Then I logout current user
 
     Examples:
       | authRole | authName | function | name         |
       | 用户分组     | 验证授权用户分组 | 读取,编辑,删除 | AutoEditCopy |
 
   Scenario: 验证有效期限生效
+    Given I login user "AutoTest" with password "All#123456"
     Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
     Then I will see the search result "{'column':'0','name':'AutoTest','contains':'no'}"
+    Then I logout current user
 
   Scenario: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
