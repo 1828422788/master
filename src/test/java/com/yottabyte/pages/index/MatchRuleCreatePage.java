@@ -43,7 +43,7 @@ public class MatchRuleCreatePage extends PageTemplate {
 //        return getLastDropdownList();
 //    }
 
-//    public WebElement getDropdownList(String name) {
+//    public WebElement getDropdowMatchRuleCreatePagenList(String name) {
 //        WebElement icon = webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::div"));
 //        icon.click();
 //        return webDriver.findElement(By.xpath("(//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical'])[last()]"));

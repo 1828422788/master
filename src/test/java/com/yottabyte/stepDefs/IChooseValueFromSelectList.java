@@ -131,9 +131,9 @@ public class IChooseValueFromSelectList {
                 }
             }
         }
-        if (parentElement.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='none';", parentElement);
-        }
+//        if (parentElement.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
+//            ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='none';", parentElement);
+//        }
 //        try {
 //            if (parentElement.isDisplayed()) {
 //                ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", parentElement);

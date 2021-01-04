@@ -86,7 +86,7 @@ public class Checkbox {
     @And("^I \"([^\"]*)\" the label before \"([^\"]*)\" in the agent$")
     public void clickCheckLabelAgent(String status, List<String> nameList) {
         for (String name : nameList) {
-            String xpath = "//span[contains(text(),'" + name + "')]//ancestor::th//preceding-sibling::th//label";
+            String xpath = "//span[contains(text(),'" + name + "')]//ancestor::th//preceding-sibling::th";
             WebElement label = webDriver.findElement(By.xpath(xpath));
             WebElement span = label.findElement(By.xpath("./span"));
             String attribute = span.getAttribute("class");

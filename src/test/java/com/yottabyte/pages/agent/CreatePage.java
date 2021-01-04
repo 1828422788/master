@@ -299,6 +299,17 @@ public class CreatePage extends PageTemplate {
         return webDriver.findElement(By.xpath("//li[text()='JmxInput']"));
     }
 
+    public WebElement getDropdownList(String text) {
+        String xpath = "//span[contains(text(),'" + text + "')]";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        element.click();
+        return webDriver.findElement(By.xpath("(//ul[@class='ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical'])[last()]"));
+    }
+    public WebElement getCsvConfing() {
+        return getDropdownList("CSV文件配置");
+    }
+
+
     public WebElement getHostConnectInput() {
         return getLiElement("HostConnectInput");
     }
@@ -611,15 +622,8 @@ public class CreatePage extends PageTemplate {
         return getEditAutoScript;
     }
 
-    @FindBy(xpath = "//span[text()='添加数据']//ancestor::button")
-    private WebElement Create;
-
     public WebElement getGroupName() {
         return this.getContainsInputElement("名称");
-    }
-
-    public WebElement getCreate() {
-        return Create;
     }
 
     public WebElement getCleanOutput() {
@@ -884,10 +888,10 @@ public class CreatePage extends PageTemplate {
         return webDriver.findElement(By.xpath(xpath));
     }
 
-    public WebElement getCsvConfing() {
-        String xpath = "//span[text()='CSV文件配置']";
-        return webDriver.findElement(By.xpath(xpath));
-    }
+//    public WebElement getCsvConfing() {
+//        String xpath = "//span[text()='CSV文件配置']";
+//        return webDriver.findElement(By.xpath(xpath));
+//    }
 
     @FindBy(xpath = "//span/a[text()='确定']")
     private WebElement Csvcertain;
@@ -896,31 +900,36 @@ public class CreatePage extends PageTemplate {
         return Csvcertain;
     }
 
-    public WebElement getCsvSave(){
+    public WebElement getCreate(){
         return getButton("添加数据");
     }
-    public WebElement getjmxRmi(){
+
+    public WebElement getCsvSave(){
+        return getButton("保存文件");
+    }
+
+    public WebElement getCsvJmxRmi(){
         return getCsvInput(2);
     }
 
-    public WebElement getuser(){
+    public WebElement getCsvUser(){
         return getCsvInput(3);
     }
 
-    public WebElement getpassword(){
+    public WebElement getCsvPassword(){
         return getCsvInput(4);
     }
-    public WebElement getwantPorts(){
+    public WebElement getCsvWantPorts(){
         return getCsvInput(5);
     }
-    public WebElement getappName(){
+    public WebElement getCsvAppName(){
         return getCsvInput(6);
     }
-    public WebElement gettag(){
+    public WebElement getCsvtag(){
         return getCsvInput(7);
     }
 
-    public WebElement getapplicationName(){
+    public WebElement getCsvapplicationName(){
         return getCsvInput(1);
     }
 
@@ -1009,7 +1018,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCsvInput(int num){
-        return webDriver.findElement(By.xpath("(//input[contains(@class,'ant-input css-pcxrzr')])['" + num + "']"));
+        return webDriver.findElement(By.xpath("(//input[contains(@class,'ant-input css-pcxrzr')])[" + num + "]"));
 
     }
     public WebElement getDropDownListElement(String name) {
