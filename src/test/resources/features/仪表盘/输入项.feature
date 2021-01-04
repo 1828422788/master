@@ -908,7 +908,7 @@ Feature: 仪表盘输入项
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
     And I wait for "1000" millsecond
-    And I set the parameter "{  "title": "仪表盘1669所用趋势图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "table"  },  "drilldown": {    "type": "dashboard",    "blank": true,    "link": "/dashboard/6/6/?filter=${test}",    "eval": {      "name": "test",      "value": "${click.value2}-55"    }  }}" to json editor
+    And I set the parameter "{  "title": "仪表盘1669所用趋势图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "table"  },  "drilldown": {    "type": "dashboard",    "blank": true,    "link": "/dashboard/7/6/?filter=${test}",    "eval": {      "name": "test",      "value": "${click.value2}-55"    }  }}" to json editor
     And I click the "Check" button
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
@@ -917,7 +917,7 @@ Feature: 仪表盘输入项
     And I wait for "1000" millsecond
     And switch to another window
     And I close all tabs except main tab
-#    Then I will see the url contains "/dashboard/6/6/?filter=6"
+    Then I will see the url contains "/dashboard/7/6/?filter=6"
 #    Then I will see the element "FilterValue" value is "6"
 
   @dashboard @dashboardSmoke
