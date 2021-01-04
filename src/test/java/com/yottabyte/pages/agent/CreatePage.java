@@ -891,13 +891,22 @@ public class CreatePage extends PageTemplate {
         return webDriver.findElement(By.xpath(xpath));
     }
 
-//    public WebElement getCsvConfing() {
-//        String xpath = "//span[text()='CSV文件配置']";
-//        return webDriver.findElement(By.xpath(xpath));
-//    }
-
     @FindBy(xpath = "//span/a[text()='确定']")
     private WebElement Csvcertain;
+
+    @FindBy(xpath = "//span/a[text()='编辑']")
+    private WebElement Csvedit;
+
+    public WebElement getCsvedit() {
+        return Csvedit;
+    }
+
+    public WebElement getCsvdelete() {
+        return Csvdelete;
+    }
+
+    @FindBy(xpath = "//span/a[text()='删除']")
+    private WebElement Csvdelete;
 
     public WebElement getCsvcertain() {
         return Csvcertain;
@@ -909,6 +918,13 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getCsvSave(){
         return getButton("保存文件");
+    }
+
+    @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-info']/span")
+    private WebElement CsvChangeMemo;
+
+    public WebElement getCsvChangeMemo(){
+        return CsvChangeMemo;
     }
 
     public WebElement getCsvJmxRmi(){
