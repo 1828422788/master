@@ -242,4 +242,13 @@ public class SetKeyWithValue {
         element.click();
         element.sendKeys(Keys.chord(Keys.CONTROL, "a"));
     }
+
+    @And("^I set the parameter \"([^\"]*)\" with value \"([^割]*)\" in word report$")
+    public void iSetParameterWithValue(String elementName, String value){
+//        String jScript = "arguments[0].textContent=\"" + value + "\";";
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        String jScript = "arguments[0].innerHTML=\"" + value + "\";";
+        JavascriptExecutor executor = (JavascriptExecutor)webDriver;
+        executor.executeScript(jScript, element);
+    }
 }

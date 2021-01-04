@@ -1751,8 +1751,14 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//p[@name='pageheader']")
     private WebElement headerText;
 
+    @FindBy(xpath = "//p[@name='pageheader']/*")
+    private WebElement headerTextStyle;
+
     @FindBy(xpath = "//p[@name='pagefooter']")
     private WebElement footerText;
+
+    @FindBy(xpath = "//p[@name='pagefooter']/*")
+    private WebElement footerTextStyle;
 
     @FindBy(xpath = "//a[@aria-label='对齐方式']")
     private WebElement alignment;
@@ -1783,6 +1789,12 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//div[@data-index='12']")
     private WebElement addTable3x2;
+
+    @FindBy(xpath = "//div[@class='jodit_wysiwyg']//table//tr[1]/td[1]")
+    private WebElement cell11;
+
+    @FindBy(xpath = "//div/*[not(@name ='pageheader') and not(@name='pagefooter') and contains(text(), 'textclick')]")
+    private WebElement textAreaLocator;
 
 //----------------------------
 
@@ -1849,8 +1861,16 @@ public class CreatePage extends PageTemplate {
         return footerText;
     }
 
+    public WebElement getFooterTextStyle() {
+        return footerTextStyle;
+    }
+
     public WebElement getHeaderText() {
         return headerText;
+    }
+
+    public WebElement getHeaderTextStyle() {
+        return footerTextStyle;
     }
 
     public WebElement getAlignment() {
@@ -1891,6 +1911,14 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getAddTable3x2() {
         return addTable3x2;
+    }
+
+    public WebElement getCell11() {
+        return cell11;
+    }
+
+    public WebElement getTextAreaLocator() {
+        return textAreaLocator;
     }
 //----------------------------
 

@@ -20,6 +20,7 @@ Feature:报表_富文本编辑
     And I click the button with text "报表测试"
     And I wait for "2000" millsecond
 
+    And I wait for "TextArea" will be visible
     And I set the parameter "TextArea" with value "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
 
     When I click the "FinishButton" button under some element
@@ -33,11 +34,22 @@ Feature:报表_富文本编辑
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 
-    And I set the parameter "TextArea" with value "<text> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis aliquet nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempor nisi urna, sed pulvinar sem molestie in. Fusce scelerisque eleifend accumsan. Phasellus laoreet ligula id orci congue rhoncus non rutrum quam. Donec hendrerit faucibus consequat. Etiam tellus tortor, ultrices et tellus eget, sollicitudin scelerisque risus. Integer mattis velit et nunc sollicitudin, non tempus lorem hendrerit."
+    And I wait for "TextArea" will be visible
+    And I set the parameter "TextArea" with value "<text> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis aliquet nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempor nisi urna, sed pulvinar sem molestie in. Fusce scelerisque eleifend accumsan. Phasellus laoreet ligula id orci congue rhoncus non rutrum quam. Donec hendrerit faucibus consequat. Etiam tellus tortor, ultrices et tellus eget, sollicitudin scelerisque risus. Integer mattis velit et nunc sollicitudin, non tempus lorem hendrerit. textclick"
+    And I click the "Header" button
+    And I wait for "2000" millsecond
+    And I set the parameter "HeaderText" with value "<text> header" in word report
+    And I click the "Footer" button
+    And I wait for "2000" millsecond
+    And I set the parameter "FooterText" with value "<text> footer" in word report
+    And I wait for "2000" millsecond
+
     And I select all text in "TextArea" element
     And I wait for "2000" millsecond
     And I click the "<button>" button
-    And I will see the element "TextAreaStyle" style contains "font-size: 48px;"
+    And I will see the element "TextAreaLocator" style contains "font-size: 48px;"
+    And I will see the element "HeaderTextStyle" style contains "font-size: 48px;"
+    And I will see the element "FooterTextStyle" style contains "font-size: 48px;"
 
     And I set the parameter "ChartListInput" with value "报表测试"
     And I click the button with text "报表测试"
@@ -58,12 +70,22 @@ Feature:报表_富文本编辑
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 
-    And I set the parameter "TextArea" with value "<text> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis aliquet nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempor nisi urna, sed pulvinar sem molestie in. Fusce scelerisque eleifend accumsan. Phasellus laoreet ligula id orci congue rhoncus non rutrum quam. Donec hendrerit faucibus consequat. Etiam tellus tortor, ultrices et tellus eget, sollicitudin scelerisque risus. Integer mattis velit et nunc sollicitudin, non tempus lorem hendrerit."
+    And I wait for "TextArea" will be visible
+    And I set the parameter "TextArea" with value "<text> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis aliquet nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempor nisi urna, sed pulvinar sem molestie in. Fusce scelerisque eleifend accumsan. Phasellus laoreet ligula id orci congue rhoncus non rutrum quam. Donec hendrerit faucibus consequat. Etiam tellus tortor, ultrices et tellus eget, sollicitudin scelerisque risus. Integer mattis velit et nunc sollicitudin, non tempus lorem hendrerit. textclick"
+    And I click the "Header" button
+    And I wait for "2000" millsecond
+    And I set the parameter "HeaderText" with value "<text> header" in word report
+    And I click the "Footer" button
+    And I wait for "2000" millsecond
+    And I set the parameter "FooterText" with value "<text> footer" in word report
+    And I wait for "2000" millsecond
+
     And I select all text in "TextArea" element
     And I wait for "2000" millsecond
     And I click the "<button>" button
     And I wait for "<button>Element" will be visible
 
+    And I click the "TextAreaLocator" button
     And I set the parameter "ChartListInput" with value "报表测试"
     And I click the button with text "报表测试"
     And I wait for "2000" millsecond
@@ -84,7 +106,16 @@ Feature:报表_富文本编辑
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 
-    And I set the parameter "TextArea" with value "<text> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis aliquet nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempor nisi urna, sed pulvinar sem molestie in. Fusce scelerisque eleifend accumsan. Phasellus laoreet ligula id orci congue rhoncus non rutrum quam. Donec hendrerit faucibus consequat. Etiam tellus tortor, ultrices et tellus eget, sollicitudin scelerisque risus. Integer mattis velit et nunc sollicitudin, non tempus lorem hendrerit."
+    And I wait for "TextArea" will be visible
+    And I set the parameter "TextArea" with value "<text> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis aliquet nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempor nisi urna, sed pulvinar sem molestie in. Fusce scelerisque eleifend accumsan. Phasellus laoreet ligula id orci congue rhoncus non rutrum quam. Donec hendrerit faucibus consequat. Etiam tellus tortor, ultrices et tellus eget, sollicitudin scelerisque risus. Integer mattis velit et nunc sollicitudin, non tempus lorem hendrerit. textclick"
+    And I click the "Header" button
+    And I wait for "2000" millsecond
+    And I set the parameter "HeaderText" with value "<text> header" in word report
+    And I click the "Footer" button
+    And I wait for "2000" millsecond
+    And I set the parameter "FooterText" with value "<text> footer" in word report
+    And I wait for "2000" millsecond
+
     And I select all text in "TextArea" element
     And I wait for "2000" millsecond
     And I click the "Alignment" button
@@ -92,7 +123,10 @@ Feature:报表_富文本编辑
     And I wait for "2000" millsecond
     And I click the "<button>" button
     And I will see the element "TextAlignment" style contains "<alignment>"
+    And I will see the element "HeaderText" style contains "<alignment>"
+    And I will see the element "FooterText" style contains "<alignment>"
 
+    And I click the "TextAreaLocator" button
     And I set the parameter "ChartListInput" with value "报表测试"
     And I click the button with text "报表测试"
     And I wait for "2000" millsecond
@@ -114,7 +148,8 @@ Feature:报表_富文本编辑
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 
-    And I set the parameter "TextArea" with value "DIVIDING LINE 分线: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis aliquet nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempor nisi urna, sed pulvinar sem molestie in. Fusce scelerisque eleifend accumsan. Phasellus laoreet ligula id orci congue rhoncus non rutrum quam. Donec hendrerit faucibus consequat. Etiam tellus tortor, ultrices et tellus eget, sollicitudin scelerisque risus. Integer mattis velit et nunc sollicitudin, non tempus lorem hendrerit."
+    And I wait for "TextArea" will be visible
+    And I set the parameter "TextArea" with value "DIVIDING LINE 分线: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis aliquet nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempor nisi urna, sed pulvinar sem molestie in. Fusce scelerisque eleifend accumsan. Phasellus laoreet ligula id orci congue rhoncus non rutrum quam. Donec hendrerit faucibus consequat. Etiam tellus tortor, ultrices et tellus eget, sollicitudin scelerisque risus. Integer mattis velit et nunc sollicitudin, non tempus lorem hendrerit. textclick"
     And I click the "DividingLine" button
     And I wait for "2000" millsecond
     And I wait for "DividingLineElement" will be visible
@@ -164,6 +199,9 @@ Feature:报表_富文本编辑
     And I click the "AddTable" button
     And I click the "AddTable3x2" button
     And I wait for "2000" millsecond
+    And I wait for "Cell11" will be visible
+    And I set the parameter "Cell11" with value "hello" in word report
+    And I wait for "5000" millsecond
 
     And I set the parameter "ChartListInput" with value "报表测试"
     And I click the button with text "报表测试"
