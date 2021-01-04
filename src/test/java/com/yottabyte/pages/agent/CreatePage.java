@@ -315,8 +315,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCleanInputCache() {
-
         return getLiElement("清理输入源缓存");
+    }
+
+    public WebElement getCleanOutputCache() {
+        return getLiElement("清理输出源缓存");
     }
 
     public WebElement getCompressed() {
@@ -1014,7 +1017,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getLiElement(String name) {
-        return webDriver.findElement(By.xpath("//span[text()='" + name + "']//ancestor::li"));
+        return webDriver.findElement(By.xpath("//li[text()='" + name + "']//ancestor::li"));
     }
 
     public WebElement getCsvInput(int num){
