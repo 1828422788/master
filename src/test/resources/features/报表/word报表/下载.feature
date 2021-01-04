@@ -13,14 +13,15 @@ Feature: 报表_富文本编辑下载
     And I click the "Download" button
     And I wait for "4000" millsecond
     And I download the latest report to local
-    And I wait for "2000" millsecond
+#    And I wait for "2000" millsecond
+#    Then I compare source report file "expect/<name>.docx" with target report file "<name>.docx"
 
     Examples:
       |          name        |
-      | TextFontSize48       |
-      | Bold                 |
-      | Italics              |
-      | Underline            |
+      | FontSize             |
+      | BoldText             |
+      | ItalicsText          |
+      | UnderlinedText       |
       | RightAlignment       |
       | LeftAlignment        |
       | CenterAlignment      |

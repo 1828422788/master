@@ -101,7 +101,7 @@ Feature:报表_富文本编辑
       | Underline       | UnderlinedText  | UNDERLINED TEXT 下划线:|
 
   Scenario Outline: text_alignment
-    When I set the parameter "Name" with value "<name>"
+    When I set the parameter "Name" with value "<button>"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
@@ -136,11 +136,11 @@ Feature:报表_富文本编辑
     And I click the "EnsureButton" button
 
    Examples:
-    |   button        |   name          |      text                   | alignment           |
-    | RightAlignment  | RightAlignment  | RIGHT ALIGNMENT 左对齐:     | text-align: right;  |
-    | LeftAlignment   | LeftAlignment   | LEFT ALIGNMENT 右对齐:      | text-align: left;   |
-    | CenterAlignment | CenterAlignment | CENTER ALIGNMENT 居中:      | text-align: center; |
-    | JustifyAlignment| JustifyAlignment| JUSTIFY ALIGNMENT 对齐文本: | text-align: justify;|
+    |   button        |      text                   | alignment           |
+    | RightAlignment  | RIGHT ALIGNMENT 左对齐:     | text-align: right;  |
+    | LeftAlignment   | LEFT ALIGNMENT 右对齐:      | text-align: left;   |
+    | CenterAlignment | CENTER ALIGNMENT 居中:      | text-align: center; |
+    | JustifyAlignment| JUSTIFY ALIGNMENT 对齐文本: | text-align: justify;|
 
   Scenario: dividing_line
     When I set the parameter "Name" with value "DividingLine"
