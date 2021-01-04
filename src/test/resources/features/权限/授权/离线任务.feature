@@ -1,4 +1,4 @@
-@authtest12
+@authtest
 Feature: 权限-离线任务
 
   Scenario Outline: 取消离线任务

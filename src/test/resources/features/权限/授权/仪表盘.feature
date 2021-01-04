@@ -1,4 +1,4 @@
-@authtest1
+@authtest
 Feature: 权限-仪表盘
 
   Scenario Outline: 勾选仪表盘所需功能权限
@@ -35,6 +35,7 @@ Feature: 权限-仪表盘
     And I click the "SaveButton" button
     Then I logout current user
 
+  @logout
   Scenario: 验证新建仪表盘
     And I login user "AutoTest" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"

@@ -1,4 +1,4 @@
-@authtest1
+@authtest
 Feature: 权限-collect指令
 
   Scenario: 取消可使用collect指令
@@ -30,7 +30,7 @@ Feature: 权限-collect指令
     And I set the parameter "SearchInput" with value "*|collect index=autotestauth marker=\"appname=\\\"autotestappname\\\", tag=\\\"autotesttag\\\"\""
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     Then I wait for element "SearchStatus" change text to "搜索出错!"
     And I logout current user
 
@@ -48,7 +48,7 @@ Feature: 权限-collect指令
     And I set the parameter "SearchInput" with value "*|collect index=autotestauth marker=\"appname=\\\"autotestappname\\\", tag=\\\"autotesttag\\\"\""
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     Then I wait for element "SearchStatus" change text to "搜索出错!"
     And I logout current user
 
@@ -72,7 +72,7 @@ Feature: 权限-collect指令
     And I set the parameter "SearchInput" with value "*| stats count() by apache.geo.city|collect index=autotestauth marker=\"appname=\\\"autotestappname\\\", tag=\\\"autotesttag\\\"\""
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     Then I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario: 验证写入索引
@@ -81,7 +81,7 @@ Feature: 权限-collect指令
     And I set the parameter "SearchInput" with value "index=autotestauth *"
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     Then I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "RightIcon" button
     Then I will see the element "Tag" name is "autotesttag "

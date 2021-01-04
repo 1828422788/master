@@ -1,4 +1,4 @@
-@authtest12
+@authtest
 Feature: 权限-统计菜单
 
   Scenario: 取消统计菜单权限

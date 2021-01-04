@@ -298,7 +298,7 @@ Feature: 权限-定时任务
     And I wait for loading invisible
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
+    And I wait for "Message" will be visible
     Then I will see the message "保存成功"
     Given I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
@@ -322,6 +322,7 @@ Feature: 权限-定时任务
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     Then I logout current user
 
@@ -416,6 +417,14 @@ Feature: 权限-定时任务
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
+    Then I logout current user
+
+    Examples:
+      | name   |
+      | 验证有效期限 |
+
+  Scenario Outline: 验证读取+编辑+转授
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -466,6 +475,14 @@ Feature: 权限-定时任务
     And I "checked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
+
+    Examples:
+      | name           |
+      | AutoTestRename |
+
+
+  Scenario Outline: 验证所有权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "timedTask.ListPage" page for uri "/schedule/"
