@@ -1,7 +1,7 @@
-Feature: 应用安装（RZY-1988）
+Feature: 导入监控用例
 
   @upres1 @extra0
-  Scenario:导入监控资源
+  Scenario:执行导入
     When open the "dbConnectionPre.ResListPage" page for uri "/resource/"
     Then I wait for "ImportAndExportButton" will be visible
     And I click the "ImportAndExportButton" button
