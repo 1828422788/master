@@ -18,6 +18,14 @@ Feature: AgentCSV配置文件
     And I wait for "CsvChangeMemo" will be visible
     Then I will see the element "CsvChangeMemo" name is "当前编辑操作还未确认，请确认后再进行下一步操作"
 
+  Scenario: Csv文件添加配置JmxInput失败2
+    When I choose the "JmxInput" from the "CsvConfing"
+    And I wait for "Create" will be visible
+    And I click the "Create" button
+    And I click the "Csvcertain" button
+    And I wait for "CsvChangeMemo" will be visible
+    Then I will see the element "CsvChangeMemo" name is "当前编辑的行不可全部为空"
+
   Scenario: 从JmxInput配置页面返回Agent具体配置
     When I choose the "JmxInput" from the "CsvConfing"
     And I click the "Backup" button
@@ -68,6 +76,14 @@ Feature: AgentCSV配置文件
     And I click the "Create" button
     And I wait for "CsvChangeMemo" will be visible
     Then I will see the element "CsvChangeMemo" name is "当前编辑操作还未确认，请确认后再进行下一步操作"
+
+  Scenario: Csv文件添加配置HostConnectInput失败2
+    When I choose the "HostConnectInput" from the "CsvConfing"
+    And I wait for "Create" will be visible
+    And I click the "Create" button
+    And I click the "Csvcertain" button
+    And I wait for "CsvChangeMemo" will be visible
+    Then I will see the element "CsvChangeMemo" name is "当前编辑的行不可全部为空"
 
   Scenario: 从HostConnectInput配置页面返回Agent具体配置
     When I choose the "HostConnectInput" from the "CsvConfing"
