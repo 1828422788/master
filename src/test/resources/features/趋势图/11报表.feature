@@ -37,9 +37,9 @@ Feature: 趋势图新建_报表
     And I wait for "3000" millsecond
     When I set the parameter "Name" with value "<report_name>"
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "test_app" from the "App"
-    And I choose the "PDF" from the "ReportType"
-    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
+    And I choose the "test_app" from the "App" in config
+    And I choose the "PDF" from the "ReportType" in config
+    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput" in config
     And I will see the element "SubjectNote" contains "注: 可用变量: 报表名称：<%report_name%>，发送时间：<%report_time%>"
     And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
     And I set the parameter "Hour" with value "16"

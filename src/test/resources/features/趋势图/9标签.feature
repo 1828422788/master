@@ -22,7 +22,7 @@ Feature: 趋势图标签
 
   Scenario: tag_trend
     When the data name is "Tag_Test" then i click the "标签" button
-    And I choose the "auto_package" from the "TagField"
+    And I choose the "auto_package" from the "TagField" in config
     And I click the "TagPanel" button
     And I click the "EnsureButton" button
     Then I will see the success message "更新成功"

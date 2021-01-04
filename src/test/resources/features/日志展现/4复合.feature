@@ -60,7 +60,7 @@ Feature: 日志展现_复合
     And I set the parameter "Max" with value "170000"
     And I set the parameter "Unit" with value "面"
     And I choose the "max(apache.resp_len)" from the "FieldValue" in config
-    And I choose the "面积图" from the "TypeChartField"
+    And I choose the "面积图" from the "TypeChartField" in config
     And I click the "Smooth" button
     And I click the "ConnectEmptyData" button
 
@@ -71,7 +71,7 @@ Feature: 日志展现_复合
     And I set the parameter "Max" with value ""
     And I click the "AddConfigFields" button
     And I choose the "min(apache.resp_len)" from the "FieldValue" in config
-    And I choose the "柱状图" from the "TypeChartField"
+    And I choose the "柱状图" from the "TypeChartField" in config
 
     And I click the "AddField" button
     And I click the "Yaxis3" button
@@ -80,7 +80,7 @@ Feature: 日志展现_复合
     And I set the parameter "Max" with value "49000"
     And I click the "AddConfigFields" button
     And I choose the "sum(apache.status)" from the "FieldValue" in config
-    And I choose the "散点图" from the "TypeChartField"
+    And I choose the "散点图" from the "TypeChartField" in config
 
     And I click the "Exhibition" button
     And I click the "AddColor" button
@@ -123,7 +123,7 @@ Feature: 日志展现_复合
     And I set the parameter "Max" with value "170000"
     And I set the parameter "Unit" with value "面"
     And I choose the "max(apache.resp_len)" from the "FieldValue" in config
-    And I choose the "面积图" from the "TypeChartField"
+    And I choose the "面积图" from the "TypeChartField" in config
     And I drag the element "SliderHandle" by "-60" pixels
     And I click the "AddColor" button
     And I click the "Green" button
@@ -137,7 +137,7 @@ Feature: 日志展现_复合
     And I set the parameter "Max" with value ""
     And I click the "AddConfigFields" button
     And I choose the "min(apache.resp_len)" from the "FieldValue" in config
-    And I choose the "柱状图" from the "TypeChartField"
+    And I choose the "柱状图" from the "TypeChartField" in config
     And I click the "AddColor" button
     And I click the "Red" button
 
@@ -148,7 +148,7 @@ Feature: 日志展现_复合
     And I set the parameter "Max" with value "49000"
     And I click the "AddConfigFields" button
     And I choose the "sum(apache.status)" from the "FieldValue" in config
-    And I choose the "散点图" from the "TypeChartField"
+    And I choose the "散点图" from the "TypeChartField" in config
     And I click the "AddColor" button
     And I click the "Orange" button
     And I click the "Generate" button

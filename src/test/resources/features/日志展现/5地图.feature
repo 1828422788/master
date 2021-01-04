@@ -230,8 +230,8 @@ Feature: 日志展现_地图
     And I click the "Tile" button
     And I set the parameter "ZoomLevel" with value "4"
     And I click the "Value" button
-    And I choose the "min(apache.resp_len)" from the "DataCircleLayer"
-    And I choose the "count()" from the "HeatmapLayer"
+    And I choose the "min(apache.resp_len)" from the "DataCircleLayer" in config
+    And I choose the "count()" from the "HeatmapLayer" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -261,8 +261,8 @@ Feature: 日志展现_地图
     And I click the "Tile" button
     And I set the parameter "ZoomLevel" with value "4"
     And I click the "Value" button
-    And I choose the "min(apache.resp_len)" from the "DataCircleLayer"
-    And I choose the "count()" from the "HeatmapLayer"
+    And I choose the "min(apache.resp_len)" from the "DataCircleLayer" in config
+    And I choose the "count()" from the "HeatmapLayer" in config
     And I click the "Generate" button
 
     And I click the "Settings" button

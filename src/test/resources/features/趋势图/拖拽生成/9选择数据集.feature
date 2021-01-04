@@ -78,7 +78,7 @@ Feature: 趋势图_选择数据集
     And I click the "DateEditor" button under some element
     And I click the "Today" button
     And I wait for "TableBody" will be visible
-    And I choose the "<condition>" from the "Condition"
+    And I choose the "<condition>" from the "Condition" in config
     And I choose the "apache.resp_len" from the "ColumnField" in config
     And I choose the "<oper1>" from the "Operator" in config
     And I set the parameter "Value" with value "70"

@@ -218,10 +218,10 @@ Feature: 日志展现_其他_单值
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "count()" from the "NumericField"
-    And I choose the "time" from the "DisplayField"
+    And I choose the "count()" from the "NumericField" in config
+    And I choose the "time" from the "DisplayField" in config
     And I click the "Sparkline" button
-    And I choose the "ts" from the "SparklineField"
+    And I choose the "ts" from the "SparklineField" in config
     And I click the "Exhibition" button
     And I set the parameter "FontSize" with value "60"
     And I click the "AddColor" button
@@ -253,10 +253,10 @@ Feature: 日志展现_其他_单值
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "cnt_2" from the "NumericField"
-    And I choose the "time" from the "DisplayField"
+    And I choose the "cnt_2" from the "NumericField" in config
+    And I choose the "time" from the "DisplayField" in config
     And I click the "Sparkline" button
-    And I choose the "ts" from the "SparklineField"
+    And I choose the "ts" from the "SparklineField" in config
     And I click the "Facet" button
     And I click the "AddField" button
     And I choose the "apache.method" from the "FieldValue" in config
@@ -297,11 +297,11 @@ Feature: 日志展现_其他_单值
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "count()" from the "NumericField"
-    And I choose the "time" from the "DisplayField"
-    And I choose the "<option>" from the "DisplayedOnChart"
+    And I choose the "count()" from the "NumericField" in config
+    And I choose the "time" from the "DisplayField" in config
+    And I choose the "<option>" from the "DisplayedOnChart" in config
     And I click the "Sparkline" button
-    And I choose the "ts" from the "SparklineField"
+    And I choose the "ts" from the "SparklineField" in config
     And I click the "Exhibition" button
     And I set the parameter "FontSize" with value "60"
     And I set the parameter "Unit" with value "个"

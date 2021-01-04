@@ -35,7 +35,7 @@ Feature: 趋势图批量操作
     And I click the "SelectAction" button under some element
     And I click the "MultiTag" button
     And I wait for "EnsureButton" will be visible
-    And I choose the "auto_package" from the "TagField"
+    And I choose the "auto_package" from the "TagField" in config
     And I click the "TagPanel" button
     And I click the "EnsureButton" button
     And I wait for "SuccessMessage" will be visible

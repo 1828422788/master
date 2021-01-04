@@ -13,7 +13,7 @@ Feature: 日志展现_表格
   Scenario Outline: table_default
     When I click the "Pencil" button
     And I will see the element "SelectedValueColorType" contains "无"
-    And I choose the "梯度" from the "ColorType"
+    And I choose the "梯度" from the "ColorType" in config
 
     And I set the parameter "FontColor" with value "#de2626"
     And I choose the "粗体" from the "FontStyle" in config
@@ -36,7 +36,7 @@ Feature: 日志展现_表格
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
     And I will see the input element "FontColor" value will be "#4a4a4a"
-    And I choose the "梯度" from the "ColorType"
+    And I choose the "梯度" from the "ColorType" in config
 
     And I set the parameter "FontColor" with value "#5522e0"
     And I choose the "斜体" from the "FontStyle" in config
@@ -62,7 +62,7 @@ Feature: 日志展现_表格
   Scenario Outline: table_gradient
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
-    And I choose the "梯度" from the "ColorType"
+    And I choose the "梯度" from the "ColorType" in config
 
     And I click the "SelectColor" button
     And I wait for "1000" millsecond
@@ -88,7 +88,7 @@ Feature: 日志展现_表格
   Scenario Outline: table_interval
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
-    And I choose the "范围" from the "ColorType"
+    And I choose the "范围" from the "ColorType" in config
 
     #RED
     And I set the parameter "ColorCode" with value "#FF0000"
@@ -131,7 +131,7 @@ Feature: 日志展现_表格
   Scenario Outline: table_interval_delete
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
-    And I choose the "范围" from the "ColorType"
+    And I choose the "范围" from the "ColorType" in config
 
     #RED
     And I set the parameter "ColorCode" with value "#FF0000"
@@ -168,7 +168,7 @@ Feature: 日志展现_表格
   Scenario Outline: table_value_color
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
-    And I choose the "值" from the "ColorType"
+    And I choose the "值" from the "ColorType" in config
 
     And I wait for "<button>" will be visible
     And I click the "<button>" button
@@ -190,7 +190,7 @@ Feature: 日志展现_表格
   Scenario Outline: table_value_customcolor
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
-    And I choose the "值" from the "ColorType"
+    And I choose the "值" from the "ColorType" in config
     And I wait for "CustomColor" will be visible
     And I click the "CustomColor" button
     And I click the "AddValue" button

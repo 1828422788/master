@@ -167,7 +167,7 @@ Feature: 日志展现_其它_环形比例图
     And I set the parameter "RowNum" with value "2"
     And I set the parameter "ColumnNum" with value "3"
     And I click the "Exhibition" button
-    And I choose the "<num>" from the "Precision"
+    And I choose the "<num>" from the "Precision" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
