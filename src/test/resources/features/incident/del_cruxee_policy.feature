@@ -1,4 +1,4 @@
-@delincident
+@delincident @cleare0
 Feature: 删除合并策略
 
   @incidentdel @delcruusers

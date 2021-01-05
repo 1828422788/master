@@ -30,7 +30,6 @@ Feature: 新建数据库连接配置
       | editv33dbx    | root          | rizhiyi&2014      | 1000          | mysql             | 192.168.1.183 | 3306          | v33dbx           |
       | v33vertica    | dbadmin          | rizhiyi&2014      | 1000          | vertica             | 192.168.1.221 | 5433      | v33vertica           |
 
-
   @editconn
   Scenario Outline:复制
     Given open the "dbConnectionPre.dbSettingPage" page for uri "/dbsettings/"
