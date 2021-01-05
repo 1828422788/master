@@ -39,9 +39,9 @@ Feature: 删除合并策略
 
     Examples:
       | NoticeReceiveGroupName |
-      | delete_响应组 |
-      | 发送策略一级组 |
-      | update_响应组 |
+      | delete_响应组             |
+      | 发送策略一级组                |
+      | update_响应组             |
 
   @delsends @incidentdel
   Scenario Outline: 删除2个发送策略
@@ -53,8 +53,9 @@ Feature: 删除合并策略
 
     Examples:
       | SendPolicyName |
-      | 邮件_高_20分钟 |
-      | 邮件_all_20分钟 |
+      | 邮件_高_20分钟      |
+      | 邮件_all_20分钟    |
+      | 邮件_中_20分钟      |
 
   @delcru @incidentdel
   Scenario Outline: 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则1
@@ -66,10 +67,25 @@ Feature: 删除合并策略
     And I click the "confirmDelCruPolicyName" button
 
     Examples:
-      | CruxeePolicyName |
-      | 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则 |
+      | CruxeePolicyName                                 |
+      | 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则          |
       | 合并2组_高中_SPL统计_分组条件priority_最后一条告警字段priority低或5小时 |
-      | 合并1组_低_连续统计_无分组_未收到新告警的时间1小时  |
-      | 合并2组_高_事件_分组条件alertid_name包含停止或连续6小时  |
-      | 合并2组_高_字段统计_分组条件name_归并告警数量18条         |
-      | 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则 |
+      | 合并1组_低_连续统计_无分组_未收到新告警的时间1小时                     |
+      | 合并2组_高_事件_分组条件alertid_name包含停止或连续6小时             |
+      | 合并2组_高_字段统计_分组条件name_归并告警数量18条                   |
+      | 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则          |
+
+  Scenario Outline:
+    Given open the "index.ListPage" page for uri "/indexsettings/"
+    Given the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
+    And I click the "Ensure" button
+
+    Examples:
+      | name             |
+      | collectone       |
+      | collecttocollect |
+      | collecttwo       |
+      | collectmodefalse |
+      | collectmodetrue  |
+      | collectmulti     |
+      | collectdelete    |

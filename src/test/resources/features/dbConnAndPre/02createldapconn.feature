@@ -18,12 +18,12 @@ Feature: 新建ldap连接配置
     And I click the "SaveButton" button
 
     Examples:
-      | NewLdapConnName | NewBaseDName      | NewLdapHost   | NewLdapConnPort | NewBindDnName | LdapUserPassword |
-      | ldpconnsample         | dc=example,dc=org | 192.168.1.221 | 389            | cn=admin,dc=example,dc=org         | admin |
-      | update_ldpconn         | dc=example,dc=org | 192.168.1.221 | 389            | cn=admin,dc=example,dc=org         | admin |
-      | del_ldpconn         | dc=example,dc=org | 192.168.1.221 | 389            | cn=admin,dc=example,dc=org         | admin |
+      | NewLdapConnName | NewBaseDName      | NewLdapHost   | NewLdapConnPort | NewBindDnName              | LdapUserPassword |
+      | ldpconnsample   | dc=example,dc=org | 192.168.1.221 | 389             | cn=admin,dc=example,dc=org | admin            |
+      | update_ldpconn  | dc=example,dc=org | 192.168.1.221 | 389             | cn=admin,dc=example,dc=org | admin            |
+      | del_ldpconn     | dc=example,dc=org | 192.168.1.221 | 389             | cn=admin,dc=example,dc=org | admin            |
 
-  @newldapconnssl
+  @extra0 @newldapconnssl
   Scenario Outline: 新建ssl ldap配置-1个
     Given open the "dbConnectionPre.LdapConnListPage" page for uri "/ldapconnection/"
     And I click the "CreateLdapConn" button
@@ -36,7 +36,7 @@ Feature: 新建ldap连接配置
     And I set the parameter "NewLdapHost" with value "<NewLdapHost>"
     And I set the parameter "NewLdapConnPort" with value "<NewLdapConnPort>"
     And I click the "LdapSSlOnOff" button
-    
+
     When I upload a file "Upload" with name "/src/test/resources/testdata/app/ca.crt"
 
     And I set the parameter "NewBindDnName" with value "<NewBindDnName>"
@@ -45,8 +45,8 @@ Feature: 新建ldap连接配置
     And I click the "SaveButton" button
 
     Examples:
-      | NewLdapConnName | NewBaseDName      | NewLdapHost   | NewLdapConnPort | NewBindDnName | LdapUserPassword |
-      | ldpconnsamplessl         | dc=example,dc=org | 192.168.1.221 | 636            | cn=admin,dc=example,dc=org         | admin |
+      | NewLdapConnName  | NewBaseDName      | NewLdapHost   | NewLdapConnPort | NewBindDnName              | LdapUserPassword |
+      | ldpconnsamplessl | dc=example,dc=org | 192.168.1.221 | 636             | cn=admin,dc=example,dc=org | admin            |
 
   @extra0 @delldapconn
   Scenario Outline: 删除ldap连接
@@ -60,20 +60,5 @@ Feature: 新建ldap连接配置
 
     Examples:
       | LdapConnName |
-      | update_ldpconn |
-      | del_ldpconn |
+      | del_ldpconn  |
 
-  @cleare0 @delldapconn
-  Scenario Outline: 删除ldap连接
-    Given open the "dbConnectionPre.LdapConnListPage" page for uri "/ldapconnection/"
-    And I wait for "1000" millsecond
-
-    When I set the parameter "LdapConnNameSearchInput" with value "<LdapConnName>"
-    And I click the "DelLdapConnButton" button
-    And I wait for "AffirmDelLdapConnButton" will be visible
-    And I click the "AffirmDelLdapConnButton" button
-
-    Examples:
-      | LdapConnName |
-      | ldpconnsamplessl |
-      | ldpconnsample |

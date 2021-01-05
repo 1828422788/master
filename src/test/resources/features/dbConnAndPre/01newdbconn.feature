@@ -52,22 +52,4 @@ Feature: 新建数据库连接配置
       | DbConnName | ReceiveGroupNonMemberValue |
       | v33deldbx | kongfeili |
 
-  @delconn @cleare0
-  Scenario Outline: 删除连接
-    Given open the "dbConnectionPre.dbSettingPage" page for uri "/dbsettings/"
-    And I click the "DbConnConfig" button
-    And I wait for "1000" millsecond
-
-    When I set the parameter "DbConnNameSearchInput" with value "<DbConnName>"
-    And I click the "DelDbConnNameButton" button
-    And I wait for "AffirmDelDbConnNameButton" will be visible
-    And I click the "AffirmDelDbConnNameButton" button
-
-    Examples:
-      | DbConnName |
-      | v33dbx        |
-      | delv33dbx    |
-      | editv33dbx    |
-      | v33vertica    |
-
 
