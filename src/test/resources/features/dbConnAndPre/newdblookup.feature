@@ -47,7 +47,7 @@ Feature: 新建数据库查找
       | dellookupsample | v33dbx           | v33dbx          | starttime=\"now/d\" endtime=\"now/d+24h\" tag\:sample04061424 |
       | u_lookupsample | v33dbx           | v33dbx          | starttime=\"now/d\" endtime=\"now/d+24h\" tag\:sample04061424 |
 
-  @deldblookup
+  @deldblookup @cleare0
   Scenario Outline: 删除连接-3
     Given open the "dbConnectionPre.dbSettingPage" page for uri "/dbsettings/"
     And I click the "DbLookupConfig" button
