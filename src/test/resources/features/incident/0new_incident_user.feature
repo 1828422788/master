@@ -1,4 +1,4 @@
-@extra0 @incident
+@extra00 @incident
 Feature: 创建接收告警邮件用户、用户组
 
   @incident @incident1

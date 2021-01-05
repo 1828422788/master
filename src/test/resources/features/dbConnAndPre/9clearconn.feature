@@ -35,7 +35,7 @@ Feature: 新建数据库连接配置
       | dellookupsample |
       | u_lookupsample |
 
-  @delconn @cleare0
+  @delconn @cleare00
   Scenario Outline: 删除连接
     Given open the "dbConnectionPre.dbSettingPage" page for uri "/dbsettings/"
     And I click the "DbConnConfig" button
@@ -53,7 +53,7 @@ Feature: 新建数据库连接配置
       | editv33dbx    |
       | v33vertica    |
 
-  @cleare0 @delldapconn
+  @cleare00 @delldapconn
   Scenario Outline: 删除ldap连接
     Given open the "dbConnectionPre.LdapConnListPage" page for uri "/ldapconnection/"
     And I wait for "1000" millsecond
@@ -68,5 +68,3 @@ Feature: 新建数据库连接配置
       | ldpconnsamplessl |
       | update_ldpconn   |
       | ldpconnsample    |
-
-

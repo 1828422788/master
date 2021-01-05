@@ -1,4 +1,4 @@
-@dleval
+@extra00
 Feature: 新建collect使用索引
 
   Background:

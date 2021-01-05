@@ -1,6 +1,6 @@
 Feature: 导入监控用例
 
-  @upres1 @extra0
+  @upres1 @extra00
   Scenario:执行导入
     When open the "dbConnectionPre.ResListPage" page for uri "/resource/"
     Then I wait for "ImportAndExportButton" will be visible

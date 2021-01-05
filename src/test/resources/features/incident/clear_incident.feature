@@ -1,7 +1,7 @@
 @delincident @cleare0
 Feature: 删除合并策略
 
-  @incidentdel @delcruusers
+  @incidentdel @cleare00
   Scenario Outline: 删除4个事件管理体验用户
     Given open the "users.ListPage" page for uri "/account/users/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
@@ -17,7 +17,7 @@ Feature: 删除合并策略
       | Leibniz   |
       | kongfeili |
 
-  @incidentdel @delcruusergroup
+  @incidentdel @cleare00
   Scenario Outline: 删除用户分组
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
     And the data name is "{'column':'1','name':'<UserGroupName>'}" then i click the "删除" button
@@ -75,6 +75,7 @@ Feature: 删除合并策略
       | 合并2组_高_字段统计_分组条件name_归并告警数量18条                   |
       | 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则          |
 
+  @cleare0
   Scenario Outline:
     Given open the "index.ListPage" page for uri "/indexsettings/"
     Given the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
