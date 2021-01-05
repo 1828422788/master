@@ -45,7 +45,7 @@ Feature: 设置监控执行计划
       |	api1_spl统计avg_高_扩展avg_all_搜索宏_扩展宏	|
       |	api1_事件_multiwords_切分_扩展chart插图_键值_邮件	|
       |	api1_事件_multiwords_切分_扩展chart插图_键值_邮件_splark	|
-    
+
 
   @alertplan1
   Scenario Outline: 设置api0监控计划-2分钟
