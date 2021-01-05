@@ -13,14 +13,14 @@ Feature: Agent编辑数据库数据类型数据源
   Scenario: 新建mysql数据库类型数据源
     And I click the "Create" button
     And I click the "DatabaseType" button
-    And I wait for loading invisible
+    And I wait for "CreateLink" will be visible
     And I click the "CreateLink" button
     And I set the parameter "LinkName" with value "autotestmysql"
     And I set the parameter "Username" with value "root"
     And I set the parameter "Password" with value "rizhiyi&2014"
     And I set the parameter "Host" with value "192.168.1.134"
     And I set the parameter "DataBaseName" with value "rizhiyi_system"
-    And I wait for loading invisible
+    And I wait for "Save" will be visible
     And I click the "Save" button
     And I click the "MysqlDatabase" button
     And I click the "Next" button
@@ -31,7 +31,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "Appname" with value "autotestmysql"
     And I set the parameter "Tag" with value "autotestmysql"
     And I click the "Next" button
-    And I wait for loading invisible
+    And I wait for "Next" will be visible
     And I click the "Next" button
     And I will see the element "Addsuccessmsg" name is "添加成功"
 
@@ -45,7 +45,7 @@ Feature: Agent编辑数据库数据类型数据源
 
   Scenario: mysql数据库类型数据源启用
     Given the data name "autotestmysql" in agent table "DatabaseTypeTable" then i click the "open" switch
-    Then I wait for loading invisible
+    And I wait for "DatabaseTypeSwitchStatus" will be visible
     And I wait for element "DatabaseTypeSwitchStatus" change text to "已启用"
 
 
@@ -155,9 +155,10 @@ Feature: Agent编辑数据库数据类型数据源
   Scenario: 编辑mysql数据库类型数据库链接
     And I click the "Create" button
     And I click the "DatabaseType" button
+    And I wait for "MysqlDatabase" will be visible
     And I click the "MysqlDatabase" button
     And I click the "EditMysql" button
-    And I wait for loading invisible
+    And I wait for "Password" will be visible
     And I set the parameter "Password" with value "rizhiyi&2014"
     And I click the "Save" button
 #    And I wait for "ChangeMemo" will be visible
