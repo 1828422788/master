@@ -353,6 +353,7 @@ Feature: 仪表盘事件列表
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by appname"
+    And I wait for "3000" millsecond
     Then I will see the input element "TimeRange" value will contains "所有时间"
 
   @dashboard @dashboardSmoke

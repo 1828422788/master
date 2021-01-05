@@ -598,6 +598,7 @@ Feature: 仪表盘详情行布局
     And I click the "Ensure" button
     And I wait for "500" millsecond
     Then I wait for "TipErrorShowCondition" will be visible
+    And I wait for "1000" millsecond
     And I move the mouse pointer to the "CleanShowConditio"
     And I click the "CleanShowConditio" button
     And I set the parameter "ShowValue" with value ""
