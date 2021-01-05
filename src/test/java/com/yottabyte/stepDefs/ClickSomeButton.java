@@ -146,4 +146,17 @@ public class ClickSomeButton {
         if (ElementExist.isElementExist(webDriver, button))
             button.click();
     }
+
+    /**
+     * 如果元素存在则点击（word报表）
+     *
+     * @param title 元素名称 (颜色码)
+     */
+    @When("^I click the button with title \"([^\"]*)\"$")
+    public void clickTheButtonWithTitle(String title) {
+        String xpath = "//a[@title='" + title + "']";
+        WebElement button = webDriver.findElement(By.xpath(xpath));
+        if (ElementExist.isElementExist(webDriver, button))
+            button.click();
+    }
 }

@@ -245,8 +245,16 @@ public class SetKeyWithValue {
 
     @And("^I set the parameter \"([^\"]*)\" with value \"([^割]*)\" in word report$")
     public void iSetParameterWithValue(String elementName, String value){
-//        String jScript = "arguments[0].textContent=\"" + value + "\";";
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        String jScript = "arguments[0].innerHTML=\"" + value + "\";";
+        JavascriptExecutor executor = (JavascriptExecutor)webDriver;
+        executor.executeScript(jScript, element);
+    }
+
+    @And("^I set the table cell in row \"([^\"]*)\" and column \"([^\"]*)\" with value \"([^割]*)\" in word report$")
+    public void iSetTableCellWithValue(String row, String column, String value){
+        String xpath = "//tr[" + row + "]/td[" + column + "]";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
         String jScript = "arguments[0].innerHTML=\"" + value + "\";";
         JavascriptExecutor executor = (JavascriptExecutor)webDriver;
         executor.executeScript(jScript, element);

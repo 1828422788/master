@@ -47,9 +47,14 @@ Feature:报表_富文本编辑
     And I select all text in "TextArea" element
     And I wait for "2000" millsecond
     And I click the "<button>" button
+    And I click the "Color" button
+    And I click the button with title "#6AA84F"
     And I will see the element "TextAreaLocator" style contains "font-size: 48px;"
     And I will see the element "HeaderTextStyle" style contains "font-size: 48px;"
     And I will see the element "FooterTextStyle" style contains "font-size: 48px;"
+    And I will see the element "TextAreaLocator" style contains "color: rgb(106, 168, 79);"
+    And I will see the element "HeaderTextStyle" style contains "color: rgb(106, 168, 79);"
+    And I will see the element "FooterTextStyle" style contains "color: rgb(106, 168, 79);"
 
     And I set the parameter "ChartListInput" with value "报表测试"
     And I click the button with text "报表测试"
@@ -60,8 +65,8 @@ Feature:报表_富文本编辑
     And I click the "EnsureButton" button
 
   Examples:
-    |   button        |   name          |      text              |
-    | TextFontSize48  | FontSize        | 48 FONT SIZE 字号:     |
+    |   button        |   name   |      text          |
+    | TextFontSize48  | FontSize | 48 FONT SIZE 字号: |
 
 
   Scenario Outline: text_style
@@ -82,8 +87,13 @@ Feature:报表_富文本编辑
 
     And I select all text in "TextArea" element
     And I wait for "2000" millsecond
+    And I click the "Color" button
+    And I click the button with title "<color>"
     And I click the "<button>" button
     And I wait for "<button>Element" will be visible
+
+    And I will see the element "HeaderTextStyle" style contains "<colorstyle>"
+    And I will see the element "FooterTextStyle" style contains "<colorstyle>"
 
     And I click the "TextAreaLocator" button
     And I set the parameter "ChartListInput" with value "报表测试"
@@ -95,10 +105,10 @@ Feature:报表_富文本编辑
     And I click the "EnsureButton" button
 
     Examples:
-      |   button        |   name          |      text              |
-      | Bold            | BoldText        | BOLD TEXT 粗体:        |
-      | Italics         | ItalicsText     | ITALICS TEXT 斜体:     |
-      | Underline       | UnderlinedText  | UNDERLINED TEXT 下划线:|
+      |   button        |   name          |      text              |   color   |  colorstyle     |
+      | Bold            | BoldText        | BOLD TEXT 粗体:        | #9900FF   | color: rgb(153, 0, 255);|
+      | Italics         | ItalicsText     | ITALICS TEXT 斜体:     | #990000   | color: rgb(153, 0, 0);  |
+      | Underline       | UnderlinedText  | UNDERLINED TEXT 下划线:| #E69138   | color: rgb(230, 145, 56);|
 
   Scenario Outline: text_alignment
     When I set the parameter "Name" with value "<button>"
@@ -118,6 +128,8 @@ Feature:报表_富文本编辑
 
     And I select all text in "TextArea" element
     And I wait for "2000" millsecond
+    And I click the "Color" button
+    And I click the button with title "<color>"
     And I click the "Alignment" button
     And I click the "Alignment" button
     And I wait for "2000" millsecond
@@ -125,6 +137,9 @@ Feature:报表_富文本编辑
     And I will see the element "TextAlignment" style contains "<alignment>"
     And I will see the element "HeaderText" style contains "<alignment>"
     And I will see the element "FooterText" style contains "<alignment>"
+    And I will see the element "TextAreaLocator" style contains "<colorstyle>"
+    And I will see the element "HeaderTextStyle" style contains "<colorstyle>"
+    And I will see the element "FooterTextStyle" style contains "<colorstyle>"
 
     And I click the "TextAreaLocator" button
     And I set the parameter "ChartListInput" with value "报表测试"
@@ -136,11 +151,11 @@ Feature:报表_富文本编辑
     And I click the "EnsureButton" button
 
    Examples:
-    |   button        |      text                   | alignment           |
-    | RightAlignment  | RIGHT ALIGNMENT 左对齐:     | text-align: right;  |
-    | LeftAlignment   | LEFT ALIGNMENT 右对齐:      | text-align: left;   |
-    | CenterAlignment | CENTER ALIGNMENT 居中:      | text-align: center; |
-    | JustifyAlignment| JUSTIFY ALIGNMENT 对齐文本: | text-align: justify;|
+    |   button        |      text                   | alignment           |  color    | colorstyle              |
+    | RightAlignment  | RIGHT ALIGNMENT 左对齐:     | text-align: right;  | #00F0F0   | color: rgb(0, 240, 240);|
+    | LeftAlignment   | LEFT ALIGNMENT 右对齐:      | text-align: left;   | #6D9EEB   | color: rgb(109, 158, 235);|
+    | CenterAlignment | CENTER ALIGNMENT 居中:      | text-align: center; | #CC4125   | color: rgb(204, 65, 37); |
+    | JustifyAlignment| JUSTIFY ALIGNMENT 对齐文本: | text-align: justify;| #783F04   | color: rgb(120, 63, 4);    |
 
   Scenario: dividing_line
     When I set the parameter "Name" with value "DividingLine"
@@ -199,9 +214,8 @@ Feature:报表_富文本编辑
     And I click the "AddTable" button
     And I click the "AddTable3x2" button
     And I wait for "2000" millsecond
-    And I wait for "Cell11" will be visible
-    And I set the parameter "Cell11" with value "hello" in word report
-    And I wait for "5000" millsecond
+    And I set the table cell in row "1" and column "1" with value "hello" in word report
+    And I wait for "2000" millsecond
 
     And I set the parameter "ChartListInput" with value "报表测试"
     And I click the button with text "报表测试"

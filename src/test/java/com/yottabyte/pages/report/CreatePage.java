@@ -1793,8 +1793,11 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']//table//tr[1]/td[1]")
     private WebElement cell11;
 
-    @FindBy(xpath = "//div/*[not(@name ='pageheader') and not(@name='pagefooter') and contains(text(), 'textclick')]")
+    @FindBy(xpath = "//div[@class='jodit_wysiwyg']//*[not(@name ='pageheader') and not(@name='pagefooter') and contains(text(), 'textclick')]")
     private WebElement textAreaLocator;
+
+    @FindBy(xpath = "//a[@aria-label='颜色']")
+    private WebElement color;
 
 //----------------------------
 
@@ -1919,6 +1922,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getTextAreaLocator() {
         return textAreaLocator;
+    }
+
+    public WebElement getColor() {
+        return color;
     }
 //----------------------------
 
