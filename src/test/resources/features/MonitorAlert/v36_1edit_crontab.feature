@@ -19,9 +19,9 @@ Feature: 设置监控执行计划
     Examples:
       | name |
       |	api00_all_事件计数_设备切分ip_扩展chart_all_合并	|
-      |	api00_spl统计ip_cnt_9分钟_高_扩展chart_all_搜索宏_扩展宏	|
+      |	api00_spl统计ip_cnt_9分钟_高_扩展chart_all_宏	|
       |	api00_spl统计ip_cnt_高_扩展chart_all_合并	|
-      |	api00_spl统计_where_ip_cnt_20分钟_高_扩展chart_all	|
+      |	api00_spl统计where_ip_20分钟_cnt_高_扩展chart_all	|
       |	api00_基线_status_在区间外_邮件_合并	|
       |	api00_基线_status_在区间外_邮件_合并_交易日	|
       |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_spark	|
@@ -30,8 +30,16 @@ Feature: 设置监控执行计划
       |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_抑制	|
       |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_抑制连续触发	|
       |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_抑制间隔持续翻倍10-90min	|
+      |	api00_按行发送_抑制_连续触发3次_分组字段ip	|
       |	api00_连续统计_status<=502_扩展chat_键值_all_合并	|
       |	api00_连续统计_status<=502_扩展chat_键值_all_合并_交易日	|
+      |	api01_all_事件计数_扩展chart_all_合并	|
+      |	api01_字段统计_最大数status_扩展chart键值_邮件_合并	|
+      |	api0_all_事件数_扩展chart_all_sample_合并	|
+      |	api0_all_事件计数_设备切分ip_扩展chart_all_spark	|
+      |	api0_all_事件计数_设备切分ip_扩展chart_all_交易日	|
+      |	api0_all_事件计数_设备切分ip_扩展chart_all抑制45	|
+      |	api0_基线_status_在区间内_all_合并	|
 
 
   @alertplan1
