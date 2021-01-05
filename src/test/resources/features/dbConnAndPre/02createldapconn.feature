@@ -1,7 +1,6 @@
-@extra00
 Feature: 新建ldap连接配置
 
-  @splpre @newldapconn
+  @extra0 @newldapconn
   Scenario Outline: 新建ldap配置-3个
     Given open the "dbConnectionPre.LdapConnListPage" page for uri "/ldapconnection/"
     And I click the "CreateLdapConn" button
@@ -24,7 +23,7 @@ Feature: 新建ldap连接配置
       | update_ldpconn  | dc=example,dc=org | 192.168.1.221 | 389             | cn=admin,dc=example,dc=org | admin            |
       | del_ldpconn     | dc=example,dc=org | 192.168.1.221 | 389             | cn=admin,dc=example,dc=org | admin            |
 
-  @extra0 @newldapconnssl
+  @extra00 @newldapconnssl
   Scenario Outline: 新建ssl ldap配置-1个
     Given open the "dbConnectionPre.LdapConnListPage" page for uri "/ldapconnection/"
     And I click the "CreateLdapConn" button
