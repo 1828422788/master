@@ -1,4 +1,4 @@
-@agent2
+@agent
 Feature: AgentCSV配置文件
 
   Background:
