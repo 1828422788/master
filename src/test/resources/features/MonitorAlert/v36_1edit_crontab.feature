@@ -40,7 +40,12 @@ Feature: 设置监控执行计划
       |	api0_all_事件计数_设备切分ip_扩展chart_all_交易日	|
       |	api0_all_事件计数_设备切分ip_扩展chart_all抑制45	|
       |	api0_基线_status_在区间内_all_合并	|
-
+      |	api1_all_连续统计_status>=200_邮件_合并	|
+      |	api1_spl统计avg_高_扩展avg_all	|
+      |	api1_spl统计avg_高_扩展avg_all_搜索宏_扩展宏	|
+      |	api1_事件_multiwords_切分_扩展chart插图_键值_邮件	|
+      |	api1_事件_multiwords_切分_扩展chart插图_键值_邮件_splark	|
+    
 
   @alertplan1
   Scenario Outline: 设置api0监控计划-2分钟
