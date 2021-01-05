@@ -308,6 +308,14 @@ Feature: 仪表盘表格样式设置
       | 仪表盘表格样式设置 |
 
   @cleanDashboard
+  Scenario: 删除创建的下载任务
+    Given open the "ListPageFactory" page for uri "/download/"
+    And the data name contains "汉字Abc" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    Then I will see the success message "删除成功"
+
+  @cleanDashboard
   Scenario Outline: 删除仪表盘所建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "删除" button

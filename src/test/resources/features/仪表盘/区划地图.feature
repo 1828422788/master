@@ -127,6 +127,7 @@ Feature: 仪表盘区划地图
     And I wait for "1000" millsecond
     And I choose the "apache.geo.city" from the "CityDrillAction"
     And I click the "Ensure" button
+    And I wait for "ChinaPoint" will be visible
     And I click the "ChinaPoint" button
     And I wait for "NeimengguText" will be visible
     And I click the "Neimenggu" button
