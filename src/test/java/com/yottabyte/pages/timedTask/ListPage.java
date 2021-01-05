@@ -129,6 +129,13 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//p[text()='暂无数据']")
     private WebElement noData;
 
+    @FindBy(xpath = "//thead//span[@class='ant-checkbox']")
+    private WebElement selectAll;
+
+    public WebElement getSelectAll() {
+        return selectAll;
+    }
+
     public WebElement getNoData() {
         return noData;
     }

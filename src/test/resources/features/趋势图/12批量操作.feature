@@ -28,10 +28,10 @@ Feature: 趋势图批量操作
     |  test_multi_3   |
 
   Scenario: multi_tag
+    When I set the parameter "SearchInput" with value "test_multi_"
+    And I wait for "2000" millsecond
     And I click the "MultiButton" button under some element
-    And I "checked" the checkbox which name is "test_multi_1" in trend list page
-    And I "checked" the checkbox which name is "test_multi_2" in trend list page
-    And I "checked" the checkbox which name is "test_multi_3" in trend list page
+    And I click the "SelectAll" button
     And I click the "SelectAction" button under some element
     And I click the "MultiTag" button
     And I wait for "EnsureButton" will be visible
@@ -49,10 +49,10 @@ Feature: 趋势图批量操作
     Then I will see the data "test_multi_3" values "{'column':'4','name':'auto_package'}"
 
   Scenario: multi_delete
+    When I set the parameter "SearchInput" with value "test_multi_"
+    And I wait for "2000" millsecond
     And I click the "MultiButton" button under some element
-    And I "checked" the checkbox which name is "test_multi_1" in trend list page
-    And I "checked" the checkbox which name is "test_multi_2" in trend list page
-    And I "checked" the checkbox which name is "test_multi_3" in trend list page
+    And I click the "SelectAll" button
     And I click the "SelectAction" button under some element
     And I click the "MultiDelete" button
     And I wait for "EnsureButton" will be visible

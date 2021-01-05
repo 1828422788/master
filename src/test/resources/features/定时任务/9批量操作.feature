@@ -31,11 +31,11 @@ Feature: 定时任务批量操作
   Scenario: multi_tag
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
+    When I set the parameter "SearchInput" with value "test_multi_"
+    And I wait for "2000" millsecond
     And I wait for "MultiButton" will be visible
     And I click the "MultiButton" button under some element
-    And I "checked" the checkbox which name is "test_multi_1" in the list
-    And I "checked" the checkbox which name is "test_multi_2" in the list
-    And I "checked" the checkbox which name is "test_multi_3" in the list
+    And I click the "SelectAll" button
     And I click the "SelectAction" button under some element
     And I click the "MultiTag" button
     And I wait for "Ensure" will be visible
@@ -76,11 +76,11 @@ Feature: 定时任务批量操作
   Scenario: multi_switch
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
+    When I set the parameter "SearchInput" with value "test_multi_"
+    And I wait for "2000" millsecond
     And I wait for "MultiButton" will be visible
     And I click the "MultiButton" button under some element
-    And I "checked" the checkbox which name is "test_multi_1" in the list
-    And I "checked" the checkbox which name is "test_multi_2" in the list
-    And I "checked" the checkbox which name is "test_multi_3" in the list
+    And I click the "SelectAll" button
     And I click the "SelectAction" button under some element
     And I click the "MultiSwitch" button
     And I wait for "Ensure" will be visible
@@ -111,11 +111,11 @@ Feature: 定时任务批量操作
   Scenario: multi_delete
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
+    When I set the parameter "SearchInput" with value "test_multi_"
+    And I wait for "2000" millsecond
     And I wait for "MultiButton" will be visible
     And I click the "MultiButton" button under some element
-    And I "checked" the checkbox which name is "test_multi_1" in the list
-    And I "checked" the checkbox which name is "test_multi_2" in the list
-    And I "checked" the checkbox which name is "test_multi_3" in the list
+    And I click the "SelectAll" button
     And I click the "SelectAction" button under some element
     And I click the "MultiDelete" button
     And I wait for "Ensure" will be visible
