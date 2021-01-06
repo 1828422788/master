@@ -93,7 +93,7 @@ Feature: Agent编辑文件目录类型数据源
 
   Scenario: 文件目录配置修改日志内容黑名单
     And I click the "EditAutoFile" button
-    And I wait for loading invisible
+    And I wait for "ContextBlackList" will be visible
     And I set the parameter "ContextBlackList" with value "false"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
