@@ -259,4 +259,22 @@ public class SetKeyWithValue {
         JavascriptExecutor executor = (JavascriptExecutor)webDriver;
         executor.executeScript(jScript, element);
     }
+
+    @And("^I set the parameter \"([^\"]*)\" with value \"([^割]*)\" and press enter in word report$")
+    public void iSetTheParameterWithValueEnter(String elementName, String value) {
+        if (elementName != null && elementName.trim().length() != 0) {
+            WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+            element.click();
+            element.sendKeys(Keys.CONTROL + "a");
+            element.sendKeys(Keys.END);
+            element.sendKeys(Keys.SHIFT, Keys.HOME);
+            element.sendKeys(Keys.BACK_SPACE);
+            element.clear();
+            element.sendKeys(value);
+            element.sendKeys(Keys.ENTER);
+            }
+    }
+
+
+
 }

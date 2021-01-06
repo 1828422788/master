@@ -1790,14 +1790,20 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@data-index='12']")
     private WebElement addTable3x2;
 
-    @FindBy(xpath = "//div[@class='jodit_wysiwyg']//table//tr[1]/td[1]")
-    private WebElement cell11;
-
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']//*[not(@name ='pageheader') and not(@name='pagefooter') and contains(text(), 'textclick')]")
     private WebElement textAreaLocator;
 
     @FindBy(xpath = "//a[@aria-label='颜色']")
     private WebElement color;
+
+    @FindBy(xpath = "//div[@class='jodit_wysiwyg']/p[last()]")
+    private WebElement newLine;
+
+    @FindBy(xpath = "//a[@aria-label='格式块']")
+    private WebElement heading;
+
+    @FindBy(xpath = "//a[@aria-label='格式块']/following-sibling::div//span[text() = '标题1']")
+    private WebElement heading_1;
 
 //----------------------------
 
@@ -1916,16 +1922,25 @@ public class CreatePage extends PageTemplate {
         return addTable3x2;
     }
 
-    public WebElement getCell11() {
-        return cell11;
-    }
-
     public WebElement getTextAreaLocator() {
         return textAreaLocator;
     }
 
     public WebElement getColor() {
         return color;
+    }
+
+    public WebElement getNewLine() {
+        newLine.click();
+        return newLine;
+    }
+
+    public WebElement getHeading() {
+        return heading;
+    }
+
+    public WebElement getHeading_1() {
+        return heading_1;
     }
 //----------------------------
 

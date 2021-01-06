@@ -225,4 +225,31 @@ Feature:报表_富文本编辑
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
+  Scenario Outline: content
+    When I set the parameter "Name" with value "<name>"
+    And I click the "NextButton" button under some element
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "5000" millsecond
 
+    And I wait for "TextArea" will be visible
+    And I click the "Heading" button
+    And I click the "Heading_1" button
+    And I wait for "2000" millsecond
+    And I set the parameter "TextArea" with value "text" and press enter in word report
+    And I will see the "NewLine" is display
+    And I set the parameter "NewLine" with value "text 2" in word report
+    And I click the "Content" button
+
+    And I select all text in "TextArea" element
+
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
+    And I wait for "2000" millsecond
+    When I click the "FinishButton" button under some element
+    And I wait for "EnsureButton" will be visible
+    Then I will see the success message "保存成功"
+    And I click the "EnsureButton" button
+
+    Examples:
+      |   name|
+      | content |
