@@ -307,7 +307,7 @@ Feature: 仪表盘表格样式设置
       | name   |
       | 仪表盘表格样式设置 |
 
-  @cleanDashboard
+  @dashboard @cleanDashboard
   Scenario: 删除创建的下载任务
     Given open the "ListPageFactory" page for uri "/download/"
     And the data name contains "汉字Abc" then i click the "删除" button
