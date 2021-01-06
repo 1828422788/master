@@ -188,7 +188,7 @@ Feature: Agent分组采集
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
     And I will see the "agent.CreatePage" page
-    And I wait for "autohekafiletest" will be visible
+    And I wait for loading invisible
     Given the data name "autohekafiletest" in table "AppNameTable" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
