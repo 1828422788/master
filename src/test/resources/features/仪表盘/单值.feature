@@ -17,7 +17,7 @@ Feature: 仪表盘单值
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
     And I click the "Create" button
-    Then I will see the "trend.CreatePage" page
+    Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -75,7 +75,7 @@ Feature: 仪表盘单值
     Then I will see the "dashboard.DetailPage" page
     And I click the "ChartType" button
     And I wait for "1000" millsecond
-    Then I will see the "trend.CreatePage" page
+    Then I will see the "trend.CreatePageDash" page
     And I wait for "2000" millsecond
     And I click the "Other" button
     And I click the "Single" button
@@ -130,7 +130,7 @@ Feature: 仪表盘单值
     And I wait for "Ensure" will be invisible
     And I wait for "500" millsecond
     And I click the "Setting" button
-    Then I will see the "trend.CreatePage" page
+    Then I will see the "trend.CreatePageDash" page
     And I choose the "count()" from the "DataField"
     Then I click the "Generate" button
     And I wait for "1000" millsecond
@@ -567,7 +567,7 @@ Feature: 仪表盘单值
     Then I will see the "dashboard.DetailPage" page
     And I wait for "3000" millsecond
     And I click the "Setting" button
-    Then I will see the "trend.CreatePage" page
+    Then I will see the "trend.CreatePageDash" page
     And I wait for "2000" millsecond
     And I click the "Icon" button
     And I click the "AccordingName" button

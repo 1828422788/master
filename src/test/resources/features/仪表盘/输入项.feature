@@ -32,7 +32,7 @@ Feature: 仪表盘输入项
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
     And I click the "Create" button
-    Then I will see the "trend.CreatePage" page
+    Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
     And I click the "DateEditor" button

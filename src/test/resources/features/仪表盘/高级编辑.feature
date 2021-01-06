@@ -18,7 +18,7 @@ Feature: 仪表盘高级编辑
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
     And I click the "Create" button
-    Then I will see the "trend.CreatePage" page
+    Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -428,7 +428,7 @@ Feature: 仪表盘高级编辑
     And I wait for "1000" millsecond
     And I click the "ChartType" button
     And I wait for "1000" millsecond
-    Then I will see the "trend.CreatePage" page
+    Then I will see the "trend.CreatePageDash" page
     And I wait for "Dimension" will be visible
     And I click the "Dimension" button under some element
     And I click the "<targetName>" button

@@ -17,7 +17,7 @@ Feature: 仪表盘玫瑰图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
     And I click the "Create" button
-    Then I will see the "trend.CreatePage" page
+    Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -78,7 +78,7 @@ Feature: 仪表盘玫瑰图
     And I wait for "500" millsecond
     And I click the "ChartType" button
     And I wait for "1000" millsecond
-    Then I will see the "trend.CreatePage" page
+    Then I will see the "trend.CreatePageDash" page
     And I wait for "Dimension" will be visible
     And I click the "Dimension" button
     And I click the "<targetName>" button
@@ -110,7 +110,7 @@ Feature: 仪表盘玫瑰图
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I click the "ChartType" button
-    Then I will see the "trend.CreatePage" page
+    Then I will see the "trend.CreatePageDash" page
     And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
@@ -138,7 +138,7 @@ Feature: 仪表盘玫瑰图
     And I wait for "Progress" will be invisible
     And I wait for "500" millsecond
     And I click the "ChartType" button
-    Then I will see the "trend.CreatePage" page
+    Then I will see the "trend.CreatePageDash" page
     And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element

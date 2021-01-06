@@ -17,7 +17,7 @@ Feature: 仪表盘环形比例图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
     And I click the "Create" button
-    Then I will see the "trend.CreatePage" page
+    Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -79,7 +79,7 @@ Feature: 仪表盘环形比例图
     And I wait for "500" millsecond
     And I click the "ChartType" button
     And I wait for "1000" millsecond
-    Then I will see the "trend.CreatePage" page
+    Then I will see the "trend.CreatePageDash" page
     And I wait for "2000" millsecond
     And I wait for "Other" will be visible
     And I click the "Other" button under some element
@@ -116,7 +116,7 @@ Feature: 仪表盘环形比例图
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I click the "ChartType" button
-    Then I will see the "trend.CreatePage" page
+    Then I will see the "trend.CreatePageDash" page
     And I click the "Setting" button under some element
     And I wait for "1000" millsecond
     And I click the "Exhibition" button under some element

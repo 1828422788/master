@@ -43,7 +43,7 @@ Feature: 仪表盘统计地图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
     And I click the "Create" button
-    Then I will see the "trend.CreatePage" page
+    Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "DateEditor" button
@@ -93,7 +93,7 @@ Feature: 仪表盘统计地图
     And I wait for "Progress" will be invisible
     And I click the "ChartType" button
     And I wait for "1000" millsecond
-    Then I will see the "trend.CreatePage" page
+    Then I will see the "trend.CreatePageDash" page
     And I wait for "Map" will be visible
     And I click the "Map" button
     And I click the "Geostatsmap" button
