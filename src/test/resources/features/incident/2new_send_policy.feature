@@ -1,4 +1,4 @@
-@extra0 @incident @sendpolicy
+@extra0 @incident @sendpolicy @cruxee
 Feature: 事件管理_发送策略_4个
 
   @cruxee @incident4 @newsend

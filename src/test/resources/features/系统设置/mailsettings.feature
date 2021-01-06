@@ -1,4 +1,4 @@
-@setting @extra0
+@setting @extra0 @dleval
 Feature: 配置发送邮箱
 
   Background:

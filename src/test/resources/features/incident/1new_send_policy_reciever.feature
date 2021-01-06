@@ -1,4 +1,4 @@
-@extra0 @incident @recieve
+@extra0 @incident @recieve @cruxee
 Feature: 事件管理_用户接收组_7个
 
   @cruxee @newrec @incident3
