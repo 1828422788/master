@@ -1,4 +1,4 @@
-@agent
+@agent @agent_csv
 Feature: AgentCSV配置文件
 
   Background:
@@ -11,7 +11,7 @@ Feature: AgentCSV配置文件
     And I will see the "agent.CreatePage" page
 
   Scenario: Csv文件添加配置JmxInput失败
-    When I choose the "JmxInput" from the "CsvConfing"
+    When I choose the "JmxInput" from the "CsvConfing" in agent
     And I wait for "Create" will be visible
     And I click the "Create" button
     And I click the "Create" button
@@ -19,7 +19,7 @@ Feature: AgentCSV配置文件
     Then I will see the element "CsvChangeMemo" name is "当前编辑操作还未确认，请确认后再进行下一步操作"
 
   Scenario: Csv文件添加配置JmxInput失败2
-    When I choose the "JmxInput" from the "CsvConfing"
+    When I choose the "JmxInput" from the "CsvConfing" in agent
     And I wait for "Create" will be visible
     And I click the "Create" button
     And I click the "Csvcertain" button
@@ -27,13 +27,13 @@ Feature: AgentCSV配置文件
     Then I will see the element "CsvChangeMemo" name is "当前编辑的行不可全部为空"
 
   Scenario: 从JmxInput配置页面返回Agent具体配置
-    When I choose the "JmxInput" from the "CsvConfing"
+    When I choose the "JmxInput" from the "CsvConfing" in agent
     And I click the "Backup" button
     And I wait for loading invisible
     Then I will see the element "AgentTitle" contains "Agent详情"
 
   Scenario: Csv文件添加配置JmxInput
-    When I choose the "JmxInput" from the "CsvConfing"
+    When I choose the "JmxInput" from the "CsvConfing" in agent
     And I wait for "Create" will be visible
     And I click the "Create" button
     And I wait for "CsvJmxRmi" will be visible
@@ -48,7 +48,7 @@ Feature: AgentCSV配置文件
     And I click the "CsvSave" button
 
   Scenario: Csv文件编辑JmxInput
-    When I choose the "JmxInput" from the "CsvConfing"
+    When I choose the "JmxInput" from the "CsvConfing" in agent
     And I wait for "Csvedit" will be visible
     And I click the "Csvedit" button
     And I set the parameter "CsvJmxRmi" with value "jmx:rmi:///jndi/rmi://192.168.1.139:7000/jmxrmi"
@@ -62,7 +62,7 @@ Feature: AgentCSV配置文件
     And I click the "CsvSave" button
 
   Scenario: Csv文件删除JmxInput
-    When I choose the "JmxInput" from the "CsvConfing"
+    When I choose the "JmxInput" from the "CsvConfing" in agent
     And I wait for "Csvdelete" will be visible
     And I click the "Csvdelete" button
     And I click the "Ensure" button
@@ -70,7 +70,7 @@ Feature: AgentCSV配置文件
     And I click the "CsvSave" button
 
   Scenario: Csv文件添加配置HostConnectInput失败
-    When I choose the "HostConnectInput" from the "CsvConfing"
+    When I choose the "HostConnectInput" from the "CsvConfing" in agent
     And I wait for "Create" will be visible
     And I click the "Create" button
     And I click the "Create" button
@@ -78,7 +78,7 @@ Feature: AgentCSV配置文件
     Then I will see the element "CsvChangeMemo" name is "当前编辑操作还未确认，请确认后再进行下一步操作"
 
   Scenario: Csv文件添加配置HostConnectInput失败2
-    When I choose the "HostConnectInput" from the "CsvConfing"
+    When I choose the "HostConnectInput" from the "CsvConfing" in agent
     And I wait for "Create" will be visible
     And I click the "Create" button
     And I click the "Csvcertain" button
@@ -86,13 +86,13 @@ Feature: AgentCSV配置文件
     Then I will see the element "CsvChangeMemo" name is "当前编辑的行不可全部为空"
 
   Scenario: 从HostConnectInput配置页面返回Agent具体配置
-    When I choose the "HostConnectInput" from the "CsvConfing"
+    When I choose the "HostConnectInput" from the "CsvConfing" in agent
     And I click the "Backup" button
     And I wait for loading invisible
     Then I will see the element "AgentTitle" contains "Agent详情"
 
   Scenario: Csv文件添加配置HostConnectInput
-    When I choose the "HostConnectInput" from the "CsvConfing"
+    When I choose the "HostConnectInput" from the "CsvConfing" in agent
     And I wait for "Create" will be visible
     And I click the "Create" button
     And I wait for "CsvJmxRmi" will be visible
@@ -104,7 +104,7 @@ Feature: AgentCSV配置文件
     And I click the "CsvSave" button
 
   Scenario: Csv文件编辑HostConnectInput
-    When I choose the "HostConnectInput" from the "CsvConfing"
+    When I choose the "HostConnectInput" from the "CsvConfing" in agent
     And I wait for "Csvedit" will be visible
     And I click the "Csvedit" button
     And I set the parameter "CsvJmxRmi" with value "192.168.1.113:7071"
@@ -115,10 +115,9 @@ Feature: AgentCSV配置文件
     And I click the "CsvSave" button
 
   Scenario: Csv文件删除HostConnectInput
-    When I choose the "HostConnectInput" from the "CsvConfing"
+    When I choose the "HostConnectInput" from the "CsvConfing" in agent
     And I wait for "Csvdelete" will be visible
     And I click the "Csvdelete" button
     And I click the "Ensure" button
     And I wait for "CsvSave" will be visible
     And I click the "CsvSave" button
-
