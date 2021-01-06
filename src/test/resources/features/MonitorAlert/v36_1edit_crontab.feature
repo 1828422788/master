@@ -1,6 +1,6 @@
 Feature: 设置监控执行计划
 
-  @editalerts @extra0
+  @editalerts @extra0 @dleval
   Scenario Outline:
     Given open the "alert.ListPage" page for uri "/alerts/"
     When I set the parameter "AlertListSearchInput" with value "<name>"

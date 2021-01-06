@@ -1,4 +1,4 @@
-@dlmacrof @dlother
+@dlmacrof
 Feature: 验证宏
 
   Scenario Outline:

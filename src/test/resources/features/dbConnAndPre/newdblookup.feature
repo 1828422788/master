@@ -1,6 +1,6 @@
 Feature: 新建数据库查找
 
-  @newdblookup @splpre @extra0
+  @newdblookup @splpre @extra1
   Scenario Outline: 新建查找-3
     Given open the "dbConnectionPre.dbSettingPage" page for uri "/dbsettings/"
     And I click the "DbLookupConfig" button
