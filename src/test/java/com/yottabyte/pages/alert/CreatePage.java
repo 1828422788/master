@@ -975,15 +975,6 @@ public class CreatePage extends PageTemplate {
         return previewAlertName;
     }
 
-    //预览确认
-//    @FindBy(xpath = "//div[@class='ant-modal-footer']/following::span[text()='确定']/parent::button")
-    @FindBy(xpath = "//span[text()='确定']/parent::button")
-    private WebElement previewConfigButton;
-
-    public WebElement getPreviewConfigButton() {
-        return previewConfigButton;
-    }
-
     public WebElement getTestRunButton() {
         return super.getButton("测试运行");
     }
@@ -1005,5 +996,13 @@ public class CreatePage extends PageTemplate {
         return testRunAlertName;
     }
 
-//    class="ant-tabs-nav-wrap"
+    //确认
+    //@FindBy(xpath = "//div[@class='ant-modal-footer']/following::span[text()='确定']/parent::button")
+    @FindBy(xpath = "//span[text()='确定']/parent::button")
+    private WebElement affirmButton;
+
+    public WebElement getAffirmButton() {
+        return affirmButton;
+    }
+
 }

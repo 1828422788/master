@@ -23,7 +23,7 @@ Feature:
     And I wait for element "PreviewReminder" change text to "提示"
     And I wait for element "PreviewAlertName" change text to "<name>"
     Then take a screenshot with name "actual/preview_<name>"
-    And I click the "PreviewConfigButton" button
+    When I click the "AffirmButton" button
 
     Examples:
       | name                                                     |

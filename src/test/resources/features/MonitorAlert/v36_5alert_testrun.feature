@@ -21,7 +21,7 @@ Feature:
     And I wait for element "TestRunAlertName" change text to "<name>"
     And I wait for element "TestRunAlertName" change text to "successful"
     Then take a screenshot with name "actual/testRun_<name>"
-    And I click the "PreviewConfigButton" button
+    When I click the "AffirmButton" button
 
     Examples:
       | name                                                     |
