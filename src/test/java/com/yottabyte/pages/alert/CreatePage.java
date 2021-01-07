@@ -985,13 +985,13 @@ public class CreatePage extends PageTemplate {
     public WebElement getTestRunReminder(){
         return testRunReminder;
     }
-
-    //测试运行中监控名称
-    @FindBy(xpath = "//p[@class='_1JjlGgMGUnJmBrqR_9PZl8']/div[@class='HTIw3Zf6MVpXrv-OFu2L8']/br[contains(text(),'告警名称')]")
-    private WebElement previewAlertName;
-    public WebElement getPreviewAlertName(){
-        return previewAlertName;
-    }
+//
+//    //测试运行中监控名称
+//    @FindBy(xpath = "//p[@class='_1JjlGgMGUnJmBrqR_9PZl8']/div[@class='HTIw3Zf6MVpXrv-OFu2L8']/br[contains(text(),'告警名称')]")
+//    private WebElement previewAlertName;
+//    public WebElement getPreviewAlertName(){
+//        return previewAlertName;
+//    }
 
 
 }
