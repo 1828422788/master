@@ -27,7 +27,8 @@ public class CreatePageDash extends PageTemplate {
         super(driver);
         //webDriver.manage().window().setPosition(new Point(0, 0));
 //        driver.manage().window().setSize(new Dimension(1200,900));
-        driver.manage().window().fullscreen();
+//        driver.manage().window().fullscreen();
+        driver.manage().window().setSize(new Dimension(1920,1080));
     }
 
     private DropdownUtils dropdownUtils = new DropdownUtils();

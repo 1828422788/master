@@ -213,7 +213,7 @@ Feature: 搜索页输入项
     And I click the "AcceptCreateDownloadTask" button
     Then I wait for "InputItem" will be visible
     And I click the "SearchButton" button
-    Then I will see the "AlertMessage" doesn't exist
+#    Then I will see the "AlertMessage" doesn't exist
 #    Then I will see the message ""
     And I wait for "2000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
