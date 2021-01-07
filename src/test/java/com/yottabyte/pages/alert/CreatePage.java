@@ -28,7 +28,10 @@ public class CreatePage extends PageTemplate {
     List<String> tmpAlertTypes = new ArrayList<>();
 
     // tab页按钮
-    @FindBy(className = "el-tabs__item")
+//    @FindBy(className = "el-tabs__item")
+//    @FindBy(xpath = "//div[@class='ant-tabs-nav ant-tabs-nav- ant-tabs-tab']")
+//    class="ant-tabs-nav-scroll"
+    @FindBy(className = "ant-tabs-tab")
     private List<WebElement> tabs;
 
     // 监控名称
@@ -403,7 +406,7 @@ public class CreatePage extends PageTemplate {
         return alertPlanTimeInput1;
     }
 
-        public WebElement getAlertPlanTimeInput() {
+    public WebElement getAlertPlanTimeInput() {
         if (alertPlanTimingButton.findElement(By.xpath("./parent::label")).getAttribute("class").contains("is-active")) {
             return alertPlanInputs.get(0);
         } else {
@@ -417,7 +420,7 @@ public class CreatePage extends PageTemplate {
         return getDropdownListbyPath(xpath);
     }
 
-        public List<WebElement> getAlertPlanTimeUnits() {
+    public List<WebElement> getAlertPlanTimeUnits() {
         if (alertPlanTimingButton.findElement(By.xpath("./parent::label")).getAttribute("class").contains("is-active")) {
             return getSelectors(alertPlanInputs.get(1)).findElements(By.tagName("li"));
         } else {
@@ -892,11 +895,12 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//div[text()='crontab']/ancestor::span")
     private WebElement crontab;
-    public WebElement getCrontab(){
+
+    public WebElement getCrontab() {
         return crontab;
     }
 
-//    @FindBy(xpath = "//div[text()='crontab']/ancestor::span/ancestor::span/following-sibling::div//input")
+    //    @FindBy(xpath = "//div[text()='crontab']/ancestor::span/ancestor::span/following-sibling::div//input")
     @FindBy(xpath = "//label[contains(text(),'执行计划')]/following::div[text()='crontab']/following::input[@placeholder='请输入']")
     private WebElement crontabInput;
 
@@ -922,9 +926,34 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'执行计划')]/following::div[text()='crontab']/parent::span/parent::label")
 //    @FindBy(xpath = "//input[@name='frequencyRadio']/parent::span/parent::label")
     private WebElement alertPlanCrontabButton;
+
     public WebElement getAlertPlanCrontabButton() {
 //        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(alertPlanCrontabButton));
         return alertPlanCrontabButton;
     }
+
+    @FindBy(xpath = "//label[contains(text(),'接收者')]/following::input")
+    private WebElement mailReceiver;
+
+    public WebElement getMailReceiver() {
+        return mailReceiver;
+    }
+
+    @FindBy(xpath = "//label[contains(text(),'接收者')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i")
+    private WebElement mailReceiverList;
+
+    public WebElement getMailReceiverList() {
+        mailReceiverList.click();
+        return super.getLastDropdownList();
+    }
+
+
+    @FindBy(xpath = "//div[contains(text(),'邮件告警')][@class='ant-collapse-header']")
+    private WebElement mailAlertLabel;
+
+    public WebElement getMailAlertLabel() {
+        return mailAlertLabel;
+    }
+
 
 }

@@ -9,8 +9,8 @@ Feature: 监控维护期
     Given I click the "Create" button
     When I set the parameter "Reason" with value "<reason>"
     And I choose the "<group>" from the "Group"
-    And I set the parameter "StartHour" with value "9"
     And I set the parameter "StartMinute" with value "0"
+    And I set the parameter "StartHour" with value "9"
     And I set the parameter "EndHour" with value "10"
     And I set the parameter "EndMinute" with value "0"
     And I click the "SaveButton" button
