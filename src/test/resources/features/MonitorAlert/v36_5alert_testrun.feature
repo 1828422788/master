@@ -11,9 +11,6 @@ Feature:
     Then I will see the "alert.CreatePage" page
     And I wait for loading invisible
     And I click the "AlertNoteTypeTab" button
-#   And I choose the "邮件告警" from the "AlertDropdown"
-#   And I choose the "backfuture@yeah.net" from the "<ReceiverMail>"
-#   And I add a "emailType" with parameter "{'title':'auto test alert.','email':['backfuture@yeah.net'],'condition':['高','中','低'],'content':''}"
     And I click the "MailAlertLabel" button
     And I wait for loading invisible
 

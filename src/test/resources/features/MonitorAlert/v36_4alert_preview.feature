@@ -25,15 +25,6 @@ Feature:
     Then take a screenshot with name "actual/preview_<name>"
     And I click the "PreviewConfigButton" button
 
-    And I click the "TestRunButton" button
-    And I wait for loading invisible
-
-    And I wait for element "TestRunReminder" change text to "提示"
-    And I wait for element "TestRunAlertName" change text to "<name>"
-    And I wait for element "TestRunAlertName" change text to "successful"
-    Then take a screenshot with name "actual/testRun_<name>"
-    And I click the "PreviewConfigButton" button
-
     Examples:
       | name                                                     |
       | api00_按行发送_抑制_连续触发3次_分组字段ip                              |
