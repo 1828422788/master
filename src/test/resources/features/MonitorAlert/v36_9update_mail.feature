@@ -1,6 +1,6 @@
 Feature: 批量修改邮件邮箱
 
-  @ualertmail
+  @uamail
   Scenario Outline:
     And I wait for loading invisible
     Given open the "alert.ListPage" page for uri "/alerts/"

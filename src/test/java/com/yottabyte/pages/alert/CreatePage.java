@@ -943,7 +943,7 @@ public class CreatePage extends PageTemplate {
         return mailReceiver;
     }
 
-    @FindBy(xpath = "//label[contains(text(),'接收者')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i")
+    @FindBy(xpath = "//label[contains(text(),'接收者')]/following::div[@class='ant-select-selection__rendered']/ul/li")
     private WebElement mailReceiverList;
 
     public WebElement getMailReceiverList() {
