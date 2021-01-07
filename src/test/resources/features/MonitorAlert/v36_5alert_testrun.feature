@@ -1,6 +1,6 @@
 Feature:
 
-  @preview @alertcase
+  @testrun @alertcase
   Scenario Outline:
     And I wait for loading invisible
     Given open the "alert.ListPage" page for uri "/alerts/"
@@ -16,14 +16,6 @@ Feature:
 #   And I add a "emailType" with parameter "{'title':'auto test alert.','email':['backfuture@yeah.net'],'condition':['高','中','低'],'content':''}"
     And I click the "MailAlertLabel" button
     And I wait for loading invisible
-
-    And I click the "PreviewButton" button
-    And I wait for loading invisible
-
-    And I wait for element "PreviewReminder" change text to "提示"
-    And I wait for element "PreviewAlertName" change text to "<name>"
-    Then take a screenshot with name "actual/preview_<name>"
-    And I click the "PreviewConfigButton" button
 
     And I click the "TestRunButton" button
     And I wait for loading invisible

@@ -962,14 +962,15 @@ public class CreatePage extends PageTemplate {
     }
 
     //预览提示中监控名称
-    @FindBy(xpath = "//div[@class='ant-modal-body']/div[@class='HTIw3Zf6MVpXrv-OFu2L8']/br[contains(text(),'告警名称')]")
+    @FindBy(xpath = "//div[@class='ant-modal-body']/div[@class='HTIw3Zf6MVpXrv-OFu2L8']")
     private WebElement previewAlertName;
     public WebElement getPreviewAlertName(){
         return previewAlertName;
     }
 
     //预览确认
-    @FindBy(xpath = "//span【contains(test(),'确定')]/button")
+//    @FindBy(xpath = "//div[@class='ant-modal-footer']/following::span[text()='确定']/parent::button")
+    @FindBy(xpath = "//span[text()='确定']/parent::button")
     private WebElement previewConfigButton;
     public WebElement getPreviewConfigButton(){
         return previewConfigButton;
@@ -985,13 +986,14 @@ public class CreatePage extends PageTemplate {
     public WebElement getTestRunReminder(){
         return testRunReminder;
     }
-//
-//    //测试运行中监控名称
-//    @FindBy(xpath = "//p[@class='_1JjlGgMGUnJmBrqR_9PZl8']/div[@class='HTIw3Zf6MVpXrv-OFu2L8']/br[contains(text(),'告警名称')]")
-//    private WebElement previewAlertName;
-//    public WebElement getPreviewAlertName(){
-//        return previewAlertName;
-//    }
+
+    //测试运行中监控名称
+//    @FindBy(xpath = "//div[@class='ant-modal-content']//p[@class='_1JjlGgMGUnJmBrqR_9PZl8'][contains(text(),'测试运行完成')]")
+    @FindBy(xpath = "//div[@class='ant-modal-content']//p[@class='_1JjlGgMGUnJmBrqR_9PZl8'][contains(text(),'测试运行完成')]")
+    private WebElement testRunAlertName;
+    public WebElement getTestRunAlertName(){
+        return testRunAlertName;
+    }
 
 
 }
