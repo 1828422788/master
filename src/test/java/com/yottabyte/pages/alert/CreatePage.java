@@ -266,10 +266,6 @@ public class CreatePage extends PageTemplate {
         return dialogBody;
     }
 
-    public WebElement getPreview() {
-        return super.getButton("预览");
-    }
-
     public WebElement getClose() {
         return close;
     }
@@ -309,6 +305,9 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getPreviewButton() {
+        return super.getButton("预览");
+    }
+    public WebElement getPreview() {
         return super.getButton("预览");
     }
 
@@ -953,6 +952,45 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getMailAlertLabel() {
         return mailAlertLabel;
+    }
+
+    //预览窗口提示
+    @FindBy(xpath = "//div[@id='rcDialogTitle0'][@class='ant-modal-title'][contains(text(),'提示')]")
+    private WebElement previewReminder;
+    public WebElement getPreviewReminder(){
+        return previewReminder;
+    }
+
+    //预览提示中监控名称
+    @FindBy(xpath = "//div[@class='ant-modal-body']/div[@class='HTIw3Zf6MVpXrv-OFu2L8']/br[contains(text(),'告警名称')]")
+    private WebElement previewAlertName;
+    public WebElement getPreviewAlertName(){
+        return previewAlertName;
+    }
+
+    //预览确认
+    @FindBy(xpath = "//span【contains(test(),'确定')]/button")
+    private WebElement previewConfigButton;
+    public WebElement getPreviewConfigButton(){
+        return previewConfigButton;
+    }
+
+    public WebElement getTestRunButton() {
+        return super.getButton("测试运行");
+    }
+
+    //测试运行窗口提示
+    @FindBy(xpath = "//div[@class='ant-modal-header']/div[@id='rcDialogTitle1'][@class='ant-modal-title'][contains(text(),'提示')]")
+    private WebElement testRunReminder;
+    public WebElement getTestRunReminder(){
+        return testRunReminder;
+    }
+
+    //测试运行中监控名称
+    @FindBy(xpath = "//p[@class='_1JjlGgMGUnJmBrqR_9PZl8']/div[@class='HTIw3Zf6MVpXrv-OFu2L8']/br[contains(text(),'告警名称')]")
+    private WebElement previewAlertName;
+    public WebElement getPreviewAlertName(){
+        return previewAlertName;
     }
 
 

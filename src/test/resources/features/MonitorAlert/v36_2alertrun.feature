@@ -1,6 +1,6 @@
 Feature: 监控启用
 
-  @onalert @extra0 @dleval
+  @onalert @dleval
   Scenario Outline: 启用
     Given open the "alert.ListPage" page for uri "/alerts/"
 #    And I wait for "3000" millsecond

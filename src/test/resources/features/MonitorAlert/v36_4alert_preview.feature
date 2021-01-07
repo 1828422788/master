@@ -11,16 +11,26 @@ Feature:
     Then I will see the "alert.CreatePage" page
     And I wait for loading invisible
     And I click the "AlertNoteTypeTab" button
-#    And I choose the "邮件告警" from the "AlertDropdown"
+#   And I choose the "邮件告警" from the "AlertDropdown"
 #   And I choose the "backfuture@yeah.net" from the "<ReceiverMail>"
-#    And I add a "emailType" with parameter "{'title':'auto test alert.','email':['backfuture@yeah.net'],'condition':['高','中','低'],'content':''}"
+#   And I add a "emailType" with parameter "{'title':'auto test alert.','email':['backfuture@yeah.net'],'condition':['高','中','低'],'content':''}"
     And I click the "MailAlertLabel" button
-
     And I wait for "2000" millsecond
-
     And I click the "PreviewButton" button
 
-    When I click the "SaveButton" button
+    And I wait for element "PreviewReminder" change text to "提示"
+    And I wait for element "PreviewAlertName" change text to "<name>"
+    Then take a screenshot with name "actual/preview_<name>"
+    And I click the "PreviewConfigButton" button
+
+    And I wait for "2000" millsecond
+    And I click the "TestRunButton" button
+
+    And I wait for element "PreviewReminder" change text to "提示"
+    And I wait for element "PreviewAlertName" change text to "<name>"
+    Then take a screenshot with name "actual/preview_<name>"
+    And I click the "PreviewConfigButton" button
+
 
     Examples:
       | name                                                     |
