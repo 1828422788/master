@@ -1784,6 +1784,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//a[@aria-label='目录']")
     private WebElement content;
 
+    @FindBy(xpath = "//p[@name='wordmenu']")
+    private WebElement contentMenu;
+
     @FindBy(xpath = "//a[@aria-label='表格']")
     private WebElement addTable;
 
@@ -1796,7 +1799,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//a[@aria-label='颜色']")
     private WebElement color;
 
-    @FindBy(xpath = "//div[@class='jodit_wysiwyg']/p[last()]")
+    @FindBy(xpath = "//div[@class='jodit_wysiwyg']/*[last()]")
     private WebElement newLine;
 
     @FindBy(xpath = "//a[@aria-label='格式块']")
@@ -1805,6 +1808,14 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//a[@aria-label='格式块']/following-sibling::div//span[text() = '标题1']")
     private WebElement heading_1;
 
+    @FindBy(xpath = "//a[@aria-label='格式块']/following-sibling::div//span[text() = '标题2']")
+    private WebElement heading_2;
+
+    @FindBy(xpath = "//a[@aria-label='格式块']/following-sibling::div//span[text() = '标题3']")
+    private WebElement heading_3;
+
+    @FindBy(xpath = "//a[@aria-label='格式块']/following-sibling::div//span[text() = '标题4']")
+    private WebElement heading_4;
 //----------------------------
 
     public WebElement getTextArea() {
@@ -1914,6 +1925,10 @@ public class CreatePage extends PageTemplate {
         return content;
     }
 
+    public WebElement getContentMenu() {
+        return contentMenu;
+    }
+
     public WebElement getAddTable() {
         return addTable;
     }
@@ -1941,6 +1956,18 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getHeading_1() {
         return heading_1;
+    }
+
+    public WebElement getHeading_2() {
+        return heading_2;
+    }
+
+    public WebElement getHeading_3() {
+        return heading_3;
+    }
+
+    public WebElement getHeading_4() {
+        return heading_4;
     }
 //----------------------------
 

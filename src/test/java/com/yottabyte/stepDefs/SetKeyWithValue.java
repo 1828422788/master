@@ -243,6 +243,26 @@ public class SetKeyWithValue {
         element.sendKeys(Keys.chord(Keys.CONTROL, "a"));
     }
 
+    @And("^I select all text in row \"([^\"]*)\" and column \"([^\"]*)\" of the table in word report$")
+    public void iSelectTextCell(String row, String column) {
+        String xpath = "//tr[" + row + "]/td[" + column + "]";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        String jScript = "var node = arguments[0];\n" +
+                "\n" +
+                "        if ( document.selection ) {\n" +
+                "            var range = document.body.createTextRange();\n" +
+                "            range.moveToElementText( node  );\n" +
+                "            range.select();\n" +
+                "        } else if ( window.getSelection ) {\n" +
+                "            var range = document.createRange();\n" +
+                "            range.selectNodeContents( node );\n" +
+                "            window.getSelection().removeAllRanges();\n" +
+                "            window.getSelection().addRange( range );\n" +
+                "        }";
+        JavascriptExecutor executor = (JavascriptExecutor)webDriver;
+        executor.executeScript(jScript, element);
+    }
+
     @And("^I set the parameter \"([^\"]*)\" with value \"([^割]*)\" in word report$")
     public void iSetParameterWithValue(String elementName, String value){
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
@@ -264,15 +284,24 @@ public class SetKeyWithValue {
     public void iSetTheParameterWithValueEnter(String elementName, String value) {
         if (elementName != null && elementName.trim().length() != 0) {
             WebElement element = GetElementFromPage.getWebElementWithName(elementName);
-            element.click();
-            element.sendKeys(Keys.CONTROL + "a");
-            element.sendKeys(Keys.END);
-            element.sendKeys(Keys.SHIFT, Keys.HOME);
-            element.sendKeys(Keys.BACK_SPACE);
-            element.clear();
-            element.sendKeys(value);
-            element.sendKeys(Keys.ENTER);
+            if (element.getTagName().equals("div")) {
+                element.click();
+                element.sendKeys(Keys.CONTROL + "a");
+                element.sendKeys(Keys.END);
+                element.sendKeys(Keys.SHIFT, Keys.HOME);
+                element.sendKeys(Keys.BACK_SPACE);
+                element.clear();
+                element.sendKeys(value);
+                element.sendKeys(Keys.ENTER);
+            } else {
+                String jScript = "arguments[0].innerHTML=\"" + value + "</br>\"; \n" +
+                        "var par = document.createElement('p'); \n" +
+                        "arguments[0].parentNode.insertBefore(par, arguments[0].nextSibling);";
+                JavascriptExecutor executor = (JavascriptExecutor)webDriver;
+                executor.executeScript(jScript, element);
             }
+
+        }
     }
 
 
