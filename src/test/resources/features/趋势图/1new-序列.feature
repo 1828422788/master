@@ -55,7 +55,7 @@ Feature: 趋势图新建_序列
     And I click the "Type" button under some element
     And I click the "Order" button under some element
     And I click the "<chartType>" button under some element
-    And I click the "Settings" button
+    And I click the "Settings" button under some element
     And I click the "ShowAllLabels" button
     And I click the "Group" button
     And I click the "<buttonChoice>" button
@@ -95,7 +95,7 @@ Feature: 趋势图新建_序列
     And I click the "Type" button under some element
     And I click the "Order" button under some element
     And I click the "<chartType>" button under some element
-    And I click the "Settings" button
+    And I click the "Settings" button under some element
     And I click the "ShowAllLabels" button
     And I click the "Bubble" button
     And I click the "AccordingField" button
@@ -135,7 +135,7 @@ Feature: 趋势图新建_序列
     And I click the "Type" button under some element
     And I click the "Order" button under some element
     And I click the "<chartType>" button under some element
-    And I click the "Settings" button
+    And I click the "Settings" button under some element
     And I click the "ShowAllLabels" button
     And I click the "Yaxis" button
     And I set the parameter "Unit" with value "<unitValue>"
@@ -178,7 +178,7 @@ Feature: 趋势图新建_序列
     And I click the "Type" button under some element
     And I click the "Order" button under some element
     And I click the "<chartType>" button under some element
-    And I click the "Settings" button
+    And I click the "Settings" button under some element
     And I click the "ShowAllLabels" button
     And I click the "Yaxis" button
     And I set the parameter "Unit" with value "<unitValue>"
@@ -219,7 +219,7 @@ Feature: 趋势图新建_序列
     And I click the "Order" button under some element
     And I click the "<chartType>" button under some element
 
-    And I click the "Settings" button
+    And I click the "Settings" button under some element
     And I click the "Facet" button
     And I click the "AddField" button
     And I choose the "apache.method" from the "FieldValue" in config
