@@ -1,4 +1,4 @@
-@alert @alertSmoke @third
+@alertss @alertSmoke @third
 Feature: 监控详情页
 
   Background:

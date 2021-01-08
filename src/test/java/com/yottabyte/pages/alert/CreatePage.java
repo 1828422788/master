@@ -969,10 +969,10 @@ public class CreatePage extends PageTemplate {
 
     //预览提示中监控名称
     @FindBy(xpath = "//div[@class='ant-modal-body']/div[@class='HTIw3Zf6MVpXrv-OFu2L8']")
-    private WebElement previewAlertName;
+    private WebElement previewAlertReminderText;
 
-    public WebElement getPreviewAlertName() {
-        return previewAlertName;
+    public WebElement getPreviewAlertReminderText() {
+        return previewAlertReminderText;
     }
 
     public WebElement getTestRunButton() {
@@ -980,7 +980,7 @@ public class CreatePage extends PageTemplate {
     }
 
     //测试运行窗口提示
-    @FindBy(xpath = "//div[@class='ant-modal-header']/div[@id='rcDialogTitle1'][@class='ant-modal-title'][contains(text(),'提示')]")
+    @FindBy(xpath = "//div[@class='ant-modal-header']/div[@id='rcDialogTitle0'][@class='ant-modal-title'][contains(text(),'提示')]")
     private WebElement testRunReminder;
 
     public WebElement getTestRunReminder() {
@@ -990,10 +990,10 @@ public class CreatePage extends PageTemplate {
     //测试运行中监控名称
 //    @FindBy(xpath = "//div[@class='ant-modal-content']//p[@class='_1JjlGgMGUnJmBrqR_9PZl8'][contains(text(),'测试运行完成')]")
     @FindBy(xpath = "//div[@class='ant-modal-content']//p[@class='_1JjlGgMGUnJmBrqR_9PZl8'][contains(text(),'测试运行完成')]")
-    private WebElement testRunAlertName;
+    private WebElement  testRunReminderText;
 
-    public WebElement getTestRunAlertName() {
-        return testRunAlertName;
+    public WebElement getTestRunReminderText() {
+        return testRunReminderText;
     }
 
     //确认

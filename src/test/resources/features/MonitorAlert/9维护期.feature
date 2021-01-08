@@ -1,4 +1,4 @@
-@alert
+@alertss
 Feature: 监控维护期
 
   Background:

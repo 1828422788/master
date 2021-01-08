@@ -1,4 +1,4 @@
-@alert @alertSmoke @second
+@alertss @alertSmoke @second
 Feature: 监控设备切分
 
   Background:

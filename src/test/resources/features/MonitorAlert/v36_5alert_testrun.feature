@@ -1,6 +1,6 @@
 Feature:
 
-  @testrun @alertcase
+  @testrun @alert
   Scenario Outline:
     And I wait for loading invisible
     Given open the "alert.ListPage" page for uri "/alerts/"
@@ -18,8 +18,8 @@ Feature:
     And I wait for loading invisible
 
     And I wait for element "TestRunReminder" change text to "提示"
-    And I wait for element "TestRunAlertName" change text to "<name>"
-    And I wait for element "TestRunAlertName" change text to "successful"
+    And I wait for element "TestRunReminderText" change text to "<name>"
+    And I wait for element "TestRunReminderText" change text to "successful"
     Then take a screenshot with name "actual/testRun_<name>"
     When I click the "AffirmButton" button
 

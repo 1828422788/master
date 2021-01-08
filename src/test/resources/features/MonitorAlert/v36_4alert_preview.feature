@@ -1,6 +1,6 @@
 Feature:
 
-  @preview @alertcase
+  @preview @alert
   Scenario Outline:
     And I wait for loading invisible
     Given open the "alert.ListPage" page for uri "/alerts/"
@@ -21,7 +21,7 @@ Feature:
     And I wait for loading invisible
 
     And I wait for element "PreviewReminder" change text to "提示"
-    And I wait for element "PreviewAlertName" change text to "<name>"
+    And I wait for element "PreviewAlertReminderText" change text to "<name>"
     Then take a screenshot with name "actual/preview_<name>"
     When I click the "AffirmButton" button
 

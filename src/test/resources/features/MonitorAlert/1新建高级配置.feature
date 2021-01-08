@@ -1,4 +1,4 @@
-@alert @all
+@alertss @all
 Feature: 监控高级配置
 
 #   有bug，待修复后添加验证
