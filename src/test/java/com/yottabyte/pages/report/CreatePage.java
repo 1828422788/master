@@ -1793,11 +1793,20 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@data-index='12']")
     private WebElement addTable3x2;
 
+    @FindBy(xpath = "//div[@data-index='79']")
+    private WebElement addTable8x10;
+
+    @FindBy(xpath = "//div[@class='jodit_wysiwyg']/table")
+    private WebElement tableElement;
+
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']//*[not(@name ='pageheader') and not(@name='pagefooter') and contains(text(), 'textclick')]")
     private WebElement textAreaLocator;
 
     @FindBy(xpath = "//a[@aria-label='颜色']")
     private WebElement color;
+
+    @FindBy(xpath = "//a[@title='#FF00FF']")
+    private WebElement pink;
 
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']/*[last()]")
     private WebElement newLine;
@@ -1816,6 +1825,16 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//a[@aria-label='格式块']/following-sibling::div//span[text() = '标题4']")
     private WebElement heading_4;
+
+    @FindBy(xpath = "(//div[@class='jodit_wysiwyg']/h1) | (//div[@class='jodit_wysiwyg']/h2) | (//div[@class='jodit_wysiwyg']/h3) | (//div[@class='jodit_wysiwyg']/h4)")
+    private WebElement headingElement;
+
+    @FindBy(xpath = "//a[@aria-label='撤销']")
+    private WebElement undo;
+
+    @FindBy(xpath = "//a[@aria-label='重做']")
+    private WebElement redo;
+
 //----------------------------
 
     public WebElement getTextArea() {
@@ -1937,6 +1956,14 @@ public class CreatePage extends PageTemplate {
         return addTable3x2;
     }
 
+    public WebElement getAddTable8x10() {
+        return addTable8x10;
+    }
+
+    public WebElement getTableElement() {
+        return tableElement;
+    }
+
     public WebElement getTextAreaLocator() {
         return textAreaLocator;
     }
@@ -1968,6 +1995,22 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getHeading_4() {
         return heading_4;
+    }
+
+    public WebElement getHeadingElement() {
+        return headingElement;
+    }
+
+    public WebElement getUndo() {
+        return undo;
+    }
+
+    public WebElement getRedo() {
+        return redo;
+    }
+
+    public WebElement getPink() {
+        return pink;
     }
 //----------------------------
 

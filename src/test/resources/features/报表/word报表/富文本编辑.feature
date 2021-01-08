@@ -320,3 +320,42 @@ Feature:报表_富文本编辑
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
+  Scenario Outline: text_undo
+    When I set the parameter "Name" with value "Default_<name>"
+    And I click the "NextButton" button under some element
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "5000" millsecond
+
+    And I wait for "TextArea" will be visible
+    And I set the parameter "TextArea" with value "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis aliquet nisl.  Cras tempor nisi urna, sed pulvinar sem molestie in. Fusce scelerisque eleifend accumsan. textclick"
+    And I wait for "2000" millsecond
+
+    And I select all text in "TextArea" element
+    And I wait for "2000" millsecond
+    And I click the "<button1>" button
+    And I click the "<button1>" button
+    And I click the "<button2>" button
+    And I wait for "2000" millsecond
+    And I will see the "<text_area>" is display
+    And I click the "Undo" button
+    And I wait for "2000" millsecond
+    And I will see the "<text_area>" doesn't exist
+    And I click the "Redo" button
+    And I will see the "<text_area>" is display
+
+
+    Examples:
+      |   name       |   button1      |   button2        | text_area           |
+      | Color        | Color          | Pink             | TextAreaStyle       |
+      | Font         |                | TextFontSize48   | TextAreaStyle       |
+      | RightAlign   | Alignment      | RightAlignment   | TextAlignment       |
+      | Bold         |                | Bold             | BoldElement         |
+      | Italics      |                | Italics          | ItalicsElement      |
+      | Underline    |                | Underline        | UnderlineElement    |
+      | Footer       |                | Footer           | FooterText          |
+      | Header       |                | Header           | HeaderText          |
+      | Content      |                | Content          | ContentMenu         |
+      | Table        | AddTable       | AddTable3x2      | TableElement        |
+      | DivLine      |                | DividingLine     | DividingLineElement |
+      | Heading      | Heading        | Heading_1        | HeadingElement      |
+

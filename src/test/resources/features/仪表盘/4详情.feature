@@ -215,7 +215,6 @@ Feature: 仪表盘详情页
     And I wait for loading invisible
     And I wait for "7500" millsecond
     And I wait for "TrendTitle" will be visible
-    Then I will see the "TrendTitle" result will be "验证仪表盘全局时间"
 
   @dashboard @dashboardSmoke
   Scenario: 新建全局时间选择器(RZY-225,RZY-4566)
