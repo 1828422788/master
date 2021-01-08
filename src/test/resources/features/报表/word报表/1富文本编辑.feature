@@ -10,15 +10,20 @@ Feature:报表_富文本编辑
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I choose the "WORD" from the "ReportType"
 
-  Scenario: empty_report
+  Scenario Outline: empty_report
     When I set the parameter "Name" with value "empty_word_report"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
+    And I set the parameter "<inputSearch>" with value "<name>"
+    And I click the button with text "<name>"
+    And I will see the "<element>" is display
     And I wait for "2000" millsecond
+    And I click the "Undo" button
+    And I will see the "<element>" doesn't exist
+    And I click the "Redo" button
+    And I will see the "<element>" is display
 
     And I wait for "TextArea" will be visible
     And I set the parameter "TextArea" with value "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
@@ -26,6 +31,11 @@ Feature:报表_富文本编辑
     When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "至少选择一个趋势图"
+
+  Examples:
+    | name         | inputSearch           |  element            |
+    | 报表测试     | ChartListInput        |TrendElement         |
+    | 单值报表测试 | SingleChartListInput  |SingleTrendElement   |
 
 
   Scenario Outline: text_font
@@ -238,6 +248,49 @@ Feature:报表_富文本编辑
     And I select all text in row "2" and column "3" of the table in word report
     And I click the "Color" button
     And I click the button with title "#733554"
+    And I wait for "2000" millsecond
+
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
+    And I wait for "2000" millsecond
+    When I click the "FinishButton" button under some element
+    And I wait for "EnsureButton" will be visible
+    Then I will see the success message "保存成功"
+    And I click the "EnsureButton" button
+
+  Scenario: table_alignment
+    When I set the parameter "Name" with value "Table4x2_Alignment"
+    And I click the "NextButton" button under some element
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "5000" millsecond
+
+    And I click the "AddTable" button
+    And I click the "NoBorders" button
+    And I click the "AddTable4x2" button
+    And I wait for "2000" millsecond
+    And I will see the "NoBorderTableElement" is display
+    And I set the table cell in row "1" and column "1" with value "Default: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras cursus tincidunt eros, sit amet posuere risus laoreet et." in word report
+    And I select all text in row "1" and column "1" of the table in word report
+    And I set the table cell in row "1" and column "2" with value "Left: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras cursus tincidunt eros, sit amet posuere risus laoreet et." in word report
+    And I select all text in row "1" and column "2" of the table in word report
+    And I click the "Alignment" button
+    And I click the "LeftAlignment" button
+    And I set the table cell in row "1" and column "3" with value "Center: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras cursus tincidunt eros, sit amet posuere risus laoreet et." in word report
+    And I select all text in row "1" and column "3" of the table in word report
+    And I click the "Alignment" button
+    And I click the "Alignment" button
+    And I click the "CenterAlignment" button
+    And I set the table cell in row "1" and column "4" with value "Justify: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras cursus tincidunt eros, sit amet posuere risus laoreet et." in word report
+    And I select all text in row "1" and column "4" of the table in word report
+    And I click the "Alignment" button
+    And I click the "JustifyAlignment" button
+    And I set the table cell in row "2" and column "1" with value "Right: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras cursus tincidunt eros, sit amet posuere risus laoreet et. " in word report
+    And I select all text in row "2" and column "1" of the table in word report
+    And I click the "Alignment" button
+    And I click the "RightAlignment" button
+    And I set the table cell in row "2" and column "2" with value "Default: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras cursus tincidunt eros, sit amet posuere risus laoreet et." in word report
+    And I set the table cell in row "2" and column "3" with value "Default: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras cursus tincidunt eros, sit amet posuere risus laoreet et." in word report
+    And I set the table cell in row "2" and column "4" with value "Default: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras cursus tincidunt eros, sit amet posuere risus laoreet et." in word report
     And I wait for "2000" millsecond
 
     And I set the parameter "ChartListInput" with value "报表测试"
