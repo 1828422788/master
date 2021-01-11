@@ -1695,14 +1695,17 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//a[@aria-label='文本中嵌入单值趋势图']")
     private WebElement singleTrendList;
 
-    @FindBy(xpath = "//div[@class='jodit_wysiwyg']/p[@class= 'editor_block_trend']")
+    @FindBy(xpath = "//div[@class='jodit_wysiwyg']//p[@class= 'editor_block_trend']")
     private WebElement trendElement;
 
     @FindBy(xpath = "(//p[@class='editor_block_trend']/span[contains(@name,'trend_name')])[last()]")
     private WebElement lastAddedTrend;
 
-    @FindBy(xpath = "//div[@class='jodit_wysiwyg']/span[@class= 'editor_inline_trend']")
+    @FindBy(xpath = "//div[@class='jodit_wysiwyg']//span[@class= 'editor_inline_trend']")
     private WebElement singleTrendElement;
+
+    @FindBy(xpath = "//span[text()='统计类型']/following-sibling::span/button[@disabled]/span[text()='single']")
+    private WebElement disabledType;
 
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']")
     private WebElement textArea;
@@ -1880,6 +1883,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSingleTrendElement() {
         return singleTrendElement;
+    }
+
+    public WebElement getDisabledType() {
+        return disabledType;
     }
 
     public WebElement getTextArea() {

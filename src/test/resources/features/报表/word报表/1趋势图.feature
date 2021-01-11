@@ -41,3 +41,26 @@ Feature:报表_富文本编辑_趋势图
       | 报表测试     | ChartListInput        |TrendElement         |
       | 单值报表测试 | SingleChartListInput  |SingleTrendElement   |
 
+    Scenario: single_trend
+      When I set the parameter "Name" with value "SingleTrend"
+      And I click the "NextButton" button under some element
+      Then I wait for "ChartListButtonWord" will be visible
+      And I wait for "5000" millsecond
+###
+      And I set the parameter "TextArea" with value "textclick" and press enter in word report
+      And I set the parameter "NewLine" with value "text" and press enter in word report
+      And I select all text in "TextAreaLocator" element
+###
+      And I set the parameter "SingleChartListInput" with value "单值报表测试"
+      And I click the button with text "单值报表测试"
+      And I will see the "SingleTrendElement" is display
+      And I wait for "2000" millsecond
+      And I click the "EditButton" button
+      And I will see the "DisabledType" is display
+
+      When I click the "FinishButton" button under some element
+      And I wait for "EnsureButton" will be visible
+      Then I will see the success message "保存成功"
+      And I click the "EnsureButton" button
+
+
