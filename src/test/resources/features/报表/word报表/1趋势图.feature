@@ -57,6 +57,7 @@ Feature:报表_富文本编辑_趋势图
       And I wait for "2000" millsecond
       And I click the "EditButton" button
       And I will see the "DisabledType" is display
+      Then I click the "EnsureButton" button
 
       When I click the "FinishButton" button under some element
       And I wait for "EnsureButton" will be visible
