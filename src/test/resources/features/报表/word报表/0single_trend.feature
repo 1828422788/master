@@ -1,5 +1,5 @@
 @reportTextEditor
-Feature: 单值报表_趋势图
+Feature: 报表_单值趋势图
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"

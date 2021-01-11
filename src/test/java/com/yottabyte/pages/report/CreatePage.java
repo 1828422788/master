@@ -1698,6 +1698,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']/p[@class= 'editor_block_trend']")
     private WebElement trendElement;
 
+    @FindBy(xpath = "(//p[@class='editor_block_trend']/span[contains(@name,'trend_name')])[last()]")
+    private WebElement lastAddedTrend;
+
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']/span[@class= 'editor_inline_trend']")
     private WebElement singleTrendElement;
 
@@ -1800,10 +1803,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@value = 'no_border_table']")
     private WebElement noBorders;
 
-    @FindBy(xpath = "//div[@class='jodit_wysiwyg']/table")
+    @FindBy(xpath = "//div[@class='jodit_wysiwyg']//table")
     private WebElement tableElement;
 
-    @FindBy(xpath = "//div[@class='jodit_wysiwyg']/table[@class = 'no_border_table']")
+    @FindBy(xpath = "//div[@class='jodit_wysiwyg']//table[@class = 'no_border_table']")
     private WebElement noBorderTableElement;
 
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']//*[not(@name ='pageheader') and not(@name='pagefooter') and contains(text(), 'textclick')]")
@@ -1869,6 +1872,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getTrendElement() {
         return trendElement;
+    }
+
+    public WebElement getLastAddedTrend() {
+        return lastAddedTrend;
     }
 
     public WebElement getSingleTrendElement() {
