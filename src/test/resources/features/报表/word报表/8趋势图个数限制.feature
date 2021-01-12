@@ -55,8 +55,7 @@ Feature: 报表_富文本编辑_限制
     And I select all text in row "2" and column "3" of the table in word report
     And I set the parameter "ChartListInput" with value "报表测试"
     And I click the button with text "报表测试"
-    And I wait for "ErrorMessage" will be visible
-    Then I will see the error message "每个报表最多保存5个趋势图"
+    And I accept alert window
     And I will see the element "LastAddedTrend" contains "报表测试(4)"
 
     And I set the parameter "TextArea" with value "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
@@ -64,7 +63,6 @@ Feature: 报表_富文本编辑_限制
     And I click the button with text "报表测试"
     And I wait for "2000" millsecond
     And I will see the element "LastAddedTrend" contains "报表测试"
-    And I will see the "ErrorMessage" doesn't exist
     
     When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible

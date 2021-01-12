@@ -15,11 +15,7 @@ Feature:报表_富文本编辑_趋势图
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
-###
-    And I set the parameter "TextArea" with value "textclick" and press enter in word report
-    And I set the parameter "NewLine" with value "text" and press enter in word report
-    And I select all text in "TextAreaLocator" element
-###
+
     And I set the parameter "<inputSearch>" with value "<name>"
     And I click the button with text "<name>"
     And I will see the "<element>" is display
@@ -46,11 +42,7 @@ Feature:报表_富文本编辑_趋势图
       And I click the "NextButton" button under some element
       Then I wait for "ChartListButtonWord" will be visible
       And I wait for "5000" millsecond
-###
-      And I set the parameter "TextArea" with value "textclick" and press enter in word report
-      And I set the parameter "NewLine" with value "text" and press enter in word report
-      And I select all text in "TextAreaLocator" element
-###
+
       And I set the parameter "SingleChartListInput" with value "单值报表测试"
       And I click the button with text "单值报表测试"
       And I will see the "SingleTrendElement" is display

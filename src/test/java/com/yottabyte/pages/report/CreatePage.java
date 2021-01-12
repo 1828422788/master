@@ -1722,7 +1722,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='上传']/following-sibling::input")
     private WebElement uploadImage;
 
-    @FindBy(xpath = "//div[@class='jodit_wysiwyg']//img")
+    @FindBy(xpath = "(//div[@class='jodit_wysiwyg']//img)[last()]")
     private WebElement imageElement;
 
     @FindBy(xpath = "//a[@aria-label='字号']")
@@ -1797,6 +1797,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@data-index='12']")
     private WebElement addTable3x2;
 
+    @FindBy(xpath = "//div[@data-index='22']")
+    private WebElement addTable3x3;
+
     @FindBy(xpath = "//div[@data-index='13']")
     private WebElement addTable4x2;
 
@@ -1847,6 +1850,24 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//a[@aria-label='重做']")
     private WebElement redo;
+
+    @FindBy(xpath = "//a[@role = 'button' and @aria-label='删除']")
+    private WebElement deleteElement;
+
+    @FindBy(xpath = "//span[text()='删除表格']/ancestor::a")
+    private WebElement deleteTable;
+
+    @FindBy(xpath = "//span[text()='删除行']/ancestor::a")
+    private WebElement deleteRow;
+
+    @FindBy(xpath = "//span[text()='删除列']/ancestor::a")
+    private WebElement deleteColumn;
+
+    @FindBy(xpath = "//span[text()='清除内容']/ancestor::a")
+    private WebElement cleanContent;
+
+    @FindBy(xpath = "//tr[2]/td[2]")
+    private WebElement cell22;
 
 //----------------------------
 
@@ -2008,6 +2029,10 @@ public class CreatePage extends PageTemplate {
         return addTable3x2;
     }
 
+    public WebElement getAddTable3x3() {
+        return addTable3x3;
+    }
+
     public WebElement getAddTable4x2() {
         return addTable4x2;
     }
@@ -2075,6 +2100,26 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getPink() {
         return pink;
+    }
+
+    public WebElement getDeleteElement() {
+        return deleteElement;
+    }
+
+    public WebElement getDeleteTable() {
+        return deleteTable;
+    }
+
+    public WebElement getDeleteRow() {
+        return deleteRow;
+    }
+
+    public WebElement getCleanContent() {
+        return cleanContent;
+    }
+
+    public WebElement getCell22() {
+        return cell22;
     }
 //----------------------------
 
