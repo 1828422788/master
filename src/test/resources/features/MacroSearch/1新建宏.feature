@@ -1,4 +1,4 @@
-@dleval @searchMacro @newmacro
+@dleval @newmacro
 Feature: 搜索宏新建
 
   Background:

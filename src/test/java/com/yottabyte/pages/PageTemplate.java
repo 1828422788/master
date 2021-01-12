@@ -202,4 +202,8 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return dropdownUtils.getLastSendPluginDropdownList();
     }
 
+    public WebElement getAlertNoteTypeDropdownList() {
+        return dropdownUtils.getAlertNoteTypeDropdownList();
+    }
+
 }

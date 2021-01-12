@@ -997,12 +997,25 @@ public class CreatePage extends PageTemplate {
     }
 
     //确认
-    //@FindBy(xpath = "//div[@class='ant-modal-footer']/following::span[text()='确定']/parent::button")
     @FindBy(xpath = "//span[text()='确定']/parent::button")
     private WebElement affirmButton;
 
     public WebElement getAffirmButton() {
         return affirmButton;
     }
+
+    private WebElement alertNoteTypeListButton;
+
+    public WebElement getAlertNoteTypeListButton() {
+        String xpath = "//span[text()='添加告警方式']/following::span[text()='请选择类型']/following-sibling::i";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getAlertNoteTypeDropdownList();
+    }
+
+    //class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical"
+
+    //class="ant-dropdown-menu-item ant-dropdown-menu-item-selected"
 
 }
