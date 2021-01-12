@@ -35,7 +35,7 @@ public class Command {
      */
     @And("^curl restart url \"([^\"]*)\"$")
     public void curlRestartUrl(String value) {
-        String url = serverHost + ":8180/api/servicecontroll?" + value + "&action=restart";
+        String url = serverHost + ":8180/api/servicecontroll?" + value + "&action=restart&wait=30";
         CurlUtils.curl(url);
     }
 

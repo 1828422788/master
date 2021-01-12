@@ -18,6 +18,7 @@ Feature: 报表_富文本编辑下载
 
     Examples:
       |          name        |
+      | SingleTrend          |
       | FontSize             |
       | BoldText             |
       | ItalicsText          |
@@ -28,4 +29,6 @@ Feature: 报表_富文本编辑下载
       | JustifyAlignment     |
       | DividingLine         |
       | Image                |
-      | Table3x2             |
+      | Table3x2_Color       |
+      | Table4x2_Alignment   |
+      | test_5trends_WORD    |

@@ -80,12 +80,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='趋势图列表']/following-sibling::div/button")
     private WebElement chartList;
 
-    @FindBy(xpath = "//a[@aria-label='选择趋势图']/span")
-    private WebElement chartListWord;
-
-    @FindBy(xpath = "//input[@placeholder='选择趋势图']")
-    private WebElement chartListInput;
-
     @FindBy(className = "ant-dropdown-menu")
 //    @FindBy(xpath = "//li[@class='ant-dropdown-menu-item']/ancestor::ul")
     private WebElement chartDropdownList;
@@ -992,22 +986,11 @@ public class CreatePage extends PageTemplate {
         return chartList;
     }
 
-    public WebElement getChartListButtonWord() {
-        return chartListWord;
-    }
-
-    public WebElement getChartListInput() {
-        chartListWord.click();
-        WebDriverWait wait = new WebDriverWait(webDriver,10);
-        wait.until(ExpectedConditions.elementToBeClickable(chartListInput));
-        return chartListInput;
-    }
-
     public WebElement getListOfCharts(){
         return chartList;
     }
+
     public WebElement getChartList() throws InterruptedException {
-        //WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(chartList));
         chartList.click();
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
         return chartDropdownList;
@@ -1703,6 +1686,27 @@ public class CreatePage extends PageTemplate {
 
 //----富文本编辑-----------
 
+    @FindBy(xpath = "//a[@aria-label='选择趋势图']/span")
+    private WebElement chartListWord;
+
+    @FindBy(xpath = "//input[@placeholder='选择趋势图']")
+    private WebElement chartListInput;
+
+    @FindBy(xpath = "//a[@aria-label='文本中嵌入单值趋势图']")
+    private WebElement singleTrendList;
+
+    @FindBy(xpath = "//div[@class='jodit_wysiwyg']//p[@class= 'editor_block_trend']")
+    private WebElement trendElement;
+
+    @FindBy(xpath = "(//p[@class='editor_block_trend']/span[contains(@name,'trend_name')])[last()]")
+    private WebElement lastAddedTrend;
+
+    @FindBy(xpath = "//div[@class='jodit_wysiwyg']//span[@class= 'editor_inline_trend']")
+    private WebElement singleTrendElement;
+
+    @FindBy(xpath = "//span[text()='统计类型']/following-sibling::span/button[@disabled]/span[text()='single']")
+    private WebElement disabledType;
+
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']")
     private WebElement textArea;
 
@@ -1718,7 +1722,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='上传']/following-sibling::input")
     private WebElement uploadImage;
 
-    @FindBy(xpath = "//div[@class='jodit_wysiwyg']//img")
+    @FindBy(xpath = "(//div[@class='jodit_wysiwyg']//img)[last()]")
     private WebElement imageElement;
 
     @FindBy(xpath = "//a[@aria-label='字号']")
@@ -1793,11 +1797,23 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@data-index='12']")
     private WebElement addTable3x2;
 
+    @FindBy(xpath = "//div[@data-index='22']")
+    private WebElement addTable3x3;
+
+    @FindBy(xpath = "//div[@data-index='13']")
+    private WebElement addTable4x2;
+
     @FindBy(xpath = "//div[@data-index='79']")
     private WebElement addTable8x10;
 
-    @FindBy(xpath = "//div[@class='jodit_wysiwyg']/table")
+    @FindBy(xpath = "//input[@value = 'no_border_table']")
+    private WebElement noBorders;
+
+    @FindBy(xpath = "//div[@class='jodit_wysiwyg']//table")
     private WebElement tableElement;
+
+    @FindBy(xpath = "//div[@class='jodit_wysiwyg']//table[@class = 'no_border_table']")
+    private WebElement noBorderTableElement;
 
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']//*[not(@name ='pageheader') and not(@name='pagefooter') and contains(text(), 'textclick')]")
     private WebElement textAreaLocator;
@@ -1835,7 +1851,64 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//a[@aria-label='重做']")
     private WebElement redo;
 
+    @FindBy(xpath = "//a[@role = 'button' and @aria-label='删除']")
+    private WebElement deleteElement;
+
+    @FindBy(xpath = "//span[text()='删除表格']/ancestor::a")
+    private WebElement deleteTable;
+
+    @FindBy(xpath = "//span[text()='删除行']/ancestor::a")
+    private WebElement deleteRow;
+
+    @FindBy(xpath = "//span[text()='删除列']/ancestor::a")
+    private WebElement deleteColumn;
+
+    @FindBy(xpath = "//span[text()='清除内容']/ancestor::a")
+    private WebElement cleanContent;
+
+    @FindBy(xpath = "//tr[2]/td[2]")
+    private WebElement cell22;
+
 //----------------------------
+
+
+    public WebElement getChartListButtonWord() {
+        return chartListWord;
+    }
+
+    public WebElement getChartListInput() {
+        chartListWord.click();
+        WebDriverWait wait = new WebDriverWait(webDriver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(chartListInput));
+        return chartListInput;
+    }
+
+    public WebElement getSingleTrendList() {
+        return singleTrendList;
+    }
+
+    public WebElement getSingleChartListInput() {
+        singleTrendList.click();
+        WebDriverWait wait = new WebDriverWait(webDriver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(chartListInput));
+        return chartListInput;
+    }
+
+    public WebElement getTrendElement() {
+        return trendElement;
+    }
+
+    public WebElement getLastAddedTrend() {
+        return lastAddedTrend;
+    }
+
+    public WebElement getSingleTrendElement() {
+        return singleTrendElement;
+    }
+
+    public WebElement getDisabledType() {
+        return disabledType;
+    }
 
     public WebElement getTextArea() {
         return textArea;
@@ -1956,12 +2029,28 @@ public class CreatePage extends PageTemplate {
         return addTable3x2;
     }
 
+    public WebElement getAddTable3x3() {
+        return addTable3x3;
+    }
+
+    public WebElement getAddTable4x2() {
+        return addTable4x2;
+    }
+
     public WebElement getAddTable8x10() {
         return addTable8x10;
     }
 
+    public WebElement getNoBorders() {
+        return noBorders;
+    }
+
     public WebElement getTableElement() {
         return tableElement;
+    }
+
+    public WebElement getNoBorderTableElement() {
+        return noBorderTableElement;
     }
 
     public WebElement getTextAreaLocator() {
@@ -2011,6 +2100,26 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getPink() {
         return pink;
+    }
+
+    public WebElement getDeleteElement() {
+        return deleteElement;
+    }
+
+    public WebElement getDeleteTable() {
+        return deleteTable;
+    }
+
+    public WebElement getDeleteRow() {
+        return deleteRow;
+    }
+
+    public WebElement getCleanContent() {
+        return cleanContent;
+    }
+
+    public WebElement getCell22() {
+        return cell22;
     }
 //----------------------------
 

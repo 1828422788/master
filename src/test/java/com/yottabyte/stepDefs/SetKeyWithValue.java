@@ -239,14 +239,17 @@ public class SetKeyWithValue {
     @And("^I select all text in \"([^\"]*)\" element$")
     public void iSelectText(String textarea) {
         WebElement element = GetElementFromPage.getWebElementWithName(textarea);
-        element.click();
-        element.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        selectTextInElement(element);
     }
 
     @And("^I select all text in row \"([^\"]*)\" and column \"([^\"]*)\" of the table in word report$")
     public void iSelectTextCell(String row, String column) {
         String xpath = "//tr[" + row + "]/td[" + column + "]";
         WebElement element = webDriver.findElement(By.xpath(xpath));
+        selectTextInElement(element);
+    }
+
+    public void selectTextInElement(WebElement element) {
         String jScript = "var node = arguments[0];\n" +
                 "\n" +
                 "        if ( document.selection ) {\n" +
