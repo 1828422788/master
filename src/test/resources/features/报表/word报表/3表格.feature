@@ -19,6 +19,7 @@ Feature:报表_富文本编辑_表格
     And I set the parameter "TextArea" with value "textclick" and press enter in word report
     And I set the parameter "NewLine" with value "text" and press enter in word report
     And I select all text in "TextAreaLocator" element
+    And I click the "TextAreaLocator" button
     And I click the "AddTable" button
     And I click the "AddTable3x2" button
     And I wait for "2000" millsecond
@@ -50,6 +51,7 @@ Feature:报表_富文本编辑_表格
     And I wait for "2000" millsecond
 
     And I select all text in "NewLine" element
+    And I click the "NewLine" button
     And I set the parameter "ChartListInput" with value "报表测试"
     And I click the button with text "报表测试"
     And I wait for "2000" millsecond
@@ -67,6 +69,7 @@ Feature:报表_富文本编辑_表格
     And I set the parameter "TextArea" with value "textclick" and press enter in word report
     And I set the parameter "NewLine" with value "text" and press enter in word report
     And I select all text in "TextAreaLocator" element
+    And I click the "TextAreaLocator" button
     And I click the "AddTable" button
     And I click the "NoBorders" button
     And I click the "AddTable4x2" button
@@ -97,6 +100,7 @@ Feature:报表_富文本编辑_表格
     And I wait for "2000" millsecond
 
     And I select all text in "NewLine" element
+    And I click the "NewLine" button
     And I set the parameter "ChartListInput" with value "报表测试"
     And I click the button with text "报表测试"
     And I wait for "2000" millsecond
