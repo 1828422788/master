@@ -29,6 +29,12 @@ Feature: 报表_富文本编辑下载
       | JustifyAlignment     |
       | DividingLine         |
       | Image                |
+      | Image_HF             |
+      | Image_Table          |
       | Table3x2_Color       |
       | Table4x2_Alignment   |
+      | Table3x3_DeleteTable |
+      | Table3x3_DeleteRow   |
+      | Table3x3_DeleteColumn|
+      | Table3x3_CleanContent|
       | test_5trends_WORD    |

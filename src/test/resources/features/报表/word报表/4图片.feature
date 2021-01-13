@@ -20,7 +20,7 @@ Feature:报表_富文本编辑_图片
     And I wait for "2000" millsecond
     And I will see the "ImageElement" is display
     And I click the "ImageElement" button
-    And I will see the "DeleteElement" is display
+    And I wait for "DeleteElement" will be visible
     And I click the "DeleteElement" button
     And I will see the "ImageElement" doesn't exist
     And I click the "Undo" button

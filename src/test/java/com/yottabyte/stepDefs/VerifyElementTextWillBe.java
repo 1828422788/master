@@ -15,6 +15,7 @@ import static org.junit.Assert.*;
  * @author A on 2017/4/13.
  */
 public class VerifyElementTextWillBe {
+    private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
     /**
      * 验证某一元素文本内容是否正确
@@ -107,6 +108,12 @@ public class VerifyElementTextWillBe {
     public void iWillSeeAlertMessage(String alertMessage) {
         WebElement element = GetElementFromPage.getWebElementWithName("AlertMessage");
         String realResult = element.getText();
+        assertEquals(alertMessage, realResult);
+    }
+
+    @Then("^I will see the message \"([^\"]*)\" in alert window$")
+    public void iWillSeeAlert(String alertMessage) {
+        String realResult = webDriver.switchTo().alert().getText();;
         assertEquals(alertMessage, realResult);
     }
 

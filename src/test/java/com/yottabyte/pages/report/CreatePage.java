@@ -2114,6 +2114,10 @@ public class CreatePage extends PageTemplate {
         return deleteRow;
     }
 
+    public WebElement getDeleteColumn() {
+        return deleteColumn;
+    }
+
     public WebElement getCleanContent() {
         return cleanContent;
     }

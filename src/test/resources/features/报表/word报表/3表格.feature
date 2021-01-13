@@ -133,11 +133,12 @@ Feature:报表_富文本编辑_表格
     And I set the table cell in row "3" and column "1" with value "Cell 3 1" in word report
     And I set the table cell in row "3" and column "2" with value "Cell 3 2" in word report
     And I set the table cell in row "3" and column "3" with value "Cell 3 3" in word report
+    And I select all text in row "2" and column "2" of the table in word report
     And I click the "Cell22" button
 
-    And I will see the "DeleteElement" is display
+    And I wait for "DeleteElement" will be visible
     And I click the "DeleteElement" button
-    And I will see the "<button>" is display
+    And I wait for "<button>" will be visible
     And I click the "<button>" button
 
     And I select all text in "NewLine" element

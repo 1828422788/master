@@ -38,6 +38,7 @@ Feature:报表_富文本编辑_本文
     And I will see the element "HeaderTextStyle" style contains "color: rgb(106, 168, 79);"
     And I will see the element "FooterTextStyle" style contains "color: rgb(106, 168, 79);"
 
+    And I click the "TextAreaLocator" button
     And I set the parameter "ChartListInput" with value "报表测试"
     And I click the button with text "报表测试"
     And I wait for "2000" millsecond
