@@ -17,24 +17,30 @@ Feature: 报表_富文本编辑下载
 #    Then I compare source report file "expect/<name>.docx" with target report file "<name>.docx"
 
     Examples:
-      |          name        |
-      | SingleTrend          |
-      | FontSize             |
-      | BoldText             |
-      | ItalicsText          |
-      | UnderlinedText       |
-      | RightAlignment       |
-      | LeftAlignment        |
-      | CenterAlignment      |
-      | JustifyAlignment     |
-      | DividingLine         |
-      | Image                |
-      | Image_HF             |
-      | Image_Table          |
-      | Table3x2_Color       |
-      | Table4x2_Alignment   |
-      | Table3x3_DeleteTable |
-      | Table3x3_DeleteRow   |
-      | Table3x3_DeleteColumn|
-      | Table3x3_CleanContent|
-      | test_5trends_WORD    |
+      |          name                 |
+      | SingleTrend                   |
+      | FontSize                      |
+      | BoldText                      |
+      | ItalicsText                   |
+      | UnderlinedText                |
+      | RightAlignment                |
+      | LeftAlignment                 |
+      | CenterAlignment               |
+      | JustifyAlignment              |
+      | DividingLine                  |
+      | Image                         |
+      | Image_HF                      |
+      | Image_Table                   |
+      | Table3x2_Color                |
+      | Table4x2_Alignment            |
+      | Table3x3_DeleteTable          |
+      | Table3x3_DeleteRow            |
+      | Table3x3_DeleteColumn         |
+      | Table3x3_ClearContent         |
+      | Table3x3_AddRowAbove          |
+      | Table3x3_AddRowBelow          |
+      | Table3x3_AddColumnBefore      |
+      | Table3x3_AddColumnAfter       |
+      | Table3x2_TopVerticalAlign     |
+      | Table3x2_MiddleVerticalAlign  |
+      | test_5trends_WORD             |

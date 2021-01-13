@@ -1764,19 +1764,19 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//p[@name='pagefooter']/*")
     private WebElement footerTextStyle;
 
-    @FindBy(xpath = "//a[@aria-label='对齐方式']")
+    @FindBy(xpath = "(//a[@aria-label='对齐方式'])[last()]")
     private WebElement alignment;
 
-    @FindBy(xpath = "//a[@aria-label='居中']")
+    @FindBy(xpath = "(//a[@aria-label='居中'])[last()]")
     private WebElement centerAlignment;
 
-    @FindBy(xpath = "//a[@aria-label='右对齐']")
+    @FindBy(xpath = "(//a[@aria-label='右对齐'])[last()]")
     private WebElement rightAlignment;
 
-    @FindBy(xpath = "//a[@aria-label='左对齐']")
+    @FindBy(xpath = "(//a[@aria-label='左对齐'])[last()]")
     private WebElement leftAlignment;
 
-    @FindBy(xpath = "//a[@aria-label='对齐文本']")
+    @FindBy(xpath = "(//a[@aria-label='对齐文本'])[last()]")
     private WebElement justifyAlignment;
 
     @FindBy(xpath = "//a[@aria-label='分割线']")
@@ -1864,11 +1864,40 @@ public class CreatePage extends PageTemplate {
     private WebElement deleteColumn;
 
     @FindBy(xpath = "//span[text()='清除内容']/ancestor::a")
-    private WebElement cleanContent;
+    private WebElement clearContent;
 
     @FindBy(xpath = "//tr[2]/td[2]")
     private WebElement cell22;
 
+    @FindBy(xpath = "//a[@role = 'button' and @aria-label='添加行']")
+    private WebElement addRow;
+
+    @FindBy(xpath = "//span[text()='在之前插入行']/ancestor::a")
+    private WebElement addRowAbove;
+
+    @FindBy(xpath = "//span[text()='在之后插入行']/ancestor::a")
+    private WebElement addRowBelow;
+
+    @FindBy(xpath = "//a[@role = 'button' and @aria-label='添加列']")
+    private WebElement addColumn;
+
+    @FindBy(xpath = "//span[text()='在之前插入列']/ancestor::a")
+    private WebElement addColumnBefore;
+
+    @FindBy(xpath = "//span[text()='在之后插入列']/ancestor::a")
+    private WebElement addColumnAfter;
+
+    @FindBy(xpath = "//a[@aria-label='垂直对齐']")
+    private WebElement verticalAlignment;
+
+    @FindBy(xpath = "//span[text()='顶部']/ancestor::a")
+    private WebElement topVerticalAlign;
+
+    @FindBy(xpath = "//span[text()='中间']/ancestor::a")
+    private WebElement middleVerticalAlign;
+
+    @FindBy(xpath = "//span[text()='底部']/ancestor::a")
+    private WebElement bottomVerticalAlign;
 //----------------------------
 
 
@@ -1986,6 +2015,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getAlignment() {
+        alignment.click();
         return alignment;
     }
 
@@ -2118,12 +2148,53 @@ public class CreatePage extends PageTemplate {
         return deleteColumn;
     }
 
-    public WebElement getCleanContent() {
-        return cleanContent;
+    public WebElement getClearContent() {
+        return clearContent;
     }
 
     public WebElement getCell22() {
         return cell22;
+    }
+
+    public WebElement getAddRow() {
+        return addRow;
+    }
+
+    public WebElement getAddRowAbove() {
+        return addRowAbove;
+    }
+
+    public WebElement getAddRowBelow() {
+        return addRowBelow;
+    }
+
+    public WebElement getAddColumn() {
+        return addColumn;
+    }
+
+    public WebElement getAddColumnBefore() {
+        return addColumnBefore;
+    }
+
+    public WebElement getAddColumnAfter() {
+        return addColumnAfter;
+    }
+
+    public WebElement getVerticalAlignment() {
+        verticalAlignment.click();
+        return verticalAlignment;
+    }
+
+    public WebElement getTopVerticalAlign() {
+        return topVerticalAlign;
+    }
+
+    public WebElement getMiddleVerticalAlign() {
+        return middleVerticalAlign;
+    }
+
+    public WebElement getBottomVerticalAlign() {
+        return bottomVerticalAlign;
     }
 //----------------------------
 
