@@ -147,6 +147,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I wait for title change text to "搜索"
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by apache.clientip"
+    And I wait for "2000" millsecond
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard @dashboardSmoke
@@ -173,6 +174,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.clientip:64.20.177.254"
+    And I wait for "2000" millsecond
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard @dashboardSmoke
@@ -198,6 +200,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to another window
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by appname"
+    And I wait for "2000" millsecond
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
@@ -224,6 +227,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==24"
+    And I wait for "2000" millsecond
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
@@ -251,6 +255,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.clientip:64.20.177.254"
+    And I wait for "2000" millsecond
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
@@ -278,6 +283,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will contain "starttime="
     Then I will see the "SearchInput" result will contain "endtime="
+    And I wait for "2000" millsecond
     Then I will see the input element "TimeRange" value will contains "本月"
 
   @dashboard
@@ -367,6 +373,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I wait for title change text to "搜索"
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by apache.geo.province"
+    And I wait for "2000" millsecond
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard @dashboardSmoke
@@ -393,6 +400,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.geo.province:台湾"
+    And I wait for "2000" millsecond
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard @dashboardSmoke
@@ -471,6 +479,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424 | stats count() by '内蒙古'"
+    And I wait for "2000" millsecond
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
@@ -498,6 +507,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will contain "starttime="
     Then I will see the "SearchInput" result will contain "endtime="
+    And I wait for "1000" millsecond
     Then I will see the input element "TimeRange" value will contains "本月"
 
   @dashboard
@@ -711,6 +721,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will contain "starttime="
     Then I will see the "SearchInput" result will contain "endtime="
+    And I wait for "1000" millsecond
     Then I will see the input element "TimeRange" value will contains "本月"
 
   @dashboard
@@ -860,6 +871,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will contain "starttime="
     Then I will see the "SearchInput" result will contain "endtime="
+    And I wait for "1000" millsecond
     Then I will see the input element "TimeRange" value will contains "本月"
 
   @dashboard
@@ -1169,6 +1181,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will contain "starttime="
     Then I will see the "SearchInput" result will contain "endtime="
+    And I wait for "1000" millsecond
     Then I will see the input element "TimeRange" value will contains "最近7天"
 
   @dashboard

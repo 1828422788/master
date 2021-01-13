@@ -130,6 +130,7 @@ Feature: 仪表盘钻取配置
     Then I wait for title change text to "搜索"
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10"
+    And I wait for "1000" millsecond
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard @dashboardSmoke
@@ -153,6 +154,7 @@ Feature: 仪表盘钻取配置
     And switch to another window
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10"
+    And I wait for "1000" millsecond
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard @dashboardSmoke

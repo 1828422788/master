@@ -156,6 +156,7 @@ Feature: 仪表盘柱状图
     Then I wait for title change text to "搜索"
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_display | stats count() by apache.clientip"
+    And I wait for "2000" millsecond
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
@@ -182,6 +183,7 @@ Feature: 仪表盘柱状图
 #    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.clientip:36.46.208.22"
+    And I wait for "2000" millsecond
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
@@ -208,6 +210,7 @@ Feature: 仪表盘柱状图
 #    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_display | stats count() by appname"
+    And I wait for "2000" millsecond
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard

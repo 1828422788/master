@@ -196,6 +196,7 @@ Feature: 仪表盘事件列表
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
+    And I wait for "2000" millsecond
     Then I will see the input element "TimeRange" value will contains "30秒窗口"
 
   @dashboard @dashboardSmoke
@@ -261,6 +262,7 @@ Feature: 仪表盘事件列表
 #    And I close all tabs except main tab
     Then I will see the "splSearch.SearchPage" page
     Then I will see the element "SearchInput" name is "'apache.geo.city': 成都市"
+    And I wait for "2000" millsecond
     Then I will see the input element "TimeRange" value will contains "今天"
     And switch to another window
     And I close all tabs except main tab
