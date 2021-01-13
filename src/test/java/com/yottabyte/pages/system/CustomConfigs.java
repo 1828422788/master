@@ -101,4 +101,11 @@ public class CustomConfigs extends PageTemplate {
     public WebElement getWholeTime() {
         return super.getInputElement("所有时间定义");
     }
+
+    @FindBy(xpath = "//div[text()='交易日功能']/following::span[@class='ant-upload']/input")
+    private WebElement uploadTranDate;
+    public WebElement getUploadTranDate() {
+        return uploadTranDate;
+    }
+
 }

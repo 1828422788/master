@@ -31,7 +31,6 @@ Feature:
       |	api00_spl统计where_ip_20分钟_cnt_高_扩展chart_all	|
       |	api00_基线_status_在区间外_邮件_合并	|
       |	api00_基线_status_在区间外_邮件_合并_交易日	|
-      |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_spark	|
       |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_交易日	|
       |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_合并	|
       |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_抑制	|
@@ -43,7 +42,6 @@ Feature:
       |	api01_all_事件计数_扩展chart_all_合并	|
       |	api01_字段统计_最大数status_扩展chart键值_邮件_合并	|
       |	api0_all_事件数_扩展chart_all_sample_合并	|
-      |	api0_all_事件计数_设备切分ip_扩展chart_all_spark	|
       |	api0_all_事件计数_设备切分ip_扩展chart_all_交易日	|
       |	api0_all_事件计数_设备切分ip_扩展chart_all抑制45	|
       |	api0_基线_status_在区间内_all_合并	|
@@ -51,7 +49,6 @@ Feature:
       |	api1_spl统计avg_高_扩展avg_all	|
       |	api1_spl统计avg_高_扩展avg_all_搜索宏_扩展宏	|
       |	api1_事件_multiwords_切分_扩展chart插图_键值_邮件	|
-      |	api1_事件_multiwords_切分_扩展chart插图_键值_邮件_splark	|
       |	api1_字段统计_平均数resplen_邮件	|
       |	api2_guest_ds200_事件数_邮件	|
       |	api2_nods_事件数_ping主机	|
