@@ -853,6 +853,9 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//label[text()='今天']/following-sibling::i)[2]")
     private WebElement setting;
 
+    @FindBy(xpath = "((//label[text()='今天'])[2]/following-sibling::i)[2]")
+    private WebElement secondSetting;
+
     @FindBy(xpath = "//span[text()='数值字段']/ancestor::div/following-sibling::div//i")
     private WebElement dataField;
 
@@ -1707,6 +1710,10 @@ public class CreatePageDash extends PageTemplate {
 
     public WebElement getSetting() {
         return setting;
+    }
+
+    public WebElement getSecondSetting() {
+        return secondSetting;
     }
 
     public WebElement getLine() {
