@@ -4,24 +4,24 @@ Feature: 租户系统-租户新建
 
   @logdisplay
   Scenario Outline: 新建logdisplay域
-    Given open the "saas.SaasLoginPage" page for uri "/domain/tenant/"
-    When I set the parameter "Username" with properties "admin"
-    And I set the parameter "Password" with properties "admin@rizhiyi.com"
-    And I click the "LoginButton" button
+#    Given open the "saas.SaasLoginPage" page for uri "/domain/tenant/"
+#    When I set the parameter "Username" with properties "admin"
+#    And I set the parameter "Password" with properties "admin@rizhiyi.com"
+#    And I click the "LoginButton" button
 
     And I will see the "tenant.ListPage" page
     And I click the "CreateButton" button
     Then I will see the "tenant.CreatePage" page
 
-    And I set the parameter "Name" with value "<name>"
+    And I set the parameter "tenantName" with value "<name>"
     And I set the parameter "DomainName" with value "<domainName>"
-    And I choose the "<supportFeature>" from the "supportFeature"
+    And I choose the "<supportFeature>" from the "SupportFeatureList"
 
     And I set the parameter "DailyLimit" with value "<dailyLimit>"
     And I set the parameter "uploadLimit" with value "<uploadLimit>"
     And I set the parameter "ExcessLimit" with value "<excessLimit>"
 
-    And I choose the "<excessBehavior>" from the "ExcessBehavior"
+    And I choose the "<excessBehavior>" from the "ExcessBehaviorList"
 
     And I set the parameter "ManagerName" with value "<managerName>"
     And I set the parameter "ManagerEmail" with value "<managerEmail>"
