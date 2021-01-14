@@ -9,6 +9,7 @@ Feature: 字段提取固定电话解析
     And I click the "AddRule" button
     And I choose the "固定电话解析" from the "ParseRule" in config
     And I choose the "raw_message" from the "SourceField" in config
+    Then I wait for "1000" millsecond
     And I click the "<checkBox>" button
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible

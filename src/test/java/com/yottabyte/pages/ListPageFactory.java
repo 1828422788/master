@@ -20,7 +20,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     public WebDriver webDriver;
     private DropdownUtils utils = new DropdownUtils();
 
-    @FindBy(className = "ant-input")
+    @FindBy(xpath = "//input[@yotta-test='table-filter-text']")
     private WebElement searchInput;
 
     @FindBy(className = "ant-select-dropdown-menu")

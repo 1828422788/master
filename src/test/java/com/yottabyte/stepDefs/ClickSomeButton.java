@@ -37,7 +37,7 @@ public class ClickSomeButton {
                 button = GetElementFromPage.getWebElementWithName(buttonName);
             }
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", button);
-            clickElement(button);
+            ClickEvent.clickUnderneathButton(button);
         } else {
             System.out.println("skip this step!");
         }

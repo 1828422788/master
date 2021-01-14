@@ -24,6 +24,7 @@ public class ClickButtonWithGivenName {
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
     Paging pagingInfo = new Paging();
     ListPageUtils listPageUtils = new ListPageUtils();
+    private DropdownUtils dropdownUtils = new DropdownUtils();
 
     /**
      * 寻找对应名称的操作按钮并点击
@@ -36,6 +37,38 @@ public class ClickButtonWithGivenName {
         try{
             WebElement tr = listPageUtils.getRow(dataName);
             this.click(buttonName, tr);
+        }
+        catch (org.openqa.selenium.StaleElementReferenceException exception){
+            WebElement tr = listPageUtils.getRow(dataName);
+            this.click(buttonName, tr);
+        }
+    }
+
+    /**
+     * 在更多操作中寻找对应名称的操作按钮并点击
+     *
+     * @param dataName   字符串：第一列所要匹配的名称，json：{'column':'start from 0','name':''}
+     * @param buttonName 按钮名称
+     */
+    @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button in more menu$")
+    public void clickButtonInMoreMenuWithGivenName(String dataName, String buttonName) {
+        try{
+            WebElement tr = listPageUtils.getRow(dataName);
+            WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='operation-more-button']"));
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
+            WebElement lastMenuList = dropdownUtils.getMenuList();
+            List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
+            if (buttonName != null && buttonName.trim().length() != 0) {
+                for (WebElement e : elements) {
+                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+                    if (buttonName.equals(e.getText())) {
+                        e.click();
+                        break;
+                    }
+                }
+            }
+
+
         }
         catch (org.openqa.selenium.StaleElementReferenceException exception){
             WebElement tr = listPageUtils.getRow(dataName);
@@ -180,7 +213,7 @@ public class ClickButtonWithGivenName {
         } else if ("详情".equals(buttonName)) {
             xpath = ".//span[contains(text(),'" + buttonName + "')]";
         } else {
-            xpath = ".//a[text()='" + buttonName + "']";
+            xpath = ".//span[text()='" + buttonName + "']";
         }
         List<WebElement> button = tr.findElements(By.xpath(xpath));
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button.get(0));
@@ -363,12 +396,29 @@ public class ClickButtonWithGivenName {
     @When("^the data name is \"([^\"]*)\" then I \"([^\"]*)\" the switch$")
     public void operateSwitch(String name, String status) {
         WebElement tr = listPageUtils.getRow(name);
-        WebElement label = tr.findElement(By.xpath(".//button"));
-        String labelAttribute = label.getAttribute("aria-checked");
-        if (status.equals("close") && labelAttribute.contains("true") || status.equals("open") && labelAttribute.contains("false")) {
-            label.click();
+        WebElement element = tr.findElement(By.xpath(".//input[@type='checkbox']"));
+        String selected = element.isSelected() ? "open" : "close";
+        if (!status.equals(selected)) {
+            ClickEvent.clickUnderneathButton(element);
         }
     }
+
+// 3.6 版本
+//    /**
+//     * 关闭或开启禁用开关
+//     *
+//     * @param name   名称
+//     * @param status 状态 open/close
+//     */
+//    @When("^the data name is \"([^\"]*)\" then I \"([^\"]*)\" the switch$")
+//    public void operateYottaSwitch(String name, String status) {
+//        WebElement tr = listPageUtils.getRow(name);
+//        WebElement label = tr.findElement(By.xpath(".//button"));
+//        String labelAttribute = label.getAttribute("aria-checked");
+//        if (status.equals("close") && labelAttribute.contains("true") || status.equals("open") && labelAttribute.contains("false")) {
+//            label.click();
+//        }
+//    }
 
 
     @Given("^the data name in agent beats table \"([^\"]*)\" then i click the \"([^\"]*)\" switch")
@@ -413,9 +463,9 @@ public class ClickButtonWithGivenName {
     @Then("^I will see the element \"([^\"]*)\" is \"([^\"]*)\"$")
     public void verifySwitchStatus(String name, String status) {
         WebElement tr = listPageUtils.getRow(name);
-        WebElement label = tr.findElement(By.xpath(".//button"));
-        String labelAttribute = label.getAttribute("aria-checked");
-        Assert.assertTrue(status.equals("close") && labelAttribute.contains("false") || status.equals("open") && labelAttribute.contains("true"));
+        WebElement element = tr.findElement(By.xpath(".//input[@type='checkbox']"));
+        String selected = element.isSelected() ? "open" : "close";
+        Assert.assertTrue(status.equals(selected));
     }
 
     /**

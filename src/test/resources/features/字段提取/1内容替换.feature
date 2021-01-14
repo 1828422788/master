@@ -12,9 +12,10 @@ Feature: 字段提取内容替换
     And I click the "AddRule" button
     And I choose the "内容替换" from the "ParseRule" in config
     And I choose the "raw_message" from the "SourceField" in config
-    And I set the parameter "Regex" with value "(\d+)[a-z]+"
-    And I set the parameter "ReplaceContent" with value "$1"
-    And I click the "Checkbox" button
+    Then I wait for "1000" millsecond
+    And I set the value "(\d+)[a-z]+" to the textarea "Regex"
+    And I set the value "$1" to the textarea "ReplaceContent"
+    And I click the "ReplaceFirst" button
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     Then I wait for "100" millsecond
@@ -35,39 +36,41 @@ Feature: 字段提取内容替换
     And I click the "AddRule" button
     And I choose the "内容替换" from the "ParseRule" in config
     And I choose the "raw_message" from the "SourceField" in config
-    And I set the parameter "Regex" with value "(\d+)[a-z]+"
-    And I set the parameter "ReplaceContent" with value "<replaceContent>"
+    Then I wait for "1000" millsecond
+    And I set the value "(\d+)[a-z]+" to the textarea "Regex"
+    And I set the value "<replaceContent>" to the textarea "ReplaceContent"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
+    And I click the "Collapse" button
     And I click the "NextButton" button under some element
-    And I click the "SwitchButton" button
     When I set the parameter "Name" with value "RZY1556内容替换"
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "<appName>"
     And I set the parameter "Tag" with value "<appName>"
+    And I switch the "SwitchButton" button to "enable"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
-    When open the "localUpload.ListPage" page for uri "/sources/input/os/"
-    And I set the parameter "AppName" with value "<appName>"
-    And I set the parameter "Tag" with value "<appName>"
-    And I upload a file with name "/src/test/resources/testdata/log/<log>"
-    And I click the "UploadButton" button
-    And I wait for element "VerifyText" change text to "上传完成"
-    Then I wait for "40000" millsecond
-    When open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I set the parameter "SearchInput" with value "tag:<appName>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I move the mouse pointer to the "Result"
-    And I click the "RightIcon" button
-    Then I will see the spl search result "<searchResult>"
+#    When open the "localUpload.ListPage" page for uri "/sources/input/os/"
+#    And I set the parameter "AppName" with value "<appName>"
+#    And I set the parameter "Tag" with value "<appName>"
+#    And I upload a file with name "/src/test/resources/testdata/log/<log>"
+#    And I click the "UploadButton" button
+#    And I wait for element "VerifyText" change text to "上传完成"
+#    Then I wait for "40000" millsecond
+#    When open the "splSearch.SearchPage" page for uri "/search/"
+#    And I wait for element "SearchStatus" change text to "搜索完成!"
+#    And I set the parameter "SearchInput" with value "tag:<appName>"
+#    And I click the "DateEditor" button
+#    And I click the "Today" button
+#    And I click the "SearchButton" button
+#    And I wait for element "SearchStatus" change text to "搜索完成!"
+#    Then I move the mouse pointer to the "Result"
+#    And I click the "RightIcon" button
+#    Then I will see the spl search result "<searchResult>"
 
 
     Examples:
@@ -83,34 +86,36 @@ Feature: 字段提取内容替换
     And I click the "AddRule" button
     And I choose the "内容替换" from the "ParseRule" in config
     And I choose the "raw_message" from the "SourceField" in config
-    And I set the parameter "Regex" with value "(\d+)[a-z]+"
-    And I set the parameter "ReplaceContent" with value "<replaceContent>"
+    Then I wait for "1000" millsecond
+    And I set the value "(\d+)[a-z]+" to the textarea "Regex"
+    And I set the value "<replaceContent>" to the textarea "ReplaceContent"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
+    And I click the "Collapse" button
     And I click the "NextButton" button under some element
-    And I click the "SwitchButton" button
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "<appName>"
     And I set the parameter "Tag" with value "<appName>"
+    And I switch the "SwitchButton" button to "enable"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
-    When open the "localUpload.ListPage" page for uri "/sources/input/os/"
-    And I set the parameter "AppName" with value "<appName>"
-    And I set the parameter "Tag" with value "<appName>"
-    And I upload a file with name "/src/test/resources/testdata/log/<log>"
-    And I click the "UploadButton" button
-    And I wait for element "VerifyText" change text to "上传完成"
-    Then I wait for "90000" millsecond
-    Given open the "configs.ListPage" page for uri "/configs/"
-    Then I wait for loading invisible
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
-    And I wait for loading invisible
-    Then I will see the config element "<rule1>" value is "<rule1> 1 1 0 0 0"
+#    When open the "localUpload.ListPage" page for uri "/sources/input/os/"
+#    And I set the parameter "AppName" with value "<appName>"
+#    And I set the parameter "Tag" with value "<appName>"
+#    And I upload a file with name "/src/test/resources/testdata/log/<log>"
+#    And I click the "UploadButton" button
+#    And I wait for element "VerifyText" change text to "上传完成"
+#    Then I wait for "90000" millsecond
+#    Given open the "configs.ListPage" page for uri "/configs/"
+#    Then I wait for loading invisible
+#    When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
+#    And I wait for loading invisible
+#    Then I will see the config element "<rule1>" value is "<rule1> 1 1 0 0 0"
 
 
     Examples:
@@ -125,40 +130,41 @@ Feature: 字段提取内容替换
     And I click the "AddRule" button
     And I choose the "JSON解析" from the "ParseRule" in config
     And I choose the "raw_message" from the "SourceField" in config
+    Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "AddRule" button
     And I choose the "内容替换" from the "ParseRule" in config
     And I choose the "@tag" from the "SourceField" in config
-    And I set the parameter "Regex" with value "(.*)"
-    And I set the parameter "ReplaceContent" with value "$1,newinfo"
+    And I set the value "(.*)" to the textarea "Regex"
+    And I set the value "$1,newinfo" to the textarea "ReplaceContent"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "NextButton" button under some element
-    And I click the "SwitchButton" button
     When I set the parameter "Name" with value "RZY1559tag替换"
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "<tag>"
     And I set the parameter "Tag" with value "<tag>"
+    And I switch the "SwitchButton" button to "enable"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
-    When open the "localUpload.ListPage" page for uri "/sources/input/os/"
-    And I set the parameter "AppName" with value "<tag>"
-    And I set the parameter "Tag" with value "<tag>"
-    And I upload a file with name "/src/test/resources/testdata/log/<log>"
-    And I click the "UploadButton" button
-    And I wait for element "VerifyText" change text to "上传完成"
-    Then I wait for "40000" millsecond
-    When open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I set the parameter "SearchInput" with value "tag:<tag>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I move the mouse pointer to the "Result"
-    And I click the "RightIcon" button
-    Then I will see the spl search result "<searchResult>" which is selected
+#    When open the "localUpload.ListPage" page for uri "/sources/input/os/"
+#    And I set the parameter "AppName" with value "<tag>"
+#    And I set the parameter "Tag" with value "<tag>"
+#    And I upload a file with name "/src/test/resources/testdata/log/<log>"
+#    And I click the "UploadButton" button
+#    And I wait for element "VerifyText" change text to "上传完成"
+#    Then I wait for "40000" millsecond
+#    When open the "splSearch.SearchPage" page for uri "/search/"
+#    And I wait for element "SearchStatus" change text to "搜索完成!"
+#    And I set the parameter "SearchInput" with value "tag:<tag>"
+#    And I click the "DateEditor" button
+#    And I click the "Today" button
+#    And I click the "SearchButton" button
+#    And I wait for element "SearchStatus" change text to "搜索完成!"
+#    Then I move the mouse pointer to the "Result"
+#    And I click the "RightIcon" button
+#    Then I will see the spl search result "<searchResult>" which is selected
 
     Examples:
       | tag                 | log        | searchResult                                |
@@ -172,36 +178,37 @@ Feature: 字段提取内容替换
     And I click the "AddRule" button
     And I choose the "JSON解析" from the "ParseRule" in config
     And I choose the "raw_message" from the "SourceField" in config
+    Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "AddRule" button
     And I choose the "内容替换" from the "ParseRule" in config
     And I choose the "@tag" from the "SourceField" in config
-    And I set the parameter "Regex" with value "(.*)"
-    And I set the parameter "ReplaceContent" with value "$1,newinfo"
+    And I set the value "(.*)" to the textarea "Regex"
+    And I set the value "$1,newinfo" to the textarea "ReplaceContent"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "NextButton" button under some element
-    And I click the "SwitchButton" button
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "<tag>"
     And I set the parameter "Tag" with value "<tag>"
+    And I switch the "SwitchButton" button to "enable"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
-    When open the "localUpload.ListPage" page for uri "/sources/input/os/"
-    And I set the parameter "AppName" with value "<tag>"
-    And I set the parameter "Tag" with value "<tag>"
-    And I upload a file with name "/src/test/resources/testdata/log/<log>"
-    And I click the "UploadButton" button
-    And I wait for element "VerifyText" change text to "上传完成"
-    Then I wait for "90000" millsecond
-    Given open the "configs.ListPage" page for uri "/configs/"
-    Then I wait for loading invisible
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
-    And I wait for loading invisible
-    Then I will see the config element "<rule1>" value is "<rule1> 1 1 0 0 0"
-    Then I will see the config element "<rule2>" value is "<rule2> 1 1 0 0 0"
+#    When open the "localUpload.ListPage" page for uri "/sources/input/os/"
+#    And I set the parameter "AppName" with value "<tag>"
+#    And I set the parameter "Tag" with value "<tag>"
+#    And I upload a file with name "/src/test/resources/testdata/log/<log>"
+#    And I click the "UploadButton" button
+#    And I wait for element "VerifyText" change text to "上传完成"
+#    Then I wait for "90000" millsecond
+#    Given open the "configs.ListPage" page for uri "/configs/"
+#    Then I wait for loading invisible
+#    When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
+#    And I wait for loading invisible
+#    Then I will see the config element "<rule1>" value is "<rule1> 1 1 0 0 0"
+#    Then I will see the config element "<rule2>" value is "<rule2> 1 1 0 0 0"
 
 
     Examples:

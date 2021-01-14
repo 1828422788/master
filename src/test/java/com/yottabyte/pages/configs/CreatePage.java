@@ -20,134 +20,41 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='保存']")
     private WebElement saveSearchLog;
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//div[@aria-hidden='false']//tbody[@class='ant-table-tbody']/tr/td[4]")
+    @FindBy(xpath = "//table[@yotta-test='config-eventlist-table']//tbody/tr/td[4]")
     private WebElement rawLog;
 
-    @FindBy(xpath = "//input[@placeholder='请输入hostname']")
-    private WebElement hostNameInput;
-
-    @FindBy(className = "CodeMirror")
+    @FindBy(className = "ReactCodeMirror")
     private WebElement searchInput;
 
-    @FindBy(xpath = "//input[@placeholder='请选择快捷时间或时间范围']")
+    @FindBy(xpath = "//div[@class='yotta-date-time-picker']")
     private WebElement dateEditor;
 
-    @FindBy(xpath = "//div[@class='ant-popover-inner']")
-    private WebElement popOverTip;
+    @FindBy(xpath = "//label[@class='yotta-date-time-picker-label' and text()='最近1小时']")
+    private WebElement oneHour;
 
-    @FindBy(xpath = "//div[@class='ant-modal-content']/div[@class='ant-modal-body']//div[@aria-hidden='false']//p[@class='ant-empty-description']")
-    private WebElement saveLogEmpty;
-
-    @FindBy(xpath = "//span[text()='不删除']/ancestor::button")
-    private WebElement cancelDelete;
-
-    @FindBy(xpath = "//div[@class='O1G8NKe6Vvcsh5km5jrL']/div[1]")
-    private WebElement alertMessage;
-
-    @FindBy(xpath = "//span[text()='删 除']/ancestor::button")
-    private WebElement delete;
-
-    @FindBy(xpath = "//span[text()='返 回']/ancestor::button")
-    private WebElement goBack;
-
-    @FindBy(xpath = "//div[@class='ant-table ant-table-small ant-table-scroll-position-left']/div[1]/div[1]/table/thead/tr/th")
+    @FindBy(xpath = "//table[@yotta-test='config-log_field-table']/thead/tr/th")
     private List<WebElement> fieldTitle;
 
-    @FindBy(xpath = "//div[@class='ant-table ant-table-small ant-table-scroll-position-left']/div[1]/div[1]/table/tbody/tr/td")
+    @FindBy(xpath = "//table[@yotta-test='config-log_field-table']/tbody/tr/td")
     private List<WebElement> fieldValue;
 
-    @FindBy(xpath = "//i[@class='anticon anticon-down ant-select-arrow-icon']")
-    private WebElement parseField;
-
-    @FindBy(xpath = "//span[text()='字 段']/ancestor::button")
-    private WebElement field;
-
-    @FindBy(xpath = "//tr[@class='ant-table-row ant-table-row-level-0']/td[1]")
+    @FindBy(xpath = "//table[@yotta-test='config-eventlist-table']/tbody/tr/td[1]")
     private WebElement status;
 
-    @FindBy(xpath = "//span[text()='使用检索日志验证']/ancestor::button")
-    private WebElement useCheckLog;
+    @FindBy(xpath = "//table[@yotta-test='config-eventlist-table']//div[@class='yotta-table-placeholder']")
+    private WebElement saveLogEmpty;
 
-    @FindBy(xpath = "//span[text()='选为日志样例']")
-    private WebElement asLogSample;
-
-    @FindBy(xpath = "//div[@class='W-DzZZK_oRaoRqzRvaYh6']/div")
+    @FindBy(xpath = "//div[@yotta-test='config-rule-list']/div")
     private List<WebElement> ruleList;
 
-    @FindBy(xpath = "//span[@class='ant-modal-close-x']/i[@aria-label='图标: close']")
+    @FindBy(xpath = "//span[contains(@class, 'yotta-modal-close-icon')]")
     private WebElement clearIcon;
 
-    @FindBy(xpath = "//span[text()='保 存']/ancestor::button")
-    private WebElement save;
-
-    @FindBy(xpath = "//span[text()='新 建']/ancestor::button")
-    private WebElement create;
-
-    @FindBy(xpath = "//div[contains(text(),'读取已存日志')]")
-    private WebElement readSavedLog;
-
-    @FindBy(xpath = "//span[text()='事件列表']")
-    private WebElement eventList;
-
-    @FindBy(xpath = "//span[text()='收起']")
-    private WebElement packup;
-
-    @FindBy(xpath = "//div[text()='规则别名']/following-sibling::div[1]/input")
-    private WebElement ruleRemark;
-
-    @FindBy(xpath = "//textarea[@placeholder='请输入raw_message']")
-    private WebElement logSample;
-
-    @FindBy(xpath = "//div[@class='ant-tabs-tabpane ant-tabs-tabpane-active']/div[2]/div/div[2]/div[1]/textarea[@placeholder='请输入raw_message']")
-    private WebElement eventListLogSample;
-
-    @FindBy(xpath = "//div[@class='ant-tabs-tabpane ant-tabs-tabpane-active']/div[2]/div/div[2]/div[1]/textarea[@placeholder='请输入raw_message']/following-sibling::div[1]//input[@placeholder='请输入source']")
-    private WebElement eventListSource;
-
-    @FindBy(xpath = "//span[text()='添加解析规则']")
-    private WebElement addRule;
-
-    @FindBy(xpath = "//h3[text()='基本信息']")
-    private WebElement basicInfo;
-
-    @FindBy(xpath = "//div[text()='规则配置完成！']")
+    @FindBy(xpath = "//div[text()='新建成功' or text()='更新成功']")
     private WebElement configDone;
-
-    @FindBy(xpath = "(//div[text()='正则表达式'])[last()]/following-sibling::div/textarea")
-    private WebElement regex;
-
-    @FindBy(xpath = "//div[text()='来源字段']")
-    private WebElement sourceFieldLabel;
-
-    @FindBy(xpath = "(//label[text()='来源字段']/following-sibling::div//i)[last()]")
-    private WebElement sourceField;
-
-    @FindBy(xpath = "//div[text()='路径']/following-sibling::i")
-    private WebElement plusButton;
-
-    @FindBy(className = "ant-checkbox-wrapper")
-    private WebElement checkbox;
-
-    @FindBy(xpath = "//textarea[@placeholder='请输入替换内容']")
-    private WebElement replaceContent;
 
     @FindBy(className = "json-formatter-boolean")
     private List<WebElement> booleanList;
-
-    @FindBy(xpath = "//span[text()='+ 解析成功时添加字段']")
-    private WebElement addField;
-
-    @FindBy(xpath = "//div[text()='添加字段']/following-sibling::div/input")
-    private WebElement key;
-
-    @FindBy(xpath = "(//div[text()='添加字段']/following-sibling::div/input)[2]")
-    private WebElement value;
-
-    @FindBy(className = "ant-switch")
-    private WebElement switchButton;
-
-    @FindBy(xpath = "//div[text()='hostname']/preceding-sibling::input")
-    private WebElement hostName;
 
     @FindBy(className = "yw-extract-sample")
     private WebElement extractSample;
@@ -157,15 +64,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='解析失败']")
     private WebElement failedMessage;
-
-    @FindBy(className = "ace_content")
-    private WebElement ruleContent;
-
-    @FindBy(className = "anticon-swap")
-    private WebElement changeToJson;
-
-    @FindBy(xpath = "//textarea[@placeholder='请输入结构体定义']")
-    private WebElement struct;
 
     @FindBy(className = "el-message__group")
     private WebElement successMessage;
@@ -188,61 +86,23 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='解析失败])")
     private WebElement checkFailed;
 
-    @FindBy(xpath = "//span[text()='int']/ancestor::label")
-    private WebElement intRadio;
-
-    @FindBy(xpath = "//span[text()='float']/ancestor::label")
-    private WebElement floatRadio;
-
-    @FindBy(xpath = "//div[text()='只替换第一个']/preceding-sibling::div/label")
-    private WebElement replaceFirst;
-
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement message;
 
     @FindBy(className = "ant-select-selection__clear")
     private WebElement deleteApp;
 
-    @Override
-    public WebElement getDeleteApp() {
-        return deleteApp;
+    @FindBy(xpath = "//div[@yotta-test='config-collapse-button']")
+    private WebElement Collapse;
+
+    @FindBy(xpath = "//div[@yotta-test='config-event_list-button']")
+    private WebElement EventList;
+
+    public WebElement getCollapse() {
+        return Collapse;
     }
 
-    public WebElement getApp() {
-        return super.getDropdownList("应用");
-    }
-
-    public WebElement getReturn() {
-        return super.getButton("返回");
-    }
-
-    public WebElement getDone() {
-        return super.getButton("完成");
-    }
-
-    public WebElement getReplaceFirst() {
-        return replaceFirst;
-    }
-
-    public WebElement getTimeZone() {
-        return super.getDropdownList("时区");
-    }
-
-    public WebElement getLanguage() {
-        return super.getDropdownList("语言");
-    }
-
-    public WebElement getIntRadio() {
-        return intRadio;
-    }
-
-    public WebElement getFloatRadio() {
-        return floatRadio;
-    }
-
-    public WebElement getAddRule() {
-        return addRule;
-    }
+    public  WebElement getEventList() { return EventList; }
 
     public WebElement getCheckSuccess4() {
         return checkSuccess4;
@@ -268,356 +128,291 @@ public class CreatePage extends PageTemplate {
         return failedMessage;
     }
 
-    public WebElement getRuleName() {
-        return getInputElement("自定义类型");
-    }
-
-    public WebElement getRedirect() {
-        return super.getDropdownList("重定向规则");
-    }
-
-    public WebElement getStruct() {
-        return struct;
-    }
-
-    public WebElement getPrefix() {
-        return getInputElement("匹配前缀");
-    }
-
-    public WebElement getPostfix() {
-        return getInputElement("匹配后缀");
-    }
-
-    public WebElement getChangeToJson() {
-        return changeToJson;
-    }
-
-    public WebElement getRuleContent() {
-        return ruleContent;
-    }
-
-    public WebElement getCode() {
-        return getInputElement("编码");
-    }
-
-    public WebElement getDictionary() {
-        return super.getDropdownList("字典");
-    }
-
-    public WebElement getBaseField() {
-        return super.getDropdownList("基准字段");
-    }
-
-    public WebElement getExtendField() {
-        return super.getDropdownList("扩展字段");
-    }
-
     public WebElement getErrorMessage() {
         return failedMessage;
     }
 
-    public WebElement getMaxMatchLength() {
-        return getInputElement("最大匹配长度");
-    }
-
-    public WebElement getTimestampPrefix() {
-        return getInputElement("时间戳前缀");
-    }
-
-    public WebElement getExtractSample() {
-        return extractSample;
-    }
+    public WebElement getExtractSample() { return extractSample; }
 
     public WebElement getConfigDone() {
         return configDone;
     }
 
-    public WebElement getBasicInfo() {
-        return basicInfo;
+    @Override
+    public WebElement getDeleteApp() {
+        return deleteApp;
     }
 
-    public WebElement getHostName() {
-        return hostName;
-    }
-
-    public WebElement getAppName() {
-        return this.findInputByPlaceholder("请输入appname");
-    }
-
-    public WebElement getTag() {
-        return this.findInputByPlaceholder("请输入tag");
-    }
-
-    public WebElement getSwitchButton() {
-        return switchButton;
-    }
-
-    public WebElement getNextButton() {
-        return super.getButton("下一步");
-    }
-
-    public WebElement getKey() {
-        return key;
-    }
-
-    public WebElement getValue() {
-        return value;
-    }
-
-    public WebElement getAddField() {
-        return addField;
-    }
-
-    public WebElement getName() {
-        return this.findInputByPlaceholder("请输入规则名称");
-    }
-
-    public WebElement getLogtype() {
-        return this.findInputByPlaceholder("请输入Logtype");
+    public WebElement getApp() {
+        return super.getDropdownList("应用");
     }
 
     public WebElement getGroup() {
         return super.getDropdownList("分组");
     }
 
+    public WebElement getReturn() {
+        return super.getYottaButtonByText("返回");
+    }
+
+    public WebElement getDone() {
+        return super.getYottaButtonByText("完成");
+    }
+
+    public WebElement getTimeZone() {
+        return super.getYottaDropdownList("config-timezone-select");
+    }
+
+    public WebElement getLanguage() {
+        return super.getDropdownList("config-locale-select");
+    }
+
+    public WebElement getIntRadio() {
+        return super.getYottaRadio("config-int-radio");
+    }
+
+    public WebElement getFloatRadio() { return super.getYottaRadio("config-float-radio"); }
+
+    public WebElement getAddRule() {
+        return super.getYottaButton("config-add-rule");
+    }
+
+    public WebElement getRuleName() { return super.getYottaDropdownList("config-custom_rule_type-select"); }
+
+    public WebElement getRedirect() {
+        return super.getYottaDropdownList("config-rule-select");
+    }
+
+    public WebElement getStruct() {
+        return super.getYottaTextarea("config-struct_format-textarea");
+    }
+
+    public WebElement getPrefix() {
+        return super.getYottaInput("config-prefix-input");
+    }
+
+    public WebElement getSuffix() {
+        return super.getYottaInput("config-suffix-input");
+    }
+
+    public WebElement getChangeToJson() {
+        return super.getYottaIcon("config-json_swap-icon");
+    }
+
+    public WebElement getCode() {
+        return super.getYottaInput("config-codec-input");
+    }
+
+    public WebElement getDictionary() { return super.getYottaDropdownList("config-dict-select"); }
+
+    public WebElement getBaseField() {
+        return super.getYottaDropdownList("config-dict_basic_field-select");
+    }
+
+    public WebElement getExtendField() {
+        return super.getYottaDropdownList("config-dict_extend_field-select");
+    }
+
+    public WebElement getMaxMatchLength() {
+        return super.getYottaInput("config-max_match-input");
+    }
+
+    public WebElement getTimestampPrefix() {
+        return super.getYottaInput("config-time_prefix-input");
+    }
+
+    public WebElement getAppName() {
+        return super.getYottaInput("config-appname-input");
+    }
+
+    public WebElement getTag() {
+        return super.getYottaInput("config-tag-input");
+    }
+
+    public WebElement getSwitchButton() {
+        return super.getYottaInput("config-enable-switch");
+    }
+
+    public WebElement getNextButton() {
+        return super.getYottaButtonByText("下一步");
+    }
+
+    public WebElement getKey() {
+        return super.getYottaInput("config-field_name-input");
+    }
+
+    public WebElement getValue() {
+        return super.getYottaInput("config-field_value-input");
+    }
+
+    public WebElement getAddField() {
+        return super.getYottaButton("config-add_field-button");
+    }
+
+    public WebElement getName() {
+        return super.getYottaInput("config-name-input");
+    }
+
+    public WebElement getLogtype() {
+        return super.getYottaInput("config-logtype-input");
+    }
+
     public WebElement getParseButton() {
-        return super.getButton("解 析");
+        return super.getYottaButton("config-verify-button");
     }
 
     public WebElement getParseRule() {
-        return super.getDropdownList("规则类型");
+        return super.getYottaDropdownList("config-rule_type-select");
     }
 
     public WebElement getSourceField() {
-        return super.getDropdownList("来源字段");
-    }
-
-    public WebElement getContinueButton() {
-        return super.getButton("继续");
+        return super.getYottaDropdownList("config-source-select");
     }
 
     public WebElement getFormatRule() {
-        return getInputElement("格式规则");
+        return super.getYottaInput("config-format_rule-input");
     }
 
-    public WebElement getTargetField() {
-        return getInputElement("目标字段");
-    }
-
-    public WebElement getFieldSeparator() {
-        return getInputElement("字段分隔符");
-    }
+    public WebElement getFieldSeparator() { return super.getYottaInput("config-field_split-input"); }
 
     public WebElement getKeyRegex() {
-        return getInputElement("key正则");
+        return super.getYottaInput("config-key_reg-input");
     }
 
     public WebElement getValueRegex() {
-        return getInputElement("value正则");
+        return super.getYottaInput("config-value_reg-input");
     }
 
     public WebElement getGroupRegex() {
-        return getInputElement("group正则");
+        return super.getYottaInput("config-group_reg-input");
     }
 
-    public WebElement getKVSeparator() {
-        return getInputElement("k-v分隔符");
-    }
+    public WebElement getKVSeparator() { return super.getYottaInput("config-kv_split-input"); }
 
     public WebElement getKeepKey() {
-        return getInputElement("保留key");
+        return super.getYottaInput("config-key_reserved-input");
     }
 
     public WebElement getDumpKey() {
-        return getInputElement("丢弃key");
+        return super.getYottaInput("config-key_drop-input");
     }
 
     public WebElement getTimeFormat() {
-        return getInputElement("时间格式");
+        return super.getYottaInput("config-expression-input");
     }
 
     public WebElement getDecimal() {
-        return super.getDropdownList("数值进制");
+        return super.getYottaDropdownList("config-radix-select");
     }
 
     public WebElement getSeparate() {
-        return getInputElement("分隔符");
+        return super.getYottaInput("config-expression-input");
     }
 
     public WebElement getFieldList() {
-        return getInputElement("字段列表");
+        return super.getYottaInput("config-names-input");
     }
 
     public WebElement getSourceFieldInput() {
-        return getInputElement("来源字段");
+        return super.getYottaInput("config-source-input");
+    }
+
+    public WebElement getTargetFieldInput() {
+        return super.getYottaInput("config-target-input");
     }
 
     public WebElement getLogSample() {
-        return logSample;
+        return super.getYottaTextarea("config-logsample-textarea");
     }
 
-    public WebElement getRegex() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(regex));
-        return regex;
-    }
+    public WebElement getLogSource() { return super.getYottaInput("config-log_source-input"); }
+
+    public WebElement getLogHostname() { return super.getYottaInput("config-log_hostname-input"); }
+
+    public WebElement getRegex() { return super.getYottaTextarea("config-expression-textarea"); }
 
     public WebElement getPathInput() {
+        WebElement plusButton = super.getYottaButton("config-add_path-button");
         plusButton.click();
-        return this.getInputElement("路径");
+        return super.getYottaInput("config-path-input");
     }
+
+    public WebElement getCheckbox() { return super.getYottaCheckbox("config-attach_root-checkbox"); }
+
+    public WebElement getReplaceFirst() { return super.getYottaCheckbox("config-replace_first-checkbox"); }
+
+    public WebElement getStrictMode() { return super.getYottaCheckbox("config-strict_mode-checkbox"); }
+
+    public WebElement getStripField() { return super.getYottaCheckbox("config-strip_field-checkbox"); }
+
+    public WebElement getReplaceContent() { return super.getYottaTextarea("config-replacement-textarea"); }
+
+    public WebElement getEnsureAddParseRule() { return super.getYottaButtonByText("确定"); }
+
+    public WebElement getRuleRemark() { return super.getYottaInput("config-another_name-input"); }
+
+    public WebElement getMessage() { return message; }
+
+    public WebElement getResult() { return result; }
+
+    public WebElement getReadSavedLog() { return super.getYottaTab("读取已存日志"); }
+
+    public WebElement getCreate() { return super.getYottaButton("config-create_log-button"); }
+
+    public WebElement getEventListLogSample() { return super.getYottaTextarea("config-eventlist_logsample-textarea"); }
+
+    public WebElement getEventListSource() { return super.getYottaInput("config-eventlist_log_source-input"); }
+
+    @Override
+    public WebElement getSave() { return super.getYottaButton("config-save_log-button"); }
+
+    public WebElement getClearIcon() { return clearIcon; }
+
+    public List<WebElement> getRuleList() { return ruleList; }
+
+    public WebElement getAsLogSample() { return super.getYottaButton("config-as_logsample-button"); }
+
+    public WebElement getUseCheckLog() { return super.getYottaButton("config-check_log-button"); }
+
+    public WebElement getStatus() { return status; }
+
+    public WebElement getField() { return super.getYottaButton("config-log_field-button"); }
+
+    public WebElement getParseField() { return super.getYottaDropdownList("config-log_field-select"); }
+
+    public List<WebElement> getFieldTitle() { return fieldTitle; }
+
+    public List<WebElement> getFieldValue() { return fieldValue; }
+
+    public WebElement getGoBack() { return super.getYottaButton("config-back_eventlist-button"); }
+
+    public WebElement getDeleteLog() { return super.getYottaButton("config-delete-button"); }
+
+    public WebElement getCancelDeleteLog() { return super.getYottaButton("config-cancel_delete-button"); }
+
+    public WebElement getSaveLogEmpty() { return saveLogEmpty; }
+
+    public WebElement getPopoverTip() { return super.getYottaPopover("config-delete-popover"); }
+
+    @Override
+    public WebElement getSearchInput() { return searchInput; }
+
+    public WebElement getDateEditor() { return dateEditor; }
+
+    public WebElement getRecentOneHour() {
+        return oneHour;
+//        return (new DateEditorPage(webDriver)).getOneHour();
+    }
+
+    public WebElement getSearchButton() { return super.getYottaButtonByText("搜索"); }
+
+    public WebElement getRawLog() { return rawLog; }
+
+    public WebElement getSaveSearchLog() { return super.getYottaButton("config-save_search_log-button"); }
 
     public WebElement getBoolean1() {
         return booleanList.get(0);
     }
 
-    public WebElement getSuccessMessage() {
-        return successMessage;
-    }
-
-    public WebElement getCheckbox() {
-        return checkbox;
-    }
-
-    public WebElement getSource() {
-        return findInputByPlaceholder("请输入source");
-    }
-
-    public WebElement getReplaceContent() {
-        return replaceContent;
-    }
-
-    public WebElement getResult() {
-        return result;
-    }
-
-    public WebElement getEnsureAddParseRule() {
-        return super.getButton("确定");
-    }
-
-    public WebElement getMessage() {
-        return message;
-    }
-
-    public WebElement getRuleRemark() {
-        return ruleRemark;
-    }
-
-    public WebElement getPackup() {
-        return packup;
-    }
-
-    public WebElement getEventList() {
-        return eventList;
-    }
-
-    public WebElement getReadSavedLog() {
-        return readSavedLog;
-    }
-
-    public WebElement getCreate() {
-        return create;
-    }
-
-    public WebElement getEventListLogSample() {
-        return eventListLogSample;
-    }
-
-    public WebElement getEventListSource() {
-        return eventListSource;
-    }
-
-    @Override
-    public WebElement getSave() {
-        return save;
-    }
-
-    public WebElement getClearIcon() {
-        return clearIcon;
-    }
-
-    public List<WebElement> getRuleList() {
-        return ruleList;
-    }
-
-    public WebElement getAsLogSample() {
-        return asLogSample;
-    }
-
-    public WebElement getUseCheckLog() {
-        return useCheckLog;
-    }
-
-    public WebElement getStatus() {
-        return status;
-    }
-
-    public WebElement getField() {
-        return field;
-    }
-
-    public WebElement getParseField() {
-        parseField.click();
-        return super.getLastDropdownList();
-    }
-
-    public List<WebElement> getFieldTitle() {
-        return fieldTitle;
-    }
-
-    public List<WebElement> getFieldValue() {
-        return fieldValue;
-    }
-
-    public WebElement getGoBack() {
-        return goBack;
-    }
-
-    public WebElement getDelete() {
-        return delete;
-    }
-
-    public WebElement getAlertMessage() {
-        return alertMessage;
-    }
-
-    public WebElement getCancelDelete() {
-        return cancelDelete;
-    }
-
-    public WebElement getSaveLogEmpty() {
-        return saveLogEmpty;
-    }
-
-    public WebElement getPopOverTip() {
-        return popOverTip;
-    }
-
-    @Override
-    public WebElement getSearchInput() {
-        return searchInput;
-    }
-
-    public WebElement getDateEditor() {
-        return dateEditor;
-    }
-
-    public WebElement getRecentOneHour() {
-        return (new DateEditorPage(webDriver)).getOneHour();
-    }
-
-    public WebElement getSearchButton() {
-        return super.getButton("搜索");
-    }
-
-    public WebElement getHostNameInput() {
-        return hostNameInput;
-    }
-
-    public WebElement getRawLog() {
-        return rawLog;
-    }
-
-    public WebElement getSaveSearchLog() {
-        return saveSearchLog;
-    }
+    public WebElement getSuccessMessage() { return successMessage; }
 }

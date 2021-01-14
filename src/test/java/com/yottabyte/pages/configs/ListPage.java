@@ -19,7 +19,7 @@ public class ListPage extends ListPageFactory {
 
     DropdownUtils dropdownUtils = new DropdownUtils();
 
-    @FindBy(className = "ant-spin-dot-spin")
+    @FindBy(className = "yotta-spinner-spin")
     private WebElement loading;
 
     @FindBy(className = "ant-modal-content")
@@ -86,17 +86,11 @@ public class ListPage extends ListPageFactory {
         return message;
     }
 
-    public WebElement getDictionary() {
-        return super.getButton("字典管理");
-    }
-
     public WebElement getGroupList() {
         return dropdownUtils.getGroupDropdownList();
     }
 
-    public WebElement getSearchInput() {
-        return super.getSearchInput();
-    }
+    public WebElement getSearchInput() { return super.getSearchInput(); }
 
     public WebElement getSearch() {
         return super.getSearchIcon();

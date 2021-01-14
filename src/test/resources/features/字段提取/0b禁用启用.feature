@@ -28,12 +28,12 @@ Feature: 字段提取禁用/启用
     And I wait for loading invisible
 
     When the data name is "{'column':'1','name':'<name>'}" then I "open" the switch
-    And I wait for loading invisible
-    Then I will see the element "{'column':'1','name':'<name>'}" is "open"
     Then I refresh the website
     And I wait for loading invisible
+    Then I will see the element "{'column':'1','name':'<name>'}" is "open"
     When the data name is "{'column':'1','name':'<name>'}" then I "close" the switch
-    Then I wait for loading invisible
+    Then I refresh the website
+    And I wait for loading invisible
     Then I will see the element "{'column':'1','name':'<name>'}" is "close"
 
 

@@ -160,7 +160,7 @@ public class ListPageUtils {
         } else {
             Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
             String name = map.get("name").toString();
-            WebElement table = webDriver.findElement(By.xpath("//div[@class='ant-table ant-table-small ant-table-scroll-position-left']"));
+            WebElement table = webDriver.findElement(By.xpath("//table[contains(@class, 'yotta-table')]"));
             tr = this.getRowWithoutPaging(name, table);
         }
         return tr;

@@ -4,6 +4,7 @@ import com.yottabyte.config.ConfigManager;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.WaitForElement;
+import com.yottabyte.utils.ElementExist;
 import com.yottabyte.webDriver.SharedDriver;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
@@ -20,7 +21,6 @@ import java.util.List;
  */
 public class IChooseValueFromSelectList {
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
-
     /**
      * 在下拉框中，根据配置文件名称选择
      *
@@ -131,12 +131,41 @@ public class IChooseValueFromSelectList {
         }
     }
 
+//    3.6 版本方式
+//    public void iChooseTheFromThe(List<String> values, WebElement parentElement) {
+//
+//        if (parentElement.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
+//            ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='block';", parentElement);
+//        }
+//        List<WebElement> elements = parentElement.findElements(By.tagName("li"));
+//        for (String value : values) {
+//            if (value != null && value.trim().length() != 0) {
+//                for (WebElement e : elements) {
+//                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+//                    if (value.equals(e.getText())) {
+//                        e.click();
+//                        break;
+//                    }
+//                }
+//            }
+//        }
+//        if (parentElement.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
+//            ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='none';", parentElement);
+//        }
+////        try {
+////            if (parentElement.isDisplayed()) {
+////                ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", parentElement);
+////                ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOf(parentElement);
+////                WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+////            }
+////        } catch (Exception e) {
+//////            return;
+////        }
+//    }
+
     public void iChooseTheFromThe(List<String> values, WebElement parentElement) {
 
-        if (parentElement.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='block';", parentElement);
-        }
-        List<WebElement> elements = parentElement.findElements(By.tagName("li"));
+        List<WebElement> elements = parentElement.findElements(By.tagName("div"));
         for (String value : values) {
             if (value != null && value.trim().length() != 0) {
                 for (WebElement e : elements) {
@@ -149,18 +178,9 @@ public class IChooseValueFromSelectList {
                 }
             }
         }
-        if (parentElement.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='none';", parentElement);
+        if (ElementExist.isElementExist(webDriver, parentElement) && values.size() > 1) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", parentElement);
         }
-//        try {
-//            if (parentElement.isDisplayed()) {
-//                ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", parentElement);
-//                ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOf(parentElement);
-//                WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
-//            }
-//        } catch (Exception e) {
-////            return;
-//        }
     }
 
     public void iChooseTheFromTheAgent(List<String> values, WebElement parentElement) {
@@ -265,6 +285,35 @@ public class IChooseValueFromSelectList {
         }
     }
 
+//    3.6 版本方式
+//    /**
+//     * 字段提取下拉框失去焦点
+//     *
+//     * @param values         想要选择的内容，支持list
+//     * @param selectListName 下拉框元素名称
+//     */
+//    @And("^I choose the \"([^\"]*)\" from the \"([^\"]*)\" in config$")
+//    public void iChooseTheFromTheInConfig(List<String> values, String selectListName) {
+//        if (values.size() == 0) {
+//            return;
+//        }
+//        Object o = GetElementFromPage.getWebElementWithName(selectListName);
+//        if (o != null) {
+//            if (o instanceof List) {
+//                List fatherSelectList = (List) o;
+//                iChooseTheFromThe(values, fatherSelectList);
+//            } else {
+//                WebElement element = (WebElement) o;
+//                if (element.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
+//                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='block';", element);
+//                }
+//                iChooseTheFromTheYotta(values, element);
+//                if (element.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
+//                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='none';", element);
+//                }
+//            }
+//        }
+//    }
 
     /**
      * 字段提取下拉框失去焦点
@@ -284,13 +333,7 @@ public class IChooseValueFromSelectList {
                 iChooseTheFromThe(values, fatherSelectList);
             } else {
                 WebElement element = (WebElement) o;
-                if (element.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
-                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='block';", element);
-                }
                 iChooseTheFromThe(values, element);
-                if (element.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
-                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='none';", element);
-                }
             }
         }
     }

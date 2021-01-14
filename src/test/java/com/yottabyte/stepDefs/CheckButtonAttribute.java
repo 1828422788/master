@@ -188,6 +188,11 @@ public class CheckButtonAttribute {
     private void validateElementName(String expect, String actualElementName) {
         WebElement element = GetElementFromPage.getWebElementWithName(actualElementName);
         String actualText = element.getText();
+        System.out.println("expect:");
+        System.out.println(expect);
+        System.out.println("actualText:");
+        System.out.println(actualText);
+
         Assert.assertEquals(expect, actualText);
     }
 

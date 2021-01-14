@@ -14,6 +14,7 @@ Feature: 字段提取列表页
     And I choose the "JSON解析" from the "ParseRule" in config
     Then I wait for "500" millsecond
     And I choose the "raw_message" from the "SourceField" in config
+    Then I wait for "500" millsecond
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     Then I wait for "500" millsecond
@@ -43,6 +44,7 @@ Feature: 字段提取列表页
     And I choose the "JSON解析" from the "ParseRule" in config
     Then I wait for "500" millsecond
     And I choose the "raw_message" from the "SourceField" in config
+    Then I wait for "500" millsecond
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     Then I wait for "500" millsecond
@@ -58,7 +60,7 @@ Feature: 字段提取列表页
     When I set the parameter "SearchInput" with value "<name>"
     And I wait for loading invisible
     Then I will see the search result "{'column':'1','name':'<name>'}"
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button in more menu
     Then I set the parameter "TagInput" with value "configtag"
     And I choose the "configtag" from the "TagGroup" in config
     And I click the "Ensure" button
@@ -68,7 +70,7 @@ Feature: 字段提取列表页
     And I choose the "configtag" from the "ResourceDropdown" in config
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'1','name':'<name>'}"
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button in more menu
     And I cancel selection "configtag" from the "TagGroup" in config
     And I click the "Ensure" button
     Then I wait for loading invisible

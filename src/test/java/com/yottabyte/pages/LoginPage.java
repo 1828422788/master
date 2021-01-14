@@ -40,15 +40,15 @@ public class LoginPage extends PageTemplate {
     }
 
     public WebElement getUsername() {
-        return this.getInputElement("用户名");
+        return this.getYottaInput("login-username-input");
     }
 
     public WebElement getPassword() {
-        return this.getInputElement("密码");
+        return this.getYottaInput("login-password-input");
     }
 
     public WebElement getLoginButton() {
-        return super.getButton("登 录");
+        return super.getYottaButton("login-login-button");
     }
 
 
@@ -77,6 +77,11 @@ public class LoginPage extends PageTemplate {
 
     public WebElement getInputElement(String name) {
         String xpath = "//label[text()='" + name + "']/following-sibling::input";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getYottaInput(String test) {
+        String xpath = "//input[@yotta-test='" + test +"']";
         return webDriver.findElement(By.xpath(xpath));
     }
 

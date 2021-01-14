@@ -24,8 +24,8 @@ Feature: 字段提取复制、编辑
     Then I wait for "ConfigDone" will be visible
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "复制" button
-    And I refresh the website
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "复制" button in more menu
+    Then I wait for "3000" millsecond
     Then I will see the search result contains "{'column':'1','name':'<name>(副本)'}"
     When the data name is "{'column':'1','name':'<name>(副本)'}" then i click the "编辑" button
     Then I will see the "configs.CreatePage" page

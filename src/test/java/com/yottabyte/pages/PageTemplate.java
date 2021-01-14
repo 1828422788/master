@@ -202,13 +202,73 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return dropdownUtils.getLastSendPluginDropdownList();
     }
 
-    public WebElement getAlertNoteTypeDropdownList() {
-        return dropdownUtils.getAlertNoteTypeDropdownList();
-    }
+//    public WebElement getAlertNoteTypeDropdownList() {
+//        return dropdownUtils.getAlertNoteTypeDropdownList();
+//    }
 
     public WebElement getMaintainTimeDropdownList() {
         return dropdownUtils.getMaintainTimeDropdownList();
     }
 
+    public WebElement getYottaDropdownList(String text) {
+        return dropdownUtils.getDropdownList(text);
+    }
 
+    public WebElement getYottaLastDropdownList() {
+        return dropdownUtils.getLastDropdownList();
+    }
+
+    public WebElement getYottaMenuList() {
+        return dropdownUtils.getMenuList();
+    }
+
+    public WebElement getYottaInput(String test) {
+        String xpath = "//input[@yotta-test='" + test +"']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getYottaTextarea(String test) {
+        String xpath = "//textarea[@yotta-test='" + test +"']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getYottaIcon(String test) {
+        String xpath = "//span[@yotta-test='" + test +"']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getYottaSwitch(String test) {
+        String xpath = "//span[@yotta-test='" + test +"']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getYottaButtonByText(String text) {
+        String xpath = "//span[text()='" + text + "']//ancestor::button";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getYottaButton(String test) {
+        String xpath = "//button[@yotta-test='" + test +"']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getYottaCheckbox(String test) {
+        String xpath = "//input[@yotta-test='" + test +"']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getYottaRadio(String test) {
+        String xpath = "//input[@yotta-test='" + test +"']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getYottaTab(String text) {
+        String xpath = "//div[text()='" + text + "' and @role='tab']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getYottaPopover(String test) {
+        String xpath = "//div[@yotta-test='" + test +"']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
 }

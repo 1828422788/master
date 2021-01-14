@@ -35,10 +35,10 @@ public class Paging {
     }
 
     private Map<String, String> getXpath() {
-        String totalNumberElementXpath = "//span[@class='_1a4SFPSKE5LHZ9oIlWNopk']/span";
-        String numbersPerPageElementXpath = "(//div[@class='ant-select-selection-selected-value'])[last()]";
-        String nextPageClass = "ant-pagination-next";
-        String tableListClass = "ant-table-tbody";
+        String totalNumberElementXpath = "(//div[@class='yotta-pagination-elements'])[1]";
+        String numbersPerPageElementXpath = "//span[@class='yotta-select-selection-value']";
+        String nextPageClass = "yotta-icon-RightOutlined";
+        String tableListClass = "yotta-table-body";
         Map<String, String> map = new HashMap<>();
         map.put("totalNumberElementXpath", totalNumberElementXpath);
         map.put("numbersPerPageElementXpath", numbersPerPageElementXpath);

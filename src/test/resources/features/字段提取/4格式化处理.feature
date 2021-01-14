@@ -7,41 +7,48 @@ Feature: 字段提取格式化处理
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "192.168.1.139 - - [24/Jan/2015:17:03:49 +0800] "GET /api/v0/search/fields/?field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields HTTP/1.1" 200 363 "http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0""
-    And I set the parameter "Source" with value "/var/log/20180821/website"
+    And I set the parameter "LogSource" with value "/var/log/20180821/website"
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule" in config
     And I choose the "raw_message" from the "SourceField" in config
-    And I set the parameter "Regex" with value "(?<clientip>\S+) - - \[\d+/\w+/\d+:(?<time>\S+) \+0800\](?<msg>.*)"
+    Then I wait for "1000" millsecond
+    And I set the value "(?<clientip>\S+) - - \[\d+/\w+/\d+:(?<time>\S+) \+0800\](?<msg>.*)" to the textarea "Regex"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
+    And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule" in config
     And I choose the "@source" from the "SourceField" in config
-    And I set the parameter "Regex" with value "/var/log/(?<date>\d{8})/website"
+    Then I wait for "1000" millsecond
+    And I set the value "/var/log/(?<date>\d{8})/website" to the textarea "Regex"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
+    And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "格式化处理" from the "ParseRule" in config
-    And I choose the "date,time" from the "SourceField" in config
+    And I choose the "date,@ip" from the "SourceField" in config
+    Then I wait for "1000" millsecond
     And I set the parameter "FormatRule" with value "$1 $2"
-    And I set the parameter "TargetField" with value "timestamp"
+    And I set the parameter "TargetFieldInput" with value "timestamp"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess3" will be visible
     Then I will see the element value in json "{'Result':'<result2>'}"
+    And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "删除字段" from the "ParseRule" in config
     And I choose the "date" from the "SourceField" in config
+    Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     Then I wait for "100" millsecond
@@ -61,41 +68,47 @@ Feature: 字段提取格式化处理
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "192.168.1.139 - - [24/Jan/2015:17:03:49 +0800] "GET /api/v0/search/fields/?field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields HTTP/1.1" 200 363 "http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0""
-    And I set the parameter "Source" with value "/var/log/20180821/website"
+    And I set the parameter "LogSource" with value "/var/log/20180821/website"
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule" in config
     And I choose the "raw_message" from the "SourceField" in config
-    And I set the parameter "Regex" with value "(?<clientip>\S+) - - \[\d+/\w+/\d+:(?<time>\S+) \+0800\](?<msg>.*)"
+    Then I wait for "1000" millsecond
+    And I set the value "(?<clientip>\S+) - - \[\d+/\w+/\d+:(?<time>\S+) \+0800\](?<msg>.*)" to the textarea "Regex"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
+    And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule" in config
     And I choose the "@source" from the "SourceField" in config
-    And I set the parameter "Regex" with value "/var/log/(?<date>\d{8})/website"
+    And I set the value "/var/log/(?<date>\d{8})/website" to the textarea "Regex"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
+    And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "格式化处理" from the "ParseRule" in config
     And I choose the "date,time" from the "SourceField" in config
+    Then I wait for "1000" millsecond
     And I set the parameter "FormatRule" with value "$1 $2"
-    And I set the parameter "TargetField" with value "timestampstamp"
+    And I set the parameter "TargetFieldInput" with value "timestampstamp"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess3" will be visible
     Then I will see the element value in json "{'Result':'<result2>'}"
+    And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "时间戳识别" from the "ParseRule" in config
     And I choose the "timestampstamp" from the "sourceField" in config
+    Then I wait for "1000" millsecond
     And I set the parameter "TimeFormat" with value "yyyyMMdd HH:mm:ss"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
@@ -103,12 +116,13 @@ Feature: 字段提取格式化处理
     And I click the "ParseButton" button
     And I wait for "CheckSuccess4" will be visible
     Then I will see the element value in json "{'Result':'<result3>'}"
+    And I click the "Collapse" button
     And I click the "NextButton" button under some element
-    And I click the "SwitchButton" button
     When I set the parameter "Name" with value "RZY1550格式化处理"
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "wym_test_format"
     And I set the parameter "Tag" with value "wym_test_format"
+    And I switch the "SwitchButton" button to "enable"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 

@@ -1,6 +1,7 @@
 package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
+import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.GetElementFromPage;
 import cucumber.api.java.en.And;
 import org.openqa.selenium.By;
@@ -15,22 +16,22 @@ import static org.junit.Assert.assertTrue;
  */
 public class SwitchButton {
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
-
-    /**
-     * 将switch button置为disable/enable
-     *
-     * @param buttonName 元素名称
-     * @param status     disable/enable
-     */
-    @And("^I switch the \"([^\"]*)\" button to \"([^\"]*)\"$")
-    public void iSwitchTheButtonTo(String buttonName, String status) {
-        String xpath = "//label[text()='" + buttonName + "']/following-sibling::button";
-        WebElement switchButton = webDriver.findElement(By.xpath(xpath));
-        String attribute = switchButton.getAttribute("class");
-        if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
-            switchButton.click();
-        }
-    }
+// 3.6版本方法
+//    /**
+//     * 将switch button置为disable/enable
+//     *
+//     * @param buttonName 元素名称
+//     * @param status     disable/enable
+//     */
+//    @And("^I switch the \"([^\"]*)\" button to \"([^\"]*)\"$")
+//    public void iSwitchTheButtonTo(String buttonName, String status) {
+//        String xpath = "//label[text()='" + buttonName + "']/following-sibling::button";
+//        WebElement switchButton = webDriver.findElement(By.xpath(xpath));
+//        String attribute = switchButton.getAttribute("class");
+//        if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
+//            switchButton.click();
+//        }
+//    }
 
     /**
      * 关闭或开启仪表盘开关
@@ -76,6 +77,17 @@ public class SwitchButton {
         } else {
             System.out.println("error value :" + value);
             assertTrue(false);
+        }
+    }
+
+    @And("^I switch the \"([^\"]*)\" button to \"([^\"]*)\"$")
+    public void operateSwitchButtonTo(String elementName, String status) {
+        if (elementName != null && elementName.trim().length() != 0) {
+            WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+            String selected = element.isSelected() ? "enable" : "disable";
+            if (!selected.equals(status)) {
+                ClickEvent.clickUnderneathButton(element);
+            }
         }
     }
 }
