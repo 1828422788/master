@@ -1,6 +1,6 @@
-Feature:
+Feature: 测试运行-邮件
 
-  @testrun @alert
+  @testrun
   Scenario Outline:
     And I wait for loading invisible
     Given open the "alert.ListPage" page for uri "/alerts/"
@@ -10,8 +10,15 @@ Feature:
 
     Then I will see the "alert.CreatePage" page
     And I wait for loading invisible
+
     And I click the "AlertNoteTypeTab" button
+    And I choose1 the "邮件告警" from the "AlertNoteTypeListButton"
+    And I wait for loading invisible
     And I click the "MailAlertLabel" button
+    And I wait for loading invisible
+    When I set the parameter "MailReceiver" with value "backfuture@yeah.net"
+    And I wait for loading invisible
+    And I choose the "backfuture@yeah.net" from the "MailReceiverList"
     And I wait for loading invisible
 
     And I click the "TestRunButton" button
@@ -19,12 +26,12 @@ Feature:
 
     And I wait for element "TestRunReminder" change text to "提示"
     And I wait for element "TestRunReminderText" change text to "<name>"
+    Then take a screenshot with name "actual/trm_<name>"
     And I wait for element "TestRunReminderText" change text to "successful"
-    Then take a screenshot with name "actual/testRun_<name>"
     When I click the "AffirmButton" button
 
     Examples:
-      | name                                                     |
+      |	name	|
       |	api00_all_事件计数_设备切分ip_扩展chart_all_合并	|
       |	api00_spl统计ip_cnt_9分钟_高_扩展chart_all_宏	|
       |	api00_spl统计ip_cnt_高_扩展chart_all_合并	|
@@ -78,4 +85,3 @@ Feature:
       |	维护期0_字段统计_独立数status_邮件_每天0-23点	|
       |	维护期0_字段统计_独立数status_邮件_每月1-30	|
       |	维护期0_字段统计_独立数status_邮件_永久	|
-
