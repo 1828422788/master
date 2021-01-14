@@ -19,6 +19,8 @@ Feature: 报表_富文本编辑下载
     Examples:
       |          name                 |
       | SingleTrend                   |
+      | SingleTrend_Table             |
+      | SingleTrend_HF                |
       | FontSize                      |
       | BoldText                      |
       | ItalicsText                   |

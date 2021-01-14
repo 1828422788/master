@@ -1704,6 +1704,30 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']//span[@class= 'editor_inline_trend']")
     private WebElement singleTrendElement;
 
+    @FindBy(xpath = "//*[contains(@name,'trend_name')]")
+    private WebElement trend_Name;
+
+    @FindBy(xpath = "//*[contains(@name,'trend_description')]")
+    private WebElement trend_Description;
+
+    @FindBy(xpath = "//*[contains(@name,'trend_chart')]")
+    private WebElement trend_Chart;
+
+    @FindBy(xpath = "//*[contains(@name,'trend_timerange')]")
+    private WebElement trend_Timerange;
+
+    @FindBy(xpath = "//*[contains(@name,'trend_name')]/label[@name='operate_delete']")
+    private WebElement deleteTrendName;
+
+    @FindBy(xpath = "//*[contains(@name,'trend_description')]/label[@name='operate_delete']")
+    private WebElement deleteTrendDescription;
+
+    @FindBy(xpath = "//*[contains(@name,'trend_chart')]/label[@name='operate_delete']")
+    private WebElement deleteTrendChart;
+
+    @FindBy(xpath = "//*[contains(@name,'trend_timerange')]/label[@name='operate_delete']")
+    private WebElement deleteTrendTimerange;
+
     @FindBy(xpath = "//span[text()='统计类型']/following-sibling::span/button[@disabled]/span[text()='single']")
     private WebElement disabledType;
 
@@ -1866,6 +1890,15 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='清除内容']/ancestor::a")
     private WebElement clearContent;
 
+    @FindBy(xpath = "//tr[1]/td[1]")
+    private WebElement cell11;
+
+    @FindBy(xpath = "//tr[1]/td[2]")
+    private WebElement cell12;
+
+    @FindBy(xpath = "//tr[2]/td[1]")
+    private WebElement cell21;
+
     @FindBy(xpath = "//tr[2]/td[2]")
     private WebElement cell22;
 
@@ -1898,6 +1931,9 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='底部']/ancestor::a")
     private WebElement bottomVerticalAlign;
+
+    @FindBy(xpath = "//a[@aria-label='合并']")
+    private WebElement merge;
 //----------------------------
 
 
@@ -1933,6 +1969,38 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSingleTrendElement() {
         return singleTrendElement;
+    }
+
+    public WebElement getTrend_Name() {
+        return trend_Name;
+    }
+
+    public WebElement getTrend_Description() {
+        return trend_Description;
+    }
+
+    public WebElement getTrend_Chart() {
+        return trend_Chart;
+    }
+
+    public WebElement getTrend_Timerange() {
+        return trend_Timerange;
+    }
+
+    public WebElement getDeleteTrendName() {
+        return deleteTrendName;
+    }
+
+    public WebElement getDeleteTrendDescription() {
+        return deleteTrendDescription;
+    }
+
+    public WebElement getDeleteTrendChart() {
+        return deleteTrendChart;
+    }
+
+    public WebElement getDeleteTrendTimerange() {
+        return deleteTrendTimerange;
     }
 
     public WebElement getDisabledType() {
@@ -2152,6 +2220,18 @@ public class CreatePage extends PageTemplate {
         return clearContent;
     }
 
+    public WebElement getCell11() {
+        return cell11;
+    }
+
+    public WebElement getCell12() {
+        return cell12;
+    }
+
+    public WebElement getCell21() {
+        return cell21;
+    }
+
     public WebElement getCell22() {
         return cell22;
     }
@@ -2195,6 +2275,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getBottomVerticalAlign() {
         return bottomVerticalAlign;
+    }
+
+    public WebElement getMerge() {
+        return merge;
     }
 //----------------------------
 

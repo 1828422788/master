@@ -198,6 +198,73 @@ Feature: 仪表盘调用链
       | name    |
       | 仪表盘调用链 |
 
+  @dashboard @dashboardSmoke
+  Scenario Outline: 再次添加相同图表
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "AddEventButton" will be visible
+    When I click the "AddEventButton" button
+    And I wait for "500" millsecond
+    And I click the "AddChart" button
+    And I wait for "SpinDot" will be invisible
+    And I set the parameter "SearchChartInput" with value "<name>"
+    And I wait for loading invisible
+    And I click the "{'Checkbox':'<name>'}" button
+    And I click the "Ensure" button
+
+    Examples:
+      | name       |
+      | 仪表盘调用链 |
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 修改为调用链，显示为tree验证显示正常
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    And I click the "SecondChartType" button
+    Then I will see the "trend.CreatePageDash" page
+    And I wait for "Other" will be visible
+    And I click the "Other" button
+    And I click the "Chain" button
+    And I wait for "1000" millsecond
+    And I click the "SecondSetting" button under some element
+    And I wait for "500" millsecond
+    And I choose the "modulename" from the "function"
+    And I wait for "1000" millsecond
+    And I choose the "parentid" from the "ParentId"
+    And I wait for "1000" millsecond
+    And I choose the "spanid" from the "ChildId"
+    And I click the "Time" button
+    And I choose the "timestamp" from the "StartTime"
+    And I wait for "1000" millsecond
+    And I choose the "duration" from the "KeepTime"
+    And I click the "Divide" button
+    And I choose the "modulename" from the "FieldValue"
+    And I click the "Info" button
+    And I choose the "binnaryannotations" from the "InfoField"
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I wait for "500" millsecond
+    And I click the "Red" button
+    And I choose the "tree" from the "TracingType"
+    And I wait for "500" millsecond
+    And I click the "Generate" button
+    And I wait for "3000" millsecond
+    And I click the "SecondSetting" button under some element
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "2000" millsecond
+    And I move the mouse pointer to the "TrendTitle"
+    And I click the "TrendTitle" button
+    And I wait for "3000" millsecond
+    And I wait for "SecondCallChainText" will be visible
+
+    Examples:
+      | name       |
+      | 仪表盘调用链 |
+
   @cleanDashboard
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

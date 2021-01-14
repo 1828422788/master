@@ -397,6 +397,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='demorpcservice.demo']")
     private WebElement callChainText;
 
+    @FindBy(xpath = "//div[text()='demorpcservice.demo']")
+    private WebElement secondCallChainText;
+
     @FindBy(xpath = "//div[text()='显示详情']")
     private WebElement showDetails;
 
@@ -875,6 +878,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='今天']/following-sibling::i")
     private WebElement chartType;
 
+    @FindBy(xpath = "(//label[text()='今天'])[2]/following-sibling::i")
+    private WebElement secondChartType;
+
     @FindBy(xpath = "//label[text()='今天']/following-sibling::i[4]")
     private WebElement delete;
 
@@ -1108,6 +1114,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getChartType() {
         return chartType;
+    }
+
+    public WebElement getSecondChartType() {
+        return secondChartType;
     }
 
     public WebElement getSaveAsReport() {
@@ -1693,6 +1703,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getCallChainText() {
         return callChainText;
+    }
+
+    public WebElement getSecondCallChainText() {
+        return secondCallChainText;
     }
 
     public WebElement getShowDetails() {
