@@ -20,22 +20,25 @@ public class SaasLoginPage extends PageTemplate {
         parentPageName = "";
     }
 
-    @FindBy(xpath = "//input[@placeholder='请输入用户名']")
+    @FindBy(xpath = "//label[text()='用户名']/following::input")
     private WebElement username;
-
-    @FindBy(xpath = "//input[@placeholder='请输入密码']")
-    private WebElement password;
 
     public WebElement getUsername() {
         return username;
     }
 
+    @FindBy(xpath = "//label[text()='密码']/following::input")
+    private WebElement password;
+
     public WebElement getPassword() {
         return password;
     }
 
+    @FindBy(xpath = "//span[text()='登 录']/parent::button")
+    private WebElement loginButton;
+
     public WebElement getLoginButton() {
-        return super.getButton("登录");
+        return loginButton;
     }
 
     public WebElement getErrorMessage() {
@@ -55,9 +58,12 @@ public class SaasLoginPage extends PageTemplate {
         webDriver.navigate().refresh();
     }
 
-//登陆信息错时，弹唱中的确定按钮
-@FindBy(xpath = "//button[@class='el-button el-button--default el-button--primary ']/span[contains(text(),'确定')]")
+    //登陆信息错时，弹唱中的确定按钮
+    @FindBy(xpath = "//button[@class='el-button el-button--default el-button--primary ']/span[contains(text(),'确定')]")
     private WebElement ensure;
-    public WebElement getEnsure(){return ensure;}
+
+    public WebElement getEnsure() {
+        return ensure;
+    }
 
 }

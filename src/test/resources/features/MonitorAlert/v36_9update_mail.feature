@@ -32,7 +32,6 @@ Feature: 批量修改邮件邮箱
       |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_抑制连续触发	|
       |	api01_字段统计_最大数status_扩展chart键值_邮件_合并	|
 
-
   @addmail
   Scenario Outline:
     And I wait for loading invisible

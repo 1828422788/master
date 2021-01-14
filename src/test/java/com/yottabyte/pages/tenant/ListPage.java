@@ -18,15 +18,13 @@ public class ListPage extends PageTemplate {
         return searchInput;
     }
 
-    @FindBy(xpath = "//button[@class='el-button tenant_new el-button--primary']/span[@text()='新建']")
+    @FindBy(xpath = "//span[text()='新建']/parent::button")
     private WebElement createButton;
     public WebElement getCreateButton() {
-        return super.getButton("新建");
+        return createButton;
     }
 
-
-//   jnd
-//系统状态的按钮
+    //系统状态的按钮
     @FindBy(xpath = "//a[text()='系统状态']")
     private WebElement systemStatus;
     public WebElement getSystemStatus(){return systemStatus;}

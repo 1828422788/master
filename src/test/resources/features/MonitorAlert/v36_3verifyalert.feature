@@ -3,7 +3,7 @@ Feature: 处理告警结果
   Background:
     Given open the "splSearch.OfflineTaskPageNohup" page for uri "/download/#"
 
-  @vdlalerts
+  @valertold
   Scenario Outline: 下载比较
     Then I compare source bucket file "<name>.csv" with target bucket files "<name>.csv"
 

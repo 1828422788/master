@@ -1,3 +1,4 @@
+@alertcase
 Feature: 测试运行-邮件
 
   @testrun
@@ -27,7 +28,7 @@ Feature: 测试运行-邮件
     And I wait for element "TestRunReminder" change text to "提示"
     And I wait for element "TestRunReminderText" change text to "<name>"
     Then take a screenshot with name "actual/trm_<name>"
-    And I wait for element "TestRunReminderText" change text to "successful"
+#    And I wait for element "TestRunReminderText" change text to "successful"
     When I click the "AffirmButton" button
 
     Examples:

@@ -1,6 +1,55 @@
 @v32tc @clean @cleanalert
 Feature: 监控删除
 
+  @delallalerts
+  Scenario Outline: 删除所有监控
+    Given open the "alert.ListPage" page for uri "/alerts/"
+#    When I set the parameter "AlertListSearchInput" with value "<name>"
+    And I click the "AlertListDeleteButton" button
+    And I wait for "ConfirmDelAlertButton" will be visible
+    And I click the "ConfirmDelAlertButton" button
+
+    Examples:
+      | name |
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+
+
   @delalerts
   Scenario Outline: 删除所有监控
     Given open the "alert.ListPage" page for uri "/alerts/"
