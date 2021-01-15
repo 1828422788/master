@@ -1,5 +1,5 @@
 @alertcase
-Feature: 处理下载结果
+Feature: 验证监控邮件内容
 
   Background:
     Given open the "splSearch.OfflineTaskPageNohup" page for uri "/download/#"
