@@ -1,4 +1,4 @@
-@reportTextEditor
+@reportTextEditor @report
 Feature:报表_富文本编辑_图片
 
   Background:
@@ -13,6 +13,7 @@ Feature:报表_富文本编辑_图片
   Scenario: image
     When I set the parameter "Name" with value "Image"
     And I click the "NextButton" button under some element
+    And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 
@@ -37,6 +38,7 @@ Feature:报表_富文本编辑_图片
   Scenario: image_20kb
     When I set the parameter "Name" with value "Image"
     And I click the "NextButton" button under some element
+    And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 
@@ -47,6 +49,7 @@ Feature:报表_富文本编辑_图片
   Scenario: image_header_footer
     When I set the parameter "Name" with value "Image_HF"
     And I click the "NextButton" button under some element
+    And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 
@@ -82,6 +85,7 @@ Feature:报表_富文本编辑_图片
   Scenario: image_table
     When I set the parameter "Name" with value "Image_Table"
     And I click the "NextButton" button under some element
+    And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 

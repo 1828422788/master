@@ -45,4 +45,5 @@ Feature: 报表_富文本编辑下载
       | Table3x3_AddColumnAfter       |
       | Table3x2_TopVerticalAlign     |
       | Table3x2_MiddleVerticalAlign  |
+      | Table3x3_Resize               |
       | test_5trends_WORD             |

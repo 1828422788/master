@@ -1,4 +1,4 @@
-@reportTextEditor
+@reportTextEditor @report
 Feature:报表_富文本编辑_本文
 
   Background:
@@ -13,6 +13,7 @@ Feature:报表_富文本编辑_本文
   Scenario Outline: text_font
     When I set the parameter "Name" with value "<name>"
     And I click the "NextButton" button under some element
+    And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 
@@ -55,6 +56,7 @@ Feature:报表_富文本编辑_本文
   Scenario Outline: text_style
     When I set the parameter "Name" with value "<name>"
     And I click the "NextButton" button under some element
+    And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 
@@ -96,6 +98,7 @@ Feature:报表_富文本编辑_本文
   Scenario Outline: text_alignment
     When I set the parameter "Name" with value "<button>"
     And I click the "NextButton" button under some element
+    And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 

@@ -1,4 +1,4 @@
-@reportTextEditor
+@reportTextEditor @report
 Feature: 报表_单值趋势图
 
   Background:

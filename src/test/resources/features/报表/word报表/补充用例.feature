@@ -12,6 +12,7 @@ Feature:
   Scenario Outline: table_all_colors
     When I set the parameter "Name" with value "Table8x10_<button>"
     And I click the "NextButton" button under some element
+    And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 
