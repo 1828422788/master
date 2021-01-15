@@ -32,6 +32,9 @@ public class CreatePageWORD extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='选择趋势图']")
     private WebElement chartListInput;
 
+    @FindBy(xpath = "//label[@name='operate_edit']/*")
+    private WebElement editButton;
+
     @FindBy(xpath = "//a[@aria-label='文本中嵌入单值趋势图']")
     private WebElement singleTrendList;
 
@@ -311,6 +314,10 @@ public class CreatePageWORD extends PageTemplate {
         WebDriverWait wait = new WebDriverWait(webDriver,10);
         wait.until(ExpectedConditions.elementToBeClickable(chartListInput));
         return chartListInput;
+    }
+
+    public WebElement getEditButton() {
+        return editButton;
     }
 
     public WebElement getTrendElement() {

@@ -316,7 +316,8 @@ Feature:报表_富文本编辑_表格
     And I will see the "BottomRightCorner" is display
     And I drag the element "BottomRightCorner" by "-1100" pixels
 
-    And I will see the element "TableElement" style contains "width: 257px;"
+    # check that width has changed
+    And I will see the element "TableElement" style contains "width: 2"
 
     When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
