@@ -13,6 +13,7 @@ Feature:报表_富文本编辑_趋势图
   Scenario Outline: empty_report
     When I set the parameter "Name" with value "empty_word_report"
     And I click the "NextButton" button under some element
+    And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 
@@ -40,6 +41,7 @@ Feature:报表_富文本编辑_趋势图
   Scenario Outline: trend_delete_parts
     When I set the parameter "Name" with value "delete_parts"
     And I click the "NextButton" button under some element
+    And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 
@@ -83,6 +85,7 @@ Feature:报表_富文本编辑_趋势图
     Scenario: single_trend
       When I set the parameter "Name" with value "SingleTrend"
       And I click the "NextButton" button under some element
+      And I will see the "report.CreatePageWORD" page
       Then I wait for "ChartListButtonWord" will be visible
       And I wait for "5000" millsecond
 
@@ -103,6 +106,7 @@ Feature:报表_富文本编辑_趋势图
   Scenario: single_trend_table
     When I set the parameter "Name" with value "SingleTrend_Table"
     And I click the "NextButton" button under some element
+    And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 
@@ -143,6 +147,7 @@ Feature:报表_富文本编辑_趋势图
   Scenario: single_trend_header_footer
     When I set the parameter "Name" with value "SingleTrend_HF"
     And I click the "NextButton" button under some element
+    And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 

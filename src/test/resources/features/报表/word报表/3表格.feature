@@ -13,6 +13,7 @@ Feature:报表_富文本编辑_表格
   Scenario: table_color
     When I set the parameter "Name" with value "Table3x2_Color"
     And I click the "NextButton" button under some element
+    And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 
@@ -63,6 +64,7 @@ Feature:报表_富文本编辑_表格
   Scenario: table_alignment
     When I set the parameter "Name" with value "Table4x2_Alignment"
     And I click the "NextButton" button under some element
+    And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 
@@ -113,6 +115,7 @@ Feature:报表_富文本编辑_表格
   Scenario Outline: table_delete
     When I set the parameter "Name" with value "Table3x3_<button>"
     And I click the "NextButton" button under some element
+    And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 
@@ -161,6 +164,7 @@ Feature:报表_富文本编辑_表格
   Scenario Outline: table_add
     When I set the parameter "Name" with value "Table3x3_<button2>"
     And I click the "NextButton" button under some element
+    And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 
@@ -223,6 +227,7 @@ Feature:报表_富文本编辑_表格
   Scenario Outline: table_vertical_alignment
     When I set the parameter "Name" with value "Table3x2_<button1>"
     And I click the "NextButton" button under some element
+    And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 
@@ -276,5 +281,46 @@ Feature:报表_富文本编辑_表格
       | TopVerticalAlign     | LeftAlignment      | vertical-align: top;      | text-align: left;   |
       | MiddleVerticalAlign  | CenterAlignment    | vertical-align: middle;   | text-align: center; |
       | BottomVerticalAlign  | RightAlignment     | vertical-align: bottom;   | text-align: right;  |
+
+  Scenario: table_resize
+    When I set the parameter "Name" with value "Table3x3_Resize"
+    And I click the "NextButton" button under some element
+    And I will see the "report.CreatePageWORD" page
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "5000" millsecond
+
+    And I set the parameter "TextArea" with value "Resize Table" and press enter in word report
+    And I set the parameter "NewLine" with value "textclick" and press enter in word report
+    And I set the parameter "NewLine" with value "text" in word report
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
+    And I wait for "2000" millsecond
+    And I select all text in "TextAreaLocator" element
+    And I click the "TextAreaLocator" button
+    And I click the "AddTable" button
+    And I click the "AddTable3x3" button
+    And I wait for "2000" millsecond
+    And I will see the "TableElement" is display
+    And I will see the element "TableElement" style contains "width: 100%;"
+    And I set the table cell in row "1" and column "1" with value "Cell 1 1" in word report
+    And I set the table cell in row "1" and column "2" with value "Cell 1 2" in word report
+    And I set the table cell in row "1" and column "3" with value "Cell 1 3" in word report
+    And I set the table cell in row "2" and column "1" with value "Cell 2 1" in word report
+    And I set the table cell in row "2" and column "2" with value "Cell 2 2" in word report
+    And I set the table cell in row "2" and column "3" with value "Cell 2 3" in word report
+    And I set the table cell in row "3" and column "1" with value "Cell 3 1" in word report
+    And I set the table cell in row "3" and column "2" with value "Cell 3 2" in word report
+    And I set the table cell in row "3" and column "3" with value "Cell 3 3" in word report
+
+    And I click the "Cell22" button
+    And I will see the "BottomRightCorner" is display
+    And I drag the element "BottomRightCorner" by "-1100" pixels
+
+    And I will see the element "TableElement" style contains "width: 257px;"
+
+    When I click the "FinishButton" button under some element
+    And I wait for "EnsureButton" will be visible
+    Then I will see the success message "保存成功"
+    And I click the "EnsureButton" button
 
 

@@ -21,6 +21,7 @@ Feature: 报表_富文本编辑_限制
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I choose the "WORD" from the "ReportType"
     And I click the "NextButton" button under some element
+    And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 

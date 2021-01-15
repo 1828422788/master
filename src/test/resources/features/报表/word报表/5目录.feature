@@ -13,6 +13,7 @@ Feature:报表_富文本编辑_目录
   Scenario: content
     When I set the parameter "Name" with value "Content"
     And I click the "NextButton" button under some element
+    And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
     And I wait for "TextArea" will be visible
