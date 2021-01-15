@@ -1,4 +1,4 @@
-@alertcase
+@alertcase1
 Feature: 测试运行-邮件
 
   @testrun
