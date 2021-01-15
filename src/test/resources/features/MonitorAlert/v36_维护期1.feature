@@ -5,10 +5,10 @@ Feature: 监控维护期
 
   @alertSmoke @maintenance
   Scenario Outline: api_维护期每天9-13点_字段统计_总计resplen_邮件
-    Given I click the "Create" button
-    When I set the parameter "searchReason" with value "<reason>"
+    Given I click the "CreateButton" button
+    When I set the parameter "MaintainReason" with value "<reason>"
 
-    And I click the "ChooseAlertName" button
+    And I click the "ChooseAlertButton" button
     And I set the parameter "AlertNameSearchInput" with value "<alert_name>"
     And I click the "AlertNameSearchIcon" button
     And I wait for "2000" millsecond

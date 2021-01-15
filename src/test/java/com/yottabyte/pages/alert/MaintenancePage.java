@@ -16,6 +16,20 @@ public class MaintenancePage extends PageTemplate {
         driver.manage().window().fullscreen();
     }
 
+    @FindBy(xpath = "//span[text()='维护原因']/following::input[@placeholder='请输入维护原因']")
+    private WebElement maintainReason;
+
+    public WebElement getMaintainReason() {
+        return maintainReason;
+    }
+
+    @FindBy(xpath = "//div/a[text()='请选择']")
+    private WebElement chooseAlertButton;
+
+    public WebElement getChooseAlertButton(){
+        return chooseAlertButton;
+    }
+
     @FindBy(xpath = "//input[@placeholder='开始时间']")
     private WebElement startTime;
 
@@ -33,9 +47,6 @@ public class MaintenancePage extends PageTemplate {
 
     @FindBy(className = "available")
     private WebElement available;
-
-    @FindBy(xpath = "//input[@placeholder='输入维护原因']")
-    private WebElement searchReason;
 
     @FindBy(xpath = "//span[text()='单次']")
     private WebElement single;
@@ -95,10 +106,6 @@ public class MaintenancePage extends PageTemplate {
         return super.getContainsTextButton("确定");
     }
 
-    public WebElement getSearchReason() {
-        return searchReason;
-    }
-
     public WebElement getAvailable() {
         return available;
     }
@@ -128,8 +135,11 @@ public class MaintenancePage extends PageTemplate {
         return startTime;
     }
 
-    public WebElement getCreate() {
-        return super.getButton("新建");
+    @FindBy(className = "span[text()='新建']/parent::button")
+    private WebElement createButton;
+
+    public WebElement getCreateButton() {
+        return createButton;
     }
 
     public WebElement getReason() {
