@@ -1,5 +1,5 @@
 @dashboard @dashboardSmoke
-Feature: 系统设置所有时间定义（RZY-1818）
+Feature: 系统设置-时间快捷选项设置
 
   Background:
     Given open the "system.TimeShortcutsConfig" page for uri "/system/shortcuts/"
