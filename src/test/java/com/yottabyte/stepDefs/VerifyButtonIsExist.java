@@ -1,8 +1,11 @@
 package com.yottabyte.stepDefs;
 
+import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 /**
@@ -10,6 +13,7 @@ import org.openqa.selenium.WebElement;
  * @author sunxj
  */
 public class VerifyButtonIsExist {
+    private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
     /**
      * 判断元素是否存在
@@ -22,6 +26,22 @@ public class VerifyButtonIsExist {
             GetElementFromPage.getWebElementWithName(buttonName);
         } catch (Exception e) {
             Assert.assertTrue(true);
+        }
+    }
+
+    /**
+     * 判断元素是否存在
+     *
+     * @param text
+     */
+    @Then("^I will see the text \"([^\"]*)\" exist in page$")
+    public void textExistInPage(String text) {
+//        WebElement element = webDriver.findElement(By.xpath("//*[text()='" + text + "']"));
+        try {
+            webDriver.findElement(By.xpath("//*[text()='" + text + "']"));
+            Assert.assertTrue(true);
+        } catch (Exception e) {
+            Assert.assertTrue(false);
         }
     }
 }
