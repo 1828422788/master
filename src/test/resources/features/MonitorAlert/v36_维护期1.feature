@@ -3,30 +3,38 @@ Feature: 监控维护期
   Background:
     Given open the "alert.MaintenancePage" page for uri "/alerts/maintenance/"
 
-  @alertSmoke @maintenance
+  @alertSmoke @maintenance1
   Scenario Outline: api_维护期每天9-13点_字段统计_总计resplen_邮件
     Given I click the "CreateButton" button
     When I set the parameter "MaintainReason" with value "<reason>"
 
-    And I click the "ChooseAlertButton" button
-    And I set the parameter "AlertNameSearchInput" with value "<alert_name>"
-    And I click the "AlertNameSearchIcon" button
-    And I wait for "2000" millsecond
-    And I click the "AlertNameBody" button
-    And I wait for "4000" millsecond
-    And I click the "AlertName" button
-    And I wait for "2000" millsecond
-    And I click the "AlertNameEnsure" button
+#    And I click the "ChooseAlertButton" button
+#    And I set the parameter "AlertNameSearchInput" with value "<alert_name>"
+#    And I click the "AlertNameSearchIcon" button
+#    And I wait for loading complete
+#    And I wait for "3000" millsecond
+#    And I click the "AlertNameBody" button
+#    And I wait for "3000" millsecond
+#    And I wait for loading complete
+##    And I click the "AlertNameCheckbox" button
+#    And I click the "AlertNameEnsure" button
 
-    And I set the parameter "MaintenanceBeginTime" with value "09:00"
-    And I set the parameter "MaintenanceEndTime" with value "13:00"
+    And I wait for loading complete
+    And I choose the "08" from the "MaintainBeginTimeList"
+    And I wait for "2000" millsecond
+    And I click the "BeginTimeLabel" button
+    And I wait for "1000" millsecond
+    And I choose the "23" from the "MaintainEndTimeList"
+    And I wait for "2000" millsecond
+    And I click the "BeginTimeLabel" button
+    And I wait for "1000" millsecond
 
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
 
     Examples:
-      | reason                         | alert_name         |
-      | api_维护期每天9-13点_字段统计_总计resplen_邮件 | api_维护期每天9-13点_字段统计_总计resplen_邮件 |
+      | reason                          | alert_name                      |
+      | 维护期0_字段统计_独立数status_邮件_单次今天9点开始 | 维护期0_字段统计_独立数status_邮件_单次今天9点开始 |
 
 
   Scenario Outline: RZY-2998:监控-维护期-执行计划-定时-每天1-2
@@ -50,7 +58,7 @@ Feature: 监控维护期
     Then I will see the success message "保存成功"
 
     Examples:
-      | reason                         | alert_name         |
+      | reason                           | alert_name                       |
       | api_维护期每天9-13点_字段统计_总计resplen_邮件 | api_维护期每天9-13点_字段统计_总计resplen_邮件 |
 
 
@@ -63,7 +71,7 @@ Feature: 监控维护期
 
     Examples:
       | reasonName |
-      | 维护期5   |
+      | 维护期5       |
 
 #  @smoke @alertSmoke
   Scenario: 查看监控是否正在维护

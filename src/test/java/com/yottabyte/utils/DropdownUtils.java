@@ -111,5 +111,15 @@ public class DropdownUtils {
         return lastDropdownList;
     }
 
+    public WebElement getMaintainTimeDropdownList() {
+        String className;
+        className = "ant-time-picker-panel-select";
+        List<WebElement> list = webDriver.findElements(By.className(className));
+        WebElement lastDropdownList = list.get(list.size() - 1);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+        }
+        return lastDropdownList;
+    }
 
 }
