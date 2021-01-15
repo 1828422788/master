@@ -1,4 +1,4 @@
-@reportTextEditor
+@reportTextEditor @report
 Feature: 报表_富文本编辑_限制
 
   Scenario: change_limit
