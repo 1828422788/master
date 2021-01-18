@@ -30,7 +30,7 @@ public class VerifyButtonIsExist {
     }
 
     /**
-     * 判断元素是否存在
+     * 判断文本在页面中存在
      *
      * @param text
      */
@@ -42,6 +42,21 @@ public class VerifyButtonIsExist {
             Assert.assertTrue(true);
         } catch (Exception e) {
             Assert.assertTrue(false);
+        }
+    }
+
+    /**
+     * 判断元素是否存在
+     *
+     * @param text
+     */
+    @Then("^I will see the text \"([^\"]*)\" is not existed in page$")
+    public void textNotExistInPage(String text) {
+//        WebElement element = webDriver.findElement(By.xpath("//*[text()='" + text + "']"));
+        try {
+            webDriver.findElement(By.xpath("//*[text()='" + text + "']"));
+        } catch (Exception e) {
+            Assert.assertTrue(true);
         }
     }
 }
