@@ -7,7 +7,6 @@ Feature: 处理下载结果
   @vdlxtable
   Scenario Outline: 下载比较
     Then I compare source bucket file "<name>.csv" with target bucket files "<name>.csv"
-    And I compare source alert file "<name>.txt" with target alert file "<name>.txt"
 
     Examples: 新建成功
       | name                                                | splQuery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
