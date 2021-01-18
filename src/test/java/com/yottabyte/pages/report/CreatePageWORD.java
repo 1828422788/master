@@ -41,7 +41,7 @@ public class CreatePageWORD extends PageTemplate {
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']//p[@class= 'editor_block_trend']")
     private WebElement trendElement;
 
-    @FindBy(xpath = "(//p[@class='editor_block_trend']/span[contains(@name,'trend_name')])[last()]")
+    @FindBy(xpath = "(//*[contains(@name,'trend_name')])[last()]")
     private WebElement lastAddedTrend;
 
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']//span[@class= 'editor_inline_trend']")
@@ -644,5 +644,20 @@ public class CreatePageWORD extends PageTemplate {
 
     public WebElement getBottomRightCorner() {
         return bottomRightCorner;
+    }
+
+    public WebElement getLastPartition(){
+//        int sourceX = cell22.getLocation().getX();
+//        int loc_y = cell22.getLocation().getY();
+//        int width = cell22.getSize().getWidth();
+//        System.out.println(width);
+//        System.out.println(sourceX);
+//        System.out.println(loc_y);
+//        int loc_x = sourceX + width;
+//        ((JavascriptExecutor) webDriver).executeScript("document.elementFromPoint(" + loc_x + ", "+ loc_y +").click()");
+//        WebDriverWait wait = new WebDriverWait(webDriver,10);
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='jodit_table_resizer'])[last()]")));
+        WebElement lastPartition = webDriver.findElement(By.xpath("(//div[@class='jodit_table_resizer'])[last()]"));
+        return lastPartition;
     }
 }

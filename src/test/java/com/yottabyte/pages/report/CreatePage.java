@@ -94,6 +94,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='下一步']/ancestor::button")
     private WebElement nextButton;
 
+    @FindBy(xpath = "//span[text()='上一步']/ancestor::button")
+    private WebElement backButton;
+
     @FindBy(xpath = "//span[text()='完成']/ancestor::button")
     private WebElement finishButton;
 
@@ -982,6 +985,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getNextButton() {
         return nextButton;
+    }
+
+    public WebElement getBackButton() {
+        return backButton;
     }
 
     public WebElement getFinishButton() {
