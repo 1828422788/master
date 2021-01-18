@@ -156,10 +156,13 @@ Feature: 监控维护期
   Scenario Outline: 查看监控是否正在维护
     Given open the "alert.ListPage" page for uri "/alerts/"
     When I set the parameter "AlertListSearchInput" with value "<alert_name>"
+    And I click the "AlertListSearchInputButton" button
     And I wait for loading complete
 #    When choose from "{'DropdownMenu':'维护期0_字段统计_独立数status_邮件_每月1-30'}"
 #    Then I will see the search result contains "{'column':'0','name':'正在维护'}"
-    Then I click the "MaintainFlag" button
+#    And I wait for element "<string>" change text to "<string>"
+    And I wait for "MaintainFlag" will be visible
+#    Then I click the "MaintainFlag" button
 
     Examples:
       | alert_name                      |
@@ -173,7 +176,7 @@ Feature: 监控维护期
   Scenario: 删除维护期
     When the data name is "维护期_del" then i click the "删除" button
     And I click the "EnsureDelete" button
-    Then I will see the success message "删除成功"
+#    Then I will see the success message "删除成功"
 
   @smoke @alertSmoke
   Scenario: 返回监控首页
