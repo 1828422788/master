@@ -179,6 +179,35 @@ Feature:报表_富文本编辑_趋势图
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
+  Scenario Outline: change_type
+    When I set the parameter "Name" with value "ChangeToPDF<name_report>"
+    And I click the "NextButton" button under some element
+    And I will see the "report.CreatePageWORD" page
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "5000" millsecond
+
+    And I set the parameter "<inputSearch>" with value "<name>"
+    And I click the button with text "<name>"
+    And I will see the "<element>" is display
+    And I will see the element "LastAddedTrend" contains "<name>"
+    And I wait for "2000" millsecond
+
+    And I will see the "report.CreatePage" page
+    And I click the "BackButton" button under some element
+    And I choose the "PDF" from the "ReportType"
+    And I click the "NextButton" button under some element
+    Then I will see the element "ChosenTrendLast" contains "<name>"
+
+    When I click the "FinishButton" button under some element
+    And I wait for "EnsureButton" will be visible
+    Then I will see the success message "保存成功"
+    And I click the "EnsureButton" button
+
+    Examples:
+      | name         | inputSearch           |  element            | name_report |
+      | 报表测试     | ChartListInput        |TrendElement         |             |
+      | 单值报表测试 | SingleChartListInput  |SingleTrendElement   | _Single     |
+
 
 
 

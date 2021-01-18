@@ -21,6 +21,8 @@ Feature: 报表_富文本编辑下载
       | SingleTrend                   |
       | SingleTrend_Table             |
       | SingleTrend_HF                |
+      | ChangeToPDF                   |
+      | ChangeToPDF_Single            |
       | FontSize                      |
       | BoldText                      |
       | ItalicsText                   |
@@ -33,6 +35,8 @@ Feature: 报表_富文本编辑下载
       | Image                         |
       | Image_HF                      |
       | Image_Table                   |
+      | Content                       |
+      | Content_Place                 |
       | Table3x2_Color                |
       | Table4x2_Alignment            |
       | Table3x3_DeleteTable          |
