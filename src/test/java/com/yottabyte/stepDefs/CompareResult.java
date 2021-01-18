@@ -294,7 +294,7 @@ public class CompareResult {
             fis1 = new FileInputStream(fis1_path);
 //          fis2 = new FileInputStream(curPath + "/target/download-files/" + targetDownloadFile);
 //            String fis2_path = "/var/lib/jenkins/workspace/downloadFile/" + targetDownloadFile;
-            String fis2_path = "/opt/36actual/" + targetDownloadFile;
+            String fis2_path = "/opt/actual/" + targetDownloadFile;
             fis2 = new FileInputStream(fis2_path);
 
             int len1 = fis1.available();//返回总的字节数
@@ -390,7 +390,7 @@ public class CompareResult {
         ArrayList<String> fis2 = null;
 
         fis1 = readFromTextFile("/opt/expect/" + sourceDownloadFile);
-        fis2 = readFromTextFile("/opt/36actual/" + targetDownloadFile);
+        fis2 = readFromTextFile("/opt/actual/" + targetDownloadFile);
 
         int row_len1 = fis1.toArray().length;
         int row_len2 = fis2.toArray().length;
