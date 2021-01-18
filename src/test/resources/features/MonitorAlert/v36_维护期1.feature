@@ -31,7 +31,7 @@ Feature: 监控维护期
     And I wait for "1000" millsecond
 
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
 
     Examples:
       | reason                          | alert_name                     |
@@ -63,7 +63,6 @@ Feature: 监控维护期
     And I click the "BeginTimeConfirmButton" button
 
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
 
     Examples:
       | reason                          | alert_name                      |
@@ -101,7 +100,6 @@ Feature: 监控维护期
     And I wait for "1000" millsecond
 
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
 
     Examples:
       | reason                        | alert_name                    |
@@ -138,7 +136,6 @@ Feature: 监控维护期
     And I wait for "1000" millsecond
 
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
 
     Examples:
       | reason                        | alert_name                    |
