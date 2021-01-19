@@ -35,36 +35,44 @@ Feature: 趋势图新建_报表
     And I wait for "3000" millsecond
     And I wait for element "SelectedUser" change text to username
     And I wait for "3000" millsecond
-    When I set the parameter "Name" with value "<report_name>"
+    When I set the parameter "Name" with value "Report_Test_<type>"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "test_app" from the "App" in config
-    And I choose the "PDF" from the "ReportType" in config
+    And I choose the "<type>" from the "ReportType" in config
     And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput" in config
     And I will see the element "SubjectNote" contains "注: 可用变量: 报表名称：<%report_name%>，发送时间：<%report_time%>"
     And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
     And I set the parameter "Hour" with value "16"
     And I set the parameter "Minute" with value "45"
     And I click the "NextButton" button under some element
-    Then I will see the element "ChosenTrendLast" contains "<trend_name>"
+    Then I will see the "report.CreatePage<page>" page
+    Then I will see the element "<added_trend>" contains "<trend_name>"
     When I click the "FinishButton" button under some element
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
     Examples:
-      | trend_name    | report_name   |
-      | Trend_Test    | Report_Test   |
+      |   type  |  trend_name    | added_trend      |   page    |
+      | PDF     |  Trend_Test_1  | ChosenTrendLast  |           |
+      | WORD    |  Trend_Test_2  | LastAddedTrend   |   WORD    |
 
 
-  Scenario: delete_trend_report
+  Scenario Outline: delete_trend_report
     When open the "trend.ListPage" page for uri "/trend/"
-    And  the data name is "{'column':'0','name':'Trend_Test'}" then i click the "删除" button
-    Then I will see the message "确认删除 [Trend_Test] ?"
+    And  the data name is "{'column':'0','name':'<trend_name>'}" then i click the "删除" button
+    Then I will see the message "确认删除 [<trend_name>] ?"
     When I click the "EnsureButton" button
     Then I will see the success message "删除成功"
     When open the "report.ListPage" page for uri "/reports/"
-    And the data name is "{'column':'1','name':'Report_Test'}" then i click the "删除" button
-    Then I will see the message "此操作将删除 [Report_Test], 是否继续？"
+    And the data name is "{'column':'1','name':'<report_name>'}" then i click the "删除" button
+    Then I will see the message "此操作将删除 [<report_name>], 是否继续？"
     When I click the "EnsureButton" button
     And I wait for "500" millsecond
     Then I will see the message "删除成功"
     And I click the "EnsureButton" button
+
+    Examples:
+      |  trend_name    |   report_name    |
+      |  Trend_Test_1  | Report_Test_PDF  |
+      |  Trend_Test_2  | Report_Test_WORD |
+
