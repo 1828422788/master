@@ -82,26 +82,3 @@ Feature: 报表_布局设计
       | 6      |
       | 7      |
       | 8      |
-
-  Scenario Outline: download_pdf
-    When I set the parameter "SearchInput" with value "report_Layout_<layout>"
-    And I wait for "2000" millsecond
-    And the data name is "{'column':'1','name':'report_Layout_<layout>'}" then i click the "report_Layout_<layout>" button
-    And I wait for element "SelectedReport" change text to "report_Layout_<layout>"
-    Then I will see the element "LastGeneratedReport" contains ".pdf"
-    And I click the "Download" button
-    And I wait for "4000" millsecond
-    And I download the latest report to local
-    And I wait for "4000" millsecond
-    Then I compare source report file "expect/report_Layout_<layout>.pdf" with target report file "report_Layout_<layout>.pdf"
-
-    Examples:
-      | layout |
-      | 1      |
-      | 2      |
-      | 3      |
-      | 4      |
-      | 5      |
-      | 6      |
-      | 7      |
-      | 8      |
