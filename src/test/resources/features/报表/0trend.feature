@@ -1,4 +1,4 @@
-@report
+@report @setup1
 Feature: 报表_趋势图
 
   Background:

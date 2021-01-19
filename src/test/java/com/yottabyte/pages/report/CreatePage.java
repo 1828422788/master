@@ -115,28 +115,28 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='时']")
     private WebElement hour;
 
-    @FindBy(id = "layout1")
+    @FindBy(xpath = "(//span[text()='布局设计']/ancestor::div/following-sibling::div/div)[1]")
     private WebElement layout1;
 
-    @FindBy(id = "layout2")
+    @FindBy(xpath = "(//span[text()='布局设计']/ancestor::div/following-sibling::div/div)[2]")
     private WebElement layout2;
 
-    @FindBy(id = "layout3")
+    @FindBy(xpath = "(//span[text()='布局设计']/ancestor::div/following-sibling::div/div)[3]")
     private WebElement layout3;
 
-    @FindBy(id = "layout4")
+    @FindBy(xpath = "(//span[text()='布局设计']/ancestor::div/following-sibling::div/div)[4]")
     private WebElement layout4;
 
-    @FindBy(id = "layout5")
+    @FindBy(xpath = "(//span[text()='布局设计']/ancestor::div/following-sibling::div/div)[5]")
     private WebElement layout5;
 
-    @FindBy(id = "layout6")
+    @FindBy(xpath = "(//span[text()='布局设计']/ancestor::div/following-sibling::div/div)[6]")
     private WebElement layout6;
 
-    @FindBy(id = "layout7")
+    @FindBy(xpath = "(//span[text()='布局设计']/ancestor::div/following-sibling::div/div)[7]")
     private WebElement layout7;
 
-    @FindBy(id = "layout8")
+    @FindBy(xpath = "(//span[text()='布局设计']/ancestor::div/following-sibling::div/div)[8]")
     private WebElement layout8;
 
     @FindBy(xpath = "(//i[@class='el-collapse-item__header__arrow el-icon-arrow-right'])[last()]")
@@ -163,35 +163,17 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//li[@class='el-dropdown-menu__item']")
     private WebElement firstLi;
 
-    @FindBy(xpath = "(//span[text()='1'])[2]")
+    @FindBy(xpath = "//span[text()='布局设计']/ancestor::div/following-sibling::div//span[text()='1']")
     private WebElement badge1;
 
-    @FindBy(xpath = "(//span[text()='2'])[2]")
+    @FindBy(xpath = "//span[text()='布局设计']/ancestor::div/following-sibling::div//span[text()='2']")
     private WebElement badge2;
 
-    @FindBy(xpath = "//span[text()='3']")
+    @FindBy(xpath = "//span[text()='布局设计']/ancestor::div/following-sibling::div//span[text()='3']")
     private WebElement badge3;
 
-    @FindBy(xpath = "(//span[text()='4'])[last()]")
+    @FindBy(xpath = "//span[text()='布局设计']/ancestor::div/following-sibling::div//span[text()='4']")
     private WebElement badge4;
-
-    @FindBy(xpath = "(//span[text()='5'])[last()]")
-    private WebElement badge5;
-
-    @FindBy(xpath = "(//span[text()='6'])[last()]")
-    private WebElement badge6;
-
-    @FindBy(xpath = "(//span[text()='7'])[last()]")
-    private WebElement badge7;
-
-    @FindBy(xpath = "(//span[text()='8'])[last()]")
-    private WebElement badge8;
-
-    @FindBy(xpath = "(//span[text()='9'])[last()]")
-    private WebElement badge9;
-
-    @FindBy(xpath = "(//span[text()='10'])[last()]")
-    private WebElement badge10;
 
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div/div")
     private WebElement app;
@@ -840,30 +822,6 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getBadge4() {
         return badge4;
-    }
-
-    public WebElement getBadge5() {
-        return badge5;
-    }
-
-    public WebElement getBadge6() {
-        return badge6;
-    }
-
-    public WebElement getBadge7() {
-        return badge7;
-    }
-
-    public WebElement getBadge8() {
-        return badge8;
-    }
-
-    public WebElement getBadge9() {
-        return badge9;
-    }
-
-    public WebElement getBadge10() {
-        return badge10;
     }
 
     public WebElement getChartType() {
