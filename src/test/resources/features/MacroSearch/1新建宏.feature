@@ -1,4 +1,4 @@
-@dleval @newmacro
+@dleval @newmacro @autoui01
 Feature: 搜索宏新建
 
   Background:

@@ -1,4 +1,3 @@
-@pre0
 Feature:
 
   Scenario Outline:

@@ -1,6 +1,6 @@
 Feature: 导入监控用例
 
-  @upres1 @extra00
+  @upres1 @pre00
   Scenario:执行导入
     When open the "dbConnectionPre.ResListPage" page for uri "/resource/"
     Then I wait for "ImportAndExportButton" will be visible
@@ -20,7 +20,7 @@ Feature: 导入监控用例
 #    And I wait for "Message" will be visible
     And I wait for "AddSuccMessage" will be visible
 
-  @extra00 @newldapconnssl
+  @pre00 @newldapconnssl
   Scenario Outline: 新建ssl ldap配置-1个
     Given open the "dbConnectionPre.LdapConnListPage" page for uri "/ldapconnection/"
     And I click the "CreateLdapConn" button

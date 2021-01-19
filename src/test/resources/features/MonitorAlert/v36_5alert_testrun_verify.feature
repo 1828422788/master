@@ -1,4 +1,4 @@
-@alertcase
+@autoui03 @alertcase
 Feature: 验证监控邮件内容
 
   Background:

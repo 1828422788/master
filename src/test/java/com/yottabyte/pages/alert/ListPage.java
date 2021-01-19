@@ -313,13 +313,11 @@ public class ListPage extends ListPageFactory {
         return maintainFlag;
     }
 
-
     // 搜索输入框
     @FindBy(xpath = "//input[@placeholder='请输入名称']/following::span/i")
     private WebElement alertListSearchInputButton;
     public WebElement getAlertListSearchInputButton() {
         return alertListSearchInputButton;
     }
-
 
 }

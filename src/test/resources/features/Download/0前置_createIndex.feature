@@ -1,4 +1,4 @@
-@extra0
+@autoui01
 Feature: 新建collect使用索引
 
   Background:

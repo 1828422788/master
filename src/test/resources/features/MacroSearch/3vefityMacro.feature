@@ -1,4 +1,4 @@
-@vdlmacro
+@vdlmacro @postverify
 Feature: 验证宏
 
   @vdlmacro
