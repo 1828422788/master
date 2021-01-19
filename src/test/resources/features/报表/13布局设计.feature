@@ -15,6 +15,7 @@ Feature: 报表_布局设计
     And I wait for "2000" millsecond
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
+    And I click the "ChartListButton" button
 
     And I click the "Layout<layout>" button
     And I will see the "Badge1" is display
