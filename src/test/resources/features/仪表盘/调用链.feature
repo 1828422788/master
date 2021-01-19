@@ -259,7 +259,7 @@ Feature: 仪表盘调用链
     And I move the mouse pointer to the "TrendTitle"
     And I click the "TrendTitle" button
     And I wait for "3000" millsecond
-    And I wait for "SecondCallChainText" will be visible
+#    And I wait for "SecondCallChainText" will be visible
 
     Examples:
       | name       |
