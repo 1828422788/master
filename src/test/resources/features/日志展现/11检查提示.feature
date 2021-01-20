@@ -1,4 +1,4 @@
-@logDisplayPrompt
+@logDisplayPrompt @logDisplay
 Feature: 日志展现_提示
 
   Background:

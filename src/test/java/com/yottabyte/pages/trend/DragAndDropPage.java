@@ -15,6 +15,9 @@ public class DragAndDropPage extends CreatePage {
         driver.manage().window().setSize(new Dimension(1500,900));
     }
 
+    @FindBy(xpath = "//div[text()='提示']/ancestor::div/following-sibling::div//p")
+    private WebElement prompt;
+
     @FindBy(xpath = "//span[text()='查看SPL']")
     private WebElement checkSPL;
 
@@ -127,6 +130,9 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(xpath = "//span[text()='数据概览']")
     private WebElement overview;
 
+    @FindBy(xpath = "//span[text()='保存为数据集']")
+    private WebElement saveAsDataset;
+
     @FindBy(xpath = "//div[@class='ant-tabs-nav-wrap']/div/div/div/div[3]")
     private WebElement customTimeTab;
 
@@ -144,6 +150,22 @@ public class DragAndDropPage extends CreatePage {
 
     @FindBy(xpath = "(//span[contains(text(),'函数')])[last()]/ancestor::div[1]/following-sibling::div[1]")
     private WebElement typeFunction;
+
+    @FindBy(xpath = "//span[@class='_3TjVnCiCABbodAnOm8kMEf']")
+    private WebElement homeButton;
+
+    @FindBy(xpath = "(//div/span[text()='apache.clientip'])[1]")
+    private WebElement clientipInTable;
+
+    @FindBy(xpath = "(//div[@class='_1lkfN4JG8S51qtIGZPaKKe'][1]/span)[last()]")
+    private WebElement emptySpace;
+
+    @FindBy(xpath = "(//div[@class='_1LcnvcTivtoZyi2SHZDxXW'][1]/input)[last()]")
+    private WebElement lastColumn;
+
+    public WebElement getPrompt() {
+        return prompt;
+    }
 
     //Charts --------------------------------------------------------------------------
     public WebElement getLine() {
@@ -475,6 +497,10 @@ public class DragAndDropPage extends CreatePage {
         return overview;
     }
 
+    public WebElement getSaveAsDataset() {
+        return saveAsDataset;
+    }
+
     public WebElement getAddValueField() {
         return addValueField;
     }
@@ -494,6 +520,22 @@ public class DragAndDropPage extends CreatePage {
     public WebElement getTypeFunction() {
         typeFunction.click();
         return super.getLastDropdownList();
+    }
+
+    public WebElement getHomeButton() {
+        return homeButton;
+    }
+
+    public WebElement getClientipInTable() {
+        return clientipInTable;
+    }
+
+    public WebElement getEmptySpace() {
+        return emptySpace;
+    }
+
+    public WebElement getLastColumn() {
+        return lastColumn;
     }
 
     private WebElement getElementById(String name){
