@@ -46,6 +46,7 @@ Feature: 趋势图新建_报表
     And I set the parameter "Minute" with value "45"
     And I click the "NextButton" button under some element
     Then I will see the "report.CreatePage<page>" page
+    And I wait for "5000" millsecond
     Then I will see the element "<added_trend>" contains "<trend_name>"
     When I click the "FinishButton" button under some element
     Then I will see the success message "保存成功"
@@ -59,11 +60,13 @@ Feature: 趋势图新建_报表
 
   Scenario Outline: delete_trend_report
     When open the "trend.ListPage" page for uri "/trend/"
+    And I wait for "2000" millsecond
     And  the data name is "{'column':'0','name':'<trend_name>'}" then i click the "删除" button
     Then I will see the message "确认删除 [<trend_name>] ?"
     When I click the "EnsureButton" button
     Then I will see the success message "删除成功"
     When open the "report.ListPage" page for uri "/reports/"
+    And I wait for "2000" millsecond
     And the data name is "{'column':'1','name':'<report_name>'}" then i click the "删除" button
     Then I will see the message "此操作将删除 [<report_name>], 是否继续？"
     When I click the "EnsureButton" button

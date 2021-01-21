@@ -939,6 +939,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//tr[2]/td[2]/div)[1]")
     private WebElement cell2;
 
+    @FindBy(xpath = "//div[text()='提示']/ancestor::div/following-sibling::div//p")
+    private WebElement prompt;
+
+    public WebElement getPrompt() {
+        return prompt;
+    }
+
     public WebElement getCell2(){
         return cell2;
     }

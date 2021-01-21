@@ -246,33 +246,3 @@ Feature: 趋势图_选择数据集
     Examples:
       | chart   |  color  |
       | Area    |  Purple |
-
-  Scenario Outline:  prompt
-    When I click the "<type>Dataset" button
-    And I click the "EnsureButton" button
-    Then I will see the "trend.DragAndDropPage" page
-    And I click the "<button>" button
-    And I will see the element "Prompt" contains "<message1>"
-
-  Examples:
-    |  type    | button        | message1       |
-    | Single   | NextButton    | 请选择字段     |
-    | Multi    | NextButton    | 请选择数据集   |
-    | Union    | NextButton    | 请选择字段     |
-    | Multi    | CheckSPL      | 请选择数据集   |
-    | Multi    | SaveAsDataset | 请选择数据集   |
-    | Union    | Overview      | 当前无搜索语句 |
-
-  Scenario:  union_prompt
-    When I click the "UnionDataset" button
-    And I click the "EnsureButton" button
-    Then I will see the "trend.DragAndDropPage" page
-    When I drag the element "Dataset_1" to the "DropDataset"
-    And I drag the element "Dataset_2" to the "DropDataset"
-    And I drag the element "ClientipInTable" to the "EmptySpace"
-    And I click the "NextButton" button
-    And I will see the element "Prompt" contains "请先修改重名的字段"
-    And I click the "EnsureButton" button
-    And I set the parameter "LastColumn" with value "apache.method"
-    And I click the "NextButton" button
-    And I will see the element "Prompt" contains "请先修改重名的字段"

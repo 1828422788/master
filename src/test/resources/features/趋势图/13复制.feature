@@ -9,6 +9,7 @@ Feature: 趋势图复制(RZY-1889)
     Then I click the "NewTrendButton" button
     And I will see the "trend.CreatePage" page
     And I wait for "Loading" will be invisible
+    And I wait for "2000" millsecond
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I click the "AllResources" button
     And I click the "ZhanKai" button
@@ -21,12 +22,12 @@ Feature: 趋势图复制(RZY-1889)
     And I click the "NextButton" button under some element
     And I wait for "2000" millsecond
     And I wait for "Type" will be visible
-    And I click the "Type" button
-    And I click the "Order" button
-    And I click the "ScatterChart" button
-    And I click the "Settings" button
-    And I click the "Bubble" button
-    And I click the "AccordingField" button
+    And I click the "Type" button under some element
+    And I click the "Order" button under some element
+    And I click the "ScatterChart" button under some element
+    And I click the "Settings" button under some element
+    And I click the "Bubble" button under some element
+    And I click the "AccordingField" button under some element
     And I choose the "cnt" from the "BubbleSize" in config
     And I click the "Exhibition" button
     And I click the "AddColor" button
@@ -35,11 +36,9 @@ Feature: 趋势图复制(RZY-1889)
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "Chart" will be visible
+    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "actual/test_original"
-    And I compare source image "actual/test_original" with target image "expect/ScatterChart_bubbles"
     And I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "Copy_Test"
@@ -74,11 +73,9 @@ Feature: 趋势图复制(RZY-1889)
     And I will see the input element "FenPianQuYang" value will be "5000"
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "Chart" will be visible
+    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "actual/test_copy"
-    And I compare source image "actual/test_copy" with target image "expect/ScatterChart_bubbles"
     And I click the "NextButton" button under some element
 
     And I will see the input element "NameInput" value will be "Copy_Test(副本)"
@@ -90,6 +87,7 @@ Feature: 趋势图复制(RZY-1889)
 
   Scenario Outline: delete_copy
     Given open the "trend.ListPage" page for uri "/trend/"
+    And I wait for "2000" millsecond
     When the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
     Then I will see the message "确认删除 [<name>] ?"
     When I click the "EnsureButton" button

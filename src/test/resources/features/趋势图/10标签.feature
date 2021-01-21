@@ -25,6 +25,7 @@ Feature: 趋势图标签
     And I choose the "auto_package" from the "TagField" in config
     And I click the "TagPanel" button
     And I click the "EnsureButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I refresh the website
     #column 2 is user, column 3 is tag

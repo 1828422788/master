@@ -142,9 +142,6 @@ Feature: 定时任务批量操作
     When I set the parameter "SearchInput" with value "test_multi_"
     And I wait for "2000" millsecond
     Then I wait for "NoData" will be visible
-#    Then I will see the search result "{'column':'1','name':'test_multi_1','contains':'no'}"
-#    Then I will see the search result "{'column':'1','name':'test_multi_2','contains':'no'}"
-#    Then I will see the search result "{'column':'1','name':'test_multi_3','contains':'no'}"
 
   Scenario Outline: prompt
     Given open the "timedTask.ListPage" page for uri "/schedule/"

@@ -17,6 +17,7 @@ Feature: 趋势图批量操作
     And I click the "NextButton" button under some element
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
+    And I wait for "2000" millsecond
     When I set the parameter "NameInput" with value "<name>"
     And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
@@ -79,9 +80,6 @@ Feature: 趋势图批量操作
     When I set the parameter "SearchInput" with value "test_multi_"
     And I wait for "2000" millsecond
     Then I wait for "NoData" will be visible
-#    Then I will see the search result "{'column':'0','name':'test_multi_1','contains':'no'}"
-#    Then I will see the search result "{'column':'0','name':'test_multi_2','contains':'no'}"
-#    Then I will see the search result "{'column':'0','name':'test_multi_3','contains':'no'}"
 
   Scenario Outline: prompt
     And I click the "MultiButton" button under some element
