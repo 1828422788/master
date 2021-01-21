@@ -2,6 +2,7 @@ package com.yottabyte.stepDefs;
 
 //import com.spire.xls.Workbook;
 //import com.spire.xls.Worksheet;
+
 import com.yottabyte.utils.EmbeddingFile;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.ImageComparison;
@@ -426,6 +427,151 @@ public class CompareResult {
     }
 
     /**
+     * 比较两个bucket文件是否相等，
+     *
+     * @param xtableName  源文件路径名称
+     * @param Keepfigures 精确度
+     * //     * @param discolumnlist 忽略的列数
+     */
+//    @And("^I compare xtable \"([^\"]*)\" Keep figures \"([^\"]*)\" in column list \"([^\"]*)\"$")
+//    public void compareXtableFile(String xtableName, Integer Keepfigures) {
+    @And("^I compare xtable \"([^\"]*)\" Keep figures in column list \"([^\"]*)\"$")
+    public void compareXtableFile(String xtableName, Integer Keepfigures) {
+        int[] discolno = {0, 1, 2};
+
+        String curPath = System.getProperty("user.dir");
+
+        ArrayList<String> fis1 = null;
+        ArrayList<String> fis2 = null;
+
+        fis1 = readFromTextFile("/opt/expect/" + xtableName);
+        fis2 = readFromTextFile("/opt/actual/" + xtableName);
+
+        int row_len1 = fis1.toArray().length;
+        int row_len2 = fis2.toArray().length;
+
+        String[] row_arrylist1 = (String[]) fis1.toArray(new String[fis1.size()]);
+        String[] row_arrylist2 = (String[]) fis2.toArray(new String[fis2.size()]);
+
+        if (row_len1 == row_len2) { //行数比较
+            //表头
+            for (int i = 0; i < row_len1; i++) {
+                String[] col_arry1 = row_arrylist1[i].split(",");
+                String[] col_arry2 = row_arrylist2[i].split(",");
+
+                int col_count1 = col_arry1.length;
+                int col_count2 = col_arry2.length;
+                if (col_count1 == col_count2) {
+                    for (int j = 1; j < col_count1; j++) {
+                        String cur_ArryValue1 = col_arry1[j];
+                        String cur_ArryValue2 = col_arry2[j];
+
+                        int flag = -1;
+
+                        for (int cur_colno : discolno) {
+                            if (cur_colno == j)
+                                flag = cur_colno;
+                        }
+
+                        if (flag!=-1) {
+                            continue;
+                        }
+
+                        cur_ArryValue1 = cur_ArryValue1.substring(0, Keepfigures);
+                        cur_ArryValue2 = cur_ArryValue2.substring(0, Keepfigures);
+
+                        if (!cur_ArryValue1.equals(cur_ArryValue2)) {
+                            System.out.println("行内容不一样");
+                            Assert.fail();
+                        }
+                    }
+                } else {
+                    System.out.println("行内容不一样");
+                    Assert.fail();
+                }
+            }
+            System.out.println("两个文件完全相同");
+        } else {
+            //长度不一样，文件不同
+            Assert.fail();
+        }
+
+    }
+
+    /**
+     * 比较两个bucket文件是否相等，
+     *
+     * @param xtableName  源文件路径名称
+     * @param Keepfigures 精确度
+     * //     * @param discolumnlist 忽略的列数
+     */
+//    @And("^I compare xtable \"([^\"]*)\" Keep figures \"([^\"]*)\" in column list \"([^\"]*)\"$")
+//    public void compareXtableFile(String xtableName, Integer Keepfigures) {
+    @And("^I compare1 xtable \"([^\"]*)\" Keep figures in column list \"([^\"]*)\"$")
+    public void compareXtableFile1(String xtableName, Integer Keepfigures) {
+        int[] discolno = {0, 1, 2};
+
+        String curPath = System.getProperty("user.dir");
+
+        ArrayList<String> fis1 = null;
+        ArrayList<String> fis2 = null;
+
+        fis1 = readFromTextFile("/opt/expect/" + xtableName);
+        fis2 = readFromTextFile("/opt/actual/" + xtableName);
+
+        int row_len1 = fis1.toArray().length;
+        int row_len2 = fis2.toArray().length;
+
+        String[] row_arrylist1 = (String[]) fis1.toArray(new String[fis1.size()]);
+        String[] row_arrylist2 = (String[]) fis2.toArray(new String[fis2.size()]);
+
+        if (row_len1 == row_len2) { //行数
+            //表头
+            for (int i = 0; i < row_len1; i++) {
+                String[] col_arry1 = row_arrylist1[i].split(",");
+                String[] col_arry2 = row_arrylist2[i].split(",");
+
+                int col_count1 = col_arry1.length;
+                int col_count2 = col_arry2.length;
+                if (col_count1 == col_count2) {
+                    for (int j = 1; j < col_count1; j++) {
+                        String cur_ArryValue1 = col_arry1[j];
+                        String cur_ArryValue2 = col_arry2[j];
+
+                        int flag = -1;
+
+                        for (int cur_colno : discolno) {
+                            if (cur_colno == j)
+                                flag = cur_colno;
+                        }
+
+                        if (flag!=-1) {
+                            continue;
+                        }
+
+                        cur_ArryValue1 = cur_ArryValue1.substring(0, Keepfigures);
+                        cur_ArryValue2 = cur_ArryValue2.substring(0, Keepfigures);
+
+                        if (!cur_ArryValue1.equals(cur_ArryValue2)) {
+                            System.out.println("行内容不一样");
+                            Assert.fail();
+                        }
+                    }
+                } else {
+                    System.out.println("行内容不一样");
+                    Assert.fail();
+                }
+            }
+            System.out.println("两个文件完全相同");
+        } else {
+            //长度不一样，文件不同
+            Assert.fail();
+        }
+
+    }
+
+
+    /**
      * 比较两个邮件告警结果文件是否相等，
      *
      * @param sourceAlertResultFile 源文件路径名称
@@ -452,8 +598,7 @@ public class CompareResult {
                 String col_arry1 = row_arrylist1[i];
                 String col_arry2 = row_arrylist2[i];
 
-                if ((col_arry1.contains("时间"))||(col_arry1.contains("查询链接"))|(col_arry1.contains("0800"))||(col_arry1.contains("Date")))
-                {
+                if ((col_arry1.contains("时间")) || (col_arry1.contains("查询链接")) | (col_arry1.contains("0800")) || (col_arry1.contains("Date"))) {
                     continue;
                 }
 
@@ -476,7 +621,7 @@ public class CompareResult {
      * @param targetDownloadFile 目标文件路径名称
      */
     @And("^I compare1 source bucket file \"([^\"]*)\" with target bucket files \"([^\"]*)\" without \"([^\"]*)\"$")
-    public void compareBucketFile1(String sourceDownloadFile, String targetDownloadFile,int leaveNumber) {
+    public void compareBucketFile1(String sourceDownloadFile, String targetDownloadFile, int leaveNumber) {
         String curPath = System.getProperty("user.dir");
 
         ArrayList<String> fis1 = null;
@@ -499,7 +644,7 @@ public class CompareResult {
                 int col_count2 = col_arry2.length;
                 if (col_count1 == col_count2) {
                     for (int j = 0; j < col_count1; j++) {
-                        if (j==leaveNumber)
+                        if (j == leaveNumber)
                             continue;
                         String cur_ArryValue1 = col_arry1[j];
                         String cur_ArryValue2 = col_arry2[j];
@@ -519,7 +664,6 @@ public class CompareResult {
             Assert.fail();
         }
     }
-
 
 
     /**
@@ -551,7 +695,7 @@ public class CompareResult {
             System.out.println("Comparing files: " + "<" + sourceReportFile + "> and <" + targetReportFile + ">");
 
             String path1 = curPath + "/" + sourceReportFile.split("\\.")[0];
-            String path2 = PATH+ "/" + targetReportFile.split("\\.")[0];
+            String path2 = PATH + "/" + targetReportFile.split("\\.")[0];
             BufferedImage image1, image2;
 
             //indicates whether pdfs are created or not

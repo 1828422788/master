@@ -1,4 +1,4 @@
-@alertcase1
+@alertcase
 Feature:
 
   @preview
