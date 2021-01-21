@@ -176,6 +176,29 @@ Feature: 报表新建_选择
     And I will see the element "TrendData" contains ""
     And I will see the element "TrendChart" contains "table"
 
+  Scenario Outline: new_report_modifyTrend_prompt
+    When I set the parameter "Name" with value "test_prompt"
+    And I set the parameters "Hour" and "Minute" as "5" minutes later from now
+    And I choose the "PDF" from the "ReportType"
+    And I click the "NextButton" button under some element
+    And I wait for "2000" millsecond
+    Then I wait for "ChartListButton" will be visible
+    When I choose the "报表测试" from the "ChartList"
+    And I click the "ChartListButton" button
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
+    When I click the "ChosenTrendLast" button
+    When I click the "EditButton" button
+    Then I set the parameter "TrendNameField" with value "<name>"
+    And I set the value "<spl>" to the textarea "TrendSplField"
+    Then I click the "EnsureButton" button
+    And I wait for "EnsureButton" will be visible
+    Then I will see the message "<message>"
+
+  Examples:
+    | name |    spl                 |  message        |
+    |      | * \| stats count()     | 名称不能为空    |
+    | test |                        | 搜索内容不能为空|
+
   Scenario Outline: new_report_type_without_trend
     When I set the parameter "Name" with value "test_no_trends_<type>"
     And I set the parameter "Describe" with value "AutoCreate"
