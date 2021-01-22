@@ -1,4 +1,4 @@
-@maintain @maintain
+@maintain @bvtalert @alertcase
 Feature: 监控维护期
 
   Background:
