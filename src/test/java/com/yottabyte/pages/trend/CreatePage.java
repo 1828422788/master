@@ -942,6 +942,27 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='提示']/ancestor::div/following-sibling::div//p")
     private WebElement prompt;
 
+    @FindBy(xpath = "//span[text()='已存搜索']")
+    private WebElement savedSearch;
+
+    @FindBy(className = "ant-message-notice")
+    private WebElement notice;
+
+    @FindBy(className = "ant-modal-confirm-title")
+    private WebElement confirmMessage;
+
+    public WebElement getConfirmMessage() {
+        return confirmMessage;
+    }
+
+    public WebElement getNotice() {
+        return notice;
+    }
+
+    public WebElement getSavedSearch() {
+        return savedSearch;
+    }
+
     public WebElement getPrompt() {
         return prompt;
     }

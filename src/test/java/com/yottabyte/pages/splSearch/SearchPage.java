@@ -77,6 +77,20 @@ public class SearchPage extends ListPageFactory {
         return getLastDropdownList();
     }
 
+    @FindBy(xpath = "//li[text()='新建']")
+    private WebElement newSavedSearch;
+    public WebElement getNewSavedSearch() {
+        openSavedSearchButton.click();
+        return newSavedSearch;
+    }
+
+    @FindBy(xpath = "//li[text()='打开列表']")
+    private WebElement openSavedSearchList;
+    public WebElement getOpenSavedSearchList() {
+        openSavedSearchButton.click();
+        return openSavedSearchList;
+    }
+
     @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")
     private WebElement savedSearchNameInput;
     public WebElement getSavedSearchNameInput() {
@@ -85,6 +99,17 @@ public class SearchPage extends ListPageFactory {
 
     public WebElement getEnsureCreateSavedSearch() {
         return super.getButton("确 定");
+    }
+
+    public WebElement getCancelButton() {
+        return super.getButton("取 消");
+    }
+
+    @FindBy(className = "ant-modal-confirm-title")
+    private WebElement confirmMessage;
+
+    public WebElement getConfirmMessage() {
+        return confirmMessage;
     }
 
     @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")
