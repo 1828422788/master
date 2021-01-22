@@ -11,6 +11,7 @@ Feature: 验证宏
 #    And I save the result "{'ClientIp':'Column1','Version':'Column2','Count':'Column3'}"
 
     And I wait for "2000" millsecond
+    And take a screenshot with name "macro_<name>.png"
     And I wait for "downloadButton" will be visible
     Then I click the "downloadButton" button
     Then I set the parameter "DownloadName" with value "macro_<name>"
@@ -34,8 +35,11 @@ Feature: 验证宏
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
+
 #    Then I compare with "{'ClientIp':'Column1','Version':'Column2','Count':'Column3'}"
     And I wait for "2000" millsecond
+    And take a screenshot with name "<name>.png"
+
     And I wait for "downloadButton" will be visible
     Then I click the "downloadButton" button
     Then I set the parameter "DownloadName" with value "<name>"
@@ -66,7 +70,7 @@ Feature: 验证宏
 #      | map_opt_count_2                | `map_opt_count_2(\"count\", \"count\")`                   | tag:\"sample04061424\" \| eval txt=\"count\"\| limit 1 \| table txt \| map \" tag:\"sample04061424\" \| stats count(timestamp) \"                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 #      | map_eval_resplen_stats_count_2 | `map_eval_resplen_stats_count_2(count,69)`            | tag:\"sample04061424\" \| eval resp_len=$int_resp_len$ \| limit 1 \| table resp_len \| map \" tag:\"sample04061424\" \| stats $fun_name$() \"                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
       | timechart_hour_1               | `timechart_hour_1(1)`                                     | tag:sample04061424 \| timechart span=1h count() as res_count \| where res_count>0 \| eval f_time=formatdate(_time)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-      | one_param                      | `one_param(\"23.166.125.53\")`                            | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==\"23.166.125.53\"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+      | one_param                      | `one_param(\"23.166.125.53\")`                            | tag:sample04061424 \| stats count() by as ip_cnt apache.clientip, apache.version \| where apache.clientip==\"23.166.125.53\"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 #      | sub_tran_resp_len_1            | `sub_tran_resp_len_1(1955)`                               | tag:sample04061424 AND [[ 1955 \| stats count(appanme) by apache.resp_len \| fields apache.resp_len]]  \| transaction apache.resp_len keepevicted=true contains=\"1955\"                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 #      | sub_tran_resp_len_param_1      | `sub_tran_resp_len_param_1(1955)`                         | tag: sample04061424 AND [[ apache.resp_len:1955 \| stats count(appname) by apache.resp_len \| fields apache.resp_len ]] \| transaction apache.resp_len keepevicted=true contains=\"1955\"                                                                                                                                                                                                                                                                                                                                                                                                                                    |
       | sub_join_left_1                | `sub_join_left_1(apache.clientip)`                        | tag:sample04061424 \| stats avg(apache.status) by apache.clientip \| join type=left apache.clientip [[ tag:sample04061424 AND apache.clientip:23.166.125.53 \| stats sum(apache.status) by apache.clientip ]]                                                                                                                                                                                                                                                                                                                                                                                               |
@@ -82,6 +86,7 @@ Feature: 验证宏
 #    And I save the result "{'ClientIp':'Column1','Version':'Column2','Count':'Column3'}"
 
     And I wait for "2000" millsecond
+    And take a screenshot with name "macro_<name>.png"
     And I wait for "downloadButton" will be visible
     Then I click the "downloadButton" button
     Then I set the parameter "DownloadName" with value "macro_<name>"
@@ -107,6 +112,7 @@ Feature: 验证宏
     And I wait for element "SearchStatus" change text to "搜索完成!"
 #    Then I compare with "{'ClientIp':'Column1','Version':'Column2','Count':'Column3'}"
     And I wait for "2000" millsecond
+    And take a screenshot with name "macro_<name>.png"
     And I wait for "downloadButton" will be visible
     Then I click the "downloadButton" button
     Then I set the parameter "DownloadName" with value "<name>"

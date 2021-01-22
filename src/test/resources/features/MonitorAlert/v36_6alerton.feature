@@ -21,7 +21,7 @@ Feature: 监控启用
       |	api00_spl统计ip_cnt_高_扩展chart_all_合并	|
       |	api00_spl统计where_ip_20分钟_cnt_高_扩展chart_all	|
       |	api00_基线_status_在区间外_邮件_合并	|
-      |	api00_基线_status_在区间外_邮件_合并_交易日	|
+      |	api00_基线_statwus_在区间外_邮件_合并_交易日	|
       |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_spark	|
       |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_交易日	|
       |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_合并	|

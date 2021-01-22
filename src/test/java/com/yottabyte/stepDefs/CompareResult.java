@@ -350,6 +350,78 @@ public class CompareResult {
         }
     }
 
+    /**
+     * 比较两个macro文件是否相等，
+     *
+     * @param sourceDownloadFile 源文件路径名称
+     * @param targetDownloadFile 目标文件路径名称
+     */
+    @And("^I compare source file \"([^\"]*)\" with target macro files \"([^\"]*)\"$")
+    public void compareMacroFile(String sourceDownloadFile, String targetDownloadFile) {
+        String curPath = System.getProperty("user.dir");
+
+        FileInputStream fis1 = null;
+        FileInputStream fis2 = null;
+        try {
+            String fis1_path = "/opt/actual/" + sourceDownloadFile;
+            fis1 = new FileInputStream(fis1_path);
+//          fis2 = new FileInputStream(curPath + "/target/download-files/" + targetDownloadFile);
+//            String fis2_path = "/var/lib/jenkins/workspace/downloadFile/" + targetDownloadFile;
+            String fis2_path = "/opt/actual/" + targetDownloadFile;
+            fis2 = new FileInputStream(fis2_path);
+
+            int len1 = fis1.available();//返回总的字节数
+            int len2 = fis2.available();
+
+            if (len1 == len2) {//长度相同，则比较具体内容
+                //建立两个字节缓冲区
+                byte[] data1 = new byte[len1];
+                byte[] data2 = new byte[len2];
+
+                //分别将两个文件的内容读入缓冲区
+                fis1.read(data1);
+                fis2.read(data2);
+
+                //依次比较文件中的每一个字节
+                for (int i = 0; i < len1; i++) {
+                    //只要有一个字节不同，两个文件就不一样
+                    if (data1[i] != data2[i]) {
+                        System.out.println("文件内容不一样");
+                        Assert.fail();
+                    }
+                }
+                System.out.println("两个文件完全相同");
+//                return true;
+            } else {
+                //长度不一样，文件肯定不同
+                Assert.fail();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+//            Assert.fail();
+        } catch (IOException e) {
+            e.printStackTrace();
+//            Assert.fail();
+        } finally {//关闭文件流，防止内存泄漏
+            if (fis1 != null) {
+                try {
+                    fis1.close();
+                } catch (IOException e) {
+                    //忽略
+                    e.printStackTrace();
+                }
+            }
+            if (fis2 != null) {
+                try {
+                    fis2.close();
+                } catch (IOException e) {
+                    //忽略
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
     public ArrayList<String> readFromTextFile(String pathname) {
         ArrayList<String> strArray = new ArrayList<String>();
         File filename = new File(pathname);

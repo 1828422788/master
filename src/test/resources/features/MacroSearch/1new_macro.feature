@@ -94,10 +94,10 @@ Feature: 搜索宏新建
     Examples: 新建成功
       | name                               | definition                                                                                                                  | macroParam       | validateExpression   | validateFalseInfo | ResultMessage |
       | map_eval_resplen_stats_count_2(2)  | tag:"sample04061424" \| eval resp_len=$int_resp_len$ \| limit 1 \| table resp_len \| map \" tag:\"sample04061424\" \| stats $fun_name$() \" | fun_name,int_resp_len | isnum(int_resp_len)       | 输入参数需要整数类型         |               |
-      | two_param(2)                       | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==$x$ && apache.version==$y$ | x,y         | isstr(x) && isstr(y) | 参数错误，请输入正确的参数     |               |
+      | two_param(2)                       | tag:sample04061424 \| stats count() as ip_cnt by apache.clientip, apache.version \| where apache.clientip==$x$ && apache.version==$y$ | x,y         | isstr(x) && isstr(y) | 参数错误，请输入正确的参数     |               |
       | map_opt_count_2(2)                 | tag:"sample04061424" \| eval txt=$p_count$\| limit 1 \| table txt \| map " tag:"sample04061424" \| stats $txt$(timestamp) " | p_count,txt | isstr(p_count)       | 输入参数需要字符串         |               |
       #有bug
-      | app_permission_sample_two_param(2) | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==$x$ && apache.version==$y$ | x,y         | isstr(x) && isstr(y) | 参数错误，请输入正确的参数     |               |
+      | app_permission_sample_two_param(2) | tag:sample04061424 \| stats count() as ip_cnt by apache.clientip, apache.version \| where apache.clientip==$x$ && apache.version==$y$ | x,y         | isstr(x) && isstr(y) | 参数错误，请输入正确的参数     |               |
 
   @newmacro5
   Scenario Outline:创建宏，售前，1个
