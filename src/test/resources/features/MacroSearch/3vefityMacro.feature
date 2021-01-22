@@ -1,4 +1,4 @@
-@vdlmacro @postverify
+@vdlmacro @autoui03
 Feature: 验证宏
 
   @vdlmacro

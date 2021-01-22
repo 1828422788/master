@@ -1,4 +1,4 @@
-@newsaved @dlother
+@newsaved @autoui01
 Feature: 已存搜索新建（RZY-150）
 
   Background:
