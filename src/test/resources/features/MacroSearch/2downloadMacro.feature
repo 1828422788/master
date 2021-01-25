@@ -88,11 +88,11 @@ Feature: 验证宏
       | app_permission_sample_two_param | `app_permission_sample_two_param(\"count\", \"count\")`                    | tag:sample04061424 \| stats count() as ip_cnt by apache.clientip, apache.version \| where apache.clientip==$x$ && apache.version==$y$                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
       | huanbi_2                        | `huanbi_2(\"apache\",count)`                                               | starttime=\"now/d\" endtime=\"now\" appname:apache \| bucket timestamp span=1h as ts \|stats count() as count_ by ts\| eval hour=formatdate(tolong(ts),\"HH\")\|eval line=\"今天\"\|append [[starttime=\"-1d/d\" endtime=\"now/d\" appname:apache \| bucket timestamp span=1h as ts\|stats count() as count_ by ts\| eval hour=formatdate(tolong(ts),\"HH\")\|eval line=\"昨天\"]] \| append [[starttime=\"-7d/d\" endtime=\"-6d/d\" appname:apache \| bucket timestamp span=1h as ts\|stats count() as count_ by ts\| eval hour=formatdate(tolong(ts),\"HH\") \|eval line=\"一周前\"]] \| rename count_ as \"请求量\" |
       | timechart_hour_1                | `timechart_hour_1(1)`                                                      | tag:sample04061424 \| timechart span=1h count() as res_count \| where res_count>0 \| eval f_time=formatdate(_time)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-      | one_param                       | `one_param(\"23.166.125.53\")`                                             | tag:sample04061424 \| stats count() by as ip_cnt apache.clientip, apache.version \| where apache.clientip==\"23.166.125.53\"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+      | one_param                       | `one_param(\"23.166.125.53\")`                                             | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==\"23.166.125.53\"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
       | sub_join_left_1                 | `sub_join_left_1(apache.clientip)`                                         | tag:sample04061424 \| stats avg(apache.status) by apache.clientip \| join type=left apache.clientip [[ tag:sample04061424 AND apache.clientip:23.166.125.53 \| stats sum(apache.status) by apache.clientip ]]                                                                                                                                                                                                                                                                                                                                                                                                |
       | dup_names_1                     | `dup_names_1(apache.clientip)`                                             | tag:\"sample04061424\" \| stats avg(apache.status) by apache.clientip \| join type=left apache.clientip [[ tag:\"sample04061424\" AND apache.clientip:23.166.125.53 \| stats sum(apache.status) by apache.clientip ]]                                                                                                                                                                                                                                                                                                                                                                                        |
 
-
+  @dlmacro11
   Scenario Outline:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "<macroSearch>"
@@ -110,7 +110,7 @@ Feature: 验证宏
     Then I set the parameter "DownloadName" with value "macro_<name>"
     Then I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
-    Then I choose the "CSV" from the "DocumentTypeList"
+    Then I choose the "JSON" from the "DocumentTypeList"
     Then I choose the "UTF" from the "DocumentEncodeList"
     Then I click the "CreateDownloadTask" button
 #    And I wait for "2000" millsecond
@@ -118,9 +118,9 @@ Feature: 验证宏
 
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
-    When I set the parameter "DbListPageSearchInput" with value "macro_<name>.csv"
+    When I set the parameter "DbListPageSearchInput" with value "macro_<name>.json"
     And I wait for "2000" millsecond
-    Given the data name is "macro_<name>.csv" then i click the "下载" button
+    Given the data name is "macro_<name>.json" then i click the "下载" button
 
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "<splQuery1>"
@@ -138,7 +138,7 @@ Feature: 验证宏
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
-    Then I choose the "CSV" from the "DocumentTypeList"
+    Then I choose the "JSON" from the "DocumentTypeList"
     Then I choose the "UTF" from the "DocumentEncodeList"
     Then I click the "CreateDownloadTask" button
 #    And I wait for "2000" millsecond
@@ -146,9 +146,9 @@ Feature: 验证宏
 
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
-    When I set the parameter "DbListPageSearchInput" with value "<name>.csv"
+    When I set the parameter "DbListPageSearchInput" with value "<name>.json"
     And I wait for "2000" millsecond
-    Given the data name is "<name>.csv" then i click the "下载" button
+    Given the data name is "<name>.json" then i click the "下载" button
 
     Examples:
       | name                      | macroSearch                       | splQuery1                                                                                                                                                                                 |
