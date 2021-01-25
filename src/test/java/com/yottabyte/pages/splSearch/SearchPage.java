@@ -91,6 +91,12 @@ public class SearchPage extends ListPageFactory {
         return openSavedSearchList;
     }
 
+    @FindBy(xpath = "//div[@class='_-0CoYehrr7DsLtA_JylyV']")
+    private WebElement chosenSavedSearch;
+    public WebElement getChosenSavedSearch() {
+        return chosenSavedSearch;
+    }
+
     @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")
     private WebElement savedSearchNameInput;
     public WebElement getSavedSearchNameInput() {
