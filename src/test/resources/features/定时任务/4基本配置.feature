@@ -22,12 +22,28 @@ Feature: 定时任务_基本配置
     And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
+  Scenario: create_saved_search
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count()"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "NewSavedSearch" button
+    And I wait for "SavedSearchName" will be visible
+    And I set the parameter "SavedSearchName" with value "schedule_test"
+    And I choose the "auto_package" from the "GroupComboBox"
+    And I choose the "test_app" from the "AppComboBox"
+    And I click the "EnsureCreateSavedSearch" button under some element
+    And I wait for "TimeTaskEnsure" will be visible
+    Then I will see the success message "创建成功"
+
   Scenario Outline: check_details_period
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "{'column':'1','name':'Test_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "ResultHandling" will be visible
-    And I refresh the website
     And I wait for "5000" millsecond
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Name" with value "   "
@@ -56,8 +72,7 @@ Feature: 定时任务_基本配置
     When the data name is "{'column':'1','name':'Test_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "ResultHandling" will be visible
-    And I refresh the website
-    And I wait for "10000" millsecond
+    And I wait for "5000" millsecond
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "CrontabInput" with value "<crontab>"
     And I click the "SaveButton" button under some element
@@ -75,8 +90,7 @@ Feature: 定时任务_基本配置
     When the data name is "{'column':'1','name':'Test_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "ResultHandling" will be visible
-    And I refresh the website
-    And I wait for "10000" millsecond
+    And I wait for "5000" millsecond
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Name" with value "Schedule_Test"
     And I set the parameter "Describe" with value "testing schedule"
@@ -92,12 +106,33 @@ Feature: 定时任务_基本配置
     And I click the "EnsureButton" button under some element
     Then I will see the "timedTask.ListPage" page
 
+  Scenario: change_spl
+    Given open the "timedTask.ListPage" page for uri "/schedule/"
+    When the data name is "{'column':'1','name':'Schedule_Test'}" then i click the "编辑" button
+    And I will see the "timedTask.EditPage" page
+    And I wait for "ResultHandling" will be visible
+    And I wait for "5000" millsecond
+    And I wait for element "SelectedUser" change text to username
+    And I will see the input element "Name" value will be "Schedule_Test"
+    And I will see the input element "Describe" value will be "testing schedule"
+    And I will see the input element "SearchTextarea" value will be "tag:*| stats count() by appname | limit 10"
+    And I will see the element "SelectedGroup" contains "auto_package"
+    And I will see the element "SelectedApp" contains "test_app"
+    And I will see the input element "CrontabInput" value will be "0 */57 * * * ?"
+    And I choose the "schedule_test" from the "SavedSearch"
+    And I will see the input element "SearchTextarea" value will be "tag:sample04061424_chart | stats count()"
+    And I click the "SaveButton" button under some element
+    And I wait for "EnsureButton" will be visible
+    And I will see the success message "保存成功"
+    And I click the "EnsureButton" button under some element
+    Then I will see the "timedTask.ListPage" page
+
   Scenario: verify_changes
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     Then I will see the data "{'column':'1','name':'Schedule_Test'}" values "{'column':'8','name':'auto_package'}"
     When the data name is "{'column':'1','name':'Schedule_Test'}" then i click the "Schedule_Test" button
     Then I will see the "timedTask.DetailPage" page
-    And I will see the element "SearchContent" contains "*| stats count() by appname | limit 10"
+    And I will see the element "SearchContent" contains "tag:sample04061424_chart | stats count()"
     And I will see the element "TimePeriod" contains "now/d ~ now"
     And I will see the element "Description" contains "testing schedule"
     And I will see the element "ExecutionPeriod" contains "0 */57 * * * ?"
@@ -109,4 +144,16 @@ Feature: 定时任务_基本配置
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
 
+  Scenario: delete_saved_search
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "SavedSearch" will be visible
+    And I click the "OpenSavedSearchList" button
+    And I wait for "2000" millsecond
+    And "删除" the data "schedule_test" in tiny saved search
+    And I wait for "CancelButton" will be visible
+    And I wait for "EnsureCreateSavedSearch" will be visible
+    And I will see the element "ConfirmMessage" contains "确认删除 schedule_test?"
+    And I click the "EnsureCreateSavedSearch" button
+    And I will see the alertMessage "删除成功"
 

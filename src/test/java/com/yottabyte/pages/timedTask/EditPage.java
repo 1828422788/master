@@ -132,6 +132,17 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "(//label[text()='resplen']/following-sibling::input) | (//label[text()='apache.resplen']/following-sibling::input)")
     private WebElement resplen;
 
+    @FindBy(xpath = "//span[text()='已存搜索 +']")
+    private WebElement savedSearch;
+
+    @FindBy(xpath = "(//li[@role='menuitem']/ancestor::ul[contains(@class,'ant-dropdown-menu')])")
+    private WebElement savedSearchList;
+
+    public WebElement getSavedSearch() {
+        savedSearch.click();
+        return savedSearchList;
+    }
+
     public WebElement getCount() {
         return count;
     }

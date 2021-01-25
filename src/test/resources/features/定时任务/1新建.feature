@@ -1,7 +1,5 @@
 @all @timedTask
 Feature: 定时任务新建
-# 26
-
 
   @startTomorrowTask
   Scenario: test_schedule_time
