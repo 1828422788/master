@@ -43,6 +43,7 @@ Feature: 仪表盘调用链
     And I click the "CreateButton" button
     And I click the "Create" button
     Then I will see the "trend.CreatePageDash" page
+    And I wait for "2000" millsecond
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
