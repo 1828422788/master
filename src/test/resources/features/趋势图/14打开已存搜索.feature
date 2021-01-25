@@ -29,6 +29,17 @@ Feature: 趋势图_已存搜索
     And I click the "EnsureCreateSavedSearch" button under some element
     And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "创建成功"
+    And I click the "TimeTaskEnsure" button
+    And I wait for "SavedSearch" will be visible
+    And I click the "OpenSavedSearchList" button
+    And I wait for "2000" millsecond
+    And "删除" the data "trend_test" in tiny saved search
+    And I wait for "CancelButton" will be visible
+    And I wait for "EnsureCreateSavedSearch" will be visible
+    And I will see the element "ConfirmMessage" contains "确认删除 trend_test?"
+    And I click the "CancelButton" button
+    And "加载" the data "trend_test" in tiny saved search
+    And I will see the element "ChosenSavedSearch" contains "trend_test"
 
   Scenario: create_trend
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -36,7 +47,6 @@ Feature: 趋势图_已存搜索
     And I will see the "trend.CreatePage" page
     And I wait for "Loading" will be invisible
     And I click the "SavedSearch" button
-    And I wait for "Loading" will be invisible
     And I wait for "2000" millsecond
     And I click the star before "trend_test" in saved search
     And I will see the element "Notice" contains "更新成功"
@@ -54,26 +64,12 @@ Feature: 趋势图_已存搜索
     And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
-  Scenario: check_delete_in_search_page
-    Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I click the "OpenSavedSearchList" button
-    And I wait for "Loading" will be invisible
-    And I wait for "2000" millsecond
-    And "删除" the data "trend_test" in tiny saved search
-    And I wait for "CancelButton" will be visible
-    And I wait for "EnsureCreateSavedSearch" will be visible
-    And I will see the element "ConfirmMessage" contains "确认删除 trend_test?"
-    And I click the "CancelButton" button
-    And "加载" the data "trend_test" in tiny saved search
-
   Scenario: delete_in_trend
     Given open the "trend.ListPage" page for uri "/trend/"
     Then I click the "NewTrendButton" button
     And I will see the "trend.CreatePage" page
     And I wait for "Loading" will be invisible
     And I click the "SavedSearch" button
-    And I wait for "Loading" will be invisible
     And I wait for "2000" millsecond
     And "删除" the data "trend_test" in tiny saved search
     And I wait for "CancelButton" will be visible
