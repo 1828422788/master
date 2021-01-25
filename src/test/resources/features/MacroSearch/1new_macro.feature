@@ -30,7 +30,7 @@ Feature: 搜索宏新建
       | me_substr_1(1) | "substring($x$,2)" | x          | isstr(x)           | 请 输入字符串           |
 
   @newmacro2
-  Scenario Outline: 创建宏，使用基于eval的定义，2个
+  Scenario Outline: 创建宏，使用基于eval的定义
     Given open the "macroSearch.ListPage" page for uri "/macro/"
     When I click the "CreateMacroButton" button
     Then I will see the "macroSearch.CreatePage" page
@@ -49,8 +49,32 @@ Feature: 搜索宏新建
 
     Examples: 新建成功
       | name            | definition                       | macroParam | macroSearch                                              | query                                                    |
-      | me_if_3(3)      | "if(isstr($z$),$x$-$y$,$x$+$y$)" | x,y,z      | tag:sample04061424 \| eval x=`me_if_3(1,2,3)` \| table x | tag:sample04061424 \| eval x=`me_if_3(1,2,3)` \| table x |
+      | me_if_2(2)      | "if(isstr(apache.method),$x$-$y$,$x$+$y$)" | x,y      | tag:sample04061424 \| eval x=`me_if_2(1,2)` \| table x | tag:sample04061424 \| eval x=`me_if_2(1,2)` \| table x |
       | me_if_excp_2(2) | if($x$-$y$,$x$+$y$)              | x,y        | tag:sample04061424 \| eval x=`me_if_excp_2(1,2)`         | tag:sample04061424 \| eval x=`me_if_excp_2(1,2)`         |
+      | m1_eval_2(2) | if(isstr(apache.clientip),$x$-$y$,$x$+$y$)            | x,y        | tag:sample04061424 \| eval x=`m1_eval_2(1,2)` \| table x        | tag:sample04061424 \| eval x=if(isstr(apache.clientip),1-2,1+2) \| table x |
+      | m2_eval_2(2) | "if(isstr(apache.clientip),$x$-$y$,$x$+$y$)"     | x,y        | tag:sample04061424 \| eval x=`m2_eval_2(1,2)` \| table x         | tag:sample04061424 \| eval x="3" \| table x      |
+
+
+  @newmacro2_1
+  Scenario Outline: 创建宏，无eval的定义
+    Given open the "macroSearch.ListPage" page for uri "/macro/"
+    When I click the "CreateMacroButton" button
+    Then I will see the "macroSearch.CreatePage" page
+    And I wait for "2000" millsecond
+    When I set the parameter "MacroName" with value "<name>"
+    And I set the parameter "Definition" with value "<definition>"
+    And I set the parameter "MacroParam" with value "<macroParam>"
+#    And I set the parameter "ValidateExpression" with value "<validateExpression>"
+#    And I set the parameter "ValidateFalseInfo" with value "<validateFalseInfo>"
+    And I wait for "2000" millsecond
+    And I click the "SaveMacroButton" button
+#    Then I will see the success message "保存成功"
+
+    Examples: 新建成功
+      | name            | definition                       | macroParam | macroSearch                                              | query                                                    |
+      | m1_2(2) | if(isstr(apache.clientip),$x$-$y$,$x$+$y$)            | x,y        | tag:sample04061424 \| eval x=`m1_2(1,2)` \| table x  | tag:sample04061424 \| eval x=if(isstr(apache.clientip),1-2,1+2) \| table x |
+      | m2_2(2) | "if(isstr(apache.clientip),$x$-$y$,$x$+$y$)"     | x,y        | tag:sample04061424 \| eval x=`m2_2(1,2)` \| table x  | tag:sample04061424 \| eval x="if(isstr(apache.clientip),1-2,1+2)" \| table x      |
+
 
   @newmacro3
   Scenario Outline:创建，1个
@@ -70,7 +94,7 @@ Feature: 搜索宏新建
 
     Examples: 新建成功
       | name        | definition                       | macroParam | macroSearch                                               | query                                                          |
-      | mne_if_3(3) | "if(isstr($z$),$x$-$y$,$x$+$y$)" | x,y,z      | tag:sample04061424 \| eval x=`mne_if_3(1,2,3)` \| table x | tag:sample04061424 \| eval x="if(isstr(3),1-2,1+2)" \| table x |
+      | mne_if_2(2) | "if(isstr(apache.method),$x$-$y$,$x$+$y$)" | x,y      | tag:sample04061424 \| eval x=`mne_if_2(1,2)` \| table x | tag:sample04061424 \| eval x="if(isstr(apache.method),1-2,1+2)" \| table x |
 
   @newmacro4
   Scenario Outline:创建，4个
