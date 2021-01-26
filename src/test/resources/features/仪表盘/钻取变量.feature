@@ -69,7 +69,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for loading invisible
     And I "checked" the checkbox which name is "钻取变量字符云图"
     And I click the "Ensure" button
-    Then I wait for element "SuccessMessage" change text to "添加成功"
+#    Then I wait for element "SuccessMessage" change text to "添加成功"
 
   @dashboard @dashboardSmoke
   Scenario: 开启钻取配置
@@ -306,7 +306,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "{'Checkbox':'<name>'}" button
     And I wait for "500" millsecond
     And I click the "Ensure" button
-    Then I wait for element "SuccessMessage" change text to "添加成功"
+#    Then I wait for element "SuccessMessage" change text to "添加成功"
 
     Examples:
       | name    |
@@ -530,7 +530,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "{'Checkbox':'<name>'}" button
     And I wait for "500" millsecond
     And I click the "Ensure" button
-    Then I wait for element "SuccessMessage" change text to "添加成功"
+#    Then I wait for element "SuccessMessage" change text to "添加成功"
 
     Examples:
       | name    |
@@ -744,7 +744,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "{'Checkbox':'<name>'}" button
     And I wait for "500" millsecond
     And I click the "Ensure" button
-    Then I wait for element "SuccessMessage" change text to "添加成功"
+#    Then I wait for element "SuccessMessage" change text to "添加成功"
 
     Examples:
       | name    |
@@ -894,7 +894,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "{'Checkbox':'<name>'}" button
     And I wait for "500" millsecond
     And I click the "Ensure" button
-    Then I wait for element "SuccessMessage" change text to "添加成功"
+#    Then I wait for element "SuccessMessage" change text to "添加成功"
 
     Examples:
       | name    |
@@ -1008,7 +1008,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "{'Checkbox':'<name>'}" button
     And I wait for "500" millsecond
     And I click the "Ensure" button
-    Then I wait for element "SuccessMessage" change text to "添加成功"
+#    Then I wait for element "SuccessMessage" change text to "添加成功"
 
     Examples:
       | name    |
