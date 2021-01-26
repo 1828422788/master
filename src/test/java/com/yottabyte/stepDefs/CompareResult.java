@@ -364,10 +364,9 @@ public class CompareResult {
         FileInputStream fis2 = null;
         try {
             String fis1_path = "/opt/actual/" + sourceDownloadFile;
-            fis1 = new FileInputStream(fis1_path);
-//          fis2 = new FileInputStream(curPath + "/target/download-files/" + targetDownloadFile);
-//            String fis2_path = "/var/lib/jenkins/workspace/downloadFile/" + targetDownloadFile;
             String fis2_path = "/opt/actual/" + targetDownloadFile;
+
+            fis1 = new FileInputStream(fis1_path);
             fis2 = new FileInputStream(fis2_path);
 
             int len1 = fis1.available();//返回总的字节数
