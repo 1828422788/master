@@ -40,6 +40,9 @@ Feature: 定时任务_结果处理方式
     And I wait for "AddJDBC" will be visible
     And I click the "AddJDBC" button under some element
     And I click the "Jdbc" button under some element
+    And I wait for "2000" millsecond
+    And I wait for "ConnectName" will be visible
+    And I will see the input element "ConnectName" value will be ""
 
     Then I set the parameter "ConnectName" with value "<connectName>"
     Then I set the parameter "UserName" with value "<userName>"

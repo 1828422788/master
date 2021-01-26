@@ -217,6 +217,36 @@ Feature: 定时任务新建
           | test | autotest | test   | 定时模式下, 时间间隔应该为正整数 |
           | test | autotest | 1      | 请输入开始时间           |
 
+  Scenario: cancel_test
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I drag the element "SearchPageSvg" to the "right" side
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count()"
+    And I click the "DateEditor" button under some element
+    And I click the "Today" button
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I wait for element "SelectedUser" change text to username
+    And I set the parameter "TagInput" with value "auto_package"
+    And I set the parameter "Describe" with value "testing"
+    And I choose the "test_app" from the "AppComboBox"
+
+    And I click the "Crontab" button
+    And I set the parameter "CrontabInput" with value "0 5 9 15/3 * ?"
+    And I set the parameter "TaskName" with value "test"
+    And I click the "CancelButton" button
+
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I wait for element "SelectedUser" change text to username
+    And I will see the input element "TaskName" value will be ""
+    And I will see the input element "Describe" value will be ""
+    And I will see the input element "Period" value will be ""
+    And I will see the "SelectedApp" doesn't exist
+    And I will see the "SelectedTag" doesn't exist
+
 
   Scenario Outline: sample_timeperiod(RZY-396,397,403,404,2695,2696,2698)
     Given open the "timedTask.ListPage" page for uri "/schedule/"

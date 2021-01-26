@@ -39,8 +39,14 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "((//label[text()='资源标签']/ancestor::div[1])//div)[1]")
     private WebElement groupComboBox;
 
+    @FindBy(xpath = "//label[text()='资源标签']/following-sibling::span//*[@class='ant-select-selection__choice__content']")
+    private WebElement selectedTag;
+
     @FindBy(xpath = "(//label[text()='所属应用'])[last()]/following-sibling::div")
     private WebElement appComboBox;
+
+    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//div[@class='ant-select-selection-selected-value']")
+    private WebElement selectedApp;
 
     @FindBy(xpath = "//div[text()='统计']")
     private WebElement countButton;
@@ -708,6 +714,13 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//label[text()='文件类型']/following-sibling::div")
     private WebElement fileType;
 
+    @FindBy(xpath = "(//span[contains(text(),'schedule_name:')]/following-sibling::span)[1]")
+    private WebElement scheduleNameDetail;
+
+    public WebElement getScheduleNameDetail() {
+        return scheduleNameDetail;
+    }
+
     public WebElement getCondition() {
         return condition;
     }
@@ -738,6 +751,10 @@ public class SearchPage extends ListPageFactory {
         return super.getLastDropdownList();
     }
 
+    public WebElement getSelectedTag() {
+        return selectedTag;
+    }
+
     public WebElement getTagInput() {
         groupComboBox.click();
         return tagInput;
@@ -746,6 +763,10 @@ public class SearchPage extends ListPageFactory {
     public WebElement getAppComboBox() {
         appComboBox.click();
         return super.getLastDropdownList();
+    }
+
+    public WebElement getSelectedApp() {
+        return selectedApp;
     }
 
     @FindBy(tagName = "table")

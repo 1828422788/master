@@ -17,3 +17,5 @@ Feature: 定时任务查看
     And I will see the "splSearch.SearchPage" page
     And I wait for "3000" millsecond
     And I will see the input element "DateEditor" value will be "最近1天"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the element "ScheduleNameDetail" contains "crontab_7min"
