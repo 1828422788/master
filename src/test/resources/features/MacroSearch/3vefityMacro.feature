@@ -6,6 +6,16 @@ Feature: 验证宏
 
   @vdlmacro
   Scenario Outline:
+    Then I compare source file "<name>.json" with target macro files "macro_<name>.json"
+
+    Examples:
+      | name                      | macroSearch                       | splQuery1                                                                                                                                                                                 |
+      | sub_tran_resp_len_1       | `sub_tran_resp_len_1(1955)`       | tag:sample04061424 AND [[ 1955 \| stats count(appanme) by apache.resp_len \| fields apache.resp_len]]  \| transaction apache.resp_len keepevicted=true contains=\"1955\"                  |
+      | sub_tran_resp_len_param_1 | `sub_tran_resp_len_param_1(1955)` | tag: sample04061424 AND [[ apache.resp_len:1955 \| stats count(appname) by apache.resp_len \| fields apache.resp_len ]] \| transaction apache.resp_len keepevicted=true contains=\"1955\" |
+
+
+  @vdlmacro
+  Scenario Outline:
     Then I compare source file "<name>.csv" with target macro files "macro_<name>.csv"
 
     Examples:
