@@ -372,7 +372,11 @@ public class CompareResult {
             int len1 = fis1.available();//返回总的字节数
             int len2 = fis2.available();
 
-            if (len1 == len2) {//长度相同，则比较具体内容
+            if ((fis1 != null)||(fis2 != null))  {
+                Assert.fail();
+            }
+
+                if (len1 == len2) {//长度相同，则比较具体内容
                 //建立两个字节缓冲区
                 byte[] data1 = new byte[len1];
                 byte[] data2 = new byte[len2];
