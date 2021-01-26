@@ -34,7 +34,7 @@ Feature: 报表_布局设计
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     When I set the parameter "Name" with value "report_Layout_<layout>"
-    And I set the parameters "Hour" and "Minute" as "2" minutes later from now
+    And I set the parameters "Hour" and "Minute" as "3" minutes later from now
     And I choose the "PDF" from the "ReportType"
     And I click the "NextButton" button under some element
     And I wait for "2000" millsecond
