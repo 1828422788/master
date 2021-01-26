@@ -176,7 +176,7 @@ Feature: 仪表盘曲线图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SequenceChart" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | chartType |   image                  |
@@ -216,7 +216,7 @@ Feature: 仪表盘曲线图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SequenceChart" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | field              | byField         |   image                     |
@@ -265,7 +265,7 @@ Feature: 仪表盘曲线图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SequenceChart" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | name       |   sortOrder   |    image                 |
@@ -305,7 +305,7 @@ Feature: 仪表盘曲线图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SequenceChart" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | name       |   field   |    image                 |
@@ -348,7 +348,7 @@ Feature: 仪表盘曲线图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SequenceChartYaxis" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       |   min     |   max    |    image                |
@@ -393,7 +393,7 @@ Feature: 仪表盘曲线图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "LineChartLegend" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | legend     |     image                |
@@ -470,7 +470,7 @@ Feature: 仪表盘曲线图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SequenceChart" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | name       |   byFields   |    image                 |

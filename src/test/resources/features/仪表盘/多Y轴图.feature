@@ -158,7 +158,7 @@ Feature: 仪表盘多Y轴图
     And I click the "TrendTitle" button
     And I wait for "3000" millsecond
     Then take part of "MultiYaxisArea" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | name        | image                   |
@@ -217,7 +217,7 @@ Feature: 仪表盘多Y轴图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "MultiYaxisArea" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | name        |   sortOrder   |  image                   |
@@ -257,7 +257,7 @@ Feature: 仪表盘多Y轴图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "MultiYaxisArea" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | type    |   image        |
@@ -304,7 +304,7 @@ Feature: 仪表盘多Y轴图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "MultiYaxisArea" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | min     |   max          |   image               |
@@ -368,7 +368,7 @@ Feature: 仪表盘多Y轴图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "MultiYaxisArea" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       |   byFields               |     image                |
@@ -393,7 +393,7 @@ Feature: 仪表盘多Y轴图
     And I drag the scroll bar to the top
     And I wait for "2000" millsecond
     Then take part of "MultiYaxisLegend" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | legend     |     image                |
