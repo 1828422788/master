@@ -1,4 +1,4 @@
-@bvtalert @alertcase @autoui03
+@autoui03 @bvtalert @alertcase @valert
 Feature: 验证监控邮件内容
 
   Background:
