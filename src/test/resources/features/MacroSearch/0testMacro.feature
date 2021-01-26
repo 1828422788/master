@@ -16,7 +16,7 @@ Feature: 验证宏
     And I wait for "downloadButton" will be visible
     Then I click the "downloadButton" button
     Then I set the parameter "DownloadName" with value "macro_<name>"
-    Then I set the parameter "MaxLineNum" with value "100"s
+    Then I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
     Then I choose the "CSV" from the "DocumentTypeList"
     Then I choose the "UTF" from the "DocumentEncodeList"
