@@ -8,7 +8,6 @@ Feature: 趋势图_提示
     And I click the "DateEditor" button under some element
     And I click the "<timePeriod>" button
     And I click the "SearchButton" button under some element
-    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "SaveAsOther" will be visible
     Then I click the "SaveAsOther" button
     Then I click the "Trend" button
