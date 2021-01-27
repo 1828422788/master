@@ -23,7 +23,7 @@ Feature:监控预览
 
     And I wait for element "PreviewReminder" change text to "提示"
     Then take a screenshot with name "actual/preview_<name>"
-    And I wait for element "PreviewAlertReminderText" change text to "<name>"
+#    And I wait for element "PreviewAlertReminderText" change text to "<name>"
     When I click the "AffirmButton" button
 
     Examples:

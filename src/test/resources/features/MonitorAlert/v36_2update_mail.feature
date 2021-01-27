@@ -1,4 +1,3 @@
-@alertmail
 Feature: 批量修改邮件邮箱
 
   @bvtalert @uamail
@@ -23,7 +22,7 @@ Feature: 批量修改邮件邮箱
 
     Examples:
       | name                                                     |
-      |	api1_事件_multiwords_切分_扩展chart插图_键值_邮件_splark	|
+#      |	api1_事件_multiwords_切分_扩展chart插图_键值_邮件_splark	|
       |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_抑制间隔持续翻倍10-90min	|
       |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_spark	|
       |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_交易日	|

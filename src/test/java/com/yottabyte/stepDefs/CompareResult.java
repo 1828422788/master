@@ -301,7 +301,7 @@ public class CompareResult {
             int len1 = fis1.available();//返回总的字节数
             int len2 = fis2.available();
 
-            if ((fis1 != null)||(fis2 != null))  {
+            if ((fis1 == null)||(fis2 == null))  {
                 Assert.fail();
             }
 
@@ -377,7 +377,7 @@ public class CompareResult {
             int len1 = fis1.available();//返回总的字节数
             int len2 = fis2.available();
 
-            if ((fis1 != null)||(fis2 != null))  {
+            if ((fis1 == null)||(fis2 == null))  {
                 Assert.fail();
             }
 
