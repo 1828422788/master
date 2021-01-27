@@ -1,7 +1,7 @@
-@bvtalert @alertcase
+@bvtalert @alertcase @testrun
 Feature: 测试运行-邮件
 
-  @testrun
+  @testrun1
   Scenario Outline:
     And I wait for loading invisible
     Given open the "alert.ListPage" page for uri "/alerts/"
@@ -56,7 +56,6 @@ Feature: 测试运行-邮件
       | api0_基线_status_在区间内_all_合并                               |
       | api1_all_连续统计_status>=200_邮件_合并                          |
       | api1_spl统计avg_高_扩展avg_all                                |
-      | api1_spl统计avg_高_扩展avg_all_搜索宏_扩展宏                        |
       | api1_事件_multiwords_切分_扩展chart插图_键值_邮件                    |
       | api1_字段统计_平均数resplen_邮件                                  |
       | api2_guest_ds200_事件数_邮件                                  |
@@ -64,7 +63,6 @@ Feature: 测试运行-邮件
       | api2_nods_事件数_rsyslog                                    |
       | api3_spl统计bucket_扩展bucket                                |
       | api3_spl统计count_9分钟_高_扩展chart_all                        |
-      | api3_spl统计ip_cnt_9分钟_高_扩展chart_all_搜索宏                   |
       | api3_spl统计ip_cnt_高_扩展chart_all_合并                        |
       | api3_spl统计stats_dc_邮件_合并                                 |
       | api3_按行发送sample                                          |
@@ -73,7 +71,6 @@ Feature: 测试运行-邮件
       | api3_按行发送_抑制翻倍_ip分组cnt_10-59min                          |
       | api_all_连续统计_status<404_低_邮件                             |
       | api_nods_字段统计ip_20秒_邮件                                   |
-      | api_RZY-2980:新建监控-基本配置-执行计划-crontab-周一到周五下午14：00~14：45之间 |
       | api_基线_len_24hours大于100_邮件                               |
       | api_基线_len_24hour小于100_邮件                                |
       | api_基线_len_24hour小于100_邮件_抑制10-120m16:06                 |
@@ -81,4 +78,39 @@ Feature: 测试运行-邮件
       | api_字段统计_总计status_邮件                                     |
       | api_字段统计_最小数resplen_邮件_不告警                               |
       | api_字段统计_独立数status_邮件                                    |
+
+  @testrun2
+  Scenario Outline:
+    And I wait for loading invisible
+    Given open the "alert.ListPage" page for uri "/alerts/"
+    When I set the parameter "AlertListSearchInput" with value "<name>"
+    And I wait for loading invisible
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
+
+    Then I will see the "alert.CreatePage" page
+    And I wait for loading invisible
+
+    And I click the "AlertNoteTypeTab" button
+    And I choose1 the "邮件告警" from the "AlertNoteTypeListButton"
+    And I wait for loading invisible
+    And I click the "MailAlertLabel" button
+    And I wait for loading invisible
+    When I set the parameter "MailReceiver" with value "backfuture@yeah.net"
+    And I wait for loading invisible
+    And I choose the "backfuture@yeah.net" from the "MailReceiverList"
+    And I wait for loading invisible
+
+    And I click the "TestRunButton" button
+    And I wait for loading invisible
+
+    And I wait for element "TestRunReminder" change text to "提示"
+    Then take a screenshot with name "actual/trm_<name>"
+#    And I wait for element "TestRunReminderText" change text to "<name>"
+#    And I wait for element "TestRunReminderText" change text to "successful"
+    When I click the "AffirmButton" button
+
+    Examples:
+      | name                                                     |
       | 交易日_监控_sample                                            |
+      | api1_spl统计avg_高_扩展avg_all_搜索宏_扩展宏                        |
+      | api3_spl统计ip_cnt_9分钟_高_扩展chart_all_搜索宏                   |
