@@ -1667,6 +1667,10 @@ public class CreatePage extends PageTemplate {
         return getButton("下一步");
     }
 
+    public WebElement getBackButton() {
+        return getButton("上一步");
+    }
+
     public WebElement getFinishButton() {
         return getButton("完成");
     }

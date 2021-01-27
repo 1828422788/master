@@ -21,6 +21,10 @@ Feature: 趋势图新建-timechart
     And take part of "Chart" with name "actual/timechart_<caseNum>"
     And I compare source image "actual/timechart_<caseNum>" with target image "expect/timechart_<caseNum>"
     Then I click the "NextButton" button under some element
+    And I wait for "NameInput" will be visible
+    And I click the "BackButton" button under some element
+    And I wait for "Chart" will be visible
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "timechart_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
@@ -177,6 +181,10 @@ Feature: 趋势图新建-timechart
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<caseNum>"
     And I compare source image "actual/<caseNum>" with target image "<caseNum>"
+    Then I click the "NextButton" button under some element
+    And I wait for "NameInput" will be visible
+    And I click the "BackButton" button under some element
+    And I wait for "Chart" will be visible
     Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<caseNum>"

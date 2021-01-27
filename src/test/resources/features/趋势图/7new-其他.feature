@@ -1146,6 +1146,10 @@ Feature: 趋势图新建-其他
     And take part of "StatisticalChart" with name "actual/<chartType>"
     And I compare source image "actual/<chartType>" with target image "expect/<chartType>"
     Then I click the "NextButton" button under some element
+    And I wait for "NameInput" will be visible
+    And I click the "BackButton" button under some element
+    And I wait for "Chart" will be visible
+    Then I click the "NextButton" button under some element
     And I wait for "2000" millsecond
 
     When I set the parameter "NameInput" with value "<chartType>"
