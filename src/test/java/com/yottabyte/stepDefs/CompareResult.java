@@ -746,6 +746,7 @@ public class CompareResult {
     }
 
 
+
     /**
      * 比较两个PDF报表文件是否相等，
      *
