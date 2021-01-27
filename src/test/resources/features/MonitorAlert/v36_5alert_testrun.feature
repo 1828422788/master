@@ -8,6 +8,7 @@ Feature: 测试运行-邮件
     When I set the parameter "AlertListSearchInput" with value "<name>"
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
+#    Then I click the "AlertListEditButton" button
 
     Then I will see the "alert.CreatePage" page
     And I wait for loading invisible
@@ -81,8 +82,3 @@ Feature: 测试运行-邮件
       | api_字段统计_最小数resplen_邮件_不告警                               |
       | api_字段统计_独立数status_邮件                                    |
       | 交易日_监控_sample                                            |
-      | 维护期0_字段统计_独立数status_邮件_单次今天9点开始                          |
-      | 维护期0_字段统计_独立数status_邮件_每周一至周六                            |
-      | 维护期0_字段统计_独立数status_邮件_每天0-23点                           |
-      | 维护期0_字段统计_独立数status_邮件_每月1-30                            |
-      | 维护期0_字段统计_独立数status_邮件_永久                                |

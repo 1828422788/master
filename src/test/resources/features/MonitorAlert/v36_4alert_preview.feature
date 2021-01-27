@@ -54,4 +54,4 @@ Feature:监控预览
       | api1_spl统计avg_高_扩展avg_all                                |
       | api1_spl统计avg_高_扩展avg_all_搜索宏_扩展宏                        |
       | api1_事件_multiwords_切分_扩展chart插图_键值_邮件                    |
-      | api1_事件_multiwords_切分_扩展chart插图_键值_邮件_splark             |
+#      | api1_事件_multiwords_切分_扩展chart插图_键值_邮件_splark             |
