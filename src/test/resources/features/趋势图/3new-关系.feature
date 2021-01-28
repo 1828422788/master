@@ -1,6 +1,5 @@
 @all @trend @createTrendConnection @createTrend
 Feature: 趋势图新建_关系
-# sample04061424_chart,t_with for Yesterday
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -26,8 +25,10 @@ Feature: 趋势图新建_关系
     And I click the "Type" button
     And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
+    And I wait for "<chartType>Element" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
+    And I will see the "Type" is display
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button under some element
@@ -66,8 +67,10 @@ Feature: 趋势图新建_关系
     And I click the "Settings" button
     And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
+    And I wait for "<chartType>Element" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
+    And I will see the "Type" is display
     And take part of "StatisticalChart" with name "actual/<chartType>_repulsion"
 #    And I compare source image "actual/<chartType>_repulsion" with target image "expect/<chartType>_repulsion"
     Then I click the "NextButton" button under some element
@@ -104,8 +107,10 @@ Feature: 趋势图新建_关系
     And I click the "Settings" button
     And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
+    And I wait for "<chartType>Element" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
+    And I will see the "Type" is display
     And take part of "StatisticalChart" with name "actual/<chartType>_<button>"
     And I compare source image "actual/<chartType>_<button>" with target image "expect/<chartType>_<button>"
     Then I click the "NextButton" button under some element
@@ -144,8 +149,10 @@ Feature: 趋势图新建_关系
     And I click the "Settings" button
     And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
+    And I wait for "<chartType>Element" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
+    And I will see the "Type" is display
     And take part of "StatisticalChart" with name "actual/<chartType>_分面"
     And I compare source image "actual/<chartType>_分面" with target image "expect/<chartType>_分面"
     Then I click the "NextButton" button under some element
@@ -156,7 +163,7 @@ Feature: 趋势图新建_关系
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
-      |   chartType   |   spl   |
-      |    Chord      |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND NOT apache.geo.city:黔东南苗族侗族自治州 \| stats count() as cnt by apache.geo.city, apache.status, apache.method \| limit 10 \| sort by apache.method, cnt, +apache.status, apache.geo.city|
-      |    Sankey     |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND  apache.clientip:183.14.126.214  OR ( apache.clientip:1.207.60.51 AND (apache.resp_len:87 OR apache.resp_len:1935)) \| stats count() by apache.clientip,apache.resp_len,apache.method \| sort by apache.resp_len |
-      |    Force      |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path, apache.method \|limit 10 |
+      |   chartType   |  spl   |
+      |    Chord      |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND NOT apache.geo.city:黔东南苗族侗族自治州 \| stats count() as cnt by apache.geo.city, apache.status, apache.method \| limit 10 \| sort by apache.method, cnt, +apache.status, apache.geo.city|
+      |    Sankey     |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND  apache.clientip:183.14.126.214  OR ( apache.clientip:1.207.60.51 AND (apache.resp_len:87 OR apache.resp_len:1935)) \| stats count() by apache.clientip,apache.resp_len,apache.method \| sort by apache.resp_len |
+      |    Force      |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path, apache.method \|limit 10 |
