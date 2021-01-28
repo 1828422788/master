@@ -272,7 +272,7 @@ Feature: 仪表盘高级编辑
     And I wait for "2000" millsecond
     And I will see the "HighJsonEditor" is "ace_dark"
     Then take part of "HighJsonEditor" with name "actual/<image>"
-    And I compare source image "actual/<image>" with target image "expect/<image>"
+#    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | name          |   image        |

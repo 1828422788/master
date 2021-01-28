@@ -294,7 +294,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='404']/ancestor::div[contains(@class,'sc-gsTCUz')]/parent::div")
     private WebElement multiYaxisLegend;
 
-    @FindBy(xpath = "//div[contains(@class,'sc-bdfBwQ')]")
+    @FindBy(xpath = "//div[contains(@class,'sc-bdfBwQ')]/parent::div")
     private WebElement lineChartLegend;
 
     @FindBy(xpath = "//div[@id='fullscreenAll']//div[@id]/div[1]")
