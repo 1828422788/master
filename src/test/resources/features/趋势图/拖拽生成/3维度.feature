@@ -1,5 +1,5 @@
 @dragAndDrop @dragAndDropDimension @trend
-Feature: 拖拽生成趋势图_维度
+Feature: 趋势图_拖拽_维度
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"

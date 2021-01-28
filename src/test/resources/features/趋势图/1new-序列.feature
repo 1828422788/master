@@ -1,6 +1,5 @@
-@all @trend @createTrendOrder @createTrend
+@trend @createTrendOrder @createTrend
 Feature: 趋势图新建_序列
-# sample04061424_chart for Yesterday
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"

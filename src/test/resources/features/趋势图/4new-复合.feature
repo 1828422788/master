@@ -1,7 +1,5 @@
-@all @trend @createTrendCompound @createTrend
+@trend @createTrendCompound @createTrend
 Feature: 趋势图新建_复合
-# sample04061424_chart for yesterday
-# sample04061424_display for yesterday
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"

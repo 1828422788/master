@@ -85,4 +85,5 @@ Feature: 趋势图_已存搜索
     And the data name is "{'column':'0','name':'trend_SavedSearch'}" then i click the "删除" button
     Then I will see the message "确认删除 [trend_SavedSearch] ?"
     When I click the "EnsureButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"

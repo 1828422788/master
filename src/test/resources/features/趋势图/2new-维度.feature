@@ -1,6 +1,5 @@
-@all @trend @createTrendDimension @createTrend
+@trend @createTrendDimension @createTrend
 Feature: 趋势图新建_维度
-# sample04061424_chart for Yesterday
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"

@@ -1,4 +1,4 @@
-@all @trend @trendMulti
+@trend @trendMulti
 Feature: 趋势图批量操作
 
   Background:

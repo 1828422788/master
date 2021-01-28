@@ -1,8 +1,5 @@
-@all @trend @createTrendMap @createTrend
+@trend @createTrendMap @createTrend
 Feature: 趋势图新建_地图
-# sample04061424_chart for Yesterday
-# vendors_461 for Yesterday
-
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"

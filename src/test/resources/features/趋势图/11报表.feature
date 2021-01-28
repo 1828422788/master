@@ -1,6 +1,5 @@
-@all @trend @reportTrend
+@trend @reportTrend
 Feature: 趋势图新建_报表
-
 
   Scenario Outline: create_report
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -55,7 +54,7 @@ Feature: 趋势图新建_报表
     Examples:
       |   type  |  trend_name    | added_trend      |   page    |
       | PDF     |  Trend_Test_1  | ChosenTrendLast  |           |
-      | WORD    |  Trend_Test_2  | LastAddedTrend   |   WORD    |
+#      | WORD    |  Trend_Test_2  | LastAddedTrend   |   WORD    |
 
 
   Scenario Outline: delete_trend_report
@@ -64,6 +63,7 @@ Feature: 趋势图新建_报表
     And  the data name is "{'column':'0','name':'<trend_name>'}" then i click the "删除" button
     Then I will see the message "确认删除 [<trend_name>] ?"
     When I click the "EnsureButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
     When open the "report.ListPage" page for uri "/reports/"
     And I wait for "2000" millsecond
@@ -71,11 +71,12 @@ Feature: 趋势图新建_报表
     Then I will see the message "此操作将删除 [<report_name>], 是否继续？"
     When I click the "EnsureButton" button
     And I wait for "500" millsecond
+    And I wait for "Message" will be visible
     Then I will see the message "删除成功"
     And I click the "EnsureButton" button
 
     Examples:
       |  trend_name    |   report_name    |
       |  Trend_Test_1  | Report_Test_PDF  |
-      |  Trend_Test_2  | Report_Test_WORD |
+#      |  Trend_Test_2  | Report_Test_WORD |
 
