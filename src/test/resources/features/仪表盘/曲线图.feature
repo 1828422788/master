@@ -392,13 +392,14 @@ Feature: 仪表盘曲线图
     Then I click the "Ensure" button
     And I wait for loading invisible
     And I wait for "2000" millsecond
-    Then take part of "LineChartLegend" with name "actual/<image>"
-    And I compare source image "actual/<image>" with target image "expect/<image>"
+    Then I will see the element "LineChartLegend" style contains "<image>"
+#    Then take part of "LineChartLegend" with name "actual/<image>"
+#    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
-      | legend     |     image                |
-      |  bottom    |   序列图_legend_bottom   |
-      |  right     |   序列图_legend_right    |
+      | legend     |     image   |
+      |  bottom    |    bottom   |
+      |  right     |      top    |
 
   @dashboard @dashboardSmoke
   Scenario Outline: legend为none RZY-1311
