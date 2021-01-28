@@ -1,6 +1,6 @@
 Feature: 新建数据库连接配置
 
-  @newconn @splpre @dleval
+  @newconn @splpre @autoui01
   Scenario Outline: 新建连接配置-4个
     Given open the "dbConnectionPre.dbSettingPage" page for uri "/dbsettings/"
     And I click the "DbConnConfig" button
