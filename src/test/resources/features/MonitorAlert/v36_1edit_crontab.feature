@@ -1,7 +1,7 @@
 @bvtalert @alertcase
 Feature: 设置监控执行计划
 
-  @editalerts @dleval
+  @editalerts
   Scenario Outline:
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible

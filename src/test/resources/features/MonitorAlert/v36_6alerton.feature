@@ -114,7 +114,7 @@ Feature: 监控启用
 #    Then I wait for loading invisible
 #    Then I will see the element "{'column':'1','name':'<name>'}" is "close"
 
-  @offalert @dleval
+  @offalert
   Scenario Outline: 启用
     Given open the "alert.ListPage" page for uri "/alerts/"
 #    And I wait for "3000" millsecond

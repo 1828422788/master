@@ -1,7 +1,7 @@
 @extra1
 Feature: 新建数据库输出
 
-  @newdboutput @splpre
+  @newdboutput @splpre @dleval
   Scenario Outline: 新建数据库输出-3
     Given open the "dbConnectionPre.DbOutputPage" page for uri "/dbsettings/"
 #    And I click the "DbOutputConfig" button

@@ -1,6 +1,6 @@
 Feature: 新建ldap连接配置
 
-  @dleval @newldapconn @autoui01
+  @newldapconn @autoui01
   Scenario Outline: 新建ldap配置-3个
     Given open the "dbConnectionPre.LdapConnListPage" page for uri "/ldapconnection/"
     And I click the "CreateLdapConn" button
