@@ -951,6 +951,27 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "ant-modal-confirm-title")
     private WebElement confirmMessage;
 
+    @FindBy(xpath = "//*[@class='vx-bar']/following-sibling::*[@font-size='12']")
+    private WebElement sankeyElement;
+
+    @FindBy(xpath = "//*[contains(text(),'200') or contains(text(),'/')]/following-sibling::*")
+    private WebElement chordElement;
+
+    @FindBy(xpath = "//*[contains(@style,'cubic-bezier')]/following-sibling::*[@font-size>7]")
+    private WebElement forceElement;
+
+    public WebElement getForceElement() {
+        return forceElement;
+    }
+
+    public WebElement getChordElement() {
+        return chordElement;
+    }
+
+    public WebElement getSankeyElement() {
+        return sankeyElement;
+    }
+
     public WebElement getConfirmMessage() {
         return confirmMessage;
     }
