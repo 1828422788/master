@@ -1,5 +1,5 @@
 @trend @createTrendOther @createTrend
-Feature: 趋势图新建-其他
+Feature: 趋势图新建_其他
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -24,8 +24,7 @@ Feature: 趋势图新建-其他
     And I click the "Type" button
     And I wait for "2000" millsecond
 
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -60,8 +59,7 @@ Feature: 趋势图新建-其他
     And I click the "Type" button
     And I wait for "2000" millsecond
 
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
 #    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -102,8 +100,7 @@ Feature: 趋势图新建-其他
     And I click the "Settings" button
     And I wait for "2000" millsecond
 
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
 #    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -142,8 +139,10 @@ Feature: 趋势图新建-其他
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
+    And I will see the element "<chartType>Element" style contains "font-size: 100px"
+    And I will see the element "<chartType>Element" style contains "color: rgb(92, 157, 245)"
+    And I will see the element "<chartType>Element" contains "124"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -158,47 +157,6 @@ Feature: 趋势图新建-其他
       | chartType | iconValue | caseNum |
       | Single    | icon      | icon    |
       | Single    | cnt       | cnt     |
-
-
-  Scenario Outline: single_font
-    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\"  tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\")"
-    And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
-    And I wait for "Loading" will be invisible
-    And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
-
-    And I wait for "Type" will be visible
-    And I wait for "2000" millsecond
-    And I click the "Type" button
-    And I click the "Other" button
-    And I click the "<chartType>" button
-    And I click the "Settings" button
-    And I click the "Icon" button
-    And I click the "AccordingName" button
-    And I set the parameter "IconName" with value "<fontValue>"
-    And I click the "Exhibition" button
-    And I set the parameter "FontSize" with value "100"
-    And I click the "Generate" button
-
-    And I click the "Settings" button
-    And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
-    And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button under some element
-
-    When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
-    And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
-    Then I wait for "SuccessCreate" will be visible
-
-    Examples:
-      | chartType | fontValue         | caseNum |
-      | Single    | font-awesome-flag | font1   |
-      | Single    | font-awesome      | font2   |
 
   Scenario Outline: single_background
     When I set the parameter "SearchInput" with value "<spl>"
@@ -223,8 +181,10 @@ Feature: 趋势图新建-其他
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
+    And I will see the element "<chartType>Element" style contains "font-size: 100px"
+    And I will see the element "<chartType>Element" style contains "color: rgb(255, 255, 255)"
+    And I will see the element "<chartType>Element" contains "124"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -261,8 +221,10 @@ Feature: 趋势图新建-其他
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
+    And I will see the element "<chartType>Element" style contains "font-size: 100px"
+    And I will see the element "<chartType>Element" style contains "color: rgb(255, 255, 255)"
+    And I will see the element "<chartType>Element" contains "124"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -308,8 +270,10 @@ Feature: 趋势图新建-其他
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
+    And I will see the element "<chartType>Element" style contains "font-size: 24px"
+    And I will see the element "<chartType>Element" style contains "<style>"
+    And I will see the element "<chartType>Element" contains "<num>"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -321,9 +285,9 @@ Feature: 趋势图新建-其他
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
-      | chartType | caseNum | minVal1 | maxVal1 | color1 | minVal2 | maxVal2 | color2 | colorFill  | spl                                                                                                                               |
-      | Single    | rangeF  | 0       | 100     | Green  | 100     | 1000    | Red    | Font       | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\")                  |
-      | Single    | rangeB  | 0       | 100     | Green  | 100     | 1000    | Red    | Background | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval cnt = 99 \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") |
+      | chartType | caseNum | minVal1 | maxVal1 | color1 | minVal2 | maxVal2 | color2 | colorFill  | num |  style                   | spl                                                                                                                               |
+      | Single    | rangeF  | 0       | 100     | Green  | 100     | 1000    | Red    | Font       | 124 | color: rgb(248, 0, 80)   |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\")                  |
+      | Single    | rangeB  | 0       | 100     | Green  | 100     | 1000    | Red    | Background | 99  | color: rgb(255, 255, 255)|starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval cnt = 99 \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") |
 
   Scenario Outline: single_1000separator
     When I set the parameter "SearchInput" with value "<spl>"
@@ -353,8 +317,10 @@ Feature: 趋势图新建-其他
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
+    And I will see the element "<chartType>Element" style contains "font-size: 24px"
+    And I will see the element "<chartType>Element" style contains "<style>"
+    And I will see the element "<chartType>Element" contains "<num>"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -366,9 +332,9 @@ Feature: 趋势图新建-其他
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
-      | chartType | precision | unitPosition       | buttonSwitch      | caseNum                  | spl                                                                                                        |
-      | Single    | 1         | UnitPositionBefore | ThousandSeparator | prec1_1000on__before     | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
-      | Single    | 2         | UnitPositionAfter  | Background        | prec2_1000off_back_after | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
+      | chartType | precision | unitPosition       | buttonSwitch      | caseNum                  |     style                | num       |spl                                                                                                        |
+      | Single    | 1         | UnitPositionBefore | ThousandSeparator | prec1_1000on__before     | color: rgb(251, 173, 8)  | 1,906.6   |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
+      | Single    | 2         | UnitPositionAfter  | Background        | prec2_1000off_back_after | color: rgb(255, 255, 255)| 个        |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
 
 
   Scenario Outline: sparkline
@@ -397,8 +363,10 @@ Feature: 趋势图新建-其他
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
+    And I will see the element "<chartType>Element" style contains "font-size: 60px"
+    And I will see the element "<chartType>Element" style contains "color: rgb(255, 255, 255)"
+    And I will see the element "<chartType>Element" contains "5"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>_<colorFill>"
     And I compare source image "actual/<chartType>_<caseNum>_<colorFill>" with target image "expect/<chartType>_<caseNum>_<colorFill>"
@@ -445,8 +413,10 @@ Feature: 趋势图新建-其他
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
+    And I will see the element "<chartType>Element" style contains "font-size: 60px"
+    And I will see the element "<chartType>Element" style contains "<style>"
+    And I will see the element "<chartType>Element" contains "个"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<option>"
     And I compare source image "actual/<chartType>_<option>" with target image "expect/<chartType>_<option>"
@@ -458,9 +428,9 @@ Feature: 趋势图新建-其他
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
-      |  chartType    | fontValue          | option         | color    |
-      |   Single      | meh-rolling-eyes   | 仅数值字段     | Green    |
-      |   Single      | tablets            | 仅展示字段     | Orange   |
+      |  chartType    | fontValue          | option         | color    |  style                   |
+      |   Single      | meh-rolling-eyes   | 仅数值字段     | Green    | color: rgb(50, 194, 125) |
+      |   Single      | tablets            | 仅展示字段     | Orange   | color: rgb(251, 173, 8)  |
 
   Scenario Outline: sparkline_facet
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() as cnt by ts, apache.method | eval time=formatdate(ts,\"hh-mm\") | eval cnt_2 = cnt*3"
@@ -501,8 +471,10 @@ Feature: 趋势图新建-其他
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
+    And I will see the element "<chartType>Element" style contains "font-size: 80px"
+    And I will see the element "<chartType>Element" style contains "color: rgb(255, 255, 255)"
+    And I will see the element "<chartType>Element" contains "6"
     And I wait for "4000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -539,8 +511,8 @@ Feature: 趋势图新建-其他
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element_1" will be visible
+    And I will see the element "<chartType>Element_1" contains "78%"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -577,8 +549,9 @@ Feature: 趋势图新建-其他
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element_1" will be visible
+    And I will see the element "<chartType>Element_1" contains "78%"
+    And I will see the element "<chartType>Element_2" contains "20%"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -620,8 +593,9 @@ Feature: 趋势图新建-其他
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element_1" will be visible
+    And I will see the element "<chartType>Element_1" contains "78%"
+    And I will see the element "<chartType>Element_2" contains "20%"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -685,8 +659,9 @@ Feature: 趋势图新建-其他
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element_1" will be visible
+    And I will see the element "<chartType>Element_1" contains "78%"
+    And I will see the element "<chartType>Element_2" contains "20%"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -725,8 +700,7 @@ Feature: 趋势图新建-其他
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -767,8 +741,7 @@ Feature: 趋势图新建-其他
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -810,8 +783,7 @@ Feature: 趋势图新建-其他
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -854,8 +826,7 @@ Feature: 趋势图新建-其他
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -893,8 +864,7 @@ Feature: 趋势图新建-其他
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -945,8 +915,7 @@ Feature: 趋势图新建-其他
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "ChainTableElement" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -991,8 +960,7 @@ Feature: 趋势图新建-其他
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -1016,8 +984,8 @@ Feature: 趋势图新建-其他
     And I click the "NextButton" button under some element
     And I wait for "2000" millsecond
 
-    And I wait for "StatisticalChart" will be visible
-    And I wait for "2000" millsecond
+    And I wait for "Header" will be visible
+    And I wait for "3000" millsecond
     And take part of "StatisticalChart" with name "actual/Table_Test"
     And I compare source image "actual/Table_Test" with target image "expect/Table_Test"
     Then I click the "NextButton" button under some element
@@ -1061,8 +1029,7 @@ Feature: 趋势图新建-其他
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "ChainTreeElement" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -1111,8 +1078,7 @@ Feature: 趋势图新建-其他
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_1"
     And I compare source image "actual/<chartType>_1" with target image "expect/<chartType>_1"
@@ -1140,7 +1106,8 @@ Feature: 趋势图新建-其他
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
 
-    And I wait for "StatisticalChart" will be visible
+    And I wait for "SunElement" will be visible
+    And I will see the element "SunElement" contains "T_1"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>"
     And I compare source image "actual/<chartType>" with target image "expect/<chartType>"

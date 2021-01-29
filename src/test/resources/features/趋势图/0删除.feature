@@ -142,8 +142,6 @@ Feature: 趋势图删除（RZY-1891）
       | Single_rangeF                            |
       | Single_trend                             |
       | Single_backgr                            |
-      | Single_font2                             |
-      | Single_font1                             |
       | Single_cnt                               |
       | Single_icon                              |
       | Funnel_2654                              |

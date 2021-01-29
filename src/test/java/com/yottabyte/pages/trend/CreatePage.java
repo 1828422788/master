@@ -960,6 +960,97 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[contains(@style,'cubic-bezier')]/following-sibling::*[@font-size>7]")
     private WebElement forceElement;
 
+    @FindBy(xpath = "//*[@class='vx-group']/*[text()='南京市']")
+    private WebElement wordcloudElement;
+
+    @FindBy(xpath = "//*[@class='vx-group']/*[@class='vx-line-radial']")
+    private WebElement radarElement;
+
+    @FindBy(xpath = "//*[contains(@id,'funnel')]")
+    private WebElement funnelElement;
+
+    @FindBy(xpath = "//*[@class='vx-circle']/following-sibling::*[contains(@class,'vx-area-closed')]")
+    private WebElement liquidfillElement;
+
+    @FindBy(xpath = "//*[@class='vx-group']/*[contains(@fill,'rgb(211, 17, 33)') or contains(@fill,'rgb(253, 144, 62)') or contains(@fill,'rgb(255, 231, 148)')]")
+    private WebElement matrixheatmapElement;
+
+    @FindBy(xpath = "//div[contains(@class,'bar')]/ancestor::div[1]/following-sibling::div[2]//div[contains(@class,'bar')]")
+    private WebElement chainTableElement;
+
+    @FindBy(xpath = "//div[@class='tooltipTopBoundary']/following-sibling::div[@id='chart']/canvas")
+    private WebElement chainTreeElement;
+
+    @FindBy(xpath = "//div[@id='sequenceArea']")
+    private WebElement sequenceElement;
+
+    @FindBy(xpath = "//*[@class='vx-group']//*[contains(@id,endArrow) or contains(@id,startArrow)]")
+    private WebElement networkElement;
+
+    @FindBy(xpath = "(//div[contains(@style,'justify-content: center')]//span)[last()]")
+    private WebElement singleElement;
+
+    @FindBy(xpath = "(//*[@class='vx-group']//*[contains(text(),'%')])[1]")
+    private WebElement ringElement_1;
+
+    @FindBy(xpath = "(//*[@class='vx-group']//*[contains(text(),'%')]/following-sibling::*[contains(text(),'%') and @fill='gray'])[1]")
+    private WebElement ringElement_2;
+
+    @FindBy(xpath = "(//*[@class='vx-group']//*[@class='vx-arc']/following-sibling::*)[1]")
+    private WebElement sunElement;
+
+    public WebElement getSunElement() {
+        return sunElement;
+    }
+
+    public WebElement getRingElement_1() {
+        return ringElement_1;
+    }
+
+    public WebElement getRingElement_2() {
+        return ringElement_2;
+    }
+
+    public WebElement getSingleElement() {
+        return singleElement;
+    }
+
+    public WebElement getNetworkElement() {
+        return networkElement;
+    }
+
+    public WebElement getSequenceElement() {
+        return sequenceElement;
+    }
+
+    public WebElement getChainTreeElement() {
+        return chainTreeElement;
+    }
+
+    public WebElement getChainTableElement() {
+        return chainTableElement;
+    }
+
+    public WebElement getMatrixheatmapElement() {
+        return matrixheatmapElement;
+    }
+
+    public WebElement getLiquidfillElement() {
+        return liquidfillElement;
+    }
+
+    public WebElement getFunnelElement() {
+        return funnelElement;
+    }
+
+    public WebElement getRadarElement() {
+        return radarElement;
+    }
+
+    public WebElement getWordcloudElement() {
+        return wordcloudElement;
+    }
+
     public WebElement getForceElement() {
         return forceElement;
     }

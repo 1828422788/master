@@ -74,12 +74,12 @@ Feature: 展示趋势图
     @viewTrendConnection @trendView
     Examples:
       | name                                     |
-#      | Force_分面                               |
+      | Force_分面                               |
       | Sankey_分面                              |
       | Chord_分面                               |
       | Sankey_Multistage                        |
-#      | Force_repulsion                          |
-#      | Force_2511                               |
+      | Force_repulsion                          |
+      | Force_2511                               |
       | Sankey_2507                              |
       | Chord_2505                               |
 
@@ -151,14 +151,12 @@ Feature: 展示趋势图
       | Single_rangeF                   |
       | Single_trend                    |
       | Single_backgr                   |
-      | Single_font2                    |
-      | Single_font1                    |
       | Single_cnt                      |
       | Single_icon                     |
       | Funnel_2654                     |
       | Radar_2633                      |
-#      | Wordcloud_分面                  |
-#      | Wordcloud_2625                  |
+      | Wordcloud_分面                  |
+      | Wordcloud_2625                  |
       | Single_2549                     |
 
     @viewTrendTimechart @trendView

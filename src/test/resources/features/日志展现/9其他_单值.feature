@@ -58,34 +58,6 @@ Feature: 日志展现_其他_单值
       |   Single      |    icon      |   2799    |  tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") |
       |   Single      |    cnt       |   2799    |  tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") |
 
-  Scenario Outline: font(RZY-2799)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\")"
-    And I click the "SearchButton" button under some element
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I will see the "trend.CreatePage" page
-    And I click the "Type" button
-    And I click the "Other" button
-    And I click the "<chartType>" button
-    And I click the "Settings" button
-    And I click the "Exhibition" button
-    And I set the parameter "FontSize" with value "100"
-    And I click the "Icon" button
-    And I click the "AccordingName" button
-    And I set the parameter "IconName" with value "<fontValue>"
-    And I click the "Generate" button
-
-    And I click the "Settings" button
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
-    And I wait for "2000" millsecond
-    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<fontValue>"
-    Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<fontValue>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<fontValue>"
-
-    Examples:
-      |  chartType    |   fontValue       |  caseNum  |
-      |   Single      | font-awesome-flag |   2799    |
-      |   Single      | font-awesome      |   2799    |
-
   Scenario Outline: background(RZY-2800)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element

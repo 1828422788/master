@@ -1,5 +1,5 @@
 @trend @createTrendTimechart @createTrend
-Feature: 趋势图新建-timechart
+Feature: 趋势图新建_timechart
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
