@@ -22,11 +22,12 @@ Feature: 日志展现_其它_环形比例图
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "ChartView" will be visible
+    And I wait for "<chartType>Element_1" will be visible
+    And I will see the element "<chartType>Element_1" contains "78%"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
+    And I wait for "<chartType>Element_1" will be visible
+    And I will see the element "<chartType>Element_1" contains "78%"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
     Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
@@ -51,8 +52,9 @@ Feature: 日志展现_其它_环形比例图
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
+    And I wait for "<chartType>Element_1" will be visible
+    And I will see the element "<chartType>Element_1" contains "78%"
+    And I will see the element "<chartType>Element_2" contains "20%"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
     Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
@@ -82,8 +84,9 @@ Feature: 日志展现_其它_环形比例图
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
+    And I wait for "<chartType>Element_1" will be visible
+    And I will see the element "<chartType>Element_1" contains "78%"
+    And I will see the element "<chartType>Element_2" contains "20%"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
     Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
@@ -135,11 +138,14 @@ Feature: 日志展现_其它_环形比例图
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "ChartView" will be visible
+    And I wait for "<chartType>Element_1" will be visible
+    And I will see the element "<chartType>Element_1" contains "78%"
+    And I will see the element "<chartType>Element_2" contains "20%"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
+    And I wait for "<chartType>Element_1" will be visible
+    And I will see the element "<chartType>Element_1" contains "78%"
+    And I will see the element "<chartType>Element_2" contains "20%"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
     Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
@@ -171,14 +177,15 @@ Feature: 日志展现_其它_环形比例图
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
+    And I wait for "<chartType>Element_1" will be visible
+    And I will see the element "<chartType>Element_1" contains "<num1>"
+    And I will see the element "<chartType>Element_2" contains "<num2>"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum><num>"
     Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum><num>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum><num>"
 
     Examples:
-      |  chartType    |  num |   caseNum       |
-      |   Ring        |  1   |    Precision    |
-      |   Ring        |  2   |    Precision    |
-      |   Ring        |  3   |    Precision    |
+      |  chartType    |  num |   caseNum       |  num1    |   num2   |
+      |   Ring        |  1   |    Precision    | 76.5%    | 19.1%    |
+      |   Ring        |  2   |    Precision    | 76.47%   | 19.12%   |
+      |   Ring        |  3   |    Precision    | 76.471%  | 19.118%  |

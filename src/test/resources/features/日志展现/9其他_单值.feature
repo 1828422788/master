@@ -16,8 +16,7 @@ Feature: 日志展现_其他_单值
     And I click the "<chartType>" button
 
     And I click the "Type" button
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
+    And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
     Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
@@ -44,11 +43,16 @@ Feature: 日志展现_其他_单值
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "ChartView" will be visible
+    And I wait for "<chartType>Element" will be visible
+    And I will see the element "<chartType>Element" style contains "font-size: 100px"
+    And I will see the element "<chartType>Element" style contains "color: rgb(92, 157, 245)"
+    And I will see the element "<chartType>Element" contains "124"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
+    And I wait for "<chartType>Element" will be visible
+    And I will see the element "<chartType>Element" style contains "font-size: 100px"
+    And I will see the element "<chartType>Element" style contains "color: rgb(92, 157, 245)"
+    And I will see the element "<chartType>Element" contains "124"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>"
     Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>"
@@ -73,8 +77,10 @@ Feature: 日志展现_其他_单值
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
+    And I wait for "<chartType>Element" will be visible
+    And I will see the element "<chartType>Element" style contains "font-size: 100px"
+    And I will see the element "<chartType>Element" style contains "color: rgb(255, 255, 255)"
+    And I will see the element "<chartType>Element" contains "124"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
     Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
@@ -99,8 +105,10 @@ Feature: 日志展现_其他_单值
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
+    And I wait for "<chartType>Element" will be visible
+    And I will see the element "<chartType>Element" style contains "font-size: 150px"
+    And I will see the element "<chartType>Element" style contains "color: rgb(255, 255, 255)"
+    And I will see the element "<chartType>Element" contains "124"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
     Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
@@ -136,8 +144,8 @@ Feature: 日志展现_其他_单值
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
+    And I wait for "<chartType>Element" will be visible
+    And I will see the element "<chartType>Element" style contains "font-size: 100px"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>"
     Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>"
@@ -170,16 +178,18 @@ Feature: 日志展现_其他_单值
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
+    And I wait for "<chartType>Element" will be visible
+    And I will see the element "<chartType>Element" style contains "font-size: 100px"
+    And I will see the element "<chartType>Element" style contains "<style>"
+    And I will see the element "<chartType>Element" contains "<num>"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
     Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
 
     Examples:
-      |  chartType    | precision |  unitPosition       |  buttonSwitch     |  caseNum                |
-      |   Single      |   1       |  UnitPositionBefore | ThousandSeparator |prec1_1000on__before     |
-      |   Single      |   2       |  UnitPositionAfter  | Background        |prec2_1000off_back_after |
+      |  chartType    | precision |  unitPosition       |  buttonSwitch     |  caseNum                |     style                | num       |
+      |   Single      |   1       |  UnitPositionBefore | ThousandSeparator |prec1_1000on__before     | color: rgb(251, 173, 8)  | 1,906.6   |
+      |   Single      |   2       |  UnitPositionAfter  | Background        |prec2_1000off_back_after | color: rgb(255, 255, 255)| 个        |
 
   Scenario Outline: sparkline
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() by ts | eval time=formatdate(ts,\"hh-mm\") | limit 5 "
@@ -202,11 +212,16 @@ Feature: 日志展现_其他_单值
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "ChartView" will be visible
+    And I wait for "<chartType>Element" will be visible
+    And I will see the element "<chartType>Element" style contains "font-size: 60px"
+    And I will see the element "<chartType>Element" style contains "color: rgb(255, 255, 255)"
+    And I will see the element "<chartType>Element" contains "5"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
+    And I wait for "<chartType>Element" will be visible
+    And I will see the element "<chartType>Element" style contains "font-size: 60px"
+    And I will see the element "<chartType>Element" style contains "color: rgb(255, 255, 255)"
+    And I will see the element "<chartType>Element" contains "5"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>"
     Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>"
@@ -250,8 +265,9 @@ Feature: 日志展现_其他_单值
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
+    And I wait for "<chartType>Element" will be visible
+    And I will see the element "<chartType>Element" style contains "font-size: 80px"
+    And I will see the element "<chartType>Element" style contains "color: rgb(255, 255, 255)"
     And I wait for "3000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
     Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
@@ -287,8 +303,7 @@ Feature: 日志展现_其他_单值
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
+    And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<option>"
     Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<option>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<option>"
