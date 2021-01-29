@@ -21,14 +21,17 @@ Feature: 新建数据库连接配置
     And I set the parameter "newConnDefaultDb" with value "<newConnDefaultDb>"
 
     And I click the "NewButtton" button
+    Then take a screenshot with name "actual/create_<newDbConnName>"
 #    And I wait for element "SearchStatus" change text to "创建成功"
+#    And I wait for element "ReminderBoxTitle" change text to "提示"
+#    When I click the "AffirmButton" button
 
     Examples:
       | newDbConnName | newDbUserName | newDbUserPassword | newDbRetLines | newDbConnTypeList | newDbConnHost | newDbConnPort | newConnDefaultDb |
-      | v33dbx        | root          | rizhiyi&2014      | 1000          | mysql             | 192.168.1.183 | 3306          | v33dbx           |
-      | delv33dbx    | root          | rizhiyi&2014      | 1000          | mysql             | 192.168.1.183 | 3306          | v33dbx           |
-      | editv33dbx    | root          | rizhiyi&2014      | 1000          | mysql             | 192.168.1.183 | 3306          | v33dbx           |
-      | v33vertica    | dbadmin          | rizhiyi&2014      | 1000          | vertica             | 192.168.1.221 | 5433      | v33vertica           |
+      | v33dbx        | root          | 123456      | 1000          | mysql             | 192.168.1.171 | 3306          | v33dbx           |
+      | delv33dbx     | root          | 1233456  | 1000          | mysql             | 192.168.1.171 | 3306          | v33dbx           |
+      | editv33dbx    | root          | 123456    | 1000          | mysql             | 192.168.1.171 | 3306          | v33dbx           |
+      | v33vertica    | dbadmin       | 123456     | 1000          | vertica           | 192.168.1.221 | 5433          | v33vertica       |
 
   @editconn
   Scenario Outline:复制
@@ -50,6 +53,6 @@ Feature: 新建数据库连接配置
 
     Examples:
       | DbConnName | ReceiveGroupNonMemberValue |
-      | v33deldbx | kongfeili |
+      | v33deldbx  | kongfeili                  |
 
 

@@ -256,4 +256,20 @@ public class dbSettingPage extends PageTemplate {
         return super.getButton("确定");
     }
 
+    //测试运行窗口提示
+    @FindBy(xpath = "//div[@class='ant-modal-header']/div[@class='ant-modal-title'][@id='rcDialogTitle0'][contains(text(),'提示')]")
+    private WebElement reminderBoxTitle;
+
+    public WebElement getTestRunReminder() {
+        return reminderBoxTitle;
+    }
+
+    //确认
+    @FindBy(xpath = "//span[text()='确定']/parent::button")
+    private WebElement affirmButton;
+
+    public WebElement getAffirmButton() {
+        return affirmButton;
+    }
+
 }
