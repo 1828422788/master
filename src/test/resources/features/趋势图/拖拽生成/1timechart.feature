@@ -1,5 +1,5 @@
 @dragAndDrop @dragAndDropTimechart @trend
-Feature: 拖拽生成趋势图_timechart
+Feature: 趋势图_拖拽_timechart
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"

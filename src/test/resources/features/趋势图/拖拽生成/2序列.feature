@@ -1,5 +1,5 @@
 @dragAndDrop @dragAndDropOrder @trend
-Feature: 拖拽生成趋势图_序列
+Feature: 趋势图_拖拽_序列
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"

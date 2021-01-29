@@ -1,4 +1,4 @@
-@all @trend @createTrendConnection @createTrend
+@trend @createTrendConnection @createTrend
 Feature: 趋势图新建_关系
 
   Background:

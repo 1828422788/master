@@ -717,6 +717,27 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "(//span[contains(text(),'schedule_name:')]/following-sibling::span)[1]")
     private WebElement scheduleNameDetail;
 
+    @FindBy(xpath = "//*[text()='更多历史']")
+    private WebElement searchHistory;
+
+    @FindBy(xpath = "//div[text()='搜索历史']/ancestor::div[1]/following-sibling::div//input")
+    private WebElement searchHistoryInput;
+
+    @FindBy(className = "_3ypJz01M3kc-hjWPSkSN0v")
+    private WebElement searchHistoryResult;
+
+    public WebElement getSearchHistoryResult() {
+        return searchHistoryResult;
+    }
+
+    public WebElement getSearchHistoryInput() {
+        return searchHistoryInput;
+    }
+
+    public WebElement getSearchHistory() {
+        return searchHistory;
+    }
+
     public WebElement getScheduleNameDetail() {
         return scheduleNameDetail;
     }

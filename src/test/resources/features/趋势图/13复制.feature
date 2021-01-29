@@ -1,4 +1,4 @@
-@all @trend @copyTrend
+@trend @copyTrend
 Feature: 趋势图复制(RZY-1889)
 
   Background:
@@ -91,6 +91,7 @@ Feature: 趋势图复制(RZY-1889)
     When the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
     Then I will see the message "确认删除 [<name>] ?"
     When I click the "EnsureButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
 
     Examples:

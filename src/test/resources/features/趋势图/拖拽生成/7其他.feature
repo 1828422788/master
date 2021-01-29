@@ -1,5 +1,5 @@
 @dragAndDrop @dragAndDropOther @trend
-Feature: 拖拽生成趋势图_其他
+Feature: 趋势图_拖拽_其他
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"

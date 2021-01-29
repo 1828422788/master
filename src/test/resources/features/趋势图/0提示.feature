@@ -1,4 +1,4 @@
-@all @trend
+@trend @trendPrompt
 Feature: 趋势图_提示
 
   Scenario Outline: trend_message_error

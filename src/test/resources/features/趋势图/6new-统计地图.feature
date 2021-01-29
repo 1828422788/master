@@ -1,4 +1,4 @@
-@all @trend @createTrendStatMap @createTrend
+@trend @createTrendStatMap @createTrend
 Feature: 趋势图新建_统计地图
 
   Background:

@@ -1,5 +1,5 @@
 @dragAndDrop @dragAndDropMap @trend
-Feature: 拖拽生成趋势图_地图
+Feature: 趋势图_拖拽_地图
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
