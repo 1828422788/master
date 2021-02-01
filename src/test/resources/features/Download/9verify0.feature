@@ -1,10 +1,9 @@
-@alldownload @dlevent
+@autoui03 @vdleval
 Feature: download_处理下载结果
 
   Background:
     Given open the "splSearch.OfflineTaskPageNohup" page for uri "/download/#"
 
-  @vdlother
   Scenario Outline: 下载比较
     Then I compare source download file "<name>.csv" with target download files "<name>.csv"
 
@@ -20,10 +19,8 @@ Feature: download_处理下载结果
       | eval_empty_resp_len | tag:sample04061424 \| eval path_is_empty=empty(apache.resp_len) \| table path_is_empty, apache.x_forward \| sort by  apache.x_forward |
       | eval_2if | tag:sample04061424 \| eval ret_equal200=if(apache.status==200,\"equal200\",\"not_200\") \| eval ret_larger=if(apache.status>200,\"larger200\",\"not larger\") \| table apache.status, ret_equal200, ret_larger, apache.x_forward \| sort by  apache.x_forward |
       | eval_math_stats | tag:sample04061424 \| eval new_len = 1000 + apache.resp_len \| stats count(new_len) |
-      | eval_if_stats_count | (logtype:apache AND tag:sample04061424) \| eval desc = if (apache.status==200, \"OK\", \"Error\") \| stats count(desc) by desc |
       | eval_case_stats_count | (logtype:apache AND tag:sample04061424) \| eval desc=case(apache.resp_len<0,\"nagetive\",apache.resp_len<100,\"low\",apache.resp_len>2000,\"high\",empty(apache.resp_len),\"Not found\",default,\"middle\") \| stats count(desc) by desc |
       | eval_tolong | (logtype:apache AND tag:sample04061424) \| eval int_status= tolong(apache.status) \| table int_status, apache.x_forward \| sort by  apache.x_forward |
-      | eval_parsedate_formatdate | (logtype:apache AND tag:sample04061424_chart) \| eval f_ref_time = \"22:52:22.000\" \| eval mill_ref_time=parsedate(f_ref_time,\"HH:mm:ss.SSS\") \| eval f_cut_timestamp = formatdate(timestamp,\"HH:mm:ss.SSS\") \| eval mill_cut_timestamp=parsedate(f_cut_timestamp,\"HH:mm:ss.SSS\") \| eval mill_diff_time= mill_ref_time - mill_cut_timestamp \| eval f_diff_time = formatdate(mill_diff_time,\"HH:mm:ss:SSS\") \| table f_ref_time, f_cut_timestamp, mill_ref_time, mill_cut_timestamp, mill_diff_time,f_diff_time |
       | eval_if_nest_empty_top | tag:sample04061424 \| eval len=if(empty(apache.resp_len),0,1) \| stats top(len,10) |
       | eval_empty_if_where | tag:sample04061424 \| eval is_resplen_empty=empty(apache.resp_len) \| eval res_str=if(is_resplen_empty,\"repslen_empty\",\"resplen_non_null\") \| table apache.resp_len, is_resplen_empty, res_str \| where is_resplen_empty==true |
       | add_1 | tag:sample04061424 AND apache.resp_len:>2000 \| eval resplen=apache.resp_len \| eval status=apache.status \| eval mid=apache.resp_len+apache.status \| eval res_mul=(apache.resp_len+apache.status)*apache.status \| table resplen, status, mid, res_mul, apache.x_forward \| sort by  apache.x_forward |
@@ -75,7 +72,6 @@ Feature: download_处理下载结果
       | parse_first_chinese_char_to_table | tag:sample04061424_chinese_5 \| parse field=raw_message \"(?<first_chinese_char>[\\u4e00-\\u9fa5])\" \| table first_chinese_char |
       | parse_chinesechar_maxmatch10_exceed_rawlen | tag:sample04061424_chinese_5 \| limit 1 \| parse field=raw_message \"(?<first_chinese_char>[\\u4e00-\\u9fa5])\" max_match=10 \| table first_chinese_char |
       | parse_request_path_table | tag:sample04061424  \| parse field=apache.request_path \"(?<digital>[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(/.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+/.?)\" \| table apache.request_path, digital, apache.x_forward \| sort by  apache.x_forward |
-      | time_sequence | tag:sample04061424_apachesample_dawn AND apache.resp_len:* \| eval res_reduce_time = collector_recv_timestamp - agent_send_timestamp \| eval f_timestamp = formatdate(timestamp,\"HH:mm:ss\")  \| table res_reduce_time, f_timestamp, agent_send_timestamp, collector_recv_timestamp \| where agent_send_timestamp<collector_recv_timestamp \|\|  agent_send_timestamp==collector_recv_timestamp |
       | eval_formatdate_2y_4m | \| makeresults count=1 \| eval cur_timestamp = 1570738470000 \| eval ret_time = formatdate(cur_timestamp,\"yy-MMMM-dd HH:mm:ss.SSS ZZ Z z\") \| eval splittime = split(ret_time, \" \") \| eval splittime_name = split(\"日期 时间 RFC时区1 RFC时区2 通用时区\", \" \") \| eval r_display = mvszip(splittime_name,splittime ,\"：\") \| table r_display |
       | eval_formatdate_1570738470000 | \| makeresults count=1 \| eval cur_timestamp = 1570738470000 \| eval ret_time = formatdate(cur_timestamp,\"yyyy-MM-dd HH:mm:ss.SSS ZZZ Z z '' G CC xxxx ww e '' EEEE DDD aa KK hh '' kk\") \| eval splittime = split(ret_time, \" \") \| eval splittime_name = split(\"日期 时间 RFC时区1 RFC时区2 通用时区 ' 公元 Centryofera WeekYear WeekofYear DayofWeek ' DayofWeek1 DayinYear Halfofday0_11 Clockhourofhalfday1_12 Hourofhalfday ' Hourinday1_24 \", \" \") \| eval r_display = mvszip(splittime_name,splittime ,\"：\") \| table r_display |
       | eval_formatdate_1570813200000 | \| makeresults count=1 \| eval cur_timestamp = 1570813200000 \| eval ret_time = formatdate(cur_timestamp,\"yyyy-MM-dd HH:mm:ss.SSS ZZZ Z z '' G CC xxxx ww e '' EEEE DDD aa KK hh '' kk\") \| eval splittime = split(ret_time, \" \") \| eval splittime_name = split(\"日期 时间 RFC时区1 RFC时区2 通用时区 ' 公元 Centryofera WeekYear WeekofYear DayofWeek ' DayofWeek1 DayinYear Halfofday0_11 Clockhourofhalfday1_12 Hourofhalfday ' Hourinday1_24 \", \" \") \| eval r_display = mvszip(splittime_name,splittime ,\"：\") \| table r_display |
@@ -93,10 +89,7 @@ Feature: download_处理下载结果
       | filldown_domain | (tag:sample04061424 AND NOT apache.referer_domain:*) OR  apache.referer_domain:w25.100msh.com \| sort by apache.referer_domain \| limit 10 \| eval referer_domain = apache.referer_domain \| table referer_domain \| filldown referer_domain |
       | filldown_chinese | tag:sample04061424 \| sort by apache.status \| limit 10 \|  eval newfield = if(apache.status<501, null,\"中文\") \| table newfield \| filldown newfield |
       | download_cnt_clientip_bystatus_csv_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| chart count() over apache.clientip by apache.status \| download filename=\"download_cnt_clientip_bystatus_csv_sample\" fileformat=\"csv\" |
-      | rare_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| rare apache.clientip by apache.status |
-      | rare_resplen_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| rare apache.resp_len by apache.status |
       | rare_showperc_resplen_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| rare apache.resp_len showperc=false by apache.status |
-      | rare_limit10_resplen_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| rare apache.resp_len limit=10 by apache.status |
       | rare_countfield_resplen_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| rare apache.resp_len countfield=ret1 by apache.status |
       | entropy_sample | tag:sample04061424 AND apache.referer_domain:* \| parse field=apache.referer_domain \"^(?<subdomain>.*?)\.(?<domain>\w+\.\w+)$\" \| eval entr=entropy(subdomain) \| stats avg(entr),dc(subdomain),values(subdomain) by domain |
       | chart_sample_noparam | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| chart max(apache.status) as ma count() as cnt |
@@ -112,3 +105,6 @@ Feature: download_处理下载结果
       | fillnull_string_to_resplen_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 AND apache.resp_len:* \| sort by apache.x_forward \| limit 10 \| fillnull value=\"66\" apache.resp_len \| eval t_apache.resp_len = typeof(apache.resp_len) \| table apache.resp_len, t_apache.resp_len, apache.x_forward |
       | fillnull_string_to_domain | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 AND NOT apache.referer_domain:*  \| sort by apache.x_forward \| limit 10 \| fillnull value=\"fillnull_source\" apache.referer_domain \| eval type_referer_domain = typeof(apache.referer_domain) \| table apache.referer_domain, apache.referer_domain,type_referer_domain, apache.x_forward |
       | fillnull_fill_data_to_datavalue | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| eval cur_param1=null, cur_param2=0 \| fillnull value=\"1234567\" cur_param1 \| fillnull value=\"789\" cur_param2 \|  eval t_cur_param1=typeof(cur_param1), t_cur_param2=typeof(cur_param2) \| table apache.x_forward, cur_param1, cur_param2, t_cur_param1, t_cur_param2 |
+      | fillnull_fill_string_to_noexitparam | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| fillnull value=\"1234567\" cur_param \|  eval t_cur_param=typeof(cur_param) \| table cur_param, t_cur_param |
+      | fillnull_fill_string_to_string | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| eval cur_param=\"tmp_string\" \| fillnull value=\"1234567\" cur_param \|  eval t_cur_param=typeof(cur_param) \| table cur_param, t_cur_param |
+      | eventstats_sample_cnt | tag:sample04061424 \| sort by apache.x_forward \| limit 10  \| eventstats  count() as cnt \| fields cnt \| table cnt |
