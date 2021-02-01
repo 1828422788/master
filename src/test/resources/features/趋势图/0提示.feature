@@ -99,7 +99,11 @@ Feature: 趋势图_提示
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
     And I will see the element "SearchInput" contains "*"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
+    Then I wait for "CheckBox" will be visible
     And I click the "NextButton" button under some element
     And I wait for "EnsureButton" will be visible
     And I will see the element "Prompt" contains "请选择字段"
@@ -124,3 +128,18 @@ Feature: 趋势图_提示
     And I click the "NextButton" button under some element
     And I wait for "EnsureButton" will be visible
     And I will see the element "Prompt" contains "名称 不能为空"
+
+  Scenario: new_trend_3
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "NewTrendButton" button
+    Then I will see the "trend.CreatePage" page
+    And I wait for "Loading" will be invisible
+    And I wait for "1000" millsecond
+    And I will see the element "SearchInput" contains "*"
+    And I click the "DateEditor" button
+    And I click the "WholeTime" button
+    And I click the "SearchButton" button under some element
+    And I wait for "500" millsecond
+    And I click the "NextButton" button under some element
+    And I wait for "EnsureButton" will be visible
+    And I will see the element "Prompt" contains "请等待搜索完成"

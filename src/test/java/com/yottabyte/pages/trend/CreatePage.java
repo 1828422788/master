@@ -1831,6 +1831,10 @@ public class CreatePage extends PageTemplate {
         return GetTime.getTime(webDriver, "SevenDays");
     }
 
+    public WebElement getWholeTime() {
+        return GetTime.getTime(webDriver, "WholeTime");
+    }
+
     public WebElement getSuccessMessage() {
         return successMessage;
     }

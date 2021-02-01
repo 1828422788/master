@@ -71,17 +71,7 @@ Feature: 展示趋势图
       | Pie_2503                                 |
 
 
-    @viewTrendConnection @trendView
-    Examples:
-      | name                                     |
-      | Force_分面                               |
-      | Sankey_分面                              |
-      | Chord_分面                               |
-      | Sankey_Multistage                        |
-      | Force_repulsion                          |
-      | Force_2511                               |
-      | Sankey_2507                              |
-      | Chord_2505                               |
+
 
     @viewTrendCompound @trendView
     Examples:
@@ -105,59 +95,10 @@ Feature: 展示趋势图
       | Regionmap_2545                           |
       | Heatmap_2539                             |
 
-    @viewTrendStatMap @trendView
-    Examples:
-      | name                                     |
-      | Statisticalmap_2098_param                |
-      | Statisticalmap_2098                      |
-      | Statisticalmap_2797_param                |
-      | Statisticalmap_2797                      |
-      | Statisticalmap_Google                    |
-      | Statisticalmap_Gtimg                     |
-      | Statisticalmap_OSM                       |
-      | Statisticalmap_Amap                      |
-      | Statisticalmap_ArcGIS                    |
 
 
-    @viewTrendOther @trendView
-    Examples:
-      | name                            |
-      | sunburst                        |
-      | NetworkNode                     |
-      | Chain_2831_tree                 |
-      | Chain_2982_tree                 |
-      | Table_Test                      |
-      | Sequence_2805                   |
-      | Chain_2982                      |
-      | Chain_2831                      |
-      | Matrixheatmap_2661              |
-      | Matrixheatmap_2660              |
-      | Funnel_2858                     |
-      | Radar_2635                      |
-      | Liquidfill_分面                 |
-      | Liquidfill_percent              |
-      | Ring_table_1r_3c_colors         |
-      | Ring_table_1r_4c                |
-      | Ring_table_3r_2c                |
-      | Ring_twofields                  |
-      | Ring_onefield                   |
-      | Single_仅展示字段               |
-      | Single_仅数值字段               |
-      | Single_Sparkline_分面           |
-      | Single_Sparkline_Background     |
-      | Single_prec2_1000off_back_after |
-      | Single_prec1_1000on__before     |
-      | Single_rangeB                   |
-      | Single_rangeF                   |
-      | Single_trend                    |
-      | Single_backgr                   |
-      | Single_cnt                      |
-      | Single_icon                     |
-      | Funnel_2654                     |
-      | Radar_2633                      |
-      | Wordcloud_分面                  |
-      | Wordcloud_2625                  |
-      | Single_2549                     |
+
+
 
     @viewTrendTimechart @trendView
     Examples:
@@ -220,6 +161,88 @@ Feature: 展示趋势图
       | 825_world                   |
       | 825_china                   |
       | 825_sichuan                 |
+
+  Scenario Outline: compare_view_element
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When I set the parameter "SearchInput" with value "<name>"
+    And I wait for "2000" millsecond
+    And the data name is "{'column':'0','name':'<name>'}" then i click the "展示趋势图" button
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "<name>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<element>" will be visible
+    And I wait for "3000" millsecond
+    And take part of "StatisticalChart" with name "actual/<name>"
+    And I compare source image "actual/<name>" with target image "expect/<name>"
+
+    @viewTrendConnection @trendView
+    Examples:
+      | name                                     | element                      |
+      | Force_分面                               | ForceElement                 |
+      | Sankey_分面                              | SankeyElement                |
+      | Chord_分面                               | ChordElement                 |
+      | Sankey_Multistage                        | SankeyElement                |
+      | Force_repulsion                          | ForceElement                 |
+      | Force_2511                               | ForceElement                 |
+      | Sankey_2507                              | SankeyElement                |
+      | Chord_2505                               | ChordElement                 |
+
+    @viewTrendStatMap @trendView
+    Examples:
+      | name                                     | element                   |
+      | Statisticalmap_2098_param                | MapSettings               |
+      | Statisticalmap_2098                      | MapSettings               |
+      | Statisticalmap_2797_param                | MapSettings               |
+      | Statisticalmap_2797                      | MapSettings               |
+      | Statisticalmap_Google                    | MapSettings               |
+      | Statisticalmap_Gtimg                     | MapSettings               |
+      | Statisticalmap_OSM                       | MapSettings               |
+      | Statisticalmap_Amap                      | MapSettings               |
+      | Statisticalmap_ArcGIS                    | MapSettings               |
+
+    @viewTrendOther @trendView
+    Examples:
+      | name                            |    element               |
+      | sunburst                        | SunElement               |
+      | NetworkNode                     | NetworkElement           |
+      | Chain_2831_tree                 | ChainTreeElement         |
+      | Chain_2982_tree                 | ChainTreeElement         |
+      | Table_Test                      | Header                   |
+      | Sequence_2805                   | SequenceElement          |
+      | Chain_2982                      | ChainTableElement        |
+      | Chain_2831                      | ChainTableElement        |
+      | Matrixheatmap_2661              | MatrixheatmapElement     |
+      | Matrixheatmap_2660              | MatrixheatmapElement     |
+      | Funnel_2858                     | FunnelElement            |
+      | Radar_2635                      | RadarElement             |
+      | Liquidfill_分面                 | LiquidfillElement        |
+      | Liquidfill_percent              | LiquidfillElement        |
+      | Ring_table_1r_3c_colors         | RingElement_1            |
+      | Ring_table_1r_4c                | RingElement_1            |
+      | Ring_table_3r_2c                | RingElement_1            |
+      | Ring_twofields                  | RingElement_1            |
+      | Ring_onefield                   | RingElement_1            |
+      | Single_仅展示字段               | SingleElement            |
+      | Single_仅数值字段               | SingleElement            |
+      | Single_Sparkline_分面           | SingleElement            |
+      | Single_Sparkline_Background     | SingleElement            |
+      | Single_prec2_1000off_back_after | SingleElement            |
+      | Single_prec1_1000on__before     | SingleElement            |
+      | Single_rangeB                   | SingleElement            |
+      | Single_rangeF                   | SingleElement            |
+      | Single_trend                    | SingleElement            |
+      | Single_backgr                   | SingleElement            |
+      | Single_cnt                      | SingleElement            |
+      | Single_icon                     | SingleElement            |
+      | Funnel_2654                     | FunnelElement            |
+      | Radar_2633                      | RadarElement             |
+      | Wordcloud_分面                  | WordcloudElement         |
+      | Wordcloud_2625                  | WordcloudElement         |
+      | Single_2549                     | SingleElement            |
 
 
 
