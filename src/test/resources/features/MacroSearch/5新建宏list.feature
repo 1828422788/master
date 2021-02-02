@@ -2,7 +2,7 @@
 Feature: 搜索宏新建
 
   @nmacro3
-  Scenario Outline:两个参数
+  Scenario Outline:
     Given open the "macroSearch.ListPage" page for uri "/macro/"
     When I click the "CreateMacroButton" button
     Then I will see the "macroSearch.CreatePage" page

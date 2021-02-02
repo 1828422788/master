@@ -1,5 +1,5 @@
 @dlmacro @dlother @tmpdl
-Feature: 验证宏
+Feature: 下载宏
 
   @dlmacro0
   Scenario Outline:用例：期望基于eval定义的结果出错

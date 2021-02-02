@@ -1,5 +1,5 @@
 @newmacro @autoui01
-Feature: 搜索宏新建
+Feature: 新建宏
 
   Background:
     Given open the "macroSearch.ListPage" page for uri "/macro/"
