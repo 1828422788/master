@@ -1,11 +1,10 @@
-@alldownload  @dlxtable
+@dlxtable  @dlxtable0
 Feature: download_bucket下载
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  @dlxtable0
   Scenario Outline: 下载bucket用例结果
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
@@ -16,6 +15,7 @@ Feature: download_bucket下载
 
     And I wait for "2000" millsecond
     And I wait for "downloadButton" will be visible
+    Then take a screenshot with name "spldownload/<name>"
     Then I click the "downloadButton" button
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"
@@ -38,7 +38,6 @@ Feature: download_bucket下载
 #      | timechart_startindex_endindex1                      | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424_display\" \| timechart bins=10 span=30m startindex=1 endindex=8 count() max(apache.status) by apache.resp_len                                                                                                                                                                                                                                                                                                                                |
       | rate_sample | tag:rate39 \| eval retpath=json.disk.path \| eval retused=json.disk.used \| eval used=tolong(retused) \| bucket timestamp span=10m as timestamp \| table used,retpath,timestamp \| stats rate(used) by timestamp,retpath |
 
-  @dlxtable0
   Scenario Outline: 下载bucket用例结果
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button

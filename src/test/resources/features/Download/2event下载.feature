@@ -1,11 +1,10 @@
-@alldownload @dlevent
+@dlevent @dlevent0
 Feature: download_事件搜索下载
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  @dlevent0
   Scenario Outline: 执行
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
@@ -16,6 +15,7 @@ Feature: download_事件搜索下载
 
     And I wait for "2000" millsecond
     And I wait for "DownloadEvent" will be visible
+    Then take a screenshot with name "spldownload/<name>"
     Then I click the "DownloadEvent" button
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"

@@ -16,6 +16,7 @@ Feature: download_bucket下载
 
     And I wait for "3000" millsecond
     And I wait for "downloadButton" will be visible
+    Then take a screenshot with name "spldownload/<name>"
     Then I click the "downloadButton" button
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"
