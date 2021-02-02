@@ -22,8 +22,7 @@ Feature: 趋势图新建_维度
 
     And I click the "Type" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<element>" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -34,11 +33,11 @@ Feature: 趋势图新建_维度
     And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
     Examples:
-      |   chartType   |   caseNum  |  spl  |
-      |      Pie      |    2503    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Rose     |    2858    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Bar      |    2676    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Sun      |    2850    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() by apache.status,apache.geo.province, apache.geo.city|
+      |   chartType   |   element        |  caseNum  |  spl  |
+      |      Pie      |   PieElement     |   2503    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Rose     |   PieElement     |   2858    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Bar      |   BarElement     |   2676    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Sun      |   SunElement     |   2850    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() by apache.status,apache.geo.province, apache.geo.city|
 
   Scenario Outline: dimension_labels_bar
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5"
@@ -63,8 +62,7 @@ Feature: 趋势图新建_维度
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "BarElement" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<typeInfo>_<option>"
     And I compare source image "actual/<chartType>_<typeInfo>_<option>" with target image "expect/<chartType>_<typeInfo>_<option>"
@@ -111,8 +109,7 @@ Feature: 趋势图新建_维度
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<element>" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<typeInfo>"
     And I compare source image "actual/<chartType>_<typeInfo>" with target image "expect/<chartType>_<typeInfo>"
@@ -124,14 +121,14 @@ Feature: 趋势图新建_维度
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
-      |   chartType   | color  |typeInfo    |
-      |      Pie      | Orange |不展示      |
-      |     Rose      | Orange |不展示      |
-      |      Bar      | Orange |不展示      |
-      |      Pie      | Orange |只展示名称   |
-      |     Rose      | Orange |只展示名称   |
-      |      Pie      | Orange |展示全部     |
-      |     Rose      | Orange |展示全部     |
+      |   chartType   | color  |typeInfo    |  element            |
+      |      Pie      | Orange |不展示      | PieNoLabelsElement  |
+      |     Rose      | Orange |不展示      | PieNoLabelsElement  |
+      |      Bar      | Orange |不展示      | BarElement          |
+      |      Pie      | Orange |只展示名称   | PieElement           |
+      |     Rose      | Orange |只展示名称   | PieElement           |
+      |      Pie      | Orange |展示全部     | PieElement           |
+      |     Rose      | Orange |展示全部     | PieElement           |
 
 
   Scenario Outline: dimension_facet
@@ -161,8 +158,7 @@ Feature: 趋势图新建_维度
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<element>" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<typeInfo>_分面"
     And I compare source image "actual/<chartType>_<typeInfo>_分面" with target image "expect/<chartType>_<typeInfo>_分面"
@@ -174,10 +170,10 @@ Feature: 趋势图新建_维度
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
-      |   chartType   |  color  |  typeInfo    |  spl   |
-      |      Pie      | Red     | 展示全部     |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
-      |      Rose     | Green   | 只展示名称   |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
-      |      Bar      | Orange  | 展示全部     |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
+      |   chartType   |  color  |  element     |  typeInfo    |  spl   |
+      |      Pie      | Red     | PieElement   | 展示全部     |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
+      |      Rose     | Green   | PieElement   | 只展示名称   |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
+      |      Bar      | Orange  | BarElement   | 展示全部     |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
 
 
   Scenario Outline: dimension_facet_sun
@@ -207,8 +203,7 @@ Feature: 趋势图新建_维度
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "SunElement" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_分面"
 #    And I compare source image "actual/<chartType>_分面" with target image "expect/<chartType>_分面"
@@ -243,12 +238,11 @@ Feature: 趋势图新建_维度
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
+    And I wait for "FlameElement" will be visible
     And I click the "ShenZhen" button
     And I click the "HideElement" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "FlameElement" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<option>"
     And I compare source image "actual/<chartType>_<option>" with target image "expect/<chartType>_<option>"
@@ -288,11 +282,11 @@ Feature: 趋势图新建_维度
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
+    And I wait for "FlameElement" will be visible
     And I click the "ShenZhen" button
     And I click the "HideElement" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
+    And I wait for "FlameElement" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<option>_分面"
     And I compare source image "actual/<chartType>_<option>_分面" with target image "expect/<chartType>_<option>_分面"

@@ -999,6 +999,34 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//*[@class='vx-group']//*[@class='vx-arc']/following-sibling::*)[1]")
     private WebElement sunElement;
 
+    @FindBy(xpath = "//*[@class='vx-bar']/ancestor::*[2]/following-sibling::*[contains(@class,'vx-axis-bottom')]")
+    private WebElement barElement;
+
+    @FindBy(xpath = "(//*[@class='vx-group']//*[@class='vx-arc']/following-sibling::*[@class='vx-line']/preceding-sibling::*)[last()]")
+    private WebElement pieElement;
+
+    @FindBy(xpath = "(//*[@class='vx-group']//*[@class='vx-arc']")
+    private WebElement pieNoLabelsElement;
+
+    @FindBy(xpath = "//*[@class='vx-group']/*/div[contains(@style,'font-size: 12px;')]")
+    private WebElement flameElement;
+
+    public WebElement getFlameElement() {
+        return flameElement;
+    }
+
+    public WebElement getPieNoLabelsElement() {
+        return pieNoLabelsElement;
+    }
+
+    public WebElement getPieElement(){
+        return pieElement;
+    }
+
+    public WebElement getBarElement() {
+        return barElement;
+    }
+
     public WebElement getSunElement() {
         return sunElement;
     }

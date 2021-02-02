@@ -38,40 +38,6 @@ Feature: 展示趋势图
       | AreaChart_2005                           |
       | LineChart_2477                           |
 
-    @viewTrendDimension @trendView
-    Examples:
-      | name                                     |
-      | Flame_图外钻取_分面                      |
-      | Flame_图内钻取                           |
-      | Sun_分面                                 |
-      | Bar_展示全部_分面                        |
-      | Rose_只展示名称_分面                     |
-      | Pie_展示全部_分面                        |
-      | Rose_展示全部                            |
-      | Pie_展示全部                             |
-      | Rose_只展示名称                          |
-      | Pie_只展示名称                           |
-      | Bar_不展示                               |
-      | Rose_不展示                              |
-      | Pie_不展示                               |
-      | Bar_展示全部_柱状内靠右侧                 |
-      | Bar_展示全部_柱状内靠左侧                 |
-      | Bar_展示全部_柱状内中央                   |
-      | Bar_展示全部_柱状外右侧                   |
-      | Bar_展示全部_柱状外左侧                   |
-      | Bar_展示全部_柱状外两侧                   |
-      | Bar_只展示名称_柱状内靠右侧               |
-      | Bar_只展示名称_柱状内靠左侧               |
-      | Bar_只展示名称_柱状内中央                 |
-      | Bar_只展示名称_柱状外右侧                 |
-      | Bar_只展示名称_柱状外左侧                 |
-      | Sun_2850                                 |
-      | Bar_2676                                 |
-      | Rose_2858                                |
-      | Pie_2503                                 |
-
-
-
 
     @viewTrendCompound @trendView
     Examples:
@@ -94,10 +60,6 @@ Feature: 展示趋势图
       | Attackmap_World_2542                     |
       | Regionmap_2545                           |
       | Heatmap_2539                             |
-
-
-
-
 
 
     @viewTrendTimechart @trendView
@@ -178,6 +140,38 @@ Feature: 展示趋势图
     And I wait for "3000" millsecond
     And take part of "StatisticalChart" with name "actual/<name>"
     And I compare source image "actual/<name>" with target image "expect/<name>"
+
+    @viewTrendDimension @trendView
+    Examples:
+      | name                                     |   element            |
+      | Flame_图外钻取_分面                      | FlameElement         |
+      | Flame_图内钻取                           | FlameElement         |
+      | Sun_分面                                 | SunElement           |
+      | Bar_展示全部_分面                        | BarElement           |
+      | Rose_只展示名称_分面                     | PieElement           |
+      | Pie_展示全部_分面                        | PieElement           |
+      | Rose_展示全部                            | PieElement           |
+      | Pie_展示全部                             | PieElement           |
+      | Rose_只展示名称                          | PieElement           |
+      | Pie_只展示名称                           | PieElement           |
+      | Bar_不展示                               | BarElement           |
+      | Rose_不展示                              | PieNoLabelsElement   |
+      | Pie_不展示                               | PieNoLabelsElement   |
+      | Bar_展示全部_柱状内靠右侧                | BarElement           |
+      | Bar_展示全部_柱状内靠左侧                | BarElement           |
+      | Bar_展示全部_柱状内中央                  | BarElement           |
+      | Bar_展示全部_柱状外右侧                  | BarElement           |
+      | Bar_展示全部_柱状外左侧                  | BarElement           |
+      | Bar_展示全部_柱状外两侧                  | BarElement           |
+      | Bar_只展示名称_柱状内靠右侧              | BarElement           |
+      | Bar_只展示名称_柱状内靠左侧              | BarElement           |
+      | Bar_只展示名称_柱状内中央                | BarElement           |
+      | Bar_只展示名称_柱状外右侧                | BarElement           |
+      | Bar_只展示名称_柱状外左侧                | BarElement           |
+      | Sun_2850                                 | SunElement           |
+      | Bar_2676                                 | BarElement           |
+      | Rose_2858                                | PieElement           |
+      | Pie_2503                                 | PieElement           |
 
     @viewTrendConnection @trendView
     Examples:
