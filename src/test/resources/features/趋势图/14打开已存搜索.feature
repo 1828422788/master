@@ -48,11 +48,9 @@ Feature: 趋势图_已存搜索
     And I wait for "Loading" will be invisible
     And I click the "SavedSearch" button
     And I wait for "2000" millsecond
-    And I click the star before "trend_test" in saved search
-    And I will see the element "Notice" contains "更新成功"
     And "加载" the data "trend_test" in tiny saved search
     And I click the "SearchButton" button under some element
-    And I wait for "Loading" will be invisible
+    And I wait for "5000" millsecond
     And I wait for "Header" will be visible
     And I will see the input element "SearchInput" value will be "* | stats count()"
     And I will see the input element "DateEditor" value will be "今天"
