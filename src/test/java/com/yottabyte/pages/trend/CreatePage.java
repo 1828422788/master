@@ -1005,7 +1005,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//*[@class='vx-group']//*[@class='vx-arc']/following-sibling::*[@class='vx-line']/preceding-sibling::*)[last()]")
     private WebElement pieElement;
 
-    @FindBy(xpath = "(//*[@class='vx-group']//*[@class='vx-arc']")
+    @FindBy(xpath = "//*[@class='vx-group']//*[@class='vx-arc']")
     private WebElement pieNoLabelsElement;
 
     @FindBy(xpath = "//*[@class='vx-group']/*/div[contains(@style,'font-size: 12px;')]")
