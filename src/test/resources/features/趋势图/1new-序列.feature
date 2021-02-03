@@ -22,8 +22,8 @@ Feature: 趋势图新建_序列
 
     And I click the "Type" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
+    And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -65,8 +65,8 @@ Feature: 趋势图新建_序列
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
+    And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<buttonChoice>"
     And I compare source image "actual/<chartType>_<buttonChoice>" with target image "expect/<chartType>_<buttonChoice>"
@@ -106,8 +106,8 @@ Feature: 趋势图新建_序列
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
+    And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -145,8 +145,8 @@ Feature: 趋势图新建_序列
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
+    And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>_<buttonChoice>"
     And I compare source image "actual/<chartType>_<caseNum>_<buttonChoice>" with target image "expect/<chartType>_<caseNum>_<buttonChoice>"
@@ -188,7 +188,7 @@ Feature: 趋势图新建_序列
     And I click the "Settings" button
     And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>_limit"
     And I compare source image "actual/<chartType>_<caseNum>_limit" with target image "expect/<chartType>_<caseNum>_limit"
@@ -229,8 +229,8 @@ Feature: 趋势图新建_序列
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
+    And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_分面"
     And I compare source image "actual/<chartType>_分面" with target image "expect/<chartType>_分面"

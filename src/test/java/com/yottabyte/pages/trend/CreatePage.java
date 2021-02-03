@@ -1011,6 +1011,41 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[@class='vx-group']/*/div[contains(@style,'font-size: 12px;')]")
     private WebElement flameElement;
 
+    @FindBy(xpath = "//*[@class='vx-group']//*[contains(@class,'vx-rows')]/following-sibling::*[@class='vx-linepath']")
+    private WebElement lineChartElement;
+
+    @FindBy(xpath = "//*[@class='vx-group']//*[@class='vx-area-closed']")
+    private WebElement areaChartElement;
+
+    @FindBy(xpath = "//*[@class='vx-group']//*[@cx and @r and contains(@style,'pointer-events')]")
+    private WebElement scatterChartElement;
+
+    @FindBy(xpath = "//*[@class='vx-group']//*[@y and @height and @fill]")
+    private WebElement columnChartElement;
+
+    @FindBy(xpath = "//*[@class='vx-group']//*[contains(@class,'vx-threshold')]")
+    private WebElement rangelineElement;
+
+    public WebElement getRangelineElement() {
+        return rangelineElement;
+    }
+
+    public WebElement getColumnChartElement() {
+        return columnChartElement;
+    }
+
+    public WebElement getScatterChartElement() {
+        return scatterChartElement;
+    }
+
+    public WebElement getAreaChartElement() {
+        return areaChartElement;
+    }
+
+    public WebElement getLineChartElement() {
+        return lineChartElement;
+    }
+
     public WebElement getFlameElement() {
         return flameElement;
     }

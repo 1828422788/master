@@ -17,35 +17,6 @@ Feature: 展示趋势图
     And take part of "ChartView" with name "actual/<name>"
     And I compare source image "actual/<name>" with target image "expect/<name>"
 
-    @viewTrendOrder @trendView
-    Examples:
-      | name                                     |
-      | ColumnChart_分面                         |
-      | ScatterChart_分面                        |
-      | AreaChart_分面                           |
-      | LineChart_分面                           |
-      | ScatterChart_2492_limit                  |
-      | ColumnChart_2500_limit                   |
-      | AreaChart_2483_ConnectEmptyData          |
-      | AreaChart_2483_Smooth                    |
-      | LineChart_2479_ConnectEmptyData          |
-      | LineChart_2479_Smooth                    |
-      | ScatterChart_bubbles                     |
-      | ColumnChart_Pile                         |
-      | AreaChart_Pile                           |
-      | ColumnChart_2499                         |
-      | ScatterChart_2491                        |
-      | AreaChart_2005                           |
-      | LineChart_2477                           |
-
-
-    @viewTrendCompound @trendView
-    Examples:
-      | name                                     |
-      | Multiaxis_4841                           |
-      | Multiaxis_2523                           |
-      | Rangeline_2516                           |
-
     @viewTrendMap @trendView
     Examples:
       | name                                     |
@@ -60,7 +31,6 @@ Feature: 展示趋势图
       | Attackmap_World_2542                     |
       | Regionmap_2545                           |
       | Heatmap_2539                             |
-
 
     @viewTrendTimechart @trendView
     Examples:
@@ -141,6 +111,27 @@ Feature: 展示趋势图
     And take part of "StatisticalChart" with name "actual/<name>"
     And I compare source image "actual/<name>" with target image "expect/<name>"
 
+    @viewTrendOrder @trendView
+    Examples:
+      | name                                     |  element                |
+      | ColumnChart_分面                         | ColumnChartElement      |
+      | ScatterChart_分面                        | ScatterChartElement     |
+      | AreaChart_分面                           | AreaChartElement        |
+      | LineChart_分面                           | LineChartElement        |
+      | ScatterChart_2492_limit                  | StatisticalChart        |
+      | ColumnChart_2500_limit                   | ChartView               |
+      | AreaChart_2483_ConnectEmptyData          | AreaChartElement        |
+      | AreaChart_2483_Smooth                    | AreaChartElement        |
+      | LineChart_2479_ConnectEmptyData          | LineChartElement        |
+      | LineChart_2479_Smooth                    | LineChartElement        |
+      | ScatterChart_bubbles                     | ScatterChartElement     |
+      | ColumnChart_Pile                         | ColumnChartElement      |
+      | AreaChart_Pile                           | AreaChartElement        |
+      | ColumnChart_2499                         | ColumnChartElement      |
+      | ScatterChart_2491                        | ScatterChartElement     |
+      | AreaChart_2005                           | AreaChartElement        |
+      | LineChart_2477                           | LineChartElement        |
+
     @viewTrendDimension @trendView
     Examples:
       | name                                     |   element            |
@@ -184,6 +175,13 @@ Feature: 展示趋势图
       | Force_2511                               | ForceElement                 |
       | Sankey_2507                              | SankeyElement                |
       | Chord_2505                               | ChordElement                 |
+
+    @viewTrendCompound @trendView
+    Examples:
+      | name                                     |  element                   |
+      | Multiaxis_4841                           | AreaChartElement           |
+      | Multiaxis_2523                           | AreaChartElement           |
+      | Rangeline_2516                           | RangelineElement           |
 
     @viewTrendStatMap @trendView
     Examples:
@@ -237,13 +235,3 @@ Feature: 展示趋势图
       | Wordcloud_分面                  | WordcloudElement         |
       | Wordcloud_2625                  | WordcloudElement         |
       | Single_2549                     | SingleElement            |
-
-
-
-
-
-
-
-
-
-
