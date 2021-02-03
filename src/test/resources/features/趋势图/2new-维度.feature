@@ -23,6 +23,7 @@ Feature: 趋势图新建_维度
     And I click the "Type" button
     And I wait for "2000" millsecond
     And I wait for "<element>" will be visible
+    And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -63,6 +64,7 @@ Feature: 趋势图新建_维度
     And I click the "Settings" button
     And I wait for "2000" millsecond
     And I wait for "BarElement" will be visible
+    And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<typeInfo>_<option>"
     And I compare source image "actual/<chartType>_<typeInfo>_<option>" with target image "expect/<chartType>_<typeInfo>_<option>"
@@ -110,6 +112,7 @@ Feature: 趋势图新建_维度
     And I click the "Settings" button
     And I wait for "2000" millsecond
     And I wait for "<element>" will be visible
+    And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<typeInfo>"
     And I compare source image "actual/<chartType>_<typeInfo>" with target image "expect/<chartType>_<typeInfo>"
@@ -159,6 +162,7 @@ Feature: 趋势图新建_维度
     And I click the "Settings" button
     And I wait for "2000" millsecond
     And I wait for "<element>" will be visible
+    And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<typeInfo>_分面"
     And I compare source image "actual/<chartType>_<typeInfo>_分面" with target image "expect/<chartType>_<typeInfo>_分面"
@@ -204,6 +208,7 @@ Feature: 趋势图新建_维度
     And I click the "Settings" button
     And I wait for "2000" millsecond
     And I wait for "SunElement" will be visible
+    And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_分面"
 #    And I compare source image "actual/<chartType>_分面" with target image "expect/<chartType>_分面"
@@ -243,6 +248,7 @@ Feature: 趋势图新建_维度
     And I click the "HideElement" button
     And I wait for "2000" millsecond
     And I wait for "FlameElement" will be visible
+    And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<option>"
     And I compare source image "actual/<chartType>_<option>" with target image "expect/<chartType>_<option>"
@@ -287,6 +293,7 @@ Feature: 趋势图新建_维度
     And I click the "HideElement" button
     And I wait for "2000" millsecond
     And I wait for "FlameElement" will be visible
+    And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<option>_分面"
     And I compare source image "actual/<chartType>_<option>_分面" with target image "expect/<chartType>_<option>_分面"
