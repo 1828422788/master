@@ -90,7 +90,6 @@ Feature: download_处理下载结果
       | filldown_chinese | tag:sample04061424 \| sort by apache.status \| limit 10 \|  eval newfield = if(apache.status<501, null,\"中文\") \| table newfield \| filldown newfield |
       | download_cnt_clientip_bystatus_csv_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| chart count() over apache.clientip by apache.status \| download filename=\"download_cnt_clientip_bystatus_csv_sample\" fileformat=\"csv\" |
       | rare_showperc_resplen_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| rare apache.resp_len showperc=false by apache.status |
-      | rare_countfield_resplen_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| rare apache.resp_len countfield=ret1 by apache.status |
       | entropy_sample | tag:sample04061424 AND apache.referer_domain:* \| parse field=apache.referer_domain \"^(?<subdomain>.*?)\.(?<domain>\w+\.\w+)$\" \| eval entr=entropy(subdomain) \| stats avg(entr),dc(subdomain),values(subdomain) by domain |
       | chart_sample_noparam | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| chart max(apache.status) as ma count() as cnt |
       | chart_sample_over_status | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| chart count() as cnt over apache.status span=\"50\" |
