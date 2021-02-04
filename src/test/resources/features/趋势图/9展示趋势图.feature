@@ -17,20 +17,6 @@ Feature: 展示趋势图
     And take part of "ChartView" with name "actual/<name>"
     And I compare source image "actual/<name>" with target image "expect/<name>"
 
-    @viewTrendMap @trendView
-    Examples:
-      | name                                     |
-      | Regionmap_分面                           |
-      | Heatmap_分面                             |
-      | Regionmap_Jiangsu_2547_white             |
-      | Regionmap_China_2546_white               |
-      | Regionmap_2545_white                     |
-      | Regionmap_Jiangsu_2547                   |
-      | Regionmap_China_2546                     |
-      | Attackmap_China_2543                     |
-      | Attackmap_World_2542                     |
-      | Regionmap_2545                           |
-      | Heatmap_2539                             |
 
     @viewTrendTimechart @trendView
     Examples:
@@ -119,7 +105,7 @@ Feature: 展示趋势图
       | AreaChart_分面                           | AreaChartElement        |
       | LineChart_分面                           | LineChartElement        |
       | ScatterChart_2492_limit                  | StatisticalChart        |
-      | ColumnChart_2500_limit                   | ChartView               |
+      | ColumnChart_2500_limit                   | Chart                   |
       | AreaChart_2483_ConnectEmptyData          | AreaChartElement        |
       | AreaChart_2483_Smooth                    | AreaChartElement        |
       | LineChart_2479_ConnectEmptyData          | LineChartElement        |
@@ -182,6 +168,21 @@ Feature: 展示趋势图
       | Multiaxis_4841                           | AreaChartElement           |
       | Multiaxis_2523                           | AreaChartElement           |
       | Rangeline_2516                           | RangelineElement           |
+
+    @viewTrendMap @trendView
+    Examples:
+      | name                                     | element                     |
+      | Regionmap_分面                           | RegionmapDarkElement        |
+      | Heatmap_分面                             | HeatmapElement              |
+      | Regionmap_Jiangsu_2547_white             | RegionmapLightElement       |
+      | Regionmap_China_2546_white               | RegionmapLightElement       |
+      | Regionmap_2545_white                     | RegionmapLightElement       |
+      | Regionmap_Jiangsu_2547                   | RegionmapDarkElement        |
+      | Regionmap_China_2546                     | RegionmapDarkElement        |
+      | Attackmap_China_2543                     | AttackmapElement            |
+      | Attackmap_World_2542                     | AttackmapElement            |
+      | Regionmap_2545                           | RegionmapDarkElement        |
+      | Heatmap_2539                             | HeatmapElement              |
 
     @viewTrendStatMap @trendView
     Examples:

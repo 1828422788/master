@@ -23,8 +23,8 @@ Feature: 趋势图新建_地图
 
     And I click the "Type" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<element>Element" will be visible
+    And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -36,9 +36,9 @@ Feature: 趋势图新建_地图
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
-      |   chartType   |   caseNum  |   spl   |
-      |   Heatmap     |    2539    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city |
-      |   Regionmap   |    2545    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |   chartType   |  element      | caseNum  |   spl   |
+      |   Heatmap     | Heatmap       |  2539    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |   Regionmap   | RegionmapDark |  2545    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
 
 
   Scenario Outline: attackmap
@@ -71,8 +71,8 @@ Feature: 趋势图新建_地图
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
+    And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<regionBut>_<caseNum>"
     And I compare source image "actual/<chartType>_<regionBut>_<caseNum>" with target image "expect/<chartType>_<regionBut>_<caseNum>"
@@ -115,8 +115,8 @@ Feature: 趋势图新建_地图
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>DarkElement" will be visible
+    And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<region>_<caseNum>"
     And I compare source image "actual/<chartType>_<region>_<caseNum>" with target image "expect/<chartType>_<region>_<caseNum>"
@@ -155,8 +155,8 @@ Feature: 趋势图新建_地图
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>LightElement" will be visible
+    And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -201,8 +201,8 @@ Feature: 趋势图新建_地图
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>LightElement" will be visible
+    And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<region>_<caseNum>"
     And I compare source image "actual/<chartType>_<region>_<caseNum>" with target image "expect/<chartType>_<region>_<caseNum>"
@@ -243,8 +243,8 @@ Feature: 趋势图新建_地图
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>Element" will be visible
+    And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -288,8 +288,8 @@ Feature: 趋势图新建_地图
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "<chartType>DarkElement" will be visible
+    And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"

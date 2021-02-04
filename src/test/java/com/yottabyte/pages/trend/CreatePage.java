@@ -1026,6 +1026,34 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[@class='vx-group']//*[contains(@class,'vx-threshold')]")
     private WebElement rangelineElement;
 
+    @FindBy(xpath = "//*[@class='heatmap-canvas']")
+    private WebElement heatmapElement;
+
+    @FindBy(xpath = "//*[@class='vx-group geo']/*[@fill='#131d42']")
+    private WebElement regionmapDarkElement;
+
+    @FindBy(xpath = "//*[@class='vx-group geo']/*[@fill='#FFFFFF']")
+    private WebElement regionmapLightElement;
+
+    @FindBy(xpath = "//*[@class='vx-group geo']/following-sibling::*/*[contains(@id,'link')]")
+    private WebElement attackmapElement;
+
+    public WebElement getAttackmapElement() {
+        return attackmapElement;
+    }
+
+    public WebElement getRegionmapLightElement() {
+        return regionmapLightElement;
+    }
+
+    public WebElement getRegionmapElement() {
+        return regionmapDarkElement;
+    }
+
+    public WebElement getHeatmapElement() {
+        return heatmapElement;
+    }
+
     public WebElement getRangelineElement() {
         return rangelineElement;
     }
