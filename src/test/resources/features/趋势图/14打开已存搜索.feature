@@ -47,7 +47,7 @@ Feature: 趋势图_已存搜索
     And I will see the "trend.CreatePage" page
     And I wait for "Loading" will be invisible
     And I click the "SavedSearch" button
-    And I wait for "2000" millsecond
+    And I wait for "Loading" will be invisible
     And "加载" the data "trend_test" in tiny saved search
     And I click the "SearchButton" button under some element
     And I wait for "5000" millsecond
@@ -68,7 +68,7 @@ Feature: 趋势图_已存搜索
     And I will see the "trend.CreatePage" page
     And I wait for "Loading" will be invisible
     And I click the "SavedSearch" button
-    And I wait for "2000" millsecond
+    And I wait for "Loading" will be invisible
     And "删除" the data "trend_test" in tiny saved search
     And I wait for "CancelButton" will be visible
     And I will see the element "ConfirmMessage" contains "确认删除 trend_test?"
