@@ -29,6 +29,7 @@ Feature: 趋势图_拖拽_地图
     Then I wait for "Chart" will be visible
 
     And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.geo.city) by apache.geo.city"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond

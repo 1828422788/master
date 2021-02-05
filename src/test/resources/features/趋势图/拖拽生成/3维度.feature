@@ -34,6 +34,7 @@ Feature: 趋势图_拖拽_维度
     And I click the "<color>" button
 
     And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.method) by apache.method"
     When I click the "CloseSPL" button
     And I wait for "500" millsecond

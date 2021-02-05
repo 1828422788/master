@@ -98,6 +98,7 @@ Feature:趋势图_拖拽_复合
     And I wait for "2000" millsecond
 
     And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats avg(apache.resp_len),dc(apache.resp_len) by apache.clientip"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
@@ -183,6 +184,7 @@ Feature:趋势图_拖拽_复合
     And I wait for "2000" millsecond
 
     And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.resp_len),max(apache.resp_len) by apache.clientip"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
@@ -271,6 +273,7 @@ Feature:趋势图_拖拽_复合
 
 
     And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.resp_len),avg(apache.resp_len) by apache.clientip,apache.method"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond

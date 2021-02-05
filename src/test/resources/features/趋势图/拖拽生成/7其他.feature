@@ -38,6 +38,7 @@ Feature: 趋势图_拖拽_其他
     And I click the "<color>" button
 
     And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.clientip)"
     When I click the "CloseSPL" button
     Then I wait for "OtherChart" will be visible
@@ -66,6 +67,7 @@ Feature: 趋势图_拖拽_其他
     And I choose the "<timeValue>" from the "ContrastTime" in config
 
     And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.clientip)"
     When I click the "CloseSPL" button
     Then I wait for "OtherChart" will be visible
@@ -103,6 +105,7 @@ Feature: 趋势图_拖拽_其他
     And I click the "<color2>" button
 
     And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.clientip)"
     When I click the "CloseSPL" button
     Then I wait for "OtherChart" will be visible
@@ -136,6 +139,7 @@ Feature: 趋势图_拖拽_其他
     And I click the "<color>" button
 
     And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.geo.city) by apache.geo.city"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
@@ -169,6 +173,7 @@ Feature: 趋势图_拖拽_其他
     And I click the "<color>" button
 
     And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.status) by apache.status,apache.geo.city"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
@@ -209,6 +214,7 @@ Feature: 趋势图_拖拽_其他
     And I click the "<color>" button
 
     And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "starttime="now/d" endtime="now" tag:sample04061424_chart|stats count(apache.status) by apache.status | eval _compare="当前" | append [[ starttime="now/d-1d" endtime="now-1d" tag:sample04061424_chart|stats count(apache.status) by apache.status | eval _compare="环比" ]] | append [[ starttime="now/d-1w" endtime="now-1w" tag:sample04061424_chart|stats count(apache.status) by apache.status | eval _compare="同比一周" ]]"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
@@ -233,6 +239,7 @@ Feature: 趋势图_拖拽_其他
     And I wait for "OtherChart" will be visible
 
     And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.clientip)"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
@@ -268,6 +275,7 @@ Feature: 趋势图_拖拽_其他
     And I wait for "OtherChart" will be visible
 
     And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "starttime="now/d" endtime="now" tag:sample04061424_chart|stats count(apache.clientip) | eval _compare="当前" | append [[ starttime="now/d-1w" endtime="now-1w" tag:sample04061424_chart|stats count(apache.clientip) | eval _compare="同比一周" ]]"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond

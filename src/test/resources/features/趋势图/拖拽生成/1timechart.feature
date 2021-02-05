@@ -59,6 +59,7 @@ Feature: 趋势图_拖拽_timechart
     And I wait for "Chart" will be visible
 
     And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "<SPLcheck>"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond

@@ -59,6 +59,7 @@ Feature: 趋势图_拖拽_序列
     And I wait for "Chart" will be visible
 
     And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.clientip) by apache.clientip,apache.method"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
@@ -117,6 +118,7 @@ Feature: 趋势图_拖拽_序列
     And I wait for "Chart" will be visible
 
     And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.clientip) by apache.clientip,apache.method"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
@@ -173,6 +175,7 @@ Feature: 趋势图_拖拽_序列
     And I wait for "Chart" will be visible
 
     And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.clientip) by apache.clientip,apache.method"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
@@ -223,6 +226,7 @@ Feature: 趋势图_拖拽_序列
     And I wait for "Chart" will be visible
 
     And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "<SPLcheck>"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
@@ -261,6 +265,7 @@ Feature: 趋势图_拖拽_序列
     And I click the "<position>" button
 
     And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count() by apache.clientip,apache.method"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
@@ -285,6 +290,7 @@ Feature: 趋势图_拖拽_序列
     And I wait for "OtherChart" will be visible
 
     And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count() by apache.clientip"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
@@ -321,6 +327,7 @@ Feature: 趋势图_拖拽_序列
     And I wait for "OtherChart" will be visible
 
     And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "starttime="now/d" endtime="now" tag:sample04061424_chart|stats count(apache.method) by apache.method | eval _compare="当前" | append [[ starttime="now/d-1w" endtime="now-1w" tag:sample04061424_chart|stats count(apache.method) by apache.method | eval _compare="同比一周" ]]"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
