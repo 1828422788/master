@@ -7,11 +7,25 @@ Feature: 新建用户和字段提取
     And I will see the "users.CreatePage" page
     When I set the parameter "UserName" with value "logdisplay"
     And I set the parameter "FullName" with value "logdisplay"
-    And I set the parameter "Email" with value "logdisplay@t.cn"
-    And I set the parameter "Password" with value "All#123456"
+    And I set the parameter "Email" with value "ekaterina.kiseleva@yottabyte.cn"
+    And I set the parameter "Password" with value "All!123456"
     And I choose the "__admin__" from the "Role"
     And I click the "CreateButton" button
     Then I wait for "SuccessMessage" will be visible
+
+  Scenario: change_password
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "logdisplay"
+    And I set the parameter "Password" with value "All!123456"
+    And I click the "LoginButton" button
+    And I wait for "Modify" will be visible
+    And I click the "Modify" button under some element
+    And I set the parameter "NewPassword" with value "All#123456"
+    And I hide the element "InnerContent"
+    And I set the parameter "RepeatPassword" with value "All#123456"
+    And I click the "Update" button
 
   Scenario Outline: upload_logs
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"

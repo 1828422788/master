@@ -1046,7 +1046,7 @@ public class CreatePage extends PageTemplate {
         return regionmapLightElement;
     }
 
-    public WebElement getRegionmapElement() {
+    public WebElement getRegionmapDarkElement() {
         return regionmapDarkElement;
     }
 

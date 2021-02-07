@@ -9,8 +9,6 @@ Feature: 报表新建_编辑_复合
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
-#    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
-#    And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
 
   Scenario Outline: new_report_trend_rangeline
     When I set the parameter "Name" with value "<name>_<reportType>"
