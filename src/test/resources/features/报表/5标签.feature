@@ -39,6 +39,15 @@ Feature: 报表标签
     #column 7 is a tag
     Then I will see the data "{'column':'1','name':'Test_Tag'}" values "{'column':'7','name':'auto_package'}"
 
+  Scenario: global_tag_app
+    When I choose the "auto_package" from the "TagDropdown"
+    And I wait for "Loading" will be invisible
+    And I choose the "test_app" from the "AppDropdown"
+    And I wait for "Loading" will be invisible
+    Then I will see the data "{'column':'1','name':'Test_Tag'}" values "{'column':'7','name':'auto_package'}"
+    When I will see the data "{'column':'1','name':'Test_Tag'}" values "{'column':'6','name':'test_app'}"
+    And I will see the element "TagOfTheLastItem" contains "auto_package"
+    And I will see the element "AppOfTheLastItem" contains "test_app"
 
   Scenario: verify_tag
     When the data name is "{'column':'1','name':'Test_Tag'}" then i click the "编辑" button
@@ -53,8 +62,6 @@ Feature: 报表标签
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
-
-
 
   Scenario: delete_report
     When the data name is "{'column':'1','name':'Test_Tag'}" then i click the "删除" button

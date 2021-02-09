@@ -28,6 +28,7 @@ Feature: 报表新建_执行计划
     When I set the parameter "Name" with value "test_report_<period>"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "PDF" from the "ReportType"
+    And I choose the "test_app" from the "App" in config
     And I choose the "<period>" from the "Period"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
@@ -90,7 +91,13 @@ Feature: 报表新建_执行计划
     When I set the parameter "Name" with value "test_report_crontab"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "PDF" from the "ReportType"
+    And I choose the "auto_package" from the "Tag" in config
     And I set the parameter "Crontab" with value "0 0/15 9 ? * MON-FRI"
+    And I click the "Parse" button
+    And I wait for "EnsureButton" will be visible
+    And I will see the element "ParseResult" contains " 09:"
+    And I will see the element "ParseResult" contains ":00"
+    And I click the "EnsureButton" button
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
@@ -106,7 +113,7 @@ Feature: 报表新建_执行计划
   Scenario: new_report_fields
     When I set the parameter "Name" with value "test_report"
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "test_app" from the "App"
+    And I choose the "test_app" from the "App" in config
     And I choose the "PDF" from the "ReportType"
     And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I will see the element "SubjectNote" contains "注: 可用变量: 报表名称：<%report_name%>，发送时间：<%report_time%>"

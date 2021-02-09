@@ -90,6 +90,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='crontab']/ancestor::span/following-sibling::div//input")
     private WebElement crontab;
 
+    @FindBy(xpath = "//span[text()='解 析']/ancestor::button")
+    private WebElement parse;
+
+    @FindBy(xpath = "//div[text()='最近十次执行时间']/ancestor::div[1]/following-sibling::div/p[1]")
+    private WebElement parseResult;
+
     // 下一步
     @FindBy(xpath = "//span[text()='下一步']/ancestor::button")
     private WebElement nextButton;
@@ -178,7 +184,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div/div")
     private WebElement app;
 
-    @FindBy(xpath = "//label[text()='资源标签']/following-sibling::div/div")
+    @FindBy(xpath = "//label[text()='资源标签']/following-sibling::span/div")
     private WebElement tag;
 
     @FindBy(className = "ant-select-selection__choice__content")
@@ -998,6 +1004,14 @@ public class CreatePage extends PageTemplate {
     public WebElement getCrontab() {
         crontabButton.click();
         return crontab;
+    }
+
+    public WebElement getParse() {
+        return parse;
+    }
+
+    public WebElement getParseResult() {
+        return parseResult;
     }
 
     public WebElement getLayout2() {
