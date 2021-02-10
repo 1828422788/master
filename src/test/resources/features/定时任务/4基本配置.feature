@@ -18,6 +18,13 @@ Feature: 定时任务_基本配置
     And I click the "StartTime" button
     And I set the parameter "StartTimeInput" with value "23:59:10"
     And I hide the element "TimePanel"
+    And I will see the "timedTask.EditPage" page
+    And I click the "Parse" button
+    And I wait for "EnsureButton" will be visible
+    And I wait for "ParseResult" will be visible
+    And I will see the element "ParseResult" contains " 00:04:10"
+    And I click the "EnsureButton" button
+    And I will see the "splSearch.SearchPage" page
     And I click the "EnsureButton" button
     And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
@@ -100,6 +107,11 @@ Feature: 定时任务_基本配置
     And I choose the "test_app" from the "TaskApp"
     And I will see the input element "Period" value will be "5"
     And I set the parameter "CrontabInput" with value "0 */57 * * * ?"
+    And I click the "Parse" button
+    And I wait for "EnsureButton" will be visible
+    And I wait for "ParseResult" will be visible
+    And I will see the element "ParseResult" contains ":00"
+    And I click the "EnsureButton" button
     And I click the "SaveButton" button under some element
     And I wait for "EnsureButton" will be visible
     And I will see the success message "保存成功"

@@ -138,6 +138,20 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "(//li[@role='menuitem']/ancestor::ul[contains(@class,'ant-dropdown-menu')])")
     private WebElement savedSearchList;
 
+    @FindBy(xpath = "//span[text()='解析']/ancestor::button")
+    private WebElement parse;
+
+    @FindBy(xpath = "//div[text()='最近十次执行时间']/ancestor::div[1]/following-sibling::div/p[1]")
+    private WebElement parseResult;
+
+    public WebElement getParse() {
+        return parse;
+    }
+
+    public WebElement getParseResult() {
+        return parseResult;
+    }
+
     public WebElement getSavedSearch() {
         savedSearch.click();
         return savedSearchList;

@@ -1,4 +1,4 @@
-@reportTextEditor @report
+@reportTextEditor @report @setup1
 Feature: 报表_单值趋势图
 
   Background:
@@ -19,7 +19,7 @@ Feature: 报表_单值趋势图
     And I click the "Single" button
     And I click the "NextButton" button under some element
     When I set the parameter "NameInput" with value "单值报表测试"
-    And I set the parameter "TagInput" with value "auto_package"
+    And I choose the "test_app" from the "AppField" in config
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
