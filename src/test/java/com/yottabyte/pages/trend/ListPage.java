@@ -68,6 +68,36 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//thead//span[@class='ant-checkbox']")
     private WebElement selectAll;
 
+    @FindBy(xpath = "//div[text()='请选择应用']/ancestor::div[2]")
+    private WebElement appDropdown;
+
+    @FindBy(xpath = "//div[text()='全部资源']/ancestor::div[2]")
+    private WebElement tagDropdown;
+
+    @FindBy(xpath = "(//tr)[last()]/td[4]")
+    private WebElement tagOfTheLastItem;
+
+    @FindBy(xpath = "(//tr)[last()]/td[3]")
+    private WebElement appOfTheLastItem;
+
+    public WebElement getAppOfTheLastItem() {
+        return appOfTheLastItem;
+    }
+
+    public WebElement getTagOfTheLastItem() {
+        return tagOfTheLastItem;
+    }
+
+    public WebElement getTagDropdown() {
+        tagDropdown.click();
+        return this.getLastDropdownList();
+    }
+
+    public WebElement getAppDropdown() {
+        appDropdown.click();
+        return this.getLastDropdownList();
+    }
+
     public WebElement getSelectAll() {
         return selectAll;
     }

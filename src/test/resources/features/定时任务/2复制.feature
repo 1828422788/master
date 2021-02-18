@@ -56,11 +56,21 @@ Feature: 定时任务复制
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "开启成功"
 
+  Scenario: global_tag_app
+    Given open the "timedTask.ListPage" page for uri "/schedule/"
+    When I choose the "auto_package" from the "TagDropdown"
+    And I wait for "Loading" will be invisible
+    And I choose the "test_app" from the "AppDropdown"
+    And I wait for "Loading" will be invisible
+    Then I will see the data "{'column':'1','name':'copytask'}" values "{'column':'8','name':'auto_package'}"
+    When I will see the data "{'column':'1','name':'copytask'}" values "{'column':'7','name':'test_app'}"
+    Then I will see the data "{'column':'1','name':'copytask(副本)'}" values "{'column':'8','name':'auto_package'}"
+    When I will see the data "{'column':'1','name':'copytask(副本)'}" values "{'column':'7','name':'test_app'}"
+    And I will see the element "TagOfTheLastItem" contains "auto_package"
+    And I will see the element "AppOfTheLastItem" contains "test_app"
 
   Scenario: copy_schedule_detailpage
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I will see the data "{'column':'1','name':'copytask(副本)'}" values "{'column':'8','name':'auto_package'}"
-    And I will see the data "{'column':'1','name':'copytask(副本)'}" values "{'column':'7','name':'test_app'}"
     When the data name is "{'column':'1','name':'copytask(副本)'}" then i click the "copytask(副本)" button
     Then I will see the "timedTask.DetailPage" page
     And I will see the element "DetailDataSet" contains "(*)"
@@ -68,7 +78,6 @@ Feature: 定时任务复制
     And I will see the element "TimePeriod" contains "-1d ~ now"
     And I will see the element "Description" contains "testing"
     And I will see the element "ExecutionPeriod" contains "5 分钟"
-
 
   Scenario: copy_schedule_editpage
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -83,6 +92,10 @@ Feature: 定时任务复制
     And I will see the element "SelectedGroup" contains "auto_package"
     And I will see the element "SelectedApp" contains "test_app"
     And I will see the input element "Period" value will be "5"
+    And I click the "Parse" button
+    And I wait for "EnsureButton" will be visible
+    And I wait for "ParseResult" will be visible
+    And I click the "EnsureButton" button
 
   Scenario Outline: delete_copiedTask
     Given open the "timedTask.ListPage" page for uri "/schedule/"

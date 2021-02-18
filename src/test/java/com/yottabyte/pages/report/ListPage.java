@@ -67,7 +67,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//tbody[@class='ant-table-tbody']/tr[last()]/td[2]//a")
     private WebElement firstCreatedReport;
 
-    @FindBy(xpath = "//span[text()='报表列表']/ancestor::div/div/div[2]/div")
+    @FindBy(xpath = "//div[text()='全部资源']/ancestor::div[2]")
     private WebElement tagDropdown;
 
     @FindBy(xpath = "//span[@class = 'ant-spin-dot ant-spin-dot-spin']")
@@ -87,6 +87,28 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(className = "ant-select-selection-selected-value")
     private WebElement pagination;
+
+    @FindBy(xpath = "//div[text()='请选择应用']/ancestor::div[2]")
+    private WebElement appDropdown;
+
+    @FindBy(xpath = "(//tr)[last()]/td[7]")
+    private WebElement tagOfTheLastItem;
+
+    @FindBy(xpath = "(//tr)[last()]/td[6]")
+    private WebElement appOfTheLastItem;
+
+    public WebElement getAppOfTheLastItem() {
+        return appOfTheLastItem;
+    }
+
+    public WebElement getTagOfTheLastItem() {
+        return tagOfTheLastItem;
+    }
+
+    public WebElement getAppDropdown() {
+        appDropdown.click();
+        return this.getLastDropdownList();
+    }
 
     public WebElement getPagination() {
         pagination.click();

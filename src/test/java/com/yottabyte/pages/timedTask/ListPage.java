@@ -75,11 +75,11 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "date-picker")
     private WebElement datePicker;
 
-    @FindBy(xpath = "//span[text()='全部资源']/preceding-sibling::i")
-    private WebElement groupDropdown;
+    @FindBy(xpath = "//div[text()='请选择应用']/ancestor::div[2]")
+    private WebElement appDropdown;
 
-    @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-table-group__group-menu'])[last()]")
-    private WebElement groupDropdownList;
+    @FindBy(xpath = "//div[text()='全部资源']/ancestor::div[2]")
+    private WebElement tagDropdown;
 
     @FindBy(xpath = "//span[text()='定时任务']/ancestor::div/div/span/input | //span[text()='schedule']/ancestor::div/div/span/input")
     private WebElement searchInput;
@@ -132,6 +132,20 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//thead//span[@class='ant-checkbox']")
     private WebElement selectAll;
 
+    @FindBy(xpath = "(//tr)[last()]/td[8]")
+    private WebElement tagOfTheLastItem;
+
+    @FindBy(xpath = "(//tr)[last()]/td[7]")
+    private WebElement appOfTheLastItem;
+
+    public WebElement getAppOfTheLastItem() {
+        return appOfTheLastItem;
+    }
+
+    public WebElement getTagOfTheLastItem() {
+        return tagOfTheLastItem;
+    }
+
     public WebElement getSelectAll() {
         return selectAll;
     }
@@ -143,6 +157,7 @@ public class ListPage extends ListPageFactory {
     public WebElement getLoading() {
         return loading;
     }
+
     public WebElement getStart() {
         return start;
     }
@@ -171,12 +186,14 @@ public class ListPage extends ListPageFactory {
         return searchInput;
     }
 
-    public WebElement getGroupDropdown() {
-        return groupDropdown;
+    public WebElement getTagDropdown() {
+        tagDropdown.click();
+        return this.getLastDropdownList();
     }
 
-    public WebElement getGroupDropdownList() {
-        return groupDropdownList;
+    public WebElement getAppDropdown() {
+        appDropdown.click();
+        return this.getLastDropdownList();
     }
 
     public WebElement getSearchIcon() {
@@ -242,7 +259,6 @@ public class ListPage extends ListPageFactory {
         return complementPanel;
     }
 
-
     public WebElement getMultiButton() {
         return super.getButton("批量操作");
     }
@@ -267,9 +283,6 @@ public class ListPage extends ListPageFactory {
         return multiSwitch;
     }
 
-//    public WebElement getEnsureDelete() {
-//        return ensureButton.get(1);
-//    }
     public WebElement getEnsure() {
         return ensure;
     }
@@ -277,16 +290,4 @@ public class ListPage extends ListPageFactory {
     public WebElement getCancel() {
         return cancel;
     }
-//    public WebElement getGroup() {
-//        return super.getDropdownList("分组");
-//    }
-
-
-//    public WebElement getDisabledLi() {
-//        return super.getDisabledLi();
-//    }
-
-//    public WebElement getMessage() {
-//        return super.getErrorMessage();
-//    }
 }

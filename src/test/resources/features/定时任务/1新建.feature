@@ -14,6 +14,7 @@ Feature: 定时任务新建
     And I click the "TimedTask" button
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "TaskName" with value "Test_StartTomorrow"
+    And I choose the "test_app" from the "AppComboBox"
     And I set the parameter "Period" with value "5"
     And I choose the "分钟" from the "ExecuteTime"
     And I click the "StartTime" button
@@ -77,8 +78,6 @@ Feature: 定时任务新建
    | ThisMonth  | thisMonth | 17        |            |
    | LastMonth  | lastMonth | 17        |            |
 
-
-
   Scenario Outline: date_interval
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -97,6 +96,7 @@ Feature: 定时任务新建
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "TaskName" with value "<taskName>"
     And I set the parameter "Describe" with value "testing"
+    And I set the parameter "TagInput" with value "auto_package"
 
     And I set the parameter "Period" with value "<periodNum>"
     And I choose the "<periodTime>" from the "ExecuteTime"
@@ -110,8 +110,6 @@ Feature: 定时任务新建
     Examples:
       | taskName      | start_d     | end_d       | periodNum | periodTime |
       | interval_date | 2020-06-01  | 2020-06-09  | 5         |  分钟      |
-
-
 
   Scenario Outline: sample_crontab(RZY-2699,2700,2702,2703,2704,2705)
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -142,30 +140,30 @@ Feature: 定时任务新建
       | crontab_57min     | 0 */57 * * * ?        |
       | crontab_7min      | 0 */7 * * * ?         |
 
-    Scenario Outline:  crontab_message_error
-      Given open the "splSearch.SearchPage" page for uri "/search/"
-      And I wait for element "SearchStatus" change text to "搜索完成!"
-      When I set the parameter "SearchInput" with value "tag:* \| stats count() by tag"
-      And I click the "DateEditor" button under some element
-      And I click the "Today" button
-      And I click the "SearchButton" button under some element
-      And I wait for element "SearchStatus" change text to "搜索完成!"
-      And I click the "SaveAsOther" button
-      And I click the "TimedTask" button
-      And I wait for element "SelectedUser" change text to username
-      And I set the parameter "TaskName" with value "<taskName>"
-      And I set the parameter "Describe" with value "testing"
-      And I click the "Crontab" button
-      And I set the parameter "CrontabInput" with value "<crontab>"
-      And I click the "EnsureButton" button
-      And I wait for "TimeTaskEnsure" will be visible
-      Then I will see the success message "<message>"
+  Scenario Outline:  crontab_message_error
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    When I set the parameter "SearchInput" with value "tag:* \| stats count() by tag"
+    And I click the "DateEditor" button under some element
+    And I click the "Today" button
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I wait for element "SelectedUser" change text to username
+    And I set the parameter "TaskName" with value "<taskName>"
+    And I set the parameter "Describe" with value "testing"
+    And I click the "Crontab" button
+    And I set the parameter "CrontabInput" with value "<crontab>"
+    And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
+    Then I will see the success message "<message>"
 
-      Examples:
-        | taskName | crontab | message                            |
-        | test     |         | crontab模式下, 执行计划不能为零或空  |
-        | test     | test    | crontab格式错误！                   |
-        | test     | 0*      | crontab格式错误！                   |
+    Examples:
+      | taskName | crontab | message                            |
+      | test     |         | crontab模式下, 执行计划不能为零或空  |
+      | test     | test    | crontab格式错误！                   |
+      | test     | 0*      | crontab格式错误！                   |
 
   Scenario Outline: schedule_message_error_realtime
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -190,32 +188,32 @@ Feature: 定时任务新建
       | name | describe | message           |
       | test | autotest | 实时窗口搜索模式无法进行该操作!|
 
-      Scenario Outline: schedule_message_error
-        Given open the "splSearch.SearchPage" page for uri "/search/"
-        And I wait for element "SearchStatus" change text to "搜索完成!"
-        When I set the parameter "SearchInput" with value "tag:* \| stats count() by tag"
-        And I click the "DateEditor" button under some element
-        And I click the "Today" button
-        And I click the "SearchButton" button under some element
-        And I wait for element "SearchStatus" change text to "搜索完成!"
-        Then I click the "SaveAsOther" button
-        Then I click the "TimedTask" button
-        And I wait for element "SelectedUser" change text to username
-        And I set the parameter "TaskName" with value "<name>"
-        Then I set the parameter "Describe" with value "<describe>"
-        Then I set the parameter "Period" with value "<period>"
-        Then I click the "EnsureButton" button
-        And I wait for "TimeTaskEnsure" will be visible
-        Then I will see the success message "<message>"
+  Scenario Outline: schedule_message_error
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    When I set the parameter "SearchInput" with value "tag:* \| stats count() by tag"
+    And I click the "DateEditor" button under some element
+    And I click the "Today" button
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I click the "SaveAsOther" button
+    Then I click the "TimedTask" button
+    And I wait for element "SelectedUser" change text to username
+    And I set the parameter "TaskName" with value "<name>"
+    Then I set the parameter "Describe" with value "<describe>"
+    Then I set the parameter "Period" with value "<period>"
+    Then I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
+    Then I will see the success message "<message>"
 
-        Examples:
-          | name | describe | period | message           |
-          |      |          |        | 请输入名称            |
-          | test | autotest |        | 定时模式下, 时间间隔不能为零或空 |
-          | test | autotest | 0      | 定时模式下, 时间间隔不能为零或空 |
-          | test | autotest | 1.5    | 定时模式下, 时间间隔应该为正整数 |
-          | test | autotest | test   | 定时模式下, 时间间隔应该为正整数 |
-          | test | autotest | 1      | 请输入开始时间           |
+    Examples:
+      | name | describe | period | message           |
+      |      |          |        | 请输入名称            |
+      | test | autotest |        | 定时模式下, 时间间隔不能为零或空 |
+      | test | autotest | 0      | 定时模式下, 时间间隔不能为零或空 |
+      | test | autotest | 1.5    | 定时模式下, 时间间隔应该为正整数 |
+      | test | autotest | test   | 定时模式下, 时间间隔应该为正整数 |
+      | test | autotest | 1      | 请输入开始时间           |
 
   Scenario: cancel_test
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -246,7 +244,6 @@ Feature: 定时任务新建
     And I will see the input element "Period" value will be ""
     And I will see the "SelectedApp" doesn't exist
     And I will see the "SelectedTag" doesn't exist
-
 
   Scenario Outline: sample_timeperiod(RZY-396,397,403,404,2695,2696,2698)
     Given open the "timedTask.ListPage" page for uri "/schedule/"
