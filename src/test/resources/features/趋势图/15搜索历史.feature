@@ -1,5 +1,6 @@
-@trendSearchHistory
+@trendSearchHistory @trend
 Feature: 趋势图_搜索历史
+#V22-2687
 
   Scenario: create_trend
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -21,7 +22,8 @@ Feature: 趋势图_搜索历史
   Scenario: check_search_page
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    When I set the parameter "SearchInput" with value "test"
+    And I simulate typing in "SearchInput"
+    And I wait for "SearchHistory" will be visible
     And I click the "SearchHistory" button
     And I wait for "SeacrhHistoryInput" will be visible
     And I set the parameter "SearchHistoryInput" with value "Test_History"
