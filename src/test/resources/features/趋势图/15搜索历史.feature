@@ -1,4 +1,4 @@
-@trendSearchHistory @trend
+@trendSearchHistory
 Feature: 趋势图_搜索历史
 #V22-2687
 
