@@ -35,9 +35,9 @@ Feature: 监控维护期
 
     Examples:
       | reason                          | alert_name                     |
-      | 维护期0_字段统计_独立数status_邮件_单次今天9点开始 | 维护期0_字段统计_独立数status_邮件_每天0-23点 |
-      | 维护期_del                        | 维护期0_字段统计_独立数status_邮件_每天0-23点 |
-      | 维护期_update                      | 维护期0_字段统计_独立数status_邮件_每天0-23点 |
+      | 维护期_字段统计_独立数status_邮件_单次今天9点开始 | 维护期_字段统计_独立数status_邮件_每天0-23点 |
+      | 维护期_del                        | 维护期_字段统计_独立数status_邮件_每天0-23点 |
+      | 维护期_update                      | 维护期_字段统计_独立数status_邮件_每天0-23点 |
 
   @maintain2
   Scenario Outline: 单次
@@ -66,8 +66,8 @@ Feature: 监控维护期
 
     Examples:
       | reason                          | alert_name                      |
-      | 维护期0_字段统计_独立数status_邮件_单次今天9点开始 | 维护期0_字段统计_独立数status_邮件_单次今天9点开始 |
-      | 维护期0_字段统计_独立数status_邮件_永久       | 维护期0_字段统计_独立数status_邮件_永久       |
+      | 维护期_字段统计_独立数status_邮件_单次今天9点开始 | 维护期_字段统计_独立数status_邮件_单次今天9点开始 |
+      | 维护期_字段统计_独立数status_邮件_永久       | 维护期_字段统计_独立数status_邮件_永久       |
 
   @maintain3
   Scenario Outline:每周一至周六
@@ -103,7 +103,7 @@ Feature: 监控维护期
 
     Examples:
       | reason                        | alert_name                    |
-      | 维护期0_字段统计_独立数status_邮件_每周一至周六 | 维护期0_字段统计_独立数status_邮件_每周一至周六 |
+      | 维护期_字段统计_独立数status_邮件_每周一至周六 | 维护期_字段统计_独立数status_邮件_每周一至周六 |
 
   @maintain4
   Scenario Outline:每月
@@ -139,7 +139,7 @@ Feature: 监控维护期
 
     Examples:
       | reason                        | alert_name                    |
-      | 维护期0_字段统计_独立数status_邮件_每月1-30 | 维护期0_字段统计_独立数status_邮件_每月1-30 |
+      | 维护期_字段统计_独立数status_邮件_每月1-30 | 维护期_字段统计_独立数status_邮件_每月1-30 |
 
   @smoke @alertSmoke
   Scenario Outline: 搜索维护期
@@ -150,7 +150,7 @@ Feature: 监控维护期
 
     Examples:
       | reasonName                      |
-      | 维护期0_字段统计_独立数status_邮件_单次今天9点开始 |
+      | 维护期_字段统计_独立数status_邮件_单次今天9点开始 |
 
   @maintain5
   Scenario Outline: 查看监控是否正在维护
@@ -166,11 +166,11 @@ Feature: 监控维护期
 
     Examples:
       | alert_name                      |
-      | 维护期0_字段统计_独立数status_邮件_每月1-30   |
-      | 维护期0_字段统计_独立数status_邮件_每周一至周六   |
-      | 维护期0_字段统计_独立数status_邮件_每天0-23点  |
-      | 维护期0_字段统计_独立数status_邮件_永久       |
-      | 维护期0_字段统计_独立数status_邮件_单次今天9点开始 |
+      | 维护期_字段统计_独立数status_邮件_每月1-30   |
+      | 维护期_字段统计_独立数status_邮件_每周一至周六   |
+      | 维护期_字段统计_独立数status_邮件_每天0-23点  |
+      | 维护期_字段统计_独立数status_邮件_永久       |
+      | 维护期_字段统计_独立数status_邮件_单次今天9点开始 |
 
   @third @alertSmoke
   Scenario: 删除维护期
