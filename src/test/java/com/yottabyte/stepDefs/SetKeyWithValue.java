@@ -10,6 +10,8 @@ import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -307,6 +309,19 @@ public class SetKeyWithValue {
         }
     }
 
+    /**
+     * 模拟用户在文本框中键入Backspace
+     * 运行这个操作后，在搜索页上可以显示《搜索历史》按钮
+     *
+     * @param elementName 元素名称
+     */
 
-
+    @And("^I simulate typing in \"([^\"]*)\"$")
+    public void iSimulateTyping(String elementName) throws AWTException {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        element.click();
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_BACK_SPACE);
+        robot.keyRelease(KeyEvent.VK_BACK_SPACE);
+    }
 }
