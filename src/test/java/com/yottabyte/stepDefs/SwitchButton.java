@@ -7,6 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 /**
  * switch button相关操作
  */
@@ -53,6 +56,26 @@ public class SwitchButton {
             }
         } else {
             System.out.println("error value :" + value);
+        }
+    }
+
+    /**
+     * 关闭或开启仪表盘开关
+     *
+     * @param buttonName 元素名称
+     * @param value      状态 enable/disable
+     */
+    @And("^I will see the switch button \"([^\"]*)\" is \"([^\"]*)\"$")
+    public void checkSwitchStatus(String buttonName, String value) {
+        WebElement element = GetElementFromPage.getWebElementWithName(buttonName);
+        String status = element.getAttribute("aria-checked");
+        if (value.equalsIgnoreCase("enable")) {
+            assertTrue(status.contains("true"));
+        } else if (value.equalsIgnoreCase("disable")) {
+            assertTrue(status.contains("false"));
+        } else {
+            System.out.println("error value :" + value);
+            assertTrue(false);
         }
     }
 }

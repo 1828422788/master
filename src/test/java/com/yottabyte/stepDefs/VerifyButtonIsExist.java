@@ -46,7 +46,7 @@ public class VerifyButtonIsExist {
     }
 
     /**
-     * 判断元素是否存在
+     * 判断文本在页面中不存在
      *
      * @param text
      */

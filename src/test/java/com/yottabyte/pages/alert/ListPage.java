@@ -320,4 +320,83 @@ public class ListPage extends ListPageFactory {
         return alertListSearchInputButton;
     }
 
+    public WebElement getMultiOperate(){
+        return super.getButton("批量操作");
+    }
+
+    public WebElement getMultiChooseButton(){
+        return super.getButton("请选择");
+    }
+
+    @FindBy(xpath = "//span[text()='启动']")
+    private WebElement multiStart;
+    public WebElement getMultiStart() {
+        return multiStart;
+    }
+
+    @FindBy(xpath = "//span[text()='添加资源标签']")
+    private WebElement multiAddResourceTag;
+    public WebElement getMultiAddResourceTag() {
+        return multiAddResourceTag;
+    }
+
+    @FindBy(xpath = "//span[text()='删除']")
+    private WebElement multiDelete;
+    public WebElement getMultiDelete() {
+        return multiDelete;
+    }
+
+    @FindBy(xpath = "(//tbody[@class='ant-table-tbody']/tr/td[@class='ant-table-selection-column']//span)[1]")
+    private WebElement listItemOne;
+
+    @FindBy(xpath = "(//tbody[@class='ant-table-tbody']/tr/td[@class='ant-table-selection-column']//span)[4]")
+    private WebElement listItemTwo;
+
+    @FindBy(xpath = "(//tbody[@class='ant-table-tbody']/tr/td[@class='ant-table-selection-column']//span)[7]")
+    private WebElement listItemThree;
+
+    public WebElement getListItemOne() { return listItemOne; }
+
+    public WebElement getListItemTwo() { return listItemTwo; }
+
+    public WebElement getListItemThree() { return listItemThree; }
+
+    @FindBy(xpath = "(//button[contains(@class,'ant-switch')])[1]")
+    private WebElement switchOne;
+
+    @FindBy(xpath = "(//button[contains(@class,'ant-switch')])[2]")
+    private WebElement switchTwo;
+
+    @FindBy(xpath = "(//button[contains(@class,'ant-switch')])[3]")
+    private WebElement switchThree;
+
+    @FindBy(xpath = "(//button[contains(@class,'ant-switch')])[10]")
+    private WebElement switchTen;
+
+    public WebElement getSwitchOne() { return switchOne; }
+
+    public WebElement getSwitchTwo() { return switchTwo; }
+
+    public WebElement getSwitchThree() { return switchThree; }
+
+    public WebElement getSwitchTen() { return switchTen; }
+
+    @FindBy(xpath = "//thead[@class='ant-table-thead']/tr/th[@class='ant-table-selection-column']//span[@class='ant-checkbox']")
+    private WebElement listHeadCheckbox;
+
+    public WebElement getListHeadCheckbox() { return listHeadCheckbox; }
+
+    @FindBy(xpath = "//li/a[text()='2']")
+    private WebElement pageTwo;
+
+    public WebElement getPageTwo() { return pageTwo; }
+
+    @FindBy(xpath = "//div[text()='请输入标签名称']")
+    private WebElement multiAddTag;
+
+    public WebElement getMultiAddTag() {
+        multiAddTag.click();
+        return super.getLastDropdownList();
+    }
+
 }
