@@ -87,7 +87,7 @@ Feature: alert批量操作
   Scenario:  alert批量操作-删除-验证
     When I set the parameter "AlertListSearchInput" with value "删除"
     And I wait for "3000" millsecond
-    Then I will see the text "删除_api9_all_事件计数_设备切分ip_扩展chart_all_spark" is not existed in page
+    Then I will see the text "test删除_事件计数_设备切分ip" is not existed in page
 
 
 
