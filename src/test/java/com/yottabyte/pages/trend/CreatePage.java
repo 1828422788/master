@@ -242,6 +242,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//th[last()]/i")
     private WebElement pencil;
 
+    @FindBy(xpath = "//th[1]/i")
+    private WebElement pencilFirst;
+
     @FindBy(xpath = "//div[text()='表格样式设置']/ancestor::div[2]")
     private WebElement colorPanel;
 
@@ -380,6 +383,9 @@ public class CreatePage extends PageTemplate {
 //    @FindBy(xpath = "//i[@class='iconfont icon-chenggong1']/following-sibling::span")
     @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")
     private WebElement successMessage;
+
+    @FindBy(xpath = "//*[name()='use' and @*='#icon-cuowu']/ancestor::*[name()='i']/following-sibling::p")
+    private WebElement errorMessage;
 
     @FindBy(tagName = "th")
     private WebElement header;
@@ -1930,6 +1936,10 @@ public class CreatePage extends PageTemplate {
         return successMessage;
     }
 
+    public WebElement getErrorMessage() {
+        return errorMessage;
+    }
+
     public WebElement getSearchInput() {
         return searchInput;
     }
@@ -2374,6 +2384,10 @@ public class CreatePage extends PageTemplate {
 //Table Color -----------------------------------------------
     public WebElement getPencil() {
         return pencil;
+    }
+
+    public WebElement getPencilFirst() {
+        return pencilFirst;
     }
 
     public WebElement getColorPanel() {
