@@ -250,3 +250,20 @@ Feature: 日志展现_表格
       | caseNum         |
       | 830_custom_str  |
 
+  Scenario Outline: table_prompt
+    When I click the "Pencil" button
+    And I will see the element "SelectedValueColorType" contains "无"
+    And I choose the "<colorType>" from the "ColorType" in config
+    And I click the "<button>" button
+
+    And I set the parameter "<param>" with value "<value>"
+    And I click the "<ensure>" button
+    And I wait for "EnsureButton" will be visible
+    And I will see the element "ErrorMessage" contains "请填写正确数值内容！"
+
+    Examples:
+      | colorType  |  button       |  param          | ensure             | value    |
+      | 范围       | AddInterval   | IntervalInput   | CreateEnsureButton | a        |
+      | 范围       | AddInterval   | IntervalInput   | CreateEnsureButton |          |
+      | 梯度       |               | LowerLimitValue |                    | a        |
+      | 梯度       |               | MiddleValue     | CreateEnsureButton |          |
