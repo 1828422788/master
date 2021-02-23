@@ -6,12 +6,18 @@ import com.yottabyte.utils.JsonStringPaser;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import org.joda.time.Days;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import javax.lang.model.element.Element;
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
@@ -94,6 +100,67 @@ public class SplSearch {
             WebElement webElement = webDriver.findElement(By.xpath(xpath));
             WaitElement waitElement = new WaitElement();
             waitElement.elementVisible(webElement);
+        }
+    }
+
+    /**
+     * 生成交易日csv文件
+     *
+     * @param num
+     */
+    @Then("^I create \"([^\"]*)\" days csv file from now$")
+    public void createCsvFile(int num) {
+        if (num > 0) {
+            String[] headArr = new String[]{"ZRR", "JYR", "ND", "JD", "YF"};
+            String filePath = "src/test/resources/testdata/app/trandatefiles";
+            LocalDateTime localDateTime = LocalDateTime.now();
+            DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+            String timeStamp = df.format(localDateTime) +".csv";//CSV文件名称
+            String fileName = "trandate.csv";//CSV文件名称
+            File csvFile = null;
+            BufferedWriter csvWriter = null;
+            try {
+                csvFile = new File(filePath + File.separator + fileName);
+                File parent = csvFile.getParentFile();
+                if (parent != null && !parent.exists()) {
+                    parent.mkdirs();
+                }
+                csvFile.createNewFile();
+
+                // GB2312使正确读取分隔符","
+                csvWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(csvFile), "GB2312"), 1024);
+
+                // 写入文件头部标题行
+                csvWriter.write(String.join(",", headArr));
+                csvWriter.newLine();
+
+                // 写入文件内容
+                Calendar now = Calendar.getInstance();
+                for (int i=0; i<num; i++) {
+                    if (i %2 ==0) {
+                        now.add(Calendar.DAY_OF_MONTH, -i);
+                        String target = new SimpleDateFormat("yyyyMMdd").format(now.getTime());
+//                        System.out.println(target);
+//                        System.out.println("##############@@@@@@@@@@@");
+                        String yearnum = target.substring(0,4);
+                        String monthnum = target.substring(4,6);
+                        String daynum = target.substring(6,8);
+//                        System.out.println(String.format("%s,%s,%s,%s,%s", target, Integer.parseInt(target), yearnum, daynum, monthnum));
+                        csvWriter.write(String.format("%s,%s,%s,%s,%s", target, Integer.parseInt(target), yearnum, daynum, monthnum));
+                        csvWriter.newLine();
+                        now.add(Calendar.DAY_OF_MONTH, i);
+                    }
+                }
+                csvWriter.flush();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    csvWriter.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

@@ -187,7 +187,7 @@ Feature: 日志展现_表格
       |  AutoColor    |  830_auto     | Cell       | background-color: rgb(3, 169, 244); |
 
 
-  Scenario Outline: table_value_customcolor
+  Scenario Outline: table_value_customcolor_number
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
     And I choose the "值" from the "ColorType" in config
@@ -227,3 +227,43 @@ Feature: 日志展现_表格
       | caseNum     |
       | 830_custom  |
 
+  Scenario Outline: table_value_customcolor_string
+    When I click the "PencilFirst" button
+    And I wait for "ColorPanel" will be visible
+    And I choose the "值" from the "ColorType" in config
+    And I wait for "CustomColor" will be visible
+    And I click the "CustomColor" button
+    And I click the "AddValue" button
+    And I set the parameter "InputValue" with value "117.136.79.162"
+    And I set the parameter "ColorCode" with value "#FF0000"
+    And I click the "AddValue" button
+    And I set the parameter "InputValue" with value "1.207.60.51"
+    And I set the parameter "ColorCode" with value "#00FF00"
+    And I click the "CustomColor" button
+    And I click the "CreateEnsureButton" button
+
+    And I wait for "3000" millsecond
+    And take part of "ChartView" with name "actual/高级搜索视图/8表格/<caseNum>"
+    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
+
+    Examples:
+      | caseNum         |
+      | 830_custom_str  |
+
+  Scenario Outline: table_prompt
+    When I click the "Pencil" button
+    And I will see the element "SelectedValueColorType" contains "无"
+    And I choose the "<colorType>" from the "ColorType" in config
+    And I click the "<button>" button
+
+    And I set the parameter "<param>" with value "<value>"
+    And I click the "<ensure>" button
+    And I wait for "EnsureButton" will be visible
+    And I will see the element "ErrorMessage" contains "请填写正确数值内容！"
+
+    Examples:
+      | colorType  |  button       |  param          | ensure             | value    |
+      | 范围       | AddInterval   | IntervalInput   | CreateEnsureButton | a        |
+      | 范围       | AddInterval   | IntervalInput   | CreateEnsureButton |          |
+      | 梯度       |               | LowerLimitValue |                    | a        |
+      | 梯度       |               | MiddleValue     | CreateEnsureButton |          |

@@ -1947,4 +1947,68 @@ public class SearchPage extends ListPageFactory {
         return openAndHideTip;
     }
 
+    @FindBy(xpath = "//span[text()='搜索配置']")
+    private WebElement searchSetting;
+
+    public WebElement getSearchSetting() {
+        return searchSetting;
+    }
+
+    @FindBy(xpath = "//div[text()='索引模式']")
+    private WebElement indexMode;
+
+    public WebElement getIndexMode() {
+        return indexMode;
+    }
+
+    @FindBy(xpath = "//div[text()='极简模式']")
+    private WebElement sampleMode;
+
+    public WebElement getSampleMode() {
+        return sampleMode;
+    }
+
+    @FindBy(xpath = "//label[text()='每个分片取样']/following-sibling::input")
+    private WebElement fenPianQuYang;
+
+    public WebElement getFenPianQuYang() {
+        return fenPianQuYang;
+    }
+
+    @FindBy(xpath = "(//button[@class='ant-modal-close'])[last()]")
+    private WebElement closeBtn;
+
+    public WebElement getCloseBtn() {
+        return closeBtn;
+    }
+
+    @FindBy(xpath = "//div[text()='事件']/span")
+    private WebElement searchEventCount;
+
+    public WebElement getSearchEventCount() {
+        return searchEventCount;
+    }
+
+    @FindBy(xpath = "(//span[text()='GET'])[2]")
+    private WebElement highLightGet;
+
+    public WebElement getHighLightGet() {
+        return highLightGet;
+    }
+
+    @FindBy(xpath = "//*[@class='vx-group']")
+    private WebElement timeLine;
+
+    public WebElement getTimeLine() {
+        return timeLine;
+    }
+
+    @FindBy(xpath = "//span[text()='感兴趣的字段']/parent::div/following-sibling::ul/li")
+    private WebElement leftList;
+
+    public WebElement getLeftList() {
+        return leftList;
+    }
+
+
 }

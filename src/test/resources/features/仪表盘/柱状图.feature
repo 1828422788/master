@@ -321,8 +321,10 @@ Feature: 仪表盘柱状图
     And I click the "Today" button
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
+    And I click the "<string>" button
 #    And I wait for "100" millsecond
-#    And I move the mouse pointer to the "SwitchToTable"
+    And I move the mouse pointer to the "Zhutiao"
+    And I wait for "SwitchToTable" will be visible
     And I click the "SwitchToTable" button
     And I click the "Ip254" button
     And switch to another window
