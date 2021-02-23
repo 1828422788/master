@@ -1,4 +1,4 @@
-@spl @all
+@dlother
 Feature: 搜索配置
 
   Scenario Outline: RZY-2392:搜索配置_搜索模式_极简模式sample
