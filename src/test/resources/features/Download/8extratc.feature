@@ -1,11 +1,11 @@
-@spldelete
+@extra
 Feature: collect下载
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  @extra
+  @spldelete
   Scenario Outline:
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
@@ -19,7 +19,7 @@ Feature: collect下载
       | name                         | splQuery                                                          |
       | eval_delete_log_sample_step1 | starttime=\"now/d\" endtime=\"now/d+24h\" tag:spldelete \| delete |
 
-  @extra
+  @spldelete
   Scenario Outline:
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
