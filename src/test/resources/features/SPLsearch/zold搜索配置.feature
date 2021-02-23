@@ -68,7 +68,7 @@ Feature: 搜索配置
       | splQuery           |  count   |
       | tag:sample04061424 |  (20)    |
 
-  Scenario Outline: RZY-4654:搜索配置_高亮 - 版本: 1
+  Scenario Outline: RZY-4654:搜索配置_高亮
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SearchSetting" button
@@ -91,3 +91,64 @@ Feature: 搜索配置
       | splQuery                   |  count   |
       | tag:sample04061424 AND GET |  (20)    |
 
+  Scenario Outline: 创建交易日csv文件并上传
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I create "<dayCount>" days csv file from now
+    And I wait for "5000" millsecond
+    When open the "system.CustomConfigs" page for uri "/system/"
+    And I wait for loading complete
+    When I upload a file "uploadTranDate" with name "/src/test/resources/testdata/app/trandatefiles/trandate.csv"
+    Then I will see the success message "更新成功"
+
+    Examples:
+      |  dayCount   |
+      |  20   |
+
+  Scenario Outline: RZY-4658:搜索配置_只看交易日
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "SearchSetting" button
+    And I wait for loading invisible
+    And I click the "IndexMode" button
+    And I alter the input element "FenPianQuYang" value to "20"
+    And I "checked" the checkbox which name is "关键字高亮"
+    And I "checked" the checkbox which name is "只看交易日"
+    And I wait for "2000" millsecond
+    And I click the "CloseBtn" button
+    And I set the parameter "SearchInput" with value "<splQuery>"
+    And I click the "DateEditor" button
+    And I click the "TwoDays" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    #checkPoint:结果数量：40 即default_shard_size*20 且GET高亮
+    Then I will see the element "SearchEventCount" value is "<count>"
+    And I wait for "HighLightGet" will be visible
+
+    Examples:
+      | splQuery                   |  count   |
+      | tag:sample04061424 GET     |  (40)    |
+
+#  Scenario Outline: RZY-4699:搜索页面_最近20天交易日搜索
+#    Given open the "splSearch.SearchPage" page for uri "/search/"
+#    And I wait for element "SearchStatus" change text to "搜索完成!"
+#    And I click the "SearchSetting" button
+#    And I wait for loading invisible
+#    And I click the "IndexMode" button
+#    And I alter the input element "FenPianQuYang" value to "20"
+#    And I "checked" the checkbox which name is "关键字高亮"
+#    And I "checked" the checkbox which name is "只看交易日"
+#    And I wait for "2000" millsecond
+#    And I click the "CloseBtn" button
+#    And I set the parameter "SearchInput" with value "<splQuery>"
+#    And I click the "DateEditor" button
+#    And I click the "TwoDays" button
+#    And I click the "SearchButton" button
+#    And I wait for element "SearchStatus" change text to "搜索完成!"
+#    #checkPoint:结果数量：40 即default_shard_size*20 且GET高亮
+#    Then I will see the element "SearchEventCount" value is "<count>"
+#    And I wait for "HighLightGet" will be visible
+#
+#    Examples:
+#      | splQuery                   |  count   |
+#      | tag:sample04061424 GET     |  (40)    |
