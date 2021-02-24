@@ -2109,6 +2109,19 @@ public class SearchPage extends ListPageFactory {
         return findClusterAlignThresholdValue;
     }
 
+    @FindBy(xpath = "//span[text()='IP']")
+    private WebElement mergeIP;
+
+    public WebElement getMergeIP() {
+        return mergeIP;
+    }
+
+    @FindBy(xpath = "//span[text()='URL']")
+    private WebElement mergeURL;
+
+    public WebElement getMergeURL() {
+        return mergeURL;
+    }
 
 
 

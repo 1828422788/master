@@ -1,4 +1,4 @@
-# @
+@dlother
 
 Feature: 聚类展示
 
@@ -102,3 +102,43 @@ Feature: 聚类展示
       | MultiAlignThreshold             |        0  |执行错误: Param error: [multi_align_threshold]            |
       | PatternDiscoverAlignThreshold   |        2  |执行错误: Param error: [pattern_discover_align_threshold] |
       | FindClusterAlignThresholdValue  |        2  |执行错误: Param error: [find_cluster_align_threshold]     |
+
+  Scenario: RZY-4894:归并设置_归并IP
+    And I click the "Mode" button
+    Then I will see the text "无模式搜索结果！" exist in page
+    And I click the "ModeSearch" button
+    And I wait for loading invisible
+    And I click the "MergeSetting" button
+    And I wait for "1000" millsecond
+    And I click the "MergeIP" button
+    And I click the "EnsureButton" button
+    #检测点1：聚类结果中的【模式】维度中的具体IP值成为<IP>且底色为灰色
+
+    And I wait for "5000" millsecond
+    And I click the "MergeSetting" button
+    And I wait for "1000" millsecond
+    And I click the "MergeIP" button
+    And I click the "EnsureButton" button
+    #检测点2：模式维度中的<IP>成为具体的IP且底色为白色
+
+    And I wait for "3000" millsecond
+
+  Scenario: RZY-4895:归并设置_归并URL
+    And I click the "Mode" button
+    Then I will see the text "无模式搜索结果！" exist in page
+    And I click the "ModeSearch" button
+    And I wait for loading invisible
+    And I click the "MergeSetting" button
+    And I wait for "1000" millsecond
+    And I click the "MergeURL" button
+    And I click the "EnsureButton" button
+    #检测点1：URL 被NUM截断，未能被识别
+
+    And I wait for "5000" millsecond
+    And I click the "MergeSetting" button
+    And I wait for "1000" millsecond
+    And I click the "MergeURL" button
+    And I click the "EnsureButton" button
+    #检测点2：结果与勾选【归并URL】一样
+
+    And I wait for "3000" millsecond
