@@ -110,7 +110,7 @@ Feature: 报表新建_执行计划
     And I will see the "report.ListPage" page
     And I will see the data "{'column':'1','name':'test_report_crontab'}" values "{'column':'4','name':'0 0/15 9 ? * MON-FRI'}"
     
-  Scenario: new_report_fields
+  Scenario Outline: new_report_fields
     When I set the parameter "Name" with value "test_report"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "test_app" from the "App" in config
@@ -118,9 +118,16 @@ Feature: 报表新建_执行计划
     And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I will see the element "SubjectNote" contains "注: 可用变量: 报表名称：<%report_name%>，发送时间：<%report_time%>"
     And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
+    And I move the mouse pointer to the "ExecutionTip"
+    And I wait for "ExecutionTipElement" will be visible
+    And I will see the element "ExecutionTipElement" contains "<tipText>"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I click the "NextButton" button under some element
     Then I wait for "FinishButton" will be visible
+
+    Examples:
+    |   tipText      |
+    | 「定时」\n选择“每天”，报表内容为昨天数据\n选择“每周”，报表内容为上周数据\n选择“每月”，报表内容为上月数据\n「crontab」\n报表内容与趋势图保存的时间范围相关|
 
   Scenario Outline: new_report_type
     When I set the parameter "Name" with value "test_report_<type>"

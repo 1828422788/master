@@ -185,8 +185,8 @@ Feature: 日志展现_地图
 
     Examples:
       |chartType      |caseNum  |   spl   |
-      |Statisticalmap | 2795    |  tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
-      |Statisticalmap | 2797    |  tag:vendors_461 \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince |
+      |Statisticalmap | 2795    |  tag:vendors_test \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
+      |Statisticalmap | 2797    |  tag:vendors_test \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince |
 
   Scenario Outline: statMap(RZY-2796)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -216,7 +216,7 @@ Feature: 日志展现_地图
 
     Examples:
       |chartType      | caseNum  |   spl   |
-      |Statisticalmap |  2796    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
+      |Statisticalmap |  2796    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:vendors_test \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
 
   Scenario Outline: statMap_param
     When I set the parameter "SearchInput" with value "<spl>"

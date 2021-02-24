@@ -957,19 +957,19 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "ant-modal-confirm-title")
     private WebElement confirmMessage;
 
-    @FindBy(xpath = "//*[@class='vx-bar']/following-sibling::*[@font-size='12']")
+    @FindBy(xpath = "//*[name()='rect' and @class='vx-bar']/following-sibling::*[@font-size='12']")
     private WebElement sankeyElement;
 
-    @FindBy(xpath = "//*[contains(text(),'200') or contains(text(),'/')]/following-sibling::*")
+    @FindBy(xpath = "//*[(contains(text(),'200') or contains(text(),'/')) and name()='text']/following-sibling::*[name()='circle']")
     private WebElement chordElement;
 
-    @FindBy(xpath = "//*[contains(@style,'cubic-bezier')]/following-sibling::*[@font-size>7]")
+    @FindBy(xpath = "//*[contains(@style,'cubic-bezier') and name()='circle']/following-sibling::*[@font-size>7]")
     private WebElement forceElement;
 
-    @FindBy(xpath = "//*[@class='vx-group']/*[text()='南京市']")
+    @FindBy(xpath = "//*[@class='vx-group' and name()='g']/*[text()='南京市' and name()='text']")
     private WebElement wordcloudElement;
 
-    @FindBy(xpath = "//*[@class='vx-group']/*[@class='vx-line-radial']")
+    @FindBy(xpath = "//*[@class='vx-group']/*[@class='vx-line-radial']/following-sibling::*[name()='g']/*[name()='line' and @class='vx-line']")
     private WebElement radarElement;
 
     @FindBy(xpath = "//*[contains(@id,'funnel')]")

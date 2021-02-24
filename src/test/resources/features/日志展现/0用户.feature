@@ -29,13 +29,15 @@ Feature: 新建用户和字段提取
 
   Scenario Outline: upload_logs
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
-    And I set the parameter "AppName" with value "apache"
-    And I set the parameter "Tag" with value "<name>"
-    And I upload a file with name "/src/test/resources/testdata/log/<name>.txt"
+    And I set the parameter "AppName" with value "<appname>"
+    And I set the parameter "Tag" with value "<tag>"
+    And I upload a file with name "/src/test/resources/testdata/log/<log>.txt"
     And I click the "UploadButton" button
     And I wait for element "VerifyText" change text to "上传完成"
     Then I wait for "5000" millsecond
 
     Examples:
-      |    name             |
-      |  display_may          |
+      |    tag         | log        | appname   |
+      | display_may    | display_may| apache    |
+      | gf_dapper_test | gf_dapper  | dapper    |
+      | vendors_test   | geostats   | vendors   |

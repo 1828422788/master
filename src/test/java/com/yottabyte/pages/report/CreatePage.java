@@ -718,6 +718,20 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='选择趋势图']")
     private WebElement chartListInput;
 
+    @FindBy(xpath = "//span[text()='定时']/ancestor::span/following-sibling::i//*[name()='use' and @*='#icon-beizhu_icon']")
+    private WebElement executionTip;
+
+    @FindBy(xpath = "//div[@class='t9XNaEf3Cqblwk37xjCVk']")
+    private WebElement executionTipElement;
+
+    public WebElement getExecutionTipElement() {
+        return executionTipElement;
+    }
+
+    public WebElement getExecutionTip() {
+        return executionTip;
+    }
+
     public WebElement getChartListButtonWord() {
         return chartListWord;
     }
