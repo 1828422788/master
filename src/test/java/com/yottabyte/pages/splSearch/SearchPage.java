@@ -2010,5 +2010,106 @@ public class SearchPage extends ListPageFactory {
         return leftList;
     }
 
+    //聚类展示模式搜索
+    @FindBy(xpath = "//span[text()='无模式搜索结果！']/following-sibling::span[text()='搜索']")
+    private WebElement modeSearch;
+
+    public WebElement getModeSearch() {
+        return modeSearch;
+    }
+
+    @FindBy(xpath = "//td[text()='90']")
+    private WebElement count90;
+
+    public WebElement getCount90() {
+        return count90;
+    }
+
+    @FindBy(xpath = "//span[text()='归并设置']")
+    private WebElement mergeSetting;
+
+    public WebElement getMergeSetting() {
+        return mergeSetting;
+    }
+
+    @FindBy(xpath = "//span[text()='归并']")
+    private WebElement mergeBtn;
+
+    public WebElement getMergeBtn() {
+        return mergeBtn;
+    }
+
+    @FindBy(xpath = "//span[text()='后退']")
+    private WebElement backoffBtn;
+
+    public WebElement getBackoffBtn() {
+        return backoffBtn;
+    }
+
+    @FindBy(xpath = "//tbody/tr[1]/td[last()]/i")
+    private WebElement segmentationIcon;
+
+    public WebElement getSegmentationIcon() {
+        return segmentationIcon;
+    }
+
+    @FindBy(xpath = "//span[text()='层级']")
+    private WebElement hierarchy;
+
+    public WebElement getHierarchy() {
+        return hierarchy;
+    }
+
+    @FindBy(xpath = "//li[text()='第2层']")
+    private WebElement secondHierarchy;
+
+    public WebElement getSecondHierarchy() {
+        return secondHierarchy;
+    }
+
+    @FindBy(xpath = "//label[text()='initial_dist']/following-sibling::input")
+    private WebElement initialDistValue;
+
+    public WebElement getInitialDistValue() {
+        return initialDistValue;
+    }
+
+    @FindBy(xpath = "//label[text()='alpha']/following-sibling::input")
+    private WebElement alphaValue;
+
+    public WebElement getAlphaValue() {
+        return alphaValue;
+    }
+
+    @FindBy(xpath = "//label[text()='stop_threshold']/following-sibling::input")
+    private WebElement stopThreshold;
+
+    public WebElement getStopThreshold() {
+        return stopThreshold;
+    }
+
+    @FindBy(xpath = "//label[text()='multi_align_threshold']/following-sibling::input")
+    private WebElement multiAlignThreshold;
+
+    public WebElement getMultiAlignThreshold() {
+        return multiAlignThreshold;
+    }
+
+    @FindBy(xpath = "//label[text()='pattern_discover_align_threshold']/following-sibling::input")
+    private WebElement patternDiscoverAlignThreshold;
+
+    public WebElement getPatternDiscoverAlignThreshold() {
+        return patternDiscoverAlignThreshold;
+    }
+
+    @FindBy(xpath = "//label[text()='find_cluster_align_threshold']/following-sibling::input")
+    private WebElement findClusterAlignThresholdValue;
+
+    public WebElement getFindClusterAlignThresholdValue() {
+        return findClusterAlignThresholdValue;
+    }
+
+
+
 
 }
