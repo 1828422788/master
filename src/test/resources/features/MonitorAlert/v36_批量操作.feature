@@ -34,17 +34,13 @@ Feature: alert批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
-  Scenario Outline:  alert批量操作-启动-验证
+  Scenario:  alert批量操作-启动-验证
     When I set the parameter "AlertListSearchInput" with value "api3"
     And I wait for "1000" millsecond
-    Then I will see the switch button "<btn>" is "<status>"
-
-    Examples:
-      | btn                  |   status      |
-      | switchOne            |   enable      |
-      | switchTwo            |   enable      |
-      | switchThree          |   enable      |
-      | switchTen            |   disable     |
+    Then I will see the switch button "switchOne" is "enable"
+    And I will see the switch button "switchTwo" is "enable"
+    And I will see the switch button "switchThree" is "enable"
+    And I will see the switch button "switchTen" is "disable"
 
   Scenario:  alert批量操作-添加资源标签
     When I set the parameter "AlertListSearchInput" with value "api3"
@@ -72,7 +68,7 @@ Feature: alert批量操作
   Scenario:  alert批量操作-删除
     When I set the parameter "AlertListSearchInput" with value "删除"
     And I wait for "2000" millsecond
-    Then I will see the text "删除_api9_all_事件计数_设备切分ip_扩展chart_all_spark" exist in page
+    Then I will see the text "test删除_事件计数_设备切分ip" exist in page
     And I click the "MultiOperate" button
     And I wait for "500" millsecond
     And I click the "ListHeadCheckbox" button
