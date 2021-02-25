@@ -36,7 +36,8 @@ Feature: alert批量操作
 
   Scenario:  alert批量操作-启动-验证
     When I set the parameter "AlertListSearchInput" with value "api3"
-    And I wait for "1000" millsecond
+    And I wait for loading invisible
+    And I wait for "3000" millsecond
     Then I will see the switch button "switchOne" is "enable"
     And I will see the switch button "switchTwo" is "enable"
     And I will see the switch button "switchThree" is "enable"
