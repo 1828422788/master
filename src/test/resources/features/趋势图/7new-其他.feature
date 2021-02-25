@@ -34,6 +34,19 @@ Feature: 趋势图新建_其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "<chartType>_<caseNum>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<chartType>Element" will be visible
 
     Examples:
       | chartType | caseNum | spl                                                                                                          |
@@ -69,6 +82,19 @@ Feature: 趋势图新建_其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "<chartType>_<caseNum>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<chartType>Element" will be visible
 
     Examples:
       | chartType | caseNum | spl                                                                                                          |
@@ -561,6 +587,21 @@ Feature: 趋势图新建_其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "<chartType>_<caseNum>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<chartType>Element_1" will be visible
+    And I will see the element "<chartType>Element_1" contains "78%"
+    And I will see the element "<chartType>Element_2" contains "20%"
 
     Examples:
       | chartType | caseNum   | spl                                                                                                                                                                                   |
@@ -710,6 +751,19 @@ Feature: 趋势图新建_其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "<chartType>_<caseNum>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<chartType>Element" will be visible
 
     Examples:
       | chartType  | caseNum | spl                                                                       |
@@ -874,6 +928,19 @@ Feature: 趋势图新建_其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "<chartType>_<caseNum>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<chartType>Element" will be visible
 
     Examples:
       | chartType     | xValue          | yValue        | segNum | caseNum | spl                                                                        |
@@ -925,6 +992,19 @@ Feature: 趋势图新建_其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "<chartType>_<caseNum>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "ChainTableElement" will be visible
 
     Examples:
       | chartType | color | precision |  column           | cancelcol          | function     | parentIDvalue       | childIDvalue  | starttime                | duration            | infoValue                            | caseNum | spl                                                                                                                                                                                                                                                       |
@@ -970,6 +1050,19 @@ Feature: 趋势图新建_其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "<chartType>_<caseNum>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<chartType>Element" will be visible
 
     Examples:
       | chartType | timeSeq  | source          | target   | segmentation    | mark    | caseNum | spl                                                                             |
@@ -994,6 +1087,19 @@ Feature: 趋势图新建_其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'Table_Test'}" then i click the "展示趋势图" button
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "Table_Test"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "Header" will be visible
 
 
   Scenario Outline: chain_tree
@@ -1092,6 +1198,20 @@ Feature: 趋势图新建_其他
     And I set the parameter "DescribeInput" with value "in<color>_out<color_1>_<repValue>_<node>"
     And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'<chartType>'}" then i click the "展示趋势图" button
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "<chartType>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<chartType>Element" will be visible
+    And I click the "Click<node>" button
 
     Examples:
       |  chartType    | color   | color_1 | repValue |  node    |

@@ -34,6 +34,19 @@ Feature: 趋势图新建_统计地图
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "<chartType>_<caseNum>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "MapSettings" will be visible
 
     Examples:
       |chartType      |caseNum  |   spl   |

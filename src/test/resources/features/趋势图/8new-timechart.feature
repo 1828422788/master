@@ -162,11 +162,24 @@ Feature: 趋势图新建_timechart
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'timechart_<caseNum>'}" then i click the "展示趋势图" button
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "timechart_<caseNum>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<element>Element" will be visible
 
     Examples:
-      |  caseNum    | color    |button    |   spl|
-      | area_pile   | Yellow   | Smooth   | tag:sample04061424_chart \| timechart cont=true span=30m rendertype=\"area\" count() min(apache.resp_len) by apache.status  |
-      | column_pile | Red      |          | tag:sample04061424_chart \| timechart cont=true span=30m rendertype=\"column\" count() min(apache.resp_len) by apache.status  |
+      |  caseNum    | element        | color    |button    |   spl|
+      | area_pile   | AreaChart      | Yellow   | Smooth   | tag:sample04061424_chart \| timechart cont=true span=30m rendertype=\"area\" count() min(apache.resp_len) by apache.status  |
+      | column_pile | ColumnChart    | Red      |          | tag:sample04061424_chart \| timechart cont=true span=30m rendertype=\"column\" count() min(apache.resp_len) by apache.status  |
 
   Scenario Outline: sparkline
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"

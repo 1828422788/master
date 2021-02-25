@@ -963,13 +963,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[(contains(text(),'200') or contains(text(),'/')) and name()='text']/following-sibling::*[name()='circle']")
     private WebElement chordElement;
 
-    @FindBy(xpath = "//*[contains(@style,'cubic-bezier') and name()='circle']/following-sibling::*[@font-size>7]")
+    @FindBy(xpath = "//*[contains(@style,'cubic-bezier')]/following-sibling::*[@font-size>7]")
     private WebElement forceElement;
 
     @FindBy(xpath = "//*[@class='vx-group' and name()='g']/*[text()='南京市' and name()='text']")
     private WebElement wordcloudElement;
 
-    @FindBy(xpath = "//*[@class='vx-group']/*[@class='vx-line-radial']/following-sibling::*[name()='g']/*[name()='line' and @class='vx-line']")
+    @FindBy(xpath = "//*[@class='vx-group']/*[@class='vx-line-radial']")
     private WebElement radarElement;
 
     @FindBy(xpath = "//*[contains(@id,'funnel')]")
@@ -1882,6 +1882,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getFinishButton() {
         return getButton("完成");
+    }
+
+    public WebElement getReturnButton() {
+        return getButton("返回");
     }
 
     public WebElement getSearchButton() {
