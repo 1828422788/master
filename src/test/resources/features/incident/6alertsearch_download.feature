@@ -33,22 +33,14 @@ Feature: 监控搜索界面
     Given the data name is "<name>.csv" then i click the "下载" button
 
     Examples: 新建成功
-      | name                                                   | splQuery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-       #正常结果
+      | name                      | splQuery                                                                                |
       #custom_info.alert_name: api00_spl统计_按行发送_抑制翻倍_cnt_10-59min_无分组 | table manager,summary
-      | fillnull_string_to_resplen_sample | custom_info.alert_name: api00_spl统计_按行发送_抑制翻倍_cnt_10-59min_无分组 \| table manager,summary |
+      | incident_alert_name       | custom_info.alert_name: api00_spl统计_按行发送_抑制翻倍_cnt_10-59min_无分组 \| table manager,summary |
       #appname: alertcef | limit 100 | table ip
+      | incident_appname_alertcef | appname: alertcef \| limit 100 \| table ip                                              |
       #* | top 5 appname
-
-
-
-  Scenario Outline: 下载table用例结果
-    Given I set the parameter "SearchInput" with value "index=yotta *"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for "2000" millsecond
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
+      | incident_top_appname      | * \| top 5 appname                                                                      |
+      #* | table appname | limit 100
+      | incident_table_appname    | * \| table appname \| limit 100                                                         |
 
 

@@ -1,5 +1,5 @@
 @dltable @dltable1
-Feature: download_table下载
+Feature: download_table下载part1
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"

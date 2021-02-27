@@ -14,10 +14,10 @@ Feature: alert批量操作
 
 
     Examples:
-      | btn                    |
-      |  MultiStart            |
-      | MultiAddResourceTag    |
-      | MultiDelete            |
+      | btn                 |
+      | MultiStart          |
+      | MultiAddResourceTag |
+      | MultiDelete         |
 
   Scenario:  alert批量操作-启动
     When I set the parameter "AlertListSearchInput" with value "api3"

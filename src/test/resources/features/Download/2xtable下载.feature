@@ -1,5 +1,5 @@
 @dlxtable  @dlxtable0
-Feature: download_bucket下载
+Feature: download_bucket下载part0
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"

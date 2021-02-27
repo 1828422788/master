@@ -285,6 +285,22 @@ public class CheckButtonAttribute {
         Assert.assertTrue("实际值：" + actualText + "\n期望值：" + expectText, actualText.contains(expectText));
     }
 
+    @Then("^I will see the element \"([^\"]*)\" larger than \"([^割]*)\"$")
+    public void iWillSeeTheElementLarger(String elementName, String expectText) {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        String actualText = element.getText();
+        int actualInt=Integer.parseInt(actualText);
+        int expectInt=Integer.parseInt(expectText);
+        if (actualInt>expectInt)
+        {
+            Assert.assertTrue("1",true);
+        }else
+        {
+            Assert.assertTrue("1",false);
+        }
+
+    }
+
     @Then("^I will see the config element \"([^\"]*)\" value is \"([^\"]*)\"$")
     public void iWillSeeTheConfigElementValueIs(String name, String expectText) {
         String xpath = "//a[text()='" + name + "']/ancestor::tr";
