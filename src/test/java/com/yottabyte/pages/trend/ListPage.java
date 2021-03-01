@@ -12,6 +12,7 @@ import org.openqa.selenium.support.FindBy;
 public class ListPage extends ListPageFactory {
     public ListPage(WebDriver driver) {
         super(driver);
+        driver.manage().window().fullscreen();
     }
 
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")

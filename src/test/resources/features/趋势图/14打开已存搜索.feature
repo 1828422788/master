@@ -1,17 +1,17 @@
 @all @trend @trendSavedSearch
 Feature: 趋势图_已存搜索
 
-#  Scenario: empty_saved_search
-#    Given open the "splSearch.SearchPage" page for uri "/search/"
-#    And I wait for element "SearchStatus" change text to "搜索完成!"
-#    When I set the parameter "SearchInput" with value "* | stats count()"
-#    And I click the "DateEditor" button
-#    And I click the "Today" button
-#    And I click the "NewSavedSearch" button
-#    And I wait for "SavedSearchName" will be visible
-#    And I set the parameter "SavedSearchName" with value ""
-#    And I click the "EnsureCreateSavedSearch" button
-#    And I will see the alertMessage "请填写名称！"
+  Scenario: empty_saved_search
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    When I set the parameter "SearchInput" with value "* | stats count()"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "NewSavedSearch" button
+    And I wait for "SavedSearchName" will be visible
+    And I set the parameter "SavedSearchName" with value ""
+    And I click the "EnsureCreateSavedSearch" button
+    And I will see the "SuccessMessage" doesn't exist
 
   Scenario: create_saved_search
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -33,13 +33,11 @@ Feature: 趋势图_已存搜索
     And I wait for "SavedSearch" will be visible
     And I click the "OpenSavedSearchList" button
     And I wait for "2000" millsecond
-#    And "删除" the data "trend_test" in tiny saved search
-#    And I wait for "CancelButton" will be visible
-#    And I wait for "EnsureCreateSavedSearch" will be visible
-#    And I will see the element "ConfirmMessage" contains "确认删除 trend_test?"
-#    And I click the "CancelButton" button
-    And "加载" the data "trend_test" in tiny saved search
-    And I will see the element "ChosenSavedSearch" contains "trend_test"
+    And "删除" the data "trend_test" in tiny saved search
+    And I wait for "ConfirmMessage" will be visible
+    And I will see the text "取 消" exist in page
+    And I will see the text "确 定" exist in page
+    And I will see the element "ConfirmMessage" contains "确认删除 trend_test?"
 
   Scenario: create_trend
     Given open the "trend.ListPage" page for uri "/trend/"

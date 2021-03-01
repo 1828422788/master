@@ -54,7 +54,7 @@ Feature: 趋势图新建_报表
     Examples:
       |   type  |  trend_name    | added_trend      |   page    |
       | PDF     |  Trend_Test_1  | ChosenTrendLast  |           |
-#      | WORD    |  Trend_Test_2  | LastAddedTrend   |   WORD    |
+      | WORD    |  Trend_Test_2  | LastAddedTrend   |   WORD    |
 
 
   Scenario Outline: delete_trend_report
@@ -78,5 +78,5 @@ Feature: 趋势图新建_报表
     Examples:
       |  trend_name    |   report_name    |
       |  Trend_Test_1  | Report_Test_PDF  |
-#      |  Trend_Test_2  | Report_Test_WORD |
+      |  Trend_Test_2  | Report_Test_WORD |
 

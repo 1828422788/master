@@ -996,10 +996,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(@style,'justify-content: center')]//span)[last()]")
     private WebElement singleElement;
 
-    @FindBy(xpath = "(//*[@class='vx-group']//*[contains(text(),'%')])[1]")
+    @FindBy(xpath = "(//*[@class='vx-group']//*[name()='text'])[1]")
     private WebElement ringElement_1;
 
-    @FindBy(xpath = "(//*[@class='vx-group']//*[contains(text(),'%')]/following-sibling::*[contains(text(),'%') and @fill='gray'])[1]")
+    @FindBy(xpath = "(//*[@class='vx-group']//*[name()='text' and @fill='gray'])")
     private WebElement ringElement_2;
 
     @FindBy(xpath = "(//*[@class='vx-group']//*[@class='vx-arc']/following-sibling::*)[1]")
