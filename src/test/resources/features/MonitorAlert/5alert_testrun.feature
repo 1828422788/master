@@ -1,6 +1,7 @@
-@bvtalert @alertcase @testrun
+@bvtalert0
 Feature: 测试运行-邮件
 
+  @testrun0
   Scenario Outline:
     And I wait for loading invisible
     Given open the "alert.ListPage" page for uri "/alerts/"
@@ -27,8 +28,8 @@ Feature: 测试运行-邮件
 
     And I wait for element "TestRunReminder" change text to "提示"
     Then take a screenshot with name "actual/trm_<name>"
-#    And I wait for element "TestRunReminderText" change text to "<name>"
-#    And I wait for element "TestRunReminderText" change text to "successful"
+    And I wait for element "TestRunReminderText" change text to "<name>"
+    And I wait for element "TestRunReminderText" change text to "successful"
     When I click the "AffirmButton" button
 
     Examples:
