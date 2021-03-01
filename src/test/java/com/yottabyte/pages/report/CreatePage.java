@@ -112,8 +112,11 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='定时']/ancestor::span/following-sibling::div/div[1]")
     private WebElement period;
 
-    @FindBy(xpath = "//span[text()='定时']/ancestor::span/following-sibling::div/div[2]")
+    @FindBy(xpath = "//span[text()='定时']/ancestor::span/following-sibling::div//div[contains(text(),'日')]/ancestor::div[2]")
     private WebElement day;
+
+    @FindBy(xpath = "//span[text()='定时']/ancestor::span/following-sibling::div//div[contains(text(),'月')]/ancestor::div[2]")
+    private WebElement month;
 
     @FindBy(xpath = "//input[@placeholder='分']")
     private WebElement minute;
@@ -950,6 +953,11 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getDay() {
         day.click();
+        return this.getLastDropdownList();
+    }
+
+    public WebElement getMonth() {
+        month.click();
         return this.getLastDropdownList();
     }
 

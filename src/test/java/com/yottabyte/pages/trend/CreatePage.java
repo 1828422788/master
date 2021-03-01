@@ -984,10 +984,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[contains(@class,'bar')]/ancestor::div[1]/following-sibling::div[2]//div[contains(@class,'bar')]")
     private WebElement chainTableElement;
 
-    @FindBy(xpath = "//div[@class='tooltipTopBoundary']/following-sibling::div[@id='chart']/canvas")
+    @FindBy(xpath = "//div[@class='tooltipTopBoundary']/following-sibling::div[contains(@id,'tracing')]/canvas")
     private WebElement chainTreeElement;
 
-    @FindBy(xpath = "//div[@id='sequenceArea']")
+    @FindBy(xpath = "//div[contains(@id,'sequence')]")
     private WebElement sequenceElement;
 
     @FindBy(xpath = "//*[@class='vx-group']//*[contains(@id,endArrow) or contains(@id,startArrow)]")

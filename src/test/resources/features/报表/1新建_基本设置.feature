@@ -74,6 +74,32 @@ Feature: 报表新建_执行计划
     |    每月      |  25日    |  16     |  10        |
 
 
+  Scenario Outline: new_report_success_year
+    When I set the parameter "Name" with value "test_report_<period>"
+    And I set the parameter "Describe" with value "AutoCreate"
+    And I choose the "PDF" from the "ReportType"
+    And I choose the "test_app" from the "App" in config
+    And I choose the "<period>" from the "Period"
+    And I choose the "<month>" from the "Month"
+    And I choose the "<day>" from the "Day"
+    And I set the parameter "Hour" with value "<hour>"
+    And I set the parameter "Minute" with value "<minute>"
+    And I click the "NextButton" button under some element
+    Then I wait for "ChartListButton" will be visible
+    When I choose the "报表测试" from the "ChartList"
+    And I click the "ChartListButton" button
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
+    When I click the "FinishButton" button under some element
+    And I wait for "EnsureButton" will be visible
+    Then I will see the success message "保存成功"
+    And I click the "EnsureButton" button
+    And I will see the "report.ListPage" page
+    And I will see the data "{'column':'1','name':'test_report_<period>'}" values "{'column':'4','name':'<period><month><day> <hour>时<minute>分'}"
+
+    Examples:
+      |    period    |  month  |  day  |  hour   |   minute  |
+      |    每年      |  3月    | 1日   |  16     |  10       |
+
   Scenario Outline: new_report_error_message_crontab
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Crontab" with value "<crontab>"
@@ -127,7 +153,7 @@ Feature: 报表新建_执行计划
 
     Examples:
     |   tipText      |
-    | 「定时」\n选择“每天”，报表内容为昨天数据\n选择“每周”，报表内容为上周数据\n选择“每月”，报表内容为上月数据\n「crontab」\n报表内容与趋势图保存的时间范围相关|
+    | 「定时」\n选择“每天”，报表内容为昨天数据\n选择“每周”，报表内容为上周数据\n选择“每月”，报表内容为上月数据\n选择“每年”，报表内容为上年数据\n「crontab」\n报表内容与趋势图保存的时间范围相关|
 
   Scenario Outline: new_report_type
     When I set the parameter "Name" with value "test_report_<type>"
