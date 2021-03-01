@@ -278,6 +278,10 @@ public class CheckButtonAttribute {
         }
     }
 
+    /**
+     * @param elementName 元素名称
+     * @param expectText  期望值
+     */
     @Then("^I will see the element \"([^\"]*)\" contains \"([^割]*)\"$")
     public void iWillSeeTheElementContains(String elementName, String expectText) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
@@ -285,18 +289,24 @@ public class CheckButtonAttribute {
         Assert.assertTrue("实际值：" + actualText + "\n期望值：" + expectText, actualText.contains(expectText));
     }
 
+    /**
+     * @param elementName 元素名称
+     * @param expectText  期望值
+     */
     @Then("^I will see the element \"([^\"]*)\" larger than \"([^割]*)\"$")
     public void iWillSeeTheElementLarger(String elementName, String expectText) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         String actualText = element.getText();
-        int actualInt=Integer.parseInt(actualText);
-        int expectInt=Integer.parseInt(expectText);
-        if (actualInt>expectInt)
-        {
-            Assert.assertTrue("1",true);
-        }else
-        {
-            Assert.assertTrue("1",false);
+        actualText = actualText.replace("(", "");
+        actualText = actualText.replace(")", "");
+
+        int actualInt = Integer.parseInt(actualText);
+        int expectInt = Integer.parseInt(expectText);
+
+        if (actualInt <= expectInt) {
+            Assert.assertFalse(false);
+        } else {
+            Assert.assertTrue("1", true);
         }
 
     }

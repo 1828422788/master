@@ -1,8 +1,13 @@
-@onalert
-Feature: 监控启用
+Feature: 关闭监控
 
-  @onalert0 @bvtalert
-  Scenario Outline: 启用高优先级用例
+#    Then I refresh the website
+#    And I wait for loading invisible
+#    When the data name is "{'column':'1','name':'<name>'}" then I "close" the switch
+#    Then I wait for loading invisible
+#    Then I will see the element "{'column':'1','name':'<name>'}" is "close"
+
+  @offalert
+  Scenario Outline: 启用
     Given open the "alert.ListPage" page for uri "/alerts/"
 #    And I wait for "3000" millsecond
     And I wait for loading invisible
@@ -16,7 +21,7 @@ Feature: 监控启用
     Then I will see the element "{'column':'1','name':'<name>'}" is "open"
 
     Examples:
-      | name                                                     |
+      | name                                 |
       |	api00_all_事件数_扩展chart_all_sample_合并	|
       |	api00_all_事件计数_设备切分ip_扩展chart_all_交易日	|
       |	api00_all_事件计数_设备切分ip_扩展chart_all_合并	|
@@ -38,23 +43,6 @@ Feature: 监控启用
       |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_抑制间隔翻倍10-90min	|
       |	api00_连续统计_status<=502_扩展chat_键值_all_合并	|
       |	api00_连续统计_status<=502_扩展chat_键值_all_合并_交易日	|
-
-  @onalert1 @alertcase
-  Scenario Outline: 启用
-    Given open the "alert.ListPage" page for uri "/alerts/"
-#    And I wait for "3000" millsecond
-    And I wait for loading invisible
-    When I set the parameter "AlertListSearchInput" with value "<name>"
-    And I wait for "3000" millsecond
-
-    When the data name is "{'column':'1','name':'<name>'}" then I "open" the switch
-    And I wait for "3000" millsecond
-    And I wait for loading invisible
-
-    Then I will see the element "{'column':'1','name':'<name>'}" is "open"
-
-    Examples:
-      | name                                                     |
       |	api01_字段统计_最大数status_扩展chart键值_邮件	|
       |	api3_all_事件计数_设备切分ip_扩展chart_all抑制45	|
       |	api3_all_连续统计_status<404_低_邮件	|
@@ -97,4 +85,3 @@ Feature: 监控启用
       |	维护期_字段统计_分组事件数status_邮件_每天0-23点	|
       |	维护期_字段统计_分组事件数status_邮件_每月1-30	|
       |	维护期_字段统计_分组事件数status_邮件_永久	|
-
