@@ -1,8 +1,8 @@
-@authtest1
+@authtest
 Feature: 权限-定时任务
 
   Scenario Outline: 授权功能权限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
+    Given open the "roles.ListPsage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -72,9 +72,11 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
     And I wait for "1000" millsecond
     Then I click the "{'TabButton':'定时任务'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "AutoTestCreate" in auth table
     And I "unchecked" the checkbox which name is "AutoTestCreate" in auth table
     And I click the "SaveButton" button
@@ -93,9 +95,11 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
     And I wait for "1000" millsecond
     Then I click the "{'TabButton':'定时任务'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "AutoTestCreate" in auth table
     And I "unchecked" the checkbox which name is "AutoTestCreate" in auth table
     When I "checked" function "读取" from the auth table which name is "AutoTestCreate"
@@ -125,9 +129,11 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
     And I wait for "1000" millsecond
     Then I click the "{'TabButton':'定时任务'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "删除,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -148,7 +154,7 @@ Feature: 权限-定时任务
     And I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "TagDropdown"
     And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -174,9 +180,11 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
     And I wait for "1000" millsecond
     Then I click the "{'TabButton':'定时任务'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -195,7 +203,7 @@ Feature: 权限-定时任务
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button
     And I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
@@ -224,9 +232,11 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
     And I wait for "1000" millsecond
     Then I click the "{'TabButton':'定时任务'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -268,9 +278,11 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
     And I wait for "1000" millsecond
     Then I click the "{'TabButton':'定时任务'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -316,9 +328,11 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
     And I wait for "1000" millsecond
     Then I click the "{'TabButton':'定时任务'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -382,9 +396,11 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
     And I wait for "1000" millsecond
     Then I click the "{'TabButton':'定时任务'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "新建有效期测试" in auth table
     When the data name is "新建有效期测试" then I click the "无限期" button in auth table
     And I click the "Customize" button
@@ -414,6 +430,7 @@ Feature: 权限-定时任务
     And I click the "ResourceAuth" button
     And I wait for "1000" millsecond
     Then I click the "{'TabButton':'定时任务'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -437,7 +454,7 @@ Feature: 权限-定时任务
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "更新成功"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
@@ -472,6 +489,7 @@ Feature: 权限-定时任务
     And I click the "ResourceAuth" button
     And I wait for "1000" millsecond
     Then I click the "{'TabButton':'定时任务'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
@@ -492,7 +510,7 @@ Feature: 权限-定时任务
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button
     And I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
     And I "uncheck" the checkbox which name is "验证授权用户" in tiny table
@@ -579,7 +597,7 @@ Feature: 权限-定时任务
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button
     And I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "更新成功"
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
@@ -619,7 +637,7 @@ Feature: 权限-定时任务
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button
     And I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "更新成功"
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button

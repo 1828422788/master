@@ -5,6 +5,7 @@ Feature: 权限-下载管理
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     When I "checked" the checkbox which name is "可查看搜索页"
     When I "unchecked" the checkbox which name is "可下载搜索结果(download指令)"
     And I click the "Resource" button
@@ -74,7 +75,7 @@ Feature: 权限-下载管理
     And I click the "DownloadButton" button
     And I set the parameter "DownloadName" with value "AutoTestAuth"
     And I choose the "CSV" from the "FileType"
-    And I click the "EnsureButton" button
+    And I click the "EnsureButton" button under some element
     Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
 
   Scenario: 验证下载管理
@@ -84,5 +85,5 @@ Feature: 权限-下载管理
     And the data name contains "AutoTestAuth" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
-    Then I will see the success message "删除成功"
+    And I wait for "SuccessMessage" will be visible
     Then I logout current user

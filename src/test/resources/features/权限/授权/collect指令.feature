@@ -5,6 +5,7 @@ Feature: 权限-collect指令
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "全选" in trend page
     And I "unchecked" the checkbox which name is "全选" in trend page
     When I "checked" the checkbox which name is "可查看搜索页"
@@ -38,6 +39,7 @@ Feature: 权限-collect指令
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     When I "checked" the checkbox which name is "可使用collect指令"
     And I click the "SaveButton" button
     And I logout current user
@@ -56,6 +58,7 @@ Feature: 权限-collect指令
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "Index" button
     When I "checked" function "读取,编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button

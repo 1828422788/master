@@ -6,10 +6,10 @@ Feature: 权限-字段提取
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
+    And I click the "Resource" button
     When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "全选"
     When I "checked" the checkbox which name is "可查看搜索页"
-    And I click the "Resource" button
     When I "checked" the checkbox which name is "可查看字段提取"
     And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
@@ -172,7 +172,7 @@ Feature: 权限-字段提取
     When the data name is "{'column':'1','name':'AutoTestUserRename'}" then i click the "标签" button
     And I set the parameter "TagInput" with value "自动化测试标签"
     And I choose the "自动化测试标签" from the "Group"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "修改成功"
     And the data name is "{'column':'1','name':'AutoTestUserRename'}" then i click the "授权" button
@@ -224,7 +224,7 @@ Feature: 权限-字段提取
     When the data name is "{'column':'1','name':'副本'}" then i click the "标签" button
     And I set the parameter "TagInput" with value "自动化测试标签"
     And I choose the "自动化测试标签" from the "Group"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "修改成功"
     And I wait for loading invisible
@@ -397,7 +397,7 @@ Feature: 权限-字段提取
     And I wait for "TagInput" will be visible
     And I set the parameter "TagInput" with value "自动化测试标签"
     And I choose the "自动化测试标签" from the "Group"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "修改成功"
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -549,7 +549,7 @@ Feature: 权限-字段提取
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button
     And I set the parameter "TagInput" with value "自动化测试标签"
     And I choose the "自动化测试标签" from the "Group"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "修改成功"
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -671,7 +671,7 @@ Feature: 权限-字段提取
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button
     And I set the parameter "TagInput" with value "自动化测试标签"
     And I choose the "自动化测试标签" from the "Group"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "configs.CreatePage" page
@@ -704,7 +704,7 @@ Feature: 权限-字段提取
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button
     And I set the parameter "TagInput" with value "自动化测试标签"
     And I choose the "自动化测试标签" from the "Group"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible

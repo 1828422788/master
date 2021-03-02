@@ -5,9 +5,10 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
+    And I click the "Resource" button
     When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "全选"
-    And I click the "Resource" button
     When I "checked" the checkbox which name is "可查看字典管理"
     And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
@@ -30,6 +31,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "Resource" button
     And I "checked" the checkbox which name is "新建字典"
     And I click the "SaveButton" button
@@ -53,6 +55,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
@@ -74,6 +77,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
@@ -97,6 +101,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
@@ -106,6 +111,13 @@ Feature: 权限-字典
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
     Given delete file "/target/download-files/<name>.zip"
+    Then I logout current user
+
+    Examples:
+      | name     |
+      | 权限测试.csv |
+
+  Scenario Outline: 验证读取+编辑
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
@@ -123,7 +135,7 @@ Feature: 权限-字典
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When the data name is "<name>" then i click the "授权" button
@@ -139,6 +151,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
@@ -169,6 +182,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
@@ -199,7 +213,7 @@ Feature: 权限-字典
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "修改成功"
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
@@ -228,6 +242,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
@@ -239,6 +254,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
@@ -264,6 +280,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
@@ -312,6 +329,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
@@ -322,6 +340,7 @@ Feature: 权限-字典
     And I will see the success message "更新成功"
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
+    And I wait for loading invisible
     And I will see the "roles.AuthorizationPage" page
     And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
@@ -348,7 +367,7 @@ Feature: 权限-字典
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
@@ -376,6 +395,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
@@ -434,6 +454,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
@@ -444,6 +465,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
@@ -467,9 +489,10 @@ Feature: 权限-字典
     When the data name is "<name>" then i click the "下载" button
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When the data name is "<name>" then i click the "标签" button
+    And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
@@ -511,6 +534,7 @@ Feature: 权限-字典
   Scenario: 授权用户读取权限
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When the data name is "AuthTest.csv" then i click the "授权" button
+    And I wait for loading invisible
     When I "check" the function "读取" which name is "AutoTest" in tiny table
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
@@ -529,6 +553,7 @@ Feature: 权限-字典
   Scenario: 授权对应角色的读取权限
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When the data name is "AuthTest.csv" then i click the "授权" button
+    And I wait for loading invisible
     And I "check" the checkbox which name is "AutoTest" in tiny table
     And I "uncheck" the checkbox which name is "AutoTest" in tiny table
     And I click the "Ensure" button
@@ -555,6 +580,7 @@ Feature: 权限-字典
   Scenario: 授权对应用户分组的读取权限
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When the data name is "AuthTest.csv" then i click the "授权" button
+    And I wait for loading invisible
     And I choose the "角色" from the "AuthDropdown"
     And I wait for loading invisible
     And I "check" the checkbox which name is "__user_AutoTest__" in tiny table
@@ -583,6 +609,7 @@ Feature: 权限-字典
   Scenario: 给用户授权所有权限
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When the data name is "AuthTest.csv" then i click the "授权" button
+    And I wait for loading invisible
     And I "check" the checkbox which name is "AutoTest" in tiny table
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
@@ -593,7 +620,9 @@ Feature: 权限-字典
     And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When the data name is "AuthTest.csv" then i click the "授权" button
+    And I wait for loading invisible
     And I choose the "<authRole>" from the "AuthDropdown"
+    And I wait for loading invisible
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
@@ -615,6 +644,7 @@ Feature: 权限-字典
     And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When the data name is "AuthTest.csv" then i click the "授权" button
+    And I wait for loading invisible
     And I choose the "<authRole>" from the "AuthDropdown"
     And I wait for loading invisible
     When I "check" the function "<function>" which name is "<authName>" in tiny table
@@ -634,9 +664,10 @@ Feature: 权限-字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "标签" button
+    And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When the data name is "<name>" then i click the "授权" button
@@ -654,6 +685,7 @@ Feature: 权限-字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
     When the data name is "AuthTest.csv" then i click the "授权" button
+    And I wait for loading invisible
     And I choose the "<authRole>" from the "AuthDropdown"
     And I wait for loading invisible
     When I "check" the function "<function>" which name is "<authName>" in tiny table
@@ -675,7 +707,7 @@ Feature: 权限-字典
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When the data name is "<name>" then i click the "授权" button

@@ -5,9 +5,10 @@ Feature: 权限-授权告警插件
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
+    And I click the "Resource" button
     When I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "全选"
-    And I click the "Resource" button
     And I "checked" the checkbox which name is "可查看告警插件"
     And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
@@ -55,12 +56,16 @@ Feature: 权限-授权告警插件
     When I "unchecked" function "转授" from the auth table which name is "sendsms"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    Then I logout current user
+
+  Scenario: 验证读取
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.PluginPage" page for uri "/plugins/"
     When the data name is "sendsms" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
+    Then I logout current user
 
   Scenario: 有效期限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -134,6 +139,7 @@ Feature: 权限-授权告警插件
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I wait for "Resource" will be visible
     And I click the "Resource" button
     And I "checked" the checkbox which name is "可查看告警插件"

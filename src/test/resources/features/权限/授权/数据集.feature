@@ -1,4 +1,4 @@
-@authtest1
+@authtest
 Feature: 权限-数据集
 
   Scenario Outline: 勾选所需功能权限
@@ -130,7 +130,7 @@ Feature: 权限-数据集
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "授权" button
@@ -176,7 +176,7 @@ Feature: 权限-数据集
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I wait for "SuccessMessage" will be visible
     And I wait for loading invisible
     When the data name is "<name>" then i click the "授权" button
@@ -327,7 +327,7 @@ Feature: 权限-数据集
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "授权" button
@@ -404,7 +404,7 @@ Feature: 权限-数据集
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible
     And I wait for loading invisible
     When the data name is "<name>" then i click the "授权" button
@@ -499,7 +499,7 @@ Feature: 权限-数据集
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "授权" button
@@ -538,7 +538,7 @@ Feature: 权限-数据集
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "授权" button

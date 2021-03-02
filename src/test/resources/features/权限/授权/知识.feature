@@ -1,4 +1,4 @@
-@authtest1
+@authtest
 Feature: 权限-知识
 
   Scenario Outline: 勾选所需权限
@@ -154,7 +154,7 @@ Feature: 权限-知识
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "testTag"
     And I choose the "testTag" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
@@ -201,7 +201,7 @@ Feature: 权限-知识
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "testTag"
     And I choose the "testTag" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
@@ -392,7 +392,7 @@ Feature: 权限-知识
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "testTag"
     And I choose the "testTag" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     And the data name is "<name>" then i click the "编辑" button
@@ -480,7 +480,7 @@ Feature: 权限-知识
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "testTag"
     And I choose the "testTag" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     And the data name is "<name>" then i click the "编辑" button
@@ -594,7 +594,7 @@ Feature: 权限-知识
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "testTag"
     And I choose the "testTag" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
@@ -634,7 +634,7 @@ Feature: 权限-知识
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "testTag"
     And I choose the "testTag" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible

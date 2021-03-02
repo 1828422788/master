@@ -1,4 +1,4 @@
-@authtest1
+@authtest
 Feature: 权限-搜索宏
 
   Scenario Outline: 勾选所需功能权限
@@ -44,7 +44,7 @@ Feature: 权限-搜索宏
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
-    And I wait for loading invisible
+    And I wait for "Create" will be visible
     And I click the "Create" button
     Then I will see the "searchMacro.CreatePage" page
     When I set the parameter "Name" with value "AutoTestUserCreate"
@@ -130,7 +130,7 @@ Feature: 权限-搜索宏
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
@@ -181,7 +181,7 @@ Feature: 权限-搜索宏
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
@@ -331,7 +331,7 @@ Feature: 权限-搜索宏
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
@@ -436,7 +436,7 @@ Feature: 权限-搜索宏
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
@@ -528,7 +528,7 @@ Feature: 权限-搜索宏
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
@@ -570,7 +570,7 @@ Feature: 权限-搜索宏
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible

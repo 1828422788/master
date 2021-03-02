@@ -1,4 +1,4 @@
-@authtest1
+@authtest
 Feature: 权限-用户
 
   Scenario: 授权无新建权限

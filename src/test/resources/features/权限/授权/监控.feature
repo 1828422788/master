@@ -1,4 +1,4 @@
-@authtest1
+@authtest
 Feature: 权限-监控
 
   Scenario Outline: 勾选所需功能权限
@@ -52,6 +52,7 @@ Feature: 权限-监控
     And I set the parameter "TriggerInput" with value "10000000"
     And I set the parameter "TriggerLevel" with value "1000000000"
     And I click the "CreateButton" button
+    Then I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
     Then I logout current user
 
@@ -67,6 +68,7 @@ Feature: 权限-监控
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
+    Then I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     Then I logout current user
 
@@ -98,6 +100,7 @@ Feature: 权限-监控
     And I "unchecked" the checkbox which name is "<name>" in auth table
     When I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
+    Then I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     Then I logout current user
 
@@ -158,7 +161,7 @@ Feature: 权限-监控
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     When the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
@@ -170,6 +173,7 @@ Feature: 权限-监控
     And I set the parameter "AlertName" with value "AutoTest权限验证修改名称"
     And I set the parameter "TimeInput" with value "20"
     And I click the "SaveButton" button
+    Then I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     Then I logout current user
 
@@ -189,6 +193,7 @@ Feature: 权限-监控
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
+    Then I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     Then I logout current user
 
@@ -209,7 +214,7 @@ Feature: 权限-监控
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
@@ -226,6 +231,7 @@ Feature: 权限-监控
     And I wait for loading invisible
     And I set the parameter "AlertName" with value "AutoTestAuth"
     And I click the "SaveButton" button
+    Then I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     Then I logout current user
 
@@ -383,7 +389,7 @@ Feature: 权限-监控
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
@@ -404,6 +410,7 @@ Feature: 权限-监控
     When the data name is "{'column':'1','name':'AutoTest权限验证修改名称'}" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    Then I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
     Then I logout current user
 
@@ -516,13 +523,14 @@ Feature: 权限-监控
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "alert.CreatePage" page
     And I wait for loading invisible
     And I set the parameter "AlertName" with value "AutoTest权限验证修改名称"
     And I click the "SaveButton" button
+    Then I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     Then I logout current user
 
@@ -628,7 +636,7 @@ Feature: 权限-监控
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
@@ -671,7 +679,7 @@ Feature: 权限-监控
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
@@ -703,6 +711,7 @@ Feature: 权限-监控
     And I wait for loading invisible
     And I set the parameter "AlertName" with value "未删除则证明有bug"
     And I click the "SaveButton" button
+    Then I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     Then I logout current user
 

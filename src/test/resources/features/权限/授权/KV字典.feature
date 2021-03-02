@@ -5,6 +5,7 @@ Feature: 权限-KV字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "全选" in trend page
     And I "unchecked" the checkbox which name is "全选" in trend page
     And I "checked" the checkbox which name is "可查看搜索页"

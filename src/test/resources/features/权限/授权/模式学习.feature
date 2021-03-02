@@ -1,4 +1,4 @@
-@authtest1
+@authtest
 Feature: 权限-模式学习
 
   Scenario Outline: 取消模式学习

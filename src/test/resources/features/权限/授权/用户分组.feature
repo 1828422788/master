@@ -1,4 +1,4 @@
-@authtest1
+@authtest3
 Feature: 权限-用户分组
 
   Scenario: 授权无新建用户分组的权限
@@ -226,6 +226,7 @@ Feature: 权限-用户分组
     And I wait for "UserGroupName" will be visible
     And I wait for "3000" millsecond
     And I set the parameter "UserGroupName" with value "AutoTest测试"
+    And I wait for "Save" will be visible
     And I click the "Save" button
     And I wait for "Message" will be visible
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"

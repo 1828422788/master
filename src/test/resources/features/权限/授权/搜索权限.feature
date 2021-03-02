@@ -1,4 +1,4 @@
-@authtest1
+@authtest
 Feature: 权限-搜索权限
 
   Scenario Outline: 授权所需功能权限

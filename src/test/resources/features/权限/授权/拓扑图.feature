@@ -156,7 +156,7 @@ Feature: 权限-拓扑图
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "授权" button
@@ -205,7 +205,7 @@ Feature: 权限-拓扑图
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "授权" button
@@ -369,7 +369,7 @@ Feature: 权限-拓扑图
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "授权" button
@@ -460,7 +460,7 @@ Feature: 权限-拓扑图
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "授权" button
@@ -648,7 +648,7 @@ Feature: 权限-拓扑图
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "授权" button
@@ -689,7 +689,7 @@ Feature: 权限-拓扑图
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "授权" button
