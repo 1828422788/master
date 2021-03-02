@@ -89,7 +89,13 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSavedCopy() { return getInputElementWithoutLabel("天后删除副本"); }
-    public WebElement getFreeze() { return getInputElementWithoutLabel("天前的索引拒绝入库"); }
+//    public WebElement getFreeze() { return getInputElementWithoutLabel("天前的索引拒绝入库"); }
+
+//    public WebElement getFreeze() { return getInputElementWithoutLabel("天后拒绝入库"); }
+//
+//    public WebElement getSinkHDD() { return getInputElementWithoutLabel("天后下沉到HDD"); }
+
+    public WebElement getFreeze() { return getInputElementWithoutLabel("天后拒绝入库"); }
     public WebElement getSinkHDD() { return getInputElementWithoutLabel("天后下沉到HDD"); }
     public WebElement getSinkNAS() { return getInputElementWithoutLabel("天后下沉到NAS"); }
 

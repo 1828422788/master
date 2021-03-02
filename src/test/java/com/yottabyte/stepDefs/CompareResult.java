@@ -18,6 +18,10 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBuffer;
 import java.io.*;
@@ -298,6 +302,12 @@ public class CompareResult {
             String fis2_path = "/opt/actual/" + targetDownloadFile;
             fis2 = new FileInputStream(fis2_path);
 
+//            fis1 = new FileInputStream(curPath + "/" + sourceDownloadFile);
+//            fis2 = new FileInputStream(curPath + "/target/download-files/" + targetDownloadFile);
+//          fis1 = new FileInputStream(curPath + "/" + sourceDownloadFile);
+            fis1 = new FileInputStream("/opt/expect/" + sourceDownloadFile);
+//          fis2 = new FileInputStream(curPath + "/target/download-files/" + targetDownloadFile);
+            fis2 = new FileInputStream("/var/lib/jenkins/workspace/downloadFile/" + targetDownloadFile);
             int len1 = fis1.available();//返回总的字节数
             int len2 = fis2.available();
 
@@ -331,9 +341,10 @@ public class CompareResult {
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-//            Assert.fail();
         } catch (IOException e) {
             e.printStackTrace();
+//            Assert.fail();
+
 //            Assert.fail();
         } finally {//关闭文件流，防止内存泄漏
             if (fis1 != null) {

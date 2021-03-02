@@ -18,25 +18,33 @@ public class OfflineTaskPage extends PageTemplate {
     public OfflineTaskPage(WebDriver driver) {
         super(driver);
 //        isLoaded();
+        driver.manage().window().fullscreen();
 //        driver.manage().window().maximize();
 //        driver.manage().window().setSize(new Dimension(1, 1));
 //        driver.manage().window().setPosition(new Point(0, 0));
 
     }
 
-    @FindBy(className = "el-table_1_column_1")
-    private List<WebElement> tdList;
+//    @FindBy(className = "el-table_1_column_1")
+//    private List<WebElement> tdList;
+//
+//    @FindBy(xpath = "//td[@class='el-table_1_column_1']")
+//    private WebElement emptyElement;
 
-    @FindBy(xpath = "//td[@class='el-table_1_column_1']")
-    private WebElement emptyElement;
+//    public WebElement getEmptyElement() {
+//        return emptyElement;
+//    }
 
-    public WebElement getEmptyElement() {
-        return emptyElement;
-    }
-
-    public WebElement getFirstData() {
-        return tdList.get(1);
-    }
+//    public WebElement getFirstData() {
+//        return tdList.get(1);
+//    }
+//    public WebElement getEmptyElement() {
+//        return emptyElement;
+//    }
+//
+//    public WebElement getFirstData() {
+//        return tdList.get(1);
+//    }
 
     public WebElement getErrorMessage() {
         return super.getErrorMessage();

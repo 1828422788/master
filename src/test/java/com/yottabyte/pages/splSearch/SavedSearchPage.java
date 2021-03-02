@@ -30,15 +30,16 @@ public class SavedSearchPage extends ListPageFactory {
     @FindBy(className = "el-select-dropdown__list")
     private List<WebElement> dropdownList;
 
-    @FindBy(xpath = "//div[@class='el-message-box__btns']//span[contains(text(),'确定')]")
-    private WebElement ensureDelete;
-
     @FindBy(xpath = "//i[@aria-label='图标: star']")
     private WebElement star;
 
     public WebElement getStar() {
         return star;
     }
+
+
+    @FindBy(xpath = "//span[contains(text(),'确定')]/parent::button")
+    private WebElement ensureDelete;
 
     public WebElement getEnsureDelete() {
         return ensureDelete;

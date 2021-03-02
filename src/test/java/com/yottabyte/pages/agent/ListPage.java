@@ -16,6 +16,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  */
 public class ListPage extends ListPageFactory {
 
+
     public WebElement getMemoButton() {
         return MemoButton;
     }
@@ -66,13 +67,15 @@ public class ListPage extends ListPageFactory {
         return AgentDownloadButton;
     }
 
-    public WebElement getCopyLinux() {
-        return super.getButton("下载命令");
-    }
+    @FindBy(xpath = "//span[text()='下载命令']/ancestor::button")
+    private WebElement CopyLinux;
+
 
     public WebElement getDownloadFile() {
         return super.getButton("下载文件");
     }
+    @FindBy(xpath = "//span[text()='下载文件']/ancestor::button")
+    private WebElement DownloadFile;
 
     @FindBy(xpath = "//li/span[text()='下载安装包']")
     private WebElement AgentDownloadButton;

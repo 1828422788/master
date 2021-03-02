@@ -4,6 +4,7 @@ import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.Agent;
 import com.yottabyte.utils.JsonStringPaser;
 import com.yottabyte.utils.ListPageUtils;
+import com.yottabyte.utils.WaitForElement;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -17,7 +18,6 @@ import java.util.Map;
 
 /**
  * 对复选框的操作
- *
  */
 public class Checkbox {
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
@@ -32,15 +32,79 @@ public class Checkbox {
     @And("^I \"([^\"]*)\" the label before \"([^\"]*)\"$")
     public void clickCheckLabel(String status, List<String> nameList) {
         for (String name : nameList) {
-            String xpath = "//div[contains(text(),'" + name + "')]/ancestor::td/preceding-sibling::td//label";
+            String xpath = "//span[contains(text(),'" + name + "')]/preceding-sibling::label";
             WebElement label = webDriver.findElement(By.xpath(xpath));
-            WebElement span = label.findElement(By.xpath(".//span"));
-            String attribute = span.getAttribute("class");
+            String attribute = label.getAttribute("class");
             if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
                 label.click();
             }
         }
     }
+
+    /**
+     * 勾选某个名称后面的checkbox
+     *
+     * @param status   想要将复选框置为的状态，checked/unchecked
+     * @param nameList 想要勾选/取消勾选的名称（支持传入list）
+     */
+    @And("^I \"([^\"]*)\" the label after \"([^\"]*)\"$")
+    public void clickLabelAfterName(String status, List<String> nameList) {
+        for (String name : nameList) {
+            String xpath = "//label[text()='" + name + "']/following-sibling::div//label";
+            WebElement label = webDriver.findElement(By.xpath(xpath));
+            String attribute = label.getAttribute("class");
+            if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
+                label.click();
+            }
+        }
+    }
+
+    /**
+     * 在列表页中勾选checkbox，支持批量勾选，可分页
+     *
+     * @param status   checked/unchecked
+     * @param nameList 待操作的数据名称列表
+     * @param num      名称所在列，从0开始
+     */
+    @And("^I \"([^\"]*)\" the checkbox in list which name is \"([^\"]*)\" in column \"([^\"]*)\"$")
+    public void clickCheckBoxInList(String status, List<String> nameList, String num) {
+        int columnNum = Integer.parseInt(num);
+        List<WebElement> trList = webDriver.findElements(By.className("ant-table-row"));
+        while (true) {
+            // 遍历列表页数据
+            for (WebElement tr : trList) {
+                List<WebElement> tdList = tr.findElements(By.tagName("td"));
+                String tdText = tdList.get(columnNum).getText();
+                // 遍历传递进来的名称列表，若匹配成功则点击前面的checkbox并从列表中移除该名称
+                for (int i = 0; i < nameList.size(); i++) {
+                    String name = nameList.get(i);
+                    if (tdText.equals(name)) {
+                        WebElement checkLabel = tr.findElement(By.xpath(".//label"));
+                        String attribute = checkLabel.getAttribute("class");
+                        if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
+                            checkLabel.click();
+                        }
+                        nameList.remove(i);
+                        break;
+                    }
+                }
+                if (nameList.size() == 0) {
+                    return;
+                }
+            }
+            // 分页
+            WebElement nextButton = webDriver.findElement(By.className("ant-pagination-next"));
+            String nextButtonAttr = nextButton.getAttribute("class");
+            if (nextButtonAttr.contains("disabled")) {
+                return;
+            } else {
+                nextButton.click();
+                WaitForElement.waitUntilLoadingDisappear();
+                trList = webDriver.findElements(By.className("ant-table-row"));
+            }
+        }
+    }
+
 
     /**
      * 勾选或取消勾选checkbox（名称可直接点击）

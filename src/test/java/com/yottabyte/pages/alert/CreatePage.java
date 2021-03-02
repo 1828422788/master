@@ -63,7 +63,8 @@ public class CreatePage extends PageTemplate {
     private WebElement searchContent;
 
     // 已存搜索按钮
-    @FindBy(xpath = "//i[@class='iconfont icon-beizhu_icon graph-tips']/following-sibling::div/span")
+//    @FindBy(xpath = "//i[@class='iconfont icon-beizhu_icon graph-tips']/following-sibling::div/span")
+    @FindBy(xpath = "(//a[contains(text(),'已存搜索 +')])")
     private WebElement savedSearchButton;
 
     // 启用/禁用按钮
@@ -218,6 +219,15 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i")
     private WebElement app;
 
+    @FindBy(xpath = "//span[text()='确定']//ancestor::button")
+    private WebElement ensureButton;
+
+    @FindBy(xpath = "//label[contains(text(),'资源标签')]/following-sibling::div//input")
+    private WebElement alertResourceTagInput;
+
+    @FindBy(className = "ant-select-dropdown-menu")
+    private WebElement selectDropdownMenu;
+
     @Override
     public WebElement getApp() {
         app.click();
@@ -364,6 +374,12 @@ public class CreatePage extends PageTemplate {
         return lastDropdownList;
     }
 
+    public WebElement getEnsureButton() { return ensureButton; }
+
+    public WebElement getResourceTagInput() { return alertResourceTagInput; }
+
+    public WebElement getSelectDropdown() { return selectDropdownMenu; }
+
     public WebElement getAlertUsers() {
         return getSelectors(alertUserButton);
     }
@@ -379,7 +395,8 @@ public class CreatePage extends PageTemplate {
     public WebElement getSavedSearch() {
         com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(savedSearchButton));
         savedSearchButton.click();
-        List<WebElement> list = webDriver.findElements(By.className("saved-search-dropdown-menu"));
+//        List<WebElement> list = webDriver.findElements(By.className("saved-search-dropdown-menu"));
+        List<WebElement> list = webDriver.findElements(By.className("ant-dropdown-menu-item"));
         com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(list.get(list.size() - 1)));
         return list.get(list.size() - 1);
     }

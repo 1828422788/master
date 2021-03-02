@@ -101,7 +101,6 @@ Feature: Agent具体配置高级配置及清理缓存操作
       | B/S       | 100 B/s          |
       | MB/S      | 100.00 MB/s      |
 
-
   Scenario Outline: 输出配置修改单行日志最大长度
     And I click the "OutputEdit" button
     And I click the "Edit" button
@@ -113,8 +112,8 @@ Feature: Agent具体配置高级配置及清理缓存操作
 
     Examples:
       | loglength | loglengthstatus |
-      | 70000      | 70000 Byte       |
-      | 65536      |  65536 Byte       |
+      | 10000     | 10000 Byte      |
+      | 65536     | 65536 Byte      |
 
 
 

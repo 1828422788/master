@@ -166,9 +166,38 @@ public class SendPolicyPage extends PageTemplate {
         return super.getLastDropdownListOnSendPolicyPage(xpath);
     }
 
+//    public WebElement getMailReceiver() {
+//        String xpath = "//label[text()='接收者']/parent::div/following-sibling::div//div[@class='ant-select-selection__rendered']";
+//        return super.getLastDropdownListOnSendPolicyPage(xpath);
+//    }
+
+    @FindBy(xpath = "//label[text()='接收者']/parent::div/following-sibling::div//div[@class='ant-select-selection__rendered']/ul/li/div/input")
+    private WebElement mailReceiver;
     public WebElement getMailReceiver() {
-        String xpath = "//label[text()='接收者']/parent::div/following-sibling::div//div[@class='ant-select-selection__rendered']";
-        return super.getLastDropdownListOnSendPolicyPage(xpath);
+        return mailReceiver;
+    }
+
+    @FindBy(xpath = "//label[text()='接收者']/parent::div/following-sibling::div//div[@class='ant-select-selection__rendered']")
+    private WebElement mailReceiverButton;
+
+    public WebElement getMailReceiverButton() {
+        return mailReceiverButton;
+    }
+
+    public WebElement getMailReceiverList() {
+        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(mailReceiverButton));
+        mailReceiverButton.click();
+//        List<WebElement> list = webDriver.findElements(By.className("ant-dropdown-menu-item"));
+        //ant-popover-inner-content
+        //ant-popover-open
+//        ant-select-dropdown-menu-item-group-list
+//        ant-select-dropdown-menu-item ant-select-dropdown-menu-item-selected
+//        List<WebElement> list = webDriver.findElements(By.className("_2RBmHatSR7JD5UWjhikn9T"));
+//        List<WebElement> elements = parentElement.findElements(By.xpath("//li"));
+        List<WebElement> list = webDriver.findElements(By.xpath("//ul"));
+//        List<WebElement> list = webDriver.findElements(By.className("_2RBmHatSR7JD5UWjhikn9T"));
+        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(list.get(list.size() - 1)));
+        return list.get(list.size() - 1);
     }
 
     public WebElement getRelatedSendPluginList() {

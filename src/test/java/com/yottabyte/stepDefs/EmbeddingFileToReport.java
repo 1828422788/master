@@ -11,6 +11,9 @@ import cucumber.api.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -39,6 +42,32 @@ public class EmbeddingFileToReport {
             e.printStackTrace();
         }
     }
+//
+//    @Then("^I download file \"([^\"]*)\" to local$")
+//    public void downloadFileToLocal(String fileName) {
+//        FileOutputStream outputStream = null;
+//        try {
+//            File file = new File("downloadFile/" + fileName);
+//            file.createNewFile();
+//            ConfigManager config = new ConfigManager();
+//            SFTPUtil util = new SFTPUtil(config.get("ftp_user"), config.get("ftp_password"), config.get("selenium_server_host"), 22);
+//            util.login();
+//            byte[] bytes = util.download("target/download-files/", fileName);
+//            outputStream = new FileOutputStream(file);
+//            outputStream.write(bytes);
+//            outputStream.flush();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        } finally {
+//            try {
+//                if (outputStream != null)
+//                    outputStream.close();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
+
 
     @Then("^I download file \"([^\"]*)\" to local$")
     public void downloadFileToLocal(String fileName) {

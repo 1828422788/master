@@ -22,9 +22,9 @@ Feature: 事件管理_用户接收组_7个
 
     Examples:
       | NoticeReceiveGroupName | ReceiveGroupMemberValue | ReceiveGroupNonMemberValue |
-      | 发送策略一级组 | 日志易用户体验组 | kongfeili       |
-      | delete_响应组 | 日志易用户体验组 | kongfeili       |
-      | update_响应组 | 日志易用户体验组 | Leibniz         |
+      | 接收策略一级组 | incident用户体验组 | kongfeili       |
+      | delete_响应组 | incident用户体验组 | kongfeili       |
+      | update_响应组 | incident用户体验组 | Leibniz         |
 
   @editrec
   Scenario Outline: 测试编辑接收组
@@ -46,3 +46,19 @@ Feature: 事件管理_用户接收组_7个
     Examples:
       | NoticeReceiveGroupName | ReceiveGroupNonMemberValue |
       | update_响应组 | kongfeili |
+
+  @delrec @incidentdel
+  Scenario Outline: 测试删除接收组
+    Given open the "incident.SendPolicyPage" page for uri "/app/incident/sender-policy/list/"
+    And I click the "NoticeReceiveGroup" button
+
+    When I set the parameter "NoticeReceiveGroupNameSearchInput" with value "<NoticeReceiveGroupName>"
+    And I click the "NoticeReceiveGroupDeleteButton" button
+    And I wait for "ConfirmDelNoticeReceiveGroupButton" will be visible
+    And I click the "ConfirmDelSNoticeReceiveGroupButton" button
+
+    Examples:
+      | NoticeReceiveGroupName |
+      | delete_响应组 |
+      | 接收策略一级组 |
+      | update_响应组 |

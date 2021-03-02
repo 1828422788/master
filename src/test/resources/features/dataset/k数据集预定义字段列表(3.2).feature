@@ -17,9 +17,9 @@ Feature: 数据集-k预定义字段列表
 
     And I click the "fieldLowAdd" button
     And I set the parameter "secondFieldName" with value "appname"
-#    And I choose the "字符串" from the "secondFieldType"
-    And I click the "secondFieldType" button
-    And I click the "strStr" button
+    And I choose1 the "字符串" from the "SecondFieldTypeList"
+#    And I click the "secondFieldType" button
+#    And I click the "strStr" button
 
     And I click the "Save" button
     Then I will see the "dataset.DetailPage" page

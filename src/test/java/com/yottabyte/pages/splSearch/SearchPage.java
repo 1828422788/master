@@ -68,9 +68,9 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='已存搜索']")
     private WebElement savedSearch;
 
-    public WebElement getSavedSearch() {
-        return savedSearch;
-    }
+//    public WebElement getSavedSearch() {
+//        return savedSearch;
+//    }
 
     @FindBy(xpath = "//span[text()='已存搜索']")
     private WebElement openSavedSearchButton;
@@ -127,9 +127,9 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")
     private WebElement savedSearchName;
 
-    public WebElement getSavedSearchName() {
-        return savedSearchName;
-    }
+//    public WebElement getSavedSearchName() {
+//        return savedSearchName;
+//    }
 
     @FindBy(xpath = "//div[@class='yw-search-form-el-input normal-input margin-left el-input']/input")
     private WebElement searchSavedList;
@@ -199,6 +199,21 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(tagName = "thead")
     private WebElement thead;
+
+    public WebElement getSavedSearch() {
+        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(openSavedSearchButton));
+        openSavedSearchButton.click();
+        List<WebElement> list = webDriver.findElements(By.className("ant-dropdown-menu-item"));
+        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(list.get(list.size() - 1)));
+        return list.get(list.size() - 1);
+    }
+
+//    @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")
+//    private WebElement savedSearchName;
+
+    public WebElement getSavedSearchName() {
+        return savedSearchName;
+    }
 
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div")
     private WebElement appIcon;
@@ -585,7 +600,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='x']/ancestor::td/following-sibling::td/span")
     private WebElement xValue;
 
-    @FindBy(xpath = "//span[text()='事件操作']/i")
+    @FindBy(className = "ant-dropdown-trigger")
     private WebElement eventOperate;
 
     @FindBy(xpath = "//li[text()='配置字段提取']")
@@ -741,9 +756,81 @@ public class SearchPage extends ListPageFactory {
     public WebElement getScheduleNameDetail() {
         return scheduleNameDetail;
     }
+    @FindBy(xpath = "//div[@title='居左']")
+    private WebElement tableAlignment;
+
+    @FindBy(xpath = "//th[text()='hostname']/i")
+    private WebElement icon;
+
+    public WebElement getIcon() {
+        return icon;
+    }
+    @FindBy(xpath = "//li[text()='居中']")
+    private WebElement middle;
+    @FindBy(xpath = "(//td[@class='_2y26OafmVfXbjbPLoZ-NYG'])[3]")
+    private WebElement targetValue;
+    @FindBy(xpath = "//span[@class='t4zheDaX0848mtd_e7LDW ant-input-group-wrapper']//input")
+    private WebElement colWidth;
+    @FindBy(xpath = "//button[@class='ant-btn ant-btn-primary']")
+    private WebElement confirm;
 
     public WebElement getCondition() {
         return condition;
+    }
+
+    public WebElement getTableAlignment() {
+        return tableAlignment;
+    }
+
+    public WebElement getMiddle() {
+        return middle;
+    }
+
+    public WebElement getConfirm() {
+        return confirm;
+    }
+
+    public WebElement getTargetValue() {
+        return targetValue;
+    }
+
+    public WebElement getColWidth() {
+        return colWidth;
+    }
+
+    @FindBy(xpath = "//th[@title='hostname']")
+    private WebElement targetWidth;
+
+    public WebElement getTargetWidth() {
+        return targetWidth;
+    }
+
+    @FindBy(xpath = "//div[text()='请选择']")
+    private WebElement textStyle;
+
+    public WebElement getTextStyle() {
+        return textStyle;
+    }
+
+    @FindBy(xpath = "//li[text()='斜体']")
+    private WebElement italic;
+
+    public WebElement getItalic() {
+        return italic;
+    }
+
+    @FindBy(xpath = "//span[@class='_2yG4RqCR3-owuoI9z87xoo css-j4ndc3']")
+    private WebElement colorPicker;
+
+    public WebElement getColorPicker() {
+        return colorPicker;
+    }
+
+    @FindBy(xpath = "(//div[@class='css-1kx576s'])[1]/input")
+    private WebElement colorInput;
+
+    public WebElement getColorInput() {
+        return colorInput;
     }
 
     public SearchPage(WebDriver driver) {
@@ -968,9 +1055,6 @@ public class SearchPage extends ListPageFactory {
         return noDataInfo;
     }
 
-    public WebElement getDownloadEvent() {
-        return downloadEvent;
-    }
 
     public WebElement getMaxLineDropdown() {
         maxLineDropdown.click();
@@ -981,11 +1065,14 @@ public class SearchPage extends ListPageFactory {
         return downloadName;
     }
 
+//    public WebElement getMaxLineNum() {
+//        return super.getInputElement("最大行数");
+//    }
+
     public WebElement getMaxLineNum() {
         String xpath = "//label[text()='最大行数']//following-sibling::input";
         return webDriver.findElement(By.xpath(xpath));
     }
-
 
     public WebElement getDocumentTypeList() {
         String xpath = "//div/label[contains(text(),'文件类型')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
@@ -1570,10 +1657,23 @@ public class SearchPage extends ListPageFactory {
         return message;
     }
 
+//    public WebElement getDownloadButton() {
+//        return super.getButton("下载");
+//    }
+
+    @FindBy(xpath = "//span[text()='下载']/parent::button")
+    private WebElement downloadButton;
+
     public WebElement getDownloadButton() {
-        return super.getButton("下载");
+        return downloadButton;
     }
 
+    //  @FindBy(xpath = "//button[@class='el-button yw-search-pages-download el-button--primary']/span")
+//    @FindBy(xpath = "//svg/use/svg[@id='icon-sousuoye_xiazai']::parent")
+
+    public WebElement getDownloadEvent() {
+        return downloadEvent;
+    }
 
     public WebElement getCustomizeTimeField() {
         return CustomizeTimeField;
@@ -1726,6 +1826,7 @@ public class SearchPage extends ListPageFactory {
     }
 
     @FindBy(xpath = "//div[@class='_2s3Fd-GN0DsYSjwg0ByfD1 yw-table']")
+//    @FindBy(xpath = "//div[@class='_2s3Fd-GN0DsYSjwg0ByfD1']")
     private WebElement splStatsRetTable;
 
     public WebElement getSplStatsRetTable() {
@@ -2122,7 +2223,4 @@ public class SearchPage extends ListPageFactory {
     public WebElement getMergeURL() {
         return mergeURL;
     }
-
-
-
 }

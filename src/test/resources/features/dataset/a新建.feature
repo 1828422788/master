@@ -1,6 +1,5 @@
 @dataset @dataseta @dataset1
 Feature: 数据集-a新建
-    
   @tc4082
   Scenario Outline: RZY-4082:新建数据集
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -32,7 +31,6 @@ Feature: 数据集-a新建
       | JNDTest | jnd   | *   |
 
 # # ################################## 插播几条查询的case，依赖与上一条case的新建
-
  @tc4075
   Scenario Outline: RZY-4075:按资源查询
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -58,7 +56,6 @@ Feature: 数据集-a新建
     Examples:
       | name    |
       | JNDTest |
-
 
   Scenario: RZY-4074:按应用查询
     Given open the "dataset.ListPage" page for uri "/dataset/"

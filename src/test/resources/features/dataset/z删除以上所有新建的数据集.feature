@@ -23,3 +23,4 @@ Feature: 数据集-z删除所有
       | 父子无tree       |
       | 父子汇聚tree     |
       | 父子继承tree     |
+      | rootname        |

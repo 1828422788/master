@@ -51,7 +51,6 @@ public class LoginPage extends PageTemplate {
         return super.getYottaButton("login-login-button");
     }
 
-
     public WebElement getUpdate() {
         return super.getButton("更 新");
     }
@@ -63,6 +62,7 @@ public class LoginPage extends PageTemplate {
     public WebElement getRepeatPassword() {
         return this.getInputElement("重复密码");
     }
+
     public String getTitle() {
         return webDriver.getTitle();
     }
