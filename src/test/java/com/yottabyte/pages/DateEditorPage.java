@@ -33,70 +33,70 @@ public class DateEditorPage extends PageTemplate {
     @FindBy(xpath = "//*[text()='快捷选项']")
     private WebElement dateMenuFastChoose;
 
-    @FindBy(xpath = "//button[text()='最近7天']")
+    @FindBy(xpath = "//label[text()='最近7天']")
     private WebElement recentSevenDay;
 
-    @FindBy(xpath = "//button[text()='今天']")
+    @FindBy(xpath = "//label[text()='今天']")
     private WebElement today;
 
-    @FindBy(xpath = "//button[text()='昨天']")
+    @FindBy(xpath = "//label[text()='昨天']")
     private WebElement yesterday;
 
-    @FindBy(xpath = "//button[text()='本周']")
+    @FindBy(xpath = "//label[text()='本周']")
     private WebElement thisWeek;
 
-    @FindBy(xpath = "//button[text()='上周']")
+    @FindBy(xpath = "//label[text()='上周']")
     private WebElement lastWeek;
 
-    @FindBy(xpath = "//button[text()='本月']")
+    @FindBy(xpath = "//label[text()='本月']")
     private WebElement thisMonth;
 
-    @FindBy(xpath = "//button[text()='上月']")
+    @FindBy(xpath = "//label[text()='上月']")
     private WebElement lastMonth;
 
-    @FindBy(xpath = "//button[text()='最近10分钟']")
+    @FindBy(xpath = "//label[text()='最近10分钟']")
     private WebElement tenMinutes;
 
-    @FindBy(xpath = "//button[text()='10分钟']")
+    @FindBy(xpath = "//label[text()='10分钟']")
     private WebElement recentTenMinutes;
 
-    @FindBy(xpath = "//button[text()='最近30分钟']")
+    @FindBy(xpath = "//label[text()='最近30分钟']")
     private WebElement halfHour;
 
-    @FindBy(xpath = "//button[text()='30分钟']")
+    @FindBy(xpath = "//label[text()='30分钟']")
     private WebElement recentHalfHour;
 
-    @FindBy(xpath = "//button[text()='最近1小时']")
+    @FindBy(xpath = "//label[text()='最近1小时']")
     private WebElement oneHour;
 
-    @FindBy(xpath = "//button[text()='1小时']")
+    @FindBy(xpath = "//label[text()='1小时']")
     private WebElement recentOneHour;
 
-    @FindBy(xpath = "//button[text()='最近1天']")
+    @FindBy(xpath = "//labeln[text()='最近1天']")
     private WebElement oneDay;
 
-    @FindBy(xpath = "//button[text()='1天']")
+    @FindBy(xpath = "//label[text()='1天']")
     private WebElement recentOneDay;
 
-    @FindBy(xpath = "//button[text()='最近2天']")
+    @FindBy(xpath = "//label[text()='最近2天']")
     private WebElement twoDays;
 
-    @FindBy(xpath = "(//button[text()='2天'])[last()]")
+    @FindBy(xpath = "(//label[text()='2天'])[last()]")
     private WebElement recentTwoDays;
 
-    @FindBy(xpath = "//button[text()='最近7天']")
+    @FindBy(xpath = "//label[text()='最近7天']")
     private WebElement sevenDays;
 
-    @FindBy(xpath = "//button[text()='7天']")
+    @FindBy(xpath = "//label[text()='7天']")
     private WebElement recentSevenDays;
 
-    @FindBy(xpath = "//button[text()='所有时间']")
+    @FindBy(xpath = "//label[text()='所有时间']")
     private WebElement wholeTime;
 
-    @FindBy(xpath = "//button[text()='全部时间']")
+    @FindBy(xpath = "//label[text()='全部时间']")
     private WebElement topoWholeTime;
 
-    @FindBy(xpath = "//button[text()='30秒窗口']")
+    @FindBy(xpath = "//label[text()='30秒窗口']")
     private WebElement thirtySeconds;
 
     @FindBy(xpath = "//div[@class='el-tabs__item'][text()='最近']")

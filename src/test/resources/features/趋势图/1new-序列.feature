@@ -22,7 +22,7 @@ Feature: 趋势图新建_序列
 
     And I click the "Type" button
     And I wait for "2000" millsecond
-    And I wait for "<chartType>Element" will be visible
+#    And I wait for "<chartType>Element" will be visible
     And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
@@ -31,21 +31,22 @@ Feature: 趋势图新建_序列
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
     And I click the "ReturnButton" button under some element
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "更多" button
+    And I click the "ViewTrend" button
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
     And I wait for "ChartName" will be visible
     And I wait for "ChartView" will be visible
     And I will see the element "ChartName" contains "<chartType>_<caseNum>"
-    Then I will see the "trend.CreatePage" page
-    And I wait for "<chartType>Element" will be visible
+#    Then I will see the "trend.CreatePage" page
+#    And I wait for "<chartType>Element" will be visible
 
     Examples:
     |   chartType   |caseNum  |
@@ -77,7 +78,7 @@ Feature: 趋势图新建_序列
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "<chartType>Element" will be visible
+#    And I wait for "<chartType>Element" will be visible
     And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<buttonChoice>"
@@ -86,7 +87,7 @@ Feature: 趋势图新建_序列
 
     When I set the parameter "NameInput" with value "<chartType>_<buttonChoice>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -118,7 +119,7 @@ Feature: 趋势图新建_序列
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "<chartType>Element" will be visible
+#    And I wait for "<chartType>Element" will be visible
     And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
@@ -127,7 +128,7 @@ Feature: 趋势图新建_序列
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -157,7 +158,7 @@ Feature: 趋势图新建_序列
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-    And I wait for "<chartType>Element" will be visible
+#    And I wait for "<chartType>Element" will be visible
     And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>_<buttonChoice>"
@@ -166,7 +167,7 @@ Feature: 趋势图新建_序列
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>_<buttonChoice>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -208,7 +209,7 @@ Feature: 趋势图新建_序列
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>_limit"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -232,7 +233,6 @@ Feature: 趋势图新建_序列
 
     And I click the "Settings" button under some element
     And I click the "Facet" button
-    And I click the "AddField" button
     And I choose the "apache.method" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
@@ -241,7 +241,7 @@ Feature: 趋势图新建_序列
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "<chartType>Element" will be visible
+#    And I wait for "<chartType>Element" will be visible
     And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_分面"
@@ -250,9 +250,8 @@ Feature: 趋势图新建_序列
 
     When I set the parameter "NameInput" with value "<chartType>_分面"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
-
 
     Examples:
       |   chartType   |

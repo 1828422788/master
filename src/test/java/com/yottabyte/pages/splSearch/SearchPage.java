@@ -347,7 +347,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(className = "el-collapse-item__wrap")
     private WebElement searchHistoryWindow;
 
-    @FindBy(className = "_3YQ9T5DTgCrQ0NSzwkV6a5")
+    @FindBy(className = "yotta-search-control-text")
     private WebElement searchStatus;
 
     @FindBy(xpath = "//div[@class='yw-search-tabbar']//div[text()='统计']")
@@ -374,10 +374,10 @@ public class SearchPage extends ListPageFactory {
     @FindBy(className = "yw-search-stats-charts-title-label")
     private List<WebElement> buttons;
 
-    @FindBy(xpath = "//li[text()='定时任务']")
+    @FindBy(xpath = "//li/span[text()='定时任务']")
     private WebElement timedTask;
 
-    @FindBy(xpath = "//li[text()='趋势图']")
+    @FindBy(xpath = "//li/span[text()='趋势图']")
     private WebElement trend;
 
     @FindBy(xpath = "//label[text()='描述']/following-sibling::input")
@@ -1579,7 +1579,7 @@ public class SearchPage extends ListPageFactory {
         new DateEditorPage(webDriver).getCustomTime("00:00:00", "00:00:00", "2015-01-23", "2015-01-25");
     }
 
-    @FindBy(xpath = "//input[@placeholder='请选择快捷时间或时间范围']")
+    @FindBy(className = "yotta-date-time-picker")
     private WebElement dateEditor;
 
     @FindBy(xpath = "//div[contains(text(),'自定义时间范围')]")

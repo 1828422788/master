@@ -19,10 +19,10 @@ public class ViewPage extends ListPageFactory {
         driver.manage().window().setSize(new Dimension(1200,900));
     }
 
-    @FindBy(xpath = "//section[@class='ant-layout']/main/div/div[1]")
+    @FindBy(xpath = "//div[@class='_1XWSkB7lsqBB9HywiSqtKJ']/div[1]")
     private WebElement chartName;
 
-    @FindBy(xpath = "//section[@class='ant-layout']/main/div/div[2]/div/div[2]")
+    @FindBy(xpath = "//div[@class='_1XWSkB7lsqBB9HywiSqtKJ']/div[2]")
     private WebElement chartView;
 
     @FindBy(xpath = "//span[text()='无数据']")
