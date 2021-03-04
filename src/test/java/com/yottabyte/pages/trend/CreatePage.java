@@ -38,7 +38,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='eua4mwMYB7k125sVmyyzn']/div[1]/div[2]/div[1]")
     private WebElement chartView;
 
-    @FindBy(xpath = "//div[@class='ZvGKqShXaXHE-0feDOBus']/following-sibling::div")
+    @FindBy(xpath = "//div[@id='spl-chart']")
     private WebElement statisticalChart;
 
     @FindBy(xpath = "//span[text()='类型']")
@@ -73,48 +73,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[contains(text(),'关系')]")
     private WebElement connection;
 
-    @FindBy(xpath = "(//div[contains(text(),'曲线图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement lineChart;
-
-    @FindBy(xpath = "(//div[contains(text(),'面积图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement areaChart;
-
-    @FindBy(xpath = "(//div[contains(text(),'柱状图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement columnChart;
-
-    @FindBy(xpath = "(//div[contains(text(),'散点图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement scatterChart;
-
-    @FindBy(xpath = "(//div[contains(text(),'旭日图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement sun;
-
-    @FindBy(xpath = "(//div[contains(text(),'统计地图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement statisticalmap;
-
-    @FindBy(xpath = "(//div[contains(text(),'单值')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement single;
-
-    @FindBy(xpath = "(//div[contains(text(),'环形比例图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement ring;
-
-    @FindBy(xpath = "(//div[contains(text(),'水球图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement liquidfill;
-
-    @FindBy(xpath = "(//div[contains(text(),'雷达图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement radar;
-
-    @FindBy(xpath = "(//div[contains(text(),'漏斗图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement funnel;
-
-    @FindBy(xpath = "(//div[contains(text(),'矩阵热力图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement matrixheatmap;
-
-    @FindBy(xpath = "(//div[contains(text(),'调用链')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement chain;
-
-    @FindBy(xpath = "(//div[contains(text(),'网络节点图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement networkNode;
-
     @FindBy(xpath = "(//div[contains(text(),'数值')])[last()]")
     private WebElement value;
 
@@ -127,13 +85,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='时序'])[last()]")
     private WebElement timeSequence;
 
-    @FindBy(xpath = "(//div[text()=' 分面'])[last()]")
+    @FindBy(xpath = "(//div[contains(text(),'分面')])[last()]")
     private WebElement facet;
 
-    @FindBy(xpath = "(//span[text()='行数']/preceding-sibling::input)[last()]")
+    @FindBy(xpath = "(//span[text()='行数']/preceding-sibling::div/input)[last()]")
     private WebElement rowNum;
 
-    @FindBy(xpath = "(//span[text()='列数']/preceding-sibling::input)[last()]")
+    @FindBy(xpath = "(//span[text()='列数']/preceding-sibling::div/input)[last()]")
     private WebElement columnNum;
 
     @FindBy(xpath = "//span[text()='展示字号']/ancestor::div/following-sibling::input")
@@ -190,10 +148,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='使用千分隔符']/ancestor::div/following-sibling::button")
     private WebElement thousandSeparator;
 
-    @FindBy(xpath = "//span[text()='生 成']/ancestor::button")
+    @FindBy(xpath = "//span[text()='生成']/ancestor::button")
     private WebElement generate;
 
-    @FindBy(xpath = "(//div[contains(@class, 'eDaDRJKwUEJDr6wgG_VbL')])[last()]")
+    @FindBy(className = "chart-gui-field-color-box")
     private WebElement addColor;
 
     @FindBy(xpath = "(//i[@class='anticon css-ifnfqv _2FmD69BXKIajYmOQLvFY29 _14T_hDxmrDu4vX6PHAQs1u'])[1]")
@@ -417,22 +375,22 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'对比')])[last()]")
     private WebElement compare;
 
-    @FindBy(xpath = "(//span[contains(text(),'平滑')])[last()]/ancestor::div/following-sibling::button")
+    @FindBy(xpath = "(//span[text()='平滑'])[last()]/ancestor::div/following-sibling::div//label")
     private WebElement smooth;
 
-    @FindBy(xpath = "(//span[contains(text(),'连接空数据')])[last()]/ancestor::div/following-sibling::button")
+    @FindBy(xpath = "(//span[text()='连接空数据'])[last()]/ancestor::div/following-sibling::div//label")
     private WebElement connectEmptyData;
 
-    @FindBy(xpath = "(//span[text()='显示所有X轴标签'])[last()]/ancestor::div/following-sibling::button")
+    @FindBy(xpath = "(//span[text()='显示所有x轴标签'])[last()]/ancestor::div/following-sibling::div//label")
     private WebElement showAllLabels;
 
     @FindBy(xpath = "(//span[text()='标签间隔'])[last()]/ancestor::div/following-sibling::input")
     private WebElement labelInterval;
 
-    @FindBy(xpath = "(//span[text()='min']/preceding-sibling::input)[last()]")
+    @FindBy(xpath = "(//span[text()='min']/preceding-sibling::div/input)[last()]")
     private WebElement min;
 
-    @FindBy(xpath = "(//span[text()='max']/preceding-sibling::input)[last()]")
+    @FindBy(xpath = "(//span[text()='max']/preceding-sibling::div/input)[last()]")
     private WebElement max;
 
     @FindBy(className = "el-radio-button")
@@ -488,21 +446,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//div[contains(text(),'其他')])[last()]")
     private WebElement other;
-
-    @FindBy(xpath = "(//div[contains(text(),'饼状图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement pie;
-
-    @FindBy(xpath = "(//div[contains(text(),'玫瑰图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement rose;
-
-    @FindBy(xpath = "(//div[contains(text(),'条形图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement bar;
-
-    @FindBy(xpath = "(//div[contains(text(),'旭日图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement sunburst;
-
-    @FindBy(xpath = "(//div[contains(text(),'火焰图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement flame;
 
     @FindBy(className = "tracing")
     private WebElement tracing;
@@ -636,7 +579,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='报表']")
     private WebElement report;
 
-    @FindBy(xpath = "//span[text()='堆叠']/ancestor::div/following-sibling::button")
+    @FindBy(xpath = "//span[text()='堆叠']/ancestor::div/following-sibling::div//label")
     private WebElement pile;
 
     @FindBy(xpath = "(//span[text()='气泡大小'])[last()]/ancestor::div/following-sibling::div[1]")
@@ -664,25 +607,25 @@ public class CreatePage extends PageTemplate {
     private WebElement ascending;
 
 //Colors ------------------------------------------------------------------
-    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(161, 20, 249);')])[last()] | (//span[contains(@style,'background-color: rgb(156, 39, 176);')])[last()]")
+    @FindBy(xpath = "(//div[contains(@style,'rgb(161, 20, 249)')])[last()] | (//div[contains(@style,'rgb(156, 39, 176)')])[last()]")
     private WebElement purple;
 
-    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(248, 0, 80);')])[last()] | (//span[contains(@style,'background-color: rgb(229, 28, 35);')])[last()]")
+    @FindBy(xpath = "(//div[contains(@style,'rgb(248, 0, 80)')])[last()] | (//div[contains(@style,'rgb(229, 28, 35)')])[last()]")
     private WebElement red;
 
-    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(251, 173, 8);')])[last()] | (//span[contains(@style,'background-color: rgb(255, 152, 0);')])[last()]")
+    @FindBy(xpath = "(//div[contains(@style,'rgb(251, 173, 8)')])[last()] | (//div[contains(@style,'rgb(255, 152, 0)')])[last()]")
     private WebElement orange;
 
-    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(50, 194, 125);')])[last()] | (//span[contains(@style,'background-color: rgb(37, 155, 36);')])[last()]")
+    @FindBy(xpath = "(//div[contains(@style,'rgb(50, 194, 125)')])[last()] | (//div[contains(@style,'rgb(37, 155, 36)')])[last()]")
     private WebElement green;
 
-    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(179, 198, 92);')])[last()] | (//span[contains(@style,'background-color: rgb(179, 198, 92);')])[last()]")
+    @FindBy(xpath = "(//div[contains(@style,'rgb(179, 198, 92)')])[last()] | (//div[contains(@style,'rgb(179, 198, 92)')])[last()]")
     private WebElement lightGreen;
 
-    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(251, 227, 16);')])[last()] | (//span[contains(@style,'background-color: rgb(255, 235, 59);')])[last()] ")
+    @FindBy(xpath = "(//div[contains(@style,'rgb(251, 227, 16)')])[last()] | (//div[contains(@style,'rgb(255, 235, 59)')])[last()] ")
     private WebElement yellow;
 
-    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(72, 87, 175);')])[last()] | (//span[contains(@style,'background-color: rgb(63, 81, 181);')])[last()]")
+    @FindBy(xpath = "(//div[contains(@style,'rgb(72, 87, 175)')])[last()] | (//div[contains(@style,'rgb(63, 81, 181)')])[last()]")
     private WebElement darkBlue;
 //----------------------------------------------------------------------------
 
@@ -842,7 +785,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(id = "yw-search-fields-header")
     private WebElement tableHeader;
 
-    @FindBy(xpath = "//span[text()='新建成功！']")
+    @FindBy(xpath = "//span[text()='新建成功']")
     private WebElement successCreate;
 
     @FindBy(xpath = "//span[text()='更新成功']")
@@ -894,7 +837,7 @@ public class CreatePage extends PageTemplate {
     private WebElement wordSize;
 
     public WebElement getStatisticalmap() {
-        return statisticalmap;
+        return getChartButton("统计地图");
     }
 
 
@@ -902,10 +845,10 @@ public class CreatePage extends PageTemplate {
     private WebElement dataPrecision;
 
     public WebElement getRing() {
-        return ring;
+        return getChartButton("环形比例图");
     }
 
-    @FindBy(xpath = "(//span[contains(text(),'单位')]/ancestor::div[1]/following-sibling::input)[last()]")
+    @FindBy(xpath = "(//span[contains(text(),'单位')]/ancestor::div[1]/following-sibling::div/input)[last()]")
     private WebElement unit;
 
     @FindBy(xpath = "//span[text()='行数']/preceding-sibling::input")
@@ -1222,23 +1165,23 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getLineChart() {
-        return lineChart;
+        return getChartButton("曲线图");
     }
 
     public WebElement getAreaChart() {
-        return areaChart;
+        return getChartButton("面积图");
     }
 
     public WebElement getColumnChart() {
-        return columnChart;
+        return getChartButton("柱状图");
     }
 
     public WebElement getScatterChart() {
-        return scatterChart;
+        return getChartButton("散点图");
     }
 
     public WebElement getSun() {
-        return sun;
+        return getChartButton("旭日图");
     }
 
     public WebElement getRangeColor() {
@@ -1254,11 +1197,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getChain() {
-        return chain;
+        return getChartButton("调用链");
     }
 
     public WebElement getNetworkNode() {
-        return networkNode;
+        return getChartButton("网络节点图");
     }
 
     public WebElement getDivideSide() {
@@ -1861,11 +1804,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getNameInput() {
-        return getInputElement("名称");
+        return getInputElement("name");
     }
 
     public WebElement getDescribeInput() {
-        return getInputElement("描述");
+        return getInputElement("description");
     }
 
     public WebElement getGroupDropdown() {
@@ -2154,23 +2097,19 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getPie() {
-        return pie;
+        return getChartButton("饼状图");
     }
 
     public WebElement getRose() {
-        return rose;
+        return getChartButton("玫瑰图");
     }
 
     public WebElement getBar() {
-        return bar;
-    }
-
-    public WebElement getSunburst() {
-        return sunburst;
+        return getChartButton("条形图");
     }
 
     public WebElement getFlame() {
-        return flame;
+        return getChartButton("火焰图");
     }
 
     public WebElement getAddField() {
@@ -2190,15 +2129,15 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getChord() {
-        return chord;
+        return getChartButton("和弦图");
     }
 
     public WebElement getSankey() {
-        return sankey;
+        return getChartButton("桑基图");
     }
 
     public WebElement getForce() {
-        return force;
+        return getChartButton("力图");
     }
 
     public WebElement getTarget() {
@@ -2210,11 +2149,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getRangeline() {
-        return rangeline;
+        return getChartButton("区间图");
     }
 
     public WebElement getMultiaxis() {
-        return multiaxis;
+        return getChartButton("多y轴图");
     }
 
     public WebElement getPredict() {
@@ -2253,7 +2192,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getHeatmap() {
-        return heatmap;
+        return getChartButton("热力地图");
     }
 
     public WebElement getAttackmap() {
@@ -2367,7 +2306,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getInputElement(String name) {
-        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::input"));
+        return webDriver.findElement(By.xpath("//input[@name='" + name + "']"));
     }
 
     public WebElement getAppDropdown() {
@@ -2436,7 +2375,7 @@ public class CreatePage extends PageTemplate {
 //-----------------------------------------------------------
 
     private WebElement getChartButton(String chartName) {
-        String xpath = "((//div[text()='" + chartName + "'])[last()]/parent::div/preceding-sibling::div)[last()]";
+        String xpath = "//p[text()='" + chartName + "']/ancestor::div/preceding-sibling::div[contains(@class,'yotta-chart-selector-avatar')]";
         return webDriver.findElement(By.xpath(xpath));
     }
 

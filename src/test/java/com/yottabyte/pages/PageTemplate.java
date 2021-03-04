@@ -64,7 +64,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     @FindBy(xpath = "//div[text()='所属应用']/following-sibling::div//i")
     private WebElement app;
 
-    @FindBy(className = "ant-message-success")
+    @FindBy(className = "yotta-message-content")
     private WebElement successMessage;
 
     @FindBy(xpath = "//span[@class='ant-badge']/i")

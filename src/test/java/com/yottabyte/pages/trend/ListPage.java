@@ -24,10 +24,10 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[text()='新建']")
     private WebElement create;
 
-    @FindBy(xpath = "//div[text() = '新建']")
+    @FindBy(xpath = "//li/span[text() = '新建']")
     private WebElement newTrendButton;
 
-    @FindBy(xpath = "//div[text() = '选择数据集']")
+    @FindBy(xpath = "//li/span[text() = '选择数据集']")
     private WebElement newTrendFromDataset;
 
     @FindBy(xpath = "//span[text()='确定']/ancestor::button")
@@ -80,6 +80,13 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(xpath = "(//tr)[last()]/td[3]")
     private WebElement appOfTheLastItem;
+
+    @FindBy(xpath ="//span[text()='展示趋势图']")
+    private WebElement viewTrend;
+
+    public WebElement getViewTrend() {
+        return viewTrend;
+    }
 
     public WebElement getAppOfTheLastItem() {
         return appOfTheLastItem;
