@@ -135,8 +135,8 @@ public class ListPageUtils {
             Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
             name = map.get("name").toString();
         }
-        String nextPageXpath = "//li[@class=' ant-pagination-next']";
-        String trListXpath = "//div[@class='ant-modal-body']//tr";
+        String nextPageXpath = "//span[@class='yotta-icon yotta-icon-RightOutlined']";
+        String trListXpath = "//div[@class='yotta-modal-body']//tr";
         return this.clickNextPage(trListXpath, nextPageXpath, name);
     }
 

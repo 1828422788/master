@@ -151,4 +151,10 @@ public class ListPage extends ListPageFactory {
     public WebElement getInput(String name) {
         return webDriver.findElement(By.xpath("(//span[text()='" + name + "：'])[last()]/following-sibling::input"));
     }
+
+    @FindBy(xpath = "//span[text()='授权']")
+    private WebElement giveRight;
+
+    public WebElement getGiveRight() { return giveRight; }
+
 }
