@@ -32,13 +32,14 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
     And I click the "ReturnButton" button under some element
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "更多" button
+    And I click the "ViewTrend" button
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -80,13 +81,14 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
     And I click the "ReturnButton" button under some element
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "更多" button
+    And I click the "ViewTrend" button
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -134,7 +136,7 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -176,7 +178,7 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -218,7 +220,7 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -258,7 +260,7 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -307,7 +309,7 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -354,7 +356,7 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -400,7 +402,7 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>_<colorFill>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -450,7 +452,7 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<option>"
     And I set the parameter "DescribeInput" with value "<option>_<color>_<fontValue>"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -508,7 +510,7 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -546,7 +548,7 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -585,13 +587,14 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
     And I click the "ReturnButton" button under some element
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "更多" button
+    And I click the "ViewTrend" button
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -644,7 +647,7 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -710,7 +713,7 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -749,13 +752,14 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
     And I click the "ReturnButton" button under some element
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "更多" button
+    And I click the "ViewTrend" button
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -803,7 +807,7 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -845,7 +849,7 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -888,7 +892,7 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -926,13 +930,14 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
     And I click the "ReturnButton" button under some element
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "更多" button
+    And I click the "ViewTrend" button
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -990,13 +995,14 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
     And I click the "ReturnButton" button under some element
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "更多" button
+    And I click the "ViewTrend" button
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -1048,13 +1054,14 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
     And I click the "ReturnButton" button under some element
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "更多" button
+    And I click the "ViewTrend" button
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -1085,13 +1092,14 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "Table_Test"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
     And I click the "ReturnButton" button under some element
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'Table_Test'}" then i click the "展示趋势图" button
+    And the data name is "{'column':'0','name':'Table_Test'}" then i click the "更多" button
+    And I click the "ViewTrend" button
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -1143,7 +1151,7 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -1196,13 +1204,14 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>"
     And I set the parameter "DescribeInput" with value "in<color>_out<color_1>_<repValue>_<node>"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
     And I click the "ReturnButton" button under some element
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'<chartType>'}" then i click the "展示趋势图" button
+    And the data name is "{'column':'0','name':'<chartType>'}" then i click the "更多" button
+    And I click the "ViewTrend" button
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -1240,7 +1249,7 @@ Feature: 趋势图新建_其他
 
     When I set the parameter "NameInput" with value "<chartType>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:

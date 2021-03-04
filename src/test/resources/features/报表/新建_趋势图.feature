@@ -65,7 +65,7 @@ Feature: 报表新建_从趋势图
       |    name           |   chart1            |    chart2                  |    chart3                   |    chart4               |
       | test地图_Map_1    | Regionmap_2545      | Regionmap_China_2546       | Regionmap_Jiangsu_2547      |                         |
       | test地图_Map_2    | Heatmap_2539        | Attackmap_World_2542       | Attackmap_China_2543        |                         |
-      | test地图_Map_3_n  | Statisticalmap_2797 | Statisticalmap_2797_param  | Statisticalmap_2098         |Statisticalmap_2098_param|
+      | test地图_Map_3_n  | Geostatsmap_2797    | Geostatsmap_2797_param     | Geostatsmap_2098            |Geostatsmap_2098_param   |
       | test地图_Map_white| Regionmap_2545_white| Regionmap_China_2546_white | Regionmap_Jiangsu_2547_white|                         |
 
     @reportOtherCreate

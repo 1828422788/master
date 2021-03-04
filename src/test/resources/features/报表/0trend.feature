@@ -19,5 +19,5 @@ Feature: 报表_趋势图
     And I set the parameter "TagInput" with value "auto_package"
     And I set the parameter "DescribeInput" with value "AutoCreate"
 #    And I choose the "auto_package" from the "GroupField"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible

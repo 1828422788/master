@@ -84,7 +84,8 @@ Feature: 展示趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When I set the parameter "SearchInput" with value "<name>"
     And I wait for "2000" millsecond
-    And the data name is "{'column':'0','name':'<name>'}" then i click the "展示趋势图" button
+    And the data name is "{'column':'0','name':'<name>'}" then i click the "更多" button
+    And I click the "ViewTrend" button
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -187,15 +188,15 @@ Feature: 展示趋势图
     @viewTrendStatMap @trendView
     Examples:
       | name                                     | element                   |
-      | Statisticalmap_2098_param                | MapSettings               |
-      | Statisticalmap_2098                      | MapSettings               |
-      | Statisticalmap_2797_param                | MapSettings               |
-      | Statisticalmap_2797                      | MapSettings               |
-      | Statisticalmap_Google                    | MapSettings               |
-      | Statisticalmap_Gtimg                     | MapSettings               |
-      | Statisticalmap_OSM                       | MapSettings               |
-      | Statisticalmap_Amap                      | MapSettings               |
-      | Statisticalmap_ArcGIS                    | MapSettings               |
+      | Geostatsmap_2098_param                | MapSettings               |
+      | Geostatsmap_2098                      | MapSettings               |
+      | Geostatsmap_2797_param                | MapSettings               |
+      | Geostatsmap_2797                      | MapSettings               |
+      | Geostatsmap_Google                    | MapSettings               |
+      | Geostatsmap_Gtimg                     | MapSettings               |
+      | Geostatsmap_OSM                       | MapSettings               |
+      | Geostatsmap_Amap                      | MapSettings               |
+      | Geostatsmap_ArcGIS                    | MapSettings               |
 
     @viewTrendOther @trendView
     Examples:

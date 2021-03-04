@@ -24,7 +24,7 @@ Feature: 趋势图新建_报表
     And I click the "NextButton" button under some element
     When I set the parameter "NameInput" with value "<trend_name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible
     When I click the "Report" button
 

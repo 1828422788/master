@@ -52,11 +52,11 @@ Feature: 日志展现_提示
   Examples:
     |  folder    |    chartType   | settingsTab | button        | parameter       |  value   | message                          |
     | Connection | Force          | Exhibition  |               | Repulsion       | 0        | 斥力因子应为大于0的数值！        |
-    | Map        | Statisticalmap | General     |               | Transparency    |          | 请填写合理的透明度数字！         |
-    | Map        | Statisticalmap | General     |               | MinRadius       | abc      | 请填写合理的标记宽度！           |
-    | Map        | Statisticalmap | Tile        |               | CenterLatitude  | a        | 请填写合理的经纬度！             |
-    | Map        | Statisticalmap | Tile        |               | ZoomLevel       | a        | 请填写合理的缩放级别！           |
-    | Map        | Statisticalmap | Tile        |               | MapOpacity      | a        | 请填写合理的透明度数字！         |
+    | Map        | Geostatsmap    | General     |               | Transparency    |          | 请填写合理的透明度数字！         |
+    | Map        | Geostatsmap    | General     |               | MinRadius       | abc      | 请填写合理的标记宽度！           |
+    | Map        | Geostatsmap    | Tile        |               | CenterLatitude  | a        | 请填写合理的经纬度！             |
+    | Map        | Geostatsmap    | Tile        |               | ZoomLevel       | a        | 请填写合理的缩放级别！           |
+    | Map        | Geostatsmap    | Tile        |               | MapOpacity      | a        | 请填写合理的透明度数字！         |
     | Other      | Single         | Exhibition  |               | FontSize        | a        | 请选择展示字段！                 |
     | Other      | Single         | Exhibition  | AccordingArea | MinRange        | 1        | 请输入合理的分段颜色数值区间！   |
     | Other      | Matrixheatmap  | Yaxis       |               | Segments        | a        | 分段数应为正整数                 |

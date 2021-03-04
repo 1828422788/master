@@ -21,5 +21,5 @@ Feature: 报表_单值趋势图
     When I set the parameter "NameInput" with value "单值报表测试"
     And I choose the "test_app" from the "AppField" in config
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button under some element
+    And I click the "FinishButton" button under some element
     Then I wait for "SuccessCreate" will be visible

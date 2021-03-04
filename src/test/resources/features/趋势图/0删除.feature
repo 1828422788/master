@@ -85,15 +85,15 @@ Feature: 趋势图删除（RZY-1891）
     @cleanTrendStatMap
     Examples:
       | name                                     |
-      | Statisticalmap_Google                    |
-      | Statisticalmap_Gtimg                     |
-      | Statisticalmap_OSM                       |
-      | Statisticalmap_Amap                      |
-      | Statisticalmap_ArcGIS                    |
-      | Statisticalmap_2098_param                |
-      | Statisticalmap_2098                      |
-      | Statisticalmap_2797_param                |
-      | Statisticalmap_2797                      |
+      | Geostatsmap_Google                    |
+      | Geostatsmap_Gtimg                     |
+      | Geostatsmap_OSM                       |
+      | Geostatsmap_Amap                      |
+      | Geostatsmap_ArcGIS                    |
+      | Geostatsmap_2098_param                |
+      | Geostatsmap_2098                      |
+      | Geostatsmap_2797_param                |
+      | Geostatsmap_2797                      |
 
     @cleanTrendMap
     Examples:

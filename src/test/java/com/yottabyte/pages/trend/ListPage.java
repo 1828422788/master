@@ -15,7 +15,7 @@ public class ListPage extends ListPageFactory {
         driver.manage().window().fullscreen();
     }
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
+    @FindBy(xpath = "//div[@class='yotta-dialog-content']//p")
     private WebElement message;
 
     @FindBy(xpath = "//span[text() = '创建']/ancestor::button")
@@ -36,10 +36,10 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='取消']/ancestor::button")
     private WebElement cancel;
 
-    @FindBy(xpath= "//div[@class='ant-modal-content']")
+    @FindBy(xpath= "//span[contains(text(),'更改标签')]/ancestor::div[@class='yotta-modal']")
     private WebElement tagPanel;
 
-    @FindBy(xpath = "(//div[text()='标签'])[last()]/following-sibling::div[1]")
+    @FindBy(xpath = "(//label[contains(text(),'标签')])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement tagField;
 
     @FindBy(xpath = "//span[text()='趋势图']/ancestor::div/div/span/input")
@@ -81,8 +81,29 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "(//tr)[last()]/td[3]")
     private WebElement appOfTheLastItem;
 
-    @FindBy(xpath ="//span[text()='展示趋势图']")
+    @FindBy(xpath = "//span[text()='展示趋势图']")
     private WebElement viewTrend;
+
+    @FindBy(xpath = "//span[text()='复制']")
+    private WebElement copy;
+
+    @FindBy(xpath = "//span[text()='标签']")
+    private WebElement tag;
+
+    @FindBy(xpath = "//span[text()='删除']")
+    private WebElement delete;
+
+    public WebElement getDelete() {
+        return delete;
+    }
+
+    public WebElement getTag() {
+        return tag;
+    }
+
+    public WebElement getCopy() {
+        return copy;
+    }
 
     public WebElement getViewTrend() {
         return viewTrend;

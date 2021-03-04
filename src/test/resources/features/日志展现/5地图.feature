@@ -184,9 +184,9 @@ Feature: 日志展现_地图
 #    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
 
     Examples:
-      |chartType      |caseNum  |   spl   |
-      |Statisticalmap | 2795    |  tag:vendors_test \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
-      |Statisticalmap | 2797    |  tag:vendors_test \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince |
+      |chartType   |caseNum  |   spl   |
+      |Geostatsmap | 2795    |  tag:vendors_test \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
+      |Geostatsmap | 2797    |  tag:vendors_test \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince |
 
   Scenario Outline: statMap(RZY-2796)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -215,8 +215,8 @@ Feature: 日志展现_地图
 #    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
 
     Examples:
-      |chartType      | caseNum  |   spl   |
-      |Statisticalmap |  2796    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:vendors_test \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
+      |chartType   | caseNum  |   spl   |
+      |Geostatsmap |  2796    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:vendors_test \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
 
   Scenario Outline: statMap_param
     When I set the parameter "SearchInput" with value "<spl>"
@@ -246,8 +246,8 @@ Feature: 日志展现_地图
 #    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
 
     Examples:
-      |chartType      | caseNum  |   spl   |
-      |Statisticalmap |  param   | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424* \| geostats latfield=apache.geo.latitude longfield=apache.geo.longitude count() avg(apache.resp_len) min(apache.resp_len)|
+      |chartType   | caseNum  |   spl   |
+      |Geostatsmap |  param   | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424* \| geostats latfield=apache.geo.latitude longfield=apache.geo.longitude count() avg(apache.resp_len) min(apache.resp_len)|
 
   Scenario Outline: statMap_param
     When I set the parameter "SearchInput" with value "<spl>"
@@ -276,8 +276,8 @@ Feature: 日志展现_地图
 #    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
 
     Examples:
-      |chartType      | caseNum  |   spl   |
-      |Statisticalmap | heatmap  | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424* \| geostats latfield=apache.geo.latitude longfield=apache.geo.longitude count() avg(apache.resp_len) min(apache.resp_len)|
+      |chartType   | caseNum  |   spl   |
+      |Geostatsmap | heatmap  | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424* \| geostats latfield=apache.geo.latitude longfield=apache.geo.longitude count() avg(apache.resp_len) min(apache.resp_len)|
 
   Scenario Outline: regionmap(RZY-2790white)
     When I set the parameter "SearchInput" with value "<spl>"

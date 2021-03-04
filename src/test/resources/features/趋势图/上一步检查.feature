@@ -83,9 +83,9 @@ Feature: 趋势图_上一步
     @trendBackStatMap @trendBack
     Examples:
       | name                                     | element     |
-      | Statisticalmap_2098_param                | Type        |
-      | Statisticalmap_2797                      | Type        |
-      | Statisticalmap_Google                    | Type        |
+      | Geostatsmap_2098_param                | Type        |
+      | Geostatsmap_2797                      | Type        |
+      | Geostatsmap_Google                    | Type        |
 
 
     @trendBackOther @trendBack
