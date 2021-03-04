@@ -42,6 +42,8 @@ public class ListPageUtils {
         WebElement table = pagingInfo.getTableList().get(0);
         if (url.contains("agent")) {
             return this.getRowWithoutPaging(name, table);
+        } else if (url.contains("dashboard")) {
+            return this.getDashboardRow(name, table);
         }
         return this.getRow(name, table);
     }
@@ -186,6 +188,17 @@ public class ListPageUtils {
      */
     public WebElement getRow(String name, WebElement table) {
         return this.getRowWithColumnNum(name, 0, table);
+    }
+
+    /**
+     * 获取仪表盘名称所在行（3.7添加）
+     *
+     * @param name
+     * @param table
+     * @return
+     */
+    public WebElement getDashboardRow(String name, WebElement table) {
+        return this.getRowWithColumnNum(name, 1, table);
     }
 
     public WebElement getRowWithoutTotalPage(String name) {

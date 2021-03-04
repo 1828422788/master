@@ -20,7 +20,7 @@ public class ListPage extends ListPageFactory {
 //        driver.manage().window().fullscreen();
     }
 
-    @FindBy(className = "ant-message-error")
+    @FindBy(className = "yotta-message-content")
     private WebElement errorMessage;
 
     @FindBy(className = "ant-select-selection-selected-value")
@@ -38,13 +38,19 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='所属应用']/following-sibling::span/div")
     private WebElement belongedApp;
 
-    @FindBy(xpath = "//span[text()='数据用户']/following-sibling::span//div[@class='ant-select-selection-selected-value']")
+    @FindBy(xpath = "//span[text()='资源标签：']/following-sibling::span//span[@class='yotta-select-selection-placeholder']")
+    private WebElement resourceInput;
+
+    @FindBy(xpath = "//span[text()='资源标签：']/following-sibling::span//input[@class='yotta-select-selection-search']")
+    private WebElement resourceTagInput;
+
+    @FindBy(xpath = "//span[text()='数据用户：']/following-sibling::div//span[@class='yotta-select-selection-value']")
     private WebElement dataUser;
 
     @FindBy(xpath = "//div[text()='标签']/following-sibling::div//*[contains(@class, 'ant-select-remove-icon')]")
     private WebElement removeDashboardTagIcon;
 
-    @FindBy(xpath = "//span[text()='数据用户']/following-sibling::span")
+    @FindBy(xpath = "//span[text()='数据用户']/following-sibling::span[last()]")
     private WebElement empowerUser;
 
     @FindBy(xpath = "//span[text()='编辑']")
@@ -109,15 +115,19 @@ public class ListPage extends ListPageFactory {
     public WebElement getDataUser() { return dataUser; }
 
     public WebElement getDashBoardName() {
-        return this.getInput("名称");
+        return this.getInput("名称：");
     }
 
     public WebElement getResourceInput() {
-        return this.getInput("资源标签");
+        return resourceInput;
+    }
+
+    public WebElement getResourceTagInput() {
+        return resourceTagInput;
     }
 
     public WebElement getAppOwningInput() {
-        return this.getInput("所属应用");
+        return this.getInput("所属应用：");
     }
 
     public WebElement getRemoveDashboardTagIcon() {
@@ -149,7 +159,7 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getInput(String name) {
-        return webDriver.findElement(By.xpath("(//span[text()='" + name + "：'])[last()]/following-sibling::input"));
+        return webDriver.findElement(By.xpath("(//span[text()='" + name + "'])[last()]/following-sibling::input"));
     }
 
     @FindBy(xpath = "//span[text()='授权']")
