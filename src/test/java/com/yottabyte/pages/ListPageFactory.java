@@ -35,7 +35,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(className = "ant-input-search-icon")
     private WebElement searchIcon;
 
-    @FindBy(className = "ant-message-success")
+    @FindBy(className = "yotta-message-content")
     private WebElement successMessage;
 
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")

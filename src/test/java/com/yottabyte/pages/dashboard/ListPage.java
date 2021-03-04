@@ -149,6 +149,6 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getInput(String name) {
-        return webDriver.findElement(By.xpath("(//span[text()='" + name + "'])[last()]/following-sibling::span//input"));
+        return webDriver.findElement(By.xpath("(//span[text()='" + name + "：'])[last()]/following-sibling::input"));
     }
 }
