@@ -54,8 +54,6 @@ Feature: 事件管理-合并策略-11个
     And I click the "AddGroupCondition" button
     And I choose the "alert_id" from the "GroupConditionFieldslist" in config
 
-    And I set the parameter "StopConditionContinuousAlertInput" with value "6"
-    And I choose the "小时" from the "StopConditionContinuousAlertInputUnitList" in config
     And I click the "AddStopCondition" button
     And I choose the "最后一条告警的字段" from the "StopConditionNameslist" in config
     And I choose the "name" from the "StopConditionLastAlertFieldNamesList" in config
@@ -132,7 +130,7 @@ Feature: 事件管理-合并策略-11个
     And I choose1 the "<SendPolicyName>" from the "SendPolicyNameslist" in config
 
     And I click the "StartCruxeePolicy" button
-    And I choose the "(10) 恢复" from the "StopConditionLastAlertFieldInputList" in config
+    And I click the "SaveCruxeePolicy" button
 #    Then I will see the <Result>
     And I wait for "RetListButton" will be visible
     And I click the "RetListButton" button
@@ -170,55 +168,3 @@ Feature: 事件管理-合并策略-11个
     Examples:
       | CruxeePolicyName    | SendPolicyName |
       | 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则 | 邮件_all_20分钟 |
-
-  @incident @editcru1 @newcru
-  Scenario Outline: 编辑合并策略，加自动规则
-    Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/policy/list/"
-    When I set the parameter "CruPolicyNameListSearchInput" with value "<CruxeePolicyName>"
-    And I wait for "3000" millsecond
-    And I click the "EditCruPolicyNameButton" button
-    And I wait for "3000" millsecond
-
-    And I click the "SetAutoRule" button
-    And I wait for "1000" millsecond
-
-    And I click the "AddRuleButton" button
-    And I wait for "1000" millsecond
-
-    And I choose the "归并的告警数量" from the "AutoRulesList" in config
-    When I set the parameter "CruAlertCountInput" with value "10"
-
-    And I choose the "将任务分配给" from the "AutoHandleTaskTypeList" in config
-    And I choose the "<username>" from the "TaskToUsersList" in config
-    And I click the "AddSecondAutoHandleRuleButton" button
-    And I choose the "修改状态为" from the "SecondAutoHandleTaskTypeList" in config
-    And I choose the "已解决" from the "TaskStatusList" in config
-
-    And I click the "SaveCruxeePolicy" button
-    And I wait for "RetListButton" will be visible
-    And I click the "RetListButton" button
-
-    Examples:
-      | CruxeePolicyName    | username |
-      | 合并2组_高_事件_分组条件alertid_name包含停止或连续6小时	 |admin|
-      | 合并1组_低_连续统计_无分组_未收到新告警的时间1小时		 |admin|
-      | 合并2组_高中_SPL统计_分组条件priority_最后一条告警字段priority低或5小时 | admin |
-      | 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则 |Derek|
-
-  @delcru @incidentdel
-  Scenario Outline: 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则1
-    Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/policy/list/"
-
-    When I set the parameter "CruPolicyNameListSearchInput" with value "<CruxeePolicyName>"
-    And I click the "DelCruPolicyNameButton" button
-    And I wait for "confirmDelCruPolicyName" will be visible
-    And I click the "confirmDelCruPolicyName" button
-
-    Examples:
-      | CruxeePolicyName |
-      | 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则 |
-      | 合并2组_高中_SPL统计_分组条件priority_最后一条告警字段priority低或5小时 |
-      | 合并1组_低_连续统计_无分组_未收到新告警的时间1小时  |
-      | 合并2组_高_事件_分组条件alertid_name包含停止或连续6小时  |
-      | 合并2组_高_字段统计_分组条件name_归并告警数量18条         |
-      | 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则 |

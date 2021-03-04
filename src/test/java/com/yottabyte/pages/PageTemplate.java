@@ -202,9 +202,9 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return dropdownUtils.getLastSendPluginDropdownList();
     }
 
-//    public WebElement getAlertNoteTypeDropdownList() {
-//        return dropdownUtils.getAlertNoteTypeDropdownList();
-//    }
+    public WebElement getAlertNoteTypeDropdownList() {
+        return dropdownUtils.getAlertNoteTypeDropdownList();
+    }
 
     public WebElement getMaintainTimeDropdownList() {
         return dropdownUtils.getMaintainTimeDropdownList();
@@ -271,4 +271,5 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         String xpath = "//div[@yotta-test='" + test +"']";
         return webDriver.findElement(By.xpath(xpath));
     }
+
 }

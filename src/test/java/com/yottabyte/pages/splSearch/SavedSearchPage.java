@@ -37,8 +37,8 @@ public class SavedSearchPage extends ListPageFactory {
         return star;
     }
 
-
-    @FindBy(xpath = "//span[contains(text(),'确定')]/parent::button")
+    @FindBy(xpath = "//div[@class='el-message-box__btns']//span[contains(text(),'确定')]")
+//    @FindBy(xpath = "//span[contains(text(),'确定')]/parent::button")
     private WebElement ensureDelete;
 
     public WebElement getEnsureDelete() {

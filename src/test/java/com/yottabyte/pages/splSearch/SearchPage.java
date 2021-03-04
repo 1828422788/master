@@ -600,6 +600,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='x']/ancestor::td/following-sibling::td/span")
     private WebElement xValue;
 
+//    @FindBy(xpath = "//span[text()='事件操作']/i")
     @FindBy(className = "ant-dropdown-trigger")
     private WebElement eventOperate;
 

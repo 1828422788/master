@@ -25,19 +25,20 @@ public class OfflineTaskPage extends PageTemplate {
 
     }
 
-//    @FindBy(className = "el-table_1_column_1")
-//    private List<WebElement> tdList;
-//
-//    @FindBy(xpath = "//td[@class='el-table_1_column_1']")
-//    private WebElement emptyElement;
+    @FindBy(className = "el-table_1_column_1")
+    private List<WebElement> tdList;
 
-//    public WebElement getEmptyElement() {
-//        return emptyElement;
-//    }
+    @FindBy(xpath = "//td[@class='el-table_1_column_1']")
+    private WebElement emptyElement;
 
-//    public WebElement getFirstData() {
-//        return tdList.get(1);
-//    }
+    public WebElement getEmptyElement() {
+        return emptyElement;
+    }
+
+    public WebElement getFirstData() {
+        return tdList.get(1);
+    }
+
 //    public WebElement getEmptyElement() {
 //        return emptyElement;
 //    }

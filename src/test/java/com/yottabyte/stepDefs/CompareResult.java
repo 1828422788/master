@@ -18,10 +18,6 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import javax.imageio.ImageIO;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBuffer;
 import java.io.*;
@@ -302,16 +298,10 @@ public class CompareResult {
             String fis2_path = "/opt/actual/" + targetDownloadFile;
             fis2 = new FileInputStream(fis2_path);
 
-//            fis1 = new FileInputStream(curPath + "/" + sourceDownloadFile);
-//            fis2 = new FileInputStream(curPath + "/target/download-files/" + targetDownloadFile);
-//          fis1 = new FileInputStream(curPath + "/" + sourceDownloadFile);
-            fis1 = new FileInputStream("/opt/expect/" + sourceDownloadFile);
-//          fis2 = new FileInputStream(curPath + "/target/download-files/" + targetDownloadFile);
-            fis2 = new FileInputStream("/var/lib/jenkins/workspace/downloadFile/" + targetDownloadFile);
             int len1 = fis1.available();//返回总的字节数
             int len2 = fis2.available();
 
-            if ((fis1 == null)||(fis2 == null))  {
+            if ((fis1 == null) || (fis2 == null)) {
                 Assert.fail();
             }
 
@@ -341,10 +331,87 @@ public class CompareResult {
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+//            Assert.fail();
         } catch (IOException e) {
             e.printStackTrace();
 //            Assert.fail();
+        } finally {//关闭文件流，防止内存泄漏
+            if (fis1 != null) {
+                try {
+                    fis1.close();
+                } catch (IOException e) {
+                    //忽略
+                    e.printStackTrace();
+                }
+            }
+            if (fis2 != null) {
+                try {
+                    fis2.close();
+                } catch (IOException e) {
+                    //忽略
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
+    /**
+     * 比较两个文本文件是否相等，
+     *
+     * @param DownloadFile 源文件路径名称
+     * @param timeRegex 目标文件路径名称
+     */
+    @And("^I compare download file \"([^\"]*)\" with time regex \"([^\"]*)\"$")
+    public void compareDownloadFileTimeRegex(String DownloadFile, String timeRegex) {
+        String curPath = System.getProperty("user.dir");
+
+        FileInputStream fis1 = null;
+        FileInputStream fis2 = null;
+        try {
+            String fis1_path = "/opt/expect/" + DownloadFile;
+            String fis2_path = "/opt/actual/" + DownloadFile;
+
+            fis1 = new FileInputStream(fis1_path);
+//          fis2 = new FileInputStream(curPath + "/target/download-files/" + targetDownloadFile);
+//            String fis2_path = "/var/lib/jenkins/workspace/downloadFile/" + targetDownloadFile;
+            fis2 = new FileInputStream(fis2_path);
+
+            int len1 = fis1.available();//返回总的字节数
+            int len2 = fis2.available();
+
+            if ((fis1 == null) || (fis2 == null)) {
+                Assert.fail();
+            }
+
+
+            if (len1 == len2) {//长度相同，则比较具体内容
+                //建立两个字节缓冲区
+                byte[] data1 = new byte[len1];
+                byte[] data2 = new byte[len2];
+
+                //分别将两个文件的内容读入缓冲区
+                fis1.read(data1);
+                fis2.read(data2);
+
+                //依次比较文件中的每一个字节
+                for (int i = 0; i < len1; i++) {
+                    //只要有一个字节不同，两个文件就不一样
+                    if (data1[i] != data2[i]) {
+                        System.out.println("文件内容不一样");
+                        Assert.fail();
+                    }
+                }
+                System.out.println("两个文件完全相同");
+//                return true;
+            } else {
+                //长度不一样，文件肯定不同
+                Assert.fail();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+//            Assert.fail();
+        } catch (IOException e) {
+            e.printStackTrace();
 //            Assert.fail();
         } finally {//关闭文件流，防止内存泄漏
             if (fis1 != null) {
@@ -388,11 +455,11 @@ public class CompareResult {
             int len1 = fis1.available();//返回总的字节数
             int len2 = fis2.available();
 
-            if ((fis1 == null)||(fis2 == null))  {
+            if ((fis1 == null) || (fis2 == null)) {
                 Assert.fail();
             }
 
-                if (len1 == len2) {//长度相同，则比较具体内容
+            if (len1 == len2) {//长度相同，则比较具体内容
                 //建立两个字节缓冲区
                 byte[] data1 = new byte[len1];
                 byte[] data2 = new byte[len2];
@@ -518,19 +585,19 @@ public class CompareResult {
     }
 
     /**
-     * 比较两个bucket文件是否相等，
+     * 比较两个csv文件部分内容是否相等，
      *
-     * @param xtableName  源文件路径名称
-     * @param Keepfigures 精确度
-     * //     * @param discolumnlist 忽略的列数
+     * @param xtableName     源文件路径名称
+     * @param str_noKeeplist 精确度
+     *                       // * @param discolumnlist 忽略的列数
      */
-//    @And("^I compare xtable \"([^\"]*)\" Keep figures \"([^\"]*)\" in column list \"([^\"]*)\"$")
-//    public void compareXtableFile(String xtableName, Integer Keepfigures) {
     @And("^I compare xtable \"([^\"]*)\" Keep figures in column list \"([^\"]*)\"$")
-    public void compareXtableFile(String xtableName, Integer Keepfigures) {
-        int[] discolno = {0, 1, 2};
-
-        String curPath = System.getProperty("user.dir");
+    public void compareXtableFile(String xtableName, String str_noKeeplist) {
+        String[] cur_noKeeplist = str_noKeeplist.split(",");
+        int[] nokeeplist = new int[cur_noKeeplist.length];
+        for (int i = 0; i < cur_noKeeplist.length; i++) {
+            nokeeplist[i] = Integer.valueOf(cur_noKeeplist[i]).intValue();
+        }
 
         ArrayList<String> fis1 = null;
         ArrayList<String> fis2 = null;
@@ -544,32 +611,30 @@ public class CompareResult {
         String[] row_arrylist1 = (String[]) fis1.toArray(new String[fis1.size()]);
         String[] row_arrylist2 = (String[]) fis2.toArray(new String[fis2.size()]);
 
-        if (row_len1 == row_len2) { //行数比较
+        if (row_len1 == row_len2) { //行数
             //表头
             for (int i = 0; i < row_len1; i++) {
+
                 String[] col_arry1 = row_arrylist1[i].split(",");
                 String[] col_arry2 = row_arrylist2[i].split(",");
 
                 int col_count1 = col_arry1.length;
                 int col_count2 = col_arry2.length;
+
                 if (col_count1 == col_count2) {
                     for (int j = 1; j < col_count1; j++) {
                         String cur_ArryValue1 = col_arry1[j];
                         String cur_ArryValue2 = col_arry2[j];
 
                         int flag = -1;
-
-                        for (int cur_colno : discolno) {
+                        for (int cur_colno = 0; cur_colno < nokeeplist.length; cur_colno++) {
                             if (cur_colno == j)
                                 flag = cur_colno;
                         }
 
-                        if (flag!=-1) {
+                        if (flag != -1) {
                             continue;
                         }
-
-                        cur_ArryValue1 = cur_ArryValue1.substring(0, Keepfigures);
-                        cur_ArryValue2 = cur_ArryValue2.substring(0, Keepfigures);
 
                         if (!cur_ArryValue1.equals(cur_ArryValue2)) {
                             System.out.println("行内容不一样");
@@ -590,19 +655,21 @@ public class CompareResult {
     }
 
     /**
-     * 比较两个bucket文件是否相等，
+     * 比较两个csv文件部分内容是否相等，
      *
-     * @param xtableName  源文件路径名称
-     * @param Keepfigures 精确度
-     * //     * @param discolumnlist 忽略的列数
+     * @param xtableName     源文件路径名称
+     * @param str_noKeeplist 精确度
+     *                       // * @param discolumnlist 忽略的列数
      */
-//    @And("^I compare xtable \"([^\"]*)\" Keep figures \"([^\"]*)\" in column list \"([^\"]*)\"$")
-//    public void compareXtableFile(String xtableName, Integer Keepfigures) {
-    @And("^I compare1 xtable \"([^\"]*)\" Keep figures in column list \"([^\"]*)\"$")
-    public void compareXtableFile1(String xtableName, Integer Keepfigures) {
-        int[] discolno = {0, 1, 2};
+    @And("^I sub compare xtable \"([^\"]*)\" Keep figures in column list \"([^\"]*)\"$")
+    public void subcompareXtableFile(String xtableName, String str_noKeeplist) {
+//      int[] noKeeplist = {0,0};
 
-        String curPath = System.getProperty("user.dir");
+        String[] cur_noKeeplist = str_noKeeplist.split(",");
+        int[] nokeeplist = new int[cur_noKeeplist.length];
+        for (int i = 0; i < cur_noKeeplist.length; i++) {
+            nokeeplist[i] = Integer.valueOf(cur_noKeeplist[i]).intValue();
+        }
 
         ArrayList<String> fis1 = null;
         ArrayList<String> fis2 = null;
@@ -619,29 +686,30 @@ public class CompareResult {
         if (row_len1 == row_len2) { //行数
             //表头
             for (int i = 0; i < row_len1; i++) {
+
                 String[] col_arry1 = row_arrylist1[i].split(",");
                 String[] col_arry2 = row_arrylist2[i].split(",");
 
                 int col_count1 = col_arry1.length;
                 int col_count2 = col_arry2.length;
+
                 if (col_count1 == col_count2) {
                     for (int j = 1; j < col_count1; j++) {
                         String cur_ArryValue1 = col_arry1[j];
                         String cur_ArryValue2 = col_arry2[j];
 
                         int flag = -1;
-
-                        for (int cur_colno : discolno) {
+                        for (int cur_colno = 0; cur_colno < nokeeplist.length; cur_colno++) {
                             if (cur_colno == j)
                                 flag = cur_colno;
                         }
 
-                        if (flag!=-1) {
+                        if (flag != -1) {
                             continue;
                         }
 
-                        cur_ArryValue1 = cur_ArryValue1.substring(0, Keepfigures);
-                        cur_ArryValue2 = cur_ArryValue2.substring(0, Keepfigures);
+                        cur_ArryValue1 = cur_ArryValue1.substring(11, cur_ArryValue1.length());
+                        cur_ArryValue2 = cur_ArryValue2.substring(11, cur_ArryValue2.length());
 
                         if (!cur_ArryValue1.equals(cur_ArryValue2)) {
                             System.out.println("行内容不一样");
@@ -660,7 +728,6 @@ public class CompareResult {
         }
 
     }
-
 
     /**
      * 比较两个邮件告警结果文件是否相等，
@@ -704,59 +771,6 @@ public class CompareResult {
             Assert.fail();
         }
     }
-
-    /**
-     * 比较两个bucket文件是否相等，
-     *
-     * @param sourceDownloadFile 源文件路径名称
-     * @param targetDownloadFile 目标文件路径名称
-     */
-    @And("^I compare1 source bucket file \"([^\"]*)\" with target bucket files \"([^\"]*)\" without \"([^\"]*)\"$")
-    public void compareBucketFile1(String sourceDownloadFile, String targetDownloadFile, int leaveNumber) {
-        String curPath = System.getProperty("user.dir");
-
-        ArrayList<String> fis1 = null;
-        ArrayList<String> fis2 = null;
-
-        fis1 = readFromTextFile("/opt/expect/" + sourceDownloadFile);
-        fis2 = readFromTextFile("/var/lib/jenkins/workspace/downloadFile/" + targetDownloadFile);
-
-        int row_len1 = fis1.toArray().length;
-        int row_len2 = fis2.toArray().length;
-
-        String[] row_arrylist1 = (String[]) fis1.toArray(new String[fis1.size()]);
-        String[] row_arrylist2 = (String[]) fis2.toArray(new String[fis2.size()]);
-
-        if (row_len1 == row_len2) { //行数比较
-            for (int i = 0; i < row_len1; i++) {
-                String[] col_arry1 = row_arrylist1[i].split(",");
-                String[] col_arry2 = row_arrylist2[i].split(",");
-                int col_count1 = col_arry1.length;
-                int col_count2 = col_arry2.length;
-                if (col_count1 == col_count2) {
-                    for (int j = 0; j < col_count1; j++) {
-                        if (j == leaveNumber)
-                            continue;
-                        String cur_ArryValue1 = col_arry1[j];
-                        String cur_ArryValue2 = col_arry2[j];
-                        if (!cur_ArryValue1.equals(cur_ArryValue2)) {
-                            System.out.println("行内容不一样");
-                            Assert.fail();
-                        }
-                    }
-                } else {
-                    System.out.println("行内容不一样");
-                    Assert.fail();
-                }
-            }
-            System.out.println("两个文件完全相同");
-        } else {
-            //长度不一样，文件不同
-            Assert.fail();
-        }
-    }
-
-
 
     /**
      * 比较两个PDF报表文件是否相等，
