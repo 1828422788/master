@@ -42,15 +42,15 @@ public class SwitchButton {
     @And("^I switch the dashboard \"([^\"]*)\" button to \"([^\"]*)\"$")
     public void operateDashboardSwitch(String buttonName, String value) {
         WebElement element = GetElementFromPage.getWebElementWithName(buttonName);
-        String status = element.getAttribute("aria-checked");
+        String status = element.getAttribute("class");
         if (value.equalsIgnoreCase("enable")) {
-            if (status.contains("false")) {
-                element.click();
-            } else {
+            if (status.contains("checked")) {
                 System.out.println("already enable");
+            } else {
+                element.click();
             }
         } else if (value.equalsIgnoreCase("disable")) {
-            if (status.contains("true")) {
+            if (status.contains("checked")) {
                 element.click();
             } else {
                 System.out.println("already disable");

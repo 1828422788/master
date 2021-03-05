@@ -38,9 +38,9 @@ Feature: 仪表盘详情页
     And I click the "EditTag" button
     And I wait for "InputforTag" will be visible
     And I alter the input element "InputforTag" value to "Delete"
-#    And I wait for "500" millsecond
+    And I wait for "3000" millsecond
     And I click the "SaveTagInput" button
-    And I wait for "500" millsecond
+#    And I wait for "500" millsecond
     Then I will see the success message "标签名称修改成功"
 
   @dashboard @dashboardSmoke
@@ -54,7 +54,7 @@ Feature: 仪表盘详情页
     And I wait for "500" millsecond
     And I click the "DeleteNewTag" button
     And I click the "Ensure" button
-    And I wait for "1500" millsecond
+    And I wait for "500" millsecond
     Then I will see the success message "标签页删除成功"
 
   @dashboard @dashboardSmoke
@@ -63,6 +63,7 @@ Feature: 仪表盘详情页
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
+#    And I wait for loading invisible
     And I click the "SettingIcon" button
     And I switch the dashboard "NightMode" button to "enable"
     And I wait for "SuccessMessage" will be visible
@@ -80,9 +81,9 @@ Feature: 仪表盘详情页
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
-    Then I will see the element "EditLayout" attribute "aria-disabled" is "false"
-    Then I will see the element "ManualRefresh" attribute "aria-disabled" is "false"
-    Then I will see the element "AutoRefresh" attribute "aria-disabled" is "false"
+    Then I will see the element "EditLayout" attribute "class" is "yotta-menu-item"
+    Then I will see the element "ManualRefresh" attribute "class" is "yotta-menu-item"
+    Then I will see the element "AutoRefresh" attribute "class" is "yotta-menu-item"
     And I switch the dashboard "OpenEdit" button to "disable"
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "编辑功能已禁用"
@@ -95,7 +96,7 @@ Feature: 仪表盘详情页
     Then I will see the "dashboard.DetailPage" page
     And I wait for "SettingIcon" will be visible
     And I click the "SettingIcon" button
-    Then I will see the "EditLayout,RemoveTag,ManualRefresh,AutoRefresh" is "disabled"
+    Then I will see the "EditLayout,RemoveTag,ManualRefresh,AutoRefresh" is "yotta-menu-item-disabled"
 
   @dashboard @dashboardSmoke
   Scenario: 验证关闭编辑(RZY-229)
@@ -103,8 +104,8 @@ Feature: 仪表盘详情页
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "AddEventButton" button
-    Then I will see the "LiList" is "disabled"
+    And I click the "AddIcon" button
+    Then I will see the "LiList" is "yotta-menu-item-disabled"
     And I hide the element "EventList"
 
   @dashboard @dashboardSmoke

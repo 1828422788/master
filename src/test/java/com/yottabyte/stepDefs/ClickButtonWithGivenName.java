@@ -240,8 +240,10 @@ public class ClickButtonWithGivenName {
 
         if (webDriver.getCurrentUrl().contains("/sources/input/agent/")) {
             xpath = "(.//span[contains(text(),'" + name + "')])[2]";
+        } else if (webDriver.getCurrentUrl().contains("/dashboard/")){
+            xpath = ".//span[contains(text(),'" + name + "')]";
         } else {
-            xpath = ".//a";
+            xpath = ".//span";
         }
         tr.findElement(By.xpath(xpath)).click();
     }

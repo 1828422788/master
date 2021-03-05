@@ -105,7 +105,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='通用配置'])[2]")
     private WebElement moreConfigs;
 
-    @FindBy(className = "ant-message-success")
+    @FindBy(className = "yotta-message-content")
     private WebElement successMessage;
 
     @FindBy(className = "ant-message-error")
@@ -736,25 +736,25 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//li[text()='添加到知识库']")
     private WebElement addKnowledge;
 
-    @FindBy(xpath = "//div[@class='ant-dropdown ant-dropdown-placement-bottomLeft']/ul")
+    @FindBy(xpath = "//div[@class='yotta-dropdown-menu']/ul")
     private WebElement addChartDropdown;
 
     @FindBy(xpath = "(//i[@class='anticon css-ifnfqv'])/*")
     private List<WebElement> iconList;
 
-    @FindBy(xpath = "(//i[@class='anticon css-ifnfqv ant-dropdown-trigger'])[1]")
+    @FindBy(xpath = "(//div[@class='yotta-dropdown'])[1]/span/span")
     private WebElement AddIcon;
 
-    @FindBy(xpath = "(//i[@class='anticon css-ifnfqv ant-dropdown-trigger'])[2]")
+    @FindBy(xpath = "(//div[@class='yotta-dropdown'])[2]/span/span")
     private WebElement settingIcon;
 
     @FindBy(xpath = "(//i[@class='anticon css-ifnfqv ant-dropdown-trigger'])[3]")
     private WebElement settingChart;
 
-    @FindBy(xpath = "(//ul[contains(@class,'ant-dropdown-menu')])[1]/li")
+    @FindBy(xpath = "(//ul[contains(@class,'yotta-menu')])[1]/li")
     private List<WebElement> liList;
 
-    @FindBy(xpath = "//span[text()='/']/following-sibling::span")
+    @FindBy(xpath = "//span[text()='/']/following-sibling::div/span")
     private WebElement tagIcon;
 
     @FindBy(xpath = "//span[text()='新建标签页']")
@@ -806,7 +806,7 @@ public class DetailPage extends PageTemplate {
     private WebElement deleteNewTag;
 
 //    @FindBy(xpath = "//span[text()='新建标签页']/preceding-sibling::ul/li[2]")
-    @FindBy(xpath = "//span[text()='新建标签页']/preceding-sibling::ul/li[2]//input")
+    @FindBy(xpath = "//span[text()='新建标签页']/parent::li/preceding-sibling::div/li[2]//input")
     private WebElement inputforTag;
 
     @FindBy(xpath = "//a[text()='forDelete']/following-sibling::span[1]")
@@ -818,10 +818,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//a[text()='testSearch']")
     private WebElement testSearch;
 
-    @FindBy(xpath = "//span[text()='/']/preceding-sibling::span")
+    @FindBy(xpath = "//span[text()='/']/preceding-sibling::div/span")
     private WebElement dashboardIcon;
 
-    @FindBy(xpath = "//li[text()='UIautotest']")
+    @FindBy(xpath = "//span[text()='UIautotest']")
     private WebElement uiAutoTest;
 
     @FindBy(xpath = "//li[text()='FirstAutoTest']")
@@ -1298,7 +1298,7 @@ public class DetailPage extends PageTemplate {
     private WebElement ensureAddTrend;
 
     private WebElement getSwitchButton(String name) {
-        String xpath = "//span[text()='" + name + "']/following-sibling::button";
+        String xpath = "//span[text()='" + name + "']/following-sibling::label";
         return webDriver.findElement(By.xpath(xpath));
     }
 
@@ -2395,5 +2395,10 @@ public class DetailPage extends PageTemplate {
         c.constructPageFactoryWithName("splSearch." + parentPageName);
         return e;
     }
+
+    @FindBy(xpath = "//input[@placeholder='来搜我']")
+    private WebElement searchTagInput1;
+
+    public WebElement get1SearchTagInput() { return searchTagInput1; }
 
 }
