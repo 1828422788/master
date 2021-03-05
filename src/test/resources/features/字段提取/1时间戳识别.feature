@@ -20,7 +20,7 @@ Feature: 字段提取时间戳识别
     Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
-#    Then I will see the element value in json "{'Result':'<result>'}"
+    Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "时间戳识别" from the "ParseRule" in config
@@ -32,7 +32,7 @@ Feature: 字段提取时间戳识别
     Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
-#    Then I will see the element value in json "{'Result':'<result1>'}"
+    Then I will see the element value in json "{'Result':'<result1>'}"
 
     Examples:
       | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | result1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
@@ -55,7 +55,7 @@ Feature: 字段提取时间戳识别
     Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
-#    Then I will see the element value in json "{'Result':'<result>'}"
+    Then I will see the element value in json "{'Result':'<result>'}"
 
     Examples:
       | log                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | length | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
@@ -78,7 +78,7 @@ Feature: 字段提取时间戳识别
     Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "FailedMessage" will be visible
-#    Then I will see the element value in json "{'Result':'<result>'}"
+    Then I will see the element value in json "{'Result':'<result>'}"
 
     Examples:
       | log                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | length | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -105,7 +105,7 @@ Feature: 字段提取时间戳识别
     Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
-#    Then I will see the element value in json "{'Result':'<result>'}"
+    Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "Collapse" button
     And I click the "NextButton" button under some element
     When I set the parameter "Name" with value "RZY2823时间戳前缀"
@@ -157,7 +157,7 @@ Feature: 字段提取时间戳识别
     Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
-#    Then I will see the element value in json "{'Result':'<result>'}"
+    Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "Collapse" button
     And I click the "NextButton" button under some element
     When I set the parameter "Name" with value "<name>"

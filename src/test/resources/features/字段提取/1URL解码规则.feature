@@ -81,7 +81,7 @@ Feature: 字段提取URL解码规则
     Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
-#    Then I will see the element value in json "{'Result':'<result>'}"
+    Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "<parseRule>" from the "ParseRule" in config
@@ -93,7 +93,7 @@ Feature: 字段提取URL解码规则
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
     And I wait for "2000" millsecond
-#    Then I will see the element value in json "{'Result':'<result1>'}"
+    Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "Collapse" button
     And I click the "NextButton" button under some element
     When I set the parameter "Name" with value "<name>"
