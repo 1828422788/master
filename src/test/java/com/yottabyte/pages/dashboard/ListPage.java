@@ -47,16 +47,16 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='数据用户：']/following-sibling::div//span[@class='yotta-select-selection-value']")
     private WebElement dataUser;
 
-    @FindBy(xpath = "//div[text()='标签']/following-sibling::div//*[contains(@class, 'ant-select-remove-icon')]")
+    @FindBy(xpath = "//label[text()='标签']/parent::div/following-sibling::div//*[contains(@class, 'yotta-tag-close')]")
     private WebElement removeDashboardTagIcon;
 
     @FindBy(xpath = "//span[text()='数据用户']/following-sibling::span[last()]")
     private WebElement empowerUser;
 
-    @FindBy(xpath = "//span[text()='编辑']")
+    @FindBy(xpath = "//span[text()='编辑']/preceding-sibling::label")
     private WebElement empowerEdit;
 
-    @FindBy(xpath = "//span[text()='删除']")
+    @FindBy(xpath = "//span[text()='删除']/preceding-sibling::label")
     private WebElement empowerDelete;
 
     @FindBy(xpath = "(//tbody[@class='ant-table-tbody']/tr/td[@class='ant-table-selection-column']//span)[1]")
@@ -166,5 +166,21 @@ public class ListPage extends ListPageFactory {
     private WebElement giveRight;
 
     public WebElement getGiveRight() { return giveRight; }
+
+    @FindBy(xpath = "//span[text()='标签']")
+    private WebElement resouceTag;
+
+    public WebElement getResouceTag() { return resouceTag; }
+
+    @FindBy(xpath = "//span[text()='UIautotest']/ancestor::td/preceding-sibling::td//span[@class='yotta-table-expansion-icon']")
+    private WebElement uiautotestSprid;
+
+    public WebElement getUiautotestSprid() { return uiautotestSprid; }
+
+    @FindBy(xpath = "//div[text()='资源标签..............无']")
+    private WebElement noResourceTag;
+
+    public WebElement getNoResourceTag() { return noResourceTag; }
+
 
 }

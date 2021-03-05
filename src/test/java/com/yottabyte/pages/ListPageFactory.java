@@ -20,7 +20,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     public WebDriver webDriver;
     private DropdownUtils utils = new DropdownUtils();
 
-    @FindBy(xpath = "//input[@yotta-test='table-filter-text']")
+    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
     private WebElement searchInput;
 
     @FindBy(className = "ant-select-dropdown-menu")
@@ -130,7 +130,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     }
 
     public WebElement getResourceDropdown() {
-        this.groupDropdownIcon("全部资源").click();
+        this.groupDropdownIcon("请选择标签").click();
         return this.lastDropdownMenu();
     }
 
@@ -151,11 +151,11 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     }
 
     public WebElement groupDropdownIcon(String text) {
-        return webDriver.findElement(By.xpath("//div[text()='" + text + "']/ancestor::div/following-sibling::span/i"));
+        return webDriver.findElement(By.xpath("//span[text()='" + text + "']/parent::div/following-sibling::span/span"));
     }
 
     private WebElement lastDropdownMenu() {
-        return webDriver.findElement(By.xpath("(//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical'])[last()]"));
+        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu table-header-dropdown'])[last()]"));
     }
 
     public WebElement getInputElement(String text) {
