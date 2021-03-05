@@ -5,12 +5,14 @@ Feature: 报表_单值趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
+    And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  Scenario: table
+  Scenario: report_single_trend
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count()"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
     And I wait for "Header" will be visible

@@ -5,13 +5,14 @@ Feature: 趋势图_拖拽_序列
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
 
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
     And I click the "DateEditor" button under some element
     And I click the "Today" button
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "CheckBox" will be visible
     When I "checked" the checkbox which name is "apache.clientip" in trend page
     And I wait for "CheckBox" will be visible

@@ -5,13 +5,13 @@ Feature: 趋势图新建_维度
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario Outline: dimension_default(RZY-2503,2858,2676,2850)
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
 
@@ -59,7 +59,7 @@ Feature: 趋势图新建_维度
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5"
     And I wait for "2000" millsecond
     And I click the "SearchButton" button under some element
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
 
@@ -108,7 +108,7 @@ Feature: 趋势图新建_维度
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
 
@@ -152,7 +152,7 @@ Feature: 趋势图新建_维度
   Scenario Outline: dimension_facet
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
 
@@ -197,7 +197,7 @@ Feature: 趋势图新建_维度
   Scenario Outline: dimension_facet_sun
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
 
@@ -241,7 +241,7 @@ Feature: 趋势图新建_维度
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND (apache.status:200) AND NOT (apache.geo.city:黔东南苗族侗族自治州) AND NOT (apache.geo.city:南京市)   | stats count() as cnt by apache.method, apache.status, apache.geo.province, apache.geo.city | sort by apache.method, apache.status, apache.geo.province, apache.geo.city"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
 
@@ -295,7 +295,7 @@ Feature: 趋势图新建_维度
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND (apache.status:200) AND NOT (apache.geo.city:黔东南苗族侗族自治州) AND NOT (apache.geo.city:南京市)   | stats count() as cnt by apache.method, apache.status, apache.geo.province, apache.geo.city | sort by apache.method, apache.status, apache.geo.province, apache.geo.city"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
 

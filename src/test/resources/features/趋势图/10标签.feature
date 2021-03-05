@@ -7,10 +7,10 @@ Feature: 趋势图标签
   Scenario: create_trend
     Then I click the "NewTrendButton" button
     And I will see the "trend.CreatePage" page
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() by apache.status,apache.geo.city"
     And I click the "SearchButton" button under some element
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
     And I wait for "2000" millsecond
@@ -29,14 +29,14 @@ Feature: 趋势图标签
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I refresh the website
-    #column 2 is user, column 3 is tag
+    And I wait for "AppOfTheLastItem" will be visible
     Then I will see the data "Tag_Test" values "{'column':'4','name':'auto_package'}"
 
 
   Scenario: verify_tag
     When the data name is "Tag_Test" then i click the "编辑" button
     And I will see the "trend.CreatePage" page
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
     And I wait for "2000" millsecond
@@ -48,6 +48,7 @@ Feature: 趋势图标签
     And I click the "FinishButton" button under some element
     Then I wait for "SuccessUpdate" will be visible
     When open the "trend.ListPage" page for uri "/trend/"
+    And I wait for "AppOfTheLastItem" will be visible
     Then I will see the data "Tag_Test" values "{'column':'4','name':'-'}"
     And I will see the data "Tag_Test" values "{'column':'3','name':'-'}"
 

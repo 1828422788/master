@@ -5,13 +5,13 @@ Feature: 趋势图新建_timechart
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario Outline: timechart1
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button under some element
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
     And I wait for "Chart" will be visible
@@ -43,7 +43,7 @@ Feature: 趋势图新建_timechart
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button under some element
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
 
@@ -90,7 +90,7 @@ Feature: 趋势图新建_timechart
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button under some element
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
 
@@ -132,7 +132,7 @@ Feature: 趋势图新建_timechart
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button under some element
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
 

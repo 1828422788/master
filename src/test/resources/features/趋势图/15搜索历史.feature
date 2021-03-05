@@ -6,10 +6,10 @@ Feature: 趋势图_搜索历史
     Given open the "trend.ListPage" page for uri "/trend/"
     Then I click the "NewTrendButton" button
     And I will see the "trend.CreatePage" page
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() by apache.status,apache.geo.city | eval result=\"Test_History\""
     And I click the "SearchButton" button under some element
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
     And I wait for "Header" will be visible

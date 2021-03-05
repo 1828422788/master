@@ -115,10 +115,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='数据精度'][last()])/ancestor::div/following-sibling::div[1]")
     private WebElement precision;
 
-    @FindBy(xpath = "(//label[text()='资源标签'][last()])/following-sibling::div[1]")
+    @FindBy(xpath = "((//label[contains(text(),'资源标签')][last()])/ancestor::div/following-sibling::div)[1]")
     private WebElement groupField;
 
-    @FindBy(xpath = "(//label[text()='所属应用'][last()])/following-sibling::div[1]")
+    @FindBy(xpath = "((//label[contains(text(),'所属应用')][last()])/ancestor::div/following-sibling::div)[1]")
     private WebElement appField;
 
     @FindBy(xpath = "//span[text()='生成']/ancestor::button")
@@ -269,7 +269,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "CodeMirror-code")
     private WebElement searchInput;
 
-    @FindBy(xpath = "//input[@placeholder='请选择快捷时间或时间范围']")
+    @FindBy(className = "yotta-date-time-picker")
     private WebElement dateEditor;
 
     @FindBy(xpath = "//span[text()='每个分片取样']/following-sibling::input")
@@ -693,7 +693,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='类型：'])[last()]/ancestor::div/following-sibling::div")
     private WebElement typeDropdown;
 
-    @FindBy(className = "_3YQ9T5DTgCrQ0NSzwkV6a5")
+    @FindBy(className = "yotta-search-control-text")
     private WebElement searchStatus;
 
     @FindBy(xpath = "//span[text()='dataset_1']")
@@ -970,7 +970,8 @@ public class CreatePage extends PageTemplate {
         return allResources;
     }
 
-    public WebElement getSearchStatus() {
+    public WebElement getSearchStatus() throws InterruptedException {
+        Thread.sleep(1000);
         return searchStatus;
     }
 
@@ -2376,7 +2377,7 @@ public class CreatePage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
-    @FindBy(xpath = "(//label[text()='资源标签'][last()])/ancestor::div[1]//input")
+    @FindBy(xpath = "(//label[contains(text(),'资源标签')][last()])/ancestor::div/following-sibling::div//input")
     private WebElement tagInput;
 
     @FindBy(xpath = "//label[contains(text(),'资源标签')]/ancestor::div/following-sibling::div//span[@class='yotta-tag-content']")

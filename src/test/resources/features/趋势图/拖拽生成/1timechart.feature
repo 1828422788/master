@@ -5,7 +5,7 @@ Feature: 趋势图_拖拽_timechart
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
 
 
   Scenario Outline: drag_and_drop_timechart
@@ -14,6 +14,7 @@ Feature: 趋势图_拖拽_timechart
     And I click the "Today" button
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "CheckBox" will be visible
     When I "checked" the checkbox which name is "timestamp" in trend page
     And I wait for "CheckBox" will be visible

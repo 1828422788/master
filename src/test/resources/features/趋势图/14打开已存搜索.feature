@@ -43,7 +43,7 @@ Feature: 趋势图_已存搜索
     Given open the "trend.ListPage" page for uri "/trend/"
     Then I click the "NewTrendButton" button
     And I will see the "trend.CreatePage" page
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SavedSearch" button
     And I wait for "Loading" will be invisible
     And "加载" the data "trend_test" in tiny saved search
@@ -64,9 +64,9 @@ Feature: 趋势图_已存搜索
     Given open the "trend.ListPage" page for uri "/trend/"
     Then I click the "NewTrendButton" button
     And I will see the "trend.CreatePage" page
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SavedSearch" button
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And "删除" the data "trend_test" in tiny saved search
     And I wait for "CancelButton" will be visible
     And I will see the element "ConfirmMessage" contains "确认删除 trend_test?"
