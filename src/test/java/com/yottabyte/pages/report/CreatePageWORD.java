@@ -280,7 +280,20 @@ public class CreatePageWORD extends PageTemplate {
 
     @FindBy(xpath = "//i[@class = 'jodit_resizer-bottomright']")
     private WebElement bottomRightCorner;
-//----------------------------
+
+    @FindBy(xpath = "//span[text()='名称']/following-sibling::span/input")
+    private WebElement trendNameField;
+
+    @FindBy(xpath = "//div[@class='_1rpZECB9i9v8h6IEUve_yK']")
+    private WebElement resultMessage;
+
+    public WebElement getResultMessage() {
+        return resultMessage;
+    }
+
+    public WebElement getTrendNameField() {
+        return trendNameField;
+    }
 
     public WebElement getSuccessMessage() {
         return successMessage;

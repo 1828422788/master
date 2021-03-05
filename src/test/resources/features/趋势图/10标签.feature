@@ -25,7 +25,7 @@ Feature: 趋势图标签
     And I click the "Tag" button
     And I choose the "auto_package" from the "TagField" in config
     And I click the "TagPanel" button
-    And I click the "EnsureButton" button
+    And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I refresh the website
@@ -57,9 +57,9 @@ Feature: 趋势图标签
     Given open the "trend.ListPage" page for uri "/trend/"
     When the data name is "{'column':'0','name':'<name>'}" then i click the "更多" button
     And I click the "Delete" button
-    And I wait for "EnsureButton" will be visible
+    And I wait for "Ensure" will be visible
     Then I will see the message "确认删除 [<name>] ?"
-    When I click the "EnsureButton" button
+    When I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
 

@@ -15,9 +15,6 @@ public class ListPage extends ListPageFactory {
         driver.manage().window().fullscreen();
     }
 
-    @FindBy(xpath = "//div[@class='yotta-dialog-content']//p")
-    private WebElement message;
-
     @FindBy(xpath = "//span[text() = '创建']/ancestor::button")
     private WebElement createButton;
 
@@ -30,20 +27,14 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//li/span[text() = '选择数据集']")
     private WebElement newTrendFromDataset;
 
-    @FindBy(xpath = "//span[text()='确定']/ancestor::button")
-    private WebElement ensureButton;
-
-    @FindBy(xpath = "//span[text()='取消']/ancestor::button")
+    @FindBy(xpath = "(//span[text()='取消']/ancestor::button)[last()]")
     private WebElement cancel;
 
-    @FindBy(xpath= "//span[contains(text(),'更改标签')]/ancestor::div[@class='yotta-modal']")
+    @FindBy(xpath= "//span[contains(text(),'标签')]/ancestor::div[@class='yotta-modal']")
     private WebElement tagPanel;
 
     @FindBy(xpath = "(//label[contains(text(),'标签')])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement tagField;
-
-    @FindBy(xpath = "//span[text()='趋势图']/ancestor::div/div/span/input")
-    private WebElement searchInput;
 
     @FindBy(xpath = "//span[@class = 'ant-spin-dot ant-spin-dot-spin']")
     private WebElement loading;
@@ -57,23 +48,11 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//p[text()='追加合并']/preceding-sibling::div")
     private WebElement unionDataset;
 
-    @FindBy(xpath = "//span[contains(text(),'添加资源标签')]")
-    private WebElement multiTag;
-
-    @FindBy(xpath = "//span[contains(text(),'删除')]")
-    private WebElement multiDelete;
-
-    @FindBy(xpath = "//p[text()='暂无数据']")
+    @FindBy(xpath = "//*[contains(text(),'暂无数据')]")
     private WebElement noData;
 
-    @FindBy(xpath = "//thead//span[@class='ant-checkbox']")
+    @FindBy(xpath = "//thead//span[@class='yotta-checkbox-check']")
     private WebElement selectAll;
-
-    @FindBy(xpath = "//div[text()='请选择应用']/ancestor::div[2]")
-    private WebElement appDropdown;
-
-    @FindBy(xpath = "//div[text()='全部资源']/ancestor::div[2]")
-    private WebElement tagDropdown;
 
     @FindBy(xpath = "(//tr)[last()]/td[4]")
     private WebElement tagOfTheLastItem;
@@ -117,16 +96,6 @@ public class ListPage extends ListPageFactory {
         return tagOfTheLastItem;
     }
 
-    public WebElement getTagDropdown() {
-        tagDropdown.click();
-        return this.getLastDropdownList();
-    }
-
-    public WebElement getAppDropdown() {
-        appDropdown.click();
-        return this.getLastDropdownList();
-    }
-
     public WebElement getSelectAll() {
         return selectAll;
     }
@@ -137,10 +106,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getLoading() {
         return loading;
-    }
-
-    public WebElement getSearchInput(){
-        return searchInput;
     }
 
     public WebElement getCreate() {
@@ -173,16 +138,8 @@ public class ListPage extends ListPageFactory {
         return unionDataset;
     }
 
-    public WebElement getEnsureButton(){
-        return ensureButton;
-    }
-
     public WebElement getCancel() {
         return cancel;
-    }
-
-    public WebElement getMessage() {
-        return message;
     }
 
     public WebElement getTagPanel() {
@@ -192,25 +149,5 @@ public class ListPage extends ListPageFactory {
     public WebElement getTagField() {
         tagField.click();
         return this.getLastDropdownList();
-    }
-
-    public WebElement getMultiButton() {
-        return super.getButton("批量操作");
-    }
-
-    public WebElement getSelectAction() {
-        return super.getButton("请选择");
-    }
-
-    public WebElement getFinish() {
-        return super.getButton("完成");
-    }
-
-    public WebElement getMultiTag() {
-        return multiTag;
-    }
-
-    public WebElement getMultiDelete() {
-        return multiDelete;
     }
 }

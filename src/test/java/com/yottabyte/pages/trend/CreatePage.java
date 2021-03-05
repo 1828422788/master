@@ -272,7 +272,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "yotta-date-time-picker")
     private WebElement dateEditor;
 
-    @FindBy(xpath = "//span[text()='每个分片取样']/following-sibling::input")
+    @FindBy(xpath = "//label[text()='每个分片取样']/ancestor::div/following-sibling::div//input")
     private WebElement fenPianQuYang;
 
     @FindBy(xpath = "//span[text()='设置图表类型']")
@@ -450,7 +450,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
     private WebElement pagingSelect;
 
-    @FindBy(xpath = "//label[text()='报表']")
+    @FindBy(xpath = "//span[text()='另存为报表']/ancestor::button")
     private WebElement report;
 
     @FindBy(xpath = "(//span[text()='气泡大小'])[last()]/ancestor::div/following-sibling::div[1]")
@@ -2250,7 +2250,7 @@ public class CreatePage extends PageTemplate {
 
     //author-jnd
     //数据集的展开按钮
-    @FindBy(xpath = "//a[text()='展开']")
+    @FindBy(xpath = "//*[text()='展开']/ancestor::button")
     private WebElement zhanKai;
 
     public WebElement getZhanKai() {
@@ -2258,11 +2258,25 @@ public class CreatePage extends PageTemplate {
     }
 
     //数据集的显示位置
-    @FindBy(xpath = "//div[@class='_10GY9a1TR9fkHwR6NvTQN7']/span")
+    @FindBy(xpath = "//div[@class='_3ET1_zfWFNtizQm9NnT996']/span")
     private WebElement dataSetPosition;
 
     public WebElement getDataSetPosition() {
         return dataSetPosition;
+    }
+
+    @FindBy(xpath = "//span[text()='搜索配置']")
+    private WebElement searchConfig;
+
+    public WebElement getSearchConfig() {
+        return searchConfig;
+    }
+
+    @FindBy(xpath = "//span[contains(@class,'close-icon')]")
+    private WebElement closeWindow;
+
+    public WebElement getCloseWindow() {
+        return closeWindow;
     }
 
 // Table - pencil;-----------------
@@ -2380,6 +2394,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//label[contains(text(),'资源标签')][last()])/ancestor::div/following-sibling::div//input")
     private WebElement tagInput;
 
+    @FindBy(xpath = "(//span[@class='yotta-select-option-label'])[1]")
+    private WebElement selectAddedTag;
+
     @FindBy(xpath = "//label[contains(text(),'资源标签')]/ancestor::div/following-sibling::div//span[@class='yotta-tag-content']")
     private WebElement selectedTag;
 
@@ -2387,7 +2404,12 @@ public class CreatePage extends PageTemplate {
     private WebElement deleteTag;
 
     public WebElement getTagInput() {
+        groupField.click();
         return tagInput;
+    }
+
+    public WebElement getSelectAddedTag() {
+        return selectAddedTag;
     }
 
     public WebElement getSelectedTag() {

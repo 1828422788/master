@@ -33,10 +33,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-select-dropdown__list")
     private List<WebElement> dropdownLists;
 
-    @FindBy(xpath = "//label[text()='名称']/following-sibling::input")
+    @FindBy(xpath = "//label[text()='名称']/ancestor::div[1]/following-sibling::div//input")
     private WebElement name;
 
-    @FindBy(xpath = "//label[text()='描述']/following-sibling::input")
+    @FindBy(xpath = "//label[text()='描述']/ancestor::div[1]/following-sibling::div//input")
     private WebElement describe;
 
     @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div//input")
@@ -48,7 +48,7 @@ public class CreatePage extends PageTemplate {
 //    @FindBy(xpath = "//label[text()='报表类型']/following-sibling::div")
 //    private WebElement reportTypeButton;
 
-    @FindBy(xpath = "//label[text()='报表类型']/following-sibling::div/div")
+    @FindBy(xpath = "//label[text()='报表类型']/ancestor::div[1]/following-sibling::div/div")
     private WebElement reportType;
 
     @FindBy(xpath = "//li[@class='ant-dropdown-menu-item'][1]")
@@ -57,10 +57,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "ant-collapse-header")
     private WebElement topoTitle;
 
-    @FindBy(xpath = "//label[text()='接收邮箱']/following-sibling::div/div")
+    @FindBy(xpath = "//label[text()='接收邮箱']/ancestor::div[1]/following-sibling::div/div")
     private WebElement emailInput;
 
-    @FindBy(xpath = "//label[text()='接收邮箱']/following-sibling::div//input")
+    @FindBy(xpath = "//label[text()='接收邮箱']/ancestor::div[1]/following-sibling::div//input")
     private WebElement emailField;
 
     public WebElement getEmailField(){
@@ -71,10 +71,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[@class='el-scrollbar'])[last()]")
     private WebElement scrollbar;
 
-    @FindBy(xpath = "//label[text()='邮件主题']/following-sibling::input")
+    @FindBy(xpath = "//label[text()='邮件主题']/ancestor::div[1]/following-sibling::div//input")
     private WebElement subject;
 
-    @FindBy(xpath = "//label[text()='邮件主题']/following-sibling::span")
+    @FindBy(xpath = "//label[text()='邮件主题']/ancestor::div[1]/following-sibling::div//input/following-sibling::div")
     private WebElement subjectNote;
 
     @FindBy(xpath = "//span[text()='趋势图列表']/following-sibling::div/button")
@@ -184,22 +184,22 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='布局设计']/ancestor::div/following-sibling::div//span[text()='4']")
     private WebElement badge4;
 
-    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div/div")
+    @FindBy(xpath = "//label[text()='所属应用']/ancestor::div[1]/following-sibling::div/div")
     private WebElement app;
 
-    @FindBy(xpath = "//label[text()='资源标签']/following-sibling::span/div")
+    @FindBy(xpath = "//label[text()='资源标签']/ancestor::div[1]/following-sibling::div")
     private WebElement tag;
 
-    @FindBy(className = "ant-select-selection__choice__content")
+    @FindBy(xpath = "//label[contains(text(),'资源标签')]/ancestor::div/following-sibling::div//span[@class='yotta-tag-content']")
     private WebElement chosenTag;
 
-    @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div//div[@class='ant-select-selection-selected-value']")
+    @FindBy(xpath = "//label[contains(text(),'运行用户')]/ancestor::div[1]/following-sibling::div//span[@class='yotta-select-selection-value']")
     private WebElement selectedUser;
 
-    @FindBy(xpath = "(//div[@class='ant-collapse-header']/div/span[2])[last()]")
+    @FindBy(xpath = "(//div[@class='yotta-collapse-panel']//div/span[2]//span[2])[last()]")
     private WebElement chosenTrendLast;
 
-    @FindBy(xpath = "//div[@class='ant-collapse-header']/div/span[2]")
+    @FindBy(xpath = "(//div[@class='yotta-collapse-panel']//div/span[2]//span[2])[1]")
     private WebElement chosenTrendFirst;
 
     @FindBy(xpath = "(//div[@class='ant-collapse-header']/div/span[2])[last()]/following-sibling::span/i[1]")
@@ -726,6 +726,13 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//div[@class='t9XNaEf3Cqblwk37xjCVk']")
     private WebElement executionTipElement;
+
+    @FindBy(xpath = "//div[@class='_1rpZECB9i9v8h6IEUve_yK']")
+    private WebElement resultMessage;
+
+    public WebElement getResultMessage() {
+        return resultMessage;
+    }
 
     public WebElement getExecutionTipElement() {
         return executionTipElement;

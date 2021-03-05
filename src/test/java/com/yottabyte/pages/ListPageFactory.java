@@ -23,7 +23,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
     private WebElement searchInput;
 
-    @FindBy(className = "ant-select-dropdown-menu")
+    @FindBy(className = "yotta-select-menu")
     private WebElement selectDropdownMenu;
 
     @FindBy(xpath = "//p[text()='获取角色列表失败: Api 没有权限错误']")
@@ -38,7 +38,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(className = "yotta-message-content")
     private WebElement successMessage;
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
+    @FindBy(xpath = "//div[@class='yotta-dialog-content']//p")
     private WebElement message;
 
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//*[@class='ant-select-selection__clear']")
@@ -64,13 +64,16 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
         return loginUserName;
     }
 
-    @FindBy(xpath = "//div[@class='ant-popover _1HlalPPMzGz9AUFUs3fnQU ant-popover-placement-bottom']//span[contains(text(),'启动')]/ancestor::li")
+    @FindBy(xpath = "//span[contains(text(),'请选择')]/ancestor::span[contains(@class,'button')]")
+    private WebElement selectBatchOperation;
+
+    @FindBy(xpath = "//span[contains(text(),'启动')]/ancestor::li")
     private WebElement enableResources;
 
-    @FindBy(xpath = "//div[@class='ant-popover _1HlalPPMzGz9AUFUs3fnQU ant-popover-placement-bottom']//span[contains(text(),'添加资源标签')]/ancestor::li")
+    @FindBy(xpath = "//span[contains(text(),'添加资源标签')]/ancestor::li")
     private WebElement addResourceTags;
 
-    @FindBy(xpath = "//div[@class='ant-popover _1HlalPPMzGz9AUFUs3fnQU ant-popover-placement-bottom']//span[contains(text(),'删除')]/ancestor::li")
+    @FindBy(xpath = "//span[contains(text(),'删除')]/ancestor::li")
     private WebElement deleteResources;
 
     @FindBy(xpath = "//div[@class='ant-modal-root']//*[contains(@class, \"ant-modal\")]")
@@ -126,12 +129,12 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
 
     public WebElement getAppDropdown() {
         this.groupDropdownIcon("请选择应用").click();
-        return this.lastDropdownMenu();
+        return selectDropdownMenu;
     }
 
     public WebElement getResourceDropdown() {
         this.groupDropdownIcon("请选择标签").click();
-        return this.lastDropdownMenu();
+        return selectDropdownMenu;
     }
 
     public WebElement getCreate() {
@@ -151,7 +154,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     }
 
     public WebElement groupDropdownIcon(String text) {
-        return webDriver.findElement(By.xpath("//span[text()='" + text + "']/parent::div/following-sibling::span/span"));
+        return webDriver.findElement(By.xpath("//*[text()='" + text + "']/ancestor::div[2]"));
     }
 
     private WebElement lastDropdownMenu() {
@@ -190,11 +193,11 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     }
 
     public WebElement getSelectBatchOperation() {
-        return this.getButton("请选择");
+        return selectBatchOperation;
     }
 
     public WebElement getCompleteBatchControl() {
-        return this.getButton("完成");
+        return this.getButton("取消");
     }
 
     public WebElement getEnableResources() {
