@@ -576,7 +576,7 @@ public class ClickButtonWithGivenName {
      */
     @And("^\"([^\"]*)\" the data \"([^\"]*)\" in tiny saved search$")
     public void operateDataInTinySavedSearch(String function, String name) {
-        WebElement table = webDriver.findElement(By.className("ant-table-tbody"));
+        WebElement table = webDriver.findElement(By.className("yotta-table-body"));
         WebElement tr = listPageUtils.getRowWithoutPaging(name, table);
         this.click(function, tr);
     }

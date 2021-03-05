@@ -724,7 +724,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "ant-message-notice")
     private WebElement notice;
 
-    @FindBy(className = "ant-modal-confirm-title")
+    @FindBy(className = "yotta-dialog-title")
     private WebElement confirmMessage;
 
     @FindBy(xpath = "//*[name()='rect' and @class='vx-bar']/following-sibling::*[@font-size='12']")
@@ -1822,7 +1822,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCancelButton() {
-        return getContainsTextButton("取 消");
+        return getContainsTextButton("取消");
     }
 
     public WebElement getGenerate() {

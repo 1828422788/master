@@ -36,16 +36,16 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//div[@class='_1RUvRKI62LgS00VRtmcaq']/div[1]")
     private WebElement result;
 
-    @FindBy(xpath = "((//label[text()='资源标签']/ancestor::div[1])//div)[1]")
+    @FindBy(xpath = "//label[text()='资源标签']/ancestor::div[1]/following-sibling::div/div")
     private WebElement groupComboBox;
 
-    @FindBy(xpath = "//label[text()='资源标签']/following-sibling::span//*[@class='ant-select-selection__choice__content']")
+    @FindBy(xpath = "//label[text()='资源标签']/ancestor::div[1]/following-sibling::div/div//span[@class='yotta-tag-content']")
     private WebElement selectedTag;
 
-    @FindBy(xpath = "(//label[text()='所属应用'])[last()]/following-sibling::div")
+    @FindBy(xpath = "//label[text()='所属应用']/ancestor::div[1]/following-sibling::div/div")
     private WebElement appComboBox;
 
-    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//div[@class='ant-select-selection-selected-value']")
+    @FindBy(xpath = "//label[text()='所属应用']/ancestor::div[1]/following-sibling::div/div//span[@class='yotta-select-selection-value']")
     private WebElement selectedApp;
 
     @FindBy(xpath = "//div[text()='统计']")
@@ -83,14 +83,14 @@ public class SearchPage extends ListPageFactory {
         return getLastDropdownList();
     }
 
-    @FindBy(xpath = "//li[text()='新建']")
+    @FindBy(xpath = "//li/span[text()='新建']")
     private WebElement newSavedSearch;
     public WebElement getNewSavedSearch() {
         openSavedSearchButton.click();
         return newSavedSearch;
     }
 
-    @FindBy(xpath = "//li[text()='打开列表']")
+    @FindBy(xpath = "//li/span[text()='打开列表']")
     private WebElement openSavedSearchList;
     public WebElement getOpenSavedSearchList() {
         openSavedSearchButton.click();
@@ -110,18 +110,24 @@ public class SearchPage extends ListPageFactory {
     }
 
     public WebElement getEnsureCreateSavedSearch() {
-        return super.getButton("确 定");
+        return super.getButton("确定");
     }
 
     public WebElement getCancelButton() {
         return super.getButton("取 消");
     }
 
-    @FindBy(className = "ant-modal-confirm-title")
+    @FindBy(className = "yotta-dialog-title")
     private WebElement confirmMessage;
 
     public WebElement getConfirmMessage() {
         return confirmMessage;
+    }
+
+    @FindBy(xpath = "(//div[contains(@class,'help-text')])[1]")
+    private WebElement tipText;
+    public WebElement getTipText() {
+        return tipText;
     }
 
     @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")
