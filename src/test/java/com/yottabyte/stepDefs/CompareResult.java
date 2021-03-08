@@ -359,7 +359,7 @@ public class CompareResult {
      * 比较两个文本文件是否相等，
      *
      * @param DownloadFile 源文件路径名称
-     * @param timeRegex 目标文件路径名称
+     * @param timeRegex    目标文件路径名称
      */
     @And("^I compare download file \"([^\"]*)\" with time regex \"([^\"]*)\"$")
     public void compareDownloadFileTimeRegex(String DownloadFile, String timeRegex) {
@@ -622,21 +622,30 @@ public class CompareResult {
                 int col_count2 = col_arry2.length;
 
                 if (col_count1 == col_count2) {
-                    for (int j = 1; j < col_count1; j++) {
+                    for (int j = 0; j < col_count1; j++) {
                         String cur_ArryValue1 = col_arry1[j];
                         String cur_ArryValue2 = col_arry2[j];
 
-                        int flag = -1;
+                        int disflag = -1;
                         for (int cur_colno = 0; cur_colno < nokeeplist.length; cur_colno++) {
-                            if (cur_colno == j)
-                                flag = cur_colno;
+                            if (nokeeplist[cur_colno] == j)
+                                disflag = cur_colno;
+                            System.out.println("行内容不一样flag====" + Integer.toString(disflag));
+
                         }
 
-                        if (flag != -1) {
+                        if (disflag != -1) {
                             continue;
                         }
 
                         if (!cur_ArryValue1.equals(cur_ArryValue2)) {
+                            System.out.println("行内容不一样flag" + Integer.toString(disflag));
+                            System.out.println("行内容不一样" + Integer.toString(i));
+                            System.out.println("列内容" + Integer.toString(j));
+                            System.out.println("行内容不一样" + row_arrylist1[i]);
+                            System.out.println("行内容不一样" + row_arrylist2[i]);
+                            System.out.println("行内容不一样" + cur_ArryValue1);
+                            System.out.println("行内容不一样" + cur_ArryValue2);
                             System.out.println("行内容不一样");
                             Assert.fail();
                         }
@@ -694,7 +703,7 @@ public class CompareResult {
                 int col_count2 = col_arry2.length;
 
                 if (col_count1 == col_count2) {
-                    for (int j = 1; j < col_count1; j++) {
+                    for (int j = 0; j < col_count1; j++) {
                         String cur_ArryValue1 = col_arry1[j];
                         String cur_ArryValue2 = col_arry2[j];
 
@@ -727,6 +736,134 @@ public class CompareResult {
             Assert.fail();
         }
 
+    }
+
+    /**
+     * 比较两个csv文件某一列内容是否相等，
+     *
+     * @param xtableName     源文件路径名称
+     * @param columnNum 精确度
+     *                       // * @param discolumnlist 忽略的列数
+     */
+    @And("^I sub compare xtable \"([^\"]*)\" in column \"([^\"]*)\"$")
+    public void subcompareOneColumn(String xtableName, String columnNum) {
+        ArrayList<String> fis1 = null;
+        ArrayList<String> fis2 = null;
+
+        fis1 = readFromTextFile("/opt/expect/" + xtableName);
+        fis2 = readFromTextFile("/opt/actual/" + xtableName);
+
+        int row_len1 = fis1.toArray().length;
+        int row_len2 = fis2.toArray().length;
+
+        String[] row_arrylist1 = (String[]) fis1.toArray(new String[fis1.size()]);
+        String[] row_arrylist2 = (String[]) fis2.toArray(new String[fis2.size()]);
+
+        if (row_len1 == row_len2) { //行数
+            //表头
+            for (int i = 0; i < row_len1; i++) {
+
+                String[] col_arry1 = row_arrylist1[i].split(",");
+                String[] col_arry2 = row_arrylist2[i].split(",");
+
+                int col_count1 = col_arry1.length;
+                int col_count2 = col_arry2.length;
+
+                String cur_ArryValue1 = col_arry1[Integer.valueOf(columnNum).intValue()];
+                String cur_ArryValue2 = col_arry2[Integer.valueOf(columnNum).intValue()];
+
+                int subLength = cur_ArryValue1.length();
+                if (subLength>7){
+                    subLength=7;
+                }
+
+                cur_ArryValue1 = cur_ArryValue1.substring(0, subLength);
+                cur_ArryValue2 = cur_ArryValue2.substring(0, subLength);
+
+                if (!cur_ArryValue1.equals(cur_ArryValue2)) {
+                    System.out.println("行内容不一样");
+                    Assert.fail();
+                }
+            }
+            System.out.println("两个文件完全相同");
+        } else {
+            //长度不一样，文件不同
+            Assert.fail();
+        }
+    }
+
+    /**
+     * 比较两个csv文件部分内容是否相等，
+     *
+     * @param xtableName     源文件路径名称
+     * @param str_noKeeplist 精确度
+     *                       // * @param discolumnlist 忽略的列数
+     */
+    @And("^I compare xtable \"([^\"]*)\" by column list \"([^\"]*)\"$")
+    public void compareXtableFilebyList(String xtableName, String str_noKeeplist) {
+//      int[] noKeeplist = {0,0};
+
+        String[] cur_noKeeplist = str_noKeeplist.split(",");
+        int[] nokeeplist = new int[cur_noKeeplist.length];
+        for (int i = 0; i < cur_noKeeplist.length; i++) {
+            nokeeplist[i] = Integer.valueOf(cur_noKeeplist[i]).intValue();
+        }
+
+        ArrayList<String> fis1 = null;
+        ArrayList<String> fis2 = null;
+
+        fis1 = readFromTextFile("/opt/expect/" + xtableName);
+        fis2 = readFromTextFile("/opt/actual/" + xtableName);
+
+        int row_len1 = fis1.toArray().length;
+        int row_len2 = fis2.toArray().length;
+
+        String[] row_arrylist1 = (String[]) fis1.toArray(new String[fis1.size()]);
+        String[] row_arrylist2 = (String[]) fis2.toArray(new String[fis2.size()]);
+
+        if (row_len1 == row_len2) { //行数
+            //表头
+            for (int i = 0; i < row_len1; i++) {
+
+                String[] col_arry1 = row_arrylist1[i].split(",");
+                String[] col_arry2 = row_arrylist2[i].split(",");
+
+                int col_count1 = col_arry1.length;
+                int col_count2 = col_arry2.length;
+
+                if (col_count1 == col_count2) {
+                    for (int j = 0; j < col_count1; j++) {
+                        String cur_ArryValue1 = col_arry1[j];
+                        String cur_ArryValue2 = col_arry2[j];
+
+                        int flag = -1;
+                        for (int cur_colno = 0; cur_colno < nokeeplist.length; cur_colno++) {
+                            if (cur_colno == j)
+                                flag = cur_colno;
+                        }
+
+                        if (flag != -1) {
+                            continue;
+                        }
+
+                        cur_ArryValue1 = cur_ArryValue1.substring(11, cur_ArryValue1.length());
+                        cur_ArryValue2 = cur_ArryValue2.substring(11, cur_ArryValue2.length());
+
+                        if (!cur_ArryValue1.equals(cur_ArryValue2)) {
+                            System.out.println("行内容不一样");
+                            Assert.fail();
+                        }
+                    }
+                } else {
+                    System.out.println("行内容不一样");
+                    Assert.fail();
+                }
+            }
+            System.out.println("两个文件完全相同");
+        } else {
+            //长度不一样，文件不同
+            Assert.fail();
+        }
     }
 
     /**
@@ -917,3 +1054,4 @@ public class CompareResult {
         }
     }
 }
+
