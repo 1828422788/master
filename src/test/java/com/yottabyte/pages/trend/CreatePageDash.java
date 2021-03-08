@@ -26,9 +26,7 @@ public class CreatePageDash extends PageTemplate {
     public CreatePageDash(WebDriver driver) {
         super(driver);
         //webDriver.manage().window().setPosition(new Point(0, 0));
-//        driver.manage().window().setSize(new Dimension(1200,900));
-//        driver.manage().window().fullscreen();
-        driver.manage().window().setSize(new Dimension(1920,1080));
+        driver.manage().window().setSize(new Dimension(1200,900));
     }
 
     private DropdownUtils dropdownUtils = new DropdownUtils();
@@ -72,32 +70,14 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = " //*[text()='江苏']")
     private WebElement openJiangsu;
 
-    @FindBy(xpath = "//div[contains(text(),'关系')]")
-    private WebElement connection;
-
-    @FindBy(xpath = "(//div[contains(text(),'数值')])[last()]")
-    private WebElement value;
-
-    @FindBy(xpath = "(//div[text()='常规'])[last()]")
-    private WebElement general;
-
-    @FindBy(xpath = "(//div[text()='平铺'])[last()]")
-    private WebElement tile;
-
     @FindBy(xpath = "(//div[text()='时序'])[last()]")
     private WebElement timeSequence;
-
-    @FindBy(xpath = "(//div[contains(text(),'分面')])[last()]")
-    private WebElement facet;
 
     @FindBy(xpath = "(//span[text()='行数']/preceding-sibling::div/input)[last()]")
     private WebElement rowNum;
 
     @FindBy(xpath = "(//span[text()='列数']/preceding-sibling::div/input)[last()]")
     private WebElement columnNum;
-
-    @FindBy(xpath = "//span[text()='展示字号']/ancestor::div/following-sibling::input")
-    private WebElement fontSize;
 
     @FindBy(xpath = "(//span[contains(text(),'字段值')])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement fieldValue;
@@ -135,20 +115,11 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//span[text()='数据精度'][last()])/ancestor::div/following-sibling::div[1]")
     private WebElement precision;
 
-    @FindBy(xpath = "(//label[text()='资源标签'][last()])/following-sibling::div[1]")
+    @FindBy(xpath = "((//label[contains(text(),'资源标签')][last()])/ancestor::div/following-sibling::div)[1]")
     private WebElement groupField;
 
-    @FindBy(xpath = "(//label[text()='所属应用'][last()])/following-sibling::div[1]")
+    @FindBy(xpath = "((//label[contains(text(),'所属应用')][last()])/ancestor::div/following-sibling::div)[1]")
     private WebElement appField;
-
-    @FindBy(xpath = "//span[text()='统一度量']/ancestor::div/following-sibling::button")
-    private WebElement unifyMetric;
-
-    @FindBy(xpath = "//span[text()='多级']/ancestor::div/following-sibling::button")
-    private WebElement multistage;
-
-    @FindBy(xpath = "//span[text()='使用千分隔符']/ancestor::div/following-sibling::button")
-    private WebElement thousandSeparator;
 
     @FindBy(xpath = "//span[text()='生成']/ancestor::button")
     private WebElement generate;
@@ -169,25 +140,25 @@ public class CreatePageDash extends PageTemplate {
     private WebElement unitPositionAfter;
 
 // Labels
-    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div/label[1]")
+    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div//label[1]")
     private WebElement firstLabel;
 
-    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div/label[2]")
+    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div//label[2]")
     private WebElement secondLabel;
 
-    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div/label[3]")
+    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div//label[3]")
     private WebElement thirdLabel;
 
-    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div/label[4]")
+    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div//label[4]")
     private WebElement forthLabel;
 
-    @FindBy(xpath = "(//div[text()='中国'])/ancestor::span")
+    @FindBy(xpath = "(//*[text()='中国'])/ancestor::span")
     private WebElement selectChina;
 
-    @FindBy(xpath = "(//div[text()='江苏'])/ancestor::span")
+    @FindBy(xpath = "(//*[text()='江苏'])/ancestor::span")
     private WebElement selectJiangsu;
 
-    @FindBy(xpath = "(//div[text()='世界'])/ancestor::span")
+    @FindBy(xpath = "(//*[text()='世界'])/ancestor::span")
     private WebElement selectWorld;
 
     @FindBy(className = "_1pGh3cs00Rp1iccZrcDgHU")
@@ -201,6 +172,9 @@ public class CreatePageDash extends PageTemplate {
 
     @FindBy(xpath = "//th[last()]/i")
     private WebElement pencil;
+
+    @FindBy(xpath = "//th[1]/i")
+    private WebElement pencilFirst;
 
     @FindBy(xpath = "//div[text()='表格样式设置']/ancestor::div[2]")
     private WebElement colorPanel;
@@ -295,10 +269,10 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(className = "CodeMirror-code")
     private WebElement searchInput;
 
-    @FindBy(xpath = "//input[@placeholder='请选择快捷时间或时间范围']")
+    @FindBy(className = "yotta-date-time-picker")
     private WebElement dateEditor;
 
-    @FindBy(xpath = "//span[text()='每个分片取样']/following-sibling::input")
+    @FindBy(xpath = "//label[text()='每个分片取样']/ancestor::div/following-sibling::div//input")
     private WebElement fenPianQuYang;
 
     @FindBy(xpath = "//span[text()='设置图表类型']")
@@ -341,47 +315,17 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")
     private WebElement successMessage;
 
+    @FindBy(xpath = "//*[name()='use' and @*='#icon-cuowu']/ancestor::*[name()='i']/following-sibling::p")
+    private WebElement errorMessage;
+
     @FindBy(tagName = "th")
     private WebElement header;
-
-    @FindBy(xpath = "(//div[text()='Y轴'])[last()]")
-    private WebElement yaxis;
 
     @FindBy(xpath = "(//div[contains(text(),'Y轴 2')])[last()]")
     private WebElement yaxis2;
 
     @FindBy(xpath = "(//div[contains(text(),'Y轴 3')])[last()]")
     private WebElement yaxis3;
-
-    @FindBy(xpath = "(//div[text()='X轴'])[last()]")
-    private WebElement xaxis;
-
-    @FindBy(xpath = "(//div[contains(text(),'分组')])[last()]")
-    private WebElement group;
-
-    @FindBy(xpath = "(//div[contains(text(),'气泡')])[last()]")
-    private WebElement bubble;
-
-    @FindBy(xpath = "(//div[text()='图例'])[last()]")
-    private WebElement example;
-
-    @FindBy(xpath = "(//div[text()='展示'])[last()]")
-    private WebElement exhibition;
-
-    @FindBy(xpath = "(//div[contains(text(),'对比')])[last()]")
-    private WebElement compare;
-
-    @FindBy(xpath = "(//span[text()='平滑'])[last()]/ancestor::div/following-sibling::div//label")
-    private WebElement smooth;
-
-    @FindBy(xpath = "(//span[text()='连接空数据'])[last()]/ancestor::div/following-sibling::div//label")
-    private WebElement connectEmptyData;
-
-    @FindBy(xpath = "(//span[text()='显示所有x轴标签'])[last()]/ancestor::div/following-sibling::div//label")
-    private WebElement showAllLabels;
-
-    @FindBy(xpath = "(//span[text()='标签间隔'])[last()]/ancestor::div/following-sibling::input")
-    private WebElement labelInterval;
 
     @FindBy(xpath = "(//span[text()='min']/preceding-sibling::div/input)[last()]")
     private WebElement min;
@@ -425,29 +369,11 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(className = "yw-search-setting-switch")
     private WebElement settingSwitch;
 
-    @FindBy(xpath = "(//div[contains(text(),'维度')])[last()]")
-    private WebElement dimension;
-
     @FindBy(xpath = "(//div[contains(text(),'关系')])[last()]")
     private WebElement relation;
 
-    @FindBy(xpath = "(//div[contains(text(),'复合')])[last()]")
-    private WebElement compound;
-
-    @FindBy(xpath = "(//div[contains(text(),'序列')])[last()]")
-    private WebElement order;
-
-    @FindBy(xpath = "(//div[text()='地图'])[last()]")
-    private WebElement map;
-
-    @FindBy(xpath = "(//div[contains(text(),'其他')])[last()]")
-    private WebElement other;
-
     @FindBy(className = "tracing")
     private WebElement tracing;
-
-    @FindBy(xpath = "(//div[contains(text(),'切分')])[last()]")
-    private WebElement divide;
 
     @FindBy(xpath = "(//div[contains(text(),'分面')])[last()]")
     private WebElement divideSide;
@@ -460,39 +386,6 @@ public class CreatePageDash extends PageTemplate {
 
     @FindBy(xpath = "(//div[@class='el-select yw-search-setting-select'])[last()]")
     private WebElement secondSettingSelect;
-
-    @FindBy(xpath = "(//div[contains(text(),'和弦图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement chord;
-
-    @FindBy(xpath = "(//div[contains(text(),'桑基图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement sankey;
-
-    @FindBy(xpath = "(//div[contains(text(),'力图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement force;
-
-    @FindBy(xpath = "(//div[text()='目标'])[last()]")
-    private WebElement target;
-
-    @FindBy(xpath = "(//div[text()='标记'])[last()]")
-    private WebElement mark;
-
-    @FindBy(xpath = "(//div[text()='来源'])[last()]")
-    private WebElement source;
-
-    @FindBy(xpath = "(//div[text()='权重'])[last()]")
-    private WebElement weight;
-
-    @FindBy(xpath = "(//div[text()='区域'])[last()]")
-    private WebElement region;
-
-    @FindBy(xpath = "(//div[text()='下钻'])[last()]")
-    private WebElement goingDown;
-
-    @FindBy(xpath = "(//div[contains(text(),'区间图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement rangeline;
-
-    @FindBy(xpath = "(//div[contains(text(),'多y轴图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement multiaxis;
 
     @FindBy(xpath = "//span[text()='预测值']/ancestor::div/following-sibling::div")
     private WebElement predict;
@@ -508,15 +401,6 @@ public class CreatePageDash extends PageTemplate {
 
     @FindBy(xpath = "(//span[text()='下限'])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement lowerLimit;
-
-    @FindBy(xpath = "(//div[contains(text(),'热力地图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement heatmap;
-
-    @FindBy(xpath = "(//div[contains(text(),'攻击地图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement attackmap;
-
-    @FindBy(xpath = "(//div[contains(text(),'区划地图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement regionmap;
 
     @FindBy(xpath = "(//div[@class='img geostatsmap'])[last()]")
     private WebElement geostatsmap;
@@ -535,9 +419,6 @@ public class CreatePageDash extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='字体']")
     private WebElement font;
-
-    @FindBy(xpath = "(//div[text()='图标'])[last()]")
-    private WebElement icon;
 
     @FindBy(xpath = "(//div[text()='按字段'])[last()]")
     private WebElement accordingField;
@@ -563,20 +444,14 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//*[@class='el-switch yw-search-setting-switch'])[last()]")
     private WebElement switchButton;
 
-    @FindBy(xpath = "(//div[text()='指示器'])[last()]")
-    private WebElement indicator;
-
     @FindBy(xpath = "(//i[@class='el-input__icon el-icon-arrow-up'])[2]")
     private WebElement pagination;
 
     @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
     private WebElement pagingSelect;
 
-    @FindBy(xpath = "//label[text()='报表']")
+    @FindBy(xpath = "//span[text()='另存为报表']/ancestor::button")
     private WebElement report;
-
-    @FindBy(xpath = "//span[text()='堆叠']/ancestor::div/following-sibling::div//label")
-    private WebElement pile;
 
     @FindBy(xpath = "(//span[text()='气泡大小'])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement bubbleSize;
@@ -658,10 +533,10 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//span[text()='内蒙古'])[last()]")
     private WebElement neimeng;
 
-    @FindBy(xpath = "(//span[text()='省级下钻字段'][last()])/ancestor::div/following-sibling::div[1]")
+    @FindBy(xpath = "(//span[text()='省级下钻'][last()])/ancestor::div/following-sibling::div[1]")
     private WebElement province;
 
-    @FindBy(xpath = "(//span[text()='市级下钻字段'][last()])/ancestor::div/following-sibling::div[1]")
+    @FindBy(xpath = "(//span[text()='市级下钻'][last()])/ancestor::div/following-sibling::div[1]")
     private WebElement city;
 
     @FindBy(className = "el-radio-group")
@@ -676,9 +551,6 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//input[@placeholder='max'])[last()]")
     private WebElement maxRange;
 
-    @FindBy(xpath = "//span[text()='分段数']/ancestor::div/following-sibling::input")
-    private WebElement segments;
-
     @FindBy(className = "chart-setting-popover")
     private WebElement settingPopover;
 
@@ -691,32 +563,11 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//span[text()='持续时间'])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement keepTime;
 
-    @FindBy(xpath = "(//div[text()='时间'])[last()]")
-    private WebElement time;
-
-    @FindBy(xpath = "(//div[text()='信息'])[last()]")
-    private WebElement info;
-
-    @FindBy(xpath = "//span[text()='使用在线地图']/ancestor::div/following-sibling::button")
-    private WebElement onlineMap;
-
-    @FindBy(xpath = "(//span[contains(text(),'透明度')])[last()]/ancestor::div/following-sibling::input")
-    private WebElement transparency;
-
-    @FindBy(xpath = "(//span[contains(text(),'最小半径')])[last()]/ancestor::div/following-sibling::input")
-    private WebElement minRadius;
-
-    @FindBy(xpath = "(//span[contains(text(),'最大半径')])[last()]/ancestor::div/following-sibling::input")
-    private WebElement maxRadius;
-
     @FindBy(xpath = "(//span[contains(text(),'纬度')])[last()]/following-sibling::input")
     private WebElement centerLatitude;
 
     @FindBy(xpath = "(//span[contains(text(),'经度')])[last()]/following-sibling::input")
     private WebElement centerLongitude;
-
-    @FindBy(xpath = "(//span[contains(text(),'缩放级别')])[last()]/ancestor::div/following-sibling::input[1]")
-    private WebElement zoomLevel;
 
     @FindBy(xpath = "(//span[contains(text(),'来源名称')])[last()]/following-sibling::input")
     private WebElement mapName;
@@ -726,9 +577,6 @@ public class CreatePageDash extends PageTemplate {
 
     @FindBy(xpath = "(//span[contains(text(),'Subdomains')])[last()]/following-sibling::input")
     private WebElement subdomains;
-
-    @FindBy(xpath = "(//span[contains(text(),'地图透明度')])[last()]/ancestor::div/following-sibling::input[1]")
-    private WebElement mapOpacity;
 
     @FindBy(xpath = "((//span[text()='数据圆圈图层'][last()])/ancestor::div/following-sibling::div)[1]")
     private WebElement dataCircleLayer;
@@ -766,9 +614,6 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//*[@class='el-scrollbar'])[last()]")
     private WebElement scrollbar;
 
-    @FindBy(xpath = "//span[text()='斥力因子']/ancestor::div/following-sibling::input")
-    private WebElement repulsion;
-
     @FindBy(className = "yw-trend")
     private WebElement canvas;
 
@@ -796,9 +641,6 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//label[text()='今天']/following-sibling::i)[2]")
     private WebElement setting;
 
-    @FindBy(xpath = "((//label[text()='今天'])[2]/following-sibling::i)[2]")
-    private WebElement secondSetting;
-
     @FindBy(xpath = "//span[text()='数值字段']/ancestor::div/following-sibling::div//i")
     private WebElement dataField;
 
@@ -823,9 +665,6 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//div[@class='ant-popover-inner-content'])[2]")
     private WebElement settingContent;
 
-    @FindBy(xpath = "//span[text()='统一度量']/ancestor::div/following-sibling::button")
-    private WebElement unifiedMetric;
-
     @FindBy(xpath = "(//span[text()='展示字段']/ancestor::div/following-sibling::div)[1]")
     private WebElement displayField;
 
@@ -835,20 +674,9 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='展示字号']")
     private WebElement wordSize;
 
-    public WebElement getStatisticalmap() {
-        return getChartButton("统计地图");
-    }
-
 
     @FindBy(xpath = "//span[text()='数据精度']/ancestor::div/following-sibling::div")
     private WebElement dataPrecision;
-
-    public WebElement getRing() {
-        return getChartButton("环形比例图");
-    }
-
-    @FindBy(xpath = "(//span[contains(text(),'单位')]/ancestor::div[1]/following-sibling::div/input)[last()]")
-    private WebElement unit;
 
     @FindBy(xpath = "//span[text()='行数']/preceding-sibling::input")
     private WebElement layoutRow;
@@ -859,13 +687,13 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='max']/following-sibling::div")
     private WebElement rangeColor;
 
-    @FindBy(xpath = "(//*[@class='anticon-spin'])[2]")
+    @FindBy(xpath = "((//*[@class='anticon-spin'])[2]) | (//span[contains(@class,'ant-spin-dot')])")
     private WebElement loading;
 
     @FindBy(xpath = "(//span[text()='类型：'])[last()]/ancestor::div/following-sibling::div")
     private WebElement typeDropdown;
 
-    @FindBy(className = "_3YQ9T5DTgCrQ0NSzwkV6a5")
+    @FindBy(className = "yotta-search-control-text")
     private WebElement searchStatus;
 
     @FindBy(xpath = "//span[text()='dataset_1']")
@@ -886,6 +714,237 @@ public class CreatePageDash extends PageTemplate {
     //默认
     @FindBy(xpath = "(//tr[2]/td[2]/div)[1]")
     private WebElement cell2;
+
+    @FindBy(xpath = "//div[text()='提示']/ancestor::div/following-sibling::div//p")
+    private WebElement prompt;
+
+    @FindBy(xpath = "//span[text()='已存搜索']")
+    private WebElement savedSearch;
+
+    @FindBy(className = "ant-message-notice")
+    private WebElement notice;
+
+    @FindBy(className = "yotta-dialog-title")
+    private WebElement confirmMessage;
+
+    @FindBy(xpath = "//*[name()='rect' and @class='vx-bar']/following-sibling::*[@font-size='12']")
+    private WebElement sankeyElement;
+
+    @FindBy(xpath = "//*[(contains(text(),'200') or contains(text(),'/')) and name()='text']/following-sibling::*[name()='circle']")
+    private WebElement chordElement;
+
+    @FindBy(xpath = "//*[contains(@style,'cubic-bezier')]/following-sibling::*[@font-size>7]")
+    private WebElement forceElement;
+
+    @FindBy(xpath = "//*[@class='vx-group' and name()='g']/*[text()='南京市' and name()='text']")
+    private WebElement wordcloudElement;
+
+    @FindBy(xpath = "//*[@class='vx-group']/*[@class='vx-line-radial']")
+    private WebElement radarElement;
+
+    @FindBy(xpath = "//*[contains(@id,'funnel')]")
+    private WebElement funnelElement;
+
+    @FindBy(xpath = "//*[@class='vx-circle']/following-sibling::*[contains(@class,'vx-area-closed')]")
+    private WebElement liquidfillElement;
+
+    @FindBy(xpath = "//*[@class='vx-group']/*[contains(@fill,'rgb(211, 17, 33)') or contains(@fill,'rgb(253, 144, 62)') or contains(@fill,'rgb(255, 231, 148)')]")
+    private WebElement matrixheatmapElement;
+
+    @FindBy(xpath = "//div[contains(@class,'bar')]/ancestor::div[1]/following-sibling::div[2]//div[contains(@class,'bar')]")
+    private WebElement chainTableElement;
+
+    @FindBy(xpath = "//div[@class='tooltipTopBoundary']/following-sibling::div[contains(@id,'tracing')]/canvas")
+    private WebElement chainTreeElement;
+
+    @FindBy(xpath = "//div[contains(@id,'sequence')]")
+    private WebElement sequenceElement;
+
+    @FindBy(xpath = "//*[@class='vx-group']//*[contains(@id,endArrow) or contains(@id,startArrow)]")
+    private WebElement networkElement;
+
+    @FindBy(xpath = "(//div[contains(@style,'justify-content: center')]//span)[last()]")
+    private WebElement singleElement;
+
+    @FindBy(xpath = "(//*[@class='vx-group']//*[name()='text'])[1]")
+    private WebElement ringElement_1;
+
+    @FindBy(xpath = "(//*[@class='vx-group']//*[name()='text' and @fill='gray'])")
+    private WebElement ringElement_2;
+
+    @FindBy(xpath = "(//*[@class='vx-group']//*[@class='vx-arc']/following-sibling::*)[1]")
+    private WebElement sunElement;
+
+    @FindBy(xpath = "//*[@class='vx-bar']/ancestor::*[2]/following-sibling::*[contains(@class,'vx-axis-bottom')]")
+    private WebElement barElement;
+
+    @FindBy(xpath = "(//*[@class='vx-group']//*[@class='vx-arc']/following-sibling::*[@class='vx-line']/preceding-sibling::*)[last()]")
+    private WebElement pieElement;
+
+    @FindBy(xpath = "//*[@class='vx-group']//*[@class='vx-arc']")
+    private WebElement pieNoLabelsElement;
+
+    @FindBy(xpath = "//*[@class='vx-group']/*/div[contains(@style,'font-size: 12px;')]")
+    private WebElement flameElement;
+
+    @FindBy(xpath = "//*[@class='vx-group']//*[contains(@class,'vx-rows')]/following-sibling::*[@class='vx-linepath']")
+    private WebElement lineChartElement;
+
+    @FindBy(xpath = "//*[@class='vx-group']//*[@class='vx-area-closed']")
+    private WebElement areaChartElement;
+
+    @FindBy(xpath = "//*[@class='vx-group']//*[@cx and @r and contains(@style,'pointer-events')]")
+    private WebElement scatterChartElement;
+
+    @FindBy(xpath = "//*[@class='vx-group']//*[@y and @height and @fill]")
+    private WebElement columnChartElement;
+
+    @FindBy(xpath = "//*[@class='vx-group']//*[contains(@class,'vx-threshold')]")
+    private WebElement rangelineElement;
+
+    @FindBy(xpath = "//*[@class='heatmap-canvas']")
+    private WebElement heatmapElement;
+
+    @FindBy(xpath = "//*[@class='vx-group geo']/*[@fill='#131d42']")
+    private WebElement regionmapDarkElement;
+
+    @FindBy(xpath = "//*[@class='vx-group geo']/*[@fill='#FFFFFF']")
+    private WebElement regionmapLightElement;
+
+    @FindBy(xpath = "//*[@class='vx-group geo']/following-sibling::*/*[contains(@id,'link')]")
+    private WebElement attackmapElement;
+
+    public WebElement getAttackmapElement() {
+        return attackmapElement;
+    }
+
+    public WebElement getRegionmapLightElement() {
+        return regionmapLightElement;
+    }
+
+    public WebElement getRegionmapDarkElement() {
+        return regionmapDarkElement;
+    }
+
+    public WebElement getHeatmapElement() {
+        return heatmapElement;
+    }
+
+    public WebElement getRangelineElement() {
+        return rangelineElement;
+    }
+
+    public WebElement getColumnChartElement() {
+        return columnChartElement;
+    }
+
+    public WebElement getScatterChartElement() {
+        return scatterChartElement;
+    }
+
+    public WebElement getAreaChartElement() {
+        return areaChartElement;
+    }
+
+    public WebElement getLineChartElement() {
+        return lineChartElement;
+    }
+
+    public WebElement getFlameElement() {
+        return flameElement;
+    }
+
+    public WebElement getPieNoLabelsElement() {
+        return pieNoLabelsElement;
+    }
+
+    public WebElement getPieElement(){
+        return pieElement;
+    }
+
+    public WebElement getBarElement() {
+        return barElement;
+    }
+
+    public WebElement getSunElement() {
+        return sunElement;
+    }
+
+    public WebElement getRingElement_1() {
+        return ringElement_1;
+    }
+
+    public WebElement getRingElement_2() {
+        return ringElement_2;
+    }
+
+    public WebElement getSingleElement() {
+        return singleElement;
+    }
+
+    public WebElement getNetworkElement() {
+        return networkElement;
+    }
+
+    public WebElement getSequenceElement() {
+        return sequenceElement;
+    }
+
+    public WebElement getChainTreeElement() {
+        return chainTreeElement;
+    }
+
+    public WebElement getChainTableElement() {
+        return chainTableElement;
+    }
+
+    public WebElement getMatrixheatmapElement() {
+        return matrixheatmapElement;
+    }
+
+    public WebElement getLiquidfillElement() {
+        return liquidfillElement;
+    }
+
+    public WebElement getFunnelElement() {
+        return funnelElement;
+    }
+
+    public WebElement getRadarElement() {
+        return radarElement;
+    }
+
+    public WebElement getWordcloudElement() {
+        return wordcloudElement;
+    }
+
+    public WebElement getForceElement() {
+        return forceElement;
+    }
+
+    public WebElement getChordElement() {
+        return chordElement;
+    }
+
+    public WebElement getSankeyElement() {
+        return sankeyElement;
+    }
+
+    public WebElement getConfirmMessage() {
+        return confirmMessage;
+    }
+
+    public WebElement getNotice() {
+        return notice;
+    }
+
+    public WebElement getSavedSearch() {
+        return savedSearch;
+    }
+
+    public WebElement getPrompt() {
+        return prompt;
+    }
 
     public WebElement getCell2(){
         return cell2;
@@ -911,7 +970,8 @@ public class CreatePageDash extends PageTemplate {
         return allResources;
     }
 
-    public WebElement getSearchStatus() {
+    public WebElement getSearchStatus() throws InterruptedException {
+        Thread.sleep(1000);
         return searchStatus;
     }
 
@@ -928,30 +988,6 @@ public class CreatePageDash extends PageTemplate {
         return type;
     }
 
-    public WebElement getConnection() {
-        return connection;
-    }
-
-    public WebElement getLineChart() {
-        return getChartButton("曲线图");
-    }
-
-    public WebElement getAreaChart() {
-        return getChartButton("面积图");
-    }
-
-    public WebElement getColumnChart() {
-        return getChartButton("柱状图");
-    }
-
-    public WebElement getScatterChart() {
-        return getChartButton("散点图");
-    }
-
-    public WebElement getSun() {
-        return getChartButton("旭日图");
-    }
-
     public WebElement getRangeColor() {
         return rangeColor;
     }
@@ -964,14 +1000,6 @@ public class CreatePageDash extends PageTemplate {
         return layoutColumn;
     }
 
-    public WebElement getChain() {
-        return getChartButton("调用链");
-    }
-
-    public WebElement getNetworkNode() {
-        return getChartButton("网络节点图");
-    }
-
     public WebElement getDivideSide() {
         return divideSide;
     }
@@ -982,10 +1010,6 @@ public class CreatePageDash extends PageTemplate {
 
     public WebElement getSecondLabel() {
         return secondLabel;
-    }
-
-    public WebElement getCompare() {
-        return compare;
     }
 
     public WebElement getDataPrecision() {
@@ -1042,10 +1066,6 @@ public class CreatePageDash extends PageTemplate {
         return super.getLastDropdownList();
     }
 
-    public WebElement getUnifiedMetric() {
-        return unifiedMetric;
-    }
-
     public WebElement getSettingContent() {
         return settingContent;
     }
@@ -1091,11 +1111,6 @@ public class CreatePageDash extends PageTemplate {
         return super.getButton("完成");
     }
 
-    public WebElement getUnifyMetric() {
-        return unifyMetric;
-    }
-
-
     public WebElement getSuccessUpdate() {
         return successUpdate;
     }
@@ -1132,20 +1147,12 @@ public class CreatePageDash extends PageTemplate {
         return canvas;
     }
 
-    public WebElement getRepulsion() {
-        return repulsion;
-    }
-
     public WebElement getRowNum() {
         return rowNum;
     }
 
     public WebElement getColumnNum(){
         return columnNum;
-    }
-
-    public WebElement getFontSize() {
-        return fontSize;
     }
 
     public WebElement getScrollbar() {
@@ -1217,10 +1224,6 @@ public class CreatePageDash extends PageTemplate {
         return lightGreen;
     }
 
-    public WebElement getOrder() {
-        return order;
-    }
-
     public WebElement getSwitchLabel() {
         return switchLabel;
     }
@@ -1249,32 +1252,12 @@ public class CreatePageDash extends PageTemplate {
         return delete;
     }
 
-    public WebElement getOnlineMap() {
-        return onlineMap;
-    }
-
-    public WebElement getTransparency() {
-        return transparency;
-    }
-
-    public WebElement getMinRadius() {
-        return minRadius;
-    }
-
-    public WebElement getMaxRadius() {
-        return maxRadius;
-    }
-
     public WebElement getCenterLatitude() {
         return centerLatitude;
     }
 
     public WebElement getCenterLongitude() {
         return centerLongitude;
-    }
-
-    public WebElement getZoomLevel() {
-        return zoomLevel;
     }
 
     public WebElement getMapName() {
@@ -1287,10 +1270,6 @@ public class CreatePageDash extends PageTemplate {
 
     public WebElement getSubdomains() {
         return subdomains;
-    }
-
-    public WebElement getMapOpacity() {
-        return mapOpacity;
     }
 
     public WebElement getDataCircleLayer() {
@@ -1346,14 +1325,6 @@ public class CreatePageDash extends PageTemplate {
         return super.getLastDropdownList();
     }
 
-    public WebElement getTime() {
-        return time;
-    }
-
-    public WebElement getInfo() {
-        return info;
-    }
-
     public WebElement getTracing() {
         return tracing;
     }
@@ -1365,18 +1336,6 @@ public class CreatePageDash extends PageTemplate {
     public WebElement getLabel() {
         label.click();
         return super.getLastDropdownList();
-    }
-
-    public WebElement getSegments() {
-        return segments;
-    }
-
-    public WebElement getMark() {
-        return mark;
-    }
-
-    public WebElement getSource() {
-        return source;
     }
 
     public WebElement getYellow() {
@@ -1429,10 +1388,6 @@ public class CreatePageDash extends PageTemplate {
         return super.getLastDropdownList();
     }
 
-    public WebElement getGoingDown() {
-        return goingDown;
-    }
-
     public WebElement getSelectChina() {
         return selectChina;
     }
@@ -1449,18 +1404,6 @@ public class CreatePageDash extends PageTemplate {
     public WebElement getLatitude() {
         latitude.click();
         return super.getLastDropdownList();
-    }
-
-    public WebElement getRegion() {
-        return region;
-    }
-
-    public WebElement getGeneral() {
-        return general;
-    }
-
-    public WebElement getTile() {
-        return tile;
     }
 
     public WebElement getActualValueInput() {
@@ -1532,15 +1475,334 @@ public class CreatePageDash extends PageTemplate {
         return super.getLastDropdownList();
     }
 
+//--Charts
+
+    public WebElement getLineChart() {
+        return getChartButton("曲线图");
+    }
+
+    public WebElement getAreaChart() {
+        return getChartButton("面积图");
+    }
+
+    public WebElement getScatterChart() {
+        return getChartButton("散点图");
+    }
+
+    public WebElement getColumnChart() {
+        return getChartButton("柱状图");
+    }
+
+    public WebElement getPie() {
+        return getChartButton("饼状图");
+    }
+
+    public WebElement getRose() {
+        return getChartButton("玫瑰图");
+    }
+
+    public WebElement getBar() {
+        return getChartButton("条形图");
+    }
+
+    public WebElement getSun() {
+        return getChartButton("旭日图");
+    }
+
+    public WebElement getFlame() {
+        return getChartButton("火焰图");
+    }
+
+    public WebElement getChord() {
+        return getChartButton("和弦图");
+    }
+
+    public WebElement getSankey() {
+        return getChartButton("桑基图");
+    }
+
+    public WebElement getForce() {
+        return getChartButton("力图");
+    }
+
+    public WebElement getRangeline() {
+        return getChartButton("区间图");
+    }
+
+    public WebElement getMultiaxis() {
+        return getChartButton("多y轴图");
+    }
+
+    public WebElement getHeatmap() {
+        return getChartButton("热力地图");
+    }
+
+    public WebElement getAttackmap() {
+        return getChartButton("攻击地图");
+    }
+
+    public WebElement getRegionmap() {
+        return getChartButton("区划地图");
+    }
+
+    public WebElement getGeostatsmap() {
+        return getChartButton("统计地图");
+    }
+
+    public WebElement getSingle() {
+        return getChartButton("单值");
+    }
+
+    public WebElement getRing() {
+        return getChartButton("环形比例图");
+    }
+
+    public WebElement getLiquidfill() {
+        return getChartButton("水球图");
+    }
+
+    public WebElement getWordcloud() {
+        return getChartButton("字符云图");
+    }
+
+    public WebElement getSequence() {
+        return getChartButton("循序图");
+    }
+
+    public WebElement getRadar() {
+        return getChartButton("雷达图");
+    }
+
+    public WebElement getFunnel() {
+        return getChartButton("漏斗图");
+    }
+
+    public WebElement getMatrixheatmap() {
+        return getChartButton("矩阵热力图");
+    }
+
+    public WebElement getChain() {
+        return getChartButton("调用链");
+    }
+
+    public WebElement getNetworkNode() {
+        return getChartButton("网络节点图");
+    }
+
+//--Tabs
+
+    public WebElement getOrder() {
+        return getTabElement("序列");
+    }
+
+    public WebElement getDimension() {
+        return getTabElement("维度");
+    }
+
+    public WebElement getConnection() {
+        return getTabElement("关系");
+    }
+
+    public WebElement getCompound() {
+        return getTabElement("复合");
+    }
+
+    public WebElement getMap() {
+        return getTabElement("地图");
+    }
+
+    public WebElement getOther() {
+        return getTabElement("其他");
+    }
+
+    public WebElement getXaxis() {
+        return getTabElement("X轴");
+    }
+
+    public WebElement getYaxis() {
+        return getTabElement("Y轴");
+    }
+
+    public WebElement getGroup() {
+        return getTabElement("分组");
+    }
+
+    public WebElement getFacet() {
+        return getTabElement("分面");
+    }
+
+    public WebElement getExample() {
+        return getTabElement("图例");
+    }
+
+    public WebElement getExhibition() {
+        return getTabElement("展示");
+    }
+
+    public WebElement getBubble() {
+        return getTabElement("气泡");
+    }
+
+    public WebElement getValue() {
+        return getTabElement("数值");
+    }
+
+    public WebElement getDivide() {
+        return getTabElement("切分");
+    }
+
+    public WebElement getSource() {
+        return getTabElement("来源");
+    }
+
+    public WebElement getTarget() {
+        return getTabElement("目标");
+    }
+
+    public WebElement getWeight() {
+        return getTabElement("权重");
+    }
+
+    public WebElement getRegion() {
+        return getTabElement("区域");
+    }
+
+    public WebElement getGoingDown() {
+        return getTabElement("下钻");
+    }
+
+    public WebElement getGeneral() {
+        return getTabElement("常规");
+    }
+
+    public WebElement getTile() {
+        return getTabElement("平铺");
+    }
+
+    public WebElement getIcon() {
+        return getTabElement("图标");
+    }
+
+    public WebElement getSecondTitle() {
+        return getTabElement("二级标题");
+    }
+
+    public WebElement getCompare() {
+        return getTabElement("对比");
+    }
+
+    public WebElement getMark() {
+        return getTabElement("标记");
+    }
+
+    public WebElement getIndicator() {
+        return getTabElement("指示器");
+    }
+
+    public WebElement getTime() {
+        return getTabElement("时间");
+    }
+
+    public WebElement getInfo() {
+        return getTabElement("信息");
+    }
+
+    public WebElement getIndicators() {
+        return getTabElement("指标");
+    }
+
+
+//--Input elements
+
+    public WebElement getUnit() {
+        return getInputSetting("单位");
+    }
+
+    public WebElement getRepulsion() {
+        return getInputSetting("斥力因子");
+    }
+
+    public WebElement getLabelInterval() {
+        return getInputSetting("标签间隔");
+    }
+
+    public WebElement getTransparency() {
+        return getInputSetting("透明度");
+    }
+
+    public WebElement getMinRadius() {
+        return getInputSetting("最小半径");
+    }
+
+    public WebElement getMaxRadius() {
+        return getInputSetting("最大半径");
+    }
+
+    public WebElement getZoomLevel() {
+        return getInputSetting("缩放级别");
+    }
+
+    public WebElement getMapOpacity() {
+        return getInputSetting("透明度");
+    }
+
+    public WebElement getFontSize() {
+        return getInputSetting("展示字号");
+    }
+
+    public WebElement getTitleName() {
+        return getInputSetting("名称");
+    }
+
+    public WebElement getSegments() {
+        return getInputSetting("分段数");
+    }
+
+
+//--Switch elements
     public WebElement getPile() {
-        return pile;
+        return getSwitchElement("堆叠");
+    }
+
+    public WebElement getSmooth() {
+        return getSwitchElement("平滑");
+    }
+
+    public WebElement getConnectEmptyData() {
+        return getSwitchElement("连接空数据");
     }
 
     public WebElement getMultistage() {
-        return multistage;
+        return getSwitchElement("多级");
     }
 
-    public WebElement getThousandSeparator() {return thousandSeparator; }
+    public WebElement getThousandSeparator() {
+        return getSwitchElement("使用千分隔符");
+    }
+
+    public WebElement getShowBubbles() {
+        return getSwitchElement("展示气泡");
+    }
+
+    public WebElement getShowLabels() {
+        return getSwitchElement("展示标签");
+    }
+
+    public WebElement getShowAllLabels() {
+        return getSwitchElement("显示所有x轴标签");
+    }
+
+    public WebElement getUnifyMetric() {
+        return getSwitchElement("统一度量");
+    }
+
+    public WebElement getOnlineMap() {
+        return getSwitchElement("使用在线地图");
+    }
+
+//-----------------
+
+
 
     public WebElement getReport() {
         return report;
@@ -1549,10 +1811,6 @@ public class CreatePageDash extends PageTemplate {
     public WebElement getPagingSelect() {
         pagination.click();
         return pagingSelect;
-    }
-
-    public WebElement getBubble() {
-        return bubble;
     }
 
     public WebElement getEnsureButton() {
@@ -1564,7 +1822,7 @@ public class CreatePageDash extends PageTemplate {
     }
 
     public WebElement getCancelButton() {
-        return getContainsTextButton("取 消");
+        return getContainsTextButton("取消");
     }
 
     public WebElement getGenerate() {
@@ -1587,8 +1845,16 @@ public class CreatePageDash extends PageTemplate {
         return getButton("下一步");
     }
 
+    public WebElement getBackButton() {
+        return getButton("上一步");
+    }
+
     public WebElement getFinishButton() {
         return getButton("完成");
+    }
+
+    public WebElement getReturnButton() {
+        return getButton("返回");
     }
 
     public WebElement getSearchButton() {
@@ -1635,8 +1901,16 @@ public class CreatePageDash extends PageTemplate {
         return GetTime.getTime(webDriver, "SevenDays");
     }
 
+    public WebElement getWholeTime() {
+        return GetTime.getTime(webDriver, "WholeTime");
+    }
+
     public WebElement getSuccessMessage() {
         return successMessage;
+    }
+
+    public WebElement getErrorMessage() {
+        return errorMessage;
     }
 
     public WebElement getSearchInput() {
@@ -1653,10 +1927,6 @@ public class CreatePageDash extends PageTemplate {
 
     public WebElement getSetting() {
         return setting;
-    }
-
-    public WebElement getSecondSetting() {
-        return secondSetting;
     }
 
     public WebElement getLine() {
@@ -1725,52 +1995,12 @@ public class CreatePageDash extends PageTemplate {
         return header;
     }
 
-    public WebElement getYaxis() {
-        return yaxis;
-    }
-
     public WebElement getYaxis2() {
         return yaxis2;
     }
 
     public WebElement getYaxis3() {
         return yaxis3;
-    }
-
-    public WebElement getXaxis() {
-        return xaxis;
-    }
-
-    public WebElement getGroup() {
-        return group;
-    }
-
-    public WebElement getExample() {
-        return example;
-    }
-
-    public WebElement getExhibition() {
-        return exhibition;
-    }
-
-    public WebElement getUnit() {
-        return unit;
-    }
-
-    public WebElement getSmooth() {
-        return smooth;
-    }
-
-    public WebElement getConnectEmptyData() {
-        return connectEmptyData;
-    }
-
-    public WebElement getShowAllLabels() {
-        return showAllLabels;
-    }
-
-    public WebElement getLabelInterval() {
-        return labelInterval;
     }
 
     public WebElement getMin() {
@@ -1832,40 +2062,8 @@ public class CreatePageDash extends PageTemplate {
         return settingSwitch;
     }
 
-    public WebElement getDimension() {
-        return dimension;
-    }
-
     public WebElement getRelation() {
         return relation;
-    }
-
-    public WebElement getCompound() {
-        return compound;
-    }
-
-    public WebElement getMap() {
-        return map;
-    }
-
-    public WebElement getOther() {
-        return other;
-    }
-
-    public WebElement getPie() {
-        return getChartButton("饼状图");
-    }
-
-    public WebElement getRose() {
-        return getChartButton("玫瑰图");
-    }
-
-    public WebElement getBar() {
-        return getChartButton("条形图");
-    }
-
-    public WebElement getFlame() {
-        return getChartButton("火焰图");
     }
 
     public WebElement getAddField() {
@@ -1874,42 +2072,6 @@ public class CreatePageDash extends PageTemplate {
 
     public WebElement getAddConfigFields() {
         return addConfigFields;
-    }
-
-    public WebElement getDivide() {
-        return divide;
-    }
-
-    public WebElement getValue() {
-        return value;
-    }
-
-    public WebElement getChord() {
-        return getChartButton("和弦图");
-    }
-
-    public WebElement getSankey() {
-        return getChartButton("桑基图");
-    }
-
-    public WebElement getForce() {
-        return getChartButton("力图");
-    }
-
-    public WebElement getTarget() {
-        return target;
-    }
-
-    public WebElement getWeight() {
-        return weight;
-    }
-
-    public WebElement getRangeline() {
-        return getChartButton("区间图");
-    }
-
-    public WebElement getMultiaxis() {
-        return getChartButton("多y轴图");
     }
 
     public WebElement getPredict() {
@@ -1947,56 +2109,8 @@ public class CreatePageDash extends PageTemplate {
         return super.getLastDropdownList();
     }
 
-    public WebElement getHeatmap() {
-        return heatmap;
-    }
-
-    public WebElement getAttackmap() {
-        return getChartButton("攻击地图");
-    }
-
-    public WebElement getRegionmap() {
-        return getChartButton("区划地图");
-    }
-
-    public WebElement getGeostatsmap() {
-        return getChartButton("统计地图");
-    }
-
     public WebElement getTable() {
         return table;
-    }
-
-    public WebElement getSingle() {
-        return getChartButton("单值");
-    }
-
-    public WebElement getLiquidfill() {
-        return getChartButton("水球图");
-    }
-
-    public WebElement getWordcloud() {
-        return getChartButton("字符云图");
-    }
-
-    public WebElement getSequence() {
-        return getChartButton("循序图");
-    }
-
-    public WebElement getRadar() {
-        return getChartButton("雷达图");
-    }
-
-    public WebElement getFunnel() {
-        return getChartButton("漏斗图");
-    }
-
-    public WebElement getMatrixheatmap() {
-        return getChartButton("矩阵热力图");
-    }
-
-    public WebElement getAnnular() {
-        return getChartButton("环形比例图");
     }
 
     public WebElement getBackground() {
@@ -2005,10 +2119,6 @@ public class CreatePageDash extends PageTemplate {
 
     public WebElement getFont() {
         return font;
-    }
-
-    public WebElement getIcon() {
-        return icon;
     }
 
     public WebElement getAccordingField() {
@@ -2048,21 +2158,24 @@ public class CreatePageDash extends PageTemplate {
         return switchButton;
     }
 
-    public WebElement getIndicator() {
-        return indicator;
-    }
-
     public WebElement getTimeSequence() {
         return timeSequence;
     }
 
-
-    public WebElement getFacet() {
-        return facet;
-    }
-
     public WebElement getInputElement(String name) {
         return webDriver.findElement(By.xpath("//input[@name='" + name + "']"));
+    }
+
+    public WebElement getInputSetting(String name) {
+        return webDriver.findElement(By.xpath("(//span[contains(text(),'" + name + "')]/ancestor::div[1]/following-sibling::div//input)[last()]"));
+    }
+
+    public WebElement getSwitchElement(String name) {
+        return webDriver.findElement(By.xpath("//span[text()='" + name + "']/ancestor::div/following-sibling::div//label"));
+    }
+
+    public WebElement getTabElement(String name) {
+        return webDriver.findElement(By.xpath("(//div[text()='" + name + "'])[last()]"));
     }
 
     public WebElement getAppDropdown() {
@@ -2083,6 +2196,10 @@ public class CreatePageDash extends PageTemplate {
 //Table Color -----------------------------------------------
     public WebElement getPencil() {
         return pencil;
+    }
+
+    public WebElement getPencilFirst() {
+        return pencilFirst;
     }
 
     public WebElement getColorPanel() {
@@ -2133,7 +2250,7 @@ public class CreatePageDash extends PageTemplate {
 
     //author-jnd
     //数据集的展开按钮
-    @FindBy(xpath = "//a[text()='展开']")
+    @FindBy(xpath = "//*[text()='展开']/ancestor::button")
     private WebElement zhanKai;
 
     public WebElement getZhanKai() {
@@ -2141,11 +2258,25 @@ public class CreatePageDash extends PageTemplate {
     }
 
     //数据集的显示位置
-    @FindBy(xpath = "//div[@class='_10GY9a1TR9fkHwR6NvTQN7']/span")
+    @FindBy(xpath = "//div[@class='_3ET1_zfWFNtizQm9NnT996']/span")
     private WebElement dataSetPosition;
 
     public WebElement getDataSetPosition() {
         return dataSetPosition;
+    }
+
+    @FindBy(xpath = "//span[text()='搜索配置']")
+    private WebElement searchConfig;
+
+    public WebElement getSearchConfig() {
+        return searchConfig;
+    }
+
+    @FindBy(xpath = "//span[contains(@class,'close-icon')]")
+    private WebElement closeWindow;
+
+    public WebElement getCloseWindow() {
+        return closeWindow;
     }
 
 // Table - pencil;-----------------
@@ -2231,13 +2362,6 @@ public class CreatePageDash extends PageTemplate {
 //-----------------------------------------------------
 
 
-    @FindBy(xpath = "(//span[text()='展示气泡'])[last()]/ancestor::div/following-sibling::button")
-    private WebElement showBubbles;
-
-    public WebElement getShowBubbles() {
-        return showBubbles;
-    }
-
     // for 调用链
     @FindBy(xpath = "(//span[text()='展示类型'])[last()]/ancestor::div/following-sibling::div")
     private WebElement tracingType;
@@ -2247,21 +2371,6 @@ public class CreatePageDash extends PageTemplate {
         wait.until(ExpectedConditions.elementToBeClickable(tracingType));
         tracingType.click();
         return super.getLastDropdownList();
-    }
-
-    // for 单值-二级标题
-    @FindBy(xpath = "(//div[text()='二级标题'])[last()]")
-    private WebElement secondTitle;
-
-    @FindBy(xpath = "//span[text()='名称']/ancestor::div/following-sibling::input")
-    private WebElement titleName;
-
-    public WebElement getSecondTitle() {
-        return secondTitle;
-    }
-
-    public WebElement getTitleName() {
-        return titleName;
     }
 
     //Sparkline
@@ -2282,17 +2391,25 @@ public class CreatePageDash extends PageTemplate {
         return super.getLastDropdownList();
     }
 
-    @FindBy(xpath = "(//label[text()='资源标签'][last()])/ancestor::div[1]//input")
+    @FindBy(xpath = "(//label[contains(text(),'资源标签')][last()])/ancestor::div/following-sibling::div//input")
     private WebElement tagInput;
 
-    @FindBy(xpath = "(//label[text()='资源标签'][last()])/ancestor::div[1]//div[@class='ant-select-selection__choice__content']")
+    @FindBy(xpath = "(//span[@class='yotta-select-option-label'])[1]")
+    private WebElement selectAddedTag;
+
+    @FindBy(xpath = "//label[contains(text(),'资源标签')]/ancestor::div/following-sibling::div//span[@class='yotta-tag-content']")
     private WebElement selectedTag;
 
-    @FindBy(xpath = "(//label[text()='资源标签'][last()])/ancestor::div[1]//div[@class='ant-select-selection__choice__content']/following-sibling::span")
+    @FindBy(xpath = "//label[contains(text(),'资源标签')]/ancestor::div/following-sibling::div//span[@class='yotta-tag-content']/following-sibling::span")
     private WebElement deleteTag;
 
     public WebElement getTagInput() {
+        groupField.click();
         return tagInput;
+    }
+
+    public WebElement getSelectAddedTag() {
+        return selectAddedTag;
     }
 
     public WebElement getSelectedTag() {
@@ -2303,9 +2420,6 @@ public class CreatePageDash extends PageTemplate {
         return deleteTag;
     }
 
-    @FindBy(xpath = "(//div[text()='指标'])[last()]")
-    private WebElement indicators;
-
     @FindBy(xpath = "(//div[text()='添加指标'])[last()]")
     private WebElement addIndicator;
 
@@ -2314,10 +2428,6 @@ public class CreatePageDash extends PageTemplate {
 
     @FindBy(xpath = "//*[text()='北京']/preceding-sibling::*")
     private WebElement clickBeijing;
-
-    public WebElement getIndicators() {
-        return indicators;
-    }
 
     public WebElement getAddIndicator() {
         return addIndicator;

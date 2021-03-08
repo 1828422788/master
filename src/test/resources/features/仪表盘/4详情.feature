@@ -149,8 +149,8 @@ Feature: 仪表盘详情页
   @dashboard @dashboardSmoke
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
-    And I click the "CreateButton" button
-    And I click the "Create" button
+#    And I click the "CreateButton" button
+    And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
