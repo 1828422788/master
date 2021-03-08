@@ -28,7 +28,7 @@ Feature: 仪表盘柱状图
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "<name>"
-    And I click the "NextButton" button
+    And I click the "Complete" button
     And I wait for "SuccessCreate" will be visible
 
     Examples:

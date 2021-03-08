@@ -38,15 +38,15 @@ Feature: 仪表盘输入项
     And I click the "DateEditor" button
     And I wait for "Today" will be visible
     And I click the "Today" button
-    And I click the "FenPianQuYang" button
-    And I alter the input element "FenPianQuYang" value to "0"
+#    And I click the "FenPianQuYang" button
+#    And I alter the input element "FenPianQuYang" value to "0"
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "<name>"
-    And I click the "NextButton" button
+    And I click the "Complete" button
     And I wait for "SuccessCreate" will be visible
 
     Examples:
