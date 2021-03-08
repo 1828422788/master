@@ -133,10 +133,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//i[@class='anticon css-ifnfqv _2FmD69BXKIajYmOQLvFY29 _14T_hDxmrDu4vX6PHAQs1u'])[last()]")
     private WebElement deleteLast;
 
-    @FindBy(xpath = "//span[text()='前面']")
+    @FindBy(xpath = "//div[text()='前面']")
     private WebElement unitPositionBefore;
 
-    @FindBy(xpath = "//span[text()='后面']")
+    @FindBy(xpath = "//div[text()='后面']")
     private WebElement unitPositionAfter;
 
 // Labels
@@ -414,10 +414,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'循序图')]/ancestor::div[1])/preceding-sibling::div")
     private WebElement sequence;
 
-    @FindBy(xpath = "//span[text()='背景']")
+    @FindBy(xpath = "//div[text()='背景']")
     private WebElement background;
 
-    @FindBy(xpath = "//span[text()='字体']")
+    @FindBy(xpath = "//div[text()='字体']")
     private WebElement font;
 
     @FindBy(xpath = "(//div[text()='按字段'])[last()]")
@@ -545,10 +545,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "range-color-group-add")
     private WebElement addColour;
 
-    @FindBy(xpath = "(//input[@placeholder='min'])[last()]")
+    @FindBy(xpath = "(//span[contains(text(),'添加颜色区间')]/ancestor::div[1]/preceding-sibling::div//input)[last()-1]")
     private WebElement minRange;
 
-    @FindBy(xpath = "(//input[@placeholder='max'])[last()]")
+    @FindBy(xpath = "(//span[contains(text(),'添加颜色区间')]/ancestor::div[1]/preceding-sibling::div//input)[last()]")
     private WebElement maxRange;
 
     @FindBy(className = "chart-setting-popover")
@@ -593,7 +593,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[@class='img iconfont icon-shanchuxuanting_icon'])[last()]")
     private WebElement delete;
 
-    @FindBy(xpath = "//div[contains(text(),'添加颜色区间')]")
+    @FindBy(xpath = "//span[contains(text(),'添加颜色区间')]/ancestor::button")
     private WebElement addRange;
 
     @FindBy(className = "el-switch__label--right")
@@ -673,7 +673,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//input[@placeholder='展示字号']")
     private WebElement wordSize;
-
 
     @FindBy(xpath = "//span[text()='数据精度']/ancestor::div/following-sibling::div")
     private WebElement dataPrecision;
@@ -1800,6 +1799,10 @@ public class CreatePage extends PageTemplate {
         return getSwitchElement("使用在线地图");
     }
 
+    public WebElement getSparkline() {
+        return getSwitchElement("使用sparkline");
+    }
+
 //-----------------
 
 
@@ -2373,16 +2376,8 @@ public class CreatePage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
-    //Sparkline
-    @FindBy(xpath = "(//span[text()='使用Sparkline'])[last()]/ancestor::div/following-sibling::button")
-    private WebElement sparkline;
-
-    @FindBy(xpath = "(//span[text()='Sparkline x轴字段'])[last()]/ancestor::div/following-sibling::div")
+    @FindBy(xpath = "(//span[text()='sparkline-x轴字段'])[last()]/ancestor::div/following-sibling::div")
     private WebElement sparklineField;
-
-    public WebElement getSparkline() {
-        return sparkline;
-    }
 
     public WebElement getSparklineField() {
         WebDriverWait wait = new WebDriverWait(webDriver,10);
@@ -2420,7 +2415,7 @@ public class CreatePage extends PageTemplate {
         return deleteTag;
     }
 
-    @FindBy(xpath = "(//div[text()='添加指标'])[last()]")
+    @FindBy(xpath = "(//span[text()='添加指标']/ancestor::button)[last()]")
     private WebElement addIndicator;
 
     @FindBy(xpath = "//*[text()='POST']/preceding-sibling::*")

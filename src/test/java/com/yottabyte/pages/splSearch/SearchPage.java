@@ -386,7 +386,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//li/span[text()='趋势图']")
     private WebElement trend;
 
-    @FindBy(xpath = "//label[text()='描述']/following-sibling::input")
+    @FindBy(xpath = "//label[text()='描述']/ancestor::div[1]/following-sibling::div//input")
     private WebElement describe;
 
     @FindBy(className = "el-select-dropdown__list")
@@ -520,7 +520,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//label[text()='分组']/following-sibling::div")
     private WebElement group;
 
-    @FindBy(xpath = "//span[text()='确 定']/ancestor::button")
+    @FindBy(xpath = "//span[text()='确定']/ancestor::button")
     private WebElement ensureButton;
 
     @FindBy(className = "el-icon--right")
@@ -730,8 +730,11 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "(//div[@class='_1KryJcLeSypo0Qh_wW6fOw']//span[text()='all']) | (//div[@class='_1KryJcLeSypo0Qh_wW6fOw']//span[text()='all_']) ")
     private WebElement resourceAll;
 
-    @FindBy(xpath = "(//label[text()='资源标签']/ancestor::div[1])//input")
+    @FindBy(xpath = "(//label[contains(text(),'资源标签')][last()])/ancestor::div/following-sibling::div//input")
     private WebElement tagInput;
+
+    @FindBy(xpath = "(//span[@class='yotta-select-option-label'])[1]")
+    private WebElement selectAddedTag;
 
     @FindBy(xpath = "//label[text()='文件类型']/following-sibling::div")
     private WebElement fileType;
@@ -873,6 +876,10 @@ public class SearchPage extends ListPageFactory {
     public WebElement getTagInput() {
         groupComboBox.click();
         return tagInput;
+    }
+
+    public WebElement getSelectAddedTag() {
+        return selectAddedTag;
     }
 
     public WebElement getAppComboBox() {
@@ -1149,7 +1156,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::input")
     private WebElement offlineTaskName;
 
-    @FindBy(xpath = "//label[text()='名称']/following-sibling::input")
+    @FindBy(xpath = "//label[text()='名称']/ancestor::div[1]/following-sibling::div//input")
     private WebElement taskName;
 
     public WebElement getApplyButton() {
@@ -1821,7 +1828,7 @@ public class SearchPage extends ListPageFactory {
 
 
     //保存为定时任务弹窗中的【描述】
-    @FindBy(xpath = "//label[text()='描述']/following-sibling::input")
+    @FindBy(xpath = "//label[text()='描述']/ancestor::div[1]/following-sibling::div//input")
     private WebElement scheduleDescribe;
 
     public WebElement getScheduleDescribe() {
@@ -1868,7 +1875,7 @@ public class SearchPage extends ListPageFactory {
         return splEventRetNum;
     }
 
-    @FindBy(xpath = "//span[@class='_1_m_DyhFaFqqMWBfXY4Evv']")
+    @FindBy(xpath = "//span[contains(@class,'DragFilled')]")
     private WebElement searchPageSvg;
 
     public WebElement getSearchPageSvg() {

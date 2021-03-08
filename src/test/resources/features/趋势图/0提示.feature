@@ -14,14 +14,13 @@ Feature: 趋势图_提示
     And I wait for "TaskName" will be visible
     When I set the parameter "TaskName" with value "<name>"
     And I click the "EnsureButton" button
-    And I wait for "TimeTaskEnsure" will be visible
-    Then I will see the success message "<message>"
+    And I wait for "TipText" will be visible
+    And I will see the element "TipText" contains "<message>"
 
     Examples:
       | timePeriod    | name | message           |
-      | Today         |      | 请填写名称！            |
+      | Today         |      | 名称格式有误，仅支持中文，数字，字母，中划线以及下划线的组合。 |
       | Today         |a/b   | 名称格式有误，仅支持中文，数字，字母，中划线以及下划线的组合。 |
-      | ThirtySeconds | test | 实时窗口搜索模式无法进行该操作!|
 
   Scenario: cancel_test
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -38,9 +37,10 @@ Feature: 趋势图_提示
     And I wait for "TaskName" will be visible
     When I set the parameter "TaskName" with value "test"
     And I set the parameter "TagInput" with value "auto_package"
+    And I click the "SelectAddedTag" button
     And I set the parameter "Describe" with value "testing"
     And I choose the "test_app" from the "AppComboBox"
-    And I click the "CancelButton" button
+    And I click the "Cancel" button
 
     And I click the "SaveAsOther" button
     And I click the "Trend" button
@@ -56,7 +56,7 @@ Feature: 趋势图_提示
     And I wait for "2000" millsecond
     When I click the "NewTrendFromDataset" button
     When I click the "<type>Dataset" button
-    And I click the "EnsureButton" button
+    And I click the "Ensure" button
     Then I will see the "trend.DragAndDropPage" page
     And I wait for "2000" millsecond
     And I click the "<button>" button
