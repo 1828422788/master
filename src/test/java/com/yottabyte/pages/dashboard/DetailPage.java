@@ -123,7 +123,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='time']/following-sibling::i)[last()]")
     private WebElement deleteTime;
 
-    @FindBy(xpath = "//i[@class='anticon css-ifnfqv ant-dropdown-trigger']")
+    @FindBy(xpath = "//span[@class='yotta-icon yotta-icon-AddSquareFilled']")
     private WebElement addEventButton;
 
     @FindBy(className = "yw-dropdown-menu")
@@ -159,13 +159,13 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='el-form-item dynamic-search-btn']//span")
     private WebElement searchInputButton;
 
-    @FindBy(xpath = "//*[@id='filter_title']")
+    @FindBy(xpath = "//*[@name='title']")
     private WebElement inputSettingTitle;
 
-    @FindBy(xpath = "//div[text()='文本输入']")
+    @FindBy(xpath = "//span[text()='文本输入']")
     private WebElement inputSettingType;
 
-    @FindBy(xpath = "//li[text()='时间范围']")
+    @FindBy(xpath = "//span[text()='时间范围']")
     private WebElement timeRangee;
 
     @FindBy(xpath = "//span[text()='设为全局时间']")
@@ -544,7 +544,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='自定义']")
     private WebElement custom;
 
-    @FindBy(xpath = "(//input[@placeholder='请选择时间'])[last()]")
+    @FindBy(xpath = "//div[contains(@class,'yw-chart-config')]/label")
     private WebElement dateEditor;
 
     @FindBy(className = "ant-cascader-picker")
@@ -793,7 +793,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//a[text()='first']")
     private WebElement firstTag;
 
-    @FindBy(xpath = "(//span[text()='新建标签页']/preceding-sibling::ul/li)[last()]//a")
+    @FindBy(xpath = "(//li[@class='yotta-menu-item'])[last()]//a")
     private WebElement lastTag;
 
     @FindBy(xpath = "//span[contains(text(),'first')]")
@@ -899,7 +899,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(id = "ace-nav")
     private WebElement textAce;
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//input[@class='ant-input']")
+    @FindBy(xpath = "//div[@class='yotta-modal-body']//input[contains(@class,'yotta-input')]")
     private WebElement searchChartInput;
 
     @FindBy(xpath = "(//div[text()='请选择'])[last()]")

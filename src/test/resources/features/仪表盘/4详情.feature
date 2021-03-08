@@ -180,7 +180,8 @@ Feature: 仪表盘详情页
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
     And I click the "AddChart" button
-    And I wait for "SpinDot" will be invisible
+#    And I wait for "SpinDot" will be invisible
+    And I wait for "2000" millsecond
     And I set the parameter "SearchChartInput" with value "验证仪表盘全局时间"
     And I wait for loading invisible
     And I click the "{'Checkbox':'验证仪表盘全局时间'}" button
@@ -199,7 +200,7 @@ Feature: 仪表盘详情页
     And I wait for "3000" millsecond
     And I click the "TagIcon" button
     And I wait for "LastTag" will be visible
-    Then I will see the element "LastTag" value is "testSearch_copy"
+    Then I will see the element "LastTag" value is "first_copy"
 
   @dashboard @dashboardSmoke
   Scenario: 高级编辑
@@ -247,7 +248,7 @@ Feature: 仪表盘详情页
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "enable"
     And I click the "DateEditor" button under some element
-    And I click the "Shortcut" button
+#    And I click the "Shortcut" button
     And I click the "Yesterday" button
     And I wait for "Progress" will be invisible
     Then I will see the "DropdownLink" result will be "昨天"
@@ -263,7 +264,7 @@ Feature: 仪表盘详情页
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
     And I wait for "Update" will be visible
     And I click the "DateEditor" button under some element
-    And I click the "Shortcut" button
+#    And I click the "Shortcut" button
     And I click the "Today" button
 #    And I wait for "Progress" will be invisible
     And I will see the "DropdownLink" result will be "最近1天"
@@ -281,21 +282,21 @@ Feature: 仪表盘详情页
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
-    And I click the "SaveAs" button
+    And I move the mouse pointer to the "SaveAs"
+#    And I click the "SaveAs" button
     And I click the "SaveAsReport" button
     And switch to another window
     And I close all tabs except main tab
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "仪表盘保存为报表"
     And I choose the "PDF" from the "ReportType"
-    And I set the parameter "Subject" with value "test"
+#    And I set the parameter "Subject" with value "test"
     And I set the parameter "Hour" with value "11"
     And I set the parameter "Minute" with value "11"
     And I click the "NextButton" button
-    Then I will see the "TopoTitle" result will be "1验证仪表盘全局时间"
-    And I click the "Save" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "保存成功"
+    Then I will see the text "验证仪表盘全局时间" exist in page
+#    Then I will see the "TopoTitle" result will be "1验证仪表盘全局时间"
+    And I click the "FinishButton" button
 
   @cleanDashboard
   Scenario: 删除全局时间 RZY-4570
@@ -332,7 +333,7 @@ Feature: 仪表盘详情页
     When open the "report.ListPage" page for uri "/reports/"
     And I set the parameter "SearchInput" with value "<name>"
     And I wait for loading invisible
-    And the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
+    And the data name is "{'column':'2','name':'<name>'}" then i click the "更多" button
     And I wait for "EnsureButton" will be visible
     When I click the "EnsureButton" button
     And I wait for "Message" will be visible
