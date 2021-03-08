@@ -16,7 +16,7 @@ Feature: 趋势图_搜索历史
     And I click the "NextButton" button under some element
     When I set the parameter "NameInput" with value "SearchHistory"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
   Scenario: check_search_page

@@ -110,7 +110,7 @@ Feature:趋势图_拖拽_复合
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_柱面"
     And I set the parameter "DescribeInput" with value "<chart_1><color_1>_<chart_2><color_2>"
-    And I click the "NextButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -196,7 +196,7 @@ Feature:趋势图_拖拽_复合
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_曲散"
     And I set the parameter "DescribeInput" with value "<chart_1><color_1>_<chart_2><color_2>"
-    And I click the "NextButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -285,7 +285,7 @@ Feature:趋势图_拖拽_复合
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_对比"
     And I set the parameter "DescribeInput" with value "<chart_1>_<chart_2>_<color>"
-    And I click the "NextButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:

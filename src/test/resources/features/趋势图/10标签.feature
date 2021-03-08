@@ -17,7 +17,7 @@ Feature: 趋势图标签
     And I click the "NextButton" button under some element
     When I set the parameter "NameInput" with value "Tag_Test"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
   Scenario: tag_trend
@@ -45,7 +45,7 @@ Feature: 趋势图标签
     And I will see the input element "DescribeInput" value will be "AutoCreate"
     And I will see the element "SelectedTag" contains "auto_package"
     And I click the "DeleteTag" button
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessUpdate" will be visible
     When open the "trend.ListPage" page for uri "/trend/"
     And I wait for "AppOfTheLastItem" will be visible

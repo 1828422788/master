@@ -48,7 +48,7 @@ Feature: 趋势图复制(RZY-1889)
     And I click the "SelectAddedTag" button
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "test_app" from the "AppField" in config
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
   Scenario: copy_trend
@@ -99,7 +99,7 @@ Feature: 趋势图复制(RZY-1889)
     And I will see the input element "DescribeInput" value will be "AutoCreate"
     And I cancel selection "test_app" from the "AppField"
     And I will see the element "SelectedTag" contains "auto_package"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessUpdate" will be visible
 
   Scenario Outline: delete_copy

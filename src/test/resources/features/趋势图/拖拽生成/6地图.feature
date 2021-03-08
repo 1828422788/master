@@ -41,7 +41,7 @@ Feature: 趋势图_拖拽_地图
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>"
     And I set the parameter "DescribeInput" with value "<chartType>"
-    And I click the "NextButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:

@@ -63,7 +63,7 @@ Feature: 趋势图_选择数据集
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "数据集_<chart>_单"
     And I set the parameter "DescribeInput" with value "<chart>_<operator>"
-    And I click the "NextButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
   Examples:
@@ -122,7 +122,7 @@ Feature: 趋势图_选择数据集
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "数据集_<chart>_<condition>_单"
     And I set the parameter "DescribeInput" with value "<chart>_<condition>_<oper1>_<oper2>"
-    And I click the "NextButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -175,7 +175,7 @@ Feature: 趋势图_选择数据集
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "数据集_<chart>_表达式_单"
     And I set the parameter "DescribeInput" with value "<chart>_Expression"
-    And I click the "NextButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -248,7 +248,7 @@ Feature: 趋势图_选择数据集
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "数据集_<chart>_追加"
     And I set the parameter "DescribeInput" with value "<chart>_union_<color>"
-    And I click the "NextButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:

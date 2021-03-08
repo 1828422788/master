@@ -57,7 +57,7 @@ Feature: 趋势图_已存搜索
     And I click the "NextButton" button under some element
     When I set the parameter "NameInput" with value "trend_SavedSearch"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
   Scenario: delete_in_trend

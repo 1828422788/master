@@ -31,7 +31,7 @@ Feature: 趋势图新建_维度
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
     And I click the "ReturnButton" button under some element
 
@@ -87,7 +87,7 @@ Feature: 趋势图新建_维度
 
     When I set the parameter "NameInput" with value "<chartType>_<typeInfo>_<option>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -135,7 +135,7 @@ Feature: 趋势图新建_维度
 
     When I set the parameter "NameInput" with value "<chartType>_<typeInfo>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -184,7 +184,7 @@ Feature: 趋势图新建_维度
 
     When I set the parameter "NameInput" with value "<chartType>_<typeInfo>_分面"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -229,7 +229,7 @@ Feature: 趋势图新建_维度
 
     When I set the parameter "NameInput" with value "<chartType>_分面"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -269,7 +269,7 @@ Feature: 趋势图新建_维度
 
     When I set the parameter "NameInput" with value "<chartType>_<option>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
     And I click the "ReturnButton" button under some element
 
@@ -327,7 +327,7 @@ Feature: 趋势图新建_维度
 
     When I set the parameter "NameInput" with value "<chartType>_<option>_分面"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:

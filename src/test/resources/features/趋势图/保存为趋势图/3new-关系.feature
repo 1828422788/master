@@ -30,7 +30,7 @@ Feature: 保存为趋势图_关系
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -69,7 +69,7 @@ Feature: 保存为趋势图_关系
 
     When I set the parameter "NameInput" with value "<chartType>_repulsion"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -106,7 +106,7 @@ Feature: 保存为趋势图_关系
 
     When I set the parameter "NameInput" with value "<chartType>_<button>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -145,7 +145,7 @@ Feature: 保存为趋势图_关系
 
     When I set the parameter "NameInput" with value "<chartType>_分面"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:

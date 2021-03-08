@@ -30,7 +30,7 @@ Feature: 保存为趋势图_统计地图
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -72,7 +72,7 @@ Feature: 保存为趋势图_统计地图
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -117,7 +117,7 @@ Feature: 保存为趋势图_统计地图
 
     When I set the parameter "NameInput" with value "<chartType>_<mapName>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:

@@ -19,7 +19,7 @@ Feature: 趋势图批量操作
     And I click the "NextButton" button under some element
     And I wait for "2000" millsecond
     When I set the parameter "NameInput" with value "<name>"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
   Examples:

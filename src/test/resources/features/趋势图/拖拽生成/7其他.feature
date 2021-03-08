@@ -51,7 +51,7 @@ Feature: 趋势图_拖拽_其他
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_<button>"
     And I set the parameter "DescribeInput" with value "<color>_<size>_<button>"
-    And I click the "NextButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -80,7 +80,7 @@ Feature: 趋势图_拖拽_其他
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_trend"
     And I set the parameter "DescribeInput" with value "<size>_<timeValue>"
-    And I click the "NextButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -118,7 +118,7 @@ Feature: 趋势图_拖拽_其他
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_area"
     And I set the parameter "DescribeInput" with value "<size>_<minVal2>_<maxVal2>_<color2>"
-    And I click the "NextButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -151,7 +151,7 @@ Feature: 趋势图_拖拽_其他
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>"
     And I set the parameter "DescribeInput" with value "<color>_<button>"
-    And I click the "NextButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -185,7 +185,7 @@ Feature: 趋势图_拖拽_其他
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>"
     And I set the parameter "DescribeInput" with value "<color>_<button>"
-    And I click the "NextButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -226,7 +226,7 @@ Feature: 趋势图_拖拽_其他
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_对比"
     And I set the parameter "DescribeInput" with value "<color>_<button>"
-    And I click the "NextButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:

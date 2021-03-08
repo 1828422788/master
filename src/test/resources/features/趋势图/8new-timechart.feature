@@ -27,7 +27,7 @@ Feature: 趋势图新建_timechart
 
     When I set the parameter "NameInput" with value "timechart_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -77,7 +77,7 @@ Feature: 趋势图新建_timechart
 
     When I set the parameter "NameInput" with value "timechart_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -120,7 +120,7 @@ Feature: 趋势图新建_timechart
 
     When I set the parameter "NameInput" with value "timechart_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -160,7 +160,7 @@ Feature: 趋势图新建_timechart
 
     When I set the parameter "NameInput" with value "timechart_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
     And I click the "ReturnButton" button under some element
 
@@ -202,7 +202,7 @@ Feature: 趋势图新建_timechart
 
     When I set the parameter "NameInput" with value "<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:

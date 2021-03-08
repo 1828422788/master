@@ -31,7 +31,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -66,7 +66,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -107,7 +107,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -146,7 +146,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -186,7 +186,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -225,7 +225,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -262,7 +262,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -308,7 +308,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -352,7 +352,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -395,7 +395,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>_<colorFill>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -442,7 +442,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<option>"
     And I set the parameter "DescribeInput" with value "<option>_<color>_<fontValue>"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -497,7 +497,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -534,7 +534,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -571,7 +571,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -613,7 +613,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -677,7 +677,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -716,7 +716,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -757,7 +757,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -799,7 +799,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -842,7 +842,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -880,7 +880,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -931,7 +931,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -976,7 +976,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -999,7 +999,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "Table_Test"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
 
@@ -1044,7 +1044,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -1097,7 +1097,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>"
     And I set the parameter "DescribeInput" with value "in<color>_out<color_1>_<repValue>_<node>"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:
@@ -1121,7 +1121,7 @@ Feature: 保存为趋势图_其他
 
     When I set the parameter "NameInput" with value "<chartType>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "CreateEnsureButton" button
+    And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
     Examples:

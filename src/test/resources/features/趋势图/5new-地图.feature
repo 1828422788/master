@@ -32,7 +32,7 @@ Feature: 趋势图新建_地图
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
     And I click the "ReturnButton" button under some element
 
@@ -94,7 +94,7 @@ Feature: 趋势图新建_地图
 
     When I set the parameter "NameInput" with value "<chartType>_<regionBut>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
     And I click the "ReturnButton" button under some element
 
@@ -152,7 +152,7 @@ Feature: 趋势图新建_地图
 
     When I set the parameter "NameInput" with value "<chartType>_<region>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -192,7 +192,7 @@ Feature: 趋势图新建_地图
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -238,7 +238,7 @@ Feature: 趋势图新建_地图
 
     When I set the parameter "NameInput" with value "<chartType>_<region>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -278,7 +278,7 @@ Feature: 趋势图新建_地图
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -322,7 +322,7 @@ Feature: 趋势图新建_地图
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "FinishButton" button under some element
+    And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
