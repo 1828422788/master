@@ -108,7 +108,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "yotta-message-content")
     private WebElement successMessage;
 
-    @FindBy(className = "ant-message-error")
+    @FindBy(className = "yotta-message-content")
     private WebElement errorMessage;
 
     @FindBy(xpath = "(//span[text()='全局时间']/following-sibling::i)[last()]")
@@ -228,7 +228,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(tagName = "table")
     private List<WebElement> tableList;
 
-    @FindBy(xpath = "//textarea[@class='ant-input']")
+    @FindBy(xpath = "//div[@class='yotta-textarea']/textarea")
     private WebElement spl;
 
     @FindBy(xpath = "(//*[@class='el-dialog__body']/following-sibling::div//button/span[contains(text(),'确定')])[last()]")
@@ -412,10 +412,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='binnaryannotations'])[2]/parent::div/parent::div")
     private WebElement callChainDetails;
 
-    @FindBy(xpath = "//div[text()='第一行']/preceding-sibling::div/i[1]")
+    @FindBy(xpath = "//div[text()='第一行']/preceding-sibling::div/span[1]")
     private WebElement editRowIcon;
 
-    @FindBy(xpath = "//div[text()='首行']/preceding-sibling::div/i[2]")
+    @FindBy(xpath = "//div[text()='首行']/preceding-sibling::div/span[2]")
     private WebElement deleteRowIcon;
 
     @FindBy(xpath = "//div[@id='fullscreenAll']/div/div/i[last()]")
@@ -445,7 +445,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='行布局趋势图2']/following-sibling::div[1]/i[3]")
     private WebElement deleteTrend2;
 
-    @FindBy(xpath = "//div[text()='行布局趋势图1']/following-sibling::div[1]/i[3]")
+    @FindBy(xpath = "//div[text()='行布局趋势图1']/following-sibling::div//span[@class='yotta-icon yotta-icon-DeleteFilled']")
     private WebElement deleteTrend1;
 
     @FindBy(xpath = "//div[text()='行布局趋势图1']")
@@ -544,7 +544,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='自定义']")
     private WebElement custom;
 
-    @FindBy(xpath = "//div[contains(@class,'yw-chart-config')]/label")
+    @FindBy(xpath = "//span[contains(@class,'yotta-date-time-picker-text')]")
     private WebElement dateEditor;
 
     @FindBy(className = "ant-cascader-picker")
@@ -833,13 +833,13 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='返回列表']")
     private WebElement returnToList;
 
-    @FindBy(xpath = "//div[text()='请选择要加入的行']")
+    @FindBy(xpath = "(//span[@class='yotta-select-selection-icon'])[last()]")
     private WebElement joinRow;
 
-    @FindBy(xpath = "//li[text()='L2: ']")
+    @FindBy(xpath = "//span[text()='L2: ']")
     private WebElement line2;
 
-    @FindBy(xpath = "//li[text()='L1: 首行']")
+    @FindBy(xpath = "//span[text()='L1: 首行']")
     private WebElement line1;
 
     @FindBy(xpath = "//span[text()='appname:']")
@@ -863,7 +863,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(id = "filter_textValue")
     private WebElement filterDefaultValue;
 
-    @FindBy(id = "filter_rowId")
+    @FindBy(className = "yotta-select-selection-placeholder")
     private WebElement filterJoinRow;
 
     @FindBy(xpath = "//div[text()='快捷选项']")
@@ -1565,8 +1565,11 @@ public class DetailPage extends PageTemplate {
     }
 
     // 获取今天按钮
+    @FindBy(xpath = "//label[text()='今天']")
+    private WebElement today;
+
     public WebElement getToday() {
-        return GetTime.getTime(webDriver, "Today");
+        return today;
     }
 
     public WebElement getYesterday() {
@@ -2122,16 +2125,24 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getFilterToken() {
-        return filterToken;
+        return getInput("标识");
     }
+
+//    public WebElement getFilterToken() {
+//        return filterToken;
+//    }
 
     public WebElement getFilterField() {
         return getInput("过滤字段");
     }
 
     public WebElement getFilterDefaultValue() {
-        return filterDefaultValue;
+        return getInput("默认值");
     }
+
+//    public WebElement getFilterDefaultValue() {
+//        return filterDefaultValue;
+//    }
 
     public WebElement getFilterJoinRow() {
         return filterJoinRow;
@@ -2340,7 +2351,7 @@ public class DetailPage extends PageTemplate {
     }
 
     private WebElement getNewInputElement(String name) {
-        String xpath = "//label[contains(text(),'" + name + "')]/following-sibling::input";
+        String xpath = "//span[contains(text(),'" + name + "')]/following-sibling::input";
         return webDriver.findElement(By.xpath(xpath));
     }
 

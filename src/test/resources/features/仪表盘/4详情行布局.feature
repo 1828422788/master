@@ -15,8 +15,8 @@ Feature: 仪表盘详情行布局
   @dashboard @dashboardSmoke
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
-    And I click the "CreateButton" button
-    And I click the "Create" button
+    And I click the "NewTrendButton" button
+#    And I click the "Create" button
     Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
@@ -24,9 +24,10 @@ Feature: 仪表盘详情行布局
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
+    And I wait for loading invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "NameInput" with value "<name>"
     And I click the "Complete" button under some element
     And I wait for "SuccessCreate" will be visible
@@ -35,7 +36,6 @@ Feature: 仪表盘详情行布局
       | name            | spl                                                       |
       | 行布局趋势图1 | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10 |
       | 行布局趋势图2 | tag:sample04061424 \| stats count() by apache.geo.country,apache.geo.province,apache.geo.city |
-      | 行布局趋势图2 | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10 |
       | 行布局趋势图3 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
 
 #  @dashboard @dashboardSmoke
@@ -91,7 +91,8 @@ Feature: 仪表盘详情行布局
     When I click the "AddEventButton" button
 #    Then I will see the "AddChart,AddEvent,AddInput" is "disabled"
     And I wait for "AddChart" will be visible
-    And I will see the element "AddChartItem" attribute "aria-disabled" is "true"
+    Then I will see the "AddChartItem" is "yotta-menu-item-disabled"
+#    And I will see the element "AddChartItem" attribute "aria-disabled" is "true"
     And I click the "AddRow" button
     And I wait for loading invisible
     And I set the parameter "TagName" with value "第一行"
@@ -141,6 +142,8 @@ Feature: 仪表盘详情行布局
     And I click the "Ensure" button
     And I wait for "500" millsecond
     Then I will see the error message "请至少选择一个趋势图"
+#    And I wait for "3000" millsecond
+    And I click the "JoinRow" button
     And I wait for "3000" millsecond
     And I set the parameter "SearchTagInput" with value "行布局"
     And I wait for "1000" millsecond
@@ -191,15 +194,18 @@ Feature: 仪表盘详情行布局
     When I click the "AddEventButton" button
     And I click the "AddEvent" button
     And I set the parameter "EventName" with value "测试行事件"
-    And I set the parameter "Spl" with value "appname:apache"
+#    And I set the parameter "Spl" with value "appname:apache"
+    And I alter the input element "Spl" value to "appname:apache"
     And I click the "DateEditor" button
+    And I wait for "1000" millsecond
     And I click the "Today" button
     And I click the "Ensure" button
     And I wait for "500" millsecond
     Then I will see the error message "请选择要加入的行"
+    And I wait for "3000" millsecond
     And I click the "JoinRow" button
     And I click the "Line1" button
-    And I wait for "500" millsecond
+#    And I wait for "1000" millsecond
     And I click the "Ensure" button under some element
     Then I wait for "RowEventName" will be visible
 

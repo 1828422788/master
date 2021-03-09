@@ -200,7 +200,7 @@ Feature: 仪表盘详情页
     And I wait for "3000" millsecond
     And I click the "TagIcon" button
     And I wait for "LastTag" will be visible
-    Then I will see the element "LastTag" value is "first_copy"
+    Then I will see the element "LastTag" value is "testSearch_copy"
 
   @dashboard @dashboardSmoke
   Scenario: 高级编辑
