@@ -1,4 +1,4 @@
-@configsSmoke
+@configsSmoke @xuyuecode
 Feature: 字段提取CSV解析
 
   Background:

@@ -418,7 +418,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='首行']/preceding-sibling::div/span[2]")
     private WebElement deleteRowIcon;
 
-    @FindBy(xpath = "//div[@id='fullscreenAll']/div/div/i[last()]")
+    @FindBy(xpath = "//div[@id='fullscreenAll']/div/div/span[last()]")
     private WebElement deleteNoNameRowIcon;
 
     @FindBy(xpath = "//div[text()='首行']")
@@ -439,7 +439,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='行布局趋势图1']/following-sibling::div[1]/i")
     private WebElement moreXuanTing;
 
-    @FindBy(xpath = "//div[text()='行布局趋势图2']/following-sibling::div[1]/i[2]")
+    @FindBy(xpath = "//div[text()='行布局趋势图2']/following-sibling::div[1]//span[@class='yotta-icon yotta-icon-DotEmblemOutlined']")
     private WebElement moreXuanTing2;
 
     @FindBy(xpath = "//div[text()='行布局趋势图2']/following-sibling::div[1]/i[3]")
@@ -616,7 +616,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='000000001203094955'])[2]")
     private WebElement entry;
 
-    @FindBy(xpath = "//span[text()='filter']/following-sibling::i")
+    @FindBy(xpath = "//span[text()='filter']/following-sibling::span")
     private WebElement filterSetting;
 
     @FindBy(xpath = "(//a[@class='item-menu-btn iconfont icon-shanchuxuanting_icon'])[last()]")
@@ -700,16 +700,16 @@ public class DetailPage extends PageTemplate {
     @FindBy(id = "filter_trendDescription")
     private WebElement chartDesc;
 
-    @FindBy(xpath = "//div[text()='请选择输入项']/ancestor::div[@class='ant-select-selection__rendered']")
+    @FindBy(xpath = "//div[@name='tokenId']/div/div/span[@class='yotta-select-selection-value']")
     private WebElement showFilterConfig;
 
-    @FindBy(xpath = "//div[text()='请选择输入项']/ancestor::div[@class='ant-select-selection__rendered']/following-sibling::span[@class='ant-select-selection__clear']")
+    @FindBy(xpath = "//div[@name='tokenId']/div/span[@class='yotta-select-selection-icon']")
     private WebElement cleanShowFilterConfig;
 
-    @FindBy(xpath = "//div[text()='请选择条件']/ancestor::div[@class='ant-select-selection__rendered']")
+    @FindBy(xpath = "//div[@name='condition']/div/div/span[@class='yotta-select-selection-value']")
     private WebElement showCondition;
 
-    @FindBy(xpath = "//div[text()='请选择条件']/ancestor::div[@class='ant-select-selection__rendered']/following-sibling::span[@class='ant-select-selection__clear']")
+    @FindBy(xpath = "//div[@name='condition']/div/span[@class='yotta-select-selection-icon']")
     private WebElement cleanShowConditio;
 
     @FindBy(xpath = "//input[@placeholder='请输入值']")
