@@ -1,4 +1,4 @@
-@all @smoke @configs @configsSmoke
+@all @smoke @configs @configsSmoke @xuyuecode
 Feature: 字段提取禁用/启用
 
   Background:
