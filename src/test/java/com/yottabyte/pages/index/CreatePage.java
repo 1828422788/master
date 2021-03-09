@@ -14,10 +14,10 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(xpath = "//label[text()='保存时间']/following-sibling::div//i")
+    @FindBy(xpath = "//label[text()='保存时间']/ancestor::div[1]/following-sibling::div[1]//span[@class='yotta-select-selection-icon']")
     private WebElement savedTimeDropDown;
 
-    @FindBy(xpath = "//label[text()='切分时间']/following-sibling::div//i")
+    @FindBy(xpath = "//label[text()='切分时间']/ancestor::div[1]/following-sibling::div[1]//span[@class='yotta-select-selection-icon']")
     private WebElement divideTimeDropDown;
 
     @FindBy(xpath = "//label[text()='冷却时间']/following-sibling::div//i")
@@ -58,14 +58,14 @@ public class CreatePage extends PageTemplate {
         return super.getContainsTextButton("保存");
     }
 
-    @FindBy(xpath = "//label[text()='名称']/following-sibling::input" )
+    @FindBy(xpath = "//label[text()='名称']/ancestor::div/following-sibling::div[1]//input" )
     private WebElement Name;
 
     public WebElement getName() {
         return Name;
     }
 
-    @FindBy(xpath = "//label[text()='描述']/following-sibling::input" )
+    @FindBy(xpath = "//label[text()='描述']/ancestor::div/following-sibling::div[1]//textarea" )
     private WebElement Desc;
 
     public WebElement getDesc() {
@@ -100,10 +100,15 @@ public class CreatePage extends PageTemplate {
     public WebElement getSinkNAS() { return getInputElementWithoutLabel("天后下沉到NAS"); }
 
     public WebElement getCreateButton() {
-        return getContainsTextButton("新建");
+        return getButton("新建");
     }
 
-    @FindBy(xpath = "//div[@class='el-message-box__message']")
+    @Override
+    public WebElement getMessage() {
+        return message;
+    }
+
+    @FindBy(xpath = "//p[@class='yotta-dialog-contenttext']")
     private WebElement message;
 
     public WebElement getErrorMessage() {
@@ -114,17 +119,12 @@ public class CreatePage extends PageTemplate {
         return message;
     }
 
-    @Override
-    public WebElement getMessage() {
-        return super.getMessage();
-    }
-
     public WebElement getInputElement(String name) {
-        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::div//input"));
+        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/ancestor::div/following-sibling::div[1]//input"));
     }
 
     public WebElement getLastDropdownList() {
-        return webDriver.findElement(By.xpath("(//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical'])[last()]"));
+        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu'])[last()]"));
     }
 
     public WebElement getInputElementWithoutLabel(String name) {

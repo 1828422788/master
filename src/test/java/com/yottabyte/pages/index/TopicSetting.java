@@ -15,8 +15,12 @@ public class TopicSetting extends ListPageFactory {
         super(driver);
     }
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
-    private WebElement successMessage;
+    public WebElement getErrorMessage() {
+        return ErrorMessage;
+    }
+
+    @FindBy(xpath = "//div[@class='yotta-form-field-help-text']")
+    private WebElement ErrorMessage;
 
     public WebElement getCreateButton() {
         return super.getButton("新建");
@@ -34,16 +38,8 @@ public class TopicSetting extends ListPageFactory {
         return super.getButton("保存");
     }
 
-    public WebElement getSuccessMessage() {
-        return successMessage;
-    }
-
-    public WebElement getErrorMessage() {
-        return successMessage;
-    }
-
     public WebElement getInputElement(String name) {
-        return webDriver.findElement(By.xpath("//span[text()='" + name + "']/ancestor::div/following-sibling::div/input"));
+        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/ancestor::div/following-sibling::div//input"));
     }
 
     public WebElement getReturnList() {
