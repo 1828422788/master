@@ -61,7 +61,7 @@ public class dbSettingPage extends PageTemplate {
 
     public WebElement getNewDbConnTypeList() {
 //        return super.getYottaDropdownList("config-rule_type-select");
-        String xpath = "//label[contains(text(),'连接类型')]/parent::div/following-sibling::div//span[text()='请选择连接类型']/ancestor::div[@class='yotta-select yotta-select-large']/div";
+        String xpath = "//label[contains(text(),'连接类型')]/parent::div/following::div[@class='yotta-select yotta-select-large']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
@@ -93,7 +93,7 @@ public class dbSettingPage extends PageTemplate {
         return super.getButton("新建");
     }
 
-    @FindBy(xpath = "//div[contains(text(),'数据库连接包含连接到远程数据库所需的信息')]/following::span/input[@placeholder='输入关键字']")
+    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
     private WebElement dbConnNameSearchInput;
 
     public WebElement getDbConnNameSearchInput() {
@@ -102,13 +102,24 @@ public class dbSettingPage extends PageTemplate {
 
     @FindBy(xpath = "//a[text()='删除']")
     private WebElement delDbConnNameButton;
-
     public WebElement getDelDbConnNameButton() {
         return delDbConnNameButton;
     }
 
     public WebElement getAffirmDelDbConnNameButton() {
         return super.getButton("确定");
+    }
+
+    @FindBy(xpath = "//span[contains(text(),'编辑')]/parent::button")
+    private WebElement editDbConnNameButton;
+    public WebElement getEditDbConnNameButton() {
+        return editDbConnNameButton;
+    }
+
+    @FindBy(xpath = "//span[contains(text(),'保存')]/parent::button")
+    private WebElement saveButton;
+    public WebElement getSaveButton() {
+        return saveButton;
     }
 
     /**

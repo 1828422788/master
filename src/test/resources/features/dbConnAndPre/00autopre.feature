@@ -25,6 +25,7 @@ Feature: 导入监控用例
     Given open the "dbConnectionPre.LdapConnListPage" page for uri "/ldapconnection/"
     And I click the "CreateLdapConn" button
 
+    Then I will see the "dbConnectionPre.EditPage" page
     And I wait for loading complete
     And I wait for "2000" millsecond
 

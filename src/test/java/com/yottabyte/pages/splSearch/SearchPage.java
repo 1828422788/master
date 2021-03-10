@@ -2069,28 +2069,29 @@ public class SearchPage extends ListPageFactory {
         return searchSetting;
     }
 
-    @FindBy(xpath = "//div[text()='索引模式']")
+    @FindBy(xpath = "//span[text()='索引模式']")
     private WebElement indexMode;
 
     public WebElement getIndexMode() {
         return indexMode;
     }
 
-    @FindBy(xpath = "//div[text()='极简模式']")
+    @FindBy(xpath = "//span[text()='极简模式']")
     private WebElement sampleMode;
 
     public WebElement getSampleMode() {
         return sampleMode;
     }
 
-    @FindBy(xpath = "//label[text()='每个分片取样']/following-sibling::input")
+    @FindBy(xpath = "//label[contains(text(),'每个分片取样')]/parent::div/following-sibling::div//input[@placeholder='请输入']")
     private WebElement fenPianQuYang;
 
     public WebElement getFenPianQuYang() {
         return fenPianQuYang;
     }
 
-    @FindBy(xpath = "(//button[@class='ant-modal-close'])[last()]")
+//    @FindBy(xpath = "(//button[@class='ant-modal-close'])[last()]")
+    @FindBy(xpath = "(//div[@class='yotta-modal-header yotta-modal-header-with-divider']//span)[last()]")
     private WebElement closeBtn;
 
     public WebElement getCloseBtn() {
@@ -2118,6 +2119,7 @@ public class SearchPage extends ListPageFactory {
         return timeLine;
     }
 
+//    @FindBy(xpath = "//span[text()='感兴趣的字段']/parent::div/following-sibling::ul/li")
     @FindBy(xpath = "//span[text()='感兴趣的字段']/parent::div/following-sibling::ul/li")
     private WebElement leftList;
 

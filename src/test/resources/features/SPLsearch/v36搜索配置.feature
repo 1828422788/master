@@ -1,6 +1,7 @@
-@dlother
+@dlother @searchset
 Feature: 搜索配置
 
+  @searchset1
   Scenario Outline: RZY-2392:搜索配置_搜索模式_极简模式sample
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -26,6 +27,7 @@ Feature: 搜索配置
       | splQuery                   |  count   |
       | tag:sample04061424 AND GET |  (72)    |
 
+  @searchset2
   Scenario Outline: RZY-2410:索引模式_已存搜索列表
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -40,8 +42,6 @@ Feature: 搜索配置
     And I click the "OpenSavedSearchList" button
     And "加载" the data "<name>" in tiny saved search
     Then I will see the input element "SearchInput" value will be "<spl>"
-
-
 
     Examples:
       | splQuery                        |    name        |     spl                          |
