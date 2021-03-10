@@ -13,35 +13,31 @@ public class DetailPage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(xpath = "//div[text()='搜索内容:']/following-sibling::div")
+    @FindBy(xpath = "//div[contains(text(),'数据集')]/following-sibling::div")
+    private WebElement detailDataSet;
+
+    @FindBy(xpath = "//div[contains(text(),'搜索内容')]/following-sibling::div")
     private WebElement searchContent;
 
-    @FindBy(xpath = "//div[text()='时间范围:']/following-sibling::div")
+    @FindBy(xpath = "//div[contains(text(),'时间范围')]/following-sibling::div")
     private WebElement timePeriod;
 
-    @FindBy(xpath = "//div[text()='任务描述:']/following-sibling::div")
+    @FindBy(xpath = "//div[contains(text(),'任务描述')]/following-sibling::div")
     private WebElement description;
 
-    @FindBy(xpath = "//div[text()='开始时间:']/following-sibling::div")
+    @FindBy(xpath = "//div[contains(text(),'开始时间')]/following-sibling::div")
     private WebElement startTime;
 
-    @FindBy(xpath = "//div[text()='执行计划:']/following-sibling::div")
+    @FindBy(xpath = "//div[contains(text(),'执行计划')]/following-sibling::div")
     private WebElement executionPeriod;
 
-    @FindBy(className = "el-button--text")
-    private List<WebElement> show;
-
-    @FindBy(className = "number")
-    private List<WebElement> numberList;
-
-    @FindBy(xpath = "(//a[contains(text(),'查看')])[1]")
+    @FindBy(xpath = "(//*[contains(text(),'查看')])[1]")
     private WebElement lookUpButton;
 
-    @FindBy(className = "chart")
-    private WebElement chart;
+    @FindBy(xpath = "//div[contains(text(),'暂无数据')]")
+    public WebElement noData;
 
-    @FindBy(className = "yw-content")
-    private WebElement content;
+    public WebElement getDetailDataSet(){return detailDataSet;}
 
     public WebElement getTimePeriod(){
         return timePeriod;
@@ -63,34 +59,11 @@ public class DetailPage extends PageTemplate {
         return executionPeriod;
     }
 
-    public WebElement getContent() {
-        return content;
-    }
-
-    public WebElement getChart() {
-        return chart;
-    }
-
-    public WebElement getShow() {
-        return show.get(0);
-    }
-
     public WebElement getNoData() {
-        return super.getButton("无可展示数据～");
+        return noData;
     }
 
     public WebElement getLookUpButton() {
         return lookUpButton;
     }
-
-
-
-    //author_jnd
-    //定时任务详情页的数据集
-    @FindBy(xpath = "//div[text()='数据集:']/following-sibling::div")
-    private WebElement detailDataSet;
-    public WebElement getDetailDataSet(){return detailDataSet;}
-
-
-
 }
