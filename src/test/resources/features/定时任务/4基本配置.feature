@@ -104,7 +104,7 @@ Feature: 定时任务_基本配置
     And I set the parameter "TaskGroupInput" with value "auto_package"
     And I set the value "tag:*| stats count() by appname | limit 10" to the textarea "SearchTextarea"
 #    And I choose the "auto_package" from the "TaskGroup"
-    And I choose the "test_app" from the "TaskApp"
+    And I choose the "test_app" from the "AppDropdown"
     And I will see the input element "Period" value will be "5"
     And I set the parameter "CrontabInput" with value "0 */57 * * * ?"
     And I click the "Parse" button

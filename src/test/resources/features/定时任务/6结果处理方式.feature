@@ -53,7 +53,7 @@ Feature: 定时任务_结果处理方式
     Then I set the parameter "DbName" with value "<dbName>"
     Then I set the parameter "TableName" with value "<tableName>"
     Then I click the "Verify" button under some element
-    And I wait for "EnsureButton" will be visible
+    And I wait for "OK" will be visible
     Then I will see the success message "<result>"
 
     Examples:
@@ -87,9 +87,9 @@ Feature: 定时任务_结果处理方式
     Then I set the parameter "DbName" with value "<dbName>"
     Then I set the parameter "TableName" with value "<tableName>"
     Then I click the "Verify" button
-    And I wait for "EnsureButton" will be visible
+    And I wait for "OK" will be visible
     Then I will see the success message "验证成功"
-    And I click the "EnsureButton" button
+    And I click the "OK" button
     And I wait for "Count" will be visible
     When I set the parameter "Count" with value "count"
     And I set the parameter "Percent" with value "percent"

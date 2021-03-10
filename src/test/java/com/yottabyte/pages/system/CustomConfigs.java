@@ -11,6 +11,7 @@ import org.openqa.selenium.support.FindBy;
 public class CustomConfigs extends PageTemplate {
     public CustomConfigs(WebDriver driver) {
         super(driver);
+        driver.manage().window().fullscreen();
     }
 
     @FindBy(xpath = "//label[contains(text(),'黑名单地址')]/following-sibling::div//input[@class='el-select__input is-undefined']")
@@ -34,24 +35,40 @@ public class CustomConfigs extends PageTemplate {
     @FindBy(xpath = "//span[text()='图表配置自动填充']/ancestor::label")
     private WebElement chartLabel;
 
+    @FindBy(xpath = "//div[@class='_1o8bbS9akwRGJGcMWEWK1j']/a[contains(text(),'邮件服务器设置')]")
+    private WebElement MailServerSet;
+    public WebElement getMailServerSet() {
+        return MailServerSet;
+    }
+
+    @FindBy(xpath = "//span[text()='SMTP服务器端口']/parent::div/following-sibling::input[@placeholder='请输入']")
+    private WebElement SMTPPort;
     public WebElement getSMTPPort() {
-        return super.getInputElement("SMTP服务器端口");
+        return SMTPPort;
     }
 
+    @FindBy(xpath = "//span[text()='SMTP服务器地址']/parent::div/following-sibling::input[@placeholder='请输入']")
+    private WebElement SMTPAddress;
     public WebElement getSMTPAddress() {
-        return super.getInputElement("SMTP服务器地址");
+        return SMTPAddress;
     }
 
+    @FindBy(xpath = "//span[text()='发送邮箱地址']/parent::div/following-sibling::input[@placeholder='请输入']")
+    private WebElement SendEmail;
     public WebElement getSendEmail() {
-        return super.getInputElement("发送邮箱");
+        return SendEmail;
     }
 
-    public WebElement getEmailLogName() {
-        return super.getInputElement("发件箱登录名");
-    }
-
+    @FindBy(xpath = "//span[text()='发送邮箱密码']/parent::div/following-sibling::div/input[@placeholder='请输入']")
+    private WebElement EmailPassword;
     public WebElement getEmailPassword() {
-        return super.getInputElement("邮箱密码");
+        return EmailPassword;
+    }
+
+    @FindBy(xpath = "//span[text()='发送邮箱名称']/parent::div/following-sibling::input[@placeholder='请输入']")
+    private WebElement EmailLogName;
+    public WebElement getEmailLogName() {
+        return EmailLogName;
     }
 
     public WebElement getTrendLimit() {
