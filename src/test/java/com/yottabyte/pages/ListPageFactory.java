@@ -79,6 +79,13 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(xpath = "//div[@class='ant-modal-root']//*[contains(@class, \"ant-modal\")]")
     private WebElement modal;
 
+    @FindBy(xpath = "//thead//span[@class='yotta-checkbox-check']")
+    private WebElement selectAll;
+
+    public WebElement getSelectAll() {
+        return selectAll;
+    }
+
     public WebElement getApp() {
         app.click();
         return utils.getLastDropdownList();
@@ -145,8 +152,16 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
         return this.getButton("确定");
     }
 
+    public WebElement getCancel() {
+        return this.getButton("取消");
+    }
+
     public WebElement getSave() {
         return this.getButton("保存");
+    }
+
+    public WebElement getApply() {
+        return this.getButton("应用");
     }
 
     public WebElement getButton(String name) {

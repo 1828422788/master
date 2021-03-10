@@ -392,10 +392,10 @@ public class SearchPage extends ListPageFactory {
     @FindBy(className = "el-select-dropdown__list")
     private List<WebElement> dropdownList;
 
-    @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div//div[@class='ant-select-selection-selected-value']")
+    @FindBy(xpath = "//label[text()='运行用户']/ancestor::div[1]/following-sibling::div//span[@class='yotta-select-selection-value']")
     private WebElement selectedUser;
 
-    @FindBy(xpath = "(//div[@class='_1dTlfekkLz0KXhi5auNtu8']//input)[1]")
+    @FindBy(xpath = "//input[@name='frequencyValue']")
     private WebElement period;
 
     @FindBy(className = "el-input__inner")
@@ -404,7 +404,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='确定']")
     private List<WebElement> ensure;
 
-    @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")
+    @FindBy(xpath = "//span[@aria-label='CheckCircleFilled']/ancestor::div[1]/following-sibling::div//p")
     private WebElement successMessage;
 
     @FindBy(xpath = "//span[contains(text(),'类型')]")
@@ -667,16 +667,16 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//div[text()='从搜索删除']")
     private WebElement removeFromSearch;
 
-    @FindBy(xpath = "(//div[@class='_1dTlfekkLz0KXhi5auNtu8']//input)[1]/following-sibling::div")
+    @FindBy(xpath = "//div[@name='frequencyUnit']")
     private WebElement executeTime;
 
     @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
     private WebElement lastDropdown;
 
-    @FindBy(xpath = "//div[text()='crontab']")
+    @FindBy(xpath = "//span[text()='crontab']")
     private WebElement crontab;
 
-    @FindBy(xpath = "//div[@class='_2ykhgJUyltzlxzTbumVZDP']//input")
+    @FindBy(xpath = "//input[@name='crontab']")
     private WebElement crontabInput;
 
     @FindBy(xpath = "//span[text()='test.date']/ancestor::td/following-sibling::td")
@@ -1392,7 +1392,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='明天开始']/preceding-sibling::input")
     private WebElement startTomorrow;
 
-    @FindBy(xpath = "//input[@class='ant-time-picker-panel-input']")
+    @FindBy(xpath = "//input[@class='yotta-time-picker-input']")
     private WebElement startTimeInput;
 
     @FindBy(xpath = "(//span[@class='_2x-YdNak-IrcZb4ybbyK1X'])[last()]")

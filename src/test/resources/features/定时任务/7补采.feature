@@ -13,11 +13,10 @@ Feature:定时任务补采
     And I click the "TimedTask" button
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "TaskName" with value "<name>"
-    And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I click the "EnsureButton" button
-    And I wait for "TimeTaskEnsure" will be visible
-    Then I will see the success message "保存成功"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "创建成功"
 
     Examples:
       |    name              |
@@ -27,13 +26,16 @@ Feature:定时任务补采
   Scenario: create_complement_overwrite
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I click the "Complement" button under some element
+    And I will see the "timedTask.ListPage" page
     When I click the "CreateComplement" button under some element
     Then I wait for "ComplementPanel" will be visible
     When I choose the "Test_Complement_2" from the "SelectName"
-    And I click the "SelectInterval" button
-    And I set the parameter "Start" with value "2020-04-28 00:00:00"
-    And I set the parameter "End" with value "2020-04-28 05:00:00"
-    And I click the "OK" button
+    And I click the "DatePicker" button
+    And I set the parameter "StartDate" with value "2020-04-28"
+    And I set the parameter "StartTime" with value "00:00:00.000"
+    And I set the parameter "EndDate" with value "2020-04-28"
+    And I set the parameter "EndTime" with value "05:00:00.000"
+    And I click the "Apply" button
     And I click the "Overwrite" button
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
@@ -44,13 +46,16 @@ Feature:定时任务补采
   Scenario: create_complement
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I click the "Complement" button under some element
+    And I will see the "timedTask.ListPage" page
     When I click the "CreateComplement" button under some element
     Then I wait for "ComplementPanel" will be visible
     When I choose the "Test_Complement" from the "SelectName"
-    And I click the "SelectInterval" button
-    And I set the parameter "Start" with value "2020-04-28 00:00:00"
-    And I set the parameter "End" with value "2020-04-28 05:00:00"
-    And I click the "OK" button
+    And I click the "DatePicker" button
+    And I set the parameter "StartDate" with value "2020-04-28"
+    And I set the parameter "StartTime" with value "00:00:00.000"
+    And I set the parameter "EndDate" with value "2020-04-28"
+    And I set the parameter "EndTime" with value "05:00:00.000"
+    And I click the "Apply" button
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
@@ -70,6 +75,7 @@ Feature:定时任务补采
   Scenario: create_complement_checkfields_name
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I click the "Complement" button under some element
+    And I will see the "timedTask.ListPage" page
     When I click the "CreateComplement" button under some element
     Then I wait for "ComplementPanel" will be visible
     When I click the "Ensure" button
@@ -79,6 +85,7 @@ Feature:定时任务补采
   Scenario: create_complement_checkfields_interval
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I click the "Complement" button under some element
+    And I will see the "timedTask.ListPage" page
     When I click the "CreateComplement" button under some element
     Then I wait for "ComplementPanel" will be visible
     When I choose the "Test_Complement" from the "SelectName"
@@ -89,13 +96,16 @@ Feature:定时任务补采
   Scenario: create_complement_checkfields_interval2
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I click the "Complement" button under some element
+    And I will see the "timedTask.ListPage" page
     When I click the "CreateComplement" button under some element
     Then I wait for "ComplementPanel" will be visible
     When I choose the "Test_Complement" from the "SelectName"
-    And I click the "SelectInterval" button
-    And I set the parameter "Start" with value "2020-04-28 00:00:00"
-    And I set the parameter "End" with value "2029-04-28 05:00:00"
-    And I click the "OK" button
+    And I click the "DatePicker" button
+    And I set the parameter "StartDate" with value "2020-04-28"
+    And I set the parameter "StartTime" with value "00:00:00.000"
+    And I set the parameter "EndDate" with value "2029-04-28"
+    And I set the parameter "EndTime" with value "05:00:00.000"
+    And I click the "Apply" button
     And I click the "Ensure" button
     And I wait for "Notice" will be visible
     Then I will see the element "Notice" contains "非法时间范围"
