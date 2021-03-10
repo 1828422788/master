@@ -46,7 +46,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         parentPageName = LoginBeforeAllTests.getPageFactory() == null ? "" : LoginBeforeAllTests.getPageFactory().getClass().getSimpleName();
     }
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
+    @FindBy(xpath = "//div[@class='yotta-modal-body']//p")
     private WebElement message;
 
     @FindBy(xpath = "//span[text()='AutoTestRoleWithAllResource']/ancestor::li")

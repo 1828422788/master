@@ -29,11 +29,24 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSavedSizeButton() {
-        return SavedSizeButton;
+        return getIndexSwitchButton("保存大小");
     }
 
-    @FindBy(xpath = "//label[contains(text(),'保存大小')]/parent::div/following-sibling::div//span[@class='yotta-switch-input']")
-    private WebElement SavedSizeButton;
+    public WebElement getAdvance() {
+        return getIndexSwitchButton("正排优化");
+    }
+
+    public WebElement getIndexFrezee() {
+        return getIndexSwitchButton("索引冻结");
+    }
+
+    public WebElement getIndexSink() {
+        return getIndexSwitchButton("索引下沉");
+    }
+
+    public WebElement getOpenDataConf() {
+        return getIndexSwitchButton("启用字段配置");
+    }
 
     public WebElement getColdTimeDropDown() {
         return getDropdownList("冷却时间");
@@ -95,9 +108,15 @@ public class CreatePage extends PageTemplate {
 //
 //    public WebElement getSinkHDD() { return getInputElementWithoutLabel("天后下沉到HDD"); }
 
-    public WebElement getFreeze() { return getInputElementWithoutLabel("天后拒绝入库"); }
-    public WebElement getSinkHDD() { return getInputElementWithoutLabel("天后下沉到HDD"); }
-    public WebElement getSinkNAS() { return getInputElementWithoutLabel("天后下沉到NAS"); }
+    public WebElement getFreeze() { return getInputElement("索引冻结"); }
+    public WebElement getSinkHDD() { return getInputElement("索引下沉");}
+
+    public WebElement getSinkNAS() {
+        return SinkNAS;
+    }
+
+    @FindBy(xpath = "//div[text()='天后下沉到NAS']/parent::span/preceding-sibling::input")
+    private WebElement SinkNAS;
 
     public WebElement getCreateButton() {
         return getButton("新建");
@@ -129,5 +148,9 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getInputElementWithoutLabel(String name) {
         return webDriver.findElement(By.xpath("//div[text()='" + name + "']/input"));
+    }
+
+    public WebElement getIndexSwitchButton(String name){
+        return webDriver.findElement(By.xpath("//label[contains(text(),'" +name+ "')]/parent::div/following-sibling::div//span[@class='yotta-switch-input']"));
     }
 }

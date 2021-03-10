@@ -10,49 +10,35 @@ import java.util.List;
 
 public class EditPage extends PageTemplate {
 
-    @FindBy(xpath = "//label[text()='名称']/following-sibling::input")
+    @FindBy(xpath = "//input[@name='name']")
     private WebElement name;
 
-    @FindBy(xpath = "//label[text()='描述']/following-sibling::input")
+    @FindBy(xpath = "//textarea[@name='description']")
     private WebElement describe;
 
-    @FindBy(xpath = "//label[text()='搜索条数']/following-sibling::input")
+    @FindBy(xpath = "//input[@name='size']")
     private WebElement number;
 
     @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div/div/input")
     private WebElement user;
 
-    @FindBy(xpath = "//div[@class='el-select-dropdown__wrap el-scrollbar__wrap']//li[@class = 'el-select-dropdown__item selected hover']/span")
-    private WebElement userChosen;
-
-    //@FindBy(xpath = "//label[text()='日志来源']/following-sibling::div//input")
-    @FindBy(xpath = "//label[text()='数据集']/following-sibling::span")
+    @FindBy(xpath = "//label[text()='数据集']/ancestor::div[1]/following-sibling::div//span")
     private WebElement resource;
 
-    //@FindBy(xpath = "//label[text()='任务分组']/following-sibling::div//input")
-    @FindBy(xpath = "(//label[text()='资源标签'][last()])/following-sibling::div[1]")
+    @FindBy(xpath = "//label[text()='资源标签']/ancestor::div[1]/following-sibling::div")
     private WebElement taskGroup;
 
-    @FindBy(xpath = "//label[text()='资源标签']/following-sibling::span//div[@class = 'ant-select-selection__choice__content']")
+    @FindBy(xpath = "(//label[text()='资源标签']/ancestor::div[1]/following-sibling::div//span[@class='yotta-tag-content'])[1]")
     private WebElement selectedGroup;
 
-    @FindBy(xpath = "(//label[text()='资源标签']/ancestor::div[1])//input")
+    @FindBy(xpath = "//label[text()='资源标签']/ancestor::div[1]/following-sibling::div//input")
     private WebElement taskGroupInput;
 
-    @FindBy(xpath = "(//label[text()='所属应用'][last()])/following-sibling::div[1]")
-    private WebElement taskApp;
-
-    @FindBy(xpath = "//li[@class='el-select-dropdown__item']/ancestor::ul")
-    private WebElement appDropdownList;
-
-    @FindBy(xpath = "//span[text()='执行一次']//preceding-sibling::span/input[@placeholder='请输入']")
+    @FindBy(xpath = "//input[@name='frequencyValue']")
     private WebElement period;
 
     @FindBy(xpath = "//div[@class='custom']//input[@placeholder='请选择时间']")
     private WebElement startTime;
-
-    @FindBy(className = "el-select-dropdown__list")
-    private List<WebElement> dropdownLists;
 
     @FindBy(xpath = "//div[text()='结果处理方式']")
     private WebElement resultHandling;
@@ -60,67 +46,58 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='添加JDBC']")
     private WebElement addJDBC;
 
-    @FindBy(xpath = "(//div[text()='JDBC'])[last()]")
+    @FindBy(xpath = "(//span[text()='JDBC'])[last()]")
     private WebElement jdbc;
 
-    @FindBy(xpath = "//label[contains(text(),'连接名称')]/following-sibling::input")
+    @FindBy(xpath = "(//input[contains(@name,'.name')])[last()]")
     private WebElement connectName;
 
-    @FindBy(xpath = "//label[contains(text(),'用户名')]/following-sibling::input")
+    @FindBy(xpath = "(//input[contains(@name,'.user_name')])[last()]")
     private WebElement userName;
 
-    @FindBy(xpath = "//label[contains(text(),'密码')]/following-sibling::input")
+    @FindBy(xpath = "(//input[contains(@name,'.password')])[last()]")
     private WebElement password;
 
-    @FindBy(xpath = "//label[contains(text(),'主机')]/following-sibling::input")
+    @FindBy(xpath = "(//input[contains(@name,'.host')])[last()]")
     private WebElement host;
 
-    @FindBy(xpath = "//label[contains(text(),'端口')]/following-sibling::input")
+    @FindBy(xpath = "(//input[contains(@name,'.port')])[last()]")
     private WebElement port;
 
-    @FindBy(xpath = "//label[text()='数据库类型']/following-sibling::div")
+    @FindBy(xpath = "(//div[contains(@name,'.category')])[last()]")
     private WebElement databaseType;
 
-    @FindBy(xpath = "//label[contains(text(),'数据库名')]/following-sibling::input")
+    @FindBy(xpath = "(//input[contains(@name,'.database_name')])[last()]")
     private WebElement dbName;
 
-    @FindBy(xpath = "//label[contains(text(),'数据库表名称')]/following-sibling::input")
+    @FindBy(xpath = "(//input[contains(@name,'.table_name')])[last()]")
     private WebElement tableName;
-
-    @FindBy(xpath = "//span[text()='验证']/ancestor::button")
-    private WebElement verify;
-
-    @FindBy(className = "el-select-dropdown__list")
-    private List<WebElement> selectLists;
 
     @FindBy(className = "el-message__group")
     private WebElement verifySuccessful;
 
-    @FindBy(className = "column-value")
-    private List<WebElement> dataMappings;
-
     @FindBy(xpath = "//span[text()='确定']/ancestor::button")
     private WebElement ensureButton;
 
-    @FindBy(xpath = "//div[text()='crontab']/ancestor::span")
+    @FindBy(xpath = "//span[text()='crontab']")
     private WebElement crontab;
 
-    @FindBy(xpath = "//div[text()='crontab']/ancestor::span/ancestor::span/following-sibling::div//input")
+    @FindBy(xpath = "//input[@name='crontab']")
     private WebElement crontabInput;
 
-    @FindBy(xpath = "//label[text()='搜索内容']/following-sibling::textarea")
+    @FindBy(xpath = "//label[text()='搜索内容']/ancestor::div[1]/following-sibling::div//textarea")
     private WebElement textarea;
 
-    @FindBy(className = "unit")
+    @FindBy(xpath = "//div[@name='unit']")
     private WebElement unit;
 
-    @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div//div[@class='ant-select-selection-selected-value']")
+    @FindBy(xpath = "//label[text()='运行用户']/ancestor::div[1]/following-sibling::div//span[@class='yotta-select-selection-value']")
     private WebElement selectedUser;
 
-    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div/div")
+    @FindBy(xpath = "//label[text()='所属应用']/ancestor::div[1]/following-sibling::div")
     private WebElement appDropdown;
 
-    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//div[@class = 'ant-select-selection-selected-value']")
+    @FindBy(xpath = "//label[text()='所属应用']/ancestor::div[1]/following-sibling::div//span[@class='yotta-select-selection-value']")
     private WebElement selectedApp;
 
     @FindBy(xpath = "//label[text()='count']/following-sibling::input")
@@ -132,16 +109,16 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "(//label[text()='resplen']/following-sibling::input) | (//label[text()='apache.resplen']/following-sibling::input)")
     private WebElement resplen;
 
-    @FindBy(xpath = "//span[text()='已存搜索 +']")
+    @FindBy(xpath = "//span[contains(text(),'已存搜索')]")
     private WebElement savedSearch;
 
-    @FindBy(xpath = "(//li[@role='menuitem']/ancestor::ul[contains(@class,'ant-dropdown-menu')])")
+    @FindBy(xpath = "(//li[@class='yotta-menu-item']/ancestor::ul[contains(@class,'yotta-menu')])")
     private WebElement savedSearchList;
 
-    @FindBy(xpath = "//span[text()='解析']/ancestor::button")
+    @FindBy(xpath = "//span[text()='点击解析']")
     private WebElement parse;
 
-    @FindBy(xpath = "//div[text()='最近十次执行时间']/ancestor::div[1]/following-sibling::div/p[1]")
+    @FindBy(xpath = "//span[text()='最近十次执行时间']/ancestor::div[1]/following-sibling::div/p[1]")
     private WebElement parseResult;
 
     public WebElement getParse() {
@@ -187,10 +164,6 @@ public class EditPage extends PageTemplate {
         return getLastDropdownList();
     }
 
-    public WebElement getUserChosen() {
-        return userChosen;
-    }
-
     public WebElement getTextarea() {
         return textarea;
     }
@@ -206,14 +179,6 @@ public class EditPage extends PageTemplate {
 
     public WebElement getEnsureButton() {
         return ensureButton;
-    }
-
-    public WebElement getFirstDataMapping() {
-        return dataMappings.get(0).findElement(By.tagName("input"));
-    }
-
-    public WebElement getSecondDataMapping() {
-        return dataMappings.get(1).findElement(By.tagName("input"));
     }
 
     public WebElement getAlert() {
@@ -258,7 +223,11 @@ public class EditPage extends PageTemplate {
     }
 
     public WebElement getVerify() {
-        return verify;
+        return getButton("验证");
+    }
+
+    public WebElement getOK() {
+        return getButton("知道了");
     }
 
     public WebElement getConnectName() {
@@ -297,11 +266,6 @@ public class EditPage extends PageTemplate {
         return number;
     }
 
-    public WebElement getUser() {
-        user.click();
-        return dropdownLists.get(dropdownLists.size() - 1);
-    }
-
     public WebElement getResource() {
         return resource;
     }
@@ -311,16 +275,12 @@ public class EditPage extends PageTemplate {
     }
 
     public WebElement getTaskGroupInput() {
+        taskGroup.click();
         return taskGroupInput;
     }
 
     public WebElement getTaskGroup() {
         taskGroup.click();
-        return super.getLastDropdownList();
-    }
-
-    public WebElement getTaskApp() {
-        taskApp.click();
         return super.getLastDropdownList();
     }
 
@@ -332,14 +292,8 @@ public class EditPage extends PageTemplate {
         return startTime;
     }
 
-
-    //author_jnd
-    //定时任务编辑页的数据集
-    @FindBy(xpath = "//label[text()='数据集']/following-sibling::span")
-    private WebElement dataSet;
-
     public WebElement getDataSet() {
-        return dataSet;
+        return resource;
     }
 
 

@@ -17,62 +17,13 @@ public class ListPage extends ListPageFactory {
         driver.manage().window().fullscreen();
     }
 
-    @FindBy(xpath = "//*[contains(text(),'编辑')]")
-    private List<WebElement> edit;
-
-    @FindBy(xpath = "//*[contains(text(),'复制')]")
-    private List<WebElement> copy;
-
-    @FindBy(xpath = "//*[contains(text(),'分组')]")
-    private List<WebElement> changeGroup;
-
-    @FindBy(xpath = "//*[contains(text(),'删除')]")
-    private List<WebElement> delete;
-
-    @FindBy(className = "number")
-    private List<WebElement> number;
-
-    @FindBy(className = "el-input__inner")
-    private List<WebElement> groups;
-
-    @FindBy(className = "el-select-dropdown__list")
-    private List<WebElement> dropdownLists;
-
-    @FindBy(className = "el-button--primary")
-    private List<WebElement> ensureButton;
-
-    @FindBy(xpath = "//span[text()='确定']/ancestor::button")
-    private WebElement ensure;
-
-    @FindBy(xpath = "//span[text()='取消']/ancestor::button")
-    private WebElement cancel;
-
-    // 表体
-    @FindBy(className = "el-table__body")
-    private WebElement tableBody;
-
-    @FindBy(className = "el-switch")
-    private WebElement switchButton;
-
-    @FindBy(className = "el-button--default")
-    private List<WebElement> selectLists;
-
-    @FindBy(className = "el-dropdown-menu__item")
-    private List<WebElement> selectOptions;
-
-    @FindBy(xpath = "//span[@class='link switch-margin switch-text']")
-    private List<WebElement> names;
-
-    @FindBy(className = "el-table__body-wrapper")
-    private WebElement table;
-
     @FindBy(xpath = "//span[text()='定时任务']/following-sibling::span/div")
     private WebElement selectName;
 
     @FindBy(xpath = "//*[@placeholder='请选择时间范围']")
     private WebElement dateEditor;
 
-    @FindBy(className = "date-picker")
+    @FindBy(className = "yotta-date-time-picker")
     private WebElement datePicker;
 
     @FindBy(xpath = "//div[text()='请选择应用']/ancestor::div[2]")
@@ -81,56 +32,41 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[text()='全部资源']/ancestor::div[2]")
     private WebElement tagDropdown;
 
-    @FindBy(xpath = "//span[text()='定时任务']/ancestor::div/div/span/input | //span[text()='schedule']/ancestor::div/div/span/input")
-    private WebElement searchInput;
-
     @FindBy(xpath= "//div[@class='ant-modal-content']")
     private WebElement tagPanel;
 
     @FindBy(xpath = "(//div[text()='标签'])[last()]/following-sibling::div[1]")
     private WebElement tagField;
 
-    @FindBy(xpath = "//div[text()='创建补采任务']/ancestor::div[2]")
+    @FindBy(xpath = "//span[text()='创建补采任务']/ancestor::div[2]")
     private WebElement complementPanel;
 
-    @FindBy(xpath = "//span[text()='时间范围']/following-sibling::span")
-    private WebElement selectInterval;
+    @FindBy(xpath = "//label[contains(text(),'开始时间')]/following-sibling::div//input[@placeholder='请选择日期']")
+    private WebElement startDate;
 
-    @FindBy(xpath = "//div[@class='ant-calendar-panel']//input[@placeholder = '开始日期']")
-    private WebElement start;
+    @FindBy(xpath = "//label[contains(text(),'开始时间')]/following-sibling::div//input[@placeholder='请输入时间']")
+    private WebElement startTime;
 
-    @FindBy(xpath = "//div[@class='ant-calendar-panel']//input[@placeholder = '结束日期']")
-    private WebElement end;
+    @FindBy(xpath = "//label[contains(text(),'结束时间')]/following-sibling::div//input[@placeholder='请选择日期']")
+    private WebElement endDate;
 
-    @FindBy(xpath = "//a[text()='确 定']")
-    private WebElement OK;
+    @FindBy(xpath = "//label[contains(text(),'结束时间')]/following-sibling::div//input[@placeholder='请输入时间']")
+    private WebElement endTime;
 
-    @FindBy(xpath = "//li[@class='ant-select-dropdown-menu-item'][1]")
+    @FindBy(xpath = "//div[@class='yotta-select-option'][1]")
     private WebElement li;
 
     @FindBy(xpath = "//span[text()='是否覆盖已存在定时任务结果']/preceding-sibling::label/span")
     private WebElement overwrite;
 
-    @FindBy(xpath = "//div[@class='ant-message-notice']//span")
+    @FindBy(xpath = "//span[@class='yotta-message-content']")
     private WebElement notice;
 
     @FindBy(xpath = "//span[@class = 'ant-spin-dot ant-spin-dot-spin']")
     private WebElement loading;
 
-    @FindBy(xpath = "//span[contains(text(),'添加资源标签')]")
-    private WebElement multiTag;
-
-    @FindBy(xpath = "//span[contains(text(),'删除')]")
-    private WebElement multiDelete;
-
-    @FindBy(xpath = "//span[contains(text(),'启动')]")
-    private WebElement multiSwitch;
-
     @FindBy(xpath = "//p[text()='暂无数据']")
     private WebElement noData;
-
-    @FindBy(xpath = "//thead//span[@class='ant-checkbox']")
-    private WebElement selectAll;
 
     @FindBy(xpath = "(//tr)[last()]/td[8]")
     private WebElement tagOfTheLastItem;
@@ -146,10 +82,6 @@ public class ListPage extends ListPageFactory {
         return tagOfTheLastItem;
     }
 
-    public WebElement getSelectAll() {
-        return selectAll;
-    }
-
     public WebElement getNoData() {
         return noData;
     }
@@ -158,20 +90,20 @@ public class ListPage extends ListPageFactory {
         return loading;
     }
 
-    public WebElement getStart() {
-        return start;
+    public WebElement getStartDate() {
+        return startDate;
     }
 
-    public WebElement getEnd() {
-        return end;
+    public WebElement getStartTime() {
+        return startTime;
     }
 
-    public WebElement getOK() {
-        return OK;
+    public WebElement getEndDate() {
+        return endDate;
     }
 
-    public WebElement getSelectInterval() {
-        return selectInterval;
+    public WebElement getEndTime() {
+        return endTime;
     }
 
     public WebElement getOverwrite() {
@@ -180,10 +112,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getNotice() {
         return notice;
-    }
-
-    public WebElement getSearchInput(){
-        return searchInput;
     }
 
     public WebElement getTagDropdown() {
@@ -198,10 +126,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getSearchIcon() {
         return super.getSearchIcon();
-    }
-
-    public WebElement getSave() {
-        return super.getContainsTextButton("保存");
     }
 
     public WebElement getDatePicker() {
@@ -226,26 +150,6 @@ public class ListPage extends ListPageFactory {
         return super.getButton("创建补采任务");
     }
 
-    public WebElement getTable() {
-        return table;
-    }
-
-    public List<WebElement> getNames() {
-        return names;
-    }
-
-    public WebElement getSwitchButton() {
-        return switchButton;
-    }
-
-    public WebElement getTableBody() {
-        return tableBody;
-    }
-
-    public WebElement getEnsureChangeGroup() {
-        return ensureButton.get(0);
-    }
-
     public WebElement getTagPanel() {
         return tagPanel;
     }
@@ -257,37 +161,5 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getComplementPanel() {
         return complementPanel;
-    }
-
-    public WebElement getMultiButton() {
-        return super.getButton("批量操作");
-    }
-
-    public WebElement getSelectAction() {
-        return super.getButton("请选择");
-    }
-
-    public WebElement getFinish() {
-        return super.getButton("完成");
-    }
-
-    public WebElement getMultiTag() {
-        return multiTag;
-    }
-
-    public WebElement getMultiDelete() {
-        return multiDelete;
-    }
-
-    public WebElement getMultiSwitch() {
-        return multiSwitch;
-    }
-
-    public WebElement getEnsure() {
-        return ensure;
-    }
-
-    public WebElement getCancel() {
-        return cancel;
     }
 }

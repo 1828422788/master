@@ -51,9 +51,6 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//*[contains(text(),'暂无数据')]")
     private WebElement noData;
 
-    @FindBy(xpath = "//thead//span[@class='yotta-checkbox-check']")
-    private WebElement selectAll;
-
     @FindBy(xpath = "(//tr)[last()]/td[4]")
     private WebElement tagOfTheLastItem;
 
@@ -94,10 +91,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getTagOfTheLastItem() {
         return tagOfTheLastItem;
-    }
-
-    public WebElement getSelectAll() {
-        return selectAll;
     }
 
     public WebElement getNoData() {
