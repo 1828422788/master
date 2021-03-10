@@ -10,13 +10,13 @@ Feature: 配置发送邮箱
     When I click the "MailServerSet" button
     And I wait for loading complete
     When I set the parameter "SMTPPort" with value "<SMTPPort>"
-    And I wait for loading complete
+    And I wait for "3000" millsecond
     When I set the parameter "SMTPAddress" with value "<SMTPAddress>"
-    And I wait for loading complete
+    And I wait for "3000" millsecond
     When I set the parameter "SendEmail" with value "<SendEmail>"
-    And I wait for loading complete
+    And I wait for "3000" millsecond
     When I set the parameter "EmailPassword" with value "<EmailPassword>"
-    And I wait for loading complete
+    And I wait for "3000" millsecond
     When I set the parameter "EmailLogName" with value "sender"
 
     Examples:

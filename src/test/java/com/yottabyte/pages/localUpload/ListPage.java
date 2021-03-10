@@ -14,7 +14,7 @@ public class ListPage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(xpath = "//span[@class='ant-progress-text']/ancestor::div/following-sibling::span")
+    @FindBy(xpath = "//span[@class='yotta-typography-text yotta-file-upload-text yotta-file-upload-tip']")
     private WebElement verifyText;
 
     public WebElement getVerifyText() {
@@ -22,18 +22,20 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getTag() {
-        return getInputElement("Tag");
+        return getInputElement("tag");
     }
 
     public WebElement getAppName() {
-        return getInputElement("Appname");
+        return getInputElement("appname");
     }
 
     public WebElement getUploadButton() {
         return super.getButton("上传");
     }
 
+
+
     public WebElement getInputElement(String name) {
-        return webDriver.findElement(By.xpath("//label[contains(text(),'" + name + "')]/following-sibling::div//input"));
+        return webDriver.findElement(By.xpath("//span[contains(text(),'" + name + "')]/ancestor::div/following-sibling::div//input"));
     }
 }

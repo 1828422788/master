@@ -11,6 +11,7 @@ import org.openqa.selenium.support.FindBy;
 public class CustomConfigs extends PageTemplate {
     public CustomConfigs(WebDriver driver) {
         super(driver);
+        driver.manage().window().fullscreen();
     }
 
     @FindBy(xpath = "//label[contains(text(),'黑名单地址')]/following-sibling::div//input[@class='el-select__input is-undefined']")

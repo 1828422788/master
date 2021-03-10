@@ -58,8 +58,10 @@ public class dbSettingPage extends PageTemplate {
         return newDbRetLines;
     }
 
+
     public WebElement getNewDbConnTypeList() {
-        String xpath = "//label[contains(text(),'连接类型')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+//        return super.getYottaDropdownList("config-rule_type-select");
+        String xpath = "//label[contains(text(),'连接类型')]/parent::div/following-sibling::div//span[text()='请选择连接类型']/ancestor::div[@class='yotta-select yotta-select-large']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);

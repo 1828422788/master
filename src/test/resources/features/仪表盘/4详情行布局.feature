@@ -255,7 +255,8 @@ Feature: 仪表盘详情行布局
     When I click the "AddEventButton" button
 #    Then I will see the "AddChart,AddEvent,AddInput" is "disabled"
     And I wait for "AddChart" will be visible
-    And I will see the element "AddChartItem" attribute "aria-disabled" is "true"
+    Then I will see the "AddChartItem" is "yotta-menu-item-disabled"
+#    And I will see the element "AddChartItem" attribute "aria-disabled" is "true"
     And I click the "AddRow" button
     And I wait for "1500" millsecond
 #    And I set the parameter "TagName" with value "第一行"
@@ -272,7 +273,7 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
@@ -283,7 +284,7 @@ Feature: 仪表盘详情行布局
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
 #    And I click the "MoreConfig" button
-    And I click the "MoreConfigs" button
+    And I click the "Configs" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -309,11 +310,13 @@ Feature: 仪表盘详情行布局
     And I switch the dashboard "OpenShowCondition" button to "disable"
     And I wait for "1500" millsecond
 #    And I will see the success message "展示条件已关闭"
-    When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
+#    And I click the "CleanShowFilterConfig" button
     And I choose the "filter" from the "ShowFilterConfig"
+#    And I click the "CleanShowConditio" button
     And I choose the "匹配正则" from the "ShowCondition"
     And I wait for "ShowValue" will be visible
     And I set the parameter "ShowValue" with value "a1?b"
@@ -323,10 +326,12 @@ Feature: 仪表盘详情行布局
     And I wait for "MoreXuanTing2" will be visible
     And I click the "MoreXuanTing2" button
 #    And I click the "MoreConfig" button
-    And I click the "MoreConfigs" button
+    And I click the "Configs" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
+#    And I click the "CleanShowFilterConfig" button
     And I choose the "filter" from the "ShowFilterConfig"
+#    And I click the "CleanShowConditio" button
     And I choose the "包含" from the "ShowCondition"
     And I set the parameter "ShowValue" with value "a"
     And I click the "Ensure" button
@@ -351,7 +356,7 @@ Feature: 仪表盘详情行布局
     And I switch the dashboard "OpenShowCondition" button to "disable"
     And I wait for "1500" millsecond
 #    And I will see the success message "展示条件已关闭"
-    When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
@@ -364,7 +369,7 @@ Feature: 仪表盘详情行布局
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
 #    And I click the "MoreConfig" button
-    And I click the "MoreConfigs" button
+    And I click the "Configs" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -387,8 +392,8 @@ Feature: 仪表盘详情行布局
     And I switch the dashboard "OpenShowCondition" button to "disable"
     And I wait for "500" millsecond
 #    And I will see the success message "展示条件已关闭"
-    When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
-    And I click the "MoreConfigs" button
+    When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    And I click the "Configs" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -411,7 +416,7 @@ Feature: 仪表盘详情行布局
     And I click the "SettingIcon" button
     And I wait for "3000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
-    And I wait for "500" millsecond
+    And I wait for "1000" millsecond
 #    And I will see the success message "展示条件已启用"
     Then I will see the "trendTwo" doesn't exist
     Then I wait for "trendThree" will be visible
@@ -422,7 +427,7 @@ Feature: 仪表盘详情行布局
     And I switch the dashboard "OpenShowCondition" button to "disable"
     And I wait for "1500" millsecond
 #    And I will see the success message "展示条件已关闭"
-    When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button under some element
     And I wait for loading invisible
     And I wait for "1000" millsecond
@@ -435,7 +440,7 @@ Feature: 仪表盘详情行布局
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
 #    And I click the "MoreConfig" button
-    And I click the "MoreConfigs" button
+    And I click the "Configs" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -491,7 +496,7 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
@@ -502,7 +507,7 @@ Feature: 仪表盘详情行布局
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
 #    And I click the "MoreConfig" button
-    And I click the "MoreConfigs" button
+    And I click the "Configs" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -524,7 +529,7 @@ Feature: 仪表盘详情行布局
     And I wait for "1500" millsecond
 #    And I will see the success message "展示条件已关闭"
     And I click the "trendThree" button
-    When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
@@ -537,7 +542,7 @@ Feature: 仪表盘详情行布局
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
 #    And I click the "MoreConfig" button
-    And I click the "MoreConfigs" button
+    And I click the "Configs" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -560,8 +565,8 @@ Feature: 仪表盘详情行布局
     And I wait for "1500" millsecond
 #    And I will see the success message "展示条件已关闭"
     And I click the "trendThree" button
-    When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
-    And I click the "MoreConfigs" button under some element
+    When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    And I click the "Configs" button under some element
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -597,7 +602,7 @@ Feature: 仪表盘详情行布局
     When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
     Then I wait for "FilterName" will be visible
-    When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for "1000" millsecond
     And I move the mouse pointer to the "CleanShowFilterConfig"
@@ -649,7 +654,7 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
@@ -660,7 +665,7 @@ Feature: 仪表盘详情行布局
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
 #    And I click the "MoreConfig" button
-    And I click the "MoreConfigs" button
+    And I click the "Configs" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -709,7 +714,7 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button under some element
     And I wait for loading invisible
     And I wait for "1000" millsecond
@@ -722,7 +727,7 @@ Feature: 仪表盘详情行布局
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
 #    And I click the "MoreConfig" button
-    And I click the "MoreConfigs" button
+    And I click the "Configs" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"

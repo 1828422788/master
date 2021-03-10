@@ -212,8 +212,9 @@ public class ClickButtonWithGivenName {
             xpath = ".//span[contains(text(),'" + buttonName + "')][not(@class)]";
         } else if ("详情".equals(buttonName)) {
             xpath = ".//span[contains(text(),'" + buttonName + "')]";
-        } else {
-            xpath = ".//span[text()='" + buttonName + "']";
+        }
+        else {
+            xpath = ".//a[text()='" + buttonName + "']";
         }
         List<WebElement> button = tr.findElements(By.xpath(xpath));
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button.get(0));

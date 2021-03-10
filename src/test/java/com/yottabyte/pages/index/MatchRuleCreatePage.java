@@ -14,13 +14,13 @@ public class MatchRuleCreatePage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(xpath = "//div[text()='appname']/preceding-sibling::div//input")
+    @FindBy(xpath = "//span[text()='appname']/preceding-sibling::div//input")
     private WebElement appName;
 
-    @FindBy(xpath = "//div[text()='tag']/preceding-sibling::div//input")
+    @FindBy(xpath = "//span[text()='tag']/preceding-sibling::div//input")
     private WebElement tag;
 
-    @FindBy(xpath = "//span[text()='匹配规则']/preceding-sibling::input")
+    @FindBy(xpath = "//span[text()='匹配规则']/parent::span/preceding-sibling::input")
     private WebElement rule;
 
     public WebElement getAppName() {
@@ -35,39 +35,21 @@ public class MatchRuleCreatePage extends PageTemplate {
         return rule;
     }
 
-//    @FindBy(xpath = "//label[text()='索引名']/following-sibling::div//i")
-//    private WebElement IndexName;
-//
-//    public WebElement getIndexName() {
-//        IndexName.click();
-//        return getLastDropdownList();
-//    }
-
-//    public WebElement getDropdowMatchRuleCreatePagenList(String name) {
-//        WebElement icon = webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::div"));
-//        icon.click();
-//        return webDriver.findElement(By.xpath("(//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical'])[last()]"));
-//    }
-
-    public WebElement getDropdownList(String text) {
-        String xpath = "//label[contains(text(),'" + text + "')]/parent::div/div/div";
+    public WebElement getDropdownList(String name) {
+        String xpath = "//label[contains(text(),'" + name + "')]/parent::div/following-sibling::div//span[@class='yotta-select-selection-icon']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         element.click();
-        return webDriver.findElement(By.xpath("(//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical'])[last()]"));
+        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu'])[last()]"));
     }
     public WebElement getIndexName() {
         return getDropdownList("索引名");
     }
 
-//    public WebElement getLastDropdownList() {
-//        return webDriver.findElement(By.xpath("(//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical'])[last()]"));
-//    }
-
     public WebElement getTopicName() {
         return getDropdownList("topic名");
     }
 
-    @FindBy(xpath = "//label[text()='描述']/following-sibling::input" )
+    @FindBy(xpath = "//label[text()='描述']/ancestor::div/following-sibling::div[1]//input" )
     private WebElement Desc;
 
     public WebElement getDesc() {
@@ -75,7 +57,7 @@ public class MatchRuleCreatePage extends PageTemplate {
     }
 
     public WebElement getCreateButton() {
-        return getContainsTextButton("新建");
+        return getButton("新建");
     }
 
     public WebElement getSuccessMessage() {
@@ -83,7 +65,7 @@ public class MatchRuleCreatePage extends PageTemplate {
     }
 
 
-    @FindBy(xpath = "//div[@class='el-message-box__message']")
+    @FindBy(xpath = "//p[@class='yotta-dialog-contenttext']")
     private WebElement Message;
 
     @Override
@@ -95,9 +77,4 @@ public class MatchRuleCreatePage extends PageTemplate {
         return getContainsTextButton("保存");
     }
 
-
-
-    public WebElement getInputElement(String name) {
-        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::div//input"));
-    }
 }

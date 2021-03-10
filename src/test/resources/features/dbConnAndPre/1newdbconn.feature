@@ -14,7 +14,9 @@ Feature: 新建数据库连接配置
     And I set the parameter "NewDbUserPassword" with value "<newDbUserPassword>"
     And I set the parameter "NewDbRetLines" with value "<newDbRetLines>"
 
-    And I choose1 the "<newDbConnTypeList>" from the "NewDbConnTypeList"
+    And I choose the "<newDbConnTypeList>" from the "NewDbConnTypeList" in config
+
+    And I wait for "3000" millsecond
 
     And I set the parameter "newDbConnHost" with value "<newDbConnHost>"
     And I set the parameter "newDbConnPort" with value "<newDbConnPort>"
