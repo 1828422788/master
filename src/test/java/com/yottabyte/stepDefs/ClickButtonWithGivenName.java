@@ -39,9 +39,15 @@ public class ClickButtonWithGivenName {
             this.click(buttonName, tr);
         }
         catch (org.openqa.selenium.StaleElementReferenceException exception){
-            WebElement tr = listPageUtils.getRow(dataName);
-            this.click(buttonName, tr);
+            try {
+                WebElement tr = listPageUtils.getRow(dataName);
+                this.click(buttonName, tr);
+            } catch (org.openqa.selenium.StaleElementReferenceException exception2) {
+                WebElement tr = listPageUtils.getRow(dataName);
+                this.click(buttonName, tr);
+            }
         }
+
     }
 
     /**
@@ -212,6 +218,8 @@ public class ClickButtonWithGivenName {
             xpath = ".//span[contains(text(),'" + buttonName + "')][not(@class)]";
         } else if ("详情".equals(buttonName)) {
             xpath = ".//span[contains(text(),'" + buttonName + "')]";
+        }else if (webDriver.getCurrentUrl().contains("/indexsettings/")) {
+            xpath = ".//span[text()='" + buttonName + "']";
         }
         else {
             xpath = ".//a[text()='" + buttonName + "']";

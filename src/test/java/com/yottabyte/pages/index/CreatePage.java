@@ -68,7 +68,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSavedButton() {
-        return super.getContainsTextButton("保存");
+        return super.getButton("保存");
     }
 
     @FindBy(xpath = "//label[text()='名称']/ancestor::div/following-sibling::div[1]//input" )
