@@ -568,15 +568,12 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//button[@class='el-button yw-search-pages-download el-button--default']/span")
     private WebElement download;
 
-    @FindBy(xpath = "//label[contains(text(),'文件名称')]/following-sibling::input")
-    private WebElement downloadName;
-
     @FindBy(xpath = "//label[contains(text(),'最大行数')]/following-sibling::div//i")
     private WebElement maxLineDropdown;
 
     //@FindBy(xpath = "//button[@class='el-button yw-search-pages-download el-button--primary']/span")
     //@FindBy(xpath = "//svg/use/svg[@id='icon-sousuoye_xiazai']::parent")
-    @FindBy(xpath = "//span[contains(text(),'事件列表')]/following-sibling::i[@class='anticon css-ifnfqv _1Csj3jD9igXHB0MQUflN8F']")
+    @FindBy(xpath = "//span[contains(text(),'事件列表')]/following-sibling::span[@class='yotta-icon yotta-icon-DownloadOutlined']")
     private WebElement downloadEvent;
 
     @FindBy(xpath = "//div[contains(text(),'下载任务')]")
@@ -708,6 +705,14 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//li[text()='定时任务']")
     private WebElement saveAsSchedule;
+
+    @FindBy(xpath = "//span[text()='下载']/parent::li")
+    private WebElement downloadButton;
+
+    public WebElement getDownloadButton() {
+        saveAs.click();
+        return downloadButton;
+    }
 
     @FindBy(xpath = "(//span[text()='确 定']/ancestor::button)[last()]")
     private WebElement ensureCrontab;
@@ -1075,21 +1080,19 @@ public class SearchPage extends ListPageFactory {
         return dropdownList.get(dropdownList.size() - 1);
     }
 
+    @FindBy(xpath = "//label[contains(text(),'文件名称')]/parent::div/following-sibling::div//input[@placeholder='请输入']")
+    private WebElement downloadName;
     public WebElement getDownloadName() {
         return downloadName;
     }
 
-//    public WebElement getMaxLineNum() {
-//        return super.getInputElement("最大行数");
-//    }
-
     public WebElement getMaxLineNum() {
-        String xpath = "//label[text()='最大行数']//following-sibling::input";
+        String xpath = "//label[contains(text(),'最大行数')]/parent::div/following-sibling::div//input[@placeholder='请输入']";
         return webDriver.findElement(By.xpath(xpath));
     }
 
     public WebElement getDocumentTypeList() {
-        String xpath = "//div/label[contains(text(),'文件类型')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        String xpath = "//label[contains(text(),'文件类型')]/parent::div/following-sibling::div//div[@class='yotta-select-selection']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
@@ -1097,15 +1100,17 @@ public class SearchPage extends ListPageFactory {
     }
 
     public WebElement getDocumentEncodeList() {
-        String xpath = "//div/label[contains(text(),'文件编码')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        String xpath = "//label[contains(text(),'文件编码')]/parent::div/following-sibling::div//div[@class='yotta-select-selection']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
         return getLastDropdownList();
     }
 
+    @FindBy(xpath = "//span[text()='确定']/parent::button")
+    private WebElement createDownloadTask;
     public WebElement getCreateDownloadTask() {
-        return super.getButton("确 定");
+        return createDownloadTask;
     }
 
     public WebElement getAcceptCreateDownloadTask() {
@@ -1260,7 +1265,6 @@ public class SearchPage extends ListPageFactory {
     public WebElement getMark() {
         return mark;
     }
-
 
     public WebElement getSelectData() {
         selectData.click();
@@ -1669,17 +1673,6 @@ public class SearchPage extends ListPageFactory {
 
     public WebElement getMessage() {
         return message;
-    }
-
-//    public WebElement getDownloadButton() {
-//        return super.getButton("下载");
-//    }
-
-    @FindBy(xpath = "//span[text()='下载']/parent::button")
-    private WebElement downloadButton;
-
-    public WebElement getDownloadButton() {
-        return downloadButton;
     }
 
     //  @FindBy(xpath = "//button[@class='el-button yw-search-pages-download el-button--primary']/span")
