@@ -95,20 +95,6 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "(//tr)[last()]/td[6]")
     private WebElement appOfTheLastItem;
 
-    @FindBy(xpath = "//span[text()='标签']")
-    private WebElement tag;
-
-    @FindBy(xpath = "//span[text()='删除']")
-    private WebElement delete;
-
-    public WebElement getDelete() {
-        return delete;
-    }
-
-    public WebElement getTag() {
-        return tag;
-    }
-
     public WebElement getAppOfTheLastItem() {
         return appOfTheLastItem;
     }

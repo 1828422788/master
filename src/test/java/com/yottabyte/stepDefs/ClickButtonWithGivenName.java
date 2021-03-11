@@ -218,7 +218,7 @@ public class ClickButtonWithGivenName {
             xpath = ".//span[contains(text(),'" + buttonName + "')][not(@class)]";
         } else if ("详情".equals(buttonName)) {
             xpath = ".//span[contains(text(),'" + buttonName + "')]";
-        }else if (webDriver.getCurrentUrl().contains("/indexsettings/")) {
+        }else if (webDriver.getCurrentUrl().contains("/indexsettings/") || webDriver.getCurrentUrl().contains("/schedule/") || webDriver.getCurrentUrl().contains("/trend/") || webDriver.getCurrentUrl().contains("/reports/")) {
             xpath = ".//span[text()='" + buttonName + "']";
         }
         else {

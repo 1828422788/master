@@ -50,8 +50,7 @@ Feature: 趋势图新建_复合
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "更多" button
-    And I click the "ViewTrend" button
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -138,8 +137,7 @@ Feature: 趋势图新建_复合
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "更多" button
-    And I click the "ViewTrend" button
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
