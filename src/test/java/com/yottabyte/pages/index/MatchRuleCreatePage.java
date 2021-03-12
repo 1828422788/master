@@ -74,7 +74,7 @@ public class MatchRuleCreatePage extends PageTemplate {
     }
 
     public WebElement getSavedButton() {
-        return getContainsTextButton("保存");
+        return getButton("保存");
     }
 
 }

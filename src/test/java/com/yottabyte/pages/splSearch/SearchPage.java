@@ -628,7 +628,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(className = "basic-item-value")
     private List<WebElement> valueList;
 
-    @FindBy(xpath = "(//span[text()='查询无结果。'])[1]")
+    @FindBy(xpath = "(//span[text()='搜索无数据'])[1]")
     private WebElement noResult;
 
     @FindBy(xpath = "//div[@class='yw-searchbar__prepend el-dropdown']/following-sibling::sup")
