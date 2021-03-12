@@ -58,7 +58,7 @@ public class SearchPage extends ListPageFactory {
         return countButton;
     }
 
-    //    @FindBy(xpath = "//div[@class='yw-searchbar__inner el-textarea']/textarea")
+    //@FindBy(xpath = "//div[@class='yw-searchbar__inner el-textarea']/textarea")
     @FindBy(className = "CodeMirror")
     private WebElement searchInput;
 
