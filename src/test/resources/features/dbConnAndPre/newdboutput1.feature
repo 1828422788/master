@@ -1,6 +1,6 @@
 Feature: 新建数据库输出
 
-  @newdboutput
+  @newdboutput1 @dleval
   Scenario Outline: 新建数据库输出-更新插入
     Given open the "dbConnectionPre.DbOutputPage" page for uri "/dbsettings/"
 #    And I click the "DbOutputConfig" button
@@ -52,7 +52,7 @@ Feature: 新建数据库输出
     And I wait for "3000" millsecond
 
     And I click the "UpdateInsertButton" button
-    And I choose1 the "x_forward" from the "DbOutputKeyList"
+    And I choose the "forward" from the "DbOutputKeyList"
     And I wait for "3000" millsecond
 
     And I click the "NextStepButton" button
@@ -66,5 +66,4 @@ Feature: 新建数据库输出
     Examples:
       | DbOutputName | DbOutputConnList | DbOutputDirList | splQuery                                                   |
       | outsample_u | v33dbx           | v33dbx          | starttime=\"now/d\" endtime=\"now/d+24h\" tag\:sample04061424 |
-      | outsample_u1 | v33dbx           | v33dbx          | starttime=\"now/d\" endtime=\"now/d+24h\" tag\:sample04061424 |
 
