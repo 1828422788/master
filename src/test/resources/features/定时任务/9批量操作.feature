@@ -18,7 +18,7 @@ Feature: 定时任务批量操作
     And I set the parameter "StartTimeInput" with value "23:59:00"
     And I click the "EnsureButton" button
     And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "保存成功"
+    Then I will see the success message "创建成功"
 
   Examples:
     |   name          |
@@ -49,9 +49,17 @@ Feature: 定时任务批量操作
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
     And I wait for "BatchControl" will be visible
-    Then I will see the data "{'column':'1','name':'test_multi_1'}" values "{'column':'8','name':'auto_package'}"
-    And I will see the data "{'column':'1','name':'test_multi_2'}" values "{'column':'8','name':'auto_package'}"
-    And I will see the data "{'column':'1','name':'test_multi_3'}" values "{'column':'8','name':'auto_package'}"
+    And the data name is "{'column':'1','name':'test_multi_1'}" then I "expand" the item
+    And I will see the element "TagOfTheLastItem" contains "auto_package"
+    And the data name is "{'column':'1','name':'test_multi_1'}" then I "close" the item
+
+    And the data name is "{'column':'1','name':'test_multi_2'}" then I "expand" the item
+    And I will see the element "TagOfTheLastItem" contains "auto_package"
+    And the data name is "{'column':'1','name':'test_multi_2'}" then I "close" the item
+
+    And the data name is "{'column':'1','name':'test_multi_3'}" then I "expand" the item
+    And I will see the element "TagOfTheLastItem" contains "auto_package"
+    And the data name is "{'column':'1','name':'test_multi_3'}" then I "close" the item
 
   Scenario: switch_off
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -119,7 +127,7 @@ Feature: 定时任务批量操作
     And I wait for "Ensure" will be visible
     Then I will see the message "您选中的 3 个资源将被删除，是否继续？"
     And I click the "Cancel" button
-    When the data name is "{'column':'2','name':'test_multi_3'}" then i click the "删除" button
+    When the data name is "{'column':'2','name':'test_multi_3'}" then i click the "删除" button in more menu
     And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"

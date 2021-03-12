@@ -26,16 +26,10 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "yotta-date-time-picker")
     private WebElement datePicker;
 
-    @FindBy(xpath = "//div[text()='请选择应用']/ancestor::div[2]")
-    private WebElement appDropdown;
-
-    @FindBy(xpath = "//div[text()='全部资源']/ancestor::div[2]")
-    private WebElement tagDropdown;
-
-    @FindBy(xpath= "//div[@class='ant-modal-content']")
+    @FindBy(xpath= "//div[@class='yotta-modal']")
     private WebElement tagPanel;
 
-    @FindBy(xpath = "(//div[text()='标签'])[last()]/following-sibling::div[1]")
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']")
     private WebElement tagField;
 
     @FindBy(xpath = "//span[text()='创建补采任务']/ancestor::div[2]")
@@ -62,16 +56,16 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[@class='yotta-message-content']")
     private WebElement notice;
 
-    @FindBy(xpath = "//span[@class = 'ant-spin-dot ant-spin-dot-spin']")
+    @FindBy(xpath = "//div[contains(@class,'spinner')]")
     private WebElement loading;
 
     @FindBy(xpath = "//p[text()='暂无数据']")
     private WebElement noData;
 
-    @FindBy(xpath = "(//tr)[last()]/td[8]")
+    @FindBy(xpath = "(//tr[contains(@class,'expansion')]//div[contains(text(),'资源标签......')])[last()]")
     private WebElement tagOfTheLastItem;
 
-    @FindBy(xpath = "(//tr)[last()]/td[7]")
+    @FindBy(xpath = "(//tr[contains(@class,'expansion')]//div[contains(text(),'所属应用......')])[last()]")
     private WebElement appOfTheLastItem;
 
     public WebElement getAppOfTheLastItem() {
@@ -112,16 +106,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getNotice() {
         return notice;
-    }
-
-    public WebElement getTagDropdown() {
-        tagDropdown.click();
-        return this.getLastDropdownList();
-    }
-
-    public WebElement getAppDropdown() {
-        appDropdown.click();
-        return this.getLastDropdownList();
     }
 
     public WebElement getSearchIcon() {

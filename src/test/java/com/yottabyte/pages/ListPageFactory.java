@@ -165,7 +165,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     }
 
     public WebElement getButton(String name) {
-        return webDriver.findElement(By.xpath("//span[text()='" + name + "']//ancestor::button"));
+        return webDriver.findElement(By.xpath("(//span[text()='" + name + "']//ancestor::button)[last()]"));
     }
 
     public WebElement groupDropdownIcon(String text) {

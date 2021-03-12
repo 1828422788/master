@@ -97,22 +97,22 @@ Feature: 定时任务_基本配置
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Name" with value "Schedule_Test"
     And I set the parameter "Describe" with value "testing schedule"
+    And I choose the "auto_package" from the "TaskGroup"
     And I set the parameter "TaskGroupInput" with value "auto_package"
     And I set the value "tag:*| stats count() by appname | limit 10" to the textarea "SearchTextarea"
-#    And I choose the "auto_package" from the "TaskGroup"
     And I choose the "test_app" from the "AppDropdown"
     And I will see the input element "Period" value will be "5"
     And I set the parameter "CrontabInput" with value "0 */57 * * * ?"
     And I click the "Parse" button
     And I wait for "EnsureButton" will be visible
     And I wait for "ParseResult" will be visible
-    And I will see the element "ParseResult" contains ":00"
+    And I will see the element "ParseResult" contains ":57:00"
+    And I will see the element "ParseResult" contains ":00:00"
     And I click the "EnsureButton" button
     And I click the "SaveButton" button under some element
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "保存成功"
     And I click the "OK" button under some element
-    Then I will see the "timedTask.ListPage" page
 
   Scenario: change_spl
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -136,7 +136,9 @@ Feature: 定时任务_基本配置
 
   Scenario: verify_changes
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    Then I will see the data "{'column':'1','name':'Schedule_Test'}" values "{'column':'8','name':'auto_package'}"
+    And the data name is "{'column':'1','name':'Schedule_Test'}" then I "expand" the item
+    And I will see the element "TagOfTheLastItem" contains "auto_package"
+    And I will see the element "AppOfTheLastItem" contains "test_app"
     When the data name is "{'column':'1','name':'Schedule_Test'}" then i click the "Schedule_Test" button
     Then I will see the "timedTask.DetailPage" page
     And I will see the element "SearchContent" contains "tag:sample04061424_chart | stats count()"
