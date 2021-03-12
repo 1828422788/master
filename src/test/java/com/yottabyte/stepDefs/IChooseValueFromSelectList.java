@@ -75,6 +75,26 @@ public class IChooseValueFromSelectList {
         }
     }
 
+
+    @And("^I choose the \"([^\"]*)\" from the \"([^\"]*)\" in page$")
+    public void iChooseTheFromTheEvent(List<String> values, String selectListName) {
+        if (values.size() == 0) {
+            return;
+        }
+        Object o = GetElementFromPage.getWebElementWithName(selectListName);
+        if (o != null) {
+            if (o instanceof List) {
+                List fatherSelectList = (List) o;
+                iChooseTheFromThe(values, fatherSelectList);
+            } else {
+                WebElement element = (WebElement) o;
+                iChooseTheFromTheEvent(values, element);
+            }
+        }
+    }
+
+
+
     public void iChooseTheFromThe(List<String> values, List<WebElement> elements) {
         if (values.size() == 1) {
             String value = values.get(0);
@@ -163,9 +183,11 @@ public class IChooseValueFromSelectList {
 ////        }
 //    }
 
+
+
     public void iChooseTheFromThe(List<String> values, WebElement parentElement) {
 
-        List<WebElement> elements = parentElement.findElements(By.tagName("div"));
+        List<WebElement> elements = parentElement.findElements(By.tagName("li"));
         for (String value : values) {
             if (value != null && value.trim().length() != 0) {
                 for (WebElement e : elements) {
@@ -189,6 +211,25 @@ public class IChooseValueFromSelectList {
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='block';", parentElement);
         }
         List<WebElement> elements = parentElement.findElements(By.tagName("li"));
+        for (String value : values) {
+            if (value != null && value.trim().length() != 0) {
+                for (WebElement e : elements) {
+                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+                    if (value.equals(e.getText())) {
+                        e.click();
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    public void iChooseTheFromTheEvent(List<String> values, WebElement parentElement) {
+
+        if (parentElement.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='block';", parentElement);
+        }
+        List<WebElement> elements = parentElement.findElements(By.tagName("span"));
         for (String value : values) {
             if (value != null && value.trim().length() != 0) {
                 for (WebElement e : elements) {

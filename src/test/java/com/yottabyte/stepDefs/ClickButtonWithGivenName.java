@@ -222,7 +222,8 @@ public class ClickButtonWithGivenName {
             xpath = ".//span[text()='" + buttonName + "']";
         }
         else {
-            xpath = ".//a[text()='" + buttonName + "']";
+            xpath = ".//span[text()='" + buttonName + "']";
+//            xpath = ".//a[text()='" + buttonName + "']";
         }
         List<WebElement> button = tr.findElements(By.xpath(xpath));
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button.get(0));
@@ -504,7 +505,7 @@ public class ClickButtonWithGivenName {
     public void assertDisabled(String name) {
         WebElement tr = listPageUtils.getTinyTr("{'column':'1','name':'" + name + "'}");
         WebElement checkbox = tr.findElement(By.xpath(".//label"));
-        Assert.assertTrue(checkbox.getAttribute("class").contains("ant-checkbox-wrapper-disabled"));
+        Assert.assertTrue(checkbox.getAttribute("class").contains("yotta-checkbox yotta-checkbox-small yotta-checkbox-disabled"));
     }
 
     /**

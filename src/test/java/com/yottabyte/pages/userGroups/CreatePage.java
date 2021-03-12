@@ -18,10 +18,10 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(id = "UserGroupUpdate_name")
+    @FindBy(xpath = "//input[@placeholder='请输入名称']")
     private WebElement userGroupName;
 
-    @FindBy(id = "UserGroupUpdate_memo")
+    @FindBy(xpath = "//input[@placeholder='请输入描述']")
     private WebElement userGroupDes;
 
     @FindBy(className = "yw-select-owner")
@@ -44,6 +44,9 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//span[text()='保存']/ancestor::button)[last()]")
     private WebElement saveMember;
+
+    @FindBy(className = "ant-message-success")
+    private WebElement successOfMessage;
 
     @FindBy(partialLinkText = "添加管理员")
     private WebElement addAdmin;

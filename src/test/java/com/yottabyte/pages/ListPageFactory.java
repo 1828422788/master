@@ -38,13 +38,13 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(className = "yotta-message-content")
     private WebElement successMessage;
 
-    @FindBy(xpath = "//div[@class='yotta-dialog-content']//p")
+    @FindBy(xpath = "//div[@class='yotta-dialog-content']/p")
     private WebElement message;
 
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//*[@class='ant-select-selection__clear']")
     private WebElement removeTagIcon;
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//div[contains(@class,'ant-select-selection--single')]")
+    @FindBy(xpath = "//div[@class='yotta-modal-body']//div[contains(@class,'yotta-dropdown')]")
     private WebElement authDropdown;
 
     @FindBy(xpath = "//div[text()='请选择应用']")
@@ -94,7 +94,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     public WebElement getAuthDropdown() {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(authDropdown));
         authDropdown.click();
-        return utils.getLastDropdownList();
+        return getLastDropdownList();
     }
 
     public WebElement getRemoveTagIcon() {
@@ -177,7 +177,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     }
 
     public WebElement getInputElement(String text) {
-        String xpath = "//div[text()='" + text + "']//following-sibling::div//input";
+        String xpath = "//label[text()='" + text + "']/ancestor::div/following-sibling::div//input";
         return webDriver.findElement(By.xpath(xpath));
     }
 

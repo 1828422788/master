@@ -31,11 +31,16 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "ant-calendar-input")
     private WebElement calendarInput;
 
-    @FindBy(className = "ant-calendar-ok-btn")
+    @FindBy(className = "yotta-button-content")
     private WebElement calendarEnsure;
 
     @FindBy(xpath = "(//input[@id='ConfigModify_desensiveChecked']/ancestor::span)[last()]")
     private WebElement desensiveChecked;
+
+    @FindBy(xpath = "//span[text()='授权']")
+    private WebElement auth;
+
+    public WebElement getMoreOfAuth() { return auth; }
 
     public WebElement getDesensiveChecked() {
         return desensiveChecked;

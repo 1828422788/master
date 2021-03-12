@@ -14,16 +14,21 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(id = "register_name")
+   /* @FindBy(id = "register_name")
+    private WebElement name;*/
+
+   @FindBy(xpath = "//div/input[@name='name']")
     private WebElement name;
 
-    @FindBy(id = "register_url")
+   // @FindBy(id = "register_url")
+    @FindBy(xpath = "//div/textarea[@name='url']")
     private WebElement url;
 
-    @FindBy(id = "register_query")
+   // @FindBy(id = "register_query")
+   @FindBy(xpath = "//div/textarea[@name='query']")
     private WebElement spl;
 
-    @FindBy(id = "register_apply")
+    @FindBy(xpath = "//div/input[@name='apply']")
     private WebElement field;
 
     @FindBy(id = "register_alias")
@@ -52,7 +57,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSave() {
-        return super.getButton("保 存");
+        return super.getButton("保存");
     }
 
     public WebElement getName() {
@@ -88,7 +93,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCreateButton() {
-        return super.getButton("保 存");
+        return super.getButton("保存");
     }
 
     public WebElement getUrl() {
@@ -104,7 +109,8 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getDropdownList(String name) {
-        String xpath = "//label[text()='" + name + "']/ancestor::div/following-sibling::div";
+     //   String xpath = "//label[text()='" + name + "']/ancestor::div/following-sibling::div/div']";
+        String xpath = "//label[text()='" + name + "']/ancestor::div[@class='yotta-col yotta-col-8 yotta-form-item-label yotta-form-item-label-required yotta-form-item-label-hasColon']/following-sibling::div//span";
         webDriver.findElement(By.xpath(xpath)).click();
         return super.getLastDropdownList();
     }

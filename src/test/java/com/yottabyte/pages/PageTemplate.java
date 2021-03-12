@@ -156,7 +156,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     }
 
     public WebElement getButton(String text) {
-        String xpath = "//span[text()='" + text + "']//ancestor::button";
+        String xpath = "//span[text()='" + text + "']";
         return webDriver.findElement(By.xpath(xpath));
     }
     public WebElement getClearIcon(String text){

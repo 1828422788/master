@@ -82,10 +82,10 @@ public class LogInAndOut {
 
     public void validateUser(String username, String password) throws InterruptedException {
         WaitElement waitElement = new WaitElement();
-        waitElement.iWaitForWillBeVisible("userIcon");
-        WebElement userIcon = webDriver.findElement(By.xpath("//span[@class='ant-badge']/i"));
+        WebElement userIcon = webDriver.findElement(By.xpath("//span[contains(@class,'yotta-icon-UserFilled')]"));
+        waitElement.elementVisible(userIcon);
         userIcon.click();
-        WebElement loginUserName = webDriver.findElement(By.xpath("//div[@class='ant-popover-inner-content']//p"));
+        WebElement loginUserName = webDriver.findElement(By.xpath("//div[@class='yotta-avatar yotta-avatar-square']/following-sibling::div//p"));
         if (!loginUserName.getText().equals(username)) {
             userLogin(username, password);
         }
