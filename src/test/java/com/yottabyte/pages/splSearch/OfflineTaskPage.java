@@ -21,8 +21,6 @@ public class OfflineTaskPage extends PageTemplate {
         driver.manage().window().fullscreen();
 //        driver.manage().window().maximize();
 //        driver.manage().window().setSize(new Dimension(1, 1));
-//        driver.manage().window().setPosition(new Point(0, 0));
-
     }
 
     @FindBy(className = "el-table_1_column_1")
@@ -39,13 +37,6 @@ public class OfflineTaskPage extends PageTemplate {
         return tdList.get(1);
     }
 
-//    public WebElement getEmptyElement() {
-//        return emptyElement;
-//    }
-//
-//    public WebElement getFirstData() {
-//        return tdList.get(1);
-//    }
 
     public WebElement getErrorMessage() {
         return super.getErrorMessage();
@@ -81,7 +72,11 @@ public class OfflineTaskPage extends PageTemplate {
         return super.getButton("确定");
     }
 
-    //@FindBy(className = "el-button--primary")
+    @FindBy(xpath = "//span[text()='下载']/parent::button")
+    private WebElement listDownloadButton;
+    public WebElement getListDownloadButton() {
+        return listDownloadButton;
+    }
     @FindBy(xpath = "//span[contains(text(),'确定')]/parent::button")
     private WebElement ensureButton;
 

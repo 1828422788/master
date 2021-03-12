@@ -72,7 +72,7 @@ public class DateEditorPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='1小时']")
     private WebElement recentOneHour;
 
-    @FindBy(xpath = "//labeln[text()='最近1天']")
+    @FindBy(xpath = "//label[text()='最近1天']")
     private WebElement oneDay;
 
     @FindBy(xpath = "//label[text()='1天']")
@@ -120,20 +120,17 @@ public class DateEditorPage extends PageTemplate {
     @FindBy(className = "el-select-dropdown__list")
     private List<WebElement> dropdownList;
 
-    @FindBy(xpath = "//input[@placeholder='开始时间']")
-    private WebElement startTimeInput;
-
-    @FindBy(xpath = "//input[@placeholder='结束时间']")
-    private WebElement endTimeInput;
-
-    @FindBy(xpath = "//input[@placeholder='开始日期']")
+    @FindBy(xpath = "//label[contains(text(),'开始时间')]/following-sibling::div//input[@placeholder='请选择日期']")
     private WebElement startDateInput;
 
-    @FindBy(xpath = "//input[@placeholder='结束日期']")
+    @FindBy(xpath = "//label[contains(text(),'开始时间')]/following-sibling::div//input[@placeholder='请输入时间']")
+    private WebElement startTimeInput;
+
+    @FindBy(xpath = "//label[contains(text(),'结束时间')]/following-sibling::div//input[@placeholder='请选择日期']")
     private WebElement endDateInput;
 
-    @FindBy(xpath = "//button[text()='应用']")
-    private WebElement applyCustomTime;
+    @FindBy(xpath = "//label[contains(text(),'结束时间')]/following-sibling::div//input[@placeholder='请输入时间']")
+    private WebElement endTimeInput;
 
     @FindBy(xpath = "//span[text()='最近']/preceding-sibling::span")
     private WebElement recentlyRadioButton;
@@ -217,7 +214,7 @@ public class DateEditorPage extends PageTemplate {
     }
 
     public WebElement getApplyCustomTime() {
-        return applyCustomTime;
+        return super.getButton("应用");
     }
 
     public void getCustomTime(String startTime, String endTime, String startDate, String endDate) {
@@ -227,7 +224,7 @@ public class DateEditorPage extends PageTemplate {
         endDateInput.sendKeys(endDate);
         startTimeInput.sendKeys(startTime);
         endTimeInput.sendKeys(endTime);
-        applyCustomTime.click();
+        getApplyCustomTime().click();
     }
 
     public void getCustomTime() {
@@ -238,7 +235,7 @@ public class DateEditorPage extends PageTemplate {
         setValue.iSetTheParameterWithValue(endTimeInput, "00:00:00");
         setValue.iSetTheParameterWithValue(startDateInput, "2016-08-01");
         setValue.iSetTheParameterWithValue(endDateInput, "2019-08-03");
-        applyCustomTime.click();
+        getApplyCustomTime().click();
     }
 
     public void getCustomTimeTest() {
@@ -249,7 +246,7 @@ public class DateEditorPage extends PageTemplate {
         setValue.iSetTheParameterWithValue(endTimeInput, "00:00:00.000");
         setValue.iSetTheParameterWithValue(startDateInput, "2020-04-01");
         setValue.iSetTheParameterWithValue(endDateInput, "2020-04-03");
-        applyCustomTime.click();
+        getApplyCustomTime().click();
     }
 
     public void getRecently(String time, String timeUnit) {

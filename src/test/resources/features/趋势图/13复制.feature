@@ -53,8 +53,7 @@ Feature: 趋势图复制(RZY-1889)
 
   Scenario: copy_trend
     And I wait for "2000" millsecond
-    When the data name is "Copy_Test" then i click the "更多" button
-    And I click the "Copy" button
+    When the data name is "Copy_Test" then i click the "复制" button in more menu
     And I wait for "Ensure" will be visible
     Then I will see the message "复制成功"
     When I click the "Ensure" button
@@ -105,8 +104,7 @@ Feature: 趋势图复制(RZY-1889)
   Scenario Outline: delete_copy
     Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for "2000" millsecond
-    When the data name is "{'column':'0','name':'<name>'}" then i click the "更多" button
-    And I click the "Delete" button
+    When the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     Then I will see the message "确认删除 [<name>] ?"
     When I click the "Ensure" button

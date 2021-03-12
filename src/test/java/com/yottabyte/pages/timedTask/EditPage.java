@@ -112,7 +112,7 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'已存搜索')]")
     private WebElement savedSearch;
 
-    @FindBy(xpath = "(//li[@class='yotta-menu-item']/ancestor::ul[contains(@class,'yotta-menu')])")
+    @FindBy(xpath = "(//span[contains(@class,'yotta-menu-item')]/ancestor::ul[contains(@class,'yotta-menu')])")
     private WebElement savedSearchList;
 
     @FindBy(xpath = "//span[text()='点击解析']")
@@ -120,6 +120,20 @@ public class EditPage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='最近十次执行时间']/ancestor::div[1]/following-sibling::div/p[1]")
     private WebElement parseResult;
+
+    @FindBy(xpath = "(//div[contains(@class,'help-text')])[1]")
+    private WebElement tipText;
+
+    @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']/ancestor::div[1]/following-sibling::p")
+    private WebElement errorMessage;
+
+    public WebElement getErrorMessage() {
+        return errorMessage;
+    }
+
+    public WebElement getTipText() {
+        return tipText;
+    }
 
     public WebElement getParse() {
         return parse;
@@ -252,7 +266,9 @@ public class EditPage extends PageTemplate {
 
     public EditPage(WebDriver driver) {
         super(driver);
+        driver.manage().window().fullscreen();
     }
+
 
     public WebElement getName() {
         return name;
