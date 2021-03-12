@@ -33,6 +33,21 @@ public class ListPage extends ListPageFactory {
         return super.getButton("索引配置");
     }
 
+    public WebElement getStopIndex(){
+        return StopIndex;
+    }
+
+    @FindBy(xpath = "//span[text()='停止入库']" )
+    private WebElement StopIndex;
+
+    public WebElement getStartIndex() {
+        return StartIndex;
+    }
+
+    @FindBy(xpath = "//span[text()='启用入库']" )
+    private WebElement StartIndex;
+
+
 //    @FindBy(xpath = "//div[@class='el-message-box__message']")
     private WebElement Message;
 

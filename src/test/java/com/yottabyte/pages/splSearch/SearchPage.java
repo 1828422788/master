@@ -625,7 +625,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(className = "basic-item-value")
     private List<WebElement> valueList;
 
-    @FindBy(xpath = "(//span[text()='查询无结果。'])[1]")
+    @FindBy(xpath = "(//span[text()='搜索无数据'])[1]")
     private WebElement noResult;
 
     @FindBy(xpath = "//div[@class='yw-searchbar__prepend el-dropdown']/following-sibling::sup")
@@ -732,7 +732,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//button[@class='ant-btn ant-btn-primary']")
     private WebElement ensureCreateTrend;
 
-    @FindBy(xpath = "(//div[@class='_1KryJcLeSypo0Qh_wW6fOw']//span[text()='all']) | (//div[@class='_1KryJcLeSypo0Qh_wW6fOw']//span[text()='all_']) ")
+    @FindBy(xpath = "//div[@type='dataset']//span[text()='all_']")
     private WebElement resourceAll;
 
     @FindBy(xpath = "(//label[contains(text(),'资源标签')][last()])/ancestor::div/following-sibling::div//input")
@@ -1478,7 +1478,7 @@ public class SearchPage extends ListPageFactory {
         return GetTime.getTime(webDriver, "RealTimeButton");
     }
 
-    @FindBy(xpath = "//div[@class='ant-tabs-nav-wrap']/div/div/div/div[3]")
+    @FindBy(xpath = "//div[text()='自定义时间范围']")
     private WebElement customTimeTab;
 
     public WebElement getCustomTimeTab() {

@@ -205,7 +205,7 @@ Feature: 索引信息新建
     And I switch the "SavedSizeButton" button to "checked"
     And I set the parameter "SavedSize" with value "2"
     And I choose the "TB" from the "SavedSizeDropDown"
-    When I set the parameter "Name" with value "index_sink"
+    When I set the parameter "Name" with value "index_freez"
     And I set the parameter "Desc" with value "AutoTestIndexSink"
     And I set the parameter "SavedTime" with value "130"
     And I set the parameter "DivideTime" with value "8"

@@ -57,34 +57,6 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "(//tr)[last()]/td[3]")
     private WebElement appOfTheLastItem;
 
-    @FindBy(xpath = "//span[text()='展示趋势图']")
-    private WebElement viewTrend;
-
-    @FindBy(xpath = "//span[text()='复制']")
-    private WebElement copy;
-
-    @FindBy(xpath = "//span[text()='标签']")
-    private WebElement tag;
-
-    @FindBy(xpath = "//span[text()='删除']")
-    private WebElement delete;
-
-    public WebElement getDelete() {
-        return delete;
-    }
-
-    public WebElement getTag() {
-        return tag;
-    }
-
-    public WebElement getCopy() {
-        return copy;
-    }
-
-    public WebElement getViewTrend() {
-        return viewTrend;
-    }
-
     public WebElement getAppOfTheLastItem() {
         return appOfTheLastItem;
     }

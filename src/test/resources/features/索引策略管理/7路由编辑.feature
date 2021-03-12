@@ -17,7 +17,7 @@ Feature: 路由编辑
     And I set the parameter "Tag" with value "heka"
     And I upload a file with name "/src/test/resources/testdata/log/apache_10.dms"
     And I click the "UploadButton" button
-    And I wait for element "VerifyText" change text to "上传完成"
+#    And I wait for element "VerifyText" change text to "上传完成"
 
     Examples:
       | index | appName | tag  |
@@ -36,7 +36,7 @@ Feature: 路由编辑
     And I set the parameter "Tag" with value "sunxctest"
     And I upload a file with name "/src/test/resources/testdata/log/apache_10.dms"
     And I click the "UploadButton" button
-    Then I wait for element "VerifyText" change text to "上传完成"
+#    Then I wait for element "VerifyText" change text to "上传完成"
 
   Scenario Outline: 验证RZY-1484搜索结果
     Given open the "splSearch.SearchPage" page for uri "/search/"
