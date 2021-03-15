@@ -9,14 +9,18 @@ Feature: 仪表盘批量操作
   Scenario: 批量操作-新建有标签资源
     When I click the "Create" button
     And I set the parameter "DashBoardName" with value "Test_Batch_Control_Resource_1"
-    And I set the parameter "ResourceInput" with value "AutoTestTag"
+    And I click the "ResourceInput" button
+    And I wait for "1000" millsecond
+    And I set the parameter "ResourceTagInput" with value "AutoTestTag"
     And I wait for "500" millsecond
     And I choose the "AutoTestTag" from the "LastDropdownList"
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
     And I wait for loading invisible
-    Then I will see the data "{'column':'0','name':'Test_Batch_Control_Resource_1'}" values "{'column':'5','name':'AutoTestTag'}"
+    And I click the dashboard icon which name is "Test_Batch_Control_Resource_1"
+    Then I will see the text "资源标签..............AutoTestTag" exist in page
+#    Then I will see the data "{'column':'0','name':'Test_Batch_Control_Resource_1'}" values "{'column':'5','name':'AutoTestTag'}"
 
   Scenario: 批量操作-新建无标签资源
     When I click the "Create" button
@@ -25,7 +29,9 @@ Feature: 仪表盘批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
     And I wait for loading invisible
-    Then I will see the data "{'column':'0','name':'Test_Batch_Control_Resource_2'}" values "{'column':'5','name':''}"
+    And I click the dashboard icon which name is "Test_Batch_Control_Resource_2"
+    Then I will see the text "资源标签..............无" exist in page
+#    Then I will see the data "{'column':'0','name':'Test_Batch_Control_Resource_2'}" values "{'column':'5','name':''}"
 
 #    Examples: 新建成功
 #      | name                          | resourceTag |
@@ -52,8 +58,12 @@ Feature: 仪表盘批量操作
     And I wait for "100" millsecond
     Then I will see the success message "更新成功"
     And I wait for loading invisible
-    Then I will see the data "{'column':'1','name':'Test_Batch_Control_Resource_2'}" values "{'column':'6','name':'Multi_Add_Tag'}"
-    And I will see the data "{'column':'1','name':'Test_Batch_Control_Resource_1'}" values "{'column':'6','name':'Multi_Add_Tag, AutoTestTag'}"
+    And I click the dashboard icon which name is "Test_Batch_Control_Resource_2"
+    Then I will see the text "资源标签..............Multi_Add_Tag" exist in page
+    And I click the dashboard icon which name is "Test_Batch_Control_Resource_1"
+    Then I will see the text "资源标签..............Multi_Add_Tag, AutoTestTag" exist in page
+#    Then I will see the data "{'column':'1','name':'Test_Batch_Control_Resource_2'}" values "{'column':'6','name':'Multi_Add_Tag'}"
+#    And I will see the data "{'column':'1','name':'Test_Batch_Control_Resource_1'}" values "{'column':'6','name':'Multi_Add_Tag, AutoTestTag'}"
 
   Scenario: 批量操作-删除资源
     When I click the "BatchControl" button

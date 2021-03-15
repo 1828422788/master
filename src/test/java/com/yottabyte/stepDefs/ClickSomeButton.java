@@ -159,4 +159,17 @@ public class ClickSomeButton {
         if (ElementExist.isElementExist(webDriver, button))
             button.click();
     }
+
+    /**
+     * 如果元素存在则点击（word报表）
+     *
+     * @param name 元素名称 (颜色码)
+     */
+    @When("^I click the dashboard icon which name is \"([^\"]*)\"$")
+    public void clickTheIconWhichname(String name) {
+        String xpath = "//span[text()='" + name + "']/parent::a/preceding-sibling::div/span";
+        WebElement button = webDriver.findElement(By.xpath(xpath));
+        if (ElementExist.isElementExist(webDriver, button))
+            button.click();
+    }
 }

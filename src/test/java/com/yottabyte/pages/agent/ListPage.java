@@ -37,7 +37,7 @@ public class ListPage extends ListPageFactory {
         return MultiGruopButton;
     }
 
-    @FindBy(xpath = "//div[@class='ant-popover _3J5Pw1DBfL5ONdRgQNn9yD ant-popover-placement-bottom']//span[contains(text(),'分组')]/ancestor::li")
+    @FindBy(xpath = "//span[@class='yotta-popover-content']//li/span[text()='分组']")
     private WebElement MultiGruopButton;
 
     @FindBy(xpath = "//span[text()='验证组内权限']")
@@ -253,7 +253,7 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getGroupMemo(){
-        String xpath = "//div[@class='ant-message-notice-content']";
+        String xpath =  "//span[@class='yotta-message-content']";
         WebElement element =  webDriver.findElement(By.xpath(xpath));
         return element;
     }

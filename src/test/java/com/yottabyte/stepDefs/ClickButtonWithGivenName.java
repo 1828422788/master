@@ -149,7 +149,7 @@ public class ClickButtonWithGivenName {
     @When("^the column is \"([^\"]*)\" then i click the \"([^\"]*)\" button in agent page$")
     public void clickButtonInAgentPage(String columnNum, String buttonName) {
         String json = this.getAgentIp(columnNum);
-        WebElement table = webDriver.findElement(By.xpath("(//tbody)[2]"));
+        WebElement table = webDriver.findElement(By.xpath("(//tbody)"));
         Map<String, Object> map = JsonStringPaser.json2Stirng(json);
         int num = 0;
         for (WebElement tr : table.findElements(By.xpath("./tr"))) {
@@ -158,7 +158,7 @@ public class ClickButtonWithGivenName {
                 break;
             }
         }
-        WebElement tr = webDriver.findElement(By.xpath("((//tbody)[3]/tr)[" + num + "]"));
+        WebElement tr = webDriver.findElement(By.xpath("(//tbody/tr)[" + num + "]"));
         this.click(buttonName, tr);
     }
 
@@ -411,6 +411,24 @@ public class ClickButtonWithGivenName {
         WebElement element = tr.findElement(By.xpath(".//input[@type='checkbox']"));
         String selected = element.isSelected() ? "open" : "close";
         if (!status.equals(selected)) {
+            ClickEvent.clickUnderneathButton(element);
+        }
+    }
+
+
+    /**
+     * 点击对应行的“+/-”按钮
+     *
+     * @param name   名称
+     * @param action 操作 expand(+)/close(-)
+     */
+    @When("^the data name is \"([^\"]*)\" then I \"([^\"]*)\" the item$")
+    public void operateExpand(String name, String action) {
+        WebElement tr = listPageUtils.getRow(name);
+        WebElement element = tr.findElement(By.xpath(".//span[contains(@class,'expansion')]//span[@role='img']"));
+        String current_label = element.getAttribute("aria-label");
+        String status = current_label.equals("AddOutlined")? "close" : "expand" ;
+        if (!action.equals(status)) {
             ClickEvent.clickUnderneathButton(element);
         }
     }

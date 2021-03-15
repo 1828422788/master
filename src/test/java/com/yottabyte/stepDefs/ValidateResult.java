@@ -110,7 +110,7 @@ public class ValidateResult {
     @Then("^I will see the agent search result contains \"([^\"]*)\"$")
     public void validateSearchAgentResultContainsValue(String columnNum) {
         String json = this.getAgentIp(columnNum);
-        WebElement table = webDriver.findElement(By.xpath("(//tbody)[2]"));
+        WebElement table = webDriver.findElement(By.xpath("(//tbody)"));
         Map<String, Object> map = JsonStringPaser.json2Stirng(json);
         WebElement tr = listPageUtils.getRowWithoutPaging(map.get("name").toString(), table);
         Assert.assertNotNull("列表下不包含该字段！", tr);
