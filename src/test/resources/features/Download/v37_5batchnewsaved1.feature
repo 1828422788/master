@@ -8,7 +8,7 @@ Feature: 新建全部已存搜索用例
   @allnewsaved1
   Scenario Outline: 批量新建搜索
     When I set the parameter "SearchInput" with value "<splQuery>"
-    Then I choose1 the "新建" from the "SavedSearchList"
+    And I click the "NewSavedSearch" button
     And I wait for loading complete
 #    And I wait for loading invisible
 
