@@ -99,7 +99,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "_1pGh3cs00Rp1iccZrcDgHU")
     private WebElement listOfFields;
 
-    @FindBy(className = "_1L7hbwdzCpZJFzkuvvcudu")
+    @FindBy(xpath = "//div[contains(@class,'yotta-checkbox-group')]")
     private WebElement checkBox;
 
 //--------------------------------------------

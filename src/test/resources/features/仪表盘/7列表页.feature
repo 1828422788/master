@@ -6,11 +6,11 @@ Feature: 仪表盘列表页
     And I wait for loading invisible
     And I click the "ChartYeQian" button
     And I wait for "1000" millsecond
-    Then I wait for "FiveOnePage" will be visible
+    Then I wait for "ThirtyOnePage" will be visible
     Then I wait for "FiftyOnePage" will be visible
     And I click the "FiftyOnePage" button
     And I wait for "1000" millsecond
-    Then I wait for element "ChartYeQian" change text to "50 条/页"
+    Then I wait for element "ChartYeQian" change text to "50"
 
   Scenario Outline:新建仪表盘-批量操作
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -49,9 +49,17 @@ Feature: 仪表盘列表页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I wait for "3500" millsecond
-    Then I will see the data "仪表盘批量3" values "{'column':'5','name':'AutoTest'}"
-    Then I will see the data "仪表盘批量2" values "{'column':'5','name':'AutoTest'}"
-    Then I will see the data "仪表盘批量1" values "{'column':'5','name':'AutoTest'}"
+    And I click the dashboard icon which name is "仪表盘批量3"
+    Then I will see the text "资源标签..............AutoTest" exist in page
+    And I click the dashboard icon which name is "仪表盘批量3"
+    And I click the dashboard icon which name is "仪表盘批量2"
+    Then I will see the text "资源标签..............AutoTest" exist in page
+    And I click the dashboard icon which name is "仪表盘批量2"
+    And I click the dashboard icon which name is "仪表盘批量1"
+    Then I will see the text "资源标签..............AutoTest" exist in page
+#    Then I will see the data "仪表盘批量3" values "{'column':'5','name':'AutoTest'}"
+#    Then I will see the data "仪表盘批量2" values "{'column':'5','name':'AutoTest'}"
+#    Then I will see the data "仪表盘批量1" values "{'column':'5','name':'AutoTest'}"
 
   Scenario:批量删除仪表盘 RZY-4840
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
