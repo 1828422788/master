@@ -130,7 +130,7 @@ Feature: 仪表盘关联搜索
     And I click the detail which name is "仪表盘关联搜索"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1500" millsecond
-    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "<json>" to json editor
     And I wait for "500" millsecond
@@ -151,7 +151,7 @@ Feature: 仪表盘关联搜索
     And I click the detail which name is "仪表盘关联搜索"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1500" millsecond
-    When the chart title is "仪表盘workflow" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘workflow" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I set the parameter "Spl" with value "tag:auto_test_dashboard_workflow AND workflow.ENTRY_ID:${workflow} | table tag,workflow.ENTRY_ID | rename workflow.ENTRY_ID as ENTRY_ID"

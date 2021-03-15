@@ -134,7 +134,7 @@ Feature: 仪表盘调用链
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘调用链" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘调用链" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
 #    And I click the "SettingChart" button
     And I click the "Configs" button
     And I wait for loading invisible
