@@ -182,5 +182,15 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getNoResourceTag() { return noResourceTag; }
 
+    @FindBy(xpath = "//span[text()='设为默认']")
+    private WebElement setDefault;
+
+    public WebElement getSetDefault() { return setDefault; }
+
+    @FindBy(xpath = "//span[text()='取消默认']")
+    private WebElement notDefault;
+
+    public WebElement getNotDefault() { return notDefault; }
+
 
 }

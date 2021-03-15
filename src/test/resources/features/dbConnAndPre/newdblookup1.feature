@@ -1,6 +1,6 @@
 Feature: 新建数据库查找
 
-  @newdblookup @splpre @dleval
+  @dblookup1 @dlother
   Scenario Outline: 新建查找-3
     Given open the "dbConnectionPre.dbSettingPage" page for uri "/dbsettings/"
     And I click the "DbLookupConfig" button
@@ -47,7 +47,9 @@ Feature: 新建数据库查找
 
     Examples:
       | dbLookupName    | DbLookupConnList | DbLookupDirList | splQuery                                                      |
-      | lookupsample    | v33dbx           | v33dbx          | starttime=\"now/d\" endtime=\"now/d+24h\" tag\:sample04061424 |
-      | dellookupsample | v33dbx           | v33dbx          | starttime=\"now/d\" endtime=\"now/d+24h\" tag\:sample04061424 |
-      | u_lookupsample  | v33dbx           | v33dbx          | starttime=\"now/d\" endtime=\"now/d+24h\" tag\:sample04061424 |
+      | lookupsample_atsearch    | v33dbx           | v33dbx          | starttime=\"now/d\" endtime=\"now/d+24h\" tag\:sample04061424 |
+
+#加在搜索中打开
+#加执行SQL
+#      | u_lookupsample  | v33dbx           | v33dbx          | starttime=\"now/d\" endtime=\"now/d+24h\" tag\:sample04061424 |
 

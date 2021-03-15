@@ -118,7 +118,7 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='点击解析']")
     private WebElement parse;
 
-    @FindBy(xpath = "//span[text()='最近十次执行时间']/ancestor::div[1]/following-sibling::div/p[1]")
+    @FindBy(xpath = "//span[text()='最近十次执行时间']/ancestor::div[1]/following-sibling::div[1]")
     private WebElement parseResult;
 
     @FindBy(xpath = "(//div[contains(@class,'help-text')])[1]")

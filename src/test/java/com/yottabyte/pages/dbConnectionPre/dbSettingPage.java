@@ -135,13 +135,12 @@ public class dbSettingPage extends PageTemplate {
 
     @FindBy(xpath = "//span[contains(text(),'新建查找对象')]/parent::button")
     private WebElement newDbLookup;
-
     public WebElement getNewDbLookup() {
         return newDbLookup;
     }
 
-    //    @FindBy(xpath = "//div[@class='CodeMirror-code']/pre[@class='CodeMirror-line']/span/[@role='presentation']/span[@class='cm-variable']")
-    @FindBy(className = "CodeMirror-code")
+//    @FindBy(className = "CodeMirror-code")
+    @FindBy(className = "CodeMirror")
     private WebElement searchInput;
 
     public WebElement getSearchInput() {
@@ -150,34 +149,26 @@ public class dbSettingPage extends PageTemplate {
         return searchInput;
     }
 
-    @FindBy(className = "_3YkNGxdQeNWgUScXUAUj4D")
+    @FindBy(className = "yotta-search-control-text")
     private WebElement searchStatus;
 
     public WebElement getSearchStatus() {
         return searchStatus;
     }
 
-//    @FindBy(xpath = "//input[@placeholder='请选择快捷时间或时间范围']")
-//    private WebElement dateEditor;
-//    public WebElement getDateEditor()
-//    {
-//        return dateEditor;
-//    }
-//
-//    public WebElement getToday() {
-//        return (new DateEditorPage(webDriver)).getToday();
-//    }
-
     public WebElement getSearchButton() {
         return super.getButton("搜索");
     }
 
+    @FindBy(xpath = "//span[contains(text(),'下一步')]/parent::button")
+    private WebElement nextStepButton;
     public WebElement getNextStepButton() {
-        return super.getButton("下一步");
+        return nextStepButton;
+//        return super.getButton("下一步");
     }
 
     public WebElement getDbLookupConnList() {
-        String xpath = "//div[contains(text(),'连接')]/following-sibling::div//div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        String xpath = "//div[contains(text(),'连接')]/following-sibling::div/div[@class='yotta-select-selection']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
@@ -185,13 +176,11 @@ public class dbSettingPage extends PageTemplate {
     }
 
     public WebElement getDbLookupDirList() {
-        String xpath = "//div[contains(text(),'目录')]/following-sibling::div//div[@class='ant-select-selection__rendered']/following-sibling::span/i";
-//        WebElement element = webDriver.findElement(By.xpath(xpath));
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-//        ClickEvent.clickUnderneathButton(element);
-//        return getLastDropdownList();
-        return super.getLastDropdownListOnSendPolicyPage(xpath);
-
+        String xpath = "//div[contains(text(),'目录')]/following-sibling::div/div[@class='yotta-select-selection']";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownList();
     }
 
     @FindBy(xpath = "//div[text()='表']/following-sibling::span/input[@placeholder='请输入']")
@@ -201,14 +190,14 @@ public class dbSettingPage extends PageTemplate {
         return lookupDbTable;
     }
 
-    @FindBy(xpath = "//div[text()='表']/following::input[@placeholder='请输入']/following::ul/li/a[text()='lookupsample']")
+    @FindBy(xpath = "//div[text()='表']/following-sibling::div//a[text()='lookupsample']")
     private WebElement lookupDbTableLink;
 
     public WebElement getLookupDbTableLink() {
         return lookupDbTableLink;
     }
 
-    @FindBy(xpath = "//span[contains(text(),'搜索字段映射')]/following::div/a[text()='添加映射']")
+    @FindBy(xpath = "//span[contains(text(),'字段映射')]/following::div/a[text()='添加映射']")
     private WebElement addFieldMap;
 
     public WebElement getAddFieldMap() {
@@ -216,7 +205,7 @@ public class dbSettingPage extends PageTemplate {
     }
 
     public WebElement getDbLookupSearchFieldR1C1List() {
-        String xpath = "//span[contains(text(),'搜索字段映射')]/following::span[contains(text(),'搜索字段')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        String xpath = "//span[contains(text(),'字段映射')]/following::span[contains(text(),'搜索字段')]/following-sibling::div/div[@class='yotta-select-selection']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
@@ -224,9 +213,11 @@ public class dbSettingPage extends PageTemplate {
     }
 
     public WebElement getDbLookupSearchFieldR1C2List() {
-        String xpath = "//span[contains(text(),'搜索字段映射')]/following::span[contains(text(),'表格列名称')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
-        return super.getLastDropdownListOnSendPolicyPage(xpath);
-//        return getLastDropdownList();
+        String xpath = "//span[contains(text(),'字段映射')]/following::span[contains(text(),'表格列名称')]/following-sibling::div/div[@class='yotta-select-selection']";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownList();
     }
 
     @FindBy(xpath = "//span[contains(text(),'Lookup 字段')]/following::div/a[text()='添加字段']")
@@ -237,14 +228,14 @@ public class dbSettingPage extends PageTemplate {
     }
 
     public WebElement getDbLookupLookupFieldR1C1List() {
-        String xpath = "//span[contains(text(),'Lookup 字段')]/following::span[contains(text(),'表格列名称')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        String xpath = "//span[contains(text(),'Lookup 字段')]/following::span[contains(text(),'表格列名称')]/following-sibling::div/div[@class='yotta-select-selection']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
         return getLastDropdownList();
     }
 
-    @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::input[@placeholder='请输入名称']")
+    @FindBy(xpath = "//label[contains(text(),'名称')]/parent::div/following-sibling::div/input[@placeholder='请输入名称']")
     private WebElement dbLookupName;
 
     public WebElement getDbLookupName() {
@@ -283,6 +274,12 @@ public class dbSettingPage extends PageTemplate {
 
     public WebElement getAffirmButton() {
         return affirmButton;
+    }
+
+    @FindBy(xpath = "//span[contains(text(),'完成')]/parent::button")
+    private WebElement doneButton;
+    public WebElement getDoneButton() {
+        return doneButton;
     }
 
 }

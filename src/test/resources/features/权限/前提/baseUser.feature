@@ -9,7 +9,7 @@ Feature: 基础用户创建
     When I set the parameter "UserGroupName" with value "<groupProperty>"
     When I set the parameter "UserGroupDes" with value "<UserGroupDes>"
     And I click the "CreateButton" button
-    Then I wait for "SuccessMessage" will be visible
+    Then I wait for "SuccessOfMessage" will be visible
 
     Examples:
       | groupProperty | UserGroupDes |
@@ -64,7 +64,8 @@ Feature: 基础用户创建
 
   Scenario: 分配搜索权限给AutoTest
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
-    When the data name is "SearchAuth" then i click the "授权" button
+    When the data name is "SearchAuth" then i click the "更多" button
+    And I click the "MoreOfAuth" button
     And I wait for loading invisible
     And I "check" the checkbox which name is "AutoTest" in tiny table
     And I click the "Ensure" button

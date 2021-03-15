@@ -1,4 +1,4 @@
-@bvtalert0
+@bvtalert0 @bvtalert
 Feature:监控预览
 
   @preview0

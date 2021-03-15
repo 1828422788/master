@@ -48,10 +48,10 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='自定义']/ancestor::label)[last()]")
     private WebElement customize;
 
-    @FindBy(className = "ant-calendar-picker-icon")
+    @FindBy(className = "yotta-date-picker-date")
     private WebElement dateEditor;
 
-    @FindBy(className = "ant-calendar-input")
+    @FindBy(className = "yotta-date-picker-date")
     private WebElement timeInput;
 
     @FindBy(className = "ant-calendar-ok-btn")
@@ -142,6 +142,7 @@ public class AuthorizationPage extends PageTemplate {
     public WebElement getResourceName(String name) {
         return webDriver.findElement(By.xpath("//span[text()='" + name + "']/preceding-sibling::label"));
     }
+
 
     public WebElement getCreateUser() {
         return createUser;
@@ -243,7 +244,7 @@ public class AuthorizationPage extends PageTemplate {
     }
 
     private WebElement getFunctionButton(String functionName) {
-        String xpath = "//div[text()='" + functionName + "']";
+        String xpath = "//span[text()='" + functionName + "']";
         return webDriver.findElement(By.xpath(xpath));
     }
 

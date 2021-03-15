@@ -164,7 +164,7 @@ public class SetKeyWithValue {
     }
 
     private void sendKeys(WebElement element, String value) {
-        element.click();
+//        element.click();
         element.sendKeys(Keys.CONTROL + "a");
             element.sendKeys(Keys.END);
             element.sendKeys(Keys.SHIFT, Keys.HOME);

@@ -136,7 +136,7 @@ public class ListPageUtils {
             Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
             name = map.get("name").toString();
         }
-        String nextPageXpath = "//span[@class='yotta-icon yotta-icon-RightOutlined']";
+        String nextPageXpath = "//div[@class='yotta-modal-body']//span[@class='yotta-icon yotta-icon-RightOutlined']";
         String trListXpath = "//div[@class='yotta-modal-body']//tr";
         return this.clickNextPage(trListXpath, nextPageXpath, name);
     }
@@ -231,9 +231,9 @@ public class ListPageUtils {
                 return tr;
             }
         }
-        WebElement nextPage = webDriver.findElement(By.className(" ant-pagination-next"));
-        String buttonAttribute = nextPage.getAttribute("aria-disabled");
-        while (buttonAttribute.equals("false")) {
+        WebElement nextPage = webDriver.findElement(By.xpath("//div/span[@class='yotta-pagination-page'][last()]"));
+        String buttonAttribute = nextPage.getAttribute("class");
+        while (!buttonAttribute.contains("disabled")) {
             nextPage.click();
             WaitForElement.waitUntilLoadingDisappear();
             trList = this.getTableRowList(table);

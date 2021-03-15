@@ -41,10 +41,10 @@ Feature: 权限-事件操作
     Then I will see the "event.CreatePage" page
     And I set the parameter "Name" with value "<name>"
     And I set the parameter "Field" with value "<field>"
-    And I choose the "<display>" from the "Display"
-    And I choose the "<action>" from the "Action"
+    And I choose the "<display>" from the "Display" in page
+    And I choose the "<action>" from the "Action" in page
     And I set the parameter "Url" with value "<url>"
-    And I choose the "<openUrl>" from the "OpenUrl"
+    And I choose the "<openUrl>" from the "OpenUrl" in page
     And I click the "CreateButton" button
     Then I will see the message "<message>"
     Given open the "event.ListPage" page for uri "/event/action/"
@@ -58,10 +58,11 @@ Feature: 权限-事件操作
   Scenario Outline: 验证事件操作编辑
     Given I login user "AutoTest" with password "All#123456"
     And open the "event.ListPage" page for uri "/event/action/"
+    And I wait for "2000" millsecond
     And the data name is "{'column':'1','name':'AutoAuthTest'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     And I set the parameter "Field" with value "<field>"
-    And I choose the "<action>" from the "Action"
+    And I choose the "<action>" from the "Action" in page
     And I set the parameter "<inputName>" with value "<url>"
     And I click the "Save" button
     And I wait for "Message" will be visible
@@ -74,6 +75,7 @@ Feature: 权限-事件操作
   Scenario Outline: 验证删除
     Given I login user "AutoTest" with password "All#123456"
     And open the "event.ListPage" page for uri "/event/action/"
+    And I wait for "2000" millsecond
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button

@@ -16,42 +16,41 @@ Feature: 定时任务标签
     And I set the parameter "Describe" with value "tag testing"
     And I set the parameter "Period" with value "5"
     And I choose the "分钟" from the "ExecuteTime"
-    And I click the "StartTime" button
     And I set the parameter "StartTimeInput" with value "23:59:00"
-    And I hide the element "TimePanel"
     And I click the "EnsureButton" button
-    And I wait for "TimeTaskEnsure" will be visible
-    Then I will see the success message "保存成功"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "创建成功"
 
   Scenario: tag_schedule
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    When the data name is "{'column':'1','name':'Tag_Schedule'}" then i click the "标签" button
+    And the data name is "{'column':'1','name':'Tag_Schedule'}" then I "expand" the item
+    And I will see the element "TagOfTheLastItem" contains "无"
+    And I will see the element "AppOfTheLastItem" contains "无"
+    When the data name is "{'column':'1','name':'Tag_Schedule'}" then i click the "标签" button in more menu
     And I choose the "auto_package" from the "TagField"
     And I click the "TagPanel" button
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
-    And I refresh the website
-    And I wait for loading invisible
-    Then I will see the data "{'column':'1','name':'Tag_Schedule'}" values "{'column':'8','name':'auto_package'}"
+    And I wait for "Loading" will be invisible
+    And the data name is "{'column':'1','name':'Tag_Schedule'}" then I "expand" the item
+    And I will see the element "TagOfTheLastItem" contains "auto_package"
 
   Scenario: verify_tag
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "{'column':'1','name':'Tag_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
-    And I wait for "ResultHandling" will be visible
-    And I wait for "5000" millsecond
+    And I wait for "2000" millsecond
     And I wait for element "SelectedUser" change text to username
     And I will see the element "SelectedGroup" contains "auto_package"
     And I click the "SaveButton" button under some element
-    And I wait for "EnsureButton" will be visible
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "保存成功"
-    And I click the "EnsureButton" button
-    Then I will see the "timedTask.ListPage" page
+    And I click the "OK" button
 
   Scenario: delete_schedule
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    When the data name is "{'column':'1','name':'Tag_Schedule'}" then i click the "删除" button
+    When the data name is "{'column':'1','name':'Tag_Schedule'}" then i click the "删除" button in more menu
     And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"

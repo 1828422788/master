@@ -1,6 +1,7 @@
 package com.yottabyte.pages.knowledge;
 
 import com.yottabyte.pages.ListPageFactory;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,8 +28,37 @@ public class ListPage extends ListPageFactory {
         return searchInput;
     }
 
+    public WebElement getLastDropdownList () {
+        String xpath = "//div[@class='yotta-dropdown-menu']//ul";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
     public WebElement getSearchAll() {
         return super.getButton("全文搜索");
+    }
+
+    public WebElement getMore() {
+        return super.getButton("更多");
+    }
+
+    public WebElement getEdit() {
+        return webDriver.findElement(By.xpath("//span[text()='编辑']"));
+    }
+
+    public WebElement getLabel() {
+        return webDriver.findElement(By.xpath("//span[text()='标签']"));
+    }
+
+    public WebElement getDelete() {
+        return webDriver.findElement(By.xpath("//span[text()='删除']"));
+    }
+
+    public WebElement getAuth() {
+        return webDriver.findElement(By.xpath("//span[text()='授权']"));
+    }
+
+    public WebElement getLabelInput() {
+        return webDriver.findElement(By.xpath("//div/span[text()='请选择或输入']"));
     }
 
     public WebElement getKey() {

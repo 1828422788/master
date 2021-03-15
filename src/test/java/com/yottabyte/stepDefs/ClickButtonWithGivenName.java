@@ -222,7 +222,8 @@ public class ClickButtonWithGivenName {
             xpath = ".//span[text()='" + buttonName + "']";
         }
         else {
-            xpath = ".//a[text()='" + buttonName + "']";
+            xpath = ".//span[text()='" + buttonName + "']";
+//            xpath = ".//a[text()='" + buttonName + "']";
         }
         List<WebElement> button = tr.findElements(By.xpath(xpath));
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button.get(0));
@@ -414,6 +415,24 @@ public class ClickButtonWithGivenName {
         }
     }
 
+
+    /**
+     * 点击对应行的“+/-”按钮
+     *
+     * @param name   名称
+     * @param action 操作 expand(+)/close(-)
+     */
+    @When("^the data name is \"([^\"]*)\" then I \"([^\"]*)\" the item$")
+    public void operateExpand(String name, String action) {
+        WebElement tr = listPageUtils.getRow(name);
+        WebElement element = tr.findElement(By.xpath(".//span[contains(@class,'expansion')]//span[@role='img']"));
+        String current_label = element.getAttribute("aria-label");
+        String status = current_label.equals("AddOutlined")? "close" : "expand" ;
+        if (!action.equals(status)) {
+            ClickEvent.clickUnderneathButton(element);
+        }
+    }
+
 // 3.6 版本
 //    /**
 //     * 关闭或开启禁用开关
@@ -504,7 +523,7 @@ public class ClickButtonWithGivenName {
     public void assertDisabled(String name) {
         WebElement tr = listPageUtils.getTinyTr("{'column':'1','name':'" + name + "'}");
         WebElement checkbox = tr.findElement(By.xpath(".//label"));
-        Assert.assertTrue(checkbox.getAttribute("class").contains("ant-checkbox-wrapper-disabled"));
+        Assert.assertTrue(checkbox.getAttribute("class").contains("yotta-checkbox yotta-checkbox-small yotta-checkbox-disabled"));
     }
 
     /**
