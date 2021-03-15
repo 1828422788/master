@@ -69,7 +69,7 @@ public class Checkbox {
     @And("^I \"([^\"]*)\" the checkbox in list which name is \"([^\"]*)\" in column \"([^\"]*)\"$")
     public void clickCheckBoxInList(String status, List<String> nameList, String num) {
         int columnNum = Integer.parseInt(num);
-        List<WebElement> trList = webDriver.findElements(By.className("ant-table-row"));
+        List<WebElement> trList = webDriver.findElements(By.className("yotta-table-row"));
         while (true) {
             // 遍历列表页数据
             for (WebElement tr : trList) {
@@ -93,14 +93,14 @@ public class Checkbox {
                 }
             }
             // 分页
-            WebElement nextButton = webDriver.findElement(By.className("ant-pagination-next"));
+            WebElement nextButton = webDriver.findElement(By.xpath("//span[contains(@class, 'yotta-icon-RightOutlined')]/parent::span"));
             String nextButtonAttr = nextButton.getAttribute("class");
             if (nextButtonAttr.contains("disabled")) {
                 return;
             } else {
                 nextButton.click();
                 WaitForElement.waitUntilLoadingDisappear();
-                trList = webDriver.findElements(By.className("ant-table-row"));
+                trList = webDriver.findElements(By.className("yotta-table-row"));
             }
         }
     }
