@@ -69,11 +69,11 @@ public class DropdownUtils {
         return getLastDropdownList();
     }
 
-    //getLastDropdownList1
     public WebElement getLastDropdownListOnSendPolicyPage() {
         String className;
         Paging paging = new Paging();
-        className = "ant-select-dropdown-menu-item";
+//        className = "ant-select-dropdown-menu-item";
+        className = "yotta-select-menu";
 
         List<WebElement> list = webDriver.findElements(By.className(className));
 
@@ -83,14 +83,16 @@ public class DropdownUtils {
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
         }
 
-        WebElement li = lastDropdownList.findElement(By.xpath("//li"));
+        WebElement li = lastDropdownList.findElement(By.xpath("//span"));
         return lastDropdownList;
     }
 
     public WebElement getLastSendPluginDropdownList() {
         String className;
         Paging paging = new Paging();
-        className = "ant-select-dropdown-menu-item";
+//        className = "ant-select-dropdown-menu-item";
+        className = "yotta-select-menu";
+
         List<WebElement> list = webDriver.findElements(By.className(className));
 
         WebElement lastDropdownList = list.get(list.size() - 1);

@@ -435,7 +435,7 @@ public class IChooseValueFromSelectList {
     }
 
     public void iChooseTheFromThe1(List<String> values, WebElement parentElement) {
-        List<WebElement> elements = parentElement.findElements(By.xpath("//li"));
+        List<WebElement> elements = parentElement.findElements(By.xpath("//span"));
         for (String value : values) {
             if (value != null && value.trim().length() != 0) {
                 for (WebElement e : elements) {

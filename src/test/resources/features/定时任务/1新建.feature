@@ -13,30 +13,26 @@ Feature: 定时任务新建
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
     And I wait for element "SelectedUser" change text to username
-    And I set the parameter "TaskName" with value "Test_StartTomorrow"
     And I choose the "test_app" from the "AppComboBox"
+    And I set the parameter "TaskName" with value "Test_StartTomorrow"
     And I set the parameter "Period" with value "5"
     And I choose the "分钟" from the "ExecuteTime"
-    And I click the "StartTime" button
     And I set the parameter "StartTimeInput" with value "23:59:10"
-    And I hide the element "TimePanel"
     And I will see the element "WhenToStart" contains "今天开始"
-    And I click the "StartTime" button
-    And I click the "StartTime" button
     And I set the parameter "StartTimeInput" with value "00:01:10"
-    And I hide the element "TimePanel"
     And I will see the element "WhenToStart" contains "明天开始"
     And I click the "EnsureButton" button
-    And I wait for "TimeTaskEnsure" will be visible
-    Then I will see the success message "明天开始，是否继续"
+    And I wait for "Message" will be visible
+    Then I will see the element "Message" contains "明天开始，是否继续"
     When I click the "Cancel" button
-    And I click the "EnsureButton" button
-    And I wait for "TimeTaskEnsure" will be visible
-    And I will see the success message "明天开始，是否继续"
-    And I click the "TimeTaskEnsure" button
     And I wait for "1500" millsecond
-    And I wait for "TimeTaskEnsure" will be visible
-    Then I will see the success message "保存成功"
+    And I click the "EnsureButton" button
+    And I wait for "Message" will be visible
+    Then I will see the element "Message" contains "明天开始，是否继续"
+    And I click the "EnsureButton" button
+    And I wait for "1500" millsecond
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "创建成功"
     When open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
     #bug RZY-5742
@@ -99,15 +95,14 @@ Feature: 定时任务新建
     And I set the parameter "TagInput" with value "auto_package"
 
     And I set the parameter "Period" with value "<periodNum>"
-    And I choose the "<periodTime>" from the "ExecuteTime"
     And I set the parameter "StartTimeInput" with value "23:58:10"
     And I click the "EnsureButton" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
 
     Examples:
-      | taskName      | start_d     | end_d       | periodNum | periodTime |
-      | interval_date | 2020-06-01  | 2020-06-09  | 5         |  分钟      |
+      | taskName      | start_d     | end_d       | periodNum |
+      | interval_date | 2020-06-01  | 2020-06-09  | 5         |
 
   Scenario Outline: sample_crontab(RZY-2699,2700,2702,2703,2704,2705)
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -152,14 +147,14 @@ Feature: 定时任务新建
     And I set the parameter "Describe" with value "testing"
     And I set the parameter "CrontabInput" with value "<crontab>"
     And I click the "EnsureButton" button
-    And I wait for "TipText" will be visible
-    And I will see the element "TipText" contains "<message>"
+    And I wait for "<element>" will be visible
+    And I will see the element "<element>" contains "<message>"
 
     Examples:
-      | taskName | crontab | message                            |
-      | test     |         | crontab模式下, 执行计划不能为零或空  |
-      | test     | test    | crontab格式错误！                   |
-      | test     | 0*      | crontab格式错误！                   |
+      | taskName | crontab | message                             | element     |
+      | test     |         | crontab模式下, 执行计划不能为零或空 | TipText     |
+      | test     | test    | crontab格式错误！                   | Message     |
+      | test     | 0*      | crontab格式错误！                   | Message     |
 
   Scenario: schedule_message_error_realtime
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -210,14 +205,15 @@ Feature: 定时任务新建
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
     And I wait for element "SelectedUser" change text to username
-    And I set the parameter "TagInput" with value "auto_package"
-    And I set the parameter "Describe" with value "testing"
     And I choose the "test_app" from the "AppComboBox"
+    And I set the parameter "TagInput" with value "auto_package"
+    And I click the "SelectAddedTag" button
+    And I set the parameter "Describe" with value "testing"
 
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 5 9 15/3 * ?"
     And I set the parameter "TaskName" with value "test"
-    And I click the "CancelButton" button
+    And I click the "Cancel" button
 
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button

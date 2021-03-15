@@ -15,37 +15,34 @@ public class ListPage extends ListPageFactory {
         driver.manage().window().fullscreen();
     }
 
-    @FindBy(xpath = "//span[text() = '创建']/ancestor::button")
+    @FindBy(xpath = "//div[@yotta-test='trend-new_trend-button']/button")
     private WebElement createButton;
 
     @FindBy(xpath = "//div[text()='新建']")
     private WebElement create;
 
-    @FindBy(xpath = "//li/span[text() = '新建']")
+    @FindBy(xpath = "//li[@yotta-test='trend-normal_trend-menu_item']")
     private WebElement newTrendButton;
 
-    @FindBy(xpath = "//li/span[text() = '选择数据集']")
+    @FindBy(xpath = "//li[@yotta-test='trend-dataset_trend-menu_item']")
     private WebElement newTrendFromDataset;
-
-    @FindBy(xpath = "(//span[text()='取消']/ancestor::button)[last()]")
-    private WebElement cancel;
 
     @FindBy(xpath= "//span[contains(text(),'标签')]/ancestor::div[@class='yotta-modal']")
     private WebElement tagPanel;
 
-    @FindBy(xpath = "(//label[contains(text(),'标签')])[last()]/ancestor::div/following-sibling::div[1]")
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']")
     private WebElement tagField;
 
-    @FindBy(xpath = "//span[@class = 'ant-spin-dot ant-spin-dot-spin']")
+    @FindBy(xpath = "//div[contains(@class,'spinner')]")
     private WebElement loading;
 
-    @FindBy(xpath = "//p[text()='单个数据集']/preceding-sibling::div")
+    @FindBy(xpath = "//div[@yotta-test='trend-new_trend_mode_single-dom']")
     private WebElement singleDataset;
 
-    @FindBy(xpath = "//p[text()='多表关联']/preceding-sibling::div")
+    @FindBy(xpath = "//div[@yotta-test='trend-new_trend_mode_multiple-dom']")
     private WebElement multiDataset;
 
-    @FindBy(xpath = "//p[text()='追加合并']/preceding-sibling::div")
+    @FindBy(xpath = "//div[@yotta-test='trend-new_trend_mode_merge-dom']")
     private WebElement unionDataset;
 
     @FindBy(xpath = "//*[contains(text(),'暂无数据')]")
@@ -77,10 +74,6 @@ public class ListPage extends ListPageFactory {
         return create;
     }
 
-    public WebElement getCreateButton() {
-        return super.getButton("创建");
-    }
-
     public WebElement getNewTrendButton(){
         createButton.click();
         return newTrendButton;
@@ -101,10 +94,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getUnionDataset() {
         return unionDataset;
-    }
-
-    public WebElement getCancel() {
-        return cancel;
     }
 
     public WebElement getTagPanel() {

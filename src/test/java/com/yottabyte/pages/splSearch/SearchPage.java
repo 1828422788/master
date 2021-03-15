@@ -520,7 +520,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//label[text()='分组']/following-sibling::div")
     private WebElement group;
 
-    @FindBy(xpath = "//span[text()='确定']/ancestor::button")
+    @FindBy(xpath = "(//span[text()='确定']/ancestor::button)[last()]")
     private WebElement ensureButton;
 
     @FindBy(className = "el-icon--right")
@@ -559,7 +559,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//i[@title='取消']")
     private WebElement cancle;
 
-    @FindBy(xpath = "//span[text()='取消']/ancestor::button")
+    @FindBy(xpath = "(//span[text()='取消']/ancestor::button)[last()]")
     private WebElement cancel;
 
     @FindBy(xpath = "//i[@title='恢复']")
@@ -723,7 +723,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//div[text()='事件']/span")
     private WebElement eventNumber;
 
-    @FindBy(className = "ant-message-success")
+    @FindBy(className = "yotta-dialog-content")
     private WebElement message;
 
     @FindBy(xpath = "//label[text()='搜索内容']/following-sibling::div")
@@ -1399,7 +1399,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//input[@class='yotta-time-picker-input']")
     private WebElement startTimeInput;
 
-    @FindBy(xpath = "(//span[@class='_2x-YdNak-IrcZb4ybbyK1X'])[last()]")
+    @FindBy(xpath = "//div[@name='startTimeValue']/ancestor::div[4]//div[@class='_3Tj0m5K3SbyYyuceSTvQ2b']")
     private WebElement whenToStart;
 
     public WebElement getWhenToStart() {
@@ -2034,7 +2034,7 @@ public class SearchPage extends ListPageFactory {
         return inputDateToday;
     }
 
-    @FindBy(className = "ant-message-notice-content")
+    @FindBy(className = "yotta-dialog-content")
     private WebElement alertMessage;
 
     public WebElement getAlertMessage() {
