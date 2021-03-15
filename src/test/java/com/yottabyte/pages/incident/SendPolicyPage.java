@@ -72,9 +72,14 @@ public class SendPolicyPage extends PageTemplate {
 
     @FindBy(xpath = "//span[contains(text(),'保存')]/parent::button")
     private WebElement saveNoticeReceiveGroup;
-
     public WebElement getSaveNoticeReceiveGroup() {
         return saveNoticeReceiveGroup;
+    }
+
+    @FindBy(xpath = "//span[contains(text(),'更新')]/parent::button")
+    private WebElement updateNoticeReceiveGroup;
+    public WebElement getUpdateNoticeReceiveGroup() {
+        return updateNoticeReceiveGroup;
     }
 
     @FindBy(xpath = "//a[text()='删除']")
@@ -98,9 +103,8 @@ public class SendPolicyPage extends PageTemplate {
         return noticeReceiveGroupDeleteButton;
     }
 
-    @FindBy(xpath = "//a[text()='编辑']")
+    @FindBy(xpath = "//span[text()='编辑']/parent::button")
     private WebElement noticeReceiveGroupEditButton;
-
     public WebElement getNoticeReceiveGroupEditButton() {
         return noticeReceiveGroupEditButton;
     }

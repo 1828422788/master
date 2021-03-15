@@ -39,7 +39,7 @@ Feature: 事件管理_用户接收组_7个
     And I click the "ReceiveGroupMemberLable" button
 
     And I wait for "1000" millsecond
-    And I click the "SaveNoticeReceiveGroup" button
+    And I click the "UpdateNoticeReceiveGroup" button
     And I wait for "RetButton" will be visible
     And I click the "RetButton" button
 

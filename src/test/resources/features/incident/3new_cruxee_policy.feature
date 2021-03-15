@@ -11,18 +11,17 @@ Feature: 事件管理-合并策略-11个
     And I click the "AddAppCondition" button
 #    And I choose the "name" from the "AppConditionFieldslist" in config
 #    And I choose the "like" from the "AppConditionOperatorsList" in config
-    And I choose1 the "name" from the "AppConditionFieldslist"
-    And I choose1 the "like" from the "AppConditionOperatorsList"
+    And I choose the "name" from the "AppConditionFieldslist"
+    And I choose the "like" from the "AppConditionOperatorsList"
     And I set the parameter "AppConditionInput" with value "字段统计"
 
     And I click the "AddGroupCondition" button
 #    And I choose the "name" from the "GroupConditionFieldslist" in config
-    And I choose1 the "name" from the "GroupConditionFieldslist"
-
+    And I choose the "name" from the "GroupConditionFieldslist"
 
     And I click the "AddStopCondition" button
 #    And I choose the "归并的告警数量" from the "StopConditionNameslist" in config
-    And I choose1 the "归并的告警数量" from the "StopConditionNameslist"
+    And I choose the "归并的告警数量" from the "StopConditionNameslist"
 
     And I set the parameter "StopConditionCruCountInput" with value "18"
 

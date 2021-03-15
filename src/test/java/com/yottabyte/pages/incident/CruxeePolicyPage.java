@@ -57,14 +57,16 @@ public class CruxeePolicyPage extends PageTemplate {
 
     public WebElement getAppConditionFieldslist() {
         String xpath = "//label[contains(text(),'应用条件')]/following::div[@yotta-test='incident-apply_field-select']/div[@class='yotta-select-selection']";
-        return super.getDropdownListByCruxeePageXpath(xpath);
+//        return super.getDropdownListByCruxeePageXpath(xpath);
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownList();
     }
 
     public WebElement getAppConditionOperatorsList() {
-//      String xpath = "//label[contains(text(),'应用条件')]/following::div[contains(text(),'请选择字段')]/parent::div[@class='ant-select-selection__rendered']/following::div[contains(text(),'请选择关系')]/parent::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
         String xpath = "//label[contains(text(),'应用条件')]/following::div[@yotta-test='incident-apply_operator-select']/div[@class='yotta-select-selection']";
 //        return super.getLastDropdownListOnSendPolicyPage(xpath);
-
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
