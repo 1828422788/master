@@ -49,8 +49,11 @@ public class GroupPage extends ListPageFactory {
         return testAuth;
     }
 
+    @FindBy(xpath = "(//input[contains(@placeholder,'名称')])[2]")
+    private WebElement Name;
+
     public WebElement getName() {
-        return getelement("请输入名称");
+        return Name;
     }
 
     public WebElement getSearchName() {
@@ -99,8 +102,10 @@ public class GroupPage extends ListPageFactory {
     }
 
     public WebElement getMore() {
-        return super.getButton("更多");
+        return More;
     }
+    @FindBy(xpath = "//span[text()='更多']//ancestor::span")
+    private WebElement More;
 
     public WebElement getAddgroupinput() {
         return super.getButton("采集配置");
@@ -110,7 +115,7 @@ public class GroupPage extends ListPageFactory {
         return super.getButton("添加「sunxctest」分组数据源");
     }
 
-    @FindBy(xpath = "//li[text()='删除']")
+    @FindBy(xpath = "//span[text()='删除']")
     private WebElement Delete;
 
     public WebElement getDelete() {
@@ -121,7 +126,7 @@ public class GroupPage extends ListPageFactory {
         return Jump;
     }
 
-    @FindBy(xpath = "//li[text()='跳转']")
+    @FindBy(xpath = "//span[text()='跳转']")
     private WebElement Jump;
 
     @Override
@@ -173,7 +178,7 @@ public class GroupPage extends ListPageFactory {
         return OpenGroupButton;
     }
 
-    @FindBy(xpath = "//div[text()='请输入名称']")
+    @FindBy(xpath = "//div[text()='请务必输入此条目']")
     private WebElement searchInput;
 
     public WebElement getSearchRole() {
@@ -187,7 +192,7 @@ public class GroupPage extends ListPageFactory {
         return Addsuccessmsg;
     }
 
-    @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-success']//span")
+    @FindBy(xpath = "//span[@class='yotta-message-content']")
     private WebElement Addsuccessmsg;
 
     public WebElement getMessage() {
@@ -207,7 +212,7 @@ public class GroupPage extends ListPageFactory {
     }
 
     public WebElement getEnsure() {
-        return super.getContainsTextButton("确定");
+        return super.getButton("确定");
     }
 
     public WebElement getelement(String text) {

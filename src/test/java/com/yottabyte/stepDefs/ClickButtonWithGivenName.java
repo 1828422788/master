@@ -149,7 +149,7 @@ public class ClickButtonWithGivenName {
     @When("^the column is \"([^\"]*)\" then i click the \"([^\"]*)\" button in agent page$")
     public void clickButtonInAgentPage(String columnNum, String buttonName) {
         String json = this.getAgentIp(columnNum);
-        WebElement table = webDriver.findElement(By.xpath("(//tbody)[2]"));
+        WebElement table = webDriver.findElement(By.xpath("(//tbody)"));
         Map<String, Object> map = JsonStringPaser.json2Stirng(json);
         int num = 0;
         for (WebElement tr : table.findElements(By.xpath("./tr"))) {
@@ -158,7 +158,7 @@ public class ClickButtonWithGivenName {
                 break;
             }
         }
-        WebElement tr = webDriver.findElement(By.xpath("((//tbody)[3]/tr)[" + num + "]"));
+        WebElement tr = webDriver.findElement(By.xpath("(//tbody/tr)[" + num + "]"));
         this.click(buttonName, tr);
     }
 

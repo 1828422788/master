@@ -164,7 +164,7 @@ public class Checkbox {
     @When("^the column is \"([^\"]*)\" then i \"([^\"]*)\" the agent label in agent page$")
     public void clickagentLabel(String columnNum, String status) {
         String json = this.getAgentIp(columnNum);
-        WebElement table = webDriver.findElement(By.xpath("(//tbody)[2]"));
+        WebElement table = webDriver.findElement(By.xpath("(//tbody)"));
         Map<String, Object> map = JsonStringPaser.json2Stirng(json);
         int num = 0;
         for (WebElement tr : table.findElements(By.xpath("./tr"))) {
@@ -173,7 +173,7 @@ public class Checkbox {
                 break;
             }
         }
-        WebElement tr = webDriver.findElement(By.xpath("((//tbody)[2]/tr)[" + num + "]"));
+        WebElement tr = webDriver.findElement(By.xpath("(//tbody/tr)[" + num + "]"));
         WebElement label = tr.findElement(By.xpath(".//label"));
         String attribute = label.getAttribute("class");
         if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {

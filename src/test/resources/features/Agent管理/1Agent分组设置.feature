@@ -19,7 +19,7 @@ Feature: Agent分组设置
     And I click the "CreateAgentGroupButton" button
     And I set the parameter "Name" with value "<name>"
     When I set the parameter "Description" with value "<description>"
-    And I choose the "<role>" from the "Role"
+#    And I choose the "<role>" from the "Role"
     And I wait for loading invisible
     And I click the "Save" button
     And I wait for "Addsuccessmsg" will be visible
@@ -36,7 +36,7 @@ Feature: Agent分组设置
     And I wait for loading complete
     And I click the "CreateAgentGroupButton" button
     And I set the parameter "Name" with value "sunxctest"
-    And I choose the "__admin__" from the "Role"
+#    And I choose the "__admin__" from the "Role"
     And I click the "Save" button
     Then I will see the message "操作失败，原因：1062-Duplicate entry '1-sunxctest' for key 'domain_id_name'"
 
@@ -44,9 +44,9 @@ Feature: Agent分组设置
     Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
     And I wait for loading complete
     And I click the "CreateAgentGroupButton" button
-    And I choose the "__admin__" from the "Role"
+#    And I choose the "__admin__" from the "Role"
     And I click the "Save" button
-    Then I will see the element "searchInput" name is "请输入名称"
+    Then I will see the element "searchInput" name is "请务必输入此条目"
 
 #  Scenario: Agent分组未填写角色新建失败
 #    And I click the "CreateAgentGroupButton" button
@@ -57,15 +57,12 @@ Feature: Agent分组设置
   Scenario Outline: Agent分组添加和跳转
     And I will see the "agent.ListPage" page
     And I click the "AgentMultiButton" button
-    Then the column is "1" then i click the "分组" button in agent page
+    Then the column is "0" then i click the "分组" button in agent page
     And  I wait for loading invisible
     And I click the "GroupButton" button
     Then I will see the element "GroupMemo" name is "<message>"
     And I click the "FinishGroupButton" button
     And I click the "OpenGroupButton" button
-    And I wait for loading invisible
-    And I wait for loading complete
-    Then I will see the agent search result contains "1"
 
     Examples:
       | message              |
@@ -78,7 +75,7 @@ Feature: Agent分组设置
     And I click the "Jump" button
     And switch to another window
     And I close all tabs except main tab
-#    Then I will see the agent search result contains "1"
+    Then I will see the agent search result contains "0"
 
     Examples:
       | message              |
@@ -100,14 +97,14 @@ Feature: Agent分组设置
 
   Scenario Outline: Agent批量操作加入分组
     And I click the "AgentMultiButton" button
-    When the column is "1" then i "checked" the agent label in agent page
+    When the column is "0" then i "checked" the agent label in agent page
     And I click the "AgentMultiCHooseButton" button
     And I click the "MultiGruopButton" button
     And I click the "GroupButton" button
     Then I will see the element "GroupMemo" name is "<message>"
     And I click the "FinishGroupButton" button
     And I click the "OpenGroupButton" button
-    Then I will see the agent search result contains "1"
+    Then I will see the agent search result contains "0"
 
     Examples:
       | message              |
@@ -115,7 +112,7 @@ Feature: Agent分组设置
 
   Scenario Outline: Agent批量操作移出分组
     And I click the "AgentMultiButton" button
-    When the column is "1" then i "checked" the agent label in agent page
+    When the column is "0" then i "checked" the agent label in agent page
     And I click the "AgentMultiCHooseButton" button
     And I click the "MultiGruopButton" button
     And I click the "MoveGroupButton" button
@@ -135,7 +132,6 @@ Feature: Agent分组设置
     And I click the "Update" button
     And I wait for "Addsuccessmsg" will be visible
     Then I will see the element "Addsuccessmsg" name is "<updatemessage>"
-
 
     Examples: 更新分组信息
       | name      | description | updatemessage |
@@ -157,7 +153,7 @@ Feature: Agent分组设置
     Examples: 模糊搜索ip过滤成功
 
       | name        |
-      | Deleteone   |
+#      | Deleteone   |
       | Deletetwo   |
       | Deletethree |
 
