@@ -252,6 +252,26 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return webDriver.findElement(By.xpath(xpath));
     }
 
+    public WebElement getYottaDiv(String text) {
+        String xpath = "//div[@yotta-test='" + text +"']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getYottaLabel(String text) {
+        String xpath = "//label[@yotta-test='" + text +"']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getYottaSpan(String text) {
+        String xpath = "//span[@yotta-test='" + text +"']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getYottaTable(String text) {
+        String xpath = "//table[@yotta-test='" + text +"']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
     public WebElement getYottaCheckbox(String test) {
         String xpath = "//input[@yotta-test='" + test +"']";
         return webDriver.findElement(By.xpath(xpath));

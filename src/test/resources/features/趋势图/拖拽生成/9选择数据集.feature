@@ -19,7 +19,7 @@ Feature: 趋势图_选择数据集
     And I click the "Apply" button
     And I wait for "Message" will be visible
     Then I will see the element "Message" contains "应用成功"
-    And I click the "CheckSPL" button
+    And I click the "DatasetSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "<datasetspl>"
     When I click the "CloseSPL" button
@@ -91,7 +91,7 @@ Feature: 趋势图_选择数据集
     And I click the "Apply" button
     And I wait for "Message" will be visible
     Then I will see the element "Message" contains "应用成功"
-    And I click the "CheckSPL" button
+    And I click the "DatasetSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "<datasetspl>"
     When I click the "CloseSPL" button
@@ -144,7 +144,7 @@ Feature: 趋势图_选择数据集
     And I click the "Apply" button
     And I wait for "Message" will be visible
     Then I will see the element "Message" contains "应用成功"
-    And I click the "CheckSPL" button
+    And I click the "DatasetSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "<datasetspl>"
     When I click the "CloseSPL" button
@@ -193,7 +193,7 @@ Feature: 趋势图_选择数据集
     And I click the "Today" button
     And I click the "Overview" button
     And I wait for "TableBody" will be visible
-    And I click the "CheckSPL" button
+    And I click the "DatasetSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | append [[ tag:sample04061424_display ]]"
     When I click the "CloseSPL" button

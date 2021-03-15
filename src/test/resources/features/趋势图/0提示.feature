@@ -60,17 +60,16 @@ Feature: 趋势图_提示
     Then I will see the "trend.DragAndDropPage" page
     And I wait for "2000" millsecond
     And I click the "<button>" button
-    And I wait for "EnsureButton" will be visible
+    And I wait for "Prompt" will be visible
     And I will see the element "Prompt" contains "<message1>"
 
     Examples:
       |  type    | button        | message1       |
-      | Single   | NextButton    | 请选择字段     |
+      | Single   | NextButton    | 请拖入数据集   |
       | Multi    | NextButton    | 请选择数据集   |
-      | Union    | NextButton    | 请选择字段     |
-      | Multi    | CheckSPL      | 请选择数据集   |
+      | Union    | NextButton    | 请选择数据集   |
+      | Multi    | DatasetSPL    | 请选择数据集   |
       | Multi    | SaveAsDataset | 请选择数据集   |
-      | Union    | Overview      | 当前无搜索语句 |
 
   Scenario:  union_prompt
     Given open the "trend.ListPage" page for uri "/trend/"
