@@ -266,11 +266,11 @@ public class ClickButtonWithGivenName {
     @Given("^I click the detail which column is \"([^\"]*)\" in agent page$")
     public void clickDetailNameInAgentPage(String columnNum) {
         String json = this.getAgentIp(columnNum);
-        WebElement table = webDriver.findElement(By.xpath("(//tbody)[2]"));
+        WebElement table = webDriver.findElement(By.xpath("(//tbody)"));
         Map<String, Object> map = JsonStringPaser.json2Stirng(json);
         WebElement tr = listPageUtils.getRowWithoutPaging(map.get("name").toString(), table);
         int num = Integer.parseInt(columnNum) + 1;
-        tr.findElement(By.xpath("(./td)[" + num + "]")).click();
+        tr.findElement(By.xpath("(./td)[" + num + "]/span")).click();
     }
 
     /**
@@ -477,10 +477,10 @@ public class ClickButtonWithGivenName {
     public void operateAgentSwitch(String dataName, String tableName, String status) {
         WebElement table = GetElementFromPage.getWebElementWithName(tableName);
         WebElement tr = listPageUtils.getRowWithoutPaging(dataName, table);
-        WebElement label = tr.findElement(By.xpath(".//button"));
-        String labelAttribute = label.getAttribute("aria-checked");
-        if (status.equals("close") && labelAttribute.contains("true") || status.equals("open") && labelAttribute.contains("false")) {
-            label.click();
+        WebElement label = tr.findElement(By.xpath(".//label/span"));
+        String selected = label.isSelected() ? "enable" : "disable";
+        if (!selected.equals(status)) {
+            ClickEvent.clickUnderneathButton(label);
         }
     }
 
