@@ -37,27 +37,37 @@ public class SendPolicyPage extends PageTemplate {
         return createNoticeReceiveGroup;
     }
 
-    @FindBy(xpath = "//input[@placeholder='请输入名称']")
+    @FindBy(xpath = "//input[@placeholder='请输入']")
     private WebElement noticeReceiveGroupNameInput;
 
     public WebElement getNoticeReceiveGroupNameInput() {
         return noticeReceiveGroupNameInput;
     }
 
-    public WebElement getReceiveGroupMember() {
-        String xpath = "//div[contains(text(),'发送给谁')]/following-sibling::div//div[@class='ant-select-selection__rendered']";
+    public WebElement getReceiveGroupMemberList() {
+        String xpath = "//label[contains(text(),'发送给谁')]/parent::div/following-sibling::div//span[text()='请选择用户或用户分组']/ancestor::div[@class='yotta-select-selection']";
+        return super.getLastDropdownListOnSendPolicyPage(xpath);
+//        WebElement element = webDriver.findElement(By.xpath(xpath));
+//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+//        ClickEvent.clickUnderneathButton(element);
+//        return getLastDropdownList();
+    }
+
+    public WebElement getReceiveGroupNonMemberList() {
+        String xpath = "//label[contains(text(),'不发送给谁')]/parent::div/following-sibling::div//span[text()='请选择用户']/ancestor::div[@class='yotta-select-selection']";
         return super.getLastDropdownListOnSendPolicyPage(xpath);
     }
 
-    public WebElement getReceiveGroupNonMember() {
-        String xpath = "//div[contains(text(),'不发送给谁')]/following-sibling::div//div[@class='ant-select-selection__rendered']";
-        return super.getLastDropdownListOnSendPolicyPage(xpath);
-    }
-
-    public WebElement getReceiveGroupMemberLable() {
-        String xpath = "//div[text()='发送给谁']";
+    public WebElement getReceiveGroupMemberLabel() {
+        String xpath = "//label[contains(text(),'发送给谁')]";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         return element;
+    }
+
+    @FindBy(xpath = "//span[contains(text(),'新建')]/parent::button")
+    private WebElement newNoticeReceiveGroup;
+    public WebElement getNewNoticeReceiveGroup() {
+        return newNoticeReceiveGroup;
     }
 
     @FindBy(xpath = "//span[contains(text(),'保存')]/parent::button")
@@ -127,20 +137,20 @@ public class SendPolicyPage extends PageTemplate {
     }
 
     public WebElement getCreateSendPolicy() {
-        return super.getButton("新 建");
+        return super.getButton("新建");
     }
 
     /**
      * 发送策略编辑界面元素定位
      */
-    @FindBy(xpath = "//input[@placeholder='请输入名称']")
+    @FindBy(xpath = "//input[@placeholder='请输入名称'][@yotta-test='incident-name-input']")
     private WebElement sendPolicyName;
 
     public WebElement getSendPolicyName() {
         return sendPolicyName;
     }
 
-    @FindBy(xpath = "//input[@placeholder='请输入']")
+    @FindBy(xpath = "//input[@placeholder='请输入'][@yotta-test='incident-time-number_input']")
     private WebElement sendIntervalTime;
 
     public WebElement getSendIntervalTime() {
@@ -156,32 +166,46 @@ public class SendPolicyPage extends PageTemplate {
 
     @FindBy(xpath = "//span[contains(text(),'incident变更时发送')]")
     private WebElement checkboxUpdatingSend;
-
     public WebElement getCheckboxUpdatingSend() {
         return checkboxUpdatingSend;
     }
 
-    public WebElement getTunnelPriorityLevel() {
-        String xpath = "//span[contains(text(),'优先级')]/following-sibling::span//div[@class='ant-select-selection__rendered']";
+    @FindBy(xpath = "//div[@class='yotta-col yotta-col-6 yotta-form-item-label']")
+    private WebElement pageBlank;
+    public WebElement getPageBlank() {
+        return pageBlank;
+    }
+
+    public WebElement getTunnelPriorityLevelList() {
+        String xpath = "//span[contains(text(),'优先级')]/following-sibling::div//span[text()='请选择']/ancestor::div[@class='yotta-select-selection']";
         return super.getLastDropdownListOnSendPolicyPage(xpath);
     }
 
-    public WebElement getMailReceiver() {
-        String xpath = "//label[text()='接收者']/parent::div/following-sibling::div//div[@class='ant-select-selection__rendered']";
-        return super.getLastDropdownListOnSendPolicyPage(xpath);
-    }
-
-    public WebElement getRelatedSendPluginList() {
-        String xpath = "//span[contains(text(),'插件')]/following-sibling::span//div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+    public WebElement getMailReceiverList() {
+        String xpath = "//label[contains(text(),'接收者')]/parent::div/following-sibling::div//span[text()='请选择']/ancestor::div[@class='yotta-select-selection']";
+//        return super.getLastDropdownListOnSendPolicyPage(xpath);
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
         return super.getLastSendPluginDropdownList();
     }
 
+    public WebElement getRelatedSendPluginList() {
+        String xpath = "//span[text()='插件']/following-sibling::div//div[@yotta-test='incident-plugin-select']/div";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return super.getLastSendPluginDropdownList();
+    }
+
+    public WebElement getNewButtonPolicy() {
+        return super.getButton("新建");
+    }
+
     public WebElement getSaveSendPolicy() {
         return super.getButton("保 存");
     }
+
 
     @FindBy(xpath = "//span[contains(text(),'返回列表')]/parent::button")
     private WebElement OKButton;
@@ -197,7 +221,7 @@ public class SendPolicyPage extends PageTemplate {
         return retListButton;
     }
 
-    @FindBy(xpath = "//span[contains(text(),'确定')]/parent::button")
+    @FindBy(xpath = "//div[@class='yotta-modal-body']/following-sibling::div//span[text()='确定']/parent::button")
     private WebElement retButton;
 
     public WebElement getRetButton() {

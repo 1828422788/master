@@ -22,7 +22,8 @@ Feature: 创建接收告警邮件用户、用户组
 
   @incident @incident2
   Scenario Outline: 新建用户分组样例1个
-    Given open the "incident.UserCreatePage" page for uri "/account/usergroups/"
+    Given open the "incident.UserGroupCreatePage" page for uri "/account/usergroups/"
+#    Given open the "userGroups.CreatePage" page for uri "/account/usergroups/"
     And I click the "CreateButton" button
     When I set the parameter "UserGroupName" with value "<UserGroupName>"
     When I set the parameter "UserGroupDes" with value "<UserGroupDes>"
