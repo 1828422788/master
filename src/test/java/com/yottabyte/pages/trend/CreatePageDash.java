@@ -26,7 +26,8 @@ public class CreatePageDash extends PageTemplate {
     public CreatePageDash(WebDriver driver) {
         super(driver);
         //webDriver.manage().window().setPosition(new Point(0, 0));
-        driver.manage().window().setSize(new Dimension(1200,900));
+        driver.manage().window().setSize(new Dimension(1920,1080));
+//        driver.manage().window().setSize(new Dimension(1200,900));
     }
 
     private DropdownUtils dropdownUtils = new DropdownUtils();
@@ -638,14 +639,17 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(className = "ant-popover-inner-content")
     private WebElement content;
 
-    @FindBy(xpath = "(//label[text()='今天']/following-sibling::i)[2]")
+    @FindBy(xpath = "(//span[contains(@class,'yotta-icon-SettingFilled')])[last()]")
     private WebElement setting;
 
     @FindBy(xpath = "//span[text()='数值字段']/ancestor::div/following-sibling::div//i")
     private WebElement dataField;
 
-    @FindBy(xpath = "//span[text()='字段值']/ancestor::div/following-sibling::div//i")
+    @FindBy(xpath = "//span[text()='字段值']/parent::div/following-sibling::div//span[@class='yotta-select-selection-value']")
     private WebElement dataValue;
+
+    @FindBy(xpath = "//span[text()='字段值']/parent::div/following-sibling::div//span[@class='yotta-select-selection-placeholder']")
+    private WebElement dataValueDivide;
 
     @FindBy(xpath = "//div[text()='Y轴 2']")
     private WebElement yaxisTwo;
@@ -1081,6 +1085,11 @@ public class CreatePageDash extends PageTemplate {
 
     public WebElement getDataValue2() {
         dataValue2.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getDataValueDivide() {
+        dataValueDivide.click();
         return super.getLastDropdownList();
     }
 

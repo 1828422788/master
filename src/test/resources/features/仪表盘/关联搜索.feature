@@ -33,8 +33,10 @@ Feature: 仪表盘关联搜索
     And I set the parameter "Tag" with value "<appName>"
     And I upload a file with name "/src/test/resources/testdata/log/<log>"
     And I click the "UploadButton" button
-    And I wait for "VerifyText" will be visible
-    And I wait for element "VerifyText" change text to "上传完成"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "上传完成"
+#    And I wait for "VerifyText" will be visible
+#    And I wait for element "VerifyText" change text to "上传完成"
 
     Examples:
       | appName                      | log                         |
@@ -67,8 +69,8 @@ Feature: 仪表盘关联搜索
   @dashboard @dashboardSmoke
   Scenario Outline: 新建趋势图 RZY-3223
     And open the "trend.ListPage" page for uri "/trend/"
-    And I click the "CreateButton" button
-    And I click the "Create" button
+    And I click the "NewTrendButton" button
+#    And I click the "Create" button
     Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
@@ -77,6 +79,7 @@ Feature: 仪表盘关联搜索
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
+    And I wait for loading invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "<name>"
@@ -235,9 +238,12 @@ Feature: 仪表盘关联搜索
   @cleanDashboard
   Scenario Outline: 删除字段提取
     Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+#    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button
     And I wait for "500" millsecond
     Then I will see the success message "删除成功"
 
@@ -250,7 +256,8 @@ Feature: 仪表盘关联搜索
   @cleanDashboard
   Scenario Outline: 删除仪表盘所建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
-    When the data name is "<name>" then i click the "删除" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
+#    When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "500" millsecond

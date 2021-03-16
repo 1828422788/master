@@ -129,7 +129,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "yw-dropdown-menu")
     private List<WebElement> eventList;
 
-    @FindBy(xpath = "//div[@id='filter_type']//i")
+    @FindBy(xpath = "//div[@class='yotta-form-field']//span[@class='yotta-select-selection-value']")
     private WebElement inputType;
 
     @FindBy(xpath = "//div[@id='config']")
@@ -679,7 +679,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'文件名称')]/following-sibling::input")
     private WebElement downloadFileName;
 
-    @FindBy(xpath = "//th[text()='EPORT_ID']/ancestor::table")
+    @FindBy(xpath = "//div[text()='仪表盘return']/following-sibling::div//table")
     private WebElement returnList;
 
     @FindBy(xpath = "//div[contains(text(),'仪表盘workflow')]/following-sibling::div//table")
@@ -875,7 +875,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//ul[@class='ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical'])[last()]")
     private WebElement chartDropdown;
 
-    @FindBy(xpath = "//label[text()='今天']/following-sibling::i")
+    @FindBy(xpath = "//span[contains(@class,'yotta-icon-ChartSquareFilled')]")
     private WebElement chartType;
 
     @FindBy(xpath = "(//label[text()='今天'])[2]/following-sibling::i")
