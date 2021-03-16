@@ -388,7 +388,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='ant-modal-body']//i/ancestor::div")
     private WebElement message;
 
-    @FindBy(xpath = "//div[contains(@class,'yw-chart-action')]/i[1]")
+    @FindBy(xpath = "//span[contains(@class,'yotta-icon-TooltipOutlined')]")
     private WebElement describe;
 
     @FindBy(xpath = "//div[text()='测试描述']")
@@ -529,7 +529,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='钻取变量单值value']/following-sibling::div[last()]/div/div[last()]/div/span")
     private WebElement singleValue1;
 
-    @FindBy(xpath = "//label[text()='点击图表时']/following-sibling::div[@class='ant-select ant-select-enabled']")
+    @FindBy(xpath = "//label[text()='钻取类型：']/following-sibling::div[@class='yotta-select yotta-select-large']")
     private WebElement drillAction;
 
     @FindBy(xpath = "//label[text()='省下钻字段']/following-sibling::div[@class='ant-select ant-select-enabled']")
@@ -592,10 +592,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[contains(@class,'yw-filter-container')]//input[@class='ant-input']")
     private WebElement geoCity;
 
-    @FindBy(xpath = "(//i[contains(@class,'ant-dropdown-trigger')][contains(@class,'anticon css-ifnfqv')])[4]")
+    @FindBy(xpath = "(//div[@class='yotta-event-list-body']/div/div[@class='yotta-dropdown event-action-icon-dropdown']/span)[1]")
     private WebElement eventOperate;
 
-    @FindBy(xpath = "//div[@class='eventBlock']/i")
+    @FindBy(xpath = "(//div[@class='event-item']/span)[1]")
     private WebElement iconRight;
 
     @FindBy(xpath = "//span[text()='apache.geo.city']/following-sibling::span/pre/span")
@@ -697,7 +697,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[@id='fullscreenAll']//div[@id]/div")
     private WebElement customTitle;
 
-    @FindBy(id = "filter_trendDescription")
+    @FindBy(name = "trendDescription")
     private WebElement chartDesc;
 
     @FindBy(xpath = "//div[@name='tokenId']/div/div/span[@class='yotta-select-selection-value']")
@@ -721,19 +721,19 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "icon-fanyeqishangjiantou")
     private WebElement eventIcon;
 
-    @FindBy(xpath = "//li[text()='仪表盘测试事件列表']")
+    @FindBy(xpath = "//span[text()='仪表盘测试事件列表']")
     private WebElement event;
 
     @FindBy(xpath = "//span[text()='appname']")
     private WebElement eventAppname;
 
-    @FindBy(xpath = "//li[text()='实时查看']")
+    @FindBy(xpath = "//span[text()='实时查看']")
     private WebElement realTime;
 
-    @FindBy(xpath = "//li[text()='配置字段提取']")
+    @FindBy(xpath = "//span[text()='配置字段提取']")
     private WebElement createConfig;
 
-    @FindBy(xpath = "//li[text()='添加到知识库']")
+    @FindBy(xpath = "//span[text()='添加到知识库']")
     private WebElement addKnowledge;
 
     @FindBy(xpath = "//div[@class='yotta-dropdown-menu']/ul")
