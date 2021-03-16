@@ -16,7 +16,7 @@ public class InstallPage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(xpath = "//div[text()='上传完成']")
+    @FindBy(xpath = "//span[text()='上传完成']")
     private WebElement verifyText;
 
     @FindBy(xpath = "//span[text()='分组预览']/ancestor::div[@class='yw-one-step active']")
@@ -37,7 +37,7 @@ public class InstallPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'AutoTestSourceForApp')]")
     private WebElement editText;
 
-    @FindBy(xpath = "//div[@class='ant-spin-container']/p")
+   @FindBy(xpath = "//div[@class='yotta-spinner-overlay']/p")
     private WebElement importSuccess;
 
     @FindBy(xpath = "//span[text()='AutoTestApp']")
@@ -58,10 +58,10 @@ public class InstallPage extends PageTemplate {
     @FindBy(id = "register_upload")
     private WebElement upload;
 
-    @FindBy(className = "ant-select-selection__rendered")
+    @FindBy(className = "yotta-select-selection-content")
     private WebElement role;
 
-    @FindBy(xpath = "//a[text()='添加数据集']")
+    @FindBy(xpath = "//span[text()='添加数据集']")
     private WebElement addDataset;
 
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")
@@ -150,6 +150,10 @@ public class InstallPage extends PageTemplate {
 
     public WebElement getNextButton() {
         return super.getButton("下一步");
+    }
+
+    public WebElement getDoneButton() {
+        return super.getButton("完成");
     }
 
     public WebElement getCompleteButton() {

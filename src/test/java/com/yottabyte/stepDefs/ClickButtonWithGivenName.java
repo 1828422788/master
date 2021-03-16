@@ -215,7 +215,8 @@ public class ClickButtonWithGivenName {
     private void click(String buttonName, WebElement tr) {
         String xpath;
         if (webDriver.getCurrentUrl().contains("/app/list/") || webDriver.getCurrentUrl().contains("/app/siem/assets/")) {
-            xpath = ".//span[contains(text(),'" + buttonName + "')][not(@class)]";
+           // xpath = ".//span[contains(text(),'" + buttonName + "')][not(@class)]";
+            xpath = ".//span[text()='" + buttonName + "']";
         } else if ("详情".equals(buttonName)) {
             xpath = ".//span[contains(text(),'" + buttonName + "')]";
         }else if (webDriver.getCurrentUrl().contains("/indexsettings/") || webDriver.getCurrentUrl().contains("/schedule/") || webDriver.getCurrentUrl().contains("/trend/") || webDriver.getCurrentUrl().contains("/reports/")) {

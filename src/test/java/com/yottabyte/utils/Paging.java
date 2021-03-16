@@ -36,7 +36,7 @@ public class Paging {
 
     private Map<String, String> getXpath() {
         String totalNumberElementXpath = "(//div[@class='yotta-pagination-elements'])[1]";
-        String numbersPerPageElementXpath = "//span[@class='yotta-select-selection-value']";
+        String numbersPerPageElementXpath = "//div[@class='yotta-pagination-elements']//span[@class='yotta-select-selection-value']";
         String nextPageClass = "yotta-icon-RightOutlined";
         String tableListClass = "yotta-table-body";
         Map<String, String> map = new HashMap<>();

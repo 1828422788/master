@@ -39,6 +39,16 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "(//div[@class='yw-nav-popover-items'])[10]")
     private WebElement source;
 
+    @FindBy(xpath = "//div/ul/li/span[text()='授权']")
+    private WebElement auth;
+
+    @FindBy(xpath = "//div/ul/li/span[text()='删除']")
+    private WebElement delete;
+
+    public WebElement getAuth() {return auth;}
+
+    public WebElement getDelete() {return delete;}
+
     public WebElement getLoadingElement() {
         return loadingElement;
     }
