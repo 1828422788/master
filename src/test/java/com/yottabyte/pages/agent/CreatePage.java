@@ -239,7 +239,7 @@ public class CreatePage extends PageTemplate {
         return ConfigDatasourceMsg;
     }
 
-    @FindBy(xpath = "//div[@class='ant-modal-title']")
+    @FindBy(xpath = "//div[@class='yotta-modal-title']")
     private WebElement ConfigDatasourceMsg;
 
     public WebElement getCurrentConfiguration() {
