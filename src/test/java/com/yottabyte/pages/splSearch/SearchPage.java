@@ -404,7 +404,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='确定']")
     private List<WebElement> ensure;
 
-    @FindBy(xpath = "//span[@aria-label='CheckCircleFilled']/ancestor::div[1]/following-sibling::div//p")
+    @FindBy(xpath = "(//span[@aria-label='CheckCircleFilled']/ancestor::div[1]/following-sibling::div//p) | (//span[@aria-label='CheckCircleFilled']/following-sibling::span[@class='yotta-message-content'])")
     private WebElement successMessage;
 
     @FindBy(xpath = "//span[contains(text(),'类型')]")
@@ -664,7 +664,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//div[text()='从搜索删除']")
     private WebElement removeFromSearch;
 
-    @FindBy(xpath = "//div[@name='frequencyUnit']")
+    @FindBy(xpath = "//div[@yotta-test='search-schedule_frequency_unit-select']/div[@class='yotta-select-selection']")
     private WebElement executeTime;
 
     @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")

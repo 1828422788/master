@@ -15,13 +15,13 @@ Feature: 定时任务复制
     And I click the "TimedTask" button
     And I wait for element "SelectedUser" change text to username
     And I choose the "test_app" from the "AppComboBox"
-    And I set the parameter "TagInput" with value "auto_package"
-    And I click the "SelectAddedTag" button
     And I set the parameter "Describe" with value "testing"
 
     And I set the parameter "Period" with value "<periodNum>"
     And I choose the "<periodTime>" from the "ExecuteTime"
     And I set the parameter "StartTimeInput" with value "23:58:10"
+    And I set the parameter "TagInput" with value "auto_package"
+    And I click the "SelectAddedTag" button
     And I set the parameter "TaskName" with value "<taskName>"
     And I click the "EnsureButton" button
     And I wait for "SuccessMessage" will be visible

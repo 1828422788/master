@@ -76,7 +76,7 @@ public class EditPage extends PageTemplate {
     @FindBy(className = "el-message__group")
     private WebElement verifySuccessful;
 
-    @FindBy(xpath = "//span[text()='确定']/ancestor::button")
+    @FindBy(xpath = "(//span[text()='确定']/ancestor::button)[last()]")
     private WebElement ensureButton;
 
     @FindBy(xpath = "//span[text()='crontab']")
@@ -124,7 +124,7 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(@class,'help-text')])[1]")
     private WebElement tipText;
 
-    @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']/ancestor::div[1]/following-sibling::p")
+    @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']/ancestor::div[1]/following-sibling::div/p")
     private WebElement errorMessage;
 
     public WebElement getErrorMessage() {
