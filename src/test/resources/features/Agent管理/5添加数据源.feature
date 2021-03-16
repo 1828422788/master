@@ -99,10 +99,6 @@ Feature: Agent添加数据源
     And I set the parameter "Tag" with value "autohekascripttest"
     When I choose the "<charsetKind>" from the "CharsetKind"
     And I click the "Next" button
-#    And I will see the element "CheckScriptFile" name is "/sbin/service"
-#    And I will see the element "CheckParam" name is "rsyslog status"
-#    And I will see the element "CheckChangeRowRule" name is "\n"
-#    And I will see the element "CheckInternal" name is "120 秒"
     And I click the "Finish" button
     And I wait for loading invisible
     And I will see the element "Addsuccessmsg" name is "添加成功"

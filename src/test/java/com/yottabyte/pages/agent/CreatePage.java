@@ -89,7 +89,7 @@ public class CreatePage extends PageTemplate {
         return SyslogEditip;
     }
 
-    @FindBy(xpath = "//div[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[1]/descendant::input")
+    @FindBy(xpath = "//span[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[1]/descendant::input")
     private WebElement SyslogEditip;
 
     public WebElement getSyslogEditappname() {
@@ -104,13 +104,13 @@ public class CreatePage extends PageTemplate {
         return SyslogEditdelete;
     }
 
-    @FindBy(xpath = "//div[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[2]/descendant::input")
+    @FindBy(xpath = "//span[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[2]/descendant::input")
     private WebElement SyslogEditappname;
 
-    @FindBy(xpath = "//div[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[3]/descendant::input")
+    @FindBy(xpath = "//span[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[3]/descendant::input")
     private WebElement SyslogEdittag;
 
-    @FindBy(xpath = "//div[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[5]/descendant::input")
+    @FindBy(xpath = "//span[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[5]/descendant::span")
     private WebElement SyslogEditdelete;
 
     public WebElement getSyslogChar() {
@@ -118,22 +118,8 @@ public class CreatePage extends PageTemplate {
         WebElement element = webDriver.findElement(By.xpath("(//div[contains(@class,'ant-select-selection--single')])[last()]/span/i"));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return dropdownUtils.getLastDropdownList();
-    }
-
-    @FindBy(xpath = "//label[contains(@title,'appname')]/parent::div/following-sibling::div//input" )
-    private WebElement BeatsAppname;
-
-    @FindBy(xpath = "//label[contains(@title,'tag')]/parent::div/following-sibling::div//input" )
-    private WebElement BeatsTag;
-
-
-    public WebElement getBeatsAppname() {
-        return BeatsAppname;
-    }
-
-    public WebElement getBeatsTag() {
-        return BeatsTag;
+        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu'])[last()]"));
+//        return dropdownUtils.getLastDropdownList();
     }
 
     public WebElement getCheckListenaddress() {
@@ -448,7 +434,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='连续监视']/following-sibling::span")
     private WebElement Monitoring;
 
-    @FindBy(xpath = "//div[@class='ant-form-explain']")
+    @FindBy(xpath = "//div[@class='yotta-form-field-help-text']")
     private WebElement PreviewMessage;
 
     public WebElement getEditMysql() {
