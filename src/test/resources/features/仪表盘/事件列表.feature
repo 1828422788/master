@@ -319,6 +319,7 @@ Feature: 仪表盘事件列表
     When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I choose the "跳转到搜索页" from the "DrillAction"
+    And I wait for "1000" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "500" millsecond
@@ -326,7 +327,7 @@ Feature: 仪表盘事件列表
 #    And I click the "HoverElement" button
     And I move the mouse pointer to the "HoverElement"
     And I click the "IconRight" button
-    And I click the "Chengdushi" button
+    And I click the "ChengDuShi" button
     And switch to another window
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.geo.city:成都市 AND 'apache.geo.city':成都市"

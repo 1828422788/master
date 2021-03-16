@@ -200,7 +200,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//li[text()='查看上下文']")
     private WebElement context;
 
-    @FindBy(xpath = "//span[text()='搜索']/ancestor::button/preceding-sibling::div//input")
+    @FindBy(xpath = "//span[text()='搜索']/ancestor::button/preceding-sibling::div//span")
     private WebElement timeRange;
 
     @FindBy(tagName = "thead")
