@@ -15,8 +15,8 @@ Feature: 仪表盘桑基图
   @dashboard @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
-    And I click the "CreateButton" button
-    And I click the "Create" button
+    And I click the "NewTrendButton" button
+#    And I click the "Create" button
     Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
@@ -24,6 +24,7 @@ Feature: 仪表盘桑基图
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
+    And I wait for loading invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "<name>"
@@ -82,7 +83,7 @@ Feature: 仪表盘桑基图
     And I wait for "Relation" will be visible
     And I click the "Relation" button
     And I click the "<targetName>" button
-    And I hide the element "Content"
+#    And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
     And I choose the "apache.x_forward" from the "DataValue"
