@@ -265,7 +265,8 @@ Feature: 仪表盘事件列表
     Then I will see the "splSearch.SearchPage" page
     Then I will see the element "SearchInput" name is "'apache.geo.city': 成都市"
     And I wait for "2000" millsecond
-    Then I will see the input element "TimeRange" value will contains "今天"
+    Then I will see the "TimeRange" result will contain "今天"
+#    Then I will see the input element "TimeRange" value will contains "今天"
     And switch to another window
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -330,6 +331,7 @@ Feature: 仪表盘事件列表
     And I click the "ChengDuShi" button
     And switch to another window
     And I will see the "splSearch.SearchPage" page
+#    Then I will see the element "SearchInput" name is "apache.geo.city:成都市 AND 'apache.geo.city':成都市"
     Then I will see the "SearchInput" result will be "apache.geo.city:成都市 AND 'apache.geo.city':成都市"
 
   @dashboard @dashboardSmoke
