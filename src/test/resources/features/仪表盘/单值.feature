@@ -1,124 +1,124 @@
 Feature: 仪表盘单值
 
-#  @dashboard @dashboardSmoke
-#  Scenario Outline: 新建仪表盘
-#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+  @dashboard @dashboardSmoke
+  Scenario Outline: 新建仪表盘
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the "Create" button
+    When I set the parameter "DashBoardName" with value "<name>"
+    And I click the "Ensure" button
+    Then I will see the success message "新建仪表盘成功"
+
+    Examples:
+      | name  |
+      | 仪表盘单值 |
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 创建仪表盘所用趋势图
+    And open the "trend.ListPage" page for uri "/trend/"
+    And I click the "NewTrendButton" button
 #    And I click the "Create" button
-#    When I set the parameter "DashBoardName" with value "<name>"
-#    And I click the "Ensure" button
-#    Then I will see the success message "新建仪表盘成功"
-#
-#    Examples:
-#      | name  |
-#      | 仪表盘单值 |
-#
-#  @dashboard @dashboardSmoke
-#  Scenario Outline: 创建仪表盘所用趋势图
-#    And open the "trend.ListPage" page for uri "/trend/"
-#    And I click the "NewTrendButton" button
-##    And I click the "Create" button
-#    Then I will see the "trend.CreatePageDash" page
-#    And I set the parameter "SearchInput" with value "<spl>"
-#    And I click the "DateEditor" button
-#    And I click the "Today" button
-#    And I click the "SearchButton" button
-#    And I wait for "Header" will be visible
-#    And I click the "NextButton" button
-#    And I wait for loading invisible
-#    And I wait for "Header" will be visible
-#    And I click the "NextButton" button
-#    When I set the parameter "NameInput" with value "<name>"
-#    And I click the "Complete" button
-#    And I wait for "SuccessCreate" will be visible
-#
-#    Examples:
-#      | spl                                                                                                | name  |
-#      | tag:sample04061424_display \| stats avg(apache.status) as a_\|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\") | 仪表盘单值 |
-#
-#  @dashboard @dashboardSmoke
-#  Scenario Outline: 新建标签页
-#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-#    And I wait for loading invisible
-#    And I click the detail which name is "仪表盘<name>"
-#    Then I will see the "dashboard.DetailPage" page
-#    When I set the parameter "TagName" with value "<name>"
-#    And I click the "EnsureCreateTagButton" button
-#    And I wait for loading complete
-#    And I back to before
-#
-#    Examples:
-#      | name |
-#      | 单值   |
-#
-#  @dashboard @dashboardSmoke
-#  Scenario Outline: 添加图表
-#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-#    And I wait for loading invisible
-#    And I click the detail which name is "仪表盘单值"
-#    Then I will see the "dashboard.DetailPage" page
-#    And I wait for "AddEventButton" will be visible
-#    And I click the "AddEventButton" button
-#    And I wait for "500" millsecond
-#    And I click the "AddChart" button
-#    And I wait for "SpinDot" will be invisible
-#    And I set the parameter "SearchChartInput" with value "<name>"
-#    And I wait for loading invisible
-#    And I click the "{'Checkbox':'<name>'}" button
-#    And I click the "Ensure" button
-#    And I wait for "2000" millsecond
-#
-#    Examples:
-#      | name   |
-#      | 仪表盘单值图 |
-#
-#  @dashboard @dashboardSmoke
-#  Scenario: 修改为单值 RZY-342
-#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-#    And I wait for loading invisible
-#    And I click the detail which name is "仪表盘单值"
-#    Then I will see the "dashboard.DetailPage" page
-#    And I click the "ChartType" button
-#    And I wait for "1000" millsecond
-#    Then I will see the "trend.CreatePageDash" page
-#    And I wait for "2000" millsecond
-#    And I click the "Other" button
-#    And I click the "Single" button
-##    And I hide the element "Content"
-#    And I click the "SettingChart" button under some element
-#    And I choose the "a_" from the "DataField"
-#    And I wait for "1000" millsecond
-#    And I choose the "icon" from the "DisplayField"
-#    And I click the "Exhibition" button
-#    And I set the parameter "WordSize" with value "30"
-#    And I wait for "1000" millsecond
-#    And I choose the "3" from the "DataPrecision"
-#    And I wait for "1000" millsecond
-#    And I click the "ThousandSeparator" button
-#    And I set the parameter "Unit" with value "个"
-#    And I wait for "1000" millsecond
-#    Then I click the "Generate" button
-#    And I wait for "1000" millsecond
-#    And I click the "SettingChart" button under some element
-#    Then I will see the "dashboard.DetailPage" page
-#    And I wait for "2000" millsecond
-#    And I click the "TrendTitle" button under some element
-#    And I wait for "3000" millsecond
-#
-#  @dashboard @dashboardSmoke
-#  Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3737
-#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-#    And I wait for loading invisible
-#    And I click the detail which name is "<name>"
-#    Then I will see the "dashboard.DetailPage" page
-#    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
-#    And I click the "Edit" button
-##    Then I will see the "TextLayer" result will contain "<json>"
-##    Then I will see the "TextLayer" result will be "<json>"
-#    Then I will see the dashboard highEditor text will contain "<json>"
-#
-#    Examples:
-#      | name    | json                                                                                                                                                                                                                                                                                                                                                                                           |
-#      | 仪表盘单值 |  \n  "chart": {\n    "chartType": "single",\n    "field": "a_",\n    "fontSize": "30",\n    "precision": "3",\n    "useThousandSeparators": true,\n    "unit": "个",\n    "unitPosition": "after",\n    "displayField": "icon",\n    "subtitle": "",\n    "useSparkline": false,\n    "sparklineXAxisField": "",\n    "singleFieldDisplayType": "default",\n    "singleChartIcon": "none",\n    "displayMode": "default",\n    "color": "#5C9DF5",\n    "colorFillingMode": "font",\n    "liveRefreshMode": false\n  } |
+    Then I will see the "trend.CreatePageDash" page
+    And I set the parameter "SearchInput" with value "<spl>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+    And I wait for loading invisible
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+    When I set the parameter "NameInput" with value "<name>"
+    And I click the "Complete" button
+    And I wait for "SuccessCreate" will be visible
+
+    Examples:
+      | spl                                                                                                | name  |
+      | tag:sample04061424_display \| stats avg(apache.status) as a_\|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\") | 仪表盘单值 |
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 新建标签页
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘<name>"
+    Then I will see the "dashboard.DetailPage" page
+    When I set the parameter "TagName" with value "<name>"
+    And I click the "EnsureCreateTagButton" button
+    And I wait for loading complete
+    And I back to before
+
+    Examples:
+      | name |
+      | 单值   |
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 添加图表
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘单值"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "AddEventButton" will be visible
+    And I click the "AddEventButton" button
+    And I wait for "500" millsecond
+    And I click the "AddChart" button
+    And I wait for "SpinDot" will be invisible
+    And I set the parameter "SearchChartInput" with value "<name>"
+    And I wait for loading invisible
+    And I click the "{'Checkbox':'<name>'}" button
+    And I click the "Ensure" button
+    And I wait for "2000" millsecond
+
+    Examples:
+      | name   |
+      | 仪表盘单值图 |
+
+  @dashboard @dashboardSmoke
+  Scenario: 修改为单值 RZY-342
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘单值"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "ChartType" button
+    And I wait for "1000" millsecond
+    Then I will see the "trend.CreatePageDash" page
+    And I wait for "2000" millsecond
+    And I click the "Other" button
+    And I click the "Single" button
+#    And I hide the element "Content"
+    And I click the "SettingChart" button under some element
+    And I choose the "a_" from the "DataField"
+    And I wait for "1000" millsecond
+    And I choose the "icon" from the "DisplayField"
+    And I click the "Exhibition" button
+    And I set the parameter "WordSize" with value "30"
+    And I wait for "1000" millsecond
+    And I choose the "3" from the "DataPrecision"
+    And I wait for "1000" millsecond
+    And I click the "ThousandSeparator" button
+    And I set the parameter "Unit" with value "个"
+    And I wait for "1000" millsecond
+    Then I click the "Generate" button
+    And I wait for "1000" millsecond
+    And I click the "SettingChart" button under some element
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "2000" millsecond
+    And I click the "TrendTitle" button under some element
+    And I wait for "3000" millsecond
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3737
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    And I click the "Edit" button
+#    Then I will see the "TextLayer" result will contain "<json>"
+#    Then I will see the "TextLayer" result will be "<json>"
+    Then I will see the dashboard highEditor text will contain "<json>"
+
+    Examples:
+      | name    | json                                                                                                                                                                                                                                                                                                                                                                                           |
+      | 仪表盘单值 |  \n  "chart": {\n    "chartType": "single",\n    "field": "a_",\n    "fontSize": "30",\n    "precision": "3",\n    "useThousandSeparators": true,\n    "unit": "个",\n    "unitPosition": "after",\n    "displayField": "icon",\n    "subtitle": "",\n    "useSparkline": false,\n    "sparklineXAxisField": "",\n    "singleFieldDisplayType": "default",\n    "singleChartIcon": "none",\n    "displayMode": "default",\n    "color": "#5C9DF5",\n    "colorFillingMode": "font",\n    "liveRefreshMode": false\n  } |
 
   @dashboard @dashboardSmoke
   Scenario: 单值图的千分隔符

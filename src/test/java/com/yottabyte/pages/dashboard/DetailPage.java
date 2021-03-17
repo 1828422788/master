@@ -297,7 +297,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[contains(@class,'sc-bdfBwQ')]/parent::div")
     private WebElement lineChartLegend;
 
-    @FindBy(xpath = "//div[@id='fullscreenAll']//div[@id]/div[1]")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-chart_title-dom']")
     private WebElement trendTitle;
 
     @FindBy(xpath = "//span[text()='second'][@class='main']")
@@ -562,7 +562,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='=']//i")
     private WebElement paramValue;
 
-    @FindBy(xpath = "//div[text()='=']/div[2]//i")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-drilldown_filter_value-select']")
     private WebElement paramValue1;
 
     @FindBy(className = "is-multiple")
@@ -577,13 +577,13 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='${start},${end}']")
     private WebElement startEnd;
 
-    @FindBy(xpath = "//span[text()='+ 新建']/ancestor::button")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-drilldown_filter_add-input']")
     private WebElement newCreat;
 
-    @FindBy(xpath = "(//input[@class='ant-input'])[not(@placeholder)]/preceding-sibling::div")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-drilldown_filter_action-select']")
     private WebElement optionItems;
 
-    @FindBy(xpath = "(//input[@class='ant-input'])[not(@placeholder)]")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-drilldown_filter_token-input']")
     private WebElement tokenInput;
 
     @FindBy(xpath = "(//input[@class='ant-input'])[not(@placeholder)]/following-sibling::div")

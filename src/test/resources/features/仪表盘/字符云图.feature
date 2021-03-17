@@ -84,19 +84,21 @@ Feature: 仪表盘字符云图
     And I wait for "Other" will be visible
     And I click the "Other" button
     And I click the "<image>" button
-    And I hide the element "Content"
+#    And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
     And I wait for "1000" millsecond
     And I choose the "count()" from the "DataValue"
     And I click the "Divide" button
-    And I choose the "apache.clientip" from the "DataValue"
+    And I wait for "1000" millsecond
+#    And I choose the "apache.clientip" from the "DataValue"
     And I click the "Exhibition" button
     And I click the "StartColour" button
     And I click the "Orange" button
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
+    And I click the "Setting" button under some element
+#    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button
     And take part of "FullScreen" with name "dashboard/<name>"
@@ -112,7 +114,7 @@ Feature: 仪表盘字符云图
     And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlinedr" in dashboard
+    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     Then I will see the dashboard highEditor text will contain "<json>"
 
