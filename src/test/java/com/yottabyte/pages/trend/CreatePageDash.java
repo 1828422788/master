@@ -400,7 +400,7 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//span[text()='上限'])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement topLimit;
 
-    @FindBy(xpath = "(//span[text()='下限'])[last()]/ancestor::div/following-sibling::div[1]")
+    @FindBy(xpath = "(//span[text()='下限'])[last()]/parent::div/following-sibling::div[1]")
     private WebElement lowerLimit;
 
     @FindBy(xpath = "(//div[@class='img geostatsmap'])[last()]")
@@ -420,6 +420,9 @@ public class CreatePageDash extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='字体']")
     private WebElement font;
+
+    @FindBy(xpath = "(//span[contains(text(),'单位')]/ancestor::div[1]/following-sibling::div//input)[1]")
+    private WebElement unit;
 
     @FindBy(xpath = "(//div[text()='按字段'])[last()]")
     private WebElement accordingField;
@@ -642,10 +645,17 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//span[contains(@class,'yotta-icon-SettingFilled')])[last()]")
     private WebElement setting;
 
-    @FindBy(xpath = "//span[text()='数值字段']/ancestor::div/following-sibling::div//i")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-chart_setting-dom']")
+    private WebElement settingChart;
+
+    public WebElement getSettingChart() {
+        return settingChart;
+    }
+
+    @FindBy(xpath = "//span[text()='数值字段']/ancestor::div/following-sibling::div//span")
     private WebElement dataField;
 
-    @FindBy(xpath = "//span[text()='字段值']/parent::div/following-sibling::div//span[@class='yotta-select-selection-value']")
+    @FindBy(xpath = "//span[text()='字段值']/parent::div/following-sibling::div//span[@class]")
     private WebElement dataValue;
 
     @FindBy(xpath = "//span[text()='字段值']/parent::div/following-sibling::div//span[@class='yotta-select-selection-placeholder']")
@@ -675,11 +685,11 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//span[text()='图中展示']/ancestor::div/following-sibling::div)[1]")
     private WebElement displayedOnChart;
 
-    @FindBy(xpath = "//input[@placeholder='展示字号']")
+    @FindBy(xpath = "//input[@placeholder='请输入数字']")
     private WebElement wordSize;
 
 
-    @FindBy(xpath = "//span[text()='数据精度']/ancestor::div/following-sibling::div")
+    @FindBy(xpath = "//span[text()='数据精度']/parent::div/following-sibling::div")
     private WebElement dataPrecision;
 
     @FindBy(xpath = "//span[text()='行数']/preceding-sibling::input")
@@ -1724,7 +1734,7 @@ public class CreatePageDash extends PageTemplate {
 //--Input elements
 
     public WebElement getUnit() {
-        return getInputSetting("单位");
+        return unit;
     }
 
     public WebElement getRepulsion() {

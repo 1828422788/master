@@ -91,20 +91,20 @@ Feature: 仪表盘区间图
     And I choose the "ts" from the "DataValue"
     And I click the "Yaxis" button
     And I choose the "count" from the "Actual"
+    And I wait for "1000" millsecond
     And I choose the "_predict_count" from the "Predict"
+    And I wait for "1000" millsecond
     And I choose the "upper95" from the "TopLimit"
+    And I wait for "1000" millsecond
     And I choose the "lower95" from the "LowerLimit"
+    And I wait for "2000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
-#    Then I hide the element "SettingContent"
-#    And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I click the "TrendTitle" button under some element
     And I wait for "3000" millsecond
-#    And take part of "FullScreen" with name "dashboard/<name>"
-#    Then I compare source image "dashboard/<name>" with target image "dashboard/<targetName>"
 
     Examples:
       | name   | targetName |
@@ -118,12 +118,12 @@ Feature: 仪表盘区间图
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
-#    Then I will see the "TextLayer" result will contain "<json>"
-    Then I will see the dashboard highEditor text will contain "<json>"
+    Then I will see the "TextLayer" result will contain "<json>"
+#    Then I will see the dashboard highEditor text will contain "<json>"
 #    Then I will see the "TextLayer" result will be "<json>"
 
     Examples:
-      | name    | json                                                                                                                                                                                                                                                                                                                                                                           |
+      | name    | json                                                                                                                                                                                                                                                                                                                              |
       | 仪表盘区间图 |  \n  "chart": {\n    "chartType": "rangeline",\n    "xAxis": {\n      "field": "ts"\n    },\n    "precision": "",\n    "yAxis": {\n      "field": "count",\n      "predictField": "_predict_count",\n      "anomalyField": ""\n    },\n    "boundary": {\n      "upperField": "upper95",\n      "lowerField": "lower95"\n    } |
 
   @dashboard
@@ -166,7 +166,7 @@ Feature: 仪表盘区间图
     And I click the detail which name is "仪表盘区间图"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘区间图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlinedr" in dashboard
+    When the chart title is "仪表盘区间图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{  "title": "仪表盘区间图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | bucket timestamp span=1h as ts | stats count('apache.status') as 'count' by ts | esma count timefield=ts",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "rangeline",    "xAxis": {      "field": "ma"    },    "precision": "",    "yAxis": {      "field": "count",      "predictField": "_predict_count",      "anomalyField": ""    },    "boundary": {      "upperField": "upper95",      "lowerField": "lower95"    }  }}" to json editor
     And I wait for "500" millsecond

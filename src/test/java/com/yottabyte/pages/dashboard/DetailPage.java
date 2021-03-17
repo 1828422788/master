@@ -520,7 +520,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='钻取变量单值']/following-sibling::div[last()]/div/div[last()]/div/span")
     private WebElement singleValue;
 
-    @FindBy(xpath = "//div[text()='仪表盘单值']/following-sibling::div[last()]/div/div[last()]/div/span[1]")
+    @FindBy(xpath = "//div[text()='仪表盘单值']/following-sibling::div[last()]//span[1]")
     private WebElement dashboardSingleValue;
 
     @FindBy(xpath = "//span[text()='thumbs-up:']/parent::div/parent::div")
@@ -748,7 +748,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//div[@class='yotta-dropdown'])[2]/span/span")
     private WebElement settingIcon;
 
-    @FindBy(xpath = "(//i[@class='anticon css-ifnfqv ant-dropdown-trigger'])[3]")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-chart_setting-dom']")
     private WebElement settingChart;
 
     @FindBy(xpath = "(//ul[contains(@class,'yotta-menu')])[1]/li")
