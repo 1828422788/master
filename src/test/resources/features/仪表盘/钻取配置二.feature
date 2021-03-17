@@ -86,7 +86,7 @@ Feature: 仪表盘钻取配置二
     And I wait for loading invisible
     And I click the detail which name is "钻取配置二"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "钻取配置1" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取配置1" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for loading invisible
     Then I will see the element "DrillActionText" value is "无钻取动作"
@@ -97,7 +97,7 @@ Feature: 仪表盘钻取配置二
     And I wait for loading invisible
     And I click the detail which name is "钻取配置二"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "钻取配置1" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取配置1" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for loading invisible
     And I choose the "跳转到自定义URL" from the "DrillAction"

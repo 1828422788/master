@@ -122,7 +122,7 @@ Feature: 仪表盘柱状图
     And I wait for loading invisible
     And I click the detail which name is "仪表盘柱状图"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "仪表盘柱状图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I set the parameter "Spl" with value "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10"
@@ -141,7 +141,7 @@ Feature: 仪表盘柱状图
     And I click the detail which name is "仪表盘柱状图"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘柱状图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -167,7 +167,7 @@ Feature: 仪表盘柱状图
     And I click the detail which name is "仪表盘柱状图"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘柱状图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -194,7 +194,7 @@ Feature: 仪表盘柱状图
     And I click the detail which name is "仪表盘柱状图"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘柱状图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -221,7 +221,7 @@ Feature: 仪表盘柱状图
     And I click the detail which name is "仪表盘柱状图"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘柱状图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -247,7 +247,7 @@ Feature: 仪表盘柱状图
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -279,7 +279,7 @@ Feature: 仪表盘柱状图
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到标签页" from the "DrillAction"
@@ -311,7 +311,7 @@ Feature: 仪表盘柱状图
     And I click the detail which name is "仪表盘柱状图"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘柱状图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"

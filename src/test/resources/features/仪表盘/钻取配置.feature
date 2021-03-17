@@ -83,7 +83,7 @@ Feature: 仪表盘钻取配置
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘钻取配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘钻取配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I "unchecked" the checkbox which name is "在浏览器新标签页中打开"
@@ -100,7 +100,7 @@ Feature: 仪表盘钻取配置
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘钻取配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘钻取配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
@@ -117,7 +117,7 @@ Feature: 仪表盘钻取配置
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘钻取配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘钻取配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
@@ -141,7 +141,7 @@ Feature: 仪表盘钻取配置
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘钻取配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘钻取配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
@@ -165,7 +165,7 @@ Feature: 仪表盘钻取配置
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘钻取配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘钻取配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible
     And I choose the "跳转到自定义URL" from the "DrillAction"
@@ -187,7 +187,7 @@ Feature: 仪表盘钻取配置
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘钻取配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘钻取配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I choose the "跳转到自定义URL" from the "DrillAction"
     And I set the parameter "Url" with value "<url>"
@@ -260,7 +260,7 @@ Feature: 仪表盘钻取配置
     And I wait for loading invisible
     And I click the detail which name is "钻取跳转"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "测试标签钻取" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "测试标签钻取" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I set the parameter "Spl" with value "tag:sample04061424_chart AND apache.geo.city:${city}| stats count() by apache.geo.country, apache.geo.province, apache.geo.city"
@@ -275,7 +275,7 @@ Feature: 仪表盘钻取配置
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘钻取配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘钻取配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible
     And I choose the "跳转到标签页" from the "DrillAction"
@@ -300,7 +300,7 @@ Feature: 仪表盘钻取配置
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "仪表盘钻取配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘钻取配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I set the parameter "Spl" with value "* AND NOT tag:${double_quotes|d} | stats count() by ${single_quotes|s}"
@@ -322,7 +322,7 @@ Feature: 仪表盘钻取配置
     Then I click the "Ensure" button
     And I wait for "Progress" will be invisible
     And I set value with element "TableList"
-    When the chart title is "仪表盘钻取配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘钻取配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I set the parameter "Spl" with value "* AND NOT tag:"sample04061424_display" | stats count() by 'appname'"

@@ -115,7 +115,7 @@ Feature: 仪表盘饼状图
     And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     Then I will see the "TextLayer" result will contain "<json>"
 #    Then I will see the "TextLayer" result will be "<json>"
@@ -132,7 +132,7 @@ Feature: 仪表盘饼状图
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
     Then I wait for "PieData" will be visible
-    When the chart title is "仪表盘饼状图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘饼状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{"title": "仪表盘饼状图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "pie","field": "count()qwert","byFields": ["apache.resp_lenasdfg"],"precision": "","useFlameDrillDown": false}}" to json editor
     And I wait for "500" millsecond
@@ -149,7 +149,7 @@ Feature: 仪表盘饼状图
     And I click the detail which name is "仪表盘饼状图"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘饼状图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘饼状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘饼状图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "<chartType>",    "field": "count()",    "byFields": [      "apache.clientip"    ],    "precision": "",    "useFlameDrillDown": false  }}" to json editor
     And I wait for "500" millsecond
@@ -177,7 +177,7 @@ Feature: 仪表盘饼状图
     And I click the detail which name is "仪表盘饼状图"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘饼状图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘饼状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘饼状图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "pie",    "field": "<field>",    "byFields": [      "<byField>"    ],    "precision": "",    "useFlameDrillDown": false  }}" to json editor
     And I wait for "500" millsecond

@@ -95,7 +95,7 @@ Feature: 仪表盘多选菜单数组操作
     And I click the detail which name is "仪表盘多选菜单数组操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible
     And I choose the "管理本页过滤项/输入项数值" from the "DrillAction"
@@ -124,7 +124,7 @@ Feature: 仪表盘多选菜单数组操作
     And I click the "ChengDuShi" button
     And I click the "Nanjingshi" button
     And I wait for "1000" millsecond
-    When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible
     And I choose the "管理本页过滤项/输入项数值" from the "DrillAction"
@@ -148,7 +148,7 @@ Feature: 仪表盘多选菜单数组操作
     And I click the detail which name is "仪表盘多选菜单数组操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible
     And I choose the "管理本页过滤项/输入项数值" from the "DrillAction"
@@ -179,7 +179,7 @@ Feature: 仪表盘多选菜单数组操作
     And I click the "FilterDropDown1" button
     Then I wait for "NanjingshiList" will be visible
     And I wait for "1000" millsecond
-    When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible
     And I choose the "管理本页过滤项/输入项数值" from the "DrillAction"

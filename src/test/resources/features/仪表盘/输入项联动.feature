@@ -94,7 +94,7 @@ Feature: 仪表盘输入项联动
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
     And I choose the "192.168.1.171" from the "LastFilter"
     And I click the "Update" button
-    When the chart title is "测试输入项联动" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "测试输入项联动" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for "5000" millsecond
     And I click the "OpenInSearch" button
@@ -123,7 +123,7 @@ Feature: 仪表盘输入项联动
     And I click the detail which name is "仪表盘输入项联动"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "测试输入项联动" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "测试输入项联动" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for "Spl" will be visible
     And I set the parameter "Spl" with value "${filter|e}"
@@ -140,7 +140,7 @@ Feature: 仪表盘输入项联动
     And I set the parameter "FilterInput" with value "a+b"
     And I click the "Update" button
     And I wait for "500" millsecond
-    When the chart title is "测试输入项联动" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "测试输入项联动" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for "OpenInSearch" will be visible
     And I click the "OpenInSearch" button

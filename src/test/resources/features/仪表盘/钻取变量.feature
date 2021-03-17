@@ -132,7 +132,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量字符云图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -158,7 +158,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量字符云图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -185,7 +185,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量字符云图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -211,7 +211,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量字符云图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -238,7 +238,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量字符云图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -266,7 +266,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量字符云图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -358,7 +358,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量区划地图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -384,7 +384,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量区划地图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -411,7 +411,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量区划地图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -437,7 +437,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量区划地图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -463,7 +463,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量区划地图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -490,7 +490,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量区划地图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -581,7 +581,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量饼图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -605,7 +605,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量饼图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -630,7 +630,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量饼图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -654,7 +654,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量饼图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -679,7 +679,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量饼图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -704,7 +704,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量饼图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -797,7 +797,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -840,7 +840,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I click the "DateEditor" button
@@ -945,7 +945,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量单值value" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量单值value" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I click the "DateEditor" button
@@ -1022,7 +1022,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量表格" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -1047,7 +1047,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量表格" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -1081,7 +1081,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量表格" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -1105,7 +1105,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量表格" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -1130,7 +1130,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量表格" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -1155,7 +1155,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量表格" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I click the "DateEditor" button
