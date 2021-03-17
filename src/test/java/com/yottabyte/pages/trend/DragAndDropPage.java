@@ -495,6 +495,10 @@ public class DragAndDropPage extends CreatePage {
         return getYottaCheckbox("trend-BI_field_connectnull-switch");
     }
 
+    public WebElement getAddColor() {
+        return getYottaDiv("trend-BI_param_chartStartingColor-dom");
+    }
+
     public WebElement getHomeButton() {
         return homeButton;
     }
@@ -512,11 +516,11 @@ public class DragAndDropPage extends CreatePage {
     }
 
     private WebElement getElementById(String name) {
-        return webDriver.findElement(By.xpath("//div[@yotta-test=trend-BI_" + name + "-icon']"));
+        return webDriver.findElement(By.xpath("//div[@yotta-test='trend-BI_" + name + "-icon']"));
     }
 
     private WebElement getDraggableElement(String name) {
-        return webDriver.findElement(By.xpath("//div[@yotta-test='trend-BI_draggable_field-dom']/span[text()='" + name + "']"));
+        return webDriver.findElement(By.xpath("//span[text()='" + name + "']/ancestor::div[@yotta-test='trend-BI_draggable_field-dom']"));
     }
 
     private WebElement getChartButton(String name) {

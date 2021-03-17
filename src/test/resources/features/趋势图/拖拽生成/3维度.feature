@@ -21,12 +21,11 @@ Feature: 趋势图_拖拽_维度
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
     And I drag the element "Method" to the "Values"
+    And I drag the element "Method" to the "Dimensions"
 
 
   Scenario Outline: drag_and_drop_dimensions
     And I click the "<chartType>" button
-    And I wait for "CompareBy" will be visible
-    And I drag the element "Method" to the "CompareBy"
     Then I wait for "Chart" will be visible
     And I wait for "AddColor" will be visible
     And I click the "AddColor" button
@@ -36,7 +35,7 @@ Feature: 趋势图_拖拽_维度
 
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
-    And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.method) by apache.method"
+    And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.method) by apache.method"
     When I click the "CloseSPL" button
     And I wait for "500" millsecond
     Then I wait for "Chart" will be visible
