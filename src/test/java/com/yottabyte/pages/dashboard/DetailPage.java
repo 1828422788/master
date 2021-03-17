@@ -532,10 +532,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='钻取类型：']/following-sibling::div[@class='yotta-select yotta-select-large']")
     private WebElement drillAction;
 
-    @FindBy(xpath = "//label[text()='省下钻字段']/following-sibling::div[@class='ant-select ant-select-enabled']")
+    @FindBy(xpath = "//label[text()='省下钻字段：']/following-sibling::div[@yotta-test='dashboard-drilldown_map_province-select']")
     private WebElement provinceDrillAction;
 
-    @FindBy(xpath = "//label[text()='市下钻字段']/following-sibling::div[@class='ant-select ant-select-enabled']")
+    @FindBy(xpath = "//label[text()='市下钻字段：']/following-sibling::div[@yotta-test='dashboard-drilldown_map_city-select']")
     private WebElement cityDrillAction;
 
     @FindBy(xpath = "//label[contains(text(),'自定义URL')]/following-sibling::textarea")
