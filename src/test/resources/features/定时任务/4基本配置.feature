@@ -112,7 +112,7 @@ Feature: 定时任务_基本配置
     And I click the "SaveButton" button under some element
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "保存成功"
-    And I click the "OK" button under some element
+    And I click the "EnsureButton" button under some element
 
   Scenario: change_spl
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -131,7 +131,7 @@ Feature: 定时任务_基本配置
     And I click the "SaveButton" button under some element
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "保存成功"
-    And I click the "OK" button under some element
+    And I click the "EnsureButton" button under some element
     Then I will see the "timedTask.ListPage" page
 
   Scenario: verify_changes

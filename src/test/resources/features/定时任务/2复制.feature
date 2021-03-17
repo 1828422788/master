@@ -44,9 +44,9 @@ Feature: 定时任务复制
     And I will see the input element "Number" value will be "20"
     And I set the parameter "Number" with value "123"
     And I click the "SaveButton" button under some element
-    And I wait for "OK" will be visible
+    And I wait for "EnsureButton" will be visible
     And I will see the success message "保存成功"
-    And I click the "OK" button under some element
+    And I click the "EnsureButton" button under some element
     Then I will see the "timedTask.ListPage" page
 
     When the data name is "{'column':'1','name':'copytask'}" then i click the "复制" button in more menu
@@ -95,7 +95,7 @@ Feature: 定时任务复制
     And I will see the input element "Name" value will be "copytask(副本)"
     And I will see the input element "Describe" value will be "testing"
     And I will see the input element "Number" value will be "123"
-    And I will see the element "Resource" contains "(*)"
+    And I will see the element "DataSet" contains "(*)"
     And I will see the element "SelectedGroup" contains "auto_package"
     And I will see the element "SelectedApp" contains "test_app"
     And I will see the input element "Period" value will be "5"

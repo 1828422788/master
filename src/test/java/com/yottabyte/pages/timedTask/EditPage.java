@@ -10,71 +10,28 @@ import java.util.List;
 
 public class EditPage extends PageTemplate {
 
-    @FindBy(xpath = "//input[@name='name']")
-    private WebElement name;
+    public EditPage(WebDriver driver) {
+        super(driver);
+        driver.manage().window().fullscreen();
+    }
 
-    @FindBy(xpath = "//textarea[@name='description']")
-    private WebElement describe;
-
-    @FindBy(xpath = "//input[@name='size']")
-    private WebElement number;
-
-    @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div/div/input")
+    @FindBy(xpath = "//div[@yotta-test='schedule-runner-select']//input")
     private WebElement user;
 
     @FindBy(xpath = "//label[text()='数据集']/ancestor::div[1]/following-sibling::div//span")
-    private WebElement resource;
+    private WebElement dataset;
 
-    @FindBy(xpath = "//label[text()='资源标签']/ancestor::div[1]/following-sibling::div")
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']")
     private WebElement taskGroup;
 
-    @FindBy(xpath = "(//label[text()='资源标签']/ancestor::div[1]/following-sibling::div//span[@class='yotta-tag-content'])[1]")
+    @FindBy(xpath = "(//div[@yotta-test='resource_tag-change_resource_tag-select']//span[@class='yotta-tag-content'])[1]")
     private WebElement selectedGroup;
 
-    @FindBy(xpath = "//label[text()='资源标签']/ancestor::div[1]/following-sibling::div//input")
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//input")
     private WebElement taskGroupInput;
-
-    @FindBy(xpath = "//input[@name='frequencyValue']")
-    private WebElement period;
-
-    @FindBy(xpath = "//div[@class='custom']//input[@placeholder='请选择时间']")
-    private WebElement startTime;
 
     @FindBy(xpath = "//div[text()='结果处理方式']")
     private WebElement resultHandling;
-
-    @FindBy(xpath = "//label[text()='添加JDBC']")
-    private WebElement addJDBC;
-
-    @FindBy(xpath = "(//span[text()='JDBC'])[last()]")
-    private WebElement jdbc;
-
-    @FindBy(xpath = "(//input[contains(@name,'.name')])[last()]")
-    private WebElement connectName;
-
-    @FindBy(xpath = "(//input[contains(@name,'.user_name')])[last()]")
-    private WebElement userName;
-
-    @FindBy(xpath = "(//input[contains(@name,'.password')])[last()]")
-    private WebElement password;
-
-    @FindBy(xpath = "(//input[contains(@name,'.host')])[last()]")
-    private WebElement host;
-
-    @FindBy(xpath = "(//input[contains(@name,'.port')])[last()]")
-    private WebElement port;
-
-    @FindBy(xpath = "(//div[contains(@name,'.category')])[last()]")
-    private WebElement databaseType;
-
-    @FindBy(xpath = "(//input[contains(@name,'.database_name')])[last()]")
-    private WebElement dbName;
-
-    @FindBy(xpath = "(//input[contains(@name,'.table_name')])[last()]")
-    private WebElement tableName;
-
-    @FindBy(className = "el-message__group")
-    private WebElement verifySuccessful;
 
     @FindBy(xpath = "(//span[text()='确定']/ancestor::button)[last()]")
     private WebElement ensureButton;
@@ -82,23 +39,14 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='crontab']")
     private WebElement crontab;
 
-    @FindBy(xpath = "//input[@name='crontab']")
-    private WebElement crontabInput;
-
-    @FindBy(xpath = "//label[text()='搜索内容']/ancestor::div[1]/following-sibling::div//textarea")
-    private WebElement textarea;
-
-    @FindBy(xpath = "//div[@name='unit']")
-    private WebElement unit;
-
-    @FindBy(xpath = "//label[text()='运行用户']/ancestor::div[1]/following-sibling::div//span[@class='yotta-select-selection-value']")
+    @FindBy(xpath = "//div[@yotta-test='schedule-runner-select']//span[@class='yotta-select-selection-value']")
     private WebElement selectedUser;
-
-    @FindBy(xpath = "//label[text()='所属应用']/ancestor::div[1]/following-sibling::div")
-    private WebElement appDropdown;
 
     @FindBy(xpath = "//label[text()='所属应用']/ancestor::div[1]/following-sibling::div//span[@class='yotta-select-selection-value']")
     private WebElement selectedApp;
+
+    @FindBy(xpath = "//div[@yotta-test='schedule-jdbc_list-panel']//span[contains(@class,'header-text')]")
+    private WebElement jdbc;
 
     @FindBy(xpath = "//label[text()='count']/following-sibling::input")
     private WebElement count;
@@ -108,9 +56,6 @@ public class EditPage extends PageTemplate {
 
     @FindBy(xpath = "(//label[text()='resplen']/following-sibling::input) | (//label[text()='apache.resplen']/following-sibling::input)")
     private WebElement resplen;
-
-    @FindBy(xpath = "//span[contains(text(),'已存搜索')]")
-    private WebElement savedSearch;
 
     @FindBy(xpath = "(//span[contains(@class,'yotta-menu-item')]/ancestor::ul[contains(@class,'yotta-menu')])")
     private WebElement savedSearchList;
@@ -144,7 +89,7 @@ public class EditPage extends PageTemplate {
     }
 
     public WebElement getSavedSearch() {
-        savedSearch.click();
+        getYottaDiv("schedule-saved_search-dropdown").click();
         return savedSearchList;
     }
 
@@ -161,8 +106,7 @@ public class EditPage extends PageTemplate {
     }
 
     public WebElement getAppDropdown() {
-        appDropdown.click();
-        return super.getLastDropdownList();
+        return getYottaDropdownList("schedule-app-select");
     }
 
     public WebElement getSelectedApp() {
@@ -174,38 +118,32 @@ public class EditPage extends PageTemplate {
     }
 
     public WebElement getUnit() {
-        unit.click();
-        return getLastDropdownList();
+        return getYottaDropdownList("schedule-frequency_unit-select");
     }
 
     public WebElement getTextarea() {
-        return textarea;
+        return getYottaTextarea("schedule-query-input");
     }
 
     public WebElement getSearchTextarea() {
-        return textarea;
+        return getYottaTextarea("schedule-query-input");
     }
 
     public WebElement getCrontabInput() {
         crontab.click();
-        return crontabInput;
+        return getYottaInput("schedule-crontab-input");
     }
 
     public WebElement getEnsureButton() {
         return ensureButton;
     }
 
-    public WebElement getAlert() {
-        return verifySuccessful;
-    }
-
     public WebElement getDbType() {
-        databaseType.click();
-        return super.getLastDropdownList();
+        return getYottaDropdownList("schedule-jdbc_database_type-select");
     }
 
     public WebElement getAddJDBC() {
-        return addJDBC;
+        return getYottaLabel("schedule-add_jdbc-dom");
     }
 
     public WebElement getJdbc() {
@@ -213,31 +151,31 @@ public class EditPage extends PageTemplate {
     }
 
     public WebElement getUserName() {
-        return userName;
+        return getYottaInput("schedule-jdbc_user_name-input");
     }
 
     public WebElement getPassword() {
-        return password;
+        return getYottaInput("schedule-jdbc_password-input");
     }
 
     public WebElement getHost() {
-        return host;
+        return getYottaInput("schedule-jdbc_host-input");
     }
 
     public WebElement getPort() {
-        return port;
+        return getYottaInput("schedule-jdbc_port-input");
     }
 
     public WebElement getDbName() {
-        return dbName;
+        return getYottaInput("schedule-jdbc_database_name-input");
     }
 
     public WebElement getTableName() {
-        return tableName;
+        return getYottaInput("schedule-jdbc_database_table_name-input");
     }
 
     public WebElement getVerify() {
-        return getButton("验证");
+        return getYottaButton("schedule-verify_jdbc-button");
     }
 
     public WebElement getOK() {
@@ -245,7 +183,7 @@ public class EditPage extends PageTemplate {
     }
 
     public WebElement getConnectName() {
-        return connectName;
+        return getYottaInput("schedule-jdbc_connection_name-input");
     }
 
     public WebElement getResultHandling() {
@@ -264,26 +202,16 @@ public class EditPage extends PageTemplate {
         return super.getButton("保存");
     }
 
-    public EditPage(WebDriver driver) {
-        super(driver);
-        driver.manage().window().fullscreen();
-    }
-
-
     public WebElement getName() {
-        return name;
+        return getYottaInput("schedule-name-input");
     }
 
     public WebElement getDescribe() {
-        return describe;
+        return getYottaTextarea("schedule-description-textarea");
     }
 
     public WebElement getNumber() {
-        return number;
-    }
-
-    public WebElement getResource() {
-        return resource;
+        return getYottaInput("schedule-search_number-input");
     }
 
     public WebElement getSelectedGroup() {
@@ -296,21 +224,14 @@ public class EditPage extends PageTemplate {
     }
 
     public WebElement getTaskGroup() {
-        taskGroup.click();
-        return super.getLastDropdownList();
+        return getYottaDropdownList("resource_tag-change_resource_tag-select");
     }
 
     public WebElement getPeriod() {
-        return period;
-    }
-
-    public WebElement getStartTime() {
-        return startTime;
+        return getYottaInput("schedule-frequency_value-input");
     }
 
     public WebElement getDataSet() {
-        return resource;
+        return dataset;
     }
-
-
 }

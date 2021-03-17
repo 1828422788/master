@@ -46,7 +46,7 @@ Feature: 定时任务标签
     And I click the "SaveButton" button under some element
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "保存成功"
-    And I click the "OK" button
+    And I click the "EnsureButton" button
 
   Scenario: delete_schedule
     Given open the "timedTask.ListPage" page for uri "/schedule/"
