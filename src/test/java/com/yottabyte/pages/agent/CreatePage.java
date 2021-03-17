@@ -411,7 +411,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCreateDestObject(){
-        return getSoureceTypeElement("+新建目的对象");
+        return super.getYottaButtonByText("新建目的对象");
     }
 
     public WebElement getListenaddress() {
@@ -648,9 +648,14 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getDetailMoreButton() {
         return DetailMoreButton;
+//        DropdownUtils dropdownUtils = new DropdownUtils();
+//        WebElement element = webDriver.findElement(By.xpath( "//span[(text()='更多')]/parent::span/parent::div"));
+//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+//        ClickEvent.clickUnderneathButton(element);
+//        return webDriver.findElement(By.xpath("(//ul[@class='yotta-menu'])[last()]"));
     }
 
-    @FindBy(xpath = "//span[contains(text(),'更多')]")
+    @FindBy(xpath = "//span[(text()='更多')]/parent::span")
     private WebElement DetailMoreButton;
 
     public WebElement getAddBackUP() {
@@ -666,7 +671,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getBackUp() {
-        return webDriver.findElement(By.xpath("//li[text()='备份配置']"));
+        return webDriver.findElement(By.xpath("//span[text()='备份配置']"));
     }
 
     public WebElement getDocument() {
@@ -1002,7 +1007,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getBackUpSwitchStatus(String name) {
-        return webDriver.findElement(By.xpath("//label[@title='" + name + "']/parent::div/following-sibling::div//span[@class='ant-form-item-children']"));
+        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/parent::div/following-sibling::div//span[@class='yotta-switch-slider']"));
     }
 
     public WebElement getLiElement(String name) {
