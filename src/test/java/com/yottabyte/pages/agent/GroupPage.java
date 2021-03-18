@@ -73,7 +73,7 @@ public class GroupPage extends ListPageFactory {
     }
 
     public WebElement getRole() {
-        String xpath = "//div[@class='ant-select-selection__placeholder']";
+        String xpath = "//div[@class='yotta-select-selection-tags']/span";
         DropdownUtils dropdownUtils = new DropdownUtils();
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
@@ -185,7 +185,7 @@ public class GroupPage extends ListPageFactory {
         return searchRole;
     }
 
-    @FindBy(xpath = "//div[text()='请选择角色']")
+    @FindBy(xpath = "//div/div[@class='yotta-select-selection-content']/div")
     private WebElement searchRole;
 
     public WebElement getAddsuccessmsg() {

@@ -83,7 +83,7 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getAppname() {
-        return super.getPlaceholderInput("请输入 Appname");
+        return super.getPlaceholderInput("请输入 appname");
     }
 
     public WebElement getFilter() {

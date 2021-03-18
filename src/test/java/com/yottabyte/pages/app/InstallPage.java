@@ -58,7 +58,7 @@ public class InstallPage extends PageTemplate {
     @FindBy(id = "register_upload")
     private WebElement upload;
 
-    @FindBy(className = "yotta-select-selection-content")
+    @FindBy(className = "yotta-select-selection-icon")
     private WebElement role;
 
     @FindBy(xpath = "//span[text()='添加数据集']")
@@ -66,6 +66,9 @@ public class InstallPage extends PageTemplate {
 
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement message;
+
+    @FindBy(xpath = "//button[@yotta-test='step-done-button']/span[@class='yotta-button-content']")
+    private WebElement doneMessage;
 
     public WebElement getResultAppDataset() {
         return resultAppDataset;
@@ -154,6 +157,10 @@ public class InstallPage extends PageTemplate {
 
     public WebElement getDoneButton() {
         return super.getButton("完成");
+    }
+
+    public WebElement getDoneMessage() {
+        return doneMessage;
     }
 
     public WebElement getCompleteButton() {

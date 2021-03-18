@@ -88,7 +88,7 @@ public class AuthorizationPage extends PageTemplate {
     }
 
     public WebElement getAgent() {
-        return this.getMenuButton("Agent 管理");
+        return this.getSubMenuButton("Agent管理");
     }
 
     public WebElement getResourceAuth() {
