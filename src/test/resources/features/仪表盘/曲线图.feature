@@ -85,31 +85,40 @@ Feature: 仪表盘曲线图
     And I click the "<targetName>" button
 #    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     And I choose the "apache.clientip" from the "DataValue"
+    And I wait for "1000" millsecond
     And I click the "Right" button
+    And I wait for "1000" millsecond
     And I click the "AscendingOrder" button
+    And I wait for "1000" millsecond
     And I click the "ShowAllLabels" button
     And I click the "Yaxis" button
     And I choose the "count()" from the "DataValue"
+    And I wait for "1000" millsecond
     And I set the parameter "Unit" with value "个"
+    And I wait for "1000" millsecond
     And I click the "Smooth" button
+    And I wait for "1000" millsecond
     And I click the "ConnectEmptyData" button
     And I click the "Group" button
     And I choose the "apache.resp_len" from the "DataValue"
+    And I wait for "1000" millsecond
     And I click the "Example" button
     And I click the "RightPosition" button
+    And I wait for "1000" millsecond
     And I click the "Exhibition" button
     And I click the "StartColour" button
     And I click the "Orange" button
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
-    And I wait for "Progress" will be invisible
+    And I click the "SettingChart" button under some element
+#    Then I hide the element "SettingContent"
+#    And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
-    And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/<name>"
-#    Then I compare source image "dashboard/<name>" with target image "dashboard/<targetName>"
+    And I wait for "2000" millsecond
+    And I click the "TrendTitle" button under some element
+    And I wait for "3000" millsecond
 
     Examples:
       | name   | targetName |

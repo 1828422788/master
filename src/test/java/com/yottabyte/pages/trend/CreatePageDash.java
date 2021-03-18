@@ -358,7 +358,7 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//div[text()='a..z'])[last()]")
     private WebElement thirdPosition;
 
-    @FindBy(xpath = "(//span[text()='图表起始颜色']/ancestor::div/following-sibling::div/div)[1]")
+    @FindBy(xpath = "(//span[text()='图表起始颜色']/parent::div/following-sibling::div/div)[1]")
     private WebElement startColour;
 
     @FindBy(xpath = "(//input[@class='el-input__inner'])[last()]")

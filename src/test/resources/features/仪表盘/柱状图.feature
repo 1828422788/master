@@ -86,31 +86,35 @@ Feature: 仪表盘柱状图
     And I click the "Order" button under some element
     And I wait for "<targetName>" will be visible
     And I click the "<targetName>" button
-    And I hide the element "Content"
+#    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     And I choose the "apache.clientip" from the "DataValue"
     And I wait for "Right" will be visible
     And I click the "Right" button
     And I click the "Ascending" button
     And I click the "Yaxis" button
     And I choose the "count()" from the "DataValue"
+    And I wait for "1000" millsecond
     And I set the parameter "Unit" with value "个"
+    And I wait for "1000" millsecond
     And I click the "Group" button
-    And I click the "AddField" button
+#    And I click the "AddField" button
     And I choose the "apache.resp_len" from the "DataValue"
     And I click the "Pile" button
+    And I wait for "1000" millsecond
     And I click the "Exhibition" button
+    And I wait for "1000" millsecond
     And I click the "StartColour" button
+    And I wait for "500" millsecond
     And I click the "Orange" button
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
-    And I wait for "Progress" will be invisible
+    And I click the "SettingChart" button under some element
     Then I will see the "dashboard.DetailPage" page
-    And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/<name>"
-#    Then I compare source image "dashboard/<name>" with target image "dashboard/<targetName>"
+    And I wait for "2000" millsecond
+    And I click the "TrendTitle" button under some element
+    And I wait for "3000" millsecond
 
     Examples:
       | name   | targetName  |
@@ -148,12 +152,13 @@ Feature: 仪表盘柱状图
     And I click the "Custom" button
     And I set the parameter "Spl" with value "tag:sample04061424_display | stats count() by ${click.name}"
     And I click the "DateEditor" button
-    And I click the "Shortcut" button
+#    And I click the "Shortcut" button
     And I click the "Today" button
     And I "unchecked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "Zhutiao" button
+    And I click the Circle "Zhutiao" button
+#    And I click the "Zhutiao" button
     Then I wait for title change text to "搜索"
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_display | stats count() by apache.clientip"

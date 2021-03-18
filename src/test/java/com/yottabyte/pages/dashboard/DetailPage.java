@@ -481,7 +481,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//li[text()='成都市']")
     private WebElement chengdushiList;
 
-    @FindBy(xpath = "(//*[name()='rect'])[3]")
+    @FindBy(xpath = "(//*[name()='rect'])[4]")
     private WebElement zhutiao;
 
     @FindBy(xpath = "(//*[name()='text'])[text()='64.20.177.254']")
