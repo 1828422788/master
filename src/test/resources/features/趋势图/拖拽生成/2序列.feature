@@ -27,6 +27,7 @@ Feature: 趋势图_拖拽_序列
   Scenario Outline: drag_and_drop_order_line
     And I drag the element "Clientip" to the "Dimensions"
     And I drag the element "Clientip" to the "Values"
+    And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
     And I wait for "2000" millsecond
     Then I wait for "Chart" will be visible
@@ -81,6 +82,7 @@ Feature: 趋势图_拖拽_序列
   Scenario Outline: drag_and_drop_order_pile
     And I drag the element "Clientip" to the "Dimensions"
     And I drag the element "Clientip" to the "Values"
+    And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
     And I wait for "2000" millsecond
     Then I wait for "Chart" will be visible
@@ -141,6 +143,7 @@ Feature: 趋势图_拖拽_序列
   Scenario Outline: drag_and_drop_order_scatter
     And I drag the element "Clientip" to the "Dimensions"
     And I drag the element "Clientip" to the "Values"
+    And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
     And I wait for "2000" millsecond
     And I drag the element "Method" to the "CompareBy"
@@ -197,6 +200,7 @@ Feature: 趋势图_拖拽_序列
   Scenario Outline: drag_and_drop_compare
     And I drag the element "Clientip" to the "Dimensions"
     And I drag the element "Clientip" to the "Values"
+    And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
     And I wait for "2000" millsecond
     Then I wait for "Chart" will be visible
@@ -250,6 +254,7 @@ Feature: 趋势图_拖拽_序列
 
   Scenario Outline: drag_and_drop_order_area_no_val
     And I drag the element "Clientip" to the "Dimensions"
+    And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
     And I wait for "2000" millsecond
     Then I wait for "Chart" will be visible
@@ -286,6 +291,7 @@ Feature: 趋势图_拖拽_序列
 
   Scenario Outline: drag_and_drop_order_table
     And I drag the element "Clientip" to the "Dimensions"
+    And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
     And I wait for "3000" millsecond
     And I wait for "OtherChart" will be visible
@@ -312,6 +318,7 @@ Feature: 趋势图_拖拽_序列
   Scenario Outline: drag_and_drop_order_table_compare
     And I drag the element "Method" to the "Dimensions"
     And I drag the element "Method" to the "Values"
+    And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
     And I wait for "3000" millsecond
     And I wait for "OtherChart" will be visible

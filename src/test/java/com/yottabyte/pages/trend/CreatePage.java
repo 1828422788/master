@@ -335,6 +335,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='纬度'])[last()]/ancestor::div/following-sibling::div//input")
     private WebElement latitudeInput;
 
+    @FindBy(xpath = "(//span[text()='世界'])[last()]")
+    private WebElement world;
+
     @FindBy(xpath = "(//span[text()='中国'])[last()]")
     private WebElement china;
 
@@ -966,6 +969,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSelectChina() {
         return selectChina;
+    }
+
+    public WebElement getWorld() {
+        return world;
     }
 
     public WebElement getChina() {

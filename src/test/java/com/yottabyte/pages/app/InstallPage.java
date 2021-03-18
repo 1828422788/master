@@ -55,7 +55,7 @@ public class InstallPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='没有相关的资源权限']")
     private WebElement noResourceAuth;
 
-    @FindBy(id = "register_upload")
+    @FindBy(xpath = "//input[@yotta-test='application-upload-file_upload']")
     private WebElement upload;
 
     @FindBy(className = "yotta-select-selection-icon")
