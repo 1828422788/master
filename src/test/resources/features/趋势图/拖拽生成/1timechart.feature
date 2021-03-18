@@ -26,6 +26,7 @@ Feature: 趋势图_拖拽_timechart
     And I wait for "Dimensions" will be visible
     And I drag the element "Timestamp" to the "Dimensions"
     And I drag the element "Clientip" to the "Values"
+    And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
     And I wait for "2000" millsecond
     Then I wait for "Chart" will be visible

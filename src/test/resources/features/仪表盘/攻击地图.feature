@@ -85,21 +85,28 @@ Feature: 仪表盘攻击地图
     And I wait for "Map" will be visible
     And I click the "Map" button
     And I click the "<targetName>" button
-    And I hide the element "Content"
+#    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     And I choose the "apache.clientip" from the "DataValue"
+    And I wait for "1000" millsecond
     And I choose the "client_lon" from the "Longitude"
+    And I wait for "1000" millsecond
     And I choose the "client_lat" from the "Latitude"
+    And I wait for "1000" millsecond
     And I click the "Target" button
     And I choose the "gw_address" from the "DataValue"
+    And I wait for "1000" millsecond
     And I choose the "gw_lon" from the "Longitude"
+    And I wait for "1000" millsecond
     And I choose the "gw_lat" from the "Latitude"
+    And I wait for "1000" millsecond
     And I click the "Weight" button
     And I choose the "cnt" from the "DataValue"
+    And I wait for "1500" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
 #    Then I hide the element "SettingContent"
 #    And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page

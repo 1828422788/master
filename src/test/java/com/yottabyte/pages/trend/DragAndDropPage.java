@@ -42,9 +42,6 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(xpath = "//i[@title='同环比']")
     private WebElement compareButton;
 
-    @FindBy(xpath = "//label[text()='同环比']/following-sibling::span/span")
-    private WebElement compareField;
-
     @FindBy(xpath = "//span[contains(@class, 'ant-select-tree-switcher')]/i")
     private WebElement iconDown;
 
@@ -61,7 +58,7 @@ public class DragAndDropPage extends CreatePage {
     @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::span//label[4]")
     private WebElement forthLabel;
 
-    @FindBy(xpath = "(//div[text()='柱状外右侧'])[last()]")
+    @FindBy(xpath = "(//span[text()='柱状外右侧'])[last()]")
     private WebElement rightPosition;
 
     @FindBy(xpath = "(//div[@class='_2YOOafB8A7ZfHBScD1QcRz']/div/div)[1]")
@@ -99,6 +96,27 @@ public class DragAndDropPage extends CreatePage {
 
     @FindBy(xpath = "(//input[@yotta-test='trend-dataset_merge_field_name-input'])[last()]")
     private WebElement lastColumn;
+
+    @FindBy(xpath = "(//span[contains(@class,'increase')]/span[@aria-label='UpOutlined'])[last()]")
+    private WebElement increase;
+
+    @FindBy(xpath = "(//span[contains(@class,'decrease')]/span[@aria-label='DownOutlined'])[last()]")
+    private WebElement decrease;
+
+    public WebElement getIncrease() {
+        return increase;
+    }
+
+    public WebElement getDecrease() {
+        return decrease;
+    }
+
+    public WebElement getIncrease10() {
+        for(int i = 1; i <= 9; i++) {
+            increase.click();
+        }
+        return increase;
+    }
 
     public WebElement getChart() {
         return chart;
@@ -238,6 +256,10 @@ public class DragAndDropPage extends CreatePage {
         return getDraggableElement("apache.geo.province");
     }
 
+    public WebElement getGeoCountry() {
+        return getDraggableElement("apache.geo.country");
+    }
+
     public WebElement getResplen() {
         return getDraggableElement("apache.resp_len");
     }
@@ -272,7 +294,7 @@ public class DragAndDropPage extends CreatePage {
     }
 
     public WebElement getCompareField() {
-        return compareField;
+        return getYottaDropdownList("trend-BI_YoY-select");
     }
 
     //--------------------------------------------------------------------------------------
@@ -475,6 +497,18 @@ public class DragAndDropPage extends CreatePage {
         return editSecondField;
     }
 
+    public WebElement getUnit() {
+        return getYottaInput("trend-BI_axis_unit-number_input");
+    }
+
+    public WebElement getMin() {
+        return getYottaInput("trend-BI_axis_min-number_input");
+    }
+
+    public WebElement getMax() {
+        return getYottaInput("trend-BI_axis_max-number_input");
+    }
+
     public WebElement getEditColor() {
         return getYottaDiv("trend-BI_field_color-dom");
     }
@@ -495,6 +529,34 @@ public class DragAndDropPage extends CreatePage {
         return getYottaCheckbox("trend-BI_field_connectnull-switch");
     }
 
+    public WebElement getShowLabels() {
+        return getYottaCheckbox("trend-BI_param_showLabels-switch");
+    }
+
+    public WebElement getUnifyMetric() {
+        return getYottaCheckbox("trend-BI_param_measurement-switch");
+    }
+
+    public WebElement getUseBubbles() {
+        return getYottaCheckbox("trend-BI_param_useBubbles-switch");
+    }
+
+    public WebElement getMultistage() {
+        return getYottaCheckbox("trend-BI_param_multilevel-switch");
+    }
+
+    public WebElement getSegments() {
+        return getYottaInput("trend-BI_param_ySection-number_input");
+    }
+
+    public WebElement getRepulsion() {
+        return getYottaInput("trend-BI_param_repulsionField-number_input");
+    }
+
+    public WebElement getAddColor() {
+        return getYottaDiv("trend-BI_param_chartStartingColor-dom");
+    }
+
     public WebElement getHomeButton() {
         return homeButton;
     }
@@ -512,11 +574,11 @@ public class DragAndDropPage extends CreatePage {
     }
 
     private WebElement getElementById(String name) {
-        return webDriver.findElement(By.xpath("//div[@yotta-test=trend-BI_" + name + "-icon']"));
+        return webDriver.findElement(By.xpath("//div[@yotta-test='trend-BI_" + name + "-icon']"));
     }
 
     private WebElement getDraggableElement(String name) {
-        return webDriver.findElement(By.xpath("//div[@yotta-test='trend-BI_draggable_field-dom']/span[text()='" + name + "']"));
+        return webDriver.findElement(By.xpath("//span[text()='" + name + "']/ancestor::div[@yotta-test='trend-BI_draggable_field-dom']"));
     }
 
     private WebElement getChartButton(String name) {

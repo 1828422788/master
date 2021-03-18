@@ -358,7 +358,7 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//div[text()='a..z'])[last()]")
     private WebElement thirdPosition;
 
-    @FindBy(xpath = "(//span[text()='图表起始颜色']/ancestor::div/following-sibling::div/div)[1]")
+    @FindBy(xpath = "(//span[text()='图表起始颜色']/parent::div/following-sibling::div/div)[1]")
     private WebElement startColour;
 
     @FindBy(xpath = "(//input[@class='el-input__inner'])[last()]")
@@ -516,7 +516,7 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//span[text()='下限'])[last()]/ancestor::div/following-sibling::div//input")
     private WebElement lowerLimitInput;
 
-    @FindBy(xpath = "//span[text()='经度']/ancestor::div/following-sibling::div//i")
+    @FindBy(xpath = "//span[text()='经度']/parent::div/following-sibling::div/div/div")
     private WebElement longitude;
 
     @FindBy(xpath = "(//span[text()='经度'])[last()]/ancestor::div/following-sibling::div//input")
@@ -525,7 +525,7 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//span[text()='纬度'])[last()]/ancestor::div/following-sibling::div//input")
     private WebElement latitudeInput;
 
-    @FindBy(xpath = "//span[text()='纬度']/ancestor::div/following-sibling::div//i")
+    @FindBy(xpath = "//span[text()='纬度']/parent::div/following-sibling::div/div/div")
     private WebElement latitude;
 
     @FindBy(xpath = "(//span[text()='中国'])[last()]")
@@ -1506,6 +1506,10 @@ public class CreatePageDash extends PageTemplate {
 
     public WebElement getScatterChart() {
         return getChartButton("散点图");
+    }
+
+    public WebElement getSunburst() {
+        return getChartButton("旭日图");
     }
 
     public WebElement getColumnChart() {

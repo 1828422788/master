@@ -206,12 +206,12 @@ Feature: 定时任务新建
     And I click the "TimedTask" button
     And I wait for element "SelectedUser" change text to username
     And I choose the "test_app" from the "AppComboBox"
-    And I set the parameter "TagInput" with value "auto_package"
-    And I click the "SelectAddedTag" button
     And I set the parameter "Describe" with value "testing"
 
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 5 9 15/3 * ?"
+    And I set the parameter "TagInput" with value "auto_package"
+    And I click the "SelectAddedTag" button
     And I set the parameter "TaskName" with value "test"
     And I click the "Cancel" button
 

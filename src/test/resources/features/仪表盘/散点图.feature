@@ -84,25 +84,30 @@ Feature: 仪表盘散点图
     And I wait for "Order" will be visible
     And I click the "Order" button
     And I click the "<targetName>" button
-    And I hide the element "Content"
+#    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     And I choose the "apache.clientip" from the "DataValue"
+    And I wait for "1000" millsecond
     And I click the "Yaxis" button
     And I choose the "count()" from the "DataValue"
+    And I wait for "1000" millsecond
     And I click the "Group" button
     And I choose the "apache.resp_len" from the "DataValue"
+    And I wait for "1000" millsecond
     And I click the "Bubble" button
     And I click the "AccordingField" button
     And I choose the "count()" from the "BubbleSize"
+    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
-    And I wait for "Progress" will be invisible
+    And I click the "SettingChart" button under some element
+#    Then I hide the element "SettingContent"
+#    And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
-    And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/<name>"
-#    Then I compare source image "dashboard/<name>" with target image "dashboard/<targetName>"
+    And I wait for "2000" millsecond
+    And I click the "TrendTitle" button under some element
+    And I wait for "3000" millsecond
 
     Examples:
       | name   | targetName   |

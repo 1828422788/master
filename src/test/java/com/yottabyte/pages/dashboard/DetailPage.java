@@ -123,7 +123,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='time']/following-sibling::i)[last()]")
     private WebElement deleteTime;
 
-    @FindBy(xpath = "//span[@class='yotta-icon yotta-icon-AddSquareFilled']")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-add_item-dropdown']/span/span")
     private WebElement addEventButton;
 
     @FindBy(className = "yw-dropdown-menu")
@@ -153,7 +153,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='添加过滤项']")
     private WebElement addFilter;
 
-    @FindBy(xpath = "//span[text()='添加输入项']")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-add_input-menu_item']")
     private WebElement addInput;
 
     @FindBy(xpath = "//div[@class='el-form-item dynamic-search-btn']//span")
@@ -325,7 +325,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "el-icon-loading")
     private WebElement iconLoading;
 
-    @FindBy(xpath = "//span[contains(text(),'默认值')]/ancestor::div/following-sibling::div//div[@id]")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-new_filter_value-select']/div")
     private WebElement defaultValueIcon;
 
     @FindBy(xpath = "//td[@data-col-name='a_']")
@@ -481,7 +481,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//li[text()='成都市']")
     private WebElement chengdushiList;
 
-    @FindBy(xpath = "(//*[name()='rect'])[3]")
+    @FindBy(xpath = "(//*[name()='rect'])[4]")
     private WebElement zhutiao;
 
     @FindBy(xpath = "(//*[name()='text'])[text()='64.20.177.254']")
@@ -601,7 +601,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='apache.geo.city']/following-sibling::span/pre/span")
     private WebElement cityTd;
 
-    @FindBy(className = "ant-select-selection")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-filter_value-select']/div")
     private WebElement filterDropdown;
 
     @FindBy(xpath = "//span[text()='filter']")
@@ -700,19 +700,19 @@ public class DetailPage extends PageTemplate {
     @FindBy(name = "trendDescription")
     private WebElement chartDesc;
 
-    @FindBy(xpath = "//div[@name='tokenId']/div/div/span[@class='yotta-select-selection-value']")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-general_config_condition_token-select']/div")
     private WebElement showFilterConfig;
 
-    @FindBy(xpath = "//div[@name='tokenId']/div/span[@class='yotta-select-selection-icon']")
+    @FindBy(xpath = "//div[@name='tokenId']/div/span[@class='yotta-select-selection-icon']/span")
     private WebElement cleanShowFilterConfig;
 
-    @FindBy(xpath = "//div[@name='condition']/div/div/span[@class='yotta-select-selection-value']")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-general_config_condition_sign-select']/div")
     private WebElement showCondition;
 
-    @FindBy(xpath = "//div[@name='condition']/div/span[@class='yotta-select-selection-icon']")
+    @FindBy(xpath = "//div[@name='condition']/div/span[@class='yotta-select-selection-icon']/span")
     private WebElement cleanShowConditio;
 
-    @FindBy(xpath = "//input[@placeholder='请输入值']")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-general_config_condition_value-input']")
     private WebElement showValue;
 
     @FindBy(xpath = "//div[text()='请补全展示条件']")
@@ -754,7 +754,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//ul[contains(@class,'yotta-menu')])[1]/li")
     private List<WebElement> liList;
 
-    @FindBy(xpath = "//span[text()='/']/following-sibling::div/span")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-tab_list-dropdown']/span")
     private WebElement tagIcon;
 
     @FindBy(xpath = "//span[text()='新建标签页']")
@@ -787,7 +787,14 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(@id, 'fullscreen')])[2]")
     private WebElement singleValueExhibition;
 
-    @FindBy(xpath = "//input[@placeholder='请输入关键字']")
+    @FindBy(xpath = "//input[@yotta-test='dashboard-filter_dashboard-input']")
+    private WebElement searchDashInput;
+
+    public WebElement getSearchDashInput() {
+        return searchDashInput;
+    }
+
+    @FindBy(xpath = "//input[@yotta-test='dashboard-filter_tab-input']")
     private WebElement searchTagInput;
 
     @FindBy(xpath = "//a[text()='first']")
@@ -802,7 +809,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='新建标签页']")
     private WebElement creatNewTag;
 
-    @FindBy(xpath = "//a[text()='Delete']/following-sibling::span[2]")
+    @FindBy(xpath = "//a[text()='Delete']/following-sibling::*[@yotta-test='dashboard-delete_tab-dom']")
     private WebElement deleteNewTag;
 
 //    @FindBy(xpath = "//span[text()='新建标签页']/preceding-sibling::ul/li[2]")
@@ -818,7 +825,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//a[text()='testSearch']")
     private WebElement testSearch;
 
-    @FindBy(xpath = "//span[text()='/']/preceding-sibling::div/span")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-dashboard_list-dropdown']/span")
     private WebElement dashboardIcon;
 
     @FindBy(xpath = "//span[text()='UIautotest']")
@@ -863,7 +870,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(id = "filter_textValue")
     private WebElement filterDefaultValue;
 
-    @FindBy(className = "yotta-select-selection-placeholder")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-new_filter_row-select']/div")
     private WebElement filterJoinRow;
 
     @FindBy(xpath = "//div[text()='快捷选项']")
@@ -899,7 +906,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(id = "ace-nav")
     private WebElement textAce;
 
-    @FindBy(xpath = "//div[@class='yotta-modal-body']//input[contains(@class,'yotta-input')]")
+    @FindBy(xpath = "//input[@yotta-test='dashboard-add_chart_filter_name-input']")
     private WebElement searchChartInput;
 
     @FindBy(xpath = "(//div[text()='请选择'])[last()]")
@@ -1446,8 +1453,11 @@ public class DetailPage extends PageTemplate {
         return timeName;
     }
 
+    @FindBy(xpath = "//*[@yotta-test='dashboard-apply_filter-button']")
+    private WebElement update;
+
     public WebElement getUpdate() {
-        return super.getContainsTextButton("更新");
+        return update;
     }
 
     public WebElement getFilterDropdown() {
@@ -1565,7 +1575,7 @@ public class DetailPage extends PageTemplate {
     }
 
     // 获取今天按钮
-    @FindBy(xpath = "//label[text()='今天']")
+    @FindBy(xpath = "//*[@yotta-test='date_time_picker-select_shortcut_今天-dom']")
     private WebElement today;
 
     public WebElement getToday() {
@@ -2091,8 +2101,12 @@ public class DetailPage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
+
+    @FindBy(xpath = "//*[@yotta-test='dashboard-new_filter_field_value-input']")
+    private WebElement dynamicField;
+
     public WebElement getDynamicField() {
-        return this.getInput("动态字段值");
+        return dynamicField;
     }
 
     public WebElement getSearchInput() {
@@ -2407,9 +2421,11 @@ public class DetailPage extends PageTemplate {
         return e;
     }
 
-    @FindBy(xpath = "//input[@placeholder='来搜我']")
-    private WebElement searchTagInput1;
+    @FindBy(xpath = "//*[@yotta-test='dashboard-new_filter_search-button']")
+    private WebElement searchFilterButton;
 
-    public WebElement get1SearchTagInput() { return searchTagInput1; }
+    public WebElement getSearchFilterButton() {
+        return searchFilterButton;
+    }
 
 }
