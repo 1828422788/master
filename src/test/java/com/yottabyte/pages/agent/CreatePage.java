@@ -268,7 +268,7 @@ public class CreatePage extends PageTemplate {
     private WebElement EditAutoFile;
 
     public WebElement getJmxInput() {
-        return webDriver.findElement(By.xpath("//li[text()='JmxInput']"));
+        return webDriver.findElement(By.xpath("//span[text()='JmxInput']"));
     }
 
     public WebElement getDropdownList(String text) {
@@ -278,12 +278,15 @@ public class CreatePage extends PageTemplate {
         return webDriver.findElement(By.xpath("(//ul[@class='ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical'])[last()]"));
     }
     public WebElement getCsvConfing() {
-        return getDropdownList("CSV文件配置");
+        return CsvConfing;
     }
+
+    @FindBy(xpath = "//span[(text()='CSV文件配置')]/parent::span")
+    private WebElement CsvConfing;
 
 
     public WebElement getHostConnectInput() {
-        return getLiElement("HostConnectInput");
+        return super.getButton("HostConnectInput");
     }
 
     public WebElement getCleanInputCache() {
@@ -1015,7 +1018,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCsvInput(int num){
-        return webDriver.findElement(By.xpath("(//input[contains(@class,'ant-input css-pcxrzr')])[" + num + "]"));
+        return webDriver.findElement(By.xpath("(//input[contains(@class,'yotta-input yotta-input-large ')])[" + num + "]"));
 
     }
     public WebElement getDropDownListElement(String name) {

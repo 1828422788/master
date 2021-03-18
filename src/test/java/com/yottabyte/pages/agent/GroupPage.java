@@ -1,5 +1,6 @@
 package com.yottabyte.pages.agent;
 
+import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.DropdownUtils;
 import com.yottabyte.utils.WaitForElement;
@@ -13,7 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * @author sunxc, sunxj
  */
-public class GroupPage extends ListPageFactory {
+public class GroupPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='TestAuth']")
     private WebElement testAuth;
 
@@ -69,7 +70,7 @@ public class GroupPage extends ListPageFactory {
     }
 
     public WebElement getBack() {
-        return super.getButton("返回列表");
+        return super.getYottaButtonByText("返回");
     }
 
     public WebElement getRole() {
@@ -94,11 +95,11 @@ public class GroupPage extends ListPageFactory {
     }
 
     public WebElement getSave() {
-        return super.getButton("保存");
+        return super.getYottaButtonByText("保存");
     }
 
     public WebElement getUpdate() {
-        return super.getButton("更新");
+        return super.getYottaButtonByText("更新");
     }
 
     public WebElement getMore() {
