@@ -37,36 +37,48 @@ public class CustomConfigs extends PageTemplate {
 
     @FindBy(xpath = "//div[@class='_1o8bbS9akwRGJGcMWEWK1j']/a[contains(text(),'邮件服务器设置')]")
     private WebElement MailServerSet;
+
     public WebElement getMailServerSet() {
         return MailServerSet;
     }
 
+    @FindBy(xpath = "//div[@class='_1o8bbS9akwRGJGcMWEWK1j']/a[contains(text(),'交易日功能')]")
+    private WebElement trandateFeature;
+    public WebElement getTrandateFeature() {
+        return trandateFeature;
+    }
+
     @FindBy(xpath = "//span[text()='SMTP服务器端口']/parent::div/following-sibling::input[@placeholder='请输入']")
     private WebElement SMTPPort;
+
     public WebElement getSMTPPort() {
         return SMTPPort;
     }
 
     @FindBy(xpath = "//span[text()='SMTP服务器地址']/parent::div/following-sibling::input[@placeholder='请输入']")
     private WebElement SMTPAddress;
+
     public WebElement getSMTPAddress() {
         return SMTPAddress;
     }
 
     @FindBy(xpath = "//span[text()='发送邮箱地址']/parent::div/following-sibling::input[@placeholder='请输入']")
     private WebElement SendEmail;
+
     public WebElement getSendEmail() {
         return SendEmail;
     }
 
     @FindBy(xpath = "//span[text()='发送邮箱密码']/parent::div/following-sibling::div/input[@placeholder='请输入']")
     private WebElement EmailPassword;
+
     public WebElement getEmailPassword() {
         return EmailPassword;
     }
 
     @FindBy(xpath = "//span[text()='发送邮箱名称']/parent::div/following-sibling::input[@placeholder='请输入']")
     private WebElement EmailLogName;
+
     public WebElement getEmailLogName() {
         return EmailLogName;
     }
@@ -119,7 +131,8 @@ public class CustomConfigs extends PageTemplate {
         return super.getInputElement("所有时间定义");
     }
 
-    @FindBy(xpath = "//div[text()='交易日功能']/following::div/span[@class='ant-upload']/input")
+    //@FindBy(xpath = "//div[text()='交易日功能']/following::div/span[@class='ant-upload']/input")
+    @FindBy(xpath = "//input[@yotta-test='system-tranaction_date_upload-file_upload']")
     private WebElement uploadTranDate;
     public WebElement getUploadTranDate() {
         return uploadTranDate;

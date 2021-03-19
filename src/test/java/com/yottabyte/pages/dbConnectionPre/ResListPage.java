@@ -42,10 +42,10 @@ public class ResListPage extends PageTemplate {
     @FindBy(css = "body > div.el-popover.port-menu")
     private WebElement uploadAndDownloadMenu;
 
-    @FindBy(xpath = "//button/span[text()='导入']")
+    @FindBy(xpath = "//li/span[text()='导入']")
     private WebElement uploadButton;
 
-    @FindBy(xpath = "//button/span[text()='导出']")
+    @FindBy(xpath = "//li/span[text()='导出']")
     private WebElement downloadButton;
 
     @FindBy(className = "el-upload__input")
@@ -132,16 +132,13 @@ public class ResListPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='导入/导出']/parent::button")
     private WebElement importAndExportButton;
     public WebElement getImportAndExportButton() {
-//        return super.getButton("导入/导出");
         return importAndExportButton;
     }
 
-    @FindBy(xpath = "//span[text()='导入']/parent::li[@class='_21AqsnGQ8y0k6298X_Cm3Z']")
+    @FindBy(xpath = "//span[text()='导入']/parent::li[@yotta-test='resource-import-menu']")
     private WebElement importButton;
-
     public WebElement getImportButton() {
         return importButton;
-//      super.getButton("导入");
     }
 
     public WebElement getSunxjAutoTest() {

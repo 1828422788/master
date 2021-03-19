@@ -67,9 +67,6 @@ Feature: 事件管理-合并策略-11个
     And I choose the "alert_id" from the "GroupConditionFieldslist"
 
     And I click the "AddStopCondition" button
-#    And I choose the "最后一条告警的字段" from the "StopConditionNameslist" in config
-#    And I choose the "name" from the "StopConditionLastAlertFieldNamesList" in config
-#    And I choose the "like" from the "StopConditionLastAlertFieldOperatorsList" in config
     And I choose the "最后一条告警的字段" from the "StopConditionNameslist"
     And I choose the "name" from the "StopConditionLastAlertFieldNamesList"
     And I choose the "like" from the "StopConditionLastAlertFieldOperatorsList"

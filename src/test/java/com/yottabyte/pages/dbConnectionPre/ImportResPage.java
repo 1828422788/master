@@ -55,23 +55,39 @@ public class ImportResPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='没有相关的资源权限']")
     private WebElement noResourceAuth;
 
-    @FindBy(id = "register_upload")
+    @FindBy(xpath = "//div[@yotta-test='resource-assign_role-select']/div[@class='yotta-select-selection']")
+    private WebElement roleList;
+
+    public WebElement getRoleList() {
+        roleList.click();
+        return super.getLastDropdownList();
+    }
+
+    @FindBy(xpath = "//label[text()='分配角色']/following::div[@yotta-test='resource-assign_role-select']/div")
+    private WebElement role;
+
+    public WebElement getRole() {
+        role.click();
+        return super.getLastDropdownList();
+    }
+
+    //@FindBy(id = "register_upload")
+    @FindBy(xpath = "//span[@class='yotta-filepicker-input']/input[@type='file']")
     private WebElement upload;
+
     public WebElement getUpload() {
         return upload;
     }
 
-    @FindBy(className = "ant-select-selection__rendered")
-    private WebElement role;
-
-    @FindBy(xpath = "//a[text()='添加数据集']")
+    @FindBy(xpath = "//a[@yotta-test='resource-pointer-link'][text()='添加数据集']")
     private WebElement addDataset;
 
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement message;
 
-    @FindBy(xpath = "//p[text()='添加成功']")
+    @FindBy(xpath = "//p[text()='资源包导入完成！']")
     private WebElement addSuccMessage;
+
     public WebElement getAddSuccMessage() {
         return addSuccMessage;
     }
@@ -133,11 +149,6 @@ public class ImportResPage extends PageTemplate {
         return repeatResource;
     }
 
-    public WebElement getRole() {
-        role.click();
-        return super.getLastDropdownList();
-    }
-
     public WebElement getResource() {
         return super.getDropdownList("日志来源");
     }
@@ -157,9 +168,12 @@ public class ImportResPage extends PageTemplate {
         return super.getButton("下一步");
     }
 
+    @FindBy(xpath = "//span[text()='完成']/parent::button")
+    private WebElement completeButton;
     public WebElement getCompleteButton() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(super.getButton("下一步")));
-        return super.getButton("完成");
+//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(super.getButton("完成")));
+//        return super.getButton("完成");
+        return completeButton;
     }
 
     public WebElement getVerifyText() {
