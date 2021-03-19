@@ -106,7 +106,7 @@ public class DropdownUtils {
 
     public WebElement getDropdownList(String test) {
         String xpath;
-        xpath = "//div[@yotta-test='" + test + "']/div[@class='yotta-select-selection']";
+        xpath = "//div[@yotta-test='" + test + "']/div[@class='yotta-select-selection-icon']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);

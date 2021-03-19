@@ -13,25 +13,24 @@ Feature: Agent编辑Beats类型数据源
   Scenario: 新增Beats类型数据源
     And I click the "Create" button
     And I click the "BeatsType" button
+    And I click the "Next" button
     And I set the agent parameter "Listenaddress" with running ip in beats
-    And I set the parameter "BeatsAppname" with value "autoBeatstest"
-    And I set the parameter "BeatsTag" with value "autoBeatstest"
+    And I set the parameter "Appname" with value "autoBeatstest"
+    And I set the parameter "Tag" with value "autoBeatstest"
     And I click the "Next" button
-    And I click the "Next" button
+    And I click the "Finish" button
     And I wait for loading invisible
     And I will see the element "Addsuccessmsg" name is "添加成功"
 
   Scenario: 修改beats数据源禁用
-    Given the data name in agent beats table "BeatsTable" then i click the "close" switch
-    Then I wait for loading invisible
-    And I wait for "5000" millsecond
+    Given the data name "autoBeatstest" in agent table "BeatsTable" then i click the "close" switch
+    Then I wait for "getBeatsSwitchStatus" will be visible
     And I wait for element "getBeatsSwitchStatus" change text to "已禁用"
 
 
   Scenario: Beats数据源启用
-    Given the data name in agent beats table "BeatsTable" then i click the "open" switch
-    Then I wait for loading invisible
-    And I wait for "5000" millsecond
+    Given the data name "autoBeatstest" in agent table "BeatsTable" then i click the "open" switch
+    Then I wait for "getBeatsSwitchStatus" will be visible
     And I wait for element "getBeatsSwitchStatus" change text to "已启用"
 
   Scenario Outline: Beats数据源修改appname成功
@@ -40,7 +39,7 @@ Feature: Agent编辑Beats类型数据源
     And I set the parameter "Appname" with value "<appnamekind>"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
     Examples:
       | appnamekind         |
@@ -68,7 +67,7 @@ Feature: Agent编辑Beats类型数据源
     And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
     Examples:
@@ -91,9 +90,10 @@ Feature: Agent编辑Beats类型数据源
 
 
   Scenario: Beats数据源删除
-    Given the data name in beats table "BeatsTable" then i click the "删除" button
-    And I wait for loading invisible
+    Given the data name in beats table "BeatsTable" then i click the "更多" button
+    And I click the "Delete" button
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
+#    Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 

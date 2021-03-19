@@ -30,8 +30,8 @@ Feature: 仪表盘多选菜单数组操作
   @dashboard @dashboardSmoke
   Scenario Outline: 创建仪表盘多选菜单数组趋势图
     And open the "trend.ListPage" page for uri "/trend/"
-    And I click the "CreateButton" button
-    And I click the "Create" button
+    And I click the "NewTrendButton" button
+#    And I click the "Create" button
     Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
@@ -42,6 +42,7 @@ Feature: 仪表盘多选菜单数组操作
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
+    And I wait for loading invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "<name>"
@@ -64,7 +65,8 @@ Feature: 仪表盘多选菜单数组操作
     And I wait for "SpinDot" will be invisible
     And I set the parameter "SearchChartInput" with value "仪表盘多选菜单数组"
     And I wait for loading invisible
-    And I "checked" the checkbox which name is "仪表盘多选菜单数组"
+    And I click the "{'Checkbox':'仪表盘多选菜单数组'}" button
+#    And I "checked" the checkbox which name is "仪表盘多选菜单数组"
     And I click the "Ensure" button
     And I wait for loading complete
     And I wait for "4000" millsecond
@@ -95,14 +97,16 @@ Feature: 仪表盘多选菜单数组操作
     And I click the detail which name is "仪表盘多选菜单数组操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible
     And I choose the "管理本页过滤项/输入项数值" from the "DrillAction"
     And I wait for "1000" millsecond
     And I click the "NewCreat" button
     And I choose the "Push" from the "OptionItems"
+    And I wait for "1000" millsecond
     And I set the parameter "TokenInput" with value "filter"
+    And I wait for "1000" millsecond
     And I click the "ParamValue1" button
     And I click the "ClickValue" button
     And I wait for "1000" millsecond
@@ -124,13 +128,14 @@ Feature: 仪表盘多选菜单数组操作
     And I click the "ChengDuShi" button
     And I click the "Nanjingshi" button
     And I wait for "1000" millsecond
-    When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible
     And I choose the "管理本页过滤项/输入项数值" from the "DrillAction"
     And I wait for "1000" millsecond
 #    And I click the "NewCreat" button
     And I choose the "Pop" from the "OptionItems"
+    And I wait for "1000" millsecond
     And I set the parameter "TokenInput" with value "filter"
     And I wait for "1000" millsecond
     And I click the "Ensure" button
@@ -148,12 +153,13 @@ Feature: 仪表盘多选菜单数组操作
     And I click the detail which name is "仪表盘多选菜单数组操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible
     And I choose the "管理本页过滤项/输入项数值" from the "DrillAction"
     And I wait for "1000" millsecond
     And I choose the "Unshift" from the "OptionItems"
+    And I wait for "1000" millsecond
     And I set the parameter "TokenInput" with value "filter"
 #    And I click the "ParamValue1" button
 #    And I wait for "ClickValue" will be visible
@@ -179,13 +185,14 @@ Feature: 仪表盘多选菜单数组操作
     And I click the "FilterDropDown1" button
     Then I wait for "NanjingshiList" will be visible
     And I wait for "1000" millsecond
-    When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible
     And I choose the "管理本页过滤项/输入项数值" from the "DrillAction"
     And I wait for "1000" millsecond
 #    And I click the "NewCreat" button
     And I choose the "Shift" from the "OptionItems"
+    And I wait for "1000" millsecond
     And I set the parameter "TokenInput" with value "filter"
     And I wait for "1000" millsecond
     And I click the "Ensure" button

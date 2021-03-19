@@ -118,8 +118,7 @@ Feature: 仪表盘详情页
     And I click the "AddTag" button
     When I set the parameter "TagName" with value "testSearch"
     And I click the "EnsureCreateTagButton" button
-#    And I set the parameter "TagInput" with value "testSearch"
-#    And I click the "SaveTagInput" button
+    And I back to before
 
   @dashboard @dashboardSmoke
   Scenario: 验证标签搜索
@@ -139,7 +138,7 @@ Feature: 仪表盘详情页
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     And I click the "DashboardIcon" button
-    And I set the parameter "SearchTagInput" with value "UIautotest"
+    And I set the parameter "SearchDashInput" with value "UIautotest"
     And I wait for loading invisible
     Then I will see the "FirstAutoTest" doesn't exist
     And I click the "UIAutoTest" button
@@ -267,7 +266,7 @@ Feature: 仪表盘详情页
 #    And I click the "Shortcut" button
     And I click the "Today" button
 #    And I wait for "Progress" will be invisible
-    And I will see the "DropdownLink" result will be "最近1天"
+    And I will see the "DropdownLink" result will be "最近10分钟"
     And I click the "Update" button
     And I wait for "Progress" will be invisible
     Then I will see the "DropdownLink" result will be "今天"

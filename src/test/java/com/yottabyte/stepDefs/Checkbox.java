@@ -349,7 +349,7 @@ public class Checkbox {
     @Then("^I will see the checkbox in auth which name is \"([^\"]*)\" and status is \"([^\"]*)\"$")
     public void iWillSeeTheCheckboxInAuthWhichNameIsAndStatusIs(List<String> nameList, String status) {
         for (String name : nameList) {
-            String xpath = "//span[text()='" + name + "']/ancestor::label";
+            String xpath = "//div[text()='" + name + "']/ancestor::label";
             this.assertCheckboxStatus(status, xpath);
         }
     }

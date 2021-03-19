@@ -15,36 +15,23 @@ Feature:趋势图_拖拽_复合
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "CheckBox" will be visible
     When I "checked" the checkbox which name is "apache.clientip" in trend page
-    And I wait for "CheckBox" will be visible
     When I "checked" the checkbox which name is "apache.resp_len" in trend page
-    And I wait for "CheckBox" will be visible
     And I "checked" the checkbox which name is "apache.method" in trend page
-    And I wait for "CheckBox" will be visible
     Then I click the "NextButton" button under some element
 
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
 
-
   Scenario Outline: drag_and_drop_multiaxis_1
     And I drag the element "Clientip" to the "Dimensions"
     And I drag the element "Resplen" to the "Values"
-    And I wait for "3000" millsecond
-    And I wait for "OtherChart" will be visible
-    And I click the "AddValueField" button
+    And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
-    And I wait for "2000" millsecond
-    Then I wait for "Chart" will be visible
-    And I wait for "2000" millsecond
+    And I wait for "Values2" will be visible
     And I drag the element "Resplen" to the "Values2"
-    And I wait for "2000" millsecond
-    Then I wait for "Chart" will be visible
-    And I wait for "2000" millsecond
     When I click the "ElementInDimensions" button
     And I click the "AscendingOrder" button
     And I hide the element "Panel"
-    And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
 
     And I wait for "EditFirstField" will be visible
@@ -54,20 +41,15 @@ Feature:趋势图_拖拽_复合
     And I set the parameter "Max" with value "3000"
     And I click the "Clientip" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I wait for "2000" millsecond
     And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
-    And I wait for "Smooth" will be visible
+    And I wait for "Panel" will be visible
     And I choose the "<chart_1>" from the "TypeChartField" in config
     And I choose the "平均值" from the "TypeFunction" in config
     And I click the "EditColor" button
     And I wait for "<color_1>" will be visible
-    And I wait for "1500" millsecond
     And I click the "<color_1>" button
     And I click the "Clientip" button
-    And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
 
     And I wait for "EditSecondField" will be visible
@@ -77,30 +59,22 @@ Feature:趋势图_拖拽_复合
     And I set the parameter "Max" with value ""
     And I click the "Clientip" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I wait for "2000" millsecond
     And I wait for "ElementInValues2" will be visible
     When I click the "ElementInValues2" button
-    And I wait for "Smooth" will be visible
+    And I wait for "Panel" will be visible
     And I choose the "<chart_2>" from the "TypeChartField" in config
     And I choose the "去重" from the "TypeFunction" in config
     And I click the "Smooth" button
     And I click the "EditColor" button
     And I wait for "<color_2>" will be visible
-    And I wait for "1500" millsecond
     And I click the "<color_2>" button
     And I click the "Clientip" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I wait for "2000" millsecond
     And I click the "RightPosition" button
-    And I wait for "3000" millsecond
-    And I wait for "Chart" will be visible
-    And I wait for "2000" millsecond
 
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
-    And I will see the element "SPL" contains "tag:sample04061424_chart|stats avg(apache.resp_len),dc(apache.resp_len) by apache.clientip"
+    And I will see the element "SPL" contains "tag:sample04061424_chart | stats avg(apache.resp_len),dc(apache.resp_len) by apache.clientip"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_柱面"
@@ -120,22 +94,13 @@ Feature:趋势图_拖拽_复合
   Scenario Outline: drag_and_drop_multiaxis_2
     And I drag the element "Clientip" to the "Dimensions"
     And I drag the element "Resplen" to the "Values"
-    And I wait for "3000" millsecond
-    And I wait for "OtherChart" will be visible
-    And I click the "AddValueField" button
+    And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
     And I wait for "2000" millsecond
-    Then I wait for "Chart" will be visible
-    And I wait for "2000" millsecond
     And I drag the element "Resplen" to the "Values2"
-    And I wait for "2000" millsecond
-    Then I wait for "Chart" will be visible
-    And I wait for "2000" millsecond
     When I click the "ElementInDimensions" button
     And I click the "DescendingOrder" button
     And I hide the element "Panel"
-    And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
 
     And I wait for "EditFirstField" will be visible
@@ -145,20 +110,15 @@ Feature:趋势图_拖拽_复合
     And I set the parameter "Max" with value "15"
     And I click the "Clientip" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I wait for "2000" millsecond
     And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
-    And I wait for "Smooth" will be visible
+    And I wait for "Panel" will be visible
     And I choose the "<chart_1>" from the "TypeChartField" in config
     And I choose the "计数" from the "TypeFunction" in config
     And I click the "EditColor" button
     And I wait for "<color_1>" will be visible
-    And I wait for "1500" millsecond
     And I click the "<color_1>" button
     And I click the "Clientip" button
-    And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
 
     And I wait for "EditSecondField" will be visible
@@ -168,25 +128,19 @@ Feature:趋势图_拖拽_复合
     And I set the parameter "Max" with value "9000"
     And I click the "Clientip" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I wait for "2000" millsecond
     And I wait for "ElementInValues2" will be visible
     When I click the "ElementInValues2" button
-    And I wait for "Smooth" will be visible
+    And I wait for "Panel" will be visible
     And I choose the "<chart_2>" from the "TypeChartField" in config
     And I choose the "最大值" from the "TypeFunction" in config
     And I click the "EditColor" button
     And I wait for "<color_2>" will be visible
-    And I wait for "1500" millsecond
     And I click the "<color_2>" button
     And I click the "Clientip" button
-    And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I wait for "2000" millsecond
 
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
-    And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.resp_len),max(apache.resp_len) by apache.clientip"
+    And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.resp_len),max(apache.resp_len) by apache.clientip"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_曲散"
@@ -206,23 +160,15 @@ Feature:趋势图_拖拽_复合
   Scenario Outline: drag_and_drop_multiaxis_3
     And I drag the element "Clientip" to the "Dimensions"
     And I drag the element "Resplen" to the "Values"
-    And I wait for "3000" millsecond
-    And I wait for "OtherChart" will be visible
-    And I click the "AddValueField" button
+    And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
-    And I wait for "2000" millsecond
-    Then I wait for "Chart" will be visible
     And I wait for "2000" millsecond
     And I drag the element "Resplen" to the "Values2"
     And I drag the element "Method" to the "CompareBy"
     And I wait for "2000" millsecond
-    Then I wait for "Chart" will be visible
-    And I wait for "2000" millsecond
     When I click the "ElementInDimensions" button
     And I click the "DescendingOrder" button
     And I hide the element "Panel"
-    And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
 
     And I wait for "EditFirstField" will be visible
@@ -231,18 +177,14 @@ Feature:趋势图_拖拽_复合
     And I set the parameter "Max" with value "15"
     And I click the "Clientip" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I wait for "2000" millsecond
     And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
-    And I wait for "Smooth" will be visible
+    And I wait for "Panel" will be visible
     And I choose the "<chart_1>" from the "TypeChartField" in config
     And I choose the "计数" from the "TypeFunction" in config
     And I will see the "EditColor" doesn't exist
     And I click the "ConnectEmptyData" button
     And I click the "Clientip" button
-    And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
 
     And I wait for "EditSecondField" will be visible
@@ -251,31 +193,25 @@ Feature:趋势图_拖拽_复合
     And I set the parameter "Max" with value "8000"
     And I click the "Clientip" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I wait for "2000" millsecond
     And I wait for "ElementInValues2" will be visible
     When I click the "ElementInValues2" button
-    And I wait for "Smooth" will be visible
+    And I wait for "Panel" will be visible
     And I choose the "<chart_2>" from the "TypeChartField" in config
     And I choose the "平均值" from the "TypeFunction" in config
     And I will see the "EditColor" doesn't exist
     And I click the "Smooth" button
     And I click the "Clientip" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
     And I wait for "AddColor" will be visible
     And I click the "AddColor" button
     And I wait for "<color>" will be visible
-    And I wait for "1500" millsecond
     And I click the "<color>" button
-    And I wait for "3000" millsecond
-    And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
 
 
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
-    And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.resp_len),avg(apache.resp_len) by apache.clientip,apache.method"
+    And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.resp_len),avg(apache.resp_len) by apache.clientip,apache.method"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_对比"

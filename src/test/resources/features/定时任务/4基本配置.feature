@@ -112,7 +112,7 @@ Feature: 定时任务_基本配置
     And I click the "SaveButton" button under some element
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "保存成功"
-    And I click the "OK" button under some element
+    And I click the "EnsureButton" button under some element
 
   Scenario: change_spl
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -131,7 +131,7 @@ Feature: 定时任务_基本配置
     And I click the "SaveButton" button under some element
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "保存成功"
-    And I click the "OK" button under some element
+    And I click the "EnsureButton" button under some element
     Then I will see the "timedTask.ListPage" page
 
   Scenario: verify_changes
@@ -156,13 +156,12 @@ Feature: 定时任务_基本配置
   Scenario: delete_saved_search
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I wait for "SavedSearch" will be visible
     And I click the "OpenSavedSearchList" button
     And I wait for "2000" millsecond
     And "删除" the data "schedule_test" in tiny saved search
-    And I wait for "CancelButton" will be visible
-    And I wait for "EnsureCreateSavedSearch" will be visible
+    And I wait for "Cancel" will be visible
     And I will see the element "ConfirmMessage" contains "确认删除 schedule_test?"
-    And I click the "EnsureCreateSavedSearch" button
-    And I will see the alertMessage "删除成功"
+    And I click the "EnsureButton" button
+    And I wait for "SuccessMessage" will be visible
+    And I will see the success message "删除成功"
 

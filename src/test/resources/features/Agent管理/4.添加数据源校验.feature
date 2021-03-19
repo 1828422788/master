@@ -1,4 +1,3 @@
-@agent
 Feature: Agent添加数据源校验
 
   Background:

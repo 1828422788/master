@@ -168,7 +168,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return webDriver.findElement(By.xpath(xpath));
     }
     public WebElement getContainsTextButton(String text) {
-        String xpath = "//span[contains(text(),'" + text + "')][not(@class)]/ancestor::button";
+        String xpath = "//span[contains(text(),'" + text + "')]/ancestor::button";
         return webDriver.findElement(By.xpath(xpath));
     }
 

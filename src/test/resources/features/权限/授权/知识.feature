@@ -108,17 +108,7 @@ Feature: 权限-知识
     And I wait for "2000" millsecond
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And I wait for loading invisible
-
-
-
-
-
-
-
-
-
-
-    Then I will see the search result "{'column':'0','name':'<name>'}"
+  #  Then I will see the search result "{'column':'0','name':'<name>'}"
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
     And the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
@@ -283,14 +273,7 @@ Feature: 权限-知识
 
   Scenario Outline: 授权读取+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
-
-
-
-
-
-
-
-
+    And I wait for "1500" millsecond
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -314,16 +297,6 @@ Feature: 权限-知识
     And I wait for "2000" millsecond
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And I wait for loading invisible
-
-
-
-
-
-
-
-
-
-
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
     And the data name is "<name>" then i click the "查看" button
     Then I will see the "knowledge.CreatePage" page
@@ -608,18 +581,6 @@ Feature: 权限-知识
   Scenario: 给AutoTest用户授权
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And I wait for loading invisible
-
-
-
-
-
-
-
-
-
-
-
-
     When the data name is "{'column':'0','name':'测试二次授权'}" then i click the "更多" button
     And I click the "Auth" button
     And I wait for loading invisible
@@ -651,21 +612,6 @@ Feature: 权限-知识
     And I wait for "2000" millsecond
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And I wait for loading invisible
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
     And the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
@@ -685,6 +631,7 @@ Feature: 权限-知识
       | name   | function|
       | 测试二次授权 |  查看\n授权 |
 
+
   Scenario Outline: 二次授权读取+编辑
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
@@ -698,18 +645,6 @@ Feature: 权限-知识
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-
-
-
-
-
-
-
-
-
-
-
-
     Given I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
@@ -743,25 +678,14 @@ Feature: 权限-知识
     Then I logout current user
 
     Examples:
-      | authRole | authName        | function | name   |usefunction|
-      | 角色       | __user_验证授权用户__ | 编辑       | 测试二次授权 |编辑\n更多     |
+      | authRole | authName        | function | name   |
+      | 角色       | __user_验证授权用户__ | 编辑       | 测试二次授权 |
 
   Scenario Outline: 二次授权读取+编辑+删除
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And I wait for loading invisible
-
-
-
-
-
-
-
-
-
-
-
     When the data name is "{'column':'0','name':'<name>'}" then i click the "更多" button
     And I click the "Auth" button
     And I wait for loading invisible
@@ -774,34 +698,42 @@ Feature: 权限-知识
     And I wait for "2000" millsecond
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And I wait for loading invisible
-    Then the data name is "{'column':'0','name':'<name>'}" then i will see "编辑标签删除授权" button
-    And the data name is "<name>" then i click the "标签" button
-    And I wait for "Tag" will be visible
+  #  Then the data name is "{'column':'0','name':'<name>'}" then i will see "currentfunction" button
+    And the data name is "<name>" then i click the "更多" button
+    And I click the "Label" button
+    And I wait for "LabelInput" will be visible
+    And I wait for "2000" millsecond
+    And I click the "LabelInput" button
     And I set the parameter "Tag" with value "testTag"
-    And I choose the "testTag" from the "TagDropdown"
     And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
-    And the data name is "<name>" then i click the "授权" button
+    And the data name is "<name>" then i click the "更多" button
+    And I click the "Auth" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
-    And the data name is "{'column':'0','name':'<name>'}" then i click the "编辑" button
+    And I wait for loading invisible
+    And the data name is "<name>" then i click the "编辑" button
     Then I will see the "knowledge.CreatePage" page
     And I click the "Next" button
+    And I wait for "1500" millsecond
     And I click the "Next" button
+    And I wait for "1500" millsecond
     And I set the parameter "EventCode" with value "AutoTestRename"
-    And I click the "Next" button
-    Then I will see the element "SuccessAdd" name is "添加成功"
+    And I click the "Done" button
+    Then I will see the element "SuccessAdd" name is "编辑成功"
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
-    And the data name is "<name>" then i click the "删除" button
+    And I wait for "1500" millsecond
+    And the data name is "<name>" then i click the "更多" button
+    And I click the "Delete" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除知识成功"
     Then I logout current user
 
     Examples:
-      | authRole | authName | function | name   |
-      | 用户分组     | gc_test_group | 读取,编辑,删除 | 测试二次授权 |
+      | authRole | authName | function | name   | currentfunction|
+      | 用户分组     | gc_test_group | 读取,编辑,删除 | 测试二次授权 | 查看/n授权     |
  #     | 用户分组     | 验证授权用户分组 | 读取,编辑,删除 | 测试二次授权 |
 
  # Scenario: 验证有效期限

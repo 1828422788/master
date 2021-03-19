@@ -80,6 +80,7 @@ Feature: 权限-事件操作
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I refresh the website
+    And I wait for "2000" millsecond
     Then I will see the search result "{'column':'1','name':'<name>','contains':'no'}"
 
     Examples:

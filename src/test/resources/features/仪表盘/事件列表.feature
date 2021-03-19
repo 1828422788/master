@@ -58,7 +58,7 @@ Feature: 仪表盘事件列表
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible
-    And I move the mouse pointer to the "HoverElement"
+#    And I move the mouse pointer to the "HoverElement"
 #    And I click the "HoverElement" button
     And I click the "EventOperate" button
     And I click the "Event" button
@@ -84,7 +84,7 @@ Feature: 仪表盘事件列表
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "HoverElement" will be visible
-    And I click the "HoverElement" button
+#    And I click the "HoverElement" button
     And I click the "EventOperate" button
     And I click the "Event" button
     And switch to another window
@@ -101,6 +101,7 @@ Feature: 仪表盘事件列表
     And I wait for "HoverElement" will be visible
     And I click the "HoverElement" button
     And I click the "IconRight" button
+    And I wait for "500" millsecond
     And I click the "EventAppname" button
     And I wait for "500" millsecond
     And I click the "Event" button
@@ -127,7 +128,7 @@ Feature: 仪表盘事件列表
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible
-    And I click the "HoverElement" button
+#    And I click the "HoverElement" button
     And I click the "EventOperate" button
     And I wait for "1000" millsecond
     Then I will see the "Event" doesn't exist
@@ -207,7 +208,7 @@ Feature: 仪表盘事件列表
     Then I will see the "dashboard.DetailPage" page
 #    And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible
-    And I click the "HoverElement" button
+#    And I click the "HoverElement" button
     And I click the "EventOperate" button
     And I click the "CreateConfig" button
     And switch to another window
@@ -232,13 +233,14 @@ Feature: 仪表盘事件列表
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible
-    And I click the "HoverElement" button
+#    And I click the "HoverElement" button
     And I click the "EventOperate" button
     And I click the "AddKnowledge" button
     And switch to another window
     And I close all tabs except main tab
     And I will see the "knowledge.CreatePage" page
     And I click the "Next" button
+    And I wait for "1000" millsecond
     And I click the "Next" button
     And I wait for element "EventCode" value change text to "apache"
     And I click the "Next" button
@@ -251,7 +253,7 @@ Feature: 仪表盘事件列表
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "测试事件操作" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "测试事件操作" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I set the parameter "ChartTitle" with value "通用配置"
@@ -263,7 +265,8 @@ Feature: 仪表盘事件列表
     Then I will see the "splSearch.SearchPage" page
     Then I will see the element "SearchInput" name is "'apache.geo.city': 成都市"
     And I wait for "2000" millsecond
-    Then I will see the input element "TimeRange" value will contains "今天"
+    Then I will see the "TimeRange" result will contain "今天"
+#    Then I will see the input element "TimeRange" value will contains "今天"
     And switch to another window
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -273,11 +276,12 @@ Feature: 仪表盘事件列表
     And I wait for "500" millsecond
 #    And I click the "CustomTitle" button
 #    And I wait for "1500" millsecond
-    And I move the mouse pointer to the "CustomTitle"
-    And I click the "Describe" button
+    And I move the mouse pointer to the "Describe"
+#    And I click the "Describe" button
     And I wait for "500" millsecond
 #    And I move the mouse pointer to the "CustomTitle"
-    Then I will see the "DescribeText" result will be "测试描述"
+    Then I will see the text "测试描述" exist in page
+#    Then I will see the "DescribeText" result will be "测试描述"
 
   @dashboard
   Scenario Outline: 高级编辑 RZY-3620
@@ -285,7 +289,7 @@ Feature: 仪表盘事件列表
     And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
 #    Then I will see the "TextLayer" result will contain "<json>"
     Then I will see the "TextLayer" result will be "<json>"
@@ -313,9 +317,10 @@ Feature: 仪表盘事件列表
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I choose the "跳转到搜索页" from the "DrillAction"
+    And I wait for "1000" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "500" millsecond
@@ -323,9 +328,10 @@ Feature: 仪表盘事件列表
 #    And I click the "HoverElement" button
     And I move the mouse pointer to the "HoverElement"
     And I click the "IconRight" button
-    And I click the "Chengdushi" button
+    And I click the "ChengDuShi" button
     And switch to another window
     And I will see the "splSearch.SearchPage" page
+#    Then I will see the element "SearchInput" name is "apache.geo.city:成都市 AND 'apache.geo.city':成都市"
     Then I will see the "SearchInput" result will be "apache.geo.city:成都市 AND 'apache.geo.city':成都市"
 
   @dashboard @dashboardSmoke
@@ -335,7 +341,7 @@ Feature: 仪表盘事件列表
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
@@ -365,7 +371,7 @@ Feature: 仪表盘事件列表
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I choose the "跳转到自定义URL" from the "DrillAction"
     And I set the parameter "Url" with value "<url>"
@@ -410,7 +416,7 @@ Feature: 仪表盘事件列表
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible
     And I choose the "跳转到标签页" from the "DrillAction"
@@ -467,7 +473,7 @@ Feature: 仪表盘事件列表
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible
     And I choose the "管理本页过滤项/输入项数值" from the "DrillAction"

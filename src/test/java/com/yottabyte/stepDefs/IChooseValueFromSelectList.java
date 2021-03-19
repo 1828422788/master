@@ -187,7 +187,6 @@ public class IChooseValueFromSelectList {
 
     public void iChooseTheFromThe(List<String> values, WebElement parentElement) {
 
-//        List<WebElement> elements = parentElement.findElements(By.tagName("li"));
         List<WebElement> elements = parentElement.findElements(By.tagName("span"));
         for (String value : values) {
             if (value != null && value.trim().length() != 0) {

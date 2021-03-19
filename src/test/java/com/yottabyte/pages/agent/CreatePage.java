@@ -43,7 +43,7 @@ public class CreatePage extends PageTemplate {
         return SourceRoot;
     }
 
-    @FindBy(xpath = "//label[contains(@title,'最后修改时间')]/parent::div/following-sibling::div//input")
+    @FindBy(xpath = "//label[text()='最后修改时间']/parent::div/following-sibling::div//input")
     private WebElement LastChangeTime;
 
     @FindBy(xpath = "//span[text()='来源路径']/following-sibling::span")
@@ -69,30 +69,27 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='文件路径白名单']/following-sibling::span")
     private WebElement WhitelistRoot;
 
-    @FindBy(xpath = "//label[contains(@title,'监听地址')]/parent::div/following-sibling::div//input" )
-    private WebElement Listenaddress;
-
-    @FindBy(xpath = "//span[contains(text(),'+ 添加新映射')]")
+    @FindBy(xpath = "//span[contains(text(),'添加新映射')]")
     private WebElement AddNewMap;
 
     public WebElement getSyslogip() {
         return Syslogip;
     }
 
-    @FindBy(xpath = "//tr/td[1]/div/div/div/span/input")
+    @FindBy(xpath = "//tr/td[1]//div//input")
     private WebElement Syslogip;
 
-    @FindBy(xpath = "//tr/td[2]/div/div/div/span/div/div/div/ul/li/div/input")
+    @FindBy(xpath = "//tr/td[2]//div/input")
     private WebElement Syslogappname;
 
-    @FindBy(xpath = "//tr/td[3]/div/div/div/span/div/div/div/ul/li/div/input")
+    @FindBy(xpath = "//tr/td[3]/div//input")
     private WebElement Syslogtag;
 
     public WebElement getSyslogEditip() {
         return SyslogEditip;
     }
 
-    @FindBy(xpath = "//div[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[1]/descendant::input")
+    @FindBy(xpath = "//span[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[1]/descendant::input")
     private WebElement SyslogEditip;
 
     public WebElement getSyslogEditappname() {
@@ -107,13 +104,13 @@ public class CreatePage extends PageTemplate {
         return SyslogEditdelete;
     }
 
-    @FindBy(xpath = "//div[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[2]/descendant::input")
+    @FindBy(xpath = "//span[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[2]/descendant::input")
     private WebElement SyslogEditappname;
 
-    @FindBy(xpath = "//div[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[3]/descendant::input")
+    @FindBy(xpath = "//span[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[3]/descendant::input")
     private WebElement SyslogEdittag;
 
-    @FindBy(xpath = "//div[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[5]/descendant::input")
+    @FindBy(xpath = "//span[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[5]/descendant::span")
     private WebElement SyslogEditdelete;
 
     public WebElement getSyslogChar() {
@@ -121,22 +118,8 @@ public class CreatePage extends PageTemplate {
         WebElement element = webDriver.findElement(By.xpath("(//div[contains(@class,'ant-select-selection--single')])[last()]/span/i"));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return dropdownUtils.getLastDropdownList();
-    }
-
-    @FindBy(xpath = "//label[contains(@title,'appname')]/parent::div/following-sibling::div//input" )
-    private WebElement BeatsAppname;
-
-    @FindBy(xpath = "//label[contains(@title,'tag')]/parent::div/following-sibling::div//input" )
-    private WebElement BeatsTag;
-
-
-    public WebElement getBeatsAppname() {
-        return BeatsAppname;
-    }
-
-    public WebElement getBeatsTag() {
-        return BeatsTag;
+        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu'])[last()]"));
+//        return dropdownUtils.getLastDropdownList();
     }
 
     public WebElement getCheckListenaddress() {
@@ -175,7 +158,7 @@ public class CreatePage extends PageTemplate {
         return ChangeMemo;
     }
 
-    @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-success']")
+    @FindBy(xpath = "//div[@class='yotta-message-manager']//span")
     private WebElement ChangeMemo;
 
     @FindBy(xpath = "//tbody")
@@ -236,43 +219,32 @@ public class CreatePage extends PageTemplate {
         return Addsuccessmsg;
     }
 
-    @FindBy(xpath = "//p[@class='_1YeMXA5GiLhhXEnu-UQysl']")
+    @FindBy(xpath = "//p[@class='_2NgnDeeFcMbAQtph5b6tcP']")
     private WebElement Addsuccessmsg;
 
     public WebElement getContinueAdd() {
-        return ContinueAdd;
+        return super.getYottaButtonByText("继续添加");
     }
-
-    @FindBy(xpath = "//a[text()='继续添加']")
-    private WebElement ContinueAdd;
 
     public WebElement getConfigDatasource() {
-        return ConfigDatasource;
+        return super.getYottaButtonByText("批量配置该数据源");
     }
-
-    @FindBy(xpath = "//a[text()='批量配置该数据源']")
-    private WebElement ConfigDatasource;
 
     public WebElement getDatafetch() {
-        return Datafetch;
+        return super.getYottaButtonByText("提取字段");
     }
 
-    @FindBy(xpath = "//a[text()='提取字段']")
-    private WebElement Datafetch;
 
     public WebElement getConfigDatasourceMsg() {
         return ConfigDatasourceMsg;
     }
 
-    @FindBy(xpath = "//div[@class='ant-modal-title']")
+    @FindBy(xpath = "//div[@class='yotta-modal-title']")
     private WebElement ConfigDatasourceMsg;
 
     public WebElement getCurrentConfiguration() {
-        return CurrentConfiguration;
+        return super.getYottaButtonByText("查看当前配置");
     }
-
-    @FindBy(xpath = "//a[text()='查看当前配置']")
-    private WebElement CurrentConfiguration;
 
     public WebElement getAutohekafiletest() {
         return autohekafiletest;
@@ -296,7 +268,7 @@ public class CreatePage extends PageTemplate {
     private WebElement EditAutoFile;
 
     public WebElement getJmxInput() {
-        return webDriver.findElement(By.xpath("//li[text()='JmxInput']"));
+        return webDriver.findElement(By.xpath("//span[text()='JmxInput']"));
     }
 
     public WebElement getDropdownList(String text) {
@@ -306,12 +278,15 @@ public class CreatePage extends PageTemplate {
         return webDriver.findElement(By.xpath("(//ul[@class='ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical'])[last()]"));
     }
     public WebElement getCsvConfing() {
-        return getDropdownList("CSV文件配置");
+        return CsvConfing;
     }
+
+    @FindBy(xpath = "//span[(text()='CSV文件配置')]/parent::span")
+    private WebElement CsvConfing;
 
 
     public WebElement getHostConnectInput() {
-        return getLiElement("HostConnectInput");
+        return super.getButton("HostConnectInput");
     }
 
     public WebElement getCleanInputCache() {
@@ -330,11 +305,8 @@ public class CreatePage extends PageTemplate {
     private WebElement Compressed;
 
     public WebElement getEdit() {
-        return Edit;
+        return super.getYottaButtonByText("编 辑");
     }
-
-    @FindBy(xpath = "//span[text()='编 辑']//ancestor::button")
-    private WebElement Edit;
 
     public WebElement getDataSourceSwitchStatus() {
         return getSwitchStatus("autohekafiletest");
@@ -442,11 +414,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCreateDestObject(){
-        return getSoureceTypeElement("+新建目的对象");
+        return super.getYottaButtonByText("新建目的对象");
     }
 
     public WebElement getListenaddress() {
-        return Listenaddress;
+        return getInputElement("监听地址");
     }
 
     public WebElement getWhitelistRoot() {
@@ -465,7 +437,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='连续监视']/following-sibling::span")
     private WebElement Monitoring;
 
-    @FindBy(xpath = "//div[@class='ant-form-explain']")
+    @FindBy(xpath = "//div[@class='yotta-form-field-help-text']")
     private WebElement PreviewMessage;
 
     public WebElement getEditMysql() {
@@ -495,6 +467,10 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='autotestmysql']/following-sibling::span/span[text()='删除']")
     private WebElement DeleteMysql;
+
+    public WebElement getDelete(){
+        return super.getButton("删除");
+    }
 
     public WebElement getDeleteMysql139() {
         return DeleteMysql139;
@@ -530,14 +506,14 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//p")
     private WebElement Preview;
 
-    @FindBy(xpath = "//span[@class='ant-radio']")
+    @FindBy(xpath = "//span[@class='yotta-radio-input']")
     private WebElement ChooseButton;
 
     public WebElement getBackUpTable() {
         return BackUpTable;
     }
 
-    @FindBy(xpath = "//label[contains(@title,'tag')]/parent::div/following-sibling::div//input")
+    @FindBy(xpath = "//label[text()='tag']/parent::div/following-sibling::div//input")
     private WebElement Tag;
 
     public WebElement getLastChangeTime() {
@@ -638,7 +614,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getEnsure() {
-        return super.getButton("确定");
+        return super.getYottaButtonByText("确定");
     }
 
     public WebElement getFile() {
@@ -646,23 +622,23 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getBack() {
-        return super.getButton("上一步");
+        return super.getYottaButtonByText("上一步");
     }
 
     public WebElement getBackup() {
-        return super.getButton("返回");
+        return super.getYottaButtonByText("返回");
     }
 
     public WebElement getSave() {
-        return super.getButton("保存");
+        return super.getYottaButtonByText("保存");
     }
 
     public WebElement getNext() {
-        return super.getButton("下一步");
+        return super.getYottaButtonByText("下一步");
     }
 
     public WebElement getFinish() {
-        return super.getButton("完成");
+        return super.getYottaButtonByText("完成");
     }
 
     public WebElement getSenior() {
@@ -670,30 +646,35 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getBackupSenior() {
-        return super.getButton("高级");
+        return super.getYottaButtonByText("高级");
     }
 
     public WebElement getDetailMoreButton() {
         return DetailMoreButton;
+//        DropdownUtils dropdownUtils = new DropdownUtils();
+//        WebElement element = webDriver.findElement(By.xpath( "//span[(text()='更多')]/parent::span/parent::div"));
+//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+//        ClickEvent.clickUnderneathButton(element);
+//        return webDriver.findElement(By.xpath("(//ul[@class='yotta-menu'])[last()]"));
     }
 
-    @FindBy(xpath = "//span[contains(text(),'更多')]")
+    @FindBy(xpath = "//span[(text()='更多')]/parent::span")
     private WebElement DetailMoreButton;
 
     public WebElement getAddBackUP() {
-        return super.getButton("添加备份");
+        return super.getYottaButtonByText("添加备份");
     }
 
     public WebElement getChangeConfiguration() {
-        return super.getButton("修改&重启");
+        return super.getYottaButtonByText("修改&重启");
     }
 
     public WebElement getDownloadConfiguration() {
-        return super.getButton("下载配置文件");
+        return super.getYottaButtonByText("下载配置文件");
     }
 
     public WebElement getBackUp() {
-        return webDriver.findElement(By.xpath("//li[text()='备份配置']"));
+        return webDriver.findElement(By.xpath("//span[text()='备份配置']"));
     }
 
     public WebElement getDocument() {
@@ -913,11 +894,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCreate(){
-        return getButton("添加数据");
+        return getYottaButtonByText("添加数据");
     }
 
     public WebElement getCsvSave(){
-        return getButton("保存文件");
+        return getYottaButtonByText("保存文件");
     }
 
     @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-info']/span")
@@ -953,12 +934,12 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getClean() {
-        return super.getButton("清理");
+        return super.getYottaButtonByText("清理");
     }
 
 
     public WebElement getCancle() {
-        return super.getButton("取消");
+        return super.getYottaButtonByText("取消");
     }
 
     public WebElement getMessage() {
@@ -1029,7 +1010,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getBackUpSwitchStatus(String name) {
-        return webDriver.findElement(By.xpath("//label[@title='" + name + "']/parent::div/following-sibling::div//span[@class='ant-form-item-children']"));
+        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/parent::div/following-sibling::div//span[@class='yotta-switch-slider']"));
     }
 
     public WebElement getLiElement(String name) {
@@ -1037,14 +1018,14 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCsvInput(int num){
-        return webDriver.findElement(By.xpath("(//input[contains(@class,'ant-input css-pcxrzr')])[" + num + "]"));
+        return webDriver.findElement(By.xpath("(//input[contains(@class,'yotta-input yotta-input-large ')])[" + num + "]"));
 
     }
     public WebElement getDropDownListElement(String name) {
         DropdownUtils dropdownUtils = new DropdownUtils();
-        WebElement element = webDriver.findElement(By.xpath("//label[@title='" + name + "']/parent::div/following-sibling::div//div[@class='ant-select-selection__rendered']/following-sibling::span/i"));
+        WebElement element = webDriver.findElement(By.xpath("//label[text()='" + name + "']/parent::div/following-sibling::div//span[@class='yotta-select-selection-value']"));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return dropdownUtils.getLastDropdownList();
+        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu'])[last()]"));
     }
 }

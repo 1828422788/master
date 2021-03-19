@@ -15,8 +15,8 @@ Feature: 仪表盘多Y轴图
   @dashboard @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
-    And I click the "CreateButton" button
-    And I click the "Create" button
+    And I click the "NewTrendButton" button
+#    And I click the "Create" button
     Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
@@ -24,6 +24,7 @@ Feature: 仪表盘多Y轴图
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
+    And I wait for loading invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "<name>"
@@ -83,7 +84,7 @@ Feature: 仪表盘多Y轴图
     And I wait for "Compound" will be visible
     And I click the "Compound" button
     And I click the "<targetName>" button
-    And I hide the element "Content"
+#    And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
     And I choose the "apache.resp_len" from the "DataValue"
@@ -122,7 +123,7 @@ Feature: 仪表盘多Y轴图
     And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     Then I will see the dashboard highEditor text will contain "<json>"
 #    Then I will see the "TextAce" result will be "<json>"
@@ -182,7 +183,7 @@ Feature: 仪表盘多Y轴图
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "<labelRotate>",      "sortOrder": "default"    },    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "yAxis": [      {        "unit": "",        "range": {          "min": "",          "max": ""        }      },      {        "unit": "柱",        "range": {          "min": "2",          "max": ""        }      }    ],    "yField": [      {        "type": "line",        "field": "count(apache.resp_len)",        "position": 0,        "smooth": false,        "connectNull": false,        "opacity": 0.6,        "color": "#2A76E4"      },      {        "type": "column",        "field": "max(apache.resp_len)",        "position": 1,        "connectNull": false,        "opacity": 0.6,        "color": "#FBAD08"      }    ],    "byFields": [      "apache.status"    ],    "legend": {      "placement": "bottom"    }  }}" to json editor
     And I wait for "500" millsecond
@@ -207,7 +208,7 @@ Feature: 仪表盘多Y轴图
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "vertical",      "sortOrder": "<sortOrder>"    },    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "yAxis": [      {        "unit": "",        "range": {          "min": "",          "max": ""        }      },      {        "unit": "柱",        "range": {          "min": "2",          "max": ""        }      }    ],    "yField": [      {        "type": "line",        "field": "count(apache.resp_len)",        "position": 0,        "smooth": false,        "connectNull": false,        "opacity": 0.6,        "color": "#2A76E4"      },      {        "type": "column",        "field": "max(apache.resp_len)",        "position": 1,        "connectNull": false,        "opacity": 0.6,        "color": "#FBAD08"      }    ],    "byFields": [      "apache.status"    ],    "legend": {      "placement": "bottom"    }  }}" to json editor
     And I wait for "500" millsecond
@@ -232,7 +233,7 @@ Feature: 仪表盘多Y轴图
     And I click the detail which name is "仪表盘多Y轴图"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘多Y轴图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘多Y轴图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "yAxis": [],    "yField": [],    "byFields": [      "apache.status"    ],    "legend": {      "placement": "bottom"    }  }}" to json editor
     And I wait for "500" millsecond
@@ -246,7 +247,7 @@ Feature: 仪表盘多Y轴图
     And I click the detail which name is "仪表盘多Y轴图"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘多Y轴图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘多Y轴图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "yAxis": [      {        "unit": "",        "range": {          "min": "",          "max": ""        }      }    ],    "yField": [      {        "type": "<type>",        "field": "count(apache.resp_len)",        "position": 0,        "smooth": false,        "connectNull": false,        "opacity": 0.6,        "color": "#2A76E4"      }    ],    "byFields": [      "apache.status"    ],    "legend": {      "placement": "bottom"    }  }}" to json editor
     And I wait for "500" millsecond
@@ -273,7 +274,7 @@ Feature: 仪表盘多Y轴图
     And I click the detail which name is "仪表盘多Y轴图"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘多Y轴图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘多Y轴图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "yAxis": [      {        "unit": "",        "range": {          "min": "",          "max": ""        }      }    ],    "yField": [      {        "type": "line",        "field": "min(apache.resp_len)",        "position": 0,        "smooth": false,        "connectNull": false,        "opacity": 0.6,        "color": "#2A76E4"      }    ],    "byFields": [      "apache.status"    ],    "legend": {      "placement": "bottom"    }  }}" to json editor
     And I wait for "500" millsecond
@@ -293,7 +294,7 @@ Feature: 仪表盘多Y轴图
     And I click the detail which name is "仪表盘多Y轴图"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘多Y轴图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘多Y轴图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "yAxis": [      {        "unit": "",        "range": {          "min": "<min>",          "max": "<max>"        }      }    ],    "yField": [      {        "type": "line",        "field": "count(apache.resp_len)",        "position": 0,        "smooth": false,        "connectNull": false,        "opacity": 0.6,        "color": "#2A76E4"      }    ],    "byFields": [      "apache.status"    ],    "legend": {      "placement": "bottom"    }  }}" to json editor
     And I wait for "500" millsecond
@@ -319,7 +320,7 @@ Feature: 仪表盘多Y轴图
     And I click the detail which name is "仪表盘多Y轴图"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘多Y轴图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘多Y轴图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "yAxis": [      {        "unit": "",        "range": {          "min": "<min>",          "max": "<max>"        }      }    ],    "yField": [      {        "type": "line",        "field": "count(apache.resp_len)",        "position": 0,        "smooth": false,        "connectNull": false,        "opacity": 0.6,        "color": "#2A76E4"      }    ],    "byFields": [      "apache.status"    ],    "legend": {      "placement": "bottom"    }  }}" to json editor
     And I wait for "500" millsecond
@@ -337,7 +338,7 @@ Feature: 仪表盘多Y轴图
     And I click the detail which name is "仪表盘多Y轴图"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘多Y轴图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘多Y轴图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "yAxis": [      {        "unit": "",        "range": {          "min": "",          "max": ""        }      }    ],    "yField": [      {        "type": "line",        "field": "count(apache.resp_len)",        "position": 0,        "smooth": true,        "connectNull": false,        "opacity": 0.6,        "color": "#2A76E4"      }    ],    "byFields": [      "apache.status"    ],    "legend": {      "placement": "bottom"    }  }}" to json editor
     And I wait for "500" millsecond
@@ -357,7 +358,7 @@ Feature: 仪表盘多Y轴图
     And I click the detail which name is "仪表盘多Y轴图"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘多Y轴图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘多Y轴图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "yAxis": [      {        "unit": "",        "range": {          "min": "",          "max": ""        }      }    ],    "yField": [      {        "type": "column",        "field": "count(apache.resp_len)",        "position": 0,        "smooth": true,        "connectNull": false,        "opacity": 0.6,        "color": "#2A76E4"      }    ],    "byFields": [      "<byFields>"    ],    "legend": {      "placement": "bottom"    }  }}" to json editor
     And I wait for "500" millsecond
@@ -381,7 +382,7 @@ Feature: 仪表盘多Y轴图
     And I click the detail which name is "仪表盘多Y轴图"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘多Y轴图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘多Y轴图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "yAxis": [      {        "unit": "",        "range": {          "min": "",          "max": ""        }      }    ],    "yField": [      {        "type": "line",        "field": "count(apache.resp_len)",        "position": 0,        "smooth": true,        "connectNull": false,        "opacity": 0.6,        "color": "#2A76E4"      }    ],    "byFields": [      "apache.status"    ],    "legend": {      "placement": "<legend>"    }  }}" to json editor
     And I wait for "500" millsecond
@@ -406,7 +407,7 @@ Feature: 仪表盘多Y轴图
     And I click the detail which name is "仪表盘多Y轴图"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘多Y轴图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘多Y轴图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "yAxis": [      {        "unit": "",        "range": {          "min": "",          "max": ""        }      }    ],    "yField": [      {        "type": "line",        "field": "count(apache.resp_len)",        "position": 0,        "smooth": true,        "connectNull": false,        "opacity": 0.6,        "color": "#2A76E4"      }    ],    "byFields": [      "apache.status"    ],    "legend": {      "placement": "<legend>"    }  }}" to json editor
     And I wait for "500" millsecond
@@ -430,7 +431,7 @@ Feature: 仪表盘多Y轴图
     And I click the detail which name is "仪表盘多Y轴图"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘多Y轴图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘多Y轴图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "yAxis": [      {        "unit": "",        "range": {          "min": "",          "max": ""        }      }    ],    "yField": [      {        "type": "line",        "field": "count(apache.resp_len)",        "position": 0,        "smooth": true,        "connectNull": false,        "opacity": 0.6,        "color": "#2A76E4"      }    ],    "byFields": [      "apache.status"    ],    "legend": {      "placement": "<legend>"    }  }}" to json editor
     And I wait for "500" millsecond

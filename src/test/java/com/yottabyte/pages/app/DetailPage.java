@@ -17,7 +17,8 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[@class='ant-tree-title']//span")
     private WebElement menuName;
 
-    @FindBy(id = "register_name")
+    //@FindBy(id = "register_name")
+    @FindBy(xpath = "//div[@class='yotta-form-field']/div/input")
     private WebElement name;
 
     @FindBy(className = "ant-select-selection-selected-value")

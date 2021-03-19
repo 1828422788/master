@@ -1,5 +1,6 @@
 package com.yottabyte.pages.agent;
 
+import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.DropdownUtils;
 import com.yottabyte.utils.WaitForElement;
@@ -14,7 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * @author sunxj,sunxc
  */
-public class ListPage extends ListPageFactory {
+public class ListPage extends PageTemplate {
 
 
     public WebElement getMemoButton() {
@@ -128,7 +129,7 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getAgentMultiButton(){
-        return super.getButton("批量操作");
+        return super.getYottaButtonByText("批量操作");
     }
 
     public WebElement getAgentMultiCHooseButton(){

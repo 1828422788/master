@@ -12,6 +12,7 @@ Feature: Agent编辑性能数据类型数据源
   Scenario: 新建性能数据数据源
     And I click the "Create" button
     And I click the "FuctionType" button
+    And I click the "Next" button
     And I set the parameter "SpecialPort" with value "23"
 #    And I set the parameter "EidtFrequency" with value "500"
     And I click the "Next" button
@@ -19,7 +20,8 @@ Feature: Agent编辑性能数据类型数据源
     And I set the parameter "PreAppname" with value "autotop_info"
     And I set the parameter "Tag" with value "autotop_info"
     And I click the "Next" button
-    And I click the "Next" button
+    And I wait for "Finish" will be visible
+    And I click the "Finish" button
     And I will see the element "Addsuccessmsg" name is "添加成功"
 
 
@@ -37,11 +39,11 @@ Feature: Agent编辑性能数据类型数据源
 
   Scenario Outline: 性能数据源修改appname成功
     Given the data name ".*" in table "FuctionTypeTable" then i click the "编辑" button
-    And I wait for loading invisible
+    And I wait for "Appname" will be visible
     And I set the parameter "Appname" with value "<appnamekind>"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
     Examples:
@@ -66,11 +68,11 @@ Feature: Agent编辑性能数据类型数据源
       |   #.。，   |
   Scenario Outline: 性能数据源修改tag成功
     Given the data name ".*" in table "FuctionTypeTable" then i click the "编辑" button
-    And I wait for loading invisible
+    And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
     Examples:
@@ -99,7 +101,7 @@ Feature: Agent编辑性能数据类型数据源
     When I choose the "<frequencykind>" from the "Frequency"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
     Examples:
@@ -115,7 +117,7 @@ Feature: Agent编辑性能数据类型数据源
     And I set the parameter "SpecialPort" with value "24"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
   Scenario: 性能数据源修改采集磁盘指标（采集->不采集）
@@ -124,7 +126,7 @@ Feature: Agent编辑性能数据类型数据源
     And I click the "DiskQuota" button
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 #    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
@@ -142,7 +144,7 @@ Feature: Agent编辑性能数据类型数据源
     And I click the "SystemQuota" button
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
 #  Scenario: 性能数据源修改采集单个cpu指标（不采集->采集）
@@ -165,7 +167,7 @@ Feature: Agent编辑性能数据类型数据源
     And I click the "ProcessQuota" button
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
   Scenario: 性能数据源修改进程采集白名单
@@ -174,14 +176,14 @@ Feature: Agent编辑性能数据类型数据源
     And I set the parameter "ProcessWhiteList" with value "./log.*"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
   Scenario: 性能数据源删除
-    Given the data name "./log.*" in table "FuctionTypeTable" then i click the "删除" button
-    And I wait for loading invisible
+    Given the data name "./log.*" in table "FuctionTypeTable" then i click the "更多" button
+    And I click the "Delete" button
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
 
