@@ -231,6 +231,7 @@ Feature: 趋势图_拖拽_其他
     And I wait for "Panel" will be visible
     And I choose the "<compareWith1>" from the "CompareField" in config
     And I click the "Clientip" button
+    And I wait for "2000" millsecond
 
     When I click the "ElementInValues" button
     And I wait for "Panel" will be visible
@@ -268,12 +269,7 @@ Feature: 趋势图_拖拽_其他
     And I click the "<chartType>" button
     And I wait for "2000" millsecond
     And I will see the input element "Segments" value will be "10"
-    And I click the "Decrease" button
-    And I click the "Decrease" button
-    And I click the "Decrease" button
-    And I click the "Decrease" button
-    And I click the "Decrease" button
-    And I will see the input element "Segments" value will be "<segments>"
+    And I set the parameter "Segments" with value "<segments>" using step buttons
 
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
@@ -324,8 +320,6 @@ Feature: 趋势图_拖拽_其他
     And I drag the element "Clientip" to the "Values"
     And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
-    And I wait for "3000" millsecond
-    And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
     When I click the "ElementInValues" button
     And I wait for "Panel" will be visible

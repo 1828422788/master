@@ -123,6 +123,29 @@ public class DropdownUtils {
         return lastDropdownList;
     }
 
+
+    public WebElement getLastDropdownListOfUser() {
+        String xpath;
+        xpath = "//span[text()='请选择分组']";
+        List<WebElement> list = webDriver.findElements(By.xpath(xpath));
+        WebElement lastDropdownList = list.get(list.size() - 1);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+        }
+        return lastDropdownList;
+    }
+
+    //仪表盘下拉菜单
+    public WebElement getLastDropdownListDashboard() {
+        String className = "yotta-dropdown-trigger";
+        List<WebElement> list = webDriver.findElements(By.className(className));
+        WebElement lastDropdownList = list.get(list.size() - 1);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+        }
+        return lastDropdownList;
+    }
+
     public WebElement getMaintainTimeDropdownList() {
         String className;
         className = "ant-time-picker-panel-select";

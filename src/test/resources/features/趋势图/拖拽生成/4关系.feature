@@ -1,5 +1,5 @@
 @dragAndDrop @dragAndDropConnection @trend
-Feature: 趋势图_拖拽_序列
+Feature: 趋势图_拖拽_关系
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -59,9 +59,7 @@ Feature: 趋势图_拖拽_序列
     And I click the "<chartType>" button
     And I wait for "2000" millsecond
 
-    And I will see the input element "Repulsion" value will be "8"
-    And I click the "Increase10" button
-    And I will see the input element "Repulsion" value will be "18"
+    And I set the parameter "Repulsion" with value "25" using step buttons
     And I wait for "AddColor" will be visible
     And I click the "AddColor" button
     And I wait for "<color>" will be visible

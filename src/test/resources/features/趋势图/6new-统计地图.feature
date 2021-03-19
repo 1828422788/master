@@ -68,7 +68,7 @@ Feature: 趋势图新建_统计地图
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "General" button
-    And I set the parameter "Transparency" with value "<tranparencyValue>"
+    And I set the parameter "Transparency" with value "<tranparencyValue>" using step buttons
     And I set the parameter "MinRadius" with value "<minRadiusValue>"
     And I set the parameter "MaxRadius" with value "<maxRadiusValue>"
     And I click the "Tile" button
@@ -117,7 +117,7 @@ Feature: 趋势图新建_统计地图
     And I set the parameter "MapName" with value "<mapName>"
     And I set the parameter "MapURL" with value "<url>"
     And I set the parameter "Subdomains" with value "abc"
-    And I set the parameter "MapOpacity" with value "<mapOpacity>"
+    And I set the parameter "MapOpacity" with value "<mapOpacity>" using step buttons
     And I click the "Value" button
     And I choose the "min(apache.resp_len)" from the "DataCircleLayer" in config
     And I choose the "count()" from the "HeatmapLayer" in config

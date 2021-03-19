@@ -19,11 +19,8 @@ public class ListPage extends PageTemplate {
 
 
     public WebElement getMemoButton() {
-        return MemoButton;
+        return super.getButton("修改备注");
     }
-
-    @FindBy(xpath = "//div[@class='ant-popover _3J5Pw1DBfL5ONdRgQNn9yD ant-popover-placement-bottom']//span[contains(text(),'修改备注')]/ancestor::li")
-    private WebElement MemoButton;
 
     @FindBy(className = "_2FuqHHfRc-c7BJzf3RvYta")
     private WebElement agentGroup;
@@ -47,7 +44,7 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='验证组内权限'])[2]")
     private WebElement authButton;
 
-    @FindBy(id = "update_comment_comment")
+    @FindBy(xpath = "(//label[text()='备注']/parent::div/following-sibling::div//input)[2]")
     private WebElement memo;
 
     public WebElement getAgentExportButton() {
@@ -81,20 +78,14 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//li/span[text()='下载安装包']")
     private WebElement AgentDownloadButton;
 
-    @FindBy(xpath = "//div[text()='Windows']")
-    private WebElement WindowsGUIButton;
-
     public WebElement getWindowsGUIButton() {
-        return WindowsGUIButton;
+        return super.getYottaButtonByText("下载文件");
     }
 
     public WebElement getMacOsGUIButton() {
 
-        return MacOsGUIButton;
+        return super.getYottaButtonByText("下载命令");
     }
-
-    @FindBy(xpath = "//div[text()='MacOS']")
-    private WebElement MacOsGUIButton;
 
     public WebElement getAuthButton() {
         return authButton;
@@ -133,7 +124,7 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getAgentMultiCHooseButton(){
-        return super.getButton("请选择");
+        return super.getYottaButtonByText("请选择");
     }
 
     public WebElement getAllButton() {
@@ -223,11 +214,8 @@ public class ListPage extends PageTemplate {
         return webDriver.findElement(By.xpath(xpath));
     }
 
-    @FindBy(xpath = "//div[@class='Yt5JX-42Xe_Kz4p92ocJI']//span[text()='确定']//ancestor::button")
-    private WebElement MemoEnsure;
-
     public WebElement getMemoEnsure() {
-        return MemoEnsure;
+        return super.getYottaButtonByText("确定");
     }
 
     @FindBy(xpath = "//p/span[text()='sunxctest']")
@@ -238,8 +226,7 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getChangeMemoButton(){
-        String xpath = "//span/a[text()='修改备注']";
-        return webDriver.findElement(By.xpath(xpath));
+        return super.getButton("修改备注");
     }
     public WebElement getOprationElement(String text) {
         String xpath = "//span[text()='192.168.1.136']/ancestor::td/following-sibling::td/span/a[text()=' " + text + "']";
