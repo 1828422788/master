@@ -170,8 +170,7 @@ public class CruxeePolicyPage extends PageTemplate {
     }
 
     public WebElement getStopConditionLastAlertFieldOperatorsList() {
-//      String xpath = "//div[text()='最后一条告警的字段']/following::div[text()='请选择关系']/parent::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
-        String xpath = "//span[text()='最后一条告警的字段']/following::div[@yotta-test='incident-break_operator-select']/div[@class='yotta-select-selection']";
+        String xpath = "//span[text()='最后一条告警的字段']/following::div[@yotta-test='incident-break_operator-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
@@ -361,5 +360,10 @@ public class CruxeePolicyPage extends PageTemplate {
         return startCruxeePolicy;
     }
 
+    @FindBy(xpath = "//div[text()='提示']")
+    private WebElement tip;
+    public WebElement gitTip() {
+        return tip;
+    }
 
 }

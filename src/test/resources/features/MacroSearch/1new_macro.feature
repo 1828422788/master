@@ -54,7 +54,6 @@ Feature: 新建宏
       | m1_eval_2(2)    | if(isstr(apache.clientip),$x$-$y$,$x$+$y$)   | x,y        | tag:sample04061424 \| eval x=`m1_eval_2(1,2)` \| table x | tag:sample04061424 \| eval x=if(isstr(apache.clientip),1-2,1+2) \| table x |
       | m2_eval_2(2)    | "if(isstr(apache.clientip),$x$-$y$,$x$+$y$)" | x,y        | tag:sample04061424 \| eval x=`m2_eval_2(1,2)` \| table x | tag:sample04061424 \| eval x="3" \| table x                                |
 
-
   @newmacro2_1
   Scenario Outline: 创建宏，无eval的定义
     Given open the "macroSearch.ListPage" page for uri "/macro/"
@@ -74,7 +73,6 @@ Feature: 新建宏
       | name    | definition                                   | macroParam | macroSearch                                         | query                                                                        |
       | m1_2(2) | if(isstr(apache.clientip),$x$-$y$,$x$+$y$)   | x,y        | tag:sample04061424 \| eval x=`m1_2(1,2)` \| table x | tag:sample04061424 \| eval x=if(isstr(apache.clientip),1-2,1+2) \| table x   |
       | m2_2(2) | "if(isstr(apache.clientip),$x$-$y$,$x$+$y$)" | x,y        | tag:sample04061424 \| eval x=`m2_2(1,2)` \| table x | tag:sample04061424 \| eval x="if(isstr(apache.clientip),1-2,1+2)" \| table x |
-
 
   @newmacro3
   Scenario Outline:创建，1个

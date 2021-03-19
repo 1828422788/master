@@ -70,6 +70,7 @@ Feature: 事件管理-合并策略-11个
     And I choose the "最后一条告警的字段" from the "StopConditionNameslist"
     And I choose the "name" from the "StopConditionLastAlertFieldNamesList"
     And I choose the "like" from the "StopConditionLastAlertFieldOperatorsList"
+    And I wait for "3000" will be visible
     And I set the parameter "StopConditionLastAlertFieldInput" with value "事件告警停止"
 
     And I choose the "<SendPolicyName>" from the "SendPolicyNameslist"
