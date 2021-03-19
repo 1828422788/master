@@ -153,7 +153,7 @@ public class CreatePageDash extends PageTemplate {
     @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div//label[4]")
     private WebElement forthLabel;
 
-    @FindBy(xpath = "(//*[text()='中国'])/ancestor::span")
+    @FindBy(xpath = "//span[text()='中国']/preceding-sibling::span")
     private WebElement selectChina;
 
     @FindBy(xpath = "(//*[text()='江苏'])/ancestor::span")

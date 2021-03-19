@@ -514,7 +514,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='36.46.208.22']")
     private WebElement tableRow22;
 
-    @FindBy(xpath = "//table/tbody/tr[1]/td[2]")
+    @FindBy(xpath = "//table/tbody/tr[1]/td[2]/div")
     private WebElement tableRowResplen;
 
     @FindBy(xpath = "//div[text()='钻取变量单值']/following-sibling::div[last()]/div/div[last()]/div/span")
@@ -547,19 +547,19 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(@class,'yotta-date-time-picker-text')]")
     private WebElement dateEditor;
 
-    @FindBy(className = "ant-cascader-picker")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-drilldown_tab_target_tab-cascader']")
     private WebElement targetTag;
 
     @FindBy(className = "el-cascader-menu")
     private List<WebElement> menuList;
 
-    @FindBy(xpath = "//label[contains(text(),'目标参数')]/following-sibling::div")
+    @FindBy(xpath = "//label[contains(text(),'目标参数')]/following-sibling::div/div")
     private WebElement targetParam;
 
     @FindBy(xpath = "(//ul[@class='ant-select-dropdown-menu-item-group-list'])[1]")
     private WebElement inputGroup;
 
-    @FindBy(xpath = "//div[text()='=']//i")
+    @FindBy(xpath = "//div[text()='=']//span")
     private WebElement paramValue;
 
     @FindBy(xpath = "//*[@yotta-test='dashboard-drilldown_filter_value-select']")
@@ -876,7 +876,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='快捷选项']")
     private WebElement shortcut;
 
-    @FindBy(xpath = "(//ul[@class='ant-cascader-menu'])[last()]")
+    @FindBy(xpath = "//*[@class='yotta-cascader-menu'][last()]")
     private WebElement dashboardMenu;
 
     @FindBy(xpath = "//*[@class='yotta-dropdown-menu'][last()]")
@@ -888,7 +888,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//label[text()='今天'])[2]/following-sibling::i")
     private WebElement secondChartType;
 
-    @FindBy(xpath = "//label[text()='今天']/following-sibling::i[4]")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-delete_chart-icon']")
     private WebElement delete;
 
     @FindBy(xpath = "//div[text()='仪表盘单值']/following-sibling::div/label")
@@ -1334,7 +1334,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getDelete() {
-        return iconList.get(6);
+        return delete;
     }
 
     public WebElement getDeleteForTable() {
@@ -1586,10 +1586,10 @@ public class DetailPage extends PageTemplate {
         return GetTime.getTime(webDriver, "Yesterday");
     }
 
-    @FindBy(xpath = "//button[text()='所有时间']")
+    @FindBy(xpath = "//*[@yotta-test='date_time_picker-select_shortcut_所有时间-dom']")
     private WebElement wholeTime;
 
-    @FindBy(xpath = "//button[text()='最近7天']")
+    @FindBy(xpath = "//*[@yotta-test='date_time_picker-select_shortcut_最近7天-dom']")
     private WebElement recentSevenDay;
 
     @FindBy(xpath = "//div[text()='最近7天']")
@@ -2440,6 +2440,27 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getCleanDatevalue() {
         return cleanDatevalue;
+    }
+
+    @FindBy(xpath = "//li[text()='chart']")
+    private WebElement tagChart;
+
+    public WebElement getTagChart() {
+        return tagChart;
+    }
+
+    @FindBy(xpath = "//li[text()='钻取跳转']")
+    private WebElement tagPageZuanqu;
+
+    public WebElement getTagPageZuanqu() {
+        return tagPageZuanqu;
+    }
+
+    @FindBy(xpath = "//span[text()='city']")
+    private WebElement cityTargetParam;
+
+    public WebElement getCityTargetParam() {
+        return cityTargetParam;
     }
 
 }
