@@ -538,7 +538,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='市下钻字段：']/following-sibling::div[@yotta-test='dashboard-drilldown_map_city-select']")
     private WebElement cityDrillAction;
 
-    @FindBy(xpath = "//label[contains(text(),'自定义URL')]/following-sibling::textarea")
+    @FindBy(xpath = "//textarea[@yotta-test='dashboard-drilldown_custom_url-textarea']")
     private WebElement url;
 
     @FindBy(xpath = "//div[text()='自定义']")
@@ -879,7 +879,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//ul[@class='ant-cascader-menu'])[last()]")
     private WebElement dashboardMenu;
 
-    @FindBy(xpath = "(//ul[@class='ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical'])[last()]")
+    @FindBy(xpath = "//*[@class='yotta-dropdown-menu'][last()]")
     private WebElement chartDropdown;
 
     @FindBy(xpath = "//span[contains(@class,'yotta-icon-ChartSquareFilled')]")
@@ -2426,6 +2426,20 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getSearchFilterButton() {
         return searchFilterButton;
+    }
+
+    @FindBy(xpath = "//*[@yotta-test='dashboard-chart_more_config-dropdown']/span/span")
+    private WebElement moreChartConfigs;
+
+    public WebElement getMoreChartConfigs() {
+        return moreChartConfigs;
+    }
+
+    @FindBy(xpath = "//*[@class='yotta-select-selection-icon']/span")
+    private WebElement cleanDatevalue;
+
+    public WebElement getCleanDatevalue() {
+        return cleanDatevalue;
     }
 
 }

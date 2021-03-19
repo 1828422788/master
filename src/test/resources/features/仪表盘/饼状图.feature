@@ -85,25 +85,20 @@ Feature: 仪表盘饼状图
     And I click the "<targetName>" button
 #    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     And I choose the "count()" from the "DataValue"
+    And I wait for "1000" millsecond
     And I click the "Divide" button
-    And I click the "AddField" button
-    And I choose the "apache.clientip" from the "DataValue"
+#    And I click the "AddField" button
+#    And I choose the "apache.clientip" from the "DataValue"
+    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I click the "TrendTitle" button
     And I wait for "3000" millsecond
-#    And I wait for "1000" millsecond
-#    Then I hide the element "SettingContent"
-#    And I wait for "Progress" will be invisible
-#    Then I will see the "dashboard.DetailPage" page
-#    And I click the "TrendTitle" button
-#    And take part of "FullScreen" with name "dashboard/<name>"
-#    Then I compare source image "dashboard/<name>" with target image "dashboard/<targetName>"
 
     Examples:
       | name   | targetName |
@@ -131,7 +126,8 @@ Feature: 仪表盘饼状图
     And I click the detail which name is "仪表盘饼状图"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    Then I wait for "PieData" will be visible
+#    Then I wait for "PieData" will be visible
+    And I wait for "Progress" will be invisible
     When the chart title is "仪表盘饼状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{"title": "仪表盘饼状图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "pie","field": "count()qwert","byFields": ["apache.resp_lenasdfg"],"precision": "","useFlameDrillDown": false}}" to json editor

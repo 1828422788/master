@@ -163,7 +163,8 @@ Feature: 仪表盘柱状图
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_display | stats count() by apache.clientip"
     And I wait for "2000" millsecond
-    Then I will see the input element "TimeRange" value will contains "今天"
+    Then I will see the "TimeRange" result will be "今天"
+#    Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
   Scenario: 序列图支持的钻取变量click.value RZY-3257
