@@ -1787,6 +1787,10 @@ public class CreatePageDash extends PageTemplate {
         return getSwitchElement("堆叠");
     }
 
+    public WebElement getUnifiedMetric() {
+        return getSwitchElement("统一度量");
+    }
+
     public WebElement getSmooth() {
         return getSwitchElement("平滑");
     }
