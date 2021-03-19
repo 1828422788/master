@@ -150,12 +150,12 @@ public class Checkbox {
     @And("^I \"([^\"]*)\" the label before \"([^\"]*)\" in the agent$")
     public void clickCheckLabelAgent(String status, List<String> nameList) {
         for (String name : nameList) {
-            String xpath = "//span[contains(text(),'" + name + "')]//ancestor::th//preceding-sibling::th";
+            String xpath = "//th[contains(text(),'" + name + "')]//ancestor::th//preceding-sibling::th";
             WebElement label = webDriver.findElement(By.xpath(xpath));
-            WebElement span = label.findElement(By.xpath("./span"));
+            WebElement span = label.findElement(By.xpath("(.//span)[1]"));
             String attribute = span.getAttribute("class");
             if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
-                label.click();
+                span.click();
             }
         }
     }

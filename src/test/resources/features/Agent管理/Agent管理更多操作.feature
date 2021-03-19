@@ -13,11 +13,11 @@ Feature: Agent更多操作
 
   Scenario: Agent下载软件到本地-windows
     And I click the "AgentExportGUIButton" button
-    And I click the "WindowsGUIButton" button
+#    And I click the "WindowsGUIButton" button
 
   Scenario: Agent下载软件到本地-Mac
     And I click the "AgentExportGUIButton" button
-    And I click the "MacOsGUIButton" button
+#    And I click the "MacOsGUIButton" button
 
   Scenario: Agent下载安装包-linux
     And I click the "AgentDownloadButton" button

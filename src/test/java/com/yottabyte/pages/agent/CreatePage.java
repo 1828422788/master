@@ -63,7 +63,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getPreview() {
-        return Preview;
+        return super.getYottaButtonByText("预览");
     }
 
     @FindBy(xpath = "//span[text()='文件路径白名单']/following-sibling::span")
@@ -301,12 +301,17 @@ public class CreatePage extends PageTemplate {
         return Compressed;
     }
 
-    @FindBy(xpath = "//button[@id='ConfigModify_compressed']")
+    @FindBy(xpath = "//span[@class='yotta-switch-slider']")
     private WebElement Compressed;
 
     public WebElement getEdit() {
         return super.getYottaButtonByText("编 辑");
     }
+
+    public WebElement getEditconfig() {
+        return super.getYottaButtonByText("编辑");
+    }
+
 
     public WebElement getDataSourceSwitchStatus() {
         return getSwitchStatus("autohekafiletest");
@@ -410,7 +415,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCreateLink(){
-        return getSoureceTypeElement("+新建连接");
+        return getYottaButtonByText("新建连接");
     }
 
     public WebElement getCreateDestObject(){
@@ -503,9 +508,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath ="//span[text()='autotest']")
     private WebElement BackUpObject;
 
-    @FindBy(xpath = "//p")
-    private WebElement Preview;
-
     @FindBy(xpath = "//span[@class='yotta-radio-input']")
     private WebElement ChooseButton;
 
@@ -535,7 +537,7 @@ public class CreatePage extends PageTemplate {
         return AgentMainTitle;
     }
 
-    @FindBy(xpath = "//span[@class='_2rCPBoR3iHg_lupjY8ClSJ']")
+    @FindBy(xpath = "//span[@class='yotta-pageheader-title']")
     private WebElement AgentMainTitle;
 
     public WebElement getRoleDropdown() {
@@ -564,7 +566,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(((//label[text()='选择目的对象']/parent::div/following-sibling::div//label)[1])/span)[1]")
     private WebElement BackupLocalDisk;
 
-    @FindBy(xpath = "//div[@class='_3s7X_-ogD6wlZTZzO8vwz2']")
+    @FindBy(xpath = "//span[@class='yotta-pageheader-title']")
     private WebElement AgentTitle;
 
     public WebElement getAgentConfigurationTitle() {
@@ -1014,7 +1016,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getLiElement(String name) {
-        return webDriver.findElement(By.xpath("//li[text()='" + name + "']//ancestor::li"));
+        return webDriver.findElement(By.xpath("//span[text()='" + name + "']//ancestor::li"));
     }
 
     public WebElement getCsvInput(int num){
