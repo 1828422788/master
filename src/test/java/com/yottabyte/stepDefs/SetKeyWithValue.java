@@ -324,4 +324,30 @@ public class SetKeyWithValue {
         robot.keyPress(KeyEvent.VK_BACK_SPACE);
         robot.keyRelease(KeyEvent.VK_BACK_SPACE);
     }
+
+    @And("^I set the parameter \"([^\"]*)\" with value \"([^割]*)\" using step buttons$")
+    public void iSetTheParameterWithValueByStep(String elementName, String value) {
+        if (elementName != null && elementName.trim().length() != 0) {
+            float new_value = Float.parseFloat(value);
+            WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+            float element_value = Float.parseFloat(element.getAttribute("value"));
+            WebElement stepUp = element.findElement(By.xpath(".//following-sibling::span/span[contains(@class,'increase')]"));
+            WebElement stepDown = element.findElement(By.xpath(".//following-sibling::span/span[contains(@class,'decrease')]"));
+            stepUp.click();
+            float step = Float.parseFloat(element.getAttribute("value")) - element_value;
+            stepDown.click();
+            int times = (int)((new_value - element_value) / step);
+            times = (times < 0) ? -times : times;
+            for(int i=0; i < times ; i++){
+               if (new_value > element_value) {
+                   stepUp.click();
+               } else if (new_value < element_value) {
+                   stepDown.click();
+               } else if (new_value == element_value) {
+                   break;
+               }
+               element_value = Float.parseFloat(element.getAttribute("value"));
+            }
+        }
+    }
 }

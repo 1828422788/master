@@ -97,27 +97,6 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(xpath = "(//input[@yotta-test='trend-dataset_merge_field_name-input'])[last()]")
     private WebElement lastColumn;
 
-    @FindBy(xpath = "(//span[contains(@class,'increase')]/span[@aria-label='UpOutlined'])[last()]")
-    private WebElement increase;
-
-    @FindBy(xpath = "(//span[contains(@class,'decrease')]/span[@aria-label='DownOutlined'])[last()]")
-    private WebElement decrease;
-
-    public WebElement getIncrease() {
-        return increase;
-    }
-
-    public WebElement getDecrease() {
-        return decrease;
-    }
-
-    public WebElement getIncrease10() {
-        for(int i = 1; i <= 9; i++) {
-            increase.click();
-        }
-        return increase;
-    }
-
     public WebElement getChart() {
         return chart;
     }

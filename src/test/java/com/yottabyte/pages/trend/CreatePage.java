@@ -1,8 +1,10 @@
 package com.yottabyte.pages.trend;
 
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.DropdownUtils;
 import com.yottabyte.utils.GetTime;
+import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -50,7 +52,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[text()='POST']/preceding-sibling::*")
     private WebElement clickPOST;
 
-    @FindBy(xpath = "//*[text()='北京']/preceding-sibling::*")
+    @FindBy(xpath = "//*[text()='北京']/preceding-sibling::*[name()='circle']/ancestor::*[name()='g'][3]")
     private WebElement clickBeijing;
 
     @FindBy(xpath = "(//span[text()='行数']/preceding-sibling::div/input)[last()]")
@@ -491,6 +493,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'资源标签')]/ancestor::div/following-sibling::div//span[@class='yotta-tag-content']/following-sibling::span")
     private WebElement deleteTag;
 
+    @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']")
+    private WebElement closeIcon;
+
+    @FindBy(xpath = "(//span[text()='列信息']/ancestor::div[1]/following-sibling::div//span[contains(@class,'yotta-select-selection-icon-arrow')])[last()]")
+    private WebElement infoColumnIcon;
+
     @FindBy(xpath = "//*[name()='rect' and @class='vx-bar']/following-sibling::*[@font-size='12']")
     private WebElement sankeyElement;
 
@@ -509,7 +517,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[contains(@id,'funnel')]")
     private WebElement funnelElement;
 
-    @FindBy(xpath = "//*[@class='vx-circle']/following-sibling::*[contains(@class,'vx-area-closed')]")
+    @FindBy(xpath = "//*[@class='vx-circle']/following-sibling::*//*[contains(@class,'vx-area-closed')]")
     private WebElement liquidfillElement;
 
     @FindBy(xpath = "//*[@class='vx-group']/*[contains(@fill,'rgb(211, 17, 33)') or contains(@fill,'rgb(253, 144, 62)') or contains(@fill,'rgb(255, 231, 148)')]")
@@ -518,7 +526,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[contains(@class,'bar')]/ancestor::div[1]/following-sibling::div[2]//div[contains(@class,'bar')]")
     private WebElement chainTableElement;
 
-    @FindBy(xpath = "//div[@class='tooltipTopBoundary']/following-sibling::div[contains(@id,'tracing')]/canvas")
+    @FindBy(xpath = "//div[@class='tooltipTopBoundary']/following-sibling::div[contains(@id,'chart')]/canvas")
     private WebElement chainTreeElement;
 
     @FindBy(xpath = "//div[contains(@id,'sequence')]")
@@ -692,6 +700,14 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSankeyElement() {
         return sankeyElement;
+    }
+
+    public WebElement getCloseIcon() {
+        return closeIcon;
+    }
+
+    public WebElement getInfoColumnIcon() {
+        return infoColumnIcon;
     }
 
     public WebElement getConfirmMessage() {
@@ -1604,7 +1620,8 @@ public class CreatePage extends PageTemplate {
         return getButton("添加颜色区间");
     }
 
-    public WebElement getGenerate() {
+    public WebElement getGenerate() throws InterruptedException {
+        Thread.sleep(1000);
         return getButton("生成");
     }
 
@@ -1657,7 +1674,8 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getAddIndicator() {
-        return getButton("添加指标");
+        getButton("添加指标").click();
+        return getTabElement("指标 1");
     }
 
     public WebElement getAddConfigFields() {
@@ -2013,6 +2031,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getClickBeijing() {
+        clickBeijing.click();
         return clickBeijing;
     }
 
@@ -2035,8 +2054,9 @@ public class CreatePage extends PageTemplate {
     }
 
     private WebElement getDropdownElement(String name) {
-        WebElement element = webDriver.findElement(By.xpath("(//span[contains(text(),'" + name + "')])[last()]/ancestor::div[1]/following-sibling::div"));
-        element.click();
+        WebElement element = webDriver.findElement(By.xpath("(//span[contains(text(),'" + name + "')])[last()]/ancestor::div[1]/following-sibling::div//div[@class='yotta-select-selection']"));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
         return this.getLastDropdownList();
     }
 
