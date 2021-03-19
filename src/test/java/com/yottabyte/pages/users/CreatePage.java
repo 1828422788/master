@@ -44,7 +44,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-message-box__message")
     private WebElement message;
 
-    @FindBy(className = "ant-select-selection__rendered")
+    @FindBy(className = "yotta-select-selection-placeholder")
     private WebElement userGroup;
 
     @FindBy(className = "ant-form-explain")

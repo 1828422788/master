@@ -13,7 +13,7 @@ public class ListPage extends ListPageFactory {
         super(driver);
     }
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
+    @FindBy(xpath = "//div[@class='yotta-modal-body']//p")
     private WebElement successMessage;
 
     @FindBy(className = "ant-modal-content")

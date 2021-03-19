@@ -25,11 +25,17 @@ public class LoginPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement errorMessage;
 
-    @FindBy(xpath = "//span[text()='去修改→']")
+    @FindBy(xpath = "//a[text()='去修改→']")
     private WebElement modify;
 
     @FindBy(className = "ant-popover-inner-content")
     private WebElement innerContent;
+
+    @FindBy(xpath = "//label[text()='新密码']/ancestor::div/following-sibling::div//input")
+    private WebElement newPassword;
+
+    @FindBy(xpath = "//label[text()='重复密码']/ancestor::div/following-sibling::div//input")
+    private WebElement repeatPassword;
 
     public WebElement getInnerContent() {
         return innerContent;
@@ -52,15 +58,15 @@ public class LoginPage extends PageTemplate {
     }
 
     public WebElement getUpdate() {
-        return super.getButton("更 新");
+        return super.getButton("更新");
     }
 
     public WebElement getNewPassword() {
-        return this.getInputElement("新密码");
+        return newPassword;
     }
 
     public WebElement getRepeatPassword() {
-        return this.getInputElement("重复密码");
+        return repeatPassword;
     }
 
     public String getTitle() {
@@ -79,6 +85,7 @@ public class LoginPage extends PageTemplate {
         String xpath = "//label[text()='" + name + "']/following-sibling::input";
         return webDriver.findElement(By.xpath(xpath));
     }
+
 
     public WebElement getYottaInput(String test) {
         String xpath = "//input[@yotta-test='" + test +"']";

@@ -136,7 +136,7 @@ public class AuthorizationPage extends PageTemplate {
     }
 
     public WebElement getDashboard() {
-        return this.getFunctionButton("仪表盘");
+        return this.getSubMenuButton("仪表盘");
     }
 
     public WebElement getResourceName(String name) {

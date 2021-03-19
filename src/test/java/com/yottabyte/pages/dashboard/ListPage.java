@@ -77,6 +77,13 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='请选择或输入']")
     private WebElement multiAddTag;
 
+    @FindBy(xpath = "//div//input[@class='yotta-select-selection-search']")
+    private WebElement multiInputTag;
+
+    public WebElement getMultiInputTag() {
+        return multiInputTag;
+    }
+
     public WebElement getMultiAddTag() {
         multiAddTag.click();
         return super.getLastDropdownList();
