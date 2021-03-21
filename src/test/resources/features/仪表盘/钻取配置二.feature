@@ -101,7 +101,9 @@ Feature: 仪表盘钻取配置二
     And I click the "DrillSetting" button
     And I wait for loading invisible
     And I choose the "跳转到自定义URL" from the "DrillAction"
+    And I wait for "1500" millsecond
     And I set the parameter "Url" with value "<url>"
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I refresh the website
@@ -109,7 +111,8 @@ Feature: 仪表盘钻取配置二
     And I click the "JsonCallerText" button
     And switch to another window
     And I close all tabs except main tab
-    And I wait for "Progress" will be invisible
+#    And I wait for "Progress" will be invisible
+    And I wait for loading invisible
     Then I will see the url contains "<urlPart>"
 
     Examples:
