@@ -84,10 +84,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'恢复')][@class='action']")
     private WebElement recoverTag;
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//span[text()='确定']/ancestor::button")
+    @FindBy(xpath = "//div[@class='yotta-modal-footer']/button")
     private WebElement ensureErrorSplButton;
 
-    @FindBy(xpath = "//div[@class='ant-checkbox-group']//span[@class='ant-checkbox']")
+    @FindBy(xpath = "//div[@class='yotta-checkbox-group']//span[@class='yotta-checkbox-input']")
     private WebElement listForBang;
 
     @FindBy(xpath = "//span[text()='移出标签页']")
@@ -114,7 +114,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='全局时间']/following-sibling::i)[last()]")
     private WebElement deleteTimeTag;
 
-    @FindBy(xpath = "(//span[text()='filter']/following-sibling::i)[last()]")
+    @FindBy(xpath = "//span[@yotta-test='dashboard-delete_filter-icon']")
     private WebElement deleteTag;
 
     @FindBy(xpath = "(//span[text()='time']/following-sibling::i)[1]")
@@ -192,7 +192,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//a[contains(text(),'UIautotest')]")
     private WebElement uiautotest;
 
-    @FindBy(xpath = "//li[contains(text(),' 测试市')]")
+    @FindBy(xpath = "//span[contains(text(),' 测试市')]")
     private WebElement ceshishi;
 
     @FindBy(xpath = "//a[contains(text(),'测试标签页移出')]")
@@ -598,7 +598,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//div[@class='event-item']/span)[1]")
     private WebElement iconRight;
 
-    @FindBy(xpath = "//span[text()='apache.geo.city']/following-sibling::span/pre/span")
+    @FindBy(xpath = "//span[text()='apache.geo.city:']/following-sibling::span/span/span")
     private WebElement cityTd;
 
     @FindBy(xpath = "//*[@yotta-test='dashboard-filter_value-select']/div")
@@ -652,11 +652,14 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='请填写查询语句']")
     private WebElement splOfLack;
 
-    @FindBy(xpath = "//div[@class='ant-message-notice']//span")
+    @FindBy(xpath = "//div[@class='yotta-message-content']")
     private WebElement noticeMessage;
 
     @FindBy(xpath = "//p[text()='缺少选中的字段']")
     private WebElement lackField;
+
+    @FindBy(xpath = "//div[text()='该选项为必填项不能为空']")
+    private WebElement emptyNotice;
 
     @FindBy(xpath = "//div[text()='无效标识 包含（.）']")
     private WebElement errorContainPoin;
@@ -1540,6 +1543,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getLackField() {
         return lackField;
+    }
+
+    public WebElement getEmptyNotice() {
+        return emptyNotice;
     }
 
     public WebElement getErrorContainPoin() {

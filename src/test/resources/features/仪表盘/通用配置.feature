@@ -68,7 +68,7 @@ Feature: 仪表盘通用配置
     And I wait for "SplOfLack" will be visible
     And I click the "OpenInSearch" button
     And I will see the error message "查询语句错误"
-    And I set the parameter "Spl" with value "tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 | stats count() by apache.geo.city"
+    And I set the parameter "Spl" with value "tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424"
     And I wait for "500" millsecond
     And I click the "Ensure" button under some element
     And I wait for "Ensure" will be invisible
@@ -83,7 +83,8 @@ Feature: 仪表盘通用配置
     Then I will see the "splSearch.SearchPage" page
     Then I will see the element "SearchInput" name is "tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 | stats count() by apache.geo.city"
     And I wait for "2000" millsecond
-    Then I will see the input element "TimeRange" value will contains "昨天"
+#    Then I will see the input element "TimeRange" value will contains "昨天"
+    Then I will see the "TimeRange" result will be "昨天"
 
   @dashboard @dashboardSmoke
   Scenario: 修改图表描述 RZY-295
@@ -97,9 +98,9 @@ Feature: 仪表盘通用配置
     And I set the parameter "ChartDesc" with value "测试描述"
     And I click the "Ensure" button
     And I wait for "Ensure" will be invisible
-    And I click the "CustomTitle" button
-    And I click the "Describe" button
-    Then I will see the "DescribeText" result will be "测试描述"
+    And I move the mouse pointer to the "Describe"
+    And I wait for "500" millsecond
+    Then I will see the text "测试描述" exist in page
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘
