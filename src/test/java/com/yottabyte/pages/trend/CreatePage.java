@@ -490,6 +490,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'资源标签')]/ancestor::div/following-sibling::div//span[@class='yotta-tag-content']")
     private WebElement selectedTag;
 
+    @FindBy(xpath = "//label[contains(text(),'所属应用')]/ancestor::div/following-sibling::div//span[@class='yotta-select-selection-value']")
+    private WebElement selectedApp;
+
     @FindBy(xpath = "//label[contains(text(),'资源标签')]/ancestor::div/following-sibling::div//span[@class='yotta-tag-content']/following-sibling::span")
     private WebElement deleteTag;
 
@@ -585,6 +588,12 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//*[@class='vx-group geo']/following-sibling::*/*[contains(@id,'link')]")
     private WebElement attackmapElement;
+
+    @FindBy(xpath = "(//div[contains(@class,'help-text')])[1]")
+    private WebElement tipText;
+    public WebElement getTipText() {
+        return tipText;
+    }
 
     public WebElement getAttackmapElement() {
         return attackmapElement;
@@ -2021,6 +2030,11 @@ public class CreatePage extends PageTemplate {
     public WebElement getSelectedTag() {
         return selectedTag;
     }
+
+    public WebElement getSelectedApp() {
+        return selectedApp;
+    }
+
 
     public WebElement getDeleteTag() {
         return deleteTag;
