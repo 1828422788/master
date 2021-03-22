@@ -107,8 +107,14 @@ public class AuthorizationPage extends PageTemplate {
         return this.getFunctionButton("资源");
     }
 
+    //基础权限中的应用
     public WebElement getApp() {
         return this.getFunctionButton("应用");
+    }
+
+    //资源权限中的应用
+    public WebElement getResourceOfApp() {
+        return this.getSubMenuButton("应用");
     }
 
     public WebElement getSearch() {

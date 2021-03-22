@@ -7,8 +7,8 @@ Feature: 仪表盘调用链
     And I set the parameter "Tag" with value "zipkin"
     And I upload a file with name "/src/test/resources/testdata/log/zipkin.txt"
     And I click the "UploadButton" button
-    And I wait for "VerifyText" will be visible
-    Then I wait for element "VerifyText" change text to "上传完成"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "上传完成"
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
@@ -183,13 +183,13 @@ Feature: 仪表盘调用链
     And I click the "Other" button
     And I click the "Chain" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     And I click the "Exhibition" button
     And I choose the "tree" from the "TracingType"
     And I wait for "500" millsecond
     And I click the "Generate" button
     And I wait for "3000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I move the mouse pointer to the "TrendTitle"

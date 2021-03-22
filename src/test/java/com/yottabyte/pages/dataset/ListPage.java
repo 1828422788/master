@@ -34,7 +34,6 @@ public class ListPage extends ListPageFactory {
         return name;
     }
 
-    //yotta-test="dataset-alia-input"
 //    @FindBy(id = "EditDatabase_alias")
     @FindBy(xpath = "//input[@yotta-test='dataset-alia-input']")
     private WebElement alias;  //别名

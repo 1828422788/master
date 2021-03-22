@@ -69,7 +69,7 @@ Feature: 仪表盘单值
 
     Examples:
       | name   |
-      | 仪表盘单值图 |
+      | 仪表盘单值 |
 
   @dashboard @dashboardSmoke
   Scenario: 修改为单值 RZY-342

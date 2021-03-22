@@ -28,7 +28,7 @@ Feature: 趋势图_拖拽_其他
     And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
     Then I wait for "Chart" will be visible
-    And I set the parameter "FontSize" with value "<size>"
+    And I set the parameter "FontSize" with value "<size>" using step buttons
     And I click the "<button>" button
     And I wait for "AddColor" will be visible
     And I click the "AddColor" button
@@ -61,7 +61,7 @@ Feature: 趋势图_拖拽_其他
     And I click the "<chartType>" button
     Then I wait for "Chart" will be visible
     And I click the "AccordingTrend" button
-    And I set the parameter "FontSize" with value "<size>"
+    And I set the parameter "FontSize" with value "<size>" using step buttons
     And I click the "Absolute" button
     And I choose the "<timeValue>" from the "ContrastTime" in config
 
@@ -91,7 +91,7 @@ Feature: 趋势图_拖拽_其他
     And I click the "<chartType>" button
     Then I wait for "Chart" will be visible
     And I click the "AccordingArea" button
-    And I set the parameter "FontSize" with value "<size>"
+    And I set the parameter "FontSize" with value "<size>" using step buttons
     And I set the parameter "MinRange" with value "<minVal1>"
     And I set the parameter "MaxRange" with value "<maxVal1>"
     And I click the "AddRange" button

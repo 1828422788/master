@@ -187,7 +187,7 @@ public class IChooseValueFromSelectList {
 
     public void iChooseTheFromThe(List<String> values, WebElement parentElement) {
 
-        List<WebElement> elements = parentElement.findElements(By.tagName("span"));
+        List<WebElement> elements = parentElement.findElements(By.xpath(".//span"));
         for (String value : values) {
             if (value != null && value.trim().length() != 0) {
                 for (WebElement e : elements) {
@@ -200,9 +200,10 @@ public class IChooseValueFromSelectList {
                 }
             }
         }
-        if (ElementExist.isElementExist(webDriver, parentElement) && values.size() > 1) {
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", parentElement);
-        }
+//        System.out.println(parentElement);
+//        if (ElementExist.isElementExist(webDriver, parentElement) && values.size() > 1) {
+//            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", parentElement);
+//        }
     }
 
     public void iChooseTheFromTheAgent(List<String> values, WebElement parentElement) {

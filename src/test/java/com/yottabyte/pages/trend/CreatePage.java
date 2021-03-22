@@ -70,10 +70,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "chart-gui-field-color-box")
     private WebElement addColor;
 
-    @FindBy(xpath = "(//span[contains(@class,'yotta-tag-close')]/*[name()='svg'])[1]")
+    @FindBy(xpath = "(//span[contains(@class,'yotta-tag-close')])[1]")
     private WebElement deleteFirst;
 
-    @FindBy(xpath = "(//span[contains(@class,'yotta-tag-close')]/*[name()='svg'])[last()]")
+    @FindBy(xpath = "(//span[contains(@class,'yotta-tag-close')])[last()]")
     private WebElement deleteLast;
 
 // Labels
@@ -391,10 +391,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-switch__label--right")
     private WebElement switchLabel;
 
-    @FindBy(xpath = "(//div[text()='深圳市']/ancestor::*[@class='vx-group'][1])[last()]")
+    @FindBy(xpath = "(//div[text()='深圳市'])[last()]")
     private WebElement shenZhen;
 
-    @FindBy(xpath = "(//*[@class='_1_m_DyhFaFqqMWBfXY4Evv']) | (//div[text()='配置'])")
+    @FindBy(xpath = "(//*[@class='_1_m_DyhFaFqqMWBfXY4Evv']) | (//*[text()='配置'])")
     private WebElement hideElement;
 
     @FindBy(xpath = "(//*[@class='el-scrollbar'])[last()]")
@@ -489,6 +489,9 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//label[contains(text(),'资源标签')]/ancestor::div/following-sibling::div//span[@class='yotta-tag-content']")
     private WebElement selectedTag;
+
+    @FindBy(xpath = "//label[contains(text(),'所属应用')]/ancestor::div/following-sibling::div//span[@class='yotta-select-selection-value']")
+    private WebElement selectedApp;
 
     @FindBy(xpath = "//label[contains(text(),'资源标签')]/ancestor::div/following-sibling::div//span[@class='yotta-tag-content']/following-sibling::span")
     private WebElement deleteTag;
@@ -585,6 +588,12 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//*[@class='vx-group geo']/following-sibling::*/*[contains(@id,'link')]")
     private WebElement attackmapElement;
+
+    @FindBy(xpath = "(//div[contains(@class,'help-text')])[1]")
+    private WebElement tipText;
+    public WebElement getTipText() {
+        return tipText;
+    }
 
     public WebElement getAttackmapElement() {
         return attackmapElement;
@@ -2021,6 +2030,11 @@ public class CreatePage extends PageTemplate {
     public WebElement getSelectedTag() {
         return selectedTag;
     }
+
+    public WebElement getSelectedApp() {
+        return selectedApp;
+    }
+
 
     public WebElement getDeleteTag() {
         return deleteTag;

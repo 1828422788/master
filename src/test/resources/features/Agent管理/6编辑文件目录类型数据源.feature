@@ -154,7 +154,7 @@ Feature: Agent编辑文件目录类型数据源
 
 
   Scenario: 文件目录数据源删除
-    Given the data name "Changeautohekafileappname" in table "AppNameTable" then i click the "更多" button
+    Given the data name "autohekafiletest" in table "AppNameTable" then i click the "更多" button
     And I click the "Delete" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button

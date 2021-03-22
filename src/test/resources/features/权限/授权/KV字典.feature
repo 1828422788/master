@@ -3,14 +3,17 @@ Feature: 权限-KV字典
 
   Scenario Outline: 授权可使用应用功能
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for "2000" millsecond
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
     And I "checked" the checkbox which name is "全选" in trend page
     And I "unchecked" the checkbox which name is "全选" in trend page
     And I "checked" the checkbox which name is "可查看搜索页"
+    And I wait for "1000" millsecond
     And I click the "Resource" button
     And I "checked" the checkbox which name is "可查看仪表盘"
+    And I wait for "1000" millsecond
     And I click the "App" button
     And I "checked" the checkbox which name is "可查看应用"
     And I click the "SaveButton" button
@@ -65,7 +68,8 @@ Feature: 权限-KV字典
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "__admin__" from the "Role"
     And I click the "NextButton" button under some element
-    And I click the "NextButton" button
+    And I wait for "1000" millsecond
+    And I click the "DoneButton" button
     And I wait for "ImportSuccess" will be visible
     And I will see the element "ImportSuccess" name is "添加成功"
 
@@ -75,10 +79,11 @@ Feature: 权限-KV字典
 
   Scenario Outline: 授权app所有权限给其他用户
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for "1000" millsecond
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I click the "ResourceAuth" button
-    And I click the "App" button
+    And I click the "ResourceOfApp" button
     And I "checked" the checkbox which name is "KVAuth" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
@@ -106,10 +111,10 @@ Feature: 权限-KV字典
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "KVAuth" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
-    And I click the "KvDropdown" button
     And I choose the "授权" from the "KVDropdownList"
     And I wait for loading invisible
     When I "check" the function "读取" which name is "AutoTest" in tiny table
+    And I wait for "1000" millsecond
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
     And I logout current user
@@ -122,6 +127,10 @@ Feature: 权限-KV字典
     And I click the "KvDropdown" button
     Then I will see the "ChangeTag" is "disabled"
     Then I will see the "DeleteKV" is "disabled"
+    And open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
+    When the data name is "KVAuth" then i click the "编辑" button
+    Then I will see the "app.CreatePage" page
     And I choose the "授权" from the "KVDropdownList"
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
@@ -131,7 +140,7 @@ Feature: 权限-KV字典
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "KVAuth" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
-    And I click the "KvDropdown" button
+    And I wait for "1000" millsecond
     And I choose the "授权" from the "KVDropdownList"
     And I wait for loading invisible
     When I "check" the function "读取,编辑" which name is "AutoTest" in tiny table
@@ -148,7 +157,10 @@ Feature: 权限-KV字典
     Then I will see the "DeleteKV" is "disabled"
     And I click the "ChangeTag" button
     And I wait for "KVTag" will be visible
-    And I set the parameter "KVTag" with value "test"
+    And I wait for "1000" millsecond
+    And I click the "KVTag" button
+    And I wait for "1000" millsecond
+    And I set the parameter "KVTagInput" with value "test"
     And I click the "Ensure" button under some element
     Then I will see the element "MessageContent" value is "修改成功"
     And I logout current user
@@ -157,7 +169,7 @@ Feature: 权限-KV字典
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "KVAuth" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
-    And I click the "KvDropdown" button
+    And I wait for "1000" millsecond
     And I choose the "授权" from the "KVDropdownList"
     And I wait for loading invisible
     When I "check" the function "转授" which name is "AutoTest" in tiny table
@@ -172,6 +184,10 @@ Feature: 权限-KV字典
     Then I will see the "app.CreatePage" page
     And I click the "KvDropdown" button
     Then I will see the "DeleteKV" is "disabled"
+    And open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
+    When the data name is "KVAuth" then i click the "编辑" button
+    Then I will see the "app.CreatePage" page
     And I choose the "授权" from the "KVDropdownList"
     And I wait for loading invisible
     And I "check" the checkbox which name is "验证授权用户" in tiny table
@@ -191,7 +207,8 @@ Feature: 权限-KV字典
   Scenario: 存储kvstore
     Given I login user "AutoTest" with password "All#123456"
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "KVAuth" then i click the "打开" button
+    When the data name is "KVAuth" then i click the "更多" button
+    Then I click the "Open" button
     Then I will see the "splSearch.SearchPage" page
     Given I set the parameter "SearchInput" with value "* | stats count() as 'count' by apache.geo.city,appname| rename apache.geo.city as apachecity| outputlookup AutoAuthKV"
     And I click the "DateEditor" button
@@ -203,21 +220,23 @@ Feature: 权限-KV字典
   Scenario: 验证是否成功
     Given I login user "AutoTest" with password "All#123456"
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "KVAuth" then i click the "打开" button
+    When the data name is "KVAuth" then i click the "更多" button
+    Then I click the "Open" button
     Then I will see the "splSearch.SearchPage" page
     Given I set the parameter "SearchInput" with value "* | stats count() by apache.geo.city | lookup appname AutoAuthKV on apache.geo.city=apachecity"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I will see the element "Thead" name is "apache.geo.city  count()  appname  apachecity "
-    And I logout current user
+    And I wait for "1000" millsecond
+    #################
+  ######  Then I will see the element "Thead" name is "apache.geo.city  count()  appname  apachecity "
+     And I logout current user
 
   Scenario: 授权读取+编辑+转授+删除权限
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "KVAuth" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
-    And I click the "KvDropdown" button
     And I choose the "授权" from the "KVDropdownList"
     And I wait for loading invisible
     When I "check" the function "删除" which name is "AutoTest" in tiny table
@@ -230,7 +249,6 @@ Feature: 权限-KV字典
     And open the "app.ListPage" page for uri "/app/list/"
     When the data name is "KVAuth" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
-    And I click the "KvDropdown" button
     And I choose the "删除" from the "KVDropdownList"
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
@@ -240,7 +258,8 @@ Feature: 权限-KV字典
   Scenario Outline: 删除app
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "<name>" then i click the "删除" button
+    When the data name is "<name>" then i click the "更多" button
+    Then I click the "Delete" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
@@ -253,7 +272,8 @@ Feature: 权限-KV字典
   @cleanAuth
   Scenario Outline: 清理
     Given open the "topology.ListPage" page for uri "/topology/"
-    When the data name is "<name>" then i click the "删除" button
+    When the data name is "<name>" then i click the "更多" button
+    Then I click the "Delete" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"

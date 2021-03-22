@@ -176,6 +176,11 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return dropdownUtils.getLastDropdownList();
     }
 
+
+    //编辑应用下拉菜单
+    public WebElement getLastDropdownListEditApp() {
+        return dropdownUtils.getLastDropdownListEditApp();
+    }
     public WebElement getGroupDropdownList() {
         return dropdownUtils.getGroupDropdownList();
     }
