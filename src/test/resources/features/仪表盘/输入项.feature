@@ -109,8 +109,8 @@ Feature: 仪表盘输入项
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "DeleteChart" will be visible
-    And I click the "DeleteChart" button
+    And I wait for "Delete" will be visible
+    And I click the "Delete" button
     And I click the "Ensure" button
     And I wait for "3000" millsecond
 
@@ -208,8 +208,8 @@ Feature: 仪表盘输入项
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "DeleteChart" will be visible
-    And I click the "DeleteChart" button
+    And I wait for "Delete" will be visible
+    And I click the "Delete" button
     And I click the "Ensure" button
     And I click the "FilterTime" button
     And I click the "DeleteTime" button
@@ -433,6 +433,8 @@ Feature: 仪表盘输入项
     And I set the parameter "Spl" with value "tag:sample04061424_chart AND apache.geo.city:${filter} | stats count() by apache.geo.city"
     And I click the "Ensure" button
     And I choose the "济南市" from the "FilterDropdown"
+    And I wait for "1000" millsecond
+    And I click the "Update" button
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
@@ -638,7 +640,7 @@ Feature: 仪表盘输入项
     And I set the parameter "Spl" with value "tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 | stats count() by apache.status "
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "Search" button under some element
+    And I click the "SearchFilterButton" button under some element
     And I wait for loading invisible
     And I choose the "404" from the "DefaultDropdownList"
     Then I click the "Ensure" button
@@ -695,12 +697,12 @@ Feature: 仪表盘输入项
     And I wait for loading invisible
     And I set the parameter "DynamicField" with value ""
     And I wait for "500" millsecond
-    And I click the "Search" button under some element
+    And I click the "SearchFilterButton" button under some element
     And I wait for "500" millsecond
-    Then I wait for element "NoticeMessage" change text to "缺少动态字段值"
+    Then I wait for "EmptyNotice" will be visible
     And I set the parameter "DynamicField" with value "hhhhhhhhhhhhh"
     And I wait for "500" millsecond
-    And I click the "Search" button under some element
+    And I click the "SearchFilterButton" button under some element
     And I wait for loading invisible
     Then I wait for "LackField" will be visible
     Then I click the "EnsureErrorSplButton" button
@@ -900,7 +902,8 @@ Feature: 仪表盘输入项
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "*|stats count() by apache.status|top 10 apache.status"
     And I wait for "2000" millsecond
-    Then I will see the input element "TimeRange" value will contains "上周"
+#    Then I will see the input element "TimeRange" value will contains "上周"
+    Then I will see the "TimeRange" result will be "上周"
 
   @dashboard @dashboardSmoke
   Scenario: 钻取配置中link类型为dashboard RZY-1838

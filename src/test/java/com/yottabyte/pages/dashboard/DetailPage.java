@@ -117,10 +117,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[@yotta-test='dashboard-delete_filter-icon']")
     private WebElement deleteTag;
 
-    @FindBy(xpath = "(//span[text()='time']/following-sibling::i)[1]")
+    @FindBy(xpath = "//span[text()='time']/following-sibling::span")
     private WebElement editTime;
 
-    @FindBy(xpath = "(//span[text()='time']/following-sibling::i)[last()]")
+    @FindBy(xpath = "(//span[text()='time']/following-sibling::span)[last()]")
     private WebElement deleteTime;
 
     @FindBy(xpath = "//*[@yotta-test='dashboard-add_item-dropdown']/span/span")
@@ -673,7 +673,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='filter']/ancestor::div/following-sibling::div//input")
     private WebElement filterDropDown1;
 
-    @FindBy(xpath = "//th[text()='appname']")
+    @FindBy(xpath = "//th//span[text()='appname']")
     private WebElement appname;
 
     @FindBy(xpath = "//label[contains(text(),'预览')]/following-sibling::input")
