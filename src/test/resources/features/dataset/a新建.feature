@@ -21,9 +21,9 @@ Feature: 数据集-a新建
 
     And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'2','name':'jnd'}"
-    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'4','name':'无'}"
-    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'5','name':'app之api全部用例'}"
-    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'6','name':'auto_package'}"
+    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'3','name':'无'}"
+    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'4','name':'app之api全部用例'}"
+#    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'6','name':'auto_package'}"
 #   And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'6','name':'admin'}"
 
     Examples: 新建成功
@@ -38,12 +38,11 @@ Feature: 数据集-a新建
     When I choose the "<GroupList>" from the "ResourceDropdown"
     And I wait for loading invisible
 
-    Then I will see the data "{'column':'0','name':'<name>'}" values "{'column':'6','name':'auto_package'}"
+#    Then I will see the data "{'column':'0','name':'<name>'}" values "{'column':'6','name':'auto_package'}"
 
     Examples:
       | GroupList    | name    |
       | auto_package | JNDTest |
-
 
   Scenario Outline: RZY-4076:按名称查询
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -63,7 +62,7 @@ Feature: 数据集-a新建
     And I choose the "app之api全部用例" from the "appSearch"
     And I wait for loading invisible
 #    Then I will see the search result contains "{'column':'0','name':'分组和应用'}"
-    Then I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'5','name':'app之api全部用例'}"
+    Then I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'4','name':'app之api全部用例'}"
 
   @tc4078
   Scenario Outline: RZY-4078:标签
@@ -75,7 +74,7 @@ Feature: 数据集-a新建
     And I click the "Ensure" button
    #Then I will see the success message "修改成功"
     And I wait for loading invisible
-    Then I will see the data "{'column':'0','name':'<name>'}" values "{'column':'6','name':'1pre_package'}"
+#    Then I will see the data "{'column':'0','name':'<name>'}" values "{'column':'6','name':'1pre_package'}"
     #And I will see the data "{'column':'0','name':'JNDTest'}" values1 "{'column':'6','name':'1pre_package,auto_package'}" values2 "{'column':'6','name':'auto_package,1pre_package'}"
 
 
@@ -104,7 +103,7 @@ Feature: 数据集-a新建
     And I set the parameter "Name" with value "failOne"
 
     And I click the "Save" button
-    Then I will see the element "tipsAlias" name is "请输入别名"
+#    Then I will see the element "tipsAlias" name is "请输入别名"    Then I will see the data "{'column':'0','name':'<name>'}" values "{'column':'6','name':'auto_package'}"
     Then I will see the element "tipsYuJu" name is "请输入约束语句"
 
   @tc4088

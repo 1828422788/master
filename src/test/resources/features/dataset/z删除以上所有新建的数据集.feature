@@ -20,7 +20,13 @@ Feature: 数据集-z删除所有
       | edit            |
       | name_updated    |
       | have_root_field |
-      | 父子无tree       |
-      | 父子汇聚tree     |
-      | 父子继承tree     |
+      | 父子无tree         |
+      | 父子汇聚tree        |
+      | 父子继承tree        |
       | rootname        |
+      | JNDTest_default |
+      | edit1 |
+      | edit2 |
+      | edit3 |
+      | edit4 |
+      | edit5 |

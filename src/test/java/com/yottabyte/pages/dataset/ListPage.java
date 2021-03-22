@@ -27,45 +27,76 @@ public class ListPage extends ListPageFactory {
         driver.manage().window().fullscreen();
     }
 
-    @FindBy(id = "EditDatabase_name")
+//    @FindBy(id = "EditDatabase_name")
+    @FindBy(xpath = "//input[@yotta-test='dataset-name-input']")
     private WebElement name; //名称
-
     public WebElement getName() {
         return name;
     }
 
-    @FindBy(id = "EditDatabase_alias")
+    //yotta-test="dataset-alia-input"
+//    @FindBy(id = "EditDatabase_alias")
+    @FindBy(xpath = "//input[@yotta-test='dataset-alia-input']")
     private WebElement alias;  //别名
-
     public WebElement getAlias() {
         return alias;
     }
 
-    @FindBy(id = "EditDatabase_queryfilter")
+//    @FindBy(id = "EditDatabase_queryfilter")
+    @FindBy(xpath = "//input[@yotta-test='dataset-queryfilter-input']")
     private WebElement spl;
-
     public WebElement getSpl() {
         return spl;
     }
 
+    @FindBy(xpath = "//span[text()='确定']/parent::button")
+    private WebElement save; //修改节点时候的保存按钮
 
-    @FindBy(xpath = "//label[@title='所属应用']/parent::div/following-sibling::div")
+    public WebElement getSave() {
+        return save;
+    }
+
+//    @FindBy(xpath = "//label[@title='所属应用']/parent::div/following-sibling::div")
+    @FindBy(xpath = "//div[@yotta-test='dataset-apps-select']/div")
     private WebElement appList; //所属应用
+    public WebElement getAppList() {
+        appList.click();
+        return super.getLastDropdownList();
+    }
 
-    //利用应用查询
-    @FindBy(xpath = "//div[text()='请选择应用']/parent::div")
-    private WebElement appSearch;
+    //@FindBy(xpath = "//label[@title='资源标签']/parent::div/following-sibling::div")
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div")
+    private WebElement resourceGroup;
+    public WebElement getResourceGroup() {
+        resourceGroup.click();
+        return super.getLastDropdownList();
+    }
 
-
-    @FindBy(xpath = "//label[@title='资源标签']/parent::div/following-sibling::div")
-    private WebElement resourceGroup; //分组
-
-    @FindBy(xpath = "//label[@title='资源标签']/parent::div/following-sibling::div//input")
+    //@FindBy(xpath = "//label[@title='资源标签']/parent::div/following-sibling::div//input")
+    @FindBy(xpath = "//label[contains(text(),'资源标签')]/following::input")
     private WebElement resourceTagInput;
-
     public WebElement getResourceTagInput() {
         return resourceTagInput;
     }
+
+    //利用应用查询
+//  @FindBy(xpath = "//div[text()='请选择应用']/parent::div")
+    @FindBy(xpath = "//div[@yotta-test='table-filter_app-select']")
+    private WebElement appSearch;
+
+    public WebElement getAppSearch() {
+        appSearch.click();
+        return super.getLastDropdownList();
+    }
+
+    @FindBy(xpath = "//div[@yotta-test='table-filter_tag-select']/div")
+    private WebElement resourceDropdown;
+    public WebElement getResourceDropdown() {
+//        this.groupDropdownIcon("请选择标签").click();
+        resourceDropdown.click();
+        return super.getLastDropdownList();
+    }
+
 
     @FindBy(xpath = "//label[text()='约束语句']/ancestor::div//following-sibling::div//div[text()='请输入约束语句']")
     // @FindBy(xpath= "//div[text()='请输入约束语句']")
@@ -77,7 +108,6 @@ public class ListPage extends ListPageFactory {
     //  @FindBy(id="EditDatabase_fields[0].name")
     @FindBy(xpath = "//span[@class='css-pcxrzr ant-input-group-wrapper']/span/input[@id='EditDatabase_fields[0].name']")
     private WebElement firstFieldName;
-
 
     @FindBy(xpath = "//label[text()='名称']/ancestor::div//following-sibling::div//div[text()='请输入数据集名称']")
     //@FindBy(xpath= "//div[text()='请输入数据集名称']")
@@ -126,21 +156,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getBeforeDeleteApp() {
         return beforeDeleteApp;
-    }
-
-    public WebElement getAppList() {
-        appList.click();
-        return super.getLastDropdownList();
-    }
-
-    public WebElement getResourceGroup() {
-        resourceGroup.click();
-        return super.getLastDropdownList();
-    }
-
-    public WebElement getAppSearch() {
-        appSearch.click();
-        return super.getLastDropdownList();
     }
 
     public WebElement getTipsName() {
@@ -198,4 +213,11 @@ public class ListPage extends ListPageFactory {
     public WebElement getDeleteApp() {
         return deleteApp;
     }
+
+    @FindBy(xpath = "//span[text()='确定']/parent::button")
+    private WebElement Ensure;
+    public WebElement getEnsure() {
+        return fieldAdd;
+    }
+
 }
