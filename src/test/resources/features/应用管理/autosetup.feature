@@ -11,21 +11,12 @@ Feature: 新建数据集all_、安装app
     And I click the "Ensure" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
-<<<<<<< HEAD
 #   #返回列表页验证
     And I click the "BackList" button
 
     And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'all_'}" values "{'column':'2','name':'all_'}"
     And I will see the data "{'column':'0','name':'all_'}" values "{'column':'3','name':'无'}"
-=======
-   #返回列表页验证
-    And I click the "backList" button
-    And I wait for loading invisible
-    Then I will see the data "{'column':'1','name':'all_'}" values "{'column':'2','name':'all_'}"
-    And I will see the data "{'column':'1','name':'all_'}" values "{'column':'3','name':'无'}"
-
->>>>>>> 5c67bc59ecc6ff26d0938743eca0f3af63223b6e
 
     Examples: 新建成功
       | name | alias | Spl |
