@@ -2468,4 +2468,11 @@ public class CreatePageDash extends PageTemplate {
         return clickBeijing;
     }
 
+    @FindBy(xpath = "(//*[@yotta-test='dashboard-chart_setting-dom'])[2]")
+    private WebElement secondSetting;
+
+    public WebElement getSecondSetting() {
+        return secondSetting;
+    }
+
 }

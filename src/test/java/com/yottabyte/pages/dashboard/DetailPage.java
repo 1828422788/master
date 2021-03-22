@@ -36,7 +36,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//th[text()='apache.geo.city']/i")
     private WebElement chartEditor;
 
-    @FindBy(xpath = "//th[text()='count()']/i")
+    @FindBy(xpath = "(//*[@yotta-test='table_chart-edit-icon'])[2]")
     private WebElement chartEditorNumber;
 
     @FindBy(className = "control-panel-content")
@@ -285,7 +285,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//i[@class='anticon css-ifnfqv'])[8]")
     private WebElement switchToTable;
 
-    @FindBy(xpath = "(//i[@class='anticon css-ifnfqv'])[7]")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-chart_download-icon']")
     private WebElement downloadTableIcon;
 
     @FindBy(xpath = "//*[name()='g'][contains(@class,'vx-axis-left')]")
@@ -403,7 +403,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='显示详情']")
     private WebElement showDetails;
 
-    @FindBy(xpath = "//div[text()='demorpcservice.demo']/parent::div/div[1]")
+    @FindBy(xpath = "//div[text()='demorpcservice.demo']")
     private WebElement foldIcon;
 
     @FindBy(xpath = "//div[text()='mould1rpcservice.demoformould1']")
@@ -679,7 +679,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'预览')]/following-sibling::input")
     private WebElement preview;
 
-    @FindBy(xpath = "//label[contains(text(),'文件名称')]/following-sibling::input")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-download_name-input']")
     private WebElement downloadFileName;
 
     @FindBy(xpath = "//div[text()='仪表盘return']/following-sibling::div//table")
@@ -688,7 +688,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[contains(text(),'仪表盘workflow')]/following-sibling::div//table")
     private List<WebElement> workflowList;
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']/div/p[contains(text(),'下载任务出错')]")
+    @FindBy(xpath = "//div[@class='yotta-modal-body']/div/p[contains(text(),'下载任务出错')]")
     private WebElement duplicateName;
 
     @FindBy(xpath = "//span[text()='在搜索中打开']")
@@ -888,7 +888,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(@class,'yotta-icon-ChartSquareFilled')]")
     private WebElement chartType;
 
-    @FindBy(xpath = "(//label[text()='今天'])[2]/following-sibling::i")
+    @FindBy(xpath = "(//span[contains(@class,'yotta-icon-ChartSquareFilled')])[2]")
     private WebElement secondChartType;
 
     @FindBy(xpath = "//*[@yotta-test='dashboard-delete_chart-icon']")
@@ -918,22 +918,22 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='AutoTest(副本)']")
     private WebElement autotestCopy;
 
-    @FindBy(xpath = "//label[text()='表格颜色：']/following-sibling::div//span/i")
+    @FindBy(xpath = "//*[@yotta-test='table_chart-table_color-select']/div")
     private WebElement chartEditorColor;
 
-    @FindBy(xpath = "//label[text()='字体样式：']/following-sibling::div//span/i")
+    @FindBy(xpath = "//*[@yotta-test='table_chart-font_style-select']/div")
     private WebElement chartFontStyle;
 
-    @FindBy(xpath = "//label[text()='对齐方式：']/following-sibling::div//span/i")
+    @FindBy(xpath = "//*[@yotta-test='table_chart-alignment-select']/div")
     private WebElement chartAlignment;
 
-    @FindBy(xpath = "//span[text()='默 认']/parent::button")
+    @FindBy(xpath = "//*[@yotta-test='table_chart-default_values_color-button']")
     private WebElement colorValueDefault;
 
-    @FindBy(xpath = "//span[text()='随 机']/parent::button")
+    @FindBy(xpath = "//*[@yotta-test='table_chart-auto_values_color-button']")
     private WebElement colorValueRandom;
 
-    @FindBy(xpath = "//span[text()='自定义']/parent::button")
+    @FindBy(xpath = "//*[@yotta-test='table_chart-define_values_color-button']")
     private WebElement colorValueCustom;
 
     @FindBy(xpath = "//span[text()='添加值颜色']/parent::button")
@@ -963,19 +963,19 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='列宽度：']/following-sibling::div//input")
     private WebElement chartColumnWidth;
 
-    @FindBy(xpath = "//span[text()='南京市']/parent::td/following-sibling::td/div")
+    @FindBy(xpath = "//span[text()='南京市']/ancestor::td/following-sibling::td/div")
     private WebElement valueOfNanjing;
 
-    @FindBy(xpath = "//span[text()='确 定']/parent::button")
+    @FindBy(xpath = "//span[text()='确定']/parent::button")
     private WebElement chartEditorEnsure;
 
-    @FindBy(xpath = "//span[text()='南京市']/parent::td/following-sibling::td")
+    @FindBy(xpath = "//span[text()='南京市']/ancestor::td/following-sibling::td")
     private WebElement valueOfNanjingTd;
 
-    @FindBy(xpath = "//span[text()='深圳市']/parent::td/following-sibling::td")
+    @FindBy(xpath = "//span[text()='深圳市']/ancestor::td/following-sibling::td/div")
     private WebElement valueOfShenzhenTd;
 
-    @FindBy(xpath = "//span[text()='南京市']/parent::td/following-sibling::td/span")
+    @FindBy(xpath = "//span[text()='南京市']/ancestor::td/following-sibling::td//span")
     private WebElement valueOfNanjingTdText;
 
     @FindBy(xpath = "//div[text()='仪表盘表格样式']/parent::div")

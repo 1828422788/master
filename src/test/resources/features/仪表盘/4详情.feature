@@ -37,7 +37,8 @@ Feature: 仪表盘详情页
     And I wait for "500" millsecond
     And I click the "EditTag" button
     And I wait for "InputforTag" will be visible
-    And I alter the input element "InputforTag" value to "Delete"
+    And I set the parameter "InputforTag" with value "Delete"
+#    And I alter the input element "InputforTag" value to "Delete"
     And I wait for "3000" millsecond
     And I click the "SaveTagInput" button
 #    And I wait for "500" millsecond
@@ -235,7 +236,7 @@ Feature: 仪表盘详情页
     And I click the "setGlobalTimeRange" button
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "添加输入项成功"
+#    Then I will see the success message "添加输入项成功"
 
   @dashboard @dashboardSmoke
   Scenario: 验证全局时间生效及打开过滤输入项(RZY-4567,RZY-225,RZY-4638,RZY-3392)
@@ -332,7 +333,8 @@ Feature: 仪表盘详情页
     When open the "report.ListPage" page for uri "/reports/"
     And I set the parameter "SearchInput" with value "<name>"
     And I wait for loading invisible
-    And the data name is "{'column':'2','name':'<name>'}" then i click the "更多" button
+#    And the data name is "{'column':'2','name':'<name>'}" then i click the "更多" button
+    When the data name is "{'column':'2','name':'<name>'}" then i click the "删除" button in more menu
     And I wait for "EnsureButton" will be visible
     When I click the "EnsureButton" button
     And I wait for "Message" will be visible
