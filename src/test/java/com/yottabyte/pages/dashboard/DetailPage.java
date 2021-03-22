@@ -912,7 +912,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//input[@yotta-test='dashboard-add_chart_filter_name-input']")
     private WebElement searchChartInput;
 
-    @FindBy(xpath = "(//div[text()='请选择'])[last()]")
+    @FindBy(xpath = "(//*[@yotta-test='dashboard-filter_value-select']/div)[last()]")
     private WebElement lastFilter;
 
     @FindBy(xpath = "//span[text()='AutoTest(副本)']")
