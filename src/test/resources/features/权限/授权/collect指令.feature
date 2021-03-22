@@ -32,7 +32,7 @@ Feature: 权限-collect指令
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button under some element
-    Then I wait for element "SearchStatus" change text to "搜索出错!"
+    Then I wait for element "SearchStatus" change text to "权限错误: 没有运行'collect'命令的权限"
     And I logout current user
 
   Scenario: 勾选collect指令
@@ -51,7 +51,7 @@ Feature: 权限-collect指令
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button under some element
-    Then I wait for element "SearchStatus" change text to "搜索出错!"
+    Then I wait for element "SearchStatus" change text to "权限错误: 没有写索引'autotestauth'的权限"
     And I logout current user
 
   Scenario Outline: 授权写入索引权限
@@ -91,7 +91,10 @@ Feature: 权限-collect指令
 
   Scenario Outline: 删除索引
     Given open the "index.ListPage" page for uri "/indexsettings/"
-    When the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
+    And I wait for "1000" millsecond
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "更多" button
+    And I wait for "1000" millsecond
+    Then I click the "delete" button
     Then I click the "Ensure" button
 
     Examples:
