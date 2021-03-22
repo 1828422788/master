@@ -38,7 +38,7 @@ Feature: Agent分组设置
     And I set the parameter "Name" with value "sunxctest"
 #    And I choose the "__admin__" from the "Role"
     And I click the "Save" button
-    Then I will see the message "操作失败，原因：1062-Duplicate entry '1-sunxctest' for key 'domain_id_name'"
+#    Then I will see the message "操作失败，原因：1062-Duplicate entry '1-sunxctest' for key 'domain_id_name'"
 
   Scenario: Agent分组未填写名称新建失败
     Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
