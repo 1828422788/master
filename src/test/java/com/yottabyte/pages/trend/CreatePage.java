@@ -70,10 +70,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "chart-gui-field-color-box")
     private WebElement addColor;
 
-    @FindBy(xpath = "(//span[contains(@class,'yotta-tag-close')]/*[name()='svg'])[1]")
+    @FindBy(xpath = "(//span[contains(@class,'yotta-tag-close')])[1]")
     private WebElement deleteFirst;
 
-    @FindBy(xpath = "(//span[contains(@class,'yotta-tag-close')]/*[name()='svg'])[last()]")
+    @FindBy(xpath = "(//span[contains(@class,'yotta-tag-close')])[last()]")
     private WebElement deleteLast;
 
 // Labels
@@ -391,10 +391,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-switch__label--right")
     private WebElement switchLabel;
 
-    @FindBy(xpath = "(//div[text()='深圳市']/ancestor::*[@class='vx-group'][1])[last()]")
+    @FindBy(xpath = "(//div[text()='深圳市'])[last()]")
     private WebElement shenZhen;
 
-    @FindBy(xpath = "(//*[@class='_1_m_DyhFaFqqMWBfXY4Evv']) | (//div[text()='配置'])")
+    @FindBy(xpath = "(//*[@class='_1_m_DyhFaFqqMWBfXY4Evv']) | (//*[text()='配置'])")
     private WebElement hideElement;
 
     @FindBy(xpath = "(//*[@class='el-scrollbar'])[last()]")

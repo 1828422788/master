@@ -28,7 +28,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//button[@class='ant-btn _3aTYSyOZTloazTQBYnBoxo css-hz5ttt _21LKt7HF-If1PyLtDxaI77']/span[text()='返回列表']")
     private WebElement backList;  //返回列表按钮
     public WebElement getBackList() {
-        return super.getButton("返回列表");
+        return super.getButton("返回");
     }
 
     @FindBy(xpath = "//button[@class='ant-btn _3aTYSyOZTloazTQBYnBoxo css-hz5ttt _21LKt7HF-If1PyLtDxaI77']/span[text()='编辑根事件']")

@@ -27,21 +27,21 @@ public class ListPage extends ListPageFactory {
         driver.manage().window().fullscreen();
     }
 
-    @FindBy(id = "EditDatabase_name")
+    @FindBy(xpath = "//input[@yotta-test='dataset-name-input']")
     private WebElement name; //名称
 
     public WebElement getName() {
         return name;
     }
 
-    @FindBy(id = "EditDatabase_alias")
+    @FindBy(xpath = "//input[@yotta-test='dataset-alia-input']")
     private WebElement alias;  //别名
 
     public WebElement getAlias() {
         return alias;
     }
 
-    @FindBy(id = "EditDatabase_queryfilter")
+    @FindBy(xpath = "//input[@yotta-test='dataset-queryfilter-input']")
     private WebElement spl;
 
     public WebElement getSpl() {
@@ -197,5 +197,9 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getDeleteApp() {
         return deleteApp;
+    }
+
+    public WebElement getSave() {
+        return getButton("确定");
     }
 }

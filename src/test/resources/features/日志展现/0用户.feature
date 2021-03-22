@@ -34,7 +34,6 @@ Feature: 新建用户和字段提取
     And I upload a file with name "/src/test/resources/testdata/log/<log>.txt"
     And I click the "UploadButton" button
     And I wait for element "VerifyText" change text to "上传完成"
-    Then I wait for "5000" millsecond
 
     Examples:
       |    tag         | log        | appname   |
