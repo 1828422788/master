@@ -33,7 +33,7 @@ Feature: 仪表盘单值
 
     Examples:
       | spl                                                                                                | name  |
-      | tag:sample04061424_display \| stats avg(apache.status) as a_\|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\") | 仪表盘单值图 |
+      | tag:sample04061424_display \| stats avg(apache.status) as a_\|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\") | 仪表盘单值 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
@@ -69,7 +69,7 @@ Feature: 仪表盘单值
 
     Examples:
       | name   |
-      | 仪表盘单值图 |
+      | 仪表盘单值 |
 
   @dashboard @dashboardSmoke
   Scenario: 修改为单值 RZY-342
