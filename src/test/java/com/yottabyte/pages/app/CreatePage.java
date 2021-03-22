@@ -127,7 +127,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='事件操作']")
     private WebElement event;
 
-    @FindBy(xpath = "//a[text()='添加']")
+    @FindBy(xpath = "//span[text()='添加']")
     private WebElement addKVStore;
 
     @FindBy(xpath = "(//label[text()='名称'])[last()]/following-sibling::input")
@@ -136,7 +136,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//label[text()='字段列表']/following-sibling::div//input)[last()]")
     private WebElement KVFieldInput;
 
-    @FindBy(xpath = "//a[text()='添加字段']")
+    @FindBy(xpath = "//span[text()='添加字段']")
     private WebElement addKVField;
 
     @FindBy(xpath = "//div[@class='ant-modal-body']//i")
@@ -145,14 +145,17 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "ant-message-custom-content")
     private WebElement messageContent;
 
-    @FindBy(className = "css-nil")
+    @FindBy(xpath = "//span[@yotta-test='application-kvstore_operation-icon']")
     private WebElement kvDropdown;
 
-    @FindBy(className = "ant-dropdown-menu")
+    @FindBy(xpath = "//span/div[@yotta-test='application-kvstore_operation-dropdown']")
     private WebElement kvDropdownList;
 
-    @FindBy(className = "ant-select-search__field")
+    @FindBy(className = "yotta-select-selection-placeholder")
     private WebElement KVTag;
+
+    @FindBy(className = "yotta-select-selection-search")
+    private WebElement KVTagInput;
 
     @FindBy(xpath = "//div[text()='字段配置']")
     private WebElement fieldConfig;
@@ -231,6 +234,8 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "ant-form-explain")
     private WebElement warningInfo;
+
+    public WebElement getKVTagInput() { return KVTagInput; }
 
     public WebElement getWarningInfo() {
         return warningInfo;
@@ -368,7 +373,8 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getKVDropdownList() {
-        return kvDropdownList;
+        kvDropdownList.click();
+        return super.getLastDropdownListEditApp();
     }
 
     public WebElement getKvDropdown() {

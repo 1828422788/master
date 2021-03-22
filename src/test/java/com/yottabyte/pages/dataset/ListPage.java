@@ -34,14 +34,14 @@ public class ListPage extends ListPageFactory {
         return name;
     }
 
-    @FindBy(xpath = "//input[@yotta-test='dataset-alia-input']")
+    @FindBy(xpath="//input[@yotta-test='dataset-alia-input']")
     private WebElement alias;  //别名
 
     public WebElement getAlias() {
         return alias;
     }
 
-    @FindBy(xpath = "//input[@yotta-test='dataset-queryfilter-input']")
+    @FindBy(xpath="//input[@yotta-test='dataset-queryfilter-input']")
     private WebElement spl;
 
     public WebElement getSpl() {
@@ -197,9 +197,5 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getDeleteApp() {
         return deleteApp;
-    }
-
-    public WebElement getSave() {
-        return getButton("确定");
     }
 }

@@ -25,7 +25,7 @@ public class DetailPage extends PageTemplate {
         driver.manage().window().fullscreen();
     }
 
-    @FindBy(xpath = "//button[@class='ant-btn _3aTYSyOZTloazTQBYnBoxo css-hz5ttt _21LKt7HF-If1PyLtDxaI77']/span[text()='返回列表']")
+    @FindBy(xpath = "//button[@class='ant-btn _3aTYSyOZTloazTQBYnBoxo css-hz5ttt _21LKt7HF-If1PyLtDxaI77']/span[text()='返回']")
     private WebElement backList;  //返回列表按钮
     public WebElement getBackList() {
         return super.getButton("返回");
