@@ -763,7 +763,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='新建标签页']")
     private WebElement addTag;
 
-    @FindBy(xpath = "//span[text()='接收标签页 ']/following-sibling::span[@class='ant-dropdown-trigger']")
+    @FindBy(xpath = "//span[text()='接收标签页']/following-sibling::span")
     private WebElement tagPageName;
 
     @FindBy(xpath = "//a[text()='第二个标签']")

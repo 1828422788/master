@@ -89,10 +89,10 @@ Feature: 仪表盘旭日图
     And I choose the "count()" from the "DataValue"
     And I wait for "1000" millsecond
     And I click the "Divide" button
-    And I choose the "apache.clientip" from the "DataValue"
-    And I wait for "1000" millsecond
-    And I choose the "apache.resp_len" from the "DataValue"
-    And I wait for "1000" millsecond
+#    And I choose the "apache.clientip" from the "DataValue"
+#    And I wait for "1000" millsecond
+#    And I choose the "apache.resp_len" from the "DataValue"
+#    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
     And I click the "SettingChart" button under some element

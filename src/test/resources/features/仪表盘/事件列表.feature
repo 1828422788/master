@@ -198,7 +198,8 @@ Feature: 仪表盘事件列表
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     And I wait for "2000" millsecond
-    Then I will see the input element "TimeRange" value will contains "30秒窗口"
+#    Then I will see the input element "TimeRange" value will contains "30秒窗口"
+    Then I will see the "TimeRange" result will be "30秒窗口"
 
   @dashboard @dashboardSmoke
   Scenario: 配置字段提取 RZY-3412
@@ -356,7 +357,7 @@ Feature: 仪表盘事件列表
 #    And I click the "HoverElement" button
     And I move the mouse pointer to the "HoverElement"
     And I click the "IconRight" button
-    And I click the "Chengdushi" button
+    And I click the "ChengDuShi" button
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
@@ -382,8 +383,8 @@ Feature: 仪表盘事件列表
 #    And I click the "HoverElement" button
     And I move the mouse pointer to the "HoverElement"
     And I click the "IconRight" button
-    And I wait for "Chengdushi" will be visible
-    And I click the "Chengdushi" button
+    And I wait for "ChengDuShi" will be visible
+    And I click the "ChengDuShi" button
     And switch to another window
     Then the page's title will be "<title>"
 
@@ -435,7 +436,7 @@ Feature: 仪表盘事件列表
 #    And I click the "HoverElement" button
     And I move the mouse pointer to the "HoverElement"
     And I click the "IconRight" button
-    And I click the "Chengdushi" button
+    And I click the "ChengDuShi" button
     And switch to another window
     And I close all tabs except main tab
     And I wait for "Progress" will be invisible
@@ -488,7 +489,7 @@ Feature: 仪表盘事件列表
 #    And I click the "HoverElement" button
     And I move the mouse pointer to the "HoverElement"
     And I click the "IconRight" button
-    And I click the "Chengdushi" button
+    And I click the "ChengDuShi" button
     And I wait for "Progress" will be invisible
     Then I will see the element "FilterInput" value is "成都市"
     And I will see the "shanghai" doesn't exist
