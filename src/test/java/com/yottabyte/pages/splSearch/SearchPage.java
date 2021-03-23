@@ -353,7 +353,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(className = "el-collapse-item__wrap")
     private WebElement searchHistoryWindow;
 
-    @FindBy(xpath = "//span[@yotta-test='search_control-message-text']")
+    @FindBy(xpath = "//span[@yotta-test='search_control-time_cost-text']")
     private WebElement searchStatus;
 
     @FindBy(xpath = "//div[@class='yw-search-tabbar']//div[text()='统计']")
@@ -741,7 +741,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "(//span[@class='yotta-select-option-label'])[1]")
     private WebElement selectAddedTag;
 
-    @FindBy(xpath = "//label[text()='文件类型']/following-sibling::div")
+    @FindBy(xpath = "//label[text()='文件类型']/parent::div/following-sibling::div")
     private WebElement fileType;
 
     @FindBy(xpath = "(//span[contains(text(),'schedule_name:')]/following-sibling::span)[1]")
