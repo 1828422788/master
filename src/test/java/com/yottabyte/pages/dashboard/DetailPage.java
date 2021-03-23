@@ -2206,6 +2206,7 @@ public class DetailPage extends PageTemplate {
         return deleteTag;
     }
 
+
     public WebElement getDeleteTime() {
         return deleteTime;
     }

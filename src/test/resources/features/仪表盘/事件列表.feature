@@ -456,6 +456,7 @@ Feature: 仪表盘事件列表
     Then the page's title will be "仪表盘"
     Then I will see the url contains "globalTimeRange="
 
+
   @dashboard @dashboardSmoke
   Scenario: 删除全局时间添加文本输入过滤项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
