@@ -88,18 +88,17 @@ Feature: 仪表盘热力地图
     And I click the "<targetName>" button
 #    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     And I choose the "count()" from the "DataValue"
     And I click the "Divide" button
-    And I choose the "apache.geo.city" from the "DataValue"
+#    And I choose the "apache.geo.city" from the "DataValue"
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
-    And I wait for "Progress" will be invisible
+#    Then I hide the element "SettingContent"
+    And I click the "SettingChart" button under some element
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "2000" millsecond
     And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/<name>"
-#    Then I compare source image "dashboard/<name>" with target image "dashboard/<targetName>"
 
     Examples:
       | name    | targetName |
@@ -117,7 +116,7 @@ Feature: 仪表盘热力地图
 
     Examples:
       | name        | json                                                                                                                                                                                                                                                                                                                                                                           |
-      | 仪表盘热力地图 | {\n  "title": "仪表盘热力地图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "appname:apache \| stats count() by apache.geo.city",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "heatmap",\n    "field": "count()",\n    "category": "apache.geo.city"\n  }\n} |
+      | 仪表盘热力地图 | {\n  "title": "仪表盘热力地图",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "appname:apache \| stats count() by apache.geo.city",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "heatmap",\n    "field": "count()",\n    "category": "apache.geo.city"\n  }\n} |
 
 
   @dashboard

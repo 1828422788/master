@@ -83,19 +83,19 @@ Feature: 仪表盘漏斗图
     And I wait for "Other" will be visible
     And I click the "Other" button
     And I click the "Funnel" button
-    And I hide the element "Content"
+#    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     And I choose the "count()" from the "DataValue"
     And I click the "Divide" button
     And I choose the "apache.clientip" from the "DataValue"
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
+#    Then I hide the element "SettingContent"
+    And I click the "SettingChart" button under some element
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "2000" millsecond
     And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/<name>"
-#    Then I compare source image "dashboard/<name>" with target image "dashboard/Funnel"
 
     Examples:
       | name   |

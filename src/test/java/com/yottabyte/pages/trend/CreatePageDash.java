@@ -549,10 +549,10 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(className = "range-color-group-add")
     private WebElement addColour;
 
-    @FindBy(xpath = "(//input[@placeholder='min'])[last()]")
+    @FindBy(xpath = "(//*[@yotta-test='chartgui-text-input'])[1]")
     private WebElement minRange;
 
-    @FindBy(xpath = "(//input[@placeholder='max'])[last()]")
+    @FindBy(xpath = "(//*[@yotta-test='chartgui-text-input'])[2]")
     private WebElement maxRange;
 
     @FindBy(className = "chart-setting-popover")
@@ -603,7 +603,7 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(className = "el-switch__label--right")
     private WebElement switchLabel;
 
-    @FindBy(xpath = "(//span[text()='标签展示'])[last()]/ancestor::div/following-sibling::div")
+    @FindBy(xpath = "(//*[@yotta-test='chartgui-select-select'])[1]/div")
     private WebElement showLabel;
 
     @FindBy(xpath = "(//span[text()='钻取模式'])[last()]/ancestor::div/following-sibling::div")
@@ -689,16 +689,16 @@ public class CreatePageDash extends PageTemplate {
     private WebElement wordSize;
 
 
-    @FindBy(xpath = "//span[text()='数据精度']/parent::div/following-sibling::div")
+    @FindBy(xpath = "//*[@yotta-test='chartgui-select-select']/div")
     private WebElement dataPrecision;
 
-    @FindBy(xpath = "//span[text()='行数']/preceding-sibling::input")
+    @FindBy(xpath = "//span[text()='行数']/preceding-sibling::div/input")
     private WebElement layoutRow;
 
-    @FindBy(xpath = "//span[text()='列数']/preceding-sibling::input")
+    @FindBy(xpath = "//span[text()='列数']/preceding-sibling::div/input")
     private WebElement layoutColumn;
 
-    @FindBy(xpath = "//input[@placeholder='max']/following-sibling::div")
+    @FindBy(xpath = "//*[@yotta-test='chartgui-color-dom']")
     private WebElement rangeColor;
 
     @FindBy(xpath = "((//*[@class='anticon-spin'])[2]) | (//span[contains(@class,'ant-spin-dot')])")
