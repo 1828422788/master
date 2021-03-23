@@ -59,7 +59,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[contains(@class,'spinner')]")
     private WebElement loading;
 
-    @FindBy(xpath = "//p[text()='暂无数据']")
+    @FindBy(xpath = "//*[text()='暂无数据']")
     private WebElement noData;
 
     @FindBy(xpath = "(//tr[contains(@class,'expansion')]//div[contains(text(),'资源标签......')])[last()]")

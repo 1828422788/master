@@ -1627,7 +1627,8 @@ public class SearchPage extends ListPageFactory {
         return super.getButton("搜索");
     }
 
-    public WebElement getSearchStatus() {
+    public WebElement getSearchStatus() throws InterruptedException {
+        Thread.sleep(1000);
         return searchStatus;
     }
 
