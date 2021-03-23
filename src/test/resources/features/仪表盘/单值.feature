@@ -447,7 +447,8 @@ Feature: 仪表盘单值
 #    Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
     And I click the "Exhibition" button
-    Then I will see the checkbox in auth which name is "实时滚动刷新" and status is "checked"
+    Then I will see the "ActualTimeRefresh" is "yotta-checkbox-checked"
+#    Then I will see the checkbox in auth which name is "实时滚动刷新" and status is "checked"
 
     Examples:
       | liveRefreshMode |

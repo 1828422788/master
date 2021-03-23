@@ -383,10 +383,10 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'分面')])[last()]")
     private WebElement divideSide;
 
-    @FindBy(xpath = "(//p[text()='+ 添加'])[last()] | (//i[contains(@class,'anticon-plus')])")
+    @FindBy(xpath = "//*[@yotta-test='chartgui-tab_list_add-icon']")
     private WebElement addField;
 
-    @FindBy(xpath = "(//p[text()='添加字段配置'])[last()]")
+    @FindBy(xpath = "//*[@yotta-test='chartgui-list_add-button']")
     private WebElement addConfigFields;
 
     @FindBy(xpath = "(//div[@class='el-select yw-search-setting-select'])[last()]")
@@ -425,7 +425,7 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "//span[text()='字体']")
     private WebElement font;
 
-    @FindBy(xpath = "(//span[contains(text(),'单位')]/ancestor::div[1]/following-sibling::div//input)[1]")
+    @FindBy(xpath = "//*[@yotta-test='chartgui-text-input']")
     private WebElement unit;
 
     @FindBy(xpath = "(//div[text()='按字段'])[last()]")
@@ -668,13 +668,13 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "//div[text()='Y轴 2']")
     private WebElement yaxisTwo;
 
-    @FindBy(xpath = "(//span[text()='字段值：'])[2]/parent::div/following-sibling::div//i")
+    @FindBy(xpath = "//*[@yotta-test='chartgui-select-select']/div")
     private WebElement dataValue2;
 
-    @FindBy(xpath = "(//span[text()='字段配置 3']/parent::div/parent::div/following-sibling::div//div[@class='ant-select-selection__rendered'])[1]")
+    @FindBy(xpath = "(//*[@yotta-test='chartgui-select-select']/div)[3]")
     private WebElement fieldThreeValue;
 
-    @FindBy(xpath = "(//span[text()='字段配置 3']/parent::div/parent::div/following-sibling::div//div[@class='ant-select-selection__rendered'])[2]")
+    @FindBy(xpath = "(//*[@yotta-test='chartgui-select-select']/div)[4]")
     private WebElement fieldThreeType;
 
     public WebElement getStatisticalChart() {
@@ -708,7 +708,7 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "((//*[@class='anticon-spin'])[2]) | (//span[contains(@class,'ant-spin-dot')])")
     private WebElement loading;
 
-    @FindBy(xpath = "(//span[text()='类型：'])[last()]/ancestor::div/following-sibling::div")
+    @FindBy(xpath = "(//*[@yotta-test='chartgui-select-select']/div)[2]")
     private WebElement typeDropdown;
 
     @FindBy(className = "yotta-search-control-text")
