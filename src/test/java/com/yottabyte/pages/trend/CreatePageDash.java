@@ -346,6 +346,10 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//div[text()='柱状外右侧'])[last()]")
     private WebElement rightPosition;
 
+    public WebElement getRightPosition() {
+        return rightPosition;
+    }
+
     @FindBy(xpath = "(//input[@class='el-input__inner'][not(@placeholder='请选择')])[last()]")
     private WebElement startColor;
 
