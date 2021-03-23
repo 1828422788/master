@@ -15,6 +15,7 @@ Feature: 仪表盘表格样式设置
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘<name>"
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "<name>"
@@ -53,6 +54,7 @@ Feature: 仪表盘表格样式设置
   @dashboard @dashboardSmoke
   Scenario Outline: 添加图表 RZY-4845
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
@@ -180,6 +182,7 @@ Feature: 仪表盘表格样式设置
   @dashboard @dashboardSmoke
   Scenario: 编辑图表样式-字体样式-粗体 RZY-4851
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "ChartEditorNumber" will be visible
@@ -193,6 +196,7 @@ Feature: 仪表盘表格样式设置
   @dashboard @dashboardSmoke
   Scenario: 编辑图表样式-字体样式-斜体 RZY-4851
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "ChartEditorNumber" will be visible
@@ -206,6 +210,7 @@ Feature: 仪表盘表格样式设置
   @dashboard @dashboardSmoke
   Scenario: 编辑图表样式-字体样式-下划线 RZY-4851
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "ChartEditorNumber" will be visible
@@ -219,6 +224,7 @@ Feature: 仪表盘表格样式设置
   @dashboard @dashboardSmoke
   Scenario Outline: 编辑图表样式-列宽度 RZY-4853
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "ChartEditorNumber" will be visible
@@ -238,6 +244,7 @@ Feature: 仪表盘表格样式设置
   @dashboard @dashboardSmoke
   Scenario: 编辑图表样式-对齐方式-居中 RZY-4854
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "ChartEditorNumber" will be visible
@@ -251,6 +258,7 @@ Feature: 仪表盘表格样式设置
   @dashboard @dashboardSmoke
   Scenario: 编辑图表样式-对齐方式-居右 RZY-4854
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "ChartEditorNumber" will be visible
@@ -264,6 +272,7 @@ Feature: 仪表盘表格样式设置
   @dashboard @dashboardSmoke
   Scenario: 编辑图表样式-对齐方式-居左 RZY-4854
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "ChartEditorNumber" will be visible
@@ -277,6 +286,7 @@ Feature: 仪表盘表格样式设置
   @dashboard @dashboardSmoke
   Scenario: 文件名称校验 RZY-4878
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
@@ -295,6 +305,7 @@ Feature: 仪表盘表格样式设置
   @dashboard @dashboardSmoke
   Scenario: 再次添加同名下载任务 RZY-4879
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond

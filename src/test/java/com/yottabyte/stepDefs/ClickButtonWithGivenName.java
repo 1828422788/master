@@ -91,7 +91,7 @@ public class ClickButtonWithGivenName {
     @When("^the data name contains \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
     public void clickButtonWithName(String dataName, String buttonName) {
         WebElement tr = listPageUtils.getContainsTr(dataName);
-        List<WebElement> button = tr.findElements(By.xpath(".//a[contains(text(),'" + buttonName + "')]"));
+        List<WebElement> button = tr.findElements(By.xpath(".//span[contains(text(),'" + buttonName + "')]"));
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button.get(0));
     }
 

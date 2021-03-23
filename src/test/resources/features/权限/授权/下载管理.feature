@@ -30,7 +30,7 @@ Feature: 权限-下载管理
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    Then I wait for element "SearchStatus" change text to "搜索出错!"
+    Then I wait for element "SearchStatus" change text to "权限错误: 没有运行'download'命令的权限"
     Then I logout current user
 
   Scenario Outline: 勾选下载管理
@@ -53,11 +53,13 @@ Feature: 权限-下载管理
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for "1000" millsecond
     Then I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario: 验证下载管理页面
     Given I login user "AutoTest" with password "All#123456"
     And open the "ListPageFactory" page for uri "/download/"
+    And I wait for loading invisible
     And the data name contains "AutoTestAuthDownload" then i click the "下载" button
     And the data name contains "AutoTestAuthDownload" then i click the "删除" button
     And I wait for "Ensure" will be visible
@@ -81,6 +83,7 @@ Feature: 权限-下载管理
   Scenario: 验证下载管理
     Given I login user "AutoTest" with password "All#123456"
     And open the "ListPageFactory" page for uri "/download/"
+    And I wait for loading invisible
     And the data name contains "AutoTestAuth" then i click the "下载" button
     And the data name contains "AutoTestAuth" then i click the "删除" button
     And I wait for "Ensure" will be visible
