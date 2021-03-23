@@ -30,7 +30,6 @@ Feature: 数据集-d编辑根事件
   @4122
   Scenario: RZY-4122:修改别名
     When the data name is "edit" then i click the "编辑" button
-#    And  the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button in more menu
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
 

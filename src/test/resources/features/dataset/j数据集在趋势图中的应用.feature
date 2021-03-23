@@ -109,7 +109,6 @@ Feature: 数据集-j在趋势图中的应用
       | spl                                                  | trendName |
       | tag:sample04061424 \| stats count() by apache.status | 父子继承      |
 
-
   Scenario Outline: RZY-4132:趋势图-父子行为继承
     Given open the "trend.ListPage" page for uri "/trend/"
     And I will see the "trend.ListPage" page

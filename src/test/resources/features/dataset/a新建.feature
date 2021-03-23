@@ -1,5 +1,6 @@
 @dataset @dataseta @dataset1
 Feature: 数据集-a新建
+
   @tc4082
   Scenario Outline: RZY-4082:新建数据集
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -31,7 +32,7 @@ Feature: 数据集-a新建
       | JNDTest | jnd   | *   |
 
 # # ################################## 插播几条查询的case，依赖与上一条case的新建
- @tc4075
+  @tc4075
   Scenario Outline: RZY-4075:按资源查询
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
@@ -69,7 +70,7 @@ Feature: 数据集-a新建
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
 #    Given the data name is "<name>" then i click the "标签" button
-    And  the data name is "{'column':'0','name':'<name>'}" then i click the "标签" button in more menu
+    When the data name is "{'column':'0','name':'<name>'}" then i click the "标签" button in more menu
     And I set the parameter "Tag" with value "<Type>"
     And I choose the "<Type>" from the "TagDropdown"
     And I click the "Ensure" button
@@ -78,13 +79,12 @@ Feature: 数据集-a新建
 #    Then I will see the data "{'column':'0','name':'<name>'}" values "{'column':'6','name':'1pre_package'}"
     #And I will see the data "{'column':'0','name':'JNDTest'}" values1 "{'column':'6','name':'1pre_package,auto_package'}" values2 "{'column':'6','name':'auto_package,1pre_package'}"
 
-
     Examples:
       | name    | Type         |
       | JNDTest | 1pre_package |
 
  ####################插播完毕#######继续新建
- 
+
   @tc4086
   Scenario: 新建数据集失败-RZY-4086:3个提示
     Given open the "dataset.ListPage" page for uri "/dataset/"

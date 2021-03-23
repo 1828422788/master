@@ -1,7 +1,7 @@
 @dataset @datasetc @dataset1
 Feature: 数据集-c设为默认
 
-  @tc4082_1
+  @datasetc1
   Scenario Outline: 新建进行默认操作的数据集
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
@@ -24,11 +24,13 @@ Feature: 数据集-c设为默认
       | name    | alias | Spl |
       | JNDTest_default | jnd   | *   |
 
+  @datasetc2
   Scenario: 设为默认-RZY-4077:设为默认
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading complete
+    And I wait for "2000" millsecond
 #    Given the data name is "JNDTest_default" then i click the "设为默认" button
-    And  the data name is "{'column':'0','name':'JNDTest_default'}" then i click the "设为默认" button in more menu
+    When the data name is "{'column':'0','name':'JNDTest_default'}" then i click the "设为默认" button in more menu
 
     Then I will see the success message "设置默认数据集成功"
 
@@ -42,5 +44,5 @@ Feature: 数据集-c设为默认
   Scenario: 取消默认
     Given open the "dataset.ListPage" page for uri "/dataset/"
 #    Given the data name is "JNDTest_default" then i click the "取消默认" button
-    And  the data name is "{'column':'0','name':'JNDTest_default'}" then i click the "取消默认" button in more menu
+    When  the data name is "{'column':'0','name':'JNDTest_default'}" then i click the "取消默认" button in more menu
     Then I will see the success message "取消默认数据集成功"

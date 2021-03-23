@@ -7,7 +7,7 @@ Feature: 数据集-z删除所有
   @deldataset
   Scenario Outline: 删除数据集列表页面用例
 #    Given the data name is "<name>" then i click the "删除" button
-    And  the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button in more menu
+    When the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button in more menu
 
     And I wait for "Ensure" will be visible
     When I click the "Ensure" button
