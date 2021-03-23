@@ -138,6 +138,10 @@ public class EditPage extends PageTemplate {
         return ensureButton;
     }
 
+    public WebElement getBasicSettings() {
+        return getYottaDiv("schedule-nav_basic-dom");
+    }
+
     public WebElement getDbType() {
         return getYottaDropdownList("schedule-jdbc_database_type-select");
     }
