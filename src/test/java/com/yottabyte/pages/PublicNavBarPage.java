@@ -103,7 +103,7 @@ public class PublicNavBarPage extends PageTemplate {
     @FindBy(xpath = "//span[@class='yw-nav-icon iconfont icon-xitongzhuangtai_icon']")
     private WebElement status;
 
-    @FindBy(xpath = "(//i[contains(@class,'anticon css-ifnfqv')])[2]")
+    @FindBy(xpath = "//span[contains(@class,'yotta-icon yotta-icon-AppStoreFilled')]")
     private WebElement running;
 
     @FindBy(className = "icon-yingyong_icon_gaoliang")
@@ -121,7 +121,7 @@ public class PublicNavBarPage extends PageTemplate {
     @FindBy(xpath = "//i[@class='iconfont icon-owner_icon']/following-sibling::span")
     private WebElement loginUser;
 
-    @FindBy(xpath = "(//*[@class='ant-popover-inner-content'])[last()]")
+    @FindBy(xpath = "//div[@class='_1qX0nA1xhWDv7qXoKxXaKo']")
     private WebElement menu;
 
     @FindBy(xpath = "(//i[contains(@class,'css-ifnfqv ')])[4]")
