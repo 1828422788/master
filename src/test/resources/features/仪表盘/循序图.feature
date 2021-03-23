@@ -90,19 +90,24 @@ Feature: 仪表盘循序图
     And I click the "<image>" button
 #    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     And I choose the "hostname" from the "DataValue"
+    And I wait for "500" millsecond
     And I click the "Source" button
     And I choose the "apache.clientip" from the "DataValue"
+    And I wait for "500" millsecond
     And I click the "Target" button
     And I choose the "hostname" from the "DataValue"
+    And I wait for "500" millsecond
     And I click the "Divide" button
     And I choose the "apache.clientip" from the "DataValue"
+    And I wait for "500" millsecond
     And I click the "Mark" button
     And I choose the "apache.clientip" from the "DataValue"
+    And I wait for "500" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
 #    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
@@ -139,6 +144,7 @@ Feature: 仪表盘循序图
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     Then I set the parameter "<json>" to json editor
+    And I wait for "500" millsecond
     And I click the "Check" button
     Then I will see the success message "校验通过"
     Then I click the "Ensure" button

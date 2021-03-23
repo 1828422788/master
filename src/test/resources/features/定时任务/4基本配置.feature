@@ -99,6 +99,7 @@ Feature: 定时任务_基本配置
     And I set the parameter "Describe" with value "testing schedule"
     And I choose the "auto_package" from the "TaskGroup"
     And I set the parameter "TaskGroupInput" with value "auto_package"
+    And I click the Circle "BasicSettings" button
     And I set the value "tag:*| stats count() by appname | limit 10" to the textarea "SearchTextarea"
     And I choose the "test_app" from the "AppDropdown"
     And I will see the input element "Period" value will be "5"

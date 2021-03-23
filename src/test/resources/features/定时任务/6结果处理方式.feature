@@ -55,14 +55,15 @@ Feature: 定时任务_结果处理方式
     And I will see the element "TipText" contains "<result>"
 
     Examples:
-      | connectName | userName | password     | host          | port | dbType | dbName         | tableName | result               |
+      | connectName | userName | password     | host          | port | dbType | dbName         | tableName | result                |
       |             |          |              |               |      |        |                |           | 连接名称 不能为空     |
       | mysqlrzy    |          |              |               |      |        |                |           | 用户名 不能为空       |
       | mysqlrzy    | root     |              |               |      |        |                |           | 密码 不能为空         |
       | mysqlrzy    | root     | rizhiyi&2014 |               |      |        |                |           | 主机 不能为空         |
       | mysqlrzy    | root     | rizhiyi&2014 | 192.168.1.139 |      |        |                |           | 端口 不能为空         |
+      | mysqlrzy    | root     | rizhiyi&2014 | 192.168.1.139 | 3306 |        |                |           | 数据库类型 不能为空   |
       | mysqlrzy    | root     | rizhiyi&2014 | 192.168.1.139 | 3306 | mysql  |                |           | 数据库名 不能为空     |
-      | mysqlrzy    | root     | rizhiyi&2014 | 192.168.1.139 | 3306 | mysql  | rizhiyi_system |           | 数据库表名称 不能为空  |
+      | mysqlrzy    | root     | rizhiyi&2014 | 192.168.1.139 | 3306 | mysql  | rizhiyi_system |           | 数据库表名称 不能为空 |
 
   Scenario Outline: add_jdbc
     Given open the "timedTask.ListPage" page for uri "/schedule/"

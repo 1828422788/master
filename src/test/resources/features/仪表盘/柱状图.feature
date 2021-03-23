@@ -98,7 +98,7 @@ Feature: 仪表盘柱状图
     And I wait for "1000" millsecond
     And I set the parameter "Unit" with value "个"
     And I wait for "1000" millsecond
-#    And I click the "Group" button
+    And I click the "Group" button
 #    And I click the "AddField" button
 #    And I choose the "apache.resp_len" from the "DataValue"
     And I click the "Pile" button

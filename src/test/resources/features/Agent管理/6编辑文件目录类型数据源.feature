@@ -143,6 +143,7 @@ Feature: Agent编辑文件目录类型数据源
     Given the data name "autohekafiletest" in table "AppNameTable" then i click the "编辑" button
     And I wait for loading invisible
     And I set the parameter "Appname" with value "Changeautohekafileappname"
+    And I wait for "Ensure" will be visiblei
     And I click the "Ensure" button
 #    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
     And I wait for loading invisible

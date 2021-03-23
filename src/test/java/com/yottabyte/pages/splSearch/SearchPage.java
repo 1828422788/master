@@ -1578,6 +1578,10 @@ public class SearchPage extends ListPageFactory {
         return (new DateEditorPage(webDriver)).getThirtySeconds();
     }
 
+    public WebElement getTenSeconds() {
+        return (new DateEditorPage(webDriver)).getTenSeconds();
+    }
+
     // 获取昨天按钮
     public WebElement getYesterday() {
         return (new DateEditorPage(webDriver)).getYesterday();
@@ -1627,7 +1631,8 @@ public class SearchPage extends ListPageFactory {
         return super.getButton("搜索");
     }
 
-    public WebElement getSearchStatus() {
+    public WebElement getSearchStatus() throws InterruptedException {
+        Thread.sleep(1000);
         return searchStatus;
     }
 

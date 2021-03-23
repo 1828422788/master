@@ -83,21 +83,20 @@ Feature: 仪表盘玫瑰图
     And I wait for "Dimension" will be visible
     And I click the "Dimension" button
     And I click the "<targetName>" button
-    And I hide the element "Content"
+#    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     And I choose the "count()" from the "DataValue"
     And I click the "Divide" button
-    And I click the "AddField" button
-    And I choose the "apache.clientip" from the "DataValue"
+#    And I click the "AddField" button
+#    And I choose the "apache.clientip" from the "DataValue"
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
-    And I wait for "Progress" will be invisible
+    And I click the "SettingChart" button under some element
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "2000" millsecond
     And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/<name>"
-#    Then I compare source image "dashboard/<name>" with target image "dashboard/<targetName>"
+    And I wait for "3000" millsecond
 
     Examples:
       | name   | targetName |
@@ -112,18 +111,21 @@ Feature: 仪表盘玫瑰图
     And I wait for "Progress" will be invisible
     And I click the "ChartType" button
     Then I will see the "trend.CreatePageDash" page
-    And I hide the element "Content"
+#    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     And I click the "Exhibition" button
     And I choose the "不展示" from the "ShowLabel"
+    And I wait for "500" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
-    And I wait for "Progress" will be invisible
+#    Then I hide the element "SettingContent"
+#    And I wait for "Progress" will be invisible
+    And I click the "SettingChart" button under some element
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "2000" millsecond
     And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/<name>不展示标签"
+#    And take part of "FullScreen" with name "dashboard/<name>不展示标签"
 #    Then I compare source image "dashboard/<name>不展示标签" with target image "dashboard/<targetName>WithoutTag"
 
     Examples:
@@ -140,20 +142,20 @@ Feature: 仪表盘玫瑰图
     And I wait for "500" millsecond
     And I click the "ChartType" button
     Then I will see the "trend.CreatePageDash" page
-    And I hide the element "Content"
+#    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     And I click the "Exhibition" button
-    And I choose the "展示全部" from the "ShowLabel"
+    And I choose the "全部展示" from the "ShowLabel"
+    And I wait for "1000" millsecond
     And I choose the "3" from the "DataPrecision"
+    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
-    And I wait for "Progress" will be invisible
+    And I click the "SettingChart" button under some element
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "2000" millsecond
     And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/<name>展示全部"
-#    Then I compare source image "dashboard/<name>展示全部" with target image "dashboard/<targetName>WithAllTag"
 
     Examples:
       | name   | targetName |

@@ -291,7 +291,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//*[name()='g'][contains(@class,'vx-axis-left')]")
     private WebElement sequenceChartYaxis;
 
-    @FindBy(xpath = "//div[text()='404']/ancestor::div[contains(@class,'sc-gsTCUz')]/parent::div")
+    @FindBy(xpath = "//div[text()='404']/ancestor::div[contains(@class,'sc-dlfnbm')]/parent::div")
     private WebElement multiYaxisLegend;
 
     @FindBy(xpath = "//div[contains(@class,'sc-bdfBwQ')]/parent::div")
@@ -475,10 +475,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='成都市 ']")
     private WebElement  chengdushi;
 
-    @FindBy(xpath = "//span[text()='成都市']")
+    @FindBy(xpath = "(//span[text()='成都市'])[last()]")
     private WebElement  chengDuShi;
 
-    @FindBy(xpath = "//li[text()='成都市']")
+    @FindBy(xpath = "//div[@class='yotta-select-menu']//span[text()='成都市']")
     private WebElement chengdushiList;
 
     @FindBy(xpath = "(//*[name()='rect'])[4]")
@@ -637,7 +637,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='南京市']")
     private WebElement nanjingshi;
 
-    @FindBy(xpath = "//li[text()='南京市']")
+    @FindBy(xpath = "//div[@class='yotta-select-menu']//span[text()='南京市']")
     private WebElement nanjingshiList;
 
     @FindBy(xpath = "//div[text()='南京市']")
@@ -670,10 +670,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//p[text()='搜索语句须为stats类型']")
     private WebElement errorSpl;
 
-    @FindBy(xpath = "//span[text()='filter']/ancestor::div/following-sibling::div//input")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-filter_value-select']/div")
     private WebElement filterDropDown1;
 
-    @FindBy(xpath = "//th//span[text()='appname']")
+    @FindBy(xpath = "//th//span[text()='appname']/following-sibling::input")
     private WebElement appname;
 
     @FindBy(xpath = "//label[contains(text(),'预览')]/following-sibling::input")
@@ -760,10 +760,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//*[@yotta-test='dashboard-tab_list-dropdown']/span")
     private WebElement tagIcon;
 
-    @FindBy(xpath = "//span[text()='新建标签页']")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-new_tab-menu_item']")
     private WebElement addTag;
 
-    @FindBy(xpath = "//span[text()='接收标签页']/following-sibling::span")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-tab_list-dropdown']/span")
     private WebElement tagPageName;
 
     @FindBy(xpath = "//a[text()='第二个标签']")
@@ -1510,7 +1510,8 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getParamValue1() {
-        return paramValue1;
+        paramValue1.click();
+        return super.getLastDropdownList();
     }
 
     public WebElement getInputSettingTitle() {
@@ -2205,6 +2206,7 @@ public class DetailPage extends PageTemplate {
         return deleteTag;
     }
 
+
     public WebElement getDeleteTime() {
         return deleteTime;
     }
@@ -2456,6 +2458,13 @@ public class DetailPage extends PageTemplate {
         return tagChart;
     }
 
+    @FindBy(xpath = "//li[text()='事件操作']")
+    private WebElement eventOpera;
+
+    public WebElement getEventOpera() {
+        return eventOpera;
+    }
+
     @FindBy(xpath = "//li[text()='钻取跳转']")
     private WebElement tagPageZuanqu;
 
@@ -2463,11 +2472,32 @@ public class DetailPage extends PageTemplate {
         return tagPageZuanqu;
     }
 
+    @FindBy(xpath = "//li[text()='仪表盘事件操作']")
+    private WebElement tagPageEvent;
+
+    public WebElement getTagPageEvent() {
+        return tagPageEvent;
+    }
+
     @FindBy(xpath = "//span[text()='city']")
     private WebElement cityTargetParam;
 
     public WebElement getCityTargetParam() {
         return cityTargetParam;
+    }
+
+    @FindBy(xpath = "//span[text()='globalTimeRange']")
+    private WebElement globalTimeRange;
+
+    public WebElement getGlobalTimeRange() {
+        return globalTimeRange;
+    }
+
+    @FindBy(xpath = "//*[text()='实时滚动刷新']/parent::label")
+    private WebElement actualTimeRefresh;
+
+    public WebElement getActualTimeRefresh() {
+        return actualTimeRefresh;
     }
 
 }
