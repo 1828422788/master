@@ -215,10 +215,14 @@ Feature: 仪表盘事件列表
     And switch to another window
     And I close all tabs except main tab
     Then I will see the "configs.CreatePage" page
-    And I wait for element "AppName" value change text to "apache"
+    And I wait for loading invisible
     And I click the "AddRule" button
-    And I choose the "手机号码解析" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "手机号码解析" from the "ParseRule" in config
+    And I choose the "raw_message" from the "SourceField" in config
+#    And I choose the "手机号码解析" from the "ParseRule"
+#    And I wait for "500" millsecond
+#    And I choose the "raw_message" from the "SourceField"
+    And I wait for "500" millsecond
     And I click the "EnsureAddParseRule" button
     And I click the "NextButton" button under some element
     When I set the parameter "Name" with value "仪表盘配置字段提取"
@@ -244,8 +248,8 @@ Feature: 仪表盘事件列表
     And I wait for "1000" millsecond
     And I click the "Next" button
     And I wait for element "EventCode" value change text to "apache"
-    And I click the "Next" button
-    Then I will see the element "SuccessAdd" name is "添加成功"
+    And I click the "Done" button
+    Then I will see the element "SuccessAdd" name is "新建成功"
 
   @dashboard @dashboardSmoke
   Scenario: 通用配置 RZY-3619
@@ -363,7 +367,8 @@ Feature: 仪表盘事件列表
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by appname"
     And I wait for "3000" millsecond
-    Then I will see the input element "TimeRange" value will contains "所有时间"
+#    Then I will see the input element "TimeRange" value will contains "所有时间"
+    Then I will see the "TimeRange" result will be "所有时间"
 
   @dashboard @dashboardSmoke
   Scenario Outline: 在新标签跳转到自定义URL RZY-3625
@@ -406,6 +411,7 @@ Feature: 仪表盘事件列表
     And I click the "timeRangee" button
     Then I wait for "setGlobalTimeRange" will be visible
     And I click the "setGlobalTimeRange" button
+    And I wait for "2000" millsecond
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "添加输入项成功"
@@ -422,11 +428,18 @@ Feature: 仪表盘事件列表
     And I wait for "DrillAction" will be visible
     And I choose the "跳转到标签页" from the "DrillAction"
     And I click the "TargetTag" button
-    And I choose the "仪表盘事件操作" from the "DashboardMenu"
-    And I choose the "事件操作" from the "DashboardMenu"
+    And I click the "TagPageEvent" button
+#    And I choose the "仪表盘事件操作" from the "DashboardMenu"
+    And I wait for "1000" millsecond
+    And I click the "EventOpera" button
+#    And I choose the "事件操作" from the "DashboardMenu"
+    And I wait for "500" millsecond
     And I click the "TargetParam" button
-    And I choose the "globalTimeRange" from the "InputGroup"
-    And I hide the element "ParamDropdown"
+    And I wait for "1000" millsecond
+    And I click the "GlobalTimeRange" button
+    And I wait for "1000" millsecond
+#    And I choose the "globalTimeRange" from the "InputGroup"
+#    And I hide the element "ParamDropdown"
     And I click the "ParamValue" button
     And I click the "StartEnd" button
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
@@ -453,7 +466,7 @@ Feature: 仪表盘事件列表
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "TimeName" button
-    And I click the "deleteTimeTag" button
+    And I click the "DeleteTag" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button under some element
     Then I wait for "TimeName" will be invisible

@@ -673,7 +673,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//*[@yotta-test='dashboard-filter_value-select']/div")
     private WebElement filterDropDown1;
 
-    @FindBy(xpath = "//th//span[text()='appname']")
+    @FindBy(xpath = "//th//span[text()='appname']/following-sibling::input")
     private WebElement appname;
 
     @FindBy(xpath = "//label[contains(text(),'预览')]/following-sibling::input")
@@ -2457,6 +2457,13 @@ public class DetailPage extends PageTemplate {
         return tagChart;
     }
 
+    @FindBy(xpath = "//li[text()='事件操作']")
+    private WebElement eventOpera;
+
+    public WebElement getEventOpera() {
+        return eventOpera;
+    }
+
     @FindBy(xpath = "//li[text()='钻取跳转']")
     private WebElement tagPageZuanqu;
 
@@ -2464,11 +2471,25 @@ public class DetailPage extends PageTemplate {
         return tagPageZuanqu;
     }
 
+    @FindBy(xpath = "//li[text()='仪表盘事件操作']")
+    private WebElement tagPageEvent;
+
+    public WebElement getTagPageEvent() {
+        return tagPageEvent;
+    }
+
     @FindBy(xpath = "//span[text()='city']")
     private WebElement cityTargetParam;
 
     public WebElement getCityTargetParam() {
         return cityTargetParam;
+    }
+
+    @FindBy(xpath = "//span[text()='globalTimeRange']")
+    private WebElement globalTimeRange;
+
+    public WebElement getGlobalTimeRange() {
+        return globalTimeRange;
     }
 
     @FindBy(xpath = "//*[text()='实时滚动刷新']/parent::label")
