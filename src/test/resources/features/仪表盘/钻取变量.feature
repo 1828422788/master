@@ -28,6 +28,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
     When I set the parameter "NameInput" with value "<name>"
+    And I wait for "1000" millsecond
     And I click the "Complete" button under some element
     And I wait for "SuccessCreate" will be visible
 
