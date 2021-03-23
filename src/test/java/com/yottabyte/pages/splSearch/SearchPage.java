@@ -353,7 +353,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(className = "el-collapse-item__wrap")
     private WebElement searchHistoryWindow;
 
-    @FindBy(className = "yotta-search-control-text")
+    @FindBy(xpath = "//span[@yotta-test='search_control-time_cost-text']")
     private WebElement searchStatus;
 
     @FindBy(xpath = "//div[@class='yw-search-tabbar']//div[text()='统计']")
