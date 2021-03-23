@@ -68,7 +68,8 @@ Feature: 数据集-a新建
   Scenario Outline: RZY-4078:标签
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
-    Given the data name is "<name>" then i click the "标签" button
+#    Given the data name is "<name>" then i click the "标签" button
+    And  the data name is "{'column':'0','name':'<name>'}" then i click the "标签" button in more menu
     And I set the parameter "Tag" with value "<Type>"
     And I choose the "<Type>" from the "TagDropdown"
     And I click the "Ensure" button

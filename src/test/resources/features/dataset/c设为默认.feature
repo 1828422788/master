@@ -16,7 +16,7 @@ Feature: 数据集-c设为默认
     And I click the "Save" button
 
     Then I will see the "dataset.DetailPage" page
-    And I wait for loading invisible
+    And I wait for loading complete
    #返回列表页验证
     And I click the "backList" button
 
@@ -26,6 +26,7 @@ Feature: 数据集-c设为默认
 
   Scenario: 设为默认-RZY-4077:设为默认
     Given open the "dataset.ListPage" page for uri "/dataset/"
+    And I wait for loading complete
 #    Given the data name is "JNDTest_default" then i click the "设为默认" button
     And  the data name is "{'column':'0','name':'JNDTest_default'}" then i click the "设为默认" button in more menu
 

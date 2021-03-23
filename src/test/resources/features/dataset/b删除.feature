@@ -23,7 +23,7 @@ Feature: 数据集-b删除
 #    Given the data name is "<name>" then i click the "删除" button
     And I wait for "2000" millsecond
     And  the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button in more menu
-    Then I will see the message "确认删除该数据集?"
+    Then I will see the message "确定删除该数据集?"
     And I wait for "Ensure" will be visible
     When I click the "Ensure" button
 

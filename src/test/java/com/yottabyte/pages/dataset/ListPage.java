@@ -214,9 +214,9 @@ public class ListPage extends ListPageFactory {
     }
 
     @FindBy(xpath = "//span[text()='确定']/parent::button")
-    private WebElement Ensure;
+    private WebElement ensure;
     public WebElement getEnsure() {
-        return fieldAdd;
+        return ensure;
     }
 
 }
