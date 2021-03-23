@@ -100,7 +100,8 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//label[text()='约束语句']/ancestor::div//following-sibling::div//div[text()='请输入约束语句']")
     // @FindBy(xpath= "//div[text()='请输入约束语句']")
     private WebElement tipsYuJu;
-    @FindBy(xpath = "//label[@title='父子行为']/parent::div/following-sibling::div//span[text()='继承']")
+//    @FindBy(xpath = "//label[@title='父子行为']/parent::div/following-sibling::div//span[text()='继承']")
+    @FindBy(xpath = "//label[contains(text(),'父子行为')]/following::span[text()='继承']")
     private WebElement inherit; //父子行为继承
     //数据集预定义字段列表
     //第1个字段名称
@@ -146,7 +147,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "ant-select-selection__rendered")
     private WebElement beforeDeleteApp;
     //新建数据集弹窗中的汇聚继承
-    @FindBy(xpath = "//label[@title='父子行为']/parent::div/following-sibling::div//span[text()='汇聚']")
+    @FindBy(xpath = "//label[contains(text(),'父子行为')]/following::span[text()='汇聚']")
     private WebElement huiJu;  //父子行为为汇聚
     @FindBy(xpath = "//li[contains(text(),'数值')]")
     private WebElement number;

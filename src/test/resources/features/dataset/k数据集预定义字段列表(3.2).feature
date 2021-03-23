@@ -108,7 +108,7 @@ Feature: 数据集-k预定义字段列表
     Then I will see the "dataset.DetailPage" page
     And I wait for loading complete
 
-    And I click the "B" button
+    And I click the "TopChild" button
     And I click the "childDeleteField" button
     And I click the "save" button
 
@@ -119,7 +119,7 @@ Feature: 数据集-k预定义字段列表
     Then I will see the "dataset.DetailPage" page
     And I wait for loading complete
 
-    And I click the "B" button
+    And I click the "TopChild" button
     And I click the "batchOperation" button
     And I "checked" the checkbox which name is "全选"
     And I click the "allDelete" button

@@ -139,14 +139,16 @@ public class DetailPage extends PageTemplate {
     }
 
 
-    @FindBy(xpath = "//p[@class='ZCeC8SpdlkeuifyWkLOfA']/i")
+//  @FindBy(xpath = "//p[@class='ZCeC8SpdlkeuifyWkLOfA']/i")
+    @FindBy(xpath = "//span[@class='yotta-icon yotta-icon-EditOutlined OfJ6FYy2hbp-IAuGnUxzJ']")
     private WebElement pencil;  //铅笔头
 
     public WebElement getPencil() {
         return pencil;
     }
 
-    @FindBy(xpath = "//p[@class='ZCeC8SpdlkeuifyWkLOfA']/input")
+//    @FindBy(xpath = "//p[@class='ZCeC8SpdlkeuifyWkLOfA']/input")
+    @FindBy(xpath = "//input[@yotta-test='dataset-name_right-input']")
     private WebElement modifyNode; //修改节点的框
 
     public WebElement getModifyNode() {
@@ -154,12 +156,14 @@ public class DetailPage extends PageTemplate {
         return modifyNode;
     }
 
-    @FindBy(xpath = "//p[@class='ZCeC8SpdlkeuifyWkLOfA']/i")
+//    @FindBy(xpath = "//p[@class='ZCeC8SpdlkeuifyWkLOfA']/i")
+    @FindBy(xpath = "//span[@class='yotta-icon yotta-icon-CheckOutlined']")
     private WebElement duiHao; //修改后的对号
 
     public WebElement getDuiHao() {
         return duiHao;
     }
+
 
     @FindBy(xpath = "//span[text()='确定']/parent::button")
     private WebElement save; //修改节点时候的保存按钮
@@ -169,13 +173,20 @@ public class DetailPage extends PageTemplate {
 //        return super.getButton("确定");
     }
 
+    @FindBy(xpath = "//span[text()='保存']/parent::button")
+    private WebElement saveDetail;
+
+    public WebElement getSaveDetail() {
+        return saveDetail;
+    }
+
 //    @FindBy(xpath = "//div[@class='_2y0AmGvGcO9kpim1Jp_I0G']/button[1]")
 //    private WebElement save; //修改节点时候的保存按钮
 //    public WebElement getSave(){return super.getButton("保存");}
 
-    @FindBy(xpath = "//div[@class='_2y0AmGvGcO9kpim1Jp_I0G']/button[2]")
+//  @FindBy(xpath = "//div[@class='_2y0AmGvGcO9kpim1Jp_I0G']/button[2]")
+    @FindBy(xpath = "//span[text()='删除']/button")
     private WebElement delete;  //删除节点的按钮
-
     public WebElement getDelete() {
         return super.getButton("删除");
     }
@@ -187,9 +198,9 @@ public class DetailPage extends PageTemplate {
         return super.getButton("确定");
     }
 
-
     //修改节点的约束语句
-    @FindBy(id = "queryText")
+//    @FindBy(id = "queryText")
+    @FindBy(xpath = "//textarea[@yotta-test='dataset-query_filter-textarea']")
     private WebElement modifyNodeSentence;
 
     public WebElement getModifyNodeSentence() {
@@ -197,7 +208,6 @@ public class DetailPage extends PageTemplate {
         modifyNodeSentence.sendKeys("appname:apache");
         return modifyNodeSentence;
     }
-
 
     //删除数据集节点成功的提示
     @FindBy(xpath = "//span[text()='删除数据集节点成功']")
@@ -230,7 +240,8 @@ A（root）
 
     //构建第二层节点（B）所需要的元素，root直接创建好了，从第二层开始写，但是需要根节点的元素
     //根节点本身
-    @FindBy(xpath = "//div[@class='_1KryJcLeSypo0Qh_wW6fOw']/p/span[1]")
+//  @FindBy(xpath = "//div[@class='_1KryJcLeSypo0Qh_wW6fOw']/p/span[1]")
+    @FindBy(xpath = "//span[@yotta-test='dataset-node-dom']")
     private WebElement root;
 
     public WebElement getRoot() {
@@ -238,7 +249,9 @@ A（root）
     }
 
     //根节点右侧的加号
-    @FindBy(xpath = "//div[@class='_1KryJcLeSypo0Qh_wW6fOw']/p/span[2]")
+//  @FindBy(xpath = "//div[@class='_1KryJcLeSypo0Qh_wW6fOw']/p/span[2]")
+//    @FindBy(xpath = "//span[@yotta-test='dataset-node-dom']/following-sibling::span/span/span")
+    @FindBy(xpath = "//span[@yotta-test='dataset-add-icon']")
     private WebElement rootAdd;
 
     public WebElement getRootAdd() {
@@ -246,7 +259,8 @@ A（root）
     }
 
     //B节点的输入框【B节点的节点名称】
-    @FindBy(xpath = "//div[@class='_1qhK4xM9izBCoLcrDw_sF9']/input")
+//  @FindBy(xpath = "//div[@class='_1qhK4xM9izBCoLcrDw_sF9']/input")
+    @FindBy(xpath = "//input[@yotta-test='dataset-name_left-input'][@placeholder='请输入']")
     private WebElement BInputName;
 
     public WebElement getBInputName() {
@@ -254,13 +268,13 @@ A（root）
     }
 
     //B节点右侧的 对号
-    @FindBy(xpath = "//div[@class='_1qhK4xM9izBCoLcrDw_sF9']/span[1]")
+//    @FindBy(xpath = "//div[@class='_1qhK4xM9izBCoLcrDw_sF9']/span[1]")
+    @FindBy(xpath = "//span[@yotta-test='dataset-check-icon']")
     private WebElement BRightDuiHao;
 
     public WebElement getBRightDuiHao() {
         return BRightDuiHao;
     }
-
 
     //构建第三层节点所需要的元素
     //节点B本身
@@ -271,8 +285,19 @@ A（root）
         return B;
     }
 
+//  @FindBy(xpath = "//div[@class='_1qhK4xM9izBCoLcrDw_sF9']/p/span[1]")
+//  @FindBy(xpath = "//div[@yotta-test='dataset-data-tree']//div[@class='yotta-collapse-panel-content']/div")
+//    @FindBy(xpath = "//div[@yotta-test='dataset-data-tree']//div[@class='yotta-collapse-panel-content']//span[@class='yotta-tree-node-label']")
+    @FindBy(xpath = "//span[@yotta-test='dataset-node-dom']/following::span[@yotta-test='dataset-node-dom']")
+    private WebElement topChild;
+    public WebElement getTopChild() {
+        return topChild;
+    }
+
     //节点B右侧的加号
-    @FindBy(xpath = "//div[@class='_1qhK4xM9izBCoLcrDw_sF9']/p/span[2]")
+//    @FindBy(xpath = "//div[@class='_1qhK4xM9izBCoLcrDw_sF9']/p/span[2]")
+    @FindBy(xpath = "//span[@yotta-test='dataset-add-icon']/following::span[@yotta-test='dataset-add-icon']")
+//    yotta-test="dataset-delete-icon"
     private WebElement BAdd;
 
     public WebElement getBAdd() {
@@ -280,7 +305,8 @@ A（root）
     }
 
     //节点C的输入框[C节点的名称]
-    @FindBy(xpath = "//div[@class='_1qhK4xM9izBCoLcrDw_sF9']/input")
+//    @FindBy(xpath = "//div[@class='_1qhK4xM9izBCoLcrDw_sF9']/input")
+    @FindBy(xpath = "//input[@yotta-test='dataset-name_left-input']")
     private WebElement CInputName;
 
     public WebElement getCInputName() {
@@ -288,7 +314,8 @@ A（root）
     }
 
     //节点C输入框右侧的对号
-    @FindBy(xpath = "//div[@class='_1qhK4xM9izBCoLcrDw_sF9']/span[1]")
+//    @FindBy(xpath = "//div[@class='_1qhK4xM9izBCoLcrDw_sF9']/span[1]")
+    @FindBy(xpath = "//span[@yotta-test='dataset-check-icon']")
     private WebElement CRightDuiHao;
 
     public WebElement getCRightDuiHao() {
@@ -297,7 +324,8 @@ A（root）
 
     //构建D所需要的元素  1、点击B节点  2、点击B右侧的加号
     //3、D的输入框输入名称
-    @FindBy(xpath = "//div[@class='_1qhK4xM9izBCoLcrDw_sF9']/input")
+//    @FindBy(xpath = "//div[@class='_1qhK4xM9izBCoLcrDw_sF9']/input")
+    @FindBy(xpath = "//input[@yotta-test='dataset-name_left-input']")
     private WebElement DInputName;
 
     public WebElement getDInputName() {
@@ -305,7 +333,8 @@ A（root）
     }
 
     //4、D右侧的对号
-    @FindBy(xpath = "//div[@class='_1qhK4xM9izBCoLcrDw_sF9']/span[1]")
+//    @FindBy(xpath = "//div[@class='_1qhK4xM9izBCoLcrDw_sF9']/span[1]")
+    @FindBy(xpath = "//span[@yotta-test='dataset-check-icon']")
     private WebElement DRightDuiHao;
 
     public WebElement getDRightDuiHao() {
@@ -313,7 +342,8 @@ A（root）
     }
 
     //构建树时，输入约束语句框
-    @FindBy(id = "queryText")
+//    @FindBy(id = "queryText")
+    @FindBy(xpath = "//textarea[@yotta-test='dataset-query_filter-textarea']")
     private WebElement sentenceInput;
 
     public WebElement getSentenceInput() {
