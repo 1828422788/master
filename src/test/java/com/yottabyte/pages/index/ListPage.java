@@ -47,6 +47,10 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='启用入库']" )
     private WebElement StartIndex;
 
+    @FindBy(xpath="//div/ul/li[2]/span[text()='删除']")
+    private WebElement delete;
+
+    public WebElement getDelete() { return delete;}
 
 //    @FindBy(xpath = "//div[@class='el-message-box__message']")
     private WebElement Message;

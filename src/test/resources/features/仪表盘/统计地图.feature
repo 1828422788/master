@@ -7,8 +7,8 @@ Feature: 仪表盘统计地图
     And I set the parameter "Tag" with value "geostats"
     And I upload a file with name "/src/test/resources/testdata/log/geostats.txt"
     And I click the "UploadButton" button
-    And I wait for "VerifyText" will be visible
-    Then I wait for element "VerifyText" change text to "上传完成"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "上传完成"
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
@@ -98,14 +98,18 @@ Feature: 仪表盘统计地图
     And I wait for "Map" will be visible
     And I click the "Map" button
     And I click the "Geostatsmap" button
-    And I wait for "Progress" will be invisible
+    And I click the "SettingChart" button under some element
+    And I wait for "500" millsecond
+    And I click the "Generate" button
+    And I wait for "3000" millsecond
+    And I click the "SettingChart" button under some element
+#    Then I hide the element "SettingContent"
+#    And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "1000" millsecond
-    And I wait for "TrendTitle" will be visible
+    And I wait for "2000" millsecond
+    And I move the mouse pointer to the "TrendTitle"
     And I click the "TrendTitle" button
     And I wait for "3000" millsecond
-#    And take part of "FullScreen" with name "dashboard/<name>"
-#    Then I compare source image "dashboard/<name>" with target image "dashboard/Geostatsmap"
 
     Examples:
       | name    |

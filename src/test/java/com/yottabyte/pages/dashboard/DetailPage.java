@@ -589,7 +589,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//input[@class='ant-input'])[not(@placeholder)]/following-sibling::div")
     private WebElement optionFilterValue;
 
-    @FindBy(xpath = "//div[contains(@class,'yw-filter-container')]//input[@class='ant-input']")
+    @FindBy(xpath = "//input[@yotta-test='dashboard-filter_value-input']")
     private WebElement geoCity;
 
     @FindBy(xpath = "(//div[@class='yotta-event-list-body']/div/div[@class='yotta-dropdown event-action-icon-dropdown']/span)[1]")
@@ -760,10 +760,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//*[@yotta-test='dashboard-tab_list-dropdown']/span")
     private WebElement tagIcon;
 
-    @FindBy(xpath = "//span[text()='新建标签页']")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-new_tab-menu_item']")
     private WebElement addTag;
 
-    @FindBy(xpath = "//span[text()='接收标签页']/following-sibling::span")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-tab_list-dropdown']/span")
     private WebElement tagPageName;
 
     @FindBy(xpath = "//a[text()='第二个标签']")

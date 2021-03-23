@@ -1,4 +1,4 @@
-Feature: 导入监控用例
+Feature: 导入监控用例，新建sslldap配置
 
   @upres1 @pre00
   Scenario:执行导入

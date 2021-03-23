@@ -85,30 +85,29 @@ Feature: 仪表盘环形比例图
     And I wait for "2000" millsecond
     And I wait for "Other" will be visible
     And I click the "Other" button under some element
-    And I click the "Annular" button
-    And I hide the element "Content"
+    And I click the "Ring" button
+#    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     And I choose the "p" from the "DataValue"
     And I click the "Compare" button
-    And I click the "AddField" button
+#    And I click the "AddField" button
     And I choose the "p" from the "DataValue"
     And I click the "DivideSide" button
-    And I click the "AddField" button
+#    And I click the "AddField" button
     And I choose the "num" from the "DataValue"
     And I set the parameter "LayoutRow" with value "2"
     And I set the parameter "LayoutColumn" with value "2"
     And I click the "Exhibition" button
     And I choose the "2" from the "DataPrecision"
+    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
-#    Then I hide the element "SettingContent"
+    And I click the "SettingChart" button under some element
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "2000" millsecond
     And I click the "TrendTitle" button
     And I wait for "3000" millsecond
-#    And take part of "FullScreen" with name "dashboard/仪表盘环形比例图"
-#    Then I compare source image "dashboard/仪表盘环形比例图" with target image "dashboard/Annular"
 
   @dashboard @dashboardSmoke
   Scenario: 修改展示
@@ -124,21 +123,21 @@ Feature: 仪表盘环形比例图
     And I click the "Exhibition" button under some element
     And I click the "AccordingArea" button under some element
     And I wait for "MinRange" will be visible
-    And I set the parameter "MinRange" with value "0.1"
+    And I set the parameter "MinRange" with value "0.0002"
     And I wait for "MaxRange" will be visible
-    And I set the parameter "MaxRange" with value "0.2"
+    And I set the parameter "MaxRange" with value "0.0004"
     And I click the "RangeColor" button
     And I wait for "Yellow" will be visible
     And I click the "Yellow" button
     And I choose the "3" from the "DataPrecision"
+    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
+    And I click the "SettingChart" button under some element
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
-    And I click the "TrendTitle" button under some element
-#    And take part of "FullScreen" with name "dashboard/仪表盘环形比例图修改展示区间"
-#    Then I compare source image "dashboard/仪表盘环形比例图修改展示区间" with target image "dashboard/AnnularChangeRange"
+    And I click the "TrendTitle" button
+    And I wait for "3000" millsecond
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘

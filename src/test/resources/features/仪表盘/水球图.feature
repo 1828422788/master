@@ -83,9 +83,9 @@ Feature: 仪表盘水球图
     And I wait for "Other" will be visible
     And I click the "Other" button
     And I click the "Liquidfill" button
-    And I hide the element "Content"
+#    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     And I wait for "1000" millsecond
     And I choose the "count()" from the "DataValue"
     And I click the "Exhibition" button
@@ -93,11 +93,10 @@ Feature: 仪表盘水球图
     And I click the "Orange" button
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
+    And I click the "SettingChart" button under some element
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "2000" millsecond
     And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/<name>"
-#    Then I compare source image "dashboard/<name>" with target image "dashboard/Liquidfill"
 
     Examples:
       | name   |

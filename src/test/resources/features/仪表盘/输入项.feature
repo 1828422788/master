@@ -188,6 +188,9 @@ Feature: 仪表盘输入项
     And I wait for "Prefix" will be visible
     And I set the parameter "Prefix" with value "="
     And I wait for "500" millsecond
+    And I click the "DateEditor" button
+    And I click the "Shortcut" button
+    And I click the "Today" button
     And I click the "Ensure" button
 #    Then I wait for "FilterTime" will be visible
     And I wait for "Progress" will be invisible
@@ -601,7 +604,7 @@ Feature: 仪表盘输入项
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "apache.geo.city:北京市 OR apache.geo.city:济南市 OR apache.geo.city:南京市 OR apache.geo.city:成都市 | stats count() by apache.geo.city"
+    And I set the parameter "Spl" with value "(apache.geo.city:北京市 OR  apache.geo.city:南京市 OR  apache.geo.city:济南市 OR apache.geo.city:成都市) AND tag : sample04061424_chart | stats count() by apache.geo.city"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
@@ -704,21 +707,23 @@ Feature: 仪表盘输入项
     And I wait for "500" millsecond
     And I click the "SearchFilterButton" button under some element
     And I wait for loading invisible
-    Then I wait for "LackField" will be visible
-    Then I click the "EnsureErrorSplButton" button
-    And I wait for "1500" millsecond
+    Then I will see the error message "缺少选中的字段"
+#    Then I wait for "LackField" will be visible
+#    Then I click the "EnsureErrorSplButton" button
+    And I wait for "2500" millsecond
     And I set the parameter "DynamicField" with value "avg_len"
 #    And I click the "EnsureErrorSplButton" button
     And I set the parameter "Spl" with value "hello goodbey"
     And I wait for "500" millsecond
-    And I click the "Search" button under some element
+    And I click the "SearchFilterButton" button under some element
     And I wait for loading invisible
-    Then I wait for "ErrorSpl" will be visible
-    And I click the "EnsureErrorSplButton" button
+    Then I will see the error message "搜索语句须为stats类型"
+#    Then I wait for "ErrorSpl" will be visible
+#    And I click the "EnsureErrorSplButton" button
     And I wait for "1500" millsecond
     And I set the parameter "Spl" with value ""
     And I wait for "1500" millsecond
-    Then I wait for "ErrorNoSpl" will be visible
+    Then I wait for "EmptyNotice" will be visible
 
   @dashboard @dashboardSmoke
   Scenario: 增加动态菜单标识符前后缀 RZY-288
@@ -771,7 +776,7 @@ Feature: 仪表盘输入项
     And I set the parameter "Spl" with value "apache.geo.city:* | stats count() by apache.geo.city"
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "Search" button under some element
+    And I click the "SearchFilterButton" button under some element
     And I wait for loading invisible
     And I choose the "北京市" from the "DefaultDropdownList"
     And I set the parameter "PrefixValue" with value "apache.geo.city:"
@@ -791,7 +796,7 @@ Feature: 仪表盘输入项
     And I wait for loading invisible
     And I set the parameter "Spl" with value "${filter} | stats count() by apache.geo.city"
     And I click the "Ensure" button
-    And I wait for "Progress" will be invisible
+    And I wait for "1000" millsecond
     And I choose the "深圳市" from the "FilterDropdown"
     And I click the "Update" button
     And I wait for "Progress" will be invisible
@@ -838,6 +843,7 @@ Feature: 仪表盘输入项
     And I click the "Edit" button
     And I wait for "1000" millsecond
     And I set the parameter "{"title": "仪表盘1669所用趋势图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "eval","name": "filter","value": "${click.value2}+2000"}]}}" to json editor
+    And I wait for "1000" millsecond
     And I click the "Check" button
     Then I will see the success message "校验通过"
     And I click the "Ensure" button

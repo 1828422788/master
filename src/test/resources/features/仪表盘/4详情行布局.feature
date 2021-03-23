@@ -248,7 +248,9 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "为空" from the "ShowCondition"
+    And I wait for "500" millsecond
     And I click the "Ensure" button
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
@@ -258,7 +260,9 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "不为空" from the "ShowCondition"
+    And I wait for "500" millsecond
     And I click the "Ensure" button
     And I wait for "1500" millsecond
     And I click the "SettingIcon" button
@@ -286,6 +290,7 @@ Feature: 仪表盘详情行布局
     And I wait for "1000" millsecond
 #    And I click the "CleanShowFilterConfig" button
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
 #    And I click the "CleanShowConditio" button
     And I choose the "匹配正则" from the "ShowCondition"
     And I wait for "ShowValue" will be visible
@@ -301,8 +306,10 @@ Feature: 仪表盘详情行布局
     And I wait for "1000" millsecond
 #    And I click the "CleanShowFilterConfig" button
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
 #    And I click the "CleanShowConditio" button
     And I choose the "包含" from the "ShowCondition"
+    And I wait for "500" millsecond
     And I set the parameter "ShowValue" with value "a"
     And I click the "Ensure" button
     And I wait for "1000" millsecond
@@ -331,6 +338,7 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "匹配正则" from the "ShowCondition"
     And I wait for "ShowValue" will be visible
     And I set the parameter "ShowValue" with value "a1?b"
@@ -343,6 +351,7 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "包含" from the "ShowCondition"
     And I set the parameter "ShowValue" with value "a"
     And I click the "Ensure" button
@@ -367,6 +376,7 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "等于" from the "ShowCondition"
     And I wait for "ShowValue" will be visible
     And I set the parameter "ShowValue" with value "a1111b"
@@ -379,6 +389,7 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "不等于" from the "ShowCondition"
     And I set the parameter "ShowValue" with value "a1111b"
     And I click the "Ensure" button
@@ -402,6 +413,7 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "大于" from the "ShowCondition"
     And I wait for "ShowValue" will be visible
     And I set the parameter "ShowValue" with value "5"
@@ -414,7 +426,9 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "小于" from the "ShowCondition"
+    And I wait for "500" millsecond
     And I set the parameter "ShowValue" with value "9"
     And I click the "Ensure" button
     And I wait for "1000" millsecond
@@ -471,7 +485,9 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "不为空" from the "ShowCondition"
+    And I wait for "500" millsecond
     And I click the "Ensure" button
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
@@ -481,7 +497,9 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "为空" from the "ShowCondition"
+    And I wait for "500" millsecond
     And I click the "Ensure" button
     And I wait for "1000" millsecond
     And I click the "SettingIcon" button
@@ -504,6 +522,7 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "包含" from the "ShowCondition"
     And I wait for "ShowValue" will be visible
     And I set the parameter "ShowValue" with value "-1h"
@@ -516,7 +535,9 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "匹配正则" from the "ShowCondition"
+    And I wait for "500" millsecond
     And I set the parameter "ShowValue" with value "now/d,?now"
     And I click the "Ensure" button
     And I wait for "1000" millsecond
@@ -540,6 +561,7 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "等于" from the "ShowCondition"
     And I wait for "ShowValue" will be visible
     And I set the parameter "ShowValue" with value "now/d,now"
@@ -552,7 +574,9 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "不等于" from the "ShowCondition"
+    And I wait for "500" millsecond
     And I set the parameter "ShowValue" with value "now/d,now"
     And I click the "Ensure" button
     And I wait for "1000" millsecond
@@ -603,6 +627,7 @@ Feature: 仪表盘详情行布局
     And I click the "FilterSetting" button
     And I wait for "500" millsecond
     And I choose the "下拉菜单" from the "InputType"
+    And I wait for "500" millsecond
     And I click the "SingleChoice" button
     And I set the parameter "ChoiceValue" with value "111"
     And I click the "AddChoiceValueButton" button
@@ -633,7 +658,9 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "不为空" from the "ShowCondition"
+    And I wait for "500" millsecond
     And I click the "Ensure" button
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
@@ -643,7 +670,9 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "为空" from the "ShowCondition"
+    And I wait for "500" millsecond
     And I click the "Ensure" button
     And I wait for "1000" millsecond
     And I click the "SettingIcon" button
@@ -665,6 +694,7 @@ Feature: 仪表盘详情行布局
     And I click the "FilterSetting" button
     And I wait for "500" millsecond
     And I choose the "动态菜单" from the "InputType"
+    And I wait for "500" millsecond
     And I click the "SingleChoice" button
     And I set the parameter "DynamicField" with value "apache.geo.city"
     And I set the parameter "Spl" with value "*|stats count() by 'apache.geo.city'"
@@ -694,6 +724,7 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "包含" from the "ShowCondition"
     And I wait for "ShowValue" will be visible
     And I set the parameter "ShowValue" with value "市"
@@ -706,11 +737,14 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "匹配正则" from the "ShowCondition"
+    And I wait for "500" millsecond
     And I set the parameter "ShowValue" with value "aab?市"
     And I click the "Ensure" button
     And I wait for "1000" millsecond
     And I choose the "成都市" from the "FilterDropdown"
+    And I wait for "500" millsecond
     And I click the "SettingIcon" button
     And I wait for "1500" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"

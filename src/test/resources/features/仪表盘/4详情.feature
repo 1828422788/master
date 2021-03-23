@@ -334,7 +334,7 @@ Feature: 仪表盘详情页
     And I set the parameter "SearchInput" with value "<name>"
     And I wait for loading invisible
 #    And the data name is "{'column':'2','name':'<name>'}" then i click the "更多" button
-    When the data name is "{'column':'2','name':'<name>'}" then i click the "删除" button in more menu
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
     And I wait for "EnsureButton" will be visible
     When I click the "EnsureButton" button
     And I wait for "Message" will be visible
