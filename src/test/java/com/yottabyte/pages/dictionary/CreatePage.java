@@ -48,8 +48,11 @@ public class CreatePage extends PageTemplate {
         return super.getDeleteIcon("wymdoubletest1.csv");
     }
 
-    @FindBy(xpath = "//div[text()='资源标签']/following-sibling::span[1]//input")
+    @FindBy(xpath = "//label[text()='资源标签']/parent::div/following-sibling::div//input")
     private WebElement groupInput;
+
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//div[@class='yotta-select-selection-content']")
+    private  WebElement groupInputButton;
 
     @FindBy(xpath = "//div[text()='提示']")
     private WebElement Tip;
@@ -66,7 +69,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//textarea[@class='ant-input css-pcxrzr _2naGD5U5UpRR3_1_pnJA4U']")
     private WebElement editOnlineArea;
 
-    @FindBy(xpath = "//p[@class='_1JjlGgMGUnJmBrqR_9PZl8']")
+    @FindBy(xpath = "//p[text()='更新字典内容成功']")
     private WebElement message;
 
     @FindBy(className = "ant-upload-list-item-name")
@@ -122,4 +125,6 @@ public class CreatePage extends PageTemplate {
     public WebElement getGroupInput() {
         return groupInput;
     }
+
+    public WebElement getGroupInputButton() { return groupInputButton;}
 }

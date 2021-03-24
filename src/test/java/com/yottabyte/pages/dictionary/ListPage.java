@@ -32,7 +32,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='.csv']/preceding-sibling::input[@placeholder='请输入名称']")
     private WebElement name;
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
+    @FindBy(xpath = "//div[@class='yotta-modal-body']//p")
     private WebElement successMessage;
 
     @FindBy(xpath = "//p[@class='ant-empty-description']")
@@ -41,7 +41,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "el-table__empty-text")
     private WebElement emptyText;
 
-    @FindBy(xpath = "//div[@class='ant-modal-footer']//button")
+    @FindBy(xpath = "//div[@class='yotta-modal-footer yotta-modal-footer-with-divider']//span[text()='上传']")
     private WebElement ensureUpload;
 
     @FindBy(xpath = "//div[@class='ant-modal-body']//button")
@@ -101,6 +101,24 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[text()='请输入标签名称']/following-sibling::ul/li/div[1]/input")
     private WebElement groupInput;
 
+    @FindBy(xpath = "//li[@yotta-test='dictionary-download-button']/span")
+    private  WebElement download;
+
+    @FindBy(xpath = "//li[@yotta-test='dictionary-tags-button']/span")
+    private  WebElement label;
+
+    @FindBy(xpath = "//li[@yotta-test='dictionary-authorize-button']/span")
+    private  WebElement auth;
+
+    @FindBy(xpath = "//li[@yotta-test='dictionary-delete-button']/span")
+    private  WebElement delete;
+
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div/div")
+    private WebElement tagbutton;
+
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//input")
+    private WebElement tag;
+
     public WebElement getName() {
         return name;
     }
@@ -133,10 +151,11 @@ public class ListPage extends ListPageFactory {
         return groupInput;
     }
 
-    @Override
-    public WebElement getTag() {
-        return super.getTag();
+    public WebElement getTagButton() {
+        return tagbutton;
     }
+
+    public WebElement Tag() { return tag;}
 
     public WebElement getGroup() {
         return super.getLastDropdownList();
@@ -152,6 +171,22 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getUpdate() {
         return super.getContainsTextButton("更新");
+    }
+
+    public WebElement getDownload() {
+        return download;
+    }
+
+    public WebElement getLabel() {
+        return label;
+    }
+
+    public WebElement getAuth() {
+        return auth;
+    }
+
+    public WebElement getDelete() {
+        return delete;
     }
 
     public WebElement getDictionaryFilter() {

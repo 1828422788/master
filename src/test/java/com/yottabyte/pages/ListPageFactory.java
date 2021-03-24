@@ -191,7 +191,8 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     }
 
     public WebElement getLastDropdownList() {
-        return utils.getLastDropdownList();
+     //   return utils.getLastDropdownList();
+        return utils.getLastDropdownListEditApp();
     }
 
     public WebElement getPlaceholderInput(String placeholder) {
