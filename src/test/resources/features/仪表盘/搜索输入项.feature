@@ -13,6 +13,7 @@ Feature: 搜索页输入项
     And I click the "CreateInputItem" button
     Then I wait for "filterToken" will be visible
     And I set the parameter "filterToken" with value "filter"
+    And I wait for "2000" millsecond
     And I choose the "文本输入" from the "InputType"
     And I set the parameter "Prefix" with value "tag : "
     And I set the parameter "Suffix" with value " |"
