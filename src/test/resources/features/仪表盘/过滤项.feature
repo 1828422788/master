@@ -282,16 +282,18 @@ Feature: 仪表盘过滤项
     And I wait for "500" millsecond
     And I click the "SearchFilterButton" button under some element
     And I wait for loading invisible
-    Then I wait for "LackField" will be visible
-    Then I click the "EnsureErrorSplButton" button
-    And I wait for "1500" millsecond
+    Then I will see the error message "缺少选中的字段"
+#    Then I wait for "LackField" will be visible
+#    Then I click the "EnsureErrorSplButton" button
+    And I wait for "2500" millsecond
     And I set the parameter "DynamicField" with value "apache.geo.city"
     And I set the parameter "Spl" with value "hello goodbey"
     And I wait for "500" millsecond
-    And I click the "Search" button under some element
+    And I click the "SearchFilterButton" button under some element
     And I wait for loading invisible
-    Then I wait for "ErrorSpl" will be visible
-    And I click the "EnsureErrorSplButton" button
+    Then I will see the error message "搜索语句须为stats类型"
+#    Then I wait for "搜索语句须为stats类型" will be visible
+#    And I click the "EnsureErrorSplButton" button
 
 
   @dashboard @dashboardSmoke
