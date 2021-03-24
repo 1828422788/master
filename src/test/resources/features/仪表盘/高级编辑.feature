@@ -16,8 +16,8 @@ Feature: 仪表盘高级编辑
   @dashboard @dashboardSmoke
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
-    And I click the "CreateButton" button
-    And I click the "Create" button
+    And I click the "NewTrendButton" button
+#    And I click the "Create" button
     Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
@@ -25,6 +25,7 @@ Feature: 仪表盘高级编辑
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
+    And I wait for loading invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "<name>"
@@ -70,16 +71,17 @@ Feature: 仪表盘高级编辑
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
-    When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘所有" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
+    And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
     And I click the "Check" button
     Then I will see the success message "校验通过"
     Then I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "配置成功"
     And I refresh the website
     And I wait for "Progress" will be invisible
-    Then I will see the "TableHeader" result will be "apache.geo.country  apache.geo.province  apache.geo.city  count() "
+    Then I will see the "TableHeader" result will contain "apache.geo.country"
+#    Then I will see the "TableHeader" result will be "apache.geo.country"
 
   @dashboard @dashboardSmoke
   Scenario: 修改开始时间 RZY-1277
@@ -88,7 +90,7 @@ Feature: 仪表盘高级编辑
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
-    When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘所有" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-2d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
     And I wait for "500" millsecond
@@ -108,7 +110,7 @@ Feature: 仪表盘高级编辑
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
-    When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘所有" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "<start>","endTime": "<end>"},"chart": {"chartType": "table"}}" to json editor
     And I wait for "500" millsecond
@@ -128,7 +130,7 @@ Feature: 仪表盘高级编辑
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
-    When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘所有" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘所有","description": "","x": <x>,"y": <y>,"w": <w>,"h": <h>,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
     And I wait for "500" millsecond
@@ -157,7 +159,7 @@ Feature: 仪表盘高级编辑
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
-    When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘所有" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘高级编辑","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
     And I wait for "500" millsecond
@@ -174,7 +176,7 @@ Feature: 仪表盘高级编辑
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
-    When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘高级编辑" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
     And I wait for "500" millsecond
@@ -189,7 +191,7 @@ Feature: 仪表盘高级编辑
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘高级编辑" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘高级编辑","description": "测试描述","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
     And I wait for "500" millsecond
@@ -200,9 +202,10 @@ Feature: 仪表盘高级编辑
     And I wait for "2000" millsecond
 #    And I click the "CustomTitle" button under some element
     And I move the mouse pointer to the "Describe"
-    And I click the "Describe" button
-    And I wait for "1000" millsecond
-    Then I will see the "DescribeText" result will be "测试描述"
+#    And I click the "Describe" button
+    And I wait for "500" millsecond
+#    And I move the mouse pointer to the "CustomTitle"
+    Then I will see the text "测试描述" exist in page
 
   @dashboard @dashboardSmoke
   Scenario: 验证清空JSON RZY-3442
@@ -210,7 +213,7 @@ Feature: 仪表盘高级编辑
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘高级编辑" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I wait for "Operate" will be visible
     And I click the "Operate" button
@@ -226,7 +229,7 @@ Feature: 仪表盘高级编辑
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
-    When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘高级编辑" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘所有","description": "","x": -1,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-2d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
     And I wait for "500" millsecond
@@ -246,7 +249,7 @@ Feature: 仪表盘高级编辑
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
-    When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘高级编辑" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘所有","description": "","x": -1,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-2d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
     And I wait for "500" millsecond
@@ -265,7 +268,7 @@ Feature: 仪表盘高级编辑
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
-    When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘高级编辑" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I click the "Operate" button
     And I choose the "切换主题" from the "ChartDropdown"
@@ -297,7 +300,7 @@ Feature: 仪表盘高级编辑
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
-    When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘高级编辑" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘高级编辑","description": "测试描述","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "search","blank": true,"mode": "auto"}}" to json editor
     And I wait for "500" millsecond
@@ -319,7 +322,7 @@ Feature: 仪表盘高级编辑
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
-    When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘高级编辑" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘高级编辑","description": "测试描述","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "search","blank": false,"mode": "auto"}}" to json editor
     And I wait for "500" millsecond
@@ -340,7 +343,7 @@ Feature: 仪表盘高级编辑
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
-    When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘高级编辑" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘高级编辑","description": "测试描述","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "search","blank": false,"mode": "custom","query": "tag:sample04061424 | where apache.status<400 && apache.status>200 | stats count() as cnt","timeRange": "-1d/d,now/d"}}" to json editor
     And I wait for "500" millsecond
@@ -353,7 +356,8 @@ Feature: 仪表盘高级编辑
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424 | where apache.status<400 && apache.status>200 | stats count() as cnt"
     And I wait for "2000" millsecond
-    Then I will see the input element "TimeRange" value will contains "昨天"
+    Then I will see the "TimeRange" result will be "昨天"
+#    Then I will see the input element "TimeRange" value will contains "昨天"
 
   @dashboard @dashboardSmoke
   Scenario Outline: 高级搜索钻取修改校验query,timeRange RZY-1492,RZY-1493
@@ -362,13 +366,14 @@ Feature: 仪表盘高级编辑
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
-    When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘高级编辑" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘高级编辑","description": "测试描述","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "search","blank": false,<json>}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     And I wait for "500" millsecond
-    Then I will see the message contains "<message>"
+    And I wait for element "ErrorMessage" change text to "<message>"
+#    Then I will see the message contains "<message>"
 
     Examples:
       | json                                                                                                                   | message                       |
@@ -395,7 +400,7 @@ Feature: 仪表盘高级编辑
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
-    When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘高级编辑" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display|stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "eval","name": "filter","value": "${click.value2}+200"}]}}" to json editor
     And I wait for "500" millsecond
@@ -421,9 +426,10 @@ Feature: 仪表盘高级编辑
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘所有" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I choose the "跳转到搜索页" from the "DrillAction"
+    And I wait for "1000" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "1000" millsecond
@@ -438,7 +444,7 @@ Feature: 仪表盘高级编辑
     And I click the "Setting" button under some element
     And I choose the "count()" from the "DataValue"
     And I click the "Divide" button
-    And I click the "AddField" button
+#    And I click the "AddField" button
     And I choose the "apache.geo.city" from the "DataValue"
     Then I click the "Generate" button
     And I wait for "1500" millsecond
@@ -449,7 +455,10 @@ Feature: 仪表盘高级编辑
     And I wait for "2000" millsecond
     And I click the "TrendTitle" button
     And I wait for "SettingChart" will be visible
-    And I click the "SettingChart" button
+#    When the chart title is "仪表盘所有" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+#    And I click the "SettingChart" button
+    And I click the "MoreChartConfigs" button
+    And I wait for "500" millsecond
     And I click the "Edit" button
     Then I will see the "TextLayer" result will contain "<json>"
 
@@ -464,13 +473,14 @@ Feature: 仪表盘高级编辑
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘所有" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display|stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "search","blank": true,"mode": "custom"}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     And I wait for "500" millsecond
-    Then I will see the message contains "drilldown -> query 字段为必填项"
+    And I wait for element "ErrorMessage" change text to "drilldown -> query 字段为必填项"
+#    Then I will see the message contains "drilldown -> query 字段为必填项"
     And I wait for "1500" millsecond
     And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display|stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "search","blank": true,"mode": "custom","query": "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10","timeRange": "-1000d,+1d"}}" to json editor
     And I wait for "500" millsecond
@@ -486,7 +496,7 @@ Feature: 仪表盘高级编辑
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘所有" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I choose the "跳转到自定义URL" from the "DrillAction"
     And I set the parameter "Url" with value "<url>"
@@ -494,7 +504,7 @@ Feature: 仪表盘高级编辑
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingChart" button
+    And I click the "MoreChartConfigs" button
     And I click the "Edit" button
     Then I will see the "TextLayer" result will contain "<json>"
     And I wait for "1500" millsecond
@@ -520,7 +530,7 @@ Feature: 仪表盘高级编辑
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘所有" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     Then I will see the "TextLayer" result will contain "<json>"
     And I wait for "1500" millsecond
@@ -528,11 +538,12 @@ Feature: 仪表盘高级编辑
     And I wait for "500" millsecond
     And I click the "Check" button
     And I wait for "500" millsecond
-    Then I will see the message contains "chart -> field 字段为必填项"
+    And I wait for element "ErrorMessage" change text to "chart -> field 字段为必填项"
+#    Then I will see the message contains "chart -> field 字段为必填项"
 
     Examples:
       | name       | chartType |  json    |
-      | 测试高级编辑 | pie       | "chart": {\n    "chartType": "table"\n  },  |
+      | 测试高级编辑 | pie       | \n  "chart": {\n    "chartType": "table",  |
 
 
   @cleanDashboard

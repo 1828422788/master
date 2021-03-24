@@ -15,6 +15,7 @@ Feature: 仪表盘表格样式设置
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘<name>"
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "<name>"
@@ -30,8 +31,8 @@ Feature: 仪表盘表格样式设置
   @dashboard @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
-    And I click the "CreateButton" button
-    And I click the "Create" button
+    And I click the "NewTrendButton" button
+#    And I click the "Create" button
     Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
@@ -39,6 +40,7 @@ Feature: 仪表盘表格样式设置
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
+    And I wait for loading invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "<name>"
@@ -52,6 +54,7 @@ Feature: 仪表盘表格样式设置
   @dashboard @dashboardSmoke
   Scenario Outline: 添加图表 RZY-4845
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
@@ -67,9 +70,11 @@ Feature: 仪表盘表格样式设置
     Examples:
       | name         |
       | 仪表盘表格样式 |
+
   @dashboard @dashboardSmoke
   Scenario: 编辑图表样式-颜色-值-默认 RZY-4846
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "ChartEditorNumber" will be visible
@@ -80,11 +85,12 @@ Feature: 仪表盘表格样式设置
     And I click the "ColorValueDefault" button
     And I wait for "500" millsecond
     And I click the "ChartEditorEnsure" button
-    Then I will see the element "ValueOfNanjing" style contains "background-color: rgb(230, 247, 255); width: 100%;"
+    Then I will see the element "ValueOfNanjing" style contains "background-color: rgb(230, 247, 255);"
 
   @dashboard @dashboardSmoke
   Scenario: 编辑图表样式-颜色-值-随机 RZY-4847
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "ChartEditorNumber" will be visible
@@ -96,11 +102,12 @@ Feature: 仪表盘表格样式设置
     And I wait for "500" millsecond
     And I click the "ChartEditorEnsure" button
     Then I will see the "ValueOfNanjing" is not exist
-    Then I will see the element "ValueOfNanjingTd" style contains "background-color"
+    Then I will see the element "ValueOfNanjing" style contains "background-color: rgb(3, 169, 244);"
 
   @dashboard @dashboardSmoke
   Scenario: 编辑图表样式-颜色-值-自定义 RZY-4848
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "ChartEditorNumber" will be visible
@@ -115,11 +122,12 @@ Feature: 仪表盘表格样式设置
     And I wait for "500" millsecond
     And I click the "ChartEditorEnsure" button
     Then I will see the "ValueOfNanjing" is not exist
-    Then I will see the element "ValueOfNanjingTd" style contains "background-color: rgb(3, 169, 244)"
+    Then I will see the element "ValueOfNanjing" style contains "background-color: rgb(3, 169, 244)"
 
   @dashboard @dashboardSmoke
   Scenario: 编辑图表样式-颜色-范围 RZY-4849
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "ChartEditorNumber" will be visible
@@ -134,12 +142,13 @@ Feature: 仪表盘表格样式设置
     And I wait for "500" millsecond
     And I click the "ChartEditorEnsure" button
     Then I will see the "ValueOfNanjing" is not exist
-    Then I will see the element "ValueOfNanjingTd" style contains "background-color: rgb(37, 155, 36)"
+    Then I will see the element "ValueOfNanjing" style contains "background-color: rgb(37, 155, 36)"
     Then I will see the element "ValueOfShenzhenTd" style contains "background-color: rgb(0, 188, 212)"
 
   @dashboard @dashboardSmoke
   Scenario: 编辑图表样式-颜色-梯度 RZY-4850
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "ChartEditorNumber" will be visible
@@ -153,12 +162,13 @@ Feature: 仪表盘表格样式设置
     And I wait for "500" millsecond
     And I click the "ChartEditorEnsure" button
     Then I will see the "ValueOfNanjing" is not exist
-    Then I will see the element "ValueOfNanjingTd" style contains "background-color: rgb(142, 217, 251)"
+    Then I will see the element "ValueOfNanjing" style contains "background-color: rgb(142, 217, 251)"
     Then I will see the element "ValueOfShenzhenTd" style contains "background-color: rgb(189, 232, 252)"
 
   @dashboard @dashboardSmoke
   Scenario: 编辑图表样式-字体颜色-#fa3a76 RZY-4852
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "ChartEditorNumber" will be visible
@@ -172,6 +182,7 @@ Feature: 仪表盘表格样式设置
   @dashboard @dashboardSmoke
   Scenario: 编辑图表样式-字体样式-粗体 RZY-4851
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "ChartEditorNumber" will be visible
@@ -180,11 +191,12 @@ Feature: 仪表盘表格样式设置
     And I choose the "粗体" from the "ChartFontStyle"
     And I wait for "500" millsecond
     And I click the "ChartEditorEnsure" button
-    Then I will see the element "ValueOfNanjingTd" style contains "font-weight: bold"
+    Then I will see the element "ValueOfNanjing" style contains "font-weight: bold"
 
   @dashboard @dashboardSmoke
   Scenario: 编辑图表样式-字体样式-斜体 RZY-4851
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "ChartEditorNumber" will be visible
@@ -193,11 +205,12 @@ Feature: 仪表盘表格样式设置
     And I choose the "斜体" from the "ChartFontStyle"
     And I wait for "500" millsecond
     And I click the "ChartEditorEnsure" button
-    Then I will see the element "ValueOfNanjingTd" style contains "font-style: italic"
+    Then I will see the element "ValueOfNanjing" style contains "font-style: italic"
 
   @dashboard @dashboardSmoke
   Scenario: 编辑图表样式-字体样式-下划线 RZY-4851
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "ChartEditorNumber" will be visible
@@ -206,11 +219,12 @@ Feature: 仪表盘表格样式设置
     And I choose the "下划线" from the "ChartFontStyle"
     And I wait for "500" millsecond
     And I click the "ChartEditorEnsure" button
-    Then I will see the element "ValueOfNanjingTd" style contains "text-decoration: underline"
+    Then I will see the element "ValueOfNanjing" style contains "text-decoration: underline"
 
   @dashboard @dashboardSmoke
   Scenario Outline: 编辑图表样式-列宽度 RZY-4853
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "ChartEditorNumber" will be visible
@@ -230,6 +244,7 @@ Feature: 仪表盘表格样式设置
   @dashboard @dashboardSmoke
   Scenario: 编辑图表样式-对齐方式-居中 RZY-4854
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "ChartEditorNumber" will be visible
@@ -238,11 +253,12 @@ Feature: 仪表盘表格样式设置
     And I choose the "居中" from the "ChartAlignment"
     And I wait for "500" millsecond
     And I click the "ChartEditorEnsure" button
-    Then I will see the element "ValueOfNanjingTd" style contains "text-align: center"
+    Then I will see the element "ValueOfNanjing" style contains "text-align: center"
 
   @dashboard @dashboardSmoke
   Scenario: 编辑图表样式-对齐方式-居右 RZY-4854
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "ChartEditorNumber" will be visible
@@ -251,11 +267,12 @@ Feature: 仪表盘表格样式设置
     And I choose the "居右" from the "ChartAlignment"
     And I wait for "500" millsecond
     And I click the "ChartEditorEnsure" button
-    Then I will see the element "ValueOfNanjingTd" style contains "text-align: right"
+    Then I will see the element "ValueOfNanjing" style contains "text-align: right"
 
   @dashboard @dashboardSmoke
   Scenario: 编辑图表样式-对齐方式-居左 RZY-4854
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "ChartEditorNumber" will be visible
@@ -264,11 +281,12 @@ Feature: 仪表盘表格样式设置
     And I choose the "居左" from the "ChartAlignment"
     And I wait for "500" millsecond
     And I click the "ChartEditorEnsure" button
-    Then I will see the element "ValueOfNanjingTd" style contains "text-align: left"
+    Then I will see the element "ValueOfNanjing" style contains "text-align: left"
 
   @dashboard @dashboardSmoke
   Scenario: 文件名称校验 RZY-4878
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
@@ -278,13 +296,16 @@ Feature: 仪表盘表格样式设置
     And I set the parameter "DownloadFileName" with value " "
     And I click the "EnsureCreateTagButton" button
     Then I will see the error message "请填写有效文件名"
+    And I wait for "3000" millsecond
     And I set the parameter "DownloadFileName" with value "汉字Abc！@#¥123"
+    And I wait for "3000" millsecond
     And I click the "EnsureCreateTagButton" button
     Then I will see the success message "成功提交下载任务"
 
   @dashboard @dashboardSmoke
   Scenario: 再次添加同名下载任务 RZY-4879
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘表格样式设置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond

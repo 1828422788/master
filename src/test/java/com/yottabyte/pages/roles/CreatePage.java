@@ -26,7 +26,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "checkbox-group")
     private WebElement checkBoxs;
 
-    @FindBy(id = "RoleUpdate_name")
+    @FindBy(xpath = "//div/input[@yotta-test='role-name-input']")
     private WebElement roleName;
 
     @FindBy(xpath = "//*[@class='el-message-box__btns']//span[contains(text(),'确定')]")

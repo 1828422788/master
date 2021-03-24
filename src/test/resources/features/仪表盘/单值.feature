@@ -15,8 +15,8 @@ Feature: 仪表盘单值
   @dashboard @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
-    And I click the "CreateButton" button
-    And I click the "Create" button
+    And I click the "NewTrendButton" button
+#    And I click the "Create" button
     Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
@@ -24,6 +24,7 @@ Feature: 仪表盘单值
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
+    And I wait for loading invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "<name>"
@@ -50,7 +51,7 @@ Feature: 仪表盘单值
       | 单值   |
 
   @dashboard @dashboardSmoke
-  Scenario: 添加图表
+  Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
@@ -60,12 +61,15 @@ Feature: 仪表盘单值
     And I wait for "500" millsecond
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
-    And I set the parameter "SearchChartInput" with value "仪表盘单值"
+    And I set the parameter "SearchChartInput" with value "<name>"
     And I wait for loading invisible
-#    And I choose the "添加图表" from the "EventList"
-    And I "checked" the checkbox which name is "仪表盘单值"
+    And I click the "{'Checkbox':'<name>'}" button
     And I click the "Ensure" button
     And I wait for "2000" millsecond
+
+    Examples:
+      | name   |
+      | 仪表盘单值 |
 
   @dashboard @dashboardSmoke
   Scenario: 修改为单值 RZY-342
@@ -79,25 +83,26 @@ Feature: 仪表盘单值
     And I wait for "2000" millsecond
     And I click the "Other" button
     And I click the "Single" button
-    And I hide the element "Content"
-    And I click the "Setting" button under some element
+#    And I hide the element "Content"
+    And I click the "SettingChart" button under some element
     And I choose the "a_" from the "DataField"
+    And I wait for "1000" millsecond
     And I choose the "icon" from the "DisplayField"
     And I click the "Exhibition" button
     And I set the parameter "WordSize" with value "30"
+    And I wait for "1000" millsecond
     And I choose the "3" from the "DataPrecision"
+    And I wait for "1000" millsecond
     And I click the "ThousandSeparator" button
     And I set the parameter "Unit" with value "个"
+    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
-#    Then I hide the element "SettingContent"
+    And I click the "SettingChart" button under some element
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I click the "TrendTitle" button under some element
     And I wait for "3000" millsecond
-#    And take part of "FullScreen" with name "dashboard/仪表盘单值"
-#    Then I compare source image "dashboard/仪表盘单值" with target image "dashboard/single"
 
   @dashboard @dashboardSmoke
   Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3737
@@ -105,7 +110,7 @@ Feature: 仪表盘单值
     And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
 #    Then I will see the "TextLayer" result will contain "<json>"
 #    Then I will see the "TextLayer" result will be "<json>"
@@ -121,7 +126,7 @@ Feature: 仪表盘单值
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I wait for "500" millsecond
@@ -129,12 +134,13 @@ Feature: 仪表盘单值
     And I click the "Ensure" button
     And I wait for "Ensure" will be invisible
     And I wait for "500" millsecond
-    And I click the "Setting" button
+    And I click the "SettingChart" button
     Then I will see the "trend.CreatePageDash" page
     And I choose the "count()" from the "DataField"
+    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button
+    And I click the "SettingChart" button
 #    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
@@ -149,7 +155,7 @@ Feature: 仪表盘单值
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "single","field": "a_","fontSize": "<fontSize>","useThousandSeparators": false,"unit": "个","unitPosition": "after","displayField": "icon","subtitle": "","useSparkline": false,"singleChartIcon": "none","sparklineXAxisField": "","displayMode": "default","color": "#5C9DF5","colorFillingMode": "font","liveRefreshMode": false}}" to json editor
     And I wait for "500" millsecond
@@ -170,7 +176,7 @@ Feature: 仪表盘单值
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
 #    And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "single","field": "a_","fontSize": "100","singleChartIcon": "none","displayMode": "default","color": "<color>","colorFillingMode": "font","liveRefreshMode": false}}" to json editor
     And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "single","field": "a_","fontSize": "100","useThousandSeparators": false,"unit": "个","unitPosition": "after","displayField": "icon","subtitle": "","useSparkline": false,"singleChartIcon": "none","sparklineXAxisField": "","displayMode": "default","color": "<color>","colorFillingMode": "font","liveRefreshMode": false}}" to json editor
@@ -189,7 +195,7 @@ Feature: 仪表盘单值
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
 #    And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "single","field": "a_","fontSize": "100","singleChartIcon": "none","displayMode": "trending","color": "#5C9DF5","colorFillingMode": "font","liveRefreshMode": false}}" to json editor
     And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "single","field": "a_","fontSize": "100","useThousandSeparators": false,"unit": "个","unitPosition": "after","displayField": "icon","subtitle": "","useSparkline": false,"singleChartIcon": "none","sparklineXAxisField": "","displayMode": "trending","color": "#5C9DF5","colorFillingMode": "font","liveRefreshMode": false}}" to json editor
@@ -207,7 +213,7 @@ Feature: 仪表盘单值
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "single","field": "a_","fontSize": "24","singleChartIcon": "none","displayMode": "default","comparsionTime": "-7d","comparsionMode": "percent","color": "#5C9DF5","colorFillingMode": "font","liveRefreshMode": false}}" to json editor
     And I wait for "500" millsecond
@@ -224,7 +230,7 @@ Feature: 仪表盘单值
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "single","field": "a_","fontSize": "24","precision": "1","useThousandSeparators": false,"unit": "ge","unitPosition": "after","displayField": "chart","subtitle": "","useSparkline": false,"sparklineXAxisField": "","singleChartIcon": "fixed","fixedSetting": "","displayMode": "<mode>","colorFillingMode": "font","colorRanges": [{"from":"100","to":"<to>","color":"#259B24"}]}}" to json editor
     And I wait for "500" millsecond
@@ -245,7 +251,7 @@ Feature: 仪表盘单值
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
 #    And I click the "ChartSetting" button
     And I click the "Recover" button
     And I wait for loading invisible
@@ -274,7 +280,7 @@ Feature: 仪表盘单值
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "<chartType>"}}" to json editor
     And I wait for "500" millsecond
@@ -294,7 +300,7 @@ Feature: 仪表盘单值
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "<singleChartIcon>",    "iconField": "icon",    "displayMode": "default",    "color": "#5C9DF5",    "colorFillingMode": "font",    "liveRefreshMode": false  }}" to json editor
     And I wait for "500" millsecond
@@ -317,7 +323,7 @@ Feature: 仪表盘单值
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "<singleChartIcon>",    "fixedSetting": "search",    "displayMode": "default",    "color": "#5C9DF5",    "colorFillingMode": "font",    "liveRefreshMode": false  }}" to json editor
     And I wait for "500" millsecond
@@ -340,7 +346,7 @@ Feature: 仪表盘单值
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "<singleChartIcon>",    "displayMode": "default",    "color": "#5C9DF5",    "colorFillingMode": "font",    "liveRefreshMode": false  }}" to json editor
     And I wait for "500" millsecond
@@ -363,7 +369,7 @@ Feature: 仪表盘单值
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "<displayMode>",    "color": "#5C9DF5",    "colorFillingMode": "font",    "liveRefreshMode": false  }}" to json editor
     And I wait for "500" millsecond
@@ -381,7 +387,7 @@ Feature: 仪表盘单值
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I wait for "500" millsecond
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "default",    "color": "<color>",    "colorFillingMode": "font",    "liveRefreshMode": false  }}" to json editor
@@ -405,7 +411,7 @@ Feature: 仪表盘单值
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "default",    "color": "#FFEB3B",    "colorFillingMode": "<colorFillingMode>",    "liveRefreshMode": false  }}" to json editor
     And I wait for "500" millsecond
@@ -428,7 +434,7 @@ Feature: 仪表盘单值
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "default",    "color": "#FFEB3B",    "colorFillingMode": "font",    "liveRefreshMode": <liveRefreshMode>  }}" to json editor
     And I wait for "500" millsecond
@@ -437,11 +443,12 @@ Feature: 仪表盘单值
     Then I click the "Ensure" button
     And I wait for loading invisible
     And I wait for "2000" millsecond
-    And I click the "Setting" button
+    And I click the "SettingChart" button
 #    Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
     And I click the "Exhibition" button
-    Then I will see the checkbox in auth which name is "实时滚动刷新" and status is "checked"
+    Then I will see the "ActualTimeRefresh" is "yotta-checkbox-checked"
+#    Then I will see the checkbox in auth which name is "实时滚动刷新" and status is "checked"
 
     Examples:
       | liveRefreshMode |
@@ -454,7 +461,7 @@ Feature: 仪表盘单值
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "trending",    "comparsionTime": "-7d",    "comparsionMode": "percent"  }}" to json editor
     And I wait for "500" millsecond
@@ -463,7 +470,7 @@ Feature: 仪表盘单值
     Then I click the "Ensure" button
     And I wait for loading invisible
     And I wait for "2000" millsecond
-    And I click the "Setting" button
+    And I click the "SettingChart" button
 #    Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
     And I click the "Exhibition" button
@@ -477,7 +484,7 @@ Feature: 仪表盘单值
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "<displayMode>",    "comparsionTime": "-7d",    "comparsionMode": "percent"  }}" to json editor
     And I wait for "500" millsecond
@@ -495,7 +502,7 @@ Feature: 仪表盘单值
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "trending",    "comparsionTime": "<comparsionTime>",    "comparsionMode": "<comparsionMode>"  }}" to json editor
     And I wait for "500" millsecond
@@ -504,7 +511,7 @@ Feature: 仪表盘单值
     Then I click the "Ensure" button
     And I wait for loading invisible
     And I wait for "2000" millsecond
-    And I click the "Setting" button
+    And I click the "SettingChart" button
 #    Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
     And I click the "Exhibition" button
@@ -523,7 +530,7 @@ Feature: 仪表盘单值
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "ranging",    "colorFillingMode": "font",    "colorRanges": [      {        "from": "100",        "to": "300",        "color": "#5C9DF5"      }    ]  }}" to json editor
     And I wait for "500" millsecond
@@ -532,7 +539,7 @@ Feature: 仪表盘单值
     Then I click the "Ensure" button
     And I wait for loading invisible
     And I wait for "2000" millsecond
-    And I click the "Setting" button
+    And I click the "SettingChart" button
 #    Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
     And I click the "Exhibition" button
@@ -546,7 +553,7 @@ Feature: 仪表盘单值
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "<displayMode>",    "colorFillingMode": "font",    "colorRanges": [      {        "color": "#259B24",        "from": "<from>",        "to": "<to>"      }    ]  }}" to json editor
     And I wait for "500" millsecond
@@ -566,7 +573,7 @@ Feature: 仪表盘单值
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "3000" millsecond
-    And I click the "Setting" button
+    And I click the "SettingChart" button
     Then I will see the "trend.CreatePageDash" page
     And I wait for "2000" millsecond
     And I click the "Icon" button
@@ -574,7 +581,7 @@ Feature: 仪表盘单值
     And I set the parameter "IconName" with value "school"
     And I click the "Generate" button
 
-    And I click the "Setting" button
+    And I click the "SettingChart" button
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     Then take part of "SingleValueExhibition" with name "actual/单值_图标_按名称"

@@ -13,7 +13,7 @@ public class ListPage extends ListPageFactory {
         super(driver);
     }
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
+    @FindBy(xpath = "//div[@class='yotta-modal-body']//p")
     private WebElement successMessage;
 
     @FindBy(className = "ant-modal-content")
@@ -31,11 +31,16 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "ant-calendar-input")
     private WebElement calendarInput;
 
-    @FindBy(className = "ant-calendar-ok-btn")
+    @FindBy(className = "yotta-button-content")
     private WebElement calendarEnsure;
 
     @FindBy(xpath = "(//input[@id='ConfigModify_desensiveChecked']/ancestor::span)[last()]")
     private WebElement desensiveChecked;
+
+    @FindBy(xpath = "//span[text()='授权']")
+    private WebElement auth;
+
+    public WebElement getMoreOfAuth() { return auth; }
 
     public WebElement getDesensiveChecked() {
         return desensiveChecked;
@@ -78,7 +83,7 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getAppname() {
-        return super.getPlaceholderInput("请输入 Appname");
+        return super.getPlaceholderInput("请输入 appname");
     }
 
     public WebElement getFilter() {

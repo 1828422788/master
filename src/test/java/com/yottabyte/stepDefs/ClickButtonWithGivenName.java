@@ -39,9 +39,15 @@ public class ClickButtonWithGivenName {
             this.click(buttonName, tr);
         }
         catch (org.openqa.selenium.StaleElementReferenceException exception){
-            WebElement tr = listPageUtils.getRow(dataName);
-            this.click(buttonName, tr);
+            try {
+                WebElement tr = listPageUtils.getRow(dataName);
+                this.click(buttonName, tr);
+            } catch (org.openqa.selenium.StaleElementReferenceException exception2) {
+                WebElement tr = listPageUtils.getRow(dataName);
+                this.click(buttonName, tr);
+            }
         }
+
     }
 
     /**
@@ -85,7 +91,7 @@ public class ClickButtonWithGivenName {
     @When("^the data name contains \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
     public void clickButtonWithName(String dataName, String buttonName) {
         WebElement tr = listPageUtils.getContainsTr(dataName);
-        List<WebElement> button = tr.findElements(By.xpath(".//a[contains(text(),'" + buttonName + "')]"));
+        List<WebElement> button = tr.findElements(By.xpath(".//span[contains(text(),'" + buttonName + "')]"));
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button.get(0));
     }
 
@@ -143,7 +149,7 @@ public class ClickButtonWithGivenName {
     @When("^the column is \"([^\"]*)\" then i click the \"([^\"]*)\" button in agent page$")
     public void clickButtonInAgentPage(String columnNum, String buttonName) {
         String json = this.getAgentIp(columnNum);
-        WebElement table = webDriver.findElement(By.xpath("(//tbody)[2]"));
+        WebElement table = webDriver.findElement(By.xpath("(//tbody)"));
         Map<String, Object> map = JsonStringPaser.json2Stirng(json);
         int num = 0;
         for (WebElement tr : table.findElements(By.xpath("./tr"))) {
@@ -152,7 +158,7 @@ public class ClickButtonWithGivenName {
                 break;
             }
         }
-        WebElement tr = webDriver.findElement(By.xpath("((//tbody)[3]/tr)[" + num + "]"));
+        WebElement tr = webDriver.findElement(By.xpath("(//tbody/tr)[" + num + "]"));
         this.click(buttonName, tr);
     }
 
@@ -209,11 +215,16 @@ public class ClickButtonWithGivenName {
     private void click(String buttonName, WebElement tr) {
         String xpath;
         if (webDriver.getCurrentUrl().contains("/app/list/") || webDriver.getCurrentUrl().contains("/app/siem/assets/")) {
-            xpath = ".//span[contains(text(),'" + buttonName + "')][not(@class)]";
+           // xpath = ".//span[contains(text(),'" + buttonName + "')][not(@class)]";
+            xpath = ".//span[text()='" + buttonName + "']";
         } else if ("详情".equals(buttonName)) {
             xpath = ".//span[contains(text(),'" + buttonName + "')]";
-        } else {
+        }else if (webDriver.getCurrentUrl().contains("/sources/input/agent/") || webDriver.getCurrentUrl().contains("/agent/groupcollect/")) {
+            xpath = ".//a[text()='" + buttonName + "']";
+        }
+        else {
             xpath = ".//span[text()='" + buttonName + "']";
+//            xpath = ".//a[text()='" + buttonName + "']";
         }
         List<WebElement> button = tr.findElements(By.xpath(xpath));
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button.get(0));
@@ -256,11 +267,11 @@ public class ClickButtonWithGivenName {
     @Given("^I click the detail which column is \"([^\"]*)\" in agent page$")
     public void clickDetailNameInAgentPage(String columnNum) {
         String json = this.getAgentIp(columnNum);
-        WebElement table = webDriver.findElement(By.xpath("(//tbody)[2]"));
+        WebElement table = webDriver.findElement(By.xpath("(//tbody)"));
         Map<String, Object> map = JsonStringPaser.json2Stirng(json);
         WebElement tr = listPageUtils.getRowWithoutPaging(map.get("name").toString(), table);
         int num = Integer.parseInt(columnNum) + 1;
-        tr.findElement(By.xpath("(./td)[" + num + "]")).click();
+        tr.findElement(By.xpath("(./td)[" + num + "]/span")).click();
     }
 
     /**
@@ -405,6 +416,24 @@ public class ClickButtonWithGivenName {
         }
     }
 
+
+    /**
+     * 点击对应行的“+/-”按钮
+     *
+     * @param name   名称
+     * @param action 操作 expand(+)/close(-)
+     */
+    @When("^the data name is \"([^\"]*)\" then I \"([^\"]*)\" the item$")
+    public void operateExpand(String name, String action) {
+        WebElement tr = listPageUtils.getRow(name);
+        WebElement element = tr.findElement(By.xpath(".//span[contains(@class,'expansion')]//span[@role='img']"));
+        String current_label = element.getAttribute("aria-label");
+        String status = current_label.equals("AddOutlined")? "close" : "expand" ;
+        if (!action.equals(status)) {
+            ClickEvent.clickUnderneathButton(element);
+        }
+    }
+
 // 3.6 版本
 //    /**
 //     * 关闭或开启禁用开关
@@ -449,10 +478,10 @@ public class ClickButtonWithGivenName {
     public void operateAgentSwitch(String dataName, String tableName, String status) {
         WebElement table = GetElementFromPage.getWebElementWithName(tableName);
         WebElement tr = listPageUtils.getRowWithoutPaging(dataName, table);
-        WebElement label = tr.findElement(By.xpath(".//button"));
-        String labelAttribute = label.getAttribute("aria-checked");
-        if (status.equals("close") && labelAttribute.contains("true") || status.equals("open") && labelAttribute.contains("false")) {
-            label.click();
+        WebElement label = tr.findElement(By.xpath(".//label/span"));
+        String selected = label.isSelected() ? "enable" : "disable";
+        if (!selected.equals(status)) {
+            ClickEvent.clickUnderneathButton(label);
         }
     }
 
@@ -495,7 +524,7 @@ public class ClickButtonWithGivenName {
     public void assertDisabled(String name) {
         WebElement tr = listPageUtils.getTinyTr("{'column':'1','name':'" + name + "'}");
         WebElement checkbox = tr.findElement(By.xpath(".//label"));
-        Assert.assertTrue(checkbox.getAttribute("class").contains("ant-checkbox-wrapper-disabled"));
+        Assert.assertTrue(checkbox.getAttribute("class").contains("yotta-checkbox yotta-checkbox-small yotta-checkbox-disabled"));
     }
 
     /**
@@ -576,7 +605,7 @@ public class ClickButtonWithGivenName {
      */
     @And("^\"([^\"]*)\" the data \"([^\"]*)\" in tiny saved search$")
     public void operateDataInTinySavedSearch(String function, String name) {
-        WebElement table = webDriver.findElement(By.className("yotta-table-body"));
+        WebElement table = webDriver.findElement(By.xpath("(//table[contains(@class,'yotta-table')])[last()]"));
         WebElement tr = listPageUtils.getRowWithoutPaging(name, table);
         this.click(function, tr);
     }

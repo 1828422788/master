@@ -1,8 +1,10 @@
 package com.yottabyte.pages.trend;
 
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.DropdownUtils;
 import com.yottabyte.utils.GetTime;
+import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -50,7 +52,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[text()='POST']/preceding-sibling::*")
     private WebElement clickPOST;
 
-    @FindBy(xpath = "//*[text()='北京']/preceding-sibling::*")
+    @FindBy(xpath = "//*[text()='北京']/preceding-sibling::*[name()='circle']/ancestor::*[name()='g'][3]")
     private WebElement clickBeijing;
 
     @FindBy(xpath = "(//span[text()='行数']/preceding-sibling::div/input)[last()]")
@@ -68,10 +70,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "chart-gui-field-color-box")
     private WebElement addColor;
 
-    @FindBy(xpath = "(//i[@class='anticon css-ifnfqv _2FmD69BXKIajYmOQLvFY29 _14T_hDxmrDu4vX6PHAQs1u'])[1]")
+    @FindBy(xpath = "(//span[contains(@class,'yotta-tag-close')])[1]")
     private WebElement deleteFirst;
 
-    @FindBy(xpath = "(//i[@class='anticon css-ifnfqv _2FmD69BXKIajYmOQLvFY29 _14T_hDxmrDu4vX6PHAQs1u'])[last()]")
+    @FindBy(xpath = "(//span[contains(@class,'yotta-tag-close')])[last()]")
     private WebElement deleteLast;
 
 // Labels
@@ -99,34 +101,34 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "_1pGh3cs00Rp1iccZrcDgHU")
     private WebElement listOfFields;
 
-    @FindBy(className = "_1L7hbwdzCpZJFzkuvvcudu")
+    @FindBy(xpath = "//div[contains(@class,'yotta-checkbox-group')]")
     private WebElement checkBox;
 
 //--------------------------------------------
 //Table Pencil ---------------------------------------
 
-    @FindBy(xpath = "//th[last()]/i")
+    @FindBy(xpath = "(//span[contains(@class,'yotta-icon-EditOutlined')])[last()]")
     private WebElement pencil;
 
-    @FindBy(xpath = "//th[1]/i")
+    @FindBy(xpath = "(//span[contains(@class,'yotta-icon-EditOutlined')])[1]")
     private WebElement pencilFirst;
 
-    @FindBy(xpath = "//div[text()='表格样式设置']/ancestor::div[2]")
+    @FindBy(xpath = "//span[text()='表格样式设置']/ancestor::div[contains(@class,'table-color-setting')]")
     private WebElement colorPanel;
 
     @FindBy(xpath = "//label[contains(text(),'表格颜色')]/following-sibling::div")
     private WebElement colorType;
 
-    @FindBy(xpath = "//label[contains(text(),'表格颜色')]/following-sibling::div//div[text()='Select']/following-sibling::div")
+    @FindBy(xpath = "//label[contains(text(),'表格颜色')]/following-sibling::div//span[@class='yotta-select-selection-value']")
     private WebElement selectedValueColorType;
 
     @FindBy(xpath = "//label[text()='预设置']/following-sibling::span")
     private WebElement selectColor;
 
-    @FindBy(xpath = "//img[@src='/static/img/dashboard/table_color/3.png']/ancestor::a")
+    @FindBy(xpath = "//img[contains(@src,'3.png')]/ancestor::a")
     private WebElement continuity;
 
-    @FindBy(xpath = "//img[@src='/static/img/dashboard/table_color/4.png']/ancestor::a")
+    @FindBy(xpath = "//img[contains(@src,'4.png')]/ancestor::a")
     private WebElement discrete;
 
     @FindBy(xpath = "//label[text()='下限值']/following-sibling::input")
@@ -138,7 +140,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='上限值']/following-sibling::input")
     private WebElement upperLimitValue;
 
-    @FindBy(xpath = "//input[@value='max']/ancestor::div/preceding-sibling::div[1]/input")
+    @FindBy(xpath = "//input[@value='min']/ancestor::div[1]/input")
     private WebElement intervalInput;
 
     @FindBy(xpath="(//span[@class='css-trkpwz'])[last()-1]/ancestor::div[1]")
@@ -147,19 +149,19 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath="(//div[text()='Hex'])[last()-1]/preceding-sibling::input")
     private WebElement colorCode;
 
-    @FindBy(xpath = "//input[@value='min']/ancestor::label/following-sibling::i")
+    @FindBy(xpath = "//input[@value='min']/ancestor::div[2]/span[contains(@class,'icon-DeleteOutlined')]")
     private WebElement deleteFirstInterval;
 
-    @FindBy(xpath = "//input[@value='min']/ancestor::div/following-sibling::div[1]/i")
+    @FindBy(xpath = "//input[@value='min']/ancestor::div[2]/following-sibling::div[1]/span[contains(@class,'icon-DeleteOutlined')]")
     private WebElement deleteSecondInterval;
 
-    @FindBy(xpath = "//input[@value='max']//ancestor::div/preceding-sibling::div[1]/i")
+    @FindBy(xpath = "//input[@value='max']/ancestor::div[2]/preceding-sibling::div[1]/span[contains(@class,'icon-DeleteOutlined')]")
     private WebElement deleteLastInterval;
 
     @FindBy(xpath = "(//span[text()='值']/following-sibling::input)[last()]")
     private WebElement inputValue;
 
-    @FindBy(xpath = "(//span[text()='值']/following-sibling::i)[last()]")
+    @FindBy(xpath = "(//span[text()='值']/ancestor::div[1]/span[contains(@class,'icon-DeleteOutlined')])[last()]")
     private WebElement deleteLastValue;
 
     @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div//span/span")
@@ -177,12 +179,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'对齐方式')]/following-sibling::div")
     private WebElement alignment;
 
-    @FindBy(xpath = "//label[contains(text(),'对齐方式')]/following-sibling::div//div[text()='Select']/following-sibling::div")
+    @FindBy(xpath = "//label[contains(text(),'对齐方式')]/following-sibling::div//span[contains(@class,'yotta-select-selection-value')]")
     private WebElement selectedAlignment;
 
 //----------------------------------------------------
 // other ----------------------------
-    @FindBy(xpath = "//span[@class='ant-select-arrow']")
+    @FindBy(xpath = "//span[contains(@class,'yotta-select-selection-icon-arrow')]")
     private WebElement dropbutton;
 
     @FindBy(className = "CodeMirror-code")
@@ -246,21 +248,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='柱状外右侧'])[last()]")
     private WebElement rightPosition;
 
-    @FindBy(xpath = "(//input[@class='el-input__inner'][not(@placeholder='请选择')])[last()]")
-    private WebElement startColor;
-
-    @FindBy(xpath = "(//div[text()='a...'])[last()]")
-    private WebElement firstPosition;
-
-    @FindBy(xpath = "(//div[text()='...z'])[last()]")
-    private WebElement secondPosition;
-
-    @FindBy(xpath = "(//div[text()='a..z'])[last()]")
-    private WebElement thirdPosition;
-
-    @FindBy(xpath = "(//span[text()='图表起始颜色']/ancestor::div/following-sibling::div/div)[1]")
-    private WebElement startColour;
-
     @FindBy(xpath = "(//input[@class='el-input__inner'])[last()]")
     private WebElement label;
 
@@ -270,56 +257,14 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "yw-search-setting-switch")
     private WebElement settingSwitch;
 
-    @FindBy(className = "tracing")
-    private WebElement tracing;
-
-    @FindBy(xpath = "(//div[contains(text(),'分面')])[last()]")
-    private WebElement divideSide;
-
-    @FindBy(xpath = "(//p[text()='+ 添加'])[last()] | (//i[contains(@class,'anticon-plus')])")
+    @FindBy(xpath = "(//p[text()='+ 添加'])[last()] | (//*[name()='svg' and @data-icon='AddCircleOutlined']/ancestor::span[1])")
     private WebElement addField;
-
-    @FindBy(xpath = "(//p[text()='添加字段配置'])[last()]")
-    private WebElement addConfigFields;
 
     @FindBy(xpath = "(//div[@class='el-select yw-search-setting-select'])[last()]")
     private WebElement secondSettingSelect;
 
-    @FindBy(xpath = "(//div[@class='img geostatsmap'])[last()]")
-    private WebElement geostatsmap;
-
     @FindBy(className = "table")
     private WebElement table;
-
-    @FindBy(xpath = "(//div[contains(text(),'字符云图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement wordcloud;
-
-    @FindBy(xpath = "(//div[contains(text(),'循序图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement sequence;
-
-    @FindBy(xpath = "//div[text()='背景']")
-    private WebElement background;
-
-    @FindBy(xpath = "//div[text()='字体']")
-    private WebElement font;
-
-    @FindBy(xpath = "(//div[text()='按字段'])[last()]")
-    private WebElement accordingField;
-
-    @FindBy(xpath = "(//div[text()='按名称'])[last()]")
-    private WebElement accordingName;
-
-    @FindBy(xpath = "(//div[text()='按趋势'])[last()]")
-    private WebElement accordingTrend;
-
-    @FindBy(xpath = "//div[text()='按区间']")
-    private WebElement accordingArea;
-
-    @FindBy(xpath = "//span[text()='绝对值']")
-    private WebElement absolute;
-
-    @FindBy(xpath = "//span[text()='百分比']")
-    private WebElement percent;
 
     @FindBy(xpath = "//span[text()='图标名称']/ancestor::div/following-sibling::div[1]//input")
     private WebElement iconName;
@@ -392,6 +337,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='纬度'])[last()]/ancestor::div/following-sibling::div//input")
     private WebElement latitudeInput;
 
+    @FindBy(xpath = "(//span[text()='世界'])[last()]")
+    private WebElement world;
+
     @FindBy(xpath = "(//span[text()='中国'])[last()]")
     private WebElement china;
 
@@ -416,10 +364,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "chart-setting-popover")
     private WebElement settingPopover;
 
-    @FindBy(xpath = "(//span[contains(text(),'纬度')])[last()]/following-sibling::input")
+    @FindBy(xpath = "(//span[contains(text(),'纬度')])[last()]/following-sibling::div//input")
     private WebElement centerLatitude;
 
-    @FindBy(xpath = "(//span[contains(text(),'经度')])[last()]/following-sibling::input")
+    @FindBy(xpath = "(//span[contains(text(),'经度')])[last()]/following-sibling::div//input")
     private WebElement centerLongitude;
 
     @FindBy(xpath = "(//span[contains(text(),'来源名称')])[last()]/following-sibling::input")
@@ -443,13 +391,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-switch__label--right")
     private WebElement switchLabel;
 
-    @FindBy(xpath = "(//span[text()='标签展示'])[last()]/ancestor::div/following-sibling::div")
-    private WebElement showLabel;
-
-    @FindBy(xpath = "(//div[text()='深圳市']/ancestor::*[@class='vx-group'][1])[last()]")
+    @FindBy(xpath = "(//div[text()='深圳市'])[last()]")
     private WebElement shenZhen;
 
-    @FindBy(xpath = "(//*[@class='_1_m_DyhFaFqqMWBfXY4Evv']) | (//div[text()='配置'])")
+    @FindBy(xpath = "(//*[@class='_1_m_DyhFaFqqMWBfXY4Evv']) | (//*[text()='配置'])")
     private WebElement hideElement;
 
     @FindBy(xpath = "(//*[@class='el-scrollbar'])[last()]")
@@ -524,11 +469,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//tr/td[2])[1]")
     private WebElement cell;
 
-    //默认
     @FindBy(xpath = "(//tr[2]/td[2]/div)[1]")
     private WebElement cell2;
 
-    @FindBy(xpath = "//div[text()='提示']/ancestor::div/following-sibling::div//p")
+    @FindBy(xpath = "//*[text()='提示']/ancestor::div/following-sibling::div//p")
     private WebElement prompt;
 
     @FindBy(className = "ant-message-notice")
@@ -546,8 +490,17 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'资源标签')]/ancestor::div/following-sibling::div//span[@class='yotta-tag-content']")
     private WebElement selectedTag;
 
+    @FindBy(xpath = "//label[contains(text(),'所属应用')]/ancestor::div/following-sibling::div//span[@class='yotta-select-selection-value']")
+    private WebElement selectedApp;
+
     @FindBy(xpath = "//label[contains(text(),'资源标签')]/ancestor::div/following-sibling::div//span[@class='yotta-tag-content']/following-sibling::span")
     private WebElement deleteTag;
+
+    @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']")
+    private WebElement closeIcon;
+
+    @FindBy(xpath = "(//span[text()='列信息']/ancestor::div[1]/following-sibling::div//span[contains(@class,'yotta-select-selection-icon-arrow')])[last()]")
+    private WebElement infoColumnIcon;
 
     @FindBy(xpath = "//*[name()='rect' and @class='vx-bar']/following-sibling::*[@font-size='12']")
     private WebElement sankeyElement;
@@ -567,7 +520,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[contains(@id,'funnel')]")
     private WebElement funnelElement;
 
-    @FindBy(xpath = "//*[@class='vx-circle']/following-sibling::*[contains(@class,'vx-area-closed')]")
+    @FindBy(xpath = "//*[@class='vx-circle']/following-sibling::*//*[contains(@class,'vx-area-closed')]")
     private WebElement liquidfillElement;
 
     @FindBy(xpath = "//*[@class='vx-group']/*[contains(@fill,'rgb(211, 17, 33)') or contains(@fill,'rgb(253, 144, 62)') or contains(@fill,'rgb(255, 231, 148)')]")
@@ -576,7 +529,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[contains(@class,'bar')]/ancestor::div[1]/following-sibling::div[2]//div[contains(@class,'bar')]")
     private WebElement chainTableElement;
 
-    @FindBy(xpath = "//div[@class='tooltipTopBoundary']/following-sibling::div[contains(@id,'tracing')]/canvas")
+    @FindBy(xpath = "//div[@class='tooltipTopBoundary']/following-sibling::div[contains(@id,'chart')]/canvas")
     private WebElement chainTreeElement;
 
     @FindBy(xpath = "//div[contains(@id,'sequence')]")
@@ -635,6 +588,12 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//*[@class='vx-group geo']/following-sibling::*/*[contains(@id,'link')]")
     private WebElement attackmapElement;
+
+    @FindBy(xpath = "(//div[contains(@class,'help-text')])[1]")
+    private WebElement tipText;
+    public WebElement getTipText() {
+        return tipText;
+    }
 
     public WebElement getAttackmapElement() {
         return attackmapElement;
@@ -752,6 +711,14 @@ public class CreatePage extends PageTemplate {
         return sankeyElement;
     }
 
+    public WebElement getCloseIcon() {
+        return closeIcon;
+    }
+
+    public WebElement getInfoColumnIcon() {
+        return infoColumnIcon;
+    }
+
     public WebElement getConfirmMessage() {
         return confirmMessage;
     }
@@ -804,10 +771,6 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getLayoutColumn() {
         return layoutColumn;
-    }
-
-    public WebElement getDivideSide() {
-        return divideSide;
     }
 
     public WebElement getFirstLabel() {
@@ -924,13 +887,6 @@ public class CreatePage extends PageTemplate {
         return scrollbar;
     }
 
-    public WebElement getShowLabel() {
-        WebDriverWait wait = new WebDriverWait(webDriver,10);
-        wait.until(ExpectedConditions.elementToBeClickable(showLabel));
-        showLabel.click();
-        return super.getLastDropdownList();
-    }
-
     public WebElement getShenZhen() {
         return shenZhen;
     }
@@ -987,10 +943,6 @@ public class CreatePage extends PageTemplate {
         return deleteMin;
     }
 
-    public WebElement getTracing() {
-        return tracing;
-    }
-
     public WebElement getSettingPopover() {
         return settingPopover;
     }
@@ -1042,6 +994,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSelectChina() {
         return selectChina;
+    }
+
+    public WebElement getWorld() {
+        return world;
     }
 
     public WebElement getChina() {
@@ -1477,6 +1433,10 @@ public class CreatePage extends PageTemplate {
         return getDropdownElement("列信息");
     }
 
+    public WebElement getShowLabel() {
+        return getDropdownElement("标签展示");
+    }
+
     public WebElement getLabelLocation() {
         return getDropdownElement("标签位置");
     }
@@ -1611,6 +1571,53 @@ public class CreatePage extends PageTemplate {
         return getElementWithText("底部");
     }
 
+    public WebElement getBackground() {
+        return getElementWithText("背景");
+    }
+
+    public WebElement getFont() {
+        return getElementWithText("字体");
+    }
+
+    public WebElement getAccordingField() {
+        return getElementWithText("按字段");
+    }
+
+    public WebElement getAccordingName() {
+        return getElementWithText("按名称");
+    }
+
+    public WebElement getAccordingTrend() {
+        return getElementWithText("按趋势");
+    }
+
+    public WebElement getAccordingArea() {
+        return getElementWithText("按区间");
+    }
+
+    public WebElement getAbsolute() {
+        return getElementWithText("绝对值");
+    }
+
+    public WebElement getPercent() {
+        return getElementWithText("百分比");
+    }
+
+    public WebElement getFirstPosition() {
+        rightPosition.click();
+        return getElementWithText("a...");
+    }
+
+    public WebElement getSecondPosition() {
+        rightPosition.click();
+        return getElementWithText("...z");
+    }
+
+    public WebElement getThirdPosition() {
+        rightPosition.click();
+        return getElementWithText("a..z");
+    }
+
 
 //--Buttons
 
@@ -1622,7 +1629,8 @@ public class CreatePage extends PageTemplate {
         return getButton("添加颜色区间");
     }
 
-    public WebElement getGenerate() {
+    public WebElement getGenerate() throws InterruptedException {
+        Thread.sleep(1000);
         return getButton("生成");
     }
 
@@ -1675,7 +1683,12 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getAddIndicator() {
-        return getButton("添加指标");
+        getButton("添加指标").click();
+        return getTabElement("指标 1");
+    }
+
+    public WebElement getAddConfigFields() {
+        return getButton("添加字段配置");
     }
 
 //----
@@ -1827,29 +1840,6 @@ public class CreatePage extends PageTemplate {
         return noneExample;
     }
 
-    public WebElement getFirstPosition() {
-        rightPosition.click();
-        return firstPosition;
-    }
-
-    public WebElement getSecondPosition() {
-        rightPosition.click();
-        return secondPosition;
-    }
-
-    public WebElement getThirdPosition() {
-        rightPosition.click();
-        return thirdPosition;
-    }
-
-    public WebElement getStartColor() {
-        return startColor;
-    }
-
-    public WebElement getStartColour() {
-        return startColour;
-    }
-
     public WebElement getOrange() {
         return orange;
     }
@@ -1874,44 +1864,8 @@ public class CreatePage extends PageTemplate {
         return addField;
     }
 
-    public WebElement getAddConfigFields() {
-        return addConfigFields;
-    }
-
     public WebElement getTable() {
         return table;
-    }
-
-    public WebElement getBackground() {
-        return background;
-    }
-
-    public WebElement getFont() {
-        return font;
-    }
-
-    public WebElement getAccordingField() {
-        return accordingField;
-    }
-
-    public WebElement getAccordingName() {
-        return accordingName;
-    }
-
-    public WebElement getAccordingTrend() {
-        return accordingTrend;
-    }
-
-    public WebElement getAccordingArea() {
-        return accordingArea;
-    }
-
-    public WebElement getAbsolute() {
-        return absolute;
-    }
-
-    public WebElement getPercent() {
-        return percent;
     }
 
     public WebElement getCompareTime() {
@@ -1925,37 +1879,6 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSwitchButton() {
         return switchButton;
-    }
-
-    public WebElement getInputElement(String name) {
-        return webDriver.findElement(By.xpath("//input[@name='" + name + "']"));
-    }
-
-    public WebElement getInputSetting(String name) {
-        return webDriver.findElement(By.xpath("(//span[contains(text(),'" + name + "')]/ancestor::div[1]/following-sibling::div//input)[last()]"));
-    }
-
-    public WebElement getSwitchElement(String name) {
-        return webDriver.findElement(By.xpath("//span[text()='" + name + "']/ancestor::div/following-sibling::div//label"));
-    }
-
-    public WebElement getTabElement(String name) {
-        return webDriver.findElement(By.xpath("(//div[text()='" + name + "'])[last()]"));
-    }
-
-    public WebElement getDropdownElement(String name) {
-        WebElement element = webDriver.findElement(By.xpath("(//span[contains(text(),'" + name + "')])[last()]/ancestor::div[1]/following-sibling::div"));
-        element.click();
-        return this.getLastDropdownList();
-    }
-
-    public WebElement getElementWithText(String name) {
-        return webDriver.findElement(By.xpath("(//*[contains(text(),'" + name + "')])[last()]"));
-    }
-
-    private WebElement getChartButton(String chartName) {
-        String xpath = "//p[text()='" + chartName + "']/ancestor::div/preceding-sibling::div[contains(@class,'yotta-chart-selector-avatar')]";
-        return webDriver.findElement(By.xpath(xpath));
     }
 
     public WebElement getAppDropdown() {
@@ -2108,6 +2031,11 @@ public class CreatePage extends PageTemplate {
         return selectedTag;
     }
 
+    public WebElement getSelectedApp() {
+        return selectedApp;
+    }
+
+
     public WebElement getDeleteTag() {
         return deleteTag;
     }
@@ -2117,7 +2045,42 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getClickBeijing() {
+        clickBeijing.click();
         return clickBeijing;
+    }
+
+
+
+    public WebElement getInputElement(String name) {
+        return webDriver.findElement(By.xpath("//input[@name='" + name + "']"));
+    }
+
+    private WebElement getInputSetting(String name) {
+        return webDriver.findElement(By.xpath("(//span[contains(text(),'" + name + "')]/ancestor::div[1]/following-sibling::div//input)[last()]"));
+    }
+
+    private WebElement getSwitchElement(String name) {
+        return webDriver.findElement(By.xpath("//span[text()='" + name + "']/ancestor::div/following-sibling::div//label"));
+    }
+
+    private WebElement getTabElement(String name) {
+        return webDriver.findElement(By.xpath("(//div[text()='" + name + "'])[last()]"));
+    }
+
+    private WebElement getDropdownElement(String name) {
+        WebElement element = webDriver.findElement(By.xpath("(//span[contains(text(),'" + name + "')])[last()]/ancestor::div[1]/following-sibling::div//div[@class='yotta-select-selection']"));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return this.getLastDropdownList();
+    }
+
+    private WebElement getElementWithText(String name) {
+        return webDriver.findElement(By.xpath("(//*[contains(text(),'" + name + "')])[last()]"));
+    }
+
+    private WebElement getChartButton(String chartName) {
+        String xpath = "//p[text()='" + chartName + "']/ancestor::div/preceding-sibling::div[contains(@class,'yotta-chart-selector-avatar')]";
+        return webDriver.findElement(By.xpath(xpath));
     }
 
 }

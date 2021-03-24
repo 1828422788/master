@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.w3c.dom.html.HTMLInputElement;
 
 /**
  * @author sunxj
@@ -14,58 +15,70 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(xpath = "//label[text()='保存时间']/following-sibling::div//i")
+    @FindBy(xpath = "//label[text()='保存时间']/ancestor::div[1]/following-sibling::div[1]//span[@class='yotta-select-selection-icon']")
     private WebElement savedTimeDropDown;
 
-    @FindBy(xpath = "//label[text()='切分时间']/following-sibling::div//i")
-    private WebElement divideTimeDropDown;
-
-    @FindBy(xpath = "//label[text()='冷却时间']/following-sibling::div//i")
-    private WebElement coldTimeDropDown;
-
-    @FindBy(xpath = "//label[text()='保存大小']/following-sibling::div//i")
-    private WebElement savedSizeDropDown;
-
-    @FindBy(xpath = "//label[text()='索引数据']/following-sibling::div//i")
-    private WebElement indexDataDropDown;
-
+    public WebElement getDropdownList(String name) {
+        String xpath = "//label[contains(text(),'" + name + "')]/parent::div/following-sibling::div//span[@class='yotta-select-selection-icon']";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        element.click();
+        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu'])[last()]"));
+    }
     public WebElement getDivideTimeDropDown() {
-        divideTimeDropDown.click();
-        return getLastDropdownList();
+        return getDropdownList("切分时间");
+    }
+
+    public WebElement getSavedSizeButton() {
+        return getIndexSwitchButton("保存大小");
+    }
+
+    public WebElement getAdvance() {
+        return getIndexSwitchButton("正排优化");
+    }
+
+    public WebElement getIndexFrezee() {
+        return getIndexSwitchButton("索引冻结");
+    }
+
+    public WebElement getIndexSink() {
+        return getIndexSwitchButton("索引下沉");
+    }
+
+    public WebElement getOpenDataConf() {
+        return getIndexSwitchButton("启用字段配置");
     }
 
     public WebElement getColdTimeDropDown() {
-        coldTimeDropDown.click();
-        return getLastDropdownList();
+        return getDropdownList("冷却时间");
     }
 
     public WebElement getSavedSizeDropDown() {
-        savedSizeDropDown.click();
-        return getLastDropdownList();
+        String xpath = "//label[contains(text(),'保存大小')]/parent::div/parent::div/following-sibling::div[1]//span[@class='yotta-select-selection-icon']";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        element.click();
+        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu'])[last()]"));
     }
 
     public WebElement getSavedTimeDropDown() {
-        savedTimeDropDown.click();
-        return getLastDropdownList();
+        return getDropdownList("保存时间");
     }
 
     public WebElement getIndexDataDropDown() {
-        indexDataDropDown.click();
-        return getLastDropdownList();
+        return getDropdownList("索引数据");
     }
 
     public WebElement getSavedButton() {
-        return super.getContainsTextButton("保存");
+        return super.getButton("保存");
     }
 
-    @FindBy(xpath = "//label[text()='名称']/following-sibling::input" )
+    @FindBy(xpath = "//label[text()='名称']/ancestor::div/following-sibling::div[1]//input" )
     private WebElement Name;
 
     public WebElement getName() {
         return Name;
     }
 
-    @FindBy(xpath = "//label[text()='描述']/following-sibling::input" )
+    @FindBy(xpath = "//label[text()='描述']/ancestor::div/following-sibling::div[1]//textarea" )
     private WebElement Desc;
 
     public WebElement getDesc() {
@@ -95,15 +108,26 @@ public class CreatePage extends PageTemplate {
 //
 //    public WebElement getSinkHDD() { return getInputElementWithoutLabel("天后下沉到HDD"); }
 
-    public WebElement getFreeze() { return getInputElementWithoutLabel("天后拒绝入库"); }
-    public WebElement getSinkHDD() { return getInputElementWithoutLabel("天后下沉到HDD"); }
-    public WebElement getSinkNAS() { return getInputElementWithoutLabel("天后下沉到NAS"); }
+    public WebElement getFreeze() { return getInputElement("索引冻结"); }
+    public WebElement getSinkHDD() { return getInputElement("索引下沉");}
 
-    public WebElement getCreateButton() {
-        return getContainsTextButton("新建");
+    public WebElement getSinkNAS() {
+        return SinkNAS;
     }
 
-    @FindBy(xpath = "//div[@class='el-message-box__message']")
+    @FindBy(xpath = "//div[text()='天后下沉到NAS']/parent::span/preceding-sibling::input")
+    private WebElement SinkNAS;
+
+    public WebElement getCreateButton() {
+        return getButton("新建");
+    }
+
+    @Override
+    public WebElement getMessage() {
+        return message;
+    }
+
+    @FindBy(xpath = "//p[@class='yotta-dialog-contenttext']")
     private WebElement message;
 
     public WebElement getErrorMessage() {
@@ -114,20 +138,19 @@ public class CreatePage extends PageTemplate {
         return message;
     }
 
-    @Override
-    public WebElement getMessage() {
-        return super.getMessage();
-    }
-
     public WebElement getInputElement(String name) {
-        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::div//input"));
+        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/ancestor::div/following-sibling::div[1]//input[@class='yotta-input yotta-input-large']"));
     }
 
     public WebElement getLastDropdownList() {
-        return webDriver.findElement(By.xpath("(//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical'])[last()]"));
+        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu'])[last()]"));
     }
 
     public WebElement getInputElementWithoutLabel(String name) {
         return webDriver.findElement(By.xpath("//div[text()='" + name + "']/input"));
+    }
+
+    public WebElement getIndexSwitchButton(String name){
+        return webDriver.findElement(By.xpath("//label[contains(text(),'" +name+ "')]/parent::div/following-sibling::div//span[@class='yotta-switch-input']"));
     }
 }

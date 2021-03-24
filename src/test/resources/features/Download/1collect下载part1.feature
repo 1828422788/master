@@ -13,6 +13,7 @@ Feature: download_v3.2新增功能下载
     And I click the "SearchButton" button
     And I wait for "2000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then take a screenshot with name "v37dl/<name>"
 
     And I wait for "2000" millsecond
     And I wait for "DownloadEvent" will be visible
@@ -30,7 +31,8 @@ Feature: download_v3.2新增功能下载
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     When I set the parameter "DbListPageSearchInput" with value "<name>.txt"
     And I wait for "1000" millsecond
-    Given the data name is "<name>.txt" then i click the "下载" button
+#    Given the data name is "<name>.txt" then i click the "下载" button
+    And I click the "ListDownloadButton" button
 
     Examples:
       | name                                   | splQuery                                                                                                                                                        |

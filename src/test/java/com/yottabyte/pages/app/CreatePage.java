@@ -46,7 +46,8 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-message-box__wrapper")
     private WebElement fadeOut;
 
-    @FindBy(className = "ant-select-arrow-icon")
+  //  @FindBy(className = "ant-select-arrow-icon")
+    @FindBy(className ="yotta-select-selection-icon")
     private WebElement dropdownArrow;
 
     @FindBy(xpath = "//div[@class='el-dialog__wrapper yw-modal-form yw-new-modal-form']")
@@ -99,19 +100,25 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement message;
 
-    @FindBy(xpath = "//a[text()='添加一级菜单']")
+    @FindBy(xpath = "//span[text()='添加一级菜单']")
     private WebElement addMenu;
 
     @FindBy(xpath = "//input[@id='NavEdit_name']/ancestor::span/following-sibling::div")
     private WebElement nameMessage;
 
+    @FindBy(xpath = "//div[@class='yotta-modal navModal']/div[2]/form/div/div[2]//input")
+    private WebElement menuName;
+
+    @FindBy(xpath = "//div[@class='yotta-modal navModal']/div[2]/form/div[2]/div[2]//input")
+    private WebElement url;
+
     @FindBy(xpath = "//input[@id='NavEdit_url']/ancestor::span/following-sibling::div")
     private WebElement urlMessage;
 
-    @FindBy(xpath = "//a[text()='已选择 0 个资源']")
+    @FindBy(xpath = "//span[text()='已选择 0 个资源']")
     private WebElement addResource;
 
-    @FindBy(xpath = "//span[contains(@class,'ant-input-search')]/input")
+    @FindBy(xpath = "//input[@class='yotta-input yotta-input-large yotta-input-search']")
     private WebElement searchResourceInput;
 
     @FindBy(xpath = "//*[@class='ant-spin-container ant-spin-blur']")
@@ -120,7 +127,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='事件操作']")
     private WebElement event;
 
-    @FindBy(xpath = "//a[text()='添加']")
+    @FindBy(xpath = "//span[text()='添加']")
     private WebElement addKVStore;
 
     @FindBy(xpath = "(//label[text()='名称'])[last()]/following-sibling::input")
@@ -129,7 +136,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//label[text()='字段列表']/following-sibling::div//input)[last()]")
     private WebElement KVFieldInput;
 
-    @FindBy(xpath = "//a[text()='添加字段']")
+    @FindBy(xpath = "//span[text()='添加字段']")
     private WebElement addKVField;
 
     @FindBy(xpath = "//div[@class='ant-modal-body']//i")
@@ -138,14 +145,17 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "ant-message-custom-content")
     private WebElement messageContent;
 
-    @FindBy(className = "css-nil")
+    @FindBy(xpath = "//span[@yotta-test='application-kvstore_operation-icon']")
     private WebElement kvDropdown;
 
-    @FindBy(className = "ant-dropdown-menu")
+    @FindBy(xpath = "//span/div[@yotta-test='application-kvstore_operation-dropdown']")
     private WebElement kvDropdownList;
 
-    @FindBy(className = "ant-select-search__field")
+    @FindBy(className = "yotta-select-selection-placeholder")
     private WebElement KVTag;
+
+    @FindBy(className = "yotta-select-selection-search")
+    private WebElement KVTagInput;
 
     @FindBy(xpath = "//div[text()='字段配置']")
     private WebElement fieldConfig;
@@ -224,6 +234,8 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "ant-form-explain")
     private WebElement warningInfo;
+
+    public WebElement getKVTagInput() { return KVTagInput; }
 
     public WebElement getWarningInfo() {
         return warningInfo;
@@ -361,7 +373,8 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getKVDropdownList() {
-        return kvDropdownList;
+        kvDropdownList.click();
+        return super.getLastDropdownListEditApp();
     }
 
     public WebElement getKvDropdown() {
@@ -466,7 +479,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getUrl() {
-        return this.getElementById("NavEdit_url");
+        return url;
     }
 
     public WebElement getDefaultPage() {
@@ -504,7 +517,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getMenuName() {
-        return this.getElementById("NavEdit_name");
+        return menuName;
     }
 
     public WebElement getChooseFromSystemButton() {

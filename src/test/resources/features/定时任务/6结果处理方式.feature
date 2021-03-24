@@ -16,11 +16,10 @@ Feature: 定时任务_结果处理方式
     And I set the parameter "TaskName" with value "<name>_<caseNum>"
     And I set the parameter "Describe" with value "testing"
 
-    And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I click the "EnsureButton" button
-    And I wait for "TimeTaskEnsure" will be visible
-    Then I will see the success message "保存成功"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "创建成功"
 
     Examples:
       |    name     |   caseNum    |
@@ -33,8 +32,7 @@ Feature: 定时任务_结果处理方式
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "{'column':'1','name':'oracle_3301'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
-    And I wait for "5000" millsecond
-    And I wait for loading complete
+    And I wait for "2000" millsecond
     And I wait for "ResultHandling" will be visible
     When I click the "ResultHandling" button under some element
     And I wait for "AddJDBC" will be visible
@@ -53,25 +51,25 @@ Feature: 定时任务_结果处理方式
     Then I set the parameter "DbName" with value "<dbName>"
     Then I set the parameter "TableName" with value "<tableName>"
     Then I click the "Verify" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "<result>"
+    And I wait for "TipText" will be visible
+    And I will see the element "TipText" contains "<result>"
 
     Examples:
-      | connectName | userName | password     | host          | port | dbType | dbName         | tableName | result               |
+      | connectName | userName | password     | host          | port | dbType | dbName         | tableName | result                |
       |             |          |              |               |      |        |                |           | 连接名称 不能为空     |
       | mysqlrzy    |          |              |               |      |        |                |           | 用户名 不能为空       |
       | mysqlrzy    | root     |              |               |      |        |                |           | 密码 不能为空         |
       | mysqlrzy    | root     | rizhiyi&2014 |               |      |        |                |           | 主机 不能为空         |
       | mysqlrzy    | root     | rizhiyi&2014 | 192.168.1.139 |      |        |                |           | 端口 不能为空         |
+      | mysqlrzy    | root     | rizhiyi&2014 | 192.168.1.139 | 3306 |        |                |           | 数据库类型 不能为空   |
       | mysqlrzy    | root     | rizhiyi&2014 | 192.168.1.139 | 3306 | mysql  |                |           | 数据库名 不能为空     |
-      | mysqlrzy    | root     | rizhiyi&2014 | 192.168.1.139 | 3306 | mysql  | rizhiyi_system |           | 数据库表名称 不能为空  |
+      | mysqlrzy    | root     | rizhiyi&2014 | 192.168.1.139 | 3306 | mysql  | rizhiyi_system |           | 数据库表名称 不能为空 |
 
   Scenario Outline: add_jdbc
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "{'column':'1','name':'<name>_<caseNum>'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
-    And I wait for "5000" millsecond
-    And I wait for loading complete
+    And I wait for "2000" millsecond
     And I wait for "ResultHandling" will be visible
     When I click the "ResultHandling" button
     And I wait for "AddJDBC" will be visible
@@ -87,7 +85,7 @@ Feature: 定时任务_结果处理方式
     Then I set the parameter "DbName" with value "<dbName>"
     Then I set the parameter "TableName" with value "<tableName>"
     Then I click the "Verify" button
-    And I wait for "EnsureButton" will be visible
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "验证成功"
     And I click the "EnsureButton" button
     And I wait for "Count" will be visible

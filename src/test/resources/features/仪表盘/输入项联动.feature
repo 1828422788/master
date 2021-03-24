@@ -34,6 +34,7 @@ Feature: 仪表盘输入项联动
     And I set the parameter "FilterTitle" with value "<name>"
     And I set the parameter "FilterToken" with value "<name>"
     And I choose the "下拉菜单" from the "InputType"
+    And I wait for "1000" millsecond
     And I click the "SingleChoice" button
     And I set the parameter "ChoiceValue" with value "json"
     And I click the "AddChoiceValueButton" button
@@ -42,6 +43,7 @@ Feature: 仪表盘输入项联动
     And I set the parameter "ChoiceValue" with value "other"
     And I click the "AddChoiceValueButton" button
     And I choose the "apache" from the "DefaultDropdownList"
+    And I wait for "1000" millsecond
     Then I click the "Ensure" button
 
     Examples:
@@ -59,12 +61,13 @@ Feature: 仪表盘输入项联动
     And I set the parameter "FilterTitle" with value "f2"
     And I set the parameter "FilterToken" with value "f2"
     And I choose the "动态菜单" from the "InputType"
+    And I wait for "1000" millsecond
     And I click the "SingleChoice" button
     And I set the parameter "DynamicField" with value "hostname"
     And I set the parameter "Spl" with value "logtype:${f1} | stats count() by hostname"
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "Search" button under some element
+    And I click the "SearchFilterButton" button under some element
     And I wait for loading invisible
     Then I click the "Ensure" button
 
@@ -92,16 +95,18 @@ Feature: 仪表盘输入项联动
     And I click the "settingIcon" button
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
-    And I choose the "192.168.1.171" from the "LastFilter"
+    And I choose the "192.168.1.183" from the "LastFilter"
+    And I wait for "1000" millsecond
     And I click the "Update" button
-    When the chart title is "测试输入项联动" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I wait for loading invisible
+    When the chart title is "测试输入项联动" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for "5000" millsecond
     And I click the "OpenInSearch" button
     And switch to another window
     And I close all tabs except main tab
     Then I will see the "splSearch.SearchPage" page
-    Then I will see the element "SearchInput" name is "logtype:apache AND hostname:192.168.1.171"
+    Then I will see the element "SearchInput" name is "logtype:apache AND hostname:192.168.1.183"
 
   @dashboard @dashboardSmoke
   Scenario: 添加输入项
@@ -123,7 +128,7 @@ Feature: 仪表盘输入项联动
     And I click the detail which name is "仪表盘输入项联动"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "测试输入项联动" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "测试输入项联动" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for "Spl" will be visible
     And I set the parameter "Spl" with value "${filter|e}"
@@ -140,7 +145,7 @@ Feature: 仪表盘输入项联动
     And I set the parameter "FilterInput" with value "a+b"
     And I click the "Update" button
     And I wait for "500" millsecond
-    When the chart title is "测试输入项联动" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "测试输入项联动" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for "OpenInSearch" will be visible
     And I click the "OpenInSearch" button

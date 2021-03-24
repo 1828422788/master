@@ -7,8 +7,8 @@ Feature: 仪表盘调用链
     And I set the parameter "Tag" with value "zipkin"
     And I upload a file with name "/src/test/resources/testdata/log/zipkin.txt"
     And I click the "UploadButton" button
-    And I wait for "VerifyText" will be visible
-    Then I wait for element "VerifyText" change text to "上传完成"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "上传完成"
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
@@ -25,6 +25,7 @@ Feature: 仪表盘调用链
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘<name>"
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "<name>"
@@ -40,8 +41,8 @@ Feature: 仪表盘调用链
   @dashboard @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
-    And I click the "CreateButton" button
-    And I click the "Create" button
+    And I click the "NewTrendButton" button
+#    And I click the "Create" button
     Then I will see the "trend.CreatePageDash" page
     And I wait for "2000" millsecond
     And I set the parameter "SearchInput" with value "<spl>"
@@ -50,6 +51,7 @@ Feature: 仪表盘调用链
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
+    And I wait for loading invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "<name>"
@@ -63,6 +65,7 @@ Feature: 仪表盘调用链
   @dashboard @dashboardSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘调用链"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
@@ -134,7 +137,7 @@ Feature: 仪表盘调用链
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘调用链" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "仪表盘调用链" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
 #    And I click the "SettingChart" button
     And I click the "Configs" button
     And I wait for loading invisible
@@ -182,13 +185,13 @@ Feature: 仪表盘调用链
     And I click the "Other" button
     And I click the "Chain" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     And I click the "Exhibition" button
     And I choose the "tree" from the "TracingType"
     And I wait for "500" millsecond
     And I click the "Generate" button
     And I wait for "3000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I move the mouse pointer to the "TrendTitle"
@@ -202,6 +205,7 @@ Feature: 仪表盘调用链
   @dashboard @dashboardSmoke
   Scenario Outline: 再次添加相同图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible

@@ -32,7 +32,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//input[@yotta-test='dictionary-upload_name-input']")
     private WebElement name;
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
+    @FindBy(xpath = "//div[@class='yotta-modal-body']//p")
     private WebElement successMessage;
 
     @FindBy(xpath = "//p[@class='ant-empty-description']")
@@ -104,6 +104,24 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//button[@yotta-test='dictionary-upload-button']/span")
     private WebElement uploadButton;
 
+    @FindBy(xpath = "//li[@yotta-test='dictionary-download-button']/span")
+    private  WebElement download;
+
+    @FindBy(xpath = "//li[@yotta-test='dictionary-tags-button']/span")
+    private  WebElement label;
+
+    @FindBy(xpath = "//li[@yotta-test='dictionary-authorize-button']/span")
+    private  WebElement auth;
+
+    @FindBy(xpath = "//li[@yotta-test='dictionary-delete-button']/span")
+    private  WebElement delete;
+
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div/div")
+    private WebElement tagbutton;
+
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//input")
+    private WebElement tag;
+
     public WebElement getName() {
         return name;
     }
@@ -136,10 +154,11 @@ public class ListPage extends ListPageFactory {
         return groupInput;
     }
 
-    @Override
-    public WebElement getTag() {
-        return super.getTag();
+    public WebElement getTagButton() {
+        return tagbutton;
     }
+
+    public WebElement Tag() { return tag;}
 
     public WebElement getGroup() {
         return super.getLastDropdownList();
@@ -155,6 +174,22 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getUpdate() {
         return super.getContainsTextButton("更新");
+    }
+
+    public WebElement getDownload() {
+        return download;
+    }
+
+    public WebElement getLabel() {
+        return label;
+    }
+
+    public WebElement getAuth() {
+        return auth;
+    }
+
+    public WebElement getDelete() {
+        return delete;
     }
 
     public WebElement getDictionaryFilter() {

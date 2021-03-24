@@ -15,41 +15,43 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(xpath = "//label[text()='名称']/following-sibling::input[@placeholder='请输入宏的名称']")
+    @FindBy(xpath = "//label[text()='名称']/following::input[@placeholder='请输入宏的名称']")
     private WebElement macroName;
 
     public WebElement getMacroName() {
         return macroName;
     }
 
-    @FindBy(xpath = "//label[text()='定义']/following-sibling::textarea[@placeholder='请输入在其他搜索中引用搜索宏时该搜索宏扩展到的字符串']")
+//    @FindBy(xpath = "//label[text()='定义']/following-sibling::textarea[@placeholder='请输入在其他搜索中引用搜索宏时该搜索宏扩展到的字符串']")
+    @FindBy(xpath = "//label[text()='定义']/parent::div/following-sibling::div//textarea[@placeholder='请输入内容']")
     private WebElement definition;
     public WebElement getDefinition() {
         return definition;
     }
 
-    @FindBy(xpath = "//label[text()='参数']/following-sibling::input")
+    @FindBy(xpath = "//label[text()='参数']/parent::div/following-sibling::div//input[@placeholder='请输入']")
     private WebElement MacroParam;
 
     public WebElement getMacroParam() {
         return MacroParam;
     }
 
-    @FindBy(xpath = "//label[text()='验证表达式']/following-sibling::input")
+    @FindBy(xpath = "//label[text()='验证表达式']/parent::div/following-sibling::div//input[@placeholder='请输入']")
     private WebElement ValidateExpression;
     public WebElement getValidateExpression() {
         //return super.getInputElement("验证表达式");
         return ValidateExpression;
     }
 
-    @FindBy(xpath = "//label[text()='验证错误信息']/following-sibling::input")
+    @FindBy(xpath = "//label[text()='验证错误信息']/parent::div/following-sibling::div//input[@placeholder='请输入']")
     private WebElement ValidateFalseInfo;
     public WebElement getValidateFalseInfo() {
         // return super.getInputElement("验证错误信息");
         return ValidateFalseInfo;
     }
 
-    @FindBy(xpath = "//span[contains(text(),'使用基于eval的定义')]/preceding-sibling::label/span[@class='ant-checkbox']")
+//    @FindBy(xpath = "//span[contains(text(),'使用基于eval的定义')]/preceding-sibling::label/span[@class='ant-checkbox']")
+    @FindBy(xpath = "//span[contains(text(),'使用基于eval的定义')]/preceding-sibling::label/span[@class='yotta-checkbox-input']")
     private WebElement MacroEvalCheckbox;
     public WebElement getMacroEvalCheckbox() {
         return MacroEvalCheckbox;

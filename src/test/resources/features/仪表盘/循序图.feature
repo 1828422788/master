@@ -15,8 +15,8 @@ Feature: 仪表盘循序图
   @dashboard
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
-    And I click the "CreateButton" button
-    And I click the "Create" button
+    And I click the "NewTrendButton" button
+#    And I click the "Create" button
     Then I will see the "trend.CreatePageDash" page
     And I wait for "2000" millsecond
     And I set the parameter "SearchInput" with value "<spl>"
@@ -26,6 +26,7 @@ Feature: 仪表盘循序图
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
+    And I wait for loading invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "<name>"
@@ -87,21 +88,26 @@ Feature: 仪表盘循序图
     And I click the "Other" button under some element
     And I wait for "<image>" will be visible
     And I click the "<image>" button
-    And I hide the element "Content"
+#    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     And I choose the "hostname" from the "DataValue"
+    And I wait for "500" millsecond
     And I click the "Source" button
     And I choose the "apache.clientip" from the "DataValue"
+    And I wait for "500" millsecond
     And I click the "Target" button
     And I choose the "hostname" from the "DataValue"
+    And I wait for "500" millsecond
     And I click the "Divide" button
     And I choose the "apache.clientip" from the "DataValue"
+    And I wait for "500" millsecond
     And I click the "Mark" button
     And I choose the "apache.clientip" from the "DataValue"
+    And I wait for "500" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
 #    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
@@ -120,7 +126,7 @@ Feature: 仪表盘循序图
     And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
 #    Then I will see the "TextLayer" result will be "<json>"
     Then I will see the dashboard highEditor text will contain "<json>"
@@ -135,9 +141,10 @@ Feature: 仪表盘循序图
     And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     Then I set the parameter "<json>" to json editor
+    And I wait for "500" millsecond
     And I click the "Check" button
     Then I will see the success message "校验通过"
     Then I click the "Ensure" button

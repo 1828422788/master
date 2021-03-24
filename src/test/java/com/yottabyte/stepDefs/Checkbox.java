@@ -69,7 +69,7 @@ public class Checkbox {
     @And("^I \"([^\"]*)\" the checkbox in list which name is \"([^\"]*)\" in column \"([^\"]*)\"$")
     public void clickCheckBoxInList(String status, List<String> nameList, String num) {
         int columnNum = Integer.parseInt(num);
-        List<WebElement> trList = webDriver.findElements(By.className("ant-table-row"));
+        List<WebElement> trList = webDriver.findElements(By.className("yotta-table-row"));
         while (true) {
             // 遍历列表页数据
             for (WebElement tr : trList) {
@@ -93,14 +93,14 @@ public class Checkbox {
                 }
             }
             // 分页
-            WebElement nextButton = webDriver.findElement(By.className("ant-pagination-next"));
+            WebElement nextButton = webDriver.findElement(By.xpath("//span[contains(@class, 'yotta-icon-RightOutlined')]/parent::span"));
             String nextButtonAttr = nextButton.getAttribute("class");
             if (nextButtonAttr.contains("disabled")) {
                 return;
             } else {
                 nextButton.click();
                 WaitForElement.waitUntilLoadingDisappear();
-                trList = webDriver.findElements(By.className("ant-table-row"));
+                trList = webDriver.findElements(By.className("yotta-table-row"));
             }
         }
     }
@@ -117,7 +117,7 @@ public class Checkbox {
         for (String name : nameList) {
             String xpath = "(//span[contains(text(),'" + name + "')])[last()]";
             WebElement label = webDriver.findElement(By.xpath(xpath));
-            WebElement span = label.findElement(By.xpath(".//preceding-sibling::span"));
+            WebElement span = label.findElement(By.xpath(".//ancestor::label"));
             String attribute = span.getAttribute("class");
             if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
                 label.findElement(By.xpath(".//ancestor::label")).click();
@@ -150,12 +150,12 @@ public class Checkbox {
     @And("^I \"([^\"]*)\" the label before \"([^\"]*)\" in the agent$")
     public void clickCheckLabelAgent(String status, List<String> nameList) {
         for (String name : nameList) {
-            String xpath = "//span[contains(text(),'" + name + "')]//ancestor::th//preceding-sibling::th";
+            String xpath = "//th[contains(text(),'" + name + "')]//ancestor::th//preceding-sibling::th";
             WebElement label = webDriver.findElement(By.xpath(xpath));
-            WebElement span = label.findElement(By.xpath("./span"));
+            WebElement span = label.findElement(By.xpath("(.//span)[1]"));
             String attribute = span.getAttribute("class");
             if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
-                label.click();
+                span.click();
             }
         }
     }
@@ -164,7 +164,7 @@ public class Checkbox {
     @When("^the column is \"([^\"]*)\" then i \"([^\"]*)\" the agent label in agent page$")
     public void clickagentLabel(String columnNum, String status) {
         String json = this.getAgentIp(columnNum);
-        WebElement table = webDriver.findElement(By.xpath("(//tbody)[2]"));
+        WebElement table = webDriver.findElement(By.xpath("(//tbody)"));
         Map<String, Object> map = JsonStringPaser.json2Stirng(json);
         int num = 0;
         for (WebElement tr : table.findElements(By.xpath("./tr"))) {
@@ -173,7 +173,7 @@ public class Checkbox {
                 break;
             }
         }
-        WebElement tr = webDriver.findElement(By.xpath("((//tbody)[2]/tr)[" + num + "]"));
+        WebElement tr = webDriver.findElement(By.xpath("(//tbody/tr)[" + num + "]"));
         WebElement label = tr.findElement(By.xpath(".//label"));
         String attribute = label.getAttribute("class");
         if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
@@ -349,7 +349,7 @@ public class Checkbox {
     @Then("^I will see the checkbox in auth which name is \"([^\"]*)\" and status is \"([^\"]*)\"$")
     public void iWillSeeTheCheckboxInAuthWhichNameIsAndStatusIs(List<String> nameList, String status) {
         for (String name : nameList) {
-            String xpath = "//span[text()='" + name + "']/ancestor::label";
+            String xpath = "//div[text()='" + name + "']/ancestor::label";
             this.assertCheckboxStatus(status, xpath);
         }
     }

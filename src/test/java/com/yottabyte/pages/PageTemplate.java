@@ -46,7 +46,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         parentPageName = LoginBeforeAllTests.getPageFactory() == null ? "" : LoginBeforeAllTests.getPageFactory().getClass().getSimpleName();
     }
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
+    @FindBy(xpath = "//div[@class='yotta-modal-body']//p")
     private WebElement message;
 
     @FindBy(xpath = "//span[text()='AutoTestRoleWithAllResource']/ancestor::li")
@@ -156,7 +156,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     }
 
     public WebElement getButton(String text) {
-        String xpath = "//span[text()='" + text + "']//ancestor::button";
+        String xpath = "//span[text()='" + text + "']";
         return webDriver.findElement(By.xpath(xpath));
     }
     public WebElement getClearIcon(String text){
@@ -168,7 +168,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return webDriver.findElement(By.xpath(xpath));
     }
     public WebElement getContainsTextButton(String text) {
-        String xpath = "//span[contains(text(),'" + text + "')][not(@class)]/ancestor::button";
+        String xpath = "//span[contains(text(),'" + text + "')]/ancestor::button";
         return webDriver.findElement(By.xpath(xpath));
     }
 
@@ -176,6 +176,11 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return dropdownUtils.getLastDropdownList();
     }
 
+
+    //编辑应用下拉菜单
+    public WebElement getLastDropdownListEditApp() {
+        return dropdownUtils.getLastDropdownListEditApp();
+    }
     public WebElement getGroupDropdownList() {
         return dropdownUtils.getGroupDropdownList();
     }
@@ -249,6 +254,26 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
 
     public WebElement getYottaButton(String test) {
         String xpath = "//button[@yotta-test='" + test +"']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getYottaDiv(String text) {
+        String xpath = "//div[@yotta-test='" + text +"']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getYottaLabel(String text) {
+        String xpath = "//label[@yotta-test='" + text +"']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getYottaSpan(String text) {
+        String xpath = "//span[@yotta-test='" + text +"']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getYottaTable(String text) {
+        String xpath = "//table[@yotta-test='" + text +"']";
         return webDriver.findElement(By.xpath(xpath));
     }
 

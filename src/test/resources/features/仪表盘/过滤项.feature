@@ -54,13 +54,17 @@ Feature: 仪表盘过滤项
     And I set the parameter "FilterToken" with value "<token>"
     And I set the parameter "FilterField" with value "<field>"
     And I choose the "<inputType>" from the "InputType"
+    And I wait for "1000" millsecond
     And I set the parameter "ChoiceValue" with value "苏州市"
     And I click the "AddChoiceValueButton" button
     And I set the parameter "ChoiceValue" with value "<choiceValue>"
     And I click the "AddChoiceValueButton" button
     And I set the parameter "ChoiceValue" with value "成都市"
     And I click the "AddChoiceValueButton" button
+    And I set the parameter "ChoiceValue" with value "测试市"
+    And I click the "AddChoiceValueButton" button
     And I choose the "<choiceValue>" from the "DefaultDropdownList"
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "测试过滤项"
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
@@ -84,7 +88,8 @@ Feature: 仪表盘过滤项
     And I wait for "HoverElement" will be visible
     And I click the "HoverElement" button
     And I click the "IconRight" button
-    Then I will see the element "CityTd" name is "<city> "
+#    Then I will see the element "CityTd" name is "<city> "
+    Then I will see the "CityTd" result will be "<city>"
 
     Examples:
       | city |
@@ -100,10 +105,10 @@ Feature: 仪表盘过滤项
     And I click the "settingIcon" button
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
-#    And I choose the "<city>" from the "FilterDropdown"
-    And I click the "Nanjing" button
-    And I set the parameter "FilterDropDown1" with value "<cityNo>"
-    And I hide the element "FilterDropDown"
+    And I choose the "<cityNo>" from the "FilterDropdown"
+#    And I click the "Nanjingshi" button
+#    And I set the parameter "FilterDropDown1" with value "<cityNo>"
+#    And I click the "Ceshishi" button
     And I wait for "2000" millsecond
     And I click the "Update" button
     And I wait for "Progress" will be invisible
@@ -122,6 +127,7 @@ Feature: 仪表盘过滤项
     And I wait for loading invisible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "当过滤项值改变时自动搜索"
     Then I click the "Ensure" button
 
@@ -133,11 +139,13 @@ Feature: 仪表盘过滤项
     Then I will see the "dashboard.DetailPage" page
     And I wait for "FilterDropdown" will be visible
     And I choose the "<city>" from the "FilterDropdown"
+    And I wait for "1000" millsecond
     And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible
     And I click the "HoverElement" button
     And I click the "IconRight" button
-    Then I will see the element "CityTd" name is "<city> "
+#    Then I will see the element "CityTd" name is "<city> "
+    Then I will see the "CityTd" result will be "<city>"
 
     Examples:
       | city |
@@ -183,13 +191,18 @@ Feature: 仪表盘过滤项
     And I set the parameter "FilterToken" with value "filter"
     And I set the parameter "FilterField" with value "apache.geo.city"
     And I choose the "动态菜单" from the "InputType"
+    And I wait for "1000" millsecond
     And I set the parameter "DynamicField" with value "apache.geo.city"
     And I set the parameter "Spl" with value "tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 | stats count() by apache.geo.city"
+    And I wait for "1000" millsecond
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "Search" button under some element
+    And I click the "SearchFilterButton" button under some element
     And I wait for loading invisible
     And I choose the "成都市" from the "DefaultDropdownList"
+    And I wait for "1000" millsecond
+    And I set the parameter "ChoiceValue" with value "测试市"
+    And I click the "AddChoiceValueButton" button
     And I "checked" the checkbox which name is "测试过滤项"
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
@@ -204,7 +217,8 @@ Feature: 仪表盘过滤项
     And I wait for "HoverElement" will be visible
     And I click the "HoverElement" button
     And I click the "IconRight" button
-    Then I will see the element "CityTd" name is "成都市 "
+#    Then I will see the element "CityTd" name is "成都市 "
+    Then I will see the "CityTd" result will be "成都市"
 
   @dashboard @dashboardSmoke
   Scenario Outline: 验证动态过滤字段校验(RZY-259)
@@ -215,10 +229,10 @@ Feature: 仪表盘过滤项
     And I click the "settingIcon" button
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
-#    And I choose the "<city>" from the "FilterDropdown"
-    And I click the "Chengdu" button
-    And I set the parameter "FilterDropDown1" with value "<cityNo>"
-    And I hide the element "FilterDropDown"
+    And I choose the "<cityNo>" from the "FilterDropdown"
+#    And I click the "Chengdu" button
+#    And I set the parameter "FilterDropDown1" with value "<cityNo>"
+#    And I hide the element "FilterDropDown"
     And I wait for "2000" millsecond
     And I click the "Update" button
     And I wait for "Progress" will be invisible
@@ -242,7 +256,9 @@ Feature: 仪表盘过滤项
     And I wait for "HoverElement" will be visible
     And I click the "HoverElement" button
     And I click the "IconRight" button
-    Then I will see the element "CityTd" name is "<city> "
+#    Then I will see the element "CityTd" name is "<city> "
+    Then I will see the "CityTd" result will be "<city>"
+
 
     Examples:
       | city |
@@ -259,23 +275,25 @@ Feature: 仪表盘过滤项
     And I click the "FilterSetting" button
     And I set the parameter "DynamicField" with value ""
     And I wait for "500" millsecond
-    And I click the "Search" button under some element
+    And I click the "SearchFilterButton" button under some element
     And I wait for "500" millsecond
-    Then I wait for element "NoticeMessage" change text to "缺少动态字段值"
+    Then I wait for "EmptyNotice" will be visible
     And I set the parameter "DynamicField" with value "hhhhhhhhhhhhh"
     And I wait for "500" millsecond
-    And I click the "Search" button under some element
+    And I click the "SearchFilterButton" button under some element
     And I wait for loading invisible
-    Then I wait for "LackField" will be visible
-    Then I click the "EnsureErrorSplButton" button
-    And I wait for "1500" millsecond
+    Then I will see the error message "缺少选中的字段"
+#    Then I wait for "LackField" will be visible
+#    Then I click the "EnsureErrorSplButton" button
+    And I wait for "2500" millsecond
     And I set the parameter "DynamicField" with value "apache.geo.city"
     And I set the parameter "Spl" with value "hello goodbey"
     And I wait for "500" millsecond
-    And I click the "Search" button under some element
+    And I click the "SearchFilterButton" button under some element
     And I wait for loading invisible
-    Then I wait for "ErrorSpl" will be visible
-    And I click the "EnsureErrorSplButton" button
+    Then I will see the error message "搜索语句须为stats类型"
+#    Then I wait for "搜索语句须为stats类型" will be visible
+#    And I click the "EnsureErrorSplButton" button
 
 
   @dashboard @dashboardSmoke
@@ -287,7 +305,9 @@ Feature: 仪表盘过滤项
     And I wait for loading invisible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "当过滤项值改变时自动搜索"
+    And I wait for "500" millsecond
     Then I click the "Ensure" button
 
   @dashboard @dashboardSmoke
@@ -297,11 +317,13 @@ Feature: 仪表盘过滤项
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     And I choose the "<city>" from the "FilterDropdown"
+    And I wait for "1000" millsecond
     And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible
     And I click the "HoverElement" button
     And I click the "IconRight" button
-    Then I will see the element "CityTd" name is "<city> "
+#    Then I will see the element "CityTd" name is "<city> "
+    Then I will see the "CityTd" result will be "<city>"
 
     Examples:
       | city |
@@ -316,9 +338,13 @@ Feature: 仪表盘过滤项
     And I wait for loading invisible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
+    And I wait for "1000" millsecond
     And I click the "MultiSelect" button
+    And I wait for "1000" millsecond
     Then I click the "Ensure" button
-    And I choose the "苏州市,成都市" from the "FilterDropdown"
+    And I wait for "1500" millsecond
+    And I choose the "南京市,成都市" from the "FilterDropdown"
+    And I wait for "1000" millsecond
     And I click the "Update" button
     And I wait for "Progress" will be invisible
     Then I will see the "NoData" doesn't exist
@@ -345,7 +371,9 @@ Feature: 仪表盘过滤项
     And I set the parameter "FilterTitle" with value "filter"
     And I set the parameter "FilterToken" with value "filter"
     And I set the parameter "FilterField" with value "apache.geo.city"
+    And I wait for "1000" millsecond
     And I set the parameter "FilterDefaultValue" with value "成都市"
+    And I wait for "1500" millsecond
     Then I "checked" the checkbox which name is "测试过滤项"
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
@@ -360,7 +388,8 @@ Feature: 仪表盘过滤项
     And I wait for "HoverElement" will be visible
     And I click the "HoverElement" button
     And I click the "IconRight" button
-    Then I will see the element "CityTd" name is "成都市 "
+#    Then I will see the element "CityTd" name is "成都市 "
+    Then I will see the "CityTd" result will be "成都市"
 
   @dashboard @dashboardSmoke
   Scenario Outline: 验证修改文本值搜索内容是否正确(RZY-252)
@@ -376,7 +405,8 @@ Feature: 仪表盘过滤项
     And I wait for "HoverElement" will be visible
     And I click the "HoverElement" button
     And I click the "IconRight" button
-    Then I will see the element "CityTd" name is "<city> "
+#    Then I will see the element "CityTd" name is "<city> "
+    Then I will see the "CityTd" result will be "<city>"
     And I wait for "1000" millsecond
     And I set the parameter "FilterInput" with value "<cityNo>"
     And I click the "Update" button
@@ -413,7 +443,8 @@ Feature: 仪表盘过滤项
     And I wait for "HoverElement" will be visible
     And I click the "HoverElement" button
     And I click the "IconRight" button
-    Then I will see the element "CityTd" name is "<city> "
+#    Then I will see the element "CityTd" name is "<city> "
+    Then I will see the "CityTd" result will be "<city>"
 
     Examples:
       | city |
@@ -441,8 +472,8 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
-    And I click the "CreateButton" button
-    And I click the "Create" button
+    And I click the "NewTrendButton" button
+#    And I click the "Create" button
     Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
@@ -452,6 +483,7 @@ Feature: 仪表盘过滤项
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
+    And I wait for loading invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "<name>"
@@ -470,7 +502,7 @@ Feature: 仪表盘过滤项
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "测试过滤项" then I click the button which classname is "anticon css-ifnfqv" in dashboard
+    When the chart title is "测试过滤项" then I click the button which classname is "yotta-icon yotta-icon-DeleteFilled" in dashboard
     And I click the "Ensure" button
 
   @dashboard @dashboardSmoke
@@ -532,7 +564,7 @@ Feature: 仪表盘过滤项
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "测试仪表盘eval" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "测试仪表盘eval" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "测试仪表盘eval","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "appname:apache|stats count() by 'apache.status'","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "eval","name": "filter","value": "${click.value2}-204"}]}}" to json editor
     And I click the "Check" button

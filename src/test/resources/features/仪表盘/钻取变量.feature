@@ -15,8 +15,8 @@ Feature: 仪表盘钻取配置-钻取变量
   @dashboard @dashboardSmoke
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
-    And I click the "CreateButton" button
-    And I click the "Create" button
+    And I click the "NewTrendButton" button
+#    And I click the "Create" button
     Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
@@ -24,9 +24,11 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
+    And I wait for loading invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
     When I set the parameter "NameInput" with value "<name>"
+    And I wait for "1000" millsecond
     And I click the "Complete" button under some element
     And I wait for "SuccessCreate" will be visible
 
@@ -95,30 +97,26 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Other" will be visible
     And I click the "Other" button
     And I click the "<image>" button
-    And I hide the element "Content"
+#    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     And I wait for "1000" millsecond
     And I choose the "count()" from the "DataValue"
+    And I wait for "1000" millsecond
     And I click the "Divide" button
-    And I choose the "apache.clientip" from the "DataValue"
     And I click the "Exhibition" button
     And I click the "StartColour" button
     And I click the "Orange" button
+    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
 #    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I click the "TrendTitle" button under some element
     And I wait for "3000" millsecond
-#
-#    And I wait for "1000" millsecond
-#    Then I hide the element "SettingContent"
-#    Then I will see the "dashboard.DetailPage" page
-#    And I click the "TrendTitle" button
-#    And take part of "FullScreen" with name "dashboard/<name>"
+
 
     Examples:
       | name    | image     |
@@ -131,7 +129,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量字符云图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -140,15 +138,18 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
+    And I wait for "1500" millsecond
     And I "unchecked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "IpZifu" button
+    And I click the Circle "IpZifu" button
+#    And I click the "IpZifu" button
     Then I wait for title change text to "搜索"
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by apache.clientip"
     And I wait for "2000" millsecond
-    Then I will see the input element "TimeRange" value will contains "今天"
+#    Then I will see the input element "TimeRange" value will contains "今天"
+    Then I will see the "TimeRange" result will be "今天"
 
   @dashboard @dashboardSmoke
   Scenario: 钻取变量字符云图click.value RZY-3266
@@ -157,7 +158,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量字符云图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -166,16 +167,19 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "IpZifu" button
+    And I click the Circle "IpZifu" button
+#    And I click the "IpZifu" button
     And switch to another window
 #    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.clientip:64.20.177.254"
     And I wait for "2000" millsecond
-    Then I will see the input element "TimeRange" value will contains "今天"
+#    Then I will see the input element "TimeRange" value will contains "今天"
+    Then I will see the "TimeRange" result will be "今天"
 
   @dashboard @dashboardSmoke
   Scenario: 钻取变量字符云图click.name2 RZY-3267
@@ -184,7 +188,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量字符云图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -193,15 +197,18 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "IpZifu" button
+    And I click the Circle "IpZifu" button
+#    And I click the "IpZifu" button
     And switch to another window
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by appname"
     And I wait for "2000" millsecond
-    Then I will see the input element "TimeRange" value will contains "今天"
+#    Then I will see the input element "TimeRange" value will contains "今天"
+    Then I will see the "TimeRange" result will be "今天"
 
   @dashboard
   Scenario: 钻取变量字符云图click.value2 RZY-3268
@@ -210,7 +217,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量字符云图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -219,16 +226,19 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "IpZifu" button
+#    And I click the "IpZifu" button
+    And I click the Circle "IpZifu" button
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==24"
     And I wait for "2000" millsecond
-    Then I will see the input element "TimeRange" value will contains "今天"
+#    Then I will see the input element "TimeRange" value will contains "今天"
+    Then I will see the "TimeRange" result will be "今天"
 
   @dashboard
   Scenario: 钻取变量字符云图row.fieldname RZY-3675
@@ -237,7 +247,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量字符云图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -246,17 +256,20 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
 #    And I wait for "3000" millsecond
     And I wait for "IpZifu" will be visible
-    And I click the "IpZifu" button
+    And I click the Circle "IpZifu" button
+#    And I click the "IpZifu" button
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.clientip:64.20.177.254"
     And I wait for "2000" millsecond
-    Then I will see the input element "TimeRange" value will contains "今天"
+#    Then I will see the input element "TimeRange" value will contains "今天"
+    Then I will see the "TimeRange" result will be "今天"
 
   @dashboard
   Scenario: 钻取变量字符云图start end RZY-3676
@@ -265,7 +278,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量字符云图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -274,17 +287,20 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "ThisMonth" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "IpZifu" button
+#    And I click the "IpZifu" button
+    And I click the Circle "IpZifu" button
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will contain "starttime="
     Then I will see the "SearchInput" result will contain "endtime="
     And I wait for "2000" millsecond
-    Then I will see the input element "TimeRange" value will contains "本月"
+#    Then I will see the input element "TimeRange" value will contains "本月"
+    Then I will see the "TimeRange" result will be "本月"
 
   @dashboard
   Scenario Outline: 添加区划地图图表 RZY-331
@@ -325,21 +341,23 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Map" will be visible
     And I click the "Map" button
     And I click the "Regionmap" button
-    And I wait for "Progress" will be invisible
-    And I hide the element "Content"
+#    And I wait for "Progress" will be invisible
+#    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     And I wait for "1000" millsecond
     And I choose the "count()" from the "DataValue"
+    And I wait for "1000" millsecond
     And I click the "Divide" button
     And I choose the "apache.geo.province" from the "DataValue"
+    And I wait for "1000" millsecond
     And I click the "Region" button
     And I wait for "500" millsecond
     And I click the "SelectChina" button
     And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1500" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
 #    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
@@ -357,7 +375,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量区划地图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -366,15 +384,18 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
+    And I wait for "1500" millsecond
     And I "unchecked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "Taiwan" button
+    And I click the Circle "Taiwan" button
+#    And I click the "Taiwan" button
     Then I wait for title change text to "搜索"
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by apache.geo.province"
     And I wait for "2000" millsecond
-    Then I will see the input element "TimeRange" value will contains "今天"
+#    Then I will see the input element "TimeRange" value will contains "今天"
+    Then I will see the "TimeRange" result will be "今天"
 
   @dashboard @dashboardSmoke
   Scenario: 钻取变量区划地图click.value RZY-3270
@@ -383,7 +404,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量区划地图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -392,16 +413,20 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "Taiwan" button
+    And I click the Circle "Taiwan" button
+#    And I click the "Taiwan" button
     And switch to another window
 #    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.geo.province:台湾"
     And I wait for "2000" millsecond
-    Then I will see the input element "TimeRange" value will contains "今天"
+#    Then I will see the input element "TimeRange" value will contains "今天"
+    Then I will see the "TimeRange" result will be "今天"
+
 
   @dashboard @dashboardSmoke
   Scenario: 钻取变量区划地图click.name2 RZY-3269
@@ -410,7 +435,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量区划地图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -419,15 +444,18 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "Taiwan" button
+#    And I click the "Taiwan" button
+    And I click the Circle "Taiwan" button
     And switch to another window
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by apache.geo.province"
     And I wait for "3000" millsecond
-    Then I will see the input element "TimeRange" value will contains "今天"
+#    Then I will see the input element "TimeRange" value will contains "今天"
+    Then I will see the "TimeRange" result will be "今天"
 
   @dashboard
   Scenario: 钻取变量区划地图click.value2 RZY-3272
@@ -436,7 +464,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量区划地图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -445,10 +473,12 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "Taiwan" button
+#    And I click the "Taiwan" button
+    And I click the Circle "Taiwan" button
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
@@ -462,7 +492,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量区划地图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -471,6 +501,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
@@ -480,7 +511,8 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424 | stats count() by '内蒙古'"
     And I wait for "2000" millsecond
-    Then I will see the input element "TimeRange" value will contains "今天"
+#    Then I will see the input element "TimeRange" value will contains "今天"
+    Then I will see the "TimeRange" result will be "今天"
 
   @dashboard
   Scenario: 钻取变量区划地图start end RZY-3674
@@ -489,7 +521,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量区划地图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -498,17 +530,20 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "ThisMonth" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "Taiwan" button
+#    And I click the "Taiwan" button
+    And I click the Circle "Taiwan" button
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will contain "starttime="
     Then I will see the "SearchInput" result will contain "endtime="
     And I wait for "1000" millsecond
-    Then I will see the input element "TimeRange" value will contains "本月"
+#    Then I will see the input element "TimeRange" value will contains "本月"
+    Then I will see the "TimeRange" result will be "本月"
 
   @dashboard
   Scenario Outline: 添加饼图图表
@@ -549,25 +584,20 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Dimension" will be visible
     And I click the "Dimension" button under some element
     And I click the "<targetName>" button
-    And I hide the element "Content"
+#    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     And I choose the "count()" from the "DataValue"
+    And I wait for "1000" millsecond
     And I click the "Divide" button
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
 #    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I click the "TrendTitle" button under some element
     And I wait for "3000" millsecond
-#    And I wait for "1000" millsecond
-#    Then I hide the element "SettingContent"
-#    And I wait for "Progress" will be invisible
-#    Then I will see the "dashboard.DetailPage" page
-#    And I click the "TrendTitle" button
-#    And take part of "FullScreen" with name "dashboard/<name>"
 
     Examples:
       | name   | targetName |
@@ -580,7 +610,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量饼图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -589,10 +619,12 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "PartOfPie" button
+    And I click the Circle "PartOfPie" button
+#    And I click the "PartOfPie" button
     And switch to another window
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by apache.clientip"
@@ -604,7 +636,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量饼图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -613,10 +645,12 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "PartOfPie" button
+#    And I click the "PartOfPie" button
+    And I click the Circle "PartOfPie" button
     And switch to another window
 #    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
@@ -629,7 +663,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量饼图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -638,10 +672,12 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "PartOfPie" button
+#    And I click the "PartOfPie" button
+    And I click the Circle "PartOfPie" button
     And switch to another window
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.clientip:64.20.177.254"
@@ -653,7 +689,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量饼图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -662,10 +698,12 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "PartOfPie" button
+#    And I click the "PartOfPie" button
+    And I click the Circle "PartOfPie" button
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
@@ -678,7 +716,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量饼图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -687,10 +725,12 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "PartOfPie" button
+#    And I click the "PartOfPie" button
+    And I click the Circle "PartOfPie" button
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
@@ -703,7 +743,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量饼图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -712,17 +752,20 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "ThisMonth" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "PartOfPie" button
+#    And I click the "PartOfPie" button
+    And I click the Circle "PartOfPie" button
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will contain "starttime="
     Then I will see the "SearchInput" result will contain "endtime="
     And I wait for "1000" millsecond
-    Then I will see the input element "TimeRange" value will contains "本月"
+#    Then I will see the input element "TimeRange" value will contains "本月"
+    Then I will see the "TimeRange" result will be "本月"
 
   @dashboard
   Scenario Outline: 添加单值图表
@@ -763,27 +806,23 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Other" will be visible
     And I click the "Other" button under some element
     And I click the "<targetName>" button
-    And I hide the element "Content"
+#    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     And I choose the "avg(apache.status)" from the "DataField"
+    And I wait for "1000" millsecond
     And I click the "Icon" button
     And I click the "AccordingField" button
     And I choose the "icon" from the "DataValue"
+    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
 #    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I click the "TrendTitle" button under some element
     And I wait for "3000" millsecond
-#    And I wait for "1000" millsecond
-#    Then I hide the element "SettingContent"
-#    And I wait for "Progress" will be invisible
-#    Then I will see the "dashboard.DetailPage" page
-#    And I click the "TrendTitle" button
-#    And take part of "FullScreen" with name "dashboard/<name>"
 
     Examples:
       | name   | targetName |
@@ -796,7 +835,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -805,6 +844,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
@@ -816,8 +856,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to another window
     And I close all tabs except main tab
     And I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
-    And I click the "SettingChart" button
+    And I wait for "1500" millsecond
+#    And I wait for "Progress" will be invisible
+    And I click the "MoreChartConfigs" button
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -839,7 +880,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I click the "DateEditor" button
@@ -852,7 +893,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    And I choose the "avg(apache.status)" from the "DataField"
 #    Then I click the "Generate" button
     And I wait for "2000" millsecond
-    And I click the "SettingChart" button
+    And I click the "MoreChartConfigs" button
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -862,6 +903,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "Shortcut" button
     And I wait for "500" millsecond
     And I click the "ThisMonth" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
@@ -872,7 +914,8 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "SearchInput" result will contain "starttime="
     Then I will see the "SearchInput" result will contain "endtime="
     And I wait for "1000" millsecond
-    Then I will see the input element "TimeRange" value will contains "本月"
+#    Then I will see the input element "TimeRange" value will contains "本月"
+    Then I will see the "TimeRange" result will be "本月"
 
   @dashboard
   Scenario Outline: 添加单值图表value
@@ -913,25 +956,21 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Other" will be visible
     And I click the "Other" button under some element
     And I click the "<targetName>" button
-    And I hide the element "Content"
+#    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
     And I choose the "apache.clientip" from the "DataField"
+    And I wait for "1000" millsecond
     And I choose the "apache.clientip" from the "DisplayField"
+    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "SettingChart" button under some element
 #    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I click the "TrendTitle" button under some element
     And I wait for "3000" millsecond
-#    And I wait for "1000" millsecond
-#    Then I hide the element "SettingContent"
-#    And I wait for "Progress" will be invisible
-#    Then I will see the "dashboard.DetailPage" page
-#    And I click the "TrendTitle" button
-#    And take part of "FullScreen" with name "dashboard/<name>"
 
     Examples:
       | name   | targetName |
@@ -944,7 +983,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量单值value" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量单值value" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I click the "DateEditor" button
@@ -952,7 +991,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "WholeTime" button
 #    Then I will see the "dashboard.DetailPage" page
     And I click the "Ensure" button
-    And I click the "SettingChart" button
+    And I click the "MoreChartConfigs" button
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -962,6 +1001,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "Shortcut" button
     And I wait for "500" millsecond
     And I click the "WholeTime" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
@@ -974,7 +1014,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "dashboard.DetailPage" page
     And I wait for loading invisible
     And I close all tabs except main tab
-    And I click the "SettingChart" button
+    And I click the "MoreChartConfigs" button
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -1021,7 +1061,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量表格" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -1030,6 +1070,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
@@ -1046,7 +1087,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量表格" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -1055,6 +1096,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
@@ -1066,7 +1108,8 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to another window
     And I close all tabs except main tab
     And I will see the "dashboard.DetailPage" page
-    And I wait for "TableRowResplen" will be visible
+    And I wait for "3000" millsecond
+#    And I wait for "TableRowResplen" will be visible
     And I click the "TableRowResplen" button
     And switch to another window
     And I will see the "splSearch.SearchPage" page
@@ -1080,7 +1123,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量表格" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -1089,6 +1132,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
@@ -1104,7 +1148,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量表格" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -1113,6 +1157,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
@@ -1129,7 +1174,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量表格" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -1138,6 +1183,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
@@ -1154,7 +1200,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the detail which name is "测试钻取变量"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "钻取变量表格" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I click the "DateEditor" button
@@ -1162,7 +1208,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "WholeTime" button
 #    Then I will see the "dashboard.DetailPage" page
     And I click the "Ensure" button
-    And I click the "SettingChart" button
+    And I click the "MoreChartConfigs" button
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -1172,6 +1218,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "Shortcut" button
     And I wait for "500" millsecond
     And I click the "RecentSevenDay" button
+    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
@@ -1182,7 +1229,8 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "SearchInput" result will contain "starttime="
     Then I will see the "SearchInput" result will contain "endtime="
     And I wait for "1000" millsecond
-    Then I will see the input element "TimeRange" value will contains "最近7天"
+#    Then I will see the input element "TimeRange" value will contains "最近7天"
+    Then I will see the "TimeRange" result will be "最近7天"
 
   @dashboard
   Scenario: 统计表 RZY-297

@@ -58,7 +58,7 @@ public class SearchPage extends ListPageFactory {
         return countButton;
     }
 
-    //    @FindBy(xpath = "//div[@class='yw-searchbar__inner el-textarea']/textarea")
+    //@FindBy(xpath = "//div[@class='yw-searchbar__inner el-textarea']/textarea")
     @FindBy(className = "CodeMirror")
     private WebElement searchInput;
 
@@ -200,7 +200,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//li[text()='查看上下文']")
     private WebElement context;
 
-    @FindBy(xpath = "//span[text()='搜索']/ancestor::button/preceding-sibling::div//input")
+    @FindBy(xpath = "//span[text()='搜索']/ancestor::button/preceding-sibling::div//span[@class='yotta-date-time-picker-text']")
     private WebElement timeRange;
 
     @FindBy(tagName = "thead")
@@ -353,7 +353,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(className = "el-collapse-item__wrap")
     private WebElement searchHistoryWindow;
 
-    @FindBy(className = "yotta-search-control-text")
+    @FindBy(xpath = "//span[@yotta-test='search_control-time_cost-text']")
     private WebElement searchStatus;
 
     @FindBy(xpath = "//div[@class='yw-search-tabbar']//div[text()='统计']")
@@ -392,10 +392,10 @@ public class SearchPage extends ListPageFactory {
     @FindBy(className = "el-select-dropdown__list")
     private List<WebElement> dropdownList;
 
-    @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div//div[@class='ant-select-selection-selected-value']")
+    @FindBy(xpath = "//label[text()='运行用户']/ancestor::div[1]/following-sibling::div//span[@class='yotta-select-selection-value']")
     private WebElement selectedUser;
 
-    @FindBy(xpath = "(//div[@class='_1dTlfekkLz0KXhi5auNtu8']//input)[1]")
+    @FindBy(xpath = "//input[@name='frequencyValue']")
     private WebElement period;
 
     @FindBy(className = "el-input__inner")
@@ -404,7 +404,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='确定']")
     private List<WebElement> ensure;
 
-    @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")
+    @FindBy(xpath = "(//span[@aria-label='CheckCircleFilled']/ancestor::div[1]/following-sibling::div//p) | (//span[@aria-label='CheckCircleFilled']/following-sibling::span[@class='yotta-message-content'])")
     private WebElement successMessage;
 
     @FindBy(xpath = "//span[contains(text(),'类型')]")
@@ -520,7 +520,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//label[text()='分组']/following-sibling::div")
     private WebElement group;
 
-    @FindBy(xpath = "//span[text()='确定']/ancestor::button")
+    @FindBy(xpath = "(//span[text()='确定']/ancestor::button)[last()]")
     private WebElement ensureButton;
 
     @FindBy(className = "el-icon--right")
@@ -559,7 +559,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//i[@title='取消']")
     private WebElement cancle;
 
-    @FindBy(xpath = "//span[text()='取消']/ancestor::button")
+    @FindBy(xpath = "(//span[text()='取消']/ancestor::button)[last()]")
     private WebElement cancel;
 
     @FindBy(xpath = "//i[@title='恢复']")
@@ -568,15 +568,12 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//button[@class='el-button yw-search-pages-download el-button--default']/span")
     private WebElement download;
 
-    @FindBy(xpath = "//label[contains(text(),'文件名称')]/following-sibling::input")
-    private WebElement downloadName;
-
     @FindBy(xpath = "//label[contains(text(),'最大行数')]/following-sibling::div//i")
     private WebElement maxLineDropdown;
 
     //@FindBy(xpath = "//button[@class='el-button yw-search-pages-download el-button--primary']/span")
     //@FindBy(xpath = "//svg/use/svg[@id='icon-sousuoye_xiazai']::parent")
-    @FindBy(xpath = "//span[contains(text(),'事件列表')]/following-sibling::i[@class='anticon css-ifnfqv _1Csj3jD9igXHB0MQUflN8F']")
+    @FindBy(xpath = "//span[contains(text(),'事件列表')]/following-sibling::span[@class='yotta-icon yotta-icon-DownloadOutlined']")
     private WebElement downloadEvent;
 
     @FindBy(xpath = "//div[contains(text(),'下载任务')]")
@@ -628,7 +625,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(className = "basic-item-value")
     private List<WebElement> valueList;
 
-    @FindBy(xpath = "(//span[text()='查询无结果。'])[1]")
+    @FindBy(xpath = "(//span[text()='搜索无数据'])[1]")
     private WebElement noResult;
 
     @FindBy(xpath = "//div[@class='yw-searchbar__prepend el-dropdown']/following-sibling::sup")
@@ -667,16 +664,16 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//div[text()='从搜索删除']")
     private WebElement removeFromSearch;
 
-    @FindBy(xpath = "(//div[@class='_1dTlfekkLz0KXhi5auNtu8']//input)[1]/following-sibling::div")
+    @FindBy(xpath = "//div[@yotta-test='search-schedule_frequency_unit-select']/div[@class='yotta-select-selection']")
     private WebElement executeTime;
 
     @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
     private WebElement lastDropdown;
 
-    @FindBy(xpath = "//div[text()='crontab']")
+    @FindBy(xpath = "//span[text()='crontab']")
     private WebElement crontab;
 
-    @FindBy(xpath = "//div[@class='_2ykhgJUyltzlxzTbumVZDP']//input")
+    @FindBy(xpath = "//input[@name='crontab']")
     private WebElement crontabInput;
 
     @FindBy(xpath = "//span[text()='test.date']/ancestor::td/following-sibling::td")
@@ -709,6 +706,14 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//li[text()='定时任务']")
     private WebElement saveAsSchedule;
 
+    @FindBy(xpath = "//span[text()='下载']/parent::li")
+    private WebElement downloadButton;
+
+    public WebElement getDownloadButton() {
+        saveAs.click();
+        return downloadButton;
+    }
+
     @FindBy(xpath = "(//span[text()='确 定']/ancestor::button)[last()]")
     private WebElement ensureCrontab;
     //验证字段列表
@@ -718,7 +723,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//div[text()='事件']/span")
     private WebElement eventNumber;
 
-    @FindBy(className = "ant-message-success")
+    @FindBy(className = "yotta-dialog-content")
     private WebElement message;
 
     @FindBy(xpath = "//label[text()='搜索内容']/following-sibling::div")
@@ -727,7 +732,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//button[@class='ant-btn ant-btn-primary']")
     private WebElement ensureCreateTrend;
 
-    @FindBy(xpath = "(//div[@class='_1KryJcLeSypo0Qh_wW6fOw']//span[text()='all']) | (//div[@class='_1KryJcLeSypo0Qh_wW6fOw']//span[text()='all_']) ")
+    @FindBy(xpath = "//div[@type='dataset']//span[text()='all_']")
     private WebElement resourceAll;
 
     @FindBy(xpath = "(//label[contains(text(),'资源标签')][last()])/ancestor::div/following-sibling::div//input")
@@ -736,7 +741,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "(//span[@class='yotta-select-option-label'])[1]")
     private WebElement selectAddedTag;
 
-    @FindBy(xpath = "//label[text()='文件类型']/following-sibling::div")
+    @FindBy(xpath = "//label[text()='文件类型']/parent::div/following-sibling::div")
     private WebElement fileType;
 
     @FindBy(xpath = "(//span[contains(text(),'schedule_name:')]/following-sibling::span)[1]")
@@ -1075,21 +1080,19 @@ public class SearchPage extends ListPageFactory {
         return dropdownList.get(dropdownList.size() - 1);
     }
 
+    @FindBy(xpath = "//label[contains(text(),'文件名称')]/parent::div/following-sibling::div//input[@placeholder='请输入']")
+    private WebElement downloadName;
     public WebElement getDownloadName() {
         return downloadName;
     }
 
-//    public WebElement getMaxLineNum() {
-//        return super.getInputElement("最大行数");
-//    }
-
     public WebElement getMaxLineNum() {
-        String xpath = "//label[text()='最大行数']//following-sibling::input";
+        String xpath = "//label[contains(text(),'最大行数')]/parent::div/following-sibling::div//input[@placeholder='请输入']";
         return webDriver.findElement(By.xpath(xpath));
     }
 
     public WebElement getDocumentTypeList() {
-        String xpath = "//div/label[contains(text(),'文件类型')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        String xpath = "//label[contains(text(),'文件类型')]/parent::div/following-sibling::div//div[@class='yotta-select-selection']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
@@ -1097,15 +1100,17 @@ public class SearchPage extends ListPageFactory {
     }
 
     public WebElement getDocumentEncodeList() {
-        String xpath = "//div/label[contains(text(),'文件编码')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        String xpath = "//label[contains(text(),'文件编码')]/parent::div/following-sibling::div//div[@class='yotta-select-selection']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
         return getLastDropdownList();
     }
 
+    @FindBy(xpath = "//span[text()='确定']/parent::button")
+    private WebElement createDownloadTask;
     public WebElement getCreateDownloadTask() {
-        return super.getButton("确 定");
+        return createDownloadTask;
     }
 
     public WebElement getAcceptCreateDownloadTask() {
@@ -1261,7 +1266,6 @@ public class SearchPage extends ListPageFactory {
         return mark;
     }
 
-
     public WebElement getSelectData() {
         selectData.click();
         return super.getLastDropdownList();
@@ -1392,10 +1396,10 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='明天开始']/preceding-sibling::input")
     private WebElement startTomorrow;
 
-    @FindBy(xpath = "//input[@class='ant-time-picker-panel-input']")
+    @FindBy(xpath = "//input[@class='yotta-time-picker-input']")
     private WebElement startTimeInput;
 
-    @FindBy(xpath = "(//span[@class='_2x-YdNak-IrcZb4ybbyK1X'])[last()]")
+    @FindBy(xpath = "//div[@name='startTimeValue']/ancestor::div[4]//div[@class='_3Tj0m5K3SbyYyuceSTvQ2b']")
     private WebElement whenToStart;
 
     public WebElement getWhenToStart() {
@@ -1474,7 +1478,7 @@ public class SearchPage extends ListPageFactory {
         return GetTime.getTime(webDriver, "RealTimeButton");
     }
 
-    @FindBy(xpath = "//div[@class='ant-tabs-nav-wrap']/div/div/div/div[3]")
+    @FindBy(xpath = "//div[text()='自定义时间范围']")
     private WebElement customTimeTab;
 
     public WebElement getCustomTimeTab() {
@@ -1574,6 +1578,10 @@ public class SearchPage extends ListPageFactory {
         return (new DateEditorPage(webDriver)).getThirtySeconds();
     }
 
+    public WebElement getTenSeconds() {
+        return (new DateEditorPage(webDriver)).getTenSeconds();
+    }
+
     // 获取昨天按钮
     public WebElement getYesterday() {
         return (new DateEditorPage(webDriver)).getYesterday();
@@ -1623,7 +1631,8 @@ public class SearchPage extends ListPageFactory {
         return super.getButton("搜索");
     }
 
-    public WebElement getSearchStatus() {
+    public WebElement getSearchStatus() throws InterruptedException {
+        Thread.sleep(1000);
         return searchStatus;
     }
 
@@ -1669,17 +1678,6 @@ public class SearchPage extends ListPageFactory {
 
     public WebElement getMessage() {
         return message;
-    }
-
-//    public WebElement getDownloadButton() {
-//        return super.getButton("下载");
-//    }
-
-    @FindBy(xpath = "//span[text()='下载']/parent::button")
-    private WebElement downloadButton;
-
-    public WebElement getDownloadButton() {
-        return downloadButton;
     }
 
     //  @FindBy(xpath = "//button[@class='el-button yw-search-pages-download el-button--primary']/span")
@@ -1918,7 +1916,7 @@ public class SearchPage extends ListPageFactory {
         return filterToken;
     }
 
-    @FindBy(xpath = "//div[@id='filter_type']//i")
+    @FindBy(xpath = "//div[@class='yotta-form-field']//span[@class='yotta-select-selection-value']")
     private WebElement inputType;
 
     public WebElement getInputType() {
@@ -2041,7 +2039,7 @@ public class SearchPage extends ListPageFactory {
         return inputDateToday;
     }
 
-    @FindBy(className = "ant-message-notice-content")
+    @FindBy(className = "yotta-dialog-content")
     private WebElement alertMessage;
 
     public WebElement getAlertMessage() {
@@ -2069,28 +2067,29 @@ public class SearchPage extends ListPageFactory {
         return searchSetting;
     }
 
-    @FindBy(xpath = "//div[text()='索引模式']")
+    @FindBy(xpath = "//span[text()='索引模式']")
     private WebElement indexMode;
 
     public WebElement getIndexMode() {
         return indexMode;
     }
 
-    @FindBy(xpath = "//div[text()='极简模式']")
+    @FindBy(xpath = "//span[text()='极简模式']")
     private WebElement sampleMode;
 
     public WebElement getSampleMode() {
         return sampleMode;
     }
 
-    @FindBy(xpath = "//label[text()='每个分片取样']/following-sibling::input")
+    @FindBy(xpath = "//label[contains(text(),'每个分片取样')]/parent::div/following-sibling::div//input[@placeholder='请输入']")
     private WebElement fenPianQuYang;
 
     public WebElement getFenPianQuYang() {
         return fenPianQuYang;
     }
 
-    @FindBy(xpath = "(//button[@class='ant-modal-close'])[last()]")
+//    @FindBy(xpath = "(//button[@class='ant-modal-close'])[last()]")
+    @FindBy(xpath = "(//div[@class='yotta-modal-header yotta-modal-header-with-divider']//span)[last()]")
     private WebElement closeBtn;
 
     public WebElement getCloseBtn() {
@@ -2118,6 +2117,7 @@ public class SearchPage extends ListPageFactory {
         return timeLine;
     }
 
+//    @FindBy(xpath = "//span[text()='感兴趣的字段']/parent::div/following-sibling::ul/li")
     @FindBy(xpath = "//span[text()='感兴趣的字段']/parent::div/following-sibling::ul/li")
     private WebElement leftList;
 

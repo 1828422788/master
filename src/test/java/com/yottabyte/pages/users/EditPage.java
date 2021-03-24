@@ -43,13 +43,14 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='重复密码']//following-sibling::div//input[@type='password']")
     private WebElement repeatPassword;
 
-    @FindBy(id = "AccountUpdate_authorizationRoles")
+   // @FindBy(id = "AccountUpdate_authorizationRoles")
+    @FindBy(xpath = "//div[@name='authorizationRoles']/div/span/span")
     private WebElement manageRole;
 
-    @FindBy(id = "AccountUpdate_roles")
+    @FindBy(xpath = "//div[@name='roles']/div/span/span")
     private WebElement roles;
 
-    @FindBy(className = "ant-message-success")
+    @FindBy(className = "yotta-message-manager")
     private WebElement successMessage;
 
     public WebElement getRoles() {

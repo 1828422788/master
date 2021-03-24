@@ -5,7 +5,9 @@ Feature: download_处理下载结果
     Given open the "splSearch.OfflineTaskPageNohup" page for uri "/download/#"
 
   Scenario Outline: 下载比较
-    Then I compare source download file "<name>.csv" with target download files "<name>.csv"
+#    Then I compare source download file "<name>.csv" with target download files "<name>.csv"
+    And I compare xtable "<name>.csv" Keep figures in column list "0"
+
 
     Examples: 新建成功
       | name                                                   | splQuery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |

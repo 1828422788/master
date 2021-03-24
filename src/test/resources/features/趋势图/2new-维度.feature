@@ -37,8 +37,7 @@ Feature: 趋势图新建_维度
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "更多" button
-    And I click the "ViewTrend" button
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -209,10 +208,13 @@ Feature: 趋势图新建_维度
     And I click the "Settings" button under some element
     And I click the "Divide" button
     And I click the "DeleteFirst" button
+    And I choose the "apache.geo.province" from the "FieldValue" in config
     And I click the "Facet" button
     And I choose the "apache.status" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
+    And I click the "Divide" button
+    And I choose the "apache.geo.city" from the "FieldValue" in config
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
@@ -250,8 +252,13 @@ Feature: 趋势图新建_维度
     And I click the "Dimension" button under some element
     And I click the "<chartType>" button under some element
     And I click the "Settings" button under some element
+    And I click the "Divide" button
+    And I click the "DeleteFirst" button
+    And I choose the "apache.geo.province" from the "FieldValue" in config
     And I click the "Exhibition" button
     And I choose the "<option>" from the "DrillDownMode" in config
+    And I click the "Divide" button
+    And I choose the "apache.geo.city" from the "FieldValue" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -304,12 +311,17 @@ Feature: 趋势图新建_维度
     And I click the "Dimension" button under some element
     And I click the "<chartType>" button under some element
     And I click the "Settings" button under some element
+    And I click the "Divide" button
+    And I click the "DeleteFirst" button
+    And I choose the "apache.geo.province" from the "FieldValue" in config
+    And I click the "Exhibition" button
+    And I choose the "<option>" from the "DrillDownMode" in config
+    And I click the "Divide" button
+    And I choose the "apache.geo.city" from the "FieldValue" in config
     And I click the "Facet" button
     And I choose the "apache.method" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "2"
     And I set the parameter "ColumnNum" with value "1"
-    And I click the "Exhibition" button
-    And I choose the "<option>" from the "DrillDownMode" in config
     And I click the "Generate" button
 
     And I click the "Settings" button

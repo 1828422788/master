@@ -58,7 +58,7 @@ Feature: 仪表盘事件列表
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible
-    And I move the mouse pointer to the "HoverElement"
+#    And I move the mouse pointer to the "HoverElement"
 #    And I click the "HoverElement" button
     And I click the "EventOperate" button
     And I click the "Event" button
@@ -84,7 +84,7 @@ Feature: 仪表盘事件列表
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "HoverElement" will be visible
-    And I click the "HoverElement" button
+#    And I click the "HoverElement" button
     And I click the "EventOperate" button
     And I click the "Event" button
     And switch to another window
@@ -101,6 +101,7 @@ Feature: 仪表盘事件列表
     And I wait for "HoverElement" will be visible
     And I click the "HoverElement" button
     And I click the "IconRight" button
+    And I wait for "500" millsecond
     And I click the "EventAppname" button
     And I wait for "500" millsecond
     And I click the "Event" button
@@ -127,7 +128,7 @@ Feature: 仪表盘事件列表
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible
-    And I click the "HoverElement" button
+#    And I click the "HoverElement" button
     And I click the "EventOperate" button
     And I wait for "1000" millsecond
     Then I will see the "Event" doesn't exist
@@ -197,7 +198,8 @@ Feature: 仪表盘事件列表
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     And I wait for "2000" millsecond
-    Then I will see the input element "TimeRange" value will contains "30秒窗口"
+#    Then I will see the input element "TimeRange" value will contains "30秒窗口"
+    Then I will see the "TimeRange" result will be "30秒窗口"
 
   @dashboard @dashboardSmoke
   Scenario: 配置字段提取 RZY-3412
@@ -207,16 +209,20 @@ Feature: 仪表盘事件列表
     Then I will see the "dashboard.DetailPage" page
 #    And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible
-    And I click the "HoverElement" button
+#    And I click the "HoverElement" button
     And I click the "EventOperate" button
     And I click the "CreateConfig" button
     And switch to another window
     And I close all tabs except main tab
     Then I will see the "configs.CreatePage" page
-    And I wait for element "AppName" value change text to "apache"
+    And I wait for loading invisible
     And I click the "AddRule" button
-    And I choose the "手机号码解析" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "手机号码解析" from the "ParseRule" in config
+    And I choose the "raw_message" from the "SourceField" in config
+#    And I choose the "手机号码解析" from the "ParseRule"
+#    And I wait for "500" millsecond
+#    And I choose the "raw_message" from the "SourceField"
+    And I wait for "500" millsecond
     And I click the "EnsureAddParseRule" button
     And I click the "NextButton" button under some element
     When I set the parameter "Name" with value "仪表盘配置字段提取"
@@ -232,17 +238,18 @@ Feature: 仪表盘事件列表
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible
-    And I click the "HoverElement" button
+#    And I click the "HoverElement" button
     And I click the "EventOperate" button
     And I click the "AddKnowledge" button
     And switch to another window
     And I close all tabs except main tab
     And I will see the "knowledge.CreatePage" page
     And I click the "Next" button
+    And I wait for "1000" millsecond
     And I click the "Next" button
     And I wait for element "EventCode" value change text to "apache"
-    And I click the "Next" button
-    Then I will see the element "SuccessAdd" name is "添加成功"
+    And I click the "Done" button
+    Then I will see the element "SuccessAdd" name is "新建成功"
 
   @dashboard @dashboardSmoke
   Scenario: 通用配置 RZY-3619
@@ -251,7 +258,7 @@ Feature: 仪表盘事件列表
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "测试事件操作" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "测试事件操作" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I set the parameter "ChartTitle" with value "通用配置"
@@ -263,7 +270,8 @@ Feature: 仪表盘事件列表
     Then I will see the "splSearch.SearchPage" page
     Then I will see the element "SearchInput" name is "'apache.geo.city': 成都市"
     And I wait for "2000" millsecond
-    Then I will see the input element "TimeRange" value will contains "今天"
+    Then I will see the "TimeRange" result will contain "今天"
+#    Then I will see the input element "TimeRange" value will contains "今天"
     And switch to another window
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -273,11 +281,12 @@ Feature: 仪表盘事件列表
     And I wait for "500" millsecond
 #    And I click the "CustomTitle" button
 #    And I wait for "1500" millsecond
-    And I move the mouse pointer to the "CustomTitle"
-    And I click the "Describe" button
+    And I move the mouse pointer to the "Describe"
+#    And I click the "Describe" button
     And I wait for "500" millsecond
 #    And I move the mouse pointer to the "CustomTitle"
-    Then I will see the "DescribeText" result will be "测试描述"
+    Then I will see the text "测试描述" exist in page
+#    Then I will see the "DescribeText" result will be "测试描述"
 
   @dashboard
   Scenario Outline: 高级编辑 RZY-3620
@@ -285,7 +294,7 @@ Feature: 仪表盘事件列表
     And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
 #    Then I will see the "TextLayer" result will contain "<json>"
     Then I will see the "TextLayer" result will be "<json>"
@@ -313,9 +322,10 @@ Feature: 仪表盘事件列表
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I choose the "跳转到搜索页" from the "DrillAction"
+    And I wait for "1000" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "500" millsecond
@@ -323,9 +333,10 @@ Feature: 仪表盘事件列表
 #    And I click the "HoverElement" button
     And I move the mouse pointer to the "HoverElement"
     And I click the "IconRight" button
-    And I click the "Chengdushi" button
+    And I click the "ChengDuShi" button
     And switch to another window
     And I will see the "splSearch.SearchPage" page
+#    Then I will see the element "SearchInput" name is "apache.geo.city:成都市 AND 'apache.geo.city':成都市"
     Then I will see the "SearchInput" result will be "apache.geo.city:成都市 AND 'apache.geo.city':成都市"
 
   @dashboard @dashboardSmoke
@@ -335,7 +346,7 @@ Feature: 仪表盘事件列表
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
@@ -350,13 +361,14 @@ Feature: 仪表盘事件列表
 #    And I click the "HoverElement" button
     And I move the mouse pointer to the "HoverElement"
     And I click the "IconRight" button
-    And I click the "Chengdushi" button
+    And I click the "ChengDuShi" button
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by appname"
     And I wait for "3000" millsecond
-    Then I will see the input element "TimeRange" value will contains "所有时间"
+#    Then I will see the input element "TimeRange" value will contains "所有时间"
+    Then I will see the "TimeRange" result will be "所有时间"
 
   @dashboard @dashboardSmoke
   Scenario Outline: 在新标签跳转到自定义URL RZY-3625
@@ -365,7 +377,7 @@ Feature: 仪表盘事件列表
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I choose the "跳转到自定义URL" from the "DrillAction"
     And I set the parameter "Url" with value "<url>"
@@ -376,8 +388,8 @@ Feature: 仪表盘事件列表
 #    And I click the "HoverElement" button
     And I move the mouse pointer to the "HoverElement"
     And I click the "IconRight" button
-    And I wait for "Chengdushi" will be visible
-    And I click the "Chengdushi" button
+    And I wait for "ChengDuShi" will be visible
+    And I click the "ChengDuShi" button
     And switch to another window
     Then the page's title will be "<title>"
 
@@ -397,8 +409,13 @@ Feature: 仪表盘事件列表
     And I click the "inputSettingType" button
 #    And I choose the "时间范围" from the "LastDropdownList"
     And I click the "timeRangee" button
+    And I wait for "500" millsecond
+    And I click the "FilterDateEditor" button
+    And I click the "Shortcut" button
+    And I click the "Today" button
     Then I wait for "setGlobalTimeRange" will be visible
     And I click the "setGlobalTimeRange" button
+    And I wait for "2000" millsecond
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "添加输入项成功"
@@ -410,31 +427,40 @@ Feature: 仪表盘事件列表
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible
     And I choose the "跳转到标签页" from the "DrillAction"
+    And I wait for "1500" millsecond
+    And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "TargetTag" button
-    And I choose the "仪表盘事件操作" from the "DashboardMenu"
-    And I choose the "事件操作" from the "DashboardMenu"
+    And I click the "TagPageEvent" button
+#    And I choose the "仪表盘事件操作" from the "DashboardMenu"
+    And I wait for "1000" millsecond
+    And I click the "EventOpera" button
+#    And I choose the "事件操作" from the "DashboardMenu"
+    And I wait for "500" millsecond
     And I click the "TargetParam" button
-    And I choose the "globalTimeRange" from the "InputGroup"
-    And I hide the element "ParamDropdown"
+    And I wait for "1000" millsecond
+    And I click the "GlobalTimeRange" button
+    And I wait for "1000" millsecond
+#    And I choose the "globalTimeRange" from the "InputGroup"
+#    And I hide the element "ParamDropdown"
     And I click the "ParamValue" button
     And I click the "StartEnd" button
-    And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "500" millsecond
 #    And I wait for "HoverElement" will be visible
 #    And I click the "HoverElement" button
     And I move the mouse pointer to the "HoverElement"
     And I click the "IconRight" button
-    And I click the "Chengdushi" button
+    And I click the "ChengDuShi" button
     And switch to another window
     And I close all tabs except main tab
     And I wait for "Progress" will be invisible
     Then the page's title will be "仪表盘"
     Then I will see the url contains "globalTimeRange="
+
 
   @dashboard @dashboardSmoke
   Scenario: 删除全局时间添加文本输入过滤项
@@ -446,7 +472,7 @@ Feature: 仪表盘事件列表
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "TimeName" button
-    And I click the "deleteTimeTag" button
+    And I click the "DeleteTag" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button under some element
     Then I wait for "TimeName" will be invisible
@@ -467,7 +493,7 @@ Feature: 仪表盘事件列表
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible
     And I choose the "管理本页过滤项/输入项数值" from the "DrillAction"
@@ -482,7 +508,7 @@ Feature: 仪表盘事件列表
 #    And I click the "HoverElement" button
     And I move the mouse pointer to the "HoverElement"
     And I click the "IconRight" button
-    And I click the "Chengdushi" button
+    And I click the "ChengDuShi" button
     And I wait for "Progress" will be invisible
     Then I will see the element "FilterInput" value is "成都市"
     And I will see the "shanghai" doesn't exist

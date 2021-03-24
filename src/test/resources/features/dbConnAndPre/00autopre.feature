@@ -1,9 +1,10 @@
-Feature: 导入监控用例
+Feature: 导入监控用例，新建sslldap配置
 
   @upres1 @pre00
   Scenario:执行导入
     When open the "dbConnectionPre.ResListPage" page for uri "/resource/"
-    Then I wait for "ImportAndExportButton" will be visible
+#    Then I wait for "ImportAndExportButton" will be visible
+    Then I wait for loading complete
     And I click the "ImportAndExportButton" button
     And I click the "ImportButton" button
 
@@ -13,10 +14,10 @@ Feature: 导入监控用例
     When I upload a file "Upload" with name "/src/test/resources/testdata/app/v35资源包监控60个.tar"
     And I wait for "2000" millsecond
 
-    And I choose the "__admin__" from the "Role"
+    And I choose the "__admin__" from the "RoleList"
     And I click the "NextButton" button
 
-    And I click the "NextButton" button
+    And I click the "CompleteButton" button
 #    And I wait for "Message" will be visible
     And I wait for "AddSuccMessage" will be visible
 
@@ -25,6 +26,7 @@ Feature: 导入监控用例
     Given open the "dbConnectionPre.LdapConnListPage" page for uri "/ldapconnection/"
     And I click the "CreateLdapConn" button
 
+    Then I will see the "dbConnectionPre.EditPage" page
     And I wait for loading complete
     And I wait for "2000" millsecond
 

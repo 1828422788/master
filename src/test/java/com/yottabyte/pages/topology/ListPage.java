@@ -28,6 +28,11 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "ant-form-explain")
     private WebElement errorMessage;
 
+    @FindBy(xpath = "//div/ul/li[3]/span[text()='删除']")
+    private WebElement delete;
+
+    public WebElement getDelete() { return delete; }
+
     public WebElement getErrorMessage() {
         return errorMessage;
     }
@@ -46,6 +51,6 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getInputElement(String name) {
-        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/ancestor::div/following-sibling::div//input"));
+        return webDriver.findElement(By.xpath("//div[text()='名称：']/following::input"));
     }
 }

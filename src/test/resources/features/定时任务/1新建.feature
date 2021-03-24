@@ -13,30 +13,26 @@ Feature: 定时任务新建
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
     And I wait for element "SelectedUser" change text to username
-    And I set the parameter "TaskName" with value "Test_StartTomorrow"
     And I choose the "test_app" from the "AppComboBox"
+    And I set the parameter "TaskName" with value "Test_StartTomorrow"
     And I set the parameter "Period" with value "5"
     And I choose the "分钟" from the "ExecuteTime"
-    And I click the "StartTime" button
     And I set the parameter "StartTimeInput" with value "23:59:10"
-    And I hide the element "TimePanel"
     And I will see the element "WhenToStart" contains "今天开始"
-    And I click the "StartTime" button
-    And I click the "StartTime" button
     And I set the parameter "StartTimeInput" with value "00:01:10"
-    And I hide the element "TimePanel"
     And I will see the element "WhenToStart" contains "明天开始"
     And I click the "EnsureButton" button
-    And I wait for "TimeTaskEnsure" will be visible
-    Then I will see the success message "明天开始，是否继续"
+    And I wait for "Message" will be visible
+    Then I will see the element "Message" contains "明天开始，是否继续"
     When I click the "Cancel" button
-    And I click the "EnsureButton" button
-    And I wait for "TimeTaskEnsure" will be visible
-    And I will see the success message "明天开始，是否继续"
-    And I click the "TimeTaskEnsure" button
     And I wait for "1500" millsecond
-    And I wait for "TimeTaskEnsure" will be visible
-    Then I will see the success message "保存成功"
+    And I click the "EnsureButton" button
+    And I wait for "Message" will be visible
+    Then I will see the element "Message" contains "明天开始，是否继续"
+    And I click the "EnsureButton" button
+    And I wait for "1500" millsecond
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "创建成功"
     When open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
     #bug RZY-5742
@@ -59,12 +55,10 @@ Feature: 定时任务新建
 
     And I set the parameter "Period" with value "<periodNum>"
     And I choose the "<periodTime>" from the "ExecuteTime"
-    And I click the "StartTime" button
     And I set the parameter "StartTimeInput" with value "23:58:10"
-    And I hide the element "TimePanel"
     And I click the "EnsureButton" button
-    And I wait for "TimeTaskEnsure" will be visible
-    Then I will see the success message "保存成功"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "创建成功"
 
     Examples:
    | time       | taskName  | periodNum | periodTime |
@@ -85,7 +79,9 @@ Feature: 定时任务新建
     And I click the "DateEditor" button under some element
     And I click the "CustomTimeTab" button
     And I set the parameter "StartDateField" with value "<start_d>"
+    And I set the parameter "StartTimeField" with value "08:00:00.000"
     And I set the parameter "EndDateField" with value "<end_d>"
+    And I set the parameter "EndTimeField" with value "08:00:00.000"
     And I click the "StartTimeField" button
     And I click the "ApplyCustomTime" button
     And I wait for "1000" millsecond
@@ -99,17 +95,14 @@ Feature: 定时任务新建
     And I set the parameter "TagInput" with value "auto_package"
 
     And I set the parameter "Period" with value "<periodNum>"
-    And I choose the "<periodTime>" from the "ExecuteTime"
-    And I click the "StartTime" button
     And I set the parameter "StartTimeInput" with value "23:58:10"
-    And I hide the element "TimePanel"
     And I click the "EnsureButton" button
-    And I wait for "TimeTaskEnsure" will be visible
-    Then I will see the success message "保存成功"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "创建成功"
 
     Examples:
-      | taskName      | start_d     | end_d       | periodNum | periodTime |
-      | interval_date | 2020-06-01  | 2020-06-09  | 5         |  分钟      |
+      | taskName      | start_d     | end_d       | periodNum |
+      | interval_date | 2020-06-01  | 2020-06-09  | 5         |
 
   Scenario Outline: sample_crontab(RZY-2699,2700,2702,2703,2704,2705)
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -125,11 +118,10 @@ Feature: 定时任务新建
     And I set the parameter "TaskName" with value "<taskName>"
     And I set the parameter "Describe" with value "testing"
 
-    And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "<crontab>"
     And I click the "EnsureButton" button
-    And I wait for "TimeTaskEnsure" will be visible
-    Then I will see the success message "保存成功"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "创建成功"
 
     Examples:
       | taskName          |   crontab             |
@@ -153,40 +145,27 @@ Feature: 定时任务新建
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "TaskName" with value "<taskName>"
     And I set the parameter "Describe" with value "testing"
-    And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "<crontab>"
     And I click the "EnsureButton" button
-    And I wait for "TimeTaskEnsure" will be visible
-    Then I will see the success message "<message>"
+    And I wait for "<element>" will be visible
+    And I will see the element "<element>" contains "<message>"
 
     Examples:
-      | taskName | crontab | message                            |
-      | test     |         | crontab模式下, 执行计划不能为零或空  |
-      | test     | test    | crontab格式错误！                   |
-      | test     | 0*      | crontab格式错误！                   |
+      | taskName | crontab | message                             | element     |
+      | test     |         | crontab模式下, 执行计划不能为零或空 | TipText     |
+      | test     | test    | crontab格式错误！                   | Message     |
+      | test     | 0*      | crontab格式错误！                   | Message     |
 
-  Scenario Outline: schedule_message_error_realtime
+  Scenario: schedule_message_error_realtime
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "* | stats count()"
     And I click the "DateEditor" button under some element
-    And I click the "ThirtySeconds" button
+    And I click the "TenSeconds" button
     And I click the "SearchButton" button under some element
     And I wait for "SaveAsOther" will be visible
     Then I click the "SaveAsOther" button
-    Then I click the "TimedTask" button
-    And I wait for element "SelectedUser" change text to username
-    And I set the parameter "TaskName" with value "<name>"
-    Then I set the parameter "Describe" with value "<describe>"
-    And I click the "Crontab" button
-    And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
-    Then I click the "EnsureButton" button
-    And I wait for "TimeTaskEnsure" will be visible
-    Then I will see the success message "<message>"
-
-    Examples:
-      | name | describe | message           |
-      | test | autotest | 实时窗口搜索模式无法进行该操作!|
+    And I will see the "TimedTask" doesn't exist
 
   Scenario Outline: schedule_message_error
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -200,20 +179,19 @@ Feature: 定时任务新建
     Then I click the "TimedTask" button
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "TaskName" with value "<name>"
-    Then I set the parameter "Describe" with value "<describe>"
     Then I set the parameter "Period" with value "<period>"
     Then I click the "EnsureButton" button
-    And I wait for "TimeTaskEnsure" will be visible
-    Then I will see the success message "<message>"
+    And I wait for "TipText" will be visible
+    And I will see the element "TipText" contains "<message>"
 
     Examples:
-      | name | describe | period | message           |
-      |      |          |        | 请输入名称            |
-      | test | autotest |        | 定时模式下, 时间间隔不能为零或空 |
-      | test | autotest | 0      | 定时模式下, 时间间隔不能为零或空 |
-      | test | autotest | 1.5    | 定时模式下, 时间间隔应该为正整数 |
-      | test | autotest | test   | 定时模式下, 时间间隔应该为正整数 |
-      | test | autotest | 1      | 请输入开始时间           |
+      | name | period | message                           |
+      |      |        | 请输入名称                        |
+      | test |        | 定时模式下, 时间间隔应该为正整数  |
+      | test | 0      | 定时模式下, 时间间隔应该为正整数  |
+      | test | 1.5    | 定时模式下, 时间间隔应该为正整数  |
+      | test | test   | 定时模式下, 时间间隔应该为正整数  |
+      | test | 1      | 请输入正确的时间格式：HH:mm:ss.SSS|
 
   Scenario: cancel_test
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -227,14 +205,15 @@ Feature: 定时任务新建
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
     And I wait for element "SelectedUser" change text to username
-    And I set the parameter "TagInput" with value "auto_package"
-    And I set the parameter "Describe" with value "testing"
     And I choose the "test_app" from the "AppComboBox"
+    And I set the parameter "Describe" with value "testing"
 
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 5 9 15/3 * ?"
+    And I set the parameter "TagInput" with value "auto_package"
+    And I click the "SelectAddedTag" button
     And I set the parameter "TaskName" with value "test"
-    And I click the "CancelButton" button
+    And I click the "Cancel" button
 
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -249,8 +228,7 @@ Feature: 定时任务新建
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
     And I set the parameter "SearchInput" with value "<taskName>"
-    And I wait for "Loading" will be invisible
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     When the data name is "{'column':'1','name':'<taskName>'}" then i click the "<taskName>" button
     Then I will see the "timedTask.DetailPage" page
     And I will see the element "TimePeriod" contains "<time>"

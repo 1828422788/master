@@ -2,6 +2,7 @@ package com.yottabyte.pages.event;
 
 import com.yottabyte.pages.ListPageFactory;
 import com.yottabyte.pages.PageTemplate;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,7 +19,7 @@ public class ListPage extends ListPageFactory {
     private WebElement searchInput;
 
     public WebElement getCreate() {
-        return super.getButton("新 建");
+        return super.getButton("新建");
     }
 
     @Override

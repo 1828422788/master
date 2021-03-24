@@ -1,4 +1,4 @@
-@dlother
+@dlother @cluster
 
 Feature: 聚类展示
 

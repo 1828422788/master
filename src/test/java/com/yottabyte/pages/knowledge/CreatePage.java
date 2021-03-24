@@ -32,7 +32,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "ql-editor")
     private WebElement richEditor;
 
-    @FindBy(xpath = "//div[@class='ant-spin-container']/p")
+    @FindBy(xpath = "//div[@class='yotta-spinner-container']//p")
     private WebElement successAdd;
 
     @FindBy(className = "ant-message-error")
@@ -49,6 +49,14 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getNext() {
         return super.getButton("下一步");
+    }
+
+    public WebElement getDone() {
+        return super.getButton("完成");
+    }
+
+    public WebElement getDisableDone() {
+        return webDriver.findElement(By.xpath("//button[contains(@class,'yotta-button-disabled')]"));
     }
 
     public WebElement getRichEditor() {
@@ -82,7 +90,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getInputElement(String name) {
-        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::input"));
+        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/parent::div/following-sibling::div//div/input[@class='yotta-input yotta-input-large ']"));
     }
 
     public WebElement getResourceInput() {

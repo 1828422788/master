@@ -45,7 +45,7 @@ Feature: 仪表盘标签操作
   Scenario: 验证标签页移出成功(RZY-230)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    Then I will see the data "标签页移出" values "{'column':'2','name':''}"
+    Then I will see the data "标签页移出" values "{'column':'2','name':'-'}"
     Then I will see the data "接收标签页" values "{'column':'2','name':'第一个标签'}"
 
 

@@ -1,5 +1,6 @@
 @dataset @dataseta @dataset1
 Feature: 数据集-a新建
+
   @tc4082
   Scenario Outline: RZY-4082:新建数据集
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -21,9 +22,9 @@ Feature: 数据集-a新建
 
     And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'2','name':'jnd'}"
-    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'4','name':'无'}"
-    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'5','name':'app之api全部用例'}"
-    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'6','name':'auto_package'}"
+    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'3','name':'无'}"
+    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'4','name':'app之api全部用例'}"
+#    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'6','name':'auto_package'}"
 #   And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'6','name':'admin'}"
 
     Examples: 新建成功
@@ -31,19 +32,18 @@ Feature: 数据集-a新建
       | JNDTest | jnd   | *   |
 
 # # ################################## 插播几条查询的case，依赖与上一条case的新建
- @tc4075
+  @tc4075
   Scenario Outline: RZY-4075:按资源查询
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
     When I choose the "<GroupList>" from the "ResourceDropdown"
     And I wait for loading invisible
 
-    Then I will see the data "{'column':'0','name':'<name>'}" values "{'column':'6','name':'auto_package'}"
+#    Then I will see the data "{'column':'0','name':'<name>'}" values "{'column':'6','name':'auto_package'}"
 
     Examples:
       | GroupList    | name    |
       | auto_package | JNDTest |
-
 
   Scenario Outline: RZY-4076:按名称查询
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -63,28 +63,28 @@ Feature: 数据集-a新建
     And I choose the "app之api全部用例" from the "appSearch"
     And I wait for loading invisible
 #    Then I will see the search result contains "{'column':'0','name':'分组和应用'}"
-    Then I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'5','name':'app之api全部用例'}"
+    Then I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'4','name':'app之api全部用例'}"
 
   @tc4078
   Scenario Outline: RZY-4078:标签
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
-    Given the data name is "<name>" then i click the "标签" button
+#    Given the data name is "<name>" then i click the "标签" button
+    When the data name is "{'column':'0','name':'<name>'}" then i click the "标签" button in more menu
     And I set the parameter "Tag" with value "<Type>"
     And I choose the "<Type>" from the "TagDropdown"
     And I click the "Ensure" button
    #Then I will see the success message "修改成功"
     And I wait for loading invisible
-    Then I will see the data "{'column':'0','name':'<name>'}" values "{'column':'6','name':'1pre_package'}"
+#    Then I will see the data "{'column':'0','name':'<name>'}" values "{'column':'6','name':'1pre_package'}"
     #And I will see the data "{'column':'0','name':'JNDTest'}" values1 "{'column':'6','name':'1pre_package,auto_package'}" values2 "{'column':'6','name':'auto_package,1pre_package'}"
-
 
     Examples:
       | name    | Type         |
       | JNDTest | 1pre_package |
 
  ####################插播完毕#######继续新建
- 
+
   @tc4086
   Scenario: 新建数据集失败-RZY-4086:3个提示
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -104,7 +104,7 @@ Feature: 数据集-a新建
     And I set the parameter "Name" with value "failOne"
 
     And I click the "Save" button
-    Then I will see the element "tipsAlias" name is "请输入别名"
+#    Then I will see the element "tipsAlias" name is "请输入别名"    Then I will see the data "{'column':'0','name':'<name>'}" values "{'column':'6','name':'auto_package'}"
     Then I will see the element "tipsYuJu" name is "请输入约束语句"
 
   @tc4088

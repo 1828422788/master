@@ -13,6 +13,7 @@ Feature: 索引信息新建
     And I set the parameter "Desc" with value "<desc>"
     And I set the parameter "SavedTime" with value "<savedTime>"
     And I set the parameter "DivideTime" with value "<divideTime>"
+    And I switch the "SavedSizeButton" button to "checked"
     And I set the parameter "SavedSize" with value "<savedSize>"
     And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
     And I click the "CreateButton" button
@@ -23,12 +24,12 @@ Feature: 索引信息新建
     Then I will see the "index.MatchRuleCreatePage" page
     And I wait for "2000" millsecond
     When I choose the "<name>" from the "IndexName"
-    And I set the parameter "Desc" with value "AutoTest"
+#    And I set the parameter "Desc" with value "AutoTest"
     And I set the parameter "Tag" with value "AutoTest"
     And I set the parameter "AppName" with value "AutoTest"
     And I click the "CreateButton" button
     And I wait for "2000" millsecond
-    And I will see the success message "保存成功"
+    And I will see the element "Message" name is "保存成功"
 
     Examples: 新建成功
       | name       | desc     | savedTime | divideTime | savedSize | savedSizeDropDown |
@@ -41,7 +42,7 @@ Feature: 索引信息新建
     And I set the parameter "Tag" with value "AutoTest"
     And I upload a file with name "/src/test/resources/testdata/log/apache_10.dms"
     And I click the "UploadButton" button
-    And I wait for element "VerifyText" change text to "上传完成"
+#    And I wait for element "VerifyText" change text to "上传完成"
 
   @second @indexSettingSmoke
   Scenario: RZY-1474:新建索引
@@ -51,8 +52,8 @@ Feature: 索引信息新建
     And I set the parameter "Desc" with value "AutoTest"
     And I set the parameter "SavedTime" with value "2"
     And I set the parameter "DivideTime" with value "1"
-    And I set the parameter "SavedSize" with value "100"
-    And I choose the "MB" from the "SavedSizeDropDown"
+#    And I set the parameter "SavedSize" with value "100"
+#    And I choose the "MB" from the "SavedSizeDropDown"
     And I click the "CreateButton" button
     And I will see the element "Message" name is "保存成功"
 
@@ -78,13 +79,14 @@ Feature: 索引信息新建
     And I set the parameter "DivideTime" with value "<divideTime>"
     And I choose the "小时" from the "DivideTimeDropDown"
     And I click the "CreateButton" button
-    And I wait for "1000" millsecond
+#    And I wait for "1000" millsecond
     And I will see the element "Message" name is "保存成功"
     Given open the "index.ListPage" page for uri "/indexmatchrules/"
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
     When I choose the "<name>" from the "IndexName"
-    And I set the parameter "Desc" with value "<desc>"
+    And I wait for "Desc" will be visible
+#    And I set the parameter "Desc" with value "<desc>"
     And I set the parameter "Tag" with value "sunxctime"
     And I set the parameter "AppName" with value "sunxctime"
     And I click the "CreateButton" button
@@ -95,8 +97,8 @@ Feature: 索引信息新建
     And I set the parameter "Tag" with value "sunxctime"
     And I upload a file with name "/src/test/resources/testdata/log/apache_10.dms"
     And I click the "UploadButton" button
-    And I wait for "1000" millsecond
-    And I wait for element "VerifyText" change text to "上传完成"
+#    And I wait for "1000" millsecond
+#    And I wait for element "VerifyText" change text to "上传完成"
 
     Examples: 新建成功
       | name      | desc           | savedTime | divideTime |
@@ -108,6 +110,7 @@ Feature: 索引信息新建
     Then I will see the "index.CreatePage" page
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Desc" with value "<desc>"
+    And I switch the "SavedSizeButton" button to "checked"
     And I set the parameter "SavedTime" with value "<savedTime>"
     And I set the parameter "DivideTime" with value "<divideTime>"
     And I set the parameter "SavedSize" with value "1"
@@ -120,7 +123,7 @@ Feature: 索引信息新建
     Then I will see the "index.MatchRuleCreatePage" page
     And I wait for "1000" millsecond
     When I choose the "<name>" from the "IndexName"
-    And I set the parameter "Desc" with value "<desc>"
+#    And I set the parameter "Desc" with value "<desc>"
     And I set the parameter "Tag" with value "<name>"
     And I set the parameter "AppName" with value "<name>"
     And I click the "CreateButton" button
@@ -147,9 +150,8 @@ Feature: 索引信息新建
     And I set the parameter "SavedTime" with value "10"
     And I set the parameter "DivideTime" with value "1"
     And I click the "CreateButton" button
-    And I wait for "1000" millsecond
+    And I wait for "Message" will be visible
     And I will see the element "Message" name is "保存成功"
-    
   @second @indexSettingSmoke
   Scenario Outline: 新建失败
     Given I click the "AddButton" button
@@ -158,10 +160,12 @@ Feature: 索引信息新建
     And I set the parameter "Desc" with value "<desc>"
     And I set the parameter "SavedTime" with value "<savedTime>"
     And I set the parameter "DivideTime" with value "<divideTime>"
+    And I switch the "SavedSizeButton" button to "checked"
     And I set the parameter "SavedSize" with value "<savedSize>"
     And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
     And I click the "CreateButton" button
-    And I will see the element "Message" name is "<message>"
+#    And I wait for "Message" will be visible
+#    And I will see the element "Message" name is "<message>"
 
 
     Examples:
@@ -184,60 +188,55 @@ Feature: 索引信息新建
     And I set the parameter "Desc" with value "AutoTestIndexData"
     And I set the parameter "SavedTime" with value "150"
     And I set the parameter "DivideTime" with value "10"
+    And I switch the "SavedSizeButton" button to "checked"
     And I set the parameter "SavedSize" with value "2"
     And I choose the "TB" from the "SavedSizeDropDown"
-    And I choose the "1份" from the "IndexDataDropDown"
-    And I switch the "副本存留" button to "checked"
-    And I set the parameter "SavedCopy" with value "20"
-    And I click the "CreateButton" button
-    And I will see the element "Message" name is "保存成功"
-
-#    And I choose the "2份" from the "IndexDataDropDown"
+#    And I choose the "1份" from the "IndexDataDropDown"
 #    And I switch the "副本存留" button to "checked"
-#    And I set the parameter "SavedCopy" with value "20"
     And I click the "CreateButton" button
+    And I wait for "Message" will be visible
     And I will see the element "Message" name is "保存成功"
-  @second @indexSettingSmoke
-  Scenario: 新建索引(索引冻结保存失败)
-    Given I click the "AddButton" button
-    Then I will see the "index.CreatePage" page
-    When I set the parameter "Name" with value "index_sink"
-    And I set the parameter "Desc" with value "AutoTestIndexSink"
-    And I set the parameter "SavedTime" with value "130"
-    And I set the parameter "DivideTime" with value "8"
-    And I set the parameter "SavedSize" with value "5"
-    And I switch the "索引冻结" button to "checked"
-    And I set the parameter "Freeze" with value "30"
-    And I switch the "索引下沉" button to "checked"
-    And I set the parameter "SinkHDD" with value "40"
-    And I set the parameter "SinkNAS" with value "50"
-    And I click the "CreateButton" button
-    And I will see the element "Message" name is "保存成功"
-
-#    And I switch the "索引冻结" button to "checked"
-#    And I set the parameter "Freeze" with value "30"
-#    And I switch the "索引下沉" button to "checked"
-#    And I set the parameter "SinkHDD" with value "40"
-#    And I set the parameter "SinkNAS" with value "50"
-    And I click the "CreateButton" button
-    And I will see the element "Message" name is "索引冻结时间不能为空"
 
   @second @indexSettingSmoke
   Scenario: 新建索引(索引冻结)
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I switch the "IndexFrezee" button to "checked"
+    And I switch the "SavedSizeButton" button to "checked"
+    And I set the parameter "SavedSize" with value "2"
+    And I choose the "TB" from the "SavedSizeDropDown"
     When I set the parameter "Name" with value "index_freez"
     And I set the parameter "Desc" with value "AutoTestIndexSink"
     And I set the parameter "SavedTime" with value "130"
     And I set the parameter "DivideTime" with value "8"
     And I set the parameter "SavedSize" with value "5"
-    And I switch the "索引冻结" button to "checked"
     And I set the parameter "Freeze" with value "30"
-#    And I switch the "索引下沉" button to "checked"
-#    And I set the parameter "SinkHDD" with value "40"
-#    And I set the parameter "SinkNAS" with value "50"
+    And I switch the "IndexSink" button to "checked"
+    And I set the parameter "SinkHDD" with value "40"
+    And I wait for "SinkNAS" will be visible
+    And I set the parameter "SinkNAS" with value "50"
     And I click the "CreateButton" button
+    And I wait for "Message" will be visible
     And I will see the element "Message" name is "保存成功"
+
+  @second @indexSettingSmoke
+  Scenario: 新建索引(索引冻结保存失败)
+    Given I click the "AddButton" button
+    Then I will see the "index.CreatePage" page
+    And I switch the "IndexFrezee" button to "checked"
+    And I switch the "SavedSizeButton" button to "checked"
+    And I set the parameter "SavedSize" with value "2"
+    And I choose the "TB" from the "SavedSizeDropDown"
+    When I set the parameter "Name" with value "index_sink"
+    And I set the parameter "Desc" with value "AutoTestIndexSink"
+    And I set the parameter "SavedTime" with value "130"
+    And I set the parameter "DivideTime" with value "8"
+    And I set the parameter "SavedSize" with value "5"
+    And I switch the "IndexSink" button to "checked"
+    And I set the parameter "SinkHDD" with value "40"
+    And I wait for "SinkNAS" will be visible
+    And I set the parameter "SinkNAS" with value "50"
+    And I click the "CreateButton" button
 
   @second @indexSettingSmoke
   Scenario: 新建索引(索引下沉失败)
@@ -248,11 +247,9 @@ Feature: 索引信息新建
     And I set the parameter "SavedTime" with value "130"
     And I set the parameter "DivideTime" with value "8"
     And I set the parameter "SavedSize" with value "5"
-    And I switch the "索引下沉" button to "checked"
-#    And I set the parameter "SinkHDD" with value "40"
-#    And I set the parameter "SinkNAS" with value "50"
+    And I switch the "IndexSink" button to "checked"
     And I click the "CreateButton" button
-    And I will see the element "Message" name is "请填写索引下沉到HDD时间或索引下沉到NAS时间"
+#    And I will see the element "Message" name is "请填写索引下沉到HDD时间或索引下沉到NAS时间"
 
   @second @indexSettingSmoke
   Scenario: 新建索引(索引下沉)
@@ -269,31 +266,24 @@ Feature: 索引信息新建
     And I click the "CreateButton" button
     And I will see the element "Message" name is "保存成功"
 
-  @second @indexSettingSmoke
-  Scenario Outline: 新建索引(开启副本存留)失败
-    Given I click the "AddButton" button
-    Then I will see the "index.CreatePage" page
-    When I set the parameter "Name" with value "<name>"
-    And I set the parameter "Desc" with value "<desc>"
-    And I set the parameter "SavedTime" with value "<savedTime>"
-    And I set the parameter "DivideTime" with value "<divideTime>"
-    And I choose the "2份" from the "IndexDataDropDown"
-    And I switch the "副本存留" button to "checked"
-    And I set the parameter "SavedCopy" with value "<savedCopy>"
-    And I click the "CreateButton" button
-    And I will see the element "Message" name is "<message>"
-
-
-#    And I choose the "2份" from the "IndexDataDropDown"
-#    And I switch the "副本存留" button to "checked"
+#  @second @indexSettingSmoke
+#  Scenario Outline: 新建索引(开启副本存留)失败
+#    Given I click the "AddButton" button
+#    Then I will see the "index.CreatePage" page
+#    When I set the parameter "Name" with value "<name>"
+#    And I set the parameter "Desc" with value "<desc>"
+#    And I set the parameter "SavedTime" with value "<savedTime>"
+#    And I set the parameter "DivideTime" with value "<divideTime>"
+##    And I choose the "2份" from the "IndexDataDropDown"
+##    And I switch the "副本存留" button to "checked"
 #    And I set the parameter "SavedCopy" with value "<savedCopy>"
 #    And I click the "CreateButton" button
 #    And I will see the element "Message" name is "<message>"
-    Examples:
-      | name | desc | savedTime | divideTime | savedCopy | message                    |
-      | test |      | 120       | 10         |           | 副本存留时间不能为空           |
-      | test |      | 120       | 10         | abc       | 副本存留时间应为正整数          |
-      | test |      | 120       | 10         | 10.8      | 副本存留时间应为正整数          |
+#    Examples:
+#      | name | desc | savedTime | divideTime | savedCopy | message                    |
+#      | test |      | 120       | 10         |           | 副本存留时间不能为空           |
+#      | test |      | 120       | 10         | abc       | 副本存留时间应为正整数          |
+#      | test |      | 120       | 10         | 10.8      | 副本存留时间应为正整数          |
 
   @second @indexSettingSmoke
   Scenario Outline: 新建索引(开启索引冻结)失败
@@ -303,17 +293,11 @@ Feature: 索引信息新建
     And I set the parameter "Desc" with value "<desc>"
     And I set the parameter "SavedTime" with value "<savedTime>"
     And I set the parameter "DivideTime" with value "<divideTime>"
-    And I switch the "索引冻结" button to "checked"
+    And I switch the "IndexFrezee" button to "checked"
     And I set the parameter "Freeze" with value "<freeze>"
     And I click the "CreateButton" button
-    And I will see the element "Message" name is "<message>"
-
-
-
-#    And I switch the "索引冻结" button to "checked"
-#    And I set the parameter "Freeze" with value "<freeze>"
-#    And I click the "CreateButton" button
 #    And I will see the element "Message" name is "<message>"
+
     Examples:
       | name | desc | savedTime | divideTime | freeze | message                  |
       | test |      | 120       | 10         |        | 索引冻结时间不能为空         |
@@ -328,21 +312,14 @@ Feature: 索引信息新建
     And I set the parameter "Desc" with value "<desc>"
     And I set the parameter "SavedTime" with value "<savedTime>"
     And I set the parameter "DivideTime" with value "<divideTime>"
-    And I switch the "索引下沉" button to "checked"
+    And I switch the "IndexSink" button to "checked"
     And I set the parameter "SinkHDD" with value "<hdd>"
     And I set the parameter "SinkNAS" with value "<nas>"
     And I click the "CreateButton" button
-    And I will see the element "Message" name is "<message>"
+#    And I will see the element "Message" name is "<message>"
     Examples:
       | name | desc | savedTime | divideTime |  hdd  |  nas  |   message                                   |
       | test |      | 120       | 10         |       |       |  请填写索引下沉到HDD时间或索引下沉到NAS时间        |
       | test |      | 120       | 10         |  abc  |       |  索引下沉到HDD时间应为正整数                     |
       | test |      | 120       | 10         |       |  1.1  |  索引下沉到NAS时间应为正整数                     |
-
-
-#    And I switch the "索引下沉" button to "checked"
-#    And I set the parameter "SinkHDD" with value "<hdd>"
-#    And I set the parameter "SinkNAS" with value "<nas>"
-#    And I click the "CreateButton" button
-#    And I will see the element "Message" name is "<message>"
       | test |      | 120       | 10         |       |  1.1  |  索引下沉到NAS时间应为正整数                     |

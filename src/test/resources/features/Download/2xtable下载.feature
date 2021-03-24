@@ -12,6 +12,7 @@ Feature: download_bucket下载part0
     And I click the "SearchButton" button
     And I wait for "2000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then take a screenshot with name "v37dl/<name>"
 
     And I wait for "2000" millsecond
     And I wait for "downloadButton" will be visible
@@ -30,7 +31,8 @@ Feature: download_bucket下载part0
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     When I set the parameter "DbListPageSearchInput" with value "<name>.csv"
     And I wait for "2000" millsecond
-    Given the data name is "<name>.csv" then i click the "下载" button
+#    Given the data name is "<name>.csv" then i click the "下载" button
+    And I click the "ListDownloadButton" button
 
     Examples:
       | name        | splQuery                                                                                                                                                                                                                 |
@@ -45,6 +47,7 @@ Feature: download_bucket下载part0
     And I click the "SearchButton" button
     And I wait for "2000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then take a screenshot with name "v37dl/<name>"
 
     And I wait for "3000" millsecond
     And I wait for "downloadButton" will be visible
@@ -62,7 +65,7 @@ Feature: download_bucket下载part0
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     When I set the parameter "DbListPageSearchInput" with value "<name>.csv"
     And I wait for "3000" millsecond
-    Given the data name is "<name>.csv" then i click the "下载" button
+    And I click the "ListDownloadButton" button
 
     Examples:
       | name                                                | splQuery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |

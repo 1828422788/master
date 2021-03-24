@@ -36,10 +36,10 @@ Feature: 趋势图_提示
     Then I click the "Trend" button
     And I wait for "TaskName" will be visible
     When I set the parameter "TaskName" with value "test"
+    And I choose the "test_app" from the "AppComboBox"
     And I set the parameter "TagInput" with value "auto_package"
     And I click the "SelectAddedTag" button
     And I set the parameter "Describe" with value "testing"
-    And I choose the "test_app" from the "AppComboBox"
     And I click the "Cancel" button
 
     And I click the "SaveAsOther" button
@@ -48,7 +48,6 @@ Feature: 趋势图_提示
     And I will see the input element "Describe" value will be ""
     And I will see the "SelectedApp" doesn't exist
     And I will see the "SelectedTag" doesn't exist
-
 
   Scenario Outline:  prompt
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -59,18 +58,18 @@ Feature: 趋势图_提示
     And I click the "Ensure" button
     Then I will see the "trend.DragAndDropPage" page
     And I wait for "2000" millsecond
-    And I click the "<button>" button
-    And I wait for "EnsureButton" will be visible
-    And I will see the element "Prompt" contains "<message1>"
+    And I wait for "NextButton" will be visible
+    And I will see the "SaveAsDataset" doesn't exist
+    And I will see the "DatasetSPL" doesn't exist
+    And I will see the "Overview" doesn't exist
+    And I click the "NextButton" button
+    And I will see the element "Prompt" contains "<message>"
 
     Examples:
-      |  type    | button        | message1       |
-      | Single   | NextButton    | 请选择字段     |
-      | Multi    | NextButton    | 请选择数据集   |
-      | Union    | NextButton    | 请选择字段     |
-      | Multi    | CheckSPL      | 请选择数据集   |
-      | Multi    | SaveAsDataset | 请选择数据集   |
-      | Union    | Overview      | 当前无搜索语句 |
+      |  type    | message         |
+      | Single   | 请拖入数据集    |
+      | Multi    | 请选择数据集    |
+      | Union    | 请选择数据集    |
 
   Scenario:  union_prompt
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -112,19 +111,18 @@ Feature: 趋势图_提示
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
-    And I wait for "Loading" will be invisible
-    And I wait for "1000" millsecond
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count()"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button under some element
-    And I wait for "Loading" will be invisible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
     And I wait for "2000" millsecond
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
     And I wait for "NameInput" will be visible
-    And I click the "NextButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    And I will see the element "Prompt" contains "名称 不能为空"
+    And I click the "Complete" button under some element
+    And I wait for "TipText" will be visible
+    And I will see the element "TipText" contains "名称格式有误，仅支持中文，数字，字母，中划线以及下划线的组合。"

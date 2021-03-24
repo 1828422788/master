@@ -1,5 +1,6 @@
 package com.yottabyte.pages.agent;
 
+import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.DropdownUtils;
 import com.yottabyte.utils.WaitForElement;
@@ -13,7 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * @author sunxc, sunxj
  */
-public class GroupPage extends ListPageFactory {
+public class GroupPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='TestAuth']")
     private WebElement testAuth;
 
@@ -49,8 +50,11 @@ public class GroupPage extends ListPageFactory {
         return testAuth;
     }
 
+    @FindBy(xpath = "(//input[contains(@placeholder,'名称')])[2]")
+    private WebElement Name;
+
     public WebElement getName() {
-        return getelement("请输入名称");
+        return Name;
     }
 
     public WebElement getSearchName() {
@@ -66,11 +70,11 @@ public class GroupPage extends ListPageFactory {
     }
 
     public WebElement getBack() {
-        return super.getButton("返回列表");
+        return super.getYottaButtonByText("返回");
     }
 
     public WebElement getRole() {
-        String xpath = "//div[@class='ant-select-selection__placeholder']";
+        String xpath = "//div[@class='yotta-select-selection-tags']/span";
         DropdownUtils dropdownUtils = new DropdownUtils();
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
@@ -91,16 +95,18 @@ public class GroupPage extends ListPageFactory {
     }
 
     public WebElement getSave() {
-        return super.getButton("保存");
+        return super.getYottaButtonByText("保存");
     }
 
     public WebElement getUpdate() {
-        return super.getButton("更新");
+        return super.getYottaButtonByText("更新");
     }
 
     public WebElement getMore() {
-        return super.getButton("更多");
+        return More;
     }
+    @FindBy(xpath = "//span[text()='更多']//ancestor::span")
+    private WebElement More;
 
     public WebElement getAddgroupinput() {
         return super.getButton("采集配置");
@@ -110,7 +116,7 @@ public class GroupPage extends ListPageFactory {
         return super.getButton("添加「sunxctest」分组数据源");
     }
 
-    @FindBy(xpath = "//li[text()='删除']")
+    @FindBy(xpath = "//span[text()='删除']")
     private WebElement Delete;
 
     public WebElement getDelete() {
@@ -121,7 +127,7 @@ public class GroupPage extends ListPageFactory {
         return Jump;
     }
 
-    @FindBy(xpath = "//li[text()='跳转']")
+    @FindBy(xpath = "//span[text()='跳转']")
     private WebElement Jump;
 
     @Override
@@ -173,21 +179,21 @@ public class GroupPage extends ListPageFactory {
         return OpenGroupButton;
     }
 
-    @FindBy(xpath = "//div[text()='请输入名称']")
+    @FindBy(xpath = "//div[text()='请务必输入此条目']")
     private WebElement searchInput;
 
     public WebElement getSearchRole() {
         return searchRole;
     }
 
-    @FindBy(xpath = "//div[text()='请选择角色']")
+    @FindBy(xpath = "//div/div[@class='yotta-select-selection-content']/div")
     private WebElement searchRole;
 
     public WebElement getAddsuccessmsg() {
         return Addsuccessmsg;
     }
 
-    @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-success']//span")
+    @FindBy(xpath = "//span[@class='yotta-message-content']")
     private WebElement Addsuccessmsg;
 
     public WebElement getMessage() {
@@ -207,7 +213,7 @@ public class GroupPage extends ListPageFactory {
     }
 
     public WebElement getEnsure() {
-        return super.getContainsTextButton("确定");
+        return super.getButton("确定");
     }
 
     public WebElement getelement(String text) {

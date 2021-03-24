@@ -9,24 +9,30 @@ Feature: 事件管理-合并策略-11个
     And I set the parameter "CruxeePolicyDes" with value "UI自动测试"
 
     And I click the "AddAppCondition" button
-    And I choose the "name" from the "AppConditionFieldslist" in config
-    And I choose the "like" from the "AppConditionOperatorsList" in config
+#    And I choose the "name" from the "AppConditionFieldslist" in config
+#    And I choose the "like" from the "AppConditionOperatorsList" in config
+    And I choose the "name" from the "AppConditionFieldslist"
+    And I choose the "like" from the "AppConditionOperatorsList"
     And I set the parameter "AppConditionInput" with value "字段统计"
 
     And I click the "AddGroupCondition" button
-    And I choose the "name" from the "GroupConditionFieldslist" in config
+#    And I choose the "name" from the "GroupConditionFieldslist" in config
+    And I choose the "name" from the "GroupConditionFieldslist"
 
     And I click the "AddStopCondition" button
-    And I choose the "归并的告警数量" from the "StopConditionNameslist" in config
+#    And I choose the "归并的告警数量" from the "StopConditionNameslist" in config
+    And I choose the "归并的告警数量" from the "StopConditionNameslist"
+
     And I set the parameter "StopConditionCruCountInput" with value "18"
 
-    And I choose1 the "<SendPolicyName>" from the "SendPolicyNameslist" in config
+#    And I choose1 the "<SendPolicyName>" from the "SendPolicyNameslist" in config
+    And I choose the "<SendPolicyName>" from the "SendPolicyNameslist"
 
     And I click the "StartCruxeePolicy" button
-    And I click the "SaveCruxeePolicy" button
+    And I click the "NewCruxeePolicy" button
 #    Then I will see the <Result>
-    And I wait for "RetListButton" will be visible
-    And I click the "RetListButton" button
+    And I wait for "AffirmButton" will be visible
+    And I click the "AffirmButton" button
 
     Examples:
       | CruxeePolicyName    | SendPolicyName |
@@ -40,33 +46,40 @@ Feature: 事件管理-合并策略-11个
     And I set the parameter "CruxeePolicyDes" with value "UI自动测试"
 
     And I click the "AddAppCondition" button
-    And I choose the "name" from the "AppConditionFieldslist" in config
-    And I choose the "like" from the "AppConditionOperatorsList" in config
+    And I wait for loading complete
+#    And I choose the "name" from the "AppConditionFieldslist" in config
+    And I choose the "name" from the "AppConditionFieldslist"
+#    And I choose the "like" from the "AppConditionOperatorsList" in config
+    And I choose the "like" from the "AppConditionOperatorsList"
     And I set the parameter "AppConditionInput" with value "事件"
 
     And I click the "AddSecondAppCondition" button
     And I wait for loading complete
     And I wait for "2000" millsecond
-    And I choose the "alert_id" from the "AppConditionSecondFieldslist" in config
-    And I choose the ">" from the "AppConditionSecondOperatorsList" in config
+#    And I choose the "alert_id" from the "AppConditionSecondFieldslist" in config
+    And I choose the "alert_id" from the "AppConditionSecondFieldslist"
+#    And I choose the ">" from the "AppConditionSecondOperatorsList" in config
+    And I choose the ">" from the "AppConditionSecondOperatorsList"
     And I set the parameter "AppConditionSecondInput" with value "0"
 
     And I click the "AddGroupCondition" button
-    And I choose the "alert_id" from the "GroupConditionFieldslist" in config
+#    And I choose the "alert_id" from the "GroupConditionFieldslist" in config
+    And I choose the "alert_id" from the "GroupConditionFieldslist"
 
     And I click the "AddStopCondition" button
-    And I choose the "最后一条告警的字段" from the "StopConditionNameslist" in config
-    And I choose the "name" from the "StopConditionLastAlertFieldNamesList" in config
-    And I choose the "like" from the "StopConditionLastAlertFieldOperatorsList" in config
+    And I choose the "最后一条告警的字段" from the "StopConditionNameslist"
+    And I choose the "name" from the "StopConditionLastAlertFieldNamesList"
+    And I choose the "like" from the "StopConditionLastAlertFieldOperatorsList"
+    And I wait for "3000" will be visible
     And I set the parameter "StopConditionLastAlertFieldInput" with value "事件告警停止"
 
-    And I choose1 the "<SendPolicyName>" from the "SendPolicyNameslist" in config
+    And I choose the "<SendPolicyName>" from the "SendPolicyNameslist"
 
     And I click the "StartCruxeePolicy" button
-    And I click the "SaveCruxeePolicy" button
+    And I click the "NewCruxeePolicy" button
 #    Then I will see the <Result>
-    And I wait for "RetListButton" will be visible
-    And I click the "RetListButton" button
+    And I wait for "AffirmButton" will be visible
+    And I click the "AffirmButton" button
 
     Examples:
       | CruxeePolicyName    | SendPolicyName |
@@ -80,24 +93,30 @@ Feature: 事件管理-合并策略-11个
     And I set the parameter "CruxeePolicyDes" with value "UI自动测试"
 
     And I click the "AddAppCondition" button
-    And I choose the "name" from the "AppConditionFieldslist" in config
-    And I choose the "like" from the "AppConditionOperatorsList" in config
+#    And I choose the "name" from the "AppConditionFieldslist" in config
+#    And I choose the "like" from the "AppConditionOperatorsList" in config
+    And I choose the "name" from the "AppConditionFieldslist"
+    And I choose the "like" from the "AppConditionOperatorsList"
     And I set the parameter "AppConditionInput" with value "连续统计"
 
     And I click the "AddStopCondition" button
     And I set the parameter "StopConditionContinuousAlertInput" with value "6"
-    And I choose the "小时" from the "StopConditionContinuousAlertInputUnitList" in config
-    And I choose the "未收到新告警的时间" from the "StopConditionSecondNameslist" in config
-    And I set the parameter "StopConditionNoAlertTimeInput" with value "360"
-    And I choose the "分钟" from the "StopConditionNoAlertTimeInputUnitList" in config
+#    And I choose the "小时" from the "StopConditionContinuousAlertInputUnitList" in config
+    And I choose the "小时" from the "StopConditionContinuousAlertInputUnitList"
 
-    And I choose1 the "<SendPolicyName>" from the "SendPolicyNameslist" in config
+#    And I choose the "未收到新告警的时间" from the "StopConditionSecondNameslist" in config
+    And I choose the "未收到新告警的时间" from the "StopConditionSecondNameslist"
+    And I set the parameter "StopConditionNoAlertTimeInput" with value "360"
+#    And I choose the "分钟" from the "StopConditionNoAlertTimeInputUnitList" in config
+    And I choose the "分钟" from the "StopConditionNoAlertTimeInputUnitList"
+
+    And I choose the "<SendPolicyName>" from the "SendPolicyNameslist"
 
     And I click the "StartCruxeePolicy" button
-    And I click the "SaveCruxeePolicy" button
+    And I click the "NewCruxeePolicy" button
 #    Then I will see the <Result>
-    And I wait for "RetListButton" will be visible
-    And I click the "RetListButton" button
+    And I wait for "AffirmButton" will be visible
+    And I click the "AffirmButton" button
 
     Examples:
       | CruxeePolicyName    | SendPolicyName |
@@ -111,29 +130,36 @@ Feature: 事件管理-合并策略-11个
     And I set the parameter "CruxeePolicyDes" with value "UI自动测试"
 
     And I click the "AddAppCondition" button
+#    And I choose the "name" from the "AppConditionFieldslist" in config
+#    And I choose the "like" from the "AppConditionOperatorsList" in config
     And I choose the "name" from the "AppConditionFieldslist" in config
     And I choose the "like" from the "AppConditionOperatorsList" in config
     And I set the parameter "AppConditionInput" with value "spl统计"
 
     And I click the "AddGroupCondition" button
+#    And I choose the "priority" from the "GroupConditionFieldslist" in config
     And I choose the "priority" from the "GroupConditionFieldslist" in config
 
     And I click the "AddStopCondition" button
     And I set the parameter "StopConditionContinuousAlertInput" with value "18000"
-    And I choose the "秒" from the "StopConditionContinuousAlertInputUnitList" in config
-    And I choose the "最后一条告警的字段" from the "StopConditionNameslist" in config
-    And I choose the "priority" from the "StopConditionLastAlertFieldNamesList" in config
-    And I choose the ">" from the "StopConditionLastAlertFieldOperatorsList" in config
-#    And I set the parameter "StopConditionLastAlertFieldInput" with value "60"
-    And I choose the "(10) 恢复" from the "StopConditionLastAlertPriorityList" in config
+#    And I choose the "秒" from the "StopConditionContinuousAlertInputUnitList" in config
+#    And I choose the "最后一条告警的字段" from the "StopConditionNameslist" in config
+#    And I choose the "priority" from the "StopConditionLastAlertFieldNamesList" in config
+#    And I choose the ">" from the "StopConditionLastAlertFieldOperatorsList" in config
+#    And I choose the "(10) 恢复" from the "StopConditionLastAlertPriorityList" in config
+    And I choose the "秒" from the "StopConditionContinuousAlertInputUnitList"
+    And I choose the "最后一条告警的字段" from the "StopConditionNameslist"
+    And I choose the "priority" from the "StopConditionLastAlertFieldNamesList"
+    And I choose the ">" from the "StopConditionLastAlertFieldOperatorsList"
+    And I choose the "(10) 恢复" from the "StopConditionLastAlertPriorityList"
 
-    And I choose1 the "<SendPolicyName>" from the "SendPolicyNameslist" in config
+    And I choose the "<SendPolicyName>" from the "SendPolicyNameslist"
 
     And I click the "StartCruxeePolicy" button
-    And I click the "SaveCruxeePolicy" button
+    And I click the "NewCruxeePolicy" button
 #    Then I will see the <Result>
-    And I wait for "RetListButton" will be visible
-    And I click the "RetListButton" button
+    And I wait for "AffirmButton" will be visible
+    And I click the "AffirmButton" button
 
     Examples:
       | CruxeePolicyName    | SendPolicyName |
@@ -157,13 +183,13 @@ Feature: 事件管理-合并策略-11个
     And I set the parameter "StopConditionContinuousAlertInput" with value "300"
     And I choose the "分钟" from the "StopConditionContinuousAlertInputUnitList" in config
 
-    And I choose1 the "<SendPolicyName>" from the "SendPolicyNameslist" in config
+    And I choose the "<SendPolicyName>" from the "SendPolicyNameslist"
 
     And I click the "StartCruxeePolicy" button
-    And I click the "SaveCruxeePolicy" button
+    And I click the "NewCruxeePolicy" button
 #    Then I will see the <Result>
-    And I wait for "RetListButton" will be visible
-    And I click the "RetListButton" button
+    And I wait for "AffirmButton" will be visible
+    And I click the "AffirmButton" button
 
     Examples:
       | CruxeePolicyName    | SendPolicyName |

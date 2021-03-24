@@ -26,7 +26,8 @@ public class CreatePageDash extends PageTemplate {
     public CreatePageDash(WebDriver driver) {
         super(driver);
         //webDriver.manage().window().setPosition(new Point(0, 0));
-        driver.manage().window().setSize(new Dimension(1200,900));
+        driver.manage().window().setSize(new Dimension(1920,1080));
+//        driver.manage().window().setSize(new Dimension(1200,900));
     }
 
     private DropdownUtils dropdownUtils = new DropdownUtils();
@@ -152,7 +153,7 @@ public class CreatePageDash extends PageTemplate {
     @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div//label[4]")
     private WebElement forthLabel;
 
-    @FindBy(xpath = "(//*[text()='中国'])/ancestor::span")
+    @FindBy(xpath = "//span[text()='中国']/preceding-sibling::span")
     private WebElement selectChina;
 
     @FindBy(xpath = "(//*[text()='江苏'])/ancestor::span")
@@ -345,6 +346,10 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//div[text()='柱状外右侧'])[last()]")
     private WebElement rightPosition;
 
+    public WebElement getRightPosition() {
+        return rightPosition;
+    }
+
     @FindBy(xpath = "(//input[@class='el-input__inner'][not(@placeholder='请选择')])[last()]")
     private WebElement startColor;
 
@@ -357,7 +362,7 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//div[text()='a..z'])[last()]")
     private WebElement thirdPosition;
 
-    @FindBy(xpath = "(//span[text()='图表起始颜色']/ancestor::div/following-sibling::div/div)[1]")
+    @FindBy(xpath = "(//span[text()='图表起始颜色']/parent::div/following-sibling::div/div)[1]")
     private WebElement startColour;
 
     @FindBy(xpath = "(//input[@class='el-input__inner'])[last()]")
@@ -378,10 +383,10 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'分面')])[last()]")
     private WebElement divideSide;
 
-    @FindBy(xpath = "(//p[text()='+ 添加'])[last()] | (//i[contains(@class,'anticon-plus')])")
+    @FindBy(xpath = "//*[@yotta-test='chartgui-tab_list_add-icon']")
     private WebElement addField;
 
-    @FindBy(xpath = "(//p[text()='添加字段配置'])[last()]")
+    @FindBy(xpath = "//*[@yotta-test='chartgui-list_add-button']")
     private WebElement addConfigFields;
 
     @FindBy(xpath = "(//div[@class='el-select yw-search-setting-select'])[last()]")
@@ -399,7 +404,7 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//span[text()='上限'])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement topLimit;
 
-    @FindBy(xpath = "(//span[text()='下限'])[last()]/ancestor::div/following-sibling::div[1]")
+    @FindBy(xpath = "(//span[text()='下限'])[last()]/parent::div/following-sibling::div[1]")
     private WebElement lowerLimit;
 
     @FindBy(xpath = "(//div[@class='img geostatsmap'])[last()]")
@@ -419,6 +424,9 @@ public class CreatePageDash extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='字体']")
     private WebElement font;
+
+    @FindBy(xpath = "//*[@yotta-test='chartgui-text-input']")
+    private WebElement unit;
 
     @FindBy(xpath = "(//div[text()='按字段'])[last()]")
     private WebElement accordingField;
@@ -512,7 +520,7 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//span[text()='下限'])[last()]/ancestor::div/following-sibling::div//input")
     private WebElement lowerLimitInput;
 
-    @FindBy(xpath = "//span[text()='经度']/ancestor::div/following-sibling::div//i")
+    @FindBy(xpath = "//span[text()='经度']/parent::div/following-sibling::div/div/div")
     private WebElement longitude;
 
     @FindBy(xpath = "(//span[text()='经度'])[last()]/ancestor::div/following-sibling::div//input")
@@ -521,7 +529,7 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//span[text()='纬度'])[last()]/ancestor::div/following-sibling::div//input")
     private WebElement latitudeInput;
 
-    @FindBy(xpath = "//span[text()='纬度']/ancestor::div/following-sibling::div//i")
+    @FindBy(xpath = "//span[text()='纬度']/parent::div/following-sibling::div/div/div")
     private WebElement latitude;
 
     @FindBy(xpath = "(//span[text()='中国'])[last()]")
@@ -545,10 +553,10 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(className = "range-color-group-add")
     private WebElement addColour;
 
-    @FindBy(xpath = "(//input[@placeholder='min'])[last()]")
+    @FindBy(xpath = "(//*[@yotta-test='chartgui-text-input'])[1]")
     private WebElement minRange;
 
-    @FindBy(xpath = "(//input[@placeholder='max'])[last()]")
+    @FindBy(xpath = "(//*[@yotta-test='chartgui-text-input'])[2]")
     private WebElement maxRange;
 
     @FindBy(className = "chart-setting-popover")
@@ -599,7 +607,7 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(className = "el-switch__label--right")
     private WebElement switchLabel;
 
-    @FindBy(xpath = "(//span[text()='标签展示'])[last()]/ancestor::div/following-sibling::div")
+    @FindBy(xpath = "(//*[@yotta-test='chartgui-select-select'])[1]/div")
     private WebElement showLabel;
 
     @FindBy(xpath = "(//span[text()='钻取模式'])[last()]/ancestor::div/following-sibling::div")
@@ -638,25 +646,35 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(className = "ant-popover-inner-content")
     private WebElement content;
 
-    @FindBy(xpath = "(//label[text()='今天']/following-sibling::i)[2]")
+    @FindBy(xpath = "(//span[contains(@class,'yotta-icon-SettingFilled')])[last()]")
     private WebElement setting;
 
-    @FindBy(xpath = "//span[text()='数值字段']/ancestor::div/following-sibling::div//i")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-chart_setting-dom']")
+    private WebElement settingChart;
+
+    public WebElement getSettingChart() {
+        return settingChart;
+    }
+
+    @FindBy(xpath = "//span[text()='数值字段']/ancestor::div/following-sibling::div//span")
     private WebElement dataField;
 
-    @FindBy(xpath = "//span[text()='字段值']/ancestor::div/following-sibling::div//i")
+    @FindBy(xpath = "//span[text()='字段值']/parent::div/following-sibling::div//span[@class]")
     private WebElement dataValue;
+
+    @FindBy(xpath = "//span[text()='字段值']/parent::div/following-sibling::div//span[@class='yotta-select-selection-placeholder']")
+    private WebElement dataValueDivide;
 
     @FindBy(xpath = "//div[text()='Y轴 2']")
     private WebElement yaxisTwo;
 
-    @FindBy(xpath = "(//span[text()='字段值：'])[2]/parent::div/following-sibling::div//i")
+    @FindBy(xpath = "//*[@yotta-test='chartgui-select-select']/div")
     private WebElement dataValue2;
 
-    @FindBy(xpath = "(//span[text()='字段配置 3']/parent::div/parent::div/following-sibling::div//div[@class='ant-select-selection__rendered'])[1]")
+    @FindBy(xpath = "(//*[@yotta-test='chartgui-select-select']/div)[3]")
     private WebElement fieldThreeValue;
 
-    @FindBy(xpath = "(//span[text()='字段配置 3']/parent::div/parent::div/following-sibling::div//div[@class='ant-select-selection__rendered'])[2]")
+    @FindBy(xpath = "(//*[@yotta-test='chartgui-select-select']/div)[4]")
     private WebElement fieldThreeType;
 
     public WebElement getStatisticalChart() {
@@ -671,26 +689,26 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//span[text()='图中展示']/ancestor::div/following-sibling::div)[1]")
     private WebElement displayedOnChart;
 
-    @FindBy(xpath = "//input[@placeholder='展示字号']")
+    @FindBy(xpath = "//input[@placeholder='请输入数字']")
     private WebElement wordSize;
 
 
-    @FindBy(xpath = "//span[text()='数据精度']/ancestor::div/following-sibling::div")
+    @FindBy(xpath = "//*[@yotta-test='chartgui-select-select']/div")
     private WebElement dataPrecision;
 
-    @FindBy(xpath = "//span[text()='行数']/preceding-sibling::input")
+    @FindBy(xpath = "//span[text()='行数']/preceding-sibling::div/input")
     private WebElement layoutRow;
 
-    @FindBy(xpath = "//span[text()='列数']/preceding-sibling::input")
+    @FindBy(xpath = "//span[text()='列数']/preceding-sibling::div/input")
     private WebElement layoutColumn;
 
-    @FindBy(xpath = "//input[@placeholder='max']/following-sibling::div")
+    @FindBy(xpath = "//*[@yotta-test='chartgui-color-dom']")
     private WebElement rangeColor;
 
     @FindBy(xpath = "((//*[@class='anticon-spin'])[2]) | (//span[contains(@class,'ant-spin-dot')])")
     private WebElement loading;
 
-    @FindBy(xpath = "(//span[text()='类型：'])[last()]/ancestor::div/following-sibling::div")
+    @FindBy(xpath = "(//*[@yotta-test='chartgui-select-select']/div)[2]")
     private WebElement typeDropdown;
 
     @FindBy(className = "yotta-search-control-text")
@@ -1081,6 +1099,11 @@ public class CreatePageDash extends PageTemplate {
 
     public WebElement getDataValue2() {
         dataValue2.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getDataValueDivide() {
+        dataValueDivide.click();
         return super.getLastDropdownList();
     }
 
@@ -1489,6 +1512,10 @@ public class CreatePageDash extends PageTemplate {
         return getChartButton("散点图");
     }
 
+    public WebElement getSunburst() {
+        return getChartButton("旭日图");
+    }
+
     public WebElement getColumnChart() {
         return getChartButton("柱状图");
     }
@@ -1715,7 +1742,7 @@ public class CreatePageDash extends PageTemplate {
 //--Input elements
 
     public WebElement getUnit() {
-        return getInputSetting("单位");
+        return unit;
     }
 
     public WebElement getRepulsion() {
@@ -1762,6 +1789,10 @@ public class CreatePageDash extends PageTemplate {
 //--Switch elements
     public WebElement getPile() {
         return getSwitchElement("堆叠");
+    }
+
+    public WebElement getUnifiedMetric() {
+        return getSwitchElement("统一度量");
     }
 
     public WebElement getSmooth() {
@@ -2439,6 +2470,13 @@ public class CreatePageDash extends PageTemplate {
 
     public WebElement getClickBeijing() {
         return clickBeijing;
+    }
+
+    @FindBy(xpath = "(//*[@yotta-test='dashboard-chart_setting-dom'])[2]")
+    private WebElement secondSetting;
+
+    public WebElement getSecondSetting() {
+        return secondSetting;
     }
 
 }

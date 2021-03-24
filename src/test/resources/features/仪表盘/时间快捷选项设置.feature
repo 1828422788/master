@@ -39,20 +39,23 @@ Feature: 系统设置-时间快捷选项设置
     And I click the "AddRelativeTimeShortcut" button
     And I wait for "1000" millsecond
     And I click the "WholeTimeSave" button
-    Then I wait for "NoNameWarn" will be visible
-    And I click the "EnsureButton" button
+    Then I will see the error message "展示名称不能为空"
+#    Then I wait for "NoNameWarn" will be visible
+#    And I click the "EnsureButton" button
     And I wait for "NewShowName" will be visible
     And I click the "NewShowName" button
     And I set the parameter "NewShowName" with value "上一个月"
     And I click the "WholeTimeSave" button
-    Then I wait for "NoStartTimeWarn" will be visible
-    And I click the "EnsureButton" button
+    Then I will see the error message "开始时间不能为空"
+#    Then I wait for "NoStartTimeWarn" will be visible
+#    And I click the "EnsureButton" button
     And I wait for "NewStartTime" will be visible
     And I click the "NewStartTime" button
     And I set the parameter "NewStartTime" with value "-1M/M"
     And I click the "WholeTimeSave" button
-    Then I wait for "NoEndTimeWarn" will be visible
-    And I click the "EnsureButton" button
+    Then I will see the error message "结束时间不能为空"
+#    Then I wait for "NoEndTimeWarn" will be visible
+#    And I click the "EnsureButton" button
     And I wait for "NewEndTime" will be visible
     And I click the "NewEndTime" button
     And I set the parameter "NewEndTime" with value "now/M"
@@ -115,7 +118,8 @@ Feature: 系统设置-时间快捷选项设置
     And I wait for loading invisible
     And I click the "AddOtherTimeShortcut" button
     And I click the "AddActualTimeShortcut" button
-    Then I wait for "CreateConflictWarn" will be visible
+    Then I will see the error message "请先完成编辑或新增操作"
+#    Then I wait for "CreateConflictWarn" will be visible
 
   Scenario Outline: 删除已添加自定义快捷选项
     Given open the "system.TimeShortcutsConfig" page for uri "/system/shortcuts/"

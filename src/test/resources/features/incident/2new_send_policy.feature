@@ -11,23 +11,25 @@ Feature: 事件管理_发送策略_4个
     And I click the "checkboxNewEventSend" button
     And I click the "checkboxUpdatingSend" button
 
-    And I choose1 the "严重" from the "TunnelPriorityLevel"
-    And I choose1 the "邮件告警" from the "RelatedSendPluginList" in config
-#    And I choose1 the "发送策略一级组<日志易用户体验组>,不发送: <kongfeili>" from the "MailReceiver"
-#    And I choose1 the "admin@rizhiyi.com" from the "MailReceiver"
+    And I choose1 the "严重" from the "TunnelPriorityLevelList"
+#    And I wait for "3000" millsecond
+#    And I click the "PageBlank" button
+    And I choose1 the "邮件告警" from the "RelatedSendPluginList"
+    And I wait for "3000" millsecond
+    And I choose1 the "发送策略一级组<日志易用户体验组>" from the "MailReceiverList"
+    And I wait for "2000" millsecond
 
-    And I click the "SaveSendPolicy" button
+    And I click the "NewButtonPolicy" button
 #    Then I will see the <Result>
 #    And I wait for "RetListButton" will be visible
     And I wait for "2000" millsecond
-    And I click the "RetListButton" button
+    And I click the "retButton" button
 
     Examples:
-      | SendPolicyName    | SendIntervalTimeValue     | Result|
-      | 邮件_all_20分钟 | 20 | "提交发送策略成功" |
-      | 邮件_高_20分钟 | 20 | "提交发送策略成功" |
-      | 邮件_中_20分钟 | 20 | "提交发送策略成功" |
+      | SendPolicyName | SendIntervalTimeValue | Result     |
+      | 邮件_all_20分钟    | 20                    | "提交发送策略成功" |
+      | 邮件_高_20分钟      | 20                    | "提交发送策略成功" |
+      | 邮件_中_20分钟      | 20                    | "提交发送策略成功" |
 
 
 #      | NoticeReceiveGroupName | ReceiveGroupMemberValue | ReceiveGroupNonMemberValue |
-#      | 发送策略一级组 | 日志易用户体验组<Derek> | kongfeili       |

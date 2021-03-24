@@ -69,11 +69,11 @@ public class DropdownUtils {
         return getLastDropdownList();
     }
 
-    //getLastDropdownList1
     public WebElement getLastDropdownListOnSendPolicyPage() {
         String className;
         Paging paging = new Paging();
-        className = "ant-select-dropdown-menu-item";
+//        className = "ant-select-dropdown-menu-item";
+        className = "yotta-select-menu";
 
         List<WebElement> list = webDriver.findElements(By.className(className));
 
@@ -83,14 +83,16 @@ public class DropdownUtils {
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
         }
 
-        WebElement li = lastDropdownList.findElement(By.xpath("//li"));
+        WebElement li = lastDropdownList.findElement(By.xpath("//span"));
         return lastDropdownList;
     }
 
     public WebElement getLastSendPluginDropdownList() {
         String className;
         Paging paging = new Paging();
-        className = "ant-select-dropdown-menu-item";
+//        className = "ant-select-dropdown-menu-item";
+        className = "yotta-select-menu";
+
         List<WebElement> list = webDriver.findElements(By.className(className));
 
         WebElement lastDropdownList = list.get(list.size() - 1);
@@ -113,6 +115,40 @@ public class DropdownUtils {
 
     public WebElement getLastDropdownList() {
         String className = "yotta-select-menu";
+        List<WebElement> list = webDriver.findElements(By.className(className));
+        WebElement lastDropdownList = list.get(list.size() - 1);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+        }
+        return lastDropdownList;
+    }
+
+
+    public WebElement getLastDropdownListOfUser() {
+        String xpath;
+        xpath = "//span[text()='请选择分组']";
+        List<WebElement> list = webDriver.findElements(By.xpath(xpath));
+        WebElement lastDropdownList = list.get(list.size() - 1);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+        }
+        return lastDropdownList;
+    }
+
+    //仪表盘下拉菜单
+    public WebElement getLastDropdownListDashboard() {
+        String className = "yotta-dropdown-trigger";
+        List<WebElement> list = webDriver.findElements(By.className(className));
+        WebElement lastDropdownList = list.get(list.size() - 1);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+        }
+        return lastDropdownList;
+    }
+
+    //编辑应用下拉
+    public WebElement getLastDropdownListEditApp() {
+        String className = "yotta-dropdown-menu";
         List<WebElement> list = webDriver.findElements(By.className(className));
         WebElement lastDropdownList = list.get(list.size() - 1);
         if (lastDropdownList.getAttribute("style").contains("display: none;")) {

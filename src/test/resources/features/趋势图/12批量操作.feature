@@ -60,8 +60,7 @@ Feature: 趋势图批量操作
     And I wait for "Cancel" will be visible
     Then I will see the message "您选中的 3 个资源将被删除，是否继续？"
     And I click the "Cancel" button
-    When the data name is "{'column':'1','name':'test_multi_3'}" then i click the "更多" button
-    And I click the "Delete" button
+    When the data name is "{'column':'1','name':'test_multi_3'}" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     Then I will see the message "确认删除 [test_multi_3] ?"
     When I click the "Ensure" button

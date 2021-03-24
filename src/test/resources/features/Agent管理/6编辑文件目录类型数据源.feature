@@ -12,11 +12,12 @@ Feature: Agent编辑文件目录类型数据源
 
   Scenario: 文件目录配置修改文件路径白名单
     And I click the "Create" button
+    And I click the "Next" button
     And I set the parameter "WhiteList" with value "ntp\.log"
     And I set the parameter "Document" with value "/data/rizhiyi/logs"
-    And I click the "Next" button
     And I click the "Back" button
     And I wait for loading invisible
+    And I click the "Next" button
     And I set the parameter "Document" with value "/data/rizhiyi/logs/heka"
     And I set the parameter "WhiteList" with value "hekad-daemon\.log"
     And I set the parameter "BlackList" with value "hekad\.stderr"
@@ -29,23 +30,15 @@ Feature: Agent编辑文件目录类型数据源
     And I set the parameter "Appname" with value "autohekafiletest"
     And I set the parameter "Tag" with value "autohekafiletest"
     And I click the "Next" button
-    And I wait for loading invisible
-    And I will see the element "InputKind" name is "文件监视"
-    And I will see the element "SourceRoot" name is "/data/rizhiyi/logs/heka"
-    And I will see the element "Monitoring" name is "是"
-    And I will see the element "CheckAppname" name is "autohekafiletest"
-    And I click the "Next" button
+    And I wait for "Finish" will be visible
+#    And I will see the element "InputKind" name is "文件监视"
+#    And I will see the element "SourceRoot" name is "/data/rizhiyi/logs/heka"
+#    And I will see the element "Monitoring" name is "是"
+#    And I will see the element "CheckAppname" name is "autohekafiletest"
+    And I click the "Finish" button
     And I wait for loading invisible
     And I will see the element "Addsuccessmsg" name is "添加成功"
     And I click the "CurrentConfiguration" button
-    And I wait for loading invisible
-    And I click the "EditAutoFile" button
-    And I set the parameter "WhiteList" with value "hekad\.stderr"
-    And I click the "Ensure" button
-    And I wait for "ChangeMemo" will be visible
-    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
-
-
 
   Scenario: 文件目录数据源禁用
     Given the data name "autohekafiletest" in agent table "AppNameTable" then i click the "close" switch
@@ -63,41 +56,41 @@ Feature: Agent编辑文件目录类型数据源
 
 
   Scenario: 文件目录配置修改文件路径黑名单
-    And I click the "EditAutoFile" button
+    Given the data name "autohekafiletest" in table "AppNameTable" then i click the "编辑" button
     And I wait for loading invisible
     And I set the parameter "BlackList" with value "hekad-daemon\.log"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
 
   Scenario: 文件目录配置修改文件换行正则
-    And I click the "EditAutoFile" button
+    Given the data name "autohekafiletest" in table "AppNameTable" then i click the "编辑" button
     And I wait for loading invisible
     And I set the parameter "Regex" with value "\t"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
 
   Scenario: 文件目录配置修改日志内容白名单
-    And I click the "EditAutoFile" button
+    Given the data name "autohekafiletest" in table "AppNameTable" then i click the "编辑" button
     And I wait for loading invisible
     And I set the parameter "ContextWhiteList" with value "error"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
   Scenario: 文件目录配置修改日志内容黑名单
-    And I click the "EditAutoFile" button
+    Given the data name "autohekafiletest" in table "AppNameTable" then i click the "编辑" button
     And I wait for "ContextBlackList" will be visible
     And I set the parameter "ContextBlackList" with value "false"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
 
@@ -110,12 +103,12 @@ Feature: Agent编辑文件目录类型数据源
 
 
   Scenario Outline: 文件目录配置修改最后修改时间
-    And I click the "EditAutoFile" button
+    Given the data name "autohekafiletest" in table "AppNameTable" then i click the "编辑" button
     And I wait for loading invisible
     And I set the parameter "LastModifyTime" with value "20"
     When I choose the "<timekind>" from the "TimeKind"
     And I click the "Ensure" button
-    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
     Examples:
@@ -125,12 +118,11 @@ Feature: Agent编辑文件目录类型数据源
       | 分钟       |
 
   Scenario Outline: 文件目录配置修改字符集
-    And I click the "EditAutoFile" button
+    Given the data name "autohekafiletest" in table "AppNameTable" then i click the "编辑" button
     And I wait for loading invisible
     And I set the parameter "Charset" with value "<characterkind>"
-#    When I choose the "<characterkind>" from the "CharacterKind"
     And I click the "Ensure" button
-    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
     Examples:
@@ -140,31 +132,33 @@ Feature: Agent编辑文件目录类型数据源
       |   utf-16    |
 
   Scenario: 文件目录配置修改tag
-    And I click the "EditAutoFile" button
+    Given the data name "autohekafiletest" in table "AppNameTable" then i click the "编辑" button
     And I wait for loading invisible
     And I set the parameter "Tag" with value "Changeautohekafiletag"
     And I click the "Ensure" button
-    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
   Scenario: 文件目录配置修改appname
-    And I click the "EditAutoFile" button
+    Given the data name "autohekafiletest" in table "AppNameTable" then i click the "编辑" button
     And I wait for loading invisible
     And I set the parameter "Appname" with value "Changeautohekafileappname"
+    And I wait for "Ensure" will be visiblei
     And I click the "Ensure" button
-    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
     And I wait for loading invisible
     Given the data name "Changeautohekafileappname" in table "AppNameTable" then i click the "编辑" button
     And I wait for loading invisible
     And I set the parameter "Appname" with value "autohekafiletest"
     And I click the "Ensure" button
-    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
   Scenario: 文件目录数据源删除
-    Given the data name "autohekafiletest" in table "AppNameTable" then i click the "删除" button
-    And I wait for loading invisible
+    Given the data name "autohekafiletest" in table "AppNameTable" then i click the "更多" button
+    And I click the "Delete" button
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
-    Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
+#    Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
 

@@ -94,7 +94,7 @@ Feature: 权限-仪表盘
     And I login user "AutoTest" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "设为默认授权" button
+    Then the data name is "<name>" then i will see "<function>" button
     When the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
@@ -102,12 +102,14 @@ Feature: 权限-仪表盘
     And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
+    #####################
     Then I will see the "AddTag" doesn't exist
     Then I logout current user
 
     Examples:
-      | name     |
-      | 仪表盘验证权限1 |
+      | name     |function|
+      | 仪表盘验证权限1 |设为默认\n授权  |
 
   Scenario Outline: 授权读取+编辑（RZY-616）
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -131,11 +133,14 @@ Feature: 权限-仪表盘
     Given I login user "AutoTest" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认编辑标签授权" button
-    When the data name is "<name>" then i click the "标签" button
-    And I wait for "Tag" will be visible
-    And I set the parameter "Tag" with value "AutoTestTag"
-    And I choose the "AutoTestTag" from the "TagDropdown"
+    ##设为默认编辑标签授权
+    Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "ResouceTag" button
+    And I wait for "multiAddTag" will be visible
+    And I click the "multiAddTag" button
+    And I set the parameter "multiInputTag" with value "AutoTestTag"
+  ##  And I choose the "AutoTestTag" from the "TagDropdown"
     And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
@@ -149,41 +154,44 @@ Feature: 权限-仪表盘
     And I wait for "SuccessMessage" will be invisible
     And I click the detail which name is "<name>重命名"
     Then I will see the "dashboard.DetailPage" page
+    ################
+    And I wait for "TagName" will be visible
     When I set the parameter "TagName" with value "test"
     And I click the "EnsureCreateTagButton" button
     And I wait for loading invisible
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'<name>重命名'}" values "{'column':'2','name':'test'}"
-    When the data name is "<name>重命名" then i click the "授权" button
+    When the data name is "<name>重命名" then i click the "更多" button
+    And I click the "GiveRight" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
     Then I logout current user
 
     Examples:
-      | name     |
-      | 仪表盘验证权限1 |
+      | name     |function|
+      | 仪表盘验证权限1 |编辑\n更多    |
 
-  Scenario: 有效期限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for loading invisible
-    And I click the "ResourceAuth" button
-    And I wait for "1000" millsecond
-    Then I click the "Dashboard" button
-    And I wait for loading invisible
-    And I "checked" the checkbox which name is "仪表盘验证权限1重命名" in auth table
-    When the data name is "仪表盘验证权限1重命名" then I click the "无限期" button in auth table
-    And I click the "Customize" button
-    And I click the "DateEditor" button
-    And I wait for "TimeInput" will be visible
-    And I set the time input "TimeInput" to "1" minutes later
-    And I click the "EnsureTime" button
-    And I click the "SaveButton" button
-    And I wait for "SuccessMessage" will be visible
-    And I will see the success message "更新成功"
-    Then I logout current user
+ # Scenario: 有效期限
+ #   Given open the "roles.ListPage" page for uri "/account/roles/"
+ #   And the data name is "__user_AutoTest__" then i click the "授权" button
+ #   And I will see the "roles.AuthorizationPage" page
+ #   And I wait for loading invisible
+ #   And I click the "ResourceAuth" button
+ #   And I wait for "1000" millsecond
+ #   Then I click the "Dashboard" button
+ #   And I wait for loading invisible
+ #   And I "checked" the checkbox which name is "仪表盘验证权限1重命名" in auth table
+ #   When the data name is "仪表盘验证权限1重命名" then I click the "无限期" button in auth table
+ #   And I click the "Customize" button
+ #   And I click the "DateEditor" button
+ #   And I wait for "TimeInput" will be visible
+ #   And I set the time input "TimeInput" to "1" minutes later
+ #   And I click the "EnsureTime" button
+ #   And I click the "SaveButton" button
+ #   And I wait for "SuccessMessage" will be visible
+ #   And I will see the success message "更新成功"
+ #   Then I logout current user
 
   Scenario Outline: 新建权限仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -221,14 +229,19 @@ Feature: 权限-仪表盘
     Given I login user "AutoTest" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认编辑标签授权删除" button
-    And the data name is "<name>" then i click the "授权" button
+    ##设为默认编辑标签授权删除
+    Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "GiveRight" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    When the data name is "<name>" then i click the "标签" button
-    And I set the parameter "Tag" with value "AutoTestTag"
-    And I choose the "AutoTestTag" from the "TagDropdown"
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "ResouceTag" button
+    And I wait for "multiAddTag" will be visible
+    And I click the "multiAddTag" button
+    And I set the parameter "multiInputTag" with value "AutoTestTag"
+    ##And I choose the "AutoTestTag" from the "TagDropdown"
     And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
@@ -239,14 +252,18 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
+    And I wait for "1000" millsecond
     And I click the detail which name is "<name>重命名"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
     When I set the parameter "TagName" with value "test"
     And I click the "EnsureCreateTagButton" button
     And I wait for loading invisible
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for "1000" millsecond
     Then I will see the data "{'column':'0','name':'<name>重命名'}" values "{'column':'2','name':'test'}"
-    And the data name is "<name>重命名" then i click the "删除" button
+    When the data name is "<name>重命名" then i click the "更多" button
+    And I click the "MultiDelete" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
@@ -254,8 +271,8 @@ Feature: 权限-仪表盘
     Then I logout current user
 
     Examples:
-      | name               |
-      | AutoTestUserCreate |
+      | name               |function|
+      | AutoTestUserCreate |编辑\n更多    |
 
   Scenario Outline: 授权读取+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -279,7 +296,7 @@ Feature: 权限-仪表盘
     Given I login user "AutoTest" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "设为默认授权" button
+    Then the data name is "<name>" then i will see "<function>" button
     When the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
     And I "check" the checkbox which name is "验证授权用户" in tiny table
@@ -288,22 +305,23 @@ Feature: 权限-仪表盘
     Given I login user "验证授权用户" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "设为默认授权" button
+    Then the data name is "<name>" then i will see "<function>" button
     And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
-    Then I will see the "AddTag" doesn't exist
+    #################
+    #######Then I will see the "AddTag" doesn't exist
 
     Examples:
-      | name    |
-      | 仪表盘验证权限 |
+      | name    |function|
+      | 仪表盘验证权限 |设为默认\n授权  |
 
-  Scenario: 验证有效期限生效
-    Given I login user "AutoTest" with password "All#123456"
-    And open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I will see the search result "{'column':'0','name':'仪表盘验证权限1重命名','contains':'no'}"
-    Then I logout current user
+ # Scenario: 验证有效期限生效
+ #   Given I login user "AutoTest" with password "All#123456"
+ #   And open the "dashboard.ListPage" page for uri "/dashboard/"
+ #   And I wait for loading invisible
+ #   And I will see the search result "{'column':'0','name':'仪表盘验证权限1重命名','contains':'no'}"
+ #   Then I logout current user
 
   Scenario Outline: 授权读取+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -327,15 +345,19 @@ Feature: 权限-仪表盘
     Given I login user "AutoTest" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认授权删除" button
-    And the data name is "<name>" then i click the "授权" button
+    ##设为默认+更多（授权、删除）
+    Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "GiveRight" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for "1000" millsecond
     And I click the detail which name is "<name>"
     Then I will see the "TagName" doesn't exist
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And the data name is "<name>" then i click the "删除" button
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "MultiDelete" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
@@ -343,8 +365,8 @@ Feature: 权限-仪表盘
     Then I logout current user
 
     Examples:
-      | name        |
-      | 仪表盘验证权限1重命名 |
+      | name        |function|
+      | 仪表盘验证权限1重命名 |设为默认\n更多  |
 
   Scenario Outline: 授权读取+编辑+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -368,11 +390,15 @@ Feature: 权限-仪表盘
     Given I login user "AutoTest" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认编辑标签授权" button
-    When the data name is "<name>" then i click the "标签" button
-    And I wait for "Tag" will be visible
-    And I set the parameter "Tag" with value "AutoTestTag"
-    And I choose the "AutoTestTag" from the "TagDropdown"
+    ##编辑+更多（设为默认、标签、授权）
+    Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "ResouceTag" button
+    And I wait for "multiAddTag" will be visible
+    And I click the "multiAddTag" button
+    And I set the parameter "multiInputTag" with value "AutoTestTag"
+    ######
+    ##And I choose the "AutoTestTag" from the "TagDropdown"
     And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
@@ -385,7 +411,8 @@ Feature: 权限-仪表盘
     Then I will see the success message "更新仪表盘成功"
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When the data name is "<name>重命名" then i click the "授权" button
+    When the data name is "<name>重命名" then i click the "更多" button
+    And I click the "GiveRight" button
     And I wait for loading invisible
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
@@ -394,7 +421,7 @@ Feature: 权限-仪表盘
     Given I login user "AutoTest" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    Then the data name is "{'column':'0','name':'<name>重命名'}" then i will see "设为默认编辑标签授权" button
+    Then the data name is "{'column':'0','name':'<name>重命名'}" then i will see "<function>" button
     And I click the detail which name is "<name>重命名"
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "test"
@@ -406,8 +433,8 @@ Feature: 权限-仪表盘
     Then I logout current user
 
     Examples:
-      | name    |
-      | 仪表盘验证权限 |
+      | name    |function|
+      | 仪表盘验证权限 |编辑\n更多    |
 
   Scenario Outline: 授权读取+删除+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -448,8 +475,10 @@ Feature: 权限-仪表盘
     Given I login user "AutoTest" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "设为默认授权删除" button
-    When the data name is "<name>" then i click the "授权" button
+    ##设为默认+更多（授权、删除）
+    Then the data name is "<name>" then i will see "<function>" button
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "GiveRight" button
     And I wait for loading invisible
     And I "uncheck" the checkbox which name is "验证授权用户" in tiny table
     And I "check" the checkbox which name is "验证授权用户" in tiny table
@@ -459,14 +488,16 @@ Feature: 权限-仪表盘
     Given I login user "验证授权用户" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "设为默认授权" button
+    Then the data name is "<name>" then i will see "<function>" button
     And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     Then I will see the "AddTag" doesn't exist
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And the data name is "<name>" then i click the "删除" button
+    And I wait for "9000" millsecond
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "MultiDelete" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
@@ -474,8 +505,8 @@ Feature: 权限-仪表盘
     Then I logout current user
 
     Examples:
-      | name       |
-      | 仪表盘验证权限重命名 |
+      | name       |function|
+      | 仪表盘验证权限重命名 |设为默认\n更多  |
 
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -510,9 +541,13 @@ Feature: 权限-仪表盘
     Given I login user "AutoTest" with password "All#123456"
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认编辑标签授权删除" button
-    When the data name is "<name>" then i click the "标签" button
-    And I set the parameter "Tag" with value "AutoTestTag"
+    ##编辑+更多（设为默认、标签、授权、删除）
+    Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "ResouceTag" button
+    And I wait for "multiAddTag" will be visible
+    And I click the "multiAddTag" button
+    And I set the parameter "multiInputTag" with value "AutoTestTag"
     And I choose the "AutoTestTag" from the "TagDropdown"
     And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible
@@ -526,7 +561,8 @@ Feature: 权限-仪表盘
     Then I will see the success message "更新仪表盘成功"
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When the data name is "<name>重命名" then i click the "授权" button
+    When the data name is "<name>重命名" then i click the "更多" button
+    And I click the "GiveRight" button
     And I wait for loading invisible
     And I "uncheck" the checkbox which name is "验证授权用户" in tiny table
     And I "check" the checkbox which name is "验证授权用户" in tiny table
@@ -536,7 +572,7 @@ Feature: 权限-仪表盘
     Given I login user "验证授权用户" with password "All#123456"
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    Then the data name is "{'column':'0','name':'<name>重命名'}" then i will see "设为默认编辑标签授权删除" button
+    Then the data name is "{'column':'0','name':'<name>重命名'}" then i will see "<function>" button
     And I click the detail which name is "<name>重命名"
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "test"
@@ -545,7 +581,8 @@ Feature: 权限-仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'<name>重命名'}" values "{'column':'2','name':'test'}"
-    And the data name is "<name>重命名" then i click the "删除" button
+    When the data name is "<name>重命名" then i click the "更多" button
+    And I click the "MultiDelete" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
@@ -553,8 +590,8 @@ Feature: 权限-仪表盘
     Then I logout current user
 
     Examples:
-      | name     |
-      | AutoAuth |
+      | name     |function|
+      | AutoAuth |编辑\n更多    |
 
   Scenario: 新建仪表盘以测试二次授权
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -565,7 +602,8 @@ Feature: 权限-仪表盘
 
   Scenario: 给用户授权所有权限
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    When the data name is "测试二次授权" then i click the "授权" button
+    When the data name is "测试二次授权" then i click the "更多" button
+    And I click the "GiveRight" button
     And I wait for loading invisible
     And I "check" the checkbox which name is "AutoTest" in tiny table
     And I click the "Ensure" button
@@ -577,9 +615,13 @@ Feature: 权限-仪表盘
     Given I login user "AutoTest" with password "All#123456"
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When the data name is "测试二次授权" then i click the "授权" button
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "GiveRight" button
     And I wait for loading invisible
-    And I choose the "<authRole>" from the "AuthDropdown"
+    And I click the "AuthDropdown" button
+    And I click the "用户" button
+    ##########
+  #  And I choose the "<authRole>" from the "AuthDropdown"
     And I wait for loading invisible
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
@@ -588,7 +630,8 @@ Feature: 权限-仪表盘
     Given I login user "验证授权用户" with password "All#123456"
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "设为默认授权" button
+    And I wait for "9000" millsecond
+    Then the data name is "<name>" then i will see "<uesrfunction>" button
     When the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
@@ -596,31 +639,38 @@ Feature: 权限-仪表盘
     And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
-    Then I will see the "AddTag" doesn't exist
+    ###########
+   ########### Then I will see the "AddTag" doesn't exist
     Then I logout current user
 
     Examples:
-      | authRole | authName | function | name   |
-      | 用户       | 验证授权用户   | 读取       | 测试二次授权 |
+      | authRole | authName | function | name   |uesrfunction|
+      | 用户       | 验证授权用户   | 读取       | 测试二次授权 |设为默认\n授权      |
 
   Scenario Outline: 二次授权读取+编辑
     Given I login user "AutoTest" with password "All#123456"
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When the data name is "测试二次授权" then i click the "授权" button
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "GiveRight" button
     And I wait for loading invisible
-    And I choose the "<authRole>" from the "AuthDropdown"
+    #########
+    #######And I choose the "<authRole>" from the "AuthDropdown"
     And I wait for loading invisible
-    When I "check" the function "<function>" which name is "<authName>" in tiny table
+    When I "check" the function "<function>" which name is "验证授权用户" in tiny table
     And I click the "Ensure" button under some element
     And I wait for "Message" will be visible
     Then I will see the message "保存成功"
     Given I login user "验证授权用户" with password "All#123456"
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认编辑标签授权" button
-    When the data name is "<name>" then i click the "标签" button
-    And I set the parameter "Tag" with value "AutoTestTag"
+    Then the data name is "{'column':'0','name':'<name>'}" then i will see "<userfunction>" button
+
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "ResouceTag" button
+    And I wait for "multiAddTag" will be visible
+    And I click the "multiAddTag" button
+    And I set the parameter "multiInputTag" with value "AutoTestTag"
     And I choose the "AutoTestTag" from the "TagDropdown"
     And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible
@@ -641,22 +691,25 @@ Feature: 权限-仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'<name>重命名'}" values "{'column':'2','name':'test'}"
-    When the data name is "<name>重命名" then i click the "授权" button
+    When the data name is "<name>重命名" then i click the "更多" button
+    And I click the "GiveRight" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
     Then I logout current user
 
     Examples:
-      | authRole | authName        | function | name   |
-      | 角色       | __user_验证授权用户__ | 编辑       | 测试二次授权 |
+      | authRole | authName        | function | name   |userfunction|
+      | 角色       | __user_验证授权用户__ | 编辑       | 测试二次授权 |编辑\n更多        |
 
   Scenario Outline: 二次授权读取+编辑+删除
     Given I login user "AutoTest" with password "All#123456"
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When the data name is "<name>" then i click the "授权" button
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "GiveRight" button
     And I wait for loading invisible
-    And I choose the "<authRole>" from the "AuthDropdown"
+    ###########
+    ######And I choose the "<authRole>" from the "AuthDropdown"
     And I wait for loading invisible
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button under some element
@@ -665,12 +718,14 @@ Feature: 权限-仪表盘
     Given I login user "验证授权用户" with password "All#123456"
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认编辑标签授权删除" button
-    And the data name is "<name>" then i click the "授权" button
+    Then the data name is "{'column':'0','name':'<name>'}" then i will see "<userfunction>" button
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "GiveRight" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    When the data name is "<name>" then i click the "标签" button
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "ResouceTag" button
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "AutoTestTag"
     And I choose the "AutoTestTag" from the "TagDropdown"
@@ -690,7 +745,8 @@ Feature: 权限-仪表盘
     And I wait for "AddEventButton" will be visible
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     Then I will see the data "{'column':'0','name':'<name>重命名'}" values "{'column':'2','name':'test'}"
-    And the data name is "<name>重命名" then i click the "删除" button
+    When the data name is "<name>重命名" then i click the "更多" button
+    And I click the " EmpowerDelete" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
@@ -698,5 +754,5 @@ Feature: 权限-仪表盘
     Then I logout current user
 
     Examples:
-      | authRole | authName | function | name      |
-      | 用户分组     | 验证授权用户分组 | 读取,编辑,删除 | 测试二次授权重命名 |
+      | authRole | authName | function | name      |userfunction|
+      | 用户分组     | 验证授权用户分组 | 读取,编辑,删除 | 测试二次授权重命名 |编辑\n更多|

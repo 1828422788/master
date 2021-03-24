@@ -1,8 +1,6 @@
 @all @logDisplay @logDisplayGeneral
 Feature: 日志展现_普通统计视图
-#34 (24)
 
-  # tag:sample04061424_display should be uploaded for Yesterday
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -15,8 +13,9 @@ Feature: 日志展现_普通统计视图
     And I click the "CountButton" button
     And I wait for "1000" millsecond
     And I will see the "splSearch.StatisticalPage" page
-    And I choose the "<chart>" from the "PresentType" in config
-    And I choose the "<value1>" from the "FieldValue" in config
+    And I choose the "<chart>" from the "PresentType"
+    And I wait for "2000" millsecond
+    And I choose the "<value1>" from the "FieldValue"
     And I click the "AddButton" button
     And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
@@ -40,11 +39,12 @@ Feature: 日志展现_普通统计视图
     And I click the "CountButton" button
     And I wait for "1000" millsecond
     And I will see the "splSearch.StatisticalPage" page
-    And I choose the "<chart>" from the "PresentType" in config
     And I choose the "<value1>" from the "FieldValue" in config
+    And I wait for "2000" millsecond
+    And I choose the "<chart>" from the "PresentType" in config
     And I click the "AddButton" button
-    And I set the parameter "FieldValueInput" with value "<value2>"
     And I click the "IndependentStats" button
+    And I choose the "<value2>" from the "FieldValue" in config
     And I click the "AddButton" button
     And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
@@ -63,8 +63,9 @@ Feature: 日志展现_普通统计视图
     And I click the "DateEditor" button
     And I click the "CustomTimeTab" button
     And I set the parameter "StartDateField" with yesterday date
+    And I set the parameter "StartTimeField" with value "08:00:00.000"
     And I set the parameter "EndDateField" with current date
-    And I click the "StartTimeField" button
+    And I set the parameter "EndTimeField" with value "08:00:00.000"
     And I click the "ApplyCustomTime" button
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
@@ -74,22 +75,14 @@ Feature: 日志展现_普通统计视图
     Given I click the "TimeSlice" button
     And I wait for "1000" millsecond
     Then I choose the "apache.resp_len" from the "FieldValue" in config
+    And I wait for "2000" millsecond
     Then I choose the "<statisticType>" from the "StatisticType" in config
-    # Set Time Parameters
-    And I click the "StartDate" button
-    And I set the parameter "DateInput" with current date
-    And I click the "HideElement" button
-    And I click the "StartTime" button
-    And I set the parameter "TimeInput" with value "00:00:00"
-    And I click the "HideElement" button
-    And I click the "EndDate" button
-    And I set the parameter "DateInput" with current date
-    And I click the "HideElement" button
-    And I click the "EndTime" button
-    And I set the parameter "TimeInput" with value "23:59:59"
-    And I click the "HideElement" button
-    And I click the "GenerateTime" button under some element
-    And I wait for "6000" millsecond
+    And I set the parameter "StartDate" with current date
+    And I set the parameter "StartTime" with value "00:00:00"
+    And I set the parameter "EndDate" with current date
+    And I set the parameter "EndTime" with value "23:59:59"
+    And I click the "Generate" button under some element
+    And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -167,8 +160,9 @@ Feature: 日志展现_普通统计视图
     And I click the "DateEditor" button
     And I click the "CustomTimeTab" button
     And I set the parameter "StartDateField" with value "2020-05-01"
+    And I set the parameter "StartTimeField" with value "08:00:00.000"
     And I set the parameter "EndDateField" with value "2020-05-31"
-    And I click the "StartTimeField" button
+    And I set the parameter "EndTimeField" with value "08:00:00.000"
     And I click the "ApplyCustomTime" button
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
@@ -203,6 +197,7 @@ Feature: 日志展现_普通统计视图
     Given I click the "DataHistogram" button
     And I wait for "1000" millsecond
     When I choose the "apache.resp_len" from the "FieldValue" in config
+    And I wait for "1000" millsecond
     And I set the parameter "DataSpan" with value "<number>"
     And I click the "Generate" button
     And I wait for "4000" millsecond
@@ -217,7 +212,6 @@ Feature: 日志展现_普通统计视图
       | 500     | 816_500    |
       | 1000    | 816_1000   |
 
-# can not compare, because of same values
   Scenario Outline: classifyfieldvalue(RZY-817)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
@@ -279,8 +273,9 @@ Feature: 日志展现_普通统计视图
     And I click the "DateEditor" button
     And I click the "CustomTimeTab" button
     And I set the parameter "StartDateField" with value "2020-05-01"
+    And I set the parameter "StartTimeField" with value "08:00:00.000"
     And I set the parameter "EndDateField" with value "2020-05-31"
-    And I click the "StartTimeField" button
+    And I set the parameter "EndTimeField" with value "08:00:00.000"
     And I click the "ApplyCustomTime" button
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
@@ -318,11 +313,12 @@ Feature: 日志展现_普通统计视图
     And I wait for "1000" millsecond
     And I choose the "apache.resp_len" from the "YAxis" in config
     And I choose the "apache.clientip" from the "GroupField" in config
-    And I click the "SelfRadio" button
-    And I wait for "2000" millsecond  
-    And I choose the "36.46.208.22" from the "SelfRadioField" in config
     And I choose the "<chart>" from the "PresentType" in config
     When I set the parameter "TimeSpan" with value "<timeSpan>"
+    And I click the "SelfRadio" button
+    And I wait for "2000" millsecond
+    And I choose the "36.46.208.22" from the "SelfRadioField" in config
+    And I click the "HideElement" button
     And I click the "Generate" button
     And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
@@ -344,6 +340,7 @@ Feature: 日志展现_普通统计视图
     And I click the "TotalPercent" button
     And I wait for "1000" millsecond
     And I choose the "apache.resp_len" from the "FieldValue" in config
+    And I click the "HideElement" button
     And I click the "ClosePercent<percent2>" button
     And I click the "AddPercent" button
     And I set the parameter "PercentInput" with value "<percent1>"
@@ -373,10 +370,10 @@ Feature: 日志展现_普通统计视图
     And I set the parameter "GoalValue" with value "<value1>"
     And I click the "Generate" button
     And I wait for "4000" millsecond
-    And I wait for "ChartPercent" will be visible
-    And I drag the scroll bar to the element "ChartPercent"
+    And I wait for "Chart" will be visible
+    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "ChartPercent" with name "actual/普通统计视图/<screenName>"
+    And take part of "Chart" with name "actual/普通统计视图/<screenName>"
     Then I compare source image "actual/普通统计视图/<screenName>" with target image "expect/普通统计视图/<screenName>"
 
     Examples:
@@ -386,7 +383,6 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario: multilevelstats_step1(RZY-822)
-    # types of chart
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -400,14 +396,13 @@ Feature: 日志展现_普通统计视图
     And I choose the "饼图" from the "PresentType" in config
     And I click the "Generate" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "MultiStatsChart" will be visible
+    And I drag the scroll bar to the element "MultiStatsChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/822_多级统计/822_chart_step1"
+    And take part of "MultiStatsChart" with name "actual/普通统计视图/822_多级统计/822_chart_step1"
     Then I compare source image "actual/普通统计视图/822_多级统计/822_chart_step1" with target image "expect/普通统计视图/822_多级统计/822_chart_step1"
 
   Scenario: multilevelstats_step2(RZY-822)
-    # types of chart
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -424,18 +419,19 @@ Feature: 日志展现_普通统计视图
     And I choose the "apache.clientip" from the "FieldValue" in config
     And I choose the "计数" from the "StatisticType" in config
     And I click the "Generate" button
+    And I wait for "1000" millsecond
     And I click the "StatisticsGram" button
+    And I wait for "1000" millsecond
     And I choose the "饼图" from the "PresentType" in config
     And I click the "Generate" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "MultiStatsChart" will be visible
+    And I drag the scroll bar to the element "MultiStatsChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/822_多级统计/822_chart_step2"
+    And take part of "MultiStatsChart" with name "actual/普通统计视图/822_多级统计/822_chart_step2"
 #    Then I compare source image "actual/普通统计视图/822_多级统计/822_chart_step2" with target image "expect/普通统计视图/822_多级统计/822_chart_step2"
 
   Scenario: multilevelstats_step3(RZY-822)
-    # types of chart
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -451,22 +447,25 @@ Feature: 日志展现_普通统计视图
     And I click the "NextStep" button
     And I choose the "apache.clientip" from the "FieldValue" in config
     And I click the "Generate" button
+    And I wait for "1000" millsecond
 
     # Select the whole table
     When I click the "WholeField" button
+    And I wait for "1000" millsecond
     And I click the "NextStep" button
     And I choose the "apache.resp_len" from the "FieldValue" in config
     And I choose the "计数" from the "StatisticType" in config
     And I click the "Generate" button
     And I wait for "2000" millsecond
     And I click the "StatisticsGram" button
+    And I wait for "1000" millsecond
     And I choose the "饼图" from the "PresentType" in config
     And I click the "Generate" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "MultiStatsChart" will be visible
+    And I drag the scroll bar to the element "MultiStatsChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/822_多级统计/822_chart_step3"
+    And take part of "MultiStatsChart" with name "actual/普通统计视图/822_多级统计/822_chart_step3"
 #    Then I compare source image "actual/普通统计视图/822_多级统计/822_chart_step3" with target image "expect/普通统计视图/822_多级统计/822_chart_step3"
 
 
@@ -486,13 +485,13 @@ Feature: 日志展现_普通统计视图
     And take part of "Chart" with name "actual/普通统计视图/825_地理分布/825_world"
     Then I compare source image "actual/普通统计视图/825_地理分布/825_world" with target image "expect/普通统计视图/825_地理分布/825_world"
 
-    When I click the "CountryChina" button
+    When I click the Circle "CountryChina" button
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/825_地理分布/825_china"
     Then I compare source image "actual/普通统计视图/825_地理分布/825_china" with target image "expect/普通统计视图/825_地理分布/825_china"
 
-    When I click the "ProvinceSichuan" button
+    When I click the Circle "ProvinceSichuan" button
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/825_地理分布/825_sichuan"
@@ -507,6 +506,7 @@ Feature: 日志展现_普通统计视图
     And I click the "<stat>" button
     And I wait for "1000" millsecond
     And I click the "<button>" button
+    And I wait for "Message" will be visible
     And I will see the message "<message>"
     
   Examples: 
@@ -518,7 +518,7 @@ Feature: 日志展现_普通统计视图
     | DataHistogram           | Generate     | 请选择统计字段         |
     | ClassifyFieldValue      | Generate     | 请选择统计字段         |
     | FieldNumber             | Generate     | 请选择y轴字段！        |
-#    | TotalPercent            | Generate     | 请选择统计字段         |
+    | TotalPercent            | Generate     | 请选择统计字段         |
     | PercentDegree           | Generate     | 请选择统计字段         |
     | MultilevelStatistics    | Generate     | 请选择统计字段         |
     | GeographicalDistribution| Generate     | 请选择统计字段         |
@@ -533,14 +533,15 @@ Feature: 日志展现_普通统计视图
     And I wait for "1000" millsecond
     Then I choose the "apache.resp_len" from the "<field>" in config
     And I click the "Generate" button
+    And I wait for "Message" will be visible
     And I will see the message "<message>"
 
     Examples:
-      |     stat                | message                |     field     |
-#      | TimeSlice               | 请正确填写时间分段!    | FieldValue    |
+      |     stat                | message               |     field     |
+      | TimeSlice               | 请正确填写时间分段!    | FieldValue    |
       | DataSlice               | 请填写合理的数值分段！ | FieldValue    |
       | DataHistogram           | 请填写合理的数值间隔！ | FieldValue    |
-#      | FieldNumber             | 请选择分组字段！        | YAxis         |
+      | FieldNumber             | 请选择分组字段！       | YAxis         |
       | PercentDegree           | 请输入目标值。         | FieldValue    |
 
   Scenario Outline: check_field3
@@ -553,6 +554,7 @@ Feature: 日志展现_普通统计视图
     And I wait for "1000" millsecond
     Then I set the parameter "TimeSpan" with value "<value>"
     And I click the "Generate" button
+    And I wait for "Message" will be visible
     And I will see the message "请输入正整数"
 
     Examples:
@@ -572,12 +574,13 @@ Feature: 日志展现_普通统计视图
     And I click the "<button>" button
     Then I set the parameter "<field>" with value "a"
     And I click the "Generate" button
+    And I wait for "Message" will be visible
     And I will see the message "<message>"
 
     Examples:
       |     stat                | field          | message                       |  button       |
       | DataSlice               | StartDataValue | 请填写合理的数值分段！        |               |
-#      | DataHistogram           | DataSpan       |                               |               |
+#      | DataHistogram           | DataSpan       |                              |               |
       | TotalPercent            | PercentInput   | 请输入正确的数值(0<数值<100)  |    AddPercent |
       | PercentDegree           | GoalValue      | 请填写合理的数值！            |               |
 
@@ -594,6 +597,7 @@ Feature: 日志展现_普通统计视图
     And I set the parameter "<field>" with value "<value>"
     And I click the "<button>" button
     When I click the "Generate" button
+    And I wait for "Message" will be visible
     And I will see the message "<message>"
 
   Examples:
@@ -613,12 +617,14 @@ Feature: 日志展现_普通统计视图
     And I click the "TotalPercent" button
     And I wait for "1000" millsecond
     Then I choose the "apache.resp_len" from the "FieldValue" in config
-    And I click the "DeleteIcon" button
-    And I click the "DeleteIcon" button
-    And I click the "DeleteIcon" button
-    And I click the "DeleteIcon" button
-    And I click the "DeleteIcon" button
+    And I click the "HideElement" button
+    And I click the "ClosePercent25" button
+    And I click the "ClosePercent50" button
+    And I click the "ClosePercent75" button
+    And I click the "ClosePercent95" button
+    And I click the "ClosePercent99" button
     When I click the "Generate" button
+    And I wait for "Message" will be visible
     And I will see the message "添加百分比"
 
   Scenario: check_field7
@@ -634,20 +640,21 @@ Feature: 日志展现_普通统计视图
 
     And I click the "NextStep" button
     And I click the "Generate" button
+    And I wait for "Message" will be visible
     And I will see the message "请选择统计字段"
     And I click the "Ensure" button
     And I choose the "apache.clientip" from the "FieldValue" in config
     And I click the "Generate" button
-    And I will see the message "请选择step1字段!"
+    And I wait for "Message" will be visible
+    And I will see the message "请选择step1的值!"
     And I click the "Ensure" button
     # Click checkbox with 200
     When I click the "Field" button
     And I click the "Generate" button
+    And I wait for "2000" millsecond
     And I click the "StatisticsGram" button
+    And I wait for "2000" millsecond
+    And I choose the "散点图" from the "PresentType"
     And I click the "Generate" button
+    And I wait for "Message" will be visible
     And I will see the message "请输入时间桶!"
-
-
-
-
-

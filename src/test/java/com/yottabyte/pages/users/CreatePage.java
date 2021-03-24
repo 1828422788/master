@@ -14,19 +14,19 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(id = "AccountUpdate_name")
+    @FindBy(xpath = "//input[@placeholder='请输入名称']")
     private WebElement userName;
 
-    @FindBy(id = "AccountUpdate_fullName")
+    @FindBy(xpath = "//input[@placeholder='请输入全名']")
     private WebElement fullName;
 
-    @FindBy(id = "AccountUpdate_email")
+    @FindBy(xpath = "//input[@placeholder='请输入邮箱']")
     private WebElement email;
 
-    @FindBy(id = "AccountUpdate_phone")
+    @FindBy(xpath = "//input[@placeholder='请输入电话号码']")
     private WebElement telephone;
 
-    @FindBy(xpath = "//label[contains(text(),'密码')]/ancestor::div/following-sibling::div//input")
+    @FindBy(xpath = "//input[@placeholder='请输入密码']")
     private WebElement password;
 
     @FindBy(className = "yw-select")
@@ -44,7 +44,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-message-box__message")
     private WebElement message;
 
-    @FindBy(className = "ant-select-selection__rendered")
+    @FindBy(className = "yotta-select-selection-placeholder")
     private WebElement userGroup;
 
     @FindBy(className = "ant-form-explain")

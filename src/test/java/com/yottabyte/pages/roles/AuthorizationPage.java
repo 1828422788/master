@@ -48,10 +48,10 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='自定义']/ancestor::label)[last()]")
     private WebElement customize;
 
-    @FindBy(className = "ant-calendar-picker-icon")
+    @FindBy(className = "yotta-date-picker-date")
     private WebElement dateEditor;
 
-    @FindBy(className = "ant-calendar-input")
+    @FindBy(className = "yotta-date-picker-date")
     private WebElement timeInput;
 
     @FindBy(className = "ant-calendar-ok-btn")
@@ -88,7 +88,7 @@ public class AuthorizationPage extends PageTemplate {
     }
 
     public WebElement getAgent() {
-        return this.getMenuButton("Agent 管理");
+        return this.getSubMenuButton("Agent管理");
     }
 
     public WebElement getResourceAuth() {
@@ -107,8 +107,18 @@ public class AuthorizationPage extends PageTemplate {
         return this.getFunctionButton("资源");
     }
 
+    public WebElement getSystem() {
+        return this.getFunctionButton("系统");
+    }
+
+    //基础权限中的应用
     public WebElement getApp() {
         return this.getFunctionButton("应用");
+    }
+
+    //资源权限中的应用
+    public WebElement getResourceOfApp() {
+        return this.getSubMenuButton("应用");
     }
 
     public WebElement getSearch() {
@@ -136,12 +146,13 @@ public class AuthorizationPage extends PageTemplate {
     }
 
     public WebElement getDashboard() {
-        return this.getFunctionButton("仪表盘");
+        return this.getSubMenuButton("仪表盘");
     }
 
     public WebElement getResourceName(String name) {
         return webDriver.findElement(By.xpath("//span[text()='" + name + "']/preceding-sibling::label"));
     }
+
 
     public WebElement getCreateUser() {
         return createUser;
@@ -243,7 +254,7 @@ public class AuthorizationPage extends PageTemplate {
     }
 
     private WebElement getFunctionButton(String functionName) {
-        String xpath = "//div[text()='" + functionName + "']";
+        String xpath = "//span[text()='" + functionName + "']";
         return webDriver.findElement(By.xpath(xpath));
     }
 

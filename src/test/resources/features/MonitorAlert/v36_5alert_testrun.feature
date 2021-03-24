@@ -33,27 +33,6 @@ Feature: 测试运行-邮件
 
     Examples:
       | name                                                     |
-      |	api00_all_事件数_扩展chart_all_sample_合并	|
-      |	api00_all_事件计数_设备切分ip_扩展chart_all_交易日	|
-      |	api00_all_事件计数_设备切分ip_扩展chart_all_合并	|
-      |	api00_spl统计ip_cnt_高_扩展chart_all_合并	|
-      |	api00_spl统计ip_cnt_高_扩展chart_all_宏	|
-      |	api00_spl统计_按行发送sample	|
-      |	api00_spl统计_按行发送_抑制_连续触发3次_分组单字段	|
-      |	api00_spl统计_按行发送_抑制_连续触发3次_分组多字段	|
-      |	api00_spl统计_按行发送_抑制翻倍_cnt_10-59min_分组单字段	|
-      |	api00_spl统计_按行发送_抑制翻倍_cnt_10-59min_分组多字段	|
-      |	api00_spl统计_按行发送_抑制翻倍_cnt_10-59min_无分组	|
-      |	api00_spl统计_非按行发送sample	|
-      |	api00_基线_status_在区间内_all_合并	|
-      |	api00_基线_status_在区间外_邮件_合并	|
-      |	api00_基线_status_在区间外_邮件_合并_交易日	|
-      |	api00_字段统计_切分ip_最大数status_扩展chart键值_all	|
-      |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_交易日	|
-      |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_抑制连续触发3次	|
-      |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_抑制间隔翻倍10-90min	|
-      |	api00_连续统计_status<=502_扩展chat_键值_all_合并	|
-      |	api00_连续统计_status<=502_扩展chat_键值_all_合并_交易日	|
       |	api01_字段统计_最大数status_扩展chart键值_邮件	|
       |	api3_all_事件计数_设备切分ip_扩展chart_all抑制45	|
       |	api3_all_连续统计_status<404_低_邮件	|
@@ -87,6 +66,7 @@ Feature: 测试运行-邮件
       |	api7_nods_事件数_rsyslog	|
       |	api7_nods_字段统计ip_20秒_邮件	|
       |	api7_spl统计avg_高_扩展avg_all	|
+      |	api9_all_事件计数_设备切分ip_扩展chart_all_spark	|
+      |	api9_事件_multiwords_切分_扩展chart插图_键值_邮件_splark	|
+      |	api9_字段统计_切分ip_最大数status_扩展chart键值_all_spark	|
       |	api_RZY-2980:新建监控-基本配置-执行计划-crontab-周一到周五下午14：00~14：45之间	|
-
-

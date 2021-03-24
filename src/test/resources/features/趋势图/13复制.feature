@@ -44,36 +44,35 @@ Feature: 趋势图复制(RZY-1889)
     And I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "Copy_Test"
+    And I choose the "test_app" from the "AppField" in config
     And I set the parameter "TagInput" with value "auto_package"
     And I click the "SelectAddedTag" button
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "test_app" from the "AppField" in config
     And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
   Scenario: copy_trend
     And I wait for "2000" millsecond
-    When the data name is "Copy_Test" then i click the "更多" button
-    And I click the "Copy" button
+    When the data name is "Copy_Test" then i click the "复制" button in more menu
     And I wait for "Ensure" will be visible
     Then I will see the message "复制成功"
     When I click the "Ensure" button
     And I wait for "3000" millsecond
     Then I will see the search result contains "{'column':'0','name':'Copy_Test_副本'}"
 
-  Scenario: global_tag_app
-    And I wait for "2000" millsecond
-    And I choose the "test_app" from the "AppDropdown"
-    And I wait for "TagOfTheLastItem" will be visible
-    When I choose the "auto_package" from the "ResourceDropdown"
-    And I set the parameter "SearchInput" with value ""
-    And I wait for "2000" millsecond
-    Then I will see the data "{'column':'0','name':'Copy_Test'}" values "{'column':'4','name':'auto_package'}"
-    When I will see the data "{'column':'0','name':'Copy_Test'}" values "{'column':'3','name':'test_app'}"
-    Then I will see the data "{'column':'0','name':'Copy_Test_副本)'}" values "{'column':'4','name':'auto_package'}"
-    When I will see the data "{'column':'0','name':'Copy_Test_副本'}" values "{'column':'3','name':'test_app'}"
-    And I will see the element "TagOfTheLastItem" contains "auto_package"
-    And I will see the element "AppOfTheLastItem" contains "test_app"
+#  Scenario: global_tag_app
+#    And I wait for "2000" millsecond
+#    And I choose the "test_app" from the "AppDropdown"
+#    And I wait for "TagOfTheLastItem" will be visible
+#    When I choose the "auto_package" from the "ResourceDropdown"
+#    And I set the parameter "SearchInput" with value ""
+#    And I wait for "2000" millsecond
+#    Then I will see the data "{'column':'0','name':'Copy_Test'}" values "{'column':'4','name':'auto_package'}"
+#    When I will see the data "{'column':'0','name':'Copy_Test'}" values "{'column':'3','name':'test_app'}"
+#    Then I will see the data "{'column':'0','name':'Copy_Test_副本)'}" values "{'column':'4','name':'auto_package'}"
+#    When I will see the data "{'column':'0','name':'Copy_Test_副本'}" values "{'column':'3','name':'test_app'}"
+#    And I will see the element "TagOfTheLastItem" contains "auto_package"
+#    And I will see the element "AppOfTheLastItem" contains "test_app"
 
   Scenario: verify_copy
     And I wait for "2000" millsecond
@@ -97,16 +96,14 @@ Feature: 趋势图复制(RZY-1889)
 
     And I will see the input element "NameInput" value will be "Copy_Test_副本"
     And I will see the input element "DescribeInput" value will be "AutoCreate"
-    And I cancel selection "test_app" from the "AppField"
+    And I will see the element "SelectedApp" contains "test_app"
     And I will see the element "SelectedTag" contains "auto_package"
     And I click the "Complete" button under some element
     Then I wait for "SuccessUpdate" will be visible
 
   Scenario Outline: delete_copy
-    Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for "2000" millsecond
-    When the data name is "{'column':'0','name':'<name>'}" then i click the "更多" button
-    And I click the "Delete" button
+    When the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     Then I will see the message "确认删除 [<name>] ?"
     When I click the "Ensure" button

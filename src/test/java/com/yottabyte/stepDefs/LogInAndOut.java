@@ -80,12 +80,44 @@ public class LogInAndOut {
         this.validateUser(username, password);
     }
 
+
+    /**
+     * 无任何权限时登录其他用户
+     *
+     * @param username
+     * @param password
+     */
+    @And("^I login user \"([^\"]*)\" with password \"([^\"]*)\" without permission$")
+    public void userLoginwithoutpermission(String username, String password) throws InterruptedException {
+        webDriver.manage().deleteAllCookies();
+        webDriver.navigate().refresh();
+        this.deleteCookie();
+        int times = 0;
+        LoginPage loginPage = new LoginPage(webDriver);
+        String baseURL = LoginBeforeAllTests.getBaseURL();
+        while (webDriver.getTitle().equals("登录")) {
+            loginPage.getUsername().clear();
+            loginPage.getUsername().sendKeys(username);
+            loginPage.getPassword().clear();
+            loginPage.getPassword().sendKeys(password);
+            loginPage.getLoginButton().click();
+            Thread.sleep(2000);
+            webDriver.navigate().to(baseURL + "/account/users/3/");
+            times++;
+            if (times > 10) {
+                return;
+            }
+        }
+        // 验证是否登录到正确用户下
+        this.validateUser(username, password);
+    }
+
     public void validateUser(String username, String password) throws InterruptedException {
         WaitElement waitElement = new WaitElement();
-        waitElement.iWaitForWillBeVisible("userIcon");
-        WebElement userIcon = webDriver.findElement(By.xpath("//span[@class='ant-badge']/i"));
+        WebElement userIcon = webDriver.findElement(By.xpath("//span[contains(@class,'yotta-icon-UserFilled')]"));
+        waitElement.elementVisible(userIcon);
         userIcon.click();
-        WebElement loginUserName = webDriver.findElement(By.xpath("//div[@class='ant-popover-inner-content']//p"));
+        WebElement loginUserName = webDriver.findElement(By.xpath("//div[@class='yotta-avatar yotta-avatar-square']/following-sibling::div//p"));
         if (!loginUserName.getText().equals(username)) {
             userLogin(username, password);
         }

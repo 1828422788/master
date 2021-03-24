@@ -15,47 +15,32 @@ public class DragAndDropPage extends CreatePage {
         driver.manage().window().setSize(new Dimension(1500,900));
     }
 
-    @FindBy(xpath = "//div[text()='提示']/ancestor::div/following-sibling::div//p")
+    @FindBy(className = "_3vWjsNSa82KJ2BOg98qxO8")
+    private WebElement chart;
+
+    @FindBy(xpath = "//span[@aria-label='InfoCircleFilled']/ancestor::div/following-sibling::div/p")
     private WebElement prompt;
 
-    @FindBy(xpath = "//span[text()='查看SPL']")
-    private WebElement checkSPL;
-
-    @FindBy(xpath = "(//div[text()='查看SPL']/ancestor::div/following-sibling::div/div)[1]")
-    private WebElement SPL;
-
-    @FindBy(className = "ant-popover")
+    @FindBy(className = "yotta-popover-wrap")
     private WebElement panel;
 
-    @FindBy(className = "ant-modal-close")
+    @FindBy(className = "yotta-modal-close-icon")
     private WebElement closeSPL;
 
-    @FindBy(xpath = "(//div[@id='dimensions']/span/span/i)[1]")
+    @FindBy(xpath = "(//div[contains(@yotta-test,'dimensions')]//span[@aria-label='ControllSquareFilled'])[1]")
     private WebElement elementInDimensions;
 
-    @FindBy(xpath = "(//div[@id='values']/span/i)[1]")
+    @FindBy(xpath = "(//div[contains(@yotta-test,'values-icon')]//span[@aria-label='ControllSquareFilled'])[1]")
     private WebElement elementInValues;
 
-    @FindBy(xpath = "(//div[@id='values2']/span/i)[1]")
+    @FindBy(xpath = "(//div[contains(@yotta-test,'values2')]//span[@aria-label='ControllSquareFilled'])[1]")
     private WebElement elementInValues2;
 
-    @FindBy(xpath = "(//div[@id='byFields']/span/i)[1]")
+    @FindBy(xpath = "(//div[contains(@yotta-test,'compareFields')]//span[@aria-label='ControllSquareFilled'])[1]")
     private WebElement elementInCompare;
 
     @FindBy(xpath = "//i[@title='同环比']")
     private WebElement compareButton;
-
-    @FindBy(xpath = "//label[text()='同环比']/following-sibling::span/span")
-    private WebElement compareField;
-
-    @FindBy(xpath = "//span[text()='分桶粒度']/ancestor::div/following-sibling::input")
-    private WebElement span;
-
-    @FindBy(xpath = "//span[text()='最小分桶粒度']/ancestor::div/following-sibling::input")
-    private WebElement minSpan;
-
-    @FindBy(xpath = "//span[text()='分桶个数']/ancestor::div/following-sibling::input")
-    private WebElement bins;
 
     @FindBy(xpath = "//span[contains(@class, 'ant-select-tree-switcher')]/i")
     private WebElement iconDown;
@@ -73,95 +58,48 @@ public class DragAndDropPage extends CreatePage {
     @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::span//label[4]")
     private WebElement forthLabel;
 
-    @FindBy(xpath = "(//div[text()='柱状外右侧'])[last()]")
+    @FindBy(xpath = "(//span[text()='柱状外右侧'])[last()]")
     private WebElement rightPosition;
 
     @FindBy(xpath = "(//div[@class='_2YOOafB8A7ZfHBScD1QcRz']/div/div)[1]")
     private WebElement otherChart;
 
-    @FindBy(xpath = "//span[text()='展示字号']/ancestor::div[1]/following-sibling::span//input")
-    private WebElement fontSize;
-
-    @FindBy(xpath = "//span[text()='dataset_1']")
+    @FindBy(xpath = "//div[@type='dataset']//span[text()='dataset_1']")
     private WebElement dataset_1;
 
-    @FindBy(xpath = "//span[text()='dataset_2']")
+    @FindBy(xpath = "//div[@type='dataset']//span[text()='dataset_2']")
     private WebElement dataset_2;
 
-    @FindBy(xpath = "//span[text()='dataset_3']")
+    @FindBy(xpath = "//div[@type='dataset']//span[text()='dataset_3']")
     private WebElement dataset_3;
-
-    @FindBy(xpath = "//div[@class='_1eGH0JWTfcA_3z1BXlH42u']")
-    private WebElement dateEditor;
-
-    @FindBy(xpath = "//button[text()='今天']")
-    private WebElement today;
-
-    @FindBy(xpath = "(//div[@class='_2rT4h5iRfwtqnpHKelgSZv'])[last()]/div[1]")
-    private WebElement columnField;
-
-    @FindBy(xpath = "(//div[@class='_2rT4h5iRfwtqnpHKelgSZv'])[last()]/div[2]")
-    private WebElement operator;
-
-    @FindBy(xpath = "(//div[@class='_2rT4h5iRfwtqnpHKelgSZv'])[last()]/input")
-    private WebElement value;
-
-    @FindBy(xpath = "//*[@class='ant-table-tbody']/tr[1]")
-    private WebElement tableBody;
-
-    @FindBy(xpath = "//span[text()='满足下列条件']/following-sibling::div/div")
-    private WebElement condition;
-
-    @FindBy(xpath = "//span[text()='应用']")
-    private WebElement apply;
-
-    @FindBy(xpath = "//span[text()='添加']")
-    private WebElement add;
 
     @FindBy(xpath = "//div[@class='ant-message-notice']//span")
     private WebElement message;
 
-    @FindBy(xpath = "//span[text()='表达式过滤']/preceding-sibling::span")
-    private WebElement expression;
-
-    @FindBy(xpath = "(//div[text()='请拖入数据集']) | (//span[text()='拖入数据集到此加入表格']) | (//div[@class='_3J-0LSb-pcRagbVvd09jPY'])")
+    @FindBy(xpath = "//div[@yotta-test='trend-dataset_multiple_drop_area-dom']/div | //div[@yotta-test='trend-dataset_merge_drop_area-input']")
     private WebElement dropDataset;
-
-    @FindBy(xpath = "//span[text()='数据概览']")
-    private WebElement overview;
-
-    @FindBy(xpath = "//span[text()='保存为数据集']")
-    private WebElement saveAsDataset;
-
-    @FindBy(xpath = "//div[@class='ant-tabs-nav-wrap']/div/div/div/div[3]")
-    private WebElement customTimeTab;
 
     @FindBy(xpath = "//span[text() = '启用数值2']/preceding-sibling::span")
     private WebElement addValueField;
 
-    @FindBy(xpath = "//label[text() = '数值']/i")
+    @FindBy(xpath = "//span[text()='数值']/following-sibling::span[@aria-label='EditOutlined']")
     private WebElement editFirstField;
 
-    @FindBy(xpath = "//label[text() = '数值2']/i")
+    @FindBy(xpath = "//span[text()='数值2']/following-sibling::span[@aria-label='EditOutlined']")
     private WebElement editSecondField;
-
-    @FindBy(xpath = "(//span[text()='展示颜色'])[last()]/ancestor::div/following-sibling::div/span")
-    private WebElement editColor;
-
-    @FindBy(xpath = "(//span[contains(text(),'函数')])[last()]/ancestor::div[1]/following-sibling::div[1]")
-    private WebElement typeFunction;
 
     @FindBy(xpath = "//span[@class='_3TjVnCiCABbodAnOm8kMEf']")
     private WebElement homeButton;
 
-    @FindBy(xpath = "(//div/span[text()='apache.clientip'])[1]")
+    @FindBy(xpath = "(//div[@yotta-test='trend-dataset_merge_field_cell-dom' and text()='apache.clientip'])[1]")
     private WebElement clientipInTable;
 
-    @FindBy(xpath = "(//div[@class='_1lkfN4JG8S51qtIGZPaKKe'][1]/span)[last()]")
-    private WebElement emptySpace;
-
-    @FindBy(xpath = "(//div[@class='_1LcnvcTivtoZyi2SHZDxXW'][1]/input)[last()]")
+    @FindBy(xpath = "(//input[@yotta-test='trend-dataset_merge_field_name-input'])[last()]")
     private WebElement lastColumn;
+
+    public WebElement getChart() {
+        return chart;
+    }
 
     public WebElement getPrompt() {
         return prompt;
@@ -169,71 +107,91 @@ public class DragAndDropPage extends CreatePage {
 
     //Charts --------------------------------------------------------------------------
     public WebElement getLine() {
-        return getElementByTitle("曲线图");
+        return getChartButton("line");
     }
 
     public WebElement getArea() {
-        return getElementByTitle("面积图");
+        return getChartButton("area");
     }
 
     public WebElement getScatter() {
-        return getElementByTitle("散点图");
+        return getChartButton("scatter");
     }
 
     public WebElement getColumn() {
-        return getElementByTitle("柱状图");
+        return getChartButton("column");
     }
 
     public WebElement getPie() {
-        return getElementByTitle("饼状图");
+        return getChartButton("pie");
     }
 
     public WebElement getRose() {
-        return getElementByTitle("玫瑰图");
+        return getChartButton("rose");
     }
 
     public WebElement getBar() {
-        return getElementByTitle("条形图");
+        return getChartButton("bar");
+    }
+
+    public WebElement getSunburst() {
+        return getChartButton("sunburst");
+    }
+
+    public WebElement getFlame() {
+        return getChartButton("flame");
     }
 
     public WebElement getChord() {
-        return getElementByTitle("和弦图");
+        return getChartButton("chord");
     }
 
     public WebElement getSankey() {
-        return getElementByTitle("桑基图");
+        return getChartButton("sankey");
     }
 
     public WebElement getForce() {
-        return getElementByTitle("力图");
+        return getChartButton("force");
     }
 
     public WebElement getMultiaxis() {
-        return getElementByTitle("多y轴图");
+        return getChartButton("multiaxis");
     }
 
     public WebElement getHeatmap() {
-        return getElementByTitle("热力地图");
+        return getChartButton("heatmap");
+    }
+
+    public WebElement getRegionmap() {
+        return getChartButton("regionmap");
     }
 
     public WebElement getSingle() {
-        return getElementByTitle("单值");
+        return getChartButton("single");
+    }
+
+    public WebElement getLiquidfill() {
+        return getChartButton("liquidfill");
     }
 
     public WebElement getWordcloud() {
-        return getElementByTitle("字符云图");
+        return getChartButton("wordcloud");
     }
 
     public WebElement getRadar() {
-        return getElementByTitle("雷达图");
+        return getChartButton("radar");
     }
 
     public WebElement getFunnel() {
-        return getElementByTitle("漏斗图");
+        return getChartButton("funnel");
+    }
+
+    public WebElement getMatrixheatmap() {
+        return getChartButton("matrixheatmap");
     }
 
     public WebElement getTable() {
-        return getElementByTitle("统计表");
+        return getChartButton("table");
     }
 
     //Objects to drag and drop -------------------------------------------------------------------
@@ -250,7 +208,7 @@ public class DragAndDropPage extends CreatePage {
     }
 
     public WebElement getCompareBy() {
-        return getElementById("byFields");
+        return getElementById("compareFields");
     }
 
     public WebElement getCompareByField() {
@@ -262,31 +220,35 @@ public class DragAndDropPage extends CreatePage {
     }
 
     public WebElement getTimestamp() {
-        return getElementById("timestamp");
+        return getDraggableElement("timestamp");
     }
 
     public WebElement getClientip() {
-        return getElementById("apache.clientip");
+        return getDraggableElement("apache.clientip");
     }
 
     public WebElement getGeoCity() {
-        return getElementById("apache.geo.city");
+        return getDraggableElement("apache.geo.city");
     }
 
     public WebElement getGeoProvince() {
-        return getElementById("apache.geo.province");
+        return getDraggableElement("apache.geo.province");
+    }
+
+    public WebElement getGeoCountry() {
+        return getDraggableElement("apache.geo.country");
     }
 
     public WebElement getResplen() {
-        return getElementById("apache.resp_len");
+        return getDraggableElement("apache.resp_len");
     }
 
     public WebElement getStatus() {
-        return getElementById("apache.status");
+        return getDraggableElement("apache.status");
     }
 
     public WebElement getMethod() {
-        return getElementById("apache.method");
+        return getDraggableElement("apache.method");
     }
 
     //-------------------------------------------------------------------------------------
@@ -311,17 +273,17 @@ public class DragAndDropPage extends CreatePage {
     }
 
     public WebElement getCompareField() {
-        return compareField;
+        return getYottaDropdownList("trend-BI_YoY-select");
     }
 
     //--------------------------------------------------------------------------------------
 
     public WebElement getCheckSPL() {
-        return checkSPL;
+        return getYottaButton("trend-BI_SPL-button");
     }
 
     public WebElement getSPL() {
-        return SPL;
+        return getYottaDiv("trend-SPL-dom");
     }
 
     public WebElement getCloseSPL() {
@@ -333,15 +295,15 @@ public class DragAndDropPage extends CreatePage {
     }
 
     public WebElement getSpan() {
-        return span;
+        return getYottaInput("trend-BI_time_span-input");
     }
 
     public WebElement getMinSpan() {
-        return minSpan;
+        return getYottaInput("trend-BI_time_min_span-input");
     }
 
     public WebElement getBins() {
-        return bins;
+        return getYottaInput("trend-BI_time_bins-number_input");
     }
 
     //--------------------------------------------------------------------------------
@@ -399,7 +361,7 @@ public class DragAndDropPage extends CreatePage {
     }
 
     public WebElement getFontSize() {
-        return fontSize;
+        return getYottaInput("trend-BI_param_singleChartFontSize-number_input");
     }
 
     public WebElement getDataset_1() {
@@ -415,15 +377,15 @@ public class DragAndDropPage extends CreatePage {
     }
 
     public WebElement getDateEditor() {
-        return dateEditor;
+        return getYottaDiv("trend-dataset_time-date_time_picker");
     }
 
     public WebElement getToday() {
-        return today;
+        return getYottaLabel("date_time_picker-select_shortcut_今天-dom");
     }
 
     public WebElement getCustomTimeTab() {
-        return customTimeTab;
+        return getYottaTab("自定义时间范围");
     }
 
     public void getCustomTime() {
@@ -451,34 +413,31 @@ public class DragAndDropPage extends CreatePage {
     }
 
     public WebElement getColumnField() {
-        columnField.click();
-        return super.getLastDropdownList();
+        return getYottaDropdownList("trend-dataset_filter_condtion_field-select");
     }
 
     public WebElement getOperator() {
-        operator.click();
-        return super.getLastDropdownList();
+        return getYottaDropdownList("trend-dataset_filter_condtion_sign-select");
     }
 
     public WebElement getValue() {
-        return value;
+        return getYottaInput("trend-dataset_filter_condtion_value-input");
     }
 
     public WebElement getTableBody() {
-        return tableBody;
+        return getYottaTable("trend-dataset_preview-table");
     }
 
     public WebElement getCondition() {
-        condition.click();
-        return super.getLastDropdownList();
+        return getYottaDropdownList("trend-dataset_filter_condition_type-select");
     }
 
     public WebElement getApply() {
-        return apply;
+        return getYottaSpan("trend-dataset_filter_condtion_apply-dom");
     }
 
     public WebElement getAdd() {
-        return add;
+        return getYottaSpan("trend-dataset_filter_condtion_apply-dom");
     }
 
     public WebElement getMessage() {
@@ -486,7 +445,7 @@ public class DragAndDropPage extends CreatePage {
     }
 
     public WebElement getExpression() {
-        return expression;
+        return getYottaRadio("trend-dataset_filter_expression-radio");
     }
 
     public WebElement getDropDataset() {
@@ -494,11 +453,15 @@ public class DragAndDropPage extends CreatePage {
     }
 
     public WebElement getOverview() {
-        return overview;
+        return getYottaSpan("trend-dataset_preview-dom");
+    }
+
+    public WebElement getDatasetSPL() {
+        return getYottaSpan("trend-dataset_SPL-dom");
     }
 
     public WebElement getSaveAsDataset() {
-        return saveAsDataset;
+        return getYottaSpan("trend-dataset_save-dom");
     }
 
     public WebElement getAddValueField() {
@@ -513,13 +476,64 @@ public class DragAndDropPage extends CreatePage {
         return editSecondField;
     }
 
+    public WebElement getUnit() {
+        return getYottaInput("trend-BI_axis_unit-number_input");
+    }
+
+    public WebElement getMin() {
+        return getYottaInput("trend-BI_axis_min-number_input");
+    }
+
+    public WebElement getMax() {
+        return getYottaInput("trend-BI_axis_max-number_input");
+    }
+
     public WebElement getEditColor() {
-        return editColor;
+        return getYottaDiv("trend-BI_field_color-dom");
     }
 
     public WebElement getTypeFunction() {
-        typeFunction.click();
-        return super.getLastDropdownList();
+        return getYottaDropdownList("trend-BI_method-select");
+    }
+
+    public WebElement getTypeChartField() {
+        return getYottaDropdownList("trend-BI_field_chart_type-select");
+    }
+
+    public WebElement getSmooth() {
+        return getYottaCheckbox("trend-BI_field_smooth-switch");
+    }
+
+    public WebElement getConnectEmptyData() {
+        return getYottaCheckbox("trend-BI_field_connectnull-switch");
+    }
+
+    public WebElement getShowLabels() {
+        return getYottaCheckbox("trend-BI_param_showLabels-switch");
+    }
+
+    public WebElement getUnifyMetric() {
+        return getYottaCheckbox("trend-BI_param_measurement-switch");
+    }
+
+    public WebElement getUseBubbles() {
+        return getYottaCheckbox("trend-BI_param_useBubbles-switch");
+    }
+
+    public WebElement getMultistage() {
+        return getYottaCheckbox("trend-BI_param_multilevel-switch");
+    }
+
+    public WebElement getSegments() {
+        return getYottaInput("trend-BI_param_ySection-number_input");
+    }
+
+    public WebElement getRepulsion() {
+        return getYottaInput("trend-BI_param_repulsionField-number_input");
+    }
+
+    public WebElement getAddColor() {
+        return getYottaDiv("trend-BI_param_chartStartingColor-dom");
     }
 
     public WebElement getHomeButton() {
@@ -531,19 +545,23 @@ public class DragAndDropPage extends CreatePage {
     }
 
     public WebElement getEmptySpace() {
-        return emptySpace;
+        return getYottaDiv("trend-dataset_merge_field_empty-input");
     }
 
     public WebElement getLastColumn() {
         return lastColumn;
     }
 
-    private WebElement getElementById(String name){
-        return webDriver.findElement(By.id(name));
+    private WebElement getElementById(String name) {
+        return webDriver.findElement(By.xpath("//div[@yotta-test='trend-BI_" + name + "-icon']"));
     }
 
-    private WebElement getElementByTitle(String name) {
-        return webDriver.findElement(By.xpath("//div[@title='" + name+ "']"));
+    private WebElement getDraggableElement(String name) {
+        return webDriver.findElement(By.xpath("//span[text()='" + name + "']/ancestor::div[@yotta-test='trend-BI_draggable_field-dom']"));
+    }
+
+    private WebElement getChartButton(String name) {
+        return webDriver.findElement(By.xpath("//div[@yotta-test='trend-BI_chart_type_" + name + "-dom']"));
     }
 
     private WebElement getElementSpanByTitle(String name) {

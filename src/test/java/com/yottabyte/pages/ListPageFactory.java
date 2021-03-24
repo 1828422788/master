@@ -38,13 +38,13 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(className = "yotta-message-content")
     private WebElement successMessage;
 
-    @FindBy(xpath = "//div[@class='yotta-dialog-content']//p")
+    @FindBy(xpath = "//div[@class='yotta-dialog-content']/p")
     private WebElement message;
 
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//*[@class='ant-select-selection__clear']")
     private WebElement removeTagIcon;
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//div[contains(@class,'ant-select-selection--single')]")
+    @FindBy(xpath = "//div[@class='yotta-modal-body']//div[contains(@class,'yotta-dropdown')]")
     private WebElement authDropdown;
 
     @FindBy(xpath = "//div[text()='请选择应用']")
@@ -79,15 +79,24 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(xpath = "//div[@class='ant-modal-root']//*[contains(@class, \"ant-modal\")]")
     private WebElement modal;
 
+    @FindBy(xpath = "//thead//span[@class='yotta-checkbox-check']")
+    private WebElement selectAll;
+
+    public WebElement getSelectAll() {
+        return selectAll;
+    }
+
     public WebElement getApp() {
         app.click();
         return utils.getLastDropdownList();
     }
 
+
     public WebElement getAuthDropdown() {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(authDropdown));
         authDropdown.click();
-        return utils.getLastDropdownList();
+       // return getLastDropdownList();
+        return getLastDropdownListEditApp();
     }
 
     public WebElement getRemoveTagIcon() {
@@ -145,12 +154,20 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
         return this.getButton("确定");
     }
 
+    public WebElement getCancel() {
+        return this.getButton("取消");
+    }
+
     public WebElement getSave() {
         return this.getButton("保存");
     }
 
+    public WebElement getApply() {
+        return this.getButton("应用");
+    }
+
     public WebElement getButton(String name) {
-        return webDriver.findElement(By.xpath("//span[text()='" + name + "']//ancestor::button"));
+        return webDriver.findElement(By.xpath("(//span[text()='" + name + "']//ancestor::button)[last()]"));
     }
 
     public WebElement groupDropdownIcon(String text) {
@@ -162,7 +179,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     }
 
     public WebElement getInputElement(String text) {
-        String xpath = "//div[text()='" + text + "']//following-sibling::div//input";
+        String xpath = "//label[text()='" + text + "']/ancestor::div/following-sibling::div//input";
         return webDriver.findElement(By.xpath(xpath));
     }
 
@@ -177,6 +194,10 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
 
     public WebElement getLastDropdownList() {
         return utils.getLastDropdownList();
+    }
+
+    public WebElement getLastDropdownListEditApp() {
+        return utils.getLastDropdownListEditApp();
     }
 
     public WebElement getPlaceholderInput(String placeholder) {

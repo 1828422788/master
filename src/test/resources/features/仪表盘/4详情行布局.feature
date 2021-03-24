@@ -38,36 +38,6 @@ Feature: 仪表盘详情行布局
       | 行布局趋势图2 | tag:sample04061424 \| stats count() by apache.geo.country,apache.geo.province,apache.geo.city |
       | 行布局趋势图3 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
 
-#  @dashboard @dashboardSmoke
-#  Scenario Outline: 新建行布局趋势图
-#    Given open the "trend.ListPage" page for uri "/trend/"
-#    And I wait for loading invisible
-#    And I click the "CreateButton" button
-#    And I click the "Create" button
-#    Then I will see the "trend.CreatePage" page
-#    And I set the parameter "SearchInput" with value "<spl>"
-#    And I wait for "1000" millsecond
-#    And I click the "DateEditor" button
-#    And I wait for "500" millsecond
-#    And I click the "Today" button
-##    And I click the "FenPianQuYang" button
-##    And I alter the input element "FenPianQuYang" value to "0"
-#    And I click the "SearchButton" button under some element
-#    And I wait for "Header" will be visible
-#    And I click the "NextButton" button
-#    And I wait for "Header" will be visible
-#    And I click the "NextButton" button
-#    When I set the parameter "NameInput" with value "<name>"
-#    And I wait for "1000" millsecond
-#    And I click the "NextButton" button
-#    And I wait for "SuccessCreate" will be visible
-#
-#    Examples:
-#      | name        | spl                                                           |
-#      | 行布局趋势图1 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
-#      | 行布局趋势图2 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
-#      | 行布局趋势图2 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
-#      | 行布局趋势图3 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
 
   @dashboard @dashboardSmoke
   Scenario: 新建一个行布局标签页(RZY-4628)
@@ -145,7 +115,7 @@ Feature: 仪表盘详情行布局
 #    And I wait for "3000" millsecond
     And I click the "JoinRow" button
     And I wait for "3000" millsecond
-    And I set the parameter "SearchTagInput" with value "行布局"
+    And I set the parameter "SearchChartInput" with value "行布局"
     And I wait for "1000" millsecond
     And I click the "{'Checkbox':'行布局趋势图2'}" button
     And I wait for "1000" millsecond
@@ -278,7 +248,9 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "为空" from the "ShowCondition"
+    And I wait for "500" millsecond
     And I click the "Ensure" button
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
@@ -288,7 +260,9 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "不为空" from the "ShowCondition"
+    And I wait for "500" millsecond
     And I click the "Ensure" button
     And I wait for "1500" millsecond
     And I click the "SettingIcon" button
@@ -316,6 +290,7 @@ Feature: 仪表盘详情行布局
     And I wait for "1000" millsecond
 #    And I click the "CleanShowFilterConfig" button
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
 #    And I click the "CleanShowConditio" button
     And I choose the "匹配正则" from the "ShowCondition"
     And I wait for "ShowValue" will be visible
@@ -331,8 +306,10 @@ Feature: 仪表盘详情行布局
     And I wait for "1000" millsecond
 #    And I click the "CleanShowFilterConfig" button
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
 #    And I click the "CleanShowConditio" button
     And I choose the "包含" from the "ShowCondition"
+    And I wait for "500" millsecond
     And I set the parameter "ShowValue" with value "a"
     And I click the "Ensure" button
     And I wait for "1000" millsecond
@@ -361,6 +338,7 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "匹配正则" from the "ShowCondition"
     And I wait for "ShowValue" will be visible
     And I set the parameter "ShowValue" with value "a1?b"
@@ -373,6 +351,7 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "包含" from the "ShowCondition"
     And I set the parameter "ShowValue" with value "a"
     And I click the "Ensure" button
@@ -397,6 +376,7 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "等于" from the "ShowCondition"
     And I wait for "ShowValue" will be visible
     And I set the parameter "ShowValue" with value "a1111b"
@@ -409,6 +389,7 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "不等于" from the "ShowCondition"
     And I set the parameter "ShowValue" with value "a1111b"
     And I click the "Ensure" button
@@ -432,6 +413,7 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "大于" from the "ShowCondition"
     And I wait for "ShowValue" will be visible
     And I set the parameter "ShowValue" with value "5"
@@ -444,7 +426,9 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "小于" from the "ShowCondition"
+    And I wait for "500" millsecond
     And I set the parameter "ShowValue" with value "9"
     And I click the "Ensure" button
     And I wait for "1000" millsecond
@@ -480,7 +464,7 @@ Feature: 仪表盘详情行布局
     And I click the "timeRangee" button
     And I wait for "DateEditor" will be visible
     And I click the "DateEditor" button
-    And I click the "Shortcut" button
+#    And I click the "Shortcut" button
     And I click the "Today" button
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
@@ -501,7 +485,9 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "不为空" from the "ShowCondition"
+    And I wait for "500" millsecond
     And I click the "Ensure" button
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
@@ -511,7 +497,9 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "为空" from the "ShowCondition"
+    And I wait for "500" millsecond
     And I click the "Ensure" button
     And I wait for "1000" millsecond
     And I click the "SettingIcon" button
@@ -534,6 +522,7 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "包含" from the "ShowCondition"
     And I wait for "ShowValue" will be visible
     And I set the parameter "ShowValue" with value "-1h"
@@ -546,7 +535,9 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "匹配正则" from the "ShowCondition"
+    And I wait for "500" millsecond
     And I set the parameter "ShowValue" with value "now/d,?now"
     And I click the "Ensure" button
     And I wait for "1000" millsecond
@@ -570,6 +561,7 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "等于" from the "ShowCondition"
     And I wait for "ShowValue" will be visible
     And I set the parameter "ShowValue" with value "now/d,now"
@@ -582,7 +574,9 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "不等于" from the "ShowCondition"
+    And I wait for "500" millsecond
     And I set the parameter "ShowValue" with value "now/d,now"
     And I click the "Ensure" button
     And I wait for "1000" millsecond
@@ -605,13 +599,17 @@ Feature: 仪表盘详情行布局
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for "1000" millsecond
-    And I move the mouse pointer to the "CleanShowFilterConfig"
+    And I click the "ShowFilterConfig" button
+#    And I move the mouse pointer to the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I click the "CleanShowFilterConfig" button
     And I click the "Ensure" button
     And I wait for "500" millsecond
     Then I wait for "TipErrorShowCondition" will be visible
     And I wait for "1000" millsecond
-    And I move the mouse pointer to the "CleanShowConditio"
+#    And I move the mouse pointer to the "ShowCondition"
+    And I click the "ShowCondition" button
+    And I wait for "1000" millsecond
     And I click the "CleanShowConditio" button
     And I set the parameter "ShowValue" with value ""
     And I click the "Ensure" button
@@ -629,6 +627,7 @@ Feature: 仪表盘详情行布局
     And I click the "FilterSetting" button
     And I wait for "500" millsecond
     And I choose the "下拉菜单" from the "InputType"
+    And I wait for "500" millsecond
     And I click the "SingleChoice" button
     And I set the parameter "ChoiceValue" with value "111"
     And I click the "AddChoiceValueButton" button
@@ -659,7 +658,9 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "不为空" from the "ShowCondition"
+    And I wait for "500" millsecond
     And I click the "Ensure" button
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
@@ -669,7 +670,9 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "为空" from the "ShowCondition"
+    And I wait for "500" millsecond
     And I click the "Ensure" button
     And I wait for "1000" millsecond
     And I click the "SettingIcon" button
@@ -691,13 +694,15 @@ Feature: 仪表盘详情行布局
     And I click the "FilterSetting" button
     And I wait for "500" millsecond
     And I choose the "动态菜单" from the "InputType"
+    And I wait for "500" millsecond
     And I click the "SingleChoice" button
     And I set the parameter "DynamicField" with value "apache.geo.city"
     And I set the parameter "Spl" with value "*|stats count() by 'apache.geo.city'"
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "Search" button under some element
+    And I click the "SearchFilterButton" button under some element
     And I wait for loading invisible
+    And I wait for "1500" millsecond
     And I choose the "成都市" from the "DefaultDropdownList"
     And I wait for "1500" millsecond
     Then I click the "Ensure" button
@@ -719,6 +724,7 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "包含" from the "ShowCondition"
     And I wait for "ShowValue" will be visible
     And I set the parameter "ShowValue" with value "市"
@@ -731,11 +737,14 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
+    And I wait for "500" millsecond
     And I choose the "匹配正则" from the "ShowCondition"
+    And I wait for "500" millsecond
     And I set the parameter "ShowValue" with value "aab?市"
     And I click the "Ensure" button
     And I wait for "1000" millsecond
     And I choose the "成都市" from the "FilterDropdown"
+    And I wait for "500" millsecond
     And I click the "SettingIcon" button
     And I wait for "1500" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"

@@ -38,7 +38,7 @@ Feature: 趋势图新建_统计地图
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -68,7 +68,7 @@ Feature: 趋势图新建_统计地图
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "General" button
-    And I set the parameter "Transparency" with value "<tranparencyValue>"
+    And I set the parameter "Transparency" with value "<tranparencyValue>" using step buttons
     And I set the parameter "MinRadius" with value "<minRadiusValue>"
     And I set the parameter "MaxRadius" with value "<maxRadiusValue>"
     And I click the "Tile" button
@@ -117,7 +117,7 @@ Feature: 趋势图新建_统计地图
     And I set the parameter "MapName" with value "<mapName>"
     And I set the parameter "MapURL" with value "<url>"
     And I set the parameter "Subdomains" with value "abc"
-    And I set the parameter "MapOpacity" with value "<mapOpacity>"
+    And I set the parameter "MapOpacity" with value "<mapOpacity>" using step buttons
     And I click the "Value" button
     And I choose the "min(apache.resp_len)" from the "DataCircleLayer" in config
     And I choose the "count()" from the "HeatmapLayer" in config

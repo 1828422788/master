@@ -38,8 +38,7 @@ Feature: 趋势图新建_其他
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "更多" button
-    And I click the "ViewTrend" button
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -87,8 +86,7 @@ Feature: 趋势图新建_其他
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "更多" button
-    And I click the "ViewTrend" button
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -162,6 +160,7 @@ Feature: 趋势图新建_其他
     And I choose the "<iconValue>" from the "FieldValue" in config
     And I click the "Exhibition" button
     And I set the parameter "FontSize" with value "100"
+    And I will see the input element "FontSize" value will be "100"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -204,6 +203,7 @@ Feature: 趋势图新建_其他
     And I click the "AddColor" button
     And I click the "Orange" button
     And I click the "Background" button
+    And I will see the input element "FontSize" value will be "100"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -244,6 +244,7 @@ Feature: 趋势图新建_其他
     And I set the parameter "FontSize" with value "100"
     And I click the "AccordingTrend" button
     And I choose the "<timeValue>" from the "ContrastTime" in config
+    And I will see the input element "FontSize" value will be "100"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -294,6 +295,7 @@ Feature: 趋势图新建_其他
     And I click the "AddColor" button
     And I click the "<color2>" button
     And I click the "<colorFill>" button
+    And I will see the input element "FontSize" value will be "24"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -341,6 +343,7 @@ Feature: 趋势图新建_其他
     And I click the "<buttonSwitch>" button
     And I set the parameter "Unit" with value "个"
     And I click the "<unitPosition>" button
+    And I will see the input element "FontSize" value will be "24"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -387,6 +390,7 @@ Feature: 趋势图新建_其他
     And I click the "AddColor" button
     And I click the "Purple" button
     And I click the "<colorFill>" button
+    And I will see the input element "FontSize" value will be "60"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -437,6 +441,7 @@ Feature: 趋势图新建_其他
     And I set the parameter "IconName" with value "<fontValue>"
     And I click the "SecondTitle" button
     And I set the parameter "TitleName" with value "二级title"
+    And I will see the input element "TitleName" value will be "二级title"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -495,6 +500,7 @@ Feature: 趋势图新建_其他
     And I click the "AddColor" button
     And I click the "Green" button
     And I click the "Background" button
+    And I will see the input element "FontSize" value will be "80"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -517,43 +523,43 @@ Feature: 趋势图新建_其他
       |  chartType    | caseNum          |
       |   Single      | Sparkline_分面   |
 
-  Scenario Outline: ring_onefield
-    When I set the parameter "SearchInput" with value "<spl>"
-    And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
-
-    And I wait for "Type" will be visible
-    And I wait for "2000" millsecond
-    And I click the "Type" button
-    And I click the "Other" button
-    And I click the "<chartType>" button
-    And I click the "Settings" button
-    And I choose the "count_perc" from the "FieldValue" in config
-    And I click the "Exhibition" button
-    And I click the "AddColor" button
-    And I click the "Orange" button
-    And I click the "Generate" button
-
-    And I click the "Settings" button
-    And I wait for "2000" millsecond
-    And I wait for "<chartType>Element_1" will be visible
-    And I will see the element "<chartType>Element_1" contains "78%"
-    And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button under some element
-
-    When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
-    And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
-    Then I wait for "SuccessCreate" will be visible
-
-    Examples:
-      | chartType | caseNum  | spl                                                                                                                                                                                   |
-      | Ring      | onefield | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count, apache.clientip \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
+#  Scenario Outline: ring_onefield
+#    When I set the parameter "SearchInput" with value "<spl>"
+#    And I wait for "500" millsecond
+#    And I click the "SearchButton" button under some element
+#    And I wait for element "SearchStatus" change text to "搜索完成!"
+#    And I wait for "Header" will be visible
+#    And I click the "NextButton" button under some element
+#
+#    And I wait for "Type" will be visible
+#    And I wait for "2000" millsecond
+#    And I click the "Type" button
+#    And I click the "Other" button
+#    And I click the "<chartType>" button
+#    And I click the "Settings" button
+#    And I choose the "count_perc" from the "FieldValue" in config
+#    And I click the "Exhibition" button
+#    And I click the "AddColor" button
+#    And I click the "Orange" button
+#    And I click the "Generate" button
+#
+#    And I click the "Settings" button
+#    And I wait for "2000" millsecond
+#    And I wait for "<chartType>Element_1" will be visible
+#    And I will see the element "<chartType>Element_1" contains "78%"
+#    And I wait for "2000" millsecond
+#    And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+#    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
+#    Then I click the "NextButton" button under some element
+#
+#    When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
+#    And I set the parameter "DescribeInput" with value "AutoCreate"
+#    And I click the "Complete" button under some element
+#    Then I wait for "SuccessCreate" will be visible
+#
+#    Examples:
+#      | chartType | caseNum  | spl                                                                                                                                                                                   |
+#      | Ring      | onefield | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count, apache.clientip \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
   Scenario Outline: ring_twofields
     When I set the parameter "SearchInput" with value "<spl>"
@@ -571,7 +577,7 @@ Feature: 趋势图新建_其他
     And I click the "Settings" button
     And I choose the "count_perc" from the "FieldValue" in config
     And I click the "Compare" button
-    And I click the "AddField" button
+#    And I click the "AddField" button
     And I choose the "count2_perc" from the "FieldValue" in config
     And I click the "Generate" button
 
@@ -593,8 +599,7 @@ Feature: 趋势图新建_其他
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "更多" button
-    And I click the "ViewTrend" button
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -626,7 +631,7 @@ Feature: 趋势图新建_其他
     And I click the "Settings" button
     And I choose the "count_perc" from the "FieldValue" in config
     And I click the "Compare" button
-    And I click the "AddField" button
+#    And I click the "AddField" button
     And I choose the "count2_perc" from the "FieldValue" in config
     And I click the "Facet" button
     And I choose the "apache.clientip" from the "FieldValue" in config
@@ -671,7 +676,7 @@ Feature: 趋势图新建_其他
     And I click the "Settings" button
     And I choose the "count_perc" from the "FieldValue" in config
     And I click the "Compare" button
-    And I click the "AddField" button
+#    And I click the "AddField" button
     And I choose the "count2_perc" from the "FieldValue" in config
     And I click the "Facet" button
     And I choose the "apache.clientip" from the "FieldValue" in config
@@ -757,8 +762,7 @@ Feature: 趋势图新建_其他
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "更多" button
-    And I click the "ViewTrend" button
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -934,8 +938,7 @@ Feature: 趋势图新建_其他
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "更多" button
-    And I click the "ViewTrend" button
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -971,12 +974,12 @@ Feature: 趋势图新建_其他
     And I choose the "<starttime>" from the "StartTime" in config
     And I choose the "<duration>" from the "KeepTime" in config
     And I click the "Info" button
+    And I move the mouse pointer to the "InfoColumnIcon"
+    And I click the "CloseIcon" button
+    And I choose the "<duration>" from the "InfoColumn" in config
     And I choose the "<infoValue>" from the "InfoField" in config
-    And I cancel selection "<cancelcol>" from the "InfoColumn" in config
     And I click the "Divide" button
     And I choose the "<childIDvalue>" from the "FieldValue" in config
-    And I click the "Info" button
-    And I choose the "<column>" from the "InfoColumn" in config
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
@@ -999,8 +1002,7 @@ Feature: 趋势图新建_其他
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "更多" button
-    And I click the "ViewTrend" button
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -1011,9 +1013,9 @@ Feature: 趋势图新建_其他
     And I wait for "ChainTableElement" will be visible
 
     Examples:
-      | chartType | color | precision |  column           | cancelcol          | function     | parentIDvalue       | childIDvalue  | starttime                | duration            | infoValue                            | caseNum | spl                                                                                                                                                                                                                                                       |
-      | Chain     | Green | 1         |dapper.msg.duration| timestamp          | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:gf_dapper_* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
-      | Chain     | Red   | 2         |                   |dapper.msg.timestamp| dapper.class | dapper.msg.parentId | dapper.msg.id |                timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:gf_dapper_* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
+      | chartType | color | precision | function     | parentIDvalue       | childIDvalue  | starttime                | duration            | infoValue                            | caseNum | spl                                                                                                                                                                                                                                                       |
+      | Chain     | Green | 1         | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:gf_dapper_* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
+      | Chain     | Red   | 2         | dapper.class | dapper.msg.parentId | dapper.msg.id |                timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:gf_dapper_* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
 
 
   Scenario Outline: sequence
@@ -1058,8 +1060,7 @@ Feature: 趋势图新建_其他
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "更多" button
-    And I click the "ViewTrend" button
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -1096,8 +1097,7 @@ Feature: 趋势图新建_其他
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'Table_Test'}" then i click the "更多" button
-    And I click the "ViewTrend" button
+    And the data name is "{'column':'0','name':'Table_Test'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -1194,7 +1194,7 @@ Feature: 趋势图新建_其他
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_1"
     And I compare source image "actual/<chartType>_1" with target image "expect/<chartType>_1"
-    And I click the "Click<node>" button
+    And I wait for "Click<node>" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_2"
     And I compare source image "actual/<chartType>_2" with target image "expect/<chartType>_2"
@@ -1208,8 +1208,7 @@ Feature: 趋势图新建_其他
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
-    And the data name is "{'column':'0','name':'<chartType>'}" then i click the "更多" button
-    And I click the "ViewTrend" button
+    And the data name is "{'column':'0','name':'<chartType>'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page

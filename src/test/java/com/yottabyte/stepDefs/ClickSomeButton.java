@@ -102,7 +102,7 @@ public class ClickSomeButton {
 
     /**
      * 点击在覆层下面的元素，被一层div遮住导致无法点击时，可用此方法
-     *
+     * 
      * @param elementName 元素名称
      */
     @And("^I click the \"([^\"]*)\" button under some element$")
@@ -158,5 +158,45 @@ public class ClickSomeButton {
         WebElement button = webDriver.findElement(By.xpath(xpath));
         if (ElementExist.isElementExist(webDriver, button))
             button.click();
+    }
+
+    /**
+     * 点击仪表盘某个记录前的icon
+     *
+     * @param name 仪表盘记录名称
+     */
+    @When("^I click the dashboard icon which name is \"([^\"]*)\"$")
+    public void clickTheIconWhichname(String name) {
+        String xpath = "//span[text()='" + name + "']/parent::a/preceding-sibling::div/span";
+        WebElement button = webDriver.findElement(By.xpath(xpath));
+        if (ElementExist.isElementExist(webDriver, button))
+            button.click();
+    }
+
+    /**
+     * 点击仪表盘某个记录前的icon
+     *
+     * @param buttonName 仪表盘记录名称
+     */
+    @When("^I click the Circle \"([^\"]*)\" button$")
+    public void clickCircleElement(String buttonName) {
+        if (buttonName != null && buttonName.trim().length() != 0) {
+            String parameters = "";
+            WebElement button;
+            if (JsonStringPaser.isJson(buttonName)) {
+                Map<String, Object> map = JsonStringPaser.json2Stirng(buttonName);
+                for (Map.Entry<String, Object> entry : map.entrySet()) {
+                    buttonName = entry.getKey();
+                    parameters = (String) entry.getValue();
+                }
+                button = GetElementFromPage.getWebElementWithName(buttonName, parameters);
+            } else {
+                button = GetElementFromPage.getWebElementWithName(buttonName);
+            }
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", button);
+            button.click();
+        } else {
+            System.out.println("skip this step!");
+        }
     }
 }

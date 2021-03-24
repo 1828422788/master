@@ -14,12 +14,18 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
-public class UserCreatePage extends PageTemplate {
+public class UserGroupCreatePage extends PageTemplate {
 
-    public UserCreatePage(WebDriver driver) {
+    public UserGroupCreatePage(WebDriver driver) {
         super(driver);
         driver.manage().window().fullscreen();
     }
+
+    @FindBy(xpath = "//input[@placeholder='请输入名称']")
+    private WebElement userGroupName;
+
+    @FindBy(xpath = "//input[@placeholder='请输入描述']")
+    private WebElement userGroupDes;
 
     @FindBy(xpath = "//input[@placeholder='请输入用户名']")
     private WebElement userName;
@@ -112,16 +118,13 @@ public class UserCreatePage extends PageTemplate {
         return this.getLastDropdownList();
     }
 
-    @FindBy(partialLinkText = "添加管理员")
-//    @FindBy(xpath = "//a[contains(text(),'添加管理员')]/parent::div")
+    @FindBy(xpath = "//button[@yotta-test='usergroup-add_administrators-button']")
     private WebElement addAdmin;
-
     public WebElement getAddAdmin() {
         return addAdmin;
     }
 
-    @FindBy(partialLinkText = "添加成员")
-//    @FindBy(xpath = "//a[contains(text(),'添加成员')]/parent::div")
+    @FindBy(xpath = "//button[@yotta-test='usergroup-add_members-button']")
     private WebElement addMember;
 
     public WebElement getAddMember() {
@@ -139,11 +142,6 @@ public class UserCreatePage extends PageTemplate {
         return super.getButton("确定");
     }
 
-    @FindBy(id = "UserGroupUpdate_name")
-    private WebElement userGroupName;
-
-    @FindBy(id = "UserGroupUpdate_memo")
-    private WebElement userGroupDes;
 
     @FindBy(className = "yw-select-owner")
     private WebElement ownerButton;

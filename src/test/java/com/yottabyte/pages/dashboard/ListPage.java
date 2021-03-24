@@ -23,13 +23,13 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "yotta-message-content")
     private WebElement errorMessage;
 
-    @FindBy(className = "ant-select-selection-selected-value")
+    @FindBy(className = "yotta-select-selection-value")
     private WebElement chartYeQian;
 
-    @FindBy(xpath = "//li[text()='5 条/页']")
-    private WebElement fiveOnePage;
+    @FindBy(xpath = "//span[text()='30']")
+    private WebElement thirtyOnePage;
 
-    @FindBy(xpath = "//li[text()='50 条/页']")
+    @FindBy(xpath = "//span[text()='50']")
     private WebElement fiftyOnePage;
 
     @FindBy(xpath = "//span[contains(text(),'返回列表')]")
@@ -59,23 +59,30 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='删除']/preceding-sibling::label")
     private WebElement empowerDelete;
 
-    @FindBy(xpath = "(//tbody[@class='ant-table-tbody']/tr/td[@class='ant-table-selection-column']//span)[1]")
+    @FindBy(xpath = "(//tbody[@class='yotta-table-body']/tr/td/div[@class='yotta-table-cell-action']//span[@class='yotta-checkbox-input'])[1]")
     private WebElement listItemOne;
 
-    @FindBy(xpath = "(//tbody[@class='ant-table-tbody']/tr/td[@class='ant-table-selection-column']//span)[4]")
+    @FindBy(xpath = "(//tbody[@class='yotta-table-body']/tr/td/div[@class='yotta-table-cell-action']//span[@class='yotta-checkbox-input'])[2]")
     private WebElement listItemTwo;
 
-    @FindBy(xpath = "(//tbody[@class='ant-table-tbody']/tr/td[@class='ant-table-selection-column']//span)[7]")
+    @FindBy(xpath = "(//tbody[@class='yotta-table-body']/tr/td/div[@class='yotta-table-cell-action']//span[@class='yotta-checkbox-input'])[3]")
     private WebElement listItemThree;
 
     @FindBy(xpath = "//span[text()='添加资源标签']")
     private WebElement addResouceTag;
 
-    @FindBy(xpath = "//div[@class='ant-popover-inner-content']//li/span[text()='删除']")
+    @FindBy(xpath = "//span[text()='删除']")
     private WebElement multiDelete;
 
-    @FindBy(xpath = "//div[text()='请输入标签名称']")
+    @FindBy(xpath = "//span[text()='请选择或输入']")
     private WebElement multiAddTag;
+
+    @FindBy(xpath = "//div//input[@class='yotta-select-selection-search']")
+    private WebElement multiInputTag;
+
+    public WebElement getMultiInputTag() {
+        return multiInputTag;
+    }
 
     public WebElement getMultiAddTag() {
         multiAddTag.click();
@@ -104,8 +111,8 @@ public class ListPage extends ListPageFactory {
         return chartYeQian;
     }
 
-    public WebElement getFiveOnePage() {
-        return fiveOnePage;
+    public WebElement getThirtyOnePage() {
+        return thirtyOnePage;
     }
 
     public WebElement getFiftyOnePage() {
@@ -155,7 +162,7 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getMultiChooseButton(){
-        return super.getButton("请选择");
+        return webDriver.findElement(By.xpath("//span[text()='请选择']"));
     }
 
     public WebElement getInput(String name) {
@@ -182,5 +189,19 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getNoResourceTag() { return noResourceTag; }
 
+    @FindBy(xpath = "//span[text()='设为默认']")
+    private WebElement setDefault;
+
+    public WebElement getSetDefault() { return setDefault; }
+
+    @FindBy(xpath = "//span[text()='取消默认']")
+    private WebElement notDefault;
+
+    public WebElement getNotDefault() { return notDefault; }
+
+//    @FindBy(xpath = "//label[text()='标签']/parent::div/following-sibling::div//*[contains(@class, 'yotta-tag-close')]")
+//    private WebElement multiAddTag;
+//
+//    public WebElement getm() { return multiAddTag; }
 
 }
