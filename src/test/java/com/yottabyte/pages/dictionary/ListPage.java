@@ -20,19 +20,19 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[text()='提示']")
     private WebElement tip;
 
-    @FindBy(className = "ant-modal-content")
+    @FindBy(className = "yotta-modal-title")
     private WebElement popUpWindow;
 
     @FindBy(xpath = "//span[text()='取消']/ancestor::button")
     private WebElement cancel;
 
-    @FindBy(className = "ant-upload-list-item-name")
+    @FindBy(className = "yotta-file-upload-text")
     private WebElement fileName;
 
-    @FindBy(xpath = "//span[text()='.csv']/preceding-sibling::input[@placeholder='请输入名称']")
+    @FindBy(xpath = "//input[@yotta-test='dictionary-upload_name-input']")
     private WebElement name;
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
+    @FindBy(xpath = "//div[@class='yotta-modal-body']//p")
     private WebElement successMessage;
 
     @FindBy(xpath = "//p[@class='ant-empty-description']")
@@ -41,13 +41,13 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "el-table__empty-text")
     private WebElement emptyText;
 
-    @FindBy(xpath = "//div[@class='ant-modal-footer']//button")
+    @FindBy(xpath = "//button[@yotta-test='dictionary-upload_confirm-button']")
     private WebElement ensureUpload;
 
     @FindBy(xpath = "//div[@class='ant-modal-body']//button")
     private WebElement ensureDelete;
 
-    @FindBy(xpath = "//input[@placeholder='请输入名称']")
+    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
     private WebElement dictionaryFilter;
 
     @FindBy(xpath = "//span[@class='_1a4SFPSKE5LHZ9oIlWNopk']/span")
@@ -101,6 +101,27 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[text()='请输入标签名称']/following-sibling::ul/li/div[1]/input")
     private WebElement groupInput;
 
+    @FindBy(xpath = "//button[@yotta-test='dictionary-upload-button']/span")
+    private WebElement uploadButton;
+
+    @FindBy(xpath = "//li[@yotta-test='dictionary-download-button']/span")
+    private  WebElement download;
+
+    @FindBy(xpath = "//li[@yotta-test='dictionary-tags-button']/span")
+    private  WebElement label;
+
+    @FindBy(xpath = "//li[@yotta-test='dictionary-authorize-button']/span")
+    private  WebElement auth;
+
+    @FindBy(xpath = "//li[@yotta-test='dictionary-delete-button']/span")
+    private  WebElement delete;
+
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div/div")
+    private WebElement tagbutton;
+
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//input")
+    private WebElement tag;
+
     public WebElement getName() {
         return name;
     }
@@ -126,17 +147,18 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getUploadButton() {
-        return super.getButton("上传");
+        return uploadButton;
     }
 
     public WebElement getGroupInput() {
         return groupInput;
     }
 
-    @Override
-    public WebElement getTag() {
-        return super.getTag();
+    public WebElement getTagButton() {
+        return tagbutton;
     }
+
+    public WebElement Tag() { return tag;}
 
     public WebElement getGroup() {
         return super.getLastDropdownList();
@@ -152,6 +174,22 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getUpdate() {
         return super.getContainsTextButton("更新");
+    }
+
+    public WebElement getDownload() {
+        return download;
+    }
+
+    public WebElement getLabel() {
+        return label;
+    }
+
+    public WebElement getAuth() {
+        return auth;
+    }
+
+    public WebElement getDelete() {
+        return delete;
     }
 
     public WebElement getDictionaryFilter() {

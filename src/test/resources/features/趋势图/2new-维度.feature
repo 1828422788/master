@@ -264,7 +264,7 @@ Feature: 趋势图新建_维度
     And I click the "Settings" button
     And I wait for "2000" millsecond
     And I wait for "FlameElement" will be visible
-    And I click the "ShenZhen" button
+    And I click the Circle "ShenZhen" button
     And I click the "HideElement" button
     And I wait for "2000" millsecond
     And I wait for "FlameElement" will be visible
@@ -327,7 +327,7 @@ Feature: 趋势图新建_维度
     And I click the "Settings" button
     And I wait for "2000" millsecond
     And I wait for "FlameElement" will be visible
-    And I click the "ShenZhen" button
+    And I click the Circle "ShenZhen" button
     And I click the "HideElement" button
     And I wait for "2000" millsecond
     And I wait for "FlameElement" will be visible

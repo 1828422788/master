@@ -1916,7 +1916,7 @@ public class SearchPage extends ListPageFactory {
         return filterToken;
     }
 
-    @FindBy(xpath = "//div[@id='filter_type']//i")
+    @FindBy(xpath = "//div[@class='yotta-form-field']//span[@class='yotta-select-selection-value']")
     private WebElement inputType;
 
     public WebElement getInputType() {
@@ -1931,7 +1931,7 @@ public class SearchPage extends ListPageFactory {
         return inputItem;
     }
 
-    @FindBy(xpath = "(//span[text()='filter'])[2]/following-sibling::span/i[1]")
+    @FindBy(xpath = "//*[@yotta-test='search_bar-param_setting-icon']")
     private WebElement inputItemEditor;
 
     public WebElement getInputItemEditor() {
@@ -1965,8 +1965,11 @@ public class SearchPage extends ListPageFactory {
         return getInput("分隔符");
     }
 
+    @FindBy(xpath = "//*[@yotta-test='search_bar-param_field_value-input']")
+    private WebElement dynamicField;
+
     public WebElement getDynamicField() {
-        return this.getInput("动态字段值");
+        return dynamicField;
     }
 
     private WebElement getInput(String name) {
@@ -1974,14 +1977,14 @@ public class SearchPage extends ListPageFactory {
         return webDriver.findElement(By.xpath(xpath));
     }
 
-    @FindBy(xpath = "//a[text()='添加']")
+    @FindBy(xpath = "//*[@yotta-test='search_bar-add_list_option-icon']")
     private WebElement addChoiceValueButton;
 
     public WebElement getAddChoiceValueButton() {
         return addChoiceValueButton;
     }
 
-    @FindBy(xpath = "//label[contains(text(),'默认值')]/ancestor::div/following-sibling::div//div[@id]")
+    @FindBy(xpath = "//*[@yotta-test='search_bar-param_value-select']/div")
     private WebElement defaultValueIcon;
 
     public WebElement getDefaultDropdownList() {
@@ -2010,14 +2013,14 @@ public class SearchPage extends ListPageFactory {
         return multiSelect;
     }
 
-    @FindBy(xpath = "//textarea[contains(@class,'ant-input')]")
+    @FindBy(xpath = "//div[@class='yotta-textarea']/textarea")
     private WebElement inputItemSpl;
 
     public WebElement getInputItemSpl() {
         return inputItemSpl;
     }
 
-    @FindBy(className = "ant-select-selection")
+    @FindBy(className = "//*[@yotta-test='search_bar-param-select']/div")
     private WebElement filterDropdown;
 
     public WebElement getFilterDropdown() {
@@ -2025,14 +2028,14 @@ public class SearchPage extends ListPageFactory {
         return super.getLastDropdownList();
     }
 
-    @FindBy(xpath = "(//input[@placeholder='请选择时间'])[last()]")
+    @FindBy(xpath = "//*[@yotta-test='search_bar-param_time-date_time_picker']")
     private WebElement inputItemDateEditor;
 
     public WebElement getInputItemDateEditor() {
         return inputItemDateEditor;
     }
 
-    @FindBy(xpath = "(//button[text()='今天'])[last()]")
+    @FindBy(xpath = "//*[@yotta-test='date_time_picker-select_shortcut_今天-dom']")
     private WebElement inputDateToday;
 
     public WebElement getInputDateToday() {

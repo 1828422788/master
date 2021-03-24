@@ -221,7 +221,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")
     private WebElement successMessage;
 
-    @FindBy(xpath = "//*[name()='use' and @*='#icon-cuowu']/ancestor::*[name()='i']/following-sibling::p")
+    @FindBy(xpath = "//span[contains(@class,'yotta-confirm-error-icon')]/ancestor::div[1]/following-sibling::p")
     private WebElement errorMessage;
 
     @FindBy(tagName = "th")
@@ -391,10 +391,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-switch__label--right")
     private WebElement switchLabel;
 
-    @FindBy(xpath = "(//div[text()='深圳市'])[last()]")
+    @FindBy(xpath = "(//*[text()='深圳市'])[last()]")
     private WebElement shenZhen;
 
-    @FindBy(xpath = "(//*[@class='_1_m_DyhFaFqqMWBfXY4Evv']) | (//*[text()='配置'])")
+    @FindBy(xpath = "(//*[@aria-label='DragFilled']) | (//*[text()='配置'])")
     private WebElement hideElement;
 
     @FindBy(xpath = "(//*[@class='el-scrollbar'])[last()]")
@@ -463,10 +463,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[@cy='33']")
     private WebElement chartElement;
 
-    @FindBy(xpath = "//div[contains(@class,'ant-slider-handle')]")
+    @FindBy(xpath = "(//div[@class = 'yotta-slider-knob'])[last()]")
     private WebElement sliderHandle;
 
-    @FindBy(xpath = "(//tr/td[2])[1]")
+    @FindBy(xpath = "(//tr/td[2]/div)[1]")
     private WebElement cell;
 
     @FindBy(xpath = "(//tr[2]/td[2]/div)[1]")
@@ -529,7 +529,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[contains(@class,'bar')]/ancestor::div[1]/following-sibling::div[2]//div[contains(@class,'bar')]")
     private WebElement chainTableElement;
 
-    @FindBy(xpath = "//div[@class='tooltipTopBoundary']/following-sibling::div[contains(@id,'chart')]/canvas")
+    @FindBy(xpath = "//div[@class='tooltipTopBoundary']/following-sibling::div[@id]/canvas")
     private WebElement chainTreeElement;
 
     @FindBy(xpath = "//div[contains(@id,'sequence')]")
@@ -852,7 +852,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getChart() {
-        return chart;
+        return statisticalChart;
     }
 
     public WebElement getStatisticalChart() {
@@ -892,6 +892,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getHideElement() {
+        hideElement.click();
         return hideElement;
     }
 
@@ -2045,11 +2046,8 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getClickBeijing() {
-        clickBeijing.click();
         return clickBeijing;
     }
-
-
 
     public WebElement getInputElement(String name) {
         return webDriver.findElement(By.xpath("//input[@name='" + name + "']"));
