@@ -409,6 +409,10 @@ Feature: 仪表盘事件列表
     And I click the "inputSettingType" button
 #    And I choose the "时间范围" from the "LastDropdownList"
     And I click the "timeRangee" button
+    And I wait for "500" millsecond
+    And I click the "FilterDateEditor" button
+    And I click the "Shortcut" button
+    And I click the "Today" button
     Then I wait for "setGlobalTimeRange" will be visible
     And I click the "setGlobalTimeRange" button
     And I wait for "2000" millsecond
@@ -427,6 +431,8 @@ Feature: 仪表盘事件列表
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible
     And I choose the "跳转到标签页" from the "DrillAction"
+    And I wait for "1500" millsecond
+    And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "TargetTag" button
     And I click the "TagPageEvent" button
 #    And I choose the "仪表盘事件操作" from the "DashboardMenu"
@@ -442,7 +448,6 @@ Feature: 仪表盘事件列表
 #    And I hide the element "ParamDropdown"
     And I click the "ParamValue" button
     And I click the "StartEnd" button
-    And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "500" millsecond
 #    And I wait for "HoverElement" will be visible

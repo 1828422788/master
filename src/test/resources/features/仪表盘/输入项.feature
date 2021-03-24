@@ -188,7 +188,7 @@ Feature: 仪表盘输入项
     And I wait for "Prefix" will be visible
     And I set the parameter "Prefix" with value "="
     And I wait for "500" millsecond
-    And I click the "DateEditor" button
+    And I click the "FilterDateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
     And I click the "Ensure" button
@@ -332,7 +332,7 @@ Feature: 仪表盘输入项
     And I set the parameter "FilterInput" with value "appname"
     And I click the "Update" button
     And I wait for "Progress" will be invisible
-    Then I wait for "Appname" will be visible
+    Then I wait for "TabelAppname" will be visible
 
   @dashboard @dashboardSmoke
   Scenario: 修改为自动搜索(RZY-272)
@@ -349,7 +349,7 @@ Feature: 仪表盘输入项
     And I set the parameter "FilterInput" with value "appname"
     And I let element "FilterInput" lose focus
     And I wait for "Progress" will be invisible
-    Then I wait for "Appname" will be visible
+    Then I wait for "TabelAppname" will be visible
 
   @dashboard @dashboardSmoke
   Scenario: 删除文本输入项
@@ -837,6 +837,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 输入值支持eval RZY-1834
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -872,6 +873,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 钻取配置中link类型为custom RZY-1836
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -891,6 +893,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 钻取配置中link类型为search RZY-1837
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard

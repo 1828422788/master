@@ -117,7 +117,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[@yotta-test='dashboard-delete_filter-icon']")
     private WebElement deleteTag;
 
-    @FindBy(xpath = "//span[text()='time']/following-sibling::span")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-filter_setting-icon']")
     private WebElement editTime;
 
     @FindBy(xpath = "(//span[text()='time']/following-sibling::span)[last()]")
@@ -2498,6 +2498,20 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getActualTimeRefresh() {
         return actualTimeRefresh;
+    }
+
+    @FindBy(xpath = "//*[@yotta-test='dashboard-new_filter_value-date_time_picker']")
+    private WebElement filterDateEditor;
+
+    public WebElement getFilterDateEditor() {
+        return filterDateEditor;
+    }
+
+    @FindBy(xpath = "//th//*[text()='appname']")
+    private WebElement tabelAppname;
+
+    public WebElement getTabelAppname() {
+        return tabelAppname;
     }
 
 }

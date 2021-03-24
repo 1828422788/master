@@ -110,6 +110,7 @@ Feature: 仪表盘曲线图
     And I click the "Exhibition" button
     And I click the "StartColour" button
     And I click the "Orange" button
+    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
     And I click the "SettingChart" button under some element
@@ -137,7 +138,7 @@ Feature: 仪表盘曲线图
 
     Examples:
       | name       | json                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-      | 仪表盘曲线图 |  \n  "chart": {\n    "chartType": "line",\n    "xAxis": {\n      "field": "apache.clientip",\n      "labelRotate": "right",\n      "sortOrder": "asc"\n    },\n    "precision": "",\n    "showAllXAxisLabels": true,\n    "labelInterval": "",\n    "customLabel": "",\n    "yAxis": {\n      "field": "count()",\n      "smooth": true,\n      "unit": "个",\n      "connectNull": true,\n      "range": {\n        "min": "",\n        "max": ""\n      }\n    },\n    "byFields": [\n      "apache.resp_len"\n    ],\n    "legend": {\n      "placement": "bottom"\n    }\n  }|
+      | 仪表盘曲线图 |  \n  "chart": {\n    "chartType": "line",\n    "xAxis": {\n      "field": "apache.clientip",\n      "labelRotate": "right",\n      "sortOrder": "asc"\n    },\n    "precision": "",\n    "showAllXAxisLabels": true,\n    "labelInterval": "",\n    "customLabel": "",\n    "yAxis": {\n      "field": "count()",\n      "smooth": true,\n      "unit": "个",\n      "connectNull": true,\n      "range": {\n        "max": "",\n        "min": ""\n      }\n    },\n    "byFields": [\n      "apache.resp_len"\n    ],\n    "legend": {\n      "placement": "right",\n      "ellipsis": "right"\n    }\n  }|
 
   @dashboard
   Scenario: 修改chartType为不存在的类型 RZY-1281
