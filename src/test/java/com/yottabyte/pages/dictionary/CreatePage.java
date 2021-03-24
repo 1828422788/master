@@ -54,7 +54,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='提示']")
     private WebElement Tip;
 
-    @FindBy(xpath = "//span[text()='.csv']/preceding-sibling::input[@placeholder='请输入名称']")
+    @FindBy(xpath = "//input[@yotta-test='dictionary-name-input']")
     private WebElement name;
 
     @FindBy(className = "ant-select-selection__choice__content")
@@ -63,7 +63,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='在线编辑']")
     private WebElement editOnline;
 
-    @FindBy(xpath = "//textarea[@class='ant-input css-pcxrzr _2naGD5U5UpRR3_1_pnJA4U']")
+    @FindBy(xpath = "//textarea[@yotta-test='dictionary-editing-textarea']")
     private WebElement editOnlineArea;
 
     @FindBy(xpath = "//p[@class='_1JjlGgMGUnJmBrqR_9PZl8']")

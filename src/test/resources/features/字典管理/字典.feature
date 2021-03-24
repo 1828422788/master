@@ -15,12 +15,12 @@ Feature: 字典管理
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
-    Then I set the parameter "GroupInput" with value "wymtest"
-    And I choose the "wymtest" from the "DictionaryTagList" in config
+#    Then I set the parameter "GroupInput" with value "wymtest"
+#    And I choose the "wymtest" from the "DictionaryTagList" in config
     And I click the "EnsureUpload" button
     Then I wait for "Tip" will be visible
-    Then I will see the success message "创建字典成功"
-    Then I click the "EnsureButton" button
+#    Then I will see the success message "创建字典成功"
+#    Then I click the "EnsureButton" button
     Then I refresh the website
     And I wait for loading invisible
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
@@ -29,7 +29,7 @@ Feature: 字典管理
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     And I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
-    Then I wait for element "ResourceTag" change text to "wymtest"
+#    Then I wait for element "ResourceTag" change text to "wymtest"
     Then I click the "EditOnline" button
     Then I will see the element "EditOnlineArea" name is "<editOnlineArea>"
 
@@ -585,34 +585,3 @@ Feature: 字典管理
     Examples:
       | dictionaryName     | user | customizeDate | dictionaryNameWithOutCsv |
       | wymtestnextday.csv | wym  | 2020          | wymtestnextday           |
-#
-#
-#  Scenario Outline: RZY-4162(授权页：自定义有效期-当前日期23时59分59秒)
-#
-#    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
-#    Then I set the parameter "UserFilter" with value "<user>"
-#    Then I wait for "1000" millsecond
-#    Then I click the "DeadLine" button
-#    Then I wait for "1000" millsecond
-#    And I click the "TimeSelector" button
-#    Then I click the "DateNow" button
-#    Then I click the "SearchTime" button
-#    Then I click the "Hour23" button
-#    Then I click the "minute59" button
-#    Then I click the "second59" button
-#    And I click the "TimeSelectConfirm" button
-#    Then I click the "EnsureButton" button
-#    Then I will see the success message "保存成功"
-#    Then I click the "EnsureButton2" button
-#    Then I wait for "1000" millsecond
-#    Then I click the "AuthCancelButton" button
-#    Then I wait for "1000" millsecond
-#    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
-#    Then I set the parameter "UserFilter" with value "<user>"
-#    Then I wait for "2000" millsecond
-#    Then I check the label "checked" status before "<user>" in the dictionary
-#    And I will see the element "DeadLine" contains "<customizeDate>"
-#
-#    Examples:
-#      | dictionaryName | user | customizeDate |
-#      | wymtest1.csv   | wym  | 23:59:59      |

@@ -20,16 +20,16 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[text()='提示']")
     private WebElement tip;
 
-    @FindBy(className = "ant-modal-content")
+    @FindBy(className = "yotta-modal-title")
     private WebElement popUpWindow;
 
     @FindBy(xpath = "//span[text()='取消']/ancestor::button")
     private WebElement cancel;
 
-    @FindBy(className = "ant-upload-list-item-name")
+    @FindBy(className = "yotta-file-upload-text")
     private WebElement fileName;
 
-    @FindBy(xpath = "//span[text()='.csv']/preceding-sibling::input[@placeholder='请输入名称']")
+    @FindBy(xpath = "//input[@yotta-test='dictionary-upload_name-input']")
     private WebElement name;
 
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")
@@ -41,13 +41,13 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "el-table__empty-text")
     private WebElement emptyText;
 
-    @FindBy(xpath = "//div[@class='ant-modal-footer']//button")
+    @FindBy(xpath = "//button[@yotta-test='dictionary-upload_confirm-button']")
     private WebElement ensureUpload;
 
     @FindBy(xpath = "//div[@class='ant-modal-body']//button")
     private WebElement ensureDelete;
 
-    @FindBy(xpath = "//input[@placeholder='请输入名称']")
+    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
     private WebElement dictionaryFilter;
 
     @FindBy(xpath = "//span[@class='_1a4SFPSKE5LHZ9oIlWNopk']/span")
@@ -101,6 +101,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[text()='请输入标签名称']/following-sibling::ul/li/div[1]/input")
     private WebElement groupInput;
 
+    @FindBy(xpath = "//button[@yotta-test='dictionary-upload-button']/span")
+    private WebElement uploadButton;
+
     public WebElement getName() {
         return name;
     }
@@ -126,7 +129,7 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getUploadButton() {
-        return super.getButton("上传");
+        return uploadButton;
     }
 
     public WebElement getGroupInput() {
