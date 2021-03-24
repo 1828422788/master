@@ -1916,7 +1916,7 @@ public class SearchPage extends ListPageFactory {
         return filterToken;
     }
 
-    @FindBy(xpath = "//div[@id='filter_type']//i")
+    @FindBy(xpath = "//div[@class='yotta-form-field']//span[@class='yotta-select-selection-value']")
     private WebElement inputType;
 
     public WebElement getInputType() {
