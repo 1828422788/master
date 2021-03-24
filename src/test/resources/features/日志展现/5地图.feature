@@ -149,14 +149,14 @@ Feature: 日志展现_地图
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/World"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/World" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/World"
 
-    When I click the "CountryChina" button
+    When I click the Circle "CountryChina" button
     And I wait for "Chart" will be visible
 #    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/China"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/China" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/China"
 
-    When I click the "ProvinceJiangsu" button
+    When I click the Circle "ProvinceJiangsu" button
     And I wait for "Chart" will be visible
 #    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -198,7 +198,7 @@ Feature: 日志展现_地图
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "General" button
-    And I set the parameter "Transparency" with value "0.5"
+    And I set the parameter "Transparency" with value "0.5" using step buttons
     And I set the parameter "MinRadius" with value "10"
     And I set the parameter "MaxRadius" with value "50"
     And I click the "Tile" button
@@ -370,14 +370,14 @@ Feature: 日志展现_地图
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/World_white"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/World_white" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/World_white"
 
-    When I click the "OpenChina" button
+    When I click the Circle "OpenChina" button
     And I wait for "Chart" will be visible
 #    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/China_white"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/China_white" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/China_white"
 
-    When I click the "OpenJiangsu" button
+    When I click the Circle "OpenJiangsu" button
     And I wait for "Chart" will be visible
 #    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -400,7 +400,6 @@ Feature: 日志展现_地图
 
     And I click the "Settings" button
     And I click the "Facet" button
-    And I click the "AddField" button
     And I choose the "apache.status" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
@@ -428,7 +427,6 @@ Feature: 日志展现_地图
 
     And I click the "Settings" button
     And I click the "Facet" button
-    And I click the "AddField" button
     And I choose the "apache.status" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"

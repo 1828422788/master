@@ -47,7 +47,6 @@ Feature: 日志展现_其它_环形比例图
     And I click the "Settings" button
     And I choose the "count_perc" from the "FieldValue" in config
     And I click the "Compare" button
-    And I click the "AddField" button
     And I choose the "count2_perc" from the "FieldValue" in config
     And I click the "Generate" button
 
@@ -74,10 +73,8 @@ Feature: 日志展现_其它_环形比例图
     And I click the "Settings" button
     And I choose the "count_perc" from the "FieldValue" in config
     And I click the "Compare" button
-    And I click the "AddField" button
     And I choose the "count2_perc" from the "FieldValue" in config
     And I click the "Facet" button
-    And I click the "AddField" button
     And I choose the "apache.clientip" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "<rows>"
     And I set the parameter "ColumnNum" with value "<columns>"
@@ -108,16 +105,15 @@ Feature: 日志展现_其它_环形比例图
     And I click the "Settings" button
     And I choose the "count_perc" from the "FieldValue" in config
     And I click the "Compare" button
-    And I click the "AddField" button
     And I choose the "count2_perc" from the "FieldValue" in config
     And I click the "Facet" button
-    And I click the "AddField" button
     And I choose the "apache.clientip" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "<rows>"
     And I set the parameter "ColumnNum" with value "<columns>"
     And I click the "Exhibition" button
     And I click the "AccordingArea" button
 
+    And I click the "AddRange" button
     And I set the parameter "MinRange" with value "0"
     And I set the parameter "MaxRange" with value "0.2"
     And I click the "AddColor" button
@@ -165,10 +161,8 @@ Feature: 日志展现_其它_环形比例图
     And I click the "Settings" button
     And I choose the "count_perc" from the "FieldValue" in config
     And I click the "Compare" button
-    And I click the "AddField" button
     And I choose the "count2_perc" from the "FieldValue" in config
     And I click the "Facet" button
-    And I click the "AddField" button
     And I choose the "apache.clientip" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "2"
     And I set the parameter "ColumnNum" with value "3"

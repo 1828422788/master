@@ -428,7 +428,7 @@ Feature: 趋势图新建_其他
     And I click the "Settings" button
     And I choose the "count()" from the "NumericField" in config
     And I choose the "time" from the "DisplayField" in config
-    And I choose the "<option>" from the "DisplayedOnChart" in config
+#    And I choose the "<option>" from the "DisplayedOnChart" in config
     And I click the "Sparkline" button
     And I choose the "ts" from the "SparklineField" in config
     And I click the "Exhibition" button
@@ -1194,7 +1194,7 @@ Feature: 趋势图新建_其他
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_1"
     And I compare source image "actual/<chartType>_1" with target image "expect/<chartType>_1"
-    And I wait for "Click<node>" will be visible
+    And I click the Circle "Click<node>" button
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_2"
     And I compare source image "actual/<chartType>_2" with target image "expect/<chartType>_2"

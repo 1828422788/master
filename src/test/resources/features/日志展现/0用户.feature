@@ -23,7 +23,6 @@ Feature: 新建用户和字段提取
     And I wait for "Modify" will be visible
     And I click the "Modify" button under some element
     And I set the parameter "NewPassword" with value "All#123456"
-    And I hide the element "InnerContent"
     And I set the parameter "RepeatPassword" with value "All#123456"
     And I click the "Update" button
 

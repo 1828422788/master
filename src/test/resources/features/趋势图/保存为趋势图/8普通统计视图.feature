@@ -13,18 +13,19 @@ Feature: 保存为趋势图_普通统计视图
     And I click the "CountButton" button
     And I wait for "1000" millsecond
     And I will see the "splSearch.StatisticalPage" page
-    And I choose the "<chart>" from the "PresentType" in config
-    And I choose the "<value1>" from the "FieldValue" in config
+    And I choose the "<chart>" from the "PresentType"
+    And I wait for "2000" millsecond
+    And I choose the "<value1>" from the "FieldValue"
     And I click the "AddButton" button
     And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/保存为趋势图/普通统计视图/<caseNum>"
+    And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
 
     And I click the "SaveAsTrend" button
     When I set the parameter "NameInput" with value "<caseNum>"
-    And I click the "CreateEnsureButton" button
+    And I click the "Ensure" button
     Then I will see the message "创建成功"
 #    Then I compare source image "actual/保存为趋势图/普通统计视图/<caseNum>" with target image "expect/保存为趋势图/普通统计视图/<caseNum>"
 
@@ -43,21 +44,22 @@ Feature: 保存为趋势图_普通统计视图
     And I click the "CountButton" button
     And I wait for "1000" millsecond
     And I will see the "splSearch.StatisticalPage" page
-    And I choose the "<chart>" from the "PresentType" in config
     And I choose the "<value1>" from the "FieldValue" in config
+    And I wait for "2000" millsecond
+    And I choose the "<chart>" from the "PresentType" in config
     And I click the "AddButton" button
-    And I set the parameter "FieldValueInput" with value "<value2>"
     And I click the "IndependentStats" button
+    And I choose the "<value2>" from the "FieldValue" in config
     And I click the "AddButton" button
     And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/保存为趋势图/普通统计视图/<caseNum>"
+    And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
     
     And I click the "SaveAsTrend" button
     When I set the parameter "NameInput" with value "<caseNum>"
-    And I click the "CreateEnsureButton" button
+    And I click the "Ensure" button
     Then I will see the message "创建成功"
 #    Then I compare source image "actual/保存为趋势图/普通统计视图/<caseNum>" with target image "expect/保存为趋势图/普通统计视图/<caseNum>"
 
@@ -71,8 +73,9 @@ Feature: 保存为趋势图_普通统计视图
     And I click the "DateEditor" button
     And I click the "CustomTimeTab" button
     And I set the parameter "StartDateField" with yesterday date
+    And I set the parameter "StartTimeField" with value "08:00:00.000"
     And I set the parameter "EndDateField" with current date
-    And I click the "StartTimeField" button
+    And I set the parameter "EndTimeField" with value "08:00:00.000"
     And I click the "ApplyCustomTime" button
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
@@ -82,30 +85,22 @@ Feature: 保存为趋势图_普通统计视图
     Given I click the "TimeSlice" button
     And I wait for "1000" millsecond
     Then I choose the "apache.resp_len" from the "FieldValue" in config
+    And I wait for "2000" millsecond
     Then I choose the "<statisticType>" from the "StatisticType" in config
-    # Set Time Parameters
-    And I click the "StartDate" button
-    And I set the parameter "DateInput" with current date
-    And I click the "HideElement" button
-    And I click the "StartTime" button
-    And I set the parameter "TimeInput" with value "00:00:00"
-    And I click the "HideElement" button
-    And I click the "EndDate" button
-    And I set the parameter "DateInput" with current date
-    And I click the "HideElement" button
-    And I click the "EndTime" button
-    And I set the parameter "TimeInput" with value "23:59:59"
-    And I click the "HideElement" button
-    And I click the "GenerateTime" button under some element
-    And I wait for "6000" millsecond
+    And I set the parameter "StartDate" with current date
+    And I set the parameter "StartTime" with value "00:00:00"
+    And I set the parameter "EndDate" with current date
+    And I set the parameter "EndTime" with value "23:59:59"
+    And I click the "Generate" button under some element
+    And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/保存为趋势图/普通统计视图/<caseNum>"
+    And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
     
     And I click the "SaveAsTrend" button
     When I set the parameter "NameInput" with value "<caseNum>"
-    And I click the "CreateEnsureButton" button
+    And I click the "Ensure" button
     Then I will see the message "创建成功"
 #    Then I compare source image "actual/保存为趋势图/普通统计视图/<caseNum>" with target image "expect/保存为趋势图/普通统计视图/<caseNum>"
 
@@ -141,11 +136,11 @@ Feature: 保存为趋势图_普通统计视图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/保存为趋势图/普通统计视图/<caseNum>"
+    And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
 
     And I click the "SaveAsTrend" button
     When I set the parameter "NameInput" with value "<caseNum>"
-    And I click the "CreateEnsureButton" button
+    And I click the "Ensure" button
     Then I will see the message "创建成功"
 #    Then I compare source image "actual/保存为趋势图/普通统计视图/<caseNum>" with target image "expect/保存为趋势图/普通统计视图/<caseNum>"
 
@@ -170,11 +165,11 @@ Feature: 保存为趋势图_普通统计视图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/保存为趋势图/普通统计视图/815_时间直方图/<caseNum>"
+    And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
 
     And I click the "SaveAsTrend" button
     When I set the parameter "NameInput" with value "<caseNum>"
-    And I click the "CreateEnsureButton" button
+    And I click the "Ensure" button
     Then I will see the message "创建成功"
 #    Then I compare source image "actual/保存为趋势图/普通统计视图/815_时间直方图/<caseNum>" with target image "expect/保存为趋势图/普通统计视图/815_时间直方图/<caseNum>"
 
@@ -190,8 +185,9 @@ Feature: 保存为趋势图_普通统计视图
     And I click the "DateEditor" button
     And I click the "CustomTimeTab" button
     And I set the parameter "StartDateField" with value "2020-05-01"
+    And I set the parameter "StartTimeField" with value "08:00:00.000"
     And I set the parameter "EndDateField" with value "2020-05-31"
-    And I click the "StartTimeField" button
+    And I set the parameter "EndTimeField" with value "08:00:00.000"
     And I click the "ApplyCustomTime" button
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
@@ -207,11 +203,11 @@ Feature: 保存为趋势图_普通统计视图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/保存为趋势图/普通统计视图/2725_时间直方图/<caseNum>"
+    And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
 
     And I click the "SaveAsTrend" button
     When I set the parameter "NameInput" with value "<caseNum>"
-    And I click the "CreateEnsureButton" button
+    And I click the "Ensure" button
     Then I will see the message "创建成功"
 #    Then I compare source image "actual/保存为趋势图/普通统计视图/2725_时间直方图/<caseNum>" with target image "expect/保存为趋势图/普通统计视图/2725_时间直方图/<caseNum>"
 
@@ -231,17 +227,18 @@ Feature: 保存为趋势图_普通统计视图
     Given I click the "DataHistogram" button
     And I wait for "1000" millsecond
     When I choose the "apache.resp_len" from the "FieldValue" in config
+    And I wait for "1000" millsecond
     And I set the parameter "DataSpan" with value "<number>"
     And I click the "Generate" button
     And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/保存为趋势图/普通统计视图/816_数值直方图/<caseNum>"
+    And take part of "Chart" with name "actual/普通统计视图/816_数值直方图/<caseNum>"
 
     And I click the "SaveAsTrend" button
     When I set the parameter "NameInput" with value "<caseNum>"
-    And I click the "CreateEnsureButton" button
+    And I click the "Ensure" button
     Then I will see the message "创建成功"
 #    Then I compare source image "actual/保存为趋势图/普通统计视图/816_数值直方图/<caseNum>" with target image "expect/保存为趋势图/普通统计视图/816_数值直方图/<caseNum>"
 
@@ -250,7 +247,6 @@ Feature: 保存为趋势图_普通统计视图
       | 500     | 816_500    |
       | 1000    | 816_1000   |
 
-# can not compare, because of same values
   Scenario Outline: classifyfieldvalue(RZY-817)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
@@ -270,7 +266,7 @@ Feature: 保存为趋势图_普通统计视图
     And take part of "Chart" with name "actual/保存为趋势图/普通统计视图/817_字段值分类/<screenName>_<value1>"
     And I click the "SaveAsTrend" button
     When I set the parameter "NameInput" with value "<screenName>_<value1>"
-    And I click the "CreateEnsureButton" button
+    And I click the "Ensure" button
     Then I will see the message "创建成功"
 
     Examples:
@@ -304,7 +300,7 @@ Feature: 保存为趋势图_普通统计视图
     
     And I click the "SaveAsTrend" button
     When I set the parameter "NameInput" with value "2727_<statType>_<chart>_<timeSpan><time>"
-    And I click the "CreateEnsureButton" button
+    And I click the "Ensure" button
     Then I will see the message "创建成功"
 #    Then I compare source image "actual/保存为趋势图/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>" with target image "expect/保存为趋势图/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
 
@@ -321,8 +317,9 @@ Feature: 保存为趋势图_普通统计视图
     And I click the "DateEditor" button
     And I click the "CustomTimeTab" button
     And I set the parameter "StartDateField" with value "2020-05-01"
+    And I set the parameter "StartTimeField" with value "08:00:00.000"
     And I set the parameter "EndDateField" with value "2020-05-31"
-    And I click the "StartTimeField" button
+    And I set the parameter "EndTimeField" with value "08:00:00.000"
     And I click the "ApplyCustomTime" button
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
@@ -346,7 +343,7 @@ Feature: 保存为趋势图_普通统计视图
     
     And I click the "SaveAsTrend" button
     When I set the parameter "NameInput" with value "2727_<statType>_<chart>_<timeSpan><time>"
-    And I click the "CreateEnsureButton" button
+    And I click the "Ensure" button
     Then I will see the message "创建成功"
 #    Then I compare source image "actual/保存为趋势图/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>" with target image "expect/保存为趋势图/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
 
@@ -365,11 +362,12 @@ Feature: 保存为趋势图_普通统计视图
     And I wait for "1000" millsecond
     And I choose the "apache.resp_len" from the "YAxis" in config
     And I choose the "apache.clientip" from the "GroupField" in config
+    And I choose the "<chart>" from the "PresentType" in config
+    When I set the parameter "TimeSpan" with value "<timeSpan>"
     And I click the "SelfRadio" button
     And I wait for "2000" millsecond
     And I choose the "36.46.208.22" from the "SelfRadioField" in config
-    And I choose the "<chart>" from the "PresentType" in config
-    When I set the parameter "TimeSpan" with value "<timeSpan>"
+    And I click the "HideElement" button
     And I click the "Generate" button
     And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
@@ -379,7 +377,7 @@ Feature: 保存为趋势图_普通统计视图
 
     And I click the "SaveAsTrend" button
     When I set the parameter "NameInput" with value "2727_<chart>_<timeSpan>_clientip"
-    And I click the "CreateEnsureButton" button
+    And I click the "Ensure" button
     Then I will see the message "创建成功"
 #    Then I compare source image "actual/保存为趋势图/普通统计视图/2727_字段数值/2727_<chart>_<timeSpan>_clientip" with target image "expect/保存为趋势图/普通统计视图/2727_字段数值/2727_<chart>_<timeSpan>_clientip"
 
@@ -396,6 +394,7 @@ Feature: 保存为趋势图_普通统计视图
     And I click the "TotalPercent" button
     And I wait for "1000" millsecond
     And I choose the "apache.resp_len" from the "FieldValue" in config
+    And I click the "HideElement" button
     And I click the "ClosePercent<percent2>" button
     And I click the "AddPercent" button
     And I set the parameter "PercentInput" with value "<percent1>"
@@ -408,7 +407,7 @@ Feature: 保存为趋势图_普通统计视图
 
     And I click the "SaveAsTrend" button
     When I set the parameter "NameInput" with value "<screenName>"
-    And I click the "CreateEnsureButton" button
+    And I click the "Ensure" button
     Then I will see the message "创建成功"
 #    Then I compare source image "actual/保存为趋势图/普通统计视图/<screenName>" with target image "expect/保存为趋势图/普通统计视图/<screenName>"
 
@@ -430,14 +429,14 @@ Feature: 保存为趋势图_普通统计视图
     And I set the parameter "GoalValue" with value "<value1>"
     And I click the "Generate" button
     And I wait for "4000" millsecond
-    And I wait for "ChartPercent" will be visible
-    And I drag the scroll bar to the element "ChartPercent"
+    And I wait for "Chart" will be visible
+    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "ChartPercent" with name "actual/保存为趋势图/普通统计视图/<screenName>"
 
     And I click the "SaveAsTrend" button
     When I set the parameter "NameInput" with value "<screenName>"
-    And I click the "CreateEnsureButton" button
+    And I click the "Ensure" button
     Then I will see the message "创建成功"
 #    Then I compare source image "actual/保存为趋势图/普通统计视图/<screenName>" with target image "expect/保存为趋势图/普通统计视图/<screenName>"
 
@@ -448,7 +447,6 @@ Feature: 保存为趋势图_普通统计视图
 
 
   Scenario: multilevelstats_step1(RZY-822)
-    # types of chart
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -462,19 +460,18 @@ Feature: 保存为趋势图_普通统计视图
     And I choose the "饼图" from the "PresentType" in config
     And I click the "Generate" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "MultiStatsChart" will be visible
+    And I drag the scroll bar to the element "MultiStatsChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/保存为趋势图/普通统计视图/822_多级统计/822_chart_step1"
+    And take part of "MultiStatsChart" with name "actual/保存为趋势图/普通统计视图/822_多级统计/822_chart_step1"
     
     And I click the "SaveAsTrend" button
     When I set the parameter "NameInput" with value "822_chart_step1"
-    And I click the "CreateEnsureButton" button
+    And I click the "Ensure" button
     Then I will see the message "创建成功"
 #    Then I compare source image "actual/保存为趋势图/普通统计视图/822_多级统计/822_chart_step1" with target image "expect/保存为趋势图/普通统计视图/822_多级统计/822_chart_step1"
 
   Scenario: multilevelstats_step2(RZY-822)
-    # types of chart
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -491,23 +488,24 @@ Feature: 保存为趋势图_普通统计视图
     And I choose the "apache.clientip" from the "FieldValue" in config
     And I choose the "计数" from the "StatisticType" in config
     And I click the "Generate" button
+    And I wait for "1000" millsecond
     And I click the "StatisticsGram" button
+    And I wait for "1000" millsecond
     And I choose the "饼图" from the "PresentType" in config
     And I click the "Generate" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "MultiStatsChart" will be visible
+    And I drag the scroll bar to the element "MultiStatsChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/保存为趋势图/普通统计视图/822_多级统计/822_chart_step2"
+    And take part of "MultiStatsChart" with name "actual/保存为趋势图/普通统计视图/822_多级统计/822_chart_step2"
 
     And I click the "SaveAsTrend" button
     When I set the parameter "NameInput" with value "822_chart_step2"
-    And I click the "CreateEnsureButton" button
+    And I click the "Ensure" button
     Then I will see the message "创建成功"
 #    Then I compare source image "actual/保存为趋势图/普通统计视图/822_多级统计/822_chart_step2" with target image "expect/保存为趋势图/普通统计视图/822_多级统计/822_chart_step2"
 
   Scenario: multilevelstats_step3(RZY-822)
-    # types of chart
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -523,26 +521,29 @@ Feature: 保存为趋势图_普通统计视图
     And I click the "NextStep" button
     And I choose the "apache.clientip" from the "FieldValue" in config
     And I click the "Generate" button
+    And I wait for "1000" millsecond
 
     # Select the whole table
     When I click the "WholeField" button
+    And I wait for "1000" millsecond
     And I click the "NextStep" button
     And I choose the "apache.resp_len" from the "FieldValue" in config
     And I choose the "计数" from the "StatisticType" in config
     And I click the "Generate" button
     And I wait for "2000" millsecond
     And I click the "StatisticsGram" button
+    And I wait for "1000" millsecond
     And I choose the "饼图" from the "PresentType" in config
     And I click the "Generate" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "MultiStatsChart" will be visible
+    And I drag the scroll bar to the element "MultiStatsChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/保存为趋势图/普通统计视图/822_多级统计/822_chart_step3"
+    And take part of "MultiStatsChart" with name "actual/保存为趋势图/普通统计视图/822_多级统计/822_chart_step3"
 
     And I click the "SaveAsTrend" button
     When I set the parameter "NameInput" with value "822_chart_step3"
-    And I click the "CreateEnsureButton" button
+    And I click the "Ensure" button
     Then I will see the message "创建成功"
 #    Then I compare source image "actual/保存为趋势图/普通统计视图/822_多级统计/822_chart_step3" with target image "expect/保存为趋势图/普通统计视图/822_多级统计/822_chart_step3"
 
@@ -564,32 +565,32 @@ Feature: 保存为趋势图_普通统计视图
 
     And I click the "SaveAsTrend" button
     When I set the parameter "NameInput" with value "825_world"
-    And I click the "CreateEnsureButton" button
+    And I click the "Ensure" button
     Then I will see the message "创建成功"
     And I click the "Ensure" button
 #    Then I compare source image "actual/保存为趋势图/普通统计视图/825_地理分布/825_world" with target image "expect/保存为趋势图/普通统计视图/825_地理分布/825_world"
 
     And I wait for "2000" millsecond
-    When I click the "CountryChina" button
+    When I click the Circle "CountryChina" button
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/保存为趋势图/普通统计视图/825_地理分布/825_china"
 
     And I click the "SaveAsTrend" button
     When I set the parameter "NameInput" with value "825_china"
-    And I click the "CreateEnsureButton" button
+    And I click the "Ensure" button
     Then I will see the message "创建成功"
     And I click the "Ensure" button
 #    Then I compare source image "actual/保存为趋势图/普通统计视图/825_地理分布/825_china" with target image "expect/保存为趋势图/普通统计视图/825_地理分布/825_china"
 
     And I wait for "2000" millsecond
-    When I click the "ProvinceSichuan" button
+    When I click the Circle "ProvinceSichuan" button
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/保存为趋势图/普通统计视图/825_地理分布/825_sichuan"
 
     And I click the "SaveAsTrend" button
     When I set the parameter "NameInput" with value "825_sichuan"
-    And I click the "CreateEnsureButton" button
+    And I click the "Ensure" button
     Then I will see the message "创建成功"
 #    Then I compare source image "actual/保存为趋势图/普通统计视图/825_地理分布/825_sichuan" with target image "expect/保存为趋势图/普通统计视图/825_地理分布/825_sichuan"

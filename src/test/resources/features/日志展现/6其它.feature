@@ -21,7 +21,7 @@ Feature: 日志展现_其它
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
 #    Then I compare source image "actual/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它/<caseNum>_<chartType>"
 
     Examples:
@@ -40,7 +40,6 @@ Feature: 日志展现_其它
 
     And I click the "Settings" button
     And I click the "Facet" button
-    And I click the "AddField" button
     And I choose the "apache.method" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
@@ -78,7 +77,7 @@ Feature: 日志展现_其它
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>_<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它/<chartType>_<caseNum>"
     Then I compare source image "actual/高级搜索视图/6其它/<chartType>_<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>_<caseNum>"
 
     Examples:
@@ -96,7 +95,6 @@ Feature: 日志展现_其它
     And I click the "Settings" button
     And I choose the "cnt" from the "FieldValue" in config
     And I click the "Facet" button
-    And I click the "AddField" button
     And I choose the "apache.method" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
@@ -131,7 +129,7 @@ Feature: 日志展现_其它
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
     Then I compare source image "actual/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它/<caseNum>_<chartType>"
 
     Examples:
@@ -162,7 +160,7 @@ Feature: 日志展现_其它
     And I click the "Settings" button
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
     Then I compare source image "actual/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它/<caseNum>_<chartType>"
 
     Examples:
@@ -195,7 +193,7 @@ Feature: 日志展现_其它
     And I click the "Settings" button
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
     Then I compare source image "actual/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它/<caseNum>_<chartType>"
 
     Examples:
@@ -224,7 +222,7 @@ Feature: 日志展现_其它
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
     Then I compare source image "actual/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它/<caseNum>_<chartType>"
 
     Examples:
@@ -248,12 +246,12 @@ Feature: 日志展现_其它
     And I choose the "<starttime>" from the "StartTime" in config
     And I choose the "<duration>" from the "KeepTime" in config
     And I click the "Info" button
+    And I move the mouse pointer to the "InfoColumnIcon"
+    And I click the "CloseIcon" button
+    And I choose the "<duration>" from the "InfoColumn" in config
     And I choose the "<infoValue>" from the "InfoField" in config
-    And I cancel selection "<cancelcol>" from the "InfoColumn" in config
     And I click the "Divide" button
     And I choose the "<childIDvalue>" from the "FieldValue" in config
-    And I click the "Info" button
-    And I choose the "<column>" from the "InfoColumn" in config
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
@@ -266,7 +264,7 @@ Feature: 日志展现_其它
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "ChainTableElement" will be visible
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
     Then I compare source image "actual/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它/<caseNum>_<chartType>"
 
     Examples:
@@ -301,7 +299,7 @@ Feature: 日志展现_其它
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
     Then I compare source image "actual/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它/<caseNum>_<chartType>"
 
     Examples:
@@ -338,7 +336,7 @@ Feature: 日志展现_其它
     And I click the "Settings" button
     And I wait for "ChainTreeElement" will be visible
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
     Then I compare source image "actual/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它/<caseNum>_<chartType>"
 
     Examples:
@@ -358,11 +356,11 @@ Feature: 日志展现_其它
 
     And I click the "Type" button
     And I wait for "<chartType>Element" will be visible
-    And I click the "<node>" button
+    And I click the Circle "<node>" button
     And I wait for "2000" millsecond
-    And I drag the scroll bar to the element "ChartView"
+    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "actual/高级搜索视图/6其它/Network/<chartType>_<node>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它/Network/<chartType>_<node>"
     Then I compare source image "actual/高级搜索视图/6其它/Network/<chartType>_<node>" with target image "expect/高级搜索视图/6其它/Network/<chartType>_<node>"
 
     Examples:
@@ -392,7 +390,7 @@ Feature: 日志展现_其它
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "actual/高级搜索视图/6其它/Network/<chartType>_<color>_<repValue>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它/Network/<chartType>_<color>_<repValue>"
     Then I compare source image "actual/高级搜索视图/6其它/Network/<chartType>_<color>_<repValue>" with target image "expect/高级搜索视图/6其它/Network/<chartType>_<color>_<repValue>"
 
     Examples:
@@ -424,11 +422,11 @@ Feature: 日志展现_其它
     And I click the "Generate" button
     And I click the "Settings" button
     And I wait for "<chartType>Element" will be visible
-    And I click the "Click<node>" button
+    And I click the Circle "Click<node>" button
     And I wait for "2000" millsecond
-    And I drag the scroll bar to the element "ChartView"
+    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "actual/高级搜索视图/6其它/Network/<chartType>_<node>_<color>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它/Network/<chartType>_<node>_<color>"
     Then I compare source image "actual/高级搜索视图/6其它/Network/<chartType>_<node>_<color>" with target image "expect/高级搜索视图/6其它/Network/<chartType>_<node>_<color>"
 
     Examples:

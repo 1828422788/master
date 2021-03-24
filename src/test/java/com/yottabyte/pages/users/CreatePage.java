@@ -108,7 +108,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getDropdownList(String name) {
-        String xpath = "//label[text()='" + name + "']/ancestor::div[1]/following-sibling::div//span/div[1]";
+        String xpath = "//label[text()='" + name + "']/ancestor::div[1]/following-sibling::div//div[@yotta-test]";
         webDriver.findElement(By.xpath(xpath)).click();
         return this.getLastDropdownList();
     }

@@ -115,17 +115,11 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='下一步']/ancestor::button)[last()]")
     private WebElement nextButton;
 
-    @FindBy(xpath = "//span[text()='保存为']")
-    private WebElement saveAs;
-
-    @FindBy(xpath = "//li[text()='趋势图']")
-    private WebElement saveAsTrend;
-
-    @FindBy(xpath = "//label[text()='名称']/following-sibling::input")
-    private WebElement nameInput;
-
     @FindBy(xpath = "(//p[text()='时间桶'])[last()]/following-sibling::div//i")
     private WebElement timeDropdown;
+
+    @FindBy(xpath = "//li[@yotta-test='search-save_option_trend-menu_item']")
+    private WebElement saveAsTrend;
 
     public WebElement getIndependentStats() {
         return getYottaCheckbox("search-EventsCounting_unique-checkbox"); //独立数统计
@@ -197,16 +191,12 @@ public class StatisticalPage extends PageTemplate {
     }
 
     public WebElement getSaveAsTrend() {
-        saveAs.click();
+        getYottaDiv("search-save_option-dom").click();
         return saveAsTrend;
     }
 
     public WebElement getNameInput() {
-        return nameInput;
-    }
-
-    public WebElement getCreateEnsureButton() {
-        return getContainsTextButton("确 定");
+        return getYottaInput("search-trend_name-input");
     }
 
     public WebElement getNextButton() {
