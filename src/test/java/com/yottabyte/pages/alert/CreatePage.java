@@ -334,11 +334,16 @@ public class CreatePage extends PageTemplate {
     }
 
     // 高级配置tab
+    @FindBy(xpath = "//a[@yotta-test='alert-extend-anchor_link']")
+    private WebElement advancedConfigTab;
+
     public WebElement getAdvancedConfigTab() {
-        return tabs.get(1);
+//        return tabs.get(1);
+        return advancedConfigTab;
     }
 
-    @FindBy(xpath = "//div[contains(text(),'告警方式')]")
+//    @FindBy(xpath = "//div[contains(text(),'告警方式')]")
+    @FindBy(xpath = "//a[@yotta-test='alert-methods-anchor_link']")
     private WebElement alertNoteTypeTab;
 
     // 告警方式tab
@@ -951,16 +956,24 @@ public class CreatePage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
-
-    @FindBy(xpath = "//div[contains(text(),'邮件告警')][@class='ant-collapse-header']")
+//    @FindBy(xpath = "//div[contains(text(),'邮件告警')][@class='ant-collapse-header']")
+    @FindBy(xpath = "//div[@yotta-test='alert-alert_methods-panel']//span[contains(text(),'邮件告警')]")
     private WebElement mailAlertLabel;
 
     public WebElement getMailAlertLabel() {
         return mailAlertLabel;
     }
 
+    @FindBy(xpath = "//div[@yotta-test='alert-alert_methods-panel']//span[contains(text(),'邮件告警')]/following-sibling::span[@yotta-test='alert-alert_methods_delete-icon']")
+    private WebElement delMailAlertLabel;
+
+    public WebElement getDelMailAlertLabel() {
+        return delMailAlertLabel;
+    }
+
     //预览窗口提示
-    @FindBy(xpath = "//div[@id='rcDialogTitle0'][@class='ant-modal-title'][contains(text(),'提示')]")
+//  @FindBy(xpath = "//div[@id='rcDialogTitle0'][@class='ant-modal-title'][contains(text(),'提示')]")
+    @FindBy(xpath = "//div[@class='yotta-modal-body']//h4[contains(text(),'提示')]")
     private WebElement previewReminder;
 
     public WebElement getPreviewReminder() {
@@ -968,7 +981,7 @@ public class CreatePage extends PageTemplate {
     }
 
     //预览提示中监控名称
-    @FindBy(xpath = "//div[@class='ant-modal-body']/div[@class='HTIw3Zf6MVpXrv-OFu2L8']")
+    @FindBy(xpath = "//div[@class='yotta-modal-body']/div[@class='HTIw3Zf6MVpXrv-OFu2L8']")
     private WebElement previewAlertReminderText;
 
     public WebElement getPreviewAlertReminderText() {
@@ -1015,7 +1028,5 @@ public class CreatePage extends PageTemplate {
     }
 
     //class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical"
-
     //class="ant-dropdown-menu-item ant-dropdown-menu-item-selected"
-
 }
