@@ -91,6 +91,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
         return utils.getLastDropdownList();
     }
 
+
     public WebElement getAuthDropdown() {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(authDropdown));
         authDropdown.click();
