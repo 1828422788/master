@@ -125,10 +125,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-checkbox__input")
     private WebElement checkBox;
 
-    // 添加告警类型下拉框按钮
-    @FindBy(className = "add-config-dropdown-button")
-    private WebElement addAlertNoteTypeButton;
-
     // 添加告警类型下拉框
     @FindBy(className = "add-config-dropdown-menu")
     private WebElement addAlertNoteTypeGroup;
@@ -342,13 +338,12 @@ public class CreatePage extends PageTemplate {
         return advancedConfigTab;
     }
 
-//    @FindBy(xpath = "//div[contains(text(),'告警方式')]")
+    //    @FindBy(xpath = "//div[contains(text(),'告警方式')]")
     @FindBy(xpath = "//a[@yotta-test='alert-methods-anchor_link']")
     private WebElement alertNoteTypeTab;
 
     // 告警方式tab
     public WebElement getAlertNoteTypeTab() {
-//        return tabs.get(2);
         return alertNoteTypeTab;
     }
 
@@ -827,6 +822,9 @@ public class CreatePage extends PageTemplate {
         }
     }
 
+    // 添加告警类型下拉框按钮
+    @FindBy(className = "add-config-dropdown-button")
+    private WebElement addAlertNoteTypeButton;
     private WebElement getAlertNoteTypes() {
         com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(addAlertNoteTypeButton));
         addAlertNoteTypeButton.click();
@@ -941,7 +939,15 @@ public class CreatePage extends PageTemplate {
         return alertPlanCrontabButton;
     }
 
-    @FindBy(xpath = "//label[contains(text(),'接收者')]/following::input")
+    @FindBy(xpath = "//label[contains(text(),'接收者')]/following::div[@yotta-test='alert-alert_methods_email_account_group-select']")
+    private WebElement mailReceiverButton;
+
+    public WebElement getMailReceiverButton() {
+        return mailReceiverButton;
+    }
+
+//    @FindBy(xpath = "//label[contains(text(),'接收者')]/following::input")
+    @FindBy(xpath = "//label[contains(text(),'接收者')]/following::div[@yotta-test='alert-alert_methods_email_account_group-select']//input")
     private WebElement mailReceiver;
 
     public WebElement getMailReceiver() {
@@ -956,7 +962,7 @@ public class CreatePage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
-//    @FindBy(xpath = "//div[contains(text(),'邮件告警')][@class='ant-collapse-header']")
+    //    @FindBy(xpath = "//div[contains(text(),'邮件告警')][@class='ant-collapse-header']")
     @FindBy(xpath = "//div[@yotta-test='alert-alert_methods-panel']//span[contains(text(),'邮件告警')]")
     private WebElement mailAlertLabel;
 
@@ -1001,9 +1007,8 @@ public class CreatePage extends PageTemplate {
     }
 
     //测试运行中监控名称
-//    @FindBy(xpath = "//div[@class='ant-modal-content']//p[@class='_1JjlGgMGUnJmBrqR_9PZl8'][contains(text(),'测试运行完成')]")
     @FindBy(xpath = "//div[@class='ant-modal-content']//p[@class='_1JjlGgMGUnJmBrqR_9PZl8'][contains(text(),'测试运行完成')]")
-    private WebElement  testRunReminderText;
+    private WebElement testRunReminderText;
 
     public WebElement getTestRunReminderText() {
         return testRunReminderText;
@@ -1017,16 +1022,24 @@ public class CreatePage extends PageTemplate {
         return affirmButton;
     }
 
+    //
+    @FindBy(xpath = "//span[contains(text(),'添加告警方式')]")
+    private WebElement addAlertTypeButton;
+    public WebElement getAddAlertTypeButton()
+    {
+        return addAlertTypeButton;
+    }
+
     private WebElement alertNoteTypeListButton;
 
     public WebElement getAlertNoteTypeListButton() {
-        String xpath = "//span[text()='添加告警方式']/following::span[text()='请选择类型']/following-sibling::i";
+        //String xpath = "//span[text()='添加告警方式']/following::span[text()='请选择类型']/following-sibling::i";
+//      String xpath = "//ul[@yotta-test='alert-plugin_names-menu']";
+        String xpath = "//span[contains(text(),'添加告警方式')]";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
         return getAlertNoteTypeDropdownList();
     }
 
-    //class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical"
-    //class="ant-dropdown-menu-item ant-dropdown-menu-item-selected"
 }

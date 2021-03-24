@@ -170,8 +170,7 @@ public class DropdownUtils {
     }
 
     public WebElement getAlertNoteTypeDropdownList() {
-        String className;
-        className = "ant-dropdown-menu-item";
+        String className = "yotta-dropdown-menu";
         List<WebElement> list = webDriver.findElements(By.className(className));
         WebElement lastDropdownList = list.get(list.size() - 1);
         if (lastDropdownList.getAttribute("style").contains("display: none;")) {
