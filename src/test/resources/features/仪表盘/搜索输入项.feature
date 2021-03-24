@@ -79,8 +79,9 @@ Feature: 搜索页输入项
     And I click the "AddChoiceValueButton" button
     And I set the parameter "ChoiceValue" with value "sample04061424"
     And I click the "AddChoiceValueButton" button
-    And I wait for "2000" millsecond
+    And I wait for "500" millsecond
     And I choose the "sample04061424_display,sample04061424" from the "DefaultDropdownList"
+    And I wait for "2000" millsecond
     And I set the parameter "Prefix" with value "tag "
     And I set the parameter "Suffix" with value " tag : sample04061424_display |"
     And I set the parameter "PrefixValue" with value ": "
@@ -112,7 +113,7 @@ Feature: 搜索页输入项
     And I set the parameter "InputItemSpl" with value "tag : sample04061424_chart | stats count() by 'apache.geo.city'"
     And I set the parameter "DynamicField" with value "apache.geo.city"
     And I click the "InputItemDateEditor" button
-    And I click the "Today" button
+    And I click the "InputDateToday" button
     And I set the parameter "ChoiceValue" with value "北京市"
     And I click the "AddChoiceValueButton" button
     And I set the parameter "ChoiceValue" with value "南京市"
@@ -129,7 +130,7 @@ Feature: 搜索页输入项
     Then I wait for "InputItem" will be visible
     And I choose the "苏州市" from the "FilterDropdown"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "InputDateToday" button
     And I click the "SearchButton" button
     And I wait for "2000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -169,7 +170,7 @@ Feature: 搜索页输入项
     And I click the "AcceptCreateDownloadTask" button
     Then I wait for "InputItem" will be visible
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "InputDateToday" button
     And I click the "SearchButton" button
     And I wait for "2000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -193,7 +194,7 @@ Feature: 搜索页输入项
     And I click the "AcceptCreateDownloadTask" button
     Then I wait for "InputItem" will be visible
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "InputDateToday" button
     And I click the "SearchButton" button
     Then I will see the "AlertMessage" doesn't exist
     And I wait for "2000" millsecond
@@ -283,7 +284,7 @@ Feature: 搜索页输入项
     And I click the "AcceptCreateDownloadTask" button
     Then I wait for "InputItem" will be visible
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "InputDateToday" button
     And I click the "SearchButton" button
     Then I will see the "AlertMessage" doesn't exist
     And I wait for "2000" millsecond
@@ -312,7 +313,7 @@ Feature: 搜索页输入项
     And I click the "AcceptCreateDownloadTask" button
     Then I wait for "InputItem" will be visible
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "InputDateToday" button
     And I click the "SearchButton" button
     Then I will see the "AlertMessage" doesn't exist
     And I wait for "2000" millsecond
