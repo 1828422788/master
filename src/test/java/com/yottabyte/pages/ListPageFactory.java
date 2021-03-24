@@ -94,7 +94,8 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     public WebElement getAuthDropdown() {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(authDropdown));
         authDropdown.click();
-        return getLastDropdownList();
+       // return getLastDropdownList();
+        return getLastDropdownListEditApp();
     }
 
     public WebElement getRemoveTagIcon() {
@@ -191,7 +192,10 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     }
 
     public WebElement getLastDropdownList() {
-     //   return utils.getLastDropdownList();
+        return utils.getLastDropdownList();
+    }
+
+    public WebElement getLastDropdownListEditApp() {
         return utils.getLastDropdownListEditApp();
     }
 
