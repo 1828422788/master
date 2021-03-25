@@ -282,7 +282,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='仪表盘曲线图']/parent::div")
     private WebElement sequenceChart;
 
-    @FindBy(xpath = "(//i[@class='anticon css-ifnfqv'])[8]")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-chart_switch_table-icon']")
     private WebElement switchToTable;
 
     @FindBy(xpath = "//*[@yotta-test='dashboard-chart_download-icon']")
@@ -2465,6 +2465,13 @@ public class DetailPage extends PageTemplate {
         return eventOpera;
     }
 
+    @FindBy(xpath = "//li[text()='testSearch']")
+    private WebElement tagTestSearch;
+
+    public WebElement getTagTestSearch() {
+        return tagTestSearch;
+    }
+
     @FindBy(xpath = "//li[text()='钻取跳转']")
     private WebElement tagPageZuanqu;
 
@@ -2477,6 +2484,13 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getTagPageEvent() {
         return tagPageEvent;
+    }
+
+    @FindBy(xpath = "//li[text()='FirstAutoTest']")
+    private WebElement tagPageFirst;
+
+    public WebElement getTagPageFirst() {
+        return tagPageFirst;
     }
 
     @FindBy(xpath = "//span[text()='city']")

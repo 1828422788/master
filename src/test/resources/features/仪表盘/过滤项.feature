@@ -341,11 +341,13 @@ Feature: 仪表盘过滤项
     And I wait for "1000" millsecond
     And I click the "MultiSelect" button
     And I wait for "1000" millsecond
+    And I choose the "南京市" from the "DefaultDropdownList"
+    And I wait for "1000" millsecond
     Then I click the "Ensure" button
     And I wait for "1500" millsecond
-    And I choose the "南京市,成都市" from the "FilterDropdown"
+    And I choose the "成都市" from the "FilterDropdown"
     And I wait for "1000" millsecond
-    And I click the "Update" button
+#    And I click the "Update" button
     And I wait for "Progress" will be invisible
     Then I will see the "NoData" doesn't exist
 

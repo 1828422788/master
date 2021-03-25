@@ -259,8 +259,8 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
-#    And I wait for "3000" millsecond
-    And I wait for "IpZifu" will be visible
+    And I wait for "3000" millsecond
+#    And I wait for "IpZifu" will be visible
     And I click the Circle "IpZifu" button
 #    And I click the "IpZifu" button
     And switch to another window

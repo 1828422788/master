@@ -418,7 +418,7 @@ Feature: 仪表盘事件列表
     And I wait for "2000" millsecond
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "添加输入项成功"
+#    Then I will see the success message "添加输入项成功"
 
   @dashboard @dashboardSmoke
   Scenario: 跳转到标签页 RZY-3802,RZY-3624

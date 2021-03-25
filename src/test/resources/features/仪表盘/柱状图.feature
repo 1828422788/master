@@ -288,13 +288,17 @@ Feature: 仪表盘柱状图
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
-    And I choose the "跳转到标签页" from the "DrillAction"
     And I click the "TargetTag" button
-    And I choose the "FirstAutoTest" from the "DashboardMenu"
-    And I choose the "testSearch" from the "DashboardMenu"
+    And I click the "TagPageFirst" button
+#    And I choose the "仪表盘事件操作" from the "DashboardMenu"
+    And I wait for "1000" millsecond
+    And I click the "TagTestSearch" button
+#    And I choose the "事件操作" from the "DashboardMenu"
+    And I wait for "500" millsecond
     And I click the "TargetParam" button
-    And I choose the "globalTimeRange" from the "InputGroup"
-    And I hide the element "ParamDropdown"
+    And I wait for "1000" millsecond
+    And I click the "GlobalTimeRange" button
+    And I wait for "1000" millsecond
     And I click the "ParamValue" button
     And I click the "StartEnd" button
     And I click the "Ensure" button
@@ -329,7 +333,7 @@ Feature: 仪表盘柱状图
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
 #    And I wait for "100" millsecond
-    And I move the mouse pointer to the "Zhutiao"
+    And I move the mouse pointer to the "TrendTitle"
     And I wait for "SwitchToTable" will be visible
     And I click the "SwitchToTable" button
     And I click the "Ip254" button

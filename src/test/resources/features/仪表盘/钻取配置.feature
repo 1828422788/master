@@ -173,7 +173,7 @@ Feature: 仪表盘钻取配置
     And I wait for "Progress" will be invisible
     When the chart title is "仪表盘钻取配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "DrillAction" will be visible
+#    And I wait for "DrillAction" will be visible
     And I choose the "跳转到自定义URL" from the "DrillAction"
     And I set the parameter "Url" with value "<url>"
     And I wait for "1500" millsecond
