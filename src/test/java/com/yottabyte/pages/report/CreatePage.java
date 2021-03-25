@@ -81,6 +81,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[@class='popover-setting-content'])[last()]")
     private WebElement settingContent;
 
+    @FindBy(xpath = "//label[text()='参数设置']")
+    private WebElement parameterSetting;
+
     @FindBy(xpath = "((//span[text()='编辑']/ancestor::button[contains(@yotta-test,'report-edit_')])[last()]) | (//label[@name='operate_edit']/*)")
     private WebElement editButton;
 
@@ -371,7 +374,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getParameterSetting() {
-        return getYottaButton("report-chart-button"); //参数设置
+        return parameterSetting; //参数设置
     }
 
     public WebElement getEditButton() {
@@ -1102,7 +1105,7 @@ public class CreatePage extends PageTemplate {
     }
 
     private WebElement getSwitchElement(String name) {
-        return webDriver.findElement(By.xpath("//span[text()='" + name + "']/ancestor::div[1]/following-sibling::div//input[@yotta-test='chartgui-switch-switch']/ancestor::label[1]"));
+        return webDriver.findElement(By.xpath("//span[text()='" + name + "']/ancestor::div/following-sibling::div//label"));
     }
 
     private WebElement getInputSetting(String name) {
