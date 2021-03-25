@@ -12,14 +12,14 @@ Feature: 报表_发送
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameters "Hour" and "Minute" as "3" minutes later from now
-    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
+    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I click the "NextButton" button under some element
     And I wait for "5000" millsecond
     Then I will see the element "ChosenTrendLast" contains "<name>"
     When I click the "FinishButton" button under some element
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "更新成功"
 
     Examples:
       |          name        |
@@ -69,14 +69,14 @@ Feature: 报表_发送
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameters "Hour" and "Minute" as "3" minutes later from now
-    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
+    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I click the "NextButton" button under some element
     And I wait for "5000" millsecond
     Then I will see the element "ChosenTrendLast" contains "<name>"
     When I click the "FinishButton" button under some element
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "更新成功"
 
     Examples:
       |          name        |
@@ -126,13 +126,13 @@ Feature: 报表_发送
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameters "Hour" and "Minute" as "3" minutes later from now
-    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
+    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I click the "NextButton" button under some element
     And I wait for "5000" millsecond
     When I click the "FinishButton" button under some element
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "更新成功"
 
     Examples:
       |          name        |

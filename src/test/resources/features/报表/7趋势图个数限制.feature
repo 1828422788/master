@@ -80,12 +80,9 @@ Feature: 报表_趋势图个数限制
     And I click the "EnsureButton" button
     Then I will see the element "ChosenTrendLast" contains "报表测试_5"
     When I choose the "报表测试" from the "ChartList"
+    When I click the "FinishButton" button under some element
     And I wait for "ErrorMessage" will be visible
     Then I will see the error message "每个报表最多保存5个趋势图"
-    When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
 
 
   Scenario: change_limit_default

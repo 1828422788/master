@@ -24,29 +24,31 @@ Feature: 报表标签
     And I will see the element "ResultMessage" contains "新建成功"
 
   Scenario: tag_report
-    When I will see the data "{'column':'1','name':'Test_Tag'}" values "{'column':'7','name':'无'}"
-    When I will see the data "{'column':'1','name':'Test_Tag'}" values "{'column':'6','name':'test_app'}"
-    When the data name is "{'column':'1','name':'Test_Tag'}" then i click the "标签" button
+    And the data name is "{'column':'1','name':'Test_Tag'}" then I "expand" the item
+    And I will see the element "TagOfTheLastItem" contains "无"
+    And I will see the element "AppOfTheLastItem" contains "test_app"
+    When the data name is "{'column':'1','name':'Test_Tag'}" then i click the "标签" button in more menu
     And I choose the "auto_package" from the "TagField"
     And I click the "TagPanel" button
-    And I click the "EnsureButton" button
+    And I click the "Ensure" button
     And I wait for "100" millsecond
     And I wait for "Message" will be visible
     Then I will see the message "修改成功"
-    And I click the "EnsureButton" button
+    And I click the "Ensure" button
     And I refresh the website
-    #column 7 is a tag
-    Then I will see the data "{'column':'1','name':'Test_Tag'}" values "{'column':'7','name':'auto_package'}"
-
-  Scenario: global_tag_app
-    When I choose the "auto_package" from the "TagDropdown"
-    And I wait for "Loading" will be invisible
-    And I choose the "test_app" from the "AppDropdown"
-    And I wait for "Loading" will be invisible
-    Then I will see the data "{'column':'1','name':'Test_Tag'}" values "{'column':'7','name':'auto_package'}"
-    When I will see the data "{'column':'1','name':'Test_Tag'}" values "{'column':'6','name':'test_app'}"
+    And the data name is "{'column':'1','name':'Test_Tag'}" then I "expand" the item
     And I will see the element "TagOfTheLastItem" contains "auto_package"
     And I will see the element "AppOfTheLastItem" contains "test_app"
+
+#  Scenario: global_tag_app
+#    When I choose the "auto_package" from the "TagDropdown"
+#    And I wait for "Loading" will be invisible
+#    And I choose the "test_app" from the "AppDropdown"
+#    And I wait for "Loading" will be invisible
+#    Then I will see the data "{'column':'1','name':'Test_Tag'}" values "{'column':'7','name':'auto_package'}"
+#    When I will see the data "{'column':'1','name':'Test_Tag'}" values "{'column':'6','name':'test_app'}"
+#    And I will see the element "TagOfTheLastItem" contains "auto_package"
+#    And I will see the element "AppOfTheLastItem" contains "test_app"
 
   Scenario: verify_tag
     When the data name is "{'column':'1','name':'Test_Tag'}" then i click the "编辑" button
@@ -58,15 +60,14 @@ Feature: 报表标签
     And I click the "NextButton" button under some element
     Then I will see the element "ChosenTrendLast" contains "报表测试"
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "更新成功"
 
   Scenario: delete_report
-    When the data name is "{'column':'1','name':'Test_Tag'}" then i click the "删除" button
+    When the data name is "{'column':'1','name':'Test_Tag'}" then i click the "删除" button in more menu
     Then I will see the message "此操作将删除 [Test_Tag], 是否继续？"
-    When I click the "EnsureButton" button
+    When I click the "Ensure" button
     And I wait for "500" millsecond
     And I wait for "Message" will be visible
     Then I will see the message "删除成功"
-    And I click the "EnsureButton" button
+    And I click the "Ensure" button

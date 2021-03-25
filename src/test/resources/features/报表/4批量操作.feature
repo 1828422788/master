@@ -4,7 +4,7 @@ Feature: 报表_批量操作
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
     And I wait for "Loading" will be invisible
-    And I wait for "MultiButton" will be visible
+    And I wait for "BatchControl" will be visible
 
   Scenario Outline: create_report
     And I click the "NewReportButton" button under some element
@@ -33,25 +33,33 @@ Feature: 报表_批量操作
     |  test_multi_3        |
 
   Scenario: multi_tag
-    And I click the "MultiButton" button under some element
+    And I click the "BatchControl" button under some element
     And I "checked" the checkbox which name is "test_multi_1" in the list
     And I "checked" the checkbox which name is "test_multi_2" in the list
     And I "checked" the checkbox which name is "test_multi_3" in the list
-    And I click the "SelectAction" button under some element
-    And I click the "MultiTag" button
-    And I wait for "EnsureButton" will be visible
+    And I click the "SelectBatchOperation" button under some element
+    And I click the "AddResourceTags" button
+    And I wait for "Ensure" will be visible
     And I choose the "auto_package" from the "TagField"
     And I click the "TagPanel" button
-    And I click the "EnsureButton" button
+    And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I wait for loading complete
-    And I click the "Finish" button under some element
+    And I click the "CompleteBatchControl" button under some element
 
   Scenario: verify_tag
-    Then I will see the data "{'column':'1','name':'test_multi_1'}" values "{'column':'7','name':'auto_package'}"
-    And I will see the data "{'column':'1','name':'test_multi_2'}" values "{'column':'7','name':'auto_package'}"
-    And I will see the data "{'column':'1','name':'test_multi_3'}" values "{'column':'7','name':'auto_package'}"
+    And the data name is "{'column':'1','name':'test_multi_1'}" then I "expand" the item
+    And I will see the element "TagOfTheLastItem" contains "auto_package"
+    And the data name is "{'column':'1','name':'test_multi_1'}" then I "close" the item
+
+    And the data name is "{'column':'1','name':'test_multi_2'}" then I "expand" the item
+    And I will see the element "TagOfTheLastItem" contains "auto_package"
+    And the data name is "{'column':'1','name':'test_multi_2'}" then I "close" the item
+
+    And the data name is "{'column':'1','name':'test_multi_3'}" then I "expand" the item
+    And I will see the element "TagOfTheLastItem" contains "auto_package"
+    And the data name is "{'column':'1','name':'test_multi_3'}" then I "close" the item
 
   Scenario: switch_off
     And the data name is "{'column':'1','name':'test_multi_1'}" then I "close" the switch
@@ -69,19 +77,18 @@ Feature: 报表_批量操作
     Then I will see the success message "禁用成功"
     
   Scenario: multi_switch
-    And I click the "MultiButton" button under some element
+    And I click the "BatchControl" button under some element
     And I "checked" the checkbox which name is "test_multi_1" in the list
     And I "checked" the checkbox which name is "test_multi_2" in the list
     And I "checked" the checkbox which name is "test_multi_3" in the list
-    And I click the "SelectAction" button under some element
-    And I click the "MultiSwitch" button
+    And I click the "SelectBatchOperation" button under some element
+    And I click the "EnableResources" button
     And I wait for "Ensure" will be visible
     And I will see the message "确定启用 3 个资源"
     When I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
-    And I wait for loading complete
-    And I click the "Finish" button under some element
+    And I click the "CompleteBatchControl" button under some element
 
   Scenario: verify_switch
     When the data name is "{'column':'1','name':'test_multi_1'}" then I "close" the switch
@@ -101,20 +108,18 @@ Feature: 报表_批量操作
     And I wait for element "SelectedReport" change text to "全部报表文件"
     And I wait for "5000" millsecond
     And I wait for "LastGeneratedReport" will be visible
-#    And I choose the "30 条/页" from the "Pagination" in config
     And I wait for "Loading" will be invisible
-    And I click the "MultiButton" button under some element
+    And I click the "BatchControl" button under some element
     And I "checked" the checkbox which name is "test_multi_file_1" in trend list page
     And I "checked" the checkbox which name is "test_multi_file_2" in trend list page
-    And I click the "SelectAction" button under some element
-    And I click the "MultiDelete" button
+    And I click the "SelectBatchOperation" button under some element
+    And I click the "DeleteResources" button
     And I wait for "Ensure" will be visible
     Then I will see the message "您选中的 2 个资源将被删除，是否继续？"
     When I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
-    And I wait for loading complete
-    And I click the "Finish" button under some element
+    And I click the "CompleteBatchControl" button under some element
 
   Scenario Outline: verify_delete_files
     When I click the "ReportListButton" button

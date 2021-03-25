@@ -36,8 +36,8 @@ Feature: 报表禁用/启用
   Scenario: delete_report
     And the data name is "{'column':'1','name':'Test_Switch'}" then i click the "删除" button
     Then I will see the message "此操作将删除 [Test_Switch], 是否继续？"
-    When I click the "EnsureButton" button
+    When I click the "Ensure" button
     And I wait for "500" millsecond
     And I wait for "Message" will be visible
     Then I will see the message "删除成功"
-    And I click the "EnsureButton" button
+    And I click the "Ensure" button

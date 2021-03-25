@@ -1,4 +1,4 @@
-@reportDownloadTextEditor @report
+#@reportDownloadTextEditor @report
 Feature: 报表_富文本编辑下载
 
   Background:

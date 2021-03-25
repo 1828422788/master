@@ -23,10 +23,7 @@ public class CustomConfigs extends PageTemplate {
     @FindBy(xpath = "//span[text()='测试是否保存']")
     private WebElement test;
 
-    @FindBy(className = "ant-message-success")
-    private WebElement successMessage;
-
-    @FindBy(className = "ant-message-notice")
+    @FindBy(className = "yotta-message-content")
     private WebElement message;
 
     @FindBy(xpath = "//span[text()='/knowledge/']/following-sibling::i")
@@ -34,6 +31,9 @@ public class CustomConfigs extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='图表配置自动填充']/ancestor::label")
     private WebElement chartLabel;
+
+    @FindBy(xpath = "//span[text()='报表趋势图个数限制']//ancestor::div[1]/following-sibling::input")
+    private WebElement trendLimit;
 
     @FindBy(xpath = "//div[@class='_1o8bbS9akwRGJGcMWEWK1j']/a[contains(text(),'邮件服务器设置')]")
     private WebElement MailServerSet;
@@ -84,7 +84,7 @@ public class CustomConfigs extends PageTemplate {
     }
 
     public WebElement getTrendLimit() {
-        return super.getInputElement("报表趋势图个数限制");
+        return trendLimit;
     }
 
     public WebElement getChartLabel() {
@@ -109,10 +109,6 @@ public class CustomConfigs extends PageTemplate {
 
     public WebElement getBlacklist() {
         return super.getDropdownList("黑名单地址");
-    }
-
-    public WebElement getSuccessMessage() {
-        return successMessage;
     }
 
     public WebElement getMessage() {

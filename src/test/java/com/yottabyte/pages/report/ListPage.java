@@ -20,67 +20,46 @@ public class ListPage extends ListPageFactory {
         driver.manage().window().fullscreen();
     }
 
-    @FindBy(xpath = "//div[contains(@class,'ant-message-success')]")
-    private WebElement successMessage;
-
     @FindBy(xpath = "//button[@yotta-test='report-new-button']")
     private WebElement newReportButton;
 
     @FindBy(xpath = "//span[text()='确定']/ancestor::button")
     private WebElement ensureButton;
 
-    @FindBy(xpath = "//div[@class='ant-modal-content']")
+    @FindBy(className = "yotta-modal")
     private WebElement tagPanel;
 
-    @FindBy(xpath = "(//div[text()='标签'])[last()]/following-sibling::div[1]")
+    @FindBy(xpath = "//div[contains(@yotta-test,'resource_tag-change_resource_tag-select')]//div[@class='yotta-select-selection']")
     private WebElement tagField;
 
-    @FindBy(xpath = "//tr[@class='ant-table-row ant-table-row-level-0']/td[1]")
+    @FindBy(xpath = "//tr[@class='yotta-table-row']/td[1]")
     private WebElement lastGeneratedReport;
 
-    @FindBy(xpath = "//span[text()='报表文件列表']/ancestor::div/following-sibling::div[2]")
+    @FindBy(xpath = "//div[@yotta-test='report-filter-select']//div[@class='yotta-select-selection']")
     private WebElement listOfReports;
 
-    @FindBy(xpath = "//span[text()='报表文件列表']/ancestor::div//div[@class='ant-select-selection-selected-value']")
+    @FindBy(xpath = "//div[@yotta-test='report-filter-select']//span[@class='yotta-select-selection-value']")
     private WebElement selectedReport;
 
-    @FindBy(xpath = "//tr/th[1]/span")
+    @FindBy(xpath = "//tr/th[1]//span")
     private WebElement firstColumnTitle;
 
-    @FindBy(xpath = "//tr/th[2]/span")
+    @FindBy(xpath = "//tr/th[2]")
     private WebElement secondColumnTitle;
 
-    @FindBy(xpath = "//tr/th[3]/span")
+    @FindBy(xpath = "//tr/th[3]//span")
     private WebElement thirdColumnTitle;
 
-    @FindBy(xpath = "//tr/th[4]/span")
+    @FindBy(xpath = "//tr/th[4]")
     private WebElement fourthColumnTitle;
-
-    @FindBy(xpath = "//span[text()='取消']/ancestor::button")
-    private WebElement cancel;
-
-    @FindBy(xpath = "//span[text()='报表列表']/ancestor::div/div/span/input")
-    private WebElement searchInput;
-
-    @FindBy(xpath = "//tbody[@class='ant-table-tbody']/tr[last()]/td[2]//a")
-    private WebElement firstCreatedReport;
 
     @FindBy(xpath = "//div[text()='全部资源']/ancestor::div[2]")
     private WebElement tagDropdown;
 
-    @FindBy(xpath = "//span[@class = 'ant-spin-dot ant-spin-dot-spin']")
+    @FindBy(xpath = "//div[contains(@class,'spinner')]")
     private WebElement loading;
 
-    @FindBy(xpath = "//span[contains(text(),'添加资源标签')]")
-    private WebElement multiTag;
-
-    @FindBy(xpath = "//span[contains(text(),'删除')]")
-    private WebElement multiDelete;
-
-    @FindBy(xpath = "//span[contains(text(),'启动')]")
-    private WebElement multiSwitch;
-
-    @FindBy(xpath = "//p[text()='暂无数据']")
+    @FindBy(xpath = "//*[text()='暂无数据']")
     private WebElement noData;
 
     @FindBy(className = "ant-select-selection-selected-value")
@@ -89,11 +68,14 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[text()='请选择应用']/ancestor::div[2]")
     private WebElement appDropdown;
 
-    @FindBy(xpath = "(//tr)[last()]/td[7]")
+    @FindBy(xpath = "(//tr[contains(@class,'expansion')]//div[contains(text(),'资源标签......')])[last()]")
     private WebElement tagOfTheLastItem;
 
-    @FindBy(xpath = "(//tr)[last()]/td[6]")
+    @FindBy(xpath = "(//tr[contains(@class,'expansion')]//div[contains(text(),'所属应用......')])[last()]")
     private WebElement appOfTheLastItem;
+
+    @FindBy(xpath = "(//span[text()='下载'])[1]")
+    private WebElement download;
 
     public WebElement getAppOfTheLastItem() {
         return appOfTheLastItem;
@@ -131,10 +113,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getNewReportButton() {
         return newReportButton;
-    }
-
-    public WebElement getSuccessMessage() {
-        return successMessage;
     }
 
     public WebElement getEnsureButton() {
@@ -179,18 +157,6 @@ public class ListPage extends ListPageFactory {
         return fourthColumnTitle;
     }
 
-    public WebElement getCancel() {
-        return cancel;
-    }
-
-    public WebElement searchInput() {
-        return searchInput;
-    }
-
-    public WebElement getFirstCreatedReport() {
-        return firstCreatedReport;
-    }
-
     public WebElement getTagDropdown() {
         tagDropdown.click();
         return this.getLastDropdownList();
@@ -200,35 +166,7 @@ public class ListPage extends ListPageFactory {
         return super.getButton("已生成报表");
     }
 
-    //download the last generated report
-    @FindBy(xpath = "(//a[text()='下载'])[1]")
-    private WebElement download;
-
     public WebElement getDownload() {
         return download;
-    }
-
-    public WebElement getMultiButton() {
-        return super.getButton("批量操作");
-    }
-
-    public WebElement getSelectAction() {
-        return super.getButton("请选择");
-    }
-
-    public WebElement getFinish() {
-        return super.getButton("完成");
-    }
-
-    public WebElement getMultiTag() {
-        return multiTag;
-    }
-
-    public WebElement getMultiDelete() {
-        return multiDelete;
-    }
-
-    public WebElement getMultiSwitch() {
-        return multiSwitch;
     }
 }
