@@ -23,7 +23,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[contains(@class,'ant-message-success')]")
     private WebElement successMessage;
 
-    @FindBy(xpath = "//span[text()='新建']/ancestor::button")
+    @FindBy(xpath = "//button[@yotta-test='report-new-button']")
     private WebElement newReportButton;
 
     @FindBy(xpath = "//span[text()='确定']/ancestor::button")

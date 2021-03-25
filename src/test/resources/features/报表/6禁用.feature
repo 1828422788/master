@@ -19,11 +19,8 @@ Feature: 报表禁用/启用
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "报表测试"
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
-    And I will see the "report.ListPage" page
-
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
   Scenario Outline: switch_off_on
     And the data name is "{'column':'1','name':'Test_Switch'}" then I "<action>" the switch

@@ -1,11 +1,10 @@
 package com.yottabyte.pages.report;
 
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.GetTime;
 import com.yottabyte.utils.WaitForElement;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,6 +16,7 @@ public class CreatePage extends PageTemplate {
 
     public CreatePage(WebDriver driver) {
         super(driver);
+        driver.manage().window().setSize(new Dimension(1200,900));
     }
 
     @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")
@@ -25,19 +25,8 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")
     private WebElement message;
 
-    @FindBy(xpath = "//div[@class = 'ant-message-custom-content ant-message-warning']/span")
+    @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']/ancestor::div[1]/following-sibling::div[@class='yotta-dialog-content']//p")
     private WebElement errorMessage;
-
-
-    // 下拉列表
-    @FindBy(className = "el-select-dropdown__list")
-    private List<WebElement> dropdownLists;
-
-    @FindBy(xpath = "//label[text()='名称']/ancestor::div[1]/following-sibling::div//input")
-    private WebElement name;
-
-    @FindBy(xpath = "//label[text()='描述']/ancestor::div[1]/following-sibling::div//input")
-    private WebElement describe;
 
     @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div//input")
     private WebElement runningUser;
@@ -45,22 +34,16 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='报表分组']/following-sibling::div//input[@class='el-input__inner']")
     private WebElement reportGroup;
 
-//    @FindBy(xpath = "//label[text()='报表类型']/following-sibling::div")
-//    private WebElement reportTypeButton;
-
-    @FindBy(xpath = "//label[text()='报表类型']/ancestor::div[1]/following-sibling::div/div")
-    private WebElement reportType;
-
-    @FindBy(xpath = "//li[@class='ant-dropdown-menu-item'][1]")
+    @FindBy(xpath = "//li[@yotta-test='report-item_1-menu']")
     private WebElement li;
 
     @FindBy(className = "ant-collapse-header")
     private WebElement topoTitle;
 
-    @FindBy(xpath = "//label[text()='接收邮箱']/ancestor::div[1]/following-sibling::div/div")
+    @FindBy(xpath = "//div[@yotta-test='report-email-select']//div[@class='yotta-select-selection']")
     private WebElement emailInput;
 
-    @FindBy(xpath = "//label[text()='接收邮箱']/ancestor::div[1]/following-sibling::div//input")
+    @FindBy(xpath = "//div[@yotta-test='report-email-select']//input")
     private WebElement emailField;
 
     public WebElement getEmailField(){
@@ -71,82 +54,23 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[@class='el-scrollbar'])[last()]")
     private WebElement scrollbar;
 
-    @FindBy(xpath = "//label[text()='邮件主题']/ancestor::div[1]/following-sibling::div//input")
-    private WebElement subject;
-
-    @FindBy(xpath = "//label[text()='邮件主题']/ancestor::div[1]/following-sibling::div//input/following-sibling::div")
+    @FindBy(xpath = "//input[@yotta-test='report-email_subject-input']/following-sibling::div")
     private WebElement subjectNote;
 
-    @FindBy(xpath = "//span[text()='趋势图列表']/following-sibling::div/button")
-    private WebElement chartList;
+    @FindBy(xpath = "//div[@yotta-test='report-trend_selector-dropdown']//span[text()]")
+    private WebElement chartList;  //添加趋势图
 
-    @FindBy(className = "ant-dropdown-menu")
-//    @FindBy(xpath = "//li[@class='ant-dropdown-menu-item']/ancestor::ul")
+    @FindBy(className = "yotta-dropdown-menu")
     private WebElement chartDropdownList;
+
+    @FindBy(xpath = "//span[text()='最近十次执行时间']/ancestor::div[1]/following-sibling::div")
+    private WebElement parseResult;
+
+    @FindBy(xpath = "//div[@yotta-test='report-year_day-select' or @yotta-test='report-month-select' or @yotta-test='report-week-select']//div[@class='yotta-select-selection']")
+    private WebElement day;
 
     @FindBy(xpath = "//span[text()='crontab']")
     private WebElement crontabButton;
-
-    @FindBy(xpath = "//span[text()='crontab']/ancestor::span/following-sibling::div//input")
-    private WebElement crontab;
-
-    @FindBy(xpath = "//span[text()='解 析']/ancestor::button")
-    private WebElement parse;
-
-    @FindBy(xpath = "//div[text()='最近十次执行时间']/ancestor::div[1]/following-sibling::div/p[1]")
-    private WebElement parseResult;
-
-    // 下一步
-    @FindBy(xpath = "//span[text()='下一步']/ancestor::button")
-    private WebElement nextButton;
-
-    @FindBy(xpath = "//span[text()='上一步']/ancestor::button")
-    private WebElement backButton;
-
-    @FindBy(xpath = "//span[text()='完成']/ancestor::button")
-    private WebElement finishButton;
-
-    @FindBy(xpath = "//span[text()='确定']/ancestor::button")
-    private WebElement EnsureButton;
-
-    @FindBy(xpath = "//span[text()='定时']/ancestor::span/following-sibling::div/div[1]")
-    private WebElement period;
-
-    @FindBy(xpath = "//span[text()='定时']/ancestor::span/following-sibling::div//div[contains(text(),'日')]/ancestor::div[2]")
-    private WebElement day;
-
-    @FindBy(xpath = "//span[text()='定时']/ancestor::span/following-sibling::div//div[contains(text(),'月')]/ancestor::div[2]")
-    private WebElement month;
-
-    @FindBy(xpath = "//input[@placeholder='分']")
-    private WebElement minute;
-
-    @FindBy(xpath = "//input[@placeholder='时']")
-    private WebElement hour;
-
-    @FindBy(xpath = "(//span[text()='布局设计']/ancestor::div/following-sibling::div/div)[1]")
-    private WebElement layout1;
-
-    @FindBy(xpath = "(//span[text()='布局设计']/ancestor::div/following-sibling::div/div)[2]")
-    private WebElement layout2;
-
-    @FindBy(xpath = "(//span[text()='布局设计']/ancestor::div/following-sibling::div/div)[3]")
-    private WebElement layout3;
-
-    @FindBy(xpath = "(//span[text()='布局设计']/ancestor::div/following-sibling::div/div)[4]")
-    private WebElement layout4;
-
-    @FindBy(xpath = "(//span[text()='布局设计']/ancestor::div/following-sibling::div/div)[5]")
-    private WebElement layout5;
-
-    @FindBy(xpath = "(//span[text()='布局设计']/ancestor::div/following-sibling::div/div)[6]")
-    private WebElement layout6;
-
-    @FindBy(xpath = "(//span[text()='布局设计']/ancestor::div/following-sibling::div/div)[7]")
-    private WebElement layout7;
-
-    @FindBy(xpath = "(//span[text()='布局设计']/ancestor::div/following-sibling::div/div)[8]")
-    private WebElement layout8;
 
     @FindBy(xpath = "(//i[@class='el-collapse-item__header__arrow el-icon-arrow-right'])[last()]")
     private WebElement arrow;
@@ -160,7 +84,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[@class='popover-setting-content'])[last()]")
     private WebElement settingContent;
 
-    @FindBy(xpath = "((//span[text()='编辑']/ancestor::button)[last()]) | (//label[@name='operate_edit']/*)")
+    @FindBy(xpath = "((//span[text()='编辑']/ancestor::button[contains(@yotta-test,'report-edit_')])[last()]) | (//label[@name='operate_edit']/*)")
     private WebElement editButton;
 
     @FindBy(className = "ant-collapse-header")
@@ -184,186 +108,59 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='布局设计']/ancestor::div/following-sibling::div//span[text()='4']")
     private WebElement badge4;
 
-    @FindBy(xpath = "//label[text()='所属应用']/ancestor::div[1]/following-sibling::div/div")
-    private WebElement app;
-
-    @FindBy(xpath = "//label[text()='资源标签']/ancestor::div[1]/following-sibling::div")
-    private WebElement tag;
-
     @FindBy(xpath = "//label[contains(text(),'资源标签')]/ancestor::div/following-sibling::div//span[@class='yotta-tag-content']")
     private WebElement chosenTag;
 
     @FindBy(xpath = "//label[contains(text(),'运行用户')]/ancestor::div[1]/following-sibling::div//span[@class='yotta-select-selection-value']")
     private WebElement selectedUser;
 
-    @FindBy(xpath = "(//div[@class='yotta-collapse-panel']//div/span[2]//span[2])[last()]")
+    @FindBy(xpath = "(//div[contains(@class,'yotta-collapse-panel')]//span[@class='yotta-collapse-panel-header-text'])[last()]")
     private WebElement chosenTrendLast;
 
-    @FindBy(xpath = "(//div[@class='yotta-collapse-panel']//div/span[2]//span[2])[1]")
+    @FindBy(xpath = "(//div[contains(@class,'yotta-collapse-panel')]//span[@class='yotta-collapse-panel-header-text'])[1]")
     private WebElement chosenTrendFirst;
 
-    @FindBy(xpath = "(//div[@class='ant-collapse-header']/div/span[2])[last()]/following-sibling::span/i[1]")
+    @FindBy(xpath = "(//div[contains(@class,'yotta-collapse-panel')]//span[@aria-label='CloseCircleFilled'])[last()]")
     private WebElement lastTrendDelete;
 
-    @FindBy(xpath = "//div[@class='ant-collapse-header']/div/span[2]/following-sibling::span/i[1]")
+    @FindBy(xpath = "(//div[contains(@class,'yotta-collapse-panel')]//span[@aria-label='CloseCircleFilled'])[1]")
     private WebElement firstTrendDelete;
 
-    @FindBy(xpath = "(//div[@class='ant-collapse-header']/div/span[2])[last()]/following-sibling::span/i[5]")
+    @FindBy(xpath = "(//div[contains(@class,'yotta-collapse-panel')]//span[@aria-label='ToTopOutlined'])[last()]")
     private WebElement lastTrendUpTop;
 
-    @FindBy(xpath = "//div[@class='ant-collapse-header']/div/span[2]/following-sibling::span/i[4]")
+    @FindBy(xpath = "(//div[contains(@class,'yotta-collapse-panel')]//span[@aria-label='ToBottomOutlined'])[1]")
     private WebElement firstTrendDownBottom;
 
-    @FindBy(xpath = "(//div[@class='ant-collapse-header']/div/span[2])[last()]/following-sibling::span/i[2]")
+    @FindBy(xpath = "(//div[contains(@class,'yotta-collapse-panel')]//span[@aria-label='MoveUpFilled'])[last()]")
     private WebElement lastTrendUp;
 
-    @FindBy(xpath = "//div[@class='ant-collapse-header']/div/span[2]/following-sibling::span/i[3]")
+    @FindBy(xpath = "(//div[contains(@class,'yotta-collapse-panel')]//span[@aria-label='MoveDownFilled'])[1]")
     private WebElement firstTrendDown;
 
-    @FindBy(xpath = "//span[text()='描述']/ancestor::p")
+    @FindBy(xpath = "//span[contains(text(),'描述')]/following-sibling::p")
     private WebElement trendDescription;
 
-    @FindBy(xpath = "//span[text()='搜索内容']/ancestor::p")
+    @FindBy(xpath = "//span[contains(text(),'搜索内容')]/following-sibling::p")
     private WebElement trendSpl;
 
-    @FindBy(xpath = "//span[text()='数据集']/ancestor::p")
+    @FindBy(xpath = "//span[contains(text(),'数据集')]/following-sibling::p")
     private WebElement trendData;
 
-    @FindBy(xpath = "//span[text()='统计类型']/ancestor::p")
+    @FindBy(xpath = "//span[contains(text(),'统计类型')]/following-sibling::p")
     private WebElement trendChart;
 
-    @FindBy(xpath = "//span[text()='名称']/following-sibling::span/input")
+    @FindBy(xpath = "//input[@yotta-test='report-name-input' and @name='trendName']")
     private WebElement trendNameField;
 
-    @FindBy(xpath = "//span[text()='描述']/following-sibling::span/input")
+    @FindBy(xpath = "//input[@yotta-test='report-description-input']")
     private WebElement trendDescribeField;
-
-    @FindBy(xpath = "//span[text()='搜索内容']/following-sibling::span/textarea")
-    private WebElement trendSplField;
-
-    @FindBy(xpath = "//span[text()='统计类型']/following-sibling::span/button")
-    private WebElement trendChartType;
-
-
-    @FindBy(xpath = "//span[text()='取消']/ancestor::button")
-    private WebElement cancelButton;
 
     @FindBy(xpath="//label[text()='所属应用']/following-sibling::div/div")
     private WebElement appField;
 
     @FindBy(xpath="//label[text()='资源标签']/following-sibling::div/div")
     private WebElement tagField;
-
-    // Types ------------------
-
-    @FindBy(xpath = "//div[contains(text(),'序列')]")
-    private WebElement order;
-
-    @FindBy(xpath = "//div[contains(text(),'维度')]")
-    private WebElement dimension;
-
-    @FindBy(xpath = "//div[contains(text(),'关系')]")
-    private WebElement connection;
-
-    @FindBy(xpath = "//div[contains(text(),'复合')]")
-    private WebElement compound;
-
-    @FindBy(xpath = "//div[contains(text(),'地图')]")
-    private WebElement map;
-
-    @FindBy(xpath = "//div[contains(text(),'其他')]")
-    private WebElement other;
-
-//----------------------------------
-
-    // 序列-------------------------------
-    @FindBy(xpath = "(//div[contains(text(),'曲线图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement lineChart;
-
-    @FindBy(xpath = "(//div[contains(text(),'面积图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement areaChart;
-
-    @FindBy(xpath = "(//div[contains(text(),'柱状图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement columnChart;
-
-    @FindBy(xpath = "(//div[contains(text(),'散点图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement scatterChart;
-
-    //维度---------------------------------
-    @FindBy(xpath = "(//div[contains(text(),'玫瑰图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement rose;
-
-    @FindBy(xpath = "(//div[contains(text(),'饼状图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement pie;
-
-    @FindBy(xpath = "(//div[contains(text(),'条形图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement bar;
-
-    @FindBy(xpath = "(//div[contains(text(),'旭日图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement sun;
-
-    //关系--------------------------------
-    @FindBy(xpath = "(//div[contains(text(),'和弦图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement chord;
-
-    @FindBy(xpath = "(//div[contains(text(),'桑基图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement sankey;
-
-    @FindBy(xpath = "(//div[contains(text(),'力图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement force;
-
-    //复合---------------------------------
-    @FindBy(xpath = "(//div[contains(text(),'多y轴图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement multiaxis;
-
-    @FindBy(xpath = "(//div[contains(text(),'区间图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement rangeline;
-
-    //地图--------------------------------
-    @FindBy(xpath = "(//div[contains(text(),'热力地图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement heatmap;
-
-    @FindBy(xpath = "(//div[contains(text(),'攻击地图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement attackmap;
-
-    @FindBy(xpath = "(//div[contains(text(),'区划地图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement regionmap;
-
-    @FindBy(xpath = "(//div[contains(text(),'统计地图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement statisticalmap;
-
-    //其他 -------------
-    @FindBy(xpath = "(//div[contains(text(),'统计表')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement table;
-
-    @FindBy(xpath = "(//div[contains(text(),'单值')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement single;
-
-    @FindBy(xpath = "(//div[contains(text(),'环形比例图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement ring;
-
-    @FindBy(xpath = "(//div[contains(text(),'水球图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement liquidfill;
-
-    @FindBy(xpath = "(//div[contains(text(),'字符云图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement wordcloud;
-
-    @FindBy(xpath = "(//div[contains(text(),'循序图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement sequence;
-
-    @FindBy(xpath = "(//div[contains(text(),'雷达图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement radar;
-
-    @FindBy(xpath = "(//div[contains(text(),'漏斗图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement funnel;
-
-    @FindBy(xpath = "(//div[contains(text(),'矩阵热力图')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement matrixheatmap;
-
-    @FindBy(xpath = "(//div[contains(text(),'调用链')]/ancestor::div[1])/preceding-sibling::div")
-    private WebElement chain;
-
-//----------------------------------------
 
     //Tabs -------------------------------------
 
@@ -721,14 +518,20 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='选择趋势图']")
     private WebElement chartListInput;
 
-    @FindBy(xpath = "//span[text()='定时']/ancestor::span/following-sibling::i//*[name()='use' and @*='#icon-beizhu_icon']")
+    @FindBy(xpath = "//span[text()='定时']//ancestor::div[1]/following-sibling::span[@aria-label='QuestionCircleOutlined']")
     private WebElement executionTip;
 
-    @FindBy(xpath = "//div[@class='t9XNaEf3Cqblwk37xjCVk']")
+    @FindBy(xpath = "//div[@class='yotta-tooltip-content']")
     private WebElement executionTipElement;
 
     @FindBy(xpath = "//div[@class='_1rpZECB9i9v8h6IEUve_yK']")
     private WebElement resultMessage;
+
+    @FindBy(xpath = "((//div[contains(@class,'help-text')])[1]) | (//div[@class='_1JeVvK6jBB88_F6voAZyhi'])")
+    private WebElement tipText;
+    public WebElement getTipText() {
+        return tipText;
+    }
 
     public WebElement getResultMessage() {
         return resultMessage;
@@ -797,12 +600,15 @@ public class CreatePage extends PageTemplate {
     public WebElement getTrendDescription() {
         return trendDescription;
     }
+
     public WebElement getTrendSpl() {
         return trendSpl;
     }
+
     public WebElement getTrendData() {
         return trendData;
     }
+
     public WebElement getTrendChart() {
         return trendChart;
     }
@@ -810,28 +616,25 @@ public class CreatePage extends PageTemplate {
     public WebElement getTrendNameField() {
         return trendNameField;
     }
+
     public WebElement getTrendDescribeField() {
         return trendDescribeField;
     }
+
     public WebElement getTrendSplField() {
-        return trendSplField;
-    }
-    public WebElement getTrendChartType() {
-        return trendChartType;
+        return getYottaTextarea("report-query-textarea");
     }
 
-    public WebElement getCancelButton() {
-        return cancelButton;
+    public WebElement getTrendChartType() {
+        return getYottaButton("report-chart-button");
     }
 
     public WebElement getApp() {
-        app.click();
-        return this.getLastDropdownList();
+        return getYottaDropdownList("report-app-select"); //所属应用
     }
 
     public WebElement getTag() {
-        tag.click();
-        return this.getLastDropdownList();
+        return getYottaDropdownList("resource_tag-change_resource_tag-select"); //资源标签
     }
 
     public WebElement getFirstLi() {
@@ -902,37 +705,19 @@ public class CreatePage extends PageTemplate {
         return errorMessage;
     }
 
-    public WebElement getDropdownList() {
-        return dropdownLists.get(dropdownLists.size() - 1);
-    }
-
     public WebElement getName() {
-        return name;
+        return getYottaInput("report-name-input");
     }
 
     public WebElement getDescribe() {
-        return describe;
-    }
-
-    public WebElement getRunningUser() {
-        runningUser.click();
-        return this.getDropdownList();
-    }
-
-    public WebElement getReportGroup() {
-        reportGroup.click();
-        return this.getDropdownList();
+        return getYottaInput("report-description-input");
     }
 
     public WebElement getReportType() {
-        WebDriverWait wait = new WebDriverWait(webDriver,10);
-        wait.until(ExpectedConditions.elementToBeClickable(reportType));
-        reportType.click();
-        return this.getLastDropdownList();
+        return getYottaDropdownList("report-type-select");  //报表类型
     }
 
     public WebElement getEmailInput() {
-//        return emailInput;
         emailInput.click();
         return this.getLastDropdownList();
     }
@@ -946,7 +731,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSubject() {
-        return subject;
+        return getYottaInput("report-email_subject-input"); //邮件主题
     }
 
     public WebElement getSubjectNote() {
@@ -954,8 +739,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getPeriod() {
-        period.click();
-        return this.getLastDropdownList();
+        return getYottaDropdownList("report-unit-select");
     }
 
     public WebElement getDay() {
@@ -964,40 +748,40 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getMonth() {
-        month.click();
-        return this.getLastDropdownList();
+        return getYottaDropdownList("report-year_month-select");
     }
 
     public WebElement getHour() {
-        return hour;
+        return getYottaInput("report-hour-input");
     }
 
     public WebElement getMinute() {
-        return minute;
+        return getYottaInput("report-minute-input");
     }
 
     public WebElement getNextButton() {
-        return nextButton;
+        return getYottaButtonByText("下一步");
     }
 
     public WebElement getBackButton() {
-        return backButton;
+        return getYottaButtonByText("上一步");
     }
 
     public WebElement getFinishButton() {
-        return finishButton;
+        return getYottaButtonByText("完成");
     }
 
     public WebElement getEnsureButton() {
-        return EnsureButton;
+        return getYottaButtonByText("确定");
     }
 
-//    public WebElement getChartList() throws InterruptedException {
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(chartList));
-//        chartList.click();
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
-//        return chartDropdownList;
-//    }
+    public WebElement getReturnButton() {
+        return getYottaButtonByText("返回");
+    }
+
+    public WebElement getCancelButton() {
+        return getYottaButtonByText("取消");
+    }
 
     public WebElement getChartListButton() {
         return chartList;
@@ -1007,10 +791,16 @@ public class CreatePage extends PageTemplate {
         return chartList;
     }
 
-    public WebElement getChartList() throws InterruptedException {
-        chartList.click();
+    public WebElement getChartList() {
+        ClickEvent.clickUnderneathButton(chartList);
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
-        return chartDropdownList;
+        String className = "yotta-dropdown-menu";
+        List<WebElement> list = webDriver.findElements(By.className(className));
+        WebElement lastDropdownList = list.get(list.size() - 1);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+        }
+        return lastDropdownList;
     }
 
     public WebElement getChartListDropdown(){
@@ -1022,201 +812,171 @@ public class CreatePage extends PageTemplate {
         return chartList;
     }
 
-    public WebElement getLayout1() {
-        return layout1;
-    }
-
     public WebElement getSave() {
         return super.getButton("完成");
     }
 
     public WebElement getCrontab() {
         crontabButton.click();
-        return crontab;
+        return getYottaInput("report-crontab-input");
     }
 
     public WebElement getParse() {
-        return parse;
+        return getYottaButtonByText("点击解析");
     }
 
     public WebElement getParseResult() {
         return parseResult;
     }
 
+    public WebElement getLayout1() {
+        return getYottaDiv("report-layout1-dom");
+    }
+
     public WebElement getLayout2() {
-        return layout2;
+        return getYottaDiv("report-layout2-dom");
     }
 
     public WebElement getLayout3() {
-        return layout3;
+        return getYottaDiv("report-layout3-dom");
     }
 
     public WebElement getLayout4() {
-        return layout4;
+        return getYottaDiv("report-layout4-dom");
     }
 
     public WebElement getLayout5() {
-        return layout5;
+        return getYottaDiv("report-layout5-dom");
     }
 
     public WebElement getLayout6() {
-        return layout6;
+        return getYottaDiv("report-layout6-dom");
     }
 
     public WebElement getLayout7() {
-        return layout7;
+        return getYottaDiv("report-layout7-dom");
     }
 
     public WebElement getLayout8() {
-        return layout8;
+        return getYottaDiv("report-layout8-dom");
     }
 
-    //--------------------------------------------------------------------
-
     public WebElement getOrder() {
-        return order;
+        return getYottaTab("序列");
     }
 
     public WebElement getDimension() {
-        return dimension;
+        return getYottaTab("维度");
     }
 
     public WebElement getConnection() {
-        return connection;
+        return getYottaTab("关系");
     }
 
     public WebElement getCompound() {
-        return compound;
+        return getYottaTab("复合");
     }
 
     public WebElement getMap() {
-        return map;
+        return getYottaTab("地图");
     }
 
     public WebElement getOther() {
-        return other;
+        return getYottaTab("其他");
     }
 
-//------------------------------------------------------------------
-
-
     public WebElement getLineChart() {
-        return lineChart;
+        return getYottaDiv("chart_selector-change_type_line-dom");
     }
 
     public WebElement getAreaChart() {
-        return areaChart;
+        return getYottaDiv("chart_selector-change_type_area-dom");
     }
 
     public WebElement getColumnChart() {
-        return columnChart;
+        return getYottaDiv("chart_selector-change_type_column-dom");
     }
 
     public WebElement getScatterChart() {
-        return scatterChart;
+        return getYottaDiv("chart_selector-change_type_scatter-dom");
     }
 
-
-
     public WebElement getPie() {
-        return pie;
+        return getYottaDiv("chart_selector-change_type_pie-dom");
     }
 
     public WebElement getRose() {
-        return rose;
+        return getYottaDiv("chart_selector-change_type_rose-dom");
     }
 
     public WebElement getBar() {
-        return bar;
+        return getYottaDiv("chart_selector-change_type_bar-dom");
     }
 
     public WebElement getSun() {
-        return sun;
+        return getYottaDiv("chart_selector-change_type_sunburst-dom");
     }
 
-
-
     public WebElement getChord() {
-        return chord;
+        return getYottaDiv("chart_selector-change_type_chord-dom");
     }
 
     public WebElement getSankey() {
-        return sankey;
+        return getYottaDiv("chart_selector-change_type_sankey-dom");
     }
 
     public WebElement getForce() {
-        return force;
+        return getYottaDiv("chart_selector-change_type_force-dom");
     }
 
-
-
     public WebElement getRangeline() {
-        return rangeline;
+        return getYottaDiv("chart_selector-change_type_rangeline-dom");
     }
 
     public WebElement getMultiaxis() {
-        return multiaxis;
+        return getYottaDiv("chart_selector-change_type_multiaxis-dom");
     }
 
-
-
     public WebElement getHeatmap() {
-        return heatmap;
+        return getYottaDiv("chart_selector-change_type_heatmap-dom");
     }
 
     public WebElement getAttackmap() {
-        return attackmap;
+        return getYottaDiv("chart_selector-change_type_attackmap-dom");
     }
 
     public WebElement getRegionmap() {
-        return regionmap;
-    }
-
-    public WebElement getStatisticalmap() {
-        return statisticalmap;
+        return getYottaDiv("chart_selector-change_type_regionmap-dom");
     }
 
     public WebElement getTable() {
-        return table;
+        return getYottaDiv("chart_selector-change_type_table-dom");
     }
 
     public WebElement getSingle() {
-        return single;
-    }
-
-    public WebElement getRing() {
-        return ring;
+        return getYottaDiv("chart_selector-change_type_single-dom");
     }
 
     public WebElement getLiquidfill() {
-        return liquidfill;
+        return getYottaDiv("chart_selector-change_type_liquidfill-dom");
     }
 
     public WebElement getWordcloud() {
-        return wordcloud;
-    }
-
-    public WebElement getSequence() {
-        return sequence;
+        return getYottaDiv("chart_selector-change_type_wordcloud-dom");
     }
 
     public WebElement getRadar() {
-        return radar;
+        return getYottaDiv("chart_selector-change_type_radar-dom");
     }
 
     public WebElement getFunnel() {
-        return funnel;
+        return getYottaDiv("chart_selector-change_type_funnel-dom");
     }
 
     public WebElement getMatrixheatmap() {
-        return matrixheatmap;
+        return getYottaDiv("chart_selector-change_type_matrixheatmap-dom");
     }
 
-    public WebElement getChain() {
-        return chain;
-    }
-
-//------------------------------------------------------------------
 
     public WebElement getFirstLabel() {
         return firstLabel;

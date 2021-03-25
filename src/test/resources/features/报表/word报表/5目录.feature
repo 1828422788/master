@@ -79,9 +79,8 @@ Feature:报表_富文本编辑_目录
     And I wait for "2000" millsecond
     And I will see the "ContentMenu" is display
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
   Scenario: content_place
     When I set the parameter "Name" with value "Content_Place"
@@ -123,6 +122,5 @@ Feature:报表_富文本编辑_目录
     And I click the button with text "报表测试"
     And I wait for "2000" millsecond
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"

@@ -20,9 +20,8 @@ Feature: 报表_布局设计
     And I click the "Layout<layout>" button
     And I will see the "Badge1" is display
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
     | layout |
@@ -70,9 +69,8 @@ Feature: 报表_布局设计
     And I will see the "Badge3" is display
     And I will see the "Badge4" is not exist
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
       | layout |

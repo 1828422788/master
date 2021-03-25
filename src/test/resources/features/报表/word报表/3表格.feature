@@ -57,9 +57,8 @@ Feature:报表_富文本编辑_表格
     And I click the button with text "报表测试"
     And I wait for "2000" millsecond
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
   Scenario: table_alignment
     When I set the parameter "Name" with value "Table4x2_Alignment"
@@ -107,9 +106,8 @@ Feature:报表_富文本编辑_表格
     And I click the button with text "报表测试"
     And I wait for "2000" millsecond
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
 
   Scenario Outline: table_delete
@@ -150,9 +148,8 @@ Feature:报表_富文本编辑_表格
     And I click the button with text "报表测试"
     And I wait for "2000" millsecond
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
   Examples:
     |   button           |
@@ -213,9 +210,8 @@ Feature:报表_富文本编辑_表格
     And I will see the "TableElement" is display
 
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
       |   button1   | button2         | row1 | row2 | row3 | col1 | col2 | col3 |
@@ -272,9 +268,8 @@ Feature:报表_富文本编辑_表格
     And I will see the element "Cell22" style contains "<style2>"
 
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
       | button1              | button2            | style1                    | style2              |
@@ -320,8 +315,7 @@ Feature:报表_富文本编辑_表格
     And I will see the element "TableElement" style contains "width: 2"
 
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
 

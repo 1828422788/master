@@ -40,9 +40,8 @@ Feature: 报表新建_编辑_复合word
     Then I click the "EnsureButton" button
 
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
       |  reportType |   typeChart    |  name      |
@@ -110,9 +109,8 @@ Feature: 报表新建_编辑_复合word
     Then I click the "EnsureButton" button
 
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
       |  reportType |   typeChart    |  name      |
@@ -180,9 +178,8 @@ Feature: 报表新建_编辑_复合word
     Then I click the "EnsureButton" button
 
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
       |  reportType |   typeChart    |  name        |

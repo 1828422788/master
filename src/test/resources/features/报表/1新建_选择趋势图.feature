@@ -94,12 +94,9 @@ Feature: 报表新建_选择
     And I click the "EnsureButton" button
     Then I will see the element "ChosenTrendLast" contains "报表测试_10"
     When I choose the "报表测试" from the "ChartList"
+    When I click the "FinishButton" button under some element
     And I wait for "ErrorMessage" will be visible
     Then I will see the error message "每个报表最多保存10个趋势图"
-    When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
 
   Scenario Outline: new_report_moveTrends
     When I set the parameter "Name" with value "<caseNum>"
@@ -136,9 +133,8 @@ Feature: 报表新建_选择
     Then I will see the element "ChosenTrendFirst" contains "<trendFirst>"
     And I will see the element "ChosenTrendLast" contains "<trendLast>"
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
       |     button           |  trendFirst   |  trendLast  | caseNum             |
@@ -191,8 +187,8 @@ Feature: 报表新建_选择
     Then I set the parameter "TrendNameField" with value "<name>"
     And I set the value "<spl>" to the textarea "TrendSplField"
     Then I click the "EnsureButton" button
-    And I wait for "EnsureButton" will be visible
-    Then I will see the message "<message>"
+    And I wait for "TipText" will be visible
+    And I will see the element "TipText" contains "<message>"
 
   Examples:
     | name |    spl                 |  message        |
@@ -207,8 +203,8 @@ Feature: 报表新建_选择
     And I click the "NextButton" button under some element
     Then I wait for "FinishButton" will be visible
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the message "至少选择一个趋势图"
+    And I wait for "ErrorMessage" will be visible
+    Then I will see the error message "至少选择一个趋势图"
 
     Examples:
       |   type    |

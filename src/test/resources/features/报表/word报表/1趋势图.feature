@@ -20,11 +20,18 @@ Feature:报表_富文本编辑_趋势图
     And I set the parameter "<inputSearch>" with value "<name>"
     And I click the button with text "<name>"
     And I will see the "<element>" is display
+    And I click the "EditButton" button
+    And I will see the input element "TrendNameField" value will be "<name>"
+    Then I click the "EnsureButton" button
     And I wait for "2000" millsecond
+    And I click the "Undo" button
     And I click the "Undo" button
     And I will see the "<element>" doesn't exist
     And I click the "Redo" button
     And I will see the "<element>" is display
+    And I click the "EditButton" button
+    And I will see the input element "TrendNameField" value will be "<name>"
+    Then I click the "EnsureButton" button
 
     And I wait for "TextArea" will be visible
     And I set the parameter "TextArea" with value "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
@@ -98,9 +105,8 @@ Feature:报表_富文本编辑_趋势图
       Then I click the "EnsureButton" button
 
       When I click the "FinishButton" button under some element
-      And I wait for "EnsureButton" will be visible
-      Then I will see the success message "保存成功"
-      And I click the "EnsureButton" button
+      And I wait for "ResultMessage" will be visible
+      And I will see the element "ResultMessage" contains "新建成功"
 
 
   Scenario: single_trend_table
@@ -199,9 +205,8 @@ Feature:报表_富文本编辑_趋势图
     Then I will see the element "ChosenTrendLast" contains "<name>"
 
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
       | name         | inputSearch           |  element            | name_report |

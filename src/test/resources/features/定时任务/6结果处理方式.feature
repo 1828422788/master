@@ -33,6 +33,7 @@ Feature: 定时任务_结果处理方式
     When the data name is "{'column':'1','name':'oracle_3301'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "2000" millsecond
+    And I wait for element "SelectedUser" change text to username
     And I wait for "ResultHandling" will be visible
     When I click the "ResultHandling" button under some element
     And I wait for "AddJDBC" will be visible

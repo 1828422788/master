@@ -13,8 +13,8 @@ Feature: 报表新建_执行计划
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
     And I click the "NextButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the message "<message_text>"
+    And I wait for "TipText" will be visible
+    And I will see the element "TipText" contains "<message_text>"
 
     Examples:
     |   name      |  hour   | minute   | message_text                                  |
@@ -38,9 +38,9 @@ Feature: 报表新建_执行计划
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "报表测试"
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
+    And I click the "ReturnButton" button
     And I will see the "report.ListPage" page
     And I will see the data "{'column':'1','name':'test_report_<period>'}" values "{'column':'4','name':'每日 <hour>时<minute>分'}"
 
@@ -62,9 +62,9 @@ Feature: 报表新建_执行计划
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "报表测试"
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
+    And I click the "ReturnButton" button
     And I will see the "report.ListPage" page
     And I will see the data "{'column':'1','name':'test_report_<period>'}" values "{'column':'4','name':'<period><day> <hour>时<minute>分'}"
 
@@ -90,9 +90,9 @@ Feature: 报表新建_执行计划
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "报表测试"
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
+    And I click the "ReturnButton" button
     And I will see the "report.ListPage" page
     And I will see the data "{'column':'1','name':'test_report_<period>'}" values "{'column':'4','name':'<period><month><day> <hour>时<minute>分'}"
 
@@ -104,8 +104,8 @@ Feature: 报表新建_执行计划
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Crontab" with value "<crontab>"
     And I click the "NextButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the message "<message_text>"
+    And I wait for "TipText" will be visible
+    And I will see the element "TipTexy" contains "<message_text>"
 
     Examples:
       |   name       |  crontab | message_text                                  |
@@ -121,8 +121,10 @@ Feature: 报表新建_执行计划
     And I set the parameter "Crontab" with value "0 0/15 9 ? * MON-FRI"
     And I click the "Parse" button
     And I wait for "EnsureButton" will be visible
-    And I will see the element "ParseResult" contains " 09:"
-    And I will see the element "ParseResult" contains ":00"
+    And I will see the element "ParseResult" contains "09:00:00"
+    And I will see the element "ParseResult" contains "09:15:00"
+    And I will see the element "ParseResult" contains "09:30:00"
+    And I will see the element "ParseResult" contains "09:45:00"
     And I click the "EnsureButton" button
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
@@ -130,9 +132,9 @@ Feature: 报表新建_执行计划
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "报表测试"
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
+    And I click the "ReturnButton" button
     And I will see the "report.ListPage" page
     And I will see the data "{'column':'1','name':'test_report_crontab'}" values "{'column':'4','name':'0 0/15 9 ? * MON-FRI'}"
     
@@ -141,13 +143,13 @@ Feature: 报表新建_执行计划
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "test_app" from the "App" in config
     And I choose the "PDF" from the "ReportType"
-    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I will see the element "SubjectNote" contains "注: 可用变量: 报表名称：<%report_name%>，发送时间：<%report_time%>"
     And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
     And I move the mouse pointer to the "ExecutionTip"
     And I wait for "ExecutionTipElement" will be visible
     And I will see the element "ExecutionTipElement" contains "<tipText>"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
+    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I click the "NextButton" button under some element
     Then I wait for "FinishButton" will be visible
 
@@ -166,9 +168,8 @@ Feature: 报表新建_执行计划
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "报表测试"
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "保存成功"
-    And I click the "EnsureButton" button
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
       |   type    |

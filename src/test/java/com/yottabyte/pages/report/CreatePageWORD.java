@@ -32,7 +32,7 @@ public class CreatePageWORD extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='选择趋势图']")
     private WebElement chartListInput;
 
-    @FindBy(xpath = "//label[@name='operate_edit']/*")
+    @FindBy(xpath = "//*[name()='use' and @*='#icon-bianji']/ancestor::*[name()='svg']")
     private WebElement editButton;
 
     @FindBy(xpath = "//a[@aria-label='文本中嵌入单值趋势图']")
