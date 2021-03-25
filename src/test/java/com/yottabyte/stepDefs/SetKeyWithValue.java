@@ -244,6 +244,14 @@ public class SetKeyWithValue {
         selectTextInElement(element);
     }
 
+    @And("^I select all text in \"([^\"]*)\" alert element$")
+    public void iSelectAlertText(String textarea) {
+        WebElement element = GetElementFromPage.getWebElementWithName(textarea);
+        selectTextInAlertElement(element);
+        element.sendKeys(Keys.END);
+        element.sendKeys(Keys.BACK_SPACE);
+    }
+
     @And("^I select all text in row \"([^\"]*)\" and column \"([^\"]*)\" of the table in word report$")
     public void iSelectTextCell(String row, String column) {
         String xpath = "//tr[" + row + "]/td[" + column + "]";
@@ -252,6 +260,23 @@ public class SetKeyWithValue {
     }
 
     public void selectTextInElement(WebElement element) {
+        String jScript = "var node = arguments[0];\n" +
+                "\n" +
+                "        if ( document.selection ) {\n" +
+                "            var range = document.body.createTextRange();\n" +
+                "            range.moveToElementText( node  );\n" +
+                "            range.select();\n" +
+                "        } else if ( window.getSelection ) {\n" +
+                "            var range = document.createRange();\n" +
+                "            range.selectNodeContents( node );\n" +
+                "            window.getSelection().removeAllRanges();\n" +
+                "            window.getSelection().addRange( range );\n" +
+                "        }";
+        JavascriptExecutor executor = (JavascriptExecutor)webDriver;
+        executor.executeScript(jScript, element);
+    }
+
+    public void selectTextInAlertElement(WebElement element) {
         String jScript = "var node = arguments[0];\n" +
                 "\n" +
                 "        if ( document.selection ) {\n" +

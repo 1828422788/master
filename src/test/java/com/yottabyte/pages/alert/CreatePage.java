@@ -954,7 +954,8 @@ public class CreatePage extends PageTemplate {
         return mailReceiver;
     }
 
-    @FindBy(xpath = "//label[contains(text(),'接收者')]/following::div[@class='ant-select-selection__rendered']/ul/li")
+//    @FindBy(xpath = "//label[contains(text(),'接收者')]/following::div[@class='ant-select-selection__rendered']/ul/li")
+    @FindBy(xpath = "//label[contains(text(),'接收者')]/following::div[@yotta-test='alert-alert_methods_email_account_group-select']")
     private WebElement mailReceiverList;
 
     public WebElement getMailReceiverList() {
@@ -962,7 +963,24 @@ public class CreatePage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
-    //    @FindBy(xpath = "//div[contains(text(),'邮件告警')][@class='ant-collapse-header']")
+    @FindBy(xpath = "//label[contains(text(),'接收者')]/parent::div")
+    private WebElement mailReceiverLabel;
+
+    public WebElement getMailReceiverLabel() {
+        return mailReceiverLabel;
+    }
+
+    @FindBy(xpath = "//textarea[@yotta-test='alert-alert_methods_textarea-textarea']")
+    private WebElement mailAlertContentPanel;
+
+    public WebElement getMailAlertContentPanel() {
+//        mailAlertContentPanel.sendKeys(Keys.END);
+//        mailAlertContentPanel.sendKeys(Keys.BACK_SPACE);
+//        mailAlertContentPanel.sendKeys(Keys.SHIFT, Keys.HOME);
+        return mailAlertContentPanel;
+    }
+
+    //@FindBy(xpath = "//div[contains(text(),'邮件告警')][@class='ant-collapse-header']")
     @FindBy(xpath = "//div[@yotta-test='alert-alert_methods-panel']//span[contains(text(),'邮件告警')]")
     private WebElement mailAlertLabel;
 
@@ -994,8 +1012,10 @@ public class CreatePage extends PageTemplate {
         return previewAlertReminderText;
     }
 
+    @FindBy(xpath = "//span[text()='测试运行']/parent::button[@yotta-test='alert-alert_methods_attempt_run-button']")
+    private WebElement testRunButton;
     public WebElement getTestRunButton() {
-        return super.getButton("测试运行");
+        return testRunButton;
     }
 
     //测试运行窗口提示

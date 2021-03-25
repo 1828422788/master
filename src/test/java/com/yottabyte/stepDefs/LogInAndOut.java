@@ -80,7 +80,6 @@ public class LogInAndOut {
         this.validateUser(username, password);
     }
 
-
     /**
      * 无任何权限时登录其他用户
      *
