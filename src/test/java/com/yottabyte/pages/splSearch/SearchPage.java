@@ -714,8 +714,10 @@ public class SearchPage extends ListPageFactory {
         return downloadButton;
     }
 
-    @FindBy(xpath = "(//span[text()='确 定']/ancestor::button)[last()]")
+   // @FindBy(xpath = "(//span[text()='确 定']/ancestor::button)[last()]")
+    @FindBy(xpath = "//span[text()='确定']")
     private WebElement ensureCrontab;
+
     //验证字段列表
     @FindBy(xpath = "//span[text()='#']/following-sibling::span")
     private WebElement fieldOne;

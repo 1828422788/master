@@ -182,6 +182,7 @@ Feature: 权限-字典
   #  And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "AutoTest"
     And I click the "EnsureUpload" button
+    And I wait for "1000" millsecond
     Then I will see the success message "创建字典成功"
 
     Examples:
@@ -190,6 +191,7 @@ Feature: 权限-字典
 
   Scenario Outline: 授权读取+编辑+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -298,6 +300,7 @@ Feature: 权限-字典
 
   Scenario Outline: 授权读取+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -335,6 +338,7 @@ Feature: 权限-字典
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
+    And I wait for loading invisible
     When the data name is "AutoTestUserCreate.csv" then i click the "授权" button
     And I wait for loading invisible
     And I "check" the checkbox which name is "验证授权用户" in tiny table
@@ -349,6 +353,7 @@ Feature: 权限-字典
 
   Scenario Outline: 授权读取+编辑+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -436,6 +441,7 @@ Feature: 权限-字典
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I click the "ResourceAuth" button
@@ -595,6 +601,7 @@ Feature: 权限-字典
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
+    And I wait for loading invisible
     Then the data name is "AuthTest.csv" then i will see "授权" button
     When the data name is "AuthTest.csv" then i click the "授权" button
     And I wait for loading invisible
@@ -626,6 +633,7 @@ Feature: 权限-字典
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
+    And I wait for loading invisible
     Then the data name is "AuthTest.csv" then i will see "授权" button
     When the data name is "AuthTest.csv" then i click the "授权" button
     And I wait for loading invisible
@@ -660,6 +668,7 @@ Feature: 权限-字典
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
+    And I wait for loading invisible
     Then the data name is "AuthTest.csv" then i will see "授权" button
     When the data name is "AuthTest.csv" then i click the "授权" button
     And I wait for loading invisible

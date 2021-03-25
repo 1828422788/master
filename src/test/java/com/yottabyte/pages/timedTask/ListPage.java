@@ -68,6 +68,31 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "(//tr[contains(@class,'expansion')]//div[contains(text(),'所属应用......')])[last()]")
     private WebElement appOfTheLastItem;
 
+    @FindBy(xpath = "//li[@yotta-test='schedule-copy-button']/span")
+    private WebElement copy;
+
+    @FindBy(xpath = "//li[@yotta-test='schedule-authorize-button']/span")
+    private WebElement auth;
+
+    @FindBy(xpath = "//li[@yotta-test='schedule-tags-button']/span")
+    private WebElement label;
+
+    @FindBy(xpath = "//li[@yotta-test='schedule-delete-button']/span")
+    private WebElement delete;
+
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div/div")
+    private WebElement tagtoinput;
+
+    public WebElement getCopy() { return copy;}
+
+    public WebElement getAuth() { return auth;}
+
+    public WebElement getLabel() { return label;}
+
+    public WebElement getDelete() { return delete;}
+
+    public WebElement getTagToInput() { return tagtoinput;}
+
     public WebElement getAppOfTheLastItem() {
         return appOfTheLastItem;
     }
