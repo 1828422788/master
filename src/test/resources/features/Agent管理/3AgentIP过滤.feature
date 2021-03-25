@@ -20,7 +20,9 @@ Feature: AgentIP过滤
       | 	192-168-1-136     |        68    |    3.1.0.14   | Server        |
 
   Scenario Outline: Agent模糊搜索IP过滤
+    And I click the "SeniorfilterButton" button
     And I set the agent parameter "IP" with running ip
+    And I click the "EnsureButton" button
     And  I wait for loading invisible
     Then I will see the agent search result contains "0"
 

@@ -712,10 +712,6 @@ public class CreatePage extends PageTemplate {
         return getDropDownListElement("字符集");
     }
 
-    public WebElement getCharsetKind(){
-        return getDropDownListElement("charset");
-    }
-
     public WebElement getRoot() {
         return getInputElement("路径");
     }

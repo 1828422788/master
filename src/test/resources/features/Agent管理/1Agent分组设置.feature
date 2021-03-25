@@ -75,6 +75,7 @@ Feature: Agent分组设置
     And I click the "Jump" button
     And switch to another window
     And I close all tabs except main tab
+    And I wait for loading invisible
     Then I will see the agent search result contains "0"
 
     Examples:
@@ -102,9 +103,10 @@ Feature: Agent分组设置
     And I click the "MultiGruopButton" button
     And I click the "GroupButton" button
     Then I will see the element "GroupMemo" name is "<message>"
-    And I click the "FinishGroupButton" button
-    And I click the "OpenGroupButton" button
-    Then I will see the agent search result contains "0"
+#    And I click the "FinishGroupButton" button
+#    And I click the "OpenGroupButton" button
+#    And I wait for loading invisible
+#    Then I will see the agent search result contains "0"
 
     Examples:
       | message              |
@@ -153,7 +155,7 @@ Feature: Agent分组设置
     Examples: 模糊搜索ip过滤成功
 
       | name        |
-#      | Deleteone   |
+      | Deleteone   |
       | Deletetwo   |
       | Deletethree |
 

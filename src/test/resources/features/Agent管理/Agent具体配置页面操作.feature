@@ -80,7 +80,7 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I click the "Compressed" button
     And I click the "Ensure" button
     And I wait for "CompressStatus" will be visible
-    And I will see the element "CompressStatus" name is "开启"
+    And I will see the element "CompressStatus" name is "关闭"
 
   Scenario: 输出配置开启输出压缩
     And I click the "OutputEdit" button
@@ -88,7 +88,7 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I click the "Compressed" button
     And I click the "Ensure" button
     And I wait for "CompressStatus" will be visible
-    And I will see the element "CompressStatus" name is "关闭"
+    And I will see the element "CompressStatus" name is "开启"
 
   Scenario Outline: 输出配置修改发送速率限制
     And I click the "OutputEdit" button
@@ -97,7 +97,7 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I choose the "<sendspeed>" from the "SendSpeed"
     And I click the "Ensure" button
     And I wait for loading invisible
-    And I wait for "3000" millsecond
+    And I wait for "SendSpeedStatus" will be visible
     And I will see the element "SendSpeedStatus" name is "<sendspeedstatus>"
 
     Examples:
@@ -112,7 +112,7 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I set the parameter "LogLength" with value "<loglength>"
     And I click the "Ensure" button
     And I wait for loading invisible
-    And I wait for "3000" millsecond
+    And I wait for "LogLengthStatus" will be visible
     And I will see the element "LogLengthStatus" name is "<loglengthstatus>"
 
     Examples:

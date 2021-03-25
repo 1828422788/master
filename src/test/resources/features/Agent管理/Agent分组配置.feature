@@ -140,9 +140,8 @@ Feature: Agent分组采集
     And I click the "Addgroupinput" button
     And I will see the "agent.CreatePage" page
     And I click the "EditAutoFile" button
-    And I wait for "CharacterKind" will be visible
+#    And I wait for "CharacterKind" will be visible
     When I choose the "<characterkind>" from the "CharacterKind"
-    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
 #    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
