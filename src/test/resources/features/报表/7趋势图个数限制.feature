@@ -1,4 +1,4 @@
-c@report @reportLimit @allReports
+@report @reportLimit @allReports
 Feature: 报表_趋势图个数限制
 
   Scenario Outline: change_limit_error
