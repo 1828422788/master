@@ -20,9 +20,11 @@ Feature: 数据集-b删除
 
   @deleteceshi
   Scenario Outline: RZY-4079:删除数据集
-#    Given the data name is "<name>" then i click the "删除" button
+    When I set the parameter "SearchInputName" with value "<name>"
+    And I wait for loading complete
     And I wait for "2000" millsecond
-    And  the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button in more menu
+#    Given the data name is "<name>" then i click the "删除" button
+    When the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button in more menu
     Then I will see the message "确定删除该数据集?"
     And I wait for "Ensure" will be visible
     When I click the "Ensure" button

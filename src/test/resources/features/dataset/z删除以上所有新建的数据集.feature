@@ -3,9 +3,13 @@ Feature: 数据集-z删除所有
 
   Background:
     Given open the "dataset.ListPage" page for uri "/dataset/"
+    And I wait for loading complete
 
   @deldataset
   Scenario Outline: 删除数据集列表页面用例
+    When I set the parameter "SearchInputName" with value "<name>"
+    And I wait for loading complete
+    And I wait for "2000" millsecond
 #    Given the data name is "<name>" then i click the "删除" button
     When the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button in more menu
 
@@ -17,8 +21,8 @@ Feature: 数据集-z删除所有
 
     Examples:
       | name            |
+#      | node_op_jnd     |
       | JNDTest         |
-      | node_op_jnd     |
       | edit            |
       | name_updated    |
       | have_root_field |

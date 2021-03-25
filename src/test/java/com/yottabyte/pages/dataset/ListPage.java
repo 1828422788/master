@@ -27,6 +27,12 @@ public class ListPage extends ListPageFactory {
         driver.manage().window().fullscreen();
     }
 
+    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
+    private WebElement searchInputName; //名称
+    public WebElement getSearchInputName() {
+        return searchInputName;
+    }
+
 //    @FindBy(id = "EditDatabase_name")
     @FindBy(xpath = "//input[@yotta-test='dataset-name-input']")
     private WebElement name; //名称
@@ -95,7 +101,6 @@ public class ListPage extends ListPageFactory {
         resourceDropdown.click();
         return super.getLastDropdownList();
     }
-
 
     @FindBy(xpath = "//label[text()='约束语句']/ancestor::div//following-sibling::div//div[text()='请输入约束语句']")
     // @FindBy(xpath= "//div[text()='请输入约束语句']")

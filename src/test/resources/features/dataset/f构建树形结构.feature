@@ -17,7 +17,7 @@ Feature: 数据集-f构建树形结构
       | name     | alias  | spl | typeButton |
       | 父子无tree  | 无tree  | *   | 无          |
       | 父子汇聚tree | 汇聚tree | *   | HuiJu      |
-      | 父子继承tree | 继承tree | *   | inherit    |
+#      | 父子继承tree | 继承tree | *   | inherit    |
 
   @datasetf2 @tc4085
   Scenario: RZY-4085:父子行为-无
@@ -55,7 +55,7 @@ Feature: 数据集-f构建树形结构
     And I click the "SaveDetail" button
     And I wait for "2000" millsecond
 
-  @fatherson
+  @datasetf3
   Scenario: RZY-4083:父子行为-汇聚
 #选择汇聚
     Given open the "dataset.ListPage" page for uri "/dataset/"
