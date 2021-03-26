@@ -160,6 +160,14 @@ public class ClickSomeButton {
             button.click();
     }
 
+    @When("^I click the element \"([^\"]*)\" in word report$")
+    public void clickTheButtonWordReport(String buttonName) {
+        WebElement button = GetElementFromPage.getWebElementWithName(buttonName);
+        ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", button);
+        if (ElementExist.isElementExist(webDriver, button))
+            button.click();
+    }
+
     /**
      * 点击仪表盘某个记录前的icon
      *

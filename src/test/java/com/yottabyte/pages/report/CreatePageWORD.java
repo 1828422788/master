@@ -32,7 +32,7 @@ public class CreatePageWORD extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='选择趋势图']")
     private WebElement chartListInput;
 
-    @FindBy(xpath = "//*[name()='use' and @*='#icon-bianji']/ancestor::*[name()='svg']")
+    @FindBy(xpath = "//label[@name='operate_edit']")
     private WebElement editButton;
 
     @FindBy(xpath = "//a[@aria-label='文本中嵌入单值趋势图']")
@@ -71,7 +71,7 @@ public class CreatePageWORD extends PageTemplate {
     @FindBy(xpath = "//*[contains(@name,'trend_timerange')]/label[@name='operate_delete']")
     private WebElement deleteTrendTimerange;
 
-    @FindBy(xpath = "//span[text()='统计类型']/following-sibling::span/button[@disabled]/span[text()='single']")
+    @FindBy(xpath = "//button[@yotta-test='report-chart-button' and @disabled]")
     private WebElement disabledType;
 
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']")
@@ -212,10 +212,10 @@ public class CreatePageWORD extends PageTemplate {
     @FindBy(xpath = "(//div[@class='jodit_wysiwyg']/h1) | (//div[@class='jodit_wysiwyg']/h2) | (//div[@class='jodit_wysiwyg']/h3) | (//div[@class='jodit_wysiwyg']/h4)")
     private WebElement headingElement;
 
-    @FindBy(xpath = "//a[@aria-label='撤销']")
+    @FindBy(xpath = "//a[@aria-label='撤销']/ancestor::li")
     private WebElement undo;
 
-    @FindBy(xpath = "//a[@aria-label='重做']")
+    @FindBy(xpath = "//a[@aria-label='重做']/ancestor::li")
     private WebElement redo;
 
     @FindBy(xpath = "//a[@role = 'button' and @aria-label='删除']")
@@ -281,9 +281,6 @@ public class CreatePageWORD extends PageTemplate {
     @FindBy(xpath = "//i[@class = 'jodit_resizer-bottomright']")
     private WebElement bottomRightCorner;
 
-    @FindBy(xpath = "//span[text()='名称']/following-sibling::span/input")
-    private WebElement trendNameField;
-
     @FindBy(xpath = "//div[@class='_1rpZECB9i9v8h6IEUve_yK']")
     private WebElement resultMessage;
 
@@ -292,7 +289,7 @@ public class CreatePageWORD extends PageTemplate {
     }
 
     public WebElement getTrendNameField() {
-        return trendNameField;
+        return getYottaInput("report-name-input");
     }
 
     public WebElement getSuccessMessage() {

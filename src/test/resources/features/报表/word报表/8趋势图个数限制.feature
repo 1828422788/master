@@ -25,8 +25,8 @@ Feature: 报表_富文本编辑_限制
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
 
-    And I click the "AddTable" button
-    And I click the "AddTable3x2" button
+    And I click the element "AddTable" in word report
+    And I click the element "AddTable3x2" in word report
     And I wait for "2000" millsecond
     And I select all text in row "1" and column "1" of the table in word report
     And I set the parameter "ChartListInput" with value "报表测试"
