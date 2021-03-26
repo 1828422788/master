@@ -15,12 +15,10 @@ Feature: 字典管理
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
-#    Then I set the parameter "GroupInput" with value "wymtest"
-#    And I choose the "wymtest" from the "DictionaryTagList" in config
     And I click the "EnsureUpload" button
     Then I wait for "Tip" will be visible
-#    Then I will see the success message "创建字典成功"
-#    Then I click the "EnsureButton" button
+    Then I will see the success message "创建字典成功"
+    Then I click the "EnsureButton" button
     Then I refresh the website
     And I wait for loading invisible
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
@@ -29,13 +27,12 @@ Feature: 字典管理
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     And I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
-#    Then I wait for element "ResourceTag" change text to "wymtest"
     Then I click the "EditOnline" button
     Then I will see the element "EditOnlineArea" name is "<editOnlineArea>"
 
     Examples:
       | dictionaryNameWithOutCsv | dictionaryName    | totalItem | editOnlineArea                                                                                         |
-      | wymtestcreate            | wymtestcreate.csv | 1         | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
+      | wymtestcreate            | wymtestcreate.csv | 共 1 条         | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
 
   Scenario Outline: RZY-4137下载字典
 

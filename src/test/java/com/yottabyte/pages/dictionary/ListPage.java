@@ -17,7 +17,7 @@ public class ListPage extends ListPageFactory {
 
     DropdownUtils dropdownUtils = new DropdownUtils();
 
-    @FindBy(xpath = "//div[text()='提示']")
+    @FindBy(xpath = "//h4[text()='提示']")
     private WebElement tip;
 
     @FindBy(className = "yotta-modal-title")
@@ -50,7 +50,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
     private WebElement dictionaryFilter;
 
-    @FindBy(xpath = "//span[@class='_1a4SFPSKE5LHZ9oIlWNopk']/span")
+    @FindBy(xpath = "//div[@class='yotta-pagination-elements'][1]")
     private WebElement totalItem;
 
     @FindBy(className = "_2dAJUXRHMFMdem7AELR7it")
