@@ -92,31 +92,31 @@ public class CreatePageWORD extends PageTemplate {
     @FindBy(xpath = "(//div[@class='jodit_wysiwyg']//img)[last()]")
     private WebElement imageElement;
 
-    @FindBy(xpath = "//a[@aria-label='字号']")
+    @FindBy(xpath = "//a[@aria-label='字号']/ancestor::li")
     private WebElement textFontSize;
 
-    @FindBy(xpath = "//a[@aria-label='粗体']")
+    @FindBy(xpath = "//a[@aria-label='粗体']/ancestor::li")
     private WebElement bold;
 
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']//strong")
     private WebElement boldElement;
 
-    @FindBy(xpath = "//a[@aria-label='斜体']")
+    @FindBy(xpath = "//a[@aria-label='斜体']/ancestor::li")
     private WebElement italics;
 
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']//em")
     private WebElement italicsElement;
 
-    @FindBy(xpath = "//a[@aria-label='下划线']")
+    @FindBy(xpath = "//a[@aria-label='下划线']/ancestor::li")
     private WebElement underline;
 
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']//u")
     private WebElement underlineElement;
 
-    @FindBy(xpath = "//a[@aria-label='页眉']")
+    @FindBy(xpath = "//a[@aria-label='页眉']/ancestor::li")
     private WebElement header;
 
-    @FindBy(xpath = "//a[@aria-label='页脚']")
+    @FindBy(xpath = "//a[@aria-label='页脚']/ancestor::li")
     private WebElement footer;
 
     @FindBy(xpath = "//p[@name='pageheader']")
@@ -131,34 +131,34 @@ public class CreatePageWORD extends PageTemplate {
     @FindBy(xpath = "//p[@name='pagefooter']/*")
     private WebElement footerTextStyle;
 
-    @FindBy(xpath = "(//a[@aria-label='对齐方式'])[last()]")
+    @FindBy(xpath = "(//a[@aria-label='对齐方式']/ancestor::li)[last()]")
     private WebElement alignment;
 
-    @FindBy(xpath = "(//a[@aria-label='居中'])[last()]")
+    @FindBy(xpath = "(//a[@aria-label='居中']/ancestor::li)[last()]")
     private WebElement centerAlignment;
 
-    @FindBy(xpath = "(//a[@aria-label='右对齐'])[last()]")
+    @FindBy(xpath = "(//a[@aria-label='右对齐']/ancestor::li)[last()]")
     private WebElement rightAlignment;
 
-    @FindBy(xpath = "(//a[@aria-label='左对齐'])[last()]")
+    @FindBy(xpath = "(//a[@aria-label='左对齐']/ancestor::li)[last()]")
     private WebElement leftAlignment;
 
-    @FindBy(xpath = "(//a[@aria-label='对齐文本'])[last()]")
+    @FindBy(xpath = "(//a[@aria-label='对齐文本']/ancestor::li)[last()]")
     private WebElement justifyAlignment;
 
-    @FindBy(xpath = "//a[@aria-label='分割线']")
+    @FindBy(xpath = "//a[@aria-label='分割线']/ancestor::li")
     private WebElement dividingLine;
 
     @FindBy(xpath = "//hr")
     private WebElement dividingLineElement;
 
-    @FindBy(xpath = "//a[@aria-label='目录']")
+    @FindBy(xpath = "//a[@aria-label='目录']/ancestor::li")
     private WebElement content;
 
     @FindBy(xpath = "//p[@name='wordmenu']")
     private WebElement contentMenu;
 
-    @FindBy(xpath = "//a[@aria-label='表格']")
+    @FindBy(xpath = "//a[@aria-label='表格']/ancestor::li")
     private WebElement addTable;
 
     @FindBy(xpath = "//div[@data-index='12']")
@@ -185,7 +185,7 @@ public class CreatePageWORD extends PageTemplate {
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']//*[not(@name ='pageheader') and not(@name='pagefooter') and contains(text(), 'textclick')]")
     private WebElement textAreaLocator;
 
-    @FindBy(xpath = "//a[@aria-label='颜色']")
+    @FindBy(xpath = "//a[@aria-label='颜色']/ancestor::li")
     private WebElement color;
 
     @FindBy(xpath = "//a[@title='#FF00FF']")
@@ -194,7 +194,7 @@ public class CreatePageWORD extends PageTemplate {
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']/*[last()]")
     private WebElement newLine;
 
-    @FindBy(xpath = "//a[@aria-label='格式块']")
+    @FindBy(xpath = "//a[@aria-label='格式块']/ancestor::li")
     private WebElement heading;
 
     @FindBy(xpath = "//a[@aria-label='格式块']/following-sibling::div//span[text() = '标题1']")
@@ -283,6 +283,13 @@ public class CreatePageWORD extends PageTemplate {
 
     @FindBy(xpath = "//div[@class='_1rpZECB9i9v8h6IEUve_yK']")
     private WebElement resultMessage;
+
+    @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']/ancestor::div[1]/following-sibling::div[@class='yotta-dialog-content']//p")
+    private WebElement errorMessage;
+
+    public WebElement getErrorMessage() {
+        return errorMessage;
+    }
 
     public WebElement getResultMessage() {
         return resultMessage;

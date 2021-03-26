@@ -162,10 +162,24 @@ public class ClickSomeButton {
 
     @When("^I click the element \"([^\"]*)\" in word report$")
     public void clickTheButtonWordReport(String buttonName) {
-        WebElement button = GetElementFromPage.getWebElementWithName(buttonName);
-        ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", button);
-        if (ElementExist.isElementExist(webDriver, button))
+        if (buttonName != null && buttonName.trim().length() != 0) {
+            String parameters = "";
+            WebElement button;
+            if (JsonStringPaser.isJson(buttonName)) {
+                Map<String, Object> map = JsonStringPaser.json2Stirng(buttonName);
+                for (Map.Entry<String, Object> entry : map.entrySet()) {
+                    buttonName = entry.getKey();
+                    parameters = (String) entry.getValue();
+                }
+                button = GetElementFromPage.getWebElementWithName(buttonName, parameters);
+            } else {
+                button = GetElementFromPage.getWebElementWithName(buttonName);
+            }
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", button);
             button.click();
+        } else {
+            System.out.println("skip this step!");
+        }
     }
 
     /**

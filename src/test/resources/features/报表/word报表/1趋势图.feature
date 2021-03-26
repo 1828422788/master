@@ -37,8 +37,8 @@ Feature:报表_富文本编辑_趋势图
     And I set the parameter "TextArea" with value "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
 
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "至少选择一个趋势图"
+    And I wait for "ErrorMessage" will be visible
+    Then I will see the error message "至少选择一个趋势图"
 
     Examples:
       | name         | inputSearch           |  element            |
@@ -56,33 +56,33 @@ Feature:报表_富文本编辑_趋势图
     And I click the button with text "<name>"
     And I will see the "<element>" is display
     And I wait for "2000" millsecond
-    
-    And I click the "DeleteTrendName" button
+
+    And I click the element "DeleteTrendName" in word report
     And I will see the "Trend_Name" doesn't exist
     And I will see the "<element>" is display
     And I click the element "Undo" in word report
     And I will see the "Trend_Name" is display
 
-    And I click the "DeleteTrendDescription" button
+    And I click the element "DeleteTrendDescription" in word report
     And I will see the "Trend_Description" doesn't exist
     And I will see the "<element>" is display
     And I click the element "Undo" in word report
     And I will see the "Trend_Description" is display
 
-    And I click the "DeleteTrendTimerange" button
+    And I click the element "DeleteTrendTimerange" in word report
     And I will see the "Trend_Timerange" doesn't exist
     And I will see the "<element>" is display
     And I click the element "Undo" in word report
     And I will see the "Trend_Timerange" is display
 
-    And I click the "DeleteTrendChart" button
+    And I click the element "DeleteTrendChart" in word report
     And I will see the "Trend_Chart" doesn't exist
     And I will see the "<element>" doesn't exist
     And I wait for "2000" millsecond
 
     When I click the "FinishButton" button under some element
-    And I wait for "EnsureButton" will be visible
-    Then I will see the success message "至少选择一个趋势图"
+    And I wait for "ErrorMessage" will be visible
+    Then I will see the error message "至少选择一个趋势图"
 
     Examples:
       | name         | inputSearch           |  element            |

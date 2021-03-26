@@ -48,20 +48,16 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "(//*[text()='统计类型']//following-sibling::div[1]//div[@class='yotta-select-selection'])[last()]")
     private WebElement statisticType;
 
-//    @FindBy(xpath = "(//input[@placeholder='开始日期'])[1]")
-    @FindBy(xpath = "(//input[@placeholder='开始时间'])[1]")
+    @FindBy(xpath = "(//input[@placeholder='开始日期'])[last()]")
     private WebElement startDate;
 
-//    @FindBy(xpath = "(//input[@placeholder='结束日期'])[1]")
-    @FindBy(xpath = "(//input[@placeholder='结束时间'])[1]")
+    @FindBy(xpath = "(//input[@placeholder='结束日期'])[last()]")
     private WebElement endDate;
 
-//    @FindBy(xpath = "(//input[@placeholder='开始时间'])[1]")
-    @FindBy(xpath = "(//input[@placeholder='输入时间'])[1]")
+    @FindBy(xpath = "(//input[@placeholder='开始时间'])[last()]")
     private WebElement startTime;
 
-//    @FindBy(xpath = "(//input[@placeholder='结束时间'])[2]")
-    @FindBy(xpath = "(//input[@placeholder='输入时间'])[2]")
+    @FindBy(xpath = "(//input[@placeholder='结束时间'])[last()]")
     private WebElement endTime;
 
     @FindBy(xpath = "(//input[@yotta-test='search-NumericalBucket_from-input'])[last()]")
