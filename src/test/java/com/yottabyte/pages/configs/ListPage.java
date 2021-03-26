@@ -34,8 +34,11 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[@class='el-dialog el-dialog--small']//tr")
     private List<WebElement> smallTr;
 
-    @FindBy(xpath = "//div[text()='标签']/following-sibling::div//input")
+    @FindBy(xpath = "//label[text()='标签']/parent::div/following-sibling::div/span//div/input")
     private WebElement tagInput;
+
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//span[@class='yotta-select-selection-placeholder']")
+    private WebElement tagToInput;
 
     @FindBy(xpath = "//ul[@role='listbox']")
     private WebElement ul;
@@ -46,12 +49,44 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "ant-empty-description")
     private WebElement searchResultIsEmpty;
 
+    @FindBy(xpath = "//ul[@yotta-test='operation-more-menu']/li/span[text()='授权']")
+    private WebElement auth;
+
+    @FindBy(xpath = "//ul[@yotta-test='operation-more-menu']/li/span[text()='复制']")
+    private WebElement copy;
+
+    @FindBy(xpath = "//ul[@yotta-test='operation-more-menu']/li/span[text()='标签']")
+    private WebElement label;
+
+    @FindBy(xpath = "//ul[@yotta-test='operation-more-menu']/li/span[text()='删除']")
+    private WebElement delete;
+
+    public WebElement getCopy() {
+        return copy;
+    }
+
+    public WebElement getLabel() {
+        return label;
+    }
+
+    public WebElement getAuth() {
+        return auth;
+    }
+
+    public WebElement getDelete() {
+        return delete;
+    }
+
     public WebElement getLoading() {
         return loading;
     }
 
     public WebElement getTagInput() {
         return tagInput;
+    }
+
+    public WebElement getTagToInput() {
+        return tagToInput;
     }
 
     public WebElement getContent() {
