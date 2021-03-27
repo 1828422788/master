@@ -2,14 +2,14 @@ Feature: 批量修改邮件邮箱
 
   @bvtalert @uamail
   Scenario Outline:
-    And I wait for loading invisible
+    And I wait for loading complete
     Given open the "alert.ListPage" page for uri "/alerts/"
     When I set the parameter "AlertListSearchInput" with value "<name>"
-    And I wait for loading invisible
+    And I wait for loading complete
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
 
     Then I will see the "alert.CreatePage" page
-    And I wait for loading invisible
+    And I wait for loading complete
     And I click the "AlertNoteTypeTab" button
     And I click the "MailAlertLabel" button
     When I set the parameter "MailReceiver" with value "backfuture@yeah.net"

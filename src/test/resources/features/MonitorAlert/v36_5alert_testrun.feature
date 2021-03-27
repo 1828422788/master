@@ -10,25 +10,36 @@ Feature: 测试运行-邮件
 #    Then I click the "AlertListEditButton" button
 
     Then I will see the "alert.CreatePage" page
-    And I wait for loading invisible
+    And I wait for loading complete
+    And I wait for "2000" millsecond
 
     And I click the "AlertNoteTypeTab" button
-    And I choose1 the "邮件告警" from the "AlertNoteTypeListButton"
-    And I wait for loading invisible
+#    And I click the "AddAlertTypeButton" button
+    And I choose the "邮件告警" from the "AlertNoteTypeListButton"
+    And I wait for loading complete
     And I click the "MailAlertLabel" button
-    And I wait for loading invisible
-    When I set the parameter "MailReceiver" with value "2312200836@qq.com"
-    And I wait for loading invisible
+    And I wait for loading complete
+    And I click the "MailReceiverButton" button
+    And I wait for "2000" millsecond
+#    When I set the parameter "MailReceiver" with value "2312200836@qq.com"
+#    And I wait for loading complete
     And I choose the "2312200836@qq.com" from the "MailReceiverList"
-    And I wait for loading invisible
+    And I wait for loading complete
+    And I wait for "2000" millsecond
+#    And I click the "mailReceiverLabel" button
+    And I wait for loading complete
+
+    And I wait for "MailAlertContentPanel" will be visible
+    And I select all text in "MailAlertContentPanel" alert element
+    And I wait for "2000" millsecond
 
     And I click the "TestRunButton" button
-    And I wait for loading invisible
+    And I wait for loading complete
 
     And I wait for element "TestRunReminder" change text to "提示"
     Then take a screenshot with name "actual/trm_<name>"
-#    And I wait for element "TestRunReminderText" change text to "<name>"
-#    And I wait for element "TestRunReminderText" change text to "successful"
+    And I wait for element "TestRunReminderText" change text to "<name>"
+    And I wait for element "TestRunReminderText" change text to "successful"
     When I click the "AffirmButton" button
 
     Examples:

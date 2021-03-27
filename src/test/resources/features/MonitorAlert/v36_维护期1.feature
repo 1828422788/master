@@ -21,11 +21,12 @@ Feature: 监控维护期
     And I click the "AlertNameEnsure" button
 
     And I wait for loading complete
-    And I choose the "02" from the "MaintainBeginTimeList"
+#    And I choose the "02" from the "MaintainBeginTimeList"
+    And I choose2 the "02" from the "MaintainBeginTimeList"
     And I wait for "2000" millsecond
     And I click the "BeginTimeLabel" button
     And I wait for "1000" millsecond
-    And I choose the "23" from the "MaintainEndTimeList"
+    And I choose2 the "23" from the "MaintainEndTimeList"
     And I wait for "2000" millsecond
     And I click the "BeginTimeLabel" button
     And I wait for "1000" millsecond
@@ -59,8 +60,10 @@ Feature: 监控维护期
 
     And I click the "SingleBeginTimeButton" button
     And I click the "BeginTimeDiv" button
+#    And I choose2 the "02" from the "SingleStartTimeList"
+    And I click the "SingleCurrentTimeButton" button
     And I wait for loading complete
-    And I click the "BeginTimeConfirmButton" button
+#    And I click the "BeginTimeConfirmButton" button
 
     And I click the "SaveButton" button
 
@@ -89,12 +92,12 @@ Feature: 监控维护期
     And I wait for loading complete
     And I choose the "一" from the "BeginWeeklyDayList"
     And I wait for loading complete
-    And I choose the "02" from the "MaintainBeginTimeList"
+    And I choose2 the "02" from the "MaintainBeginTimeList"
     And I wait for loading complete
     And I choose the "六" from the "EndWeeklyDayList"
     And I click the "BeginTimeLabel" button
     And I wait for "1000" millsecond
-    And I choose the "23" from the "MaintainEndTimeList"
+    And I choose2 the "23" from the "MaintainEndTimeList"
     And I wait for "2000" millsecond
     And I click the "BeginTimeLabel" button
     And I wait for "1000" millsecond
@@ -125,12 +128,12 @@ Feature: 监控维护期
     And I wait for loading complete
     And I choose the "1日" from the "BeginWeeklyDayList"
     And I wait for loading complete
-    And I choose the "02" from the "MaintainBeginTimeList"
+    And I choose2 the "02" from the "MaintainBeginTimeList"
     And I wait for loading complete
     And I choose the "28日" from the "EndWeeklyDayList"
     And I click the "BeginTimeLabel" button
     And I wait for "1000" millsecond
-    And I choose the "23" from the "MaintainEndTimeList"
+    And I choose2 the "23" from the "MaintainEndTimeList"
     And I wait for "2000" millsecond
     And I click the "BeginTimeLabel" button
     And I wait for "1000" millsecond

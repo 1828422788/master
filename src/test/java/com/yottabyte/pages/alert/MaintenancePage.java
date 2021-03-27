@@ -32,35 +32,37 @@ public class MaintenancePage extends PageTemplate {
         return createButton;
     }
 
-    @FindBy(xpath = "//span[text()='维护原因']/following::input[@placeholder='请输入维护原因']")
+    @FindBy(xpath = "//input[@yotta-test='alert-name-input'][@placeholder='请输入维护原因']")
     private WebElement maintainReason;
 
     public WebElement getMaintainReason() {
         return maintainReason;
     }
 
-    @FindBy(xpath = "//div/a[text()='请选择']")
+    @FindBy(xpath = "//button[@yotta-test='alert-select_alerts-button']")
     private WebElement chooseAlertButton;
 
     public WebElement getChooseAlertButton() {
         return chooseAlertButton;
     }
 
-    @FindBy(xpath = "//div[text()='影响范围']/following::input[@placeholder='请输入关键字']")
+    @FindBy(xpath = "//input[@yotta-test='alert-alert_list_filter-input'][@placeholder='请输入关键字']")
     private WebElement alertNameSearchInput;
 
     public WebElement getAlertNameSearchInput() {
         return alertNameSearchInput;
     }
 
-    @FindBy(xpath = "//p[contains(text(),'已选中')]/following::input[@placeholder='请输入关键字']/following-sibling::span/i")
+//    @FindBy(xpath = "//p[contains(text(),'已选中')]/following::input[@placeholder='请输入关键字']/following-sibling::span/i")
+    @FindBy(xpath = "//input[@yotta-test='alert-alert_list_filter-input'][@placeholder='请输入关键字']/following-sibling::span")
     private WebElement alertNameSearchIcon;
 
     public WebElement getAlertNameSearchIcon() {
         return alertNameSearchIcon;
     }
 
-    @FindBy(xpath = "//label[@class='P6t_i2gGWUIWPSCJcrPhU css-re7vk9 ant-checkbox-wrapper']")
+//    @FindBy(xpath = "//label[@class='P6t_i2gGWUIWPSCJcrPhU css-re7vk9 ant-checkbox-wrapper']")
+    @FindBy(xpath = "//input[@yotta-test='alert-alert_list-checkbox']/parent::span")
     private WebElement alertNameBody;
 
     public WebElement getAlertNameBody() {
@@ -74,14 +76,15 @@ public class MaintenancePage extends PageTemplate {
         return alertNameCheckbox;
     }
 
-    @FindBy(xpath = "//span[text()='确 定']/parent::button")
+    @FindBy(xpath = "//span[text()='确定']/parent::button")
     private WebElement alertNameEnsure;
 
     public WebElement getAlertNameEnsure() {
         return alertNameEnsure;
     }
 
-    @FindBy(xpath = "//span[text()='维护原因']")
+//  @FindBy(xpath = "//span[text()='维护原因']")
+    @FindBy(xpath = "//label[contains(text(),'维护原因')]")
     private WebElement beginTimeLabel;
 
     public WebElement getBeginTimeLabel() {
@@ -89,7 +92,8 @@ public class MaintenancePage extends PageTemplate {
     }
 
     public WebElement getBeginWeeklyDayList() {
-        String xpath = "//span[text()='开始时间']/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+//        String xpath = "//span[text()='开始时间']/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        String xpath = "//div[@yotta-test='alert-fixed_start_unit-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
@@ -97,7 +101,8 @@ public class MaintenancePage extends PageTemplate {
     }
 
     public WebElement getEndWeeklyDayList() {
-        String xpath = "//span[text()='结束时间']/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+//        String xpath = "//span[text()='结束时间']/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        String xpath = "//div[@yotta-test='alert-fixed_end_unit-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
@@ -105,18 +110,29 @@ public class MaintenancePage extends PageTemplate {
     }
 
     public WebElement getMaintainBeginTimeList() {
-      String xpath = "//span[text()='开始时间']/following::div/span/input[@placeholder='请选择']/following-sibling::span/i";
+//        String xpath = "//span[text()='开始时间']/following::div/span/input[@placeholder='请选择']/following-sibling::span/i";
+        String xpath = "//div[@yotta-test='alert-fixed_start_time-time_picker']/span/span";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
         return getMaintainTimeDropdownList();
     }
 
+    @FindBy(xpath = "//span[@class='yotta-icon yotta-icon-DownOutlined yotta-time-table-column-down']")
+    private WebElement downOutlinedButton;
+    public WebElement getDownOutlinedButton() {
+        return downOutlinedButton;
+    }
+
     public WebElement getMaintainEndTimeList() {
-        String xpath = "//span[text()='结束时间']/following::div/span/input[@placeholder='请选择']/following-sibling::span/i";
+//        String xpath = "//span[text()='结束时间']/following::div/span/input[@placeholder='请选择']/following-sibling::span/i";
+        String xpath = "//div[@yotta-test='alert-fixed_end_time-time_picker']/span/span";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
+        for (int j=0;j<22;j++){
+            downOutlinedButton.click();
+        }
         return getMaintainTimeDropdownList();
     }
 
@@ -128,29 +144,49 @@ public class MaintenancePage extends PageTemplate {
     }
 
     public WebElement getPerformPlanList() {
-        String xpath = "//span[text()='执行计划']/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        String xpath = "//div[@yotta-test='alert-fixed_frequency-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
         return getLastDropdownList();
     }
 
-    @FindBy(xpath = "//span[text()='开始时间']/following::i")
+//    @FindBy(xpath = "//span[text()='开始时间']/following::i")
+    @FindBy(xpath = "//div[@yotta-test='alert-single_start_time-date_picker']/span/span")
     private WebElement singleBeginTimeButton;
 
     public WebElement getSingleBeginTimeButton() {
         return singleBeginTimeButton;
     }
 
-//    @FindBy(xpath = "//div[@class='ant-calendar-picker-container ant-calendar-picker-container-placement-bottomLeft']//td[@class='ant-calendar-cell ant-calendar-today ant-calendar-selected-date ant-calendar-selected-day']/div")
-    @FindBy(xpath = "//div[@class='ant-calendar-picker-container ant-calendar-picker-container-placement-bottomLeft']//div[text()='18']")
+//    @FindBy(xpath = "//div[@class='ant-calendar-picker-container ant-calendar-picker-container-placement-bottomLeft']//div[text()='18']")
+    @FindBy(xpath = "//div[@class='yotta-date-table-content']//td[text()='1']")
     private WebElement beginTimeDiv;
 
     public WebElement getBeginTimeDiv() {
         return beginTimeDiv;
     }
 
-    @FindBy(xpath = "//div[@class='ant-calendar-picker-container ant-calendar-picker-container-placement-bottomLeft']//a[text()='确 定']")
+    @FindBy(xpath = "//span[text()='此刻']/parent::button")
+    private WebElement singleCurrentTimeButton;
+
+    public WebElement getSingleCurrentTimeButton() {
+        String xpath = "//div[@yotta-test='alert-single_start_time-time_picker']/span/span";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return singleCurrentTimeButton;
+    }
+
+    public WebElement getSingleStartTimeList() {
+        String xpath = "//div[@yotta-test='alert-single_start_time-time_picker']/span/span";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getMaintainTimeDropdownList();
+    }
+
+    @FindBy(xpath = "//div[@class='ant-calendar-picker-container ant-calendar-picker-container-placement-bottomLeft']//a[text()='确定']")
     private WebElement beginTimeConfirmButton;
 
     public WebElement getBeginTimeConfirmButton() {

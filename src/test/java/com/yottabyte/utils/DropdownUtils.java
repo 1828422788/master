@@ -159,7 +159,8 @@ public class DropdownUtils {
 
     public WebElement getMaintainTimeDropdownList() {
         String className;
-        className = "ant-time-picker-panel-select";
+//      className = "ant-time-picker-panel-select";
+        className = "yotta-time-table-column-list";
         List<WebElement> list = webDriver.findElements(By.className(className));
 //        WebElement lastDropdownList = list.get(list.size() - 1);
         WebElement lastDropdownList = list.get(0);

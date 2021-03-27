@@ -314,7 +314,8 @@ public class ListPage extends ListPageFactory {
     }
 
     // 搜索输入框
-    @FindBy(xpath = "//input[@placeholder='请输入名称']/following::span/i")
+//    @FindBy(xpath = "//input[@placeholder='请输入名称']/following::span/i")
+    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']/following-sibling::span")
     private WebElement alertListSearchInputButton;
     public WebElement getAlertListSearchInputButton() {
         return alertListSearchInputButton;
@@ -397,6 +398,13 @@ public class ListPage extends ListPageFactory {
     public WebElement getMultiAddTag() {
         multiAddTag.click();
         return super.getLastDropdownList();
+    }
+
+    @FindBy(xpath = "//span[text()='api00_all_事件计数_设备切分ip_扩展chart_all_交易日']/parent::button[@yotta-test='alert-name-button']")
+    private WebElement alertNameButton;
+
+    public WebElement getAlertNameButton() {
+        return alertNameButton;
     }
 
 }
