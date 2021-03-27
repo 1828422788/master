@@ -1940,7 +1940,7 @@ public class SearchPage extends ListPageFactory {
         return inputItemEditor;
     }
 
-    @FindBy(xpath = "(//span[text()='filter'])[2]/following-sibling::span/i[2]")
+    @FindBy(xpath = "(//*[@yotta-test='search_bar-delete_param-icon'])[last()]")
     private WebElement inputItemDelete;
 
     public WebElement getInputItemDelete() {
@@ -2022,7 +2022,7 @@ public class SearchPage extends ListPageFactory {
         return inputItemSpl;
     }
 
-    @FindBy(className = "//*[@yotta-test='search_bar-param-select']/div")
+    @FindBy(xpath = "//*[@yotta-test='search_bar-param-select']/div")
     private WebElement filterDropdown;
 
     public WebElement getFilterDropdown() {
@@ -2051,11 +2051,18 @@ public class SearchPage extends ListPageFactory {
         return alertMessage;
     }
 
-    @FindBy(xpath = "//div[@class='ReactCodeMirror']/parent::div/following-sibling::div/i")
-    private WebElement openAndHideSplIcon;
+    @FindBy(xpath = "//*[@yotta-test='search_bar-expand_codemirror-icon']")
+    private WebElement openSplIcon;
 
-    public WebElement getOpenAndHideSplIcon() {
-        return openAndHideSplIcon;
+    public WebElement getOpenSplIcon() {
+        return openSplIcon;
+    }
+
+    @FindBy(xpath = "//*[@yotta-test='search_bar-collapse_codemirror-icon']")
+    private WebElement hideSplIcon;
+
+    public WebElement getHideSplIcon() {
+        return hideSplIcon;
     }
 
     @FindBy(xpath = "//div[@class='ant-tooltip-inner']")

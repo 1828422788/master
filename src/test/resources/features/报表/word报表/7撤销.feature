@@ -23,15 +23,15 @@ Feature:报表_富文本编辑_撤销
 
     And I select all text in "TextArea" element
     And I wait for "2000" millsecond
-    And I click the "<button1>" button
-    And I click the "<button1>" button
-    And I click the "<button2>" button
+    And I click the element "<button1>" in word report
+    And I click the element "<button1>" in word report
+    And I click the element "<button2>" in word report
     And I wait for "2000" millsecond
     And I will see the "<text_area>" is display
-    And I click the "Undo" button
+    And I click the element "Undo" in word report
     And I wait for "2000" millsecond
     And I will see the "<text_area>" doesn't exist
-    And I click the "Redo" button
+    And I click the element "Redo" in word report
     And I will see the "<text_area>" is display
 
 

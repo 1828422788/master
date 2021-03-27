@@ -180,7 +180,7 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getType(){
-        String xpath = "//div/label[contains(@title,'类型')]/following::span/i";
+        String xpath = "(//label[text()='类型']/parent::div/following-sibling::div//span)[2]";
         DropdownUtils dropdownUtils = new DropdownUtils();
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));

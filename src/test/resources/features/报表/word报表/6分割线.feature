@@ -19,7 +19,7 @@ Feature:报表_富文本编辑_分割线
 
     And I wait for "TextArea" will be visible
     And I set the parameter "TextArea" with value "DIVIDING LINE 分线: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis aliquet nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempor nisi urna, sed pulvinar sem molestie in. Fusce scelerisque eleifend accumsan. Phasellus laoreet ligula id orci congue rhoncus non rutrum quam. Donec hendrerit faucibus consequat. Etiam tellus tortor, ultrices et tellus eget, sollicitudin scelerisque risus. Integer mattis velit et nunc sollicitudin, non tempus lorem hendrerit. textclick"
-    And I click the "DividingLine" button
+    And I click the element "DividingLine" in word report
     And I wait for "2000" millsecond
     And I wait for "DividingLineElement" will be visible
 

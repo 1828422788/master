@@ -140,6 +140,22 @@ public class Checkbox {
     }
 
 
+
+    /**
+     * 判断字段提取列表页下checkbox的状态
+     *
+     * @param name      想要判断的名称
+     * @param attribute 状态（enabled/disabled）
+     */
+    @Then("^I will see the checkbox in list before \"([^\"]*)\" is \"([^\"]*)\" in configs$")
+    public void checkAttributeInConfigs(String name, String attribute) {
+        ListPageUtils listPageUtils = new ListPageUtils();
+        WebElement tr = listPageUtils.getRow(name);
+        WebElement label = tr.findElement(By.xpath(".//input"));
+        Assert.assertTrue("enabled".equals(attribute) && label.isEnabled() || "disabled".equals(attribute) && !label.isEnabled());
+    }
+
+
     /**
      * 勾选或取消勾选名称前面的checkbox
      *
