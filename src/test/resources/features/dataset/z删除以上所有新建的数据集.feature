@@ -21,7 +21,7 @@ Feature: 数据集-z删除所有
 
     Examples:
       | name            |
-#      | node_op_jnd     |
+      | node_op_jnd     |
       | JNDTest         |
       | edit            |
       | name_updated    |

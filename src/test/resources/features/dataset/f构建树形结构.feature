@@ -17,7 +17,7 @@ Feature: 数据集-f构建树形结构
       | name     | alias  | spl | typeButton |
       | 父子无tree  | 无tree  | *   | 无          |
       | 父子汇聚tree | 汇聚tree | *   | HuiJu      |
-#      | 父子继承tree | 继承tree | *   | inherit    |
+      | 父子继承tree | 继承tree | *   | inherit    |
 
   @datasetf2 @tc4085
   Scenario: RZY-4085:父子行为-无
