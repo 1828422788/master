@@ -22,7 +22,7 @@ Feature: 趋势图新建_序列
 
     And I click the "Type" button
     And I wait for "2000" millsecond
-#    And I wait for "<chartType>Element" will be visible
+    And I wait for "<chartType>Element" will be visible
     And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
@@ -44,8 +44,8 @@ Feature: 趋势图新建_序列
     And I wait for "ChartName" will be visible
     And I wait for "ChartView" will be visible
     And I will see the element "ChartName" contains "<chartType>_<caseNum>"
-#    Then I will see the "trend.CreatePage" page
-#    And I wait for "<chartType>Element" will be visible
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<chartType>Element" will be visible
 
     Examples:
     |   chartType   |caseNum  |
@@ -77,7 +77,7 @@ Feature: 趋势图新建_序列
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-#    And I wait for "<chartType>Element" will be visible
+    And I wait for "<chartType>Element" will be visible
     And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<buttonChoice>"
@@ -118,7 +118,7 @@ Feature: 趋势图新建_序列
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-#    And I wait for "<chartType>Element" will be visible
+    And I wait for "<chartType>Element" will be visible
     And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
@@ -157,7 +157,7 @@ Feature: 趋势图新建_序列
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
-#    And I wait for "<chartType>Element" will be visible
+    And I wait for "<chartType>Element" will be visible
     And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>_<buttonChoice>"
@@ -240,7 +240,7 @@ Feature: 趋势图新建_序列
     And I click the "Generate" button
 
     And I click the "Settings" button
-#    And I wait for "<chartType>Element" will be visible
+    And I wait for "<chartType>Element" will be visible
     And I wait for "Type" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_分面"

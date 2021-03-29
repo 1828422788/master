@@ -153,25 +153,25 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@yotta-test='report-description-input']")
     private WebElement trendDescribeField;
 
-    @FindBy(xpath = "(//div[contains(@style,'background-color: rgb(161, 20, 249);')])[last()]")
+    @FindBy(xpath = "(//div[contains(@style,'background: rgb(161, 20, 249);')])[last()]")
     private WebElement purple;
 
-    @FindBy(xpath = "(//div[contains(@style,'background-color: rgb(248, 0, 80);')])[last()]")
+    @FindBy(xpath = "(//div[contains(@style,'background: rgb(248, 0, 80);')])[last()]")
     private WebElement red;
 
-    @FindBy(xpath = "(//div[contains(@style,'background-color: rgb(251, 173, 8);')])[last()]")
+    @FindBy(xpath = "(//div[contains(@style,'background: rgb(251, 173, 8);')])[last()]")
     private WebElement orange;
 
-    @FindBy(xpath = "(//div[contains(@style,'background-color: rgb(50, 194, 125);')])[last()]")
+    @FindBy(xpath = "(//div[contains(@style,'background: rgb(50, 194, 125);')])[last()]")
     private WebElement green;
 
-    @FindBy(xpath = "(//div[contains(@style,'background-color: rgb(179, 198, 92);')])[last()]")
+    @FindBy(xpath = "(//div[contains(@style,'background: rgb(179, 198, 92);')])[last()]")
     private WebElement lightGreen;
 
-    @FindBy(xpath = "(//div[contains(@style,'background-color: rgb(251, 227, 16);')])[last()]")
+    @FindBy(xpath = "(//div[contains(@style,'background: rgb(251, 227, 16);')])[last()]")
     private WebElement yellow;
 
-    @FindBy(xpath = "(//div[contains(@style,'background-color: rgb(72, 87, 175);')])[last()]")
+    @FindBy(xpath = "(//div[contains(@style,'background: rgb(72, 87, 175);')])[last()]")
     private WebElement darkBlue;
 
     @FindBy(className = "chart-gui-field-color-box")
