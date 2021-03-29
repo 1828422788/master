@@ -136,7 +136,6 @@ Feature:报表_富文本编辑_表格
     And I set the table cell in row "3" and column "3" with value "Cell 3 3" in word report
     And I select all text in row "2" and column "2" of the table in word report
     And I click the element "Cell22" in word report
-    And I click the "Cell22" button
 
     And I wait for "DeleteElement" will be visible
     And I click the element "DeleteElement" in word report

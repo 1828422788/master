@@ -137,14 +137,14 @@ Feature: 报表_批量操作
       |  test_multi_file_2   |
 
   Scenario: multi_delete
-    And I click the "MultiButton" button under some element
+    And I click the "BatchControl" button under some element
     And I "checked" the checkbox which name is "test_multi_file_1" in the list
     And I "checked" the checkbox which name is "test_multi_file_2" in the list
     And I "checked" the checkbox which name is "test_multi_1" in the list
     And I "checked" the checkbox which name is "test_multi_2" in the list
     And I "checked" the checkbox which name is "test_multi_3" in the list
-    And I click the "SelectAction" button under some element
-    And I click the "MultiDelete" button
+    And I click the "SelectBatchOperation" button under some element
+    And I click the "DeleteResources" button
     And I wait for "Ensure" will be visible
     Then I will see the message "您选中的 5 个资源将被删除，是否继续？"
     When I click the "Ensure" button
@@ -159,14 +159,14 @@ Feature: 报表_批量操作
     Then I wait for "NoData" will be visible
 
   Scenario Outline: prompt
-    And I click the "MultiButton" button under some element
-    And I click the "SelectAction" button under some element
+    And I click the "BatchControl" button under some element
+    And I click the "SelectBatchOperation" button under some element
     And I click the "<button>" button
     And I wait for "Ensure" will be visible
     Then I will see the message "请至少选择一个资源进行操作"
 
     Examples:
-      | button       |
-      | MultiDelete  |
-      | MultiTag     |
-      | MultiSwitch  |
+      | button          |
+      | DeleteResources |
+      | AddResourceTags |
+      | EnableResources |

@@ -236,6 +236,7 @@ Feature: 趋势图新建_序列
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
     And I click the "Group" button
+    And I click the "DeleteLast" button
     And I choose the "apache.status" from the "FieldValue" in config
     And I click the "Generate" button
 

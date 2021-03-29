@@ -166,11 +166,11 @@ Feature:报表_富文本编辑_趋势图
     And I drag the element "Trend_Chart" to the "HeaderText"
     And I click the element "HeaderText" in word report
     And I wait for "2000" millsecond
-    And I click the "Footer" button
+    And I click the element "Footer" in word report
     And I wait for "2000" millsecond
     And I drag the element "Trend_Timerange" to the "FooterText"
-    And I click the "FooterText" button
-    And I click the "DeleteTrendDescription" button
+    And I click the element "FooterText" in word report
+    And I click the element "DeleteTrendDescription" in word report
     And I wait for "2000" millsecond
     And I will see the "Trend_Description" doesn't exist
 
