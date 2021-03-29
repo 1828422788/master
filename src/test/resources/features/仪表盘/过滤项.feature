@@ -569,6 +569,7 @@ Feature: 仪表盘过滤项
     When the chart title is "测试仪表盘eval" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "测试仪表盘eval","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "appname:apache|stats count() by 'apache.status'","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "eval","name": "filter","value": "${click.value2}-204"}]}}" to json editor
+    And I wait for "500" millsecond
     And I click the "Check" button
     Then I will see the success message "校验通过"
     And I click the "Ensure" button

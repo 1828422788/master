@@ -70,15 +70,18 @@ Feature: 仪表盘高级编辑
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "1000" millsecond
+    And I wait for "3000" millsecond
     When the chart title is "仪表盘所有" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
+    And I wait for "500" millsecond
     And I click the "Check" button
     Then I will see the success message "校验通过"
+    And I wait for "500" millsecond
     Then I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "配置成功"
-    And I refresh the website
+    And I wait for "2000" millsecond
+#    And I refresh the website
     And I wait for "Progress" will be invisible
     Then I will see the "TableHeader" result will contain "apache.geo.country"
 #    Then I will see the "TableHeader" result will be "apache.geo.country"
