@@ -129,6 +129,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 添加时间范围输入项(RZY-4573,RZY-227)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
@@ -348,6 +349,7 @@ Feature: 仪表盘输入项
     Then I wait for "FilterInput" will be visible
     And I set the parameter "FilterInput" with value "appname"
     And I let element "FilterInput" lose focus
+    And I click the "TrendTitle" button
     And I wait for "Progress" will be invisible
     Then I wait for "TabelAppname" will be visible
 
@@ -596,7 +598,7 @@ Feature: 仪表盘输入项
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+#    And I wait for "Progress" will be invisible
     And I choose the "济南市,南京市" from the "FilterDropdown"
     And I click the "Update" button
     And I wait for "Progress" will be invisible
@@ -676,7 +678,7 @@ Feature: 仪表盘输入项
     And I wait for loading invisible
     And I set the parameter "Spl" with value "tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 | stats count() by apache.status | where apache.status > ${filter}"
     And I click the "Ensure" button
-    And I wait for "Progress" will be invisible
+#    And I wait for "Progress" will be invisible
     And I choose the "405" from the "FilterDropdown"
     And I click the "Update" button
     And I wait for "Progress" will be invisible
@@ -919,6 +921,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 钻取配置中link类型为dashboard RZY-1838
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard

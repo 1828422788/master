@@ -185,7 +185,7 @@ Feature: 仪表盘柱状图
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "Zhutiao" button
+    And I click the Circle "Zhutiao" button
     And switch to another window
 #    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
@@ -212,7 +212,7 @@ Feature: 仪表盘柱状图
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "Zhutiao" button
+    And I click the Circle "Zhutiao" button
     And switch to another window
 #    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
@@ -239,7 +239,7 @@ Feature: 仪表盘柱状图
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "Zhutiao" button
+    And I click the Circle "Zhutiao" button
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
@@ -265,7 +265,7 @@ Feature: 仪表盘柱状图
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "Zhutiao" button
+    And I click the Circle "Zhutiao" button
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
@@ -303,7 +303,7 @@ Feature: 仪表盘柱状图
     And I click the "StartEnd" button
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the "Zhutiao" button
+    And I click the Circle "Zhutiao" button
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page

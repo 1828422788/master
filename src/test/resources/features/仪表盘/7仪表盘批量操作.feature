@@ -80,6 +80,6 @@ Feature: 仪表盘批量操作
     And I click the "DeleteResources" button
 #    And I wait for "Modal" will be visible
     And I click the "Ensure" button
-    And I wait for "100" millsecond
+    And I wait for "500" millsecond
     Then I will see the success message "删除成功"
     And I click the "CompleteBatchControl" button

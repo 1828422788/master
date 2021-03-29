@@ -88,6 +88,7 @@ Feature: 仪表盘钻取配置
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I wait for "1500" millsecond
     And I "unchecked" the checkbox which name is "在浏览器新标签页中打开"
+    And I wait for "500" millsecond
     And I click the "Ensure" button
     And I click the "Jiangsu" button
     Then I wait for title change text to "搜索"
@@ -106,7 +107,9 @@ Feature: 仪表盘钻取配置
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
+    And I wait for "500" millsecond
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     And I click the "Jiangsu" button
     And switch to another window
     And I will see the "splSearch.SearchPage" page
@@ -130,6 +133,7 @@ Feature: 仪表盘钻取配置
     And I wait for "1500" millsecond
     And I "unchecked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     And I click the "Jiangsu" button
     Then I wait for title change text to "搜索"
     And I will see the "splSearch.SearchPage" page
@@ -156,6 +160,7 @@ Feature: 仪表盘钻取配置
     And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     And I click the "Jiangsu" button
     And switch to another window
     And I will see the "splSearch.SearchPage" page
@@ -179,6 +184,7 @@ Feature: 仪表盘钻取配置
     And I wait for "1500" millsecond
     And I "unchecked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     And I click the "Jiangsu" button
     Then I wait for title change text to "<title>"
 
