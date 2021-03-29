@@ -85,6 +85,7 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//li/span[text()='新建']")
     private WebElement newSavedSearch;
+
     public WebElement getNewSavedSearch() {
         openSavedSearchButton.click();
         return newSavedSearch;
@@ -92,6 +93,7 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//li/span[text()='打开列表']")
     private WebElement openSavedSearchList;
+
     public WebElement getOpenSavedSearchList() {
         openSavedSearchButton.click();
         return openSavedSearchList;
@@ -99,12 +101,14 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//div[@class='_-0CoYehrr7DsLtA_JylyV']")
     private WebElement chosenSavedSearch;
+
     public WebElement getChosenSavedSearch() {
         return chosenSavedSearch;
     }
 
     @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")
     private WebElement savedSearchNameInput;
+
     public WebElement getSavedSearchNameInput() {
         return savedSearchNameInput;
     }
@@ -126,6 +130,7 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "(//div[contains(@class,'help-text')])[1]")
     private WebElement tipText;
+
     public WebElement getTipText() {
         return tipText;
     }
@@ -583,7 +588,7 @@ public class SearchPage extends ListPageFactory {
         return downloadTipsText;
     }
 
-//  @FindBy(xpath = "//div[@class='yw-search-info-content error-status']/span")
+    //  @FindBy(xpath = "//div[@class='yw-search-info-content error-status']/span")
     @FindBy(xpath = "//div[@class='FuxVN2ckQ3GarEY_A-nCW _1-1tE5LfHAmNb4CRGuJvph']/span")
     private WebElement noDataInfo;
 
@@ -603,7 +608,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='x']/ancestor::td/following-sibling::td/span")
     private WebElement xValue;
 
-//    @FindBy(xpath = "//span[text()='事件操作']/i")
+    //    @FindBy(xpath = "//span[text()='事件操作']/i")
     @FindBy(className = "ant-dropdown-trigger")
     private WebElement eventOperate;
 
@@ -714,7 +719,7 @@ public class SearchPage extends ListPageFactory {
         return downloadButton;
     }
 
-   // @FindBy(xpath = "(//span[text()='确 定']/ancestor::button)[last()]")
+    // @FindBy(xpath = "(//span[text()='确 定']/ancestor::button)[last()]")
     @FindBy(xpath = "//span[text()='确定']")
     private WebElement ensureCrontab;
 
@@ -773,6 +778,7 @@ public class SearchPage extends ListPageFactory {
     public WebElement getScheduleNameDetail() {
         return scheduleNameDetail;
     }
+
     @FindBy(xpath = "//div[@title='居左']")
     private WebElement tableAlignment;
 
@@ -782,6 +788,7 @@ public class SearchPage extends ListPageFactory {
     public WebElement getIcon() {
         return icon;
     }
+
     @FindBy(xpath = "//li[text()='居中']")
     private WebElement middle;
     @FindBy(xpath = "(//td[@class='_2y26OafmVfXbjbPLoZ-NYG'])[3]")
@@ -903,6 +910,10 @@ public class SearchPage extends ListPageFactory {
     //数据集父子行为是继承的根节点的子节点
     @FindBy(xpath = "//span[text()='继承1']")
     private WebElement jiCheng;
+
+    public WebElement getJiCheng() {
+        return jiCheng;
+    }
 
     public WebElement getSearchContent() {
         return searchContent;
@@ -1084,6 +1095,7 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//label[contains(text(),'文件名称')]/parent::div/following-sibling::div//input[@placeholder='请输入']")
     private WebElement downloadName;
+
     public WebElement getDownloadName() {
         return downloadName;
     }
@@ -1111,6 +1123,7 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//span[text()='确定']/parent::button")
     private WebElement createDownloadTask;
+
     public WebElement getCreateDownloadTask() {
         return createDownloadTask;
     }
@@ -1762,16 +1775,18 @@ public class SearchPage extends ListPageFactory {
     }
 
     //数据集的展开按钮
-    @FindBy(xpath = "//a[text()='展开']")
+//    @FindBy(xpath = "//a[text()='展开']")
+    @FindBy(xpath = "//span[text()='展开']")
     private WebElement zhanKai;
 
-    public WebElement getJiCheng() {
-        return jiCheng;
-    }
-
     //数据集的内容
-    @FindBy(xpath = "//div[@class='haE36auAEA9saq70cDkWx']/span")
+//    @FindBy(xpath = "//div[@class='haE36auAEA9saq70cDkWx']/span")
+    @FindBy(xpath = "//span[@yotta-test='search-dataset_query-tag']")
     private WebElement dataSetPosition;
+
+    public WebElement getDataSetPosition() {
+        return dataSetPosition;
+    }
 
     public WebElement getZhanKai() {
         return zhanKai;
@@ -1780,10 +1795,6 @@ public class SearchPage extends ListPageFactory {
     //保存为定时任务成功之后弹窗上的确定按钮
     @FindBy(xpath = "//div[@class='minaCXZ5tceRilaw8FVvn']/button")
     private WebElement timeTaskEnsure;
-
-    public WebElement getDataSetPosition() {
-        return dataSetPosition;
-    }
 
     //页面上方定时任务超链接
     @FindBy(xpath = "//a[contains(text(),'定时任务')]")
@@ -2100,7 +2111,7 @@ public class SearchPage extends ListPageFactory {
         return fenPianQuYang;
     }
 
-//    @FindBy(xpath = "(//button[@class='ant-modal-close'])[last()]")
+    //    @FindBy(xpath = "(//button[@class='ant-modal-close'])[last()]")
     @FindBy(xpath = "(//div[@class='yotta-modal-header yotta-modal-header-with-divider']//span)[last()]")
     private WebElement closeBtn;
 
@@ -2129,7 +2140,7 @@ public class SearchPage extends ListPageFactory {
         return timeLine;
     }
 
-//    @FindBy(xpath = "//span[text()='感兴趣的字段']/parent::div/following-sibling::ul/li")
+    //    @FindBy(xpath = "//span[text()='感兴趣的字段']/parent::div/following-sibling::ul/li")
     @FindBy(xpath = "//span[text()='感兴趣的字段']/parent::div/following-sibling::ul/li")
     private WebElement leftList;
 

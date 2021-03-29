@@ -54,7 +54,7 @@ Feature: 数据集-e对节点的操作
 
     And I wait for "modifyNodeSentence" will be visible
 
-    And I click the "save" button
+    And I click the "SaveDetail" button
     And I wait for "1000" millsecond
     #验证
     And I refresh the website
