@@ -111,28 +111,28 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'运行用户')]/ancestor::div[1]/following-sibling::div//span[@class='yotta-select-selection-value']")
     private WebElement selectedUser;
 
-    @FindBy(xpath = "(//div[contains(@class,'yotta-collapse-panel')]//span[@class='yotta-collapse-panel-header-text'])[last()]")
+    @FindBy(xpath = "//div[contains(@yotta-test,'report-container-collapse')]//div[contains(@class,'yotta-accordion')][last()]//span[contains(@class,'text')]")
     private WebElement chosenTrendLast;
 
-    @FindBy(xpath = "(//div[contains(@class,'yotta-collapse-panel')]//span[@class='yotta-collapse-panel-header-text'])[1]")
+    @FindBy(xpath = "//div[contains(@yotta-test,'report-container-collapse')]//div[contains(@class,'yotta-accordion')][1]//span[contains(@class,'text')]")
     private WebElement chosenTrendFirst;
 
-    @FindBy(xpath = "(//div[contains(@class,'yotta-collapse-panel')]//span[@aria-label='CloseCircleFilled'])[last()]")
+    @FindBy(xpath = "(//div[contains(@yotta-test,'report-container-collapse')]//span[@aria-label='CloseCircleFilled'])[last()]")
     private WebElement lastTrendDelete;
 
-    @FindBy(xpath = "(//div[contains(@class,'yotta-collapse-panel')]//span[@aria-label='CloseCircleFilled'])[1]")
+    @FindBy(xpath = "(//div[contains(@yotta-test,'report-container-collapse')]//span[@aria-label='CloseCircleFilled'])[1]")
     private WebElement firstTrendDelete;
 
-    @FindBy(xpath = "(//div[contains(@class,'yotta-collapse-panel')]//span[@aria-label='ToTopOutlined'])[last()]")
+    @FindBy(xpath = "(//div[contains(@yotta-test,'report-container-collapse')]//span[@aria-label='ToTopOutlined'])[last()]")
     private WebElement lastTrendUpTop;
 
-    @FindBy(xpath = "(//div[contains(@class,'yotta-collapse-panel')]//span[@aria-label='ToBottomOutlined'])[1]")
+    @FindBy(xpath = "(//div[contains(@yotta-test,'report-container-collapse')]//span[@aria-label='ToBottomOutlined'])[1]")
     private WebElement firstTrendDownBottom;
 
-    @FindBy(xpath = "(//div[contains(@class,'yotta-collapse-panel')]//span[@aria-label='MoveUpFilled'])[last()]")
+    @FindBy(xpath = "(//div[contains(@yotta-test,'report-container-collapse')]//span[@aria-label='MoveUpFilled'])[last()]")
     private WebElement lastTrendUp;
 
-    @FindBy(xpath = "(//div[contains(@class,'yotta-collapse-panel')]//span[@aria-label='MoveDownFilled'])[1]")
+    @FindBy(xpath = "(//div[contains(@yotta-test,'report-container-collapse')]//span[@aria-label='MoveDownFilled'])[1]")
     private WebElement firstTrendDown;
 
     @FindBy(xpath = "//span[contains(text(),'描述')]/following-sibling::p")
