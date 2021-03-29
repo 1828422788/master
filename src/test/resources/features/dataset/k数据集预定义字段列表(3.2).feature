@@ -5,6 +5,7 @@ Feature: 数据集-k预定义字段列表
   Scenario Outline: RZY-4291:新建数据集，对根事件添加字段
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
+
     And I set the parameter "Name" with value "<name>"
     And I set the parameter "Alias" with value "<alias>"
     And I set the parameter "Spl" with value "<spl>"
@@ -14,12 +15,17 @@ Feature: 数据集-k预定义字段列表
 #    And I choose the "数值" from the "FirstFieldType"
     And I click the "FirstFieldType" button
     And I click the "number" button
+    And I wait for "3000" millsecond
+    And I wait for loading complete
+#    And I click the "fieldLowAdd" button
 
-    And I click the "fieldLowAdd" button
+    And I click the "fieldAdd" button
     And I set the parameter "secondFieldName" with value "appname"
-    And I choose1 the "字符串" from the "SecondFieldTypeList"
+    And I choose the "字符串" from the "SecondFieldTypeList"
 #    And I click the "secondFieldType" button
-#    And I click the "strStr" button
+#    And I click the "字符串" button
+    And I wait for "3000" millsecond
+    And I wait for loading complete
 
     And I click the "Save" button
     Then I will see the "dataset.DetailPage" page
@@ -33,25 +39,27 @@ Feature: 数据集-k预定义字段列表
       | name            | alias   | spl |
       | have_root_field | hrfield | *   |
 
-    @tc4491
+  @tc4491
   Scenario: RZY-4491:在编辑根事件中添加字段
     Given open the "dataset.ListPage" page for uri "/dataset/"
-    When the data name is "have_root_field" then i click the "编辑" button
+    And I wait for loading complete
+#    When the data name is "have_root_field" then i click the "编辑" button
+    When the data name is "{'column':'0','name':'have_root_field'}" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading complete
 
     When I click the "editEvent" button
-    And I click the "childFieldAdd" button
+    And I click the "fieldAdd" button
     And I set the parameter "thirdFieldName" with value "ip"
-#     And I choose the "字符串" from the "thirdFieldType"
-    And I click the "thirdFieldType" button
-    And I click the "strType" button
+    And I choose the "字符串" from the "ThirdFieldTypeList"
+#    And I click the "thirdFieldType" button
+#    And I click the "strType" button
 
     And I click the "rootSave" button
     And I wait for loading complete
     Then I will see the "thirdName" result will be "ip"
 
-
+  @4492
   Scenario: RZY-4492:在编辑根事件中删除字段
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When the data name is "have_root_field" then i click the "编辑" button
@@ -82,10 +90,9 @@ Feature: 数据集-k预定义字段列表
 
     And I click the "childFieldAdd" button
     And I set the parameter "child_first_name" with value "timestamp"
-#     And I choose the "时间" from the "child_first_type"
+#   And I choose the "时间" from the "child_first_type"
     And I click the "child_first_type" button
     And I click the "time" button
-
 
     And I click the "childFieldAdd" button
     And I set the parameter "child_second_name" with value "apache.resp_len"

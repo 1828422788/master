@@ -8,7 +8,7 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
 #    And I drag the element "SearchPageSvg" to the "left" side
     And I wait for loading invisible
     Given I set the parameter "SearchInput" with value "<spl>"
-        #选择父子行为为无的数据集
+    #选择父子行为为无的数据集
     And I click the "fatherChildNull" button
     And I click the "DateEditor" button
     #And I click the "RecentSevenDay" button
@@ -31,14 +31,17 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
 #    此处再次输入名称的原因是：之前输入的名称可能会消失，出现提示输入名称的情况，为了保险起见，再次输入名称
     And I set the parameter "TaskName" with value "<taskName>"
 
-    And I click the "EnsureCrontab" button
-    And I wait for "3000" millsecond
-    Then I will see the success message "保存成功"
+#    And I click the "EnsureCrontab" button
+#    And I wait for "3000" millsecond
+#    Then I will see the success message "保存成功"
+    And I click the "EnsureButton" button
+    And I wait for "1500" millsecond
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "创建成功"
 
     Examples:
       | spl                                                  | taskName | describe      | crontab        |
       | tag:sample04061424 \| stats count() by apache.status | 父子行为无    | 选择了父子行为为无的数据集 | 0 */57 * * * ? |
-
 
   Scenario Outline: RZY-4126:定时任务-父子行为无-编辑页
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -96,13 +99,11 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
     And I set the parameter "TaskName" with value "<taskName>"
     And I click the "EnsureCrontab" button
     And I wait for "3000" millsecond
-    Then I will see the success message "保存成功"
-
+    Then I will see the success message "创建成功"
 
     Examples:
       | spl                                                  | taskName | describe       | crontab        |
       | tag:sample04061424 \| stats count() by apache.status | 父子行为汇聚   | 选择了父子行为为汇聚的数据集 | 0 */57 * * * ? |
-
 
   Scenario Outline:  RZY-4129:定时任务-父子行为汇聚-编辑页
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -116,8 +117,8 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
 
     Examples:
       | taskName | dataSetResult                                           |
-      | 父子行为汇聚   | (* AND tag:sample* AND (tag:beyond4 OR appname:apache)) |
-
+#      | 父子行为汇聚   | (* AND tag:sample* AND (tag:beyond4 OR appname:apache)) |
+      | 父子行为汇聚   | ((*) AND (tag:sample*) AND ((tag:beyond4) OR (appname:apache))) |
 
   Scenario Outline: RZY-4129:定时任务-父子行为汇聚-详情页
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -128,10 +129,10 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
     And I wait for "3000" millsecond
     Then I will see the "detailDataSet" result will be "<dataSetResult>"
 
-
     Examples:
       | dataSetResult                                           |
-      | (* AND tag:sample* AND (tag:beyond4 OR appname:apache)) |
+#      | (* AND tag:sample* AND (tag:beyond4 OR appname:apache)) |
+      | ((*) AND (tag:sample*) AND ((tag:beyond4) OR (appname:apache))) |
 
 ##################################无耻的分割线###############################
   @tc4129n
@@ -165,7 +166,7 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
     And I set the parameter "TaskName" with value "<taskName>"
     And I click the "EnsureCrontab" button
     And I wait for "3000" millsecond
-    Then I will see the success message "保存成功"
+    Then I will see the success message "创建成功"
 
     Examples:
       | spl                                                  | taskName | describe       | crontab        |
@@ -183,7 +184,8 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
 
     Examples:
       | taskName | dataSetResult       |
-      | 父子行为继承   | (* AND tag:sample*) |
+#      | 父子行为继承   | (* AND tag:sample*) |
+      | 父子行为继承   | ((*) AND (tag:sample*)) |
 
   Scenario Outline: RZY-4130:定时任务-父子行为继承-详情页
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -195,4 +197,5 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
 
     Examples:
       | dataSetResult       |
-      | (* AND tag:sample*) |
+#      | (* AND tag:sample*) |
+      |((*) AND (tag:sample*))|

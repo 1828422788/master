@@ -1,6 +1,8 @@
 package com.yottabyte.pages.dataset;
 
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.ClickEvent;
+import com.yottabyte.utils.WaitForElement;
 import org.assertj.core.internal.cglib.asm.$ClassReader;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -9,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import javax.security.auth.x500.X500Principal;
 import javax.swing.*;
@@ -368,20 +371,26 @@ A（root）
         return secondName;
     }
 
-    @FindBy(xpath = "//span[text()='字段列表']/following-sibling::span/following-sibling::span/following-sibling::span")
+    @FindBy(xpath = "//span[contains(text(),'字段列表')]/following-sibling::span/following-sibling::span/following-sibling::span")
     private WebElement thirdName;
 
     public WebElement getThirdName() {
         return thirdName;
     }
 
-
     //子节点添加按钮
-    @FindBy(xpath = "//p[text()='添加']")
+    @FindBy(xpath = "//span[text()='添加字段']/parent::button")
     private WebElement childFieldAdd;
 
     public WebElement getChildFieldAdd() {
         return childFieldAdd;
+    }
+
+    @FindBy(xpath = "//button[@yotta-test='dataset-add_field-button']")
+    private WebElement fieldAdd;
+    public WebElement getFieldAdd()
+    {
+        return fieldAdd;
     }
 
     //第一个字段名称
@@ -463,6 +472,7 @@ A（root）
 
     //子节点的第三个删除按钮
     @FindBy(xpath = "//input[@id='DatasetDetail_fields[2].name']/ancestor::span/ancestor::span/following-sibling::i")
+    //class="yotta-icon yotta-icon-DeleteOutlined _2aFIGPPFEgQQarQcN4dhOe"
     private WebElement childDeleteField;
 
     public WebElement getChildDeleteField() {
@@ -487,8 +497,8 @@ A（root）
 
 
     //编辑根事件，添加第三个字段
-    //第三个字段名称
-    @FindBy(id = "EditDatabase_fields[2].name")
+//    @FindBy(id = "EditDatabase_fields[2].name")
+    @FindBy(xpath = "//label[contains(text(),'字段')]/following::input[@placeholder='请输入']/following::input[@placeholder='请输入']/following::input[@placeholder='请输入']")
     private WebElement thirdFieldName;
 
     public WebElement getThirdFieldName() {
@@ -496,7 +506,8 @@ A（root）
     }
 
     //第三个字段类型
-    @FindBy(id = "EditDatabase_fields[2].type")
+//    @FindBy(id = "EditDatabase_fields[2].type")
+    @FindBy(xpath = "//label[contains(text(),'字段')]/following::input[@placeholder='请输入']/following::input[@placeholder='请输入']/following::span[@class='yotta-input-append']/div/div")
     private WebElement thirdFieldType;
 
     public WebElement getThirdFieldType() {
@@ -505,6 +516,13 @@ A（root）
         return thirdFieldType;
     }
 
+    public WebElement getThirdFieldTypeList() {
+        String xpath = "//label[contains(text(),'字段')]/following::span[@class='yotta-input-append']/following::span[@class='yotta-input-append']/following::span[@class='yotta-input-append']/div/div";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownList();
+    }
 
     //编辑根事件中第三个字段的删除按钮
     @FindBy(xpath = "//input[@id='EditDatabase_fields[2].name']/ancestor::span/ancestor::span/following-sibling::i")

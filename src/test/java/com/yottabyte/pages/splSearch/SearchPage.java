@@ -387,6 +387,10 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//li/span[text()='定时任务']")
     private WebElement timedTask;
+    public WebElement getTimedTask() {
+        return timedTask;
+    }
+
 
     @FindBy(xpath = "//li/span[text()='趋势图']")
     private WebElement trend;
@@ -1453,9 +1457,6 @@ public class SearchPage extends ListPageFactory {
         return taskName;
     }
 
-    public WebElement getTimedTask() {
-        return timedTask;
-    }
 
     public WebElement getDetailTable() {
         return detailTable;
@@ -1805,8 +1806,12 @@ public class SearchPage extends ListPageFactory {
     }
 
     //搜索页面保存为趋势图
-    @FindBy(xpath = "//li[text()='趋势图']")
+//    @FindBy(xpath = "//li/span[text()='趋势图']")
+    @FindBy(xpath = "//li/span[text()='趋势图']")
     private WebElement saveTrend;
+    public WebElement getSaveTrend() {
+        return saveTrend;
+    }
 
     public WebElement getSchedule() {
         return schedule;
@@ -1815,11 +1820,6 @@ public class SearchPage extends ListPageFactory {
     //保存为趋势图的名称
     @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::input")
     private WebElement trendName;
-
-    public WebElement getSaveTrend() {
-        return saveTrend;
-    }
-
 
     //保存为趋势图成功之后提示弹窗中的确定按钮
     @FindBy(xpath = "//div[@class='minaCXZ5tceRilaw8FVvn']/button")

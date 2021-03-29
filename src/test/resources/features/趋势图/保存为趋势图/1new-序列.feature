@@ -32,7 +32,6 @@ Feature: 保存为趋势图_序列
     And I click the "EnsureButton" button
     Then I will see the success message "创建成功"
 
-
     Examples:
     |   chartType   |caseNum  |
     |    LineChart  |  2477   |
