@@ -77,6 +77,8 @@ Feature: 报表新建_编辑_复合
     And I click the "FirstLabel" button
     And I click the "AscendingOrder" button
     And I click the "Yaxis" button
+    And I click the "AddField" button
+    And I click the "Yaxis1" button
     And I set the parameter "Min" with value "1"
     And I set the parameter "Max" with value "170000"
     And I set the parameter "Unit" with value "面"
@@ -105,7 +107,6 @@ Feature: 报表新建_编辑_复合
     And I choose the "散点图" from the "TypeChartField"
 
     And I click the "Group" button
-    And I click the "AddField" button
     And I set the parameter "FieldValue" with value "apache.status"
     And I click the "Exhibition" button
     And I click the "AddColor" button
@@ -151,6 +152,8 @@ Feature: 报表新建_编辑_复合
     And I click the "FirstLabel" button
     And I click the "AscendingOrder" button
     And I click the "Yaxis" button
+    And I click the "AddField" button
+    And I click the "Yaxis1" button
     And I set the parameter "Min" with value "1"
     And I set the parameter "Max" with value "170000"
     And I set the parameter "Unit" with value "面"

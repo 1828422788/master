@@ -67,7 +67,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "((//label[contains(text(),'所属应用')][last()])/ancestor::div/following-sibling::div)[1]")
     private WebElement appField;
 
-    @FindBy(className = "chart-gui-field-color-box")
+    @FindBy(xpath = "(//div[@yotta-test='chartgui-color-dom'])[last()]")
     private WebElement addColor;
 
     @FindBy(xpath = "(//span[contains(@class,'yotta-tag-close')])[1]")
@@ -435,9 +435,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//div[@class='ant-popover-inner-content'])[2]")
     private WebElement settingContent;
-
-    @FindBy(xpath = "(//span[text()='图中展示']/ancestor::div/following-sibling::div)[1]")
-    private WebElement displayedOnChart;
 
     @FindBy(xpath = "//input[@placeholder='展示字号']")
     private WebElement wordSize;
@@ -816,11 +813,6 @@ public class CreatePage extends PageTemplate {
         return wordSize;
     }
 
-    public WebElement getDisplayedOnChart() {
-        displayedOnChart.click();
-        return super.getLastDropdownList();
-    }
-
     public WebElement getSettingContent() {
         return settingContent;
     }
@@ -1185,127 +1177,127 @@ public class CreatePage extends PageTemplate {
 //--Tabs
 
     public WebElement getOrder() {
-        return getTabElement("序列");
+        return getYottaTab("序列");
     }
 
     public WebElement getDimension() {
-        return getTabElement("维度");
+        return getYottaTab("维度");
     }
 
     public WebElement getConnection() {
-        return getTabElement("关系");
+        return getYottaTab("关系");
     }
 
     public WebElement getCompound() {
-        return getTabElement("复合");
+        return getYottaTab("复合");
     }
 
     public WebElement getMap() {
-        return getTabElement("地图");
+        return getYottaTab("地图");
     }
 
     public WebElement getOther() {
-        return getTabElement("其他");
+        return getYottaTab("其他");
     }
 
     public WebElement getXaxis() {
-        return getTabElement("X轴");
+        return getYottaTab("X轴");
     }
 
     public WebElement getYaxis() {
-        return getTabElement("Y轴");
+        return getYottaTab("Y轴");
     }
 
     public WebElement getGroup() {
-        return getTabElement("分组");
+        return getYottaTab("分组");
     }
 
     public WebElement getFacet() {
-        return getTabElement("分面");
+        return getYottaTab("分面");
     }
 
     public WebElement getExample() {
-        return getTabElement("图例");
+        return getYottaTab("图例");
     }
 
     public WebElement getExhibition() {
-        return getTabElement("展示");
+        return getYottaTab("展示");
     }
 
     public WebElement getBubble() {
-        return getTabElement("气泡");
+        return getYottaTab("气泡");
     }
 
     public WebElement getValue() {
-        return getTabElement("数值");
+        return getYottaTab("数值");
     }
 
     public WebElement getDivide() {
-        return getTabElement("切分");
+        return getYottaTab("切分");
     }
 
     public WebElement getSource() {
-        return getTabElement("来源");
+        return getYottaTab("来源");
     }
 
     public WebElement getTarget() {
-        return getTabElement("目标");
+        return getYottaTab("目标");
     }
 
     public WebElement getWeight() {
-        return getTabElement("权重");
+        return getYottaTab("权重");
     }
 
     public WebElement getRegion() {
-        return getTabElement("区域");
+        return getYottaTab("区域");
     }
 
     public WebElement getGoingDown() {
-        return getTabElement("下钻");
+        return getYottaTab("下钻");
     }
 
     public WebElement getGeneral() {
-        return getTabElement("常规");
+        return getYottaTab("常规");
     }
 
     public WebElement getTile() {
-        return getTabElement("平铺");
+        return getYottaTab("平铺");
     }
 
     public WebElement getIcon() {
-        return getTabElement("图标");
+        return getYottaTab("图标");
     }
 
     public WebElement getSecondTitle() {
-        return getTabElement("二级标题");
+        return getYottaTab("二级标题");
     }
 
     public WebElement getCompare() {
-        return getTabElement("对比");
+        return getYottaTab("对比");
     }
 
     public WebElement getMark() {
-        return getTabElement("标记");
+        return getYottaTab("标记");
     }
 
     public WebElement getIndicator() {
-        return getTabElement("指示器");
+        return getYottaTab("指示器");
     }
 
     public WebElement getTime() {
-        return getTabElement("时间");
+        return getYottaTab("时间");
     }
 
     public WebElement getInfo() {
-        return getTabElement("信息");
+        return getYottaTab("信息");
     }
 
     public WebElement getIndicators() {
-        return getTabElement("指标");
+        return getYottaTab("指标");
     }
 
     public WebElement getTimeSequence() {
-        return getTabElement("时序");
+        return getYottaTab("时序");
     }
 
 
@@ -1523,6 +1515,10 @@ public class CreatePage extends PageTemplate {
         return getDropdownElement("展示类型");
     }
 
+    public WebElement getDisplayedOnChart() {
+        return getDropdownElement("图中展示");
+    }
+
 //--Element with a text
 
     public WebElement getType() {
@@ -1694,7 +1690,7 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getAddIndicator() {
         getButton("添加指标").click();
-        return getTabElement("指标 1");
+        return getYottaTab("指标 1");
     }
 
     public WebElement getAddConfigFields() {
@@ -2063,15 +2059,11 @@ public class CreatePage extends PageTemplate {
     }
 
     private WebElement getInputSetting(String name) {
-        return webDriver.findElement(By.xpath("(//span[contains(text(),'" + name + "')]/ancestor::div[1]/following-sibling::div//input)[last()]"));
+        return webDriver.findElement(By.xpath("(//span[text()='" + name + "']/ancestor::div[1]/following-sibling::div//input)[last()]"));
     }
 
     private WebElement getSwitchElement(String name) {
         return webDriver.findElement(By.xpath("//span[text()='" + name + "']/ancestor::div/following-sibling::div//label"));
-    }
-
-    private WebElement getTabElement(String name) {
-        return webDriver.findElement(By.xpath("(//div[text()='" + name + "'])[last()]"));
     }
 
     private WebElement getDropdownElement(String name) {

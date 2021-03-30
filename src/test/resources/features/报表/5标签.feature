@@ -24,6 +24,7 @@ Feature: 报表标签
     And I will see the element "ResultMessage" contains "新建成功"
 
   Scenario: tag_report
+    And I wait for "Loading" will be invisible
     And the data name is "{'column':'1','name':'Test_Tag'}" then I "expand" the item
     And I will see the element "TagOfTheLastItem" contains "无"
     And I will see the element "AppOfTheLastItem" contains "test_app"
@@ -36,6 +37,8 @@ Feature: 报表标签
     Then I will see the message "修改成功"
     And I click the "Ensure" button
     And I refresh the website
+
+    And I wait for "Loading" will be invisible
     And the data name is "{'column':'1','name':'Test_Tag'}" then I "expand" the item
     And I will see the element "TagOfTheLastItem" contains "auto_package"
     And I will see the element "AppOfTheLastItem" contains "test_app"
@@ -51,6 +54,7 @@ Feature: 报表标签
 #    And I will see the element "AppOfTheLastItem" contains "test_app"
 
   Scenario: verify_tag
+    And I wait for "Loading" will be invisible
     When the data name is "{'column':'1','name':'Test_Tag'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
@@ -64,6 +68,7 @@ Feature: 报表标签
     And I will see the element "ResultMessage" contains "更新成功"
 
   Scenario: delete_report
+    And I wait for "Loading" will be invisible
     When the data name is "{'column':'1','name':'Test_Tag'}" then i click the "删除" button in more menu
     Then I will see the message "此操作将删除 [Test_Tag], 是否继续？"
     When I click the "Ensure" button

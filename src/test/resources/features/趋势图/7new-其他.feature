@@ -160,7 +160,6 @@ Feature: 趋势图新建_其他
     And I choose the "<iconValue>" from the "FieldValue" in config
     And I click the "Exhibition" button
     And I set the parameter "FontSize" with value "100"
-    And I will see the input element "FontSize" value will be "100"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -203,7 +202,6 @@ Feature: 趋势图新建_其他
     And I click the "AddColor" button
     And I click the "Orange" button
     And I click the "Background" button
-    And I will see the input element "FontSize" value will be "100"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -244,7 +242,6 @@ Feature: 趋势图新建_其他
     And I set the parameter "FontSize" with value "100"
     And I click the "AccordingTrend" button
     And I choose the "<timeValue>" from the "ContrastTime" in config
-    And I will see the input element "FontSize" value will be "100"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -295,13 +292,11 @@ Feature: 趋势图新建_其他
     And I click the "AddColor" button
     And I click the "<color2>" button
     And I click the "<colorFill>" button
-    And I will see the input element "FontSize" value will be "24"
     And I click the "Generate" button
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
     And I wait for "<chartType>Element" will be visible
-    And I will see the element "<chartType>Element" style contains "font-size: 24px"
     And I will see the element "<chartType>Element" style contains "<style>"
     And I will see the element "<chartType>Element" contains "<num>"
     And I wait for "2000" millsecond
@@ -343,13 +338,11 @@ Feature: 趋势图新建_其他
     And I click the "<buttonSwitch>" button
     And I set the parameter "Unit" with value "个"
     And I click the "<unitPosition>" button
-    And I will see the input element "FontSize" value will be "24"
     And I click the "Generate" button
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
     And I wait for "<chartType>Element" will be visible
-    And I will see the element "<chartType>Element" style contains "font-size: 24px"
     And I will see the element "<chartType>Element" style contains "<style>"
     And I will see the element "<chartType>Element" contains "<num>"
     And I wait for "2000" millsecond
@@ -390,7 +383,6 @@ Feature: 趋势图新建_其他
     And I click the "AddColor" button
     And I click the "Purple" button
     And I click the "<colorFill>" button
-    And I will see the input element "FontSize" value will be "60"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -428,7 +420,7 @@ Feature: 趋势图新建_其他
     And I click the "Settings" button
     And I choose the "count()" from the "NumericField" in config
     And I choose the "time" from the "DisplayField" in config
-#    And I choose the "<option>" from the "DisplayedOnChart" in config
+    And I choose the "<option>" from the "DisplayedOnChart" in config
     And I click the "Sparkline" button
     And I choose the "ts" from the "SparklineField" in config
     And I click the "Exhibition" button
@@ -441,7 +433,6 @@ Feature: 趋势图新建_其他
     And I set the parameter "IconName" with value "<fontValue>"
     And I click the "SecondTitle" button
     And I set the parameter "TitleName" with value "二级title"
-    And I will see the input element "TitleName" value will be "二级title"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -500,7 +491,6 @@ Feature: 趋势图新建_其他
     And I click the "AddColor" button
     And I click the "Green" button
     And I click the "Background" button
-    And I will see the input element "FontSize" value will be "80"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -523,43 +513,43 @@ Feature: 趋势图新建_其他
       |  chartType    | caseNum          |
       |   Single      | Sparkline_分面   |
 
-#  Scenario Outline: ring_onefield
-#    When I set the parameter "SearchInput" with value "<spl>"
-#    And I wait for "500" millsecond
-#    And I click the "SearchButton" button under some element
-#    And I wait for element "SearchStatus" change text to "搜索完成!"
-#    And I wait for "Header" will be visible
-#    And I click the "NextButton" button under some element
-#
-#    And I wait for "Type" will be visible
-#    And I wait for "2000" millsecond
-#    And I click the "Type" button
-#    And I click the "Other" button
-#    And I click the "<chartType>" button
-#    And I click the "Settings" button
-#    And I choose the "count_perc" from the "FieldValue" in config
-#    And I click the "Exhibition" button
-#    And I click the "AddColor" button
-#    And I click the "Orange" button
-#    And I click the "Generate" button
-#
-#    And I click the "Settings" button
-#    And I wait for "2000" millsecond
-#    And I wait for "<chartType>Element_1" will be visible
-#    And I will see the element "<chartType>Element_1" contains "78%"
-#    And I wait for "2000" millsecond
-#    And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-#    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-#    Then I click the "NextButton" button under some element
-#
-#    When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
-#    And I set the parameter "DescribeInput" with value "AutoCreate"
-#    And I click the "Complete" button under some element
-#    Then I wait for "SuccessCreate" will be visible
-#
-#    Examples:
-#      | chartType | caseNum  | spl                                                                                                                                                                                   |
-#      | Ring      | onefield | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count, apache.clientip \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
+  Scenario Outline: ring_onefield
+    When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button under some element
+
+    And I wait for "Type" will be visible
+    And I wait for "2000" millsecond
+    And I click the "Type" button
+    And I click the "Other" button
+    And I click the "<chartType>" button
+    And I click the "Settings" button
+    And I choose the "count_perc" from the "FieldValue" in config
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "Orange" button
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "2000" millsecond
+    And I wait for "<chartType>Element_1" will be visible
+    And I will see the element "<chartType>Element_1" contains "78%"
+    And I wait for "2000" millsecond
+    And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
+    Then I click the "NextButton" button under some element
+
+    When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I click the "Complete" button under some element
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      | chartType | caseNum  | spl                                                                                                                                                                                   |
+      | Ring      | onefield | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count, apache.clientip \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
   Scenario Outline: ring_twofields
     When I set the parameter "SearchInput" with value "<spl>"

@@ -174,7 +174,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(@style,'background: rgb(72, 87, 175);')])[last()]")
     private WebElement darkBlue;
 
-    @FindBy(className = "chart-gui-field-color-box")
+    @FindBy(xpath = "(//div[@yotta-test='chartgui-color-dom'])[last()]")
     private WebElement addColor;
 
     // Labels
@@ -190,7 +190,7 @@ public class CreatePage extends PageTemplate {
     @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div//label[4]")
     private WebElement forthLabel;
 
-    @FindBy(xpath = "(//p[text()='+ 添加'])[last()] | (//*[name()='svg' and @data-icon='AddCircleOutlined']/ancestor::span[1])")
+    @FindBy(xpath = "(//p[text()='+ 添加'])[last()] | (//*[name()='svg' and @data-icon='AddCircleOutlined']/ancestor::span[1]) | (//button[@yotta-test='chartgui-tab_list_add-button'])")
     private WebElement addField;
 
     @FindBy(xpath = "(//*[text()='中国'])/ancestor::span")
@@ -225,6 +225,55 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "((//div[contains(@class,'help-text')])[1]) | (//div[@class='_1JeVvK6jBB88_F6voAZyhi'])")
     private WebElement tipText;
+
+    @FindBy(xpath = "(//span[contains(text(),'添加颜色区间')]/ancestor::div[1]/preceding-sibling::div//input)[last()-1]")
+    private WebElement minRange;
+
+    @FindBy(xpath = "(//span[contains(text(),'添加颜色区间')]/ancestor::div[1]/preceding-sibling::div//input)[last()]")
+    private WebElement maxRange;
+
+    @FindBy(xpath = "(//span[text()='min']/preceding-sibling::div/input)[last()]")
+    private WebElement min;
+
+    @FindBy(xpath = "(//span[text()='max']/preceding-sibling::div/input)[last()]")
+    private WebElement max;
+
+    @FindBy(xpath = "(//div[contains(text(),'Y轴 1')])[last()]")
+    private WebElement yaxis1;
+
+    @FindBy(xpath = "(//div[contains(text(),'Y轴 2')])[last()]")
+    private WebElement yaxis2;
+
+    @FindBy(xpath = "(//div[contains(text(),'Y轴 3')])[last()]")
+    private WebElement yaxis3;
+
+    public WebElement getYaxis1() {
+        return yaxis1;
+    }
+
+    public WebElement getYaxis2() {
+        return yaxis2;
+    }
+
+    public WebElement getYaxis3() {
+        return yaxis3;
+    }
+
+    public WebElement getMin() {
+        return min;
+    }
+
+    public WebElement getMax() {
+        return max;
+    }
+
+    public WebElement getMinRange() {
+        return minRange;
+    }
+
+    public WebElement getMaxRange() {
+        return maxRange;
+    }
 
     public WebElement getTipText() {
         return tipText;
@@ -1015,6 +1064,10 @@ public class CreatePage extends PageTemplate {
         return forthLabel;
     }
 
+    public WebElement getAddField() {
+        return addField;
+    }
+
     public WebElement getSelectJiangsu() {
         return selectJiangsu;
     }
@@ -1109,7 +1162,7 @@ public class CreatePage extends PageTemplate {
     }
 
     private WebElement getInputSetting(String name) {
-        return webDriver.findElement(By.xpath("(//span[contains(text(),'" + name + "')]/ancestor::div[1]/following-sibling::div//input[@yotta-test='chartgui-text-input'])[last()] "));
+        return webDriver.findElement(By.xpath("(//span[text()='" + name + "']/ancestor::div[1]/following-sibling::div//input)[last()]"));
     }
 
     private WebElement getDropdownElement(String name) {

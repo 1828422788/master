@@ -174,7 +174,7 @@ Feature: 日志展现_其他_单值
     And I choose the "<precision>" from the "Precision" in config
     # Button ThousandSeparator or Background
     And I click the "<buttonSwitch>" button
-#    And I set the parameter "Unit" with value "个"
+    And I set the parameter "Unit" with value "个"
     And I click the "<unitPosition>" button
     And I click the "Generate" button
 
@@ -287,12 +287,12 @@ Feature: 日志展现_其他_单值
     And I click the "Settings" button
     And I choose the "count()" from the "NumericField" in config
     And I choose the "time" from the "DisplayField" in config
-#    And I choose the "<option>" from the "DisplayedOnChart" in config
+    And I choose the "<option>" from the "DisplayedOnChart" in config
     And I click the "Sparkline" button
     And I choose the "ts" from the "SparklineField" in config
     And I click the "Exhibition" button
     And I set the parameter "FontSize" with value "60"
-#    And I set the parameter "Unit" with value "个"
+    And I set the parameter "Unit" with value "个"
     And I click the "AddColor" button
     And I click the "<color>" button
     And I click the "Icon" button
