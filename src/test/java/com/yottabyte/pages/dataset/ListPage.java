@@ -242,4 +242,17 @@ public class ListPage extends ListPageFactory {
         return ensure;
     }
 
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div")
+    private WebElement tagDropdown;
+
+    public WebElement getTagDropdown() {
+        return tagDropdown;
+    }
+
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//input")
+    private WebElement tagInput;
+
+    public WebElement getTagInput() {
+        return tagInput;
+    }
 }

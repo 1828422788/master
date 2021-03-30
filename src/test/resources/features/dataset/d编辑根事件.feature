@@ -66,7 +66,7 @@ Feature: 数据集-d编辑根事件
     And I click the "backList" button
     And I wait for loading invisible
     Then I will see the "dataset.ListPage" page
-    Then I will see the data "{'column':'0','name':'edit2'}" values "{'column':'4','name':'app之api全部用例'}"
+    Then I will see the data "{'column':'0','name':'edit2'}" values "{'column':'3','name':'app之api全部用例'}"
 #    And I will see the data "{'column':'0','name':'edit'}" values "{'column':'6','name':'auto_package'}"
 
 

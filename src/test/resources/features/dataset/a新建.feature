@@ -71,7 +71,9 @@ Feature: 数据集-a新建
     And I wait for loading invisible
 #    Given the data name is "<name>" then i click the "标签" button
     When the data name is "{'column':'0','name':'<name>'}" then i click the "标签" button in more menu
-    And I set the parameter "Tag" with value "<Type>"
+    And I click the "TagDropdown" button
+    And I set the parameter "TagInput" with value "<Type>"
+    And I wait for "2000" millsecond
     And I choose the "<Type>" from the "TagDropdown"
     And I click the "Ensure" button
    #Then I will see the success message "修改成功"

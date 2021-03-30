@@ -53,7 +53,8 @@ public class DetailPage extends PageTemplate {
         return editName;
     }
 
-    @FindBy(xpath = "//span[@class='_3Ca-L6mVhcOwLwY6O0gts4']")
+//    @FindBy(xpath = "//span[@class='_3Ca-L6mVhcOwLwY6O0gts4']")
+    @FindBy(xpath = "//span[@class='yotta-pageheader-title']")
     private WebElement afterName;  //名称修改之后的变化
 
     public WebElement getAfterName() {
@@ -67,14 +68,14 @@ public class DetailPage extends PageTemplate {
         return editAlias;
     }
 
-//    @FindBy(xpath = "//span[@class='_2Q2z_nP9Z2ujNlYOQro5iL']")
+//  @FindBy(xpath = "//span[@class='_2Q2z_nP9Z2ujNlYOQro5iL']")
     @FindBy(xpath = "//span[@class='yotta-pageheader-subtitle']")
     private WebElement afterAlias;  //别名修改之后的变化
     public WebElement getAfterAlias() {
         return afterAlias;
     }
 
-//    @FindBy(id = "EditDatabase_queryfilter")
+//  @FindBy(id = "EditDatabase_queryfilter")
     @FindBy(xpath = "//input[@yotta-test='dataset-queryfilter-input']")
     private WebElement editYuJu;  //编辑约束语句
 
@@ -82,14 +83,13 @@ public class DetailPage extends PageTemplate {
         return editYuJu;
     }
 
-//    @FindBy(xpath = "//span[contains(text(),'约束语句')]/following-sibling::span")
-    @FindBy(xpath = "//span[text()='约束语句']/following-sibling::span")
+    //@FindBy(xpath = "//span[text()='约束语句']/following-sibling::span")
+    @FindBy(xpath = "//span[contains(text(),'约束语句')]/following-sibling::span")
     private WebElement afterYuJu; //约束语句修改后的变化
 
     public WebElement getAfterYuJu() {
         return afterYuJu;
     }
-
 
     @FindBy(xpath = "//span[text()='汇聚']")
     private WebElement editHuiJu; //修改父子行为为汇聚
