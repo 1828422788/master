@@ -1,3 +1,4 @@
+@dashboard0330
 Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard @dashboardSmoke
@@ -190,8 +191,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
+    And I wait for "500" millsecond
     And I click the "Custom" button
     And I set the parameter "Spl" with value "* | stats ${click.name2} by appname"
     And I click the "DateEditor" button
@@ -219,8 +221,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
+    And I wait for "500" millsecond
     And I click the "Custom" button
     And I set the parameter "Spl" with value "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==${click.value2}"
     And I click the "DateEditor" button
@@ -251,6 +254,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
+    And I wait for "500" millsecond
     And I click the "Custom" button
     And I set the parameter "Spl" with value "apache.clientip:${row.apache.clientip}"
     And I click the "DateEditor" button
@@ -280,8 +284,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
+    And I wait for "500" millsecond
     And I click the "Custom" button
     And I set the parameter "Spl" with value "starttime=${start} endtime=${end} *"
     And I click the "DateEditor" button

@@ -1,3 +1,4 @@
+@dashboard0330
 Feature: 仪表盘输入项
 
   @dashboard @dashboardSmoke
@@ -330,6 +331,7 @@ Feature: 仪表盘输入项
     And I click the "settingIcon" button
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
+    And I wait for "500" millsecond
     And I set the parameter "FilterInput" with value "appname"
     And I click the "Update" button
     And I wait for "Progress" will be invisible

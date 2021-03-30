@@ -1,3 +1,4 @@
+@dashboard0330
 Feature: 仪表盘钻取配置
 
   @dashboard @dashboardSmoke
@@ -179,9 +180,11 @@ Feature: 仪表盘钻取配置
     When the chart title is "仪表盘钻取配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
 #    And I wait for "DrillAction" will be visible
+    And I wait for "500" millsecond
     And I choose the "跳转到自定义URL" from the "DrillAction"
+    And I wait for "1000" millsecond
     And I set the parameter "Url" with value "<url>"
-    And I wait for "1500" millsecond
+    And I wait for "1000" millsecond
     And I "unchecked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "500" millsecond
@@ -202,7 +205,9 @@ Feature: 仪表盘钻取配置
     And I wait for "Progress" will be invisible
     When the chart title is "仪表盘钻取配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
+    And I wait for "500" millsecond
     And I choose the "跳转到自定义URL" from the "DrillAction"
+    And I wait for "1000" millsecond
     And I set the parameter "Url" with value "<url>"
     And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
@@ -262,6 +267,7 @@ Feature: 仪表盘钻取配置
     When I click the "AddEventButton" button
     And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "<filter>"
+    And I wait for "500" millsecond
     And I set the parameter "FilterToken" with value "<filter>"
     And I wait for "1000" millsecond
     And I set the parameter "FilterDefaultValue" with value "<defaultValue>"

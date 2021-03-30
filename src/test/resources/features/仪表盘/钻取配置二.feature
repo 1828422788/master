@@ -1,3 +1,4 @@
+@dashboard0330
 Feature: 仪表盘钻取配置二
 
   @dashboard @dashboardSmoke
@@ -105,6 +106,7 @@ Feature: 仪表盘钻取配置二
     And I set the parameter "Url" with value "<url>"
     And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
+    And I wait for "500" millsecond
     And I click the "Ensure" button
     And I refresh the website
     And I wait for "JsonCallerText" will be visible

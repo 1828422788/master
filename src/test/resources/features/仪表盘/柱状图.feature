@@ -1,3 +1,4 @@
+@dashboard0330
 Feature: 仪表盘柱状图
 
   @dashboard @dashboardSmoke
@@ -189,9 +190,10 @@ Feature: 仪表盘柱状图
     And switch to another window
 #    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
-    Then I will see the "SearchInput" result will be "apache.clientip:36.46.208.22"
+    Then I will see the "SearchInput" result will be "apache.clientip:223.104.175.249"
     And I wait for "2000" millsecond
-    Then I will see the input element "TimeRange" value will contains "今天"
+#    Then I will see the input element "TimeRange" value will contains "今天"
+    Then I will see the "TimeRange" result will be "今天"
 
   @dashboard
   Scenario: 序列图支持的钻取变量click.name2 RZY-3258
@@ -218,7 +220,8 @@ Feature: 仪表盘柱状图
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_display | stats count() by appname"
     And I wait for "2000" millsecond
-    Then I will see the input element "TimeRange" value will contains "今天"
+#    Then I will see the input element "TimeRange" value will contains "今天"
+    Then I will see the "TimeRange" result will be "今天"
 
   @dashboard
   Scenario: 序列图支持的钻取变量click.value2 RZY-3259
@@ -271,7 +274,8 @@ Feature: 仪表盘柱状图
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will contain "<SearchInput1>"
     Then I will see the "SearchInput" result will contain "<SearchInput2>"
-    Then I will see the input element "TimeRange" value will contains "所有时间"
+#    Then I will see the input element "TimeRange" value will contains "所有时间"
+    Then I will see the "TimeRange" result will be "所有时间"
 
     Examples:
       | name       |   spl                                       |   SearchInput1   |  SearchInput2 |
@@ -288,6 +292,8 @@ Feature: 仪表盘柱状图
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
+    And I choose the "跳转到标签页" from the "DrillAction"
+    And I wait for "1000" millsecond
     And I click the "TargetTag" button
     And I click the "TagPageFirst" button
 #    And I choose the "仪表盘事件操作" from the "DashboardMenu"

@@ -748,7 +748,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//div[@class='yotta-dropdown'])[1]/span/span")
     private WebElement AddIcon;
 
-    @FindBy(xpath = "(//div[@class='yotta-dropdown'])[2]/span/span")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-tab_config-dropdown']/span")
     private WebElement settingIcon;
 
     @FindBy(xpath = "//*[@yotta-test='dashboard-chart_setting-dom']")
