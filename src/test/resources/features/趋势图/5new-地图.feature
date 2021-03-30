@@ -69,13 +69,13 @@ Feature: 趋势图新建_地图
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Source" button
-    And I choose the "apache.clientip" from the "FieldValue" in config
-    And I choose the "clientlon" from the "FieldLongitude" in config
     And I choose the "clientlat" from the "FieldLatitude" in config
+    And I choose the "clientlon" from the "FieldLongitude" in config
+    And I choose the "apache.clientip" from the "FieldValue" in config
     And I click the "Target" button
-    And I choose the "gw_address" from the "FieldValue" in config
-    And I choose the "gw_lon" from the "FieldLongitude" in config
     And I choose the "gw_lat" from the "FieldLatitude" in config
+    And I choose the "gw_lon" from the "FieldLongitude" in config
+    And I choose the "gw_address" from the "FieldValue" in config
     And I click the "Weight" button
     And I choose the "cnt" from the "FieldValue" in config
     And I click the "Region" button

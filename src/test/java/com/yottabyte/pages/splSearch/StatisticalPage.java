@@ -33,7 +33,7 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='确定']/ancestor::button)[last()]")
     private WebElement ensure;
 
-    @FindBy(xpath = "((//*[name()='g']//ancestor::div[@id])[last()]) | (//div[@id='percentile-ranks'])")
+    @FindBy(xpath = "((//*[name()='g']//ancestor::div[@id])[last()]) | (//div[contains(@id,'percentile')])")
     private WebElement chart;
 
     @FindBy(xpath = "((//*[name()='g']//ancestor::div[@class='wvP16ltexCzCS0OBLHred'])[last()])")

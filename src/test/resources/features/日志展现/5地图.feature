@@ -133,8 +133,6 @@ Feature: 日志展现_地图
     And I click the "Settings" button
     And I click the "Value" button
     And I choose the "<value>" from the "FieldValue" in config
-    And I click the "Divide" button
-    And I choose the "<divideField>" from the "FieldValue" in config
     And I click the "Region" button
     And I click the "Select<region>" button
     And I click the "GoingDown" button
@@ -144,28 +142,25 @@ Feature: 日志展现_地图
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-#    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/World"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/World" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/World"
 
     When I click the Circle "CountryChina" button
     And I wait for "Chart" will be visible
-#    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/China"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/China" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/China"
 
     When I click the Circle "ProvinceJiangsu" button
     And I wait for "Chart" will be visible
-#    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu"
 
     Examples:
-      |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum  |   spl   |
-      |Regionmap| count() | apache.geo.country  |  World  | apache.geo.province | apache.geo.city | 2792    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |chartType|  value  |  region | provinceDrilldown   | cityDrilldown   |caseNum  |   spl   |
+      |Regionmap| count() |  World  | apache.geo.province | apache.geo.city | 2792    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
 
   Scenario Outline: statMap(RZY-2795,2797)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"

@@ -140,7 +140,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='上限值']/following-sibling::input")
     private WebElement upperLimitValue;
 
-    @FindBy(xpath = "//input[@value='min']/ancestor::div[1]/input")
+    @FindBy(xpath = "//input[@value='max']/ancestor::div[1]/label/input")
     private WebElement intervalInput;
 
     @FindBy(xpath="(//span[@class='css-trkpwz'])[last()-1]/ancestor::div[1]")
@@ -460,7 +460,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "yotta-search-control-text")
     private WebElement searchStatus;
 
-    @FindBy(xpath = "//*[@cy='33']")
+    @FindBy(xpath = "//*[@cy='24']")
     private WebElement chartElement;
 
     @FindBy(xpath = "(//div[@class = 'yotta-slider-knob'])[last()]")
@@ -469,7 +469,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//tr/td[2]/div)[1]")
     private WebElement cell;
 
-    @FindBy(xpath = "(//tr[2]/td[2]/div)[1]")
+    @FindBy(xpath = "(//tr[2]/td[2]//div[@class='shadow-box'])[1]")
     private WebElement cell2;
 
     @FindBy(xpath = "//*[text()='提示']/ancestor::div/following-sibling::div//p")
@@ -559,7 +559,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[@class='vx-group']//*[@class='vx-arc']")
     private WebElement pieNoLabelsElement;
 
-    @FindBy(xpath = "//*[@class='vx-group']/*/div[contains(@style,'font-size: 12px;')]")
+    @FindBy(xpath = "//*[@class='vx-group']/*[contains(@font-size,'12')]/preceding-sibling::*[name()='rect']")
     private WebElement flameElement;
 
     @FindBy(xpath = "//*[@class='vx-group']//*[contains(@class,'vx-rows')]/following-sibling::*[@class='vx-linepath']")
@@ -591,6 +591,15 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//div[contains(@class,'help-text')])[1]")
     private WebElement tipText;
+
+    @FindBy(xpath = "(//div[contains(@id,'popover')])[last()]")
+    private WebElement colorPopover;
+
+    public WebElement getColorPopover() {
+        (webDriver.findElement(By.xpath("//span[text()='表格样式设置']"))).click();
+        return colorPopover;
+    }
+
     public WebElement getTipText() {
         return tipText;
     }

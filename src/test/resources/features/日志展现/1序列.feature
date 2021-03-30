@@ -18,7 +18,7 @@ Feature: 日志展现_序列
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And I click the "ChartElement" button
+    And I click the Circle "ChartElement" button
     And I wait for "5000" millsecond
     And switch to another window
     And I close all tabs except main tab

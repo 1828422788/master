@@ -45,6 +45,8 @@ Feature: 趋势图批量操作
     And I click the "CompleteBatchControl" button under some element
 
   Scenario: verify_tag
+    When I set the parameter "SearchInput" with value "test_multi_"
+    And I wait for "2000" millsecond
     Then I will see the data "test_multi_1" values "{'column':'4','name':'auto_package'}"
     Then I will see the data "test_multi_2" values "{'column':'4','name':'auto_package'}"
     Then I will see the data "test_multi_3" values "{'column':'4','name':'auto_package'}"
@@ -83,6 +85,7 @@ Feature: 趋势图批量操作
     Then I wait for "NoData" will be visible
 
   Scenario Outline: prompt
+    And I wait for "2000" millsecond
     And I click the "BatchControl" button under some element
     And I click the "SelectBatchOperation" button under some element
     And I click the "<button>" button
