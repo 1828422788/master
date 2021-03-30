@@ -102,6 +102,16 @@ public class ListPageUtils {
         return null;
     }
 
+    public WebElement getTrRowWithoutPaging(String name) {
+        List<WebElement> trList = webDriver.findElements(By.xpath("//tr"));
+        for (WebElement tr : trList) {
+            if (tr.getText().contains(name)) {
+                return tr;
+            }
+        }
+        return null;
+    }
+
     private WebElement findNameWithoutPaging(String name) {
         WebElement table = pagingInfo.getTableList().get(0);
         return this.getRowWithoutPaging(name, table);
@@ -161,8 +171,8 @@ public class ListPageUtils {
         } else {
             Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
             String name = map.get("name").toString();
-            WebElement table = webDriver.findElement(By.xpath("//table[contains(@class, 'yotta-table')]"));
-            tr = this.getRowWithoutPaging(name, table);
+            WebElement table = webDriver.findElement(By.tagName("table"));
+            tr = this.getTrRowWithoutPaging(name);
         }
         return tr;
     }

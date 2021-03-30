@@ -153,7 +153,7 @@ public class ValidateResult {
         int columnNum = Integer.parseInt(resultMap.get("column").toString());
         for (WebElement tr : trList) {
             List<WebElement> tdList = tr.findElements(By.xpath(".//td"));
-            if (tdList.size() >= columnNum) {
+            if (tdList.size() > columnNum) {
                 String actualText = tdList.get(columnNum).getText();
                 String expectText = resultMap.get("name").toString();
                 if (actualText.equals(""))

@@ -30,11 +30,37 @@ public class SavedSearchPage extends ListPageFactory {
     @FindBy(className = "el-select-dropdown__list")
     private List<WebElement> dropdownList;
 
-    @FindBy(xpath = "//i[@aria-label='图标: star']")
+    @FindBy(xpath = "//tr/td/span[@class='yotta-icon yotta-icon-StarFilled -a7jW7PsHfBciH91EH6mc _1Q8PROrCT52i-ZiD2NEVOL']")
     private WebElement star;
 
     public WebElement getStar() {
         return star;
+    }
+
+    @FindBy(xpath = "//ul[@yotta-test='operation-more-menu']/li/span[text()='标签']")
+    private WebElement label;
+
+    @FindBy(xpath = "//ul[@yotta-test='operation-more-menu']/li/span[text()='授权']")
+    private WebElement auth;
+
+    @FindBy(xpath = "//ul[@yotta-test='operation-more-menu']/li/span[text()='删除']")
+    private WebElement delete;
+
+    public WebElement getDelete() {
+        return delete;
+    }
+
+    public WebElement getLabel() { return label;}
+
+    public WebElement getAuth() {
+        return auth;
+    }
+
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//span[@class='yotta-select-selection-placeholder']")
+    private WebElement tagToInput;
+
+    public WebElement getTagToInput() {
+        return tagToInput;
     }
 
     @FindBy(xpath = "//div[@class='el-message-box__btns']//span[contains(text(),'确定')]")

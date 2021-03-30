@@ -547,8 +547,18 @@ public class ClickButtonWithGivenName {
      */
     @Then("^I click the star before \"([^\"]*)\" in saved search$")
     public void iClickTheStarBeforeInSavedSearch(String name) {
-        WebElement tr = listPageUtils.getRowWithoutTotalPage(name);
-        WebElement star = tr.findElement(By.xpath(".//i"));
+        // WebElement tr = listPageUtils.getRowWithoutTotalPage(name);
+        // WebElement star = tr.findElement(By.xpath(".//span"));
+        WebElement tr = listPageUtils.getTrWithoutPagingInConfig(name);
+        WebElement star = tr.findElement(By.xpath(".//span[@yotta-test='search-follow_field-icon']"));
+        star.click();
+    }
+
+
+    @Then("^I click the star before \"([^\"]*)\" in saved search list$")
+    public void iClickTheStarBeforeInSavedSearchList(String name) {
+        WebElement tr = listPageUtils.getTrWithoutPagingInConfig(name);
+        WebElement star = tr.findElement(By.xpath("//tbody/tr/td[1]/span"));
         star.click();
     }
 
@@ -605,7 +615,8 @@ public class ClickButtonWithGivenName {
      */
     @And("^\"([^\"]*)\" the data \"([^\"]*)\" in tiny saved search$")
     public void operateDataInTinySavedSearch(String function, String name) {
-        WebElement table = webDriver.findElement(By.xpath("(//table[contains(@class,'yotta-table')])[last()]"));
+        //WebElement table = webDriver.findElement(By.xpath("(//table[contains(@class,'yotta-table')])[last()]"));
+        WebElement table = webDriver.findElement(By.xpath("//table[@yotta-test='search-savedsearch-table']"));
         WebElement tr = listPageUtils.getRowWithoutPaging(name, table);
         this.click(function, tr);
     }

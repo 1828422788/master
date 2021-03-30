@@ -214,7 +214,8 @@ public class SearchPage extends ListPageFactory {
     public WebElement getSavedSearch() {
         com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(openSavedSearchButton));
         openSavedSearchButton.click();
-        List<WebElement> list = webDriver.findElements(By.className("ant-dropdown-menu-item"));
+        //List<WebElement> list = webDriver.findElements(By.className("ant-dropdown-menu-item"));
+        List<WebElement> list = webDriver.findElements(By.className("yotta-menu-item-primary"));
         com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(list.get(list.size() - 1)));
         return list.get(list.size() - 1);
     }
@@ -413,7 +414,8 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='确定']")
     private List<WebElement> ensure;
 
-    @FindBy(xpath = "(//span[@aria-label='CheckCircleFilled']/ancestor::div[1]/following-sibling::div//p) | (//span[@aria-label='CheckCircleFilled']/following-sibling::span[@class='yotta-message-content'])")
+   // @FindBy(xpath = "(//span[@aria-label='CheckCircleFilled']/ancestor::div[1]/following-sibling::div//p) | (//span[@aria-label='CheckCircleFilled']/following-sibling::span[@class='yotta-message-content'])")
+    @FindBy(xpath = "//div[@yotta-test='dialog-content-dom']/p")
     private WebElement successMessage;
 
     @FindBy(xpath = "//span[contains(text(),'类型')]")
@@ -555,7 +557,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//button[@class='el-button el-button--primary']/span[text()='确定']")
     private List<WebElement> ensureList;
 
-    @FindBy(xpath = "(//span[text()='确 定']/ancestor::button)[last()]")
+    @FindBy(xpath = "//button[@yotta-test='dialog-confirm-button']/span")
     private WebElement deleteSavedSearch;
 
     public WebElement getDeleteSavedSearch() {
@@ -734,7 +736,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//div[text()='事件']/span")
     private WebElement eventNumber;
 
-    @FindBy(className = "yotta-dialog-content")
+    @FindBy(className = "yotta-message-content")
     private WebElement message;
 
     @FindBy(xpath = "//label[text()='搜索内容']/following-sibling::div")
