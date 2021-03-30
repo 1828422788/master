@@ -23,6 +23,7 @@ Feature: 报表禁用/启用
     And I will see the element "ResultMessage" contains "新建成功"
 
   Scenario Outline: switch_off_on
+    And I wait for "Loading" will be invisible
     And the data name is "{'column':'1','name':'Test_Switch'}" then I "<action>" the switch
     And I wait for "100" millsecond
     And I wait for "SuccessMessage" will be visible

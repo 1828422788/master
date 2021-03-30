@@ -261,7 +261,6 @@ Feature: 报表新建_编辑_其他word
     And I set the parameter "FieldValue" with value "apache.geo.city"
     And I click the "UnifyMetric" button
     And I click the "Divide" button
-    And I click the "AddField" button
 
     And I set the parameter "FieldValue" with value "apache.geo.city"
     And I click the "Exhibition" button

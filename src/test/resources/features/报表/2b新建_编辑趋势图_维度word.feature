@@ -32,7 +32,6 @@ Feature: 报表新建_编辑_维度word
     And I set the parameter "FieldValue" with value "ip_count"
 
     And I click the "Divide" button
-    And I click the "AddField" button
     And I set the parameter "FieldValue" with value "apache.clientip"
 
     And I click the "Exhibition" button
@@ -76,7 +75,6 @@ Feature: 报表新建_编辑_维度word
     And I set the parameter "FieldValue" with value "count()"
 
     And I click the "Divide" button
-    And I click the "AddField" button
     And I set the parameter "FieldValue" with value "apache.status"
     And I click the "AddField" button
     And I set the parameter "FieldValue" with value "apache.geo.province"
@@ -118,7 +116,6 @@ Feature: 报表新建_编辑_维度word
     And I set the parameter "FieldValue" with value "ip_count"
 
     And I click the "Divide" button
-    And I click the "AddField" button
     And I set the parameter "FieldValue" with value "apache.clientip"
 
     And I click the "Exhibition" button

@@ -252,6 +252,7 @@ Feature: 日志展现_其他_单值
     And I click the "Exhibition" button
     And I click the "AccordingArea" button
     And I set the parameter "FontSize" with value "80"
+    And I click the "AddRange" button
     And I set the parameter "MinRange" with value "1"
     And I set the parameter "MaxRange" with value "7"
     And I click the "AddColor" button
