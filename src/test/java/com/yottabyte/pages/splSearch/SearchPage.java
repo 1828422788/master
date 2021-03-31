@@ -731,7 +731,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='#']/following-sibling::span")
     private WebElement fieldOne;
 
-    @FindBy(xpath = "//div[text()='事件']/span")
+    @FindBy(xpath = "//div[contains(text(),'事件')]")
     private WebElement eventNumber;
 
     @FindBy(className = "yotta-message-content")

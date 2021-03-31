@@ -7,12 +7,14 @@ Feature: 趋势图_选择数据集
 
   Scenario Outline:  single_dataset_1
     When I click the "SingleDataset" button
-    And I click the "EnsureButton" button
+    And I click the "Ensure" button
     Then I will see the "trend.DragAndDropPage" page
     When I click the "Dataset_1" button
     And I click the "DateEditor" button under some element
     And I click the "Today" button
     And I wait for "TableBody" will be visible
+    And I click the "Add" button
+    And I wait for "2000" millsecond
     And I choose the "apache.clientip" from the "ColumnField" in config
     And I choose the "<operator>" from the "Operator" in config
     And I set the parameter "Value" with value "221.226.97.92"
@@ -74,12 +76,14 @@ Feature: 趋势图_选择数据集
 
   Scenario Outline:  single_dataset_3
     When I click the "SingleDataset" button
-    And I click the "EnsureButton" button
+    And I click the "Ensure" button
     Then I will see the "trend.DragAndDropPage" page
     When I click the "Dataset_3" button
     And I click the "DateEditor" button under some element
     And I click the "Today" button
     And I wait for "TableBody" will be visible
+    And I click the "Add" button
+    And I wait for "2000" millsecond
     And I choose the "<condition>" from the "Condition" in config
     And I choose the "apache.resp_len" from the "ColumnField" in config
     And I choose the "<oper1>" from the "Operator" in config
@@ -127,13 +131,13 @@ Feature: 趋势图_选择数据集
 
     Examples:
       | chart    | condition  |  oper1 |  oper2 |datasetspl                                                                    |spl    |
-      | Column   |  全部      |  大于  |  小于  |tag:sample04061424_chart \| where(apache.resp_len>70 && apache.resp_len<1500) |tag:sample04061424_chart \| where(apache.resp_len>70 && apache.resp_len<1500)\|stats count(apache.clientip) by apache.clientip,apache.status |
-      | Column   |  任一      |  小于  |  大于  |tag:sample04061424_chart \| where(apache.resp_len<70 \|\| apache.resp_len>1500) |tag:sample04061424_chart \| where(apache.resp_len<70 \|\| apache.resp_len>1500)\|stats count(apache.clientip) by apache.clientip,apache.status |
+      | Column   |  全部      |  大于  |  小于  |tag:sample04061424_chart \| where(apache.resp_len>70 && apache.resp_len<1500) |tag:sample04061424_chart \| where(apache.resp_len>70 && apache.resp_len<1500) \| stats count(apache.clientip) by apache.clientip,apache.status |
+      | Column   |  任一      |  小于  |  大于  |tag:sample04061424_chart \| where(apache.resp_len<70 \|\| apache.resp_len>1500) |tag:sample04061424_chart \| where(apache.resp_len<70 \|\| apache.resp_len>1500) \| stats count(apache.clientip) by apache.clientip,apache.status |
 
 
   Scenario Outline:  single_dataset_3_expression
     When I click the "SingleDataset" button
-    And I click the "EnsureButton" button
+    And I click the "Ensure" button
     Then I will see the "trend.DragAndDropPage" page
     When I click the "Dataset_3" button
     And I click the "DateEditor" button under some element
@@ -185,7 +189,7 @@ Feature: 趋势图_选择数据集
 
   Scenario Outline:  union_dataset_12
     When I click the "UnionDataset" button
-    And I click the "EnsureButton" button
+    And I click the "Ensure" button
     Then I will see the "trend.DragAndDropPage" page
     When I drag the element "Dataset_1" to the "DropDataset"
     And I drag the element "Dataset_2" to the "DropDataset"

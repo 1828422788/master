@@ -73,7 +73,7 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(xpath = "//div[@type='dataset']//span[text()='dataset_3']")
     private WebElement dataset_3;
 
-    @FindBy(xpath = "//div[@class='ant-message-notice']//span")
+    @FindBy(className = "yotta-message-content")
     private WebElement message;
 
     @FindBy(xpath = "//div[@yotta-test='trend-dataset_multiple_drop_area-dom']/div | //div[@yotta-test='trend-dataset_merge_drop_area-input']")
@@ -412,11 +412,13 @@ public class DragAndDropPage extends CreatePage {
         return GetTime.getTime(webDriver, "ApplyCustomTime");
     }
 
-    public WebElement getColumnField() {
+    public WebElement getColumnField() throws InterruptedException {
+        Thread.sleep(1000);
         return getYottaDropdownList("trend-dataset_filter_condtion_field-select");
     }
 
-    public WebElement getOperator() {
+    public WebElement getOperator() throws InterruptedException {
+        Thread.sleep(1000);
         return getYottaDropdownList("trend-dataset_filter_condtion_sign-select");
     }
 
@@ -437,7 +439,7 @@ public class DragAndDropPage extends CreatePage {
     }
 
     public WebElement getAdd() {
-        return getYottaSpan("trend-dataset_filter_condtion_apply-dom");
+        return getYottaSpan("trend-dataset_filter_condtion_add-dom");
     }
 
     public WebElement getMessage() {

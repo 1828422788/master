@@ -89,13 +89,13 @@ public class CreatePage extends PageTemplate {
     @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div//label[4]")
     private WebElement forthLabel;
 
-    @FindBy(xpath = "(//*[text()='中国'])/ancestor::span")
+    @FindBy(xpath = "(//input[@value='china'])[last()]")
     private WebElement selectChina;
 
-    @FindBy(xpath = "(//*[text()='江苏'])/ancestor::span")
+    @FindBy(xpath = "(//input[@value='jiangsu'])[last()]")
     private WebElement selectJiangsu;
 
-    @FindBy(xpath = "(//*[text()='世界'])/ancestor::span")
+    @FindBy(xpath = "(//input[@value='world'])[last()]")
     private WebElement selectWorld;
 
     @FindBy(className = "_1pGh3cs00Rp1iccZrcDgHU")
@@ -221,7 +221,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")
     private WebElement successMessage;
 
-    @FindBy(xpath = "//span[contains(@class,'yotta-confirm-error-icon')]/ancestor::div[1]/following-sibling::p")
+    @FindBy(xpath = "//div[@yotta-test='dialog-content-dom']")
     private WebElement errorMessage;
 
     @FindBy(tagName = "th")
@@ -2067,13 +2067,18 @@ public class CreatePage extends PageTemplate {
     }
 
     private WebElement getDropdownElement(String name) {
+        try{
+            Thread.sleep(700);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         WebElement element = webDriver.findElement(By.xpath("(//span[contains(text(),'" + name + "')])[last()]/ancestor::div[1]/following-sibling::div//div[@class='yotta-select-selection']"));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
         return this.getLastDropdownList();
     }
 
-    private WebElement getElementWithText(String name) {
+        private WebElement getElementWithText(String name) {
         return webDriver.findElement(By.xpath("(//*[contains(text(),'" + name + "')])[last()]"));
     }
 

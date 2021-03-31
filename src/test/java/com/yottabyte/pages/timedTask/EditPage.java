@@ -48,13 +48,13 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//div[@yotta-test='schedule-jdbc_list-panel']//span[contains(@class,'header-text')]")
     private WebElement jdbc;
 
-    @FindBy(xpath = "//label[text()='count']/following-sibling::input")
+    @FindBy(xpath = "//label[text()='count']/following-sibling::div//input")
     private WebElement count;
 
-    @FindBy(xpath = "//label[text()='percent']/following-sibling::input")
+    @FindBy(xpath = "//label[text()='percent']/following-sibling::div//input")
     private WebElement percent;
 
-    @FindBy(xpath = "(//label[text()='resplen']/following-sibling::input) | (//label[text()='apache.resplen']/following-sibling::input)")
+    @FindBy(xpath = "//label[text()='resplen' or text()='apache.resplen']/following-sibling::div//input")
     private WebElement resplen;
 
     @FindBy(xpath = "(//span[contains(@class,'yotta-menu-item')]/ancestor::ul[contains(@class,'yotta-menu')])")

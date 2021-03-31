@@ -128,15 +128,14 @@ Feature: 趋势图新建_地图
     And I click the "Map" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I click the "Value" button
-    And I choose the "<value>" from the "FieldValue" in config
     And I click the "Divide" button
+    And I click the "DeleteLast" button
     And I choose the "<divideField>" from the "FieldValue" in config
     And I click the "Region" button
     And I click the "Select<region>" button
     And I click the "GoingDown" button
-    And I choose the "<provinceDrilldown>" from the "Province" in config
-    And I choose the "<cityDrilldown>" from the "City" in config
+    And I choose the "apache.geo.province" from the "Province" in config
+    And I choose the "apache.geo.city" from the "City" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -154,9 +153,9 @@ Feature: 趋势图新建_地图
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
-      |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum  |   spl   |
-      |Regionmap| count() | apache.geo.province |  China  | apache.geo.province | apache.geo.city | 2546    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
-      |Regionmap| count() | apache.geo.province | Jiangsu | apache.geo.province | apache.geo.city | 2547    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |chartType| divideField         |  region |caseNum  |   spl   |
+      |Regionmap| apache.geo.province |  China  | 2546    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |Regionmap| apache.geo.city     | Jiangsu | 2547    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city |
 
 
   Scenario Outline: regionmap_world_white
@@ -212,8 +211,9 @@ Feature: 趋势图新建_地图
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Value" button
-    And I choose the "<value>" from the "FieldValue" in config
+    And I choose the "count()" from the "FieldValue" in config
     And I click the "Divide" button
+    And I click the "DeleteLast" button
     And I choose the "<divideField>" from the "FieldValue" in config
     And I click the "Region" button
     And I click the "Select<region>" button
@@ -221,8 +221,8 @@ Feature: 趋势图新建_地图
     # Switch to white map
     And I click the "ShowBubbles" button
     And I click the "GoingDown" button
-    And I choose the "<provinceDrilldown>" from the "Province" in config
-    And I choose the "<cityDrilldown>" from the "City" in config
+    And I choose the "apache.geo.province" from the "Province" in config
+    And I choose the "apache.geo.city" from the "City" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -240,9 +240,9 @@ Feature: 趋势图新建_地图
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
-      |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum     |   spl   |
-      |Regionmap| count() | apache.geo.province |  China  | apache.geo.province | apache.geo.city | 2546_white |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
-      |Regionmap| count() | apache.geo.province | Jiangsu | apache.geo.province | apache.geo.city | 2547_white |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |chartType| divideField         |  region |caseNum     |   spl   |
+      |Regionmap| apache.geo.province |  China  | 2546_white |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |Regionmap| apache.geo.city     | Jiangsu | 2547_white |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city |
 
 
   Scenario Outline: heatmap_facet
@@ -260,6 +260,7 @@ Feature: 趋势图新建_地图
     And I click the "<chartType>" button
 
     And I click the "Settings" button
+    And I click the "Facet" button
     And I choose the "apache.status" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
@@ -304,6 +305,7 @@ Feature: 趋势图新建_地图
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
     And I click the "Divide" button
+    And I click the "DeleteLast" button
     And I choose the "apache.geo.province" from the "FieldValue" in config
     And I click the "Region" button
     And I click the "SelectChina" button

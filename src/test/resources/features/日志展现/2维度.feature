@@ -44,7 +44,7 @@ Feature: 日志展现_维度
     And I click the "Settings" button
     And I click the "Value" button
     And I click the "Divide" button
-    And I click the "DeleteLast" button
+    And I click the "DeleteFirst" button
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color1>" button
@@ -213,13 +213,10 @@ Feature: 日志展现_维度
     And I click the "Settings" button under some element
     And I click the "Divide" button
     And I click the "DeleteFirst" button
-    And I choose the "apache.geo.province" from the "FieldValue" in config
     And I click the "Facet" button
     And I choose the "apache.status" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
-    And I click the "Divide" button
-    And I choose the "apache.geo.city" from the "FieldValue" in config
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
@@ -248,11 +245,9 @@ Feature: 日志展现_维度
     And I click the "Settings" button under some element
     And I click the "Divide" button
     And I click the "DeleteFirst" button
-    And I choose the "apache.geo.province" from the "FieldValue" in config
+    And I click the "DeleteFirst" button
     And I click the "Exhibition" button
     And I choose the "<option>" from the "DrillDownMode" in config
-    And I click the "Divide" button
-    And I choose the "apache.geo.city" from the "FieldValue" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -283,11 +278,9 @@ Feature: 日志展现_维度
     And I click the "Settings" button under some element
     And I click the "Divide" button
     And I click the "DeleteFirst" button
-    And I choose the "apache.geo.province" from the "FieldValue" in config
+    And I click the "DeleteFirst" button
     And I click the "Exhibition" button
     And I choose the "<option>" from the "DrillDownMode" in config
-    And I click the "Divide" button
-    And I choose the "apache.geo.city" from the "FieldValue" in config
     And I click the "Facet" button
     And I choose the "apache.method" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "2"

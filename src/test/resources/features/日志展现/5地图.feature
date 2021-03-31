@@ -56,7 +56,6 @@ Feature: 日志展现_地图
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "StatisticalChart" will be visible
-#    And I drag the scroll bar to the element "Chart"
     And I wait for "3000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<regionBut>_<chartType>"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<regionBut>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<regionBut>_<chartType>"
@@ -80,7 +79,6 @@ Feature: 日志展现_地图
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
-#    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
@@ -98,28 +96,26 @@ Feature: 日志展现_地图
     And I click the "Map" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I click the "Value" button
-    And I choose the "<value>" from the "FieldValue" in config
     And I click the "Divide" button
+    And I click the "DeleteLast" button
     And I choose the "<divideField>" from the "FieldValue" in config
     And I click the "Region" button
     And I click the "Select<region>" button
     And I click the "GoingDown" button
-    And I choose the "<provinceDrilldown>" from the "Province" in config
-    And I choose the "<cityDrilldown>" from the "City" in config
+    And I choose the "apache.geo.province" from the "Province" in config
+    And I choose the "apache.geo.city" from the "City" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-#    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>_<region>"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>_<region>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>_<region>"
 
     Examples:
-      |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum  |   spl   |
-      |Regionmap| count() | apache.geo.province |  China  | apache.geo.province | apache.geo.city | 2793    | tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
-      |Regionmap| count() | apache.geo.province | Jiangsu | apache.geo.province | apache.geo.city | 2794    | tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |chartType| divideField         |  region |caseNum  |   spl   |
+      |Regionmap| apache.geo.province |  China  | 2793    | tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |Regionmap| apache.geo.city     | Jiangsu | 2794    | tag:sample04061424_chart \| stats count() by apache.geo.city |
 
 
   Scenario Outline: regionMap_click(RZY-2792)
@@ -131,8 +127,6 @@ Feature: 日志展现_地图
     And I click the "Map" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I click the "Value" button
-    And I choose the "<value>" from the "FieldValue" in config
     And I click the "Region" button
     And I click the "Select<region>" button
     And I click the "GoingDown" button
@@ -159,8 +153,8 @@ Feature: 日志展现_地图
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu"
 
     Examples:
-      |chartType|  value  |  region | provinceDrilldown   | cityDrilldown   |caseNum  |   spl   |
-      |Regionmap| count() |  World  | apache.geo.province | apache.geo.city | 2792    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |chartType|  region | provinceDrilldown   | cityDrilldown   |caseNum  |   spl   |
+      |Regionmap|  World  | apache.geo.province | apache.geo.city | 2792    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
 
   Scenario Outline: statMap(RZY-2795,2797)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
@@ -291,7 +285,6 @@ Feature: 日志展现_地图
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-#    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
@@ -309,9 +302,8 @@ Feature: 日志展现_地图
     And I click the "Map" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I click the "Value" button
-    And I choose the "<value>" from the "FieldValue" in config
     And I click the "Divide" button
+    And I click the "DeleteLast" button
     And I choose the "<divideField>" from the "FieldValue" in config
     And I click the "Region" button
     And I click the "Select<region>" button
@@ -319,21 +311,20 @@ Feature: 日志展现_地图
     # Switch to white map
     And I click the "ShowBubbles" button
     And I click the "GoingDown" button
-    And I choose the "<provinceDrilldown>" from the "Province" in config
-    And I choose the "<cityDrilldown>" from the "City" in config
+    And I choose the "apache.geo.province" from the "Province" in config
+    And I choose the "apache.geo.city" from the "City" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-#    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>_<region>"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>_<region>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>_<region>"
 
     Examples:
-      |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum      |   spl   |
-      |Regionmap| count() | apache.geo.province |  China  | apache.geo.province | apache.geo.city | 2793_white  | tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
-      |Regionmap| count() | apache.geo.province | Jiangsu | apache.geo.province | apache.geo.city | 2794_white  | tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |chartType| divideField         |  region |caseNum      |   spl   |
+      |Regionmap| apache.geo.province |  China  | 2793_white  | tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |Regionmap| apache.geo.city     | Jiangsu | 2794_white  | tag:sample04061424_chart \| stats count() by apache.geo.city |
 
   Scenario Outline: regionMap_click(RZY-2792_white)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -344,9 +335,8 @@ Feature: 日志展现_地图
     And I click the "Map" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I click the "Value" button
-    And I choose the "<value>" from the "FieldValue" in config
     And I click the "Divide" button
+    And I click the "DeleteLast" button
     And I choose the "<divideField>" from the "FieldValue" in config
     And I click the "Region" button
     And I click the "Select<region>" button
@@ -354,34 +344,31 @@ Feature: 日志展现_地图
     # Switch to white map
     And I click the "ShowBubbles" button
     And I click the "GoingDown" button
-    And I choose the "<provinceDrilldown>" from the "Province" in config
-    And I choose the "<cityDrilldown>" from the "City" in config
+    And I choose the "apache.geo.province" from the "Province" in config
+    And I choose the "apache.geo.city" from the "City" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-#    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/World_white"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/World_white" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/World_white"
 
     When I click the Circle "OpenChina" button
     And I wait for "Chart" will be visible
-#    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/China_white"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/China_white" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/China_white"
 
     When I click the Circle "OpenJiangsu" button
     And I wait for "Chart" will be visible
-#    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu_white"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu_white" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu_white"
 
     Examples:
-      |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum  |   spl   |
-      |Regionmap| count() | apache.geo.country  |  World  | apache.geo.province | apache.geo.city | 2792    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |chartType| divideField         |  region |caseNum  |   spl   |
+      |Regionmap| apache.geo.country  |  World  | 2792    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
 
 
   Scenario Outline:heatmap_facet
@@ -426,6 +413,7 @@ Feature: 日志展现_地图
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
     And I click the "Divide" button
+    And I click the "DeleteLast" button
     And I choose the "apache.geo.province" from the "FieldValue" in config
     And I click the "Region" button
     And I click the "SelectChina" button

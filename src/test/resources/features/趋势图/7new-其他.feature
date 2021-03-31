@@ -1207,7 +1207,7 @@ Feature: 趋势图新建_其他
     And I will see the element "ChartName" contains "<chartType>"
     Then I will see the "trend.CreatePage" page
     And I wait for "<chartType>Element" will be visible
-    And I click the "Click<node>" button
+    And I click the Circle "Click<node>" button
 
     Examples:
       |  chartType    | color   | color_1 | repValue |  node    |

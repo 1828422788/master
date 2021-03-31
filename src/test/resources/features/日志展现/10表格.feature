@@ -120,7 +120,7 @@ Feature: 日志展现_表格
     And I wait for "Chart" will be visible
     And I will see the element "Cell" style contains "color: rgb(85, 34, 224)"
     And I will see the element "Cell" style contains "text-decoration: underline"
-    And I will see the element "Cell" style contains "background-color: rgb(37, 155, 36)"
+    And I will see the element "Cell" style contains "background-color: rgb(0, 255, 0)"
     And I wait for "3000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/8表格/<caseNum>"
     Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"

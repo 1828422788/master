@@ -77,19 +77,24 @@ Feature: 趋势图_提示
     And I wait for "2000" millsecond
     When I click the "NewTrendFromDataset" button
     When I click the "UnionDataset" button
-    And I click the "EnsureButton" button
+    And I click the "Ensure" button
     Then I will see the "trend.DragAndDropPage" page
     And I wait for "2000" millsecond
     When I drag the element "Dataset_1" to the "DropDataset"
     And I drag the element "Dataset_2" to the "DropDataset"
     And I drag the element "ClientipInTable" to the "EmptySpace"
     And I click the "NextButton" button
-    And I will see the element "Prompt" contains "请先修改重名的字段"
+    And I will see the element "Prompt" contains "请先修改字段名"
+    And I click the "EnsureButton" button
+    And I set the parameter "LastColumn" with value ""
+    And I click the "NextButton" button
+    And I wait for "EnsureButton" will be visible
+    And I will see the element "Prompt" contains "请先修改字段名"
     And I click the "EnsureButton" button
     And I set the parameter "LastColumn" with value "apache.method"
     And I click the "NextButton" button
     And I wait for "EnsureButton" will be visible
-    And I will see the element "Prompt" contains "请先修改重名的字段"
+    And I will see the element "Prompt" contains "请先修改字段名"
 
   Scenario: new_trend_1
     Given open the "trend.ListPage" page for uri "/trend/"

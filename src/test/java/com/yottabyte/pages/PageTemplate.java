@@ -228,7 +228,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     }
 
     public WebElement getYottaInput(String test) {
-        String xpath = "//input[@yotta-test='" + test +"']";
+        String xpath = "(//input[@yotta-test='" + test +"'])[last()]";
         return webDriver.findElement(By.xpath(xpath));
     }
 
