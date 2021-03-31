@@ -12,6 +12,9 @@ Feature: 数据集-a新建
 
     And I choose the "app之api全部用例" from the "appList"
     And I choose the "auto_package" from the "resourceGroup"
+#    And I choose1 the "auto_package" from the "resourceGroup"
+#    And I choose1 the "auto_package" from the "resourceGroup" in config
+
 
     And I click the "Save" button
 

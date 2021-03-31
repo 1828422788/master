@@ -76,12 +76,13 @@ public class ListPage extends ListPageFactory {
     }
 
     //@FindBy(xpath = "//label[@title='资源标签']/parent::div/following-sibling::div")
-    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div")
-    private WebElement resourceGroup;
-
+//    private WebElement resourceGroup;
     public WebElement getResourceGroup() {
-        resourceGroup.click();
-        return super.getLastDropdownList();
+        String xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownList();
     }
 
     //@FindBy(xpath = "//label[@title='资源标签']/parent::div/following-sibling::div//input")
@@ -136,6 +137,7 @@ public class ListPage extends ListPageFactory {
 //    @FindBy(xpath = "//span[@class='css-pcxrzr ant-input-group-wrapper']/span/span/div[@id='EditDatabase_fields[0].type']")
     @FindBy(xpath = "//label[contains(text(),'字段')]/following::input[@placeholder='请输入']/following-sibling::span[@class='yotta-input-append']/div/div")
     private WebElement firstFieldType;
+
     public WebElement getFirstFieldType() {
         // firstFieldType.click();
         // return super.getLastDropdownList();
@@ -151,10 +153,11 @@ public class ListPage extends ListPageFactory {
 //    @FindBy(id = "EditDatabase_fields[1].type")
     @FindBy(xpath = "//label[contains(text(),'字段')]/following::input[@placeholder='请输入']/following::input[@placeholder='请输入']/following-sibling::span[@class='yotta-input-append']/div/div")
     private WebElement secondFieldType;
+
     public WebElement getSecondFieldType() {
 //         secondFieldType.click();
 //         return super.getLastDropdownList();
-         return secondFieldType;
+        return secondFieldType;
     }
 
     public WebElement getSecondFieldTypeList() {
