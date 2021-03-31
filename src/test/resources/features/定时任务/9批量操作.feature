@@ -28,7 +28,7 @@ Feature: 定时任务批量操作
 
   Scenario: multi_tag
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for loading complete
+    And I wait for "Loading" will be invisible
     When I set the parameter "SearchInput" with value "test_multi_"
     And I wait for "2000" millsecond
     And I wait for "BatchControl" will be visible
@@ -47,7 +47,7 @@ Feature: 定时任务批量操作
 
   Scenario: verify_tag
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for loading complete
+    And I wait for "Loading" will be invisible
     And I wait for "BatchControl" will be visible
     And the data name is "{'column':'1','name':'test_multi_1'}" then I "expand" the item
     And I will see the element "TagOfTheLastItem" contains "auto_package"
@@ -63,7 +63,7 @@ Feature: 定时任务批量操作
 
   Scenario: switch_off
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for loading complete
+    And I wait for "Loading" will be invisible
     And I wait for "BatchControl" will be visible
     And the data name is "{'column':'1','name':'test_multi_1'}" then I "close" the switch
     And I wait for "SuccessMessage" will be visible
@@ -81,7 +81,7 @@ Feature: 定时任务批量操作
     
   Scenario: multi_switch
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for loading complete
+    And I wait for "Loading" will be invisible
     When I set the parameter "SearchInput" with value "test_multi_"
     And I wait for "2000" millsecond
     And I wait for "BatchControl" will be visible
@@ -99,7 +99,7 @@ Feature: 定时任务批量操作
 
   Scenario: verify_switch
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for loading complete
+    And I wait for "Loading" will be invisible
     And I wait for "BatchControl" will be visible
     When the data name is "{'column':'1','name':'test_multi_1'}" then I "close" the switch
     And I wait for "SuccessMessage" will be visible
@@ -116,7 +116,7 @@ Feature: 定时任务批量操作
 
   Scenario: multi_delete
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for loading complete
+    And I wait for "Loading" will be invisible
     When I set the parameter "SearchInput" with value "test_multi_"
     And I wait for "2000" millsecond
     And I wait for "BatchControl" will be visible
@@ -143,7 +143,7 @@ Feature: 定时任务批量操作
 
   Scenario: verify_delete
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for loading complete
+    And I wait for "Loading" will be invisible
     And I wait for "BatchControl" will be visible
     When I set the parameter "SearchInput" with value "test_multi_"
     And I wait for "2000" millsecond
@@ -151,7 +151,7 @@ Feature: 定时任务批量操作
 
   Scenario Outline: prompt
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for loading complete
+    And I wait for "Loading" will be invisible
     And I wait for "BatchControl" will be visible
     And I click the "BatchControl" button under some element
     And I click the "SelectBatchOperation" button under some element
