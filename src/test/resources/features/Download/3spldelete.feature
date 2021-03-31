@@ -1,11 +1,11 @@
-@spldelete @dlother
+@spldelete @dlother @spldelete0
 Feature: collect下载
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  @spldelete0
+  @spldelete01
   Scenario Outline:
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
@@ -21,15 +21,16 @@ Feature: collect下载
       | name                             | splQuery                                                                                                                     |
       | eval_delete_collect_sample_step1 | tag:sample04061424\| collect index=collectdelete marker=\"appname=\\\\\"appcollect\\\\\", tag=\\\\\"spldeletecollect\\\\\"\" |
 
-  @spldelete0
+  @spldelete02
   Scenario Outline:
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "2000" millsecond
+    And I wait for "2000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then take a screenshot with name "v37dl/<name>
+    Then take a screenshot with name "v37dl/<name>"
     And I wait for "10000" millsecond
 
     And I wait for "DownloadEvent" will be visible
@@ -54,7 +55,7 @@ Feature: collect下载
       | name                             | splQuery                                                                           |
       | eval_delete_collect_sample_step2 | starttime=\"now/d\" endtime=\"now/d+24h\" index=collectdelete tag:spldeletecollect |
 
-  @spldelete0
+  @spldelete03
   Scenario Outline:
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button

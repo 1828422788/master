@@ -582,11 +582,6 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//label[contains(text(),'最大行数')]/following-sibling::div//i")
     private WebElement maxLineDropdown;
 
-    //@FindBy(xpath = "//button[@class='el-button yw-search-pages-download el-button--primary']/span")
-    //@FindBy(xpath = "//svg/use/svg[@id='icon-sousuoye_xiazai']::parent")
-    @FindBy(xpath = "//span[contains(text(),'事件列表')]/following-sibling::span[@class='yotta-icon yotta-icon-DownloadOutlined']")
-    private WebElement downloadEvent;
-
     @FindBy(xpath = "//div[contains(text(),'下载任务')]")
     private WebElement downloadTipsText;
 
@@ -1701,8 +1696,11 @@ public class SearchPage extends ListPageFactory {
         return message;
     }
 
-    //  @FindBy(xpath = "//button[@class='el-button yw-search-pages-download el-button--primary']/span")
-//    @FindBy(xpath = "//svg/use/svg[@id='icon-sousuoye_xiazai']::parent")
+    //@FindBy(xpath = "//button[@class='el-button yw-search-pages-download el-button--primary']/span")
+    //@FindBy(xpath = "//svg/use/svg[@id='icon-sousuoye_xiazai']::parent")
+//    @FindBy(xpath = "//span[contains(text(),'事件列表')]/following-sibling::span[@class='yotta-icon yotta-icon-DownloadOutlined']")
+    @FindBy(xpath = "//span[contains(text(),'事件列表')]/following-sibling::span[@yotta-test='event_list-download-icon']")
+    private WebElement downloadEvent;
 
     public WebElement getDownloadEvent() {
         return downloadEvent;
