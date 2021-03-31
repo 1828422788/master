@@ -710,6 +710,9 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//span[text()='保存为']")
     private WebElement saveAs;
+    public WebElement getSaveAs(){
+        return saveAs;
+    }
 
     @FindBy(xpath = "//li[text()='趋势图']")
     private WebElement saveAsTrend;
