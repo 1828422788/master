@@ -89,26 +89,23 @@ Feature: 日志展现_表格
 
     #RED
     And I set the parameter "ColorCode" with value "#FF0000"
-    And I hide the element "ColorPopover"
     And I click the "AddInterval" button
     And I set the parameter "IntervalInput" with value "4"
     #ORANGE
     And I set the parameter "ColorCode" with value "#FFA500"
-    And I hide the element "ColorPopover"
     And I click the "AddInterval" button
     And I set the parameter "IntervalInput" with value "6"
     #YELLOW
     And I set the parameter "ColorCode" with value "#FFFF00"
-    And I hide the element "ColorPopover"
     And I click the "AddInterval" button
     And I set the parameter "IntervalInput" with value "10"
     #GREEN
     And I set the parameter "ColorCode" with value "#00FF00"
-    And I hide the element "ColorPopover"
     And I click the "ChangeColor" button
 
     And I set the parameter "FontColor" with value "#5522e0"
     And I hide the element "ColorPopover"
+    And I wait for "2000" millsecond
     And I choose the "下划线" from the "FontStyle" in config
     And I set the parameter "ColumnWidth" with value "80"
     And I will see the element "SelectedAlignment" contains "居左"
@@ -137,22 +134,20 @@ Feature: 日志展现_表格
 
     #RED
     And I set the parameter "ColorCode" with value "#FF0000"
-    And I hide the element "ColorPopover"
     And I click the "AddInterval" button
     And I set the parameter "IntervalInput" with value "4"
     #ORANGE
     And I set the parameter "ColorCode" with value "#FFA500"
-    And I hide the element "ColorPopover"
     And I click the "AddInterval" button
     And I set the parameter "IntervalInput" with value "6"
     #YELLOW
     And I set the parameter "ColorCode" with value "#FFFF00"
-    And I hide the element "ColorPopover"
     And I click the "AddInterval" button
     And I set the parameter "IntervalInput" with value "10"
     #GREEN
     And I set the parameter "ColorCode" with value "#00FF00"
     And I hide the element "ColorPopover"
+    And I wait for "2000" millsecond
     And I click the "ChangeColor" button
     And I click the "<button>" button
     And I click the "EnsureButton" button
