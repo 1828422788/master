@@ -148,7 +148,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(className = "yw-search-allfields")
     private WebElement allFields;
 
-    @FindBy(className = "el-message__group")
+    @FindBy(className = "yotta-dialog-content")
     private WebElement errorMessage;
 
     @FindBy(xpath = "//div[@class='dialog-title']/i")

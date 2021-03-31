@@ -42,6 +42,7 @@ Feature: 报表新建_执行计划
     And I will see the element "ResultMessage" contains "新建成功"
     And I click the "ReturnButton" button
     And I will see the "report.ListPage" page
+    And I wait for "Loading" will be invisible
     And I will see the data "{'column':'1','name':'test_report_<period>'}" values "{'column':'4','name':'每日 <hour>时<minute>分'}"
 
     Examples:
@@ -66,6 +67,7 @@ Feature: 报表新建_执行计划
     And I will see the element "ResultMessage" contains "新建成功"
     And I click the "ReturnButton" button
     And I will see the "report.ListPage" page
+    And I wait for "Loading" will be invisible
     And I will see the data "{'column':'1','name':'test_report_<period>'}" values "{'column':'4','name':'<period><day> <hour>时<minute>分'}"
 
   Examples:
@@ -94,6 +96,7 @@ Feature: 报表新建_执行计划
     And I will see the element "ResultMessage" contains "新建成功"
     And I click the "ReturnButton" button
     And I will see the "report.ListPage" page
+    And I wait for "Loading" will be invisible
     And I will see the data "{'column':'1','name':'test_report_<period>'}" values "{'column':'4','name':'<period><month><day> <hour>时<minute>分'}"
 
     Examples:
@@ -136,6 +139,7 @@ Feature: 报表新建_执行计划
     And I will see the element "ResultMessage" contains "新建成功"
     And I click the "ReturnButton" button
     And I will see the "report.ListPage" page
+    And I wait for "Loading" will be invisible
     And I will see the data "{'column':'1','name':'test_report_crontab'}" values "{'column':'4','name':'0 0/15 9 ? * MON-FRI'}"
     
   Scenario Outline: new_report_fields

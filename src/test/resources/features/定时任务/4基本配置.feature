@@ -44,6 +44,7 @@ Feature: 定时任务_基本配置
 
   Scenario Outline: check_details_period
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for "Loading" will be invisible
     When the data name is "{'column':'1','name':'Test_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "2000" millsecond
@@ -73,6 +74,7 @@ Feature: 定时任务_基本配置
 
   Scenario Outline: check_details_crontab
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for "Loading" will be invisible
     When the data name is "{'column':'1','name':'Test_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "2000" millsecond
@@ -91,6 +93,7 @@ Feature: 定时任务_基本配置
 
   Scenario: modify_schedule
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for "Loading" will be invisible
     When the data name is "{'column':'1','name':'Test_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "2000" millsecond
@@ -117,6 +120,7 @@ Feature: 定时任务_基本配置
 
   Scenario: change_spl
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for "Loading" will be invisible
     When the data name is "{'column':'1','name':'Schedule_Test'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "2000" millsecond
@@ -137,6 +141,7 @@ Feature: 定时任务_基本配置
 
   Scenario: verify_changes
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for "Loading" will be invisible
     And the data name is "{'column':'1','name':'Schedule_Test'}" then I "expand" the item
     And I will see the element "TagOfTheLastItem" contains "auto_package"
     And I will see the element "AppOfTheLastItem" contains "test_app"
@@ -149,6 +154,7 @@ Feature: 定时任务_基本配置
 
   Scenario: delete_schedule
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for "Loading" will be invisible
     When the data name is "{'column':'1','name':'Schedule_Test'}" then i click the "删除" button in more menu
     And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible
@@ -163,6 +169,6 @@ Feature: 定时任务_基本配置
     And I wait for "Cancel" will be visible
     And I will see the element "ConfirmMessage" contains "确认删除 schedule_test?"
     And I click the "EnsureButton" button
-    And I wait for "SuccessMessage" will be visible
-    And I will see the success message "删除成功"
+    And I wait for "Message" will be visible
+    And I will see the message "删除成功"
 

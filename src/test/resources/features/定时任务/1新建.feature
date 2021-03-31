@@ -22,13 +22,13 @@ Feature: 定时任务新建
     And I set the parameter "StartTimeInput" with value "00:01:10"
     And I will see the element "WhenToStart" contains "明天开始"
     And I click the "EnsureButton" button
-    And I wait for "Message" will be visible
-    Then I will see the element "Message" contains "明天开始，是否继续"
+    And I wait for "ErrorMessage" will be visible
+    Then I will see the element "ErrorMessage" contains "明天开始，是否继续"
     When I click the "Cancel" button
     And I wait for "1500" millsecond
     And I click the "EnsureButton" button
-    And I wait for "Message" will be visible
-    Then I will see the element "Message" contains "明天开始，是否继续"
+    And I wait for "ErrorMessage" will be visible
+    Then I will see the element "ErrorMessage" contains "明天开始，是否继续"
     And I click the "EnsureButton" button
     And I wait for "1500" millsecond
     And I wait for "SuccessMessage" will be visible
@@ -151,10 +151,10 @@ Feature: 定时任务新建
     And I will see the element "<element>" contains "<message>"
 
     Examples:
-      | taskName | crontab | message                             | element     |
-      | test     |         | crontab模式下, 执行计划不能为零或空 | TipText     |
-      | test     | test    | crontab格式错误！                   | Message     |
-      | test     | 0*      | crontab格式错误！                   | Message     |
+      | taskName | crontab | message                             | element          |
+      | test     |         | crontab模式下, 执行计划不能为零或空 | TipText          |
+      | test     | test    | crontab格式错误！                   | ErrorMessage     |
+      | test     | 0*      | crontab格式错误！                   | ErrorMessage     |
 
   Scenario: schedule_message_error_realtime
     Given open the "splSearch.SearchPage" page for uri "/search/"

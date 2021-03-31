@@ -44,7 +44,8 @@ Feature: 趋势图复制(RZY-1889)
     And I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "Copy_Test"
-    And I choose the "test_app" from the "AppField" in config
+    And I choose the "test_app" from the "AppField"
+    And I wait for "2000" millsecond
     And I set the parameter "TagInput" with value "auto_package"
     And I click the "SelectAddedTag" button
     And I set the parameter "DescribeInput" with value "AutoCreate"

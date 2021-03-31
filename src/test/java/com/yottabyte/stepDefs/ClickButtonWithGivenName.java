@@ -615,8 +615,7 @@ public class ClickButtonWithGivenName {
      */
     @And("^\"([^\"]*)\" the data \"([^\"]*)\" in tiny saved search$")
     public void operateDataInTinySavedSearch(String function, String name) {
-        //WebElement table = webDriver.findElement(By.xpath("(//table[contains(@class,'yotta-table')])[last()]"));
-        WebElement table = webDriver.findElement(By.xpath("//table[@yotta-test='search-savedsearch-table']"));
+        WebElement table = webDriver.findElement(By.xpath("(//table[@yotta-test='search-savedsearch-table']) | ((//table[contains(@class,'yotta-table')])[last()])"));
         WebElement tr = listPageUtils.getRowWithoutPaging(name, table);
         this.click(function, tr);
     }
