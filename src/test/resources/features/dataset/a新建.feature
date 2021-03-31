@@ -6,16 +6,13 @@ Feature: 数据集-a新建
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
 
+    Given I wait for loading complete
     And I set the parameter "Name" with value "<name>"
     And I set the parameter "Alias" with value "<alias>"
     And I set the parameter "Spl" with value "<Spl>"
 
     And I choose the "app之api全部用例" from the "appList"
     And I choose the "auto_package" from the "resourceGroup"
-#    And I choose1 the "auto_package" from the "resourceGroup"
-#    And I choose1 the "auto_package" from the "resourceGroup" in config
-
-
     And I click the "Save" button
 
     Then I will see the "dataset.DetailPage" page

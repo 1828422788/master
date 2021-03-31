@@ -76,7 +76,7 @@ public class ListPage extends ListPageFactory {
     }
 
     //@FindBy(xpath = "//label[@title='资源标签']/parent::div/following-sibling::div")
-//    private WebElement resourceGroup;
+//  private WebElement resourceGroup;
     public WebElement getResourceGroup() {
         String xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
