@@ -209,7 +209,7 @@ Feature: 仪表盘过滤项
     And I set the parameter "ChoiceValue" with value "测试市"
     And I click the "AddChoiceValueButton" button
     And I "checked" the checkbox which name is "测试过滤项"
-    And I wait for "500" millsecond
+#    And I wait for "500" millsecond
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 

@@ -927,13 +927,13 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//*[@yotta-test='table_chart-alignment-select']/div")
     private WebElement chartAlignment;
 
-    @FindBy(xpath = "//*[@yotta-test='table_chart-default_values_color-button']")
+    @FindBy(xpath = "//*[@yotta-test='table_chart-default_values_color-radio']")
     private WebElement colorValueDefault;
 
-    @FindBy(xpath = "//*[@yotta-test='table_chart-auto_values_color-button']")
+    @FindBy(xpath = "//*[@yotta-test='table_chart-auto_values_color-radio']")
     private WebElement colorValueRandom;
 
-    @FindBy(xpath = "//*[@yotta-test='table_chart-define_values_color-button']")
+    @FindBy(xpath = "//*[@yotta-test='table_chart-define_values_color-radio']")
     private WebElement colorValueCustom;
 
     @FindBy(xpath = "//span[text()='添加值颜色']/parent::button")

@@ -447,6 +447,7 @@ Feature: 仪表盘高级编辑
     And I wait for "Progress" will be invisible
     When the chart title is "仪表盘所有" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I wait for "1000" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"

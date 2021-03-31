@@ -189,7 +189,7 @@ public class SetKeyWithValue {
             element.sendKeys(Keys.CONTROL, "a");
         else
             element.sendKeys(Keys.COMMAND, "a");
-        element.sendKeys(Keys.DELETE);
+        element.sendKeys(Keys.BACK_SPACE);
         element.sendKeys(value);
     }
 

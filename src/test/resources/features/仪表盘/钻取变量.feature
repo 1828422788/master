@@ -132,7 +132,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "* | stats count() by ${click.name}"
@@ -161,7 +161,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "apache.clientip:${click.value}"
@@ -252,7 +252,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I wait for "500" millsecond
     And I click the "Custom" button
@@ -382,7 +382,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "* | stats count() by ${click.name}"
@@ -411,7 +411,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "apache.geo.province:${click.value}"
@@ -442,7 +442,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "* | stats ${click.name2} by apache.geo.province"
@@ -471,7 +471,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "tag:sample04061424 | stats count() as cn by apache.geo.country,apache.geo.province,apache.geo.city | where cn ==${click.value2}"
@@ -499,7 +499,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "tag:sample04061424 | stats count() by '${row.apache.geo.province}'"
@@ -528,7 +528,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "starttime=${start} endtime=${end} *"
@@ -617,7 +617,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "* | stats count() by ${click.name}"
@@ -644,8 +644,8 @@ Feature: 仪表盘钻取配置-钻取变量
     When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
-    And I choose the "跳转到搜索页" from the "DrillAction"
-    And I click the "Custom" button
+#    And I choose the "跳转到搜索页" from the "DrillAction"
+#    And I click the "Custom" button
     And I set the parameter "Spl" with value "* | stats ${click.name2} by appname"
     And I click the "DateEditor" button
     And I click the "Shortcut" button
@@ -670,7 +670,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "apache.clientip:${click.value}"
@@ -696,7 +696,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==${click.value2}"
@@ -723,7 +723,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "apache.clientip:${row.apache.clientip}"
@@ -750,7 +750,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "starttime=${start} endtime=${end} *"
@@ -842,7 +842,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "tag:*display | stats avg(apache.status) |eval icon=if('${click.name}'>300,'thumbs-down','thumbs-up')"
@@ -865,7 +865,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    And I wait for "Progress" will be invisible
     And I click the "MoreChartConfigs" button
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "tag:*display | stats avg(apache.status) |eval icon=if('${click.name2}'>300,'thumbs-down','thumbs-up')"
@@ -901,8 +901,8 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "MoreChartConfigs" button
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
-    And I choose the "跳转到搜索页" from the "DrillAction"
-    And I click the "Custom" button
+#    And I choose the "跳转到搜索页" from the "DrillAction"
+#    And I click the "Custom" button
     And I set the parameter "Spl" with value "starttime=${start} endtime=${end} *"
     And I click the "DateEditor" button
     And I click the "Shortcut" button
@@ -964,7 +964,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "SettingChart" button under some element
-    And I choose the "apache.clientip" from the "DataField"
+    And I choose the "count()" from the "DataField"
     And I wait for "1000" millsecond
     And I choose the "apache.clientip" from the "DisplayField"
     And I wait for "1000" millsecond
@@ -998,7 +998,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "Ensure" button
     And I click the "MoreChartConfigs" button
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "apache.clientip:${click.value}"
@@ -1014,14 +1014,14 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to another window
 #    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
-    Then I will see the "SearchInput" result will be "apache.clientip:64.20.177.254"
+    Then I will see the "SearchInput" result will be "apache.clientip:12"
     And switch to another window
     And I will see the "dashboard.DetailPage" page
     And I wait for loading invisible
     And I close all tabs except main tab
     And I click the "MoreChartConfigs" button
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "apache.clientip:${click.value2}"
@@ -1031,7 +1031,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
-    Then I will see the "SearchInput" result will be "apache.clientip:64.20.177.254"
+    Then I will see the "SearchInput" result will be "apache.clientip:12"
 
   @dashboard
   Scenario Outline: 添加表格图表
@@ -1068,7 +1068,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "* | stats count() by ${click.name}"
@@ -1094,7 +1094,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "* | stats count() by ${click.name2}"
@@ -1130,7 +1130,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "apache.clientip:${click.value}"
@@ -1155,7 +1155,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "apache.resp_len:${click.value2}"
@@ -1181,7 +1181,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "apache.resp_len:${row.apache.resp_len}"
@@ -1215,7 +1215,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "Ensure" button
     And I click the "MoreChartConfigs" button
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "starttime=${start} endtime=${end} *"

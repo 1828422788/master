@@ -148,7 +148,7 @@ Feature: 仪表盘柱状图
     And I wait for "Progress" will be invisible
     When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "tag:sample04061424_display | stats count() by ${click.name}"
@@ -176,7 +176,7 @@ Feature: 仪表盘柱状图
     And I wait for "Progress" will be invisible
     When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "apache.clientip:${click.value}"
@@ -190,7 +190,7 @@ Feature: 仪表盘柱状图
     And switch to another window
 #    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
-    Then I will see the "SearchInput" result will be "apache.clientip:223.104.175.249"
+    Then I will see the "SearchInput" result will be "apache.clientip:222.74.195.206"
     And I wait for "2000" millsecond
 #    Then I will see the input element "TimeRange" value will contains "今天"
     Then I will see the "TimeRange" result will be "今天"
@@ -204,7 +204,7 @@ Feature: 仪表盘柱状图
     And I wait for "Progress" will be invisible
     When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "tag:sample04061424_display | stats ${click.name2} by appname"
@@ -232,7 +232,7 @@ Feature: 仪表盘柱状图
     And I wait for "Progress" will be invisible
     When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "tag:sample04061424_display | stats count() as cn by apache.resp_len,apache.clientip | where cn==${click.value2}"
@@ -258,7 +258,7 @@ Feature: 仪表盘柱状图
     And I wait for "Progress" will be invisible
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "<spl>"
@@ -329,7 +329,7 @@ Feature: 仪表盘柱状图
     And I wait for "Progress" will be invisible
     When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "apache.clientip:${row.apache.clientip}"
