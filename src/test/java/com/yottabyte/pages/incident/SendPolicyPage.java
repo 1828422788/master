@@ -89,7 +89,8 @@ public class SendPolicyPage extends PageTemplate {
         return delNoticeReceiveGroupButton;
     }
 
-    @FindBy(xpath = "//input[@placeholder='请输入名称']")
+//    @FindBy(xpath = "//input[@placeholder='请输入名称']")
+    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
     private WebElement noticeReceiveGroupNameSearchInput;
 
     public WebElement getNoticeReceiveGroupNameSearchInput() {

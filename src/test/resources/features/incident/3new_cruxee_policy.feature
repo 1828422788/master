@@ -1,5 +1,5 @@
 @incident @cruxee
-Feature: 事件管理-合并策略-11个
+Feature: 事件管理-合并策略-5个
 
   @newcru1 @newcru
   Scenario Outline: 合并2组_高_字段统计_分组条件name_归并告警数量18条
@@ -123,7 +123,7 @@ Feature: 事件管理-合并策略-11个
       | 合并1组_低_连续统计_无分组_未收到新告警的时间1小时  | 邮件_all_20分钟 |
 
   @newcru4 @newcru
-  Scenario Outline: 合并1组_低_连续统计_无分组_未收到新告警的时间1小时
+  Scenario Outline: 合并2组_高中_SPL统计_分组条件priority_最后一条告警字段priority低或5小时
     Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/policy/list/"
     And I click the "CreateCruxeePolicy" button
     And I set the parameter "CruxeePolicyName" with value "<CruxeePolicyName>"

@@ -29,11 +29,15 @@ Feature: 事件管理_用户接收组_7个
   @editrec
   Scenario Outline: 测试编辑接收组
     Given open the "incident.SendPolicyPage" page for uri "/app/incident/sender-policy/list/"
+    Given I wait for loading complete
     And I click the "NoticeReceiveGroup" button
 
+    Given I wait for loading complete
     When I set the parameter "NoticeReceiveGroupNameSearchInput" with value "<NoticeReceiveGroupName>"
+    And I wait for "2000" millsecond
     And I click the "NoticeReceiveGroupEditButton" button
 
+    Given I wait for loading complete
     And I set the parameter "NoticeReceiveGroupNameInput" with value "update_响应组1"
     And I choose1 the "<ReceiveGroupNonMemberValue>" from the "ReceiveGroupNonMember"
     And I click the "ReceiveGroupMemberLable" button
