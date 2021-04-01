@@ -1,6 +1,5 @@
 @reportCreateCharts @allReports @reportChartsWORD
 Feature: 报表新建_编辑_其他word
-#10
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
@@ -223,7 +222,7 @@ Feature: 报表新建_编辑_其他word
     When I click the "ParameterSetting" button
     And I set the parameter "FieldValue" with value "count()"
     And I click the "Divide" button
-    And I set the parameter "FieldValue" with value "apache.geo.city"
+    And I set the parameter "GroupField" with value "apache.geo.city" and press enter
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
@@ -262,7 +261,7 @@ Feature: 报表新建_编辑_其他word
     And I click the "UnifyMetric" button
     And I click the "Divide" button
 
-    And I set the parameter "FieldValue" with value "apache.geo.city"
+    And I set the parameter "GroupField" with value "apache.geo.city" and press enter
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
@@ -300,7 +299,7 @@ Feature: 报表新建_编辑_其他word
     And I click the "Value" button
     And I set the parameter "FieldValue" with value "count()"
     And I click the "Divide" button
-    And I set the parameter "FieldValue" with value "apache.clientip"
+    And I set the parameter "GroupField" with value "apache.clientip" and press enter
     And I click the "Example" button
     And I click the "<label>" button
     And I click the "Exhibition" button

@@ -330,7 +330,17 @@ public class SetKeyWithValue {
                 JavascriptExecutor executor = (JavascriptExecutor)webDriver;
                 executor.executeScript(jScript, element);
             }
+        }
+    }
 
+    @And("^I set the parameter \"([^\"]*)\" with value \"([^割]*)\" and press enter$")
+    public void iSetTheParameterWithValuePressEnter(String elementName, String value) {
+        if (elementName != null && elementName.trim().length() != 0) {
+            WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+            element.click();
+            WebElement inputElement = webDriver.findElement(By.xpath("//li//input"));
+            inputElement.sendKeys(value);
+            inputElement.sendKeys(Keys.ENTER);
         }
     }
 

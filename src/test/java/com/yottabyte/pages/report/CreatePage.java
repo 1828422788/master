@@ -60,6 +60,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@yotta-test='report-trend_selector-dropdown']//span[text()]")
     private WebElement chartList;  //添加趋势图
 
+    @FindBy(xpath = "//div[@yotta-test='report-trend_selector-dropdown' and contains(@class,'disabled')]//span[text()]")
+    private WebElement disabledChartList;
+
     @FindBy(className = "yotta-dropdown-menu")
     private WebElement chartDropdownList;
 
@@ -246,6 +249,27 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//div[contains(text(),'Y轴 3')])[last()]")
     private WebElement yaxis3;
+
+    @FindBy(xpath = "(//span[text()='字段值']/ancestor::div[1]/following-sibling::div//span[contains(@class,'input')])[last()]")
+    private WebElement groupField;
+
+    @FindBy(className = "yotta-alert-message")
+    private WebElement alertMessage;
+
+    @FindBy(xpath = "//span[text()='基本设置']")
+    private WebElement topOfThePage;
+
+    public WebElement getTopOfThePage() {
+        return topOfThePage;
+    }
+
+    public WebElement getAlertMessage() {
+        return alertMessage;
+    }
+
+    public WebElement getGroupField() {
+        return groupField;
+    }
 
     public WebElement getYaxis1() {
         return yaxis1;
@@ -562,6 +586,10 @@ public class CreatePage extends PageTemplate {
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
         }
         return lastDropdownList;
+    }
+
+    public WebElement getDisabledChartList() {
+        return disabledChartList;
     }
 
     public WebElement getCrontab() {
@@ -947,6 +975,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getActual() {
         return getInputSetting("实际值");
+    }
+
+    public WebElement getIconName() {
+        return getInputSetting("图标名称");
     }
 
     public WebElement getBubbleSize() {

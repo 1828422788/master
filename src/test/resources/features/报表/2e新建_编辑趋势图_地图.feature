@@ -1,6 +1,5 @@
 @reportCreateCharts @allReports
 Feature: 报表新建_编辑_地图
-#6
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
@@ -31,7 +30,7 @@ Feature: 报表新建_编辑_地图
     When I click the "ParameterSetting" button
     And I set the parameter "FieldValue" with value "count()"
     And I click the "Divide" button
-    And I set the parameter "FieldValue" with value "apache.geo.city"
+    And I set the parameter "GroupField" with value "apache.geo.city" and press enter
     And I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
@@ -120,7 +119,7 @@ Feature: 报表新建_编辑_地图
     When I click the "ParameterSetting" button
     And I set the parameter "FieldValue" with value "count()"
     And I click the "Divide" button
-    And I set the parameter "FieldValue" with value "<divideField>"
+    And I set the parameter "GroupField" with value "<divideField>" and press enter
     And I click the "Region" button
     And I click the "Select<region>" button
     And I click the "GoingDown" button

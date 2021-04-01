@@ -93,10 +93,9 @@ Feature: 报表新建_选择
     And I set the parameter "TrendNameField" with value "报表测试_10"
     And I click the "EnsureButton" button
     Then I will see the element "ChosenTrendLast" contains "报表测试_10"
-    When I choose the "报表测试" from the "ChartList"
-    When I click the "FinishButton" button under some element
-    And I wait for "ErrorMessage" will be visible
-    Then I will see the error message "每个报表最多保存10个趋势图"
+    And I wait for "AlertMessage" will be visible
+    And I will see the element "AlertMessage" contains "每个报表最多保存10个趋势图"
+    And I wait for "DisabledChartList" will be visible
 
   Scenario Outline: new_report_moveTrends
     When I set the parameter "Name" with value "<caseNum>"
@@ -129,6 +128,9 @@ Feature: 报表新建_选择
     And I set the parameter "TrendNameField" with value "报表测试_3"
     And I click the "EnsureButton" button
     Then I will see the element "ChosenTrendLast" contains "报表测试_3"
+    And I click the "ChosenTrendLast" button
+    And I drag the scroll bar to the element "TopOfThePage"
+    And I wait for "2000" millsecond
     When I click the "<button>" button
     Then I will see the element "ChosenTrendFirst" contains "<trendFirst>"
     And I will see the element "ChosenTrendLast" contains "<trendLast>"
@@ -140,10 +142,10 @@ Feature: 报表新建_选择
       |     button           |  trendFirst   |  trendLast  | caseNum             |
       | LastTrendDelete      |  报表测试_1   | 报表测试_2  | test_deleteLast     |
       | FirstTrendDelete     |  报表测试_2   | 报表测试_3  | test_deleteFirst    |
-      | LastTrendUpTop       |  报表测试_3   | 报表测试_2  | test_upTopLast      |
-      | FirstTrendDownBottom |  报表测试_2   | 报表测试_1  | test_downBottomFirst|
-      | LastTrendUp          |  报表测试_1   | 报表测试_2  | test_upLast         |
-      | FirstTrendDown       |  报表测试_2   | 报表测试_3  | test_downFirst      |
+#      | LastTrendUpTop       |  报表测试_3   | 报表测试_2  | test_upTopLast      |
+#      | FirstTrendDownBottom |  报表测试_2   | 报表测试_1  | test_downBottomFirst|
+#      | LastTrendUp          |  报表测试_1   | 报表测试_2  | test_upLast         |
+#      | FirstTrendDown       |  报表测试_2   | 报表测试_3  | test_downFirst      |
 
   Scenario: new_report_modifyTrend_cancel
     When I set the parameter "Name" with value "test_modify_cancel"

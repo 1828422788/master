@@ -79,10 +79,9 @@ Feature: 报表_趋势图个数限制
     And I set the parameter "TrendNameField" with value "报表测试_5"
     And I click the "EnsureButton" button
     Then I will see the element "ChosenTrendLast" contains "报表测试_5"
-    When I choose the "报表测试" from the "ChartList"
-    When I click the "FinishButton" button under some element
-    And I wait for "ErrorMessage" will be visible
-    Then I will see the error message "每个报表最多保存5个趋势图"
+    And I wait for "AlertMessage" will be visible
+    And I will see the element "AlertMessage" contains "每个报表最多保存5个趋势图"
+    And I wait for "DisabledChartList" will be visible
 
 
   Scenario: change_limit_default

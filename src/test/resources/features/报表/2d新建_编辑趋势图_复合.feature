@@ -1,6 +1,5 @@
 @reportCreateCharts @allReports
 Feature: 报表新建_编辑_复合
-#2
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
@@ -107,7 +106,7 @@ Feature: 报表新建_编辑_复合
     And I choose the "散点图" from the "TypeChartField"
 
     And I click the "Group" button
-    And I set the parameter "FieldValue" with value "apache.status"
+    And I set the parameter "GroupField" with value "apache.status" and press enter
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Red" button

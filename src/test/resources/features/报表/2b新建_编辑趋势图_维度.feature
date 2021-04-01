@@ -1,6 +1,5 @@
 @reportCreateCharts @allReports
 Feature: 报表新建_编辑_维度
-#6
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
@@ -32,7 +31,7 @@ Feature: 报表新建_编辑_维度
     And I set the parameter "FieldValue" with value "ip_count"
 
     And I click the "Divide" button
-    And I set the parameter "FieldValue" with value "apache.clientip"
+    And I set the parameter "GroupField" with value "apache.clientip" and press enter
 
     And I click the "Exhibition" button
     And I click the "AddColor" button
@@ -82,13 +81,15 @@ Feature: 报表新建_编辑_维度
     And I set the parameter "FieldValue" with value "count()"
 
     And I click the "Divide" button
-    And I set the parameter "FieldValue" with value "apache.status"
-    And I click the "AddField" button
-    And I set the parameter "FieldValue" with value "apache.geo.province"
+    And I set the parameter "GroupField" with value "apache.status" and press enter
 
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+
+    And I click the "Divide" button
+    And I set the parameter "GroupField" with value "apache.geo.province" and press enter
+
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
@@ -128,7 +129,7 @@ Feature: 报表新建_编辑_维度
     And I set the parameter "FieldValue" with value "ip_count"
 
     And I click the "Divide" button
-    And I set the parameter "FieldValue" with value "apache.clientip"
+    And I set the parameter "GroupField" with value "apache.clientip" and press enter
 
     And I click the "Exhibition" button
     And I click the "AddColor" button

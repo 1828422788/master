@@ -1,6 +1,5 @@
 @reportCreateCharts @allReports @reportChartsWORD
 Feature: 报表新建_编辑_序列word
-#5
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
@@ -39,7 +38,7 @@ Feature: 报表新建_编辑_序列word
     And I set the parameter "Max" with value "<max>"
 
     And I click the "Group" button
-    And I set the parameter "FieldValue" with value "apache.method"
+    And I set the parameter "GroupField" with value "apache.method" and press enter
 
     And I click the "Example" button
     And I click the "<legendPosition>" button
@@ -85,7 +84,7 @@ Feature: 报表新建_编辑_序列word
     And I set the parameter "Max" with value "<max>"
 
     And I click the "Group" button
-    And I set the parameter "FieldValue" with value "apache.method"
+    And I set the parameter "GroupField" with value "apache.method" and press enter
     And I click the "Pile" button
 
     And I click the "Example" button
@@ -130,7 +129,7 @@ Feature: 报表新建_编辑_序列word
     And I set the parameter "unit" with value "<unit>"
 
     And I click the "Group" button
-    And I set the parameter "FieldValue" with value "apache.method"
+    And I set the parameter "GroupField" with value "apache.method" and press enter
 
     And I click the "Bubble" button
     And I click the "AccordingField" button
