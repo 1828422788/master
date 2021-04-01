@@ -77,6 +77,7 @@ Feature: 仪表盘钻取配置二
     And I click the detail which name is "钻取配置二"
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
+    And I wait for "1500" millsecond
     And I switch the dashboard "OpenDrilldown" button to "enable"
 #    And I click the "OpenDrilldown" button
     And I wait for "500" millsecond
