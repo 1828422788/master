@@ -85,7 +85,7 @@ Feature: 仪表盘表格样式设置
     And I click the "ColorValueDefault" button
     And I wait for "500" millsecond
     And I click the "ChartEditorEnsure" button
-    Then I will see the element "ValueOfNanjing" style contains "background-color: rgb(230, 247, 255);"
+    Then I will see the element "ValueOfNanjingDefault" style contains "background-color: rgb(230, 247, 255);"
 
   @dashboard @dashboardSmoke
   Scenario: 编辑图表样式-颜色-值-随机 RZY-4847

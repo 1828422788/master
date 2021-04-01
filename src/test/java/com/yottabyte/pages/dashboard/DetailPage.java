@@ -291,7 +291,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//*[name()='g'][contains(@class,'vx-axis-left')]")
     private WebElement sequenceChartYaxis;
 
-    @FindBy(xpath = "//div[text()='404']/ancestor::div[contains(@class,'sc-dlfnbm')]/parent::div")
+    @FindBy(xpath = "//div[text()='404']/ancestor::div[contains(@class,'sc-dkXqmJ')]/parent::div")
     private WebElement multiYaxisLegend;
 
     @FindBy(xpath = "//div[contains(@class,'sc-bdfBwQ')]/parent::div")
@@ -962,6 +962,9 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//label[text()='列宽度：']/following-sibling::div//input")
     private WebElement chartColumnWidth;
+
+    @FindBy(xpath = "//span[text()='南京市']/ancestor::td/following-sibling::td//div[@class='shadow-box']")
+    private WebElement valueOfNanjingDefault;
 
     @FindBy(xpath = "//span[text()='南京市']/ancestor::td/following-sibling::td/div")
     private WebElement valueOfNanjing;
@@ -2330,6 +2333,8 @@ public class DetailPage extends PageTemplate {
     public WebElement getChartColumnWidth() { return chartColumnWidth; }
 
     public WebElement getValueOfNanjing() { return valueOfNanjing; }
+
+    public WebElement getValueOfNanjingDefault() { return valueOfNanjingDefault; }
 
     public WebElement getChartEditorEnsure() { return chartEditorEnsure; }
 
