@@ -3,6 +3,7 @@ Feature: 趋势图标签
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
+    And I wait for "Loading" will be invisible
 
   Scenario: create_trend
     Then I click the "NewTrendButton" button
@@ -53,7 +54,6 @@ Feature: 趋势图标签
 
 
   Scenario Outline: delete_trend
-    Given open the "trend.ListPage" page for uri "/trend/"
     When the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     Then I will see the message "确认删除 [<name>] ?"

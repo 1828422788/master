@@ -589,14 +589,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(@class,'help-text')])[1]")
     private WebElement tipText;
 
-    @FindBy(xpath = "(//div[contains(@id,'popover')])[last()]")
-    private WebElement colorPopover;
-
-    public WebElement getColorPopover() {
-        (webDriver.findElement(By.xpath("//span[text()='表格样式设置']"))).click();
-        return colorPopover;
-    }
-
     public WebElement getTipText() {
         return tipText;
     }
@@ -2059,6 +2051,11 @@ public class CreatePage extends PageTemplate {
     }
 
     private WebElement getInputSetting(String name) {
+        try{
+            Thread.sleep(700);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return webDriver.findElement(By.xpath("(//span[text()='" + name + "']/ancestor::div[1]/following-sibling::div//input)[last()]"));
     }
 

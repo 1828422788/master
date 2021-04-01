@@ -59,14 +59,14 @@ Feature: 趋势图新建_报表
 
   Scenario Outline: delete_trend_report
     When open the "trend.ListPage" page for uri "/trend/"
-    And I wait for "2000" millsecond
+    And I wait for "Loading" will be invisible
     And  the data name is "{'column':'0','name':'<trend_name>'}" then i click the "删除" button in more menu
     Then I will see the message "确认删除 [<trend_name>] ?"
     When I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
     When open the "report.ListPage" page for uri "/reports/"
-    And I wait for "2000" millsecond
+    And I wait for "Loading" will be invisible
     And the data name is "{'column':'1','name':'<report_name>'}" then i click the "删除" button in more menu
     Then I will see the message "此操作将删除 [<report_name>], 是否继续？"
     When I click the "Ensure" button

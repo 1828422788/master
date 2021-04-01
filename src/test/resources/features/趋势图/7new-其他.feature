@@ -567,7 +567,6 @@ Feature: 趋势图新建_其他
     And I click the "Settings" button
     And I choose the "count_perc" from the "FieldValue" in config
     And I click the "Compare" button
-#    And I click the "AddField" button
     And I choose the "count2_perc" from the "FieldValue" in config
     And I click the "Generate" button
 
@@ -621,7 +620,6 @@ Feature: 趋势图新建_其他
     And I click the "Settings" button
     And I choose the "count_perc" from the "FieldValue" in config
     And I click the "Compare" button
-#    And I click the "AddField" button
     And I choose the "count2_perc" from the "FieldValue" in config
     And I click the "Facet" button
     And I choose the "apache.clientip" from the "FieldValue" in config
@@ -666,7 +664,6 @@ Feature: 趋势图新建_其他
     And I click the "Settings" button
     And I choose the "count_perc" from the "FieldValue" in config
     And I click the "Compare" button
-#    And I click the "AddField" button
     And I choose the "count2_perc" from the "FieldValue" in config
     And I click the "Facet" button
     And I choose the "apache.clientip" from the "FieldValue" in config

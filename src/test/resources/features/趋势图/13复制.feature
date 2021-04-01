@@ -3,6 +3,7 @@ Feature: 趋势图复制(RZY-1889)
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
+    And I wait for "Loading" will be invisible
 
   Scenario: create_trend
     Then I click the "NewTrendButton" button
@@ -53,7 +54,6 @@ Feature: 趋势图复制(RZY-1889)
     Then I wait for "SuccessCreate" will be visible
 
   Scenario: copy_trend
-    And I wait for "2000" millsecond
     When the data name is "Copy_Test" then i click the "复制" button in more menu
     And I wait for "Ensure" will be visible
     Then I will see the message "复制成功"
@@ -76,7 +76,6 @@ Feature: 趋势图复制(RZY-1889)
 #    And I will see the element "AppOfTheLastItem" contains "test_app"
 
   Scenario: verify_copy
-    And I wait for "2000" millsecond
     And I will see the data "{'column':'0','name':'Copy_Test_副本'}" values "{'column':'4','name':'auto_package'}"
     And I will see the data "{'column':'0','name':'Copy_Test_副本'}" values "{'column':'3','name':'test_app'}"
     When the data name is "Copy_Test_副本" then i click the "编辑" button
@@ -103,7 +102,6 @@ Feature: 趋势图复制(RZY-1889)
     Then I wait for "SuccessUpdate" will be visible
 
   Scenario Outline: delete_copy
-    And I wait for "2000" millsecond
     When the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     Then I will see the message "确认删除 [<name>] ?"
