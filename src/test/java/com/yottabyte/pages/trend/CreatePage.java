@@ -589,6 +589,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(@class,'help-text')])[1]")
     private WebElement tipText;
 
+    @FindBy(xpath = "//*[text()='表格样式设置']")
+    private WebElement colorPopover;
+
+    public WebElement getColorPopover() {
+        return colorPopover;
+    }
+
     public WebElement getTipText() {
         return tipText;
     }
