@@ -77,6 +77,28 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "(//span[text()='下载'])[1]")
     private WebElement download;
 
+    @FindBy(xpath = "//div/ul/li/span[text()='授权']")
+    private WebElement auth;
+
+    @FindBy(xpath = "//div/ul/li/span[text()='删除']")
+    private WebElement delete;
+
+    @FindBy(xpath = "//div/ul/li/span[text()='标签']")
+    private WebElement label;
+
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//span[@class='yotta-select-selection-placeholder']")
+    private WebElement tagToInput;
+
+    public WebElement getTagToInput() {
+        return tagToInput;
+    }
+
+    public WebElement getLabel() {return label;}
+
+    public WebElement getAuth() {return auth;}
+
+    public WebElement getDelete() {return delete;}
+
     public WebElement getAppOfTheLastItem() {
         return appOfTheLastItem;
     }

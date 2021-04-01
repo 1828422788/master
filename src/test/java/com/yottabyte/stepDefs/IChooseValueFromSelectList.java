@@ -242,6 +242,48 @@ public class IChooseValueFromSelectList {
 //        }
     }
 
+    /**
+     * 选择下拉框内容
+     *
+     * @param values         想要选择的内容，支持list
+     * @param selectListName 下拉框元素名称
+     */
+    @And("^I choose the \"([^\"]*)\" from the \"([^\"]*)\" in report$")
+    public void iChooseTheFromTheInReport(List<String> values, String selectListName) {
+        if (values.size() == 0) {
+            return;
+        }
+        Object o = GetElementFromPage.getWebElementWithName(selectListName);
+        if (o != null) {
+            if (o instanceof List) {
+                List fatherSelectList = (List) o;
+                iChooseTheFromThe(values, fatherSelectList);
+            } else {
+                WebElement element = (WebElement) o;
+                iChooseTheFromTheInReport(values, element);
+            }
+        }
+    }
+    public void iChooseTheFromTheInReport(List<String> values, WebElement parentElement) {
+        List<WebElement> elements = webDriver.findElements(By.xpath("//li"));
+        for (String value : values) {
+            if (value != null && value.trim().length() != 0) {
+                for (WebElement e : elements) {
+                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+                    String cur_text = e.getText();
+                    if (value.equals(cur_text)) {
+                        e.click();
+                        break;
+                    }
+                }
+            }
+        }
+//        System.out.println(parentElement);
+//        if (ElementExist.isElementExist(webDriver, parentElement) && values.size() > 1) {
+//            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", parentElement);
+//        }
+    }
+
     public void iChooseTheFromTheAgent(List<String> values, WebElement parentElement) {
 
         if (parentElement.getAttribute("class").contains("ant-select-dropdown-menu-root")) {

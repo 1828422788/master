@@ -571,7 +571,7 @@ public class ClickButtonWithGivenName {
     public void checkSwitch(String name) {
         WebElement tr = listPageUtils.getRow(name);
         WebElement switchButton = tr.findElement(By.xpath(".//button"));
-        Assert.assertFalse(switchButton.isEnabled());
+        Assert.assertFalse(!switchButton.isEnabled());
     }
 
     /**

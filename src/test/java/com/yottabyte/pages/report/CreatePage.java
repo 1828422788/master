@@ -46,6 +46,8 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@yotta-test='report-email-select']//input")
     private WebElement emailField;
 
+    public WebElement getComplete() { return getYottaButton("step-done-button");}
+
     public WebElement getEmailField(){
         emailInput.click();
         return emailField;
