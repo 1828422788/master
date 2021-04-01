@@ -196,13 +196,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//p[text()='+ 添加'])[last()] | (//*[name()='svg' and @data-icon='AddCircleOutlined']/ancestor::span[1]) | (//button[@yotta-test='chartgui-tab_list_add-button'])")
     private WebElement addField;
 
-    @FindBy(xpath = "(//*[text()='中国'])/ancestor::span")
+    @FindBy(xpath = "(//input[@value='china'])[last()]")
     private WebElement selectChina;
 
-    @FindBy(xpath = "(//*[text()='江苏'])/ancestor::span")
+    @FindBy(xpath = "(//input[@value='jiangsu'])[last()]")
     private WebElement selectJiangsu;
 
-    @FindBy(xpath = "(//*[text()='世界'])/ancestor::span")
+    @FindBy(xpath = "(//input[@value='world'])[last()]")
     private WebElement selectWorld;
 
     @FindBy(xpath = "//label[text()='报表类型']/following-sibling::div//div[@class='ant-select-selection-selected-value']")

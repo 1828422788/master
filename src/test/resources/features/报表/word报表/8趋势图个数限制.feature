@@ -7,7 +7,7 @@ Feature: 报表_富文本编辑_限制
     And I drag the scroll bar to the element "TrendLimit"
     And I will see the input element "TrendLimit" value will be "10"
     And I wait for "SuccessMessage" will be invisible
-    When I set the parameter "TrendLimit" with value "5"
+    When I set the parameter "TrendLimit" with value "3"
     And I let element "TrendLimit" lose focus
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
@@ -46,36 +46,15 @@ Feature: 报表_富文本编辑_限制
     And I select all text in row "2" and column "1" of the table in word report
     And I set the parameter "ChartListInput" with value "报表测试"
     And I click the button with text "报表测试"
-    And I wait for "2000" millsecond
-    And I will see the element "LastAddedTrend" contains "报表测试(3)"
-    And I select all text in row "2" and column "2" of the table in word report
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
-    And I wait for "2000" millsecond
-    And I will see the element "LastAddedTrend" contains "报表测试(4)"
-    And I select all text in row "2" and column "3" of the table in word report
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
-    And I will see the message "最多添加5个趋势图" in alert window
+    And I will see the message "最多添加3个趋势图" in alert window
     And I accept alert window
-    And I will see the element "LastAddedTrend" contains "报表测试(4)"
-
-    And I set the parameter "TextArea" with value "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
-    And I wait for "2000" millsecond
-    And I will see the element "LastAddedTrend" contains "报表测试"
-    
-    When I click the "FinishButton" button under some element
-    And I wait for "ResultMessage" will be visible
-    And I will see the element "ResultMessage" contains "新建成功"
 
 
   Scenario: change_limit_default
     Given open the "system.CustomConfigs" page for uri "/system/"
     And I wait for "2000" millsecond
     And I drag the scroll bar to the element "TrendLimit"
-    And I will see the input element "TrendLimit" value will be "5"
+    And I will see the input element "TrendLimit" value will be "3"
     And I wait for "SuccessMessage" will be invisible
     When I set the parameter "TrendLimit" with value "10"
     And I let element "TrendLimit" lose focus
