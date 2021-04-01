@@ -258,4 +258,13 @@ public class ListPage extends ListPageFactory {
     public WebElement getTagInput() {
         return tagInput;
     }
+
+    public WebElement getCancelDefaultButtonList() {
+        String xpath = "//button[@yotta-test='operation-more-button']";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownListEditApp();
+    }
+
 }
