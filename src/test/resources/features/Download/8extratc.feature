@@ -28,7 +28,7 @@ Feature: collect下载
     And I wait for "2000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "2000" millsecond
-    Then I will see the "NoDataInfo" result will be "查询无结果。"
+    Then I will see the "NoDataInfo" result will be "搜索无数据"
 
     Examples:
       | name                         | splQuery                                                |

@@ -132,7 +132,7 @@ Feature: 验证SPL搜索
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait element "SearchStatus" change text to "搜索完成!"
-    Then I will see the "NoDataInfo" result will be "查询无结果。"
+    Then I will see the "NoDataInfo" result will be "搜索无数据"
 
     Examples:
       | splQuery            |

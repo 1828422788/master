@@ -53,7 +53,7 @@ Feature: download_collect验证
     Then take a screenshot with name "v37dl/<name>"
 
     And I wait for "2000" millsecond
-    Then I will see the "NoDataInfo" result will be "查询无结果。"
+    Then I will see the "NoDataInfo" result will be "搜索无数据"
 
     Examples:
       | name                        | splQuery                           |
