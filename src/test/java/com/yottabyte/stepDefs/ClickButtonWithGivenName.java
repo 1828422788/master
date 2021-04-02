@@ -253,7 +253,9 @@ public class ClickButtonWithGivenName {
             xpath = "(.//span[contains(text(),'" + name + "')])[2]";
         } else if (webDriver.getCurrentUrl().contains("/dashboard/")){
             xpath = ".//span[contains(text(),'" + name + "')]";
-        } else {
+        } else if(webDriver.getCurrentUrl().contains("/topology/")){
+            xpath = ".//a[contains(text(),'" + name + "')]";
+        }else {
             xpath = ".//span";
         }
         tr.findElement(By.xpath(xpath)).click();

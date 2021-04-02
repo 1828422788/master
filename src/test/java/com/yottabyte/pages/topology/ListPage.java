@@ -19,7 +19,7 @@ public class ListPage extends ListPageFactory {
         super(driver);
     }
 
-    @FindBy(xpath = "//div[text()='标签']/following-sibling::div//input")
+    @FindBy(xpath = "//label[text()='标签']/parent::div/following-sibling::div//input")
     private WebElement tag;
 
     @FindBy(xpath = "//label[@title='资源标签']/ancestor::div/following-sibling::div//input")
@@ -30,6 +30,28 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(xpath = "//div/ul/li[3]/span[text()='删除']")
     private WebElement delete;
+
+    @FindBy(xpath = "//li[@yotta-test='topology-list_tag-button']/span")
+    private WebElement label;
+
+    @FindBy(xpath = "//li[@yotta-test='topology-list_authorize-button']/span[text()='授权']")
+    private WebElement auth;
+
+    @FindBy(xpath = "//li[@yotta-test='topology-list_rename-button']/span")
+    private WebElement rename;
+
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//span[@class='yotta-select-selection-placeholder']")
+    private WebElement tagToInput;
+
+    public WebElement getTagToInput() {
+        return tagToInput;
+    }
+
+    public WebElement getAuth() { return auth; }
+
+    public WebElement getRename() { return rename; }
+
+    public WebElement getLabel() { return label; }
 
     public WebElement getDelete() { return delete; }
 

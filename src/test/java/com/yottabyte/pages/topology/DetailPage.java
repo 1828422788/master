@@ -30,7 +30,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "icon-bianji1")
     private WebElement switchButton;
 
-    @FindBy(xpath = "//input[@placeholder='请输入节点名称！']")
+    @FindBy(xpath = "//input[@placeholder='请输入节点标签']")
     private WebElement nodeName;
 
     @FindBy(xpath = "//input[@placeholder='请输入节点分组']")
@@ -66,7 +66,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "icon-yejian")
     private WebElement nightMode;
 
-    @FindBy(xpath = "(//i[@class='anticon css-ifnfqv'])[2]")
+    @FindBy(xpath = "//button[@yotta-test='topology_opt-show-param-button']/span")
     private WebElement addInputButton;
 
     @FindBy(xpath = "(//i[@class='anticon css-ifnfqv'])[3]")
@@ -84,7 +84,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(id = "optionValues")
     private WebElement defaultValue;
 
-    @FindBy(id = "inputRange")
+    @FindBy(xpath = "//div[@yotta-test='topology_param-type-select']")
     private WebElement inputType;
 
     @FindBy(xpath = "(//span[text()='展示字段'])[last()]/ancestor::div/following-sibling::div")
@@ -171,7 +171,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//div[@class='ant-collapse-header'])[last()]")
     private WebElement valueHeader;
 
-    @FindBy(className = "ant-message-notice-content")
+    @FindBy(className = "yotta-message-content")
     private WebElement message;
 
     @FindBy(xpath = "(//i[@class='anticon css-ifnfqv'])[3]")
@@ -245,6 +245,16 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "(//div[@class='value'])[2]")
     private WebElement nodeValue2;
+
+    @FindBy(xpath = "//div[@yotta-test='topology_opt-show-dropdwon']//span")
+    private WebElement setting;
+
+    @FindBy(xpath = "//input[@yotta-test='toplogy_opt-edit-switch']")
+    private WebElement editTopologySwitch;
+
+    public WebElement getEditTopologySwitch() { return editTopologySwitch;}
+
+    public WebElement getSetting() { return setting;}
 
     public WebElement getNodeValue2() {
         return nodeValue2;
@@ -363,7 +373,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getSave() {
-        return super.getButton("保 存");
+        return super.getButton("保存");
     }
 
     public WebElement getUpdate() {
@@ -413,7 +423,8 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getIconNodeName() {
-        return getInput("节点名称");
+        //return getInput("节点名称");
+        return getInput("节点标签");
     }
 
     public WebElement getDefaultValueDropdown() {
@@ -459,7 +470,8 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getAddNodeButton() {
-        return super.getButton("添加节点");
+        //return super.getButton("添加节点");
+        return super.getButton("新建");
     }
 
     public WebElement getNodeName() {
@@ -503,7 +515,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getToken() {
-        return this.getInputElement("标识");
+        return this.getYottaCheckbox("topology_param-template-标识：-input");
     }
 
     public WebElement getDateEditor() {
@@ -624,7 +636,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getTitle() {
-        return this.getInputElement("标题");
+        return this.getYottaCheckbox("topology_param-template-标题：-input");
     }
 
     public WebElement getFiledInput() {
