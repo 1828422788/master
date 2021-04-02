@@ -4,15 +4,17 @@ Feature: 已存搜索新建（RZY-150）
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "2000" millsecond
 
   @newsaved1
   Scenario Outline: 新建已存搜索
     When I set the parameter "SearchInput" with value "<splQuery>"
-    Then I choose1 the "新建" from the "SavedSearchList"
     And I wait for loading complete
-#    And I wait for loading invisible
 
-    And I set the parameter "SavedSearchName" with value "<name>"
+    And I choose the "新建" from the "SavedSearchList"
+    And I wait for loading complete
+
+    And I set the parameter "SavedSearchNameInput" with value "<name>"
 #    And I choose the "<searchResName>" from the "GroupComboBox"
     And I click the "EnsureCreateSavedSearch" button
     And I wait for loading complete
@@ -29,7 +31,7 @@ Feature: 已存搜索新建（RZY-150）
   @newsaved2
   Scenario Outline: 新建监控使用已存搜索
     When I set the parameter "SearchInput" with value "<splQuery>"
-    Then I choose1 the "新建" from the "SavedSearchList"
+    And I choose1 the "新建" from the "SavedSearchList"
     And I wait for loading complete
 
     And I set the parameter "SavedSearchName" with value "<name>"
@@ -48,7 +50,7 @@ Feature: 已存搜索新建（RZY-150）
   @newsaved3
   Scenario Outline: 添加已存搜索-增删改查、重名
     When I set the parameter "SearchInput" with value "<splQuery>"
-    Then I choose1 the "新建" from the "SavedSearchList"
+    And I choose1 the "新建" from the "SavedSearchList"
     And I wait for loading complete
 
     And I set the parameter "SavedSearchName" with value "<name>"
@@ -67,7 +69,7 @@ Feature: 已存搜索新建（RZY-150）
   @newsaved4
   Scenario Outline: 新建索引模式及高基搜索
     When I set the parameter "SearchInput" with value "<splQuery>"
-    Then I choose1 the "新建" from the "SavedSearchList"
+    And I choose1 the "新建" from the "SavedSearchList"
     And I wait for loading complete
 
     And I set the parameter "SavedSearchName" with value "<name>"
@@ -83,7 +85,7 @@ Feature: 已存搜索新建（RZY-150）
 
   Scenario Outline: 权限及数据集相关
     When I set the parameter "SearchInput" with value "<splQuery>"
-    Then I choose1 the "新建" from the "SavedSearchList"
+    And I choose1 the "新建" from the "SavedSearchList"
     And I wait for loading complete
 
     And I set the parameter "SavedSearchName" with value "<name>"

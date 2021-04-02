@@ -77,11 +77,11 @@ public class SearchPage extends ListPageFactory {
 
     public WebElement getSavedSearchList() {
 //        String xpath = "//span[text()='已存搜索']/i";
-        String xpath = "//div[@yotta-test='search-search_option-dom']";
+        String xpath = "//div[@yotta-test='search-search_option-dom']/span/span[@aria-label='PlusDownOutlined']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        return getLastDropdownList37();
     }
 
     @FindBy(xpath = "//li/span[text()='新建']")
@@ -114,6 +114,13 @@ public class SearchPage extends ListPageFactory {
         return savedSearchNameInput;
     }
 
+    @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")
+    private WebElement savedSearchName;
+
+    public WebElement getSavedSearchName() {
+        return savedSearchName;
+    }
+
     public WebElement getEnsureCreateSavedSearch() {
         return super.getButton("确定");
     }
@@ -134,13 +141,6 @@ public class SearchPage extends ListPageFactory {
 
     public WebElement getTipText() {
         return tipText;
-    }
-
-    @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")
-    private WebElement savedSearchName;
-
-    public WebElement getSavedSearchName() {
-        return savedSearchName;
     }
 
     @FindBy(xpath = "//div[@class='yw-search-form-el-input normal-input margin-left el-input']/input")
