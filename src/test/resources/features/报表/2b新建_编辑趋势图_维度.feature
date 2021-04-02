@@ -48,14 +48,14 @@ Feature: 报表新建_编辑_维度
     Examples:
       |  reportType |   typeChart    |  name      |  typeInfo     |   color   |
       |  PDF        |  Pie           |  Pie       |  只展示名称    |   Red     |
-      |  PDF        |  Rose          |  Rose      |  展示全部      |   Green   |
+      |  PDF        |  Rose          |  Rose      |  全部展示      |   Green   |
       |  PDF        |  Bar           |  Bar       |  不展示        |   Yellow  |
 
     @reportChartsEXCEL
     Examples:
       |  reportType |   typeChart    |  name      |  typeInfo     |   color   |
       |  EXCEL      |  Pie           |  Pie       |  只展示名称    |   Red     |
-      |  EXCEL      |  Rose          |  Rose      |  展示全部      |   Green   |
+      |  EXCEL      |  Rose          |  Rose      |  全部展示      |   Green   |
       |  EXCEL      |  Bar           |  Bar       |  不展示        |   Yellow  |
 
 
@@ -147,13 +147,13 @@ Feature: 报表新建_编辑_维度
     Examples:
       |  reportType |   typeChart    |  name       |  typeInfo     | option         |  color   |
       |  PDF        |  Bar           |  Bar1       |  只展示名称    |  柱状外右侧    | Red      |
-      |  PDF        |  Bar           |  Bar2       |  展示全部      |  柱状内靠左侧  | Green    |
+      |  PDF        |  Bar           |  Bar2       |  全部展示      |  柱状内靠左侧  | Green    |
 
     @reportChartsEXCEL
     Examples:
       |  reportType |   typeChart    |  name       |  typeInfo     | option         |  color   |
       |  EXCEL      |  Bar           |  Bar1       |  只展示名称    |  柱状外右侧    | Red      |
-      |  EXCEL      |  Bar           |  Bar2       |  展示全部      |  柱状内靠左侧  | Green    |
+      |  EXCEL      |  Bar           |  Bar2       |  全部展示      |  柱状内靠左侧  | Green    |
 
   Scenario Outline: new_report_trend_sunburst
     When I set the parameter "Name" with value "<name>_<reportType>"

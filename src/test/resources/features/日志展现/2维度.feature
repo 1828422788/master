@@ -115,13 +115,13 @@ Feature: 日志展现_维度
     Examples:
       |   chartType   |  option     | descr      |
       |      Pie      |  不展示     | nolabel    |
-      |      Pie      |  展示全部   | full       |
+      |      Pie      |  全部展示   | full       |
       |      Pie      | 只展示名称  | name       |
       |      Rose     |  不展示     | nolabel    |
-      |      Rose     |  展示全部   | full       |
+      |      Rose     |  全部展示   | full       |
       |      Rose     | 只展示名称  | name       |
       |      Bar      |  不展示     | nolabel    |
-      |      Bar      |  展示全部   | full       |
+      |      Bar      |  全部展示   | full       |
       |      Bar      | 只展示名称  | name       |
 
 
@@ -158,12 +158,12 @@ Feature: 日志展现_维度
       |      Bar      | Red     |只展示名称| 柱状内中央 | middle    |
       |      Bar      | Red     |只展示名称|柱状内靠左侧 | in_left  |
       |      Bar      | Red     |只展示名称|柱状内靠右侧 | in_right |
-      |      Bar      | Yellow  |展示全部  |柱状外两侧   | both     |
-      |      Bar      | Yellow  |展示全部  |柱状外左侧   | out_left |
-      |      Bar      | Yellow  |展示全部  |柱状外右侧   | out_right|
-      |      Bar      | Yellow  |展示全部  |柱状内中央   | middle   |
-      |      Bar      | Yellow  |展示全部  |柱状内靠左侧 | in_left   |
-      |      Bar      | Yellow  |展示全部  |柱状内靠右侧 | in_right  |
+      |      Bar      | Yellow  |全部展示  |柱状外两侧   | both     |
+      |      Bar      | Yellow  |全部展示  |柱状外左侧   | out_left |
+      |      Bar      | Yellow  |全部展示  |柱状外右侧   | out_right|
+      |      Bar      | Yellow  |全部展示  |柱状内中央   | middle   |
+      |      Bar      | Yellow  |全部展示  |柱状内靠左侧 | in_left   |
+      |      Bar      | Yellow  |全部展示  |柱状内靠右侧 | in_right  |
 
 
   Scenario Outline: dimension_facet
@@ -198,7 +198,7 @@ Feature: 日志展现_维度
       |   chartType   |  color  |  typeInfo    |
       |      Pie      | Red     | 只展示名称   |
       |      Rose     | Green   | 只展示名称   |
-      |      Bar      | Orange  | 展示全部     |
+      |      Bar      | Orange  | 全部展示     |
 
 
   Scenario Outline: dimension_facet_sun

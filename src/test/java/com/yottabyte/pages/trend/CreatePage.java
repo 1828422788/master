@@ -116,9 +116,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='表格样式设置']/ancestor::div[contains(@class,'table-color-setting')]")
     private WebElement colorPanel;
 
-    @FindBy(xpath = "//label[contains(text(),'表格颜色')]/following-sibling::div")
-    private WebElement colorType;
-
     @FindBy(xpath = "//label[contains(text(),'表格颜色')]/following-sibling::div//span[@class='yotta-select-selection-value']")
     private WebElement selectedValueColorType;
 
@@ -169,15 +166,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//div[text()='Hex'])[last()]/preceding-sibling::input")
     private WebElement fontColor;
-
-    @FindBy(xpath = "//label[contains(text(),'字体样式')]/following-sibling::div")
-    private WebElement fontStyle;
-
-    @FindBy(xpath = "//label[contains(text(),'列宽度')]/following-sibling::div//input")
-    private WebElement columnWidth;
-
-    @FindBy(xpath = "//label[contains(text(),'对齐方式')]/following-sibling::div")
-    private WebElement alignment;
 
     @FindBy(xpath = "//label[contains(text(),'对齐方式')]/following-sibling::div//span[contains(@class,'yotta-select-selection-value')]")
     private WebElement selectedAlignment;
@@ -1914,11 +1902,9 @@ public class CreatePage extends PageTemplate {
         return colorPanel;
     }
 
-    public WebElement getColorType() {
-        WebDriverWait wait = new WebDriverWait(webDriver,10);
-        wait.until(ExpectedConditions.elementToBeClickable(colorType));
-        colorType.click();
-        return super.getLastDropdownList();
+    public WebElement getColorType() throws InterruptedException {
+        Thread.sleep(1000);
+        return getYottaDropdownList("table_chart-table_color-select"); //表格颜色
     }
 
     public WebElement getSelectedValueColorType() {
@@ -2005,18 +1991,18 @@ public class CreatePage extends PageTemplate {
         return fontColor;
     }
 
-    public WebElement getFontStyle() {
-        fontStyle.click();
-        return super.getLastDropdownList();
+    public WebElement getFontStyle() throws InterruptedException {
+        Thread.sleep(1000);
+        return getYottaDropdownList("table_chart-font_style-select"); //字体样式
     }
 
     public WebElement getColumnWidth() {
-        return columnWidth;
+        return getYottaInput("table_chart-col_width-input"); //列宽度
     }
 
-    public WebElement getAlignment() {
-        alignment.click();
-        return super.getLastDropdownList();
+    public WebElement getAlignment() throws InterruptedException {
+        Thread.sleep(1000);
+        return getYottaDropdownList("table_chart-alignment-select"); //对齐方式
     }
 
     public WebElement getSelectedAlignment() {

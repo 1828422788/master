@@ -47,7 +47,7 @@ Feature: 报表新建_编辑_维度word
     Examples:
       |  reportType |   typeChart    |  name      |  typeInfo     |   color   |
       |  WORD       |  Pie           |  Pie       |  只展示名称    |   Red     |
-      |  WORD       |  Rose          |  Rose      |  展示全部      |   Green   |
+      |  WORD       |  Rose          |  Rose      |  全部展示      |   Green   |
       |  WORD       |  Bar           |  Bar       |  不展示        |   Yellow  |
 
 
@@ -134,7 +134,7 @@ Feature: 报表新建_编辑_维度word
     Examples:
       |  reportType |   typeChart    |  name       |  typeInfo     | option         |  color   |
       |  WORD       |  Bar           |  Bar1       |  只展示名称    |  柱状外右侧    | Red      |
-      |  WORD       |  Bar           |  Bar2       |  展示全部      |  柱状内靠左侧  | Green    |
+      |  WORD       |  Bar           |  Bar2       |  全部展示      |  柱状内靠左侧  | Green    |
 
   Scenario Outline: new_report_trend_sunburst
     When I set the parameter "Name" with value "<name>_<reportType>"
