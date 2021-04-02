@@ -715,7 +715,7 @@ public class SearchPage extends ListPageFactory {
     private WebElement downloadButton;
 
     public WebElement getDownloadButton() {
-        saveAs.click();
+        saveAsOther.click();
         return downloadButton;
     }
 
