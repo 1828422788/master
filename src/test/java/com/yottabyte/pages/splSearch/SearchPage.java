@@ -1692,7 +1692,6 @@ public class SearchPage extends ListPageFactory {
         return message;
     }
 
-    //@FindBy(xpath = "//button[@class='el-button yw-search-pages-download el-button--primary']/span")
     //@FindBy(xpath = "//svg/use/svg[@id='icon-sousuoye_xiazai']::parent")
 //    @FindBy(xpath = "//span[contains(text(),'事件列表')]/following-sibling::span[@class='yotta-icon yotta-icon-DownloadOutlined']")
     @FindBy(xpath = "//span[contains(text(),'事件列表')]/following-sibling::span[@yotta-test='event_list-download-icon']")

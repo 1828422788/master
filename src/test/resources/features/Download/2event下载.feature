@@ -1,28 +1,26 @@
 @dlevent @dlevent0
-Feature: download_事件搜索下载part0
+Feature: download_事件下载part0
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  Scenario Outline: 执行
+  Scenario Outline: 下载子查询
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "2000" millsecond
+    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then take a screenshot with name "v37dl/<name>"
-
-    And I wait for "2000" millsecond
     And I wait for "DownloadEvent" will be visible
-    Then take a screenshot with name "spldownload/<name>"
+    Then take a screenshot with name "downloadpng/<name>"
     Then I click the "DownloadEvent" button
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
     Then I choose the "TXT" from the "DocumentTypeList"
-    Then I choose the "UTF" from the "DocumentEncodeList"
+    Then I choose the "UTF-8" from the "DocumentEncodeList"
     Then I click the "CreateDownloadTask" button
 #    And I wait for "2000" millsecond
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
@@ -97,23 +95,22 @@ Feature: download_事件搜索下载part0
       | autofield_spl_eval_kvextract | tag:sample04061424 \| sort by -apache.x_forward \| limit 3 \| kvextract apache.request_query clean_keys=true pairdelim=\"&\" kvdelim=\"=\" |
 
   @dltran
-  Scenario Outline: 执行
+  Scenario Outline: 下载transaction
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "2000" millsecond
+    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then take a screenshot with name "v37dl/<name>"
 
-    And I wait for "2000" millsecond
     And I wait for "DownloadEvent" will be visible
     Then I click the "DownloadEvent" button
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
     Then I choose the "JSON" from the "DocumentTypeList"
-    Then I choose the "UTF" from the "DocumentEncodeList"
+    Then I choose the "UTF-8" from the "DocumentEncodeList"
     Then I click the "CreateDownloadTask" button
 #    And I wait for "2000" millsecond
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
