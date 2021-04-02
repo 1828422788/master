@@ -45,9 +45,9 @@ Feature: 报表新建_从趋势图
     Examples:
       |    name                     |   chart1         |    chart2           |    chart3        |    chart4    |
       | test维度_Dimension_1        | Pie_2503         | Rose_2858           | Bar_2676         | Sun_2850      |
-      | test维度_Dimension_2        | Pie_只展示名称   | Rose_只展示名称     | Pie_展示全部     | Rose_展示全部 |
+      | test维度_Dimension_2        | Pie_只展示名称   | Rose_只展示名称     | Pie_全部展示     | Rose_全部展示 |
       | test维度_Dimension_3        | Pie_不展示       | Rose_不展示         | Bar_不展示       |               |
-      | test维度_Dimension_6_分面   | Pie_展示全部_分面| Rose_只展示名称_分面| Bar_展示全部_分面| Sun_分面      |
+      | test维度_Dimension_6_分面   | Pie_全部展示_分面| Rose_只展示名称_分面| Bar_全部展示_分面| Sun_分面      |
 
     @reportConnectionCreate
     Examples:
@@ -122,7 +122,7 @@ Feature: 报表新建_从趋势图
     Examples:
       |    name              |   chart1                |    chart2                |    chart3                |    chart4                  | chart5                     |
       | test维度_Dimension_4 | Bar_只展示名称_柱状外左侧 | Bar_只展示名称_柱状外右侧 | Bar_只展示名称_柱状内中央 | Bar_只展示名称_柱状内靠左侧 | Bar_只展示名称_柱状内靠右侧 |
-      | test维度_Dimension_5 | Bar_展示全部_柱状外左侧   | Bar_展示全部_柱状外右侧  | Bar_展示全部_柱状内中央    | Bar_展示全部_柱状内靠左侧   | Bar_展示全部_柱状内靠右侧  |
+      | test维度_Dimension_5 | Bar_全部展示_柱状外左侧   | Bar_全部展示_柱状外右侧  | Bar_全部展示_柱状内中央    | Bar_全部展示_柱状内靠左侧   | Bar_全部展示_柱状内靠右侧  |
 
     @reportOtherCreate
     Examples:

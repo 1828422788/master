@@ -29,7 +29,7 @@ Feature: 日志展现_其它_环形比例图
     And I wait for "<chartType>Element_1" will be visible
     And I will see the element "<chartType>Element_1" contains "78%"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
     Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
 
     Examples:
@@ -55,7 +55,7 @@ Feature: 日志展现_其它_环形比例图
     And I will see the element "<chartType>Element_1" contains "78%"
     And I will see the element "<chartType>Element_2" contains "20%"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
     Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
 
     Examples:
@@ -85,7 +85,7 @@ Feature: 日志展现_其它_环形比例图
     And I will see the element "<chartType>Element_1" contains "78%"
     And I will see the element "<chartType>Element_2" contains "20%"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
     Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
 
     Examples:
@@ -143,7 +143,7 @@ Feature: 日志展现_其它_环形比例图
     And I will see the element "<chartType>Element_1" contains "78%"
     And I will see the element "<chartType>Element_2" contains "20%"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
     Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
 
     Examples:
@@ -175,7 +175,7 @@ Feature: 日志展现_其它_环形比例图
     And I will see the element "<chartType>Element_1" contains "<num1>"
     And I will see the element "<chartType>Element_2" contains "<num2>"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum><num>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum><num>"
     Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum><num>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum><num>"
 
     Examples:

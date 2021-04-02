@@ -124,22 +124,22 @@ Feature: 展示趋势图
       | Flame_图外钻取_分面                      | FlameElement         |
       | Flame_图内钻取                           | FlameElement         |
       | Sun_分面                                 | SunElement           |
-      | Bar_展示全部_分面                        | BarElement           |
+      | Bar_全部展示_分面                        | BarElement           |
       | Rose_只展示名称_分面                     | PieElement           |
-      | Pie_展示全部_分面                        | PieElement           |
-      | Rose_展示全部                            | PieElement           |
-      | Pie_展示全部                             | PieElement           |
+      | Pie_全部展示_分面                        | PieElement           |
+      | Rose_全部展示                            | PieElement           |
+      | Pie_全部展示                             | PieElement           |
       | Rose_只展示名称                          | PieElement           |
       | Pie_只展示名称                           | PieElement           |
       | Bar_不展示                               | BarElement           |
       | Rose_不展示                              | PieNoLabelsElement   |
       | Pie_不展示                               | PieNoLabelsElement   |
-      | Bar_展示全部_柱状内靠右侧                | BarElement           |
-      | Bar_展示全部_柱状内靠左侧                | BarElement           |
-      | Bar_展示全部_柱状内中央                  | BarElement           |
-      | Bar_展示全部_柱状外右侧                  | BarElement           |
-      | Bar_展示全部_柱状外左侧                  | BarElement           |
-      | Bar_展示全部_柱状外两侧                  | BarElement           |
+      | Bar_全部展示_柱状内靠右侧                | BarElement           |
+      | Bar_全部展示_柱状内靠左侧                | BarElement           |
+      | Bar_全部展示_柱状内中央                  | BarElement           |
+      | Bar_全部展示_柱状外右侧                  | BarElement           |
+      | Bar_全部展示_柱状外左侧                  | BarElement           |
+      | Bar_全部展示_柱状外两侧                  | BarElement           |
       | Bar_只展示名称_柱状内靠右侧              | BarElement           |
       | Bar_只展示名称_柱状内靠左侧              | BarElement           |
       | Bar_只展示名称_柱状内中央                | BarElement           |

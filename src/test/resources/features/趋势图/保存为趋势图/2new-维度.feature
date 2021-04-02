@@ -79,12 +79,12 @@ Feature: 保存为趋势图_维度
       |      Bar      | Red    |只展示名称| 柱状内中央   |
       |      Bar      | Red    |只展示名称| 柱状内靠左侧 |
       |      Bar      | Red    |只展示名称| 柱状内靠右侧 |
-      |      Bar      | Green  |展示全部  | 柱状外两侧   |
-      |      Bar      | Green  |展示全部  | 柱状外左侧   |
-      |      Bar      | Green  |展示全部  | 柱状外右侧   |
-      |      Bar      | Green  |展示全部  | 柱状内中央   |
-      |      Bar      | Green  |展示全部  | 柱状内靠左侧 |
-      |      Bar      | Green  |展示全部  | 柱状内靠右侧 |
+      |      Bar      | Green  |全部展示  | 柱状外两侧   |
+      |      Bar      | Green  |全部展示  | 柱状外左侧   |
+      |      Bar      | Green  |全部展示  | 柱状外右侧   |
+      |      Bar      | Green  |全部展示  | 柱状内中央   |
+      |      Bar      | Green  |全部展示  | 柱状内靠左侧 |
+      |      Bar      | Green  |全部展示  | 柱状内靠右侧 |
 
   Scenario Outline: dimension_labels_options
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5"
@@ -126,8 +126,8 @@ Feature: 保存为趋势图_维度
       |      Bar      | Orange |不展示      |
       |      Pie      | Orange |只展示名称   |
       |     Rose      | Orange |只展示名称   |
-      |      Pie      | Orange |展示全部     |
-      |     Rose      | Orange |展示全部     |
+      |      Pie      | Orange |全部展示     |
+      |     Rose      | Orange |全部展示     |
 
 
   Scenario Outline: dimension_facet
@@ -170,9 +170,9 @@ Feature: 保存为趋势图_维度
 
     Examples:
       |   chartType   |  color  |  typeInfo    |  spl   |
-      |      Pie      | Red     | 展示全部     |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
+      |      Pie      | Red     | 全部展示     |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
       |      Rose     | Green   | 只展示名称   |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
-      |      Bar      | Orange  | 展示全部     |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
+      |      Bar      | Orange  | 全部展示     |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
 
 
   Scenario Outline: dimension_facet_sun

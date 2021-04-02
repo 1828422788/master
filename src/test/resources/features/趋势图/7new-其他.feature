@@ -159,7 +159,9 @@ Feature: 趋势图新建_其他
     And I click the "AccordingField" button
     And I choose the "<iconValue>" from the "FieldValue" in config
     And I click the "Exhibition" button
+    And I wait for "2000" millsecond
     And I set the parameter "FontSize" with value "100"
+    And I wait for "2000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -198,7 +200,9 @@ Feature: 趋势图新建_其他
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Exhibition" button
+    And I wait for "2000" millsecond
     And I set the parameter "FontSize" with value "100"
+    And I wait for "2000" millsecond
     And I click the "AddColor" button
     And I click the "Orange" button
     And I click the "Background" button
@@ -239,8 +243,9 @@ Feature: 趋势图新建_其他
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Exhibition" button
-    And I set the parameter "FontSize" with value "100"
     And I click the "AccordingTrend" button
+    And I wait for "2000" millsecond
+    And I set the parameter "FontSize" with value "100"
     And I choose the "<timeValue>" from the "ContrastTime" in config
     And I click the "Generate" button
 
@@ -281,6 +286,7 @@ Feature: 趋势图新建_其他
     And I choose the "cnt" from the "NumericField" in config
     And I click the "Exhibition" button
     And I click the "AccordingArea" button
+    And I wait for "2000" millsecond
     And I click the "AddRange" button
     And I set the parameter "MinRange" with value "<minVal1>"
     And I set the parameter "MaxRange" with value "<maxVal1>"
@@ -292,6 +298,7 @@ Feature: 趋势图新建_其他
     And I click the "AddColor" button
     And I click the "<color2>" button
     And I click the "<colorFill>" button
+    And I wait for "2000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -379,6 +386,7 @@ Feature: 趋势图新建_其他
     And I click the "Sparkline" button
     And I choose the "ts" from the "SparklineField" in config
     And I click the "Exhibition" button
+    And I wait for "2000" millsecond
     And I set the parameter "FontSize" with value "60"
     And I click the "AddColor" button
     And I click the "Purple" button
@@ -424,8 +432,10 @@ Feature: 趋势图新建_其他
     And I click the "Sparkline" button
     And I choose the "ts" from the "SparklineField" in config
     And I click the "Exhibition" button
+    And I wait for "2000" millsecond
     And I set the parameter "FontSize" with value "60"
     And I set the parameter "Unit" with value "个"
+    And I wait for "2000" millsecond
     And I click the "AddColor" button
     And I click the "<color>" button
     And I click the "Icon" button
@@ -479,7 +489,9 @@ Feature: 趋势图新建_其他
     And I set the parameter "ColumnNum" with value "2"
     And I click the "Exhibition" button
     And I click the "AccordingArea" button
+    And I wait for "2000" millsecond
     And I set the parameter "FontSize" with value "80"
+    And I wait for "2000" millsecond
     And I click the "AddRange" button
     And I set the parameter "MinRange" with value "1"
     And I set the parameter "MaxRange" with value "7"

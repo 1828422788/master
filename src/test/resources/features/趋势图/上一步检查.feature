@@ -44,11 +44,11 @@ Feature: 趋势图_上一步
       | name                                     | element     |
       | Flame_图外钻取_分面                      | Type        |
       | Sun_分面                                 | Type        |
-      | Pie_展示全部_分面                        | Type        |
-      | Pie_展示全部                             | Type        |
+      | Pie_全部展示_分面                        | Type        |
+      | Pie_全部展示                             | Type        |
       | Pie_只展示名称                           | Type        |
       | Pie_不展示                               | Type        |
-      | Bar_展示全部_柱状外两侧                   | Type        |
+      | Bar_全部展示_柱状外两侧                   | Type        |
       | Bar_只展示名称_柱状外左侧                 | Type        |
       | Sun_2850                                 | Type        |
       | Pie_2503                                 | Type        |
