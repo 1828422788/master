@@ -76,7 +76,8 @@ public class SearchPage extends ListPageFactory {
     private WebElement openSavedSearchButton;
 
     public WebElement getSavedSearchList() {
-        String xpath = "//span[text()='已存搜索']/i";
+//        String xpath = "//span[text()='已存搜索']/i";
+        String xpath = "//div[@yotta-test='search-search_option-dom']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
@@ -138,9 +139,9 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")
     private WebElement savedSearchName;
 
-//    public WebElement getSavedSearchName() {
-//        return savedSearchName;
-//    }
+    public WebElement getSavedSearchName() {
+        return savedSearchName;
+    }
 
     @FindBy(xpath = "//div[@class='yw-search-form-el-input normal-input margin-left el-input']/input")
     private WebElement searchSavedList;
@@ -218,13 +219,6 @@ public class SearchPage extends ListPageFactory {
         List<WebElement> list = webDriver.findElements(By.className("yotta-menu-item-primary"));
         com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(list.get(list.size() - 1)));
         return list.get(list.size() - 1);
-    }
-
-//    @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")
-//    private WebElement savedSearchName;
-
-    public WebElement getSavedSearchName() {
-        return savedSearchName;
     }
 
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div")
