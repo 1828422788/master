@@ -16,7 +16,7 @@ public class CreatePage extends PageTemplate {
 
     public CreatePage(WebDriver driver) {
         super(driver);
-        driver.manage().window().setSize(new Dimension(1200,900));
+        driver.manage().window().setSize(new Dimension(1200, 900));
     }
 
     @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")
@@ -46,9 +46,11 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@yotta-test='report-email-select']//input")
     private WebElement emailField;
 
-    public WebElement getComplete() { return getYottaButton("step-done-button");}
+    public WebElement getComplete() {
+        return getYottaButton("step-done-button");
+    }
 
-    public WebElement getEmailField(){
+    public WebElement getEmailField() {
         emailInput.click();
         return emailField;
     }
@@ -183,16 +185,16 @@ public class CreatePage extends PageTemplate {
     private WebElement addColor;
 
     // Labels
-    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div//label[1]")
+    @FindBy(xpath = "//span[text()='标签']/ancestor::div/following-sibling::div//label[1]")
     private WebElement firstLabel;
 
-    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div//label[2]")
+    @FindBy(xpath = "//span[text()='标签']/ancestor::div/following-sibling::div//label[2]")
     private WebElement secondLabel;
 
-    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div//label[3]")
+    @FindBy(xpath = "//span[text()='标签']/ancestor::div/following-sibling::div//label[3]")
     private WebElement thirdLabel;
 
-    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div//label[4]")
+    @FindBy(xpath = "//span[text()='标签']/ancestor::div/following-sibling::div//label[4]")
     private WebElement forthLabel;
 
     @FindBy(xpath = "(//p[text()='+ 添加'])[last()] | (//*[name()='svg' and @data-icon='AddCircleOutlined']/ancestor::span[1]) | (//button[@yotta-test='chartgui-tab_list_add-button'])")
@@ -269,7 +271,8 @@ public class CreatePage extends PageTemplate {
         return alertMessage;
     }
 
-    public WebElement getGroupField() {
+    public WebElement getGroupField() throws InterruptedException {
+        Thread.sleep(1200);
         return groupField;
     }
 
@@ -323,7 +326,7 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getChartListInput() {
         chartListWord.click();
-        WebDriverWait wait = new WebDriverWait(webDriver,10);
+        WebDriverWait wait = new WebDriverWait(webDriver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(chartListInput));
         return chartListInput;
     }
@@ -344,11 +347,11 @@ public class CreatePage extends PageTemplate {
         return selectedUser;
     }
 
-    public WebElement getChosenTrendLast(){
+    public WebElement getChosenTrendLast() {
         return chosenTrendLast;
     }
 
-    public WebElement getChosenTrendFirst(){
+    public WebElement getChosenTrendFirst() {
         return chosenTrendFirst;
     }
 
@@ -728,127 +731,127 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getOrder() {
-        return getYottaTab("序列");
+        return getTabElement("序列");
     }
 
     public WebElement getDimension() {
-        return getYottaTab("维度");
+        return getTabElement("维度");
     }
 
     public WebElement getConnection() {
-        return getYottaTab("关系");
+        return getTabElement("关系");
     }
 
     public WebElement getCompound() {
-        return getYottaTab("复合");
+        return getTabElement("复合");
     }
 
     public WebElement getMap() {
-        return getYottaTab("地图");
+        return getTabElement("地图");
     }
 
     public WebElement getOther() {
-        return getYottaTab("其他");
+        return getTabElement("其他");
     }
 
     public WebElement getXaxis() {
-        return getYottaTab("X轴");
+        return getTabElement("X轴");
     }
 
     public WebElement getYaxis() {
-        return getYottaTab("Y轴");
+        return getTabElement("Y轴");
     }
 
     public WebElement getGroup() {
-        return getYottaTab("分组");
+        return getTabElement("分组");
     }
 
     public WebElement getFacet() {
-        return getYottaTab("分面");
+        return getTabElement("分面");
     }
 
     public WebElement getExample() {
-        return getYottaTab("图例");
+        return getTabElement("图例");
     }
 
     public WebElement getExhibition() {
-        return getYottaTab("展示");
+        return getTabElement("展示");
     }
 
     public WebElement getBubble() {
-        return getYottaTab("气泡");
+        return getTabElement("气泡");
     }
 
     public WebElement getValue() {
-        return getYottaTab("数值");
+        return getTabElement("数值");
     }
 
     public WebElement getDivide() {
-        return getYottaTab("切分");
+        return getTabElement("切分");
     }
 
     public WebElement getSource() {
-        return getYottaTab("来源");
+        return getTabElement("来源");
     }
 
     public WebElement getTarget() {
-        return getYottaTab("目标");
+        return getTabElement("目标");
     }
 
     public WebElement getWeight() {
-        return getYottaTab("权重");
+        return getTabElement("权重");
     }
 
     public WebElement getRegion() {
-        return getYottaTab("区域");
+        return getTabElement("区域");
     }
 
     public WebElement getGoingDown() {
-        return getYottaTab("下钻");
+        return getTabElement("下钻");
     }
 
     public WebElement getGeneral() {
-        return getYottaTab("常规");
+        return getTabElement("常规");
     }
 
     public WebElement getTile() {
-        return getYottaTab("平铺");
+        return getTabElement("平铺");
     }
 
     public WebElement getIcon() {
-        return getYottaTab("图标");
+        return getTabElement("图标");
     }
 
     public WebElement getSecondTitle() {
-        return getYottaTab("二级标题");
+        return getTabElement("二级标题");
     }
 
     public WebElement getCompare() {
-        return getYottaTab("对比");
+        return getTabElement("对比");
     }
 
     public WebElement getMark() {
-        return getYottaTab("标记");
+        return getTabElement("标记");
     }
 
     public WebElement getIndicator() {
-        return getYottaTab("指示器");
+        return getTabElement("指示器");
     }
 
     public WebElement getTime() {
-        return getYottaTab("时间");
+        return getTabElement("时间");
     }
 
     public WebElement getInfo() {
-        return getYottaTab("信息");
+        return getTabElement("信息");
     }
 
     public WebElement getIndicators() {
-        return getYottaTab("指标");
+        return getTabElement("指标");
     }
 
     public WebElement getTimeSequence() {
-        return getYottaTab("时序");
+        return getTabElement("时序");
     }
 
     public WebElement getPile() {
@@ -1122,7 +1125,7 @@ public class CreatePage extends PageTemplate {
         return yellow;
     }
 
-    public WebElement getDarkBlue(){
+    public WebElement getDarkBlue() {
         return darkBlue;
     }
 
@@ -1196,6 +1199,11 @@ public class CreatePage extends PageTemplate {
     }
 
     private WebElement getInputSetting(String name) {
+        try {
+            Thread.sleep(1200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return webDriver.findElement(By.xpath("(//span[text()='" + name + "']/ancestor::div[1]/following-sibling::div//input)[last()]"));
     }
 
@@ -1210,4 +1218,12 @@ public class CreatePage extends PageTemplate {
         return webDriver.findElement(By.xpath("(//*[contains(text(),'" + name + "')])[last()]"));
     }
 
+    private WebElement getTabElement(String name) {
+        try {
+            Thread.sleep(1200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return getYottaTab(name);
+    }
 }
