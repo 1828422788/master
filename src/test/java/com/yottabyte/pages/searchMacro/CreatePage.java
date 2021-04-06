@@ -26,8 +26,11 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
     private WebElement lastDropdown;
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
+    @FindBy(xpath = "//div[@yotta-test='dialog-content-dom']//p")
     private WebElement successMessage;
+
+    @FindBy(xpath = "//input[@yotta-test='macro-name-input']")
+    private WebElement name;
 
     @Override
     public WebElement getApp() {
@@ -52,7 +55,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getName() {
-        return getInputElement("名称");
+        return name;
     }
 
     public WebElement getGroup() {

@@ -3,6 +3,7 @@ Feature: 权限-搜索宏
 
   Scenario Outline: 勾选所需功能权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
@@ -44,6 +45,7 @@ Feature: 权限-搜索宏
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
+    And I wait for loading invisible
     And I wait for "Create" will be visible
     And I click the "Create" button
     Then I will see the "searchMacro.CreatePage" page
@@ -55,6 +57,7 @@ Feature: 权限-搜索宏
 
   Scenario: 授权无读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -73,11 +76,13 @@ Feature: 权限-搜索宏
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
-    And I will see the search result "{'column':'0','name':'AutoTestUserCreate','contains':'no'}"
+    And I wait for loading invisible
+    And I will see the search result "{'column':'1','name':'AutoTestUserCreate','contains':'no'}"
     Then I logout current user
 
   Scenario: 授权读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -98,6 +103,7 @@ Feature: 权限-搜索宏
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
+    And I wait for loading invisible
     Then the data name is "AutoTestUserCreate" then i will see "授权" button
     And the data name is "AutoTestUserCreate" then i click the "授权" button
     And I wait for loading invisible
@@ -106,6 +112,7 @@ Feature: 权限-搜索宏
 
   Scenario: 授权读取+编辑
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -125,8 +132,11 @@ Feature: 权限-搜索宏
     And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "编辑标签授权" button
-    When the data name is "<name>" then i click the "标签" button
+    Then the data name is "<name>" then i will see "<function>" button
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "Label" button
+    And I wait for "TagToInput" will be visible
+    And I click the "TagToInput" button
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
@@ -134,7 +144,8 @@ Feature: 权限-搜索宏
     Then I will see the success message "修改成功"
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
-    And the data name is "AutoTestUserCreate" then i click the "授权" button
+    And the data name is "AutoTestUserCreate" then i click the "更多" button
+    And I click the "Auth" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
     Given open the "searchMacro.ListPage" page for uri "/macro/"
@@ -148,11 +159,12 @@ Feature: 权限-搜索宏
     Then I logout current user
 
     Examples:
-      | name               |
-      | AutoTestUserCreate |
+      | name               |function|
+      | AutoTestUserCreate |编辑\n更多   |
 
   Scenario Outline: 授权读取+编辑+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -176,8 +188,12 @@ Feature: 权限-搜索宏
     And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "编辑标签授权删除" button
-    When the data name is "<name>" then i click the "标签" button
+    Then the data name is "<name>" then i will see "<function>" button
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "Label" button
+    And I wait for "2000" millsecond
+    And I wait for "TagToInput" will be visible
+    And I click the "TagToInput" button
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
@@ -185,7 +201,8 @@ Feature: 权限-搜索宏
     Then I will see the success message "修改成功"
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
-    And the data name is "<name>" then i click the "授权" button
+    And the data name is "<name>" then i click the "更多" button
+    And I click the "Auth" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
     Given open the "searchMacro.ListPage" page for uri "/macro/"
@@ -199,15 +216,16 @@ Feature: 权限-搜索宏
     Then I will see the success message "保存成功"
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
-    And the data name is "AutoTestCreate" then i click the "删除" button
+    And the data name is "AutoTestCreate" then i click the "更多" button
+    Then I click the "Delete" button
     And I wait for "Ensure" will be visible
     Then I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "删除成功"
     Then I logout current user
 
     Examples:
-      | name           |
-      | AutoTestRename |
+      | name           |function|
+      | AutoTestRename |编辑\n更多    |
 
   Scenario: 新建拓扑图以测试读取+删除
     Given open the "searchMacro.ListPage" page for uri "/macro/"
@@ -221,6 +239,7 @@ Feature: 权限-搜索宏
 
   Scenario: 授权读取+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -235,21 +254,28 @@ Feature: 权限-搜索宏
     And I will see the success message "更新成功"
     Then I logout current user
 
-  Scenario: 验证读取+删除
+  Scenario Outline: 验证读取+删除
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
-    Then the data name is "AutoTestUserCreate" then i will see "授权删除" button
-    And the data name is "AutoTestUserCreate" then i click the "授权" button
+    And I wait for loading invisible
+    Then the data name is "<name>" then i will see "<function>" button
+    And the data name is "<name>" then i click the "更多" button
+    Then I click the "Auth" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
-    And the data name is "AutoTestUserCreate" then i click the "删除" button
+    And the data name is "<name>" then i click the "更多" button
+    Then I click the "Delete" button
     And I wait for "Ensure" will be visible
     Then I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "删除成功"
     Then I logout current user
+
+    Examples:
+      | name           |function|
+      | AutoTestUserCreate |查看\n更多    |
 
   Scenario: 新建拓扑图以测试读取+转授
     Given open the "searchMacro.ListPage" page for uri "/macro/"
@@ -263,6 +289,7 @@ Feature: 权限-搜索宏
 
   Scenario Outline: 授权读取+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -285,6 +312,7 @@ Feature: 权限-搜索宏
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
+    And I wait for loading invisible
     Then the data name is "<name>" then i will see "授权" button
     And the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
@@ -304,6 +332,7 @@ Feature: 权限-搜索宏
 
   Scenario Outline: 授权读取+编辑+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -326,8 +355,12 @@ Feature: 权限-搜索宏
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
-    Then the data name is "<name>" then i will see "编辑标签授权" button
-    When the data name is "<name>" then i click the "标签" button
+    And I wait for loading invisible
+    Then the data name is "<name>" then i will see "<function>" button
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "Label" button
+    And I wait for "TagToInput" will be visible
+    And I click the "TagToInput" button
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
@@ -335,7 +368,8 @@ Feature: 权限-搜索宏
     Then I will see the success message "修改成功"
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
-    And the data name is "<name>" then i click the "授权" button
+    And the data name is "<name>" then i click the "更多" button
+    And I click the "Auth" button
     And I wait for loading invisible
     And I "uncheck" the checkbox which name is "验证授权用户" in tiny table
     And I "check" the checkbox which name is "验证授权用户" in tiny table
@@ -345,7 +379,7 @@ Feature: 权限-搜索宏
     And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "编辑标签授权" button
+    Then the data name is "<name>" then i will see "<function>" button
     And the data name is "<name>" then i click the "编辑" button
     Then I will see the "searchMacro.CreatePage" page
     And I wait for "1000" millsecond
@@ -358,27 +392,27 @@ Feature: 权限-搜索宏
     Then I logout current user
 
     Examples:
-      | name     |
-      | AutoTest |
+      | name     |function|
+      | AutoTest |编辑\n更多    |
 
-  Scenario: 有效期限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for loading invisible
-    And I click the "ResourceAuth" button
-    And I wait for loading invisible
-    Then I click the "{'TabButton':'搜索宏'}" button
-    And I wait for loading invisible
-    And I "checked" the checkbox which name is "AutoTestCreate" in auth table
-    When the data name is "AutoTestCreate" then I click the "无限期" button in auth table
-    And I click the "Customize" button
-    And I click the "DateEditor" button
-    And I set the time input "TimeInput" to "1" minutes later
-    And I click the "EnsureTime" button
-    And I click the "SaveButton" button
-    Then I wait for "SuccessMessage" will be visible
-    And I will see the success message "更新成功"
+ # Scenario: 有效期限
+ #   Given open the "roles.ListPage" page for uri "/account/roles/"
+ #   And the data name is "__user_AutoTest__" then i click the "授权" button
+ #   And I will see the "roles.AuthorizationPage" page
+ #   And I wait for loading invisible
+ #   And I click the "ResourceAuth" button
+ #   And I wait for loading invisible
+ #   Then I click the "{'TabButton':'搜索宏'}" button
+ #   And I wait for loading invisible
+ #   And I "checked" the checkbox which name is "AutoTestCreate" in auth table
+ #   When the data name is "AutoTestCreate" then I click the "无限期" button in auth table
+ #   And I click the "Customize" button
+ #   And I click the "DateEditor" button
+ #   And I set the time input "TimeInput" to "1" minutes later
+ #   And I click the "EnsureTime" button
+ #   And I click the "SaveButton" button
+ #   Then I wait for "SuccessMessage" will be visible
+ #   And I will see the success message "更新成功"
 
   Scenario: 新建
     Given open the "searchMacro.ListPage" page for uri "/macro/"
@@ -392,6 +426,7 @@ Feature: 权限-搜索宏
 
   Scenario Outline: 授权所有权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -410,6 +445,7 @@ Feature: 权限-搜索宏
 
   Scenario Outline: 授权所有权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -431,8 +467,12 @@ Feature: 权限-搜索宏
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
-    Then the data name is "<name>" then i will see "编辑标签授权删除" button
-    When the data name is "<name>" then i click the "标签" button
+    And I wait for loading invisible
+    Then the data name is "<name>" then i will see "<function>" button
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "Label" button
+    And I wait for "TagToInput" will be visible
+    And I click the "TagToInput" button
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
@@ -440,7 +480,8 @@ Feature: 权限-搜索宏
     Then I will see the success message "修改成功"
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
-    And the data name is "<name>" then i click the "授权" button
+    And the data name is "<name>" then i click the "更多" button
+    And I click the "Auth" button
     And I wait for loading invisible
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
@@ -449,7 +490,7 @@ Feature: 权限-搜索宏
     And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "编辑标签授权删除" button
+    Then the data name is "<name>" then i will see "<function>" button
     And the data name is "<name>" then i click the "编辑" button
     Then I will see the "searchMacro.CreatePage" page
     And I wait for "1000" millsecond
@@ -460,8 +501,8 @@ Feature: 权限-搜索宏
     Then I logout current user
 
     Examples:
-      | name     |
-      | AutoTest |
+      | name     |function|
+      | AutoTest |编辑\n更多    |
 
   Scenario: 新建搜索宏以测试二次授权
     Given open the "searchMacro.ListPage" page for uri "/macro/"
@@ -476,7 +517,8 @@ Feature: 权限-搜索宏
   Scenario: 给AutoTest用户授权
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
-    When the data name is "测试二次授权" then i click the "授权" button
+    When the data name is "测试二次授权" then i click the "更多" button
+    And I click the "Auth" button
     And I wait for loading invisible
     And I "check" the checkbox which name is "AutoTest" in tiny table
     And I click the "Ensure" button
@@ -488,7 +530,8 @@ Feature: 权限-搜索宏
     And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
-    When the data name is "<name>" then i click the "授权" button
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "Auth" button
     And I wait for loading invisible
     And I choose the "<authRole>" from the "AuthDropdown"
     When I "check" the function "<function>" which name is "<authName>" in tiny table
@@ -497,22 +540,24 @@ Feature: 权限-搜索宏
     Given I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
-    Then the data name is "<name>" then i will see "授权" button
+    And I wait for loading invisible
+    Then the data name is "<name>" then i will see "<userfunction>" button
     And the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
     Then I logout current user
 
     Examples:
-      | authRole | authName | function | name   |
-      | 用户       | 验证授权用户   | 读取       | 测试二次授权 |
+      | authRole | authName | function | name   |userfunction|
+      | 用户       | 验证授权用户   | 读取       | 测试二次授权 |查看\n授权        |
 
   Scenario Outline: 二次授权读取+编辑
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
-    When the data name is "<name>" then i click the "授权" button
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "Auth" button
     And I wait for loading invisible
     And I choose the "<authRole>" from the "AuthDropdown"
     And I wait for loading invisible
@@ -523,8 +568,11 @@ Feature: 权限-搜索宏
     And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "编辑标签授权" button
-    When the data name is "<name>" then i click the "标签" button
+    Then the data name is "<name>" then i will see "<userfunction>" button
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "Label" button
+    And I wait for "TagToInput" will be visible
+    And I click the "TagToInput" button
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
@@ -532,7 +580,8 @@ Feature: 权限-搜索宏
     Then I will see the success message "修改成功"
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
-    And the data name is "<name>" then i click the "授权" button
+    And the data name is "<name>" then i click the "更多" button
+    And I click the "Auth" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
     Given open the "searchMacro.ListPage" page for uri "/macro/"
@@ -546,15 +595,16 @@ Feature: 权限-搜索宏
     Then I logout current user
 
     Examples:
-      | authRole | authName        | function | name   |
-      | 角色       | __user_验证授权用户__ | 编辑       | 测试二次授权 |
+      | authRole | authName        | function | name   |userfunction|
+      | 角色       | __user_验证授权用户__ | 编辑       | 测试二次授权 |编辑\n更多        |
 
   Scenario Outline: 二次授权读取+编辑+删除
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
-    When the data name is "<name>" then i click the "授权" button
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "Auth" button
     And I wait for loading invisible
     And I choose the "<authRole>" from the "AuthDropdown"
     And I wait for loading invisible
@@ -565,8 +615,11 @@ Feature: 权限-搜索宏
     And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "编辑标签授权删除" button
-    When the data name is "<name>" then i click the "标签" button
+    Then the data name is "<name>" then i will see "<userfunction>" button
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "Label" button
+    And I wait for "TagToInput" will be visible
+    And I click the "TagToInput" button
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
@@ -574,7 +627,8 @@ Feature: 权限-搜索宏
     Then I will see the success message "修改成功"
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
-    And the data name is "<name>" then i click the "授权" button
+    When the data name is "<name>" then i click the "更多" button
+    And I click the "Auth" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
     Given open the "searchMacro.ListPage" page for uri "/macro/"
@@ -588,26 +642,28 @@ Feature: 权限-搜索宏
     Then I will see the success message "保存成功"
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
-    And the data name is "测试二次授权" then i click the "删除" button
+    And the data name is "测试二次授权" then i click the "更多" button
+    Then I click the "Delete" button
     And I wait for "Ensure" will be visible
     Then I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "删除成功"
     Then I logout current user
 
     Examples:
-      | authRole | authName | function | name   |
-      | 用户分组     | 验证授权用户分组 | 读取,编辑,删除 | 测试二次授权 |
+      | authRole | authName | function | name   |userfunction|
+      | 用户分组     | 验证授权用户分组 | 读取,编辑,删除 | 测试二次授权 |编辑\n更多        |
 
-  @logout
-  Scenario: 验证有效期限
-    Given I login user "AutoTest" with password "All#123456"
-    And I wait for "2000" millsecond
-    Given open the "searchMacro.ListPage" page for uri "/macro/"
-    Then I will see the search result "{'column':'0','name':'AutoTestCreate','contains':'no'}"
-    Then I logout current user
+ # @logout
+ # Scenario: 验证有效期限
+ #   Given I login user "AutoTest" with password "All#123456"
+ #   And I wait for "2000" millsecond
+ #   Given open the "searchMacro.ListPage" page for uri "/macro/"
+ #   Then I will see the search result "{'column':'0','name':'AutoTestCreate','contains':'no'}"
+ #   Then I logout current user
 
   Scenario Outline: 授权读取+删除+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -628,6 +684,7 @@ Feature: 权限-搜索宏
 
   Scenario Outline: 验证读取+删除+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -649,8 +706,10 @@ Feature: 权限-搜索宏
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
-    Then the data name is "<name>" then i will see "授权删除" button
-    And the data name is "<name>" then i click the "授权" button
+    And I wait for loading invisible
+    Then the data name is "<name>" then i will see "<function>" button
+    And the data name is "<name>" then i click the "更多" button
+    Then I click the "Auth" button
     And I wait for loading invisible
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
@@ -659,13 +718,14 @@ Feature: 权限-搜索宏
     And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "授权删除" button
-    And the data name is "<name>" then i click the "删除" button
+    Then the data name is "<name>" then i will see "<function>" button
+    And the data name is "<name>" then i click the "更多" button
+    Then I click the "Delete" button
     And I wait for "Ensure" will be visible
     Then I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "删除成功"
     Then I logout current user
 
     Examples:
-      | name           |
-      | AutoTestCreate |
+      | name           |function|
+      | AutoTestCreate |查看\n更多    |
