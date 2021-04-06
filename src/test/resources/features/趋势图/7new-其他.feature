@@ -438,6 +438,7 @@ Feature: 趋势图新建_其他
     And I wait for "2000" millsecond
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "2000" millsecond
     And I click the "Icon" button
     And I click the "AccordingName" button
     And I set the parameter "IconName" with value "<fontValue>"
@@ -1183,8 +1184,10 @@ Feature: 趋势图新建_其他
     And I set the parameter "MaxRange" with value "8"
     And I click the "Exhibition" button
     And I set the parameter "Repulsion" with value "<repValue>"
+    And I wait for "2000" millsecond
     And I click the "AddColor" button
     And I click the "<color_1>" button
+    And I wait for "2000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -1216,6 +1219,7 @@ Feature: 趋势图新建_其他
     And I will see the element "ChartName" contains "<chartType>"
     Then I will see the "trend.CreatePage" page
     And I wait for "<chartType>Element" will be visible
+    And I wait for "2000" millsecond
     And I click the Circle "Click<node>" button
 
     Examples:
