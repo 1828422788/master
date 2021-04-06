@@ -3,6 +3,7 @@ Feature: 权限-搜索权限
 
   Scenario Outline: 授权所需功能权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
@@ -21,24 +22,26 @@ Feature: 权限-搜索权限
       | __user_AutoTest__ |
       | __user_验证授权用户__   |
 
-  Scenario: 有效期限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for loading invisible
-    Then I click the "{'TabButton':'搜索权限'}" button
-    And I wait for loading invisible
-    And I "checked" the checkbox which name is "SearchAuth" in auth table
-    When the data name is "SearchAuth" then I click the "无限期" button in auth table
-    And I click the "Customize" button
-    And I click the "DateEditor" button
-    And I set the time input "TimeInput" to "1" minutes later
-    And I click the "EnsureTime" button
-    And I click the "SaveButton" button
-    And I will see the success message "更新成功"
+ # Scenario: 有效期限
+ #   Given open the "roles.ListPage" page for uri "/account/roles/"
+ #   And I wait for loading invisible
+ #   And the data name is "__user_AutoTest__" then i click the "授权" button
+ #   And I will see the "roles.AuthorizationPage" page
+ #   And I wait for loading invisible
+ #   Then I click the "{'TabButton':'搜索权限'}" button
+ #   And I wait for loading invisible
+ #   And I "checked" the checkbox which name is "SearchAuth" in auth table
+ #   When the data name is "SearchAuth" then I click the "无限期" button in auth table
+ #   And I click the "Customize" button
+ #   And I click the "DateEditor" button
+ #   And I set the time input "TimeInput" to "1" minutes later
+ #   And I click the "EnsureTime" button
+ #   And I click the "SaveButton" button
+ #   And I will see the success message "更新成功"
 
   Scenario: 新建搜索权限
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
+    And I wait for loading invisible
     And I click the "Create" button
     And I set the parameter "Name" with value "测试二次授权"
     And I set the parameter "Appname" with value "*"
@@ -47,6 +50,7 @@ Feature: 权限-搜索权限
 
   Scenario Outline: 授权无读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -64,6 +68,7 @@ Feature: 权限-搜索权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
+    And I wait for loading invisible
     Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
     Then I logout current user
 
@@ -73,6 +78,7 @@ Feature: 权限-搜索权限
 
   Scenario Outline: 授权读取
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -91,18 +97,19 @@ Feature: 权限-搜索权限
     And I wait for "2000" millsecond
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
     And I wait for loading invisible
-    Then the data name is "{'column':'0','name':'<name>'}" then i will see "查看授权" button
+    Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
     And the data name is "{'column':'0','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
     Then I logout current user
 
     Examples:
-      | name   |
-      | 测试二次授权 |
+      | name   |function|
+      | 测试二次授权 |查看\n授权    |
 
   Scenario Outline: 授权所有权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -120,7 +127,7 @@ Feature: 权限-搜索权限
     And I wait for "2000" millsecond
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
     And I wait for loading invisible
-    Then the data name is "{'column':'0','name':'<name>'}" then i will see "查看授权" button
+    Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
     And the data name is "{'column':'0','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
     And I "check" the checkbox which name is "验证授权用户" in tiny table
@@ -131,16 +138,18 @@ Feature: 权限-搜索权限
     And I wait for "2000" millsecond
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
     And I wait for loading invisible
-    Then the data name is "{'column':'0','name':'<name>'}" then i will see "查看授权" button
+    Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
     Then I logout current user
 
     Examples:
-      | name   |
-      | 测试二次授权 |
+      | name   |function|
+      | 测试二次授权 |查看\n授权    |
 
   Scenario: 给AutoTest授权所有权限
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
-    And the data name is "{'column':'0','name':'测试二次授权'}" then i click the "授权" button
+    And I wait for loading invisible
+    And the data name is "{'column':'0','name':'测试二次授权'}" then i click the "更多" button
+    And I click the "MoreOfAuth" button
     And I wait for loading invisible
     And I "check" the checkbox which name is "AutoTest" in tiny table
     And I click the "Ensure" button
@@ -162,26 +171,27 @@ Feature: 权限-搜索权限
     And I wait for "2000" millsecond
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
     And I wait for loading invisible
-    Then the data name is "{'column':'0','name':'<name>'}" then i will see "查看授权" button
+    Then the data name is "{'column':'0','name':'<name>'}" then i will see "<userfunction>" button
     And the data name is "{'column':'0','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
     Then I logout current user
 
     Examples:
-      | authRole | authName | function | name   |
-      | 用户       | 验证授权用户   | 读取       | 测试二次授权 |
+      | authRole | authName | function | name   |userfunction|
+      | 用户       | 验证授权用户   | 读取       | 测试二次授权 |查看\n授权        |
 
-  Scenario: 验证有效期限
-    Given I login user "AutoTest" with password "All#123456"
-    And I wait for "2000" millsecond
-    Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
-    And I wait for loading invisible
-    Then I will see the search result "{'column':'0','name':'SearchAuth','contains':'no'}"
-    Then I logout current user
+ # Scenario: 验证有效期限
+ #   Given I login user "AutoTest" with password "All#123456"
+ #   And I wait for "2000" millsecond
+ #   Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
+ #   And I wait for loading invisible
+ #   Then I will see the search result "{'column':'0','name':'SearchAuth','contains':'no'}"
+ #   Then I logout current user
 
   Scenario: 还原SearchAuth权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -194,5 +204,6 @@ Feature: 权限-搜索权限
   Scenario: 删除二次授权
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
     And I wait for loading invisible
-    And the data name is "{'column':'0','name':'测试二次授权'}" then i click the "删除" button
+    And the data name is "{'column':'0','name':'测试二次授权'}" then i click the "更多" button
+    And I click the "Delete" button
     And I click the "Ensure" button
