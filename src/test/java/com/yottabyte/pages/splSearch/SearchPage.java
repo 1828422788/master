@@ -709,8 +709,13 @@ public class SearchPage extends ListPageFactory {
     private WebElement downloadButton;
 
     public WebElement getDownloadButton() {
-        saveAsOther.click();
-        return downloadButton;
+//        saveAsOther.click();
+//        return downloadButton;
+        String xpath = "//span[text()='保存为']";  //yotta-dropdown-menu
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownList37();
     }
 
     // @FindBy(xpath = "(//span[text()='确 定']/ancestor::button)[last()]")

@@ -20,8 +20,8 @@ Feature: 新建下载任务
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "<lNum>"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
-    Then I choose the "<fileType>" from the "DocumentTypeList"
-    Then I choose the "<encode>" from the "DocumentEncodeList"
+    And I choose the "<fileType>" from the "DocumentTypeList"
+    And I choose the "<encode>" from the "DocumentEncodeList"
     Then I click the "CreateDownloadTask" button
     And I wait for "2000" millsecond
     Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
@@ -75,8 +75,8 @@ Feature: 新建下载任务
     Then I click the "DownloadEvent" button
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "<lNum>"
-    Then I choose the "<fileType>" from the "DocumentTypeList"
-    Then I choose the "<encode>" from the "DocumentEncodeList"
+    And I choose the "<fileType>" from the "DocumentTypeList"
+    And I choose the "<encode>" from the "DocumentEncodeList"
     Then I click the "CreateDownloadTask" button
     And I wait for "2000" millsecond
     Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"

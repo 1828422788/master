@@ -16,18 +16,19 @@ Feature: download_事件下载part0
 
     And I wait for "DownloadEvent" will be visible
     Then I click the "DownloadEvent" button
-    Then I set the parameter "DownloadName" with value "<name>"
-    Then I set the parameter "MaxLineNum" with value "100"
+    And I set the parameter "DownloadName" with value "<name>"
+    And I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
-    Then I choose the "TXT" from the "DocumentTypeList"
-    Then I choose the "UTF-8" from the "DocumentEncodeList"
+    And I choose the "TXT" from the "DocumentTypeList"
+    And I wait for "2000" millsecond
+    And I choose the "UTF-8" from the "DocumentEncodeList"
     Then I click the "CreateDownloadTask" button
 #    And I wait for "2000" millsecond
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
 
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
-    When I set the parameter "DbListPageSearchInput" with value "<name>.txt"
+    And I set the parameter "DbListPageSearchInput" with value "<name>.txt"
     And I wait for "1000" millsecond
 #    Given the data name is "<name>.txt" then i click the "下载" button
     And I click the "ListDownloadButton" button
@@ -106,11 +107,12 @@ Feature: download_事件下载part0
 
     And I wait for "DownloadEvent" will be visible
     Then I click the "DownloadEvent" button
-    Then I set the parameter "DownloadName" with value "<name>"
-    Then I set the parameter "MaxLineNum" with value "100"
+    And I set the parameter "DownloadName" with value "<name>"
+    And I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
-    Then I choose the "JSON" from the "DocumentTypeList"
-    Then I choose the "UTF-8" from the "DocumentEncodeList"
+    And I choose the "JSON" from the "DocumentTypeList"
+    And I wait for "2000" millsecond
+    And I choose the "UTF-8" from the "DocumentEncodeList"
     Then I click the "CreateDownloadTask" button
 #    And I wait for "2000" millsecond
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"

@@ -15,7 +15,8 @@ Feature: 数据集-c设为默认
 
     And I choose the "app之api全部用例" from the "appList"
     And I choose the "auto_package" from the "resourceGroup"
-
+    When I click the "Spl" button
+    And I wait for "5000" millsecond
     And I click the "Save" button
 
     Then I will see the "dataset.DetailPage" page
