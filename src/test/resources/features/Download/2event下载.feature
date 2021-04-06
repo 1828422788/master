@@ -12,9 +12,9 @@ Feature: download_事件下载part0
     And I click the "SearchButton" button
     And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then take a screenshot with name "v37dl/<name>"
-    And I wait for "DownloadEvent" will be visible
     Then take a screenshot with name "downloadpng/<name>"
+
+    And I wait for "DownloadEvent" will be visible
     Then I click the "DownloadEvent" button
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"
@@ -102,7 +102,7 @@ Feature: download_事件下载part0
     And I click the "SearchButton" button
     And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then take a screenshot with name "v37dl/<name>"
+    Then take a screenshot with name "downloadpng/<name>"
 
     And I wait for "DownloadEvent" will be visible
     Then I click the "DownloadEvent" button

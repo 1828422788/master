@@ -10,12 +10,12 @@ Feature: 监控搜索界面
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "2000" millsecond
+    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then take a screenshot with name "incident/<name>"
 
     And I wait for "2000" millsecond
-    And I wait for "downloadButton" will be visible
-    Then take a screenshot with name "incident/<name>"
+    And I wait for "saveAsOther" will be visible
     Then I click the "downloadButton" button
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"

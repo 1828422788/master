@@ -17,7 +17,6 @@ Feature: download_eval下载
 
     And I wait for "2000" millsecond
     And I wait for "SaveAsOther" will be visible
-    Then I click the "SaveAsOther" button
     Then I click the "DownloadButton" button
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"
@@ -74,7 +73,6 @@ Feature: download_eval下载
     Then take a screenshot with name "downloadpng/<name>"
 
     And I wait for "SaveAsOther" will be visible
-    Then I click the "SaveAsOther" button
     Then I click the "downloadButton" button
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"

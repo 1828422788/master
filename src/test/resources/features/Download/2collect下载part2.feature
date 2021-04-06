@@ -11,18 +11,18 @@ Feature: download_collect验证
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "2000" millsecond
+    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then take a screenshot with name "v37dl/<name>"
+    Then take a screenshot with name "downloadpng/<name>"
 
     And I wait for "2000" millsecond
-    And I wait for "downloadButton" will be visible
+    And I wait for "saveAsOther" will be visible
     Then I click the "downloadButton" button
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
     Then I choose the "CSV" from the "DocumentTypeList"
-    Then I choose the "UTF" from the "DocumentEncodeList"
+    Then I choose the "UTF-8" from the "DocumentEncodeList"
     Then I click the "CreateDownloadTask" button
 #    And I wait for "2000" millsecond
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
