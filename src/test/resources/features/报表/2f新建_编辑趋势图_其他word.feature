@@ -258,6 +258,7 @@ Feature: 报表新建_编辑_其他word
     And I set the parameter "FieldValue" with value "count()"
     And I click the "Indicator" button
     And I set the parameter "FieldValue" with value "apache.geo.city"
+    And I wait for "2000" millsecond
     And I click the "UnifyMetric" button
     And I click the "Divide" button
 

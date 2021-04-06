@@ -40,6 +40,11 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='授权']")
     private WebElement auth;
 
+    @FindBy(xpath = "//li[@yotta-test='queryscope-delete-button']/span")
+    private WebElement delete;
+
+    public WebElement getDelete() { return delete; }
+
     public WebElement getMoreOfAuth() { return auth; }
 
     public WebElement getDesensiveChecked() {

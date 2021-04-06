@@ -39,6 +39,7 @@ Feature: 报表新建_编辑_关系word
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "2000" millsecond
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
@@ -81,7 +82,9 @@ Feature: 报表新建_编辑_关系word
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "2000" millsecond
     And I set the parameter "Repulsion" with value "50"
+    And I wait for "1000" millsecond
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
@@ -123,7 +126,9 @@ Feature: 报表新建_编辑_关系word
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "2000" millsecond
     And I click the "Multistage" button
+    And I wait for "1000" millsecond
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 

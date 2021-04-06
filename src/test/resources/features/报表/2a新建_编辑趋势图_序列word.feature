@@ -39,9 +39,11 @@ Feature: 报表新建_编辑_序列word
 
     And I click the "Group" button
     And I set the parameter "GroupField" with value "apache.method" and press enter
+    And I wait for "2000" millsecond
 
     And I click the "Example" button
     And I click the "<legendPosition>" button
+    And I wait for "2000" millsecond
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
@@ -54,8 +56,6 @@ Feature: 报表新建_编辑_序列word
       |  WORD       | LineChart | FirstLabel   |                 |   个   |  Smooth        |  1  |   25   | FirstPosition  |LineChart |
       |  WORD       | AreaChart | SecondLabel  | AscendingOrder  |  pcs.  |ConnectEmptyData|     |   20   | SecondPosition |AreaChart |
 
-
-# Save two times to save parameters
   Scenario Outline: new_report_trend_Order_Pile
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
@@ -86,15 +86,14 @@ Feature: 报表新建_编辑_序列word
     And I click the "Group" button
     And I set the parameter "GroupField" with value "apache.method" and press enter
     And I click the "Pile" button
+    And I wait for "2000" millsecond
 
     And I click the "Example" button
     And I click the "<legendPosition>" button
+    And I wait for "2000" millsecond
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
-    ###
-    And I click the "EditButton" button
-    And I click the "EnsureButton" button
-    ###
+
     When I click the "FinishButton" button under some element
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"

@@ -125,10 +125,6 @@ Feature: 报表新建_编辑_其他
     And I click the "<color>" button
     And I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
-    ###
-    And I click the "EditButton" button
-    And I click the "EnsureButton" button
-    ###
 
     When I click the "FinishButton" button under some element
     And I wait for "ResultMessage" will be visible
@@ -300,6 +296,7 @@ Feature: 报表新建_编辑_其他
     And I set the parameter "FieldValue" with value "count()"
     And I click the "Indicator" button
     And I set the parameter "FieldValue" with value "apache.geo.city"
+    And I wait for "2000" millsecond
     And I click the "UnifyMetric" button
     And I click the "Divide" button
 
