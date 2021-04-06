@@ -291,10 +291,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//*[name()='g'][contains(@class,'vx-axis-left')]")
     private WebElement sequenceChartYaxis;
 
-    @FindBy(xpath = "//div[text()='404']/ancestor::div[contains(@class,'sc-dkXqmJ')]/parent::div")
+    @FindBy(xpath = "//div[@class='vx-legend-item']/parent::div/parent::div[@class]/parent::div")
     private WebElement multiYaxisLegend;
 
-    @FindBy(xpath = "//div[contains(@class,'sc-bdfBwQ')]/parent::div")
+    @FindBy(xpath = "//div[@class='vx-legend-item']/parent::div/parent::div/parent::div")
     private WebElement lineChartLegend;
 
     @FindBy(xpath = "//*[@yotta-test='dashboard-chart_title-dom']")
@@ -427,7 +427,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='中国']")
     private WebElement chinaDadio;
 
-    @FindBy(xpath = "(//*[name()='text'])[text()='中国']/preceding-sibling::*")
+    @FindBy(xpath = "(//*[text()='2']/parent::*)[1]")
     private WebElement chinaPoint;
 
     @FindBy(xpath = "//div[text()='首行']/following-sibling::div//span[text()='innerFilter']")
@@ -481,7 +481,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='yotta-select-menu']//span[text()='成都市']")
     private WebElement chengdushiList;
 
-    @FindBy(xpath = "(//*[name()='rect'])[4]")
+    @FindBy(xpath = "(//*[name()='rect'])[3]")
     private WebElement zhutiao;
 
     @FindBy(xpath = "(//*[name()='text'])[text()='64.20.177.254']")
@@ -493,7 +493,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//*[name()='circle'])[last()]")
     private WebElement taiwan;
 
-    @FindBy(xpath = "(//*[name()='circle'])[1]")
+    @FindBy(xpath = "(//*[text()='1']/parent::*)[1]")
     private WebElement neimenggu;
 
     @FindBy(xpath = "(//*[name()='text'])[text()='内蒙古']")

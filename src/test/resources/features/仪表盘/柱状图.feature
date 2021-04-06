@@ -190,7 +190,7 @@ Feature: 仪表盘柱状图
     And switch to another window
 #    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
-    Then I will see the "SearchInput" result will be "apache.clientip:222.74.195.206"
+    Then I will see the "SearchInput" result will be "apache.clientip:36.46.208.22"
     And I wait for "2000" millsecond
 #    Then I will see the input element "TimeRange" value will contains "今天"
     Then I will see the "TimeRange" result will be "今天"
