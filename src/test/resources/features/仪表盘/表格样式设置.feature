@@ -331,6 +331,7 @@ Feature: 仪表盘表格样式设置
   @dashboard @cleanDashboard
   Scenario: 删除创建的下载任务
     Given open the "ListPageFactory" page for uri "/download/"
+    And I wait for loading invisible
     And the data name contains "汉字Abc" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
