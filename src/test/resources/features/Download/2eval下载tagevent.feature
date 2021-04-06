@@ -15,6 +15,7 @@ Feature: download_eval下载
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then take a screenshot with name "downloadpng/<name>"
 
+    And I wait for "2000" millsecond
     And I wait for "SaveAsOther" will be visible
     Then I click the "DownloadButton" button
     Then I set the parameter "DownloadName" with value "<name>"
