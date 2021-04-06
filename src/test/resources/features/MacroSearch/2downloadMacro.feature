@@ -26,6 +26,7 @@ Feature: 下载宏
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
 #    And I save the result "{'ClientIp':'Column1','Version':'Column2','Count':'Column3'}"
 
@@ -33,6 +34,7 @@ Feature: 下载宏
     And take a screenshot with name "macro_<name>.png"
 
     And I wait for "SaveAsOther" will be visible
+    Then I click the "SaveAsOther" button
     Then I click the "DownloadButton" button
     Then I set the parameter "DownloadName" with value "macro_<name>"
     Then I set the parameter "MaxLineNum" with value "100"
@@ -54,6 +56,7 @@ Feature: 下载宏
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
 #    Then I compare with "{'ClientIp':'Column1','Version':'Column2','Count':'Column3'}"
@@ -61,6 +64,7 @@ Feature: 下载宏
     And take a screenshot with name "<name>.png"
 
     And I wait for "SaveAsOther" will be visible
+    Then I click the "SaveAsOther" button
     Then I click the "DownloadButton" button
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"
@@ -102,6 +106,7 @@ Feature: 下载宏
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
 #    And I save the result "{'ClientIp':'Column1','Version':'Column2','Count':'Column3'}"
 
@@ -130,6 +135,7 @@ Feature: 下载宏
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
 #    Then I compare with "{'ClientIp':'Column1','Version':'Column2','Count':'Column3'}"
@@ -165,12 +171,14 @@ Feature: 下载宏
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
 #    And I save the result "{'ClientIp':'Column1','Version':'Column2','Count':'Column3'}"
 
     And I wait for "2000" millsecond
     And take a screenshot with name "macro_<name>.png"
     And I wait for "SaveAsOther" will be visible
+    Then I click the "SaveAsOther" button
     Then I click the "downloadButton" button
     Then I set the parameter "DownloadName" with value "macro_<name>"
     Then I set the parameter "MaxLineNum" with value "100"
@@ -193,9 +201,11 @@ Feature: 下载宏
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I wait for "2000" millsecond
+    And I wait for "5000" millsecond
     And take a screenshot with name "<name>.png"
+
     And I wait for "SaveAsOther" will be visible
+    Then I click the "SaveAsOther" button
     Then I click the "downloadButton" button
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"

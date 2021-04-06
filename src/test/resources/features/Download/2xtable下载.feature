@@ -15,6 +15,7 @@ Feature: download_bucket下载part0
     Then take a screenshot with name "spldownload/<name>"
 
     And I wait for "saveAsOther" will be visible
+    Then I click the "SaveAsOther" button
     Then I click the "downloadButton" button
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"
@@ -48,6 +49,7 @@ Feature: download_bucket下载part0
     Then take a screenshot with name "spldownload/<name>"
 
     And I wait for "saveAsOther" will be visible
+    Then I click the "SaveAsOther" button
     Then I click the "downloadButton" button
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"
