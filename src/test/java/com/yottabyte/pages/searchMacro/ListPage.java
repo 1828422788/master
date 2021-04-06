@@ -14,7 +14,7 @@ public class ListPage extends ListPageFactory {
         super(driver);
     }
 
-    @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")
+    @FindBy(className = "yotta-dialog-contenttext")
     private WebElement successMessage;
 
     @Override
@@ -41,5 +41,28 @@ public class ListPage extends ListPageFactory {
     public WebElement getConfirmDelMacroButton() throws InterruptedException {
         Thread.sleep(2000);
         return confirmDelMacroButton;
+    }
+
+    @FindBy(xpath = "//li[@yotta-test='macro-delete-button']/span")
+    private WebElement delete;
+
+    @FindBy(xpath = "//li[@yotta-test='macro-tag-button']/span")
+    private WebElement label;
+
+    @FindBy(xpath = "//li[@yotta-test='macro-authorize-button']/span[text()='授权']")
+    private WebElement auth;
+
+   // @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//span[@class='yotta-select-selection-placeholder']")
+   @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//div[@class='yotta-select-selection-content']")
+    private WebElement tagToInput;
+
+    public WebElement getAuth() { return auth; }
+
+    public WebElement getLabel() { return label; }
+
+    public WebElement getDelete() { return delete; }
+
+    public WebElement getTagToInput() {
+        return tagToInput;
     }
 }
