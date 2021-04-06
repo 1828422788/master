@@ -17,6 +17,7 @@ Feature: download_eval下载
 
     And I wait for "2000" millsecond
     And I wait for "SaveAsOther" will be visible
+    Then I click the "SaveAsOther" button
     Then I click the "DownloadButton" button
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"
@@ -73,11 +74,13 @@ Feature: download_eval下载
     Then take a screenshot with name "downloadpng/<name>"
 
     And I wait for "SaveAsOther" will be visible
+    Then I click the "SaveAsOther" button
     Then I click the "downloadButton" button
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
     Then I choose the "CSV" from the "DocumentTypeList"
+    And I wait for "1000" millsecond
     Then I choose the "UTF-8" from the "DocumentEncodeList"
     Then I click the "CreateDownloadTask" button
 #    And I wait for "2000" millsecond
@@ -92,10 +95,10 @@ Feature: download_eval下载
 
     Examples:
       | name                                                   | splQuery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+      | eval_in_refererdomain_v_params                         | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| eval is_in=in(apache.referer_domain, apache.referer_domain) \| table apache.resp_len, is_in, apache.referer_domain \| sort by apache.referer_domain \| limit 10                                                                                                                                                                                                                                                                                                                                                     |
       | eval_not_in_resp_len                                   | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| eval is_in = in(apache.resp_len, -1, -2) \| table apache.resp_len, is_in, apache.x_forward \| sort by apache.x_forward \| limit 10                                                                                                                                                                                                                                                                                                                                                                                  |
       | eval_in_resp_len_v_null                                | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| eval is_in = in(apache.resp_len, null) \| table apache.resp_len, is_in, apache.x_forward \| sort by apache.x_forward \| limit 10                                                                                                                                                                                                                                                                                                                                                                                    |
       | eval_in_forward_v_params                               | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| eval is_in=in(apache.x_forward, apache.x_forward) \| table apache.status, apache.resp_len, is_in, apache.x_forward \| sort by apache.x_forward \| limit 10                                                                                                                                                                                                                                                                                                                                                          |
-      | eval_in_refererdomain_v_params                         | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| eval is_in=in(apache.referer_domain, apache.referer_domain) \| table apache.resp_len, is_in, apache.referer_domain \| sort by apache.referer_domain \| limit 10                                                                                                                                                                                                                                                                                                                                                     |
       | eval_in_resp_len_v_single_where                        | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| eval is_in=in(apache.resp_len, apache.status,4653, 2017, 2020) \| where is_in==true \| table apache.status, apache.resp_len, is_in, apache.x_forward \| sort by apache.x_forward                                                                                                                                                                                                                                                                                                                                    |
       | eval_in_resp_len_v_list                                | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| eval len_list=mvappend(4653, 2017, 2020) \| eval is_in=in(apache.resp_len, apache.status, len_list) \| where is_in==true \| table apache.status, apache.resp_len, is_in, apache.x_forward \| sort by apache.x_forward                                                                                                                                                                                                                                                                                               |
       | eval_in_list_v_single_resp_len                         | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| eval len_list=mvappend(4653, 2017, 2020) \| eval is_in=in(len_list, apache.resp_len, apache.status) \| where is_in==true \| table apache.status, apache.resp_len, is_in, apache.x_forward \| sort by apache.x_forward                                                                                                                                                                                                                                                                                               |

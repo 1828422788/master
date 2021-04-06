@@ -1114,7 +1114,8 @@ public class SearchPage extends ListPageFactory {
     }
 
     public WebElement getDocumentEncodeList() {
-        String xpath = "//label[contains(text(),'文件编码')]/parent::div/following-sibling::div//div[@class='yotta-select-selection']";
+//        String xpath = "//label[contains(text(),'文件编码')]/parent::div/following-sibling::div//div[@class='yotta-select-selection']";
+        String xpath = "//label[contains(text(),'文件编码')]/following::div//div[@class='yotta-select-selection']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);

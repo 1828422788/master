@@ -14,6 +14,8 @@ Feature: 新建下载任务
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
     And I wait for "2000" millsecond
+    And I wait for "saveAsOther" will be visible
+    Then I click the "saveAsOther" button
     Then I click the "downloadButton" button
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "<lNum>"
