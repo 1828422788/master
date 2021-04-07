@@ -490,7 +490,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='64.20.177.254']")
     private WebElement ip254;
 
-    @FindBy(xpath = "(//*[name()='circle'])[last()]")
+    @FindBy(xpath = "(//*[text()='1']/parent::*)[last()]")
     private WebElement taiwan;
 
     @FindBy(xpath = "(//*[text()='1']/parent::*)[1]")
