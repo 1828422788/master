@@ -33,17 +33,18 @@ Feature: 报表新建_编辑_序列
     And I click the "Yaxis" button
     And I set the parameter "FieldValue" with value "count()"
     And I set the parameter "unit" with value "<unit>"
+    And I wait for "1000" millsecond
     And I click the "<button>" button
     And I set the parameter "Min" with value "<min>"
     And I set the parameter "Max" with value "<max>"
 
     And I click the "Group" button
     And I set the parameter "GroupField" with value "apache.method" and press enter
-    And I wait for "2000" millsecond
+    And I wait for "1000" millsecond
 
     And I click the "Example" button
     And I click the "<legendPosition>" button
-    And I wait for "2000" millsecond
+    And I wait for "1000" millsecond
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
@@ -88,17 +89,19 @@ Feature: 报表新建_编辑_序列
     And I click the "Yaxis" button
     And I set the parameter "FieldValue" with value "count()"
     And I set the parameter "unit" with value "<unit>"
+    And I wait for "1000" millsecond
     And I set the parameter "Min" with value "<min>"
     And I set the parameter "Max" with value "<max>"
 
     And I click the "Group" button
     And I set the parameter "GroupField" with value "apache.method" and press enter
+    And I wait for "1000" millsecond
     And I click the "Pile" button
-    And I wait for "2000" millsecond
+    And I wait for "1000" millsecond
 
     And I click the "Example" button
     And I click the "<legendPosition>" button
-    And I wait for "2000" millsecond
+    And I wait for "1000" millsecond
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
@@ -140,11 +143,12 @@ Feature: 报表新建_编辑_序列
     And I click the "<label>" button
     And I click the "Yaxis" button
     And I set the parameter "FieldValue" with value "count()"
+    And I wait for "1000" millsecond
     And I set the parameter "unit" with value "<unit>"
 
     And I click the "Group" button
     And I set the parameter "GroupField" with value "apache.method" and press enter
-    And I wait for "2000" millsecond
+    And I wait for "1000" millsecond
 
     And I click the "Bubble" button
     And I click the "AccordingField" button
@@ -152,7 +156,7 @@ Feature: 报表新建_编辑_序列
 
     And I click the "Example" button
     And I click the "<legendPosition>" button
-    And I wait for "2000" millsecond
+    And I wait for "1000" millsecond
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
@@ -190,6 +194,7 @@ Feature: 报表新建_编辑_序列
     When I click the "ParameterSetting" button
     And I click the "Yaxis" button
     And I set the parameter "unit" with value "<unit>"
+    And I wait for "1000" millsecond
     And I click the "<button>" button
     And I set the parameter "Min" with value "<min>"
     And I set the parameter "Max" with value "<max>"
@@ -198,6 +203,7 @@ Feature: 报表新建_编辑_序列
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 

@@ -219,7 +219,7 @@ public class ClickButtonWithGivenName {
             xpath = ".//span[text()='" + buttonName + "']";
         } else if ("详情".equals(buttonName)) {
             xpath = ".//span[contains(text(),'" + buttonName + "')]";
-        }else if (webDriver.getCurrentUrl().contains("/sources/input/agent/") || webDriver.getCurrentUrl().contains("/agent/groupcollect/")) {
+        }else if (webDriver.getCurrentUrl().contains("/sources/input/agent/") || webDriver.getCurrentUrl().contains("/agent/groupcollect/") || webDriver.getCurrentUrl().contains("/reports/")) {
             xpath = ".//a[text()='" + buttonName + "']";
         }
         else {
