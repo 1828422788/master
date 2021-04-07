@@ -5,8 +5,7 @@ Feature: 报表_下载
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
 
-  @reportDownloadPDF
-    #@report
+#  @reportDownloadPDF @report
   Scenario Outline: download_pdf
     When I set the parameter "SearchInput" with value "<name>_PDF"
     And I wait for "2000" millsecond
