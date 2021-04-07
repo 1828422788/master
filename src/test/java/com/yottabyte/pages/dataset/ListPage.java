@@ -245,6 +245,28 @@ public class ListPage extends ListPageFactory {
         return ensure;
     }
 
+    @FindBy(xpath = "//li[@yotta-test='dataset-authorize-button']/span")
+    private WebElement auth;
+
+    public WebElement getAuth() { return auth; }
+
+    @FindBy(xpath = "//li[@yotta-test='dataset-tag-button']/span")
+    private WebElement label;
+
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//div[@class='yotta-select-selection-content']")
+    private WebElement tagToInput;
+
+    public WebElement getTagToInput() {
+        return tagToInput;
+    }
+
+    public WebElement getLabel() { return label; }
+
+    @FindBy(xpath = "//li[@yotta-test='dataset-delete-button']/span")
+    private WebElement delete;
+
+    public WebElement getDelete() { return delete; }
+
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div")
     private WebElement tagDropdown;
 

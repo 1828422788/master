@@ -46,7 +46,7 @@ public class DetailPage extends PageTemplate {
         return super.getButton("编辑根事件");
     }
 
-    @FindBy(id = "EditDatabase_name")
+    @FindBy(xpath = "//input[@yotta-test='dataset-name-input']")
     private WebElement editName; //编辑名称
 
     public WebElement getEditName() {
