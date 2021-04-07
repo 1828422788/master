@@ -29,8 +29,8 @@ Feature: 数据集-b删除
     And I wait for "Ensure" will be visible
     When I click the "Ensure" button
 
-    And I refresh the website
-    Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
+#    And I refresh the website
+#    Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
 
     Examples:
       |name       |

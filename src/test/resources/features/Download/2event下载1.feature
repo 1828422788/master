@@ -23,6 +23,7 @@ Feature: download_事件搜索下载part1
     And I choose the "TXT" from the "DocumentTypeList"
     And I wait for "2000" millsecond
     And I choose the "UTF-8" from the "DocumentEncodeList"
+    And I wait for "2000" millsecond
     When I click the "CreateDownloadTask" button
 #    And I wait for "2000" millsecond
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
