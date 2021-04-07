@@ -12,6 +12,7 @@ Feature: 事件管理-合并策略-5个
 #    And I choose the "name" from the "AppConditionFieldslist" in config
 #    And I choose the "like" from the "AppConditionOperatorsList" in config
     And I choose the "name" from the "AppConditionFieldslist"
+    And I wait for "2000" millsecond
     And I choose the "like" from the "AppConditionOperatorsList"
     And I set the parameter "AppConditionInput" with value "字段统计"
 
@@ -49,7 +50,7 @@ Feature: 事件管理-合并策略-5个
     And I wait for loading complete
 #    And I choose the "name" from the "AppConditionFieldslist" in config
     And I choose the "name" from the "AppConditionFieldslist"
-#    And I choose the "like" from the "AppConditionOperatorsList" in config
+    And I wait for "2000" millsecond
     And I choose the "like" from the "AppConditionOperatorsList"
     And I set the parameter "AppConditionInput" with value "事件"
 
@@ -58,18 +59,20 @@ Feature: 事件管理-合并策略-5个
     And I wait for "2000" millsecond
 #    And I choose the "alert_id" from the "AppConditionSecondFieldslist" in config
     And I choose the "alert_id" from the "AppConditionSecondFieldslist"
-#    And I choose the ">" from the "AppConditionSecondOperatorsList" in config
+    And I wait for "2000" millsecond
     And I choose the ">" from the "AppConditionSecondOperatorsList"
     And I set the parameter "AppConditionSecondInput" with value "0"
 
     And I click the "AddGroupCondition" button
-#    And I choose the "alert_id" from the "GroupConditionFieldslist" in config
     And I choose the "alert_id" from the "GroupConditionFieldslist"
 
     And I click the "AddStopCondition" button
     And I choose the "最后一条告警的字段" from the "StopConditionNameslist"
+    And I wait for "2000" millsecond
     And I choose the "name" from the "StopConditionLastAlertFieldNamesList"
+    And I wait for "2000" millsecond
     And I choose the "like" from the "StopConditionLastAlertFieldOperatorsList"
+    And I wait for "2000" millsecond
     And I wait for "3000" will be visible
     And I set the parameter "StopConditionLastAlertFieldInput" with value "事件告警停止"
 
@@ -96,19 +99,24 @@ Feature: 事件管理-合并策略-5个
 #    And I choose the "name" from the "AppConditionFieldslist" in config
 #    And I choose the "like" from the "AppConditionOperatorsList" in config
     And I choose the "name" from the "AppConditionFieldslist"
+    And I wait for "2000" millsecond
     And I choose the "like" from the "AppConditionOperatorsList"
+    And I wait for "2000" millsecond
     And I set the parameter "AppConditionInput" with value "连续统计"
 
     And I click the "AddStopCondition" button
     And I set the parameter "StopConditionContinuousAlertInput" with value "6"
 #    And I choose the "小时" from the "StopConditionContinuousAlertInputUnitList" in config
     And I choose the "小时" from the "StopConditionContinuousAlertInputUnitList"
+    And I wait for "2000" millsecond
 
 #    And I choose the "未收到新告警的时间" from the "StopConditionSecondNameslist" in config
     And I choose the "未收到新告警的时间" from the "StopConditionSecondNameslist"
+    And I wait for "2000" millsecond
     And I set the parameter "StopConditionNoAlertTimeInput" with value "360"
 #    And I choose the "分钟" from the "StopConditionNoAlertTimeInputUnitList" in config
     And I choose the "分钟" from the "StopConditionNoAlertTimeInputUnitList"
+    And I wait for "2000" millsecond
 
     And I choose the "<SendPolicyName>" from the "SendPolicyNameslist"
 
@@ -133,7 +141,9 @@ Feature: 事件管理-合并策略-5个
 #    And I choose the "name" from the "AppConditionFieldslist" in config
 #    And I choose the "like" from the "AppConditionOperatorsList" in config
     And I choose the "name" from the "AppConditionFieldslist" in config
+    And I wait for "2000" millsecond
     And I choose the "like" from the "AppConditionOperatorsList" in config
+    And I wait for "2000" millsecond
     And I set the parameter "AppConditionInput" with value "spl统计"
 
     And I click the "AddGroupCondition" button
@@ -148,11 +158,15 @@ Feature: 事件管理-合并策略-5个
 #    And I choose the ">" from the "StopConditionLastAlertFieldOperatorsList" in config
 #    And I choose the "(10) 恢复" from the "StopConditionLastAlertPriorityList" in config
     And I choose the "秒" from the "StopConditionContinuousAlertInputUnitList"
+    And I wait for "2000" millsecond
     And I choose the "最后一条告警的字段" from the "StopConditionNameslist"
+    And I wait for "2000" millsecond
     And I choose the "priority" from the "StopConditionLastAlertFieldNamesList"
+    And I wait for "2000" millsecond
     And I choose the ">" from the "StopConditionLastAlertFieldOperatorsList"
+    And I wait for "2000" millsecond
     And I choose the "(10) 恢复" from the "StopConditionLastAlertPriorityList"
-
+    And I wait for "2000" millsecond
     And I choose the "<SendPolicyName>" from the "SendPolicyNameslist"
 
     And I click the "StartCruxeePolicy" button
@@ -174,6 +188,7 @@ Feature: 事件管理-合并策略-5个
 
     And I click the "AddAppCondition" button
     And I choose the "name" from the "AppConditionFieldslist" in config
+    And I wait for "2000" millsecond
     And I choose the "like" from the "AppConditionOperatorsList" in config
     And I set the parameter "AppConditionInput" with value "基线"
 
@@ -182,6 +197,7 @@ Feature: 事件管理-合并策略-5个
 
     And I set the parameter "StopConditionContinuousAlertInput" with value "300"
     And I choose the "分钟" from the "StopConditionContinuousAlertInputUnitList" in config
+    And I wait for "2000" millsecond
 
     And I choose the "<SendPolicyName>" from the "SendPolicyNameslist"
 
