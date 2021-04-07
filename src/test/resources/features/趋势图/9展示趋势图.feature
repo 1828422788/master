@@ -121,8 +121,8 @@ Feature: 展示趋势图
     @viewTrendDimension @trendView
     Examples:
       | name                                     |   element            |
-      | Flame_图外钻取_分面                      | FlameElement         |
-      | Flame_图内钻取                           | FlameElement         |
+      | Flame_DrillOut_分面                      | FlameElement         |
+      | Flame_DrillIn                            | FlameElement         |
       | Sun_分面                                 | SunElement           |
       | Bar_全部展示_分面                        | BarElement           |
       | Rose_只展示名称_分面                     | PieElement           |
