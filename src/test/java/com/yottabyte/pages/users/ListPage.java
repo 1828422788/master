@@ -71,6 +71,11 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//label[text()='所拥有角色']")
     private WebElement roleText;
 
+    @FindBy(xpath = "//li[@yotta-test='account-delete-button']/span")
+    private WebElement delete;
+
+    public WebElement getDelete() { return delete; }
+
     public WebElement getRoleText() {
         return roleText;
     }

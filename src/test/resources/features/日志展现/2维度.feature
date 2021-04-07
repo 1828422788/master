@@ -247,12 +247,13 @@ Feature: 日志展现_维度
     And I click the "DeleteFirst" button
     And I click the "DeleteFirst" button
     And I click the "Exhibition" button
-    And I choose the "<option>" from the "DrillDownMode" in config
+    And I click the "<option>" button
     And I click the "Generate" button
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I click the Circle "ShenZhen" button
+    And I wait for "<element>" will be visible
     And I click the "HideElement" button
     And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
@@ -262,9 +263,9 @@ Feature: 日志展现_维度
     Then I compare source image "actual/高级搜索视图/2维度/<chartType>_<option>" with target image "expect/高级搜索视图/2维度/<chartType>_<option>"
 
     Examples:
-      |   chartType   |  option        |
-      |      Flame    | 图内钻取       |
-      |      Flame    | 图外钻取       |
+      |   chartType   |  option        | element      |
+      |      Flame    | DrillIn        | BackToChart  |
+      |      Flame    | DrillOut       | Chart        |
 
 
   Scenario Outline: flame_facet
@@ -280,7 +281,7 @@ Feature: 日志展现_维度
     And I click the "DeleteFirst" button
     And I click the "DeleteFirst" button
     And I click the "Exhibition" button
-    And I choose the "<option>" from the "DrillDownMode" in config
+    And I click the "<option>" button
     And I click the "Facet" button
     And I choose the "apache.method" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "2"
@@ -290,6 +291,7 @@ Feature: 日志展现_维度
     And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I click the Circle "ShenZhen" button
+    And I will see the "<element>" doesn't exist
     And I click the "HideElement" button
     And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
@@ -298,6 +300,6 @@ Feature: 日志展现_维度
     Then I compare source image "actual/高级搜索视图/2维度/<chartType>_<option>_分面" with target image "expect/高级搜索视图/2维度/<chartType>_<option>_分面"
 
     Examples:
-      |   chartType   |  option        |
-      |      Flame    | 图内钻取       |
-      |      Flame    | 图外钻取       |
+      |   chartType   |  option        | element    |
+      |      Flame    | 图内钻取       | AreaChart  |
+      |      Flame    | 图外钻取       | BackToChart|

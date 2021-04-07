@@ -1,4 +1,4 @@
-#@reportFiles @checkFiles @checkAllFiles @report
+@reportFiles @checkFiles @checkAllFiles @report
 Feature: 报表_文件列表
 # need to wait till reports test_report_PDF, test_report_URL, test_report_EXCEL from 新建_基本设置 are generated
 
@@ -14,7 +14,7 @@ Feature: 报表_文件列表
     And I will see the element "ThirdColumnTitle" contains "生成时间"
     And I will see the element "FourthColumnTitle" contains "操作"
     And I click the "Download" button
-    And I click the "Delete" button
+    And I click the "DeleteReport" button
     And I wait for "Message" will be visible
     And I will see the element "Message" contains "此操作将删除「"
     And I will see the element "Message" contains ".pdf」, 是否继续?"

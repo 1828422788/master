@@ -34,8 +34,8 @@ Feature: 趋势图删除（RZY-1891）
     @cleanTrendDimension
     Examples:
       | name                                     |
-      | Flame_图外钻取_分面                      |
-      | Flame_图内钻取                           |
+      | Flame_DrillOut_分面                      |
+      | Flame_DrillIn                            |
       | Sun_分面                                 |
       | Bar_展示全部_分面                        |
       | Rose_只展示名称_分面                     |

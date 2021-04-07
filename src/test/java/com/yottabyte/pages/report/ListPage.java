@@ -77,6 +77,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "(//span[text()='下载'])[1]")
     private WebElement download;
 
+    @FindBy(xpath = "(//span[text()='删除'])[1]")
+    private WebElement deleteReport;
+
     @FindBy(xpath = "//div/ul/li/span[text()='授权']")
     private WebElement auth;
 
@@ -130,7 +133,7 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getReturnList() {
-        return super.getButton("返回列表");
+        return super.getButton("返回");
     }
 
     public WebElement getNewReportButton() {
@@ -190,5 +193,9 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getDownload() {
         return download;
+    }
+
+    public WebElement getDeleteReport() {
+        return deleteReport;
     }
 }

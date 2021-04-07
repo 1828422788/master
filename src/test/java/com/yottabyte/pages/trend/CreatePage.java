@@ -580,6 +580,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[text()='表格样式设置']")
     private WebElement colorPopover;
 
+    @FindBy(xpath = "//*[name()='g']//*[name()='svg'][1]")
+    private WebElement backToChart;
+
+    public WebElement getBackToChart() {
+        return backToChart;
+    }
+
     public WebElement getColorPopover() {
         return colorPopover;
     }
@@ -1482,10 +1489,6 @@ public class CreatePage extends PageTemplate {
         return getDropdownElement("气泡大小");
     }
 
-    public WebElement getDrillDownMode() {
-        return getDropdownElement("钻取模式");
-    }
-
     public WebElement getCity() {
         return getDropdownElement("市级下钻");
     }
@@ -1594,6 +1597,14 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getPercent() {
         return getElementWithText("百分比");
+    }
+
+    public WebElement getDrillIn() {
+        return getElementWithText("图内钻取");
+    }
+
+    public WebElement getDrillOut() {
+        return getElementWithText("图外钻取");
     }
 
     public WebElement getFirstPosition() {
