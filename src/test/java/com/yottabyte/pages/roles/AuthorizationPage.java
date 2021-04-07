@@ -96,7 +96,7 @@ public class AuthorizationPage extends PageTemplate {
     }
 
     public WebElement getUser() {
-        return this.getMenuButton("用户");
+        return this.getSubMenuButton("用户");
     }
 
     public WebElement getData() {
