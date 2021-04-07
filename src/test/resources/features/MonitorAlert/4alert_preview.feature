@@ -1,4 +1,4 @@
-@bvtalert
+@bvtalert @alertcase
 Feature:监控预览
 
   @detail

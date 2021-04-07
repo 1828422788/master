@@ -1,7 +1,6 @@
-@onalert
 Feature: 监控启用
 
-  @onalert0 @bvtalert @bvtalert0
+  @onalert0
   Scenario Outline: 启用高优先级用例
     Given open the "alert.ListPage" page for uri "/alerts/"
 #   And I wait for "3000" millsecond

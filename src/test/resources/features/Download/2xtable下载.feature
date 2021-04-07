@@ -20,7 +20,9 @@ Feature: download_bucket下载part0
     Then I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
     Then I choose the "CSV" from the "DocumentTypeList"
+    And I wait for "2000" millsecond
     Then I choose the "UTF-8" from the "DocumentEncodeList"
+    And I wait for "2000" millsecond
     Then I click the "CreateDownloadTask" button
     And I wait for "2000" millsecond
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
@@ -55,8 +57,9 @@ Feature: download_bucket下载part0
     And I choose the "CSV" from the "DocumentTypeList"
     And I wait for "2000" millsecond
     And I choose the "UTF-8" from the "DocumentEncodeList"
+    And I wait for "2000" millsecond
     When I click the "CreateDownloadTask" button
-    And I wait for "3000" millsecond
+    And I wait for "2000" millsecond
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
 
     #下载到本地

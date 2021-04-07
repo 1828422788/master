@@ -81,6 +81,7 @@ Feature: download_eval下载
     Then I choose the "CSV" from the "DocumentTypeList"
     And I wait for "1000" millsecond
     Then I choose the "UTF-8" from the "DocumentEncodeList"
+    And I wait for "2000" millsecond
     Then I click the "CreateDownloadTask" button
 #    And I wait for "2000" millsecond
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"

@@ -306,7 +306,7 @@ public class ListPage extends ListPageFactory {
         return confirmDelAlertButton;
     }
 
-    @FindBy(xpath = "(//span[text()='正在维护'])")
+    @FindBy(xpath = "(//div[text()='正在维护'])")
     private WebElement maintainFlag;
     public WebElement getMaintainFlag()
     {

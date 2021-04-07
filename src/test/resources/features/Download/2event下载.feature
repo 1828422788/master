@@ -22,6 +22,7 @@ Feature: download_事件下载part0
     And I choose the "TXT" from the "DocumentTypeList"
     And I wait for "2000" millsecond
     And I choose the "UTF-8" from the "DocumentEncodeList"
+    And I wait for "2000" millsecond
     Then I click the "CreateDownloadTask" button
 #    And I wait for "2000" millsecond
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
@@ -113,6 +114,7 @@ Feature: download_事件下载part0
     And I choose the "JSON" from the "DocumentTypeList"
     And I wait for "2000" millsecond
     And I choose the "UTF-8" from the "DocumentEncodeList"
+    And I wait for "2000" millsecond
     Then I click the "CreateDownloadTask" button
 #    And I wait for "2000" millsecond
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
