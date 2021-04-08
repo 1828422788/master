@@ -75,56 +75,65 @@ Feature: 仪表盘火焰图
       | name    |
       | 仪表盘火焰图 |
 
-#  @dashboard @dashboardSmoke
-#  Scenario Outline: 修改为火焰图
-#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-#    And I wait for loading invisible
-#    And I click the detail which name is "<name>"
-#    Then I will see the "dashboard.DetailPage" page
-#    And I wait for "Progress" will be invisible
-#    And I click the "ChartType" button
-#    And I wait for "1000" millsecond
-#    Then I will see the "trend.CreatePageDash" page
-#    And I wait for "Map" will be visible
-#    And I click the "Map" button
-#    And I click the "Geostatsmap" button
-#    And I click the "SettingChart" button under some element
-#    And I wait for "500" millsecond
-#    And I click the "Generate" button
-#    And I wait for "3000" millsecond
-#    And I click the "SettingChart" button under some element
-##    Then I hide the element "SettingContent"
-##    And I wait for "Progress" will be invisible
-#    Then I will see the "dashboard.DetailPage" page
-#    And I wait for "2000" millsecond
-#    And I move the mouse pointer to the "TrendTitle"
-#    And I click the "TrendTitle" button
-#    And I wait for "3000" millsecond
-#
-#    Examples:
-#      | name    |
-#      | 仪表盘统计地图 |
-#
-#  @cleanDashboard
-#  Scenario Outline: 删除仪表盘
-#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-#    When the data name is "<name>" then i click the "删除" button
-#    And I wait for "Ensure" will be visible
-#    And I click the "Ensure" button
-#    Then I will see the success message "删除仪表盘成功"
-#
-#    Examples:
-#      | name    |
-#      | 仪表盘统计地图 |
-#
-#  @cleanDashboard
-#  Scenario Outline: 删除仪表盘所建趋势图
-#    Given open the "trend.ListPage" page for uri "/trend/"
-#    When the data name is "<name>" then i click the "删除" button
-#    And I wait for "Ensure" will be visible
-#    And I click the "Ensure" button
-#    And I will see the success message "删除成功"
-#
-#    Examples:
-#      | name    |
-#      | 仪表盘统计地图 |
+  @dashboard @dashboardSmoke
+  Scenario Outline: 修改为火焰图
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    And I click the "ChartType" button
+    And I wait for "1000" millsecond
+    Then I will see the "trend.CreatePageDash" page
+    And I wait for "Dimension" will be visible
+    And I click the "Dimension" button
+    And I click the "Flame" button
+    And I click the "SettingChart" button under some element
+    And I click the "Divide" button
+    And I wait for "500" millsecond
+    And I click the "DeleteFirst" button
+    And I wait for "500" millsecond
+    And I click the "DeleteFirst" button
+    And I wait for "500" millsecond
+    And I click the "Facet" button
+    And I wait for "500" millsecond
+    And I choose the "apache.method" from the "DataValue"
+    And I wait for "1500" millsecond
+    And I set the parameter "ColumnNum" with value "2"
+    And I wait for "500" millsecond
+    And I click the "Generate" button
+    And I wait for "3000" millsecond
+    And I click the "SettingChart" button under some element
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "2000" millsecond
+    And I move the mouse pointer to the "TrendTitle"
+    And I click the "TrendTitle" button
+    And I wait for "3000" millsecond
+
+    Examples:
+      | name    |
+      | 仪表盘火焰图 |
+
+  @cleanDashboard
+  Scenario Outline: 删除仪表盘
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    Then I will see the success message "删除仪表盘成功"
+
+    Examples:
+      | name    |
+      | 仪表盘火焰图 |
+
+  @cleanDashboard
+  Scenario Outline: 删除仪表盘所建趋势图
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I will see the success message "删除成功"
+
+    Examples:
+      | name    |
+      | 仪表盘火焰图 |
