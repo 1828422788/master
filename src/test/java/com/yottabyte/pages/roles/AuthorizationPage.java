@@ -76,7 +76,7 @@ public class AuthorizationPage extends PageTemplate {
     private WebElement knowledge;
 
     public WebElement getUserGroup() {
-        return this.getMenuButton("用户分组");
+        return this.getSubMenuButton("用户分组");
     }
 
     public WebElement getUserAndValidate() {

@@ -51,6 +51,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(partialLinkText = "添加管理员")
     private WebElement addAdmin;
 
+    //点击非输入框的任何位置都会自动保存
+    @FindBy(xpath = "//input[@yotta-test='usergroup-memo-input']")
+    private WebElement comment;
+
+    public WebElement getComment() { return comment; }
+
     public WebElement getMessage() {
         return super.getSuccessMessage();
     }

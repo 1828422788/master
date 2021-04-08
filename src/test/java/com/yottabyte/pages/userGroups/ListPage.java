@@ -18,4 +18,14 @@ public class ListPage extends ListPageFactory {
         return loading;
     }
 
+    @FindBy(xpath = "//li[@yotta-test='usergroup-authorize-button']/span")
+    private WebElement auth;
+
+    public WebElement getAuth() { return auth; }
+
+    @FindBy(xpath = "//li[@yotta-test='usergroup-delete-button']/span")
+    private WebElement delete;
+
+    public WebElement getDelete() { return delete; }
+
 }
