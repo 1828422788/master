@@ -34,12 +34,17 @@ Feature: 搜索配置
     And I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "SearchButton" button
     And I click the "NewSavedSearch" button
-    And I wait for loading invisible
-    And I set the parameter "OfflineTaskName" with value "<name>"
+    And I wait for loading complete
+
+    And I set the parameter "SavedSearchName" with value "<name>"
     And I click the "EnsureCreateSavedSearch" button
+    And I wait for loading complete
+    Then I will see the success message "创建成功"
+
     And I click the "AcceptCreateDownloadTask" button
     And I wait for "2000" millsecond
     And I click the "OpenSavedSearchList" button
+    And I wait for "5000" millsecond
     And "加载" the data "<name>" in tiny saved search
     Then I will see the input element "SearchInput" value will be "<spl>"
 

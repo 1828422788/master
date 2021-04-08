@@ -108,13 +108,6 @@ public class SearchPage extends ListPageFactory {
     }
 
     @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")
-    private WebElement savedSearchNameInput;
-
-    public WebElement getSavedSearchNameInput() {
-        return savedSearchNameInput;
-    }
-
-    @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")
     private WebElement savedSearchName;
 
     public WebElement getSavedSearchName() {

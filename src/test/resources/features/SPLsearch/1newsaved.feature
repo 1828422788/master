@@ -14,7 +14,7 @@ Feature: 已存搜索新建（RZY-150）
     And I choose the "新建" from the "SavedSearchList"
     And I wait for loading complete
 
-    And I set the parameter "SavedSearchNameInput" with value "<name>"
+    And I set the parameter "SavedSearchName" with value "<name>"
 #    And I choose the "<searchResName>" from the "GroupComboBox"
     And I click the "EnsureCreateSavedSearch" button
     And I wait for loading complete
