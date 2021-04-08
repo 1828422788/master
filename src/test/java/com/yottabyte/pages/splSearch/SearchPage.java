@@ -1179,9 +1179,6 @@ public class SearchPage extends ListPageFactory {
         return ensureList.get(4);
     }
 
-    @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::input")
-    private WebElement offlineTaskName;
-
     @FindBy(xpath = "//label[text()='名称']/ancestor::div[1]/following-sibling::div//input")
     private WebElement taskName;
 
@@ -1193,6 +1190,8 @@ public class SearchPage extends ListPageFactory {
         return GetTime.getTime(webDriver, "ApplyCustomTime");
     }
 
+    @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::input")
+    private WebElement offlineTaskName;
     public WebElement getOfflineTaskName() {
         return offlineTaskName;
     }

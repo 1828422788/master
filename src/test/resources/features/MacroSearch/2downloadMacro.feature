@@ -34,13 +34,14 @@ Feature: 下载宏
     And take a screenshot with name "macro_<name>.png"
 
     And I wait for "SaveAsOther" will be visible
-    Then I click the "SaveAsOther" button
     Then I click the "DownloadButton" button
     Then I set the parameter "DownloadName" with value "macro_<name>"
     Then I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
     Then I choose the "CSV" from the "DocumentTypeList"
+    And I wait for "2000" millsecond
     Then I choose the "UTF-8" from the "DocumentEncodeList"
+    And I wait for "2000" millsecond
     Then I click the "CreateDownloadTask" button
 #    And I wait for "2000" millsecond
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
@@ -64,13 +65,14 @@ Feature: 下载宏
     And take a screenshot with name "<name>.png"
 
     And I wait for "SaveAsOther" will be visible
-    Then I click the "SaveAsOther" button
     Then I click the "DownloadButton" button
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
     Then I choose the "CSV" from the "DocumentTypeList"
+    And I wait for "2000" millsecond
     Then I choose the "UTF-8" from the "DocumentEncodeList"
+    And I wait for "2000" millsecond
     Then I click the "CreateDownloadTask" button
 #    And I wait for "2000" millsecond
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
@@ -119,7 +121,9 @@ Feature: 下载宏
     Then I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
     Then I choose the "JSON" from the "DocumentTypeList"
+    And I wait for "2000" millsecond
     Then I choose the "UTF-8" from the "DocumentEncodeList"
+    And I wait for "2000" millsecond
     Then I click the "CreateDownloadTask" button
 #    And I wait for "2000" millsecond
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
@@ -148,7 +152,9 @@ Feature: 下载宏
     Then I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
     Then I choose the "JSON" from the "DocumentTypeList"
+    And I wait for "2000" millsecond
     Then I choose the "UTF-8" from the "DocumentEncodeList"
+    And I wait for "2000" millsecond
     Then I click the "CreateDownloadTask" button
 #    And I wait for "2000" millsecond
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
@@ -178,13 +184,14 @@ Feature: 下载宏
     And I wait for "2000" millsecond
     And take a screenshot with name "macro_<name>.png"
     And I wait for "SaveAsOther" will be visible
-    Then I click the "SaveAsOther" button
     Then I click the "downloadButton" button
     Then I set the parameter "DownloadName" with value "macro_<name>"
     Then I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
     Then I choose the "CSV" from the "DocumentTypeList"
+    And I wait for "2000" millsecond
     Then I choose the "UTF-8" from the "DocumentEncodeList"
+    And I wait for "2000" millsecond
     Then I click the "CreateDownloadTask" button
 #    And I wait for "2000" millsecond
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
@@ -205,13 +212,14 @@ Feature: 下载宏
     And take a screenshot with name "<name>.png"
 
     And I wait for "SaveAsOther" will be visible
-    Then I click the "SaveAsOther" button
     Then I click the "downloadButton" button
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
     Then I choose the "CSV" from the "DocumentTypeList"
+    And I wait for "2000" millsecond
     Then I choose the "UTF-8" from the "DocumentEncodeList"
+    And I wait for "2000" millsecond
     Then I click the "CreateDownloadTask" button
 
     #下载到本地
