@@ -101,6 +101,33 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "ant-empty-description")
     private WebElement noneData;
 
+    @FindBy(xpath = "//li[@yotta-test='alert-authorize-button']/span")
+    private WebElement auth;
+
+    @FindBy(xpath = "//li[@yotta-test='alert-tags-button']/span")
+    private WebElement label;
+
+    @FindBy(xpath = "//li[@yotta-test='alert-copy-button']/span")
+    private WebElement copy;
+
+    @FindBy(xpath = "//li[@yotta-test='alert-delete-button']/span")
+    private WebElement delete;
+
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//div[@class='yotta-select-selection-content']")
+    private WebElement tagToInput;
+
+    public WebElement getTagToInput() {
+        return tagToInput;
+    }
+
+    public WebElement getLabel() { return label; }
+
+    public WebElement getCopy() { return copy; }
+
+    public WebElement getDelete() { return delete; }
+
+    public WebElement getAuth() { return auth; }
+
     public WebElement getLoadingElement() {
         return loadingElement;
     }

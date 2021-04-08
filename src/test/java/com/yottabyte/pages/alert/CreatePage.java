@@ -35,7 +35,7 @@ public class CreatePage extends PageTemplate {
     private List<WebElement> tabs;
 
     // 监控名称
-    @FindBy(xpath = "//label[text()='名称']/following-sibling::div/input")
+    @FindBy(xpath = "//input[@yotta-test='alert-name-input']")
     private WebElement alertName;
 
     // 监控描述
@@ -51,7 +51,7 @@ public class CreatePage extends PageTemplate {
     private WebElement alertGroupSelectors;
 
     // 运行用户的按钮
-    @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div/div")
+    @FindBy(xpath = "//label[text()='运行用户']/parent::div/following-sibling::div//span[@class='yotta-select-selection-value']")
     private WebElement alertUserButton;
 
     // 日志来源的按钮
@@ -59,7 +59,7 @@ public class CreatePage extends PageTemplate {
     private WebElement alertSourceButton;
 
     // 搜索内容
-    @FindBy(xpath = "//label[text()='搜索内容']/following-sibling::div/textarea")
+    @FindBy(xpath = "//textarea[@yotta-test='alert-query-textarea']")
     private WebElement searchContent;
 
     // 已存搜索按钮
@@ -199,13 +199,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//p[@class='el-select-dropdown__empty'])[last()]")
     private WebElement emptyDropdown;
 
-    @FindBy(xpath = "//input[@placeholder='请输入']")
+    @FindBy(xpath = "//input[@yotta-test='alert-statistical_period_num-input']")
     private WebElement timeInput;
 
-    @FindBy(xpath = "//label[text()='触发条件时告警']/following-sibling::div//input")
+    @FindBy(xpath = "//input[@yotta-test='alert-statistical_period_num-input']")
     private WebElement triggerInput;
 
-    @FindBy(xpath = "(//label[text()='触发条件时告警']/following-sibling::div//input)[2]")
+    @FindBy(xpath = "//input[@yotta-test='alert-levels_value-input']")
     private WebElement triggerLevel;
 
     @FindBy(className = "anticon-loading")
