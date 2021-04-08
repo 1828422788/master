@@ -128,7 +128,7 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(className = "chart-gui-field-color-box")
     private WebElement addColor;
 
-    @FindBy(xpath = "(//i[@class='anticon css-ifnfqv _2FmD69BXKIajYmOQLvFY29 _14T_hDxmrDu4vX6PHAQs1u'])[1]")
+    @FindBy(xpath = "(//span[contains(@class,'yotta-tag-close')])[1]")
     private WebElement deleteFirst;
 
     @FindBy(xpath = "(//i[@class='anticon css-ifnfqv _2FmD69BXKIajYmOQLvFY29 _14T_hDxmrDu4vX6PHAQs1u'])[last()]")
@@ -2485,5 +2485,6 @@ public class CreatePageDash extends PageTemplate {
     public WebElement getCloseDivideItem() {
         return closeDivideItem;
     }
+
 
 }
