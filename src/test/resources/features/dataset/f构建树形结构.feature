@@ -128,7 +128,7 @@ Feature: 数据集-f构建树形结构
   Scenario: 验证：RZY-4085:父子行为-无
 #    Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading complete
-    Then I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'0','name':'父子无tre'}"
+    Then I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'0','name':'父子无tree'}"
     Then I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'1','name':'无tree'}"
 
     Then I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'2','name':'无'}"
