@@ -15,7 +15,7 @@ Feature: 数据集-d编辑根事件
     And I set the parameter "Spl" with value "<spl>"
 
     When I click the "Save" button
-    And I wait for title change text to "数据集详情"
+    Then I wait for title change text to "数据集详情"
 
     Examples: 新建成功
       | name          | alias         | spl |
@@ -70,7 +70,7 @@ Feature: 数据集-d编辑根事件
     And I wait for "2000" millsecond
     Given I wait for loading complete
     Then I will see the "dataset.ListPage" page
-    Then I will see the data "{'column':'0','name':'edit2'}" values "{'column':'3','name':'app之api全部用例'}"
+    Then I will see the data "{'column':'0','name':'edit2'}" values "{'column':'4','name':'app之api全部用例'}"
 #    And I will see the data "{'column':'0','name':'edit'}" values "{'column':'6','name':'auto_package'}"
 
   Scenario: RZY-4121:修改名称(最后测试修改名称)
@@ -94,8 +94,9 @@ Feature: 数据集-d编辑根事件
     When I click the "editEvent" button
     And I click the "editHuiJu" button
     And I click the "rootSave" button
-    Given I wait for loading complete
 
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
     Then I will see the "AfterFatherChild" result will be "汇聚"
 
   @4125jc
@@ -107,7 +108,9 @@ Feature: 数据集-d编辑根事件
     When I click the "editEvent" button
     When I click the "editJiCheng" button
     When I click the "rootSave" button
+
     Given I wait for loading complete
+    And I wait for "2000" millsecond
     Then I will see the "AfterFatherChild" result will be "继承"
 
   @4125wu
@@ -119,5 +122,7 @@ Feature: 数据集-d编辑根事件
     When I click the "editEvent" button
     When I click the "editWu" button
     When I click the "rootSave" button
+
+    And I wait for "2000" millsecond
     Given I wait for loading complete
     Then I will see the "AfterFatherChild" result will be "无"
