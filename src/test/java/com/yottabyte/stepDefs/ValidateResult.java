@@ -377,7 +377,6 @@ public class ValidateResult {
         Assert.assertEquals(valuesMap.get("name"), actualName);
     }
 
-
     /**
      * 验证某一行某一列的值是否修改正确
      *

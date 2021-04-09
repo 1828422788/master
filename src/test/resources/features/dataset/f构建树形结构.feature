@@ -127,11 +127,14 @@ Feature: 数据集-f构建树形结构
   @y4085
   Scenario: 验证：RZY-4085:父子行为-无
 #    Given open the "dataset.ListPage" page for uri "/dataset/"
-    And I wait for loading complete
-    Then I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'0','name':'父子无tree'}"
-    Then I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'1','name':'无tree'}"
+    And I set the parameter "SearchInputName" with value "父子无tree"
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
 
-    Then I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'2','name':'无'}"
+    Then I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'1','name':'父子无tree'}"
+    Then I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'2','name':'无tree'}"
+
+    Then I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'3','name':'无'}"
 #    Then I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'5','name':'无'}"
 #    Then I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'6','name':'无'}"
 #    Then I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'6','name':'admin'}"
@@ -139,11 +142,13 @@ Feature: 数据集-f构建树形结构
   @y4083
   Scenario: 验证：RZY-4083
 #    Given open the "dataset.ListPage" page for uri "/dataset/"
-    And I wait for loading complete
+    And I set the parameter "SearchInputName" with value "父子汇聚tree"
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
       #别名
-    Then I will see the data "{'column':'0','name':'父子汇聚tree'}" values "{'column':'1','name':'汇聚tree'}"
+    Then I will see the data "{'column':'0','name':'父子汇聚tree'}" values "{'column':'2','name':'汇聚tree'}"
       #父子行为
-    Then I will see the data "{'column':'0','name':'父子汇聚tree'}" values "{'column':'2','name':'汇聚'}"
+    Then I will see the data "{'column':'0','name':'父子汇聚tree'}" values "{'column':'3','name':'汇聚'}"
 #    Then I will see the data "{'column':'0','name':'父子汇聚tree'}" values "{'column':'5','name':'无'}"
 #    Then I will see the data "{'column':'0','name':'父子汇聚tree'}" values "{'column':'6','name':'无'}"
 #    Then I will see the data "{'column':'0','name':'父子汇聚tree'}" values "{'column':'6','name':'admin'}"
@@ -151,11 +156,13 @@ Feature: 数据集-f构建树形结构
   @y4084
   Scenario: 验证：RZY-4084:父子行为-继承
 #    Given open the "dataset.ListPage" page for uri "/dataset/"
-    And I wait for loading complete
+    And I set the parameter "SearchInputName" with value "父子继承tree"
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
       #别名
-    Then I will see the data "{'column':'0','name':'父子继承tree'}" values "{'column':'1','name':'继承tree'}"
+    Then I will see the data "{'column':'0','name':'父子继承tree'}" values "{'column':'2','name':'继承tree'}"
       #父子行为
-    Then I will see the data "{'column':'0','name':'父子继承tree'}" values "{'column':'2','name':'继承'}"
+    Then I will see the data "{'column':'0','name':'父子继承tree'}" values "{'column':'3','name':'继承'}"
       #所属应用
 #    Then I will see the data "{'column':'0','name':'父子继承tree'}" values "{'column':'5','name':'无'}"
 #      #标签
