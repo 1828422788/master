@@ -102,6 +102,26 @@ Feature: 报表_批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "禁用成功"
 
+  Scenario: multi_download_files
+    When I click the "ReportListButton" button
+    And I wait for "SelectedReport" will be visible
+    And I wait for element "SelectedReport" change text to "全部报表文件"
+    And I wait for "5000" millsecond
+    And I wait for "LastGeneratedReport" will be visible
+    And I will see the "report.ListPage" page
+    And I wait for "Loading" will be invisible
+    And I click the "BatchControl" button under some element
+    And I "checked" the checkbox which name is "test_multi_file_1" in trend list page
+    And I "checked" the checkbox which name is "test_multi_file_2" in trend list page
+    And I click the "SelectBatchOperation" button under some element
+    And I click the "DownloadResources" button
+    And I wait for "Ensure" will be visible
+    Then I will see the message "您选中的 2 个资源将开始下载，是否继续？"
+    When I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "下载成功"
+    And I click the "CompleteBatchControl" button under some element
+
   Scenario: multi_delete_files
     When I click the "ReportListButton" button
     And I wait for "SelectedReport" will be visible
@@ -151,7 +171,7 @@ Feature: 报表_批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
     And I wait for loading complete
-    And I click the "Finish" button
+    And I click the "CompleteBatchControl" button
 
   Scenario: verify_delete
     When I set the parameter "SearchInput" with value "test_multi_"

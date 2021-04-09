@@ -74,6 +74,7 @@ Feature: 趋势图_已存搜索
     And I will see the message "删除成功"
 
     Given open the "trend.ListPage" page for uri "/trend/"
+    And I wait for "Loading" will be invisible
     And the data name is "{'column':'0','name':'trend_SavedSearch'}" then i click the "删除" button in more menu
     Then I will see the message "确认删除 [trend_SavedSearch] ?"
     When I click the "Ensure" button

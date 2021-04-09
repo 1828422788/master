@@ -9,6 +9,7 @@ Feature: 报表_文件列表
     When I set the parameter "SearchInput" with value "test_report_PDF"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'test_report_PDF'}" then i click the "test_report_PDF" button
+    And I wait for "Loading" will be invisible
     Then I will see the element "FirstColumnTitle" contains "文件名称"
     And I will see the element "SecondColumnTitle" contains "创建者"
     And I will see the element "ThirdColumnTitle" contains "生成时间"
