@@ -8,9 +8,12 @@ Feature: 日志展现_表格
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 13"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I will see the "trend.CreatePage" page
 
   Scenario Outline: table_default
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 13  | eval ip_count = ip_count/11*1000"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I will see the element "SelectedValueColorType" contains "无"
     And I choose the "梯度" from the "ColorType" in config
@@ -19,7 +22,11 @@ Feature: 日志展现_表格
     And I choose the "粗体" from the "FontStyle" in config
     And I set the parameter "ColumnWidth" with value "15"
     And I choose the "居中" from the "Alignment" in config
+    And I click the "ThousandSeparatorCheckbox" button
+    And I choose the "2" from the "PrecisionTable" in config
     And I click the "CancelButton" button
+    And I wait for "2000" millsecond
+    And I will see the element "Cell" contains "3545.4545"
 
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
@@ -32,6 +39,7 @@ Feature: 日志展现_表格
 
 
   Scenario Outline: table_gradient_default
+    Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
     And I will see the input element "FontColor" value will be "#4a4a4a"
@@ -58,6 +66,7 @@ Feature: 日志展现_表格
       | 827_default  |
 
   Scenario Outline: table_gradient
+    Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
     And I choose the "梯度" from the "ColorType" in config
@@ -83,6 +92,7 @@ Feature: 日志展现_表格
       |  Discrete    |  828     | background-color: rgb(229, 28, 35)    |
 
   Scenario Outline: table_interval
+    Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
     And I choose the "范围" from the "ColorType" in config
@@ -130,6 +140,7 @@ Feature: 日志展现_表格
 
 
   Scenario Outline: table_interval_delete
+    Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
     And I choose the "范围" from the "ColorType" in config
@@ -170,6 +181,7 @@ Feature: 日志展现_表格
 
 
   Scenario Outline: table_value_color
+    Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
     And I choose the "值" from the "ColorType" in config
@@ -191,6 +203,7 @@ Feature: 日志展现_表格
 
 
   Scenario Outline: table_value_customcolor_number
+    Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
     And I choose the "值" from the "ColorType" in config
@@ -234,6 +247,7 @@ Feature: 日志展现_表格
       | 830_custom  |
 
   Scenario Outline: table_value_customcolor_string
+    Then I will see the "trend.CreatePage" page
     When I click the "PencilFirst" button
     And I wait for "ColorPanel" will be visible
     And I choose the "值" from the "ColorType" in config
@@ -256,7 +270,37 @@ Feature: 日志展现_表格
       | caseNum         |
       | 830_custom_str  |
 
+  Scenario Outline: table_thousand
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 13  | eval ip_count = ip_count/11*1000"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "trend.CreatePage" page
+    When I click the "Pencil" button
+    And I will see the element "SelectedValueColorType" contains "无"
+
+    And I choose the "值" from the "ColorType" in config
+
+    And I wait for "AutoColor" will be visible
+    And I click the "AutoColor" button
+
+    And I click the "ThousandSeparatorCheckbox" button
+    And I choose the "3" from the "PrecisionTable" in config
+    And I click the "EnsureButton" button
+    And I wait for "2000" millsecond
+    And I will see the element "Cell" contains "3,545.455"
+    And I will see the element "Cell" style contains "background-color: rgb(3, 169, 244);"
+
+    And I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/高级搜索视图/8表格/<caseNum>"
+    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
+
+    Examples:
+      | caseNum           |
+      | ThousandSeparator |
+
   Scenario Outline: table_prompt
+    Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I will see the element "SelectedValueColorType" contains "无"
     And I choose the "<colorType>" from the "ColorType" in config

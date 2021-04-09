@@ -246,6 +246,7 @@ Feature: 日志展现_其它
     And I choose the "<starttime>" from the "StartTime" in config
     And I choose the "<duration>" from the "KeepTime" in config
     And I click the "Info" button
+    And I wait for "2000" millsecond
     And I move the mouse pointer to the "InfoColumnIcon"
     And I click the "CloseIcon" button
     And I choose the "<duration>" from the "InfoColumn" in config

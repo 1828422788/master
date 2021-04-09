@@ -170,6 +170,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'对齐方式')]/following-sibling::div//span[contains(@class,'yotta-select-selection-value')]")
     private WebElement selectedAlignment;
 
+    @FindBy(xpath = "//span[text()='使用千分隔符']/ancestor::label//input")
+    private WebElement thousandSeparatorCheckbox;
+
 //----------------------------------------------------
 // other ----------------------------
     @FindBy(xpath = "//span[contains(@class,'yotta-select-selection-icon-arrow')]")
@@ -186,9 +189,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "chart-type-popover")
     private WebElement chartTypePopover;
-
-    @FindBy(className = "yw-search-setting-select")
-    private WebElement settingSelect;
 
     @FindBy(xpath = "(//input[@value='horizontal']/following-sibling::span)[last()]")
     private WebElement horizontal;
@@ -323,9 +323,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//span[text()='内蒙古'])[last()]")
     private WebElement neimeng;
-
-    @FindBy(className = "el-radio-group")
-    private WebElement radioGroup;
 
     @FindBy(className = "range-color-group-add")
     private WebElement addColour;
@@ -965,10 +962,6 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getLatitudeInput() {
         return latitudeInput;
-    }
-
-    public WebElement getRadioGroup() {
-        return radioGroup;
     }
 
     public WebElement getNeimeng() {
@@ -1753,11 +1746,6 @@ public class CreatePage extends PageTemplate {
         return setting;
     }
 
-    public WebElement getSettingSelect() {
-        settingSelect.click();
-        return super.getLastDropdownList();
-    }
-
     public WebElement getSecondSettingSelect() {
         secondSettingSelect.click();
         return super.getLastDropdownList();
@@ -1829,11 +1817,6 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getTable() {
         return table;
-    }
-
-    public WebElement getCompareTime() {
-        settingSelect.click();
-        return super.getLastDropdownList();
     }
 
     public WebElement getIconName() {
@@ -1977,6 +1960,14 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSelectedAlignment() {
         return  selectedAlignment;
+    }
+
+    public WebElement getThousandSeparatorCheckbox() {
+        return thousandSeparatorCheckbox;
+    }
+
+    public WebElement getPrecisionTable() {
+        return getYottaDropdownList("table_chart-precision-select");
     }
 
     public WebElement getTagInput() {
