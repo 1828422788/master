@@ -579,6 +579,7 @@ Feature: 仪表盘单值
     And I click the "Icon" button
     And I click the "AccordingName" button
     And I set the parameter "IconName" with value "school"
+    And I wait for "2000" millsecond   
     And I click the "Generate" button
 
     And I click the "SettingChart" button
