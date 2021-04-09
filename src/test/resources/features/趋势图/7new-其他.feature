@@ -205,7 +205,9 @@ Feature: 趋势图新建_其他
     And I wait for "2000" millsecond
     And I click the "AddColor" button
     And I click the "Orange" button
+    And I wait for "1000" millsecond
     And I click the "Background" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -343,8 +345,10 @@ Feature: 趋势图新建_其他
     And I choose the "<precision>" from the "Precision" in config
     # Button ThousandSeparator or Background
     And I click the "<buttonSwitch>" button
+    And I wait for "1000" millsecond
     And I set the parameter "Unit" with value "个"
     And I click the "<unitPosition>" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -390,7 +394,9 @@ Feature: 趋势图新建_其他
     And I set the parameter "FontSize" with value "60"
     And I click the "AddColor" button
     And I click the "Purple" button
+    And I wait for "1000" millsecond
     And I click the "<colorFill>" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -503,7 +509,9 @@ Feature: 趋势图新建_其他
     And I set the parameter "MaxRange" with value "10"
     And I click the "AddColor" button
     And I click the "Green" button
+    And I wait for "1000" millsecond
     And I click the "Background" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -974,6 +982,7 @@ Feature: 趋势图新建_其他
     And I choose the "<starttime>" from the "StartTime" in config
     And I choose the "<duration>" from the "KeepTime" in config
     And I click the "Info" button
+    And I wait for "2000" millsecond
     And I move the mouse pointer to the "InfoColumnIcon"
     And I click the "CloseIcon" button
     And I choose the "<duration>" from the "InfoColumn" in config
