@@ -8,17 +8,17 @@ Feature: 数据集-e对节点的操作
     And I set the parameter "Name" with value "node_op_jnd"
     And I set the parameter "Alias" with value "op"
     And I set the parameter "Spl" with value "*"
-    And I click the "Save" button
+    When I click the "Save" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
     #构建第二层节点
     And I click the "root" button
     And I wait for "2000" millsecond
-    And I click the "rootAdd" button
+    When I click the "rootAdd" button
     And I set the parameter "BInputName" with value "无1"
-    And I click the "BRightDuiHao" button
+    When I click the "BRightDuiHao" button
     And I set the parameter "sentenceInput" with value "tag:heka"
-    And I click the "SaveDetail" button
+    When I click the "SaveDetail" button
     And I wait for loading complete
 
   @datasete2
@@ -29,14 +29,16 @@ Feature: 数据集-e对节点的操作
 #    When the data name is "node_op_jnd" then i click the "编辑" button
     When the data name is "{'column':'0','name':'node_op_jnd'}" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
-    And I wait for loading complete
+    Given I wait for loading complete
 
     When I click the "TopChild" button
     And I wait for loading complete
-    And I click the "pencil" button
+    When I click the "pencil" button
     And I set the parameter "ModifyNode" with value "after"
-    And I click the "duiHao" button
-    And I click the "SaveDetail" button
+    When I click the "duiHao" button
+    When I click the "SaveDetail" button
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
     Then I will see the "TopChild" result will be "after"
 
   @datasete3
@@ -54,11 +56,11 @@ Feature: 数据集-e对节点的操作
 
     And I wait for "modifyNodeSentence" will be visible
 
-    And I click the "SaveDetail" button
+    When I click the "SaveDetail" button
     And I wait for "1000" millsecond
     #验证
     And I refresh the website
-    And I click the "TopChild" button
+    When I click the "TopChild" button
     Then I will see the "modifyNodeSentence" result will be "appname:apache"
 
   @dataset @Override
@@ -72,7 +74,7 @@ Feature: 数据集-e对节点的操作
     Then I will see the "dataset.DetailPage" page
     And I wait for loading complete
     When I click the "TopChild" button
-    And I click the "delete" button
+    When I click the "delete" button
     And I wait for loading complete
-    And I click the "ensure" button
+    When I click the "ensure" button
     Then I will see the success message "删除数据集节点成功"
