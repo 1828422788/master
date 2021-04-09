@@ -1,4 +1,4 @@
-#@reportDownloadTextEditor @report
+@reportDownloadTextEditor @report
 Feature: 报表_富文本编辑下载
 
   Background:
@@ -48,7 +48,6 @@ Feature: 报表_富文本编辑下载
       | Table3x2_TopVerticalAlign     |
       | Table3x2_MiddleVerticalAlign  |
       | Table3x3_Resize               |
-      | test_5trends_WORD             |
 
 
   Scenario Outline: download_texteditor_pdf

@@ -202,10 +202,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@value='vertical']")
     private WebElement vertical;
 
-    @FindBy(className = "el-message-box__message")
+    @FindBy(className = "yotta-message-content")
     private WebElement message;
 
-//    @FindBy(xpath = "//i[@class='iconfont icon-chenggong1']/following-sibling::span")
     @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")
     private WebElement successMessage;
 
@@ -227,9 +226,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='max']/preceding-sibling::div/input)[last()]")
     private WebElement max;
 
-    @FindBy(className = "el-radio-button")
-    private List<WebElement> radioButtonList;
-
     @FindBy(xpath = "//div[text()='无']")
     private WebElement noneExample;
 
@@ -238,9 +234,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//input[@class='el-input__inner'])[last()]")
     private WebElement label;
-
-    @FindBy(className = "el-select-dropdown__item")
-    private List<WebElement> liList;
 
     @FindBy(className = "yw-search-setting-switch")
     private WebElement settingSwitch;
@@ -265,12 +258,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
     private WebElement pagingSelect;
-
-    @FindBy(xpath = "//span[text()='字段值']/ancestor::div/following-sibling::div//i")
-    private List<WebElement> fieldValueList;
-
-    @FindBy(xpath = "//span[text()='字段值']/ancestor::div/following-sibling::div//i")
-    private List<WebElement> filedValueList;
 
     @FindBy(xpath = "(//span[text()='字段值'])[last()]/ancestor::div/following-sibling::div//input[@class='el-input__inner']")
     private WebElement fieldValueInput;
@@ -1024,26 +1011,6 @@ public class CreatePage extends PageTemplate {
         return fieldValueInput;
     }
 
-    public WebElement getFiledValue2() {
-        filedValueList.get(2).click();
-        return super.getLastDropdownList();
-    }
-
-    public WebElement getFiledValue3() {
-        filedValueList.get(4).click();
-        return super.getLastDropdownList();
-    }
-
-    public WebElement getFieldValue2() {
-        fieldValueList.get(2).click();
-        return super.getLastDropdownList();
-    }
-
-    public WebElement getFieldValue3() {
-        fieldValueList.get(4).click();
-        return super.getLastDropdownList();
-    }
-
     public WebElement getGroupField() {
         groupField.click();
         return super.getLastDropdownList();
@@ -1770,6 +1737,10 @@ public class CreatePage extends PageTemplate {
         return errorMessage;
     }
 
+    public WebElement getMessage() {
+        return message;
+    }
+
     public WebElement getSearchInput() {
         return searchInput;
     }
@@ -1804,20 +1775,8 @@ public class CreatePage extends PageTemplate {
         return horizontal;
     }
 
-    public WebElement getLeft() {
-        return radioButtonList.get(1);
-    }
-
     public WebElement getRight() {
         return right;
-    }
-
-    public WebElement getVertical() {
-        return radioButtonList.get(3);
-    }
-
-    public WebElement getDefaultOrder() {
-        return radioButtonList.get(4);
     }
 
     public WebElement getHeader() {
