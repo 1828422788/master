@@ -76,7 +76,7 @@ Feature: 仪表盘火焰图
       | 仪表盘火焰图 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 修改为火焰图
+  Scenario Outline: 修改为火焰图 RZY-4901
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -115,7 +115,7 @@ Feature: 仪表盘火焰图
       | 仪表盘火焰图 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 火焰图操作
+  Scenario Outline: 火焰图操作 RZY-4902
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -126,10 +126,12 @@ Feature: 仪表盘火焰图
     Then I will see the text "四川" is not existed in page
     Then I will see the text "北京市" is not existed in page
     Then I will see the text "深圳市" exist in page
+    Then I will see the text "济南市" exist in page
     And I wait for "1000" millsecond
     And I click the Circle "BackIcon" button
     Then I will see the text "四川" exist in page
     Then I will see the text "北京市" exist in page
+    Then I will see the text "济南市" is not existed in page
     And I wait for "1000" millsecond
 
     Examples:
