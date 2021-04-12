@@ -76,6 +76,9 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(xpath = "//span[contains(text(),'删除')]/ancestor::li")
     private WebElement deleteResources;
 
+    @FindBy(xpath = "//span[contains(text(),'下载')]/ancestor::li")
+    private WebElement downloadResources;
+
     @FindBy(xpath = "//div[@class='ant-modal-root']//*[contains(@class, \"ant-modal\")]")
     private WebElement modal;
 
@@ -234,6 +237,10 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
 
     public WebElement getDeleteResources() {
         return deleteResources;
+    }
+
+    public WebElement getDownloadResources() {
+        return downloadResources;
     }
 
     public WebElement getModal() {

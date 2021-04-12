@@ -95,7 +95,7 @@ Feature: 定时任务批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I wait for loading complete
-    And I click the "Finish" button under some element
+    And I click the "CompleteBatchControl" button under some element
 
   Scenario: verify_switch
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -139,7 +139,7 @@ Feature: 定时任务批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
     And I wait for loading complete
-    And I click the "Finish" button under some element
+    And I click the "CompleteBatchControl" button under some element
 
   Scenario: verify_delete
     Given open the "timedTask.ListPage" page for uri "/schedule/"
