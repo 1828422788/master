@@ -68,7 +68,9 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页，前置-数据
     Given I wait for loading complete
     And I wait for "2000" millsecond
 
-    Given I click the detail which name is "{'column':'0','name':'父子行为无'}"
+#    Given I click the detail which name is "{'column':'1','name':'父子行为无'}"
+    Given I click the which name is "父子行为无"
+
     And I will see the "timedTask.DetailPage" page
     And I wait for "3000" millsecond
     Then I will see the "detailDataSet" result will be "<dataSetResult>"
@@ -133,9 +135,11 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页，前置-数据
   @dataseth6
   Scenario Outline: RZY-4129:定时任务-父子行为汇聚-详情页
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for loading invisible
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
 
-    Given I click the detail which name is "{'column':'1','name':'父子行为汇聚'}"
+#    Given I click the detail which name is "{'column':'1','name':'父子行为汇聚'}"
+    Given I click the which name is "父子行为汇聚"
     And I will see the "timedTask.DetailPage" page
     And I wait for "3000" millsecond
     Then I will see the "detailDataSet" result will be "<dataSetResult>"
@@ -202,8 +206,12 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页，前置-数据
   @dataseth9
   Scenario Outline: RZY-4130:定时任务-父子行为继承-详情页
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for loading invisible
-    Given I click the detail which name is "{'column':'1','name':'父子行为继承'}"
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
+
+#    Given I click the detail which name is "{'column':'1','name':'父子行为继承'}"
+    Given I click the which name is "父子行为继承"
+
     And I will see the "timedTask.DetailPage" page
     And I wait for "3000" millsecond
     Then I will see the "detailDataSet" result will be "<dataSetResult>"

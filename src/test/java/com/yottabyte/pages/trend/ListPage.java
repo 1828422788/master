@@ -131,4 +131,12 @@ public class ListPage extends ListPageFactory {
         tagField.click();
         return this.getLastDropdownList();
     }
+
+    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
+    private WebElement searchNameInput; //名称
+
+    public WebElement getSearchNameInput() {
+        return searchNameInput;
+    }
+
 }
