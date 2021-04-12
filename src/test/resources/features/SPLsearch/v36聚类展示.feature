@@ -1,4 +1,4 @@
-@dlother @cluster
+@cluster
 
 Feature: 聚类展示
 
@@ -81,7 +81,6 @@ Feature: 聚类展示
     And I wait for "3000" millsecond
     Then I will see the text "223" exist in page
 
-
   Scenario Outline: RZY-4893:归并设置_参数异常值
     And I click the "Mode" button
     Then I will see the text "无模式搜索结果！" exist in page
@@ -92,7 +91,6 @@ Feature: 聚类展示
     And I alter the input element "<input>" value to "<num>"
     And I click the "EnsureButton" button
     Then I will see the text "<errorMsg>" exist in page
-
 
     Examples:
       | input                           |    num    |          errorMsg                                      |
