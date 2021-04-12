@@ -29,16 +29,13 @@ Feature:趋势图_拖拽_复合
     And I click the "<chartType>" button
     And I wait for "Values2" will be visible
     And I drag the element "Resplen" to the "Values2"
-    When I click the "ElementInDimensions" button
-    And I click the "AscendingOrder" button
-    And I hide the element "Panel"
-    And I wait for "2000" millsecond
 
     And I wait for "EditFirstField" will be visible
     And I click the "EditFirstField" button
     And I set the parameter "Unit" with value "柱"
     And I set the parameter "Min" with value ""
     And I set the parameter "Max" with value "3000"
+    And I wait for "1000" millsecond
     And I click the "Clientip" button
     And I wait for "2000" millsecond
     And I wait for "ElementInValues" will be visible
@@ -49,6 +46,7 @@ Feature:趋势图_拖拽_复合
     And I click the "EditColor" button
     And I wait for "<color_1>" will be visible
     And I click the "<color_1>" button
+    And I wait for "1000" millsecond
     And I click the "Clientip" button
     And I wait for "2000" millsecond
 
@@ -57,6 +55,7 @@ Feature:趋势图_拖拽_复合
     And I set the parameter "Unit" with value "面"
     And I set the parameter "Min" with value "2"
     And I set the parameter "Max" with value ""
+    And I wait for "1000" millsecond
     And I click the "Clientip" button
     And I wait for "2000" millsecond
     And I wait for "ElementInValues2" will be visible
@@ -68,9 +67,15 @@ Feature:趋势图_拖拽_复合
     And I click the "EditColor" button
     And I wait for "<color_2>" will be visible
     And I click the "<color_2>" button
+    And I wait for "1000" millsecond
     And I click the "Clientip" button
     And I wait for "2000" millsecond
+    And I click the "Xaxis" button
+    And I click the "AscendingOrder" button
+    And I click the "Example" button
     And I click the "RightPosition" button
+    And I click the "Exhibition" button
+    And I will see the "AddColor" doesn't exist
 
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
@@ -98,16 +103,13 @@ Feature:趋势图_拖拽_复合
     And I click the "<chartType>" button
     And I wait for "2000" millsecond
     And I drag the element "Resplen" to the "Values2"
-    When I click the "ElementInDimensions" button
-    And I click the "DescendingOrder" button
-    And I hide the element "Panel"
-    And I wait for "2000" millsecond
 
     And I wait for "EditFirstField" will be visible
     And I click the "EditFirstField" button
     And I set the parameter "Unit" with value "曲"
     And I set the parameter "Min" with value "1"
     And I set the parameter "Max" with value "15"
+    And I wait for "1000" millsecond
     And I click the "Clientip" button
     And I wait for "2000" millsecond
     And I wait for "ElementInValues" will be visible
@@ -118,6 +120,7 @@ Feature:趋势图_拖拽_复合
     And I click the "EditColor" button
     And I wait for "<color_1>" will be visible
     And I click the "<color_1>" button
+    And I wait for "1000" millsecond
     And I click the "Clientip" button
     And I wait for "2000" millsecond
 
@@ -126,6 +129,7 @@ Feature:趋势图_拖拽_复合
     And I set the parameter "Unit" with value "散"
     And I set the parameter "Min" with value "0"
     And I set the parameter "Max" with value "9000"
+    And I wait for "1000" millsecond
     And I click the "Clientip" button
     And I wait for "2000" millsecond
     And I wait for "ElementInValues2" will be visible
@@ -136,7 +140,13 @@ Feature:趋势图_拖拽_复合
     And I click the "EditColor" button
     And I wait for "<color_2>" will be visible
     And I click the "<color_2>" button
+    And I wait for "1000" millsecond
     And I click the "Clientip" button
+
+    And I click the "Xaxis" button
+    And I click the "DescendingOrder" button
+    And I click the "Exhibition" button
+    And I will see the "AddColor" doesn't exist
 
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
@@ -166,15 +176,12 @@ Feature:趋势图_拖拽_复合
     And I drag the element "Resplen" to the "Values2"
     And I drag the element "Method" to the "CompareBy"
     And I wait for "2000" millsecond
-    When I click the "ElementInDimensions" button
-    And I click the "DescendingOrder" button
-    And I hide the element "Panel"
-    And I wait for "2000" millsecond
-
+    
     And I wait for "EditFirstField" will be visible
     And I click the "EditFirstField" button
     And I set the parameter "Unit" with value "曲"
     And I set the parameter "Max" with value "15"
+    And I wait for "1000" millsecond
     And I click the "Clientip" button
     And I wait for "2000" millsecond
     And I wait for "ElementInValues" will be visible
@@ -184,6 +191,7 @@ Feature:趋势图_拖拽_复合
     And I choose the "计数" from the "TypeFunction" in config
     And I will see the "EditColor" doesn't exist
     And I click the "ConnectEmptyData" button
+    And I wait for "1000" millsecond
     And I click the "Clientip" button
     And I wait for "2000" millsecond
 
@@ -191,6 +199,7 @@ Feature:趋势图_拖拽_复合
     And I click the "EditSecondField" button
     And I set the parameter "Unit" with value "面"
     And I set the parameter "Max" with value "8000"
+    And I wait for "1000" millsecond
     And I click the "Clientip" button
     And I wait for "2000" millsecond
     And I wait for "ElementInValues2" will be visible
@@ -199,9 +208,14 @@ Feature:趋势图_拖拽_复合
     And I choose the "<chart_2>" from the "TypeChartField" in config
     And I choose the "平均值" from the "TypeFunction" in config
     And I will see the "EditColor" doesn't exist
+    And I set the parameter "AreaTransparency" with value "0.3" using step buttons
     And I click the "Smooth" button
+    And I wait for "1000" millsecond
     And I click the "Clientip" button
     And I wait for "2000" millsecond
+    And I click the "Xaxis" button
+    And I click the "DescendingOrder" button
+    And I click the "Exhibition" button
     And I wait for "AddColor" will be visible
     And I click the "AddColor" button
     And I wait for "<color>" will be visible

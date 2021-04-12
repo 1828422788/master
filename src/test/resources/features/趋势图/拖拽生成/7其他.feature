@@ -28,16 +28,18 @@ Feature: 趋势图_拖拽_其他
     And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
     Then I wait for "Chart" will be visible
+    And I click the "Exhibition" button
+    And I wait for "1000" millsecond
     And I set the parameter "FontSize" with value "<size>" using step buttons
     And I click the "<button>" button
-    And I wait for "AddColor" will be visible
-    And I click the "AddColor" button
+    And I wait for "AddColorSingleChart" will be visible
+    And I click the "AddColorSingleChart" button
     And I wait for "<color>" will be visible
     And I click the "<color>" button
 
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
-    And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.clientip)"
+    And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.clientip)"
     When I click the "CloseSPL" button
     Then I wait for "Chart" will be visible
     And I wait for "2000" millsecond
@@ -53,13 +55,15 @@ Feature: 趋势图_拖拽_其他
 
     Examples:
       |  chartType | color  | size | button     |
-      |  Single    | Green  | 100  | Background |
+      |  Single    | Green  | 80  | Background |
 
   Scenario Outline: drag_and_drop_single2
     And I drag the element "Clientip" to the "Values"
     And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
     Then I wait for "Chart" will be visible
+    And I click the "Exhibition" button
+    And I wait for "1000" millsecond
     And I click the "AccordingTrend" button
     And I set the parameter "FontSize" with value "<size>" using step buttons
     And I click the "Absolute" button
@@ -67,7 +71,7 @@ Feature: 趋势图_拖拽_其他
 
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
-    And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.clientip)"
+    And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.clientip)"
     When I click the "CloseSPL" button
     Then I wait for "Chart" will be visible
     And I wait for "2000" millsecond
@@ -83,29 +87,34 @@ Feature: 趋势图_拖拽_其他
 
     Examples:
       |  chartType | size | timeValue   |
-      |  Single    | 100  | 一天前      |
+      |  Single    | 80   | 一天前      |
 
   Scenario Outline: drag_and_drop_single3
     And I drag the element "Clientip" to the "Values"
     And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
     Then I wait for "Chart" will be visible
+    And I click the "Exhibition" button
+    And I wait for "1000" millsecond
     And I click the "AccordingArea" button
-    And I set the parameter "FontSize" with value "<size>" using step buttons
+    And I wait for "1000" millsecond
+    And I click the "AddRange" button
     And I set the parameter "MinRange" with value "<minVal1>"
     And I set the parameter "MaxRange" with value "<maxVal1>"
     And I click the "AddRange" button
     And I wait for "1000" millsecond
     And I set the parameter "MinRange" with value "<minVal2>"
     And I set the parameter "MaxRange" with value "<maxVal2>"
-    And I wait for "AddColor" will be visible
-    And I click the "AddColor" button
+    And I set the parameter "FontSize" with value "<size>" using step buttons
+    And I wait for "RangeColor" will be visible
+    And I click the "RangeColor" button
     And I wait for "<color2>" will be visible
     And I click the "<color2>" button
+    And I wait for "1000" millsecond
 
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
-    And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.clientip)"
+    And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.clientip)"
     When I click the "CloseSPL" button
     Then I wait for "Chart" will be visible
     And I wait for "2000" millsecond
@@ -121,7 +130,7 @@ Feature: 趋势图_拖拽_其他
 
     Examples:
       |  chartType | size | minVal1 | maxVal1 | minVal2| maxVal2| color2 |
-      |  Single    | 100  | 1       | 123     | 123    | 126    | Purple |
+      |  Single    | 80   | 1       | 123     | 123    | 126    | Purple |
 
   Scenario Outline: drag_and_drop_other
     And I drag the element "GeoCity" to the "Values"
@@ -130,7 +139,9 @@ Feature: 趋势图_拖拽_其他
     And I click the "<chartType>" button
     And I wait for "2000" millsecond
     Then I wait for "Chart" will be visible
+    And I click the "<tab>" button
     And I click the "<button>" button
+    And I click the "Exhibition" button
     And I wait for "AddColor" will be visible
     And I click the "AddColor" button
     And I wait for "<color>" will be visible
@@ -152,9 +163,9 @@ Feature: 趋势图_拖拽_其他
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
-      |  chartType |  color  |  button        |
-      |  Wordcloud |  Purple |                |
-      |  Funnel    |  Orange | RightPosition  |
+      |  chartType |  color  |  button        |   tab     |
+      |  Wordcloud |  Purple |                |           |
+      |  Funnel    |  Orange | RightPosition  | Example   |
 
   Scenario Outline: drag_and_drop_radar
     And I drag the element "GeoCity" to the "Values"
@@ -163,7 +174,9 @@ Feature: 趋势图_拖拽_其他
     And I click the "<chartType>" button
     And I wait for "CompareBy" will be visible
     And I drag the element "GeoCity" to the "CompareBy"
+    And I wait for "2000" millsecond
     Then I wait for "Chart" will be visible
+    And I click the "Exhibition" button
     And I wait for "AddColor" will be visible
     And I click the "AddColor" button
     And I wait for "<color>" will be visible
@@ -195,8 +208,14 @@ Feature: 趋势图_拖拽_其他
     And I click the "<chartType>" button
     And I wait for "CompareBy" will be visible
     And I drag the element "GeoCity" to the "CompareBy"
+    And I wait for "2000" millsecond
+    And I click the "Indicator" button
+    And I wait for "1000" millsecond
     And I click the "UnifyMetric" button
+    And I click the "Example" button
+    And I wait for "1000" millsecond
     And I click the "<button>" button
+    And I click the "Exhibition" button
     And I wait for "AddColor" will be visible
     And I click the "AddColor" button
     And I wait for "<color>" will be visible
@@ -238,7 +257,11 @@ Feature: 趋势图_拖拽_其他
     And I choose the "<compareWith2>" from the "CompareField" in config
     And I click the "Clientip" button
     And I wait for "2000" millsecond
+    And I click the "Example" button
+    And I wait for "1000" millsecond
     And I click the "<button>" button
+    And I click the "Exhibition" button
+    And I wait for "1000" millsecond
     And I wait for "AddColor" will be visible
     And I click the "AddColor" button
     And I click the "<color>" button
@@ -268,8 +291,15 @@ Feature: 趋势图_拖拽_其他
     And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
     And I wait for "2000" millsecond
+    And I click the "Xaxis" button
+    And I wait for "1000" millsecond
+    And I click the "ThirdLabel" button
+    And I click the "Exhibition" button
     And I will see the input element "Segments" value will be "10"
     And I set the parameter "Segments" with value "<segments>" using step buttons
+    And I click the "Example" button
+    And I wait for "1000" millsecond
+    And I click the "RightPosition" button
 
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible

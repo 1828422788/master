@@ -46,16 +46,16 @@ public class DragAndDropPage extends CreatePage {
     private WebElement iconDown;
 
     // Labels
-    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::span//label[1]")
+    @FindBy (xpath = "//span[text()='标签']/following-sibling::div//label[1]")
     private WebElement firstLabel;
 
-    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::span//label[2]")
+    @FindBy (xpath = "//span[text()='标签']/following-sibling::div//label[2]")
     private WebElement secondLabel;
 
-    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::span//label[3]")
+    @FindBy (xpath = "//span[text()='标签']/following-sibling::div//label[3]")
     private WebElement thirdLabel;
 
-    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::span//label[4]")
+    @FindBy (xpath = "//span[text()='标签']/following-sibling::div//label[4]")
     private WebElement forthLabel;
 
     @FindBy(xpath = "(//span[text()='柱状外右侧'])[last()]")
@@ -96,6 +96,42 @@ public class DragAndDropPage extends CreatePage {
 
     @FindBy(xpath = "(//input[@yotta-test='trend-dataset_merge_field_name-input'])[last()]")
     private WebElement lastColumn;
+
+    @FindBy(xpath = "(//input[@yotta-test='trend-BI_param_singleChartRangeColors_from-input'])[last()]")
+    private WebElement minRange;
+
+    @FindBy(xpath = "(//input[@yotta-test='trend-BI_param_singleChartRangeColors_to-input'])[last()]")
+    private WebElement maxRange;
+
+    @FindBy(xpath = "(//div[@yotta-test='trend-BI_param_singleChartRangeColors_color-dom'])[last()]")
+    private WebElement rangeColor;
+
+    @FindBy(xpath = "//input[@yotta-test='trend-BI_axis_unit-number_input' or @yotta-test='trend-BI_param_yUnit-input']")
+    private WebElement unit;
+
+    @FindBy(xpath = "//input[@yotta-test='trend-BI_axis_min-number_input' or @yotta-test='trend-BI_param_yRange_min-input']")
+    private WebElement min;
+
+    @FindBy(xpath = "//input[@yotta-test='trend-BI_axis_max-number_input' or @yotta-test='trend-BI_param_yRange_max-input']")
+    private WebElement max;
+
+    @FindBy(xpath = "//input[@yotta-test='trend-BI_field_smooth-switch' or @yotta-test='trend-BI_param_ySmooth-checkbox']")
+    private WebElement smooth;
+
+    @FindBy(xpath = "//input[@yotta-test='trend-BI_field_connectnull-switch' or @yotta-test='trend-BI_param_yConnectNull-checkbox']")
+    private WebElement connectEmptyData;
+
+    public WebElement getRangeColor() {
+        return rangeColor;
+    }
+
+    public WebElement getMaxRange() {
+        return maxRange;
+    }
+
+    public WebElement getMinRange() {
+        return minRange;
+    }
 
     public WebElement getChart() {
         return chart;
@@ -219,6 +255,14 @@ public class DragAndDropPage extends CreatePage {
         return getElementById("bubbleField");
     }
 
+    public WebElement getProvince() {
+        return getElementById("regionmapChartProvinceDrilldownField");
+    }
+
+    public WebElement getCity() {
+        return getElementById("regionmapChartCityDrilldownField");
+    }
+
     public WebElement getTimestamp() {
         return getDraggableElement("timestamp");
     }
@@ -252,6 +296,44 @@ public class DragAndDropPage extends CreatePage {
     }
 
     //-------------------------------------------------------------------------------------
+
+    public WebElement getChartType() {
+        return getAccordionElement("图表类型");
+    }
+
+    public WebElement getExhibition() {
+        return getAccordionElement("展示");
+    }
+
+    public WebElement getIcon() {
+        return getAccordionElement("图标");
+    }
+
+    public WebElement getSecondTitle() {
+        return getAccordionElement("二级标题");
+    }
+
+    public WebElement getXaxis() {
+        return getAccordionElement("X轴");
+    }
+
+    public WebElement getYaxis() {
+        return getAccordionElement("Y轴");
+    }
+
+    public WebElement getExample() {
+        return getAccordionElement("图例");
+    }
+
+    public WebElement getRegion() {
+        return getAccordionElement("区域");
+    }
+
+    public WebElement getIndicator() {
+        return getAccordionElement("指示器");
+    }
+
+    //---------------------------------------------------------------------------
     public WebElement getElementInDimensions() {
         return elementInDimensions;
     }
@@ -273,6 +355,11 @@ public class DragAndDropPage extends CreatePage {
     }
 
     public WebElement getCompareField() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return getYottaDropdownList("trend-BI_YoY-select");
     }
 
@@ -479,15 +566,15 @@ public class DragAndDropPage extends CreatePage {
     }
 
     public WebElement getUnit() {
-        return getYottaInput("trend-BI_axis_unit-number_input");
+        return unit;
     }
 
     public WebElement getMin() {
-        return getYottaInput("trend-BI_axis_min-number_input");
+        return min;
     }
 
     public WebElement getMax() {
-        return getYottaInput("trend-BI_axis_max-number_input");
+        return max;
     }
 
     public WebElement getEditColor() {
@@ -495,35 +582,49 @@ public class DragAndDropPage extends CreatePage {
     }
 
     public WebElement getTypeFunction() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return getYottaDropdownList("trend-BI_method-select");
     }
 
     public WebElement getTypeChartField() {
+        try {
+        Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return getYottaDropdownList("trend-BI_field_chart_type-select");
     }
 
     public WebElement getSmooth() {
-        return getYottaCheckbox("trend-BI_field_smooth-switch");
+        return smooth;
     }
 
     public WebElement getConnectEmptyData() {
-        return getYottaCheckbox("trend-BI_field_connectnull-switch");
+        return connectEmptyData;
     }
 
     public WebElement getShowLabels() {
-        return getYottaCheckbox("trend-BI_param_showLabels-switch");
+        return getYottaCheckboxSwitch("trend-BI_param_showLabels");
     }
 
     public WebElement getUnifyMetric() {
-        return getYottaCheckbox("trend-BI_param_measurement-switch");
+        return getYottaCheckboxSwitch("trend-BI_param_measurement");
     }
 
     public WebElement getUseBubbles() {
-        return getYottaCheckbox("trend-BI_param_useBubbles-switch");
+        return getYottaCheckboxSwitch("trend-BI_param_useBubbles");
     }
 
     public WebElement getMultistage() {
-        return getYottaCheckbox("trend-BI_param_multilevel-switch");
+        return getYottaCheckboxSwitch("trend-BI_param_multilevel");
+    }
+
+    public WebElement getPile() {
+        return getYottaCheckboxSwitch("trend-BI_param_byStacks-checkbox");
     }
 
     public WebElement getSegments() {
@@ -536,6 +637,32 @@ public class DragAndDropPage extends CreatePage {
 
     public WebElement getAddColor() {
         return getYottaDiv("trend-BI_param_chartStartingColor-dom");
+    }
+
+    public WebElement getAddColorSingleChart() {
+        return getYottaDiv("trend-BI_param_singleChartDefaultColor-dom");
+    }
+
+    public WebElement getShowLabel() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return getYottaDropdownList("trend-BI_param_labelFormatter-select");
+    }
+
+    public WebElement getContrastTime() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return getYottaDropdownList("trend-BI_param_compareTime-select");
+    }
+
+    public WebElement getAreaTransparency() {
+        return getYottaInput("trend-BI_field_opacity-number_input");
     }
 
     public WebElement getHomeButton() {
@@ -570,6 +697,17 @@ public class DragAndDropPage extends CreatePage {
         WebElement element = webDriver.findElement(By.xpath("//span[@title='" + name+ "']/preceding-sibling::span/span"));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(element));
         return element;
+    }
+
+    private WebElement getAccordionElement(String name) {
+        WebElement element = webDriver.findElement(By.xpath("//span[text()='" + name + "']/ancestor::div[@class='yotta-accordion-header']"));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(element));
+        return element;
+    }
+
+    public WebElement getYottaCheckboxSwitch(String test) {
+        String xpath = "//input[contains(@yotta-test,'" + test +"')]";
+        return webDriver.findElement(By.xpath(xpath));
     }
 
 }

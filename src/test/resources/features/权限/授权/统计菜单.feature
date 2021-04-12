@@ -3,6 +3,7 @@ Feature: 权限-统计菜单
 
   Scenario: 取消统计菜单权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -20,6 +21,7 @@ Feature: 权限-统计菜单
   Scenario: 验证无统计菜单权限
     Given I login user "AutoTest" with password "All#123456"
     And open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for loading invisible
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -29,6 +31,7 @@ Feature: 权限-统计菜单
 
   Scenario Outline: 勾选统计菜单权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -45,6 +48,7 @@ Feature: 权限-统计菜单
   Scenario: 验证统计菜单权限
     Given I login user "AutoTest" with password "All#123456"
     And open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for loading invisible
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button

@@ -37,20 +37,22 @@ Feature: 趋势图_拖拽_timechart
     And I set the parameter "Bins" with value "<bins>"
     And I hide the element "Panel"
     And I wait for "ElementInValues" will be visible
-    And I click the "CompareButton" button
     And I wait for "1000" millsecond
     And I wait for "Chart" will be visible
     And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
+    And I wait for "Panel" will be visible
+    And I wait for "1000" will be visible
+    And I choose the "<comparePeriod>" from the "CompareField" in config
+    And I click the "Timestamp" button
+    And I click the "Yaxis" button
     And I wait for "Min" will be visible
     And I click the "<button>" button
     And I set the parameter "Unit" with value "<unit>"
     And I set the parameter "Min" with value "<min>"
     And I set the parameter "Max" with value "<max>"
-    And I click the "CompareField" button
-    And I click the "<comparePeriod>" button
-    And I click the "Timestamp" button
 
+    And I click the "Exhibition" button
     And I wait for "1500" millsecond
     And I wait for "AddColor" will be visible
     And I click the "AddColor" button
@@ -77,7 +79,7 @@ Feature: 趋势图_拖拽_timechart
 
     Examples:
       |  chartType | span  |  minspan | bins | comparePeriod | button           | unit | min | max | color  | SPLcheck |
-      |  Line      | 1h    |  20m     | 24   | Yesterday     | Smooth           |  个  | 0.5 | 80  | Orange | starttime="now/d" endtime="now" tag:sample04061424_chart \| timechart span=1h minspan=20m bins=24 count(apache.clientip)\| eval hour=formatdate(_time, "dd-hh")\| eval _compare="当前" \| append [[ starttime="now/d-1d" endtime="now-1d" tag:sample04061424_chart \| timechart span=1h minspan=20m bins=24 count(apache.clientip)\| eval hour=formatdate(_time, "dd-hh")\| eval _compare="环比" ]] |
-      |  Area      | 20m   |          |      | LastWeek      | ConnectEmptyData | pcs. |     | 28  | Yellow | starttime="now/d" endtime="now" tag:sample04061424_chart \| timechart span=20m count(apache.clientip)\| eval minute=formatdate(_time, "hh:mm")\| eval _compare="当前" \| append [[ starttime="now/d-1w" endtime="now-1w" tag:sample04061424_chart \| timechart span=20m count(apache.clientip)\| eval minute=formatdate(_time, "hh:mm")\| eval _compare="同比一周" ]] |
-      |  Scatter   | 40m   |          |      | LastMonth     |                  |      |     |     | Red    | starttime="now/d" endtime="now" tag:sample04061424_chart \| timechart span=40m count(apache.clientip)\| eval minute=formatdate(_time, "hh:mm")\| eval _compare="当前" \| append [[ starttime="now/d-1M" endtime="now-1M" tag:sample04061424_chart \| timechart span=40m count(apache.clientip)\| eval minute=formatdate(_time, "hh:mm")\| eval _compare="同比一月" ]] |
-      |  Column    | 1h    |  1h      | 24   | LastYear      |                  | r.   | 1   |     | Orange | starttime="now/d" endtime="now" tag:sample04061424_chart \| timechart span=1h minspan=1h bins=24 count(apache.clientip)\| eval hour=formatdate(_time, "dd-hh")\| eval _compare="当前" \| append [[ starttime="now/d-1y" endtime="now-1y" tag:sample04061424_chart \| timechart span=1h minspan=1h bins=24 count(apache.clientip)\| eval hour=formatdate(_time, "dd-hh")\| eval _compare="同比一年" ]] |
+      |  Line      | 1h    |  20m     | 24   | 环比          | Smooth           |  个  | 0.5 | 80  | Orange | starttime="now/d" endtime="now" tag:sample04061424_chart \| timechart span=1h minspan=20m bins=24 count(apache.clientip)\| eval hour=formatdate(_time, "dd-hh")\| eval _compare="当前" \| append [[ starttime="now/d-1d" endtime="now-1d" tag:sample04061424_chart \| timechart span=1h minspan=20m bins=24 count(apache.clientip)\| eval hour=formatdate(_time, "dd-hh")\| eval _compare="环比" ]] |
+      |  Area      | 20m   |          |      | 上周同比值    | ConnectEmptyData | pcs. |     | 28  | Yellow | starttime="now/d" endtime="now" tag:sample04061424_chart \| timechart span=20m count(apache.clientip)\| eval minute=formatdate(_time, "hh:mm")\| eval _compare="当前" \| append [[ starttime="now/d-1w" endtime="now-1w" tag:sample04061424_chart \| timechart span=20m count(apache.clientip)\| eval minute=formatdate(_time, "hh:mm")\| eval _compare="同比一周" ]] |
+      |  Scatter   | 40m   |          |      | 上月同比值    |                  |      |     |     | Red    | starttime="now/d" endtime="now" tag:sample04061424_chart \| timechart span=40m count(apache.clientip)\| eval minute=formatdate(_time, "hh:mm")\| eval _compare="当前" \| append [[ starttime="now/d-1M" endtime="now-1M" tag:sample04061424_chart \| timechart span=40m count(apache.clientip)\| eval minute=formatdate(_time, "hh:mm")\| eval _compare="同比一月" ]] |
+      |  Column    | 1h    |  1h      | 24   | 去年同比值    |                  | r.   | 1   |     | Orange | starttime="now/d" endtime="now" tag:sample04061424_chart \| timechart span=1h minspan=1h bins=24 count(apache.clientip)\| eval hour=formatdate(_time, "dd-hh")\| eval _compare="当前" \| append [[ starttime="now/d-1y" endtime="now-1y" tag:sample04061424_chart \| timechart span=1h minspan=1h bins=24 count(apache.clientip)\| eval hour=formatdate(_time, "dd-hh")\| eval _compare="同比一年" ]] |
