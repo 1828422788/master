@@ -13,9 +13,6 @@ public class DetailPage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(xpath = "//div[contains(text(),'数据集')]/following-sibling::div")
-    private WebElement detailDataSet;
-
     @FindBy(xpath = "//div[contains(text(),'搜索内容')]/following-sibling::div")
     private WebElement searchContent;
 
@@ -37,6 +34,8 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[contains(text(),'暂无数据')]")
     public WebElement noData;
 
+    @FindBy(xpath = "//div[contains(text(),'数据集')]/following-sibling::div")
+    private WebElement detailDataSet;
     public WebElement getDetailDataSet(){return detailDataSet;}
 
     public WebElement getTimePeriod(){

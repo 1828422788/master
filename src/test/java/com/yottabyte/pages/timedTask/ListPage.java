@@ -171,4 +171,13 @@ public class ListPage extends ListPageFactory {
     public WebElement getComplementPanel() {
         return complementPanel;
     }
+
+    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
+    private WebElement searchNameInput; //名称
+
+    public WebElement getSearchNameInput() {
+        return searchNameInput;
+    }
+
+
 }
