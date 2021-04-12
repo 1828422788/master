@@ -1117,7 +1117,7 @@ Feature: 权限-趋势图
     And I wait for loading invisible
     And the data name is "趋势图仪表盘相关" then i click the "更多" button
     And I click the "Delete" button
-    And I wait for "Ensure" will be visible 1
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
