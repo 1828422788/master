@@ -272,5 +272,5 @@ Feature: 日志展现_维度
 
     Examples:
       |   chartType   |  option        | element    |
-      |      Flame    | 图内钻取       | AreaChart  |
-      |      Flame    | 图外钻取       | BackToChart|
+      |      Flame    | DrillOut       | AreaChart  |
+      |      Flame    | DrillIn        | BackToChart|

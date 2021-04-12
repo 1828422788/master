@@ -36,22 +36,20 @@ Feature: 趋势图_拖拽_序列
     And I wait for "2000" millsecond
     Then I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    When I click the "ElementInDimensions" button
+    When I click the "Xaxis" button
     And I click the "<button_dim>" button
-    And I hide the element "Panel"
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And I wait for "ElementInValues" will be visible
-    When I click the "ElementInValues" button
+    When I click the "Yaxis" button
     And I wait for "Min" will be visible
-    And I click the "<button>" button
     And I set the parameter "Unit" with value "<unit>"
     And I set the parameter "Min" with value "<min>"
     And I set the parameter "Max" with value "<max>"
-    And I click the "Clientip" button
+    And I click the "<button>" button
 
     And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
+    And I click the "Exhibition" button
     And I wait for "AddColor" will be visible
     And I click the "AddColor" button
     And I wait for "<color>" will be visible
@@ -62,7 +60,7 @@ Feature: 趋势图_拖拽_序列
 
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
-    And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.clientip) by apache.clientip,apache.method"
+    And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.clientip) by apache.clientip,apache.method"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>"
@@ -91,38 +89,38 @@ Feature: 趋势图_拖拽_序列
     And I wait for "2000" millsecond
     Then I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    When I click the "ElementInDimensions" button
+    When I click the "Xaxis" button
     And I click the "<button_dim>" button
-    And I hide the element "Panel"
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And I wait for "ElementInValues" will be visible
-    When I click the "ElementInValues" button
+    When I click the "Yaxis" button
     And I wait for "Min" will be visible
-    And I click the "<button>" button
     And I set the parameter "Unit" with value "<unit>"
+    And I wait for "1000" millsecond
     And I set the parameter "Min" with value "<min>"
     And I set the parameter "Max" with value "<max>"
-    And I click the "Clientip" button
+    And I wait for "1000" millsecond
+    And I click the "<button>" button
+    And I wait for "1000" millsecond
 
-    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
+    And I click the "Exhibition" button
     And I wait for "AddColor" will be visible
     And I click the "AddColor" button
     And I wait for "<color>" will be visible
     And I wait for "1500" millsecond
     And I click the "<color>" button
     And I wait for "1500" millsecond
-    And I wait for "Chart" will be visible
-    And I wait for "1500" millsecond
-    And I click the "ElementInCompare" button
     And I click the "Pile" button
-    And I wait for "3000" millsecond
+    And I wait for "Chart" will be visible
+    And I click the "Example" button
+    And I click the "RightPosition" button
+    And I wait for "1500" millsecond
     And I wait for "Chart" will be visible
 
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
-    And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.clientip) by apache.clientip,apache.method"
+    And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.clientip) by apache.clientip,apache.method"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_Pile"
@@ -151,21 +149,19 @@ Feature: 趋势图_拖拽_序列
     And I wait for "2000" millsecond
     Then I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    When I click the "ElementInDimensions" button
+    When I click the "Xaxis" button
     And I click the "<button_dim>" button
-    And I hide the element "Panel"
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And I wait for "ElementInValues" will be visible
-    When I click the "ElementInValues" button
+    When I click the "Yaxis" button
     And I wait for "Min" will be visible
     And I set the parameter "Unit" with value "<unit>"
     And I set the parameter "Min" with value "<min>"
     And I set the parameter "Max" with value "<max>"
-    And I click the "Clientip" button
 
     And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
+    And I click the "Exhibition" button
     And I wait for "AddColor" will be visible
     And I click the "AddColor" button
     And I wait for "<color>" will be visible
@@ -174,13 +170,14 @@ Feature: 趋势图_拖拽_序列
     And I wait for "1500" millsecond
     And I wait for "Chart" will be visible
     And I wait for "1500" millsecond
+    And I click the "Example" button
     And I click the "RightPosition" button
     And I wait for "3000" millsecond
     And I wait for "Chart" will be visible
 
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
-    And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.clientip) by apache.clientip,apache.method"
+    And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.clientip) by apache.clientip,apache.method"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>"
@@ -205,23 +202,24 @@ Feature: 趋势图_拖拽_序列
     And I wait for "2000" millsecond
     Then I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And I click the "CompareButton" button
-    And I wait for "1000" millsecond
     And I wait for "Chart" will be visible
-    And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
+    And I wait for "Panel" will be visible
+    And I wait for "1000" will be visible
+    And I choose the "<comparePeriod>" from the "CompareField" in config
+    And I click the "Clientip" button
+    And I click the "Yaxis" button
     And I wait for "Min" will be visible
     And I click the "<button>" button
     And I set the parameter "Unit" with value "<unit>"
     And I set the parameter "Min" with value "<min>"
     And I set the parameter "Max" with value "<max>"
-    And I click the "CompareField" button
-    And I click the "<comparePeriod>" button
-    And I click the "Clientip" button
 
     And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
+    And I click the "Example" button
     And I click the "RightPosition" button
+    And I click the "Exhibition" button
     And I wait for "AddColor" will be visible
     And I click the "AddColor" button
     And I wait for "<color>" will be visible
@@ -247,10 +245,10 @@ Feature: 趋势图_拖拽_序列
 
     Examples:
       |  chartType | comparePeriod | button           | unit | min | max | color  | SPLcheck |
-      |  Line      | Yesterday     | ConnectEmptyData |  个  | 1   | 30  | Orange | starttime="now/d" endtime="now" tag:sample04061424_chart\|stats count(apache.clientip) by apache.clientip \| eval _compare="当前" \| append [[ starttime="now/d-1d" endtime="now-1d" tag:sample04061424_chart\|stats count(apache.clientip) by apache.clientip \| eval _compare="环比" ]] |
-      |  Area      | LastWeek      | Smooth           | pcs. |     | 28  | Yellow | starttime="now/d" endtime="now" tag:sample04061424_chart\|stats count(apache.clientip) by apache.clientip \| eval _compare="当前" \| append [[ starttime="now/d-1w" endtime="now-1w" tag:sample04061424_chart\|stats count(apache.clientip) by apache.clientip \| eval _compare="同比一周" ]]   |
-      |  Column    | LastMonth     |                  | r.   | 1   |     | Green  | starttime="now/d" endtime="now" tag:sample04061424_chart\|stats count(apache.clientip) by apache.clientip \| eval _compare="当前" \| append [[ starttime="now/d-1M" endtime="now-1M" tag:sample04061424_chart\|stats count(apache.clientip) by apache.clientip \| eval _compare="同比一月" ]]        |
-      # There is no Compare button for Scatter chart
+      |  Line      | 环比          | ConnectEmptyData |  个  | 1   | 30  | Orange | starttime="now/d" endtime="now" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="当前" \| append [[ starttime="now/d-1d" endtime="now-1d" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="环比" ]] |
+      |  Area      | 上周同比值    | Smooth           | pcs. |     | 28  | Yellow | starttime="now/d" endtime="now" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="当前" \| append [[ starttime="now/d-1w" endtime="now-1w" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="同比一周" ]]   |
+      |  Column    | 上月同比值    |                  | r.   | 1   |     | Green  | starttime="now/d" endtime="now" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="当前" \| append [[ starttime="now/d-1M" endtime="now-1M" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="同比一月" ]]        |
+      |  Scatter   | 环比          |                  | 个   |     |     | Red    | starttime="now/d" endtime="now" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="当前" \| append [[ starttime="now/d-1d" endtime="now-1d" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="环比" ]] |
 
   Scenario Outline: drag_and_drop_order_area_no_val
     And I drag the element "Clientip" to the "Dimensions"
@@ -262,17 +260,16 @@ Feature: 趋势图_拖拽_序列
     And I drag the element "Method" to the "CompareBy"
     And I wait for "2000" millsecond
     Then I wait for "Chart" will be visible
-    When I click the "ElementInDimensions" button
+    When I click the "Xaxis" button
     And I click the "<button_dim>" button
     And I click the "<label>" button
-    And I hide the element "Panel"
-    And I wait for "3000" millsecond
     And I wait for "Chart" will be visible
+    And I click the "Example" button
     And I click the "<position>" button
 
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
-    And I will see the element "SPL" contains "tag:sample04061424_chart|stats count() by apache.clientip,apache.method"
+    And I will see the element "SPL" contains "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_无数值"
@@ -294,14 +291,14 @@ Feature: 趋势图_拖拽_序列
     And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
     And I wait for "3000" millsecond
-    And I wait for "OtherChart" will be visible
+    And I wait for "Chart" will be visible
 
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
-    And I will see the element "SPL" contains "tag:sample04061424_chart|stats count() by apache.clientip"
+    And I will see the element "SPL" contains "tag:sample04061424_chart | stats count() by apache.clientip"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
-    Then take part of "OtherChart" with name "actual/拖拽_<chartType>_1"
+    Then take part of "Chart" with name "actual/拖拽_<chartType>_1"
     And I compare source image "actual/拖拽_chartType>_1" with target image "expect/拖拽_<chartType>_1"
     And I click the "NextButton" button under some element
 
@@ -321,25 +318,22 @@ Feature: 趋势图_拖拽_序列
     And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
     And I wait for "3000" millsecond
-    And I wait for "OtherChart" will be visible
-    And I wait for "2000" millsecond
-    And I click the "CompareButton" button
+    And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
     And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
-    And I wait for "CompareField" will be visible
-    And I click the "CompareField" button
-    And I click the "LastWeek" button
+    And I wait for "Panel" will be visible
+    And I choose the "上周同比值" from the "CompareField" in config
     And I click the "Clientip" button
     And I wait for "2000" millsecond
-    And I wait for "OtherChart" will be visible
+    And I wait for "Chart" will be visible
 
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
-    And I will see the element "SPL" contains "starttime="now/d" endtime="now" tag:sample04061424_chart|stats count(apache.method) by apache.method | eval _compare="当前" | append [[ starttime="now/d-1w" endtime="now-1w" tag:sample04061424_chart|stats count(apache.method) by apache.method | eval _compare="同比一周" ]]"
+    And I will see the element "SPL" contains "starttime="now/d" endtime="now" tag:sample04061424_chart | stats count(apache.method) by apache.method| eval _compare="当前" | append [[ starttime="now/d-1w" endtime="now-1w" tag:sample04061424_chart | stats count(apache.method) by apache.method| eval _compare="同比一周" ]]"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
-    Then take part of "OtherChart" with name "actual/拖拽_<chartType>_对比_1"
+    Then take part of "Chart" with name "actual/拖拽_<chartType>_对比_1"
     And I compare source image "actual/拖拽_<chartType>_对比_1" with target image "expect/拖拽_<chartType>_对比_1"
     And I click the "NextButton" button under some element
 

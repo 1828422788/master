@@ -54,7 +54,11 @@ Feature: 趋势图_拖拽_地图
     And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
     Then I wait for "Chart" will be visible
+    And I click the "Region" button
+    And I wait for "1000" millsecond
     And I click the "<region>" button
+    And I click the "Exhibition" button
+    And I wait for "1000" millsecond
     And I click the "<switch>" button
 
     And I click the "CheckSPL" button
@@ -76,3 +80,38 @@ Feature: 趋势图_拖拽_地图
       |  chartType   | element     |  region     |  switch    | spl     |
       |  Regionmap   | GeoCountry  |  World      | UseBubbles | tag:sample04061424_chart \| stats count(apache.geo.country) by apache.geo.country   |
       |  Regionmap   | GeoProvince |  China      | ShowLabels | tag:sample04061424_chart \| stats count(apache.geo.province) by apache.geo.province |
+
+  Scenario Outline: drag_and_drop_regionmap_drill
+    And I drag the element "GeoCountry" to the "Values"
+    And I drag the element "GeoCountry" to the "Dimensions"
+    And I wait for "<chartType>" will be visible
+    And I click the "<chartType>" button
+    And I wait for "Province" will be visible
+    And I drag the element "GeoProvince" to the "Province"
+    And I drag the element "GeoCity" to the "City"
+    Then I wait for "Chart" will be visible
+
+    And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
+    And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.geo.country) by apache.geo.country,apache.geo.province,apache.geo.city"
+    When I click the "CloseSPL" button
+    And I wait for "Chart" will be visible
+    And I click the Circle "<click1>" button
+    And I wait for "1000" millsecond
+    And I click the Circle "<click2>" button
+    And I wait for "2000" millsecond
+    Then take part of "Chart" with name "actual/拖拽_<chartType>_<name>_下钻"
+    And I compare source image "actual/拖拽_<chartType>_<name>下钻" with target image "expect/拖拽_<chartType>_<name>_下钻"
+    And I click the "NextButton" button under some element
+
+    When I will see the "trend.CreatePage" page
+    And I set the parameter "NameInput" with value "拖拽_<chartType>_<name>_下钻"
+    And I set the parameter "DescribeInput" with value "<chartType>_<name>"
+    And I click the "Complete" button under some element
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      |  chartType   | click1      | click2          | name     |
+      |  Regionmap   |             |                 | World    |
+      |  Regionmap   |CountryChina |                 | China    |
+      |  Regionmap   |CountryChina | ProvinceJiangsu | Jiangsu  |

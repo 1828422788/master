@@ -366,6 +366,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//*[text()='深圳市'])[last()]")
     private WebElement shenZhen;
 
+    @FindBy(xpath = "(//*[text()='405'])[last()]")
+    private WebElement status405;
+
     @FindBy(xpath = "(//*[@aria-label='DragFilled']) | (//*[text()='配置'])")
     private WebElement hideElement;
 
@@ -868,6 +871,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getShenZhen() {
         return shenZhen;
+    }
+
+    public WebElement getStatus405() {
+        return status405;
     }
 
     public WebElement getHideElement() {

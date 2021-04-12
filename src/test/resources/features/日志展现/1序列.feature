@@ -6,29 +6,6 @@ Feature: 日志展现_序列
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I drag the element "SearchPageSvg" to the "left" side
 
-  Scenario: click_chart
-    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method"
-    And I click the "SearchButton" button under some element
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I will see the "trend.CreatePage" page
-    And I click the "Type" button
-    And I click the "Order" button
-    And I click the "LineChart" button
-    And I click the "Type" button
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
-    And I wait for "2000" millsecond
-    And I click the Circle "ChartElement" button
-    And I wait for "5000" millsecond
-    And switch to another window
-    And I close all tabs except main tab
-    And I wait for "3000" millsecond
-    And I will see the "splSearch.SearchPage" page
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I will see the input element "SearchInput" value will be "starttime="now/d" endtime="now/d+24h" (tag:sample04061424_chart AND 'apache.clientip':221.226.97.92) AND 'apache.method':GET"
-    And I will see the element "EventNumber" contains "31"
-
-
   Scenario Outline: order(RZY-2770,2771,2769,2768)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I click the "SearchButton" button under some element

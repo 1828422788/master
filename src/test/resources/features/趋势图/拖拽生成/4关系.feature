@@ -28,6 +28,7 @@ Feature: 趋势图_拖拽_关系
     And I click the "<chartType>" button
     And I wait for "2000" millsecond
 
+    And I click the "Exhibition" button
     And I wait for "AddColor" will be visible
     And I will see the text "<text>" exist in page
     And I click the "AddColor" button
@@ -59,6 +60,7 @@ Feature: 趋势图_拖拽_关系
     And I click the "<chartType>" button
     And I wait for "2000" millsecond
 
+    And I click the "Exhibition" button
     And I set the parameter "Repulsion" with value "25" using step buttons
     And I wait for "AddColor" will be visible
     And I click the "AddColor" button
