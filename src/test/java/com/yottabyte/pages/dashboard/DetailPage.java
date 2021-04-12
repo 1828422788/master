@@ -915,7 +915,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//*[@yotta-test='dashboard-filter_value-select']/div)[last()]")
     private WebElement lastFilter;
 
-    @FindBy(xpath = "//span[text()='AutoTest(副本)']")
+    @FindBy(xpath = "//span[text()='AutoTest_副本']")
     private WebElement autotestCopy;
 
     @FindBy(xpath = "//*[@yotta-test='table_chart-table_color-select']/div")

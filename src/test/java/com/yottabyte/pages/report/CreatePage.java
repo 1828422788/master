@@ -19,7 +19,7 @@ public class CreatePage extends PageTemplate {
         driver.manage().window().setSize(new Dimension(1200, 900));
     }
 
-    @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")
+    @FindBy(className = "_1rpZECB9i9v8h6IEUve_yK")
     private WebElement successMessage;
 
     @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")
@@ -37,7 +37,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//li[@yotta-test='report-item_1-menu']")
     private WebElement li;
 
-    @FindBy(className = "ant-collapse-header")
+    @FindBy(className = "yotta-accordion-header")
     private WebElement topoTitle;
 
     @FindBy(xpath = "//div[@yotta-test='report-email-select']//div[@class='yotta-select-selection']")

@@ -54,6 +54,33 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "(//tr)[last()]/td[3]")
     private WebElement appOfTheLastItem;
 
+    @FindBy(xpath = "//li[@yotta-test='trend-operation_authorize-button']/span")
+    private WebElement auth;
+
+    @FindBy(xpath = "//li[@yotta-test='trend-operation_copy-button']/span")
+    private WebElement copy;
+
+    @FindBy(xpath = "//li[@yotta-test='trend-operation_tag-button']/span")
+    private WebElement label;
+
+    @FindBy(xpath = "//li[@yotta-test='trend-operation_delete-button']/span")
+    private WebElement delete;
+
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//div[@class='yotta-select-selection-content']")
+    private WebElement tagToInput;
+
+    public WebElement getTagToInput() {
+        return tagToInput;
+    }
+
+    public WebElement getAuth() { return auth; }
+
+    public WebElement getDelete() { return delete; }
+
+    public WebElement getCopy() { return copy; }
+
+    public WebElement getLabel() { return label; }
+
     public WebElement getAppOfTheLastItem() {
         return appOfTheLastItem;
     }

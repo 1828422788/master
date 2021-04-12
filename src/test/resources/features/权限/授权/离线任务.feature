@@ -3,6 +3,7 @@ Feature: 权限-离线任务
 
   Scenario Outline: 取消离线任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -23,6 +24,7 @@ Feature: 权限-离线任务
   Scenario: 验证无离线任务权限
     Given I login user "AutoTest" with password "All#123456"
     And open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for loading invisible
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -32,11 +34,13 @@ Feature: 权限-离线任务
   Scenario: 无离线任务页面访问权限
     Given I login user "AutoTest" with password "All#123456"
     And open the "PageTemplate" page for uri "/offlinetask/"
+    And I wait for loading invisible
     Then the page's title will be "403 Permission Denied"
     Then I logout current user
 
   Scenario Outline: 勾选离线任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -53,6 +57,7 @@ Feature: 权限-离线任务
   Scenario: 验证可使用离线任务
     Given I login user "AutoTest" with password "All#123456"
     And open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for loading invisible
     And I click the "DateEditor" button
     And I click the "WholeTime" button
     And I click the "SearchButton" button
