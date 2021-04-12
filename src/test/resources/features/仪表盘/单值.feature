@@ -89,6 +89,7 @@ Feature: 仪表盘单值
     And I wait for "1000" millsecond
     And I choose the "icon" from the "DisplayField"
     And I click the "Exhibition" button
+    And I wait for "500" millsecond
     And I set the parameter "WordSize" with value "30"
     And I wait for "1000" millsecond
     And I choose the "3" from the "DataPrecision"
