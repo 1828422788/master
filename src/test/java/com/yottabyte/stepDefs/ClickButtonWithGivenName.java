@@ -262,6 +262,19 @@ public class ClickButtonWithGivenName {
     }
 
     /**
+     * 点击定时任务详情页
+     *
+     * @param name 若为json格式{'name':''}
+     */
+    @Given("^I click the which name is \"([^\"]*)\"$")
+    public void clickTaskName(String name) {
+        String xpath;
+        xpath = ".//span[contains(text(),'" + name + "')]";
+        WebElement e = webDriver.findElement(By.xpath(xpath));
+        e.click();
+    }
+
+    /**
      * 在agent页中，点击某一ip的详情页
      *
      * @param columnNum 列名称（从0开始）

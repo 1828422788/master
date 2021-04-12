@@ -7,6 +7,7 @@ Feature: 数据集-j在趋势图中的应用
     And I wait for element "SearchStatus" change text to "搜索完成!"
 #    And I drag the element "SearchPageSvg" to the "left" side
     Given I set the parameter "SearchInput" with value "<spl>"
+    And I drag the element "SearchPageSvg" to the fixed side
         #选择父子行为为无的数据集
     And I click the "fatherChildNull" button
     And I click the "DateEditor" button
@@ -47,6 +48,7 @@ Feature: 数据集-j在趋势图中的应用
     And I wait for element "SearchStatus" change text to "搜索完成!"
 #    And I drag the element "SearchPageSvg" to the "left" side
     Given I set the parameter "SearchInput" with value "<spl>"
+    And I drag the element "SearchPageSvg" to the fixed side
         #选择父子行为为汇聚的数据集
     And I click the "huiJu" button
     And I click the "DateEditor" button
@@ -92,6 +94,7 @@ Feature: 数据集-j在趋势图中的应用
 #    And I drag the element "SearchPageSvg" to the "left" side
 #    And I drag the element "SearchPageSvg" to the "right" side
     Given I set the parameter "SearchInput" with value "<spl>"
+    And I drag the element "SearchPageSvg" to the fixed side
         #选择父子行为为继承的数据集
     And I click the "jiCheng" button
     And I click the "DateEditor" button

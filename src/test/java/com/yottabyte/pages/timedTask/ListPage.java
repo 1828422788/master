@@ -173,11 +173,10 @@ public class ListPage extends ListPageFactory {
     }
 
     @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
-    private WebElement searchNameInput; //名称
+    private WebElement searchNameInput;
 
     public WebElement getSearchNameInput() {
         return searchNameInput;
     }
-
 
 }
