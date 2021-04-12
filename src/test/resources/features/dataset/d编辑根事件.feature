@@ -61,7 +61,9 @@ Feature: 数据集-d编辑根事件
     When I click the "editEvent" button
     And I set the parameter "editYuJu" with value "tag:heka"
     And I choose the "app之api全部用例" from the "rootAppList"
+    And I wait for "3000" millsecond
     And I choose the "auto_package" from the "rootResourceGroup"
+    And I wait for "3000" millsecond
     When I click the "rootSave" button
     And I wait for "2000" millsecond
     Given I wait for loading complete
