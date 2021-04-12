@@ -2533,4 +2533,19 @@ public class DetailPage extends PageTemplate {
         return tabelAppname;
     }
 
+    @FindBy(xpath = "//*[text()='山东']")
+    private WebElement shanDong;
+
+    public WebElement getShanDong() {
+        return shanDong;
+    }
+
+    @FindBy(xpath = "//*[@id='search-copy-2']/parent::*")
+    private WebElement backIcon;
+
+    public WebElement getBackIcon() {
+        return backIcon;
+    }
+
+
 }
