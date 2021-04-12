@@ -55,7 +55,6 @@ Feature: 报表标签
 
   Scenario: verify_tag
     And I wait for "Loading" will be invisible
-    And I wait for "2000" millsecond
     When the data name is "{'column':'1','name':'Test_Tag'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username

@@ -144,6 +144,7 @@ Feature: 报表新建_编辑_其他word
     And I set the parameter "NumericField" with value "cnt"
     And I click the "Exhibition" button
     And I click the "AccordingArea" button
+    And I click the "AddRange" button
     And I set the parameter "MinRange" with value "1"
     And I set the parameter "MaxRange" with value "100"
     And I click the "AddColor" button
@@ -189,6 +190,7 @@ Feature: 报表新建_编辑_其他word
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
@@ -226,6 +228,7 @@ Feature: 报表新建_编辑_其他word
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
     When I click the "FinishButton" button under some element
@@ -266,6 +269,7 @@ Feature: 报表新建_编辑_其他word
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
@@ -306,6 +310,7 @@ Feature: 报表新建_编辑_其他word
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
@@ -342,6 +347,7 @@ Feature: 报表新建_编辑_其他word
     And I click the "Yaxis" button
     And I set the parameter "FieldValue" with value "apache.status"
     And I set the parameter "Segments" with value "10"
+    And I wait for "1000" millsecond
     And I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
