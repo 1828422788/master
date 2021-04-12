@@ -27,7 +27,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//li[@yotta-test='trend-dataset_trend-menu_item']")
     private WebElement newTrendFromDataset;
 
-    @FindBy(xpath= "//span[contains(text(),'标签')]/ancestor::div[@class='yotta-modal']")
+    @FindBy(xpath = "//span[contains(text(),'标签')]/ancestor::div[@class='yotta-modal']")
     private WebElement tagPanel;
 
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']")
@@ -74,7 +74,7 @@ public class ListPage extends ListPageFactory {
         return create;
     }
 
-    public WebElement getNewTrendButton(){
+    public WebElement getNewTrendButton() {
         createButton.click();
         return newTrendButton;
     }
@@ -112,4 +112,10 @@ public class ListPage extends ListPageFactory {
         return searchNameInput;
     }
 
+    @FindBy(xpath = "//span[text()='确定']/parent::button")
+    private WebElement ensureButton;
+
+    public WebElement getEnsureButton() {
+        return ensureButton;
+    }
 }

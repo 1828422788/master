@@ -9,7 +9,7 @@ Feature: 清理数据集与定时任务关联用例
     And I wait for "1000" millsecond
 #    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
-    And I click the "Ensure" button under some element
+    When I click the "Ensure" button under some element
     Then I will see the success message "删除成功"
 
     Examples:

@@ -357,14 +357,14 @@ A（root）
 
     //v3.2
     //字段列表
-    @FindBy(xpath = "//span[text()='字段列表']/following-sibling::span")
+    @FindBy(xpath = "//span[contains(text(),'字段列表')]/following-sibling::span")
     private WebElement firstName;
 
     public WebElement getFirstName() {
         return firstName;
     }
 
-    @FindBy(xpath = "//span[text()='字段列表']/following-sibling::span/following-sibling::span")
+    @FindBy(xpath = "//span[contains(text(),'字段列表')]/following-sibling::span/following-sibling::span")
     private WebElement secondName;
 
     public WebElement getSecondName() {
@@ -394,21 +394,21 @@ A（root）
     }
 
     //第一个字段名称
-    @FindBy(id = "DatasetDetail_fields[0].name")
+//  @FindBy(id = "DatasetDetail_fields[0].name")
+    @FindBy(xpath = "//input[@yotta-test='dataset-item-input']")
     private WebElement child_first_name;
 
     public WebElement getChild_first_name() {
         return child_first_name;
     }
 
-    //第一个字段类型
-    @FindBy(id = "DatasetDetail_fields[0].type")
-    private WebElement child_first_type;
-
-    public WebElement getChild_first_type() {
-        //   child_first_type.click();
-        //  return super.getLastDropdownList();
-        return child_first_type;
+    public WebElement getChild_first_typeList() {
+        String xpath = "//div[@yotta-test='dataset-item-select']/div";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownList();
+//        return child_first_type;
     }
 
     @FindBy(xpath = "//li[contains(text(),'时间')]")
@@ -434,7 +434,8 @@ A（root）
 
 
     //第二个字段名称
-    @FindBy(id = "DatasetDetail_fields[1].name")
+//    @FindBy(id = "DatasetDetail_fields[1].name")
+    @FindBy(xpath = "//input[@yotta-test='dataset-item-input']/following::input[@yotta-test='dataset-item-input']")
     private WebElement child_second_name;
 
     public WebElement getChild_second_name() {
@@ -442,18 +443,20 @@ A（root）
     }
 
     //第二个字段类型
-    @FindBy(id = "DatasetDetail_fields[1].type")
-    private WebElement child_second_type;
+//    @FindBy(id = "DatasetDetail_fields[1].type")
+//    private WebElement child_second_type;
 
-    public WebElement getChild_second_type() {
-        // child_second_type.click();
-        // return super.getLastDropdownList();
-        return child_second_type;
+    public WebElement getChild_second_typeList() {
+        String xpath = "//div[@yotta-test='dataset-item-select']/following::div[@yotta-test='dataset-item-select']/div";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownList();
     }
 
-
     //第三个字段名称
-    @FindBy(id = "DatasetDetail_fields[2].name")
+//    @FindBy(id = "DatasetDetail_fields[2].name")
+    @FindBy(xpath = "//input[@yotta-test='dataset-item-input']/following::input[@yotta-test='dataset-item-input']/following::input[@yotta-test='dataset-item-input']")
     private WebElement child_third_name;
 
     public WebElement getChild_third_name() {
@@ -461,22 +464,24 @@ A（root）
     }
 
     //第三个字段类型
-    @FindBy(id = "DatasetDetail_fields[2].type")
-    private WebElement child_third_type;
+//    @FindBy(id = "DatasetDetail_fields[2].type")
+//    private WebElement child_third_type;
 
-    public WebElement getChild_third_type() {
-        //  child_third_type.click();
-        //  return super.getLastDropdownList();
-        return child_third_type;
+    public WebElement getChild_third_typeList() {
+        String xpath = "//div[@yotta-test='dataset-item-select']/following::div[@yotta-test='dataset-item-select']/following::div[@yotta-test='dataset-item-select']/div";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownList();
     }
 
     //子节点的第三个删除按钮
-    @FindBy(xpath = "//input[@id='DatasetDetail_fields[2].name']/ancestor::span/ancestor::span/following-sibling::i")
+    @FindBy(xpath = "//span[text()='批量操作']/following::span[@yotta-test='dataset-delete-icon']/following::span[@yotta-test='dataset-delete-icon']/following::span[@yotta-test='dataset-delete-icon']")
     //class="yotta-icon yotta-icon-DeleteOutlined _2aFIGPPFEgQQarQcN4dhOe"
-    private WebElement childDeleteField;
+    private WebElement childThirdDeleteField;
 
-    public WebElement getChildDeleteField() {
-        return childDeleteField;
+    public WebElement getChildThirdDeleteField() {
+        return childThirdDeleteField;
     }
 
     //批量操作子节点
@@ -486,9 +491,15 @@ A（root）
     public WebElement getBatchOperation() {
         return batchOperation;
     }
+    @FindBy(xpath = "//input[@yotta-test='dataset-all-checkbox']")
+    private WebElement allCheck;
+
+    public WebElement getAllCheck() {
+        return allCheck;
+    }
 
     //删除按钮
-    @FindBy(xpath = "//span[text()='全选']/ancestor::label/following-sibling::span")
+    @FindBy(xpath = "//span[@yotta-test='dataset-batch_delete-dom']")
     private WebElement allDelete;
 
     public WebElement getAllDelete() {
@@ -525,7 +536,7 @@ A（root）
     }
 
     //编辑根事件中第三个字段的删除按钮
-    @FindBy(xpath = "//input[@id='EditDatabase_fields[2].name']/ancestor::span/ancestor::span/following-sibling::i")
+    @FindBy(xpath = "//input[@yotta-test='dataset-item-input'][@value='ip']/following::span[@yotta-test='dataset-delete-icon']")
     private WebElement deleteField;
 
     public WebElement getDeleteField() {

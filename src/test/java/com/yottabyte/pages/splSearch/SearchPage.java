@@ -375,6 +375,7 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//li/span[text()='定时任务']")
     private WebElement timedTask;
+
     public WebElement getTimedTask() {
         return timedTask;
     }
@@ -401,7 +402,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='确定']")
     private List<WebElement> ensure;
 
-   // @FindBy(xpath = "(//span[@aria-label='CheckCircleFilled']/ancestor::div[1]/following-sibling::div//p) | (//span[@aria-label='CheckCircleFilled']/following-sibling::span[@class='yotta-message-content'])")
+    // @FindBy(xpath = "(//span[@aria-label='CheckCircleFilled']/ancestor::div[1]/following-sibling::div//p) | (//span[@aria-label='CheckCircleFilled']/following-sibling::span[@class='yotta-message-content'])")
     @FindBy(xpath = "//div[@yotta-test='dialog-content-dom']/p")
     private WebElement successMessage;
 
@@ -688,7 +689,8 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//span[text()='保存为']")
     private WebElement saveAs;
-    public WebElement getSaveAs(){
+
+    public WebElement getSaveAs() {
         return saveAs;
     }
 
@@ -1075,13 +1077,13 @@ public class SearchPage extends ListPageFactory {
         return timePanel;
     }
 
-//    @FindBy(xpath = "//div[@class='FuxVN2ckQ3GarEY_A-nCW _1-1tE5LfHAmNb4CRGuJvph']/span")
+    //    @FindBy(xpath = "//div[@class='FuxVN2ckQ3GarEY_A-nCW _1-1tE5LfHAmNb4CRGuJvph']/span")
     @FindBy(xpath = "//div[@class='p7B75U-cQYEP70wv7xtAs']/span[contains(text(),'搜索无数据')]")
     private WebElement
 
 
+            noDataInfo;
 
-        noDataInfo;
     public WebElement getNoDataInfo() {
         return noDataInfo;
     }
@@ -1185,6 +1187,7 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::input")
     private WebElement offlineTaskName;
+
     public WebElement getOfflineTaskName() {
         return offlineTaskName;
     }
@@ -1805,6 +1808,7 @@ public class SearchPage extends ListPageFactory {
 //    @FindBy(xpath = "//li/span[text()='趋势图']")
     @FindBy(xpath = "//li/span[text()='趋势图']")
     private WebElement saveTrend;
+
     public WebElement getSaveTrend() {
         return saveTrend;
     }
@@ -1814,16 +1818,16 @@ public class SearchPage extends ListPageFactory {
     }
 
     //保存为趋势图的名称
-    @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::input")
+    @FindBy(xpath = "//input[@yotta-test='search-trend_name-input']")
     private WebElement trendName;
-
-    //保存为趋势图成功之后提示弹窗中的确定按钮
-    @FindBy(xpath = "//div[@class='minaCXZ5tceRilaw8FVvn']/button")
-    private WebElement trendEnsureAfterEnsure;
 
     public WebElement getTrendName() {
         return trendName;
     }
+
+    //保存为趋势图成功之后提示弹窗中的确定按钮
+    @FindBy(xpath = "//div[@class='minaCXZ5tceRilaw8FVvn']/button")
+    private WebElement trendEnsureAfterEnsure;
 
     public WebElement getTrendEnsureAfterEnsure() {
         return super.getButton("确定");

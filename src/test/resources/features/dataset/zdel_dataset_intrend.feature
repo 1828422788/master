@@ -7,13 +7,13 @@ Feature: 清理数据集与趋势图关联用例
     When I set the parameter "SearchNameInput" with value "<name>"
     Given I wait for loading complete
     And I wait for "1000" millsecond
-    When  the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
-    Then I will see the message "确认删除 [<name>] ?"
+    When  the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button in more menu
+#    Then I will see the message "确认删除 [<name>] ?"
     When I click the "EnsureButton" button
     Then I will see the success message "删除成功"
 
     Examples:
       | name    |
+      | 父子无 |
       | 父子继承 |
       | 父子汇聚 |
-      | 父子无 |
