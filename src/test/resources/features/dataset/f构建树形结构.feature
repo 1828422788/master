@@ -1,5 +1,5 @@
 @dataset @datasetf @dataset1
-Feature: 数据集-f构建树形结构
+Feature: 数据集-f构建树形结构，后置-数据集-g在搜索页
 
   Background:
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -122,7 +122,6 @@ Feature: 数据集-f构建树形结构
     And I set the parameter "sentenceInput" with value "appname:apache"
     And I click the "SaveDetail" button
     And I wait for "2000" millsecond
-
 
   @y4085
   Scenario: 验证：RZY-4085:父子行为-无

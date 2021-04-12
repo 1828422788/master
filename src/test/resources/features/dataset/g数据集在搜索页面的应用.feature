@@ -1,5 +1,5 @@
 @dataset @datasetg @dataset2
-Feature: 数据集-g在搜索页
+Feature: 数据集-g在搜索页，前置-数据集-f构建树形结构
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
