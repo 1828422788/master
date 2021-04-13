@@ -47,8 +47,11 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "yotta-select-selection-placeholder")
     private WebElement userGroup;
 
-    @FindBy(className = "ant-form-explain")
+    @FindBy(className = "yotta-form-field-help-text")
     private WebElement explainMessage;
+
+    @FindBy(xpath = "//p[@class='yotta-dialog-contenttext']")
+    private WebElement successMessage;
 
     public WebElement getEditButton() {
         return super.getButton("修改信息");
@@ -100,7 +103,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSuccessMessage() {
-        return super.getErrorMessage();
+        return successMessage;
     }
 
     public WebElement getErrorMessage() {

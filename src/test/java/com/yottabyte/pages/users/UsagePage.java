@@ -16,13 +16,18 @@ public class UsagePage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(className = "el-date-editor")
+    //@FindBy(className = "yotta-date-time-picker _3AVFjVc8g_ieExovtGZpmq")
+    @FindBy(xpath = "//span[@class='yotta-date-time-picker-text yotta-date-time-picker-empty']")
     private WebElement dateButton;
 
-    @FindBy(xpath = "//input[@placeholder='开始日期']")
+    @FindBy(xpath = "//div[@yotta-test='date_time_picker-start_date-date_picker']//input[@class='yotta-date-picker-date']")
+    private WebElement startData;
+
     private WebElement startTime;
 
-    @FindBy(xpath = "//input[@placeholder='结束日期']")
+    @FindBy(xpath = "//div[@yotta-test='date_time_picker-end_date-date_picker']//input[@class='yotta-date-picker-date']")
+    private WebElement endData;
+
     private WebElement endTime;
 
     @FindBy(xpath = "//span[text()='应用']/parent::button")
@@ -34,7 +39,7 @@ public class UsagePage extends PageTemplate {
     @FindBy(className = "el-message-box__message")
     private WebElement message;
 
-    @FindBy (className = "el-message__group")
+    @FindBy(className = "yotta-message-content")
     private WebElement suspensionMessage;
 
 
@@ -42,16 +47,21 @@ public class UsagePage extends PageTemplate {
         return dateButton;
     }
 
-    public WebElement getStartTime() {
-        return startTime;
+    public WebElement getStartData() {
+        return startData;
+    }
+
+    public WebElement getStartTime() { return  getYottaCheckbox("date_time_picker-start_time-input"); }
+
+    public WebElement getEndData() {
+        return endData;
     }
 
     public WebElement getEndTime() {
-        return endTime;
-    }
+        return getYottaCheckbox("date_time_picker-end_time-input"); }
 
     public WebElement getConfirm() {
-        ((JavascriptExecutor) webDriver).executeScript("arguments[0].blur();", getEndTime());  //让结束日期失去焦点
+        ((JavascriptExecutor) webDriver).executeScript("arguments[0].blur();", getEndData());  //让结束日期失去焦点
         return confirm;
     }
 
