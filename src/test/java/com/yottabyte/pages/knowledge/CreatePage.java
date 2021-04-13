@@ -35,7 +35,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='yotta-spinner-container']//p")
     private WebElement successAdd;
 
-    @FindBy(className = "ant-message-error")
+    @FindBy(className = "yotta-message-content")
     private WebElement errorMessage;
 
     @Override

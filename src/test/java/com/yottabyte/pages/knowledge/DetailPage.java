@@ -24,7 +24,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getCode() {
-        return inputValue("事件代码: ");
+        return inputValue("事件代码");
     }
 
     public WebElement getTag() {
@@ -40,6 +40,6 @@ public class DetailPage extends PageTemplate {
     }
 
     private WebElement inputValue(String name) {
-        return webDriver.findElement(By.xpath("//div[contains(text(),'" + name + "')]/following-sibling::div"));
+        return webDriver.findElement(By.xpath("//div[contains(text(),'" + name + "')]/following-sibling::div[last()]"));
     }
 }
