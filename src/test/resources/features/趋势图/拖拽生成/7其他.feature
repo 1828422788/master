@@ -6,24 +6,21 @@ Feature: 趋势图_拖拽_其他
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     And I wait for element "SearchStatus" change text to "搜索完成!"
-
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
     And I click the "DateEditor" button under some element
     And I click the "Today" button
     And I wait for "1000" millsecond
+
+
+  Scenario Outline: drag_and_drop_single1
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "CheckBox" will be visible
     And I "checked" the checkbox which name is "apache.clientip" in trend page
-    And I "checked" the checkbox which name is "apache.geo.city" in trend page
-    And I "checked" the checkbox which name is "apache.status" in trend page
     Then I click the "NextButton" button under some element
 
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
-
-
-  Scenario Outline: drag_and_drop_single1
     And I drag the element "Clientip" to the "Values"
     And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
@@ -58,6 +55,15 @@ Feature: 趋势图_拖拽_其他
       |  Single    | Green  | 80  | Background |
 
   Scenario Outline: drag_and_drop_single2
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I wait for "CheckBox" will be visible
+    And I "checked" the checkbox which name is "apache.clientip" in trend page
+    Then I click the "NextButton" button under some element
+
+    When I will see the "trend.DragAndDropPage" page
+    And I wait for "Dimensions" will be visible
     And I drag the element "Clientip" to the "Values"
     And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
@@ -90,6 +96,15 @@ Feature: 趋势图_拖拽_其他
       |  Single    | 80   | 一天前      |
 
   Scenario Outline: drag_and_drop_single3
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I wait for "CheckBox" will be visible
+    And I "checked" the checkbox which name is "apache.clientip" in trend page
+    Then I click the "NextButton" button under some element
+
+    When I will see the "trend.DragAndDropPage" page
+    And I wait for "Dimensions" will be visible
     And I drag the element "Clientip" to the "Values"
     And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
@@ -132,7 +147,207 @@ Feature: 趋势图_拖拽_其他
       |  chartType | size | minVal1 | maxVal1 | minVal2| maxVal2| color2 |
       |  Single    | 80   | 1       | 123     | 123    | 126    | Purple |
 
+  Scenario Outline: drag_and_drop_single4
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I wait for "CheckBox" will be visible
+    And I "checked" the checkbox which name is "apache.resp_len" in trend page
+    Then I click the "NextButton" button under some element
+
+    When I will see the "trend.DragAndDropPage" page
+    And I wait for "Dimensions" will be visible
+    And I drag the element "Resplen" to the "Values"
+    And I wait for "<chartType>" will be visible
+    And I click the "<chartType>" button
+    Then I wait for "Chart" will be visible
+    And I click the "ElementInValues" button
+    And I wait for "Panel" will be visible
+    And I choose the "平均值" from the "TypeFunction"
+    And I wait for "1000" millsecond
+    And I click the "Resplen" button
+    And I click the "<tab>" button
+    And I wait for "1000" millsecond
+    And I click the "<button>" button
+    And I set the parameter "<field>" with value "<text>"
+    And I click the "Exhibition" button
+    And I wait for "1000" millsecond
+    And I choose the "2" from the "Precision"
+    And I set the parameter "FontSize" with value "<size>" using step buttons
+
+    And I wait for "AddColorSingleChart" will be visible
+    And I click the "AddColorSingleChart" button
+    And I wait for "<color>" will be visible
+    And I click the "<color>" button
+
+    And I click the "ThousandSeparator" button
+    And I set the parameter "Unit" with value "个"
+    And I click the "UnitPosition<position>" button
+
+    And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
+    And I will see the element "SPL" contains "tag:sample04061424_chart | stats avg(apache.resp_len)"
+    When I click the "CloseSPL" button
+    Then I wait for "Chart" will be visible
+    And I will see the element "SingleElement" contains "<content>"
+    And I will see the element "SingleElement" style contains "<style>"
+    And I will see the element "SingleElement" style contains "font-size: <size>px"
+    And I wait for "2000" millsecond
+    Then take part of "Chart" with name "actual/拖拽_<chartType>_<tab>"
+    And I compare source image "actual/拖拽_<chartType>_<tab>" with target image "expect/拖拽_<chartType>_<tab>"
+    And I click the "NextButton" button under some element
+
+    When I will see the "trend.CreatePage" page
+    And I set the parameter "NameInput" with value "拖拽_<chartType>_<tab>"
+    And I set the parameter "DescribeInput" with value "<size>_prec.2_<position>个_<text>_<color>"
+    And I click the "Complete" button under some element
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      |  chartType | size | position  | tab          | button        | field      | text               | color  | content     | style             |
+      |  Single    | 80   | After     | Icon         | AccordingName | IconName   | font-awesome-flag  | Green  | 个          | rgb(50, 194, 125) |
+      |  Single    | 80   | Before    | SecondTitle  |               | TitleName  |  二级title         | Purple | 4,448.09    | rgb(161, 20, 249) |
+
+
+  Scenario Outline: drag_and_drop_ring
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | eval value1 = apache.resp_len/5000 | eval value2 = apache.resp_len/10000"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I wait for "CheckBox" will be visible
+    And I "checked" the checkbox which name is "value1" in trend page
+    And I "checked" the checkbox which name is "value2" in trend page
+    Then I click the "NextButton" button under some element
+
+    When I will see the "trend.DragAndDropPage" page
+    And I wait for "Dimensions" will be visible
+    And I drag the element "Value1" to the "Values"
+    And I drag the element "Value2" to the "Values"
+    And I wait for "<chartType>" will be visible
+    And I click the "<chartType>" button
+    Then I wait for "Chart" will be visible
+    And I click the "ElementInValues" button
+    And I wait for "Panel" will be visible
+    And I choose the "平均值" from the "TypeFunction"
+    And I wait for "1000" millsecond
+    And I click the "Value1" button
+    And I click the "SecondElementInValues" button
+    And I wait for "Panel" will be visible
+    And I choose the "平均值" from the "TypeFunction"
+    And I wait for "1000" millsecond
+    And I click the "Value1" button
+    And I click the "Exhibition" button
+    And I wait for "1000" millsecond
+    And I wait for "AddColorSingleChart" will be visible
+    And I click the "AddColorSingleChart" button
+    And I wait for "<color>" will be visible
+    And I click the "<color>" button
+
+    And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
+    And I will see the element "SPL" contains "tag:sample04061424_chart | eval value1 = apache.resp_len/5000 | eval value2 = apache.resp_len/10000 | stats avg(value1),avg(value2)"
+    When I click the "CloseSPL" button
+    And I will see the text "展示数据" exist in page
+    And I will see the text "对比数据" exist in page
+    Then I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
+    Then take part of "Chart" with name "actual/拖拽_<chartType>_1"
+    And I compare source image "actual/拖拽_<chartType>_1" with target image "expect/拖拽_<chartType>_1"
+    And I click the "NextButton" button under some element
+
+    When I will see the "trend.CreatePage" page
+    And I set the parameter "NameInput" with value "拖拽_<chartType>_1"
+    And I set the parameter "DescribeInput" with value "<color>"
+    And I click the "Complete" button under some element
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      |  chartType | color  |
+      |  Ring      | Green  |
+
+  Scenario Outline: drag_and_drop_ring_interval
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | eval value1 = apache.resp_len/5000 | eval value2 = apache.resp_len/10000"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I wait for "CheckBox" will be visible
+    And I "checked" the checkbox which name is "value1" in trend page
+    And I "checked" the checkbox which name is "value2" in trend page
+    Then I click the "NextButton" button under some element
+
+    When I will see the "trend.DragAndDropPage" page
+    And I wait for "Dimensions" will be visible
+    And I drag the element "Value1" to the "Values"
+    And I drag the element "Value2" to the "Values"
+    And I wait for "<chartType>" will be visible
+    And I click the "<chartType>" button
+    Then I wait for "Chart" will be visible
+    And I click the "ElementInValues" button
+    And I wait for "Panel" will be visible
+    And I choose the "平均值" from the "TypeFunction"
+    And I wait for "1000" millsecond
+    And I click the "Value1" button
+    And I click the "SecondElementInValues" button
+    And I wait for "Panel" will be visible
+    And I choose the "平均值" from the "TypeFunction"
+    And I wait for "1000" millsecond
+    And I click the "Value1" button
+    And I click the "Exhibition" button
+    And I wait for "1000" millsecond
+    And I click the "AccordingArea" button
+    And I wait for "1000" millsecond
+    And I click the "AddRange" button
+    And I set the parameter "MinRange" with value "0"
+    And I set the parameter "MaxRange" with value "0.6"
+    And I click the "AddRange" button
+    And I wait for "1000" millsecond
+    And I set the parameter "MinRange" with value "0.6"
+    And I set the parameter "MaxRange" with value "0.8"
+    And I wait for "RangeColor" will be visible
+    And I click the "RangeColor" button
+    And I wait for "<color>" will be visible
+    And I click the "<color>" button
+    And I wait for "1000" millsecond
+    And I click the "AddRange" button
+    And I wait for "1000" millsecond
+    And I set the parameter "MinRange" with value "0.8"
+    And I set the parameter "MaxRange" with value "1"
+    And I wait for "RangeColor" will be visible
+    And I click the "RangeColor" button
+    And I wait for "Red" will be visible
+    And I click the "Red" button
+    And I wait for "1000" millsecond
+
+    And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
+    And I will see the element "SPL" contains "tag:sample04061424_chart | eval value1 = apache.resp_len/5000 | eval value2 = apache.resp_len/10000 | stats avg(value1),avg(value2)"
+    When I click the "CloseSPL" button
+    And I will see the text "展示数据" exist in page
+    And I will see the text "对比数据" exist in page
+    Then I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
+    Then take part of "Chart" with name "actual/拖拽_<chartType>_2"
+    And I compare source image "actual/拖拽_<chartType>_2" with target image "expect/拖拽_<chartType>_2"
+    And I click the "NextButton" button under some element
+
+    When I will see the "trend.CreatePage" page
+    And I set the parameter "NameInput" with value "拖拽_<chartType>_2"
+    And I set the parameter "DescribeInput" with value "<color>"
+    And I click the "Complete" button under some element
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      |  chartType | color  |
+      |  Ring      | Orange  |
+
   Scenario Outline: drag_and_drop_other
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I wait for "CheckBox" will be visible
+    And I "checked" the checkbox which name is "apache.geo.city" in trend page
+    Then I click the "NextButton" button under some element
+
+    When I will see the "trend.DragAndDropPage" page
+    And I wait for "Dimensions" will be visible
     And I drag the element "GeoCity" to the "Values"
     And I drag the element "GeoCity" to the "Dimensions"
     And I wait for "<chartType>" will be visible
@@ -168,6 +383,15 @@ Feature: 趋势图_拖拽_其他
       |  Funnel    |  Orange | RightPosition  | Example   |
 
   Scenario Outline: drag_and_drop_radar
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I wait for "CheckBox" will be visible
+    And I "checked" the checkbox which name is "apache.geo.city" in trend page
+    Then I click the "NextButton" button under some element
+
+    When I will see the "trend.DragAndDropPage" page
+    And I wait for "Dimensions" will be visible
     And I drag the element "GeoCity" to the "Values"
     And I drag the element "GeoCity" to the "Dimensions"
     And I wait for "<chartType>" will be visible
@@ -202,6 +426,15 @@ Feature: 趋势图_拖拽_其他
       |  Radar     |  DarkBlue |
 
   Scenario Outline: drag_and_drop_radar_unify_metric
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I wait for "CheckBox" will be visible
+    And I "checked" the checkbox which name is "apache.geo.city" in trend page
+    Then I click the "NextButton" button under some element
+
+    When I will see the "trend.DragAndDropPage" page
+    And I wait for "Dimensions" will be visible
     And I drag the element "GeoCity" to the "Values"
     And I drag the element "GeoCity" to the "Dimensions"
     And I wait for "<chartType>" will be visible
@@ -241,6 +474,15 @@ Feature: 趋势图_拖拽_其他
       |  Radar     |  DarkBlue | RightPosition  |
 
   Scenario Outline: drag_and_drop_radar_compare
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I wait for "CheckBox" will be visible
+    And I "checked" the checkbox which name is "apache.geo.city" in trend page
+    Then I click the "NextButton" button under some element
+
+    When I will see the "trend.DragAndDropPage" page
+    And I wait for "Dimensions" will be visible
     And I drag the element "GeoCity" to the "Values"
     And I drag the element "GeoCity" to the "Dimensions"
     And I wait for "<chartType>" will be visible
@@ -286,6 +528,15 @@ Feature: 趋势图_拖拽_其他
       |  Radar     |  DarkBlue | RightPosition  | 环比         | 上周同比值   |
 
   Scenario Outline: drag_and_drop_matrixheatmap
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I wait for "CheckBox" will be visible
+    And I "checked" the checkbox which name is "apache.geo.city" in trend page
+    Then I click the "NextButton" button under some element
+
+    When I will see the "trend.DragAndDropPage" page
+    And I wait for "Dimensions" will be visible
     And I drag the element "GeoCity" to the "Values"
     And I drag the element "GeoCity" to the "Dimensions"
     And I wait for "<chartType>" will be visible
@@ -321,6 +572,15 @@ Feature: 趋势图_拖拽_其他
       |  Matrixheatmap | 5          |
 
   Scenario Outline: drag_and_drop_order_table
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I wait for "CheckBox" will be visible
+    And I "checked" the checkbox which name is "apache.clientip" in trend page
+    Then I click the "NextButton" button under some element
+
+    When I will see the "trend.DragAndDropPage" page
+    And I wait for "Dimensions" will be visible
     And I drag the element "Clientip" to the "Values"
     And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
@@ -347,6 +607,15 @@ Feature: 趋势图_拖拽_其他
       |  Table     |
 
   Scenario Outline: drag_and_drop_order_table_compare
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I wait for "CheckBox" will be visible
+    And I "checked" the checkbox which name is "apache.clientip" in trend page
+    Then I click the "NextButton" button under some element
+
+    When I will see the "trend.DragAndDropPage" page
+    And I wait for "Dimensions" will be visible
     And I drag the element "Clientip" to the "Values"
     And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button

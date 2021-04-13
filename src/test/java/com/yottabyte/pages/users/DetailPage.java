@@ -18,15 +18,20 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getEmail() {
-        return getInfo("邮箱");
+        return getMess("邮箱");
     }
 
     public WebElement getTel() {
-        return getInfo("电话号码");
+        return getMess("电话号码");
     }
 
     public WebElement getInfo(String name) {
         String xpath = "//span[text()='" + name + ":']/following-sibling::span";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getMess(String name) {
+        String xpath = "//span[text()='" + name + ":']/parent::div/following-sibling::div/span";
         return webDriver.findElement(By.xpath(xpath));
     }
 }

@@ -40,12 +40,14 @@ Feature: 应用仪表盘
     And I choose the "__admin__" from the "Role"
     And I click the "AddDataset" button
     And I set the parameter "SearchInput" with value "AutoTestApp"
-    And I click the "SearchIcon" button
+    And I wait for "500" millsecond
+#    And I click the "SearchIcon" button
     And I drag the scroll bar to the element "ResultDataset"
     And I click the "ResultDataset" button
     And I click the "Ensure" button
     And I click the "NextButton" button under some element
-    And I click the "NextButton" button under some element
+    And I wait for "1500" millsecond
+    And I click the "Done" button under some element
     And I wait for "ImportSuccess" will be visible
     And I will see the element "ImportSuccess" name is "添加成功"
 
@@ -55,7 +57,8 @@ Feature: 应用仪表盘
 
   Scenario Outline: 验证单个资源的app资源范围是否正确
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "<name>" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "<name>" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I wait for loading invisible
     And I wait for "EmptyText" will be visible
@@ -67,7 +70,8 @@ Feature: 应用仪表盘
 
   Scenario: 新建仪表盘
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "DashboardApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "DashboardApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "DashboardApp"
     Then I will see the "dashboard.ListPage" page
@@ -78,7 +82,8 @@ Feature: 应用仪表盘
 
   Scenario Outline: 仪表盘详情页
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "DashboardApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "DashboardApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "DashboardApp"
     Then I will see the "dashboard.ListPage" page
@@ -123,7 +128,8 @@ Feature: 应用仪表盘
 
   Scenario: 按照名称搜索
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "DashboardApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "DashboardApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "DashboardApp"
     Then I will see the "dashboard.ListPage" page
@@ -136,7 +142,8 @@ Feature: 应用仪表盘
 
   Scenario: 重命名仪表盘
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "DashboardApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "DashboardApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "DashboardApp"
     Then I will see the "dashboard.ListPage" page
@@ -148,13 +155,16 @@ Feature: 应用仪表盘
 
   Scenario: 仪表盘标签
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "DashboardApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "DashboardApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "DashboardApp"
     Then I will see the "dashboard.ListPage" page
-    When the data name is "仪表盘重命名" then i click the "标签" button
-    And I wait for "Tag" will be visible
-    And I set the parameter "Tag" with value "testTag"
+    When the data name is "仪表盘重命名" then i click the "标签" button in more menu
+    And I click the "ResourceTagChange" button
+    And I wait for "1000" millsecond
+    And I set the parameter "ResourceTagChangeInput" with value "testTag"
+    And I wait for "1500" millsecond
     And I choose the "testTag" from the "TagDropdown"
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
@@ -162,12 +172,14 @@ Feature: 应用仪表盘
 
   Scenario Outline: 删除仪表盘
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "DashboardApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "DashboardApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "DashboardApp"
     And I click the "Dashboard" button
     Then I will see the "dashboard.ListPage" page
-    Given the data name is "<name>" then i click the "删除" button
+    And I wait for "1500" millsecond
+    Given the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     Then I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
@@ -192,12 +204,13 @@ Feature: 应用仪表盘
 
   Scenario: 验证资源范围修改成功并删除app外资源
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "DashboardApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "DashboardApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "DashboardApp"
     And I click the "Dashboard" button
     Then I will see the "dashboard.ListPage" page
-    Given the data name is "仪表盘验证无app" then i click the "删除" button
+    Given the data name is "仪表盘验证无app" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     Then I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible

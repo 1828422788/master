@@ -20,12 +20,14 @@ Feature: 应用安装（RZY-1988）
     And I choose the "__admin__" from the "Role"
     And I click the "AddDataset" button
     And I set the parameter "SearchInput" with value "AutoTestApp"
-    And I click the "SearchIcon" button
+    And I wait for "500" millsecond
+#    And I click the "SearchIcon" button
     And I drag the scroll bar to the element "ResultDataset"
     And I click the "ResultDataset" button
     And I click the "Ensure" button
     And I click the "NextButton" button under some element
-    And I click the "NextButton" button under some element
+    And I wait for "1500" millsecond
+    And I click the "Done" button under some element
     And I wait for "ImportSuccess" will be visible
     And I will see the element "ImportSuccess" name is "添加成功"
 
@@ -41,7 +43,9 @@ Feature: 应用安装（RZY-1988）
     Given delete file "/target/download-files/<name>.tar"
     And I set the parameter "NameInput" with value "<name>"
     And I click the "AddResource" button
+    And I wait for "500" millsecond
     And I choose the "数据集" from the "ResourceType"
+    And I wait for "1500" millsecond
     And I set the parameter "SearchResourceInput" with value "AutoTestApp"
     And I wait for "SearchLoading" will be invisible
     And I "check" the checkbox which name is "AutoTestApp" in tiny table
@@ -104,12 +108,14 @@ Feature: 应用安装（RZY-1988）
     And I choose the "__admin__" from the "Role"
     And I click the "AddDataset" button
     And I set the parameter "SearchInput" with value "AutoTestApp"
-    And I click the "SearchIcon" button
+    And I wait for "500" millsecond
+#    And I click the "SearchIcon" button
     And I drag the scroll bar to the element "ResultDataset"
     And I click the "ResultDataset" button
     And I click the "Ensure" button
     And I click the "NextButton" button under some element
-    And I click the "NextButton" button under some element
+    And I wait for "1500" millsecond
+    And I click the "Done" button under some element
     And I wait for "ImportSuccess" will be visible
     And I wait for element "ImportSuccess" change text to "添加失败"
 
@@ -120,7 +126,7 @@ Feature: 应用安装（RZY-1988）
     Then I will see the "app.InstallPage" page
     When I upload a file with name "/src/test/resources/testdata/alertPlugins/hengshuiyinhang_socket.py"
     And I wait for "ErrorMessage" will be visible
-    Then I will see the error message "仅支持 .tar 格式文件"
+    Then I will see the error message "上传失败"
 
   Scenario: 上传APP包失败（上传内容校验）
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -129,7 +135,7 @@ Feature: 应用安装（RZY-1988）
     Then I will see the "app.InstallPage" page
     When I upload a file with name "/src/test/resources/testdata/resourceGroups/success.tar"
     And I wait for "ErrorMessage" will be visible
-    Then I will see the error message "上传失败: 读取资源包异常！"
+    Then I will see the error message "上传失败"
 
 
 

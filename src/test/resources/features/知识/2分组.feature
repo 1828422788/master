@@ -3,9 +3,12 @@ Feature: 知识分组（RZY-880）
 
   Background:
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
+    Then I wait for loading invisible
 
   Scenario Outline: 修改标签
-    Given the data name is "<name>" then i click the "标签" button
+    When the data name is "<name>" then i click the "标签" button in more menu
+    And I click the "TagInput" button
+    And I wait for "1000" millsecond
     And I set the parameter "Tag" with value "<Type>"
     And I choose the "<Type>" from the "TagDropdown"
     And I click the "Ensure" button

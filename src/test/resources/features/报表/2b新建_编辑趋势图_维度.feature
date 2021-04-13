@@ -177,6 +177,7 @@ Feature: 报表新建_编辑_维度
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "2000" millsecond
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 

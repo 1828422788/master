@@ -1185,7 +1185,8 @@ public class SearchPage extends ListPageFactory {
         return GetTime.getTime(webDriver, "ApplyCustomTime");
     }
 
-    @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::input")
+   // @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::input")
+    @FindBy(xpath = "//input[@yotta-test='search-new_savedsearch_name-input']")
     private WebElement offlineTaskName;
 
     public WebElement getOfflineTaskName() {

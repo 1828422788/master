@@ -33,14 +33,17 @@ Feature: 应用新建（RZY-1899）
       | 我有三十个字不管你信不信反正我有三十个字不管你信不信反正我信了呢我有三十个字不管你信不信反正我有三十个字不管你信不信反正我信了呢 | /app/ | NameMessage    | 菜单栏名称过长，请小于60个字符          |
 
   Scenario: 新建失败（上传logo失败）
-    When I upload a file "LogoInput" with name "/src/test/resources/testdata/resourceGroups/testLogo.jpg"
-    And I wait for "ErrorMessage" will be visible
-    Then I will see the error message "文件过大"
+
+    When I upload a file "LogoInput" with name "/src/test/resources/testdata/resourceGroups/testLogo.png"
+    And I wait for "LogoMessage" will be visible
+    Then I will see the element "LogoMessage" name contains "文件过大，请重新上传"
+#    Then I will see the error message "文件过大"
 
   Scenario: 新建拓扑图资源
     Given open the "topology.ListPage" page for uri "/topology/"
     When I click the "Create" button
     And I set the parameter "NameInput" with value "app所选资源"
+    And I wait for "1500" millsecond
     And I click the "Ensure" button
 
   @smoke @appSmoke

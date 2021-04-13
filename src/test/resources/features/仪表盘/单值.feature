@@ -90,7 +90,7 @@ Feature: 仪表盘单值
     And I choose the "icon" from the "DisplayField"
     And I click the "Exhibition" button
     And I wait for "1500" millsecond
-    And I set the parameter "WordSize" with value "30"
+    And I set the parameter "WordSize" with value "50"
     And I wait for "1000" millsecond
     And I choose the "3" from the "DataPrecision"
     And I wait for "1000" millsecond
@@ -119,7 +119,7 @@ Feature: 仪表盘单值
 
     Examples:
       | name    | json                                                                                                                                                                                                                                                                                                                                                                                           |
-      | 仪表盘单值 |  \n  "chart": {\n    "chartType": "single",\n    "field": "a_",\n    "fontSize": "48",\n    "precision": "3",\n    "useThousandSeparators": true,\n    "unit": "个",\n    "unitPosition": "after",\n    "displayField": "icon",\n    "subtitle": "",\n    "useSparkline": false,\n    "sparklineXAxisField": "",\n    "singleFieldDisplayType": "default",\n    "singleChartIcon": "none",\n    "displayMode": "default",\n    "color": "#5C9DF5",\n    "colorFillingMode": "font",\n    "liveRefreshMode": false\n  } |
+      | 仪表盘单值 |  \n  "chart": {\n    "chartType": "single",\n    "field": "a_",\n    "fontSize": "50",\n    "precision": "3",\n    "useThousandSeparators": true,\n    "unit": "个",\n    "unitPosition": "after",\n    "displayField": "icon",\n    "subtitle": "",\n    "useSparkline": false,\n    "sparklineXAxisField": "",\n    "singleFieldDisplayType": "default",\n    "singleChartIcon": "none",\n    "displayMode": "default",\n    "color": "#5C9DF5",\n    "colorFillingMode": "font",\n    "liveRefreshMode": false\n  } |
 
   @dashboard @dashboardSmoke
   Scenario: 单值图的千分隔符

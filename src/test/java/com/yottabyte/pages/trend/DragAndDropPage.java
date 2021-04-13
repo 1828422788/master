@@ -33,6 +33,9 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(xpath = "(//div[contains(@yotta-test,'values-icon')]//span[@aria-label='ControllSquareFilled'])[1]")
     private WebElement elementInValues;
 
+    @FindBy(xpath = "(//div[contains(@yotta-test,'values-icon')]//span[@aria-label='ControllSquareFilled'])[2]")
+    private WebElement secondElementInValues;
+
     @FindBy(xpath = "(//div[contains(@yotta-test,'values2')]//span[@aria-label='ControllSquareFilled'])[1]")
     private WebElement elementInValues2;
 
@@ -106,7 +109,7 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(xpath = "(//div[@yotta-test='trend-BI_param_singleChartRangeColors_color-dom'])[last()]")
     private WebElement rangeColor;
 
-    @FindBy(xpath = "//input[@yotta-test='trend-BI_axis_unit-number_input' or @yotta-test='trend-BI_param_yUnit-input']")
+    @FindBy(xpath = "//input[@yotta-test='trend-BI_axis_unit-number_input' or @yotta-test='trend-BI_param_yUnit-input' or @yotta-test='trend-BI_param_singleUnit-input']")
     private WebElement unit;
 
     @FindBy(xpath = "//input[@yotta-test='trend-BI_axis_min-number_input' or @yotta-test='trend-BI_param_yRange_min-input']")
@@ -120,6 +123,9 @@ public class DragAndDropPage extends CreatePage {
 
     @FindBy(xpath = "//input[@yotta-test='trend-BI_field_connectnull-switch' or @yotta-test='trend-BI_param_yConnectNull-checkbox']")
     private WebElement connectEmptyData;
+
+    @FindBy(xpath = "//div[@yotta-test='trend-dataset_time-date_time_picker' or @yotta-test='trend-BI_time-date_time_picker']")
+    private WebElement dateEditor;
 
     public WebElement getRangeColor() {
         return rangeColor;
@@ -204,6 +210,10 @@ public class DragAndDropPage extends CreatePage {
 
     public WebElement getSingle() {
         return getChartButton("single");
+    }
+
+    public WebElement getRing() {
+        return getChartButton("ringscale");
     }
 
     public WebElement getLiquidfill() {
@@ -295,6 +305,14 @@ public class DragAndDropPage extends CreatePage {
         return getDraggableElement("apache.method");
     }
 
+    public WebElement getValue1() {
+        return getDraggableElement("value1");
+    }
+
+    public WebElement getValue2() {
+        return getDraggableElement("value2");
+    }
+
     //-------------------------------------------------------------------------------------
 
     public WebElement getChartType() {
@@ -340,6 +358,10 @@ public class DragAndDropPage extends CreatePage {
 
     public WebElement getElementInValues() {
         return elementInValues;
+    }
+
+    public WebElement getSecondElementInValues() {
+        return secondElementInValues;
     }
 
     public WebElement getElementInValues2() {
@@ -464,7 +486,7 @@ public class DragAndDropPage extends CreatePage {
     }
 
     public WebElement getDateEditor() {
-        return getYottaDiv("trend-dataset_time-date_time_picker");
+        return dateEditor;
     }
 
     public WebElement getToday() {
@@ -623,6 +645,10 @@ public class DragAndDropPage extends CreatePage {
         return getYottaCheckboxSwitch("trend-BI_param_multilevel");
     }
 
+    public WebElement getThousandSeparator() {
+        return getYottaCheckboxSwitch("trend-BI_param_useThousandSeparators-checkbox");
+    }
+
     public WebElement getPile() {
         return getYottaCheckboxSwitch("trend-BI_param_byStacks-checkbox");
     }
@@ -637,6 +663,18 @@ public class DragAndDropPage extends CreatePage {
 
     public WebElement getAddColor() {
         return getYottaDiv("trend-BI_param_chartStartingColor-dom");
+    }
+
+    public WebElement getIconName() {
+        return getYottaInput("trend-BI_param_fixedSetting-input");
+    }
+
+    public WebElement getTitleName() {
+        return getYottaInput("trend-BI_param_singleSubtitle-input");
+    }
+
+    public WebElement getPrecision() {
+        return getYottaDropdownList("trend-BI_param_dataPrecision-select");
     }
 
     public WebElement getAddColorSingleChart() {

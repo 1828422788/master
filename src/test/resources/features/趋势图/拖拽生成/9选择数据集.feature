@@ -52,7 +52,9 @@ Feature: 趋势图_选择数据集
     And I click the "DateEditor" button under some element
     And I click the "CustomTimeTab" button
     And I set the parameter "StartDateField" with yesterday date
+    And I set the parameter "StartTimeField" with value "00:00:00.000"
     And I set the parameter "EndDateField" with current date
+    And I set the parameter "EndTimeField" with value "00:00:00.000"
     And I click the "StartTimeField" button
     And I click the "ApplyCustomTime" button
     And I wait for "2000" millsecond
@@ -218,15 +220,13 @@ Feature: 趋势图_选择数据集
     And I drag the element "Method" to the "CompareBy"
     And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
+    And I click the "Exhibition" button
     And I wait for "AddColor" will be visible
     And I click the "AddColor" button
     And I wait for "<color>" will be visible
     And I wait for "1500" millsecond
     And I click the "<color>" button
     And I wait for "2000" millsecond
-    And I wait for "Chart" will be visible
-    And I wait for "2000" millsecond
-    And I click the "ElementInCompare" button
     And I click the "Pile" button
     And I wait for "3000" millsecond
     And I wait for "Chart" will be visible
@@ -239,7 +239,9 @@ Feature: 趋势图_选择数据集
     And I click the "DateEditor" button under some element
     And I click the "CustomTimeTab" button
     And I set the parameter "StartDateField" with yesterday date
+    And I set the parameter "StartTimeField" with value "00:00:00.000"
     And I set the parameter "EndDateField" with current date
+    And I set the parameter "EndTimeField" with value "00:00:00.000"
     And I click the "StartTimeField" button
     And I click the "ApplyCustomTime" button
     And I wait for "2000" millsecond
