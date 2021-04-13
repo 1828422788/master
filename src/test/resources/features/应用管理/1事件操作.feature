@@ -38,14 +38,18 @@ Feature: 应用事件操作（RZY-2141）
     When I upload a file "Upload" with name "/target/download-files/<appName>.tar"
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "__admin__" from the "Role"
+    And I wait for "1500" millsecond
     And I click the "AddDataset" button
+    And I wait for "500" millsecond
     And I set the parameter "SearchInput" with value "AutoTestApp"
-    And I click the "SearchIcon" button
+    And I wait for "500" millsecond
+#    And I click the "SearchIcon" button
     And I drag the scroll bar to the element "ResultDataset"
     And I click the "ResultDataset" button
     And I click the "Ensure" button
     And I click the "NextButton" button under some element
-    And I click the "NextButton" button under some element
+    And I wait for "1500" millsecond
+    And I click the "Done" button under some element
     And I wait for "ImportSuccess" will be visible
     And I will see the element "ImportSuccess" name is "添加成功"
 
@@ -55,7 +59,8 @@ Feature: 应用事件操作（RZY-2141）
 
   Scenario: 新建事件操作
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "EventApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "EventApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "EventApp"
     Then I will see the "event.ListPage" page
@@ -65,14 +70,17 @@ Feature: 应用事件操作（RZY-2141）
     And I will see the element "Title" name is "EventApp"
     Then I will see the "event.CreatePage" page
     And I set the parameter "Name" with value "AutoTestApp"
+    And I wait for "500" millsecond
     And I set the parameter "Url" with value "https://www.baidu.com"
+    And I wait for "500" millsecond
     And I click the "CreateButton" button
     And I wait for "Message" will be visible
     Then I will see the message "提交事件操作成功"
 
   Scenario: 编辑事件操作
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "{'column':'0','name':'EventApp'}" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "EventApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "EventApp"
     Then I will see the "event.ListPage" page
@@ -87,7 +95,8 @@ Feature: 应用事件操作（RZY-2141）
 
   Scenario Outline: 搜索事件操作
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "EventApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "EventApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "EventApp"
     Then I will see the "event.ListPage" page
@@ -103,7 +112,8 @@ Feature: 应用事件操作（RZY-2141）
 
   Scenario Outline: 删除事件操作
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "EventApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "EventApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "EventApp"
     Then I will see the "event.ListPage" page

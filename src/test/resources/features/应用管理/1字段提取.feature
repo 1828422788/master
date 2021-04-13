@@ -44,12 +44,14 @@ Feature: 应用字段提取（RZY-2129）
     And I choose the "__admin__" from the "Role"
     And I click the "AddDataset" button
     And I set the parameter "SearchInput" with value "AutoTestApp"
-    And I click the "SearchIcon" button
+    And I wait for "500" millsecond
+#    And I click the "SearchIcon" button
     And I drag the scroll bar to the element "ResultDataset"
     And I click the "ResultDataset" button
     And I click the "Ensure" button
     And I click the "NextButton" button under some element
-    And I click the "NextButton" button under some element
+    And I wait for "1500" millsecond
+    And I click the "Done" button under some element
     And I wait for "ImportSuccess" will be visible
     And I will see the element "ImportSuccess" name is "添加成功"
 
@@ -59,7 +61,8 @@ Feature: 应用字段提取（RZY-2129）
 
   Scenario Outline: 验证单个资源的app资源范围是否正确
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "<name>" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "<name>" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I wait for loading invisible
     And I wait for "EmptyText" will be visible
@@ -71,7 +74,8 @@ Feature: 应用字段提取（RZY-2129）
 
   Scenario: 新建字段提取
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "ConfigsApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "ConfigsApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "configs.ListPage" page
@@ -98,11 +102,13 @@ Feature: 应用字段提取（RZY-2129）
 
   Scenario Outline: 复制字段提取
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "ConfigsApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "ConfigsApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "configs.ListPage" page
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "复制" button
+    And I wait for "1000" millsecond
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "复制" button in more menu
     And I refresh the website
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'1','name':'<name>(副本)'}"

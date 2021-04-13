@@ -97,13 +97,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-loading-mask")
     private WebElement loading;
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
+    @FindBy(xpath = "//div[@class='yotta-dialog-content']//p")
     private WebElement message;
 
     @FindBy(xpath = "//span[text()='添加一级菜单']")
     private WebElement addMenu;
 
-    @FindBy(xpath = "//input[@id='NavEdit_name']/ancestor::span/following-sibling::div")
+    @FindBy(xpath = "//input[@yotta-test='application-nav_modal_name-input']/parent::div/following-sibling::div")
     private WebElement nameMessage;
 
     @FindBy(xpath = "//div[@class='yotta-modal navModal']/div[2]/form/div/div[2]//input")
@@ -112,13 +112,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='yotta-modal navModal']/div[2]/form/div[2]/div[2]//input")
     private WebElement url;
 
-    @FindBy(xpath = "//input[@id='NavEdit_url']/ancestor::span/following-sibling::div")
+    @FindBy(xpath = "//input[@yotta-test='application-nav_modal_url-input']/parent::div/following-sibling::div")
     private WebElement urlMessage;
 
     @FindBy(xpath = "//span[text()='已选择 0 个资源']")
     private WebElement addResource;
 
-    @FindBy(xpath = "//input[@class='yotta-input yotta-input-large yotta-input-search']")
+    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
     private WebElement searchResourceInput;
 
     @FindBy(xpath = "//*[@class='ant-spin-container ant-spin-blur']")
@@ -139,7 +139,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='添加字段']")
     private WebElement addKVField;
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//i")
+    @FindBy(xpath = "//*[@yotta-test='application-resource_modal_filter_type-select']/div")
     private WebElement resourceType;
 
     @FindBy(className = "ant-message-custom-content")
@@ -532,10 +532,6 @@ public class CreatePage extends PageTemplate {
         return fileInput;
     }
 
-    public WebElement getLogoInput() {
-        return this.getElementById("register_upload");
-    }
-
     public WebElement getColorPicker() {
         return colorPicker;
     }
@@ -594,5 +590,19 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getElementById(String id) {
         return webDriver.findElement(By.id(id));
+    }
+
+    @FindBy(xpath = "//input[@yotta-test='application-logo-file_upload']")
+    private WebElement logoInput;
+
+    public WebElement getLogoInput() {
+        return logoInput;
+    }
+
+    @FindBy(xpath = "//span[@class='yotta-file-upload-error']")
+    private WebElement logoMessage;
+
+    public WebElement getLogoMessage() {
+        return logoMessage;
     }
 }

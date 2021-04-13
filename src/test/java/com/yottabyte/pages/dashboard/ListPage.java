@@ -35,7 +35,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[contains(text(),'返回列表')]")
     private WebElement returnList;
 
-    @FindBy(xpath = "//span[text()='所属应用']/following-sibling::span/div")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-new_dashboard_app-select']/div")
     private WebElement belongedApp;
 
     @FindBy(xpath = "//span[text()='资源标签：']/following-sibling::span//span[@class='yotta-select-selection-placeholder']")
@@ -199,9 +199,14 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getNotDefault() { return notDefault; }
 
-//    @FindBy(xpath = "//label[text()='标签']/parent::div/following-sibling::div//*[contains(@class, 'yotta-tag-close')]")
-//    private WebElement multiAddTag;
-//
-//    public WebElement getm() { return multiAddTag; }
+    @FindBy(xpath = "//*[@yotta-test='resource_tag-change_resource_tag-select']//span[@class='yotta-select-selection-placeholder']")
+    private WebElement resourceTagChange;
+
+    public WebElement getResourceTagChange() { return resourceTagChange; }
+
+    @FindBy(xpath = "//*[@yotta-test='resource_tag-change_resource_tag-select']//input[@class='yotta-select-selection-search']")
+    private WebElement resourceTagChangeInput;
+
+    public WebElement getResourceTagChangeInput() { return resourceTagChangeInput; }
 
 }

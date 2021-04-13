@@ -64,7 +64,7 @@ public class InstallPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='添加数据集']")
     private WebElement addDataset;
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
+    @FindBy(xpath = "//div[@class='yotta-dialog-content']//p")
     private WebElement message;
 
     @FindBy(xpath = "//button[@yotta-test='step-done-button']/span[@class='yotta-button-content']")
@@ -103,7 +103,7 @@ public class InstallPage extends PageTemplate {
     }
 
     public WebElement getSearchInput() {
-        return super.findInputByPlaceholder("请输入");
+        return super.findInputByPlaceholder("请输入名称");
     }
 
     public WebElement getAddDataset() {
@@ -181,5 +181,9 @@ public class InstallPage extends PageTemplate {
 
     public WebElement getErrorMessage() {
         return message;
+    }
+
+    public WebElement getDone() {
+        return super.getButton("完成");
     }
 }

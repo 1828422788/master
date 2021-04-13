@@ -19,10 +19,10 @@ public class AppPage extends PageTemplate {
     @FindBy(xpath = "//li[@class='ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu'][not(contains(@style,'display: none'))]//span")
     private WebElement rightArrow;
 
-    @FindBy(xpath = "//div[contains(@class,'css-rvvtck')]")
+    @FindBy(xpath = "//*[@yotta-test='navigation-header_banner-dom']")
     private WebElement title;
 
-    @FindBy(className = "ant-empty-description")
+    @FindBy(className = "yotta-table-placeholder")
     private WebElement emptyText;
 
     @FindBy(className = "el-icon-arrow-down")
