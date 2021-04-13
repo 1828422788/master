@@ -405,6 +405,37 @@ public class IChooseValueFromSelectList {
         }
     }
 
+    /**
+     * 取消下拉框的选择
+     *
+     * @param values         不取消的内容
+     * @param selectListName 下拉框元素名称
+     */
+    @And("^I cancel all selections from the \"([^\"]*)\" except value \"([^\"]*)\"$")
+    public void iCancelAllSelectionExceptValue(String selectListName, List<String> values) {
+        WebElement parentElement = GetElementFromPage.getWebElementWithName(selectListName);
+        List<WebElement> selections = parentElement.findElements(By.xpath("./div[contains(@class,'selected')]"));
+        for (WebElement e : selections) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+            if (e.getAttribute("class").contains("selected")) {
+                if (e.getAttribute("style").contains("display: none;")) {
+                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", e);
+                }
+            }
+            boolean flag = false;
+            for (String v : values) {
+                if (v.equals(e.getText())) {
+                    flag = false;
+                    break;
+                } else {
+                    flag = true;
+                }
+            }
+            if (flag) {
+                e.click();
+            }
+        }
+    }
 //    3.6 版本方式
 //    /**
 //     * 字段提取下拉框失去焦点

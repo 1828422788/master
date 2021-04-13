@@ -247,9 +247,7 @@ Feature: 日志展现_其它
     And I choose the "<duration>" from the "KeepTime" in config
     And I click the "Info" button
     And I wait for "2000" millsecond
-    And I move the mouse pointer to the "InfoColumnIcon"
-    And I click the "CloseIcon" button
-    And I choose the "<duration>" from the "InfoColumn" in config
+    And I cancel all selections from the "InfoColumn" except value "<column>"
     And I choose the "<infoValue>" from the "InfoField" in config
     And I click the "Divide" button
     And I choose the "<childIDvalue>" from the "FieldValue" in config
@@ -269,9 +267,9 @@ Feature: 日志展现_其它
     Then I compare source image "actual/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它/<caseNum>_<chartType>"
 
     Examples:
-      |  chartType | color  | precision |  column           | cancelcol          |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum |   spl   |
-      |  Chain     | Green  | 1         |dapper.msg.duration| timestamp          |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812    | tag:gf_dapper_test AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
-      |  Chain     | Red    | 2         |                   |dapper.msg.timestamp|dapper.class | dapper.msg.parentId  | dapper.msg.id |               timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814    | tag:gf_dapper_test AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
+      |  chartType | color  | precision |  column           |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum |   spl   |
+      |  Chain     | Green  | 1         |dapper.msg.duration|dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812    | tag:gf_dapper_test AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
+      |  Chain     | Red    | 2         |timestamp          |dapper.class | dapper.msg.parentId  | dapper.msg.id |               timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814    | tag:gf_dapper_test AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
 
   Scenario Outline: sequence(RZY-2805)
     When I set the parameter "SearchInput" with value "<spl>"
