@@ -34,7 +34,7 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getSearchAll() {
-        return super.getButton("全文搜索");
+        return super.getButton("搜索");
     }
 
     public WebElement getMore() {
@@ -71,5 +71,13 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getSearch() {
         return getButton("全文搜索");
+    }
+
+    public WebElement getTag() {
+        return webDriver.findElement(By.xpath("//input[@class='yotta-select-selection-search']"));
+    }
+
+    public WebElement getTagInput() {
+        return webDriver.findElement(By.xpath("(//span[@class='yotta-select-selection-icon'])[last()]"));
     }
 }
