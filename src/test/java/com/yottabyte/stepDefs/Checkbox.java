@@ -306,7 +306,7 @@ public class Checkbox {
     @When("^I \"([^\"]*)\" the checkbox which name is \"([^\"]*)\" in trend page$")
     public void clickCheckboxWithGivenNameInTrend(String status, List<String> nameList) {
         for (String name : nameList) {
-            String xpath = "(//span[contains(text(),'" + name + "')])[1]";
+            String xpath = "(//span[contains(text(),'" + name + "') and contains(@class,'checkbox')])[1]";
             WebElement label = webDriver.findElement(By.xpath(xpath));
             WebElement span = label.findElement(By.xpath(".//preceding-sibling::span"));
             String attribute = span.getAttribute("class");
