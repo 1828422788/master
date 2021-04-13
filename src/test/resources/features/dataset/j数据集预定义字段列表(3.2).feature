@@ -1,7 +1,7 @@
-@dataset @datasetk @dataset2
+@dataset @datasetj @dataset2
 Feature: 数据集-k预定义字段列表
 
-  @datasetk1
+  @datasetj1
   Scenario Outline: 新建3个数据集进行测试
     Given open the "dataset.ListPage" page for uri "/dataset/"
 
@@ -34,7 +34,7 @@ Feature: 数据集-k预定义字段列表
       | name            | alias   | spl |
       | have_root_field | hrfield | *   |
 
-  @datasetk2
+  @datasetj2
   Scenario Outline: RZY-4291:新建数据集，对根事件添加字段
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for "2000" millsecond
@@ -51,7 +51,7 @@ Feature: 数据集-k预定义字段列表
       | name            | alias   | spl |
       | have_root_field | hrfield | *   |
 
-  @datasetk3
+  @datasetj3
   Scenario: RZY-4491:在编辑根事件中添加字段
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading complete
@@ -71,7 +71,7 @@ Feature: 数据集-k预定义字段列表
     And I wait for loading complete
     Then I will see the "thirdName" result will be "ip"
 
-  @datasetk4
+  @datasetj4
   Scenario: RZY-4492:在编辑根事件中删除字段
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When the data name is "have_root_field" then i click the "编辑" button
@@ -85,7 +85,7 @@ Feature: 数据集-k预定义字段列表
     Then I will see the "firstName" result will be "apache.status"
     Then I will see the "secondName" result will be "appname"
 
-  @datasetk5
+  @datasetj5
   Scenario: RZY-4292:新建数据集，对子节点添加字段
     Given open the "dataset.ListPage" page for uri "/dataset/"
 #    When the data name is "have_root_field" then i click the "编辑" button
@@ -121,7 +121,7 @@ Feature: 数据集-k预定义字段列表
 
     When I click the "SaveDetail" button
 
-  @datasetk6
+  @datasetj6
   Scenario: RZY-4293:对子节点字段的操作-删除第三个子节点的字段
     Given open the "dataset.ListPage" page for uri "/dataset/"
 #    When the data name is "have_root_field" then i click the "编辑" button
@@ -134,7 +134,7 @@ Feature: 数据集-k预定义字段列表
     When I click the "ChildThirdDeleteField" button
     When I click the "SaveDetail" button
 
-  @datasetk7
+  @datasetj7
   Scenario: RZY-4293:对子节点字段的操作-批量删除子节点的字段
     Given open the "dataset.ListPage" page for uri "/dataset/"
 #    When the data name is "have_root_field" then i click the "编辑" button
@@ -150,7 +150,7 @@ Feature: 数据集-k预定义字段列表
     When I click the "allDelete" button
     When I click the "SaveDetail" button
 
-  @datasetk8
+  @datasetj8
   Scenario: RZY-4496:数据集字段在搜索页面的应用
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"

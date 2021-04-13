@@ -42,7 +42,7 @@ public class ListPage extends ListPageFactory {
         return name;
     }
 
-    //    @FindBy(id = "EditDatabase_alias")
+    //@FindBy(id = "EditDatabase_alias")
     @FindBy(xpath = "//input[@yotta-test='dataset-alia-input']")
     private WebElement alias;  //别名
 
@@ -73,16 +73,6 @@ public class ListPage extends ListPageFactory {
     public WebElement getAppList() {
         appList.click();
         return super.getLastDropdownList();
-    }
-
-    //@FindBy(xpath = "//label[@title='资源标签']/parent::div/following-sibling::div")
-//  private WebElement resourceGroup;
-    public WebElement getResourceGroup() {
-        String xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-        ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
     }
 
     //@FindBy(xpath = "//label[@title='资源标签']/parent::div/following-sibling::div//input")
@@ -248,7 +238,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//li[@yotta-test='dataset-authorize-button']/span")
     private WebElement auth;
 
-    public WebElement getAuth() { return auth; }
+    public WebElement getAuth() {
+        return auth;
+    }
 
     @FindBy(xpath = "//li[@yotta-test='dataset-tag-button']/span")
     private WebElement label;
@@ -260,18 +252,40 @@ public class ListPage extends ListPageFactory {
         return tagToInput;
     }
 
-    public WebElement getLabel() { return label; }
+    public WebElement getLabel() {
+        return label;
+    }
 
     @FindBy(xpath = "//li[@yotta-test='dataset-delete-button']/span")
     private WebElement delete;
 
-    public WebElement getDelete() { return delete; }
+    public WebElement getDelete() {
+        return delete;
+    }
 
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div")
     private WebElement tagDropdown;
 
     public WebElement getTagDropdown() {
         return tagDropdown;
+    }
+
+    //@FindBy(xpath = "//label[@title='资源标签']/parent::div/following-sibling::div")
+//  private WebElement resourceGroup;
+    public WebElement getResourceGroup() {
+        String xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownList();
+    }
+
+    public WebElement getResourceGroupList() {
+        String xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownResourceGroupList();
     }
 
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//input")
@@ -287,6 +301,20 @@ public class ListPage extends ListPageFactory {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
         return getLastDropdownListEditApp();
+    }
+
+    @FindBy(xpath = "(//tr[contains(@class,'expansion')]//div[contains(text(),'资源标签......')])[last()]")
+    private WebElement tagOfTheLastItem;
+
+    public WebElement getTagOfTheLastItem() {
+        return tagOfTheLastItem;
+    }
+
+    @FindBy(xpath = "//table[@yotta-test='dataset-list-table']//span[text()='名称']/preceding::input[@type='checkbox']")
+    private WebElement allSelectCheckbox;
+
+    public WebElement getAllSelectCheckbox() {
+        return allSelectCheckbox;
     }
 
 }

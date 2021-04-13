@@ -133,6 +133,16 @@ public class DropdownUtils {
         return lastDropdownList;
     }
 
+    public WebElement getLastDropdownResourceGroupList() {
+        String className = "yotta-select-menu";
+        List<WebElement> list = webDriver.findElements(By.className(className));
+        WebElement lastDropdownList = list.get(list.size() - 1);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+        }
+        return lastDropdownList;
+    }
+
     public WebElement getLastDropdownListOfUser() {
         String xpath;
         xpath = "//span[text()='请选择分组']";

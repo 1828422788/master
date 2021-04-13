@@ -1,7 +1,7 @@
-@dataset @datasetj @dataset2
+@dataset @dataseti @dataset2
 Feature: 数据集-j在趋势图中的应用
 
-  @datasetj1
+  @dataseti1
   Scenario Outline: 新建父子行为无的趋势图
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -26,7 +26,7 @@ Feature: 数据集-j在趋势图中的应用
       | spl                                                  | trendName |
       | tag:sample04061424 \| stats count() by apache.status | 父子无       |
 
-  @datasetj2
+  @dataseti2
   Scenario Outline: RZY-4127:趋势图-父子行为无
     Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
@@ -42,7 +42,7 @@ Feature: 数据集-j在趋势图中的应用
       | 父子无       | tag:sample*   |
 
 ##################################无耻的分割线###############################
-  @datasetj3
+  @dataseti3
   Scenario Outline: 新建父子行为汇聚的趋势图
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -68,7 +68,7 @@ Feature: 数据集-j在趋势图中的应用
       | spl                                                  | trendName |
       | tag:sample04061424 \| stats count() by apache.status | 父子汇聚      |
 
-  @datasetj4
+  @dataseti4
   Scenario Outline:  RZY-4131:趋势图-父子行为汇聚
     Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
@@ -86,7 +86,7 @@ Feature: 数据集-j在趋势图中的应用
       | 父子汇聚      | (*) AND (tag:sample*) AND ((tag:beyond4) OR (appname:apache)) |
 
 ##################################无耻的分割线###############################
-  @datasetj5
+  @dataseti5
   Scenario Outline: 新建父子行为继承的趋势图
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -112,7 +112,7 @@ Feature: 数据集-j在趋势图中的应用
       | spl                                                  | trendName |
       | tag:sample04061424 \| stats count() by apache.status | 父子继承      |
 
-  @datasetj6
+  @dataseti6
   Scenario Outline: RZY-4132:趋势图-父子行为继承
     Given open the "trend.ListPage" page for uri "/trend/"
     And I will see the "trend.ListPage" page
@@ -124,7 +124,6 @@ Feature: 数据集-j在趋势图中的应用
     And I click the "zhanKai" button
     And I wait for loading invisible
     Then I will see the "dataSetPosition" result will be "<dataSetResult>"
-
 
     Examples:
       | trendName | dataSetResult           |

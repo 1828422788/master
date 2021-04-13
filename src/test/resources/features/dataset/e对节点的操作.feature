@@ -26,7 +26,6 @@ Feature: 数据集-e对节点的操作
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading complete
     And I wait for "2000" millsecond
-#    When the data name is "node_op_jnd" then i click the "编辑" button
     When the data name is "{'column':'0','name':'node_op_jnd'}" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
     Given I wait for loading complete
