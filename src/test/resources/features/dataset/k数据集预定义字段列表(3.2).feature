@@ -3,7 +3,8 @@ Feature: 数据集-k预定义字段列表
 
   @datasetk1
   Scenario Outline: 新建3个数据集进行测试
-#    Given open the "dataset.ListPage" page for uri "/dataset/"
+    Given open the "dataset.ListPage" page for uri "/dataset/"
+
     When I click the "Create" button
     And I set the parameter "Name" with value "<name>"
     And I set the parameter "Alias" with value "<alias>"

@@ -83,7 +83,7 @@ Feature: 数据集-j在趋势图中的应用
     Examples:
       | trendName | dataSetResult                                         |
 #      | 父子汇聚      | * AND tag:sample* AND (tag:beyond4 OR appname:apache) |
-      | 父子汇聚      | ((*) AND (tag:sample*) AND ((tag:beyond4) OR (appname:apache))) |
+      | 父子汇聚      | (*) AND (tag:sample*) AND ((tag:beyond4) OR (appname:apache)) |
 
 ##################################无耻的分割线###############################
   @datasetj5
@@ -129,4 +129,4 @@ Feature: 数据集-j在趋势图中的应用
     Examples:
       | trendName | dataSetResult           |
 #      | 父子继承      | * AND tag:sample* |
-      | 父子继承      | ((*) AND (tag:sample*)) |
+      | 父子继承      | (*) AND (tag:sample*) |

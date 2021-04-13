@@ -1,5 +1,5 @@
 @dataset @datasetf @dataset1
-Feature: 数据集-f构建树形结构，后置-数据集-g在搜索页
+Feature: 数据集-f构建树形结构，后置-[g在搜索页,j在趋势图中的应用,h在定时任务应用]
 
   Background:
     Given open the "dataset.ListPage" page for uri "/dataset/"
