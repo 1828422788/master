@@ -20,7 +20,11 @@ Feature: 用户登陆（RZY-1152、RZY-1153）
 #      | qweax           | asd           | error message contains "用户名邮箱或密码错误" |
 #      | AutoTestForEdit | All#123456    | error message contains "账户被禁用"      |
 
-  Scenario: 启用账号
+  Scenario Outline: 启用账号
     Given open the "users.ListPage" page for uri "/account/users/"
-    When the data name is "{'column':'1','name':'AutoTestForEdit\n已禁用'}" then i click the "启用" button
+    When the data name is "{'column':'3','name':'<name>'}" then i click the "启用" button
     Then I wait for "SuccessMessage" will be visible
+
+    Examples:
+    |name|
+    |测试用户所需分组|
