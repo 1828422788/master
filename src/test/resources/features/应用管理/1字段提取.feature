@@ -86,11 +86,15 @@ Feature: 应用字段提取（RZY-2129）
     When I set the parameter "LogSample" with value "test"
     And I click the "AddRule" button
     And I choose the "XML解析" from the "ParseRule"
+    And I wait for "1500" millsecond
     And I choose the "raw_message" from the "SourceField"
+    And I wait for "500" millsecond
     And I click the "EnsureAddParseRule" button
     And I click the "NextButton" button under some element
     When I set the parameter "Name" with value "AutoTest"
+    And I wait for "500" millsecond
     And I set the parameter "Logtype" with value "other"
+    And I wait for "500" millsecond
     And I set the parameter "AppName" with value "auto_test_csv"
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "auto_test_csv"
@@ -121,7 +125,8 @@ Feature: 应用字段提取（RZY-2129）
 
   Scenario: 编辑字段提取
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "ConfigsApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "ConfigsApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "configs.ListPage" page
@@ -131,6 +136,7 @@ Feature: 应用字段提取（RZY-2129）
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "testtesttesttest"
     And I click the "NextButton" button
+    And I wait for "500" millsecond
     And I set the parameter "Name" with value "AutoTestCopy"
     And I move the mouse pointer to the "DeleteApp"
     And I click the "DeleteApp" button
@@ -140,7 +146,8 @@ Feature: 应用字段提取（RZY-2129）
 
   Scenario: 验证所属app生效及修改标签
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "ConfigsApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "ConfigsApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "configs.ListPage" page
@@ -159,7 +166,8 @@ Feature: 应用字段提取（RZY-2129）
 
   Scenario: 按照标签搜索
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "ConfigsApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "ConfigsApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "configs.ListPage" page
@@ -170,7 +178,8 @@ Feature: 应用字段提取（RZY-2129）
 
   Scenario Outline: 上传字典管理
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "ConfigsApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "ConfigsApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     And I click the "Dictionary" button
@@ -192,7 +201,8 @@ Feature: 应用字段提取（RZY-2129）
 
   Scenario: 字典管理标签
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "ConfigsApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "ConfigsApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     And I click the "Dictionary" button
@@ -209,7 +219,8 @@ Feature: 应用字段提取（RZY-2129）
 
   Scenario: 根据标签搜索字典
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "ConfigsApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "ConfigsApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     And I click the "Dictionary" button
@@ -225,7 +236,8 @@ Feature: 应用字段提取（RZY-2129）
 
   Scenario: 根据名称搜索字典
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "ConfigsApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "ConfigsApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     And I click the "Dictionary" button
@@ -241,7 +253,8 @@ Feature: 应用字段提取（RZY-2129）
 
   Scenario: 编辑字典
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "ConfigsApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "ConfigsApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     And I click the "Dictionary" button

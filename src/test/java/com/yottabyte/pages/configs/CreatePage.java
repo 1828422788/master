@@ -89,7 +89,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement message;
 
-    @FindBy(className = "ant-select-selection__clear")
+    @FindBy(xpath = "//span[@aria-label='DeleteOutlined']")
     private WebElement deleteApp;
 
     @FindBy(xpath = "//div[@yotta-test='config-collapse-button']")
