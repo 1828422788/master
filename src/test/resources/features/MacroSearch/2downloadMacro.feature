@@ -246,7 +246,62 @@ Feature: 下载宏
       | autoregress_sample                          | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display \| bucket timestamp span=10m as ts \| stats count(appname) as count_app by ts \| eval time=formatdate(ts) \| autoregress count_app p=6                                                                                                                            |                    |                   |
       | top_sample_2                                | tag:sample04061424 \| top 11 apache.clientip countfield=clientip_count  percentfield=clientip_percent                                                                                                                                                                                                                                  |                    |                   |
       | stats_count                                 | tag:sample04061424 \| sort by +apache.status,+apache.resp_len \| table apache.status, apache.resp_len                                                                                                                                                                                                                                  |                    |                   |
-      | dup_names_1                                 | tag:sample04061424 \| stats avg(apache.status) by apache.clientip \| join type=left apache.clientip [[ tag:\"sample04061424\" AND apache.clientip:23.166.125.53 \| stats sum(apache.status) by apache.clientip ]]                                                                                                                      |                    |                   |
-      | dup_names_1                                 | tag:sample04061424 \| stats count(apache.status)                                                                                                                                                                                                                                                                                       |                    |                   |
       | save_stats_avg_ip                           | tag:sample04061424 \| stats avg(apache.resp_len) as status,count(apache.resp_len) by apache.clientip \| save /data/rizhiyi/spldata/apache_latency.csv                                                                                                                                                                                  |                    |                   |
       | spl_movingavg                               | tag:sample04061424 \| bucket timestamp span=1h as ts \| stats sum(apache.resp_len) as sum_resp_len by ts \| eval time=formatdate(ts)\| movingavg sum_resp_len,3 as moving_avg_resp_len                                                                                                                                                 |                    |                   |
+
+  @dlmacro4
+  Scenario Outline: 重名验证
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I set the parameter "SearchInput" with value "`<name>`"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "5000" millsecond
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+
+    And I wait for "2000" millsecond
+    And take a screenshot with name "macro_<macroname>.png"
+    And I wait for "SaveAsOther" will be visible
+    Then I click the "downloadButton" button
+    Then I set the parameter "DownloadName" with value "macro_<macroname>"
+    Then I set the parameter "MaxLineNum" with value "100"
+    Then I choose the "CSV" from the "DocumentTypeList"
+    And I wait for "2000" millsecond
+    Then I choose the "UTF-8" from the "DocumentEncodeList"
+    And I wait for "2000" millsecond
+    Then I click the "CreateDownloadTask" button
+
+    #下载到本地
+    Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
+    When I set the parameter "DbListPageSearchInput" with value "macro_<macroname>.csv"
+    And I wait for "2000" millsecond
+    Given the data name is "macro_<macroname>.csv" then i click the "下载" button
+
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I set the parameter "SearchInput" with value "<definition>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "5000" millsecond
+    And take a screenshot with name "<macroname>.png"
+
+    And I wait for "SaveAsOther" will be visible
+    Then I click the "downloadButton" button
+    Then I set the parameter "DownloadName" with value "<macroname>"
+    Then I set the parameter "MaxLineNum" with value "100"
+    Then I choose the "CSV" from the "DocumentTypeList"
+    And I wait for "2000" millsecond
+    Then I choose the "UTF-8" from the "DocumentEncodeList"
+    And I wait for "2000" millsecond
+    Then I click the "CreateDownloadTask" button
+
+    Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
+    When I set the parameter "DbListPageSearchInput" with value "<macroname>.csv"
+    And I wait for "2000" millsecond
+    Given the data name is "<macroname>.csv" then i click the "下载" button
+
+    Examples:
+      | macroname    | name        | definition                                                                                                                                                                                                        | validateExpression | validateFalseInfo |
+      | dup_names_11 | dup_names_1 | tag:sample04061424 \| stats avg(apache.status) by apache.clientip \| join type=left apache.clientip [[ tag:\"sample04061424\" AND apache.clientip:23.166.125.53 \| stats sum(apache.status) by apache.clientip ]] |                    |                   |
+      | dup_names_12 | dup_names_1 | tag:sample04061424 \| stats count(apache.status)                                                                                                                                                                  |                    |                   |
