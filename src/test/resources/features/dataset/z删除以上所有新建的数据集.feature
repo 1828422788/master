@@ -7,7 +7,7 @@ Feature: 数据集-z删除所有
 
   @deldataset
   Scenario Outline: 删除数据集列表页面用例
-    And I set the parameter "SearchInputName" with value "<name>"
+    And I set the parameter "SearchNameInput" with value "<name>"
     Given I wait for loading complete
     And I wait for "2000" millsecond
     When the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button in more menu
@@ -29,8 +29,6 @@ Feature: 数据集-z删除所有
       | 父子无tree         |
       | 父子汇聚tree        |
       | 父子继承tree        |
-      | rootname        |
-      | JNDTest_default |
       | edit1 |
       | edit2 |
       | edit3 |

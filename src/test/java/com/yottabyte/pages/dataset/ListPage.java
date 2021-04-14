@@ -17,7 +17,6 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-
 /**
  * @author jiangnd
  */
@@ -32,6 +31,13 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getSearchInputName() {
         return searchInputName;
+    }
+
+    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
+    private WebElement searchNameInput; //名称
+
+    public WebElement getSearchNameInput() {
+        return searchNameInput;
     }
 
     //    @FindBy(id = "EditDatabase_name")

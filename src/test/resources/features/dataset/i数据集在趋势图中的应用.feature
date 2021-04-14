@@ -29,12 +29,17 @@ Feature: 数据集-j在趋势图中的应用
   @dataseti2
   Scenario Outline: RZY-4127:趋势图-父子行为无
     Given open the "trend.ListPage" page for uri "/trend/"
-    And I wait for loading invisible
+    Given I wait for loading complete
+
+    And I set the parameter "searchNameInput" with value "<trendName>"
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
+
     When the data name is "<trendName>" then i click the "编辑" button
     Then I will see the "trend.CreatePage" page
-    And I wait for loading invisible
+    Given I wait for loading complete
     And I click the "zhanKai" button
-    And I wait for loading invisible
+    Given I wait for loading complete
     Then I will see the "dataSetPosition" result will be "<dataSetResult>"
 
     Examples:

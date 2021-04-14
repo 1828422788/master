@@ -145,4 +145,5 @@ public class ListPage extends ListPageFactory {
     public WebElement getEnsureButton() {
         return ensureButton;
     }
+
 }

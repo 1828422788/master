@@ -72,7 +72,6 @@ public class DropdownUtils {
     public WebElement getLastDropdownListOnSendPolicyPage() {
         String className;
         Paging paging = new Paging();
-//        className = "ant-select-dropdown-menu-item";
         className = "yotta-select-menu";
 
         List<WebElement> list = webDriver.findElements(By.className(className));
@@ -90,7 +89,6 @@ public class DropdownUtils {
     public WebElement getLastSendPluginDropdownList() {
         String className;
         Paging paging = new Paging();
-//        className = "ant-select-dropdown-menu-item";
         className = "yotta-select-menu";
 
         List<WebElement> list = webDriver.findElements(By.className(className));
@@ -134,8 +132,9 @@ public class DropdownUtils {
     }
 
     public WebElement getLastDropdownResourceGroupList() {
-        String className = "yotta-select-menu";
-        List<WebElement> list = webDriver.findElements(By.className(className));
+        String str_selector = "[class='yotta-select-menu yotta-resource-tag-select-menu']";
+        List<WebElement> list = webDriver.findElements(By.cssSelector(str_selector));
+
         WebElement lastDropdownList = list.get(list.size() - 1);
         if (lastDropdownList.getAttribute("style").contains("display: none;")) {
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);

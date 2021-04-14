@@ -12,7 +12,7 @@ Feature: 数据集批量操作
     And I set the parameter "Name" with value "Test_Batch_Control_Resource_1"
     And I set the parameter "Alias" with value "bc1"
     And I set the parameter "Spl" with value "*"
-    And I choose the "auto_package" from the "resourceGroup"
+    And I choose the "auto_package" from the "resourceGroupList"
 
     And I click the "Save" button
     Then I will see the "dataset.DetailPage" page

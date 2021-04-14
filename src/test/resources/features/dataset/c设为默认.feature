@@ -31,7 +31,6 @@ Feature: 数据集-c设为默认
   @datasetc2
   Scenario: 设为默认-RZY-4077:设为默认
     And I wait for loading complete
-#    Given the data name is "JNDTest_default" then i click the "设为默认" button
     When the data name is "{'column':'0','name':'JNDTest_default'}" then i click the "设为默认" button in more menu
 
     Then I will see the success message "设置默认数据集成功"
@@ -46,10 +45,9 @@ Feature: 数据集-c设为默认
 
   @datasetc4
   Scenario: 取消默认
-    When I set the parameter "SearchInputName" with value "JNDTest_default"
+    When I set the parameter "SearchNameInput" with value "JNDTest_default"
     And I wait for loading complete
     And I wait for "2000" millsecond
-#    Given the data name is "JNDTest_default" then i click the "取消默认" button
 #    When  the data name is "{'column':'0','name':'JNDTest_default'}" then i click the "取消默认" button in more menu
     And I choose the "取消默认" from the "CancelDefaultButtonList"
     Then I will see the success message "取消默认数据集成功"
