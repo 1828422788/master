@@ -238,4 +238,18 @@ public class EditPage extends PageTemplate {
     public WebElement getDataSet() {
         return dataset;
     }
+
+    @FindBy(xpath = "//*[@yotta-test='schedule-app-select']/div")
+    private WebElement DeleteAppicon;
+
+    public WebElement getDeleteAppicon() {
+        return DeleteAppicon;
+    }
+
+    @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']")
+    private WebElement deleteApp;
+
+    public WebElement getDeleteApp() {
+        return deleteApp;
+    }
 }

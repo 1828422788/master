@@ -727,7 +727,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(className = "yotta-message-content")
     private WebElement message;
 
-    @FindBy(xpath = "//label[text()='搜索内容']/following-sibling::div")
+    @FindBy(xpath = "//label[text()='搜索内容']/parent::div/following-sibling::div")
     private WebElement searchContent;
 
     @FindBy(xpath = "//button[@class='ant-btn ant-btn-primary']")
