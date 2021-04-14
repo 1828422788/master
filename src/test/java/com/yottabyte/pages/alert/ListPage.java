@@ -25,10 +25,6 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "el-loading-mask")
     private WebElement loadingElement;
 
-    // 搜索输入框
-    @FindBy(xpath = "//input[@placeholder='请输入']")
-    private WebElement searchInput;
-
     // 无搜索结果
     @FindBy(className = "el-table__empty-text")
     private WebElement noSearchResultMessage;
@@ -57,9 +53,6 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(xpath = "//input[@placeholder='筛选分组']/ancestor::ul")
     private WebElement dropdownMenu;
-
-    @FindBy(xpath = "//div[@class='yw-table-group__basic el-input']/input")
-    private WebElement searchInputElement;
 
     @FindBy(xpath = "(//span[contains(text(),'确定')])[last()]")
     private WebElement ensureDeleteButton;
@@ -188,12 +181,32 @@ public class ListPage extends ListPageFactory {
         return super.getContainsTextButton("确定");
     }
 
-//    public WebElement getChangeGroup() {
-//        return super.getLastDropdownList("分组");
-//    }
-
     public WebElement getSearchInputElement() {
         return searchInputElement;
+    }
+
+    @FindBy(xpath = "//div[@class='yw-table-group__basic el-input']/input")
+    private WebElement searchInputElement;
+
+    // 搜索输入框
+    @FindBy(xpath = "//input[@placeholder='请输入名称']")
+    private WebElement alertListSearchInput;
+    public WebElement getAlertListSearchInput() {
+        return alertListSearchInput;
+    }
+
+    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
+    private WebElement searchInputName; //名称
+
+    public WebElement getSearchInputName() {
+        return searchInputName;
+    }
+
+    // 搜索输入框
+    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']/following-sibling::span")
+    private WebElement alertListSearchInputButton;
+    public WebElement getAlertListSearchInputButton() {
+        return alertListSearchInputButton;
     }
 
     public WebElement getDropdownMenu() {
@@ -220,11 +233,6 @@ public class ListPage extends ListPageFactory {
     public WebElement getLatestStatus() {
         return latestStatus;
     }
-
-//    public WebElement getSearchInput() {
-//        WaitElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingElement));
-//        return searchInput;
-//    }
 
     public WebElement getTableDeleteButton(int row) {
         WebElement element = getSearchResult();
@@ -305,13 +313,6 @@ public class ListPage extends ListPageFactory {
 ////        p.thereIsAnAlert("AutoTest", list, list1, list2);
 //    }
 
-    // 搜索输入框
-    @FindBy(xpath = "//input[@placeholder='请输入名称']")
-    private WebElement alertListSearchInput;
-    public WebElement getAlertListSearchInput() {
-        return alertListSearchInput;
-    }
-
     @FindBy(xpath = "(//a[contains(text(),'删除')])")
     private WebElement alertListDeleteButton;
     public WebElement getAlertListDeleteButton() throws InterruptedException {
@@ -338,14 +339,6 @@ public class ListPage extends ListPageFactory {
     public WebElement getMaintainFlag()
     {
         return maintainFlag;
-    }
-
-    // 搜索输入框
-//    @FindBy(xpath = "//input[@placeholder='请输入名称']/following::span/i")
-    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']/following-sibling::span")
-    private WebElement alertListSearchInputButton;
-    public WebElement getAlertListSearchInputButton() {
-        return alertListSearchInputButton;
     }
 
     public WebElement getMultiOperate(){
