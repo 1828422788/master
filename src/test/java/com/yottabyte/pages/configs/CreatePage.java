@@ -89,7 +89,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement message;
 
-    @FindBy(xpath = "//span[@aria-label='DeleteOutlined']")
+    @FindBy(className = "yotta-select-selection-icon")
+    private WebElement deleteAppicon;
+
+    @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']")
     private WebElement deleteApp;
 
     @FindBy(xpath = "//div[@yotta-test='config-collapse-button']")
@@ -141,6 +144,10 @@ public class CreatePage extends PageTemplate {
     @Override
     public WebElement getDeleteApp() {
         return deleteApp;
+    }
+
+    public WebElement getDeleteAppicon() {
+        return deleteAppicon;
     }
 
     public WebElement getApp() {

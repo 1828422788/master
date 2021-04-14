@@ -138,7 +138,7 @@ Feature: 应用字段提取（RZY-2129）
     And I click the "NextButton" button
     And I wait for "500" millsecond
     And I set the parameter "Name" with value "AutoTestCopy"
-    And I move the mouse pointer to the "DeleteApp"
+    And I move the mouse pointer to the "DeleteAppicon"
     And I click the "DeleteApp" button
     And I click the "SwitchButton" button
     Then I click the "Done" button
@@ -152,13 +152,15 @@ Feature: 应用字段提取（RZY-2129）
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "configs.ListPage" page
     Then I will see the search result "{'column':'1','name':'AutoTestCopy','contains':'no'}"
-    When the data name is "{'column':'1','name':'AutoTest'}" then i click the "复制" button
+    When the data name is "{'column':'1','name':'AutoTest'}" then i click the "复制" button in more menu
     And I refresh the website
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'1','name':'AutoTest(副本)'}"
-    When the data name is "{'column':'1','name':'AutoTest'}" then i click the "标签" button
+    When the data name is "{'column':'1','name':'AutoTest'}" then i click the "标签" button in more menu
+    And I click the Element with text "请选择或输入"
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "test"
+    And I wait for "1500" millsecond
     And I choose the "test" from the "TagDropdown"
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
@@ -171,6 +173,7 @@ Feature: 应用字段提取（RZY-2129）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "configs.ListPage" page
+    And I wait for "500" millsecond
     And I choose the "test" from the "ResourceDropdown"
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'1','name':'AutoTest'}"
@@ -209,7 +212,9 @@ Feature: 应用字段提取（RZY-2129）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "dictionary.ListPage" page
-    Then the data name is "字典管理app.csv" then i click the "标签" button
+    And I wait for "1500" millsecond
+    Then the data name is "字典管理app.csv" then i click the "标签" button in more menu
+    And I click the Element with text "请选择或输入"
     And I wait for "Tag" will be visible
     Then I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "Group"
@@ -227,6 +232,7 @@ Feature: 应用字段提取（RZY-2129）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "dictionary.ListPage" page
+    And I wait for "1000" millsecond
     And I choose the "测试标签" from the "ResourceDropdown"
     And I wait for loading invisible
     Then I will see the search result "字典管理app.csv"
@@ -265,7 +271,7 @@ Feature: 应用字段提取（RZY-2129）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "dictionary.CreatePage" page
-    And I move the mouse pointer to the "DeleteApp"
+    And I move the mouse pointer to the "DeleteAppName"
     And I click the "DeleteApp" button
     Then I click the "SaveButton" button
     And I wait for "Message" will be visible
@@ -277,7 +283,7 @@ Feature: 应用字段提取（RZY-2129）
     And I choose the "ConfigsApp" from the "App"
     And I wait for loading invisible
     Then I will see the search result contains "字典管理app.csv"
-    Then I will see the search result "{'column':'0','name':'app对比测试.csv','contains':'no'}"
+    Then I will see the search result "{'column':'1','name':'app对比测试.csv','contains':'no'}"
 
   Scenario: 在app外按照应用搜索
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -301,14 +307,16 @@ Feature: 应用字段提取（RZY-2129）
 
   Scenario Outline: 删除字典管理
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "ConfigsApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "ConfigsApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     And I click the "Dictionary" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
+    And I wait for "500" millsecond
     Then I will see the "dictionary.ListPage" page
-    When the data name is "<name>" then i click the "删除" button
+    When the data name is "<name>" then i click the "删除" button in more menu
     And I click the "EnsureButton" button
     And I refresh the website
     Then I will see the element "EmptyText" value is "暂无数据"
@@ -320,11 +328,13 @@ Feature: 应用字段提取（RZY-2129）
 
   Scenario Outline: 删除字段提取
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "ConfigsApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "ConfigsApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
+    And I wait for "500" millsecond
     Then I will see the "configs.ListPage" page
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible

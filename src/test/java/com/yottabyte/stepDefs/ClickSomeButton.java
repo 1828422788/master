@@ -148,6 +148,19 @@ public class ClickSomeButton {
     }
 
     /**
+     * 按照text属性点击
+     *
+     * @param buttonName 元素名称
+     */
+    @When("^I click the Element with text \"([^\"]*)\"$")
+    public void clickTheElementWithText(String buttonName) {
+        String xpath = "//*[text()='" + buttonName + "']";
+        WebElement button = webDriver.findElement(By.xpath(xpath));
+        if (ElementExist.isElementExist(webDriver, button))
+            button.click();
+    }
+
+    /**
      * 如果元素存在则点击（word报表）
      *
      * @param title 元素名称 (颜色码)
