@@ -76,6 +76,9 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(xpath = "//div[@type='dataset']//span[text()='dataset_3']")
     private WebElement dataset_3;
 
+    @FindBy(xpath = "(//input[@yotta-test='trend-dataset_filter_condtion_value-input' or @yotta-test='trend-dataset_filter_expression_query-input'])[last()]")
+    private WebElement value;
+
     @FindBy(className = "yotta-message-content")
     private WebElement message;
 
@@ -540,7 +543,7 @@ public class DragAndDropPage extends CreatePage {
     }
 
     public WebElement getValue() {
-        return getYottaInput("trend-dataset_filter_expression_query-input");
+        return value;
     }
 
     public WebElement getTableBody() {
