@@ -532,7 +532,7 @@ public class DragAndDropPage extends CreatePage {
     }
 
     public WebElement getValue() {
-        return getYottaInput("trend-dataset_filter_condtion_value-input");
+        return getYottaInput("trend-dataset_filter_expression_query-input");
     }
 
     public WebElement getTableBody() {

@@ -117,13 +117,13 @@ Feature: 日志展现_timechart
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "<element>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/7timechart/<caseNum>"
     Then I compare source image "actual/高级搜索视图/7timechart/<caseNum>" with target image "expect/高级搜索视图/7timechart/<caseNum>"
 
     Examples:
-      |  caseNum    | color    |button    |   spl|
-      | area_pile   | Yellow   | Smooth   | tag:sample04061424_chart \| timechart cont=true span=30m rendertype=\"area\" count() min(apache.resp_len) by apache.status  |
-      | column_pile | Red      |          | tag:sample04061424_chart \| timechart cont=true span=30m rendertype=\"column\" count() min(apache.resp_len) by apache.status  |
+      |  caseNum    | element      | color    |button    |   spl|
+      | area_pile   | AreaChart    | Yellow   | Smooth   | tag:sample04061424_chart \| timechart cont=true span=30m rendertype=\"area\" count() min(apache.resp_len) by apache.status  |
+      | column_pile | ColumnChart  | Red      |          | tag:sample04061424_chart \| timechart cont=true span=30m rendertype=\"column\" count() min(apache.resp_len) by apache.status  |
 

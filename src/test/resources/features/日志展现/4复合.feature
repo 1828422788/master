@@ -31,7 +31,9 @@ Feature: 日志展现_复合
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "<chartType>Element" will be visible
+    And I will see the "LineChartElement" is display
+    And I will see the "ScatterChartElement" is display
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/4复合/<caseNum>_<chartType>"
     Then I compare source image "actual/高级搜索视图/4复合/<caseNum>_<chartType>" with target image "expect/高级搜索视图/4复合/<caseNum>_<chartType>"
@@ -92,7 +94,9 @@ Feature: 日志展现_复合
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "AreaChartElement" will be visible
+    And I will see the "ColumnChartElement" is display
+    And I will see the "ScatterChartElement" is display
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/4复合/<caseNum>_<chartType>"
     Then I compare source image "actual/高级搜索视图/4复合/<caseNum>_<chartType>" with target image "expect/高级搜索视图/4复合/<caseNum>_<chartType>"
