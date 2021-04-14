@@ -214,7 +214,7 @@ public class SearchPage extends ListPageFactory {
         return list.get(list.size() - 1);
     }
 
-    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div")
+    @FindBy(xpath = "//*[@yotta-test='search-new_savedsearch_app-select']/div")
     private WebElement appIcon;
 
     @FindBy(xpath = "//tbody/tr")
@@ -536,7 +536,7 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//span[text()='新建离线任务']")
     private WebElement offlineTask;
-    @FindBy(className = "ant-dropdown-menu-root")
+    @FindBy(className = "yotta-dropdown-menu")
     private WebElement dropdownMenu;
 
     @FindBy(xpath = "//span[text()='新建监控']")

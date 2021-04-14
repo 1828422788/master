@@ -68,9 +68,9 @@ Feature: 知识新建（RZY-868）
 
     Examples:
       | name                | code             | tag      | desc     | solution |
-      | 名称1, 名称2            | code             | 404 500 | AutoTest | 没有       |
-      | 测试多个code            | 第一个code, 第二个code | 404 500 | AutoTest | 没有       |
-      | AutoTestCreateByURL | AutoTestByURL    | 404 500 | AutoTest | 没有       |
+      | 名称1, 名称2            | code             | 500404 | AutoTest | 没有       |
+      | 测试多个code            | 第一个code, 第二个code | 500404 | AutoTest | 没有       |
+      | AutoTestCreateByURL | AutoTestByURL    | 500404 | AutoTest | 没有       |
 
   Scenario Outline: 验证知识新建
     Given open the "knowledge.ListPage" page for uri "/knowledge/"

@@ -78,7 +78,19 @@ public class ClickButtonWithGivenName {
         }
         catch (org.openqa.selenium.StaleElementReferenceException exception){
             WebElement tr = listPageUtils.getRow(dataName);
-            this.click(buttonName, tr);
+            WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='operation-more-button']"));
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
+            WebElement lastMenuList = dropdownUtils.getMenuList();
+            List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
+            if (buttonName != null && buttonName.trim().length() != 0) {
+                for (WebElement e : elements) {
+                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+                    if (buttonName.equals(e.getText())) {
+                        e.click();
+                        break;
+                    }
+                }
+            }
         }
     }
 
