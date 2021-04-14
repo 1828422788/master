@@ -3,8 +3,10 @@ package com.yottabyte.pages.alert;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.ListPageFactory;
 import com.yottabyte.stepDefs.SetKeyWithValue;
+import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.ElementExist;
 import com.yottabyte.utils.GetLogger;
+import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -12,6 +14,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -426,5 +429,27 @@ public class ListPage extends ListPageFactory {
     public WebElement getAlertNameButton() {
         return alertNameButton;
     }
+
+    public WebElement getResourceGroupList() {
+        String xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownResourceGroupList();
+    }
+
+    @FindBy(xpath = "(//tr[contains(@class,'expansion')]//div[contains(text(),'资源标签......')])[last()]")
+    private WebElement tagOfTheLastItem;
+
+    public WebElement getTagOfTheLastItem() {
+        return tagOfTheLastItem;
+    }
+
+//    @FindBy(xpath = "//table[@yotta-test='dataset-list-table']//span[text()='名称']/preceding::input[@type='checkbox']")
+//    private WebElement allSelectCheckbox;
+//
+//    public WebElement getAllSelectCheckbox() {
+//        return allSelectCheckbox;
+//    }
 
 }

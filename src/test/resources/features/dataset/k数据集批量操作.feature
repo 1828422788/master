@@ -99,7 +99,6 @@ Feature: 数据集批量操作
     When I click the "BatchControl" button
     And I set the parameter "SearchInputName" with value "Test_Batch_Control_Resource"
     When I click the "allSelectCheckbox" button
-    And I click the "SelectBatchOperation" button
 
     And I click the "SelectBatchOperation" button
     And I click the "DeleteResources" button
