@@ -13,6 +13,7 @@ Feature: 数据集批量操作
     And I set the parameter "Alias" with value "bc1"
     And I set the parameter "Spl" with value "*"
     And I choose the "auto_package" from the "resourceGroupList"
+    And I wait for "2000" millsecond
 
     And I click the "Save" button
     Then I will see the "dataset.DetailPage" page
@@ -60,15 +61,17 @@ Feature: 数据集批量操作
     When I click the "BatchControl" button
     And I set the parameter "SearchInputName" with value "Test_Batch_Control_Resource"
     Given I wait for loading complete
+    And I wait for "2000" millsecond
+
     When I click the "allSelectCheckbox" button
     And I click the "SelectBatchOperation" button
     Given I wait for loading complete
 
     When I click the "AddResourceTags" button
     Given I wait for loading complete
-    And I wait for "3000" millsecond
+    And I wait for "2000" millsecond
     And I choose the "AutoTest" from the "ResourceGroupList"
-    And I wait for "5000" millsecond
+    And I wait for "2000" millsecond
 
     When I click the "Ensure" button
 #    And I wait for "100" millsecond
