@@ -5,7 +5,7 @@ Feature: 展示趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When I set the parameter "SearchInput" with value "拖拽_<name>"
     And I wait for "3000" millsecond
-    And the data name is "{'column':'0','name':'拖拽_<name>'}" then i click the "展示趋势图" button
+    And the data name is "{'column':'0','name':'拖拽_<name>'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -21,17 +21,35 @@ Feature: 展示趋势图
       | name                |
       | Table_对比_2        |
       | Table_2             |
+      | Matrixheatmap       |
       | Radar_对比          |
+      | Radar_Switch        |
       | Radar               |
       | Funnel              |
       | Wordcloud           |
+      | Ring_2              |
+      | Ring_1              |
+      | Single_IconField    |
+      | Single_SecondTitle  |
+      | Single_Icon         |
       | Single_area         |
       | Single_trend        |
       | Single_Background   |
+      | Regionmap_Jiangsu_下钻|
+      | Regionmap_China_下钻|
+      | Regionmap_World_下钻|
+      | Regionmap_China     |
+      | Regionmap_World     |
       | Heatmap             |
       | Multiaxis_对比      |
       | Multiaxis_曲散      |
       | Multiaxis_柱面      |
+      | Force               |
+      | Sankey              |
+      | Chord               |
+      | Sunburst            |
+      | Flame_DrillOut      |
+      | Flame_DrillIn       |
       | Bar                 |
       | Rose                |
       | Pie                 |
@@ -55,7 +73,7 @@ Feature: 展示趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When I set the parameter "SearchInput" with value "数据集_<name>"
     And I wait for "3000" millsecond
-    And the data name is "{'column':'0','name':'数据集_<name>'}" then i click the "展示趋势图" button
+    And the data name is "{'column':'0','name':'数据集_<name>'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page

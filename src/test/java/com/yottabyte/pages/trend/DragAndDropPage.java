@@ -273,6 +273,10 @@ public class DragAndDropPage extends CreatePage {
         return getElementById("regionmapChartCityDrilldownField");
     }
 
+    public WebElement getIconField() {
+        return getElementById("iconField");
+    }
+
     public WebElement getTimestamp() {
         return getDraggableElement("timestamp");
     }
@@ -311,6 +315,10 @@ public class DragAndDropPage extends CreatePage {
 
     public WebElement getValue2() {
         return getDraggableElement("value2");
+    }
+
+    public WebElement getIconValue() {
+        return getDraggableElement("icon_value");
     }
 
     //-------------------------------------------------------------------------------------
