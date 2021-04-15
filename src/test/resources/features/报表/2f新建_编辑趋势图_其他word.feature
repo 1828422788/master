@@ -32,6 +32,7 @@ Feature: 报表新建_编辑_其他word
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Green" button
+    And I wait for "1000" millsecond
     And I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
@@ -71,6 +72,7 @@ Feature: 报表新建_编辑_其他word
     And I set the parameter "FontSize" with value "100"
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
@@ -110,6 +112,7 @@ Feature: 报表新建_编辑_其他word
     And I set the parameter "FontSize" with value "100"
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
@@ -154,7 +157,9 @@ Feature: 报表新建_编辑_其他word
     And I set the parameter "MaxRange" with value "200"
     And I click the "AddColor" button
     And I click the "<color2>" button
+    And I wait for "1000" millsecond
     And I click the "Background" button
+    And I wait for "1000" millsecond
     And I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
