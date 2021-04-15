@@ -3,6 +3,7 @@ Feature: 应用监控模块（RZY-2122）
 
   Scenario Outline: 新建单个资源app
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     And I click the "CreateButton" button
     Then I will see the "app.CreatePage" page
     Given delete file "/target/download-files/<name>.tar"
