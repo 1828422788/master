@@ -73,6 +73,7 @@ Feature: 趋势图新建_序列
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -114,6 +115,7 @@ Feature: 趋势图新建_序列
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Orange" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -153,6 +155,7 @@ Feature: 趋势图新建_序列
     And I click the "<buttonChoice>" button
     And I set the parameter "Min" with value ""
     And I set the parameter "Max" with value "10"
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -195,6 +198,7 @@ Feature: 趋势图新建_序列
     And I set the parameter "Unit" with value "<unitValue>"
     And I set the parameter "Min" with value "1"
     And I set the parameter "Max" with value "10"
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button

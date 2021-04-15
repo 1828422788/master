@@ -1062,4 +1062,17 @@ public class CreatePage extends PageTemplate {
         return getAlertNoteTypeDropdownList();
     }
 
+    @FindBy(xpath = "//*[@yotta-test='alert-app-select']/div")
+    private WebElement beforeDeleteApp;
+
+    public WebElement getBeforeDeleteApp() {
+        return beforeDeleteApp;
+    }
+
+    @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']")
+    private WebElement deleteApp;
+
+    public WebElement getDeleteApp() {
+        return deleteApp;
+    }
 }

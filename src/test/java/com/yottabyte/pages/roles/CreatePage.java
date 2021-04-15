@@ -32,7 +32,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[@class='el-message-box__btns']//span[contains(text(),'确定')]")
     private WebElement OKButton;
 
-    @FindBy(id = "RoleUpdate_memo")
+    @FindBy(xpath = "//*[@yotta-test='role-memo-input']")
     private WebElement roleDes;
 
     @FindBy(className = "ant-form-explain")

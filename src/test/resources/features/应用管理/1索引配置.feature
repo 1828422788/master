@@ -3,7 +3,8 @@ Feature: 应用路由管理
 
   Background:
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "AutoTestAppWithAllResources" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "AutoTestAppWithAllResources" then i click the "打开" button in more menu
     Then I will see the "app.AppPage" page
     And I click the "Indexsetting" button
     And I will see the element "Title" name is "AutoTestAppWithAllResources"
@@ -36,7 +37,7 @@ Feature: 应用路由管理
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AutoTestAppWithAllResources"
     Then I will see the "index.TopicSetting" page
-    When the data name is "AutoApp" then i click the "删除" button
+    When the data name is "AutoApp" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "删除成功"
@@ -62,7 +63,7 @@ Feature: 应用路由管理
     Then I will see the success message "保存成功"
 
   Scenario: 路由删除
-    When the data name is "apptest" then i click the "删除" button
+    When the data name is "apptest" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     Then I click the "Ensure" button
     Then I wait for element "Message" change text to "删除成功"
