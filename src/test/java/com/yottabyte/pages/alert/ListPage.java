@@ -385,9 +385,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getListItemThree() { return listItemThree; }
 
-    @FindBy(xpath = "(//button[contains(@class,'ant-switch')])[1]")
-    private WebElement switchOne;
-
     @FindBy(xpath = "(//button[contains(@class,'ant-switch')])[2]")
     private WebElement switchTwo;
 
@@ -396,6 +393,9 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(xpath = "(//button[contains(@class,'ant-switch')])[10]")
     private WebElement switchTen;
+
+    @FindBy(xpath = "(//button[contains(@class,'ant-switch')])[1]")
+    private WebElement switchOne;
 
     public WebElement getSwitchOne() { return switchOne; }
 
@@ -445,11 +445,11 @@ public class ListPage extends ListPageFactory {
         return tagOfTheLastItem;
     }
 
-//    @FindBy(xpath = "//table[@yotta-test='dataset-list-table']//span[text()='名称']/preceding::input[@type='checkbox']")
-//    private WebElement allSelectCheckbox;
-//
-//    public WebElement getAllSelectCheckbox() {
-//        return allSelectCheckbox;
-//    }
+    @FindBy(xpath = "//table[@yotta-test='alert-table-table']//span[text()='名称']/preceding::input[@type='checkbox']")
+    private WebElement allSelectCheckbox;
+
+    public WebElement getAllSelectCheckbox() {
+        return allSelectCheckbox;
+    }
 
 }

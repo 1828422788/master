@@ -1,11 +1,11 @@
-@bvtalert @alertcase
+@bvtalert @alertcase @alertbatch
 Feature: alert批量操作
 
   Background:
     Given open the "alert.ListPage" page for uri "/alerts/"
     Given I wait for loading complete
 
-  @multiOperate1
+  @alertbatch1
   Scenario Outline:  alert批量操作空操作
     When I click the "BatchControl" button
     And I wait for "2000" millsecond
@@ -21,7 +21,7 @@ Feature: alert批量操作
       | MultiAddResourceTag |
       | MultiDelete         |
 
-  @multiOperate2
+  @alertbatch2
   Scenario:  alert批量操作-启动
     When I click the "BatchControl" button
     When I set the parameter "searchInputName" with value "test删除_事件计数_设备切分ip"
@@ -38,12 +38,20 @@ Feature: alert批量操作
 #    And I wait for "SuccessMessage" will be visible
 #    Then I will see the success message "更新成功"
 
-  Scenario:  alert批量操作-启动-验证
-    When I set the parameter "searchInputName" with value "test删除_事件计数_设备切分ip"
+  @alertbatch3
+  Scenario Outline:  alert批量操作-启动-验证
+    When I set the parameter "searchInputName" with value "<name>"
     Given I wait for loading complete
     And I wait for "2000" millsecond
-    Then I will see the switch button "switchOne" is "enable"
+#    Then I will see the switch button "switchOne" is "enable"
+    Then I will see the element "{'column':'1','name':'<name>'}" is "open"
 
+    Examples:
+      | name                |
+      | test删除_事件计数_设备切分ip1 |
+      | test删除_事件计数_设备切分ip2 |
+
+  @alertbatch4
   Scenario:  alert批量操作-添加资源标签
     When I click the "BatchControl" button
     And I set the parameter "searchInputName" with value "test删除_事件计数_设备切分ip"
@@ -65,23 +73,22 @@ Feature: alert批量操作
 #    Then I will see the success message "更新成功"
     And I wait for "5000" millsecond
 
-  Scenario:  alert批量操作-添加资源标签-验证
-    Given open the "dataset.ListPage" page for uri "/dataset/"
-    Given I wait for loading complete
-    And I set the parameter "SearchInputName" with value "Test_Batch_Control_Resource"
+  @alertbatch5
+  Scenario Outline:  alert批量操作-添加资源标签-验证
+    And I set the parameter "SearchInputName" with value "<name>"
     Given I wait for loading complete
     And I wait for "2000" millsecond
-    And the data name is "{'column':'0','name':'test删除_事件计数_设备切分ip1'}" then I "expand" the item
+    And the data name is "{'column':'1','name':'<name>'}" then I "expand" the item
     And I wait for "2000" millsecond
     And I will see the element "TagOfTheLastItem" contains "AutoTest"
-    And the data name is "{'column':'0','name':'test删除_事件计数_设备切分ip1'}" then I "close" the item
+    And the data name is "{'column':'1','name':'<name>'}" then I "close" the item
 
-    And I wait for "2000" millsecond
-    And the data name is "{'column':'0','name':'test删除_事件计数_设备切分ip2'}" then I "expand" the item
-    And I wait for "2000" millsecond
-    And I will see the element "TagOfTheLastItem" contains "AutoTest"
-    And the data name is "{'column':'0','name':'test删除_事件计数_设备切分ip2'}" then I "close" the item
+    Examples:
+      | name                |
+      | test删除_事件计数_设备切分ip1 |
+      | test删除_事件计数_设备切分ip2 |
 
+  @alertbatch6
   Scenario:  alert批量操作-删除
     When I click the "BatchControl" button
     And I set the parameter "SearchInputName" with value "test删除_事件计数_设备切分ip"
@@ -94,11 +101,17 @@ Feature: alert批量操作
     Then I will see the success message "删除成功"
     And I click the "CompleteBatchControl" button
 
-  Scenario:  alert批量操作-删除-验证
-    And I set the parameter "SearchInputName" with value "test删除_事件计数_设备切分ip"
-    And I wait for "3000" millsecond
-    Then I will see the text "test删除_事件计数_设备切分ip1" is not existed in page
+  @alertbatch7
+  Scenario Outline:  alert批量操作-删除-验证
+    And I set the parameter "SearchInputName" with value "<name>"
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
+    Then I will see the text "<name>" is not existed in page
 
+    Examples:
+      | name                |
+      | test删除_事件计数_设备切分ip1 |
+      | test删除_事件计数_设备切分ip2 |
 
 
 
