@@ -34,7 +34,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='报表分组']/following-sibling::div//input[@class='el-input__inner']")
     private WebElement reportGroup;
 
-    @FindBy(xpath = "//li[@yotta-test='report-item_1-menu']")
+    @FindBy(xpath = "//li[@class='yotta-menu-item']")
     private WebElement li;
 
     @FindBy(className = "yotta-accordion-header")
@@ -575,6 +575,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSave() {
         return super.getButton("完成");
+    }
+
+    public WebElement getSaveInApp() {
+        return super.getContainsTextButton("完成");
     }
 
     public WebElement getChartListButton() {

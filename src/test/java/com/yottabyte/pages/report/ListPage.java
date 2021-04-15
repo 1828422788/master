@@ -65,7 +65,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "ant-select-selection-selected-value")
     private WebElement pagination;
 
-    @FindBy(xpath = "//div[text()='请选择应用']/ancestor::div[2]")
+    @FindBy(xpath = "//div[@yotta-test='table-filter_app-select']/div")
     private WebElement appDropdown;
 
     @FindBy(xpath = "(//tr[contains(@class,'expansion')]//div[contains(text(),'资源标签......')])[last()]")

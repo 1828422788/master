@@ -387,7 +387,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(id = "yw-search-fields-header")
     private WebElement tableHeader;
 
-    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i")
+    @FindBy(xpath = "//*[@yotta-test='trend-trend_app-select']/div")
     private WebElement appDropdownIcon;
 
     @FindBy(className = "ant-popover-inner-content")

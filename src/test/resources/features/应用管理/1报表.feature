@@ -40,12 +40,14 @@ Feature: 应用报表（RZY-2127）
     And I choose the "__admin__" from the "Role"
     And I click the "AddDataset" button
     And I set the parameter "SearchInput" with value "AutoTestApp"
-    And I click the "SearchIcon" button
+#    And I click the "SearchIcon" button
+    And I wait for "500" millsecond
     And I drag the scroll bar to the element "ResultDataset"
     And I click the "ResultDataset" button
     And I click the "Ensure" button
     And I click the "NextButton" button under some element
-    And I click the "NextButton" button under some element
+    And I wait for "1500" millsecond
+    And I click the "Done" button under some element
     And I wait for "ImportSuccess" will be visible
     And I will see the element "ImportSuccess" name is "添加成功"
 
@@ -55,7 +57,8 @@ Feature: 应用报表（RZY-2127）
 
   Scenario Outline: 验证单个资源的app资源范围是否正确
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "<name>" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "<name>" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I wait for loading invisible
     And I wait for "EmptyText" will be visible
@@ -67,8 +70,9 @@ Feature: 应用报表（RZY-2127）
 
   Scenario: 新建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
-    And I click the "CreateButton" button
-    And I click the "Create" button
+    And I wait for loading invisible
+    And I click the "NewTrendButton" button
+#    And I click the "Create" button
     Then I will see the "trend.CreatePage" page
     And I set the parameter "SearchInput" with value "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10 "
     And I click the "DateEditor" button
@@ -76,16 +80,19 @@ Feature: 应用报表（RZY-2127）
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
+    And I wait for loading invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "AutoTestForReport"
     And I choose the "ReportApp" from the "AppDropdown"
-    And I click the "NextButton" button
+    And I wait for "500" millsecond
+    And I click the "Complete" button
     And I wait for "SuccessCreate" will be visible
 
   Scenario: 新建报表
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "ReportApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "ReportApp" then i click the "打开" button in more menu
     Then I will see the "app.AppPage" page
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.ListPage" page
@@ -99,23 +106,26 @@ Feature: 应用报表（RZY-2127）
     And I set the parameter "Hour" with value "1"
     And I set the parameter "Minute" with value "1"
     And I click the "NextButton" button
-    Then I will see the "app.AppPage" page
-    And I will see the element "Title" name is "ReportApp"
-    Then I will see the "report.CreatePage" page
+#    Then I will see the "app.AppPage" page
+#    And I will see the element "Title" name is "ReportApp"
+#    Then I will see the "report.CreatePage" page
+    And I wait for "1500" millsecond
     And I choose the "AutoTestForReport" from the "ChartList"
     And I wait for "TopoTitle" will be visible
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "保存成功"
+    Then I will see the success message "新建成功"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "ReportApp"
 
   Scenario: 禁用报表
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "ReportApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "ReportApp" then i click the "打开" button in more menu
     Then I will see the "app.AppPage" page
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.ListPage" page
+    And I wait for "1500" millsecond
     When the data name is "{'column':'1','name':'AutoAppReport'}" then I "close" the switch
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "禁用成功"
@@ -124,7 +134,8 @@ Feature: 应用报表（RZY-2127）
 
   Scenario: 编辑报表
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "ReportApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "ReportApp" then i click the "打开" button in more menu
     Then I will see the "app.AppPage" page
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.ListPage" page
@@ -134,20 +145,24 @@ Feature: 应用报表（RZY-2127）
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "AutoAppForReport"
     And I click the "NextButton" button
-    And I click the "Save" button
+    And I click the "SaveInApp" button
     And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "保存成功"
+    Then I will see the success message "更新成功"
 
   Scenario Outline: 报表标签
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "ReportApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "ReportApp" then i click the "打开" button in more menu
     Then I will see the "app.AppPage" page
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.ListPage" page
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button in more menu
+    And I click the Element with text "请选择或输入"
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "测试标签"
+    And I wait for "1500" millsecond
     And I choose the "测试标签" from the "LastDropdownList"
+    And I wait for "500" millsecond
     And I click the "Ensure" button
     And I wait for "Message" will be visible
     Then I will see the message "修改成功"
@@ -158,10 +173,12 @@ Feature: 应用报表（RZY-2127）
 
   Scenario: 根据标签查找
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "ReportApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "ReportApp" then i click the "打开" button in more menu
     Then I will see the "app.AppPage" page
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.ListPage" page
+    And I wait for "1500" millsecond
     And I choose the "测试标签" from the "ResourceDropdown"
     And I wait for loading invisible
     Then I will see the search result "{'column':'1','name':'AutoAppForReport'}"
@@ -170,7 +187,8 @@ Feature: 应用报表（RZY-2127）
 
   Scenario: 已生成报表
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "ReportApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "ReportApp" then i click the "打开" button in more menu
     Then I will see the "app.AppPage" page
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.ListPage" page
@@ -196,7 +214,7 @@ Feature: 应用报表（RZY-2127）
     And I wait for "TopoTitle" will be visible
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "保存成功"
+    Then I will see the success message "新建成功"
 
   Scenario: 验证应用搜索
     Given open the "report.ListPage" page for uri "/reports/"
@@ -220,12 +238,13 @@ Feature: 应用报表（RZY-2127）
 
   Scenario Outline: 删除报表
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "ReportApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "ReportApp" then i click the "打开" button in more menu
     Then I will see the "app.AppPage" page
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.ListPage" page
     Given open the "report.ListPage" page for uri "/reports/"
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
     And I click the "Ensure" button
 
     Examples:
@@ -235,7 +254,7 @@ Feature: 应用报表（RZY-2127）
 
   Scenario: 删除趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
-    When the data name is "AutoTestForReport" then i click the "删除" button
+    When the data name is "AutoTestForReport" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
