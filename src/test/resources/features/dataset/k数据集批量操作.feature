@@ -4,7 +4,7 @@ Feature: 数据集批量操作
 
   Background:
     Given open the "dataset.ListPage" page for uri "/dataset/"
-    Given I wait for loading completet
+    Given I wait for loading complete
 
   @datasetk1
   Scenario: 批量操作-新建有标签资源
