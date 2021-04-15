@@ -52,6 +52,25 @@ Feature: 数据集-k预定义字段列表
       | have_root_field | hrfield | *   |
 
   @datasetj3
+  Scenario: RZY-4496:数据集字段在搜索页面的应用
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "2000" millsecond
+    And I drag the element "SearchPageSvg" to the fixed side
+    And I wait for "2000" millsecond
+
+    When I click the "hrField" button
+    And I wait for "2000" millsecond
+
+    When I click the "DateEditor" button
+    When I click the "RecentSevenDay" button
+    When I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+  #验证字段
+    Then I will see the "fieldOne" result will be "apache.status"
+    Then I will see the "fieldTwo" result will be "appname"
+
+  @datasetj4
   Scenario: RZY-4491:在编辑根事件中添加字段
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading complete
@@ -71,7 +90,7 @@ Feature: 数据集-k预定义字段列表
     And I wait for loading complete
     Then I will see the "thirdName" result will be "ip"
 
-  @datasetj4
+  @datasetj5
   Scenario: RZY-4492:在编辑根事件中删除字段
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When the data name is "have_root_field" then i click the "编辑" button
@@ -85,7 +104,7 @@ Feature: 数据集-k预定义字段列表
     Then I will see the "firstName" result will be "apache.status"
     Then I will see the "secondName" result will be "appname"
 
-  @datasetj5
+  @datasetj6
   Scenario: RZY-4292:新建数据集，对子节点添加字段
     Given open the "dataset.ListPage" page for uri "/dataset/"
 #    When the data name is "have_root_field" then i click the "编辑" button
@@ -121,7 +140,7 @@ Feature: 数据集-k预定义字段列表
 
     When I click the "SaveDetail" button
 
-  @datasetj6
+  @datasetj7
   Scenario: RZY-4293:对子节点字段的操作-删除第三个子节点的字段
     Given open the "dataset.ListPage" page for uri "/dataset/"
 #    When the data name is "have_root_field" then i click the "编辑" button
@@ -134,10 +153,14 @@ Feature: 数据集-k预定义字段列表
     When I click the "ChildThirdDeleteField" button
     When I click the "SaveDetail" button
 
-  @datasetj7
+  @datasetj8
   Scenario: RZY-4293:对子节点字段的操作-批量删除子节点的字段
     Given open the "dataset.ListPage" page for uri "/dataset/"
-#    When the data name is "have_root_field" then i click the "编辑" button
+    Given I wait for loading complete
+    And I set the parameter "SearchNameInput" with value "have_root_field"
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
+
     When the data name is "{'column':'0','name':'have_root_field'}" then i click the "编辑" button
 
     Then I will see the "dataset.DetailPage" page
@@ -149,19 +172,3 @@ Feature: 数据集-k预定义字段列表
     When I click the "AllCheck" button
     When I click the "allDelete" button
     When I click the "SaveDetail" button
-
-  @datasetj8
-  Scenario: RZY-4496:数据集字段在搜索页面的应用
-    Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I drag the element "SearchPageSvg" to the fixed side
-
-    When I click the "hrField" button
-
-    When I click the "DateEditor" button
-    When I click the "RecentSevenDay" button
-    When I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-  #验证字段
-    Then I will see the "fieldOne" result will be "apache.status"
-    Then I will see the "fieldTwo" result will be "appname"

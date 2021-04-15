@@ -717,10 +717,6 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='确定']")
     private WebElement ensureCrontab;
 
-    //验证字段列表
-    @FindBy(xpath = "//span[text()='#']/following-sibling::span")
-    private WebElement fieldOne;
-
     @FindBy(xpath = "//div[contains(text(),'事件')]")
     private WebElement eventNumber;
 
@@ -1764,6 +1760,9 @@ public class SearchPage extends ListPageFactory {
         return hrField;
     }
 
+    //验证字段列表
+    @FindBy(xpath = "//span[text()='#']/following-sibling::span")
+    private WebElement fieldOne;
     public WebElement getFieldOne() {
         return fieldOne;
     }
