@@ -1,5 +1,5 @@
 @bvtalert @alertcase @testrun
-Feature: 测试运行-邮件
+Feature: 测试运行-邮件1
 
   Scenario Outline:
     And I wait for loading invisible
