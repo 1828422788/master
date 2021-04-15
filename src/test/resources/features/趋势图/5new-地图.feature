@@ -80,6 +80,7 @@ Feature: 趋势图新建_地图
     And I choose the "cnt" from the "FieldValue" in config
     And I click the "Region" button
     And I click the "Select<regionBut>" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -176,6 +177,7 @@ Feature: 趋势图新建_地图
     And I click the "Exhibition" button
     # Switch to white map
     And I click the "ShowBubbles" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -264,6 +266,7 @@ Feature: 趋势图新建_地图
     And I choose the "apache.status" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -309,6 +312,7 @@ Feature: 趋势图新建_地图
     And I choose the "apache.geo.province" from the "FieldValue" in config
     And I click the "Region" button
     And I click the "SelectChina" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button

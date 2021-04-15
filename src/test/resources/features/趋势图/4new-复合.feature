@@ -36,7 +36,7 @@ Feature: 趋势图新建_复合
     And I wait for "<chartType>Element" will be visible
     And I will see the "LineChartElement" is display
     And I will see the "ScatterChartElement" is display
-    And I wait for "Type" will be visible
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -123,7 +123,7 @@ Feature: 趋势图新建_复合
     And I wait for "AreaChartElement" will be visible
     And I will see the "ColumnChartElement" is display
     And I will see the "ScatterChartElement" is display
-    And I wait for "Type" will be visible
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
@@ -217,7 +217,7 @@ Feature: 趋势图新建_复合
     And I wait for "ColumnChartElement" will be visible
     And I will see the "AreaChartElement" is display
     And I will see the "ScatterChartElement" is display
-    And I wait for "Type" will be visible
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"

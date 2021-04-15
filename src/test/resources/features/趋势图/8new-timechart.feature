@@ -15,7 +15,7 @@ Feature: 趋势图新建_timechart
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
     And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/timechart_<caseNum>"
     And I compare source image "actual/timechart_<caseNum>" with target image "expect/timechart_<caseNum>"
@@ -59,6 +59,7 @@ Feature: 趋势图新建_timechart
     And I set the parameter "Max" with value "<maxVal>"
     And I click the "Example" button
     And I click the "FirstPosition" button
+    And I wait for "1000" millsecond
 
     And I click the "Exhibition" button
     And I click the "AddColor" button
@@ -69,7 +70,7 @@ Feature: 趋势图新建_timechart
     And I click the "Settings" button
     And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/timechart_<caseNum>"
     And I compare source image "actual/timechart_<caseNum>" with target image "expect/timechart_<caseNum>"
@@ -107,12 +108,13 @@ Feature: 趋势图新建_timechart
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<colorChoice>" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/timechart_<caseNum>"
     And I compare source image "actual/timechart_<caseNum>" with target image "expect/timechart_<caseNum>"
@@ -146,13 +148,15 @@ Feature: 趋势图新建_timechart
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I click the "Pile" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
     And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/timechart_<caseNum>"
     And I compare source image "actual/timechart_<caseNum>" with target image "expect/timechart_<caseNum>"
@@ -189,7 +193,7 @@ Feature: 趋势图新建_timechart
     And I click the "NextButton" button under some element
     And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<caseNum>"
     And I compare source image "actual/<caseNum>" with target image "<caseNum>"

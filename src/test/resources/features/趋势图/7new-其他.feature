@@ -249,6 +249,7 @@ Feature: 趋势图新建_其他
     And I wait for "2000" millsecond
     And I set the parameter "FontSize" with value "100"
     And I choose the "<timeValue>" from the "ContrastTime" in config
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -342,6 +343,7 @@ Feature: 趋势图新建_其他
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Orange" button
+    And I wait for "1000" millsecond
     And I choose the "<precision>" from the "Precision" in config
     # Button ThousandSeparator or Background
     And I click the "<buttonSwitch>" button
@@ -450,6 +452,7 @@ Feature: 趋势图新建_其他
     And I set the parameter "IconName" with value "<fontValue>"
     And I click the "SecondTitle" button
     And I set the parameter "TitleName" with value "二级title"
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -504,6 +507,7 @@ Feature: 趋势图新建_其他
     And I set the parameter "MaxRange" with value "7"
     And I click the "AddColor" button
     And I click the "Red" button
+    And I wait for "1000" millsecond
     And I click the "AddRange" button
     And I set the parameter "MinRange" with value "7"
     And I set the parameter "MaxRange" with value "10"
@@ -552,6 +556,7 @@ Feature: 趋势图新建_其他
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Orange" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -589,6 +594,7 @@ Feature: 趋势图新建_其他
     And I choose the "count_perc" from the "FieldValue" in config
     And I click the "Compare" button
     And I choose the "count2_perc" from the "FieldValue" in config
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -710,6 +716,7 @@ Feature: 趋势图新建_其他
     And I set the parameter "MaxRange" with value "1"
     And I click the "AddColor" button
     And I click the "Green" button
+    And I wait for "1000" millsecond
 
     And I click the "Generate" button
 
@@ -751,7 +758,9 @@ Feature: 趋势图新建_其他
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Orange" button
+    And I wait for "1000" millsecond
     And I choose the "1" from the "Precision" in config
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -805,6 +814,7 @@ Feature: 趋势图新建_其他
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Red" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -847,6 +857,7 @@ Feature: 趋势图新建_其他
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color1>" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -890,6 +901,7 @@ Feature: 趋势图新建_其他
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color1>" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -928,6 +940,7 @@ Feature: 趋势图新建_其他
     And I click the "Yaxis" button
     And I choose the "<yValue>" from the "FieldValue" in config
     And I set the parameter "Segments" with value "<segNum>"
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -990,7 +1003,9 @@ Feature: 趋势图新建_其他
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I choose the "<precision>" from the "Precision" in config
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -1142,7 +1157,9 @@ Feature: 趋势图新建_其他
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I choose the "<precision>" from the "Precision" in config
+    And I wait for "1000" millsecond
     And I choose the "tree" from the "TracingType" in config
     And I click the "Generate" button
 

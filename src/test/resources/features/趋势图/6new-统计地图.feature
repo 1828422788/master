@@ -127,7 +127,7 @@ Feature: 趋势图新建_统计地图
     And I wait for "2000" millsecond
     And I wait for "StatisticalChart" will be visible
     And I wait for "MapSettings" will be visible
-    And I wait for "15000" millsecond
+    And I wait for "20000" millsecond
     And take part of "StatisticalChart" with name "actual/online/<chartType>_<mapName>"
 #    And I compare source image "actual/online/<chartType>_<mapName>" with target image "expect/online/<chartType>_<mapName>"
     Then I click the "NextButton" button under some element

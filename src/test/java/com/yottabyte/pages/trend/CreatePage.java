@@ -52,7 +52,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[text()='POST']/preceding-sibling::*")
     private WebElement clickPOST;
 
-    @FindBy(xpath = "//*[text()='北京']/preceding-sibling::*[name()='circle']/ancestor::*[name()='g'][3]")
+    @FindBy(xpath = "//*[text()='北京']/preceding-sibling::*[name()='circle']")
     private WebElement clickBeijing;
 
     @FindBy(xpath = "(//span[text()='行数']/preceding-sibling::div/input)[last()]")

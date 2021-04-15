@@ -27,8 +27,8 @@ Feature: 趋势图新建_关系
     And I wait for "StatisticalChart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
-    And I will see the "Type" is display
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button under some element
@@ -74,7 +74,9 @@ Feature: 趋势图新建_关系
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Red" button
+    And I wait for "1000" millsecond
     And I set the parameter "Repulsion" with value "20"
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -82,8 +84,8 @@ Feature: 趋势图新建_关系
     And I wait for "StatisticalChart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
-    And I will see the "Type" is display
     And take part of "StatisticalChart" with name "actual/<chartType>_repulsion"
 #    And I compare source image "actual/<chartType>_repulsion" with target image "expect/<chartType>_repulsion"
     Then I click the "NextButton" button under some element
@@ -114,7 +116,9 @@ Feature: 趋势图新建_关系
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Red" button
+    And I wait for "1000" millsecond
     And I click the "<button>" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -122,8 +126,8 @@ Feature: 趋势图新建_关系
     And I wait for "StatisticalChart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
-    And I will see the "Type" is display
     And take part of "StatisticalChart" with name "actual/<chartType>_<button>"
     And I compare source image "actual/<chartType>_<button>" with target image "expect/<chartType>_<button>"
     Then I click the "NextButton" button under some element
@@ -163,8 +167,8 @@ Feature: 趋势图新建_关系
     And I wait for "StatisticalChart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
-    And I will see the "Type" is display
     And take part of "StatisticalChart" with name "actual/<chartType>_分面"
     And I compare source image "actual/<chartType>_分面" with target image "expect/<chartType>_分面"
     Then I click the "NextButton" button under some element
