@@ -35,6 +35,7 @@ Feature: 数据集批量操作
   @datasetk3
   Scenario: 批量操作-新建有标签资源
     And I set the parameter "SearchInputName" with value "Test_Batch_Control_Resource_1"
+    Given I wait for loading complete
     And I wait for "2000" millsecond
     Then I will see the data "{'column':'0','name':'Test_Batch_Control_Resource_1'}" values "{'column':'2','name':'bc1'}"
     And the data name is "{'column':'0','name':'Test_Batch_Control_Resource_1'}" then I "expand" the item
@@ -45,6 +46,7 @@ Feature: 数据集批量操作
   @datasetk4
   Scenario: 批量操作-新建无标签资源
     And I set the parameter "SearchInputName" with value "Test_Batch_Control_Resource_2"
+    Given I wait for loading complete
     And I wait for "2000" millsecond
     Then I will see the data "{'column':'0','name':'Test_Batch_Control_Resource_2'}" values "{'column':'2','name':'bc2'}"
 
@@ -98,6 +100,8 @@ Feature: 数据集批量操作
   Scenario: 批量操作-删除资源
     When I click the "BatchControl" button
     And I set the parameter "SearchInputName" with value "Test_Batch_Control_Resource"
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
     When I click the "allSelectCheckbox" button
 
     And I click the "SelectBatchOperation" button
