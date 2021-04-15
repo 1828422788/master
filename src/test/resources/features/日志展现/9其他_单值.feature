@@ -325,6 +325,7 @@ Feature: 日志展现_其他_单值
     And I set the parameter "IconName" with value "<fontValue>"
     And I click the "SecondTitle" button
     And I set the parameter "TitleName" with value "二级title"
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button

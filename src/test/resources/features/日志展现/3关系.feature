@@ -44,6 +44,7 @@ Feature: 日志展现_关系
     And I click the "Settings" button
     And I click the "Exhibition" button
     And I set the parameter "Repulsion" with value "<repValue>"
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -72,7 +73,9 @@ Feature: 日志展现_关系
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Red" button
+    And I wait for "1000" millsecond
     And I click the "<button>" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
