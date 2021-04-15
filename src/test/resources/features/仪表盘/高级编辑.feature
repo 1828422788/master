@@ -117,7 +117,7 @@ Feature: 仪表盘高级编辑
     And I wait for "1000" millsecond
     When the chart title is "仪表盘所有" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
-    And I wait for "500" millsecond
+    And I wait for "1000" millsecond
     And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "<start>","endTime": "<end>"},"chart": {"chartType": "table"}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
@@ -138,7 +138,7 @@ Feature: 仪表盘高级编辑
     And I wait for "1000" millsecond
     When the chart title is "仪表盘所有" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
-    And I wait for "500" millsecond
+    And I wait for "1000" millsecond
     And I set the parameter "{"title": "仪表盘所有","description": "","x": <x>,"y": <y>,"w": <w>,"h": <h>,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
@@ -186,7 +186,7 @@ Feature: 仪表盘高级编辑
     And I wait for "1000" millsecond
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
-    And I wait for "500" millsecond
+    And I wait for "1000" millsecond
     And I set the parameter "{"title": "","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
@@ -202,7 +202,7 @@ Feature: 仪表盘高级编辑
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
-    And I wait for "500" millsecond
+    And I wait for "1000" millsecond
     And I set the parameter "{"title": "仪表盘高级编辑","description": "测试描述","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
@@ -316,7 +316,7 @@ Feature: 仪表盘高级编辑
     And I wait for "1000" millsecond
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
-    And I wait for "500" millsecond
+    And I wait for "1000" millsecond
     And I set the parameter "{"title": "仪表盘高级编辑","description": "测试描述","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "search","blank": true,"mode": "auto"}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
