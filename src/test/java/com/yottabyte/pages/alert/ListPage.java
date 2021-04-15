@@ -132,8 +132,11 @@ public class ListPage extends ListPageFactory {
         return noneData;
     }
 
+    @FindBy(xpath = "//span[text()='告警插件']")
+    private WebElement alertPlugin;
+
     public WebElement getAlertPlugin() {
-        return super.getButton("告警插件");
+        return alertPlugin;
     }
 
     public WebElement getAlertNum() {
@@ -451,5 +454,10 @@ public class ListPage extends ListPageFactory {
 //    public WebElement getAllSelectCheckbox() {
 //        return allSelectCheckbox;
 //    }
+
+    @FindBy(xpath = "//*[@yotta-test='alert-other-dropdown']/span")
+    private WebElement otherButton;
+
+    public WebElement getOtherButton() { return otherButton; }
 
 }
