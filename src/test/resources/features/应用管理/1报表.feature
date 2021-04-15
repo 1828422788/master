@@ -226,6 +226,7 @@ Feature: 应用报表（RZY-2127）
 
   Scenario Outline: 修改app资源范围
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "<name>" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I wait for loading invisible
