@@ -142,7 +142,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[@yotta-test='application-resource_modal_filter_type-select']/div")
     private WebElement resourceType;
 
-    @FindBy(className = "ant-message-custom-content")
+    @FindBy(className = "yotta-message-content")
     private WebElement messageContent;
 
     @FindBy(xpath = "//span[@yotta-test='application-kvstore_operation-icon']")

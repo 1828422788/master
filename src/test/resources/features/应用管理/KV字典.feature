@@ -3,6 +3,7 @@ Feature: 应用KV字典
 
   Scenario Outline: 新建KV字典应用
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     And I click the "CreateButton" button
     Then I will see the "app.CreatePage" page
     Given delete file "/target/download-files/<name>.tar"
@@ -41,7 +42,8 @@ Feature: 应用KV字典
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "__admin__" from the "Role"
     And I click the "NextButton" button under some element
-    And I click the "NextButton" button under some element
+    And I wait for "1500" millsecond
+    And I click the "Done" button under some element
     And I wait for "ImportSuccess" will be visible
     And I will see the element "ImportSuccess" name is "添加成功"
 
@@ -51,6 +53,7 @@ Feature: 应用KV字典
 
   Scenario: 添加KV字典
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "KVApp" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I click the "AddKVStore" button
@@ -65,6 +68,7 @@ Feature: 应用KV字典
 
   Scenario Outline: 添加KV字典失败校验
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "KVApp" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I click the "AddKVStore" button
@@ -87,7 +91,8 @@ Feature: 应用KV字典
 
   Scenario: 存储kvstore
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "KVApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "KVApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "KVApp"
     Then I will see the "splSearch.SearchPage" page
@@ -99,7 +104,8 @@ Feature: 应用KV字典
 
   Scenario: 验证是否成功
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "KVApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "KVApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "KVApp"
     Then I will see the "splSearch.SearchPage" page
