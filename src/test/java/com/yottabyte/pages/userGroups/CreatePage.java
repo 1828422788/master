@@ -39,7 +39,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-scrollbar__view")
     private WebElement dropdownList;
 
-    @FindBy(className = "ant-form-explain")
+    @FindBy(className = "yotta-form-field-help-text")
     private WebElement explainMessage;
 
     @FindBy(xpath = "(//span[text()='保存']/ancestor::button)[last()]")
@@ -54,6 +54,11 @@ public class CreatePage extends PageTemplate {
     //点击非输入框的任何位置都会自动保存
     @FindBy(xpath = "//input[@yotta-test='usergroup-memo-input']")
     private WebElement comment;
+
+    @FindBy(className = "yotta-dialog-contenttext")
+    private  WebElement errorExplainMessage;
+
+    public WebElement getErrorExplainMessage() { return errorExplainMessage; }
 
     public WebElement getComment() { return comment; }
 

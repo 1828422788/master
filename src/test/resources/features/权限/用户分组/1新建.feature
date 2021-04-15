@@ -20,11 +20,11 @@ Feature: 用户分组创建（RZY-545）
 
     Examples: 创建失败（重名校验）
       | UserGroupName     | UserGroupDes | message                                         |
-      | AutoTestForDelete | des          | 创建失败: account_group_name: AutoTestForDelete 已存在 |
+      | AutoTestForDelete | des          | AUTH: 创建失败, account_group_name: AutoTestForDelete 已存在 |
 
   Scenario: 用户分组创建失败（为空校验）
     And I click the "Create" button
     Then I will see the "userGroups.CreatePage" page
     And I click the "CreateButton" button
     And I wait for "ExplainMessage" will be visible
-    Then I will see the element "ExplainMessage" name is "请输入名称"
+    Then I will see the element "ExplainMessage" name is "名称长度需小于128个字符，不能以'__'开头和结尾"
