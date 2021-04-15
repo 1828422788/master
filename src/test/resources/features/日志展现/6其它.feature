@@ -16,9 +16,11 @@ Feature: 日志展现_其它
     And I click the "<chartType>" button
 
     And I click the "Type" button
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
@@ -46,6 +48,7 @@ Feature: 日志展现_其它
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
@@ -72,9 +75,11 @@ Feature: 日志展现_其它
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/6其它/<chartType>_<caseNum>"
@@ -104,9 +109,10 @@ Feature: 日志展现_其它
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "actual/高级搜索视图/6其它/<chartType>_<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它/<chartType>_<caseNum>"
     Then I compare source image "actual/高级搜索视图/6其它/<chartType>_<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>_<caseNum>"
 
     Examples:
@@ -124,9 +130,11 @@ Feature: 日志展现_其它
 
     And I wait for "2000" millsecond
     And I click the "Type" button
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
@@ -158,6 +166,7 @@ Feature: 日志展现_其它
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
@@ -191,6 +200,7 @@ Feature: 日志展现_其它
 
     And I wait for "1000" millsecond
     And I click the "Settings" button
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
@@ -217,9 +227,11 @@ Feature: 日志展现_其它
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
@@ -258,9 +270,11 @@ Feature: 日志展现_其它
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "Chart" will be visible
     And I wait for "ChainTableElement" will be visible
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "Chart" will be visible
     And I wait for "ChainTableElement" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
@@ -293,9 +307,11 @@ Feature: 日志展现_其它
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
@@ -333,6 +349,7 @@ Feature: 日志展现_其它
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "Chart" will be visible
     And I wait for "ChainTreeElement" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
@@ -354,6 +371,7 @@ Feature: 日志展现_其它
     And I click the "<chartType>" button
 
     And I click the "Type" button
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I click the Circle "<node>" button
     And I wait for "2000" millsecond
@@ -383,10 +401,12 @@ Feature: 日志展现_其它
     And I click the "<color>" button
     And I click the "Generate" button
     And I click the "Settings" button
+    And I wait for "Chart" will be visible
 
     And I wait for "<chartType>Element" will be visible
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/6其它/Network/<chartType>_<color>_<repValue>"
@@ -420,6 +440,7 @@ Feature: 日志展现_其它
     And I set the parameter "MaxRange" with value "8"
     And I click the "Generate" button
     And I click the "Settings" button
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I click the Circle "Click<node>" button
     And I wait for "2000" millsecond

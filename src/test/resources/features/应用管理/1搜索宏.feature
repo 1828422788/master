@@ -3,6 +3,7 @@ Feature: 应用搜索宏（RZY-2126）
 
   Scenario Outline: 新建单个资源app
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     And I click the "CreateButton" button
     Then I will see the "app.CreatePage" page
     Given delete file "/target/download-files/<name>.tar"
@@ -31,6 +32,7 @@ Feature: 应用搜索宏（RZY-2126）
 
   Scenario Outline: 安装资源成功
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     And I wait for "CreateButton" will be visible
     And I click the "InstallButton" button
     Then I will see the "app.InstallPage" page
@@ -40,12 +42,14 @@ Feature: 应用搜索宏（RZY-2126）
     And I choose the "__admin__" from the "Role"
     And I click the "AddDataset" button
     And I set the parameter "SearchInput" with value "AutoTestApp"
-    And I click the "SearchIcon" button
+#    And I click the "SearchIcon" button
+    And I wait for "500" millsecond
     And I drag the scroll bar to the element "ResultDataset"
     And I click the "ResultDataset" button
     And I click the "Ensure" button
     And I click the "NextButton" button under some element
-    And I click the "NextButton" button under some element
+    And I wait for "1500" millsecond
+    And I click the "Done" button under some element
     And I wait for "ImportSuccess" will be visible
     And I will see the element "ImportSuccess" name is "添加成功"
 
@@ -55,7 +59,8 @@ Feature: 应用搜索宏（RZY-2126）
 
   Scenario Outline: 验证单个资源的app资源范围是否正确
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "<name>" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "<name>" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I wait for loading invisible
     And I wait for "EmptyText" will be visible
@@ -67,7 +72,8 @@ Feature: 应用搜索宏（RZY-2126）
 
   Scenario: 新建搜索宏
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "MacroApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "MacroApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "MacroApp"
     Then I will see the "searchMacro.ListPage" page
@@ -82,7 +88,8 @@ Feature: 应用搜索宏（RZY-2126）
 
   Scenario: 编辑搜索宏
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "MacroApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "MacroApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "MacroApp"
     Then I will see the "searchMacro.ListPage" page
@@ -97,11 +104,13 @@ Feature: 应用搜索宏（RZY-2126）
 
   Scenario: 搜索宏标签
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "MacroApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "MacroApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "MacroApp"
     Then I will see the "searchMacro.ListPage" page
-    When the data name is "AutoApp" then i click the "标签" button
+    When the data name is "AutoApp" then i click the "标签" button in more menu
+    And I click the Element with text "请选择或输入"
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "TagDropdown"
@@ -111,7 +120,8 @@ Feature: 应用搜索宏（RZY-2126）
 
   Scenario: 根据标签查找
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "MacroApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "MacroApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "MacroApp"
     Then I will see the "searchMacro.ListPage" page
@@ -124,7 +134,8 @@ Feature: 应用搜索宏（RZY-2126）
 
   Scenario: 按名称搜索搜索宏
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "MacroApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "MacroApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "MacroApp"
     Then I will see the "searchMacro.ListPage" page
@@ -167,11 +178,12 @@ Feature: 应用搜索宏（RZY-2126）
 
   Scenario Outline: 搜索宏删除
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "MacroApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "MacroApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "MacroApp"
     Then I will see the "searchMacro.ListPage" page
-    When the data name is "<name>" then i click the "删除" button
+    When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I wait for element "Message" change text to "删除成功"

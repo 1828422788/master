@@ -186,7 +186,7 @@ Feature: 趋势图_选择数据集
 
     Examples:
       | chart    |  datasetspl                                                                                                               |spl    |
-      | Column   |  tag:sample04061424_chart \| where((apache.resp_len<70 \|\| apache.resp_len>1500) && apache.clientip!="221.226.97.92" && apache.clientip!="183.14.126.216")    |tag:sample04061424_chart \| where((apache.resp_len<70 \|\| apache.resp_len>1500) && apache.clientip!="221.226.97.92" && apache.clientip!="183.14.126.216")\|stats count(apache.clientip) by apache.clientip,apache.status |
+      | Column   |  tag:sample04061424_chart \| where((apache.resp_len<70 \|\| apache.resp_len>1500) && apache.clientip!="221.226.97.92" && apache.clientip!="183.14.126.216")    |tag:sample04061424_chart \| where((apache.resp_len<70 \|\| apache.resp_len>1500) && apache.clientip!="221.226.97.92" && apache.clientip!="183.14.126.216") \| stats count(apache.clientip) by apache.clientip,apache.status |
 
 
   Scenario Outline:  union_dataset_12

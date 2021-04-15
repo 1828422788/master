@@ -76,7 +76,7 @@ Feature: 应用已存搜索（RZY-2125）
     And I will see the element "Title" name is "AutoTestAppWithAllResources"
     Then I will see the "splSearch.SearchPage" page
     When I click the "SavedSearch" button
-    When I click the Element with text "新建"
+    And I click the Element with text "新建"
 #    And I choose the "新建" from the "DropdownMenu"
     And I set the parameter "OfflineTaskName" with value "AutoApp"
     And I choose the "SavedsearchesApp" from the "AppDropdown"
@@ -86,9 +86,10 @@ Feature: 应用已存搜索（RZY-2125）
 
   Scenario: 新建无所属app的已存搜索
     Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for loading invisible
     When I click the "SavedSearch" button
 #    And I choose the "新建" from the "DropdownMenu"
-    When I click the Element with text "新建"
+    And I click the Element with text "新建"
     And I set the parameter "OfflineTaskName" with value "验证无App"
     And I click the "EnsureCreateSavedSearch" button
     And I wait for "SuccessMessage" will be visible

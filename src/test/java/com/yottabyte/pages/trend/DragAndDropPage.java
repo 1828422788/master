@@ -130,6 +130,9 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(xpath = "//div[@yotta-test='trend-dataset_time-date_time_picker' or @yotta-test='trend-BI_time-date_time_picker']")
     private WebElement dateEditor;
 
+    @FindBy(xpath = "//div[@yotta-test='trend-BI_param_fixedSetting-auto_complete']//input")
+    private WebElement iconName;
+
     public WebElement getRangeColor() {
         return rangeColor;
     }
@@ -677,7 +680,7 @@ public class DragAndDropPage extends CreatePage {
     }
 
     public WebElement getIconName() {
-        return getYottaInput("trend-BI_param_fixedSetting-input");
+        return iconName;
     }
 
     public WebElement getTitleName() {

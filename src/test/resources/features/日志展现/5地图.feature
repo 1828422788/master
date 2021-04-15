@@ -56,8 +56,8 @@ Feature: 日志展现_地图
     And I wait for "Chart" will be visible
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I wait for "<chartType>Element" will be visible
     And I wait for "Chart" will be visible
+    And I wait for "<chartType>Element" will be visible
     And I wait for "3000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<regionBut>_<chartType>"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<regionBut>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<regionBut>_<chartType>"

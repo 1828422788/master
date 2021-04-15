@@ -6,8 +6,7 @@ Feature: 用户分组搜索
 
   Scenario: 搜索
     When I set the parameter "SearchInput" with value "AutoTestForEdit"
-    And I click the "SearchIcon" button
-    And I wait for loading invisible
+    And I wait for "3000" millsecond
     Then I will see the search result "{'column':'1','name':'AutoTestForEdit'}"
 
 

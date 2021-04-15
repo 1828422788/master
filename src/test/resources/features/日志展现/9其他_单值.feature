@@ -16,6 +16,7 @@ Feature: 日志展现_其他_单值
     And I click the "<chartType>" button
 
     And I click the "Type" button
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
@@ -44,12 +45,14 @@ Feature: 日志展现_其他_单值
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I will see the element "<chartType>Element" style contains "font-size: 100px"
     And I will see the element "<chartType>Element" style contains "color: rgb(92, 157, 245)"
     And I will see the element "<chartType>Element" contains "124"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I will see the element "<chartType>Element" style contains "font-size: 100px"
     And I will see the element "<chartType>Element" style contains "color: rgb(92, 157, 245)"
@@ -79,6 +82,7 @@ Feature: 日志展现_其他_单值
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I will see the element "<chartType>Element" style contains "font-size: 100px"
     And I will see the element "<chartType>Element" style contains "color: rgb(255, 255, 255)"
@@ -108,6 +112,7 @@ Feature: 日志展现_其他_单值
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I will see the element "<chartType>Element" style contains "font-size: 150px"
     And I will see the element "<chartType>Element" style contains "color: rgb(255, 255, 255)"
@@ -150,6 +155,7 @@ Feature: 日志展现_其他_单值
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I will see the element "<chartType>Element" style contains "font-size: 100px"
     And I wait for "2000" millsecond
@@ -186,6 +192,7 @@ Feature: 日志展现_其他_单值
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I will see the element "<chartType>Element" style contains "font-size: 100px"
     And I will see the element "<chartType>Element" style contains "<style>"
@@ -223,12 +230,14 @@ Feature: 日志展现_其他_单值
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I will see the element "<chartType>Element" style contains "font-size: 60px"
     And I will see the element "<chartType>Element" style contains "color: rgb(255, 255, 255)"
     And I will see the element "<chartType>Element" contains "5"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I will see the element "<chartType>Element" style contains "font-size: 60px"
     And I will see the element "<chartType>Element" style contains "color: rgb(255, 255, 255)"
@@ -279,6 +288,7 @@ Feature: 日志展现_其他_单值
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I will see the element "<chartType>Element" style contains "font-size: 80px"
     And I will see the element "<chartType>Element" style contains "color: rgb(255, 255, 255)"
@@ -318,6 +328,7 @@ Feature: 日志展现_其他_单值
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<option>"
