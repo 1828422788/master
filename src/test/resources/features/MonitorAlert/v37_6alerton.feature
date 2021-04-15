@@ -1,6 +1,11 @@
 @bvtalert @alertcase @onalert
 Feature: 监控启用
 
+  Background:
+    Given open the "alert.ListPage" page for uri "/alerts/"
+#    And I wait for "3000" millsecond
+    And I wait for loading invisible
+
   @onalert0
   Scenario Outline: 启用高优先级用例
     Given open the "alert.ListPage" page for uri "/alerts/"
@@ -92,24 +97,21 @@ Feature: 监控启用
       | api9_事件_multiwords_切分_扩展chart插图_键值_邮件_splark |
       | api9_字段统计_切分ip_最大数status_扩展chart键值_all_spark |
 
-  @onalert2 @alertcase
-  Scenario Outline: 启用
-    Given open the "alert.ListPage" page for uri "/alerts/"
+#  @onalert2 @alertcase
+#  Scenario Outline: 启用
+#    When I set the parameter "AlertListSearchInput" with value "<name>"
 #    And I wait for "3000" millsecond
-    And I wait for loading invisible
-    When I set the parameter "AlertListSearchInput" with value "<name>"
-    And I wait for "3000" millsecond
-
-    When the data name is "{'column':'1','name':'<name>'}" then I "open" the switch
-    And I wait for "3000" millsecond
-    And I wait for loading invisible
-
-    Then I will see the element "{'column':'1','name':'<name>'}" is "open"
-
-    Examples:
-      | name                             |
-      | 维护期_字段统计_分组事件数status_邮件_每月1-30   |
-      | 维护期_字段统计_分组事件数status_邮件_每周一至周六   |
-      | 维护期_字段统计_分组事件数status_邮件_每天0-23点  |
-      | 维护期_字段统计_分组事件数status_邮件_永久       |
-      | 维护期_字段统计_分组事件数status_邮件_单次今天9点开始 |
+#
+#    When the data name is "{'column':'1','name':'<name>'}" then I "open" the switch
+#    And I wait for "3000" millsecond
+#    And I wait for loading invisible
+#
+#    Then I will see the element "{'column':'1','name':'<name>'}" is "open"
+#
+#    Examples:
+#      | name                             |
+#      | 维护期_字段统计_分组事件数status_邮件_每月1-30   |
+#      | 维护期_字段统计_分组事件数status_邮件_每周一至周六   |
+#      | 维护期_字段统计_分组事件数status_邮件_每天0-23点  |
+#      | 维护期_字段统计_分组事件数status_邮件_永久       |
+#      | 维护期_字段统计_分组事件数status_邮件_单次今天9点开始 |
