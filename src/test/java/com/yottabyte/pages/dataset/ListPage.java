@@ -165,10 +165,10 @@ public class ListPage extends ListPageFactory {
         return getLastDropdownList();
     }
 
-    @FindBy(xpath = "//div[@id='EditDatabase_app_ids']//i[contains(@class,'anticon-close-circle')]")
+    @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']")
     private WebElement deleteApp;
 
-    @FindBy(className = "ant-select-selection__rendered")
+    @FindBy(xpath = "//*[@yotta-test='dataset-apps-select']/div")
     private WebElement beforeDeleteApp;
     //新建数据集弹窗中的汇聚继承
     @FindBy(xpath = "//label[contains(text(),'父子行为')]/following::span[text()='汇聚']")

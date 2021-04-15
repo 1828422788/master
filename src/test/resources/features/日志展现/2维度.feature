@@ -48,6 +48,7 @@ Feature: 日志展现_维度
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color1>" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -74,6 +75,7 @@ Feature: 日志展现_维度
     And I click the "Exhibition" button
     And I wait for "1000" millsecond
     And I choose the "<option>" from the "ShowLabel" in config
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -191,6 +193,7 @@ Feature: 日志展现_维度
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button

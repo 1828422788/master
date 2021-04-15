@@ -71,6 +71,7 @@ Feature: 日志展现_其它
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Orange" button
+    And I wait for "1000" millsecond
     And I choose the "1" from the "Precision" in config
     And I click the "Generate" button
 
@@ -106,6 +107,7 @@ Feature: 日志展现_其它
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Red" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -163,6 +165,7 @@ Feature: 日志展现_其它
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color1>" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -196,6 +199,7 @@ Feature: 日志展现_其它
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color1>" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I wait for "1000" millsecond
@@ -224,6 +228,7 @@ Feature: 日志展现_其它
     And I click the "Yaxis" button
     And I choose the "<yValue>" from the "FieldValue" in config
     And I set the parameter "Segments" with value "<segNum>"
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -266,6 +271,7 @@ Feature: 日志展现_其它
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I choose the "<precision>" from the "Precision" in config
     And I click the "Generate" button
 
@@ -344,8 +350,10 @@ Feature: 日志展现_其它
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I choose the "<precision>" from the "Precision" in config
     And I choose the "tree" from the "TracingType" in config
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -399,6 +407,7 @@ Feature: 日志展现_其它
     And I set the parameter "Repulsion" with value "<repValue>"
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
     And I click the "Settings" button
     And I wait for "Chart" will be visible
@@ -438,6 +447,7 @@ Feature: 日志展现_其它
     And I click the "AddRange" button
     And I set the parameter "MinRange" with value "7"
     And I set the parameter "MaxRange" with value "8"
+    And I wait for "1000" millsecond
     And I click the "Generate" button
     And I click the "Settings" button
     And I wait for "Chart" will be visible

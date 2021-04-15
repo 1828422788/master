@@ -46,6 +46,7 @@ Feature: 日志展现_序列
     And I set the parameter "Min" with value "1"
     And I set the parameter "Max" with value "15"
     And I click the "<buttonChoice>" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -74,6 +75,7 @@ Feature: 日志展现_序列
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -103,6 +105,7 @@ Feature: 日志展现_序列
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Orange" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -137,6 +140,7 @@ Feature: 日志展现_序列
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Red" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button

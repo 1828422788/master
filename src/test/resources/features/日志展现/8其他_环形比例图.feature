@@ -19,6 +19,7 @@ Feature: 日志展现_其它_环形比例图
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Orange" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -130,6 +131,7 @@ Feature: 日志展现_其它_环形比例图
     And I set the parameter "MaxRange" with value "1"
     And I click the "AddColor" button
     And I click the "Green" button
+    And I wait for "1000" millsecond
 
     And I click the "Generate" button
 
