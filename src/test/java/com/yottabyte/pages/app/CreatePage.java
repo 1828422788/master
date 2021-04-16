@@ -85,7 +85,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "item-title-edit-group")
     private WebElement editGroup;
 
-    @FindBy(xpath = "(//a[text()='添加子菜单'])[1]")
+    @FindBy(xpath = "//span[text()='事件操作']/following-sibling::p/span[contains(@class, 'yotta-icon-AddCircleOutlined')]")
     private WebElement addSubmenu;
 
     @FindBy(xpath = "//span[text()='全局']")
@@ -160,22 +160,22 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='字段配置']")
     private WebElement fieldConfig;
 
-    @FindBy(id = "FieldConfig_name")
+    @FindBy(xpath = "//*[@yotta-test='application-field_transform_name-input']")
     private WebElement fieldConfigName;
 
-    @FindBy(id = "FieldAliasModal_name")
+    @FindBy(xpath = "//*[@yotta-test='application-field_alias_name-input']")
     private WebElement fieldAliasModalName;
 
-    @FindBy(xpath = "(//input[contains(@id,'original')])[last()]")
+    @FindBy(xpath = "(//input[@yotta-test='application-field_alias_mappings_original-input'])[last()]")
     private WebElement originalField;
 
-    @FindBy(xpath = "(//input[contains(@id,'alias')])[last()]")
+    @FindBy(xpath = "(//input[@yotta-test='application-field_alias_mappings_alias-input'])[last()]")
     private WebElement fieldAlias;
 
-    @FindBy(xpath = "//a[text()='添加别名映射']")
+    @FindBy(xpath = "//span[text()='添加别名映射']")
     private WebElement addAlias;
 
-    @FindBy(xpath = "(//a[text()='删除'])[last()]")
+    @FindBy(xpath = "(//span[text()='删除'])[last()]")
     private WebElement deleteAlias;
 
     @FindBy(xpath = "//div[text()='字段查找']")
@@ -208,10 +208,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//input[contains(@id,'.output')])[last()]")
     private WebElement outputField;
 
-    @FindBy(id = "FieldConfig_regex")
+    @FindBy(xpath = "(//*[@yotta-test='application-field_transform_regex-input'])[last()]")
     private WebElement fieldConfigRegex;
 
-    @FindBy(id = "FieldConfig_format")
+    @FindBy(xpath = "(//*[@yotta-test='application-field_transform_format-input'])[last()]")
     private WebElement fieldConfigFormat;
 
     @FindBy(partialLinkText = "添加字段转换")

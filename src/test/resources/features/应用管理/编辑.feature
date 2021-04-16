@@ -3,6 +3,7 @@ Feature: 应用编辑
 
   Scenario: 编辑应用
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "EventApp" then i click the "编辑" button
     And I wait for loading invisible
     Then I will see the "app.CreatePage" page
@@ -26,7 +27,8 @@ Feature: 应用编辑
 
   Scenario: 跳转外部链接
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "EventApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "EventApp" then i click the "打开" button in more menu
     Then I will see the "app.AppPage" page
     And I click the "Baidu" button
     Then the page's title will be "百度一下，你就知道"

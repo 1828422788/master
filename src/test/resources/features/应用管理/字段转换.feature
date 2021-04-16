@@ -3,6 +3,7 @@ Feature: 应用字段转换
 
   Scenario: 添加字段转换
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "AppFieldConfig" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I click the "FieldConfig" button
@@ -10,12 +11,15 @@ Feature: 应用字段转换
     And I click the "FieldConvert" button
     And I click the "AddFieldConvert" button
     And I set the parameter "FieldConfigName" with value "AutoTest"
-    And I set the parameter "FieldConfigRegex" with value "(\d+)"
+    And I wait for "1000" millsecond
+    And I set the parameter "FieldConfigRegex" with value "c"
+    And I wait for "1000" millsecond
     And I set the parameter "FieldConfigFormat" with value "auto_test::$1"
     And I click the "SaveButton" button under some element
 
   Scenario: 添加字段萃取
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "AppFieldConfig" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I click the "FieldConfig" button
@@ -28,7 +32,8 @@ Feature: 应用字段转换
 
   Scenario: 验证正则类型字段转换生效
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "AppFieldConfig" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "AppFieldConfig" then i click the "打开" button in more menu
     Then I will see the "splSearch.SearchPage" page
     And I set the parameter "SearchInput" with value "appname:apache"
     And I click the "DateEditor" button
@@ -41,6 +46,7 @@ Feature: 应用字段转换
 
   Scenario: 添加分隔符字段转换
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "AppFieldConfig" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I click the "FieldConfig" button
@@ -55,6 +61,7 @@ Feature: 应用字段转换
 
   Scenario: 添加分隔符字段萃取
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "AppFieldConfig" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I click the "FieldConfig" button
@@ -67,7 +74,8 @@ Feature: 应用字段转换
 
   Scenario: 验证正则类型字段转换生效
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "AppFieldConfig" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "AppFieldConfig" then i click the "打开" button in more menu
     Then I will see the "splSearch.SearchPage" page
     And I set the parameter "SearchInput" with value "appname:apache"
     And I click the "DateEditor" button

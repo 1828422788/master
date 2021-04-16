@@ -3,6 +3,7 @@ Feature: 应用字段别名
 
   Scenario Outline: 新建KV字典应用
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     And I click the "CreateButton" button
     Then I will see the "app.CreatePage" page
     Given delete file "/target/download-files/<name>.tar"
@@ -40,7 +41,8 @@ Feature: 应用字段别名
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "__admin__" from the "Role"
     And I click the "NextButton" button under some element
-    And I click the "NextButton" button under some element
+    And I wait for "1500" millsecond
+    And I click the "Done" button under some element
     And I wait for "ImportSuccess" will be visible
     And I will see the element "ImportSuccess" name is "添加成功"
 
@@ -50,6 +52,7 @@ Feature: 应用字段别名
 
   Scenario: 添加字段别名
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "AppFieldConfig" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I click the "FieldConfig" button
@@ -62,6 +65,7 @@ Feature: 应用字段别名
 
   Scenario Outline: 字段别名失败校验
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "AppFieldConfig" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I click the "FieldConfig" button
@@ -84,6 +88,7 @@ Feature: 应用字段别名
 
   Scenario: 验证字段别名
     Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for loading invisible
     And I set the parameter "SearchInput" with value "*|stats count() by appname|limit 1"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -91,7 +96,8 @@ Feature: 应用字段别名
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I set value with element "TrList"
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "AppFieldConfig" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "AppFieldConfig" then i click the "打开" button in more menu
     Then I will see the "splSearch.SearchPage" page
     And I set the parameter "SearchInput" with value "*|stats count() by app|limit 1"
     And I click the "DateEditor" button
@@ -102,6 +108,7 @@ Feature: 应用字段别名
 
   Scenario: 添加多个字段别名映射
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "AppFieldConfig" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I click the "FieldConfig" button
@@ -114,6 +121,7 @@ Feature: 应用字段别名
 
   Scenario: 验证多个字段别名映射
     Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for loading invisible
     And I set the parameter "SearchInput" with value "* | stats count() by apache.geo.province,appname|limit 1"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -121,7 +129,8 @@ Feature: 应用字段别名
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I set value with element "TrList"
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "AppFieldConfig" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "AppFieldConfig" then i click the "打开" button in more menu
     Then I will see the "splSearch.SearchPage" page
     And I set the parameter "SearchInput" with value "* | stats count() by province,app|limit 1"
     And I click the "DateEditor" button
@@ -132,17 +141,19 @@ Feature: 应用字段别名
 
   Scenario: 删除字段别名映射
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "AppFieldConfig" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I click the "FieldConfig" button
     And I wait for "AddFieldAlias" will be visible
     When the data name is "AutoTest" then i click the "编辑" button
     And I click the "DeleteAlias" button
-    And I click the "SaveButton" button under some element
+    And I click the "Ensure" button under some element
 
   Scenario: 验证删除成功
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "AppFieldConfig" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "AppFieldConfig" then i click the "打开" button in more menu
     Then I will see the "splSearch.SearchPage" page
     And I set the parameter "SearchInput" with value "* | stats count() by app"
     And I click the "DateEditor" button
@@ -153,6 +164,7 @@ Feature: 应用字段别名
 
   Scenario: 添加多个字段别名
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "AppFieldConfig" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I click the "FieldConfig" button
@@ -165,6 +177,7 @@ Feature: 应用字段别名
 
   Scenario: 验证多个字段别名
     Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for loading invisible
     And I set the parameter "SearchInput" with value "* | stats count() by apache.geo.province,appname|limit 1"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -172,7 +185,8 @@ Feature: 应用字段别名
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I set value with element "TrList"
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "AppFieldConfig" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "AppFieldConfig" then i click the "打开" button in more menu
     Then I will see the "splSearch.SearchPage" page
     And I set the parameter "SearchInput" with value "* | stats count() by province,app|limit 1"
     And I click the "DateEditor" button
