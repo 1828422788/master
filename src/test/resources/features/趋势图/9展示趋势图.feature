@@ -4,7 +4,7 @@ Feature: 展示趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When I set the parameter "SearchInput" with value "<name>"
     And I wait for "2000" millsecond
-    And the data name is "{'column':'0','name':'<name>'}" then i click the "展示趋势图" button
+    And the data name is "{'column':'0','name':'<name>'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
     And I close all tabs except main tab
     Then I will see the "trend.ViewPage" page
@@ -93,8 +93,10 @@ Feature: 展示趋势图
     And I will see the element "ChartName" contains "<name>"
     Then I will see the "trend.CreatePage" page
     And I wait for "<element>" will be visible
+    Then I will see the "trend.ViewPage" page
+    And I move the mouse pointer to the "ChartName"
     And I wait for "3000" millsecond
-    And take part of "StatisticalChart" with name "actual/<name>"
+    And take part of "ChartView" with name "actual/<name>"
     And I compare source image "actual/<name>" with target image "expect/<name>"
 
     @viewTrendOrder @trendView

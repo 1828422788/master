@@ -131,3 +131,38 @@ Feature: 趋势图_提示
     And I click the "Complete" button under some element
     And I wait for "TipText" will be visible
     And I will see the element "TipText" contains "名称格式有误，仅支持中文，数字，字母，中划线以及下划线的组合。"
+
+  Scenario: new_trend_step2_change
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "NewTrendButton" button
+    Then I will see the "trend.CreatePage" page
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I wait for "CheckBox" will be visible
+    When I "checked" the checkbox which name is "timestamp" in trend page
+    And I wait for "CheckBox" will be visible
+    And I "checked" the checkbox which name is "apache.clientip" in trend page
+    And I wait for "CheckBox" will be visible
+    And I click the "NextButton" button
+    And I will see the "trend.DragAndDropDash" page
+    And I will see the "Dimensions" is display
+    
+    And I will see the "trend.CreatePage" page
+    And I click the "BackButton" button
+    And I wait for "SearchInput" will be visible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the input element "SearchInput" value will be "tag:sample04061424_chart"
+    And I will see the element "DateEditor" contains "今天"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.clientip"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button under some element
+    And I wait for "2000" millsecond
+    And I wait for "Header" will be visible
+    And I will see the "Type" is display
+    And I will see the "Dimensions" doesn't exist

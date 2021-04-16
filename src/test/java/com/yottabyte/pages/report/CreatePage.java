@@ -124,22 +124,22 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[contains(@yotta-test,'report-container-collapse')]//div[contains(@class,'yotta-accordion')][1]//span[contains(@class,'text')]")
     private WebElement chosenTrendFirst;
 
-    @FindBy(xpath = "(//div[contains(@yotta-test,'report-container-collapse')]//span[@aria-label='CloseCircleFilled'])[last()]")
+    @FindBy(xpath = "//span[@yotta-test='report-close_2-icon']")
     private WebElement lastTrendDelete;
 
-    @FindBy(xpath = "(//div[contains(@yotta-test,'report-container-collapse')]//span[@aria-label='CloseCircleFilled'])[1]")
+    @FindBy(xpath = "//span[@yotta-test='report-close_0-icon']")
     private WebElement firstTrendDelete;
 
-    @FindBy(xpath = "(//div[contains(@yotta-test,'report-container-collapse')]//span[@aria-label='ToTopOutlined'])[last()]")
+    @FindBy(xpath = "//span[@yotta-test='report-top_2-icon']")
     private WebElement lastTrendUpTop;
 
-    @FindBy(xpath = "(//div[contains(@yotta-test,'report-container-collapse')]//span[@aria-label='ToBottomOutlined'])[1]")
+    @FindBy(xpath = "//span[@yotta-test='report-bottom_0-icon']")
     private WebElement firstTrendDownBottom;
 
-    @FindBy(xpath = "(//div[contains(@yotta-test,'report-container-collapse')]//span[@aria-label='MoveUpFilled'])[last()]")
+    @FindBy(xpath = "//span[@yotta-test='report-up_2-icon']")
     private WebElement lastTrendUp;
 
-    @FindBy(xpath = "(//div[contains(@yotta-test,'report-container-collapse')]//span[@aria-label='MoveDownFilled'])[1]")
+    @FindBy(xpath = "//span[@yotta-test='report-down_0-icon']")
     private WebElement firstTrendDown;
 
     @FindBy(xpath = "//span[contains(text(),'描述')]/following-sibling::p")
