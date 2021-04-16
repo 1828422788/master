@@ -2045,4 +2045,18 @@ public class CreatePage extends PageTemplate {
         return webDriver.findElement(By.xpath(xpath));
     }
 
+    @FindBy(xpath = "//*[@yotta-test='trend-trend_app-select']/div")
+    private WebElement beforeDeleteApp;
+
+    public WebElement getBeforeDeleteApp() {
+        return beforeDeleteApp;
+    }
+
+    @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']")
+    private WebElement deleteApp;
+
+    public WebElement getDeleteApp() {
+        return deleteApp;
+    }
+
 }
