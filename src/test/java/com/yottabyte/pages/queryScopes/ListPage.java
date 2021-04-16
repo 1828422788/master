@@ -84,7 +84,7 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getTag() {
-        return super.getPlaceholderInput("请输入 Tag");
+        return super.getPlaceholderInput("请输入 tag");
     }
 
     public WebElement getAppname() {

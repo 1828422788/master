@@ -5,7 +5,7 @@ Feature: 角色复制
     Given open the "roles.ListPage" page for uri "/account/roles/"
 
   Scenario: 授权角色所有功能权限
-    When the data name is "AutoTestEdit" then i click the "授权" button
+    When the data name is "AutoTestEdit" then i click the "授权" button in more menu
     And I will see the "roles.AuthorizationPage" page
     When I "unchecked" the checkbox which name is "全选"
     When I "checked" the checkbox which name is "全选"
@@ -13,7 +13,7 @@ Feature: 角色复制
     Then I will see the success message "更新成功"
 
   Scenario Outline: 复制角色成功
-    Given the data name is "<property>" then i click the "复制" button
+    Given the data name is "<property>" then i click the "复制" button in more menu
     And I will see the "roles.CreatePage" page
     And I wait for "2000" millsecond
     And I set the parameter "RoleName" with value "<newName>"

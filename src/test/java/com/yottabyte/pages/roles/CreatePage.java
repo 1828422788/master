@@ -38,6 +38,11 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "ant-form-explain")
     private WebElement explainMessage;
 
+    @FindBy(className = "yotta-dialog-contenttext")
+    private WebElement explainErrorMessage;
+
+    public WebElement getExplainErrorMessage() { return explainErrorMessage; }
+
     public WebElement getExplainMessage() {
         return explainMessage;
     }
@@ -47,7 +52,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getRoleDes() {
-        return roleDes;
+        return getYottaInput("role-memo-input");
     }
 
     public List<WebElement> getResourceGroupCheckbox() {

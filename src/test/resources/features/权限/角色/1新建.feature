@@ -21,11 +21,11 @@ Feature: 角色新建（RZY-517至521）
     And I will see the "roles.CreatePage" page
     And I set the parameter "RoleName" with value "<RoleName>"
     When I click the "CreateButton" button
-    Then I will see the error message "<Result>"
+    Then I will see the element "ExplainErrorMessage" value contains "<Result>"
 
     Examples:
       | RoleName     | Result                     |
-      | AutoTestEdit | 创建失败: role_name: AutoTestEdit 已存在 |
+      | AutoTestEdit | AUTH: 创建失败, role_name: AutoTestEdit 已存在 |
 
   Scenario Outline: 角色名称非空校验
     Given I click the "Create" button
