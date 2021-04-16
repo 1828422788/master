@@ -75,4 +75,20 @@ public class ListPage extends ListPageFactory {
     public WebElement getInputElement(String name) {
         return webDriver.findElement(By.xpath("//div[text()='名称：']/following::input"));
     }
+
+    @FindBy(xpath = "//*[@yotta-test='resource_tag-change_resource_tag-select']/div")
+    private WebElement resourceTag;
+
+    public WebElement getResourceTag() {
+        resourceTag.click();
+        return super.getLastDropdownList();
+    }
+
+    @FindBy(xpath = "//*[@yotta-test='topology-list_app-select']/div")
+    private WebElement belongApp;
+
+    public WebElement getBelongApp() {
+        belongApp.click();
+        return super.getLastDropdownList();
+    }
 }

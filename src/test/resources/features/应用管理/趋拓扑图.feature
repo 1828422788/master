@@ -3,6 +3,7 @@ Feature: 应用拓扑图（RZY-2142）
 
   Scenario Outline: 新建单个资源app
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     And I click the "CreateButton" button
     Then I will see the "app.CreatePage" page
     Given delete file "/target/download-files/<name>.tar"
@@ -40,12 +41,14 @@ Feature: 应用拓扑图（RZY-2142）
     And I choose the "__admin__" from the "Role"
     And I click the "AddDataset" button
     And I set the parameter "SearchInput" with value "AutoTestApp"
-    And I click the "SearchIcon" button
+#    And I click the "SearchIcon" button
+    And I wait for "500" millsecond
     And I drag the scroll bar to the element "ResultDataset"
     And I click the "ResultDataset" button
     And I click the "Ensure" button
     And I click the "NextButton" button under some element
-    And I click the "NextButton" button under some element
+    And I wait for "1500" millsecond
+    And I click the "Done" button under some element
     And I wait for "ImportSuccess" will be visible
     And I will see the element "ImportSuccess" name is "添加成功"
 
@@ -55,7 +58,8 @@ Feature: 应用拓扑图（RZY-2142）
 
   Scenario Outline: 验证资源正确
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "<name>" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "<name>" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I wait for loading invisible
     Then I will see the search result "app所选资源"
@@ -67,14 +71,19 @@ Feature: 应用拓扑图（RZY-2142）
 
   Scenario: 新建拓扑图
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "TopologyApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "TopologyApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "TopologyApp"
     Then I will see the "topology.ListPage" page
     When I click the "Create" button
+    And I choose the "TopologyApp" from the "BelongApp"
+    And I wait for "1500" millsecond
+#    And I set the parameter "TagInput" with value "AutoTest"
+    And I choose the "AutoTest" from the "ResourceTag"
+    And I wait for "1500" millsecond
     And I set the parameter "NameInput" with value "AutoTestApp"
-    And I set the parameter "TagInput" with value "AutoTest"
-    And I choose the "AutoTest" from the "TagDropdown"
+    And I wait for "500" millsecond
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
@@ -83,11 +92,12 @@ Feature: 应用拓扑图（RZY-2142）
 
   Scenario: 拓扑图重命名
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "TopologyApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "TopologyApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "TopologyApp"
     Then I will see the "topology.ListPage" page
-    When the data name is "AutoTestApp" then i click the "重命名" button
+    When the data name is "AutoTestApp" then i click the "重命名" button in more menu
     Then I set the parameter "NameInput" with value "AutoApp"
     Then I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
@@ -97,7 +107,8 @@ Feature: 应用拓扑图（RZY-2142）
 
   Scenario: 新建无标签拓扑图
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "TopologyApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "TopologyApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "TopologyApp"
     Then I will see the "topology.ListPage" page
@@ -109,7 +120,8 @@ Feature: 应用拓扑图（RZY-2142）
 
   Scenario Outline: 根据标签搜索（RZY-355）
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "TopologyApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "TopologyApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "TopologyApp"
     Then I will see the "topology.ListPage" page
@@ -125,7 +137,8 @@ Feature: 应用拓扑图（RZY-2142）
 
   Scenario Outline: 根据输入内容搜索（RZY-354）
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "TopologyApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "TopologyApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "TopologyApp"
     Then I will see the "topology.ListPage" page
@@ -141,14 +154,17 @@ Feature: 应用拓扑图（RZY-2142）
 
   Scenario: 拓扑图详情
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "TopologyApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "TopologyApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "TopologyApp"
     Then I will see the "topology.ListPage" page
+    And I wait for loading invisible
     And I click the detail which name is "AutoApp"
     And I will see the "app.AppPage" page
+    And I wait for loading invisible
     Then I will see the url contains "app"
-    Then the page's title will be "拓扑图详情"
+#    Then the page's title will be "拓扑图详情"
     And open the "topology.ListPage" page for uri "/topology/"
 
   Scenario: 新建无所属应用的拓扑图
@@ -182,11 +198,13 @@ Feature: 应用拓扑图（RZY-2142）
 
   Scenario Outline: 删除拓扑图
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "TopologyApp" then i click the "打开" button
+    And I wait for loading invisible
+    When the data name is "TopologyApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "TopologyApp"
     Then I will see the "topology.ListPage" page
-    When the data name is "<name>" then i click the "删除" button
+    And I wait for loading invisible
+    When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
