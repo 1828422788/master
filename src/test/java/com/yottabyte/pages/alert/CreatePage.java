@@ -825,6 +825,7 @@ public class CreatePage extends PageTemplate {
     // 添加告警类型下拉框按钮
     @FindBy(className = "add-config-dropdown-button")
     private WebElement addAlertNoteTypeButton;
+
     private WebElement getAlertNoteTypes() {
         com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(addAlertNoteTypeButton));
         addAlertNoteTypeButton.click();
@@ -907,14 +908,6 @@ public class CreatePage extends PageTemplate {
         return crontab;
     }
 
-    //    @FindBy(xpath = "//div[text()='crontab']/ancestor::span/ancestor::span/following-sibling::div//input")
-    @FindBy(xpath = "//label[contains(text(),'执行计划')]/following::div[text()='crontab']/following::input[@placeholder='请输入']")
-    private WebElement crontabInput;
-
-    public WebElement getCrontabInput() {
-        return crontabInput;
-    }
-
     // 执行计划输入框 定时激活时为输入框和单位下拉框;crontab激活时为输入框
     @FindBy(xpath = "//div[@class='el-form-item__content']/div[@class='el-row']//input")
     private List<WebElement> alertPlanInputs;
@@ -929,14 +922,21 @@ public class CreatePage extends PageTemplate {
     }
 
     // 执行计划-crontab按钮
-//    @FindBy(xpath = "//span[@class='el-radio-button__inner'][text()='crontab']")
-    @FindBy(xpath = "//label[contains(text(),'执行计划')]/following::div[text()='crontab']/parent::span/parent::label")
+    @FindBy(xpath = "//label[contains(text(),'执行计划')]/following::span[text()='crontab']")
 //    @FindBy(xpath = "//input[@name='frequencyRadio']/parent::span/parent::label")
     private WebElement alertPlanCrontabButton;
 
     public WebElement getAlertPlanCrontabButton() {
 //        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(alertPlanCrontabButton));
         return alertPlanCrontabButton;
+    }
+
+    //    @FindBy(xpath = "//label[@yotta-test='alert-frequency_crontab-input']/following::div[text()='crontab']/following::input[@placeholder='请输入']")
+    @FindBy(xpath = "//input[@yotta-test='alert-frequency_crontab-input']")
+    private WebElement crontabInput;
+
+    public WebElement getCrontabInput() {
+        return crontabInput;
     }
 
     @FindBy(xpath = "//label[contains(text(),'接收者')]/following::div[@yotta-test='alert-alert_methods_email_account_group-select']")
@@ -946,7 +946,7 @@ public class CreatePage extends PageTemplate {
         return mailReceiverButton;
     }
 
-//    @FindBy(xpath = "//label[contains(text(),'接收者')]/following::input")
+    //    @FindBy(xpath = "//label[contains(text(),'接收者')]/following::input")
     @FindBy(xpath = "//label[contains(text(),'接收者')]/following::div[@yotta-test='alert-alert_methods_email_account_group-select']//input")
     private WebElement mailReceiver;
 
@@ -954,7 +954,7 @@ public class CreatePage extends PageTemplate {
         return mailReceiver;
     }
 
-//    @FindBy(xpath = "//label[contains(text(),'接收者')]/following::div[@class='ant-select-selection__rendered']/ul/li")
+    //    @FindBy(xpath = "//label[contains(text(),'接收者')]/following::div[@class='ant-select-selection__rendered']/ul/li")
     @FindBy(xpath = "//label[contains(text(),'接收者')]/following::div[@yotta-test='alert-alert_methods_email_account_group-select']")
     private WebElement mailReceiverList;
 
@@ -1013,6 +1013,7 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='测试运行']/parent::button[@yotta-test='alert-alert_methods_attempt_run-button']")
     private WebElement testRunButton;
+
     public WebElement getTestRunButton() {
         return testRunButton;
     }
@@ -1045,8 +1046,8 @@ public class CreatePage extends PageTemplate {
     //
     @FindBy(xpath = "//span[contains(text(),'添加告警方式')]")
     private WebElement addAlertTypeButton;
-    public WebElement getAddAlertTypeButton()
-    {
+
+    public WebElement getAddAlertTypeButton() {
         return addAlertTypeButton;
     }
 
@@ -1075,4 +1076,19 @@ public class CreatePage extends PageTemplate {
     public WebElement getDeleteApp() {
         return deleteApp;
     }
+
+    @FindBy(xpath = "//button[@yotta-test='alert-resolve_crontab-button']")
+    private WebElement resolveCrontab;
+
+    public WebElement getResolveCrontab() {
+        return resolveCrontab;
+    }
+
+    @FindBy(xpath = "//button[@yotta-test='alert-resolve_confirm-button']")
+    private WebElement resolveConfirmButton;
+
+    public WebElement getResolveConfirmButton() {
+        return resolveConfirmButton;
+    }
+
 }

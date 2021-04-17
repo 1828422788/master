@@ -4,18 +4,24 @@ Feature: 设置监控执行计划
   @editalerts
   Scenario Outline:
     Given open the "alert.ListPage" page for uri "/alerts/"
-    And I wait for loading complete
+    Given I wait for loading complete
     When I set the parameter "AlertListSearchInput" with value "<name>"
-    And I wait for loading complete
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
 
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
 
     Then I will see the "alert.CreatePage" page
-    And I wait for loading complete
-    And I click the "AlertPlanCrontabButton" button
+    Given I wait for loading complete
     And I wait for "2000" millsecond
 
-    And I set the parameter "CrontabInput" with value "0 */10 * * ?"
+    And I click the "AlertPlanCrontabButton" button
+    Given I wait for "2000" millsecond
+
+    And I set the parameter "CrontabInput" with value "0 1/10 * * * ?"
+    When I click the "ResolveCrontab" button
+    Given I wait for loading complete
+    When I click the "resolveConfirmButton" button
 
     When I click the "SaveButton" button
 
