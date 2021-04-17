@@ -1,7 +1,7 @@
 @bvtalert @alertcase
 Feature:监控预览0
 
-  @detail
+  @bvtalert0
   Scenario Outline:
     And I wait for loading complete
     Given open the "alert.ListPage" page for uri "/alerts/"

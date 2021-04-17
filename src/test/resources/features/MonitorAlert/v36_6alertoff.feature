@@ -1,3 +1,4 @@
+@offalert
 Feature: 关闭监控
 
 #    Then I refresh the website

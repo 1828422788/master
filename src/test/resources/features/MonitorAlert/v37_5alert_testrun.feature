@@ -1,6 +1,7 @@
 @bvtalert @alertcase @testrun
 Feature: 测试运行-邮件1
 
+  @testrun1
   Scenario Outline:
     And I wait for loading invisible
     Given open the "alert.ListPage" page for uri "/alerts/"
