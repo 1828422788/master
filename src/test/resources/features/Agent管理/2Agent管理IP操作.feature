@@ -7,6 +7,7 @@ Feature: Agent管理ip操作
     And I close all tabs except main tab
 
   Scenario Outline: 修改备注成功
+    And I wait for loading invisible
     Then the column is "0" then i click the "更多" button in agent page
     And I wait for loading invisible
     And I click the "MemoButton" button
@@ -24,6 +25,7 @@ Feature: Agent管理ip操作
       | 68      |
 
   Scenario Outline: 修改备注失败
+    And I wait for loading invisible
     Then the column is "0" then i click the "更多" button in agent page
     And I wait for loading invisible
     And I click the "MemoButton" button
