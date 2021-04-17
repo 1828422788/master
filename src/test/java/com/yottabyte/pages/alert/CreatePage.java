@@ -996,8 +996,7 @@ public class CreatePage extends PageTemplate {
     }
 
     //预览窗口提示
-//  @FindBy(xpath = "//div[@id='rcDialogTitle0'][@class='ant-modal-title'][contains(text(),'提示')]")
-    @FindBy(xpath = "//div[@class='yotta-modal-body']//h4[contains(text(),'提示')]")
+    @FindBy(xpath = "//div[@yotta-test='alert-alert_methods_preview-modal']//span[contains(text(),'提示')]")
     private WebElement previewReminder;
 
     public WebElement getPreviewReminder() {

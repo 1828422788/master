@@ -3,8 +3,8 @@ Feature:监控预览1
 
   @preview1
   Scenario Outline:
-    And I wait for loading complete
     Given open the "alert.ListPage" page for uri "/alerts/"
+    Given I wait for loading complete
     When I set the parameter "AlertListSearchInput" with value "<name>"
     And I wait for loading complete
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
@@ -13,7 +13,6 @@ Feature:监控预览1
     And I wait for loading complete
 
     And I click the "AlertNoteTypeTab" button
-#    And I click the "AddAlertTypeButton" button
     And I choose the "邮件告警" from the "AlertNoteTypeListButton"
     And I wait for loading complete
     And I click the "MailAlertLabel" button
@@ -24,7 +23,6 @@ Feature:监控预览1
     And I choose the "2312200836@qq.com" from the "MailReceiverList"
     And I wait for loading complete
     And I wait for "2000" millsecond
-#    And I click the "mailReceiverLabel" button
     And I wait for loading complete
 
     And I wait for "MailAlertContentPanel" will be visible
