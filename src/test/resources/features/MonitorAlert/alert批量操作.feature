@@ -25,6 +25,7 @@ Feature: alert批量操作
   Scenario:  alert批量操作-启动
     When I click the "BatchControl" button
     When I set the parameter "searchInputName" with value "test删除_事件计数_设备切分ip"
+    Given I wait for loading complete
     And I wait for "2000" millsecond
 
     When I click the "allSelectCheckbox" button
@@ -92,6 +93,8 @@ Feature: alert批量操作
   Scenario:  alert批量操作-删除
     When I click the "BatchControl" button
     And I set the parameter "SearchInputName" with value "test删除_事件计数_设备切分ip"
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
     When I click the "allSelectCheckbox" button
 #    Then I will see the text "test删除_事件计数_设备切分ip" exist in page
     And I click the "SelectBatchOperation" button

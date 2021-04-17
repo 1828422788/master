@@ -22,6 +22,7 @@ Feature: 新建数据集all_、安装app
       | name | alias | Spl |
       | all_ | all_  | *   |
 
+  @setuppreapp
   Scenario Outline: 安装自动测试用例前置条件
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for "CreateButton" will be visible

@@ -7,14 +7,15 @@ Feature: 新建数据库查找
     And I wait for "1000" millsecond
 
     And I click the "NewDbLookup" button
-    And I wait for loading complete
+    Given I wait for loading complete
 
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I wait for loading complete
+    Given I wait for loading complete
 
     When I set the parameter "SearchInput" with value "<splQuery>"
-#    And I click the "DateEditor" button
-    And I click the "SearchButton" button
+    When I click the "DateEditor" button
+    When I click the "Today" button
+    When I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "3000" millsecond
     And I click the "NextStepButton" button
