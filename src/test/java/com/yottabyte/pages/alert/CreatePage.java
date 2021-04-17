@@ -1018,7 +1018,8 @@ public class CreatePage extends PageTemplate {
     }
 
     //测试运行窗口提示
-    @FindBy(xpath = "//div[@class='ant-modal-header']/div[@id='rcDialogTitle0'][@class='ant-modal-title'][contains(text(),'提示')]")
+//    @FindBy(xpath = "//div[@class='ant-modal-header']/div[@id='rcDialogTitle0'][@class='ant-modal-title'][contains(text(),'提示')]")
+    @FindBy(xpath = "//div[@yotta-test='dialog-container-modal']//span[contains(text(),'提示')]")
     private WebElement testRunReminder;
 
     public WebElement getTestRunReminder() {
@@ -1026,7 +1027,7 @@ public class CreatePage extends PageTemplate {
     }
 
     //测试运行中监控名称
-    @FindBy(xpath = "//div[@class='ant-modal-content']//p[@class='_1JjlGgMGUnJmBrqR_9PZl8'][contains(text(),'测试运行完成')]")
+    @FindBy(xpath = "//div[@yotta-test='dialog-container-modal']//p[contains(text(),'测试运行完成')]")
     private WebElement testRunReminderText;
 
     public WebElement getTestRunReminderText() {
