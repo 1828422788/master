@@ -1,4 +1,4 @@
-@clean @cleanSecond @cleanIndex @indexSettingSmoke
+@clean @cleanSecond @cleanIndex @indexSettingSmoke @indexSetting
 Feature: topic删除（RZY-2429）
 
   Background:

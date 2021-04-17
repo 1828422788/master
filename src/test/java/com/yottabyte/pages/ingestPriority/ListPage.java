@@ -4,6 +4,7 @@ import com.yottabyte.pages.PageTemplate;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 /**
  * @author sunxj
@@ -18,10 +19,23 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getEnsureButton() {
-        String xpath = "//span[text()='ok']/ancestor::button";
-        return webDriver.findElement(By.xpath(xpath));
+        return super.getYottaButtonByText("确定");
     }
     public WebElement getSuccessMessage() {
         return super.getSuccessMessage();
     }
+
+    public WebElement getPriority() {
+        return SearchInput;
+    }
+
+    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
+    private WebElement SearchInput;
+
+    public WebElement getSearch() {
+        return Search;
+    }
+
+    @FindBy(xpath = "//span[@class='yotta-input-suffix']")
+    private WebElement Search;
 }

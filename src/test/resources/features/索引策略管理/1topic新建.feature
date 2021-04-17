@@ -1,4 +1,4 @@
-@indexSetting @topictest
+@indexSetting @indexSettingSmoke
 Feature: topic新建（RZY-2430）
 
   Background:
@@ -10,9 +10,10 @@ Feature: topic新建（RZY-2430）
     And I set the parameter "Describe" with value "<describe>"
     And I click the "EnsureButton" button
 
-    @second @indexSettingSmoke
     Examples:
       | name      | describe |
+      | topictest      | describe |
+
 
   Scenario Outline:新建topic失败
     When I click the "CreateButton" button

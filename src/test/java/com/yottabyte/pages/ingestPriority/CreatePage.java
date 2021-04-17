@@ -20,32 +20,29 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getAppName(){
-        return this.getInputElement("Appname");
+        return this.getInputElement("appname");
     }
 
     public WebElement getTag() {
-        return this.getInputElement("Tag");
-    }
-    public WebElement getPriority(){
-        String xpath = "//div[@class='ant-select-selection__rendered']/following-sibling::span/i";
-        DropdownUtils dropdownUtils = new DropdownUtils();
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-        ClickEvent.clickUnderneathButton(element);
-        return dropdownUtils.getLastDropdownList();
+        return this.getInputElement("tag");
     }
 
-//    public WebElement getPriority2() {
-//        return super.getDropdownList("优先级");
-//    }
+    @FindBy(xpath = "//div[@class='yotta-select-selection yotta-select-selection-active']/span/span")
+    private WebElement PriorityDropdownIcon;
+
+    public WebElement getPriority(){
+        String xpath = "//label[contains(text(),'')]/parent::div/parent::div/following-sibling::div[1]//span[@class='yotta-select-selection-icon']";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        element.click();
+        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu'])[last()]"));
+    }
 
     public WebElement getSaveButton() {
-        String xpath = "//span[text()='保存']/ancestor::button";
-        return webDriver.findElement(By.xpath(xpath));
+        return super.getYottaButtonByText("新建");
     }
 
     public WebElement getSuccessMessage() {
-        return webDriver.findElement(By.xpath("//p[@class='_1JjlGgMGUnJmBrqR_9PZl8']"));
+        return webDriver.findElement(By.xpath("//p[@class='yotta-dialog-contenttext']"));
     }
 
 
@@ -54,13 +51,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getEnsureButton() {
-        String xpath = "//span[text()='确定']/ancestor::button";
-        return webDriver.findElement(By.xpath(xpath));
+        return super.getYottaButtonByText("保存");
     }
 
     public WebElement getInputElement(String text) {
-//        String xpath = "//label[text()='" + text + "']//following-sibling::div//input";
-        String xpath = "//label[text()='" + text + "']/following-sibling::div//input";
+        String xpath = "//label[text()='" + text + "']/parent::div/following-sibling::div//input";
         return webDriver.findElement(By.xpath(xpath));
     }
 }

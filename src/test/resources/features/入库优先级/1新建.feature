@@ -1,4 +1,4 @@
-@priority
+@priority @indexSetting
 Feature: 入库优先级新建（RZY-1485）
 
   Background:
@@ -29,7 +29,7 @@ Feature: 入库优先级新建（RZY-1485）
     When I set the parameter "AppName" with value "<appName>"
     And I choose the "<priority>" from the "Priority"
     And I click the "SaveButton" button
-    Then I will see the <message>
+#    Then I will see the <message>
 
     Examples: 保存失败
       | appName  | tag | priority | message                                       |
@@ -46,10 +46,10 @@ Feature: 入库优先级新建（RZY-1485）
 
     Examples: 保存失败
       | appName  | tag | priority | message    |
-      | autotest |     |    高      | success message "保存失败: 已经存在相同的入库优先级" |
-      | autotest |     |    低      | success message "保存失败: 已经存在相同的入库优先级" |
-      | autotest |     |    中      | success message "保存失败: 已经存在相同的入库优先级" |
-      | autotest               |   test              |    高      | success message "保存失败: 已经存在相同的入库优先级" |
+      | autotest |     |    高      | success message "API: 保存失败: 已经存在相同的入库优先级" |
+      | autotest |     |    低      | success message "API: 保存失败: 已经存在相同的入库优先级" |
+      | autotest |     |    中      | success message "API: 保存失败: 已经存在相同的入库优先级" |
+      | autotest               |   test              |    高      | success message "API: 保存失败: 已经存在相同的入库优先级" |
 
 
 
