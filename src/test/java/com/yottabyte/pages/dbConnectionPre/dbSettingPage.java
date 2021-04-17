@@ -2,6 +2,7 @@ package com.yottabyte.pages.dbConnectionPre;
 
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.ClickEvent;
+import com.yottabyte.utils.GetTime;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -156,8 +157,22 @@ public class dbSettingPage extends PageTemplate {
         return searchStatus;
     }
 
+//  @FindBy(className = "yotta-date-time-picker")
+    @FindBy(xpath = "//div[@yotta-test='search_bar-time-date_time_picker']")
+    private WebElement dateEditor;
+
+    public WebElement getDateEditor() {
+        return dateEditor;
+    }
+
+    public WebElement getToday() {
+        return GetTime.getTime(webDriver, "Today");
+    }
+
+    @FindBy(xpath = "//button[@yotta-test='search_bar-submit-button']")
+    private WebElement searchbutton;
     public WebElement getSearchButton() {
-        return super.getButton("搜索");
+        return searchbutton;
     }
 
     @FindBy(xpath = "//span[contains(text(),'下一步')]/parent::button")
