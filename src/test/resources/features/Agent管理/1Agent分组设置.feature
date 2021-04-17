@@ -4,14 +4,6 @@ Feature: Agent分组设置
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
     And I wait for loading invisible
-#    When I click the detail which column is "0" in agent page
-#    And I close all tabs except main tab
-#    And I click the "More" button
-#    And I click the "AgentGroupButton" button
-#    And switch to another window
-#    And I close all tabs except main tab
-#    And I will see the "agent.GroupPage" page
-#    And I wait for loading invisible
 
   Scenario Outline: 新建Agent分组设置成功
     Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
@@ -19,7 +11,6 @@ Feature: Agent分组设置
     And I click the "CreateAgentGroupButton" button
     And I set the parameter "Name" with value "<name>"
     When I set the parameter "Description" with value "<description>"
-#    And I choose the "<role>" from the "Role"
     And I wait for loading invisible
     And I click the "Save" button
     And I wait for "Addsuccessmsg" will be visible
@@ -36,23 +27,14 @@ Feature: Agent分组设置
     And I wait for loading complete
     And I click the "CreateAgentGroupButton" button
     And I set the parameter "Name" with value "sunxctest"
-#    And I choose the "__admin__" from the "Role"
     And I click the "Save" button
-#    Then I will see the message "操作失败，原因：1062-Duplicate entry '1-sunxctest' for key 'domain_id_name'"
 
   Scenario: Agent分组未填写名称新建失败
     Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
     And I wait for loading complete
     And I click the "CreateAgentGroupButton" button
-#    And I choose the "__admin__" from the "Role"
     And I click the "Save" button
     Then I will see the element "searchInput" name is "请务必输入此条目"
-
-#  Scenario: Agent分组未填写角色新建失败
-#    And I click the "CreateAgentGroupButton" button
-#    And I set the parameter "Name" with value "sunxctest2"
-#    And I click the "Save" button
-#    Then I will see the element "searchRole" name is "请选择角色"
 
   Scenario Outline: Agent分组添加和跳转
     And I will see the "agent.ListPage" page
