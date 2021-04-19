@@ -30,7 +30,7 @@ Feature: 权限-下载管理
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    Then I wait for element "SearchStatus" change text to "权限错误: 没有运行'download'命令的权限"
+    Then I wait for element "SearchErrorStatus" change text to "权限错误: 没有运行'download'命令的权限"
     Then I logout current user
 
   Scenario Outline: 勾选下载管理
@@ -74,6 +74,9 @@ Feature: 权限-下载管理
     And I click the "Today" button
     And I click the "SearchButton" button
     Then I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I wait for "1000" millsecond
+    And I click the "EventButton" button
+    Then I wait for "1000" millsecond
     And I click the "DownloadButton" button
     And I set the parameter "DownloadName" with value "AutoTestAuth"
     And I choose the "CSV" from the "FileType"

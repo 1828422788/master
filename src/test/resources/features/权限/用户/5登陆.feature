@@ -28,7 +28,3 @@ Feature: 用户登陆（RZY-1152、RZY-1153）
     Examples:
     |name|
     |测试用户所需分组|
-
-    Examples:
-    |name|
-    |测试用户所需分组|

@@ -5,6 +5,7 @@ Feature: 用户编辑（RZY-1554）
     Given open the "users.ListPage" page for uri "/account/users/"
 
   Scenario Outline: 编辑用户信息成功（RZY-2214）
+    And I wait for "2000" millsecond
     When I click the detail which name is "{'column':'1','name':'<UserName>'}"
     And I will see the "users.CreatePage" page
     And I click the "EditButton" button

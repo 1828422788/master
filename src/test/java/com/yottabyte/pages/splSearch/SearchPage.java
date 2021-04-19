@@ -92,6 +92,10 @@ public class SearchPage extends ListPageFactory {
         return newSavedSearch;
     }
 
+    @FindBy(xpath = "//div[@class='yotta-tabs-tab-btn']")
+    private WebElement eventButton;
+    public WebElement getEventButton() { return eventButton; }
+
     @FindBy(xpath = "//li/span[text()='打开列表']")
     private WebElement openSavedSearchList;
 
@@ -345,6 +349,9 @@ public class SearchPage extends ListPageFactory {
     // 搜索历史下拉框
     @FindBy(className = "el-collapse-item__wrap")
     private WebElement searchHistoryWindow;
+
+    @FindBy(xpath = "//span[@yotta-test='search_control-message-text']")
+    private WebElement searchErrorStatus;
 
     @FindBy(xpath = "//span[@yotta-test='search_control-time_cost-text']")
     private WebElement searchStatus;
@@ -700,7 +707,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//li[text()='定时任务']")
     private WebElement saveAsSchedule;
 
-    @FindBy(xpath = "//span[text()='下载']/parent::li")
+    @FindBy(xpath = "//span[@class='yotta-icon yotta-icon-DownloadOutlined']")
     private WebElement downloadButton;
 
     public WebElement getDownloadButton() {
@@ -1639,6 +1646,11 @@ public class SearchPage extends ListPageFactory {
 
     public WebElement getSearchButton() {
         return super.getButton("搜索");
+    }
+
+    public WebElement getSearchErrorStatus() throws InterruptedException {
+        Thread.sleep(1000);
+        return searchErrorStatus;
     }
 
     public WebElement getSearchStatus() throws InterruptedException {

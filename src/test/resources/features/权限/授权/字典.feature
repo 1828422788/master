@@ -77,6 +77,7 @@ Feature: 权限-字典
 
   Scenario: 授权有读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
