@@ -35,6 +35,7 @@ Feature: 趋势图_拖拽_关系
     And I wait for "<color>" will be visible
     And I click the "<color>" button
     And I wait for "Chart" will be visible
+    And I wait for "<chartType>Element" will be visible
 
     And I click the "CheckSPL" button
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count() by apache.method,apache.geo.province"
@@ -49,6 +50,19 @@ Feature: 趋势图_拖拽_关系
     And I set the parameter "DescribeInput" with value "<chartType>_<color>"
     And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'拖拽_<chartType>'}" then i click the "展示趋势图" button in more menu
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "拖拽_<chartType>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<chartType>Element" will be visible
 
     Examples:
       |  chartType | color   | text  |
@@ -67,6 +81,7 @@ Feature: 趋势图_拖拽_关系
     And I wait for "<color>" will be visible
     And I click the "<color>" button
     And I wait for "Chart" will be visible
+    And I wait for "<chartType>Element" will be visible
 
     And I click the "CheckSPL" button
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count() by apache.method,apache.geo.province"
@@ -81,6 +96,19 @@ Feature: 趋势图_拖拽_关系
     And I set the parameter "DescribeInput" with value "<chartType>_<color>"
     And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'拖拽_<chartType>'}" then i click the "展示趋势图" button in more menu
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "拖拽_<chartType>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<chartType>Element" will be visible
 
     Examples:
       |  chartType | color   |

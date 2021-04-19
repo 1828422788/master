@@ -158,9 +158,11 @@ Feature: 日志展现_其它
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Divide" button
+    And I click the "DeleteLast" button
     And I choose the "<divField>" from the "FieldValue" in config
     And I click the "Indicator" button
     And I choose the "<divField>" from the "FieldValue" in config
+    And I wait for "1500" millsecond
     And I click the "UnifyMetric" button
     And I click the "Exhibition" button
     And I click the "AddColor" button

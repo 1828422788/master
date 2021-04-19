@@ -81,6 +81,8 @@ Feature:趋势图_拖拽_复合
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats avg(apache.resp_len),dc(apache.resp_len) by apache.clientip"
     When I click the "CloseSPL" button
+    And I wait for "AreaChartElement" will be visible
+    And I wait for "ColumnChartElement" will be visible
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_柱面"
     And I compare source image "actual/拖拽_<chartType>_柱面" with target image "expect/拖拽_<chartType>_柱面"
@@ -91,6 +93,20 @@ Feature:趋势图_拖拽_复合
     And I set the parameter "DescribeInput" with value "<chart_1><color_1>_<chart_2><color_2>"
     And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'拖拽_<chartType>_柱面'}" then i click the "展示趋势图" button in more menu
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "拖拽_<chartType>_柱面"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "AreaChartElement" will be visible
+    And I wait for "ColumnChartElement" will be visible
 
     Examples:
       |  chartType |  chart_1  | chart_2  | color_1 | color_2 |
@@ -152,6 +168,8 @@ Feature:趋势图_拖拽_复合
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.resp_len),max(apache.resp_len) by apache.clientip"
     When I click the "CloseSPL" button
+    And I wait for "LineChartElement" will be visible
+    And I wait for "ScatterChartElement" will be visible
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_曲散"
     And I compare source image "actual/拖拽_<chartType>_曲散" with target image "expect/拖拽_<chartType>_曲散"
@@ -162,6 +180,20 @@ Feature:趋势图_拖拽_复合
     And I set the parameter "DescribeInput" with value "<chart_1><color_1>_<chart_2><color_2>"
     And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'拖拽_<chartType>_曲散'}" then i click the "展示趋势图" button in more menu
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "拖拽_<chartType>_曲散"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "LineChartElement" will be visible
+    And I wait for "ScatterChartElement" will be visible
 
     Examples:
       |  chartType |  chart_1  | chart_2  | color_1 | color_2 |

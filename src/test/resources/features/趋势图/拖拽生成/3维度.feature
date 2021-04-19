@@ -39,6 +39,7 @@ Feature: 趋势图_拖拽_维度
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.method) by apache.method"
     When I click the "CloseSPL" button
     And I wait for "500" millsecond
+    And I wait for "<element>" will be visible
     Then I wait for "Chart" will be visible
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>"
@@ -50,12 +51,25 @@ Feature: 趋势图_拖拽_维度
     And I set the parameter "DescribeInput" with value "<color>_<label>"
     And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'拖拽_<chartType>'}" then i click the "展示趋势图" button in more menu
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "拖拽_<chartType>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<element>" will be visible
 
     Examples:
-      |  chartType | color  | label      |
-      |  Pie       | Orange | 不展示     |
-      |  Rose      | Red    | 展示全部   |
-      |  Bar       | Yellow | 只展示名称 |
+      |  chartType | color  | label      | element             |
+      |  Pie       | Orange | 不展示     | PieNoLabelsElement  |
+      |  Rose      | Red    | 展示全部   | PieElement          |
+      |  Bar       | Yellow | 只展示名称 | BarElement          |
 
   Scenario Outline: drag_and_drop_flame
     And I "checked" the checkbox which name is "apache.method" in trend page
@@ -81,12 +95,13 @@ Feature: 趋势图_拖拽_维度
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count() by apache.method,apache.status"
     When I click the "CloseSPL" button
     And I click the Circle "Status405" button
-    And I will see the "<element>" doesn't exist
+    And I wait for "<element>" will be visible
+#    And I will see the "<element>" doesn't exist
     And I click the "HideElement" button
     Then I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    Then take part of "Chart" with name "actual/拖拽_<chartType>"
-    And I compare source image "actual/拖拽_<chartType>" with target image "expect/拖拽_<chartType>_<drill>"
+    Then take part of "Chart" with name "actual/拖拽_<chartType>_<drill>"
+    And I compare source image "actual/拖拽_<chartType>_<drill>" with target image "expect/拖拽_<chartType>_<drill>_<drill>"
     And I click the "NextButton" button under some element
 
     When I will see the "trend.CreatePage" page
@@ -94,11 +109,28 @@ Feature: 趋势图_拖拽_维度
     And I set the parameter "DescribeInput" with value "<chartType>_<drill>"
     And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'拖拽_<chartType>_<drill>'}" then i click the "展示趋势图" button in more menu
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "拖拽_<chartType>_<drill>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "FlameElement" will be visible
+    And I click the Circle "Status405" button
+    And I wait for "1500" millsecond
+    And I will see the "<element1>" doesn't exist
+#    And I wait for "<element1>" does no
 
     Examples:
-      | chartType | drill    | element    |
-      | Flame     | DrillIn  | BackToChart|
-      | Flame     | DrillOut | AreaChart  |
+      | chartType | drill    | element    | element1    |
+      | Flame     | DrillIn  | BackToChart| FlameElement|
+      | Flame     | DrillOut | AreaChart  | BackToChart |
 
   Scenario Outline: drag_and_drop_sunburst
     And I "checked" the checkbox which name is "apache.geo.province" in trend page
@@ -127,6 +159,7 @@ Feature: 趋势图_拖拽_维度
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count() by apache.geo.province,apache.geo.city"
     When I click the "CloseSPL" button
     Then I wait for "Chart" will be visible
+    And I wait for "SunElement" will be visible
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>"
     And I compare source image "actual/拖拽_<chartType>" with target image "expect/拖拽_<chartType>"
@@ -137,6 +170,19 @@ Feature: 趋势图_拖拽_维度
     And I set the parameter "DescribeInput" with value "<chartType>_<color>"
     And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'拖拽_<chartType>'}" then i click the "展示趋势图" button in more menu
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "拖拽_<chartType>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "SunElement" will be visible
 
     Examples:
       | chartType | color    |

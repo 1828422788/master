@@ -56,6 +56,7 @@ Feature: 趋势图_拖拽_序列
     And I wait for "1500" millsecond
     And I click the "<color>" button
     And I wait for "3000" millsecond
+    And I choose the "0" from the "Precision"
     And I wait for "Chart" will be visible
 
     And I click the "CheckSPL" button
@@ -106,6 +107,7 @@ Feature: 趋势图_拖拽_序列
     And I wait for "Chart" will be visible
     And I click the "Exhibition" button
     And I wait for "AddColor" will be visible
+    And I choose the "0" from the "Precision"
     And I click the "AddColor" button
     And I wait for "<color>" will be visible
     And I wait for "1500" millsecond
@@ -168,6 +170,7 @@ Feature: 趋势图_拖拽_序列
     And I wait for "1500" millsecond
     And I click the "<color>" button
     And I wait for "1500" millsecond
+    And I choose the "0" from the "Precision"
     And I wait for "Chart" will be visible
     And I wait for "1500" millsecond
     And I click the "Example" button
@@ -221,12 +224,14 @@ Feature: 趋势图_拖拽_序列
     And I click the "RightPosition" button
     And I click the "Exhibition" button
     And I wait for "AddColor" will be visible
+    And I choose the "0" from the "Precision"
     And I click the "AddColor" button
     And I wait for "<color>" will be visible
     And I wait for "1500" millsecond
     And I click the "<color>" button
     And I wait for "3000" millsecond
     And I wait for "Chart" will be visible
+    And I will see the text "<period>" exist in page
 
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
@@ -242,13 +247,27 @@ Feature: 趋势图_拖拽_序列
     And I set the parameter "DescribeInput" with value "<button>_<unit>_<min>_<max>_<color>_RightPosition"
     And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'拖拽_<chartType>_对比'}" then i click the "展示趋势图" button in more menu
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "拖拽_<chartType>_对比"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<chartType>ChartElement" will be visible
+    And I will see the text "<period>" exist in page
 
     Examples:
-      |  chartType | comparePeriod | button           | unit | min | max | color  | SPLcheck |
-      |  Line      | 环比          | ConnectEmptyData |  个  | 1   | 30  | Orange | starttime="now/d" endtime="now" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="当前" \| append [[ starttime="now/d-1d" endtime="now-1d" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="环比" ]] |
-      |  Area      | 上周同比值    | Smooth           | pcs. |     | 28  | Yellow | starttime="now/d" endtime="now" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="当前" \| append [[ starttime="now/d-1w" endtime="now-1w" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="同比一周" ]]   |
-      |  Column    | 上月同比值    |                  | r.   | 1   |     | Green  | starttime="now/d" endtime="now" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="当前" \| append [[ starttime="now/d-1M" endtime="now-1M" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="同比一月" ]]        |
-      |  Scatter   | 环比          |                  | 个   |     |     | Red    | starttime="now/d" endtime="now" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="当前" \| append [[ starttime="now/d-1d" endtime="now-1d" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="环比" ]] |
+      |  chartType | comparePeriod | period    |button           | unit | min | max | color  | SPLcheck |
+      |  Line      | 环比          | 环比      | ConnectEmptyData |  个  | 1   | 30  | Orange | starttime="now/d" endtime="now" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="当前" \| append [[ starttime="now/d-1d" endtime="now-1d" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="环比" ]] |
+      |  Area      | 上周同比值    | 同比一周  | Smooth           | pcs. |     | 28  | Yellow | starttime="now/d" endtime="now" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="当前" \| append [[ starttime="now/d-1w" endtime="now-1w" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="同比一周" ]]   |
+      |  Column    | 上月同比值    | 当前      |                  | r.   | 1   |     | Green  | starttime="now/d" endtime="now" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="当前" \| append [[ starttime="now/d-1M" endtime="now-1M" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="同比一月" ]]        |
+      |  Scatter   | 环比          | 环比      |                  | 个   |     |     | Red    | starttime="now/d" endtime="now" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="当前" \| append [[ starttime="now/d-1d" endtime="now-1d" tag:sample04061424_chart \| stats count(apache.clientip) by apache.clientip\| eval _compare="环比" ]] |
 
   Scenario Outline: drag_and_drop_order_area_no_val
     And I drag the element "Clientip" to the "Dimensions"

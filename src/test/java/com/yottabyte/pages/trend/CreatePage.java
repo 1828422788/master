@@ -477,7 +477,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[name()='rect' and @class='vx-bar']/following-sibling::*[@font-size='12']")
     private WebElement sankeyElement;
 
-    @FindBy(xpath = "//*[(contains(text(),'200') or contains(text(),'/')) and name()='text']/following-sibling::*[name()='circle']")
+    @FindBy(xpath = "//*[(contains(text(),'200') or contains(text(),'/') or contains(text(),'GET')) and name()='text']/following-sibling::*[name()='circle']")
     private WebElement chordElement;
 
     @FindBy(xpath = "//*[contains(@style,'cubic-bezier')]/following-sibling::*[@font-size>7]")

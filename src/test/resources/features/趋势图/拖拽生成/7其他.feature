@@ -202,6 +202,21 @@ Feature: 趋势图_拖拽_其他
     And I set the parameter "DescribeInput" with value "<size>_prec.2_<position>个_<text>_<color>"
     And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'拖拽_<chartType>_<tab>'}" then i click the "展示趋势图" button in more menu
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "拖拽_<chartType>_<tab>"
+    Then I will see the "trend.CreatePage" page
+    And I will see the element "SingleElement" contains "<content>"
+    And I will see the element "SingleElement" style contains "<style>"
+    And I will see the element "SingleElement" style contains "font-size: <size>px"
 
     Examples:
       |  chartType | size | position  | tab          | button        | field      | text               | color  | content     | style             |
@@ -316,6 +331,21 @@ Feature: 趋势图_拖拽_其他
     And I set the parameter "DescribeInput" with value "<color>"
     And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'拖拽_<chartType>_1'}" then i click the "展示趋势图" button in more menu
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "拖拽_<chartType>_1"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<chartType>Element_1" will be visible
+    And I will see the element "<chartType>Element_1" contains "65.3%"
+    And I will see the element "<chartType>Element_2" contains "28.2%"
 
     Examples:
       |  chartType | color  |
@@ -423,6 +453,7 @@ Feature: 趋势图_拖拽_其他
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.geo.city) by apache.geo.city"
     When I click the "CloseSPL" button
+    And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>"
     And I compare source image "actual/拖拽_<chartType>" with target image "expect/拖拽_<chartType>"
@@ -433,6 +464,19 @@ Feature: 趋势图_拖拽_其他
     And I set the parameter "DescribeInput" with value "<color>_<button>"
     And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'拖拽_<chartType>'}" then i click the "展示趋势图" button in more menu
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "拖拽_<chartType>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<chartType>Element" will be visible
 
     Examples:
       |  chartType |  color  |  button        |   tab     |
@@ -467,6 +511,7 @@ Feature: 趋势图_拖拽_其他
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.geo.city) by apache.geo.city"
     When I click the "CloseSPL" button
+    And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>"
     And I compare source image "actual/拖拽_<chartType>" with target image "expect/拖拽_<chartType>"
@@ -477,6 +522,19 @@ Feature: 趋势图_拖拽_其他
     And I set the parameter "DescribeInput" with value "<color>"
     And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'拖拽_<chartType>'}" then i click the "展示趋势图" button in more menu
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "拖拽_<chartType>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<chartType>Element" will be visible
 
     Examples:
       |  chartType |  color    |
@@ -613,6 +671,7 @@ Feature: 趋势图_拖拽_其他
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.geo.city) by apache.geo.city"
     When I click the "CloseSPL" button
+    And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>"
     And I compare source image "actual/拖拽_<chartType>" with target image "expect/拖拽_<chartType>"
@@ -623,6 +682,19 @@ Feature: 趋势图_拖拽_其他
     And I set the parameter "DescribeInput" with value "<chartType>_<segments>"
     And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'拖拽_<chartType>'}" then i click the "展示趋势图" button in more menu
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "拖拽_<chartType>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<chartType>Element" will be visible
 
     Examples:
       |  chartType     | segments   |
@@ -687,6 +759,9 @@ Feature: 趋势图_拖拽_其他
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "starttime="now/d" endtime="now" tag:sample04061424_chart | stats count(apache.clientip) | eval _compare="当前" | append [[ starttime="now/d-1w" endtime="now-1w" tag:sample04061424_chart | stats count(apache.clientip) | eval _compare="同比一周" ]]"
     When I click the "CloseSPL" button
+    And I wait for "Header" will be visible
+    And I will see the text "当前" exist in page
+    And I will see the text "同比一周" exist in page
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_对比_2"
     And I compare source image "actual/拖拽_<chartType>_对比_2" with target image "expect/拖拽_<chartType>_对比_2"
@@ -697,6 +772,22 @@ Feature: 趋势图_拖拽_其他
     And I set the parameter "DescribeInput" with value "Table_上周同比值"
     And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'拖拽_<chartType>_对比_2'}" then i click the "展示趋势图" button in more menu
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "拖拽_<chartType>_对比_2"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "Header" will be visible
+    And I will see the text "当前" exist in page
+    And I will see the text "同比一周" exist in page
+
 
     Examples:
       |  chartType |

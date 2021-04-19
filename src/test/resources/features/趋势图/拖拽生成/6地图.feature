@@ -33,6 +33,7 @@ Feature: 趋势图_拖拽_地图
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.geo.city) by apache.geo.city"
     When I click the "CloseSPL" button
+    And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>"
     And I compare source image "actual/拖拽_<chartType>" with target image "expect/拖拽_<chartType>"
@@ -43,6 +44,19 @@ Feature: 趋势图_拖拽_地图
     And I set the parameter "DescribeInput" with value "<chartType>"
     And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'拖拽_<chartType>'}" then i click the "展示趋势图" button in more menu
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "拖拽_<chartType>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<chartType>Element" will be visible
 
     Examples:
       |  chartType |
@@ -65,6 +79,7 @@ Feature: 趋势图_拖拽_地图
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "<spl>"
     When I click the "CloseSPL" button
+    And I wait for "<element>" will be visible
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_<region>"
     And I compare source image "actual/拖拽_<chartType>_<region>" with target image "expect/拖拽_<chartType>_<region>"
@@ -75,11 +90,25 @@ Feature: 趋势图_拖拽_地图
     And I set the parameter "DescribeInput" with value "<chartType>_<region>_<switch>"
     And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'拖拽_<chartType>_<region>'}" then i click the "展示趋势图" button in more menu
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "拖拽_<chartType>_<region>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<element>" will be visible
+
 
     Examples:
-      |  chartType   | element     |  region     |  switch    | spl     |
-      |  Regionmap   | GeoCountry  |  World      | UseBubbles | tag:sample04061424_chart \| stats count(apache.geo.country) by apache.geo.country   |
-      |  Regionmap   | GeoProvince |  China      | ShowLabels | tag:sample04061424_chart \| stats count(apache.geo.province) by apache.geo.province |
+      |  chartType   | element     |  region     |  switch    |  element                | spl     |
+      |  Regionmap   | GeoCountry  |  World      | UseBubbles | RegionmapLightElement   | tag:sample04061424_chart \| stats count(apache.geo.country) by apache.geo.country   |
+      |  Regionmap   | GeoProvince |  China      | ShowLabels | RegionmapDarkElement    | tag:sample04061424_chart \| stats count(apache.geo.province) by apache.geo.province |
 
   Scenario Outline: drag_and_drop_regionmap_drill
     And I drag the element "GeoCountry" to the "Values"
