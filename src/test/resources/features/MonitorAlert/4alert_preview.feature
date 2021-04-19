@@ -6,31 +6,31 @@ Feature:监控预览
     Given open the "alert.ListPage" page for uri "/alerts/"
     Given I wait for loading complete
     When I set the parameter "AlertListSearchInput" with value "<name>"
-    And I wait for loading complete
+    Given I wait for loading complete
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
 
     Then I will see the "alert.CreatePage" page
-    And I wait for loading complete
+    Given I wait for loading complete
 
     And I click the "AlertNoteTypeTab" button
     And I choose the "邮件告警" from the "AlertNoteTypeListButton"
-    And I wait for loading complete
+    Given I wait for loading complete
     And I click the "MailAlertLabel" button
-    And I wait for loading complete
-    And I click the "MailReceiverButton" button
+    Given I wait for loading complete
+    When I click the "MailReceiverButton" button
     And I wait for "2000" millsecond
 
     And I choose the "2312200836@qq.com" from the "MailReceiverList"
-    And I wait for loading complete
+    Given I wait for loading complete
     And I wait for "2000" millsecond
-    And I wait for loading complete
 
-    And I wait for "MailAlertContentPanel" will be visible
+    When I wait for "MailAlertContentPanel" will be visible
     And I select all text in "MailAlertContentPanel" alert element
     And I wait for "2000" millsecond
 
     And I click the "PreviewButton" button
-    And I wait for loading complete
+    Given I wait for loading complete
+    And I wait for "9000" millsecond
 
     And I wait for element "PreviewReminder" change text to "提示"
     Then take a screenshot with name "actual/preview_<name>"
@@ -66,31 +66,31 @@ Feature:监控预览
     Given open the "alert.ListPage" page for uri "/alerts/"
     Given I wait for loading complete
     When I set the parameter "AlertListSearchInput" with value "<name>"
-    And I wait for loading complete
+    Given I wait for loading complete
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
 
     Then I will see the "alert.CreatePage" page
-    And I wait for loading complete
+    Given I wait for loading complete
 
     And I click the "AlertNoteTypeTab" button
     And I choose the "邮件告警" from the "AlertNoteTypeListButton"
-    And I wait for loading complete
+    Given I wait for loading complete
     And I click the "MailAlertLabel" button
-    And I wait for loading complete
-    And I click the "MailReceiverButton" button
+    Given I wait for loading complete
+    When I click the "MailReceiverButton" button
     And I wait for "2000" millsecond
 
     And I choose the "2312200836@qq.com" from the "MailReceiverList"
-    And I wait for loading complete
+    Given I wait for loading complete
     And I wait for "2000" millsecond
-    And I wait for loading complete
 
-    And I wait for "MailAlertContentPanel" will be visible
+    When I wait for "MailAlertContentPanel" will be visible
     And I select all text in "MailAlertContentPanel" alert element
     And I wait for "2000" millsecond
 
     And I click the "PreviewButton" button
-    And I wait for loading complete
+    Given I wait for loading complete
+    And I wait for "9000" millsecond
 
     And I wait for element "PreviewReminder" change text to "提示"
     Then take a screenshot with name "actual/preview_<name>"
