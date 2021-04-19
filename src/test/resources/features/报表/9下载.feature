@@ -1,11 +1,10 @@
 @reportDownload
 Feature: 报表_下载
-  #应该是今天的报表文件
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
 
-#  @reportDownloadPDF @report
+  @reportDownloadPDF @report
   Scenario Outline: download_pdf
     When I set the parameter "SearchInput" with value "<name>_PDF"
     And I wait for "2000" millsecond
@@ -34,10 +33,10 @@ Feature: 报表_下载
       |   Bar1               |
       |   Bar2               |
       |   Sunburst           |
-      |   Chord              |
-      |   Sankey             |
-      |   Force              |
-      |   Sankey_Mult        |
+#      |   Chord              |
+#      |   Sankey             |
+#      |   Force              |
+#      |   Sankey_Mult        |
       |   Rangeline          |
       |   Multiaxis          |
       |   Multiaxis_2        |
