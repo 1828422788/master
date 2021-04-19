@@ -31,7 +31,8 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div/input[@name='apply']")
     private WebElement field;
 
-    @FindBy(id = "register_alias")
+   // @FindBy(id = "register_alias")
+    @FindBy(xpath = "//input[@yotta-test='eventaction-alias-input']")
     private WebElement alias;
 
     @FindBy(id = "register_conditionField")
@@ -42,6 +43,11 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "ant-select-selection__rendered")
     private WebElement selectCondition;
+
+    @FindBy(xpath = "//div[text()='请输入链接']")
+    private WebElement explain;
+
+    public WebElement getExplain() { return explain; }
 
     public WebElement getSelectCondition() {
         selectCondition.click();

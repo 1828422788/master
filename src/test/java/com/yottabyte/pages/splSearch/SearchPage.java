@@ -200,7 +200,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(className = "cm-operator")
     private WebElement searchInputValue;
 
-    @FindBy(xpath = "//li[text()='查看上下文']")
+    @FindBy(xpath = "//span[text()='查看上下文']")
     private WebElement context;
 
     @FindBy(xpath = "//span[text()='搜索']/ancestor::button/preceding-sibling::div//span[@class='yotta-date-time-picker-text']")
@@ -594,7 +594,8 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//td[@data-col-name]/span")
     private List<WebElement> columnList;
 
-    @FindBy(className = "_2dbwZ_u3soDYQC50Ls5yOo")
+   // @FindBy(className = "_2dbwZ_u3soDYQC50Ls5yOo")
+    @FindBy(className = "yotta-icon yotta-icon-RightOutlined expand-icon")
     private WebElement rightIcon;
 
     @FindBy(xpath = "//span[text()='x']/ancestor::td/following-sibling::td/span")
@@ -688,7 +689,8 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='apache.request_query']")
     private WebElement requestQuery;
 
-    @FindBy(className = "_34z8Og_bzWmsjaI0u5wBOf")
+    //@FindBy(className = "_34z8Og_bzWmsjaI0u5wBOf")
+    @FindBy(className = "event-item")
     private WebElement firstArea;
 
     @FindBy(xpath = "//span[text()='保存为']")
@@ -709,6 +711,11 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//span[@class='yotta-icon yotta-icon-DownloadOutlined']")
     private WebElement downloadButton;
+
+    @FindBy(xpath = "//span[@yotta-test='event_list-event_action-icon']")
+    private WebElement expand;
+
+    public WebElement getExpand() { return expand; }
 
     public WebElement getDownloadButton() {
         saveAsOther.click();

@@ -40,12 +40,15 @@ Feature: 事件操作新建（RZY-1387）
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I click the "RightIcon" button
-    And I click the "EventOperate" button
-    And I click the "ContextSample" button
-    And switch to another window
-    And I close all tabs except main tab
-    Then the page's title will be "搜索上下文"
+    #And I click the "RightIcon" button
+    #And I click the "EventOperate" button
+    #And I click the "ContextSample" button
+    #And switch to another window
+    #And I close all tabs except main tab
+    Then I click the "Expand" button
+    Then I click the "Context" button
+    And I wait for "2000" millsecond
+    Then I will see the "搜索上下文" page
 
     Examples:
       | name        | url                                                                                                                                                                            | message  |
@@ -62,7 +65,7 @@ Feature: 事件操作新建（RZY-1387）
     And I set the parameter "Url" with value "<url>"
     And I choose the "<openUrl>" from the "OpenUrl"
     And I click the "CreateButton" button
-    Then I will see the message "<message>"
+    Then I will see the "Explain" is display
 
     Examples:
       | name | alias | field | display | action | url | openUrl | message       |
