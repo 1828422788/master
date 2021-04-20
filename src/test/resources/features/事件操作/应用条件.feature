@@ -71,6 +71,7 @@ Feature: 事件操作应用条件
 
   Scenario: 修改事件操作设置应用条件为等于
     Given open the "event.ListPage" page for uri "/event/action/"
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'测试应用条件'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     And I set the parameter "ConditionField" with value "other.num"
@@ -108,6 +109,7 @@ Feature: 事件操作应用条件
 
   Scenario: 修改事件操作设置应用条件为不等于
     Given open the "event.ListPage" page for uri "/event/action/"
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'测试应用条件'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     And I set the parameter "ConditionField" with value "other.num"
@@ -145,6 +147,7 @@ Feature: 事件操作应用条件
 
   Scenario: 修改事件操作设置应用条件为大于
     Given open the "event.ListPage" page for uri "/event/action/"
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'测试应用条件'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     And I set the parameter "ConditionField" with value "other.num"
@@ -182,6 +185,7 @@ Feature: 事件操作应用条件
 
   Scenario: 修改事件操作设置应用条件为小于
     Given open the "event.ListPage" page for uri "/event/action/"
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'测试应用条件'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     And I set the parameter "ConditionField" with value "other.num"

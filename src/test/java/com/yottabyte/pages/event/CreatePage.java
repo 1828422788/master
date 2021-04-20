@@ -35,13 +35,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@yotta-test='eventaction-alias-input']")
     private WebElement alias;
 
-    @FindBy(id = "register_conditionField")
+    @FindBy(xpath = "//input[@yotta-test='eventaction-apply_condition_field-input']")
     private WebElement conditionField;
 
-    @FindBy(id = "register_conditionValue")
+    @FindBy(xpath = "//input[@yotta-test='eventaction-apply_condition_value-input']")
     private WebElement conditionValue;
 
-    @FindBy(className = "ant-select-selection__rendered")
+    @FindBy(xpath = "//div[@yotta-test='eventaction-apply_condition_condition-select']/div")
     private WebElement selectCondition;
 
     @FindBy(xpath = "//div[text()='请输入链接']")

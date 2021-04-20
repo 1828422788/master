@@ -21,6 +21,7 @@ Feature: 事件操作编辑
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for "2000" millsecond
     And I click the "RightIcon" button
     And I wait for "EventOperate" will be visible
     And I click the "EventOperate" button
@@ -46,6 +47,7 @@ Feature: 事件操作编辑
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for "2000" millsecond
     And I click the "RightIcon" button
     And I wait for "EventOperate" will be visible
     And I click the "EventOperate" button
@@ -72,8 +74,11 @@ Feature: 事件操作编辑
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for "2000" millsecond
     And I click the "RightIcon" button
+    And I wait for "2000" millsecond
     And I click the "RawMessage" button
+    And I wait for "1500" millsecond
     And I click the "EventOperatorAutoTest" button
 
     Examples:

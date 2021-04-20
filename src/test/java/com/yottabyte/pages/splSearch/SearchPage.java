@@ -595,14 +595,14 @@ public class SearchPage extends ListPageFactory {
     private List<WebElement> columnList;
 
    // @FindBy(className = "_2dbwZ_u3soDYQC50Ls5yOo")
-    @FindBy(className = "yotta-icon yotta-icon-RightOutlined expand-icon")
+    @FindBy(xpath = "//div[@class='event-item'][1]/span")
     private WebElement rightIcon;
 
     @FindBy(xpath = "//span[text()='x']/ancestor::td/following-sibling::td/span")
     private WebElement xValue;
 
     //    @FindBy(xpath = "//span[text()='事件操作']/i")
-    @FindBy(className = "ant-dropdown-trigger")
+    @FindBy(xpath = "//button[@yotta-test='event_list-event_action-button']")
     private WebElement eventOperate;
 
     @FindBy(xpath = "//li[text()='配置字段提取']")
@@ -638,22 +638,22 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//div[@class='yw-search-tabbar-item']")
     private WebElement searchTabBar;
 
-    @FindBy(xpath = "(//li[text()='AutoTest'])[last()]")
+    @FindBy(xpath = "//li[@yotta-test='event_list-event_action-menu_item']/span[text()='AutoTest']")
     private WebElement eventOperatorAutoTest;
 
-    @FindBy(xpath = "//span[text()='raw_message']/following-sibling::i")
+    @FindBy(xpath = "//span[@class='event-action-field-dropdown']")
     private WebElement rawMessage;
 
-    @FindBy(xpath = "(//li[text()='查看上下文sample'])[last()]")
+    @FindBy(xpath = "(//span[text()='查看上下文sample'])[last()]")
     private WebElement contextSample;
 
-    @FindBy(xpath = "(//li[text()='测试应用条件'])[last()]")
+    @FindBy(xpath = "(//span[text()='测试应用条件'])[last()]")
     private WebElement condition;
 
-    @FindBy(xpath = "//span[text()='hostname']/following-sibling::pre")
+    @FindBy(xpath = "//div/div[2]/span//span[text()='hostname:']/parent::span//span[@yotta-test='event_list-field_value-dom']")
     private WebElement clientip;
 
-    @FindBy(xpath = "//span[text()='tag']/following-sibling::pre")
+    @FindBy(xpath = "//div/div[2]/span//span[text()='tag:']/parent::span//span[@yotta-test='event_list-field_value-dom']")
     private WebElement tag;
 
     @FindBy(xpath = "//div[text()='添加到搜索']")

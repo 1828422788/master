@@ -3,6 +3,7 @@ Feature: 事件操作启用禁用
 
   Background:
     Given open the "event.ListPage" page for uri "/event/action/"
+    And I wait for loading invisible
 
   Scenario: 事件操作禁用
     When the data name is "{'column':'1','name':'查看上下文'}" then I "close" the switch
