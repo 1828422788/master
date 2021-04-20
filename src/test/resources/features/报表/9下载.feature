@@ -33,10 +33,10 @@ Feature: 报表_下载
       |   Bar1               |
       |   Bar2               |
       |   Sunburst           |
-#      |   Chord              |
-#      |   Sankey             |
-#      |   Force              |
-#      |   Sankey_Mult        |
+      |   Chord              |
+      |   Sankey             |
+      |   Force              |
+      |   Sankey_Mult        |
       |   Rangeline          |
       |   Multiaxis          |
       |   Multiaxis_2        |

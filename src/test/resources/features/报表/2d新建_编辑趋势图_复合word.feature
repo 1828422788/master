@@ -105,6 +105,7 @@ Feature: 报表新建_编辑_复合word
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Red" button
+    And I wait for "2000" millsecond
     And I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
