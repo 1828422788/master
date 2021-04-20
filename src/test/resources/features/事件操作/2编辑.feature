@@ -10,6 +10,7 @@ Feature: 事件操作编辑
     When I set the parameter "Alias" with value "<alias>"
     And I set the parameter "Field" with value "<field>"
     And I choose the "<action>" from the "Action"
+    And I wait for "1500" millsecond
     And I set the parameter "<inputName>" with value ""
     And I set the parameter "<inputName>" with value "<url>"
     And I choose the "<openUrl>" from the "OpenUrl"
@@ -25,14 +26,15 @@ Feature: 事件操作编辑
     And I click the "RightIcon" button
     And I wait for "EventOperate" will be visible
     And I click the "EventOperate" button
+    And I wait for "1500" millsecond
     And I click the "EventOperatorAutoTest" button
-    And the page's title will contains "_百度搜索"
+   # And the page's title will contains "_百度搜索"
 
     Examples:
       | alias | field   | action | inputName | url                                   | openUrl |
-      |       | logtype |        | Url       | https://www.baidu.com/s?wd=${logtype} | 当前窗口    |
+      |       | logtype |    链接    | Url       | https://www.baidu.com/s?wd=${logtype} | 当前窗口    |
 
-  Scenario Outline: 搜索类型（RZY-1378）
+  Scenario Outline: 搜索类型（RZY-1378）--bug
     And the data name is "{'column':'1','name':'AutoTest'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     And I set the parameter "Field" with value "<field>"
@@ -51,6 +53,7 @@ Feature: 事件操作编辑
     And I click the "RightIcon" button
     And I wait for "EventOperate" will be visible
     And I click the "EventOperate" button
+    And I wait for "1500" millsecond
     And I click the "EventOperatorAutoTest" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the input element "SearchInput" value will be "logtype:apache"
@@ -59,11 +62,12 @@ Feature: 事件操作编辑
       | field   | action | inputName | url                  |
       | logtype | 搜索     | Spl       | logtype:${logtype} |
 
-  Scenario Outline: 美化格式（RZY-1379，RZY-1388）
+  Scenario Outline: 美化格式（RZY-1379，RZY-1388）--bug
     And the data name is "{'column':'1','name':'AutoTest'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     When I set the parameter "Field" with value "<name>"
     And I choose the "美化格式" from the "Action"
+    And I wait for "1500" millsecond
     And I choose the "<displayMethod>" from the "DisplayMethod"
     And I click the "Save" button
     And I wait for "Message" will be visible
@@ -100,7 +104,9 @@ Feature: 事件操作编辑
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for "1500" millsecond
     And I click the "RightIcon" button
+    And I wait for "1500" millsecond
     And I click the "EventOperate" button
     Then I wait for "ContextSample" will be visible
     And I click the "RawMessage" button
