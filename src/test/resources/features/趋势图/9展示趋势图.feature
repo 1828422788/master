@@ -106,8 +106,8 @@ Feature: 展示趋势图
       | ScatterChart_分面                        | ScatterChartElement     |
       | AreaChart_分面                           | AreaChartElement        |
       | LineChart_分面                           | LineChartElement        |
-      | ScatterChart_2492_limit                  | StatisticalChart        |
-      | ColumnChart_2500_limit                   | Chart                   |
+      | ScatterChart_2492_limit                  | BackToChart             |
+      | ColumnChart_2500_limit                   | BackToChart             |
       | AreaChart_2483_ConnectEmptyData          | AreaChartElement        |
       | AreaChart_2483_Smooth                    | AreaChartElement        |
       | LineChart_2479_ConnectEmptyData          | LineChartElement        |
