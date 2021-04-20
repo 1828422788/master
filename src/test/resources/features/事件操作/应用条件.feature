@@ -10,6 +10,7 @@ Feature: 事件操作应用条件
     When I set the parameter "LogSample" with value "1511255129001, bob, hank, query2, 111"
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule"
+    And I wait for "1500" millsecond
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Regex" with value "(?<a>.*)(?<num>\d{3})"
     And I click the "EnsureAddParseRule" button

@@ -110,5 +110,5 @@ Feature: 事件操作编辑
     And I click the "EventOperate" button
     Then I wait for "ContextSample" will be visible
     And I click the "RawMessage" button
-    Then I wait for "ContextSample" will be visible
+   # Then I wait for "ContextSample" will be visible
 

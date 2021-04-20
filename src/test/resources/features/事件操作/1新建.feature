@@ -11,6 +11,7 @@ Feature: 事件操作新建（RZY-1387）
     And I set the parameter "Name" with value "<name>"
     And I set the parameter "Field" with value "<field>"
     And I choose the "<display>" from the "Display"
+    And I wait for "1500" millsecond
     And I choose the "<action>" from the "Action"
     And I set the parameter "Url" with value "<url>"
     And I choose the "<openUrl>" from the "OpenUrl"
