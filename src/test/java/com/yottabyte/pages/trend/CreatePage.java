@@ -98,9 +98,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//input[@value='world'])[last()]")
     private WebElement selectWorld;
 
-    @FindBy(className = "_1pGh3cs00Rp1iccZrcDgHU")
-    private WebElement listOfFields;
-
     @FindBy(xpath = "//div[contains(@class,'yotta-checkbox-group')]")
     private WebElement checkBox;
 
@@ -175,8 +172,6 @@ public class CreatePage extends PageTemplate {
 
 //----------------------------------------------------
 // other ----------------------------
-    @FindBy(xpath = "//span[contains(@class,'yotta-select-selection-icon-arrow')]")
-    private WebElement dropbutton;
 
     @FindBy(className = "CodeMirror-code")
     private WebElement searchInput;
@@ -186,9 +181,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//label[text()='每个分片取样']/ancestor::div/following-sibling::div//input")
     private WebElement fenPianQuYang;
-
-    @FindBy(className = "chart-type-popover")
-    private WebElement chartTypePopover;
 
     @FindBy(xpath = "(//input[@value='horizontal']/following-sibling::span)[last()]")
     private WebElement horizontal;
@@ -235,35 +227,14 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//input[@class='el-input__inner'])[last()]")
     private WebElement label;
 
-    @FindBy(className = "yw-search-setting-switch")
-    private WebElement settingSwitch;
-
     @FindBy(xpath = "(//p[text()='+ 添加'])[last()] | (//*[name()='svg' and @data-icon='AddCircleOutlined']/ancestor::span[1])")
     private WebElement addField;
-
-    @FindBy(xpath = "(//div[@class='el-select yw-search-setting-select'])[last()]")
-    private WebElement secondSettingSelect;
 
     @FindBy(className = "table")
     private WebElement table;
 
     @FindBy(xpath = "//span[text()='图标名称']/ancestor::div/following-sibling::div[1]//input")
     private WebElement iconName;
-
-    @FindBy(xpath = "(//*[@class='el-switch yw-search-setting-switch'])[last()]")
-    private WebElement switchButton;
-
-    @FindBy(xpath = "(//i[@class='el-input__icon el-icon-arrow-up'])[2]")
-    private WebElement pagination;
-
-    @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
-    private WebElement pagingSelect;
-
-    @FindBy(xpath = "(//span[text()='字段值'])[last()]/ancestor::div/following-sibling::div//input[@class='el-input__inner']")
-    private WebElement fieldValueInput;
-
-    @FindBy(xpath = "(//span[text()='气泡大小']/ancestor::div/following-sibling::div//input)[last()]")
-    private WebElement bubbleSizeInput;
 
     @FindBy(xpath = "//span[text()='搜索配置']")
     private WebElement searchConfig;
@@ -294,24 +265,6 @@ public class CreatePage extends PageTemplate {
     private WebElement darkBlue;
 //----------------------------------------------------------------------------
 
-    @FindBy(xpath = "(//span[text()='实际值'])[last()]/ancestor::div/following-sibling::div//input")
-    private WebElement actualValueInput;
-
-    @FindBy(xpath = "(//span[text()='预测值'])[last()]/ancestor::div/following-sibling::div//input")
-    private WebElement predictValueInput;
-
-    @FindBy(xpath = "(//span[text()='上限'])[last()]/ancestor::div/following-sibling::div//input")
-    private WebElement topLimitInput;
-
-    @FindBy(xpath = "(//span[text()='下限'])[last()]/ancestor::div/following-sibling::div//input")
-    private WebElement lowerLimitInput;
-
-    @FindBy(xpath = "(//span[text()='经度'])[last()]/ancestor::div/following-sibling::div//input")
-    private WebElement longitudeInput;
-
-    @FindBy(xpath = "(//span[text()='纬度'])[last()]/ancestor::div/following-sibling::div//input")
-    private WebElement latitudeInput;
-
     @FindBy(xpath = "(//span[text()='世界'])[last()]")
     private WebElement world;
 
@@ -323,9 +276,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//span[text()='内蒙古'])[last()]")
     private WebElement neimeng;
-
-    @FindBy(className = "range-color-group-add")
-    private WebElement addColour;
 
     @FindBy(xpath = "(//span[contains(text(),'添加颜色区间')]/ancestor::div[1]/preceding-sibling::div//input)[last()-1]")
     private WebElement minRange;
@@ -360,9 +310,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[@class='img iconfont icon-shanchuxuanting_icon'])[last()]")
     private WebElement delete;
 
-    @FindBy(className = "el-switch__label--right")
-    private WebElement switchLabel;
-
     @FindBy(xpath = "(//*[text()='深圳市'])[last()]")
     private WebElement shenZhen;
 
@@ -372,26 +319,11 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//*[@aria-label='DragFilled']) | (//*[text()='配置'])")
     private WebElement hideElement;
 
-    @FindBy(xpath = "(//*[@class='el-scrollbar'])[last()]")
-    private WebElement scrollbar;
-
-    @FindBy(className = "yw-trend")
-    private WebElement canvas;
-
     @FindBy(xpath = "//*[local-name()='g' and @class='vx-group']/ancestor::div[1]")
     private WebElement chart;
 
-    @FindBy(className = "yw-chart-config")
-    private WebElement container;
-
-    @FindBy(id = "yw-search-fields-header")
-    private WebElement tableHeader;
-
     @FindBy(xpath = "//*[@yotta-test='trend-trend_app-select']/div")
     private WebElement appDropdownIcon;
-
-    @FindBy(className = "ant-popover-inner-content")
-    private WebElement content;
 
     @FindBy(xpath = "(//label[text()='今天']/following-sibling::i)[2]")
     private WebElement setting;
@@ -817,20 +749,8 @@ public class CreatePage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
-    public WebElement getContent() {
-        return content;
-    }
-
     public WebElement getCountryChina() {
         return countryChina;
-    }
-
-    public WebElement getTableHeader() {
-        return tableHeader;
-    }
-
-    public WebElement getContainer() {
-        return container;
     }
 
     public WebElement getChart() {
@@ -853,20 +773,12 @@ public class CreatePage extends PageTemplate {
         return jiangsu;
     }
 
-    public WebElement getCanvas() {
-        return canvas;
-    }
-
     public WebElement getRowNum() {
         return rowNum;
     }
 
     public WebElement getColumnNum(){
         return columnNum;
-    }
-
-    public WebElement getScrollbar() {
-        return scrollbar;
     }
 
     public WebElement getShenZhen() {
@@ -884,10 +796,6 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getLightGreen() {
         return lightGreen;
-    }
-
-    public WebElement getSwitchLabel() {
-        return switchLabel;
     }
 
     public WebElement getDeleteFirst() {
@@ -959,18 +867,6 @@ public class CreatePage extends PageTemplate {
         return addColor;
     }
 
-    public WebElement getAddColour() {
-        return addColour;
-    }
-
-    public WebElement getLongitudeInput() {
-        return longitudeInput;
-    }
-
-    public WebElement getLatitudeInput() {
-        return latitudeInput;
-    }
-
     public WebElement getNeimeng() {
         return neimeng;
     }
@@ -985,30 +881,6 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getChina() {
         return china;
-    }
-
-    public WebElement getActualValueInput() {
-        return actualValueInput;
-    }
-
-    public WebElement getPredictValueInput() {
-        return predictValueInput;
-    }
-
-    public WebElement getTopLimitInput() {
-        return topLimitInput;
-    }
-
-    public WebElement getLowerLimitInput() {
-        return lowerLimitInput;
-    }
-
-    public WebElement getBubbleSizeInput() {
-        return bubbleSizeInput;
-    }
-
-    public WebElement getFieldValueInput() {
-        return fieldValueInput;
     }
 
     public WebElement getGroupField() {
@@ -1664,11 +1536,6 @@ public class CreatePage extends PageTemplate {
 
 //----
 
-    public WebElement getPagingSelect() {
-        pagination.click();
-        return pagingSelect;
-    }
-
     public WebElement getEnsureButton() {
         return getContainsTextButton("确定");
     }
@@ -1745,17 +1612,8 @@ public class CreatePage extends PageTemplate {
         return searchInput;
     }
 
-    public WebElement getChartTypePopover() {
-        return chartTypePopover;
-    }
-
     public WebElement getSetting() {
         return setting;
-    }
-
-    public WebElement getSecondSettingSelect() {
-        secondSettingSelect.click();
-        return super.getLastDropdownList();
     }
 
     public WebElement getDateEditor() {
@@ -1814,10 +1672,6 @@ public class CreatePage extends PageTemplate {
         return purple;
     }
 
-    public WebElement getSettingSwitch() {
-        return settingSwitch;
-    }
-
     public WebElement getAddField() {
         return addField;
     }
@@ -1830,18 +1684,9 @@ public class CreatePage extends PageTemplate {
         return iconName;
     }
 
-    public WebElement getSwitchButton() {
-        return switchButton;
-    }
-
     public WebElement getAppDropdown() {
         appDropdownIcon.click();
         return dropdownUtils.getLastDropdownList();
-    }
-
-
-    public WebElement getListOfFields() {
-        return listOfFields;
     }
 
     public WebElement getCheckBox() {

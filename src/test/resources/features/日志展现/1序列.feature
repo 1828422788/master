@@ -144,10 +144,10 @@ Feature: 日志展现_序列
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "Chart" will be visible
+    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "actual/高级搜索视图/1序列/分面_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/1序列/分面_<chartType>"
     Then I compare source image "actual/高级搜索视图/1序列/分面_<chartType>" with target image "expect/高级搜索视图/1序列/分面_<chartType>"
 
     Examples:

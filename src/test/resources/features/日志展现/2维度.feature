@@ -21,6 +21,7 @@ Feature: 日志展现_维度
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I wait for "<element>" will be visible
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/2维度/<caseNum>_<chartType>"
     Then I compare source image "actual/高级搜索视图/2维度/<caseNum>_<chartType>" with target image "expect/高级搜索视图/2维度/<caseNum>_<chartType>"
@@ -53,7 +54,7 @@ Feature: 日志展现_维度
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/2维度/<caseNum>_<chartType>"
     Then I compare source image "actual/高级搜索视图/2维度/<caseNum>_<chartType>" with target image "expect/高级搜索视图/2维度/<caseNum>_<chartType>"
@@ -80,7 +81,7 @@ Feature: 日志展现_维度
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/2维度/label/<chartType>_<option>_<descr>"
     Then I compare source image "actual/高级搜索视图/2维度/label/<chartType>_<option>_<descr>" with target image "expect/高级搜索视图/2维度/label/<chartType>_<option>_<descr>"
@@ -118,7 +119,7 @@ Feature: 日志展现_维度
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option>_<descr>"
     Then I compare source image "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option>_<descr>" with target image "expect/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option>_<descr>"
@@ -162,7 +163,7 @@ Feature: 日志展现_维度
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/2维度/<chartType>_<typeInfo>_分面"
     Then I compare source image "actual/高级搜索视图/2维度/<chartType>_<typeInfo>_分面" with target image "expect/高级搜索视图/2维度/<chartType>_<typeInfo>_分面"
@@ -198,7 +199,7 @@ Feature: 日志展现_维度
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/2维度/<chartType>_分面"
 #    Then I compare source image "actual/高级搜索视图/2维度/<chartType>_分面" with target image "expect/高级搜索视图/2维度/<chartType>_分面"
@@ -231,7 +232,7 @@ Feature: 日志展现_维度
     And I click the "HideElement" button
     And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/2维度/<chartType>_<option>"
     Then I compare source image "actual/高级搜索视图/2维度/<chartType>_<option>" with target image "expect/高级搜索视图/2维度/<chartType>_<option>"
@@ -269,6 +270,7 @@ Feature: 日志展现_维度
     And I click the "HideElement" button
     And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/2维度/<chartType>_<option>_分面"
     Then I compare source image "actual/高级搜索视图/2维度/<chartType>_<option>_分面" with target image "expect/高级搜索视图/2维度/<chartType>_<option>_分面"

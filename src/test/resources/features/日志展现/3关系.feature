@@ -21,7 +21,7 @@ Feature: 日志展现_关系
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And I will see the "Type" is display
     And take part of "Chart" with name "actual/高级搜索视图/3关系/<caseNum>_<chartType>"
@@ -50,7 +50,7 @@ Feature: 日志展现_关系
     And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And I will see the "Type" is display
     And take part of "Chart" with name "actual/高级搜索视图/3关系/<chartType>_repulsion"
@@ -81,7 +81,7 @@ Feature: 日志展现_关系
     And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And I will see the "Type" is display
     And take part of "Chart" with name "actual/高级搜索视图/3关系/<chartType>_<button>"
@@ -109,12 +109,12 @@ Feature: 日志展现_关系
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "StatisticalChart" will be visible
+    And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+    And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And I will see the "Type" is display
-    And take part of "StatisticalChart" with name "actual/高级搜索视图/3关系/分面_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/3关系/分面_<chartType>"
     Then I compare source image "actual/高级搜索视图/3关系/分面_<chartType>" with target image "expect/高级搜索视图/3关系/分面_<chartType>"
 
     Examples:

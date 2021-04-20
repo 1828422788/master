@@ -51,7 +51,7 @@ Feature: 日志展现_其它
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
 #    Then I compare source image "actual/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它/<caseNum>_<chartType>"
 
     Examples:
