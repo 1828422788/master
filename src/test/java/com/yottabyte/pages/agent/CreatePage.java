@@ -707,6 +707,9 @@ public class CreatePage extends PageTemplate {
         return getInputElement("charset");
     }
 
+    public WebElement getCharsetKind(){
+        return getDropDownListElement("charset");
+    }
 
     public WebElement getCharacterKind(){
         return getDropDownListElement("字符集");
@@ -1021,9 +1024,9 @@ public class CreatePage extends PageTemplate {
     }
     public WebElement getDropDownListElement(String name) {
         DropdownUtils dropdownUtils = new DropdownUtils();
-        WebElement element = webDriver.findElement(By.xpath("//label[text()='" + name + "']/parent::div/following-sibling::div//span[@class='yotta-select-selection-value']"));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-        ClickEvent.clickUnderneathButton(element);
+        String xpath = "//label[text()='" + name + "']/parent::div/following-sibling::div//span[@class='yotta-select-selection-value']";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        element.click();
         return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu'])[last()]"));
     }
 }

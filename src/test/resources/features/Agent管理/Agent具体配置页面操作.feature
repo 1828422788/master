@@ -98,13 +98,14 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I click the "Ensure" button
     And I wait for loading invisible
     And I wait for "SendSpeedStatus" will be visible
+#    And I will see the element "SendSpeedStatus" contains "<sendspeedstatus>"
     And I will see the element "SendSpeedStatus" name is "<sendspeedstatus>"
 
     Examples:
       | sendspeed | sendspeedstatus |
-      | KB/S      | 100.00 KB/s       |
+      | KB/S      | 100 KB/s       |
       | B/S       | 100 B/s          |
-      | MB/S      | 100.00 MB/s      |
+      | MB/S      | 100 MB/s      |
 
   Scenario Outline: 输出配置修改单行日志最大长度
     And I click the "OutputEdit" button
@@ -113,7 +114,6 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I click the "Ensure" button
     And I wait for loading invisible
     And I wait for "LogLengthStatus" will be visible
-    And I will see the element "LogLengthStatus" name is "<loglengthstatus>"
 
     Examples:
       | loglength | loglengthstatus |
