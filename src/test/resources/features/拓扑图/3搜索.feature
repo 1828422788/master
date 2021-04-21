@@ -17,7 +17,7 @@ Feature: 拓扑图搜索（RZY-354至355）
 
   Scenario Outline: 根据输入内容搜索（RZY-354）
     Given I set the parameter "SearchInput" with value "<name>"
-    And I click the "SearchIcon" button
+    And I wait for "2000" millsecond
     And I wait for loading invisible
     Then I will see the search result "{'column':'0','name':'<name>'}"
     Then I will see the search result "{'column':'0','name':'拓扑图无标签','contains':'no'}"

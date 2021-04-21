@@ -5,7 +5,7 @@ Feature: 拓扑图删除（RZY-350）
     Given open the "topology.ListPage" page for uri "/topology/"
 
   Scenario Outline:
-    Given the data name is "<name>" then i click the "删除" button
+    Given the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
 

@@ -19,13 +19,13 @@ public class ListPage extends ListPageFactory {
         super(driver);
     }
 
-    @FindBy(xpath = "//label[text()='标签']/parent::div/following-sibling::div//input")
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//div[@class='yotta-select-selection-content']")
     private WebElement tag;
 
-    @FindBy(xpath = "//label[@title='资源标签']/ancestor::div/following-sibling::div//input")
+    @FindBy(xpath = "//span[text()='请输入标签名称']")
     private WebElement tagInput;
 
-    @FindBy(className = "ant-form-explain")
+    @FindBy(className = "yotta-message-content")
     private WebElement errorMessage;
 
     @FindBy(xpath = "//div/ul/li[3]/span[text()='删除']")

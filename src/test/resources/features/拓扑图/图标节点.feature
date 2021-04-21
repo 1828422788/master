@@ -53,7 +53,7 @@ Feature: 拓扑图图标节点
     And open the "topology.ListPage" page for uri "/topology/"
 
   Scenario Outline: 删除拓扑图
-    Given the data name is "<name>" then i click the "删除" button
+    Given the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
 

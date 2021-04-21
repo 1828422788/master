@@ -3,6 +3,7 @@ Feature: 拓扑图告警触发
 
   Background:
     Given open the "topology.ListPage" page for uri "/topology/"
+    And I wait for loading invisible
 
   Scenario Outline: 新建拓扑图
     When I click the "Create" button
@@ -12,6 +13,26 @@ Feature: 拓扑图告警触发
     Examples:
       | name |
       | 告警触发 |
+
+  Scenario Outline: 新建矩形节点
+    When I click the detail which name is "告警触发"
+    Then I will see the "topology.DetailPage" page
+    And I wait for loading invisible
+    And I click the "Setting" button under some element
+    And I click the "EditTopologySwitch" button
+    And I click the "Setting" button under some element
+    Then I choose the "圆形" from the "NodeType"
+    And I wait for "1000" millsecond
+    And I set the parameter "IconNodeName" with value "矩形节点"
+    Then I click the "AddNodeButton" button
+    And I wait for "2000" millsecond
+
+    Examples:
+      | min       | max       | attribute |
+      | HigherMin | HigherMax | #FF3434   |
+    #  | MediumMin | MediumMax | #FF9F02   |
+    #  | LowerMin  | LowerMax  | #FFD700   |
+
 
   Scenario Outline: 验证告警等级
     When I click the detail which name is "告警触发"
@@ -125,7 +146,7 @@ Feature: 拓扑图告警触发
     And open the "topology.ListPage" page for uri "/topology/"
 
   Scenario Outline: 删除拓扑图
-    Given the data name is "<name>" then i click the "删除" button
+    Given the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
 

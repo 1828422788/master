@@ -47,6 +47,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='请输入链接']")
     private WebElement explain;
 
+    public WebElement getMessage() { return getYottaDiv("dialog-content-dom"); }
+
+    public WebElement getReturnList() { return getYottaButton("dialog-confirm-button");}
+
     public WebElement getExplain() { return explain; }
 
     public WebElement getSelectCondition() {

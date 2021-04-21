@@ -30,9 +30,6 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "icon-bianji1")
     private WebElement switchButton;
 
-    @FindBy(xpath = "//input[@placeholder='请输入节点标签']")
-    private WebElement nodeName;
-
     @FindBy(xpath = "//input[@placeholder='请输入节点分组']")
     private WebElement nodeGroup;
 
@@ -246,13 +243,16 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//div[@class='value'])[2]")
     private WebElement nodeValue2;
 
-    @FindBy(xpath = "//div[@yotta-test='topology_opt-show-dropdwon']//span")
+    @FindBy(xpath = "//div[@yotta-test='topology_opt-show-dropdwon']/button")
     private WebElement setting;
 
-    @FindBy(xpath = "//input[@yotta-test='toplogy_opt-edit-switch']")
-    private WebElement editTopologySwitch;
+    public WebElement getNodeType() {
+        return getYottaDropdownList("topology_gui-type-select");
+    }
 
-    public WebElement getEditTopologySwitch() { return editTopologySwitch;}
+    public WebElement getEditTopologySwitch() {
+        return getYottaInput("toplogy_opt-edit-switch");
+        }
 
     public WebElement getSetting() { return setting;}
 
@@ -423,8 +423,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getIconNodeName() {
-        //return getInput("节点名称");
-        return getInput("节点标签");
+        return getYottaInput("节点标签：");
     }
 
     public WebElement getDefaultValueDropdown() {
@@ -470,12 +469,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getAddNodeButton() {
-        //return super.getButton("添加节点");
         return super.getButton("新建");
-    }
-
-    public WebElement getNodeName() {
-        return nodeName;
     }
 
     public WebElement getSwitchButton() {
@@ -732,6 +726,11 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getInputElement(String name) {
         String xpath = "//span[text()='" + name + "']/ancestor::span/following-sibling::input";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getYottaInput(String name) {
+        String xpath = "//div[text()='" + name + "']/parent::div//following-sibling::div/input";
         return webDriver.findElement(By.xpath(xpath));
     }
 
