@@ -31,8 +31,10 @@ Feature: 权限-collect指令
     And I set the parameter "SearchInput" with value "*|collect index=autotestauth marker=\"appname=\\\"autotestappname\\\", tag=\\\"autotesttag\\\"\""
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchButton" button under some element
-    Then I wait for element "SearchStatus" change text to "权限错误: 没有运行'collect'命令的权限"
+    And I wait for "1500" millsecond
+    And I click the "SearchButton" button
+    And I will see the "ErrorIcon" is display
+   # Then I wait for element "SearchStatus" change text to "权限错误"
     And I logout current user
 
   Scenario: 勾选collect指令
@@ -51,7 +53,8 @@ Feature: 权限-collect指令
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button under some element
-    Then I wait for element "SearchStatus" change text to "权限错误: 没有写索引'autotestauth'的权限"
+    And I will see the "ErrorIcon" is display
+   # Then I wait for element "SearchStatus" change text to "权限错误: 没有写索引'autotestauth'的权限"
     And I logout current user
 
   Scenario Outline: 授权写入索引权限
@@ -87,6 +90,8 @@ Feature: 权限-collect指令
     And I click the "SearchButton" button under some element
     Then I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "RightIcon" button
+    And I wait for "1500" millsecond
+
     Then I will see the element "Tag" name is "autotesttag "
 
   Scenario Outline: 删除索引

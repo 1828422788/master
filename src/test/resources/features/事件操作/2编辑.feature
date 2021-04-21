@@ -17,6 +17,18 @@ Feature: 事件操作编辑
     And I click the "Save" button
     And I wait for "Message" will be visible
     Then I will see the message "提交事件操作成功"
+  #  And the data name is "{'column':'1','name':'AutoTest'}" then i click the "编辑" button
+  #  Then I will see the "event.CreatePage" page
+  #  When I set the parameter "Alias" with value "<alias>"
+  #  And I set the parameter "Field" with value "<field>"
+  #  And I choose the "<action>" from the "Action"
+  #  And I wait for "1500" millsecond
+  #  And I set the parameter "<inputName>" with value ""
+  #  And I set the parameter "<inputName>" with value "<url>"
+  #  And I choose the "<openUrl>" from the "OpenUrl"
+  #  And I click the "Save" button
+  #  And I wait for "Message" will be visible
+  #  Then I will see the message "提交事件操作成功"
     And open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "DateEditor" button
@@ -29,6 +41,9 @@ Feature: 事件操作编辑
     And I wait for "1500" millsecond
     And I click the "EventOperatorAutoTest" button
    # And the page's title will contains "_百度搜索"
+    And I wait for "3000" millsecond
+   # And the page's title will contains "百度搜索"
+    And I will see the url contains "baidu.com"
 
     Examples:
       | alias | field   | action | inputName | url                                   | openUrl |

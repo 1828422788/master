@@ -209,6 +209,11 @@ public class SearchPage extends ListPageFactory {
     @FindBy(tagName = "thead")
     private WebElement thead;
 
+    @FindBy(xpath = "//span[@yotta-test='search_control-failed-icon']")
+    private WebElement errorIcon;
+
+    public WebElement getErrorIcon() { return errorIcon; }
+
     public WebElement getSavedSearch() {
         com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(openSavedSearchButton));
         openSavedSearchButton.click();
