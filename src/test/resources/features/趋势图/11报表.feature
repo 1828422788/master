@@ -19,9 +19,12 @@ Feature: 趋势图新建_报表
     And I click the "LineChart" button
 
     And I click the "Type" button
-    And I wait for "StatisticalChart" will be visible
+    And I wait for "2000" millsecond
+    And I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
 
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
+    And I wait for "NameInput" will be visible
     When I set the parameter "NameInput" with value "<trend_name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "Complete" button under some element

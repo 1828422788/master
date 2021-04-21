@@ -441,6 +441,7 @@ Feature: 日志展现_其它
     And I click the "Indicators" button
     And I click the "AddIndicator" button
     And I choose the "cnt" from the "FieldValue" in config
+    And I wait for "2000" millsecond
     And I click the "AddRange" button
     And I set the parameter "MinRange" with value "5"
     And I set the parameter "MaxRange" with value "7"

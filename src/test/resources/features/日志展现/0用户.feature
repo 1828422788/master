@@ -34,6 +34,7 @@ Feature: 新建用户和字段提取
     And I click the "UploadButton" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "上传完成"
+    And I wait for "5000" millsecond
 
     Examples:
       |    tag         | log        | appname   |

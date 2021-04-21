@@ -1177,6 +1177,19 @@ Feature: 趋势图新建_其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'<chartType>_<caseNum>'}" then i click the "展示趋势图" button in more menu
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "<chartType>_<caseNum>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "ChainTreeElement" will be visible
 
     Examples:
       | chartType | color | precision | function     | parentIDvalue       | childIDvalue  | starttime                | duration            | infoValue                            | caseNum   | spl                                                                                                                                                                                                                                                       |
@@ -1200,6 +1213,7 @@ Feature: 趋势图新建_其他
     And I click the "Indicators" button
     And I click the "AddIndicator" button
     And I choose the "cnt" from the "FieldValue" in config
+    And I wait for "2000" millsecond
     And I click the "AddRange" button
     And I set the parameter "MinRange" with value "5"
     And I set the parameter "MaxRange" with value "7"
