@@ -91,8 +91,7 @@ Feature: 权限-collect指令
     Then I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "RightIcon" button
     And I wait for "1500" millsecond
-
-    Then I will see the element "Tag" name is "autotesttag "
+    Then I will see the element "Tag" name is "autotesttag"
 
   Scenario Outline: 删除索引
     Given open the "index.ListPage" page for uri "/indexsettings/"

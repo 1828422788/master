@@ -21,7 +21,7 @@ Feature: 权限-仪表盘
   Scenario: 验证无新建权限
     And I login user "AutoTest" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     Then I will see the "Create" doesn't exist
     Then I logout current user
 
@@ -102,8 +102,7 @@ Feature: 权限-仪表盘
     And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "1000" millsecond
-    #####################
+    And I wait for "2000" millsecond
     Then I will see the "AddTag" doesn't exist
     Then I logout current user
 
@@ -133,7 +132,6 @@ Feature: 权限-仪表盘
     Given I login user "AutoTest" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    ##设为默认编辑标签授权
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
     When the data name is "<name>" then i click the "更多" button
     And I click the "ResouceTag" button
@@ -154,7 +152,6 @@ Feature: 权限-仪表盘
     And I wait for "SuccessMessage" will be invisible
     And I click the detail which name is "<name>重命名"
     Then I will see the "dashboard.DetailPage" page
-    ################
     And I wait for "TagName" will be visible
     When I set the parameter "TagName" with value "test"
     And I click the "EnsureCreateTagButton" button
@@ -229,7 +226,6 @@ Feature: 权限-仪表盘
     Given I login user "AutoTest" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    ##设为默认编辑标签授权删除
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
     When the data name is "<name>" then i click the "更多" button
     And I click the "GiveRight" button
@@ -243,6 +239,7 @@ Feature: 权限-仪表盘
     And I set the parameter "multiInputTag" with value "AutoTestTag"
     ##And I choose the "AutoTestTag" from the "TagDropdown"
     And I click the "Ensure" button under some element
+    And I wait for "1000" millsecond
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
     And I wait for "SuccessMessage" will be invisible
@@ -345,7 +342,6 @@ Feature: 权限-仪表盘
     Given I login user "AutoTest" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    ##设为默认+更多（授权、删除）
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
     When the data name is "<name>" then i click the "更多" button
     And I click the "GiveRight" button
@@ -370,6 +366,7 @@ Feature: 权限-仪表盘
 
   Scenario Outline: 授权读取+编辑+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -390,14 +387,12 @@ Feature: 权限-仪表盘
     Given I login user "AutoTest" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    ##编辑+更多（设为默认、标签、授权）
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
     When the data name is "<name>" then i click the "更多" button
     And I click the "ResouceTag" button
     And I wait for "multiAddTag" will be visible
     And I click the "multiAddTag" button
     And I set the parameter "multiInputTag" with value "AutoTestTag"
-    ######
     ##And I choose the "AutoTestTag" from the "TagDropdown"
     And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible
@@ -438,6 +433,7 @@ Feature: 权限-仪表盘
 
   Scenario Outline: 授权读取+删除+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -475,7 +471,6 @@ Feature: 权限-仪表盘
     Given I login user "AutoTest" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    ##设为默认+更多（授权、删除）
     Then the data name is "<name>" then i will see "<function>" button
     When the data name is "<name>" then i click the "更多" button
     And I click the "GiveRight" button
@@ -541,7 +536,6 @@ Feature: 权限-仪表盘
     Given I login user "AutoTest" with password "All#123456"
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    ##编辑+更多（设为默认、标签、授权、删除）
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
     When the data name is "<name>" then i click the "更多" button
     And I click the "ResouceTag" button
@@ -620,7 +614,6 @@ Feature: 权限-仪表盘
     And I wait for loading invisible
     And I click the "AuthDropdown" button
     And I click the "用户" button
-    ##########
   #  And I choose the "<authRole>" from the "AuthDropdown"
     And I wait for loading invisible
     When I "check" the function "<function>" which name is "<authName>" in tiny table
@@ -639,7 +632,6 @@ Feature: 权限-仪表盘
     And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
-    ###########
    ########### Then I will see the "AddTag" doesn't exist
     Then I logout current user
 
@@ -654,7 +646,6 @@ Feature: 权限-仪表盘
     When the data name is "<name>" then i click the "更多" button
     And I click the "GiveRight" button
     And I wait for loading invisible
-    #########
     #######And I choose the "<authRole>" from the "AuthDropdown"
     And I wait for loading invisible
     When I "check" the function "<function>" which name is "验证授权用户" in tiny table
@@ -705,11 +696,7 @@ Feature: 权限-仪表盘
     Given I login user "AutoTest" with password "All#123456"
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When the data name is "<name>" then i click the "更多" button
-    And I click the "GiveRight" button
-    And I wait for loading invisible
-    ###########
-    ######And I choose the "<authRole>" from the "AuthDropdown"
+    Given the data name is "<name>" then i click the "授权" button in more menu
     And I wait for loading invisible
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button under some element
@@ -724,11 +711,13 @@ Feature: 权限-仪表盘
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    When the data name is "<name>" then i click the "更多" button
-    And I click the "ResouceTag" button
+    And I wait for loading invisible
+    When the data name is "<name>" then i click the "标签" button in more menu
+    And I wait for "TagToInput" will be visible
+    And I click the "TagToInput" button
     And I wait for "Tag" will be visible
-    And I set the parameter "Tag" with value "AutoTestTag"
-    And I choose the "AutoTestTag" from the "TagDropdown"
+    And I set the parameter "Tag" with value "AutoTest"
+    And I choose the "AutoTest" from the "TagDropdown"
     And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
@@ -744,9 +733,11 @@ Feature: 权限-仪表盘
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'<name>重命名'}" values "{'column':'2','name':'test'}"
-    When the data name is "<name>重命名" then i click the "更多" button
-    And I click the " EmpowerDelete" button
+    And I wait for loading invisible
+    When the data name is "<name>重命名" then i click the "删除" button in more menu
+   # And I click the " EmpowerDelete" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
@@ -755,4 +746,4 @@ Feature: 权限-仪表盘
 
     Examples:
       | authRole | authName | function | name      |userfunction|
-      | 用户分组     | 验证授权用户分组 | 读取,编辑,删除 | 测试二次授权重命名 |编辑\n更多|
+      | 用户分组     | 验证授权用户 | 读取,编辑,删除 | 测试二次授权重命名 |编辑\n更多|

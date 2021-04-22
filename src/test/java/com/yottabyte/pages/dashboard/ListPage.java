@@ -80,6 +80,13 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div//input[@class='yotta-select-selection-search']")
     private WebElement multiInputTag;
 
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//div[@class='yotta-select-selection-content']")
+    private WebElement tagToInput;
+
+    public WebElement getTagToInput() {
+        return tagToInput;
+    }
+
     public WebElement getMultiInputTag() {
         return multiInputTag;
     }

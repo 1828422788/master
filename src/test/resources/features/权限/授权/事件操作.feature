@@ -42,6 +42,7 @@ Feature: 权限-事件操作
     And I set the parameter "Name" with value "<name>"
     And I set the parameter "Field" with value "<field>"
     And I choose the "<display>" from the "Display" in page
+    And I wait for "1500" millsecond
     And I choose the "<action>" from the "Action" in page
     And I set the parameter "Url" with value "<url>"
     And I choose the "<openUrl>" from the "OpenUrl" in page

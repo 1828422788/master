@@ -78,6 +78,7 @@ Feature: 权限-全链路
   Scenario: 验证无任何权限
     Given I login user "AutoTest" with password "All#123456"
     And open the "fulllink.ListPage" page for uri "/fulllink/"
+    And I wait for loading invisible
     Then I will see the search result "{'column':'0','name':'权限测试','contains':'no'}"
     Then I logout current user
 

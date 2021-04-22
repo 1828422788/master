@@ -77,7 +77,8 @@ Feature: 权限-下载管理
     Then I wait for "1000" millsecond
     And I click the "EventButton" button
     Then I wait for "1000" millsecond
-    And I click the "DownloadButton" button
+    And I click the "DownloadEvent" button
+    And I wait for "1500" millsecond
     And I set the parameter "DownloadName" with value "AutoTestAuth"
     And I choose the "CSV" from the "FileType"
     And I click the "EnsureButton" button under some element
