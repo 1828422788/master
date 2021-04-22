@@ -94,7 +94,10 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//div[@class='yotta-tabs-tab-btn']")
     private WebElement eventButton;
-    public WebElement getEventButton() { return eventButton; }
+
+    public WebElement getEventButton() {
+        return eventButton;
+    }
 
     @FindBy(xpath = "//li/span[text()='打开列表']")
     private WebElement openSavedSearchList;
@@ -212,7 +215,9 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//span[@yotta-test='search_control-failed-icon']")
     private WebElement errorIcon;
 
-    public WebElement getErrorIcon() { return errorIcon; }
+    public WebElement getErrorIcon() {
+        return errorIcon;
+    }
 
     public WebElement getSavedSearch() {
         com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(openSavedSearchButton));
@@ -599,7 +604,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//td[@data-col-name]/span")
     private List<WebElement> columnList;
 
-   // @FindBy(className = "_2dbwZ_u3soDYQC50Ls5yOo")
+    // @FindBy(className = "_2dbwZ_u3soDYQC50Ls5yOo")
     @FindBy(xpath = "//div[@class='event-item'][1]/span")
     private WebElement rightIcon;
 
@@ -708,19 +713,29 @@ public class SearchPage extends ListPageFactory {
         return saveAs;
     }
 
+    public WebElement getSaveAsList() {
+        String xpath = "//span[text()='保存为']";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownList37();
+    }
+
     @FindBy(xpath = "//li[text()='趋势图']")
     private WebElement saveAsTrend;
 
     @FindBy(xpath = "//li[text()='定时任务']")
     private WebElement saveAsSchedule;
 
-    @FindBy(xpath = "//span[@class='yotta-icon yotta-icon-DownloadOutlined']")
-    private WebElement downloadButton;
-
     @FindBy(xpath = "//span[@yotta-test='event_list-event_action-icon']")
     private WebElement expand;
 
-    public WebElement getExpand() { return expand; }
+    public WebElement getExpand() {
+        return expand;
+    }
+
+    @FindBy(xpath = "//span[@class='yotta-icon yotta-icon-DownloadOutlined']")
+    private WebElement downloadButton;
 
     public WebElement getDownloadButton() {
         saveAsOther.click();
@@ -1200,7 +1215,7 @@ public class SearchPage extends ListPageFactory {
         return GetTime.getTime(webDriver, "ApplyCustomTime");
     }
 
-   // @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::input")
+    // @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::input")
     @FindBy(xpath = "//input[@yotta-test='search-new_savedsearch_name-input']")
     private WebElement offlineTaskName;
 
@@ -1787,6 +1802,7 @@ public class SearchPage extends ListPageFactory {
     //验证字段列表
     @FindBy(xpath = "//span[text()='#']/following-sibling::span")
     private WebElement fieldOne;
+
     public WebElement getFieldOne() {
         return fieldOne;
     }

@@ -1,11 +1,11 @@
-@alldownload @dlevent @dl36
+@alldownload @dlevent @dle36
 Feature: download_eval下载
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  @dl36
+  @dle361
   Scenario Outline: 执行
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
@@ -17,7 +17,8 @@ Feature: download_eval下载
 
     And I wait for "2000" millsecond
     And I wait for "SaveAsOther" will be visible
-    When I click the "DownloadButton" button
+#    When I click the "DownloadButton" button
+    And I choose the "下载" from the "SaveAsList"
     And I set the parameter "DownloadName" with value "<name>"
     And I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
@@ -74,7 +75,8 @@ Feature: download_eval下载
     Then take a screenshot with name "downloadpng/<name>"
 
     And I wait for "SaveAsOther" will be visible
-    Then I click the "downloadButton" button
+#    Then I click the "downloadButton" button
+    And I choose the "下载" from the "SaveAsList"
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
