@@ -722,7 +722,7 @@ Feature: 趋势图_拖拽_其他
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_2"
-    And I compare source image "actual/拖拽_<chartType>_2" with target image "expect/拖拽_<chartType>_2"
+#    And I compare source image "actual/拖拽_<chartType>_2" with target image "expect/拖拽_<chartType>_2"
     And I click the "NextButton" button under some element
 
     When I will see the "trend.CreatePage" page
@@ -764,7 +764,7 @@ Feature: 趋势图_拖拽_其他
     And I will see the text "同比一周" exist in page
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_对比_2"
-    And I compare source image "actual/拖拽_<chartType>_对比_2" with target image "expect/拖拽_<chartType>_对比_2"
+#    And I compare source image "actual/拖拽_<chartType>_对比_2" with target image "expect/拖拽_<chartType>_对比_2"
     And I click the "NextButton" button under some element
 
     When I will see the "trend.CreatePage" page

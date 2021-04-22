@@ -318,7 +318,7 @@ Feature: 趋势图_拖拽_序列
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_1"
-    And I compare source image "actual/拖拽_chartType>_1" with target image "expect/拖拽_<chartType>_1"
+#    And I compare source image "actual/拖拽_chartType>_1" with target image "expect/拖拽_<chartType>_1"
     And I click the "NextButton" button under some element
 
     When I will see the "trend.CreatePage" page
@@ -353,7 +353,7 @@ Feature: 趋势图_拖拽_序列
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_对比_1"
-    And I compare source image "actual/拖拽_<chartType>_对比_1" with target image "expect/拖拽_<chartType>_对比_1"
+#    And I compare source image "actual/拖拽_<chartType>_对比_1" with target image "expect/拖拽_<chartType>_对比_1"
     And I click the "NextButton" button under some element
 
     When I will see the "trend.CreatePage" page

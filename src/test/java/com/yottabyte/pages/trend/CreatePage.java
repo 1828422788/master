@@ -406,13 +406,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='列信息']/ancestor::div[1]/following-sibling::div//span[contains(@class,'yotta-select-selection-icon-arrow')])[last()]")
     private WebElement infoColumnIcon;
 
-    @FindBy(xpath = "//*[name()='rect' and @class='vx-bar']/following-sibling::*[@font-size='12']")
+    @FindBy(xpath = "//*[name()='rect' and @class='vx-bar']/following-sibling::*[contains(@style,'font-size: 12px')]")
     private WebElement sankeyElement;
 
     @FindBy(xpath = "//*[(contains(text(),'200') or contains(text(),'/') or contains(text(),'GET')) and name()='text']/following-sibling::*[name()='circle']")
     private WebElement chordElement;
 
-    @FindBy(xpath = "//*[contains(@style,'cubic-bezier')]/following-sibling::*[@font-size>7]")
+    @FindBy(xpath = "//*[contains(@style,'cubic-bezier')]/following-sibling::*[contains(@style,'font-size: 9px')]")
     private WebElement forceElement;
 
     @FindBy(xpath = "//*[@class='vx-group' and name()='g']/*[text()='南京市' and name()='text']")

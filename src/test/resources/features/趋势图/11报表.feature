@@ -47,11 +47,12 @@ Feature: 趋势图新建_报表
     And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
     And I set the parameter "Hour" with value "16"
     And I set the parameter "Minute" with value "45"
-    And I click the "NextButton" button under some element
+    And I wait for "1500" millsecond
+    And I click the "NextButton" button
     Then I will see the "report.CreatePage<page>" page
     And I wait for "5000" millsecond
     Then I will see the element "<added_trend>" contains "<trend_name>"
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
