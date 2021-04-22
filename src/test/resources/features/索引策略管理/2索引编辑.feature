@@ -112,7 +112,7 @@ Feature: 索引信息编辑（RZY-1477至1480）
     Given the data name is "{'column':'1','name':'index_sink'}" then i click the "编辑" button without paging
     Then I will see the "index.CreatePage" page
     And I set the parameter "SinkHDD" with value "50"
-#    And I set the parameter "SinkNAS" with value "50"
+    And I set the parameter "SinkNAS" with value "50"
     And I click the "SavedButton" button
     And I will see the element "Message" name is "保存成功"
 

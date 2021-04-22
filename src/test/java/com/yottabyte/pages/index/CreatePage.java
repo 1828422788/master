@@ -24,6 +24,14 @@ public class CreatePage extends PageTemplate {
         element.click();
         return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu'])[last()]"));
     }
+
+    public WebElement getSinkswitch() {
+        return sinkswitch;
+    }
+
+    @FindBy(xpath = "//label[contains(text(),'索引下沉')]/parent::div/following-sibling::div//label")
+    private WebElement sinkswitch;
+
     public WebElement getDivideTimeDropDown() {
         return getDropdownList("切分时间");
     }
@@ -115,7 +123,7 @@ public class CreatePage extends PageTemplate {
         return SinkNAS;
     }
 
-    @FindBy(xpath = "//div[text()='天后下沉到NAS']/parent::span/preceding-sibling::input")
+    @FindBy(xpath = "//div[text()='天后下沉到NAS']/parent::span/preceding-sibling::input[@class='yotta-input yotta-input-large']")
     private WebElement SinkNAS;
 
     public WebElement getCreateButton() {

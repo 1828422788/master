@@ -54,6 +54,10 @@ public class CreatePage extends PageTemplate {
         return super.getYottaButtonByText("保存");
     }
 
+    public WebElement getEnsure() {
+        return super.getYottaButtonByText("确定");
+    }
+
     public WebElement getInputElement(String text) {
         String xpath = "//label[text()='" + text + "']/parent::div/following-sibling::div//input";
         return webDriver.findElement(By.xpath(xpath));
