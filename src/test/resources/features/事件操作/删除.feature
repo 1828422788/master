@@ -9,6 +9,7 @@ Feature: 事件操作删除（RZY-1391）
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I refresh the website
+    And I wait for loading invisible
     Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
 
   @eventSmoke

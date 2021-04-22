@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
@@ -246,7 +247,29 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[@yotta-test='topology_opt-show-dropdwon']/button")
     private WebElement setting;
 
+    @FindBy(xpath = "//span[text()='颜色']/following-sibling::input[@yotta-test='topology_gui-fill-color-input']")
+    private WebElement fillOfColor;
+
+    @FindBy(xpath = "//span[text()='可见度']/parent::div//input[@yotta-test='topology_gui-fillOpacity-number-input']")
+    private WebElement visibility;
+
+    @FindBy(xpath = "//span[text()='颜色']/following-sibling::input[@yotta-test='topology_gui-stroke-color-input']")
+    private WebElement strokeOfColor;
+
+    @FindBy(xpath = "//div[@yotta-test='topology_edit-index-tabs']//div/div[text()='分组']")
+    private WebElement group;
+
+    public WebElement getLineWidth() { return getYottaDropdownList("topology_gui-lineWidth-select-with-prepend"); }
+
+    public WebElement getLineType() {
+        return getYottaDropdownList("topology_gui-lineDash-select-with-prepend");
+    }
+
     public WebElement getNodeType() {
+        return getYottaDropdownList("topology_gui-type-select");
+    }
+
+    public WebElement getGroupType() {
         return getYottaDropdownList("topology_gui-type-select");
     }
 
@@ -274,6 +297,8 @@ public class DetailPage extends PageTemplate {
     public WebElement getNodeValue() {
         return nodeValue;
     }
+
+    public WebElement getGroup() { return group; }
 
     public WebElement getURL() {
         return URL;
@@ -424,6 +449,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getIconNodeName() {
         return getYottaInput("节点标签：");
+    }
+
+    public WebElement getIconGroupName() {
+        return getYottaInput("分组标签：");
     }
 
     public WebElement getDefaultValueDropdown() {
@@ -723,6 +752,12 @@ public class DetailPage extends PageTemplate {
     public WebElement getIdentityPrefix() {
         return getInput("标识值前缀");
     }
+
+    public WebElement getFillOfColor() { return fillOfColor; }
+
+    public WebElement getVisibility() { return visibility; }
+
+    public WebElement getStrokeOfColor() {return strokeOfColor; }
 
     public WebElement getInputElement(String name) {
         String xpath = "//span[text()='" + name + "']/ancestor::span/following-sibling::input";
