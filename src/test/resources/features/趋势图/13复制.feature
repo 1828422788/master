@@ -61,19 +61,21 @@ Feature: 趋势图复制(RZY-1889)
     And I wait for "3000" millsecond
     Then I will see the search result contains "{'column':'0','name':'Copy_Test_副本'}"
 
-#  Scenario: global_tag_app
-#    And I wait for "2000" millsecond
-#    And I choose the "test_app" from the "AppDropdown"
-#    And I wait for "TagOfTheLastItem" will be visible
-#    When I choose the "auto_package" from the "ResourceDropdown"
-#    And I set the parameter "SearchInput" with value ""
-#    And I wait for "2000" millsecond
-#    Then I will see the data "{'column':'0','name':'Copy_Test'}" values "{'column':'4','name':'auto_package'}"
-#    When I will see the data "{'column':'0','name':'Copy_Test'}" values "{'column':'3','name':'test_app'}"
-#    Then I will see the data "{'column':'0','name':'Copy_Test_副本)'}" values "{'column':'4','name':'auto_package'}"
-#    When I will see the data "{'column':'0','name':'Copy_Test_副本'}" values "{'column':'3','name':'test_app'}"
-#    And I will see the element "TagOfTheLastItem" contains "auto_package"
-#    And I will see the element "AppOfTheLastItem" contains "test_app"
+  Scenario: global_tag_app
+    And I wait for "2000" millsecond
+    When I choose the "auto_package" from the "ResourceDropdown"
+    And I click the "HideElement" button
+    And I wait for "Loading" will be invisible
+    And I choose the "test_app" from the "AppDropdown"
+    And I wait for "Loading" will be invisible
+    When I will see the data "{'column':'0','name':'Copy_Test_副本'}" values "{'column':'3','name':'test_app'}"
+    Then I will see the data "{'column':'0','name':'Copy_Test_副本'}" values "{'column':'4','name':'auto_package'}"
+    And I wait for "2000" millsecond
+    Then I will see the data "{'column':'0','name':'Copy_Test'}" values "{'column':'4','name':'auto_package'}"
+    When I will see the data "{'column':'0','name':'Copy_Test'}" values "{'column':'3','name':'test_app'}"
+    And I wait for "2000" millsecond
+    And I will see the element "TagOfTheLastItem" contains "auto_package"
+    And I will see the element "AppOfTheLastItem" contains "test_app"
 
   Scenario: verify_copy
     And I will see the data "{'column':'0','name':'Copy_Test_副本'}" values "{'column':'4','name':'auto_package'}"

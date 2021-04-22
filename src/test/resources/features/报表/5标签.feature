@@ -11,6 +11,7 @@ Feature: 报表标签
     When I set the parameter "Name" with value "Test_Tag"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "PDF" from the "ReportType"
+    And I wait for "2000" millsecond
     And I choose the "test_app" from the "App"
     And I set the parameter "Hour" with value "15"
     And I set the parameter "Minute" with value "50"
@@ -43,15 +44,19 @@ Feature: 报表标签
     And I will see the element "TagOfTheLastItem" contains "auto_package"
     And I will see the element "AppOfTheLastItem" contains "test_app"
 
-#  Scenario: global_tag_app
-#    When I choose the "auto_package" from the "TagDropdown"
-#    And I wait for "Loading" will be invisible
-#    And I choose the "test_app" from the "AppDropdown"
-#    And I wait for "Loading" will be invisible
-#    Then I will see the data "{'column':'1','name':'Test_Tag'}" values "{'column':'7','name':'auto_package'}"
-#    When I will see the data "{'column':'1','name':'Test_Tag'}" values "{'column':'6','name':'test_app'}"
-#    And I will see the element "TagOfTheLastItem" contains "auto_package"
-#    And I will see the element "AppOfTheLastItem" contains "test_app"
+  Scenario: global_tag_app
+    When I choose the "auto_package" from the "ResourceDropdown"
+    And I click the "HideElement" button
+    And I wait for "Loading" will be invisible
+    And I choose the "test_app" from the "AppDropdown"
+    And I wait for "Loading" will be invisible
+    And the data name is "{'column':'1','name':'Test_Tag'}" then I "expand" the item
+    And I will see the element "TagOfTheLastItem" contains "auto_package"
+    And I will see the element "AppOfTheLastItem" contains "test_app"
+    And the data name is "{'column':'1','name':'Test_Tag'}" then I "close" the item
+    And I click the "ExpandLastItem" button
+    And I will see the element "TagOfTheLastItem" contains "auto_package"
+    And I will see the element "AppOfTheLastItem" contains "test_app"
 
   Scenario: verify_tag
     And I wait for "Loading" will be invisible
