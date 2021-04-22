@@ -98,8 +98,7 @@ Feature: Agent添加数据源
     And I wait for loading invisible
     And I set the parameter "Appname" with value "autohekascripttest"
     And I set the parameter "Tag" with value "autohekascripttest"
-    And I click the "<string>" button
-#    And I choose the "charsetKind" from the "<charsetKind>"
+    And I choose the "<charsetKind>" from the "CharsetKind"
 #    And I set the parameter "CharsetKind" with value "<charsetKind>"
     And I click the "Next" button
     And I click the "Finish" button

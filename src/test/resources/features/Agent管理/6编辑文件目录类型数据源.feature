@@ -145,17 +145,10 @@ Feature: Agent编辑文件目录类型数据源
     And I set the parameter "Appname" with value "Changeautohekafileappname"
     And I wait for "Ensure" will be visiblei
     And I click the "Ensure" button
-#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
-    And I wait for loading invisible
-    Given the data name "Changeautohekafileappname" in table "AppNameTable" then i click the "编辑" button
-    And I wait for loading invisible
-    And I set the parameter "Appname" with value "autohekafiletest"
-    And I click the "Ensure" button
-#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
   Scenario: 文件目录数据源删除
-    Given the data name "autohekafiletest" in table "AppNameTable" then i click the "更多" button
+    Given the data name "Changeautohekafileappname" in table "AppNameTable" then i click the "更多" button
     And I click the "Delete" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
