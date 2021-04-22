@@ -62,6 +62,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//*[text()='暂无数据']")
     private WebElement noData;
 
+    @FindBy(xpath = "(//span[contains(@class,'expansion-icon')])[last()]")
+    private WebElement expandLastItem;
+
     @FindBy(xpath = "(//tr[contains(@class,'expansion')]//div[contains(text(),'资源标签......')])[last()]")
     private WebElement tagOfTheLastItem;
 
@@ -83,6 +86,14 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div/div")
     private WebElement tagtoinput;
 
+    @FindBy(className = "yotta-pageheader-title")
+    private WebElement hideElement;
+
+    public WebElement getHideElement() {
+        hideElement.click();
+        return hideElement;
+    }
+
     public WebElement getCopy() { return copy;}
 
     public WebElement getAuth() { return auth;}
@@ -92,6 +103,10 @@ public class ListPage extends ListPageFactory {
     public WebElement getDelete() { return delete;}
 
     public WebElement getTagToInput() { return tagtoinput;}
+
+    public WebElement getExpandLastItem() {
+        return expandLastItem;
+    }
 
     public WebElement getAppOfTheLastItem() {
         return appOfTheLastItem;
