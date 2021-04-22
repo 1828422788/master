@@ -17,7 +17,8 @@ Feature: download_collect验证
 
     And I wait for "2000" millsecond
     And I wait for "saveAsOther" will be visible
-    When I click the "downloadButton" button
+#    When I click the "downloadButton" button
+    And I choose the "下载" from the "SaveAsList"
     And I set the parameter "DownloadName" with value "<name>"
     And I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"

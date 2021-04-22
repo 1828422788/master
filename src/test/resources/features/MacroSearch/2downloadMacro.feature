@@ -34,7 +34,8 @@ Feature: 下载宏
     And take a screenshot with name "macro_<name>.png"
 
     And I wait for "SaveAsOther" will be visible
-    Then I click the "DownloadButton" button
+#    Then I click the "DownloadButton" button
+    And I choose the "下载" from the "SaveAsList"
     Then I set the parameter "DownloadName" with value "macro_<name>"
     Then I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
@@ -65,7 +66,8 @@ Feature: 下载宏
     And take a screenshot with name "<name>.png"
 
     And I wait for "SaveAsOther" will be visible
-    Then I click the "DownloadButton" button
+#    Then I click the "DownloadButton" button
+    And I choose the "下载" from the "SaveAsList"
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
@@ -185,7 +187,8 @@ Feature: 下载宏
     And I wait for "2000" millsecond
     And take a screenshot with name "macro_<name>.png"
     And I wait for "SaveAsOther" will be visible
-    Then I click the "downloadButton" button
+#    Then I click the "downloadButton" button
+    And I choose the "下载" from the "SaveAsList"
     Then I set the parameter "DownloadName" with value "macro_<name>"
     Then I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
@@ -213,7 +216,8 @@ Feature: 下载宏
     And take a screenshot with name "<name>.png"
 
     And I wait for "SaveAsOther" will be visible
-    Then I click the "downloadButton" button
+#    Then I click the "downloadButton" button
+    And I choose the "下载" from the "SaveAsList"
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
@@ -263,7 +267,8 @@ Feature: 下载宏
     And I wait for "2000" millsecond
     And take a screenshot with name "macro_<macroname>.png"
     And I wait for "SaveAsOther" will be visible
-    Then I click the "downloadButton" button
+#    Then I click the "downloadButton" button
+    And I choose the "下载" from the "SaveAsList"
     Then I set the parameter "DownloadName" with value "macro_<macroname>"
     Then I set the parameter "MaxLineNum" with value "100"
     Then I choose the "CSV" from the "DocumentTypeList"
@@ -288,7 +293,8 @@ Feature: 下载宏
     And take a screenshot with name "<macroname>.png"
 
     And I wait for "SaveAsOther" will be visible
-    Then I click the "downloadButton" button
+#    Then I click the "downloadButton" button
+    And I choose the "下载" from the "SaveAsList"
     Then I set the parameter "DownloadName" with value "<macroname>"
     Then I set the parameter "MaxLineNum" with value "100"
     Then I choose the "CSV" from the "DocumentTypeList"
