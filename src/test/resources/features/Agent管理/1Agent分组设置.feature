@@ -129,6 +129,7 @@ Feature: Agent分组设置
     And I wait for loading invisible
     And I click the "<name>" button
     And I click the "More" button
+    And I wait for "Delete" will be visible
     And I click the "Delete" button
     And I click the "Ensure" button
     And I wait for "Addsuccessmsg" will be visible

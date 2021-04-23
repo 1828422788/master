@@ -3,9 +3,9 @@ Feature: 索引信息删除（RZY-1476）
 
   Background:
     Given open the "index.ListPage" page for uri "/indexsettings/"
+    And I wait for loading invisible
 
   Scenario Outline:
-#    Given the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
     And I wait for loading invisible
     And I click the "Ensure" button
