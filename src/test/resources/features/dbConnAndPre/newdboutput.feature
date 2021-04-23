@@ -15,12 +15,12 @@ Feature: 新建数据库输出
 
     When I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "9000" millsecond
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+#    And I wait for "9000" millsecond
     And I click the "NextStepButton" button
     Given I wait for loading complete
     And I zoom the screen up to the maximum
-
     And I choose the "<DbOutputConnList>" from the "DbOutputConnList"
     And I wait for "2000" millsecond
     And I choose the "<DbOutputDirList>" from the "DbOutputDirList"
@@ -28,6 +28,7 @@ Feature: 新建数据库输出
     And I click the "OutputDbTableLink" button
     And I wait for "2000" millsecond
     And I click the "NextStepButton" button
+    And I zoom the screen up to the maximum
 
     And I click the "AddFieldMap" button
     Given I wait for loading complete
