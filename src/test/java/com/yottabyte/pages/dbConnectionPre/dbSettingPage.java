@@ -59,7 +59,6 @@ public class dbSettingPage extends PageTemplate {
         return newDbRetLines;
     }
 
-
     public WebElement getNewDbConnTypeList() {
 //        return super.getYottaDropdownList("config-rule_type-select");
         String xpath = "//label[contains(text(),'连接类型')]/parent::div/following::div[@class='yotta-select yotta-select-large']/div";
@@ -103,6 +102,7 @@ public class dbSettingPage extends PageTemplate {
 
     @FindBy(xpath = "//a[text()='删除']")
     private WebElement delDbConnNameButton;
+
     public WebElement getDelDbConnNameButton() {
         return delDbConnNameButton;
     }
@@ -113,12 +113,14 @@ public class dbSettingPage extends PageTemplate {
 
     @FindBy(xpath = "//span[contains(text(),'编辑')]/parent::button")
     private WebElement editDbConnNameButton;
+
     public WebElement getEditDbConnNameButton() {
         return editDbConnNameButton;
     }
 
     @FindBy(xpath = "//span[contains(text(),'保存')]/parent::button")
     private WebElement saveButton;
+
     public WebElement getSaveButton() {
         return saveButton;
     }
@@ -136,11 +138,12 @@ public class dbSettingPage extends PageTemplate {
 
     @FindBy(xpath = "//span[contains(text(),'新建查找对象')]/parent::button")
     private WebElement newDbLookup;
+
     public WebElement getNewDbLookup() {
         return newDbLookup;
     }
 
-//    @FindBy(className = "CodeMirror-code")
+    //    @FindBy(className = "CodeMirror-code")
     @FindBy(className = "CodeMirror")
     private WebElement searchInput;
 
@@ -157,13 +160,12 @@ public class dbSettingPage extends PageTemplate {
         return searchStatus;
     }
 
-//  @FindBy(className = "yotta-date-time-picker")
-    @FindBy(xpath = "//div[@yotta-test='search_bar-time-date_time_picker']")
-    private WebElement dateEditor;
-
-    public WebElement getDateEditor() {
-        return dateEditor;
-    }
+//    @FindBy(xpath = "//div[@yotta-test='search_bar-time-date_time_picker']")
+//    private WebElement dateEditor;
+//
+//    public WebElement getDateEditor() {
+//        return dateEditor;
+//    }
 
     public WebElement getToday() {
         return GetTime.getTime(webDriver, "Today");
@@ -171,19 +173,21 @@ public class dbSettingPage extends PageTemplate {
 
     @FindBy(xpath = "//button[@yotta-test='search_bar-submit-button']")
     private WebElement searchbutton;
+
     public WebElement getSearchButton() {
         return searchbutton;
     }
 
     @FindBy(xpath = "//span[contains(text(),'下一步')]/parent::button")
     private WebElement nextStepButton;
+
     public WebElement getNextStepButton() {
         return nextStepButton;
 //        return super.getButton("下一步");
     }
 
     public WebElement getDbLookupConnList() {
-        String xpath = "//div[contains(text(),'连接')]/following-sibling::div/div[@class='yotta-select-selection']";
+        String xpath = "//div[contains(text(),'连接')]/following-sibling::div[@yotta-test='dbsettings-connection-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
@@ -191,7 +195,7 @@ public class dbSettingPage extends PageTemplate {
     }
 
     public WebElement getDbLookupDirList() {
-        String xpath = "//div[contains(text(),'目录')]/following-sibling::div/div[@class='yotta-select-selection']";
+        String xpath = "//div[contains(text(),'目录')]/following-sibling::div[@yotta-test='dbsettings-database-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
@@ -293,6 +297,7 @@ public class dbSettingPage extends PageTemplate {
 
     @FindBy(xpath = "//span[contains(text(),'完成')]/parent::button")
     private WebElement doneButton;
+
     public WebElement getDoneButton() {
         return doneButton;
     }

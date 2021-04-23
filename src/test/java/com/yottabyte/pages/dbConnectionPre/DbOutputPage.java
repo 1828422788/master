@@ -2,6 +2,7 @@ package com.yottabyte.pages.dbConnectionPre;
 
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.ClickEvent;
+import com.yottabyte.utils.GetTime;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

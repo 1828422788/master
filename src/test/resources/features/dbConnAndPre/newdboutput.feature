@@ -1,4 +1,4 @@
-@extra1
+@extra1 @ndb2046
 Feature: 新建数据库输出
 
   @newdboutput @splpre @dleval
@@ -8,28 +8,29 @@ Feature: 新建数据库输出
     And I wait for "1000" millsecond
 
     And I click the "NewDbOutputButton" button
-    And I wait for loading complete
+    Given I wait for loading complete
 
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I wait for loading complete
+    Given I wait for loading complete
 
     When I set the parameter "SearchInput" with value "<splQuery>"
-#    And I click the "DateEditor" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "3000" millsecond
     And I click the "NextStepButton" button
+    Given I wait for loading complete
+    And I zoom the screen up to the maximum
 
     And I choose the "<DbOutputConnList>" from the "DbOutputConnList"
     And I wait for "2000" millsecond
     And I choose the "<DbOutputDirList>" from the "DbOutputDirList"
-    And I wait for "2000" millsecond
     And I wait for "2000" millsecond
     And I click the "OutputDbTableLink" button
     And I wait for "2000" millsecond
     And I click the "NextStepButton" button
 
     And I click the "AddFieldMap" button
+    Given I wait for loading complete
     And I wait for "2000" millsecond
     And I choose the "apache.x_forward" from the "DbOutputSearchFieldR1C1List"
     And I wait for "2000" millsecond
@@ -37,6 +38,7 @@ Feature: 新建数据库输出
     And I wait for "2000" millsecond
 
     And I click the "AddFieldMap" button
+    Given I wait for loading complete
     And I choose the "apache.resp_len" from the "getSearchFieldList"
     And I wait for "2000" millsecond
     And I choose the "resp_len (BIGINT)" from the "getTableColNameList"

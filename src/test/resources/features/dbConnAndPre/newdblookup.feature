@@ -20,24 +20,31 @@ Feature: 新建数据库查找
     And I wait for "3000" millsecond
     And I click the "NextStepButton" button
 
-    And I choose the "<DbLookupConnList>" from the "DbLookupConnList" in config
-    And I choose the "<DbLookupDirList>" from the "DbLookupDirList" in config
+#    And I choose the "<DbLookupConnList>" from the "DbLookupConnList" in config
+#    And I choose the "<DbLookupDirList>" from the "DbLookupDirList" in config
+    And I choose the "<DbLookupConnList>" from the "DbLookupConnList"
+    And I wait for "2000" millsecond
+    And I choose the "<DbLookupDirList>" from the "DbLookupDirList"
   #    When I set the parameter "LookupDbTable" with value "lookupsample"
     And I wait for "2000" millsecond
     And I click the "LookupDbTableLink" button
     And I wait for "2000" millsecond
     And I click the "NextStepButton" button
+    And I wait for loading complete
 
     And I click the "AddFieldMap" button
+    And I wait for loading complete
     And I wait for "2000" millsecond
     And I choose the "apache.x_forward" from the "DbLookupSearchFieldR1C1List"
     And I wait for "2000" millsecond
 #    And I choose1 the "domain_id (LONGLONG)" from the "DbLookupSearchFieldR1C2List"
     And I choose the "domain_id (LONGLONG)" from the "DbLookupSearchFieldR1C2List"
+    And I wait for "2000" millsecond
     And I click the "AddLookupField" button
     And I wait for "2000" millsecond
 #    And I choose the "file_name (VAR_STRING)" from the "DbLookupLookupFieldR1C1List" in config
     And I choose the "file_name (VAR_STRING)" from the "DbLookupLookupFieldR1C1List"
+    And I wait for "2000" millsecond
 
     And I click the "NextStepButton" button
 
