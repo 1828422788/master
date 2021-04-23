@@ -1,4 +1,4 @@
-@authtest
+#@authtest
 Feature: 权限-数据集
 
   Scenario Outline: 勾选所需功能权限

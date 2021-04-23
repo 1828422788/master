@@ -1,4 +1,4 @@
-@authtest
+#@authtest
 Feature: 权限-趋势图
 
   Scenario Outline: 勾选功能权限

@@ -1,4 +1,4 @@
-@authtest
+#@authtest
 Feature: 权限-监控
 
   Scenario Outline: 勾选所需功能权限

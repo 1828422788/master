@@ -55,10 +55,12 @@ Feature: 权限-字段提取
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
     And I choose the "CSV解析" from the "ParseRule"
+    And I wait for "1500" millsecond
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Separate" with value ","
     And I set the parameter "FieldList" with value "1,2,3,4,5"
     And I click the "EnsureAddParseRule" button
+    And I wait for "1000" millsecond
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button
     When I set the parameter "Name" with value "AutoTestUserCreate"
@@ -144,6 +146,7 @@ Feature: 权限-字段提取
 
   Scenario: 授权读取+编辑权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -202,6 +205,7 @@ Feature: 权限-字段提取
 
   Scenario Outline: 授权读取+编辑+删除权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for "1500" millsecond
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -475,6 +479,7 @@ Feature: 权限-字段提取
 
   Scenario Outline: 授权读取+删除+转授权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for "1500" millsecond
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -487,6 +492,7 @@ Feature: 权限-字段提取
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for "1500" millsecond
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible

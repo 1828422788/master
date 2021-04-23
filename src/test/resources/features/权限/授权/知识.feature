@@ -1,4 +1,4 @@
-@authtest
+#@authtest
 Feature: 权限-知识
 
   Scenario Outline: 勾选所需权限

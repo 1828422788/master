@@ -1,4 +1,4 @@
-@authtest
+#@authtest
 Feature: 权限-定时任务
 
   Scenario Outline: 授权功能权限
