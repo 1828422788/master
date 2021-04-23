@@ -106,21 +106,54 @@ public class DbOutputPage extends PageTemplate {
         return addFieldMap;
     }
 
-    public WebElement getDbOutputSearchFieldR1C1List() {
-        String xpath = "//span[contains(text(),'字段映射')]/following::span[contains(text(),'搜索字段')]/following-sibling::div/div[@class='yotta-select-selection']";
+    public WebElement getDbOutputSearchField0List() {
+//        String xpath = "//span[contains(text(),'字段映射')]/following::span[contains(text(),'搜索字段')]/following-sibling::div/div[@class='yotta-select-selection']";
+        String xpath = "//div[@yotta-test='dbsettings-search_field_0-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
         return getLastDropdownList();
     }
 
-    public WebElement getDbOutputSearchFieldR1C2List() {
-        String xpath = "//span[contains(text(),'字段映射')]/following::span[contains(text(),'表格列名称')]/following-sibling::div/div[@class='yotta-select-selection']";
+    public WebElement getDbOutputSearchField1List() {
+        String xpath = "//div[@yotta-test='dbsettings-search_field_1-select']/div";
+        return getDropdownListbyPath(xpath);
+    }
+
+    public WebElement getDbOutputSearchField2List() {
+        String xpath = "//div[@yotta-test='dbsettings-search_field_2-select']/div";
+        return getDropdownListbyPath(xpath);
+    }
+
+    public WebElement getDbOutputSearchField3List() {
+        String xpath = "//div[@yotta-test='dbsettings-search_field_3-select']/div";
+        return getDropdownListbyPath(xpath);
+    }
+
+    public WebElement getDbOutputDbField0List() {
+//        String xpath = "//span[contains(text(),'字段映射')]/following::span[contains(text(),'表格列名称')]/following-sibling::div/div[@class='yotta-select-selection']";
+        String xpath = "//div[@yotta-test='dbsettings-db_field_0-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
         return getLastDropdownList();
     }
+
+    public WebElement getDbOutputDbField1List() {
+        String xpath = "//div[@yotta-test='dbsettings-db_field_1-select']/div";
+        return getDropdownListbyPath(xpath);
+    }
+
+    public WebElement getDbOutputDbField2List() {
+        String xpath = "//div[@yotta-test='dbsettings-db_field_2-select']/div";
+        return getDropdownListbyPath(xpath);
+    }
+
+    public WebElement getDbOutputDbField3List() {
+        String xpath = "//div[@yotta-test='dbsettings-db_field_3-select']/div";
+        return getDropdownListbyPath(xpath);
+    }
+
 
     public WebElement getSearchFieldList() {
         String xpath = "//span[contains(text(),'字段映射')]/following::span[contains(text(),'搜索字段')]/following-sibling::div//span[text()='请选择']/parent::div/parent::div[@class='yotta-select-selection']";

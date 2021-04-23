@@ -61,8 +61,7 @@ public class DropdownUtils {
         return getLastDropdownList();
     }
 
-    public WebElement getDropdownListByCruxeePageXpath(String text) {
-        String xpath = text;
+    public WebElement getDropdownListByCruxeePageXpath(String xpath) {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);

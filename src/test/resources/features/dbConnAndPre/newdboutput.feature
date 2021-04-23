@@ -9,15 +9,15 @@ Feature: 新建数据库输出
 
     And I click the "NewDbOutputButton" button
     Given I wait for loading complete
+    And I zoom the screen up to the maximum
 
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Given I wait for loading complete
 
     When I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "SearchButton" button
-    And I wait for "9000" millsecond
+    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
-#    And I wait for "9000" millsecond
     And I click the "NextStepButton" button
     Given I wait for loading complete
     And I zoom the screen up to the maximum
@@ -33,26 +33,26 @@ Feature: 新建数据库输出
     And I click the "AddFieldMap" button
     Given I wait for loading complete
     And I wait for "2000" millsecond
-    And I choose the "apache.x_forward" from the "DbOutputSearchFieldR1C1List"
+    And I choose the "apache.x_forward" from the "DbOutputSearchField0List"
     And I wait for "2000" millsecond
-    And I choose the "forward (VARCHAR)" from the "DbOutputSearchFieldR1C2List"
+    And I choose the "forward (VARCHAR)" from the "DbOutputDbField0List"
     And I wait for "2000" millsecond
 
     And I click the "AddFieldMap" button
     Given I wait for loading complete
-    And I choose the "apache.resp_len" from the "getSearchFieldList"
+    And I choose the "apache.resp_len" from the "DbOutputSearchField1List"
     And I wait for "2000" millsecond
-    And I choose the "resp_len (BIGINT)" from the "getTableColNameList"
-    And I wait for "2000" millsecond
-    And I click the "AddFieldMap" button
-    And I choose the "apache.geo.city" from the "getSearchFieldList"
-    And I wait for "2000" millsecond
-    And I choose the "city (VARCHAR)" from the "getTableColNameList"
+    And I choose the "resp_len (BIGINT)" from the "DbOutputDbField1List"
     And I wait for "2000" millsecond
     And I click the "AddFieldMap" button
-    And I choose the "apache.referer_domain" from the "getSearchFieldList"
+    And I choose the "apache.geo.city" from the "DbOutputSearchField2List"
     And I wait for "2000" millsecond
-    And I choose the "domain (VARCHAR)" from the "getTableColNameList"
+    And I choose the "city (VARCHAR)" from the "DbOutputDbField2List"
+    And I wait for "2000" millsecond
+    And I click the "AddFieldMap" button
+    And I choose the "apache.referer_domain" from the "DbOutputSearchField3List"
+    And I wait for "2000" millsecond
+    And I choose the "domain (VARCHAR)" from the "DbOutputDbField3List"
     And I wait for "3000" millsecond
 
     And I click the "NextStepButton" button
