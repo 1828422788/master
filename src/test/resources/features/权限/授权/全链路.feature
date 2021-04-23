@@ -84,6 +84,7 @@ Feature: 权限-全链路
 
   Scenario Outline: 授权读取
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -105,6 +106,7 @@ Feature: 权限-全链路
   Scenario Outline: 验证读取
     Given I login user "AutoTest" with password "All#123456"
     And open the "fulllink.ListPage" page for uri "/fulllink/"
+    And I wait for loading invisible
     Then the data name is "<name>" then i will see "授权" button
     And the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
@@ -117,6 +119,7 @@ Feature: 权限-全链路
 
   Scenario Outline: 授权读取+编辑
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -167,6 +170,7 @@ Feature: 权限-全链路
 
   Scenario Outline: 授权读取+编辑+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible

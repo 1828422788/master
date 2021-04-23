@@ -92,10 +92,11 @@ Feature: 权限-collect指令
     And I click the "RightIcon" button
     And I wait for "1500" millsecond
     Then I will see the element "Tag" name is "autotesttag"
+    And I logout current user
 
   Scenario Outline: 删除索引
     Given open the "index.ListPage" page for uri "/indexsettings/"
-    And I wait for "1000" millsecond
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "更多" button
     And I wait for "1000" millsecond
     Then I click the "delete" button

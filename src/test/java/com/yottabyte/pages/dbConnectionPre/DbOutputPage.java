@@ -2,6 +2,7 @@ package com.yottabyte.pages.dbConnectionPre;
 
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.ClickEvent;
+import com.yottabyte.utils.GetTime;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -53,8 +54,11 @@ public class DbOutputPage extends PageTemplate {
         return searchStatus;
     }
 
+    @FindBy(xpath = "//button[@yotta-test='search_bar-submit-button']")
+    private WebElement searchButton;
     public WebElement getSearchButton() {
-        return super.getButton("搜索");
+//        return super.getButton("搜索");
+        return searchButton;
     }
 
     @FindBy(xpath = "//span[contains(text(),'下一步')]/parent::button")

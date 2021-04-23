@@ -532,7 +532,7 @@ Feature: 仪表盘事件列表
   @cleanDashboard
   Scenario: 删除知识库
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
-    Given the data name is "apache" then i click the "删除" button
+    Given the data name is "apache" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     When I click the "Ensure" button
     And I will see the success message "删除知识成功"
@@ -540,7 +540,7 @@ Feature: 仪表盘事件列表
   @cleanDashboard
   Scenario: 删除字段提取
     Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "{'column':'1','name':'仪表盘配置字段提取'}" then i click the "删除" button
+    When the data name is "{'column':'1','name':'仪表盘配置字段提取'}" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"

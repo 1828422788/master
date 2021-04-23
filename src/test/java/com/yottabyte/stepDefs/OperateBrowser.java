@@ -103,4 +103,13 @@ public class OperateBrowser {
         }
         webDriver.switchTo().window(mainTab);
     }
+
+    /**
+     * 把屏幕放大到全屏
+     */
+    @And("^I zoom the screen up to the maximum$")
+    public void zoomScreentoMax() {
+        webDriver.manage().window().fullscreen();
+    }
+
 }
