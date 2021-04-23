@@ -6,7 +6,7 @@ Feature: 仪表盘删除
 
 
   Scenario Outline: 删除仪表盘(RZY-214)
-    When the data name is "<name>" then i click the "删除" button
+    When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
