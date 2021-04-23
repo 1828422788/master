@@ -69,11 +69,12 @@ public class ListPageUtils {
      */
     public WebElement getRowWithColumnNum(String name, int columnNum, WebElement table) {
         int totalPage = pagingInfo.getTotalPage();
-        WebElement nextPage = pagingInfo.getNextPage();
         for (int i = 0; i < totalPage; i++) {
             if (i != 0 && i <= totalPage - 1) {
+                WebElement nextPage = pagingInfo.getNextPage();
                 nextPage.click();
                 WaitForElement.waitUntilLoadingDisappear();
+                table = pagingInfo.getTableList().get(0);
             }
             List<WebElement> trList = table.findElements(By.tagName("tr"));
             for (WebElement tr : trList) {

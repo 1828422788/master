@@ -318,7 +318,7 @@ Feature: 仪表盘详情页
   @cleanDashboard
   Scenario Outline: 删除验证仪表盘全局时间趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
-    When the data name is "<name>" then i click the "删除" button
+    When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "500" millsecond
