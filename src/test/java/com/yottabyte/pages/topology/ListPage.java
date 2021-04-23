@@ -28,9 +28,6 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "yotta-message-content")
     private WebElement errorMessage;
 
-    @FindBy(xpath = "//div/ul/li[3]/span[text()='删除']")
-    private WebElement delete;
-
     @FindBy(xpath = "//li[@yotta-test='topology-list_tag-button']/span")
     private WebElement label;
 
@@ -43,6 +40,24 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//span[@class='yotta-select-selection-placeholder']")
     private WebElement tagToInput;
 
+    @FindBy(className = "_2Nx4n7Ix35X7-zjayRNUAi")
+    private WebElement clickUpload;
+
+    @FindBy(xpath = "//*[@yotta-test='topology-list_app-select']/div")
+    private WebElement belongApp;
+
+    @FindBy(xpath = "//*[@yotta-test='resource_tag-change_resource_tag-select']/div")
+    private WebElement resourceTag;
+
+    @FindBy(className = "WfkOIgvty6FIMcbgKUiqd")
+    private WebElement successMessage;
+
+    @FindBy(xpath = "//button[@yotta-test='topology-list_confirm-upload-imng-button']")
+    private WebElement ensure;
+
+    @FindBy(className = "yotta-message-content")
+    private WebElement message;
+
     public WebElement getTagToInput() {
         return tagToInput;
     }
@@ -53,7 +68,7 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getLabel() { return label; }
 
-    public WebElement getDelete() { return delete; }
+    public WebElement getDelete() { return getButton("删除"); }
 
     public WebElement getErrorMessage() {
         return errorMessage;
@@ -68,24 +83,42 @@ public class ListPage extends ListPageFactory {
         return tagInput;
     }
 
+    public WebElement getClickUpload() { return clickUpload; }
+
+    public WebElement getSuccessMessage() { return successMessage; }
+
     public WebElement getNameInput() {
         return getInputElement("名称");
     }
+
+    public WebElement getEnsure() {
+        return ensure;
+    }
+
+    public WebElement getPictureGallary() {
+        return this.getButton("图片库");
+    }
+
+    public WebElement getUpload() {
+        return this.getButton("上传");
+    }
+
+    public WebElement getMessage() { return message; }
 
     public WebElement getInputElement(String name) {
         return webDriver.findElement(By.xpath("//div[text()='名称：']/following::input"));
     }
 
-    @FindBy(xpath = "//*[@yotta-test='resource_tag-change_resource_tag-select']/div")
-    private WebElement resourceTag;
+    public WebElement getPictureChoose(String name) {
+        return webDriver.findElement(By.xpath("//span[text()='" + name + "']//ancestor::label//input"));
+    }
+
+    public WebElement getPictureToDelete() { return this.getPictureChoose("delete"); }
 
     public WebElement getResourceTag() {
         resourceTag.click();
         return super.getLastDropdownList();
     }
-
-    @FindBy(xpath = "//*[@yotta-test='topology-list_app-select']/div")
-    private WebElement belongApp;
 
     public WebElement getBelongApp() {
         belongApp.click();

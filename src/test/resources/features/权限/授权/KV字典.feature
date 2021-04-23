@@ -272,6 +272,7 @@ Feature: 权限-KV字典
   @cleanAuth
   Scenario Outline: 清理
     Given open the "topology.ListPage" page for uri "/topology/"
+    And I wait for loading invisible
     When the data name is "<name>" then i click the "更多" button
     Then I click the "Delete" button
     And I wait for "Ensure" will be visible
@@ -280,5 +281,4 @@ Feature: 权限-KV字典
 
     Examples:
       | name       |
-      | KVAuthTopo |
       | KVAuthTopo |
