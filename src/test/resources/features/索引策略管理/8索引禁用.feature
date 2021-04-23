@@ -4,9 +4,7 @@ Feature: 索引信息禁用（RZY-1475）
   Scenario: 禁用索引
     Given open the "index.ListPage" page for uri "/indexsettings/"
     And I wait for loading invisible
-    Given the data name is "{'column':'1','name':'indexerror'}" then i click the "更多" button
-    And I click the "StopIndex" button
-    Then I will see the success message "停止入库成功"
+    When the data name is "{'column':'1','name':'indexerror'}" then i click the "停止入库" button in more menu
 
   Scenario: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
@@ -28,10 +26,7 @@ Feature: 索引信息禁用（RZY-1475）
   Scenario: 启用索引
     Given open the "index.ListPage" page for uri "/indexsettings/"
     And I wait for loading invisible
-    Given the data name is "{'column':'1','name':'indexerror'}" then i click the "更多" button
-    And I wait for "StartIndex" will be visible
-    And I click the "StartIndex" button
-    Then I will see the success message "启用入库成功"
+    When the data name is "{'column':'1','name':'indexerror'}" then i click the "启动入库" button in more menu
 
   Scenario: 上传
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"

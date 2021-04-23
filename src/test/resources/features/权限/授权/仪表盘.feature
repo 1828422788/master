@@ -1,4 +1,4 @@
-@authtest
+#@authtest
 Feature: 权限-仪表盘
 
   Scenario Outline: 勾选仪表盘所需功能权限
@@ -7,6 +7,7 @@ Feature: 权限-仪表盘
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
     And I "checked" the checkbox which name is "全选" in trend page
+    And I wait for "1000" millsecond
     And I "unchecked" the checkbox which name is "全选" in trend page
     And I click the "Resource" button
     And I "checked" the checkbox which name is "可查看仪表盘"

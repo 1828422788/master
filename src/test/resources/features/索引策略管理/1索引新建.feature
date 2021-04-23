@@ -162,7 +162,7 @@ Feature: 索引信息新建
     And I set the parameter "DivideTime" with value "<divideTime>"
     And I switch the "SavedSizeButton" button to "checked"
     And I set the parameter "SavedSize" with value "<savedSize>"
-    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
+#    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
     And I click the "CreateButton" button
 #    And I wait for "Message" will be visible
 #    And I will see the element "Message" name is "<message>"
@@ -214,7 +214,7 @@ Feature: 索引信息新建
     And I switch the "IndexSink" button to "checked"
     And I set the parameter "SinkHDD" with value "40"
     And I wait for "SinkNAS" will be visible
-    And I set the parameter "SinkNAS" with value "50"
+#    And I set the parameter "SinkNAS" with value "50"
     And I click the "CreateButton" button
     And I wait for "Message" will be visible
     And I will see the element "Message" name is "保存成功"
@@ -246,7 +246,6 @@ Feature: 索引信息新建
     And I set the parameter "Desc" with value "AutoTestIndexSink"
     And I set the parameter "SavedTime" with value "130"
     And I set the parameter "DivideTime" with value "8"
-    And I set the parameter "SavedSize" with value "5"
     And I switch the "IndexSink" button to "checked"
     And I click the "CreateButton" button
 #    And I will see the element "Message" name is "请填写索引下沉到HDD时间或索引下沉到NAS时间"
@@ -259,9 +258,10 @@ Feature: 索引信息新建
     And I set the parameter "Desc" with value "AutoTestIndexSink"
     And I set the parameter "SavedTime" with value "130"
     And I set the parameter "DivideTime" with value "8"
-    And I set the parameter "SavedSize" with value "5"
     And I switch the "Sinkswitch" button to "checked"
+#    And I set the parameter "SinkNAS" with value "50"
     And I set the parameter "SinkHDD" with value "40"
+#    And I click the "SinkNAS" button
 #    And I set the parameter "SinkNAS" with value "50"
     And I click the "CreateButton" button
     And I will see the element "Message" name is "保存成功"
@@ -295,7 +295,7 @@ Feature: 索引信息新建
     And I set the parameter "DivideTime" with value "<divideTime>"
     And I switch the "IndexSink" button to "checked"
     And I set the parameter "SinkHDD" with value "<hdd>"
-    And I set the parameter "SinkNAS" with value "<nas>"
+#    And I set the parameter "SinkNAS" with value "<nas>"
     And I click the "CreateButton" button
 #    And I will see the element "Message" name is "<message>"
     Examples:

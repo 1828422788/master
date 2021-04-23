@@ -31,6 +31,7 @@ Feature: 拓扑图节点验证
     And I set the parameter "Visibility" with value "<visibility>"
     And I click the Element with text "描边"
     Then I choose the "<lineWidth>" from the "LineWidth"
+    And I wait for "1500" millsecond
     Then I choose the "<LineType>" from the "LineType"
     Then I click the "AddNodeButton" button
     And I wait for "1000" millsecond

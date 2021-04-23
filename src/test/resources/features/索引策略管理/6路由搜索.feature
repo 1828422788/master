@@ -12,4 +12,4 @@ Feature: 路由搜索
 
     Examples:
       | searchName |
-      | test       |
+      | sunxcsize	       |
