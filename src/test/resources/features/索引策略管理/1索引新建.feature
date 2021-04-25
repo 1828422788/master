@@ -234,8 +234,8 @@ Feature: 索引信息新建
     And I set the parameter "SavedSize" with value "5"
     And I switch the "IndexSink" button to "checked"
     And I set the parameter "SinkHDD" with value "40"
-    And I wait for "SinkNAS" will be visible
-    And I set the parameter "SinkNAS" with value "50"
+#    And I wait for "SinkNAS" will be visible
+#    And I set the parameter "SinkNAS" with value "50"
     And I click the "CreateButton" button
 
   @second @indexSettingSmoke

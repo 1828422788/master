@@ -297,6 +297,8 @@ Feature: 仪表盘详情页
     Then I will see the text "验证仪表盘全局时间" exist in page
 #    Then I will see the "TopoTitle" result will be "1验证仪表盘全局时间"
     And I click the "FinishButton" button
+    And I wait for "3000" millsecond
+    Then I will see the text "新建成功" exist in page
 
   @cleanDashboard
   Scenario: 删除全局时间 RZY-4570

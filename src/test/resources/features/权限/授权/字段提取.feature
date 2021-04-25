@@ -348,7 +348,7 @@ Feature: 权限-字段提取
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I wait for "1000" millsecond
+    And I wait for "1500" millsecond
     And I will see the success message "更新成功"
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And I wait for loading invisible
@@ -380,7 +380,7 @@ Feature: 权限-字段提取
     And I click the "Auth" button
     And I wait for loading invisible
     And I "check" the checkbox which name is "验证授权用户" in tiny table
-    And I wait for "1000" millsecond
+    And I wait for "1500" millsecond
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "ErrorMessage" will be visible
