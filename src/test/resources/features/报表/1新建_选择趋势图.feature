@@ -7,6 +7,25 @@ Feature: 报表新建_选择
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
 
+  Scenario Outline: new_report_trend_info
+    When I set the parameter "Name" with value "test_trendinfo"
+    And I set the parameters "Hour" and "Minute" as "5" minutes later from now
+    And I choose the "PDF" from the "ReportType"
+    And I click the "NextButton" button under some element
+    And I wait for "2000" millsecond
+    Then I wait for "ChartListButton" will be visible
+    And I click the "ChartListButton" button
+    And I wait for "Li" will be visible
+    And I set the parameter "TrendSearchInput" with value "单值报表测试"
+    And I move the mouse pointer to the "ViewSingleTrendInfo"
+    And I wait for "TipElement" will be visible
+    And I will see the element "TipElement" contains "<tipText>"
+    And I wait for "5000" millsecond
+
+  Examples:
+    |  tipText     |
+    |   名称：单值报表测试\n描述：AutoCreate\n搜索内容：tag:sample04061424_chart \| stats count()\n数据集：(tag:sample04061424_chart)\n统计类型：single\n时间范围：now/d,now  |
+
   Scenario: new_report_10_trends
     When I set the parameter "Name" with value "test_10trends"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now

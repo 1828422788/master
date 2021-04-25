@@ -154,8 +154,8 @@ Feature: 报表新建_执行计划
     And I will see the element "SubjectNote" contains "注: 可用变量: 报表名称：<%report_name%>，发送时间：<%report_time%>"
     And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
     And I move the mouse pointer to the "ExecutionTip"
-    And I wait for "ExecutionTipElement" will be visible
-    And I will see the element "ExecutionTipElement" contains "<tipText>"
+    And I wait for "TipElement" will be visible
+    And I will see the element "TipElement" contains "<tipText>"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I click the "NextButton" button under some element

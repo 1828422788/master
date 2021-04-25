@@ -67,6 +67,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@yotta-test='report-trend_selector-dropdown' and contains(@class,'disabled')]//span[text()]")
     private WebElement disabledChartList;
 
+    @FindBy(xpath = "//input[@yotta-test = 'report-filter-input']")
+    private WebElement trendSearchInput;
+
     @FindBy(className = "yotta-dropdown-menu")
     private WebElement chartDropdownList;
 
@@ -225,7 +228,7 @@ public class CreatePage extends PageTemplate {
     private WebElement executionTip;
 
     @FindBy(xpath = "//div[@class='yotta-tooltip-content']")
-    private WebElement executionTipElement;
+    private WebElement tipElement;
 
     @FindBy(xpath = "//div[@class='_1rpZECB9i9v8h6IEUve_yK']")
     private WebElement resultMessage;
@@ -262,6 +265,13 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='基本设置']")
     private WebElement topOfThePage;
+
+    @FindBy(xpath = "(//li[contains(@yotta-test,'report-item')]/span[contains(text(),'单值报表测试')]//span[@aria-label='VisibilityOutlined'])[last()]")
+    private WebElement viewSingleTrendInfo;
+
+    public WebElement getViewSingleTrendInfo() {
+        return viewSingleTrendInfo;
+    }
 
     public WebElement getTopOfThePage() {
         return topOfThePage;
@@ -312,8 +322,8 @@ public class CreatePage extends PageTemplate {
         return resultMessage;
     }
 
-    public WebElement getExecutionTipElement() {
-        return executionTipElement;
+    public WebElement getTipElement() {
+        return tipElement;
     }
 
     public WebElement getExecutionTip() {
@@ -585,6 +595,10 @@ public class CreatePage extends PageTemplate {
         return chartList;
     }
 
+    public WebElement getLi() {
+        return li;
+    }
+
     public WebElement getChartList() {
         ClickEvent.clickUnderneathButton(chartList);
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
@@ -599,6 +613,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getDisabledChartList() {
         return disabledChartList;
+    }
+
+    public WebElement getTrendSearchInput() {
+        return trendSearchInput;
     }
 
     public WebElement getCrontab() {

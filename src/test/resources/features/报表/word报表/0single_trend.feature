@@ -11,6 +11,8 @@ Feature: 报表_单值趋势图
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count()"
     And I click the "DateEditor" button
     And I click the "Today" button
+    And I click the "Dataset_1" button
+    And I wait for "1000" millsecond
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
