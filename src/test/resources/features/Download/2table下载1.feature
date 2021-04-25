@@ -15,8 +15,10 @@ Feature: download_table下载part1
     Then take a screenshot with name "spldownload/<name>"
 
     And I wait for "2000" millsecond
-    And I wait for "saveAsOther" will be visible
-    When I click the "downloadButton" button
+    When I wait for "SaveAsOther" will be visible
+    And I choose the "下载" from the "SaveAsList"
+    And I wait for "1000" millsecond
+
     And I set the parameter "DownloadName" with value "<name>"
     And I set the parameter "MaxLineNum" with value "<maxLineNum>"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"

@@ -33,8 +33,9 @@ Feature: 下载宏
     And I wait for "2000" millsecond
     And take a screenshot with name "macro_<name>.png"
 
-    And I wait for "SaveAsOther" will be visible
+    When I wait for "SaveAsOther" will be visible
     And I choose the "下载" from the "SaveAsList"
+    And I wait for "1000" millsecond
     Then I set the parameter "DownloadName" with value "macro_<name>"
     Then I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"

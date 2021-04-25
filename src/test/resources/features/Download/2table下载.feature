@@ -7,16 +7,18 @@ Feature: download_table下载part0
 
   Scenario Outline: 下载table用例结果
     Given I set the parameter "SearchInput" with value "<splQuery>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
+    When I click the "DateEditor" button
+    When I click the "Today" button
+    When I click the "SearchButton" button
     And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then take a screenshot with name "spldownload/<name>"
 
     And I wait for "2000" millsecond
     And I wait for "saveAsOther" will be visible
-    When I click the "downloadButton" button
+    And I choose the "下载" from the "SaveAsList"
+    And I wait for "1000" millsecond
+    
     And I set the parameter "DownloadName" with value "<name>"
     And I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
