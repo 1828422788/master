@@ -114,4 +114,3 @@ Feature: 应用KV字典
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I will see the element "Thead" name is "apache.geo.city  count()  appname  apachecity "

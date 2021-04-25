@@ -84,7 +84,7 @@ Feature: 应用趋势图
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     And I wait for loading invisible
-    And I wait for "Header" will be visible
+#    And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "<name>"
     And I choose the "TrendApp" from the "AppDropdown"
@@ -211,6 +211,7 @@ Feature: 应用趋势图
     And I wait for loading invisible
     When the data name is "TrendApp" then i click the "打开" button in more menu
     Then I will see the "trend.ListPage" page
+    And I wait for loading invisible
     When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
@@ -225,7 +226,7 @@ Feature: 应用趋势图
   Scenario: 删除报表
     Given open the "report.ListPage" page for uri "/reports/"
     And I wait for loading invisible
-    When the data name is "{'column':'1','name':'AutoApp'}" then i click the "删除" button
+    When the data name is "{'column':'1','name':'AutoApp'}" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
 

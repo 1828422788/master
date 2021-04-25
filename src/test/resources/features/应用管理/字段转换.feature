@@ -12,7 +12,7 @@ Feature: 应用字段转换
     And I click the "AddFieldConvert" button
     And I set the parameter "FieldConfigName" with value "AutoTest"
     And I wait for "1000" millsecond
-    And I set the parameter "FieldConfigRegex" with value "c"
+    And I set the parameter "FieldConfigRegex" with value "(\d+)"
     And I wait for "1000" millsecond
     And I set the parameter "FieldConfigFormat" with value "auto_test::$1"
     And I click the "SaveButton" button under some element

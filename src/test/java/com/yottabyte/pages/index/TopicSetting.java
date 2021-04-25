@@ -43,7 +43,7 @@ public class TopicSetting extends ListPageFactory {
     }
 
     public WebElement getReturnList() {
-        return super.getButton("返回列表");
+        return super.getButton("返回");
     }
 
 }

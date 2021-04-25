@@ -47,7 +47,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(xpath = "//div[@class='yotta-modal-body']//div[contains(@class,'yotta-dropdown')]")
     private WebElement authDropdown;
 
-    @FindBy(xpath = "//div[text()='请选择应用']")
+    @FindBy(xpath = "//*[text()='请选择应用']")
     private WebElement app;
 
     @FindBy(xpath = "//span[@class='ant-badge']/i")
