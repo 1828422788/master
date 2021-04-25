@@ -66,4 +66,5 @@ Feature: 新建数据库输出
       | DbOutputName | DbOutputConnList | DbOutputDirList | splQuery                                                   |
       | outsample | v33dbx           | v33dbx          | starttime=\"now/d\" endtime=\"now/d+24h\" tag\:sample04061424 |
       | deloutsample | v33dbx           | v33dbx          | starttime=\"now/d\" endtime=\"now/d+24h\" tag\:sample04061424 |
+      | outsample_u | v33dbx           | v33dbx          | starttime=\"now/d\" endtime=\"now/d+24h\" tag\:sample04061424 |
 

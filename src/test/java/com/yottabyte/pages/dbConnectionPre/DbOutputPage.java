@@ -182,18 +182,16 @@ public class DbOutputPage extends PageTemplate {
         return dbOutputSearchInput;
     }
 
-    @FindBy(xpath = "//span[contains(text(),'更新/插入 配置')]/parent::div/following-sibling::div//input[@type='checkbox']")
+//    @FindBy(xpath = "//span[contains(text(),'更新/插入 配置')]/parent::div/following-sibling::div//input[@type='checkbox']")
+    @FindBy(xpath = "//input[@yotta-test='dbsettings-update-switch']")
     private WebElement updateInsertButton;
     public WebElement getUpdateInsertButton() {
         return updateInsertButton;
     }
 
     public WebElement getDbOutputKeyList() {
-        String xpath = "//span[text()='选择一列作为key']/parent::div/following-sibling::div//div[@class='yotta-select-selection']";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-        ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        String xpath = "//div[@yotta-test='dbsettings-update_key-select']/div";
+        return getDropdownListbyPath(xpath);
     }
 
     @FindBy(xpath = "//a[text()='删除']")
@@ -211,6 +209,21 @@ public class DbOutputPage extends PageTemplate {
     private WebElement doneButton;
     public WebElement getDoneButton() {
         return doneButton;
+    }
+
+    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
+    private WebElement searchNameInput; //名称
+
+    public WebElement getSearchNameInput() {
+        return searchNameInput;
+    }
+
+
+    @FindBy(xpath = "//button[@yotta-test='dbsettings-output_edit-button']")
+    private WebElement editButton; //名称
+
+    public WebElement getEditButton() {
+        return editButton;
     }
 
 }

@@ -16,7 +16,8 @@ Feature: download_bucket下载part1
 
     And I wait for "3000" millsecond
     And I wait for "saveAsOther" will be visible
-    Then I click the "downloadButton" button
+    And I choose the "下载" from the "SaveAsList"
+    And I wait for "1000" millsecond
     And I set the parameter "DownloadName" with value "<name>"
     And I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"

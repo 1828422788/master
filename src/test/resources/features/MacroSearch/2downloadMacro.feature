@@ -34,7 +34,6 @@ Feature: 下载宏
     And take a screenshot with name "macro_<name>.png"
 
     And I wait for "SaveAsOther" will be visible
-#    Then I click the "DownloadButton" button
     And I choose the "下载" from the "SaveAsList"
     Then I set the parameter "DownloadName" with value "macro_<name>"
     Then I set the parameter "MaxLineNum" with value "100"
