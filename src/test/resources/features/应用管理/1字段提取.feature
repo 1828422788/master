@@ -276,6 +276,7 @@ Feature: 应用字段提取（RZY-2129）
     Then I click the "SaveButton" button
     And I wait for "Message" will be visible
     Then I will see the message "更新字典内容成功"
+    And I wait for "3000" millsecond
 
   Scenario: 根据app搜索应用
     Given open the "dictionary.ListPage" page for uri "/dictionary/"

@@ -214,7 +214,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//*[@yotta-test='application-field_transform_format-input'])[last()]")
     private WebElement fieldConfigFormat;
 
-    @FindBy(partialLinkText = "添加字段转换")
+    @FindBy(xpath = "//*[@yotta-test='application-field_extract_report_array_add-button']")
     private WebElement addFieldConvertRule;
 
     @FindBy(xpath = "(//input[contains(@id,'.name')])[last()]")
