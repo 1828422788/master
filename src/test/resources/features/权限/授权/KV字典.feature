@@ -275,11 +275,11 @@ Feature: 权限-KV字典
   Scenario Outline: 清理
     Given open the "topology.ListPage" page for uri "/topology/"
     And I wait for loading invisible
-    When the data name is "<name>" then i click the "更多" button
-    Then I click the "Delete" button
+    When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
-    Then I will see the success message "删除成功"
+    And I wait for "1500" millsecond
+    Then I will see the message "删除成功"
 
     Examples:
       | name       |

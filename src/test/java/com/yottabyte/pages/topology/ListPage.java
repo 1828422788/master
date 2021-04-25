@@ -52,11 +52,13 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "WfkOIgvty6FIMcbgKUiqd")
     private WebElement successMessage;
 
-    @FindBy(xpath = "//button[@yotta-test='topology-list_confirm-upload-imng-button']")
-    private WebElement ensure;
-
     @FindBy(className = "yotta-message-content")
     private WebElement message;
+
+    @FindBy(xpath = "//span[text()='确定']")
+    private WebElement ensure;
+
+    public WebElement getEnsure() { return ensure; }
 
     public WebElement getTagToInput() {
         return tagToInput;
@@ -89,10 +91,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getNameInput() {
         return getInputElement("名称");
-    }
-
-    public WebElement getEnsure() {
-        return ensure;
     }
 
     public WebElement getPictureGallary() {

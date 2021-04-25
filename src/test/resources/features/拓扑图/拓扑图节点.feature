@@ -8,6 +8,7 @@ Feature: 拓扑图节点验证
   Scenario Outline: 新建拓扑图
     When I click the "Create" button
     And I set the parameter "NameInput" with value "<name>"
+    And I wait for "1000" millsecond
     And I click the "Ensure" button
 
     Examples:

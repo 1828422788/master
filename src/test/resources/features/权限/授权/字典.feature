@@ -260,6 +260,7 @@ Feature: 权限-字典
   #  And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "AutoTestUserCreate"
     And I click the "EnsureUpload" button
+    And I wait for "1000" millsecond
     Then I will see the success message "创建字典成功"
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -585,6 +586,7 @@ Feature: 权限-字典
   #  And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "AuthTest"
     And I click the "EnsureUpload" button
+    And I wait for "1500" millsecond
     Then I will see the success message "创建字典成功"
 
   Scenario: 授权用户读取权限
@@ -603,7 +605,6 @@ Feature: 权限-字典
     And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
-    Then the data name is "AuthTest.csv" then i will see "授权" button
     When the data name is "AuthTest.csv" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled

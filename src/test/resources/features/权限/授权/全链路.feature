@@ -601,8 +601,7 @@ Feature: 权限-全链路
     And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And I wait for "SuccessMessage" will be invisible
-    And the data name is "权限测试重命名" then i click the "更多" button
-    And I click the "Delete" button
+    And the data name is "权限测试重命名" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"

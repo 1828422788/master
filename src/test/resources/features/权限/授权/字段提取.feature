@@ -381,7 +381,6 @@ Feature: 权限-字段提取
     And I wait for loading invisible
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I wait for "1500" millsecond
-    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "ErrorMessage" will be visible
     Then I will see the error message "保存成功"

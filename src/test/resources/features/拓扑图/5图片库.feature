@@ -10,8 +10,9 @@ Feature: 图片库
     And I wait for "2000" millsecond
     And I click the "ClickUpload" button
     And I upload a file with name "<source>"
-    And I wait for "2000" millsecond
+    And I wait for "1500" millsecond
     Then I will see the success message "上传完成"
+    And I wait for "1500" millsecond
     Then I click the "Ensure" button
     And I wait for "2000" millsecond
 
@@ -34,6 +35,7 @@ Feature: 图片库
     And I wait for "2000" millsecond
     And I click the "PictureToDelete" button
     Then I click the "Delete" button
+    And I wait for "1000" millsecond
     Then I will see the message contains "删除图片成功"
 
   Scenario: 验证删除图片成功
