@@ -25,7 +25,9 @@ Feature: 权限-KV字典
 
   Scenario: 新建拓扑图资源
     Given open the "topology.ListPage" page for uri "/topology/"
+    And I wait for loading invisible
     When I click the "Create" button
+    And I wait for "1500" millsecond
     And I set the parameter "NameInput" with value "KVAuthTopo"
     And I click the "Ensure" button
 
