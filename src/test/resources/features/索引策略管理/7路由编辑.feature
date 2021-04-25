@@ -57,10 +57,10 @@ Feature: 路由编辑
     And I click the "SavedButton" button
     And I will see the success message "保存成功"
 
-  Scenario: 编辑index_sink
-    When the data name is "{'column':'1','name':'index_sink'}" then i click the "编辑" button
-    Then I will see the "index.MatchRuleCreatePage" page
-    And I set the parameter "AppName" with value "testdisable"
-    And I set the parameter "Tag" with value "testdisable"
-    And I click the "SavedButton" button
-    And I will see the success message "保存成功"
+#  Scenario: 编辑index_sink
+#    When the data name is "{'column':'1','name':'index_sink'}" then i click the "编辑" button
+#    Then I will see the "index.MatchRuleCreatePage" page
+#    And I set the parameter "AppName" with value "testdisable"
+#    And I set the parameter "Tag" with value "testdisable"
+#    And I click the "SavedButton" button
+#    And I will see the success message "保存成功"
