@@ -1374,8 +1374,16 @@ public class CreatePage extends PageTemplate {
         return getElementWithText("后面");
     }
 
+    public WebElement getTestDataset() {
+        return getElementWithText("test");
+    }
+
     public WebElement getDataset_1() {
         return getElementWithText("dataset_1");
+    }
+
+    public WebElement getDataset_2() {
+        return getElementWithText("dataset_2");
     }
 
     public WebElement getAllResources() {
