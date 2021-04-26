@@ -17,11 +17,11 @@ Feature: 测试运行-邮件
 
     And I click the "AlertNoteTypeTab" button
 #    And I click the "AddAlertTypeButton" button
-    And I choose the "邮件告警" from the "AlertNoteTypeListButton"
-    Given I wait for loading complete
+#    And I choose the "邮件告警" from the "AlertNoteTypeListButton"
+#    Given I wait for loading complete
     And I click the "MailAlertLabel" button
     Given I wait for loading complete
-    And I click the "MailReceiverButton" button
+#    And I click the "MailReceiverButton" button
     And I wait for "2000" millsecond
 #    When I set the parameter "MailReceiver" with value "2312200836@qq.com"
 #    And I wait for loading complete
@@ -42,7 +42,7 @@ Feature: 测试运行-邮件
     And I wait for element "TestRunReminder" change text to "提示"
     Then take a screenshot with name "actual/trm_<name>"
     And I wait for element "TestRunReminderText" change text to "<name>"
-    And I wait for element "TestRunReminderText" change text to "successful"
+    And I wait for element "TestRunReminderText" change text to "successfu"
     When I click the "AffirmButton" button
 
     Examples:
@@ -51,8 +51,6 @@ Feature: 测试运行-邮件
       |	api00_all_事件数_扩展chart_all_sample_合并	|
       |	api00_all_事件计数_设备切分ip_扩展chart_all_交易日	|
       |	api00_all_事件计数_设备切分ip_扩展chart_all_合并	|
-      |	api00_spl统计ip_cnt_高_扩展chart_all_合并	|
-      |	api00_spl统计ip_cnt_高_扩展chart_all_宏	|
       |	api00_spl统计_按行发送sample	|
       |	api00_spl统计_按行发送_抑制_连续触发3次_分组单字段	|
       |	api00_spl统计_按行发送_抑制_连续触发3次_分组多字段	|
@@ -109,7 +107,7 @@ Feature: 测试运行-邮件
     And I wait for element "TestRunReminder" change text to "提示"
     Then take a screenshot with name "actual/trm_<name>"
     And I wait for element "TestRunReminderText" change text to "<name>"
-    And I wait for element "TestRunReminderText" change text to "successful"
+    And I wait for element "TestRunReminderText" change text to "successfu"
     When I click the "AffirmButton" button
 
     Examples:
