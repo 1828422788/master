@@ -7,8 +7,8 @@ Feature: 报表新建_选择
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
 
-  Scenario Outline: new_report_trend_info
-    When I set the parameter "Name" with value "test_trendinfo"
+  Scenario Outline: new_report_trend_dataset
+    When I set the parameter "Name" with value "test_dataset"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I choose the "PDF" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -20,7 +20,22 @@ Feature: 报表新建_选择
     And I move the mouse pointer to the "ViewSingleTrendInfo"
     And I wait for "TipElement" will be visible
     And I will see the element "TipElement" contains "<tipText>"
-    And I wait for "5000" millsecond
+    And I wait for "1000" millsecond
+    And I click the "ChartListButton" button
+    And I wait for "2000" millsecond
+    When I choose the "单值报表测试" from the "ChartList"
+    And I click the "ChartListButton" button
+    Then I will see the element "ChosenTrendLast" contains "单值报表测试"
+    And I click the "ChosenTrendLast" button
+    And I will see the element "TrendData" contains "(tag:sample04061424_chart)"
+    And I click the "EditButton" button
+    And I will see the element "TrendDatasetField" contains "(tag:sample04061424_chart)"
+    And I set the value "starttime="now/d" endtime="now/d+24h" * | stats count()" to the textarea "TrendSplField"
+    Then I click the "EnsureButton" button
+
+    When I click the "FinishButton" button under some element
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
   Examples:
     |  tipText     |
