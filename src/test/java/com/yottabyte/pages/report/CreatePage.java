@@ -163,6 +163,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@yotta-test='report-description-input']")
     private WebElement trendDescribeField;
 
+    @FindBy(xpath = "//label[contains(text(),'数据集')]/ancestor::div/following-sibling::div//span")
+    private WebElement trendDatasetField;
+
     @FindBy(xpath = "(//div[contains(@style,'background: rgb(161, 20, 249);')])[last()]")
     private WebElement purple;
 
@@ -411,6 +414,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getTrendDescribeField() {
         return trendDescribeField;
+    }
+
+    public WebElement getTrendDatasetField() {
+        return trendDatasetField;
     }
 
     public WebElement getTrendSplField() {

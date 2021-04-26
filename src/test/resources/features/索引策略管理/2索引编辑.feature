@@ -1,4 +1,4 @@
-@indexSetting @indexSettingSmoke @third
+@indexSettingSmoke @third
 Feature: 索引信息编辑（RZY-1477至1480）
 
   Background:
@@ -46,7 +46,7 @@ Feature: 索引信息编辑（RZY-1477至1480）
     And I set the parameter "DivideTime" with value "<divideTime>"
     And I choose the "<divideTimeDropDown>" from the "DivideTimeDropDown"
     And I click the "SavedButton" button
-    And I will see the element "Message" name is "<message>"
+#    And I will see the element "Message" name is "<message>"
 
     Examples:
       | divideTime | divideTimeDropDown | message     |
@@ -158,6 +158,3 @@ Feature: 索引信息编辑（RZY-1477至1480）
 #    And I switch the "索引下沉" button to "unchecked"
 #    And I click the "SavedButton" button
 #    And I will see the element "Message" name is "保存成功"
-
-
-

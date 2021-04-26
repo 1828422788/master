@@ -5,6 +5,7 @@ Feature: 路由编辑
     Given open the "index.ListPage" page for uri "/indexmatchrules/"
 
   Scenario Outline: RZY-1483、1484
+
     When the data name is "{'column':'3','name':'AutoAppName'}" then i click the "编辑" button
     Then I will see the "index.MatchRuleCreatePage" page
     And I set the parameter "AppName" with value "<appName>"

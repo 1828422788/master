@@ -1,4 +1,4 @@
-@createEssentialData @setup1 @dataTrendTest
+@createEssentialData @baseUser @dataTrendTest
 Feature:新建应用
 
 #Datasets for trend

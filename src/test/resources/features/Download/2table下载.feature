@@ -3,7 +3,8 @@ Feature: download_table下载part0
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Given I wait for loading complete
+#    And I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario Outline: 下载table用例结果
     Given I set the parameter "SearchInput" with value "<splQuery>"

@@ -62,7 +62,7 @@ public class WaitElementChangeTextTo {
      * @param text        文本值
      */
     @And("^I wait for element \"([^\"]*)\" change text to \"([^\"]*)\"$")
-    public void waitUntilTextChange(String elementName, String text) {
+    public void  waitUntilTextChange(String elementName, String text) {
         WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
         WebElement element = getWebElementWithName(elementName);
         ExpectedCondition expectedCondition = new ExpectedCondition<Boolean>() {
