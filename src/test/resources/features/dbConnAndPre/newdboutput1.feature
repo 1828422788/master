@@ -1,4 +1,4 @@
-Feature: 新建数据库输出
+Feature: 编辑DbOutput
 
   @editdbo @dleval
   Scenario Outline: 编辑数据库输出-1

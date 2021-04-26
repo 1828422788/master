@@ -13,8 +13,8 @@ Feature: 新建数据库查找
     Given I wait for loading complete
 
     When I set the parameter "SearchInput" with value "<splQuery>"
-    When I click the "DateEditor" button
-    When I click the "Today" button
+#    When I click the "DateEditor" button
+#    When I click the "Today" button
     When I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "3000" millsecond
