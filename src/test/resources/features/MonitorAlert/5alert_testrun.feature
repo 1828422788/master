@@ -12,32 +12,28 @@ Feature: 测试运行-邮件
 #    Then I click the "AlertListEditButton" button
 
     Then I will see the "alert.CreatePage" page
-    And I wait for loading complete
+    Given I wait for loading complete
     And I wait for "2000" millsecond
 
     And I click the "AlertNoteTypeTab" button
-#    And I click the "AddAlertTypeButton" button
-#    And I choose the "邮件告警" from the "AlertNoteTypeListButton"
-#    Given I wait for loading complete
+    Given I wait for loading complete
     And I click the "MailAlertLabel" button
     Given I wait for loading complete
-#    And I click the "MailReceiverButton" button
-    And I wait for "2000" millsecond
-#    When I set the parameter "MailReceiver" with value "2312200836@qq.com"
-#    And I wait for loading complete
+
     And I choose the "2312200836@qq.com" from the "MailReceiverList"
     Given I wait for loading complete
     And I wait for "2000" millsecond
-#    And I click the "mailReceiverLabel" button
+    And I click the "mailReceiverLabel" button
     Given I wait for loading complete
 
     And I wait for "MailAlertContentPanel" will be visible
     And I select all text in "MailAlertContentPanel" alert element
+    Given I wait for loading complete
     And I wait for "2000" millsecond
 
     And I click the "TestRunButton" button
     Given I wait for loading complete
-    And I wait for "3000" millsecond
+    And I wait for "2000" millsecond
 
     And I wait for element "TestRunReminder" change text to "提示"
     Then take a screenshot with name "actual/trm_<name>"
@@ -47,6 +43,8 @@ Feature: 测试运行-邮件
 
     Examples:
       | name                    |
+      |	api00_spl统计ip_cnt_高_扩展chart_all_合并	|
+      |	api00_spl统计ip_cnt_高_扩展chart_all_宏	|
       | api00_spl统计_非按行发送sample |
       |	api00_all_事件数_扩展chart_all_sample_合并	|
       |	api00_all_事件计数_设备切分ip_扩展chart_all_交易日	|
