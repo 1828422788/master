@@ -23,6 +23,8 @@ Feature: 编辑DbOutput
     And I zoom the screen up to the maximum
 
     And I click the "NextStepButton" button
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
 
     And I click the "UpdateInsertButton" button
     And I choose the "forward" from the "DbOutputKeyList"
