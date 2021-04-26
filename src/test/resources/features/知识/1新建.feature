@@ -65,12 +65,13 @@ Feature: 知识新建（RZY-868）
     And I will see the element value in json "{'Tag':'<tag>'}"
     And I will see the element "Desc" name is "<desc>"
     And I will see the element "Solution" name is "<solution>"
+    And I will see the element "<string>" value contains "<tag>"
 
     Examples:
       | name                | code             | tag      | desc     | solution |
-      | 名称1, 名称2            | code             | 500404 | AutoTest | 没有       |
-      | 测试多个code            | 第一个code, 第二个code | 500404 | AutoTest | 没有       |
-      | AutoTestCreateByURL | AutoTestByURL    | 500404 | AutoTest | 没有       |
+      | 名称1, 名称2            | code             | 404 500 | AutoTest | 没有       |
+      | 测试多个code            | 第一个code, 第二个code | 404 500 | AutoTest | 没有       |
+      | AutoTestCreateByURL | AutoTestByURL    | 404 500 | AutoTest | 没有       |
 
   Scenario Outline: 验证知识新建
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
@@ -80,8 +81,8 @@ Feature: 知识新建（RZY-868）
     And I wait for "Code" will be visible
     And I wait for element "Code" change text to "<code>"
     And I will see the element value in json "{'Code':'<code>'}"
-    And I will see the element "Desc" name is "<desc>"
-    And I will see the element "Solution" name is "<solution>"
+    And I will see the element "Desc" name is "<desc> "
+    And I will see the element "Solution" name is "<solution> "
 
     Examples:
       | name | code | desc | solution |
@@ -96,7 +97,7 @@ Feature: 知识新建（RZY-868）
     And I wait for "Code" will be visible
     And I wait for element "Code" change text to "<code>"
     And I will see the element value in json "{'Code':'<code>'}"
-    And I will see the element "Desc" name is "<desc>"
+    And I will see the element "Desc" name is "<desc> "
 
     Examples:
       | name    | code    | desc |
