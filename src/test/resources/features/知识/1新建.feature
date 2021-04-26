@@ -81,8 +81,10 @@ Feature: 知识新建（RZY-868）
     And I wait for "Code" will be visible
     And I wait for element "Code" change text to "<code>"
     And I will see the element value in json "{'Code':'<code>'}"
-    And I will see the element "Desc" name is "<desc> "
-    And I will see the element "Solution" name is "<solution> "
+    #And I will see the element "Desc" name is "<desc> "
+    And I will see the element "Desc" value contains "<desc> "
+   # And I will see the element "Solution" name is "<solution> "
+    And I will see the element "Solution" value contains "<solution> "
 
     Examples:
       | name | code | desc | solution |
@@ -97,7 +99,8 @@ Feature: 知识新建（RZY-868）
     And I wait for "Code" will be visible
     And I wait for element "Code" change text to "<code>"
     And I will see the element value in json "{'Code':'<code>'}"
-    And I will see the element "Desc" name is "<desc> "
+   # And I will see the element "Desc" name is "<desc> "
+    And I will see the element "Desc" value contains "<desc> "
 
     Examples:
       | name    | code    | desc |
