@@ -33,7 +33,6 @@ Feature: 编辑DbOutput
     And I click the "NextStepButton" button
 
     And I wait for "1000" millsecond
-    When I set the parameter "DbOutputName" with value "<DbOutputName>"
     And I click the "DoneButton" button
 #    And I wait for element "SearchStatus" change text to "创建成功"
 
