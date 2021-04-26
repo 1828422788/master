@@ -33,7 +33,7 @@ Feature: 测试运行-邮件
     And I choose the "中" from the "SendConditionList"
     Given I wait for loading complete
     And I wait for "3000" millsecond
-    And I click the "mailReceiverLabel" button
+#    And I click the "mailReceiverLabel" button
 
 #    When I click the "SendConditionList" button
     Given I wait for loading complete
