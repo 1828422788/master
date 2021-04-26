@@ -49,9 +49,6 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//*[@yotta-test='resource_tag-change_resource_tag-select']/div")
     private WebElement resourceTag;
 
-    @FindBy(className = "WfkOIgvty6FIMcbgKUiqd")
-    private WebElement successMessage;
-
     @FindBy(className = "yotta-message-content")
     private WebElement message;
 
@@ -86,8 +83,6 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getClickUpload() { return clickUpload; }
-
-    public WebElement getSuccessMessage() { return successMessage; }
 
     public WebElement getNameInput() {
         return getInputElement("名称");

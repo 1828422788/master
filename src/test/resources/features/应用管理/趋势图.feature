@@ -84,7 +84,7 @@ Feature: 应用趋势图
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     And I wait for loading invisible
-#    And I wait for "Header" will be visible
+    And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "<name>"
     And I choose the "TrendApp" from the "AppDropdown"
