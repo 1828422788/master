@@ -26,15 +26,14 @@ Feature: 测试运行-邮件
     Given I wait for loading complete
     And I wait for "2000" millsecond
     And I click the "mailReceiverLabel" button
-    And I choose the "中" from the "SendConditionList"
-    Given I wait for loading complete
-    And I wait for "3000" millsecond
-    And I click the "mailReceiverLabel" button
-    And I choose the "中" from the "SendConditionList"
-    Given I wait for loading complete
-    And I wait for "3000" millsecond
+#    And I choose the "中" from the "SendConditionList"
+#    Given I wait for loading complete
+#    And I wait for "3000" millsecond
 #    And I click the "mailReceiverLabel" button
-
+#    And I choose the "中" from the "SendConditionList"
+#    Given I wait for loading complete
+#    And I wait for "3000" millsecond
+    
 #    When I click the "SendConditionList" button
     Given I wait for loading complete
 
