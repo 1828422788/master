@@ -14,6 +14,7 @@ Feature: 新建数据库查找
     Given I wait for loading complete
 
     When I set the parameter "SearchInput" with value "<splQuery>"
+    And I zoom the screen up to the maximum
 #    When I click the "DateEditor" button
 #    When I click the "Today" button
     When I click the "SearchButton" button
