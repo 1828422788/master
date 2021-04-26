@@ -269,11 +269,11 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='基本设置']")
     private WebElement topOfThePage;
 
-    @FindBy(xpath = "(//li[contains(@yotta-test,'report-item')]/span[contains(text(),'单值报表测试')]//span[@aria-label='VisibilityOutlined'])[last()]")
-    private WebElement viewSingleTrendInfo;
+    @FindBy(xpath = "(//li[contains(@yotta-test,'report-item')]/span[contains(text(),'报表测试_数据集')]//span[@aria-label='VisibilityOutlined'])[last()]")
+    private WebElement viewDatasetTrendInfo;
 
-    public WebElement getViewSingleTrendInfo() {
-        return viewSingleTrendInfo;
+    public WebElement getViewDatasetTrendInfo() {
+        return viewDatasetTrendInfo;
     }
 
     public WebElement getTopOfThePage() {

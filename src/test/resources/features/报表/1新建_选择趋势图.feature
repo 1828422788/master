@@ -7,6 +7,33 @@ Feature: 报表新建_选择
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
 
+  Scenario: trend_dataset
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "NewTrendButton" button
+    Then I will see the "trend.CreatePage" page
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count()"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "TestDataset" button
+    And I click the "Dataset_1" button
+    And I click the "Dataset_2" button
+    And I wait for "1000" millsecond
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button under some element
+    And I wait for "Header" will be visible
+    And I click the "Type" button
+    And I click the "Other" button
+    And I click the "Single" button
+    And I click the "NextButton" button under some element
+    When I set the parameter "NameInput" with value "报表测试_数据集"
+    And I choose the "test_app" from the "AppField" in config
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I click the "Complete" button under some element
+    Then I wait for "SuccessCreate" will be visible
+
   Scenario Outline: new_report_trend_dataset
     When I set the parameter "Name" with value "test_dataset"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
@@ -16,20 +43,20 @@ Feature: 报表新建_选择
     Then I wait for "ChartListButton" will be visible
     And I click the "ChartListButton" button
     And I wait for "Li" will be visible
-    And I set the parameter "TrendSearchInput" with value "单值报表测试"
-    And I move the mouse pointer to the "ViewSingleTrendInfo"
+    And I set the parameter "TrendSearchInput" with value "报表测试_数据集"
+    And I move the mouse pointer to the "ViewDatasetTrendInfo"
     And I wait for "TipElement" will be visible
     And I will see the element "TipElement" contains "<tipText>"
     And I wait for "1000" millsecond
     And I click the "ChartListButton" button
     And I wait for "2000" millsecond
-    When I choose the "单值报表测试" from the "ChartList"
+    When I choose the "报表测试_数据集" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "单值报表测试"
+    Then I will see the element "ChosenTrendLast" contains "报表测试_数据集"
     And I click the "ChosenTrendLast" button
-    And I will see the element "TrendData" contains "(tag:sample04061424_chart)"
+    And I will see the element "TrendData" contains "((*)) OR (tag:sample04061424_chart) OR (tag:sample04061424_display)"
     And I click the "EditButton" button
-    And I will see the element "TrendDatasetField" contains "(tag:sample04061424_chart)"
+    And I will see the element "TrendDatasetField" contains "((*)) OR (tag:sample04061424_chart) OR (tag:sample04061424_display)"
     And I set the value "starttime="now/d" endtime="now/d+24h" * | stats count()" to the textarea "TrendSplField"
     Then I click the "EnsureButton" button
 
@@ -39,7 +66,7 @@ Feature: 报表新建_选择
 
   Examples:
     |  tipText     |
-    |   名称：单值报表测试\n描述：AutoCreate\n搜索内容：tag:sample04061424_chart \| stats count()\n数据集：(tag:sample04061424_chart)\n统计类型：single\n时间范围：now/d,now  |
+    |   名称：报表测试_数据集\n描述：AutoCreate\n搜索内容：tag:sample04061424_chart \| stats count()\n数据集：((*)) OR (tag:sample04061424_chart) OR (tag:sample04061424_display)\n统计类型：single\n时间范围：now/d,now  |
 
   Scenario: new_report_10_trends
     When I set the parameter "Name" with value "test_10trends"
