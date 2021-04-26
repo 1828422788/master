@@ -17,10 +17,12 @@ Feature: 编辑DbOutput
 
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Given I wait for loading complete
+    And I wait for "2000" millsecond
 
     And I click the "NextStepButton" button
     Given I wait for loading complete
     And I zoom the screen up to the maximum
+    And I wait for "2000" millsecond
 
     And I click the "NextStepButton" button
     Given I wait for loading complete
@@ -33,7 +35,7 @@ Feature: 编辑DbOutput
     And I click the "NextStepButton" button
 
     And I wait for "1000" millsecond
-    And I click the "DoneButton" button
+    When I click the "DoneButton" button
 #    And I wait for element "SearchStatus" change text to "创建成功"
 
     Examples:
