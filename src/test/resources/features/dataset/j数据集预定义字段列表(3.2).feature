@@ -143,6 +143,7 @@ Feature: 数据集-k预定义字段列表
   @datasetj7
   Scenario: RZY-4293:对子节点字段的操作-删除第三个子节点的字段
     Given open the "dataset.ListPage" page for uri "/dataset/"
+    Given I wait for loading complete
 #    When the data name is "have_root_field" then i click the "编辑" button
     When the data name is "{'column':'0','name':'have_root_field'}" then i click the "编辑" button
 
