@@ -34,9 +34,10 @@ Feature:监控预览
     Given I wait for loading complete
     And I wait for "9000" millsecond
 
-    And I wait for element "PreviewReminder" change text to "提示"
-    Then take a screenshot with name "actual/preview_<name>"
+#    And I wait for element "PreviewReminder" change text to "提示"
+#    Then take a screenshot with name "actual/preview_<name>"
 #    And I wait for element "PreviewAlertReminderText" change text to "<name>"
+
     When I click the "AffirmButton" button
 
     Examples:
@@ -96,9 +97,10 @@ Feature:监控预览
     Given I wait for loading complete
     And I wait for "9000" millsecond
 
-    And I wait for element "PreviewReminder" change text to "提示"
-    Then take a screenshot with name "actual/preview_<name>"
+#    And I wait for element "PreviewReminder" change text to "提示"
+#    Then take a screenshot with name "actual/preview_<name>"
 #    And I wait for element "PreviewAlertReminderText" change text to "<name>"
+
     When I click the "AffirmButton" button
 
     Examples:
@@ -136,7 +138,7 @@ Feature:监控预览
       | api7_nods_事件数_rsyslog                                    |
       | api7_nods_字段统计ip_20秒_邮件                                  |
       | api7_spl统计avg_高_扩展avg_all                                |
-      | api9_all_事件计数_设备切分ip_扩展chart_all_spark                   |
-      | api9_事件_multiwords_切分_扩展chart插图_键值_邮件_splark             |
-      | api9_字段统计_切分ip_最大数status_扩展chart键值_all_spark             |
+#      | api9_all_事件计数_设备切分ip_扩展chart_all_spark                   |
+#      | api9_事件_multiwords_切分_扩展chart插图_键值_邮件_splark             |
+#      | api9_字段统计_切分ip_最大数status_扩展chart键值_all_spark             |
       | api_RZY-2980:新建监控-基本配置-执行计划-crontab-周一到周五下午14：00~14：45之间 |

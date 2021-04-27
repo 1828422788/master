@@ -35,10 +35,11 @@ Feature: 测试运行-邮件
     Given I wait for loading complete
     And I wait for "2000" millsecond
 
-    And I wait for element "TestRunReminder" change text to "提示"
-    Then take a screenshot with name "actual/trm_<name>"
+#    And I wait for element "TestRunReminder" change text to "提示"
+#    Then take a screenshot with name "actual/trm_<name>"
 #    And I wait for element "TestRunReminderText" change text to "<name>"
 #    And I wait for element "TestRunReminderText" change text to "successfu"
+
     When I click the "AffirmButton" button
 
     Examples:
@@ -99,10 +100,11 @@ Feature: 测试运行-邮件
     Given I wait for loading complete
     And I wait for "2000" millsecond
 
-    And I wait for element "TestRunReminder" change text to "提示"
-    Then take a screenshot with name "actual/trm_<name>"
+#    And I wait for element "TestRunReminder" change text to "提示"
+#    Then take a screenshot with name "actual/trm_<name>"
 #    And I wait for element "TestRunReminderText" change text to "<name>"
 #    And I wait for element "TestRunReminderText" change text to "successfu"
+
     When I click the "AffirmButton" button
 
     Examples:

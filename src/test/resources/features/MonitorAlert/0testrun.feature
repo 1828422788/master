@@ -45,6 +45,7 @@ Feature: 测试运行-邮件
 
     Examples:
       | name                    |
-      |	api3_nods_事件数_ping主机	|
+      |	api00_spl统计ip_cnt_高_扩展chart_all_合并	|
+#      |	api7_nods_事件数_rsyslog	|
+#      |	api7_nods_字段统计ip_20秒_邮件	|
 #      |	api3_nods_事件数_ping主机	|
-
