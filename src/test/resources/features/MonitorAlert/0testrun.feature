@@ -2,8 +2,7 @@
 Feature: 测试运行-邮件
 
   Scenario Outline:  Scenario Outline:
-
-    And I wait for loading complete
+    Given I wait for loading complete
     Given open the "alert.ListPage" page for uri "/alerts/"
     When I set the parameter "AlertListSearchInput" with value "<name>"
     And I wait for loading complete
@@ -31,10 +30,11 @@ Feature: 测试运行-邮件
     And I wait for "MailAlertContentPanel" will be visible
     And I select all text in "MailAlertContentPanel" alert element
     Given I wait for loading complete
-    And I wait for "3000" millsecond
+    And I wait for "2000" millsecond
 
     And I click the "TestRunButton" button
     Given I wait for loading complete
+    And I wait for "2000" millsecond
 
     And I wait for element "TestRunReminder" change text to "提示"
     Then take a screenshot with name "actual/trm_<name>"
@@ -45,6 +45,6 @@ Feature: 测试运行-邮件
 
     Examples:
       | name                    |
-      |	api00_spl统计ip_cnt_高_扩展chart_all_合并	|
-#      |	api00_spl统计ip_cnt_高_扩展chart_all_宏	|
+      |	api3_nods_事件数_ping主机	|
+#      |	api3_nods_事件数_ping主机	|
 
