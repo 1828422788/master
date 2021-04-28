@@ -11,9 +11,10 @@ Feature: 图片库
     And I click the "ClickUpload" button
     And I upload a file with name "<source>"
     And I wait for "1500" millsecond
-    Then I will see the success message "上传完成"
+    #Then I will see the success message "上传完成"
+    And I will see the element "UploadSuccess" value contains "上传完成"
     And I wait for "1500" millsecond
-    Then I click the "Ensure" button
+    Then I click the "ConfirmOfPicture" button
     And I wait for "2000" millsecond
 
     Examples:

@@ -52,10 +52,15 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "yotta-message-content")
     private WebElement message;
 
-    @FindBy(xpath = "//span[text()='确定']")
-    private WebElement ensure;
+    @FindBy(xpath = "//button[@yotta-test='topology-list_confirm-upload-imng-button']/span")
+    private WebElement confirmOfPicture;
 
-    public WebElement getEnsure() { return ensure; }
+    @FindBy(className = "WfkOIgvty6FIMcbgKUiqd")
+    private WebElement uploadSuccess;
+
+    public WebElement getUploadSuccess() { return uploadSuccess; }
+
+    public WebElement getConfirmOfPicture() { return confirmOfPicture; }
 
     public WebElement getTagToInput() {
         return tagToInput;
