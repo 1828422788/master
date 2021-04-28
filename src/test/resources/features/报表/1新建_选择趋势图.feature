@@ -15,8 +15,11 @@ Feature: 报表新建_选择
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count()"
     And I click the "DateEditor" button
     And I click the "Today" button
+    And I wait for "1000" millsecond
     And I click the "TestDataset" button
+    And I wait for "1000" millsecond
     And I click the "Dataset_1" button
+    And I wait for "1000" millsecond
     And I click the "Dataset_2" button
     And I wait for "1000" millsecond
     And I click the "SearchButton" button

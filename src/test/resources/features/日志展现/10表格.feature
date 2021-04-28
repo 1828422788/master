@@ -309,11 +309,12 @@ Feature: 日志展现_表格
     And I set the parameter "<param>" with value "<value>"
     And I click the "<ensure>" button
     And I wait for "ErrorMessage" will be visible
-    And I will see the element "ErrorMessage" contains "请填写正确数值内容！"
+    And I will see the element "ErrorMessage" contains "<message>"
 
     Examples:
-      | colorType  |  button       |  param          | ensure       | value    |
-      | 范围       | AddInterval   | IntervalInput   | EnsureButton | a        |
-      | 范围       | AddInterval   | IntervalInput   | EnsureButton |          |
-      | 梯度       |               | LowerLimitValue |              | a        |
-      | 梯度       |               | MiddleValue     | EnsureButton |          |
+      | colorType  |  button       |  param          | ensure       | value    | message              |
+      | 范围       | AddInterval   | IntervalInput   | EnsureButton | a        | 请填写正确数值内容！ |
+      | 范围       | AddInterval   | IntervalInput   | EnsureButton |          | 请填写正确数值内容！ |
+      | 梯度       |               | LowerLimitValue |              | a        | 请填写正确数值内容！ |
+      | 梯度       |               | MiddleValue     | EnsureButton |          | 请填写正确数值内容！ |
+      |            |               | ColumnWidth     | EnsureButton | 0        | 列宽度不能为0        |

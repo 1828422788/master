@@ -376,7 +376,7 @@ Feature: 仪表盘输入项
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "apache.geo.city:${filter} | stats count() by apache.geo.city"
+    And I set the parameter "Spl" with value "appname:${filter} | stats count() by appname"
     And I click the "Ensure" button
     And I wait for "500" millsecond
     Then I will see the success message "配置成功"
@@ -393,13 +393,13 @@ Feature: 仪表盘输入项
     And I set the parameter "FilterToken" with value "filter"
     And I choose the "下拉菜单" from the "InputType"
     And I click the "SingleChoice" button
-    And I set the parameter "ChoiceValue" with value "北京市"
+    And I set the parameter "ChoiceValue" with value "regex_json"
     And I click the "AddChoiceValueButton" button
-    And I set the parameter "ChoiceValue" with value "南京市"
+    And I set the parameter "ChoiceValue" with value "java"
     And I click the "AddChoiceValueButton" button
-    And I set the parameter "ChoiceValue" with value "济南市"
+    And I set the parameter "ChoiceValue" with value "json"
     And I click the "AddChoiceValueButton" button
-    And I choose the "北京市" from the "DefaultDropdownList"
+    And I choose the "regex_json" from the "DefaultDropdownList"
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
@@ -414,7 +414,7 @@ Feature: 仪表盘输入项
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "apache.geo.city:北京市 | stats count() by apache.geo.city"
+    And I set the parameter "Spl" with value "appname:regex_json | stats count() by appname"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"

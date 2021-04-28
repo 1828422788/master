@@ -946,7 +946,6 @@ public class CreatePage extends PageTemplate {
         return mailReceiverButton;
     }
 
-    //    @FindBy(xpath = "//label[contains(text(),'接收者')]/following::input")
     @FindBy(xpath = "//label[contains(text(),'接收者')]/following::div[@yotta-test='alert-alert_methods_email_account_group-select']//input")
     private WebElement mailReceiver;
 
@@ -954,13 +953,21 @@ public class CreatePage extends PageTemplate {
         return mailReceiver;
     }
 
-    //    @FindBy(xpath = "//label[contains(text(),'接收者')]/following::div[@class='ant-select-selection__rendered']/ul/li")
-    @FindBy(xpath = "//label[contains(text(),'接收者')]/following::div[@yotta-test='alert-alert_methods_email_account_group-select']")
-    private WebElement mailReceiverList;
-
     public WebElement getMailReceiverList() {
-        mailReceiverList.click();
-        return super.getLastDropdownList();
+//        mailReceiverList.click();
+//        return super.getLastDropdownList();
+//            String xpath = "//label[contains(text(),'接收者')]/following::div[@yotta-test='alert-alert_methods_email_account_group-select']";
+        String xpath = "//label[contains(text(),'接收者')]/following::div[@yotta-test='alert-alert_methods_email_account_group-select']//span[@aria-label='PlusDownOutlined']";
+            return getDropdownListbyPath(xpath);
+    }
+
+//    @FindBy(xpath = "//label[contains(text(),'接收者')]/following::label[contains(text(),'发送条件')]/following::div[@yotta-test='alert-alert_methods_levels-select']//span[@aria-label='PlusDownOutlined']")
+//    private WebElement sendConditionList;
+
+    public WebElement getSendConditionList() {
+        String xpath = "//label[contains(text(),'接收者')]/following::label[contains(text(),'发送条件')]/following::div[@yotta-test='alert-alert_methods_levels-select']//span[@aria-label='PlusDownOutlined']";
+        return getDropdownListbyPath(xpath);
+//          return sendConditionList;
     }
 
     @FindBy(xpath = "//label[contains(text(),'接收者')]/parent::div")
@@ -970,7 +977,7 @@ public class CreatePage extends PageTemplate {
         return mailReceiverLabel;
     }
 
-    @FindBy(xpath = "//textarea[@yotta-test='alert-alert_methods_textarea-textarea']")
+    @FindBy(xpath = "//label[contains(text(),'内容模板')]/following::textarea[@yotta-test='alert-alert_methods_textarea-textarea']")
     private WebElement mailAlertContentPanel;
 
     public WebElement getMailAlertContentPanel() {
