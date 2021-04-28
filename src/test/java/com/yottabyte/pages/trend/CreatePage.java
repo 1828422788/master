@@ -1,5 +1,6 @@
 package com.yottabyte.pages.trend;
 
+import com.yottabyte.pages.DateEditorPage;
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.DropdownUtils;
@@ -1375,19 +1376,19 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getTestDataset() {
-        return getElementWithText("test");
+        return getDatasetWithName("test");
     }
 
     public WebElement getDataset_1() {
-        return getElementWithText("dataset_1");
+        return getDatasetWithName("dataset_1");
     }
 
     public WebElement getDataset_2() {
-        return getElementWithText("dataset_2");
+        return getDatasetWithName("dataset_2");
     }
 
     public WebElement getAllResources() {
-        return getElementWithText("all_");
+        return getDatasetWithName("all_");
     }
 
     public WebElement getSuccessCreate() {
@@ -1565,43 +1566,43 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getToday() {
-        return GetTime.getTime(webDriver, "Today");
+        return (new DateEditorPage(webDriver)).getToday();
     }
 
     public WebElement getYesterday() {
-        return GetTime.getTime(webDriver, "Yesterday");
+        return (new DateEditorPage(webDriver)).getYesterday();
     }
 
     public WebElement getThisWeek() {
-        return GetTime.getTime(webDriver, "ThisWeek");
+        return (new DateEditorPage(webDriver)).getThisWeek();
     }
 
     public WebElement getThisMonth() {
-        return GetTime.getTime(webDriver, "ThisMonth");
+        return (new DateEditorPage(webDriver)).getThisMonth();
     }
 
     public WebElement getLastWeek() {
-        return GetTime.getTime(webDriver, "LastWeek");
+        return (new DateEditorPage(webDriver)).getLastWeek();
     }
 
     public WebElement getLastMonth() {
-        return GetTime.getTime(webDriver, "LastMonth");
+        return (new DateEditorPage(webDriver)).getLastMonth();
     }
 
     public WebElement getOneDay() {
-        return GetTime.getTime(webDriver, "OneDay");
+        return (new DateEditorPage(webDriver)).getOneDay();
     }
 
     public WebElement getTwoDays() {
-        return GetTime.getTime(webDriver, "TwoDays");
+        return (new DateEditorPage(webDriver)).getTwoDays();
     }
 
     public WebElement getSevenDays() {
-        return GetTime.getTime(webDriver, "SevenDays");
+        return (new DateEditorPage(webDriver)).getSevenDays();
     }
 
     public WebElement getWholeTime() {
-        return GetTime.getTime(webDriver, "WholeTime");
+        return (new DateEditorPage(webDriver)).getWholeTime();
     }
 
     public WebElement getSuccessMessage() {
@@ -1875,6 +1876,10 @@ public class CreatePage extends PageTemplate {
 
     private WebElement getSwitchElement(String name) {
         return webDriver.findElement(By.xpath("//span[text()='" + name + "']/ancestor::div/following-sibling::div//label"));
+    }
+
+    private WebElement getDatasetWithName(String name) {
+        return webDriver.findElement(By.xpath("//div[@yotta-test='trend-dataset_node-dom']//span[text()='" + name + "']"));
     }
 
     private WebElement getDropdownElement(String name) {
