@@ -55,6 +55,9 @@ public class ListPage extends ListPageFactory {
 //    @FindBy(xpath = "//div[@class='el-message-box__message']")
     private WebElement Message;
 
+    @FindBy(xpath = "//div[@class='yotta-message-manager']/div")
+    private WebElement deleteMessage;
+
     public WebElement getMemoMessage() {
         return MemoMessage;
     }
@@ -79,6 +82,8 @@ public class ListPage extends ListPageFactory {
     public WebElement getMessage() {
         return super.getMessage();
     }
+
+    public WebElement getDeleteMessage() { return deleteMessage; }
 
     public WebElement getReturnList() {
         return super.getButton("返回列表");

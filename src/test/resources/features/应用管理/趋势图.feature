@@ -62,7 +62,7 @@ Feature: 应用趋势图
     When the data name is "<name>" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I wait for loading invisible
-    And I wait for "EmptyText" will be visible
+   # And I wait for "EmptyText" will be visible
     And I will see the element "Title" name is "<name>"
 
     Examples:
@@ -183,6 +183,7 @@ Feature: 应用趋势图
     When I set the parameter "NameInput" with value "AutoApp"
     And I wait for "BeforeDeleteApp" will be visible
     And I move the mouse pointer to the "BeforeDeleteApp"
+    And I wait for "1000" millsecond
     And I click the "DeleteApp" button
 #    And I move the mouse pointer to the "DeleteApp"
 #    And I click the "DeleteApp" button

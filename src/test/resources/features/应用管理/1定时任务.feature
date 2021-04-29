@@ -21,6 +21,7 @@ Feature: 应用定时任务(RZY-2123)
     And I wait for "1500" millsecond
     And I choose the "AutoTestAppWithAllResources" from the "AppComboBox"
     And I click the "Crontab" button
+    And I wait for "1000" millsecond
     And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
     And I wait for "SuccessMessage" will be visible
@@ -106,7 +107,7 @@ Feature: 应用定时任务(RZY-2123)
     And I choose the "测试标签" from the "ResourceDropdown"
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'1','name':'AutoCreateApp'}"
-    Then I will see the search result "{'column':'1','name':'AutoCreateApp(副本)','contains':'no'}"
+  #  Then I will see the search result "{'column':'1','name':'AutoCreateApp(副本)','contains':'no'}"
 
   Scenario Outline: 根据定时任务名称进行查询
     Given open the "app.ListPage" page for uri "/app/list/"

@@ -66,6 +66,7 @@ Feature: 应用路由管理
     When the data name is "apptest" then i click the "删除" button
     And I wait for "Ensure" will be visible
     Then I click the "Ensure" button
+    And I wait for "1000" millsecond
     Then I wait for element "Message" change text to "删除成功"
 
   Scenario: 验证返回列表页不跳出app
