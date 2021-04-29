@@ -8,8 +8,8 @@ Feature: 字典管理
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
 
-  @dict1
   Scenario Outline: RZY-4136新建字典
+
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
@@ -19,13 +19,6 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-
-    Examples:
-      | dictionaryNameWithOutCsv | dictionaryName    | totalItem | editOnlineArea                                                                                         |
-      | wymtestcreate            | wymtestcreate.csv | 共 1 条         | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
-
-  @dict2
-  Scenario Outline: RZY-4136新建字典
     Then I refresh the website
     And I wait for loading invisible
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
@@ -41,8 +34,8 @@ Feature: 字典管理
       | dictionaryNameWithOutCsv | dictionaryName    | totalItem | editOnlineArea                                                                                         |
       | wymtestcreate            | wymtestcreate.csv | 共 1 条         | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
 
-  @dict2 @tc4137
-  Scenario Outline: RZY-4137上传字典
+  Scenario Outline: RZY-4137下载字典
+
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
@@ -52,23 +45,18 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
+    Then I refresh the website
+    And I wait for loading invisible
+    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "下载" button
 
     Examples:
       | dictionaryNameWithOutCsv | dictionaryName      |
       | wymtestdownload          | wymtestdownload.csv |
 
-  @dict3
-  Scenario Outline: RZY-4137下载字典
-    And I set the parameter "SearchNameInput" with value "<dictionaryName>"
-    Given I wait for loading complete
-    And I wait for "2000" millsecond
-    When the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "下载" button in more menu
-    Examples:
-      | dictionaryNameWithOutCsv | dictionaryName      |
-      | wymtestdownload          | wymtestdownload.csv |
 
-  @dict4
+
   Scenario Outline: RZY-4140上传非同名文件
+
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
@@ -101,8 +89,9 @@ Feature: 字典管理
       | dictionaryNameWithOutCsv | dictionaryName     | editOnlineArea                                                                                                                                                                                                 |
       | wymtestdifname           | wymtestdifname.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds\nbubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
 
-  @dict5
+
   Scenario Outline: RZY-4141上传同名文件
+
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
@@ -137,6 +126,7 @@ Feature: 字典管理
       | wymtestsamename          | wymtestsamename.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu |
 
   Scenario Outline: RZY-4144（在线编辑-撤销修改）
+
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
@@ -161,6 +151,7 @@ Feature: 字典管理
       | wymtestcanceledit        | wymtestcanceledit.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu | 123456 |
 
   Scenario Outline: RZY-4143（在线编辑-保存修改）
+
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
