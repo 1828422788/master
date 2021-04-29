@@ -1,4 +1,4 @@
-@dashboard0330
+@dashboard0429
 Feature: 仪表盘输入项
 
   @dashboard @dashboardSmoke

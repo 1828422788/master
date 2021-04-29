@@ -1,3 +1,4 @@
+@dashboard0429
 Feature: 仪表盘多Y轴图
 
   @dashboard @dashboardSmoke
