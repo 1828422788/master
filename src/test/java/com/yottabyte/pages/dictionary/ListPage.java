@@ -296,4 +296,12 @@ public class ListPage extends ListPageFactory {
     public WebElement getTagList() {
         return dropdownUtils.getDropdownList("标签");
     }
+
+    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
+    private WebElement searchNameInput; //名称
+
+    public WebElement getSearchNameInput() {
+        return searchNameInput;
+    }
+
 }

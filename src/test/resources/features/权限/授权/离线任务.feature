@@ -1,6 +1,12 @@
 #@authtest
 Feature: 权限-离线任务
 
+  @testlogin
+  Scenario: 无离线任务页面访问权限
+    Given I login user "admin" with password "admin@rizhiyi.com"
+    Then I wait for loading invisible
+    Then I logout current user
+
   Scenario Outline: 取消离线任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And I wait for loading invisible
