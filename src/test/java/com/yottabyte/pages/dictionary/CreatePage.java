@@ -72,7 +72,8 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//p[text()='更新字典内容成功']")
     private WebElement message;
 
-    @FindBy(className = "ant-upload-list-item-name")
+//    @FindBy(className = "ant-upload-list-item-name")
+    @FindBy(xpath = "//span[@class='yotta-typography-text yotta-file-upload-text']")
     private WebElement fileName;
 
     @FindBy(xpath = "//span[text()='撤销修改']//ancestor::button/preceding-sibling::button")
