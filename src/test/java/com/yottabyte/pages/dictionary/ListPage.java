@@ -44,9 +44,6 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[@class='ant-modal-body']//button")
     private WebElement ensureDelete;
 
-    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
-    private WebElement dictionaryFilter;
-
     @FindBy(xpath = "//div[@class='yotta-pagination-elements'][1]")
     private WebElement totalItem;
 
@@ -189,10 +186,6 @@ public class ListPage extends ListPageFactory {
         return delete;
     }
 
-    public WebElement getDictionaryFilter() {
-        return dictionaryFilter;
-    }
-
     public WebElement getTotalItem() {
         return totalItem;
     }
@@ -295,6 +288,13 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getTagList() {
         return dropdownUtils.getDropdownList("标签");
+    }
+
+
+    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
+    private WebElement dictionaryFilter;
+    public WebElement getDictionaryFilter() {
+        return dictionaryFilter;
     }
 
     @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")

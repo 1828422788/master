@@ -29,7 +29,7 @@ Feature: 字典管理
   Scenario Outline: RZY-4136新建字典
     And I wait for loading invisible
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
-    Then I wait for loading invisible
+    Given I wait for loading complete
     Then I will see the "TotalItem" result will be "<totalItem>"
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
@@ -53,15 +53,24 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I refresh the website
-    And I wait for loading invisible
-    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "下载" button
 
     Examples:
       | dictionaryNameWithOutCsv | dictionaryName      |
       | wymtestdownload          | wymtestdownload.csv |
 
   @tc4137
+  Scenario Outline: RZY-4137下载字典
+    Then I refresh the website
+    And I wait for loading invisible
+    Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
+    Given I wait for loading complete
+    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "下载" button
+
+    Examples:
+      | dictionaryNameWithOutCsv | dictionaryName      |
+      | wymtestdownload          | wymtestdownload.csv |
+
+  @tc4140
   Scenario Outline: RZY-4140上传非同名文件
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
@@ -78,11 +87,11 @@ Feature: 字典管理
       | dictionaryNameWithOutCsv | dictionaryName     | editOnlineArea                                                                                                                                                                                                 |
       | wymtestdifname           | wymtestdifname.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds\nbubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
 
-
-  @tc4137
+  @tc4140
   Scenario Outline: RZY-4140上传非同名文件
     And I wait for loading invisible
-
+    Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
+    Given I wait for loading complete
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
@@ -93,8 +102,16 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the message "更新字典内容成功"
     Then I click the "EnsureButton" button
-    Then I wait for loading invisible
+
+    Examples:
+      | dictionaryNameWithOutCsv | dictionaryName     | editOnlineArea                                                                                                                                                                                                 |
+      | wymtestdifname           | wymtestdifname.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds\nbubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
+
+  @tc4140
+  Scenario Outline: RZY-4140上传非同名文件
     Then I will see the "dictionary.ListPage" page
+    Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
+    Given I wait for loading complete
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
@@ -125,6 +142,8 @@ Feature: 字典管理
   @tc4141
   Scenario Outline: RZY-4141上传同名文件
     And I wait for loading invisible
+    Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
+    Given I wait for loading complete
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
@@ -135,8 +154,17 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the message "更新字典内容成功"
     Then I click the "EnsureButton" button
+
+    Examples:
+      | dictionaryNameWithOutCsv | dictionaryName      | editOnlineArea                                                       |
+      | wymtestsamename          | wymtestsamename.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu |
+
+  @tc4141
+  Scenario Outline: RZY-4141上传同名文件
     Then I wait for loading invisible
     Then I will see the "dictionary.ListPage" page
+    Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
+    Given I wait for loading complete
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
@@ -167,6 +195,8 @@ Feature: 字典管理
   @tc4144
   Scenario Outline: RZY-4144（在线编辑-撤销修改）
     And I wait for loading invisible
+    Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
+    Given I wait for loading complete
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
@@ -199,6 +229,8 @@ Feature: 字典管理
   @tc4143
   Scenario Outline: RZY-4143（在线编辑-保存修改）
     And I wait for loading invisible
+    Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
+    When I wait for loading complete
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
@@ -209,8 +241,17 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the message "更新字典内容成功"
     Then I click the "EnsureButton" button
+
+    Examples:
+      | dictionaryName      | edited  | dictionaryNameWithOutCsv |
+      | wymtestsaveedit.csv | rizhiyi | wymtestsaveedit          |
+
+  @tc4143
+  Scenario Outline: RZY-4143（在线编辑-保存修改）
     Then I wait for loading invisible
     Then I will see the "dictionary.ListPage" page
+    Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
+    Given I wait for loading complete
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
