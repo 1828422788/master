@@ -10,6 +10,7 @@ Feature: 清理字典用例
     And I wait for loading invisible
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
     Given I wait for loading complete
+    And I wait for "2000" millsecond
 #    Then I will see the "TotalItem" result will be "<totalItem>"
 #    When the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "删除" button in more menu
     Then I click the "MoreButton" button
