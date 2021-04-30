@@ -217,23 +217,29 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[@yotta-test='application-field_extract_report_array_add-button']")
     private WebElement addFieldConvertRule;
 
-    @FindBy(xpath = "(//input[contains(@id,'.name')])[last()]")
-    private WebElement lastNameInput;
-
-    @FindBy(xpath = "(//div[@class='ant-select-selection__rendered'])[last()]")
+    @FindBy(className = "yotta-select-selection-placeholder")
     private WebElement fieldConvertRule;
 
-    @FindBy(id = "FieldConfig_delims")
+    @FindBy(xpath = "//div[@yotta-test='application-field_transform_rule-select']")
+    private WebElement convertRule;
+
+    @FindBy(xpath = "//input[@yotta-test='application-field_transform_delims-input']")
     private WebElement fieldConfigDelims;
 
-    @FindBy(id = "FieldConfig_fields")
+    @FindBy(xpath = "//input[@yotta-test='application-field_transform_fields-input']")
     private WebElement fieldConfigFields;
 
     @FindBy(xpath = "(//span[text()='保存'])[last()]/ancestor::button")
     private WebElement saveButton;
 
+    @FindBy(xpath = "//button[@yotta-test='application-field_extract_save-button']")
+    private WebElement saveFieldButton;
+
     @FindBy(className = "ant-form-explain")
     private WebElement warningInfo;
+
+    @FindBy(xpath = "//span[text()='来源字段']/parent::span/following-sibling::input")
+    private WebElement fieldSource;
 
     public WebElement getKVTagInput() { return KVTagInput; }
 
@@ -253,13 +259,22 @@ public class CreatePage extends PageTemplate {
         return fieldConfigDelims;
     }
 
+    public WebElement getFieldSource() {
+        return fieldSource;
+    }
+
+    public WebElement getConvertRule() {
+        convertRule.click();
+        return super.getLastDropdownList();
+    }
+
     public WebElement getFieldConvertRule() {
         fieldConvertRule.click();
         return super.getLastDropdownList();
     }
 
     public WebElement getLastNameInput() {
-        return lastNameInput;
+        return  getYottaInput("application-field_extract_report_array_name-input");
     }
 
     public WebElement getAddFieldConvertRule() {
@@ -469,6 +484,8 @@ public class CreatePage extends PageTemplate {
     public WebElement getSaveButton() {
         return saveButton;
     }
+
+    public WebElement  getSaveFieldButton() { return saveFieldButton; }
 
     public WebElement getImportButton() {
         return super.getContainsTextButton("导入");
