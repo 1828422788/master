@@ -8,18 +8,25 @@ Feature: 字典管理
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
 
+  @tc4136
   Scenario Outline: RZY-4136新建字典
-
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
     And I click the "EnsureUpload" button
+    Given I wait for loading complete
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I refresh the website
+
+    Examples:
+      | dictionaryNameWithOutCsv | dictionaryName    | totalItem | editOnlineArea                                                                                         |
+      | wymtestcreate            | wymtestcreate.csv | 共 1 条         | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
+
+  @tc4136
+  Scenario Outline: RZY-4136新建字典
     And I wait for loading invisible
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
     Then I wait for loading invisible
@@ -34,14 +41,15 @@ Feature: 字典管理
       | dictionaryNameWithOutCsv | dictionaryName    | totalItem | editOnlineArea                                                                                         |
       | wymtestcreate            | wymtestcreate.csv | 共 1 条         | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
 
+  @tc4137
   Scenario Outline: RZY-4137下载字典
-
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
     And I click the "EnsureUpload" button
+    Given I wait for loading complete
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
@@ -53,20 +61,26 @@ Feature: 字典管理
       | dictionaryNameWithOutCsv | dictionaryName      |
       | wymtestdownload          | wymtestdownload.csv |
 
-
-
+  @tc4137
   Scenario Outline: RZY-4140上传非同名文件
-
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
     And I click the "EnsureUpload" button
+    Given I wait for loading complete
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I refresh the website
+
+    Examples:
+      | dictionaryNameWithOutCsv | dictionaryName     | editOnlineArea                                                                                                                                                                                                 |
+      | wymtestdifname           | wymtestdifname.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds\nbubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
+
+
+  @tc4137
+  Scenario Outline: RZY-4140上传非同名文件
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
@@ -74,6 +88,7 @@ Feature: 字典管理
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymdoubletest1.csv"
     And I wait for "FileName" will be visible
     Then I click the "SaveButton" button
+    Given I wait for loading complete
     Then I wait for "Tip" will be visible
     Then I will see the message "更新字典内容成功"
     Then I click the "EnsureButton" button
@@ -89,19 +104,25 @@ Feature: 字典管理
       | dictionaryNameWithOutCsv | dictionaryName     | editOnlineArea                                                                                                                                                                                                 |
       | wymtestdifname           | wymtestdifname.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds\nbubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
 
-
+  @tc4141
   Scenario Outline: RZY-4141上传同名文件
-
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
     And I click the "EnsureUpload" button
+    Given I wait for loading complete
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I refresh the website
+
+    Examples:
+      | dictionaryNameWithOutCsv | dictionaryName      | editOnlineArea                                                       |
+      | wymtestsamename          | wymtestsamename.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu |
+
+  @tc4141
+  Scenario Outline: RZY-4141上传同名文件
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
@@ -109,6 +130,7 @@ Feature: 字典管理
     And I upload a file with name "/src/test/resources/testdata/dictionary/test/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I click the "SaveButton" button
+    Given I wait for loading complete
     Then I wait for "Tip" will be visible
     Then I will see the message "更新字典内容成功"
     Then I click the "EnsureButton" button
@@ -120,23 +142,29 @@ Feature: 字典管理
     Then I click the "EditOnline" button
     Then I will see the element "EditOnlineArea" value is "<editOnlineArea>"
 
-
     Examples:
       | dictionaryNameWithOutCsv | dictionaryName      | editOnlineArea                                                       |
       | wymtestsamename          | wymtestsamename.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu |
 
+  @tc4144
   Scenario Outline: RZY-4144（在线编辑-撤销修改）
-
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
     And I click the "EnsureUpload" button
+    Given I wait for loading complete
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I refresh the website
+
+    Examples:
+      | dictionaryNameWithOutCsv | dictionaryName        | editOnlineArea                                                       | edited |
+      | wymtestcanceledit        | wymtestcanceledit.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu | 123456 |
+
+  @tc4144
+  Scenario Outline: RZY-4144（在线编辑-撤销修改）
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
@@ -150,18 +178,25 @@ Feature: 字典管理
       | dictionaryNameWithOutCsv | dictionaryName        | editOnlineArea                                                       | edited |
       | wymtestcanceledit        | wymtestcanceledit.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu | 123456 |
 
+  @tc4143
   Scenario Outline: RZY-4143（在线编辑-保存修改）
-
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
     And I click the "EnsureUpload" button
+    Given I wait for loading complete
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I refresh the website
+
+    Examples:
+      | dictionaryName      | edited  | dictionaryNameWithOutCsv |
+      | wymtestsaveedit.csv | rizhiyi | wymtestsaveedit          |
+
+  @tc4143
+  Scenario Outline: RZY-4143（在线编辑-保存修改）
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
@@ -169,6 +204,7 @@ Feature: 字典管理
     Then I click the "EditOnline" button
     Then I set the value "<edited>" to the textarea "EditOnlineArea"
     Then I click the "SaveEdit" button
+    Given I wait for loading complete
     Then I wait for "Tip" will be visible
     Then I will see the message "更新字典内容成功"
     Then I click the "EnsureButton" button

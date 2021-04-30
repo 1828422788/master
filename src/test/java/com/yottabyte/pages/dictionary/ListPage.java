@@ -17,9 +17,6 @@ public class ListPage extends ListPageFactory {
 
     DropdownUtils dropdownUtils = new DropdownUtils();
 
-    @FindBy(xpath = "//h4[text()='提示']")
-    private WebElement tip;
-
     @FindBy(className = "yotta-modal-title")
     private WebElement popUpWindow;
 
@@ -284,6 +281,9 @@ public class ListPage extends ListPageFactory {
     public WebElement getCancel() {
         return cancel;
     }
+
+    @FindBy(xpath = "//div[@yotta-test='dialog-container-modal']//h4[text()='提示']")
+    private WebElement tip;
 
     public WebElement getTip() {
         return tip;
