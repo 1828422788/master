@@ -4,22 +4,23 @@
 @cleanDictionary
 Feature: 清理字典用例
 
-
-
   Scenario Outline: RZY-4158删除字典
-
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
+    And I zoom the screen up to the maximum
     And I wait for loading invisible
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
-    Then I wait for loading invisible
-    Then I will see the "TotalItem" result will be "<totalItem>"
-    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "删除" button
+    Given I wait for loading complete
+#    Then I will see the "TotalItem" result will be "<totalItem>"
+#    When the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "删除" button in more menu
+    Then I click the "MoreButton" button
+    Then I click the "DelButton" button
+
     Then I wait for "1000" millsecond
     Then I will see the success message "确认删除 [<dictionaryName>] ?"
-    Then I click the "EnsureButton" button
+    When I click the "ConfirmButton" button
     Then I wait for "2000" millsecond
     Then I will see the success message "删除成功"
-    Then I click the "EnsureButton" button
+    When I click the "ConfirmButton" button
 
     Examples:
       | dictionaryName                  | totalItem |

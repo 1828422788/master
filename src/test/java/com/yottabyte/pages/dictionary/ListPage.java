@@ -158,10 +158,6 @@ public class ListPage extends ListPageFactory {
         return super.getLastDropdownList();
     }
 
-    public WebElement getEnsureButton() {
-        return super.getButton("确定");
-    }
-
     public WebElement getAuthCancelButton() {
         return super.getButton("取消");
     }
@@ -290,7 +286,6 @@ public class ListPage extends ListPageFactory {
         return dropdownUtils.getDropdownList("标签");
     }
 
-
     @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
     private WebElement dictionaryFilter;
     public WebElement getDictionaryFilter() {
@@ -302,6 +297,30 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getSearchNameInput() {
         return searchNameInput;
+    }
+
+    @FindBy(xpath = "//button[@yotta-test='operation-more-button']")
+    private WebElement moreButton; //名称
+
+    public WebElement getMoreButton() {
+        return moreButton;
+    }
+
+    @FindBy(xpath = "//li[@yotta-test='dictionary-delete-button']")
+    private WebElement delButton; //名称
+
+    public WebElement getDelButton() {
+        return delButton;
+    }
+
+    public WebElement getEnsureButton() {
+        return super.getButton("确定");
+    }
+
+    @FindBy(xpath = "//button[@yotta-test='dialog-confirm-button']")
+    private WebElement confirmButton; //名称
+    public WebElement getConfirmButton() {
+        return confirmButton;
     }
 
 }
