@@ -82,6 +82,7 @@ Feature: 字典管理
   @tc4137
   Scenario Outline: RZY-4140上传非同名文件
     And I wait for loading invisible
+
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
