@@ -8,7 +8,7 @@ Feature: 字典管理
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
 
-  @tc4136
+  @tc4136 @dict1
   Scenario Outline: RZY-4136新建字典
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
@@ -25,7 +25,7 @@ Feature: 字典管理
       | dictionaryNameWithOutCsv | dictionaryName    | totalItem | editOnlineArea                                                                                         |
       | wymtestcreate            | wymtestcreate.csv | 共 1 条         | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
 
-  @tc4136
+  @tc4136 @dict2
   Scenario Outline: RZY-4136新建字典
     And I wait for loading invisible
 #    Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
@@ -41,7 +41,7 @@ Feature: 字典管理
       | dictionaryNameWithOutCsv | dictionaryName    | totalItem | editOnlineArea                                                                                         |
       | wymtestcreate            | wymtestcreate.csv | 共 1 条         | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
 
-  @tc4137
+  @tc4137 @dict3
   Scenario Outline: RZY-4137下载字典
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
@@ -59,19 +59,20 @@ Feature: 字典管理
       | dictionaryNameWithOutCsv | dictionaryName      |
       | wymtestdownload          | wymtestdownload.csv |
 
-  @tc4137
+  @tc4137 @dict4
   Scenario Outline: RZY-4137下载字典
     Then I refresh the website
     And I wait for loading invisible
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
     Given I wait for loading complete
+    And I wait for "2000" millsecond
     When the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "下载" button in more menu
 
     Examples:
       | dictionaryNameWithOutCsv | dictionaryName      |
       | wymtestdownload          | wymtestdownload.csv |
 
-  @tc4140
+  @tc4140 @dict5
   Scenario Outline: RZY-4140上传非同名文件step1
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
@@ -89,7 +90,7 @@ Feature: 字典管理
       | dictionaryNameWithOutCsv | dictionaryName     | editOnlineArea                                                                                                                                                                                                 |
       | wymtestdifname           | wymtestdifname.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds\nbubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
 
-  @tc4140
+  @tc4140 @dict6
   Scenario Outline: RZY-4140上传非同名文件step2
     And I wait for loading invisible
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
@@ -110,7 +111,7 @@ Feature: 字典管理
       | dictionaryNameWithOutCsv | dictionaryName     | editOnlineArea                                                                                                                                                                                                 |
       | wymtestdifname           | wymtestdifname.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds\nbubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
 
-  @tc4140
+  @tc4140 @dict7
   Scenario Outline: RZY-4140上传非同名文件step3
     Then I will see the "dictionary.ListPage" page
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
@@ -125,7 +126,7 @@ Feature: 字典管理
       | dictionaryNameWithOutCsv | dictionaryName     | editOnlineArea                                                                                                                                                                                                 |
       | wymtestdifname           | wymtestdifname.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds\nbubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
 
-  @tc4141
+  @tc4141 @dict8
   Scenario Outline: RZY-4141上传同名文件
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
@@ -143,7 +144,7 @@ Feature: 字典管理
       | dictionaryNameWithOutCsv | dictionaryName      | editOnlineArea                                                       |
       | wymtestsamename          | wymtestsamename.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu |
 
-  @tc4141
+  @tc4141 @dict9
   Scenario Outline: RZY-4141上传同名文件
     And I wait for loading invisible
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
@@ -163,7 +164,7 @@ Feature: 字典管理
       | dictionaryNameWithOutCsv | dictionaryName      | editOnlineArea                                                       |
       | wymtestsamename          | wymtestsamename.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu |
 
-  @tc4141
+  @tc4141 @dict10
   Scenario Outline: RZY-4141上传同名文件
     Then I wait for loading invisible
     Then I will see the "dictionary.ListPage" page
@@ -179,7 +180,7 @@ Feature: 字典管理
       | dictionaryNameWithOutCsv | dictionaryName      | editOnlineArea                                                       |
       | wymtestsamename          | wymtestsamename.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu |
 
-  @tc4144
+  @tc4144 @dict11
   Scenario Outline: RZY-4144（在线编辑-撤销修改）
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
@@ -196,7 +197,7 @@ Feature: 字典管理
       | dictionaryNameWithOutCsv | dictionaryName        | editOnlineArea                                                       | edited |
       | wymtestcanceledit        | wymtestcanceledit.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu | 123456 |
 
-  @tc4144
+  @tc4144 @dict12
   Scenario Outline: RZY-4144（在线编辑-撤销修改）
     And I wait for loading invisible
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
@@ -213,7 +214,7 @@ Feature: 字典管理
       | dictionaryNameWithOutCsv | dictionaryName        | editOnlineArea                                                       | edited |
       | wymtestcanceledit        | wymtestcanceledit.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu | 123456 |
 
-  @tc4143
+  @tc4143 @dict13
   Scenario Outline: RZY-4143（在线编辑-保存修改）
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
@@ -230,7 +231,7 @@ Feature: 字典管理
       | dictionaryName      | edited  | dictionaryNameWithOutCsv |
       | wymtestsaveedit.csv | rizhiyi | wymtestsaveedit          |
 
-  @tc4143
+  @tc4143 @dict14
   Scenario Outline: RZY-4143（在线编辑-保存修改）
     And I wait for loading invisible
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
@@ -250,7 +251,7 @@ Feature: 字典管理
       | dictionaryName      | edited  | dictionaryNameWithOutCsv |
       | wymtestsaveedit.csv | rizhiyi | wymtestsaveedit          |
 
-  @tc4143
+  @tc4143 @dict15
   Scenario Outline: RZY-4143（在线编辑-保存修改）
     Then I wait for loading invisible
     Then I will see the "dictionary.ListPage" page

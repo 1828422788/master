@@ -54,9 +54,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//div[@class='yotta-select-selection-content']")
     private  WebElement groupInputButton;
 
-    @FindBy(xpath = "//div[text()='提示']")
-    private WebElement Tip;
-
     @FindBy(xpath = "//input[@yotta-test='dictionary-name-input']")
     private WebElement name;
 
@@ -122,7 +119,9 @@ public class CreatePage extends PageTemplate {
     public WebElement getName() {
         return name;
     }
-
+    
+    @FindBy(xpath = "//div[text()='提示']")
+    private WebElement Tip;
     public WebElement getTip() {
         return Tip;
     }
