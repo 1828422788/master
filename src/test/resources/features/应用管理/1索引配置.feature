@@ -67,7 +67,7 @@ Feature: 应用路由管理
     And I wait for "Ensure" will be visible
     Then I click the "Ensure" button
     And I wait for "1000" millsecond
-    Then I wait for element "Message" change text to "删除成功"
+    Then I wait for element "SuccessMessage" change text to "删除成功"
 
   Scenario: 验证返回列表页不跳出app
     When I click the "Topic" button
