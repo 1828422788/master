@@ -120,7 +120,7 @@ public class CreatePage extends PageTemplate {
         return name;
     }
     
-    @FindBy(xpath = "//div[text()='提示']")
+    @FindBy(xpath = "//div[@yotta-test='dialog-container-modal']//h4[text()='提示']")
     private WebElement Tip;
     public WebElement getTip() {
         return Tip;
