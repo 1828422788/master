@@ -87,6 +87,8 @@ Feature: 字段提取URL解码规则
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "<parseRule>" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "<sourceField>" from the "SourceField" in config
     And I set the parameter "<inputElement>" with value "<timeFormat>"
     And I click the "EnsureAddParseRule" button
