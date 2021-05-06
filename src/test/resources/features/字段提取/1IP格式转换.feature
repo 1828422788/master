@@ -12,6 +12,8 @@ Feature: 字段提取IP格式转换
     When I set the parameter "LogSample" with value "3651919938"
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I set the value "(?<ip>.*)" to the textarea "Regex"
