@@ -7,21 +7,28 @@ Feature: 应用趋势图
     And I click the "CreateButton" button
     Then I will see the "app.CreatePage" page
     Given delete file "/target/download-files/<name>.tar"
+    And I wait for "NameInput" will be visible
     And I set the parameter "NameInput" with value "<name>"
     And I click the "AddResource" button
+    And I wait for "1500" millsecond
     And I set the parameter "SearchResourceInput" with value "app所选资源"
     And I wait for "SearchLoading" will be invisible
     And I "check" the checkbox which name is "app所选资源" in tiny table
     And I click the "SaveMenuButton" button
+    And I wait for "1500" millsecond
     And I click the "AddMenuButton" button under some element
     And I wait for "MenuName" will be visible
     And I set the parameter "MenuName" with value "<menuName>"
     And I set the parameter "Url" with value "<url>"
     And I click the "SaveMenuButton" button
+    And I wait for "2000" millsecond
     And I choose the "<menuName>" from the "DefaultPage"
+    And I wait for "CurrentApp" will be visible
     And I click the "CurrentApp" button
+    And I wait for "ColorPicker" will be visible
     And I click the "ColorPicker" button
     And I set the parameter "ColorValue" with value "<color>"
+    And I wait for "1500" millsecond
     And I click the "CreateButton" button under some element
     And I will see the "app.ListPage" page
     Then I wait for "CreateButton" will be visible
@@ -79,6 +86,7 @@ Feature: 应用趋势图
     Then I will see the "trend.CreatePage" page
     And I set the parameter "SearchInput" with value "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10 "
     And I click the "DateEditor" button
+    And I wait for "500" millsecond
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
@@ -86,7 +94,9 @@ Feature: 应用趋势图
     And I wait for loading invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
+    And I wait for "1500" millsecond
     When I set the parameter "NameInput" with value "<name>"
+    And I wait for "1500" millsecond
     And I choose the "TrendApp" from the "AppDropdown"
     And I wait for "500" millsecond
     And I click the "Complete" button
@@ -98,10 +108,14 @@ Feature: 应用趋势图
     And I will see the element "Title" name is "TrendApp"
     And I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<name>"
+    And I wait for "1500" millsecond
     And I choose the "PDF" from the "ReportType"
     And I set the parameter "Subject" with value "test"
+    And I wait for "500" millsecond
     And I set the parameter "Hour" with value "11"
+    And I wait for "500" millsecond
     And I set the parameter "Minute" with value "11"
+    And I wait for "500" millsecond
     And I click the "NextButton" button
     And I wait for "1500" millsecond
     And I choose the "TrendApp" from the "ChartList"
@@ -148,6 +162,7 @@ Feature: 应用趋势图
     And I wait for loading invisible
     When the data name is "TrendApp" then i click the "打开" button in more menu
     Then I will see the "trend.ListPage" page
+    And I wait for "1500" millsecond
     When the data name is "AutoApp_副本" then i click the "标签" button in more menu
     And I click the Element with text "请选择或输入"
     And I wait for "Tag" will be visible
