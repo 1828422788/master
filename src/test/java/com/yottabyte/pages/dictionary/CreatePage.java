@@ -73,10 +73,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[@class='yotta-typography-text yotta-file-upload-text']")
     private WebElement fileName;
 
-//    @FindBy(xpath = "//span[text()='撤销修改']//ancestor::button/preceding-sibling::button")
-    @FindBy(xpath = "//button[text()='撤销修改']")
-    private WebElement saveEdit;
-
     @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']")
     private WebElement deleteApp;
 
@@ -107,6 +103,9 @@ public class CreatePage extends PageTemplate {
     public WebElement getFileName() {
         return fileName;
     }
+
+    @FindBy(xpath = "//button[@yotta-test='dictionary-save-button']")
+    private WebElement saveEdit;
 
     public WebElement getSaveEdit() {
         return saveEdit;
