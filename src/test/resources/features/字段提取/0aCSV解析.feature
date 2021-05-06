@@ -1,11 +1,11 @@
-@configsSmoke @xuyuecode
+@configsSmoke @xuyuecode @csvconfig
 Feature: 字段提取CSV解析
 
   Background:
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
 
-  @first
+  @firstconf
   Scenario Outline: RZY-1544:CSV解析(填写字段列表)
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
@@ -28,7 +28,7 @@ Feature: 字段提取CSV解析
       | separate | fieldList | result                                                                                                          |
       | ,        | 1,2,3,4,5 | Object\n1:"192.168.1.200"\n2:"xmxm"\n3:"rzy"\n4:"13800000000"\nraw_message:"192.168.1.200,xmxm,rzy,13800000000" |
 
-  @second
+  @secondconf
   Scenario Outline: RZY-3417:多值字段
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
