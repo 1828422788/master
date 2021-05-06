@@ -1,4 +1,4 @@
-@configsSmoke
+@configsSmoke @configs7
 Feature: 字段提取Hex转换
 
   Scenario Outline: RZY-2825: hex转换

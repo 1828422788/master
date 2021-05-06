@@ -1,4 +1,4 @@
-@configsSmoke
+@configsSmoke @configs9
 Feature: 字段提取KeyValue分解
 
   Background:

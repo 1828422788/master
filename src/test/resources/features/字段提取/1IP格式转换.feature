@@ -1,4 +1,4 @@
-@configsSmoke
+@configsSmoke @configs8
 Feature: 字段提取IP格式转换
 
   Background:

@@ -1,4 +1,4 @@
-@configsSmoke
+@configsSmoke @configs12
 Feature: 字段提取URL解码规则
 
   Background:

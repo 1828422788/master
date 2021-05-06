@@ -1,4 +1,4 @@
-@configsSmoke
+@configsSmoke @configs26
 Feature: 字段提取重定向解析
 
   Scenario Outline: RZY-2867: 副规则+主规则

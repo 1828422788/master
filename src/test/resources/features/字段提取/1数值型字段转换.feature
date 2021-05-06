@@ -1,4 +1,4 @@
-@configsSmoke
+@configsSmoke @configs17
 Feature: 字段提取数值型字段转换
 
   Background:

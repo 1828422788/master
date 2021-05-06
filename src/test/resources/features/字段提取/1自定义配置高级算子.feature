@@ -1,4 +1,4 @@
-@configsSmoke
+@configsSmoke @configs24
 Feature: 字段提取自定义配置高级算子
 
   Background:

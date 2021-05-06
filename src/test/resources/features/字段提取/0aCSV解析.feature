@@ -1,4 +1,4 @@
-@configsSmoke @xuyuecode @csvconfig
+@configsSmoke @configs1 @csvconfig
 Feature: 字段提取CSV解析
 
   Background:

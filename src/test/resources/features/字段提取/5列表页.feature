@@ -1,4 +1,4 @@
-@all @smoke @configs @configsSmoke
+@all @smoke @configs @configsSmoke @configs28
 Feature: 字段提取列表页
 
   Background:

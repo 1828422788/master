@@ -1,6 +1,5 @@
-@configsSmoke @xuyuecode
+@configsSmoke @configs4
 Feature: 字段提取Json、xml解析
-
 
   Scenario Outline: RZY-3076、3079：无extract_limit，manager配置为10
     Given open the "configs.ListPage" page for uri "/configs/"

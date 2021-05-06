@@ -1,4 +1,4 @@
-@configsSmoke
+@configsSmoke @configs20
 Feature: 字段提取正则解析
 
   Background:

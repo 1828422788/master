@@ -1,4 +1,4 @@
-@configsSmoke
+@configsSmoke @configs14
 Feature: 字段提取内容替换
 
   Background:

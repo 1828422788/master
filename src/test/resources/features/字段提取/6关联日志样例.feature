@@ -1,6 +1,6 @@
 # new feature
 # Tags: optional
-@configsSmoke
+@configsSmoke @configs29
 Feature: 字段提取关联日志样例
 
   Scenario Outline: RZY-4568、4569:保存关联日志样例并查看[规则名称自定义]

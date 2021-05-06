@@ -1,10 +1,9 @@
-@configsSmoke
+@configsSmoke @configs10
 Feature: 字段提取KeyValue正则匹配
 
   Background:
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
-
 
   Scenario Outline: RZY-1535:KeyValue正则匹配
     And I click the "Create" button

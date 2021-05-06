@@ -1,4 +1,4 @@
-@configsSmoke
+@configsSmoke @configs11
 Feature: 字段提取Syslog_pri解析
 
   Background:

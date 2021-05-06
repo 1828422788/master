@@ -1,4 +1,4 @@
-@configsSmoke
+@configsSmoke @configs27
 Feature: 字段提取格式化处理
 
   @second

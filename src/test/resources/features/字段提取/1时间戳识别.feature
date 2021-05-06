@@ -1,4 +1,4 @@
-@configsSmoke
+@configsSmoke @configs18
 Feature: 字段提取时间戳识别
 
   Background:

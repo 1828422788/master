@@ -1,4 +1,4 @@
-@configsSmoke
+@configsSmoke @configs25
 Feature: 字段提取重命名字段
 
   Background:

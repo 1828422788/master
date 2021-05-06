@@ -1,4 +1,4 @@
-@configsSmoke
+@configsSmoke @configs16
 Feature: 字段提取手机号码解析
 
   Background:

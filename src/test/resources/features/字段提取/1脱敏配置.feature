@@ -1,4 +1,4 @@
-@configsSmoke
+@configsSmoke @configs22
 Feature: 字段提取脱敏配置
 
   @logout

@@ -1,4 +1,4 @@
-@configsSmoke
+@configsSmoke @configs15
 Feature: 字段提取固定电话解析
 
   Scenario Outline: 固定电话解析（RZY-1558、RZY-1561）

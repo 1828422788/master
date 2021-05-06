@@ -1,4 +1,4 @@
-@configsSmoke
+@configsSmoke @configs13
 Feature: 字段提取UserAgent解析
 
   Background:

@@ -1,4 +1,4 @@
-@configsSmoke
+@configsSmoke @configs23
 Feature: 字段提取自定义字典
 
   @second @configsSmoke

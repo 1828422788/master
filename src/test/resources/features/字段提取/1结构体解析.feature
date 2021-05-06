@@ -1,4 +1,4 @@
-@configsSmoke
+@configsSmoke @configs21
 Feature: 字段提取结构体解析
 
   Background:
