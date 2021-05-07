@@ -231,7 +231,7 @@ Feature: 字段提取关联日志样例
     And I wait for "ParseButton" will be visible
     Then I wait for "2000" millsecond
     Then I click the "EventList" button
-    And I set the parameter "SearchInput" with value "starttime="now/d" endtime="now/d+24h" tag:<appName>"
+    And I set the parameter "SearchInput" with value "tag:<appName>"
     And I click the "DateEditor" button
     And I click the "RecentOneHour" button
     And I click the "SearchButton" button
@@ -253,7 +253,7 @@ Feature: 字段提取关联日志样例
     And I click the "UploadButton" button
     And I wait for element "VerifyText" change text to "上传完成"
     Then I wait for "3500" millsecond
-        #chsopen
+    #chsopen
 
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
@@ -291,7 +291,7 @@ Feature: 字段提取关联日志样例
     And I click the "UploadButton" button
     And I wait for element "VerifyText" change text to "上传完成"
     Then I wait for "3500" millsecond
-        #chsopen
+    #chsopen
 
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
@@ -329,13 +329,15 @@ Feature: 字段提取关联日志样例
 
   @configs29g
   Scenario Outline: RZY-4581选为日志样例
-#    When open the "localUpload.ListPage" page for uri "/sources/input/os/"
-#    And I set the parameter "AppName" with value "<appName>"
-#    And I set the parameter "Tag" with value "<appName>"
-#    And I upload a file with name "/src/test/resources/testdata/log/<log>"
-#    And I click the "UploadButton" button
-#    And I wait for element "VerifyText" change text to "上传完成"
-#    Then I wait for "3500" millsecond
+    When open the "localUpload.ListPage" page for uri "/sources/input/os/"
+    And I set the parameter "AppName" with value "<appName>"
+    And I set the parameter "Tag" with value "<appName>"
+    And I upload a file with name "/src/test/resources/testdata/log/<log>"
+    And I click the "UploadButton" button
+    And I wait for element "VerifyText" change text to "上传完成"
+    Then I wait for "3500" millsecond
+    #chsopen
+
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
     And I click the "Create" button
@@ -369,13 +371,15 @@ Feature: 字段提取关联日志样例
 
   @configs29h
   Scenario Outline: RZY-4582保存检索日志
-#    When open the "localUpload.ListPage" page for uri "/sources/input/os/"
-#    And I set the parameter "AppName" with value "<appName>"
-#    And I set the parameter "Tag" with value "<appName>"
-#    And I upload a file with name "/src/test/resources/testdata/log/<log>"
-#    And I click the "UploadButton" button
-#    And I wait for element "VerifyText" change text to "上传完成"
-#    Then I wait for "3500" millsecond
+    When open the "localUpload.ListPage" page for uri "/sources/input/os/"
+    And I set the parameter "AppName" with value "<appName>"
+    And I set the parameter "Tag" with value "<appName>"
+    And I upload a file with name "/src/test/resources/testdata/log/<log>"
+    And I click the "UploadButton" button
+    And I wait for element "VerifyText" change text to "上传完成"
+    Then I wait for "3500" millsecond
+    #chsopen
+
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
     And I click the "Create" button
