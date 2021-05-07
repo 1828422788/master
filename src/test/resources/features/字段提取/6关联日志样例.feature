@@ -112,6 +112,8 @@ Feature: 字段提取关联日志样例
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "@source" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I set the value "/var/log/(?<date>\d{8})/website" to the textarea "Regex"
@@ -124,6 +126,8 @@ Feature: 字段提取关联日志样例
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "格式化处理" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "date,time" from the "SourceField" in config
     And I set the parameter "FormatRule" with value "$1 $2"
     And I set the parameter "TargetFieldInput" with value "timestampstamp"
@@ -217,14 +221,15 @@ Feature: 字段提取关联日志样例
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
     And I choose the "<rule>" from the "ParseRule" in config
-    Then I wait for "800" millsecond
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "800" millsecond
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     Then I wait for "2000" millsecond
     Then I click the "EventList" button
-    And I set the parameter "SearchInput" with value "*"
+    And I set the parameter "SearchInput" with value "starttime="now/d" endtime="now/d+24h" tag:<appName>"
     And I click the "DateEditor" button
     And I click the "RecentOneHour" button
     And I click the "SearchButton" button
@@ -252,7 +257,8 @@ Feature: 字段提取关联日志样例
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
     And I choose the "<rule>" from the "ParseRule" in config
-    Then I wait for "800" millsecond
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "800" millsecond
     And I click the "EnsureAddParseRule" button
@@ -287,7 +293,8 @@ Feature: 字段提取关联日志样例
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
     And I choose the "<rule>" from the "ParseRule" in config
-    Then I wait for "600" millsecond
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "600" millsecond
     And I click the "EnsureAddParseRule" button

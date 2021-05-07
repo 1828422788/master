@@ -11,6 +11,8 @@ Feature: 字段提取数值型字段转换
     When I set the parameter "LogSample" with value "<logSample>"
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I set the value "<regex>" to the textarea "Regex"
@@ -23,7 +25,11 @@ Feature: 字段提取数值型字段转换
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "数值型字段转换" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "<field>" from the "SourceField" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "<decimal>" from the "Decimal" in config
     And I click the "<radio>" button
     And I click the "EnsureAddParseRule" button
@@ -45,6 +51,8 @@ Feature: 字段提取数值型字段转换
     When I set the parameter "LogSample" with value "<logSample>"
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     And I set the value "<regex>" to the textarea "Regex"
     And I click the "EnsureAddParseRule" button
@@ -56,7 +64,11 @@ Feature: 字段提取数值型字段转换
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "数值型字段转换" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "<field>" from the "SourceField" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "<decimal>" from the "Decimal" in config
     And I click the "<radio>" button
     And I click the "EnsureAddParseRule" button
@@ -77,7 +89,11 @@ Feature: 字段提取数值型字段转换
     When I set the parameter "LogSample" with value "<logSample>"
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I set the value "<regex>" to the textarea "Regex"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
@@ -88,7 +104,11 @@ Feature: 字段提取数值型字段转换
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "数值型字段转换" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "<field>" from the "SourceField" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "<decimal>" from the "Decimal" in config
     And I click the "IntRadio" button
     And I click the "EnsureAddParseRule" button
@@ -134,6 +154,8 @@ Feature: 字段提取数值型字段转换
     When I set the parameter "LogSample" with value "<logSample>"
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     And I set the value "<regex>" to the textarea "Regex"
     And I click the "EnsureAddParseRule" button
@@ -145,7 +167,11 @@ Feature: 字段提取数值型字段转换
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "数值型字段转换" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "<field>" from the "SourceField" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "<decimal>" from the "Decimal" in config
     And I click the "IntRadio" button
     And I click the "EnsureAddParseRule" button
