@@ -13,6 +13,8 @@ Feature: 字段提取Syslog_pri解析
     When I set the parameter "LogSample" with value "<30>Oct 9 22:33:20 hlfedora auditd[1787]: The audit daemon is exiting."
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I set the value "<(?<pri>\d+)>.*" to the textarea "Regex"
@@ -25,6 +27,8 @@ Feature: 字段提取Syslog_pri解析
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "syslog_pri解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "pri" from the "SourceField" in config
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
@@ -71,6 +75,8 @@ Feature: 字段提取Syslog_pri解析
     When I set the parameter "LogSample" with value "<30>Oct 9 22:33:20 hlfedora auditd[1787]: The audit daemon is exiting."
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I set the value "<(?<pri>\d+)>.*" to the textarea "Regex"
@@ -83,6 +89,8 @@ Feature: 字段提取Syslog_pri解析
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "syslog_pri解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "pri" from the "SourceField" in config
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible

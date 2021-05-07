@@ -15,6 +15,7 @@ import java.util.List;
 public class CreatePage extends PageTemplate {
     public CreatePage(WebDriver driver) {
         super(driver);
+        driver.manage().window().fullscreen();
     }
 
     @FindBy(xpath = "//span[text()='保存']")

@@ -10,6 +10,8 @@ Feature: 字段提取格式化处理
     And I set the parameter "LogSource" with value "/var/log/20180821/website"
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I set the value "(?<clientip>\S+) - - \[\d+/\w+/\d+:(?<time>\S+) \+0800\](?<msg>.*)" to the textarea "Regex"
@@ -22,6 +24,8 @@ Feature: 字段提取格式化处理
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "@source" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I set the value "/var/log/(?<date>\d{8})/website" to the textarea "Regex"
@@ -34,6 +38,8 @@ Feature: 字段提取格式化处理
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "格式化处理" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "date,@ip" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I set the parameter "FormatRule" with value "$1 $2"
@@ -47,6 +53,8 @@ Feature: 字段提取格式化处理
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "删除字段" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "date" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
@@ -71,6 +79,8 @@ Feature: 字段提取格式化处理
     And I set the parameter "LogSource" with value "/var/log/20180821/website"
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I set the value "(?<clientip>\S+) - - \[\d+/\w+/\d+:(?<time>\S+) \+0800\](?<msg>.*)" to the textarea "Regex"
@@ -83,6 +93,8 @@ Feature: 字段提取格式化处理
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "@source" from the "SourceField" in config
     And I set the value "/var/log/(?<date>\d{8})/website" to the textarea "Regex"
     And I click the "EnsureAddParseRule" button
@@ -94,6 +106,8 @@ Feature: 字段提取格式化处理
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "格式化处理" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "date,time" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I set the parameter "FormatRule" with value "$1 $2"
@@ -107,6 +121,8 @@ Feature: 字段提取格式化处理
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "时间戳识别" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "timestampstamp" from the "sourceField" in config
     Then I wait for "1000" millsecond
     And I set the parameter "TimeFormat" with value "yyyyMMdd HH:mm:ss"

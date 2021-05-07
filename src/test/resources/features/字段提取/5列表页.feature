@@ -76,7 +76,6 @@ Feature: 字段提取列表页
     Then I wait for loading invisible
     And I will see the "SearchResultIsEmpty" result will be "暂无数据"
 
-
     Examples:
       | name     | appName   |
       | wym按标签过滤 | filtByTag |
