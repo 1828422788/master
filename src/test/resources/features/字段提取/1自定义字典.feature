@@ -3,17 +3,19 @@ Feature: 字段提取自定义字典
 
   @second @configsSmoke
   Scenario Outline: RZY-2819: 配置自定义字典解析规则
-#    Given open the "dictionary.ListPage" page for uri "/dictionary/"
-#    And I wait for loading invisible
-#    When I click the "UploadButton" button
-#    Then I wait for "PopUpWindow" will be visible
-#    And I upload a file with name "/src/test/resources/testdata/dictionary/win_sys_sourcename.csv"
-#    And I wait for "FileName" will be visible
-#    Then I set the parameter "Name" with value "win_sys_sourcename"
-#    And I click the "EnsureUpload" button
-#    Then I wait for "Tip" will be visible
-#    Then I will see the success message "创建字典成功"
-#    Then I wait for "70000" millsecond
+    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+    And I wait for loading invisible
+    When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/win_sys_sourcename.csv"
+    And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "win_sys_sourcename"
+    And I click the "EnsureUpload" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "创建字典成功"
+    Then I wait for "70000" millsecond
+    #chsopen
+
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
     And I click the "Create" button
@@ -21,6 +23,8 @@ Feature: 字段提取自定义字典
     When I set the parameter "LogSample" with value "{"Category":"","ComputerName":"WIN-999OGBVAHMI","EventCode":7036,"EventIdentifier":1073748860,"EventType":3,"Logfile":"System","Message":"Application Experience 服务处于 正在运行 状态。","RecordNumber":108343,"SourceName":"Service Control Manager","User":"","TimeGenerated":"2015-01-04T20:45:09+08:00"}"
     And I click the "AddRule" button
     And I choose the "JSON解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
@@ -81,17 +85,19 @@ Feature: 字段提取自定义字典
 
   @second @configsSmoke
   Scenario Outline: 自定义字典详情页验证
-#    Given open the "dictionary.ListPage" page for uri "/dictionary/"
-#    And I wait for loading invisible
-#    When I click the "UploadButton" button
-#    Then I wait for "PopUpWindow" will be visible
-#    And I upload a file with name "/src/test/resources/testdata/dictionary/win_sys_sourcename.csv"
-#    And I wait for "FileName" will be visible
-#    Then I set the parameter "Name" with value "win_sys_sourcename1"
-#    And I click the "EnsureUpload" button
-#    Then I wait for "Tip" will be visible
-#    Then I will see the success message "创建字典成功"
-#    Then I wait for "70000" millsecond
+    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+    And I wait for loading invisible
+    When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/win_sys_sourcename.csv"
+    And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "win_sys_sourcename1"
+    And I click the "EnsureUpload" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "创建字典成功"
+    Then I wait for "70000" millsecond
+    #chsopen
+
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
     And I click the "Create" button

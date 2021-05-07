@@ -12,7 +12,8 @@ Feature: 字段提取列表页
     And I click the "AddRule" button
     Then I wait for "500" millsecond
     And I choose the "JSON解析" from the "ParseRule" in config
-    Then I wait for "500" millsecond
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "500" millsecond
     And I click the "EnsureAddParseRule" button
@@ -42,7 +43,8 @@ Feature: 字段提取列表页
     And I click the "AddRule" button
     Then I wait for "500" millsecond
     And I choose the "JSON解析" from the "ParseRule" in config
-    Then I wait for "500" millsecond
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "500" millsecond
     And I click the "EnsureAddParseRule" button

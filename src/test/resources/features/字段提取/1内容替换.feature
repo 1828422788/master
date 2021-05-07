@@ -11,6 +11,8 @@ Feature: 字段提取内容替换
     When I set the parameter "LogSample" with value "123abc456qwe"
     And I click the "AddRule" button
     And I choose the "内容替换" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I set the value "(\d+)[a-z]+" to the textarea "Regex"
@@ -35,6 +37,8 @@ Feature: 字段提取内容替换
     When I set the parameter "LogSample" with value "123abc456qwe"
     And I click the "AddRule" button
     And I choose the "内容替换" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I set the value "(\d+)[a-z]+" to the textarea "Regex"
@@ -85,6 +89,8 @@ Feature: 字段提取内容替换
     When I set the parameter "LogSample" with value "123abc456qwe"
     And I click the "AddRule" button
     And I choose the "内容替换" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I set the value "(\d+)[a-z]+" to the textarea "Regex"
@@ -129,6 +135,8 @@ Feature: 字段提取内容替换
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
     And I choose the "JSON解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
@@ -177,6 +185,8 @@ Feature: 字段提取内容替换
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
     And I choose the "JSON解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button

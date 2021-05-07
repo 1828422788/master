@@ -44,7 +44,8 @@ Feature: 字段提取关联日志样例
     Then I wait for "1000" millsecond
     And I set the parameter "RuleRemark" with value "格式化一个新的时间戳"
     And I choose the "date,time" from the "SourceField" in config
-    Then I wait for "1000" millsecond
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I set the parameter "FormatRule" with value "$1 $2"
     And I set the parameter "TargetFieldInput" with value "timestampstamp"
     And I click the "EnsureAddParseRule" button
