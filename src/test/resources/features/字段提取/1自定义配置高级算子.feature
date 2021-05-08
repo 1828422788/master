@@ -101,6 +101,8 @@ Feature: 字段提取自定义配置高级算子
     When I set the parameter "LogSample" with value "{"fields":["time","count"],"values":[1516189,5664]}"
     And I click the "AddRule" button
     And I choose the "JSON解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
@@ -112,6 +114,8 @@ Feature: 字段提取自定义配置高级算子
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "自定义解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "script" from the "RuleName" in config
     Then I wait for "1000" millsecond
     And I set the parameter "{"script":"source[\"result\"] = todict(mvzip(source[\"fields\"],source[\"values\"]))"}" to json editor in field parsing
@@ -158,6 +162,8 @@ Feature: 字段提取自定义配置高级算子
     When I set the parameter "LogSample" with value "{"fields":["time","count"],"values":[1516189,5664]}"
     And I click the "AddRule" button
     And I choose the "JSON解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
@@ -169,6 +175,8 @@ Feature: 字段提取自定义配置高级算子
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "自定义解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "script" from the "RuleName" in config
     Then I wait for "1000" millsecond
     And I set the parameter "{"script":"source[\"result\"] = todict(mvzip(source[\"fields\"],source[\"values\"]))"}" to json editor in field parsing
@@ -211,6 +219,8 @@ Feature: 字段提取自定义配置高级算子
     When I set the parameter "LogSample" with value "aGVsbG8gYmFzZTY0"
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I set the value "(?<code>.*)" to the textarea "Regex"
@@ -223,6 +233,8 @@ Feature: 字段提取自定义配置高级算子
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "base64解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "code" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
@@ -280,6 +292,8 @@ Feature: 字段提取自定义配置高级算子
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "base64解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "code" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
@@ -322,6 +336,8 @@ Feature: 字段提取自定义配置高级算子
     When I set the parameter "LogSample" with value "PartyBasicInfoService_\u5ba2\u6237\u57fa\u672c\u4fe1\u606f\u670d\u52a1"
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I set the value "(?<rr>.*)" to the textarea "Regex"
@@ -334,6 +350,8 @@ Feature: 字段提取自定义配置高级算子
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "自定义解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "codec" from the "RuleName" in config
     Then I wait for "1000" millsecond
     And I set the parameter "{"source": "rr","codec_type": "unicode_decode"}" to json editor in field parsing
