@@ -3,7 +3,8 @@ Feature: 字段提取列表页
 
   Background:
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for loading invisible
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
 
   Scenario Outline: 按名称过滤
     And I click the "Create" button
@@ -64,11 +65,14 @@ Feature: 字段提取列表页
     Then I will see the search result "{'column':'1','name':'<name>'}"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button in more menu
     Then I set the parameter "TagInput" with value "configtag"
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "configtag" from the "TagGroup" in config
     And I click the "Ensure" button
     Then I wait for loading invisible
     Then I refresh the website
-    And I wait for loading invisible
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "configtag" from the "ResourceDropdown" in config
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'1','name':'<name>'}"

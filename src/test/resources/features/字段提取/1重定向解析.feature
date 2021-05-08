@@ -8,6 +8,8 @@ Feature: 字段提取重定向解析
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
     And I choose the "JSON解析" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I click the "AddField" button
