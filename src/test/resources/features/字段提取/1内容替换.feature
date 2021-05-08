@@ -143,6 +143,8 @@ Feature: 字段提取内容替换
     And I wait for "ParseButton" will be visible
     And I click the "AddRule" button
     And I choose the "内容替换" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "@tag" from the "SourceField" in config
     And I set the value "(.*)" to the textarea "Regex"
     And I set the value "$1,newinfo" to the textarea "ReplaceContent"
@@ -193,6 +195,8 @@ Feature: 字段提取内容替换
     And I wait for "ParseButton" will be visible
     And I click the "AddRule" button
     And I choose the "内容替换" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "@tag" from the "SourceField" in config
     And I set the value "(.*)" to the textarea "Regex"
     And I set the value "$1,newinfo" to the textarea "ReplaceContent"
