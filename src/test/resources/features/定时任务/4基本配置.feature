@@ -42,6 +42,21 @@ Feature: 定时任务_基本配置
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
 
+  Scenario: create_saved_search_empty
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count()"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "NewSavedSearch" button
+    And I wait for "SavedSearchName" will be visible
+    And I set the parameter "SavedSearchName" with value " "
+    And I click the "EnsureCreateSavedSearch" button under some element
+    And I wait for "TipText" will be visible
+    And I will see the element "TipText" contains "名称 不能为空"
+
   Scenario Outline: check_details_period
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible

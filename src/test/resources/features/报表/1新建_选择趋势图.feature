@@ -49,6 +49,7 @@ Feature: 报表新建_选择
     And I set the parameter "TrendSearchInput" with value "报表测试_数据集"
     And I move the mouse pointer to the "ViewDatasetTrendInfo"
     And I wait for "TipElement" will be visible
+    And I wait for "500" millsecond
     And I will see the element "TipElement" contains "<tipText>"
     And I wait for "1000" millsecond
     And I click the "ChartListButton" button
