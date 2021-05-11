@@ -186,7 +186,7 @@ Feature: 定时任务新建
 
     Examples:
       | name | period | message                           |
-      |      |        | 请输入名称                        |
+      |      |        | 名称格式有误，仅支持中文、数字、字母、中划线、下划线以及括号的组合。 |
       | test |        | 定时模式下, 时间间隔应该为正整数  |
       | test | 0      | 定时模式下, 时间间隔应该为正整数  |
       | test | 1.5    | 定时模式下, 时间间隔应该为正整数  |
@@ -207,7 +207,7 @@ Feature: 定时任务新建
     And I set the parameter "TaskName" with value " "
     Then I click the "EnsureButton" button
     And I wait for "TipText" will be visible
-    And I will see the element "TipText" contains "名称 不能为空"
+    And I will see the element "TipText" contains "名称格式有误，仅支持中文、数字、字母、中划线、下划线以及括号的组合。"
 
   Scenario: cancel_test
     Given open the "splSearch.SearchPage" page for uri "/search/"
