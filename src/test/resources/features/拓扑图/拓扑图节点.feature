@@ -1,4 +1,4 @@
-#@topology
+@topology
 Feature: 拓扑图节点验证
 
   Background:
@@ -38,6 +38,8 @@ Feature: 拓扑图节点验证
     And I wait for "1000" millsecond
     And I click the "Save" button
     Then I will see the message "保存成功"
+    And I refresh the website
+    And I accept alert window
 
     Examples:
       | nodetype  |   name  |  color |  visibility  | lineWidth | LineType  |
