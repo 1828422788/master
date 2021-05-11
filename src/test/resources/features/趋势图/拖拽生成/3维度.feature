@@ -125,7 +125,6 @@ Feature: 趋势图_拖拽_维度
     And I click the Circle "Status405" button
     And I wait for "1500" millsecond
     And I will see the "<element1>" doesn't exist
-#    And I wait for "<element1>" does no
 
     Examples:
       | chartType | drill    | element    | element1    |

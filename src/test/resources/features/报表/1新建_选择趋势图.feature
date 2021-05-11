@@ -49,7 +49,6 @@ Feature: 报表新建_选择
     And I set the parameter "TrendSearchInput" with value "报表测试_数据集"
     And I move the mouse pointer to the "ViewDatasetTrendInfo"
     And I wait for "TipElement" will be visible
-    And I wait for "500" millsecond
     And I will see the element "TipElement" contains "<tipText>"
     And I wait for "1000" millsecond
     And I click the "ChartListButton" button
@@ -228,6 +227,10 @@ Feature: 报表新建_选择
     And I will see the element "TrendData" contains ""
     And I will see the element "TrendChart" contains "table"
     When I click the "EditButton" button
+    Then I set the parameter "TrendNameField" with value " "
+    Then I click the "EnsureButton" button
+    And I wait for "TipText" will be visible
+    And I will see the element "TipText" contains "名称不能为空"
     Then I set the parameter "TrendNameField" with value "test"
     And I set the parameter "TrendDescribeField" with value "test"
     And I click the "TrendChartType" button
