@@ -72,7 +72,7 @@ Feature: 数据集批量操作
     When I click the "AddResourceTags" button
     Given I wait for loading complete
     And I wait for "2000" millsecond
-    And I choose the "测试标签" from the "ResourceGroupList"
+    And I choose the "字段统计" from the "ResourceGroupList"
     And I wait for "2000" millsecond
 
     When I click the "Ensure" button
@@ -87,13 +87,13 @@ Feature: 数据集批量操作
     And I wait for "2000" millsecond
     And the data name is "{'column':'0','name':'Test_Batch_Control_Resource_1'}" then I "expand" the item
     And I wait for "2000" millsecond
-    And I will see the element "TagOfTheLastItem" contains "测试标签"
+    And I will see the element "TagOfTheLastItem" contains "字段统计"
     And the data name is "{'column':'0','name':'Test_Batch_Control_Resource_1'}" then I "close" the item
 
     And I wait for "2000" millsecond
     And the data name is "{'column':'0','name':'Test_Batch_Control_Resource_2'}" then I "expand" the item
     And I wait for "2000" millsecond
-    And I will see the element "TagOfTheLastItem" contains "测试标签"
+    And I will see the element "TagOfTheLastItem" contains "字段统计"
     And the data name is "{'column':'0','name':'Test_Batch_Control_Resource_2'}" then I "close" the item
 
   @datasetk7

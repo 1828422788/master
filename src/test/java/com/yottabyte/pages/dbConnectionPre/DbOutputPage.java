@@ -4,6 +4,7 @@ import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.GetTime;
 import com.yottabyte.utils.WaitForElement;
+import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -182,7 +183,6 @@ public class DbOutputPage extends PageTemplate {
         return dbOutputSearchInput;
     }
 
-//    @FindBy(xpath = "//span[contains(text(),'更新/插入 配置')]/parent::div/following-sibling::div//input[@type='checkbox']")
     @FindBy(xpath = "//input[@yotta-test='dbsettings-update-switch']")
     private WebElement updateInsertButton;
     public WebElement getUpdateInsertButton() {

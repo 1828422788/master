@@ -12,6 +12,8 @@ Feature: 字段提取KeyValue分解
     When I set the parameter "LogSample" with value "<logSample>"
     And I click the "AddRule" button
     And I choose the "KeyValue分解" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "<sourceField>" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I set the parameter "FieldSeparator" with value "&"

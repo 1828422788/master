@@ -28,7 +28,9 @@ Feature: 编辑DbOutput
     Given I wait for loading complete
     And I wait for "2000" millsecond
 
-    And I click the "UpdateInsertButton" button
+    When I click the "UpdateInsertButton" button
+#    When I open the switch button "UpdateInsertButton" to "open" status
+
     And I choose the "forward" from the "DbOutputKeyList"
     And I wait for "3000" millsecond
 

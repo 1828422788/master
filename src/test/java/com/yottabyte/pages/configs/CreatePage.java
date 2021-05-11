@@ -337,6 +337,8 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getLogHostname() { return super.getYottaInput("config-log_hostname-input"); }
 
+    public WebElement getAppname() { return super.getYottaInput("config-log_appname-input"); }
+
     public WebElement getRegex() { return super.getYottaTextarea("config-expression-textarea"); }
 
     public WebElement getPathInput() {

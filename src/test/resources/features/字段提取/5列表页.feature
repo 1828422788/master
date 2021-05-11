@@ -6,6 +6,7 @@ Feature: 字段提取列表页
     Given I wait for loading complete
     And I wait for "1000" millsecond
 
+  @configs28a
   Scenario Outline: 按名称过滤
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
@@ -36,8 +37,8 @@ Feature: 字段提取列表页
       | name     | appName    |
       | wym按名称过滤 | filtByName |
 
-
-  Scenario Outline: 选择标签并按照标签过滤
+  @configs28b
+  Scenario Outline: 选择标签并按照标签过滤1
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "{"Name": "John Smith ", "Age": 23, "Employed": true, "Address": {"Street": "324 Chrome St", "City": "Portland, New York,Los Angeles ", "Country": "United States"}}"
@@ -58,6 +59,12 @@ Feature: 字段提取列表页
     And I set the parameter "Tag" with value "<appName>"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
+    Examples:
+      | name     | appName   |
+      | wym按标签过滤 | filtByTag |
+
+  @configs28c
+  Scenario Outline: 选择标签并按照标签过滤2
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
     When I set the parameter "SearchInput" with value "<name>"
@@ -67,7 +74,8 @@ Feature: 字段提取列表页
     Then I set the parameter "TagInput" with value "configtag"
     Given I wait for loading complete
     And I wait for "1000" millsecond
-    And I choose the "configtag" from the "TagGroup" in config
+#    And I choose the "configtag" from the "TagGroup" in config
+    And I choose the "configtag" from the "ResourceGroupList"
     And I click the "Ensure" button
     Then I wait for loading invisible
     Then I refresh the website
@@ -86,5 +94,6 @@ Feature: 字段提取列表页
       | name     | appName   |
       | wym按标签过滤 | filtByTag |
 
+  @configs28d
   Scenario: 验证运行统计是否自动关闭
-    Then I will see the "SwitchButton" is "ant-switch-small ant-switch"
+    Then I will see the "SwitchButton" is "yotta-switch-input"

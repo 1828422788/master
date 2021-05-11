@@ -29,6 +29,7 @@ Feature: 字段提取Json、xml解析
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button
+    Given I wait for loading complete
     And I choose the "<rule>" from the "ParseRule" in config
     And I click the "ChangeToJson" button under some element
     And I set the parameter "{"source": "raw_message","paths": [],"add_fields": [],"extract_limit" :200}" to json editor in field parsing
@@ -50,6 +51,7 @@ Feature: 字段提取Json、xml解析
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button
+    Given I wait for loading complete
     And I choose the "<rule>" from the "ParseRule" in config
     And I click the "ChangeToJson" button under some element
     And I set the parameter "{"source": "raw_message","paths": [],"add_fields": [],"extract_limit" :0}" to json editor in field parsing
@@ -71,6 +73,7 @@ Feature: 字段提取Json、xml解析
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button
+    Given I wait for loading complete
     And I choose the "<rule>" from the "ParseRule" in config
     And I click the "ChangeToJson" button under some element
     And I set the parameter "{"source": "raw_message","paths": [],"add_fields": [],"extract_limit" :-1}" to json editor in field parsing
@@ -93,6 +96,8 @@ Feature: 字段提取Json、xml解析
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button
     And I choose the "<rule>" from the "ParseRule" in config
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I set the parameter "PathInput" with value "dimensions"

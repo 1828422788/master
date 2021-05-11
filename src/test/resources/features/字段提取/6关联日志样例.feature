@@ -323,13 +323,12 @@ Feature: 字段提取关联日志样例
 #    Then I wait for "500" millsecond
 #    Then I will see the element "FieldValue" value contains "23,1"
 
-
     Examples:
       | appName                  | rule   | log           |
       | wym_eventlist_checkfield | JSON解析 | eventlist.log |
 
-  @configs29g
-  Scenario Outline: RZY-4581选为日志样例
+  @configs29g1
+  Scenario Outline: RZY-4581选为日志样例1
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "<appName>"
     And I set the parameter "Tag" with value "<appName>"
@@ -337,8 +336,13 @@ Feature: 字段提取关联日志样例
     And I click the "UploadButton" button
     And I wait for element "VerifyText" change text to "上传完成"
     Then I wait for "3500" millsecond
-    #chsopen
 
+    Examples:
+      | appName                   | rule   | log           | result                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+      | wym_eventlist_aslogsample | JSON解析 | eventlist.log | Object\nAddress:Object\nCity:"Portland, New York,Los Angeles "\nCountry:"United States"\nStreet:"324 Chrome St"\nAge:23\nEmployed:true\nName:"John Smith "\nraw_message:"{"Name": "John Smith ", "Age": 23, "Employed": true, "Address": {"Street": "324 Chrome St", "City": "Portland, New York,Los Angeles ", "Country": "United States"}}"\n@appname:"wym_eventlist_aslogsample"\n@hostname:"666"\n@tag:"wym_eventlist_aslogsample" |
+
+  @configs29g2
+  Scenario Outline: RZY-4581选为日志样例
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
     And I click the "Create" button
@@ -360,11 +364,12 @@ Feature: 字段提取关联日志样例
     Then I click the "AsLogSample" button
     And I wait for "ParseButton" will be visible
     Then I wait for "1000" millsecond
-    Then I set the parameter "LogHostname" with value "666"
+    And I set the parameter "Appname" with value "wym_eventlist_aslogsample"
+    And I set the parameter "LogHostname" with value "666"
     And I click the "ParseButton" button
+    And I wait for "20000" millsecond
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
-
 
     Examples:
       | appName                   | rule   | log           | result                                                                                                                                                                                                                                                                                                                                                                                                                                 |

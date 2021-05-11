@@ -2,12 +2,16 @@ package com.yottabyte.pages.configs;
 
 import com.yottabyte.pages.ListPageFactory;
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.DropdownUtils;
+import com.yottabyte.utils.WaitForElement;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -26,16 +30,14 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "ant-modal-content")
     private WebElement content;
 
-    @FindBy(xpath = "//button[@role='switch']")
-    private WebElement switchButton;
-
     @FindBy(xpath = "//span[text()='运行统计']/following-sibling::label//div[@class='el-switch__label el-switch__label--right']")
     private WebElement leftLabel;
 
     @FindBy(xpath = "//div[@class='el-dialog el-dialog--small']//tr")
     private List<WebElement> smallTr;
 
-    @FindBy(xpath = "//label[text()='标签']/parent::div/following-sibling::div/span//div/input")
+//    @FindBy(xpath = "//label[text()='标签']/parent::div/following-sibling::div/span//div/input")
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//input")
     private WebElement tagInput;
 
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//span[@class='yotta-select-selection-placeholder']")
@@ -102,6 +104,9 @@ public class ListPage extends ListPageFactory {
         return leftLabel;
     }
 
+//  @FindBy(xpath = "//button[@role='switch']")
+    @FindBy(xpath = "//button[@yotta-test='batch_control-batch_operation-button']/preceding::input[@type='checkbox']/parent::span")
+    private WebElement switchButton;
     public WebElement getSwitchButton() {
         return switchButton;
     }
@@ -112,6 +117,14 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getTagGroup() {
         return dropdownUtils.getDropdownList("标签");
+    }
+
+    public WebElement getResourceGroupList() {
+//        String xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div";
+//        WebElement element = webDriver.findElement(By.xpath(xpath));
+//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+//        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownResourceGroupList();
     }
 
     public WebElement getEnsureButton() {
