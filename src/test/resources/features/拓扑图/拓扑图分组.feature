@@ -1,4 +1,4 @@
-@topology
+#@topology
 Feature: 拓扑图分组验证
 
   Background:

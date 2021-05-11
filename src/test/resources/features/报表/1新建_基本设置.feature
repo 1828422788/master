@@ -24,6 +24,12 @@ Feature: 报表新建_执行计划
     | test_report |   15    |          | 请输入分钟                                     |
     | test_report |   15    |  67      | 分钟输入错误，时间可输入范围为0~59              |
 
+  Scenario: new_report_empty_name
+    When I set the parameter "Name" with value " "
+    And I click the "NextButton" button under some element
+    And I wait for "TipText" will be visible
+    And I will see the element "TipText" contains "名称不能为空"
+
   Scenario Outline: new_report_success_day
     When I set the parameter "Name" with value "test_report_<period>"
     And I set the parameter "Describe" with value "AutoCreate"

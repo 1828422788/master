@@ -1,4 +1,4 @@
-@topology
+#@topology
 Feature: 拓扑图告警触发
 
   Background:

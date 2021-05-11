@@ -193,6 +193,22 @@ Feature: 定时任务新建
       | test | test   | 定时模式下, 时间间隔应该为正整数  |
       | test | 1      | 请输入正确的时间格式：HH:mm:ss.SSS|
 
+  Scenario: schedule_name_space
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    When I set the parameter "SearchInput" with value "tag:* \| stats count() by tag"
+    And I click the "DateEditor" button under some element
+    And I click the "Today" button
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I click the "SaveAsOther" button
+    Then I click the "TimedTask" button
+    And I wait for element "SelectedUser" change text to username
+    And I set the parameter "TaskName" with value " "
+    Then I click the "EnsureButton" button
+    And I wait for "TipText" will be visible
+    And I will see the element "TipText" contains "名称 不能为空"
+
   Scenario: cancel_test
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
