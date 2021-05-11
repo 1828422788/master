@@ -1,4 +1,4 @@
-@topology
+#@topology
 Feature: 拓扑图节点验证
 
   Background:

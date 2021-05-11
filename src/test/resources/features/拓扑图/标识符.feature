@@ -1,4 +1,4 @@
-@topology
+#@topology
 Feature: 拓扑图标识符
 
   Background:

@@ -1,4 +1,4 @@
-@topology
+#@topology
 Feature: 拓扑图详情页
 
   Background:
