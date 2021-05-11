@@ -1,7 +1,7 @@
-@dashboard0429
+@dashboard0429 @dbinput
 Feature: 仪表盘输入项
 
-  @dashboard @dashboardSmoke
+  @dashboard1 @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -13,7 +13,7 @@ Feature: 仪表盘输入项
       | name  |
       | 测试输入项 |
 
-  @dashboard @dashboardSmoke
+  @dashboard2 @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -28,7 +28,7 @@ Feature: 仪表盘输入项
       | name  |
       | 测试输入项 |
 
-  @dashboard @dashboardSmoke
+  @dashboard3 @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -56,7 +56,7 @@ Feature: 仪表盘输入项
       | 仪表盘所用趋势图     | tag: sample04061424_chart \|stats count() by 'apache.geo.city'                            |
       | 仪表盘1669所用趋势图 | (appname:\"aa\") \|bucket timestamp span=6h as ts \|stats count(\'tag\') as \'tag\' by ts |
 
-  @dashboard @dashboardSmoke
+  @dashboard4 @dashboardSmoke
   Scenario Outline: RZY-1668添加单引号输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -74,7 +74,7 @@ Feature: 仪表盘输入项
       | filter | defaultValue    |
       | filter | apache.geo.city |
 
-  @dashboard @dashboardSmoke
+  @dashboard5 @dashboardSmoke
   Scenario: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -89,7 +89,7 @@ Feature: 仪表盘输入项
     And I "checked" the checkbox which name is "仪表盘所用趋势图"
     And I click the "Ensure" button
 
-  @dashboard @dashboardSmoke
+  @dashboard6 @dashboardSmoke
   Scenario: 验证单引号输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -104,7 +104,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
-  @dashboard @dashboardSmoke
+  @dashboard7 @dashboardSmoke
   Scenario: 删除图表单引号包裹
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -115,7 +115,7 @@ Feature: 仪表盘输入项
     And I click the "Ensure" button
     And I wait for "3000" millsecond
 
-  @dashboard @dashboardSmoke
+  @dashboard8 @dashboardSmoke
   Scenario: 删除单引号输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -127,7 +127,7 @@ Feature: 仪表盘输入项
     And I click the "Ensure" button under some element
     Then I wait for "FilterName" will be invisible
 
-  @dashboard @dashboardSmoke
+  @dashboard9 @dashboardSmoke
   Scenario: 添加时间范围输入项(RZY-4573,RZY-227)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -146,7 +146,7 @@ Feature: 仪表盘输入项
     Then I click the "Ensure" button
     Then I wait for "FilterTime" will be visible
 
-  @dashboard @dashboardSmoke
+  @dashboard10 @dashboardSmoke
   Scenario: 验证默认值添加图表 RZY-4617
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -163,7 +163,7 @@ Feature: 仪表盘输入项
     And I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
-  @dashboard @dashboardSmoke
+  @dashboard11 @dashboardSmoke
   Scenario: 验证时间范围输入项 RZY-4573
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -178,7 +178,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
-  @dashboard @dashboardSmoke
+  @dashboard12 @dashboardSmoke
   Scenario: 验证时间范围标识前后缀 RZY-4641
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -207,7 +207,7 @@ Feature: 仪表盘输入项
 #    And I wait for "3000" millsecond
     Then I compare with list "TableList"
 
-  @dashboard @dashboardSmoke
+  @dashboard13 @dashboardSmoke
   Scenario: 删除图表单和输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -222,7 +222,7 @@ Feature: 仪表盘输入项
     And I click the "Ensure" button under some element
     Then I wait for "FilterTime" will be invisible
 
-  @dashboard @dashboardSmoke
+  @dashboard14 @dashboardSmoke
   Scenario Outline: 添加输入项 RZY-1669
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -240,7 +240,7 @@ Feature: 仪表盘输入项
       | filter | defaultValue |
       | filter | aa           |
 
-  @dashboard @dashboardSmoke
+  @dashboard15 @dashboardSmoke
   Scenario: 添加图表 RZY-1669
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -257,7 +257,7 @@ Feature: 仪表盘输入项
     And I wait for "500" millsecond
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
-  @dashboard @dashboardSmoke
+  @dashboard16 @dashboardSmoke
   Scenario: 验证 RZY-1669
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -272,7 +272,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
-  @dashboard @dashboardSmoke
+  @dashboard17 @dashboardSmoke
   Scenario: 删除双引号输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -284,7 +284,7 @@ Feature: 仪表盘输入项
     And I click the "Ensure" button under some element
     Then I wait for "FilterName" will be invisible
 
-  @dashboard @dashboardSmoke
+  @dashboard18 @dashboardSmoke
   Scenario: 增加标识前后缀RZY-273，RZY-274
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -300,7 +300,7 @@ Feature: 仪表盘输入项
     And I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
-  @dashboard @dashboardSmoke
+  @dashboard19 @dashboardSmoke
   Scenario: 验证标识前后缀RZY-3798
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -321,7 +321,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
-  @dashboard @dashboardSmoke
+  @dashboard20 @dashboardSmoke
   Scenario: 修改标识值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -337,7 +337,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I wait for "TabelAppname" will be visible
 
-  @dashboard @dashboardSmoke
+  @dashboard21 @dashboardSmoke
   Scenario: 修改为自动搜索(RZY-272)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -355,7 +355,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I wait for "TabelAppname" will be visible
 
-  @dashboard @dashboardSmoke
+  @dashboard22 @dashboardSmoke
   Scenario: 删除文本输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -367,7 +367,7 @@ Feature: 仪表盘输入项
     And I click the "Ensure" button under some element
     Then I wait for "FilterName" will be invisible
 
-  @dashboard @dashboardSmoke
+  @dashboard23 @dashboardSmoke
   Scenario: 修改图表搜索语句
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -381,7 +381,7 @@ Feature: 仪表盘输入项
     And I wait for "500" millsecond
     Then I will see the success message "配置成功"
 
-  @dashboard @dashboardSmoke
+  @dashboard24 @dashboardSmoke
   Scenario: 添加下拉菜单输入项 RZY-275，RZY-279
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -403,7 +403,7 @@ Feature: 仪表盘输入项
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
-  @dashboard @dashboardSmoke
+  @dashboard25 @dashboardSmoke
   Scenario: 验证下拉菜单默认输入项 RZY-280
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -419,7 +419,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
-  @dashboard @dashboardSmoke
+  @dashboard26 @dashboardSmoke
   Scenario: 验证下拉菜单搜索 RZY-276
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -445,7 +445,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
-  @dashboard @dashboardSmoke
+  @dashboard27 @dashboardSmoke
   Scenario: 修改下拉菜单为自动搜索 RZY-278
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -457,7 +457,7 @@ Feature: 仪表盘输入项
     And I "checked" the checkbox which name is "当过滤项值改变时自动搜索"
     Then I click the "Ensure" button
 
-  @dashboard @dashboardSmoke
+  @dashboard28 @dashboardSmoke
   Scenario: 验证下拉菜单为自动搜索 RZY-278
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -481,7 +481,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
-  @dashboard @dashboardSmoke
+  @dashboard29 @dashboardSmoke
   Scenario: 修改为多选并填入分割符 RZY-3428,RZY-3431
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -961,30 +961,3 @@ Feature: 仪表盘输入项
     Examples:
       | title  | token  |
       | @#¥%xiaoxiezimu汉字DAXIEZIMU（）*&……%¥¥%520 | @#¥%xiaoxiezimu汉字DAXIEZIMU（）*&……%¥¥%520 |
-
-  @cleanDashboard
-  Scenario Outline: 删除仪表盘所建趋势图
-    Given open the "trend.ListPage" page for uri "/trend/"
-    When the data name is "<name>" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    And I wait for "500" millsecond
-    And I will see the success message "删除成功"
-
-    Examples:
-      | name         |
-      | 仪表盘1669所用趋势图 |
-      | 仪表盘所用趋势图     |
-
-  @cleanDashboard
-  Scenario Outline: 删除仪表盘
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    When the data name is "<name>" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    And I wait for "500" millsecond
-    Then I will see the success message "删除仪表盘成功"
-
-    Examples:
-      | name  |
-      | 测试输入项 |
