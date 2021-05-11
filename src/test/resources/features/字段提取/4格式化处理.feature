@@ -36,7 +36,7 @@ Feature: 字段提取格式化处理
       | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
       | Object\nclientip:"192.168.1.139"\nmsg:" "GET /api/v0/search/fields/?field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields HTTP/1.1" 200 363 "http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0""\ntime:"17:03:49"\nraw_message:"192.168.1.139 - - [24/Jan/2015:17:03:49 +0800] "GET /api/v0/search/fields/?field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields HTTP/1.1" 200 363 "http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0""\n@source:"/var/log/20180821/website" |
 
-  @configs27a2
+  @configs27a2 @configsSmoke
   Scenario Outline:
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "Create" button
@@ -56,7 +56,7 @@ Feature: 字段提取格式化处理
     Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
-    Then I will see the element value in json "{'Result':'<result1>'}"
+#    Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "Collapse" button
 
     Examples:
@@ -83,7 +83,7 @@ Feature: 字段提取格式化处理
     And I wait for "ParseButton" will be visible
     Then I wait for "100" millsecond
     And I click the "ParseButton" button
-    And I wait for "CheckSuccess3" will be visible
+    And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result2>'}"
     And I click the "Collapse" button
 
@@ -109,7 +109,7 @@ Feature: 字段提取格式化处理
     And I wait for "ParseButton" will be visible
     Then I wait for "100" millsecond
     And I click the "ParseButton" button
-    And I wait for "CheckSuccess4" will be visible
+    And I wait for "CheckSuccess" will be visible
     And I wait for "2000" millsecond
     Then I will see the element value in json "{'Result':'<result3>'}"
 
@@ -119,7 +119,6 @@ Feature: 字段提取格式化处理
 
   @configs27b @configsSmoke
   Scenario Outline: RZY-1550:格式化处理
-
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
