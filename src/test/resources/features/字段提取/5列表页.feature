@@ -62,37 +62,37 @@ Feature: 字段提取列表页
     Examples:
       | name     | appName   |
       | wym按标签过滤 | filtByTag |
-
-  @configs28c
-  Scenario Outline: 选择标签并按照标签过滤2
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for loading invisible
-    When I set the parameter "SearchInput" with value "<name>"
-    And I wait for loading invisible
-    Then I will see the search result "{'column':'1','name':'<name>'}"
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button in more menu
-    Then I set the parameter "TagInput" with value "configtag"
-    Given I wait for loading complete
-    And I wait for "1000" millsecond
-#    And I choose the "configtag" from the "TagGroup" in config
-    And I choose the "configtag" from the "ResourceGroupList"
-    And I click the "Ensure" button
-    Then I wait for loading invisible
-    Then I refresh the website
-    Given I wait for loading complete
-    And I wait for "1000" millsecond
-    And I choose the "configtag" from the "ResourceDropdown" in config
-    And I wait for loading invisible
-    Then I will see the search result contains "{'column':'1','name':'<name>'}"
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button in more menu
-    And I cancel selection "configtag" from the "TagGroup" in config
-    And I click the "Ensure" button
-    Then I wait for loading invisible
-    And I will see the "SearchResultIsEmpty" result will be "暂无数据"
-
-    Examples:
-      | name     | appName   |
-      | wym按标签过滤 | filtByTag |
+#
+#  @configs28c
+#  Scenario Outline: 选择标签并按照标签过滤2
+#    Given open the "configs.ListPage" page for uri "/configs/"
+#    And I wait for loading invisible
+#    When I set the parameter "SearchInput" with value "<name>"
+#    And I wait for loading invisible
+#    Then I will see the search result "{'column':'1','name':'<name>'}"
+#    When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button in more menu
+#    Then I set the parameter "TagInput" with value "configtag"
+#    Given I wait for loading complete
+#    And I wait for "1000" millsecond
+##    And I choose the "configtag" from the "TagGroup" in config
+#    And I choose the "configtag" from the "ResourceGroupList"
+#    And I click the "Ensure" button
+#    Then I wait for loading invisible
+#    Then I refresh the website
+#    Given I wait for loading complete
+#    And I wait for "1000" millsecond
+#    And I choose the "configtag" from the "ResourceDropdown" in config
+#    And I wait for loading invisible
+#    Then I will see the search result contains "{'column':'1','name':'<name>'}"
+#    When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button in more menu
+#    And I cancel selection "configtag" from the "TagGroup" in config
+#    And I click the "Ensure" button
+#    Then I wait for loading invisible
+#    And I will see the "SearchResultIsEmpty" result will be "暂无数据"
+#
+#    Examples:
+#      | name     | appName   |
+#      | wym按标签过滤 | filtByTag |
 
   @configs28d
   Scenario: 验证运行统计是否自动关闭
