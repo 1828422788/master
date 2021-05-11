@@ -1,7 +1,7 @@
-@dashboard0429
+@dashboard0429 @dbdrilldown
 Feature: 仪表盘钻取配置
 
-  @dashboard @dashboardSmoke
+  @dashboard @dashboardSmoke @dbdrilldown
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -14,7 +14,7 @@ Feature: 仪表盘钻取配置
       | 测试钻取配置 |
       | 钻取跳转   |
 
-  @dashboard @dashboardSmoke
+  @dashboard @dashboardSmoke @dbdrilldown1
   Scenario: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
