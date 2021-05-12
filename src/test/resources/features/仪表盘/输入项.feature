@@ -29,7 +29,7 @@ Feature: 仪表盘输入项
       | 仪表盘所用趋势图     | tag: sample04061424_chart \|stats count() by 'apache.geo.city'                            |
       | 仪表盘1669所用趋势图 | (appname:\"aa\") \|bucket timestamp span=6h as ts \|stats count(\'tag\') as \'tag\' by ts |
 
-  @dbinput1 @dashboardSmoke
+  @dbinputpre1 @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -43,8 +43,11 @@ Feature: 仪表盘输入项
       | 测试输入项1 |
       | 测试输入项2 |
       | 测试输入项3 |
+      | 测试输入项4 |
+      | 测试输入项5 |
+      | 测试输入项6 |
 
-  @dbinput2 @dashboardSmoke
+  @dbinputpre2 @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -61,6 +64,9 @@ Feature: 仪表盘输入项
       | 测试输入项1 |
       | 测试输入项2 |
       | 测试输入项3 |
+      | 测试输入项4 |
+      | 测试输入项5 |
+      | 测试输入项6 |
 
   @dbinput1 @dbinput11 @dashboardSmoke
   Scenario Outline: RZY-1668添加单引号输入项
@@ -247,10 +253,10 @@ Feature: 仪表盘输入项
       | filter | aa           |
 
   @dbinput3 @dbinput32
-  Scenario: 添加图表 RZY-1669
+  Scenario Outline: 添加图表 RZY-1669
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I click the detail which name is "测试输入项2"
+    And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
@@ -263,11 +269,16 @@ Feature: 仪表盘输入项
     And I wait for "500" millsecond
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
+    Examples:
+      | name |
+      | 测试输入项2 |
+      | 测试输入项4 |
+
   @dbinput3 @dbinput33
-  Scenario: 验证 RZY-1669
+  Scenario Outline: 验证 RZY-1669
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I click the detail which name is "测试输入项2"
+    And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -277,6 +288,11 @@ Feature: 仪表盘输入项
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
+
+    Examples:
+      | name |
+      | 测试输入项2 |
+      | 测试输入项4 |
 
   @dbinput3 @dbinput34
   Scenario: 删除双引号输入项
@@ -294,7 +310,7 @@ Feature: 仪表盘输入项
   Scenario: 增加标识前后缀RZY-273，RZY-274
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I click the detail which name is "测试输入项3"
+    And I click the detail which name is "测试输入项4"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
     And I click the "AddInput" button
@@ -310,7 +326,7 @@ Feature: 仪表盘输入项
   Scenario: 验证标识前后缀RZY-3798
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I click the detail which name is "测试输入项3"
+    And I click the detail which name is "测试输入项4"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
@@ -331,7 +347,7 @@ Feature: 仪表盘输入项
   Scenario: 修改标识值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I click the detail which name is "测试输入项3"
+    And I click the detail which name is "测试输入项4"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "FilterInput" will be visible
     And I click the "settingIcon" button
@@ -347,7 +363,7 @@ Feature: 仪表盘输入项
   Scenario: 修改为自动搜索(RZY-272)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I click the detail which name is "测试输入项3"
+    And I click the detail which name is "测试输入项4"
     Then I will see the "dashboard.DetailPage" page
     Then I wait for "FilterName" will be visible
     And I click the "FilterName" button
@@ -365,7 +381,7 @@ Feature: 仪表盘输入项
   Scenario: 删除文本输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I click the detail which name is "测试输入项3"
+    And I click the detail which name is "测试输入项4"
     Then I will see the "dashboard.DetailPage" page
     And I click the "FilterName" button
     And I click the "DeleteTag" button
