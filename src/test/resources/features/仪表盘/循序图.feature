@@ -156,27 +156,3 @@ Feature: 仪表盘循序图
     Examples:
       | name   | json                                                                                                                                                                                                                                                                                                                                                                          |
       | 仪表盘循序图 | {"title": "仪表盘循序图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart \| stats count() by hostname,apache.clientip \|limit 5","startTime": "now/d","endTime": "now"},"chart": {"chartType": "sequence","field": "hostname","fromField": "hostname","toField": "hostname","labelField": "apache.clientip","category": "apache.clientip"}} |
-
-  @cleanDashboard
-  Scenario Outline: 删除仪表盘
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    When the data name is "<name>" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    Then I will see the success message "删除仪表盘成功"
-
-    Examples:
-      | name   |
-      | 仪表盘循序图 |
-
-  @cleanDashboard
-  Scenario Outline: 删除仪表盘所建趋势图
-    Given open the "trend.ListPage" page for uri "/trend/"
-    When the data name is "<name>" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    And I will see the success message "删除成功"
-
-    Examples:
-      | name   |
-      | 仪表盘循序图 |

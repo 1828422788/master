@@ -216,4 +216,9 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getResourceTagChangeInput() { return resourceTagChangeInput; }
 
+    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
+    private WebElement searchNameInput;
+
+    public WebElement getSearchNameInput() { return searchNameInput; }
+
 }
