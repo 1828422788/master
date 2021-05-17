@@ -1,30 +1,36 @@
-@dbtrendreport
-
 Feature: 仪表盘输入项
 
   Scenario Outline: 新建仪表盘及tag
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
-    When I set the parameter "DashBoardName" with value "仪表盘<name>"
+    When I set the parameter "DashBoardName" with value "<dashboardname>"
     And I click the "Ensure" button
     Then I will see the success message "新建仪表盘成功"
     And I wait for loading invisible
 
-    When I set the parameter "SearchNameInput" with value "仪表盘<name>"
+    When I set the parameter "SearchNameInput" with value "<dashboardname>"
     And I wait for loading invisible
-    And I click the detail which name is "仪表盘<name>"
+    And I click the detail which name is "<dashboardname>"
     Then I will see the "dashboard.DetailPage" page
-    When I set the parameter "TagName" with value "dbtag<name>"
+    When I set the parameter "TagName" with value "<tagname>"
     And I click the "EnsureCreateTagButton" button
     And I wait for loading complete
 
+    Examples:
+      | dashboardname | tagname    |
+      | alltrend01    | alltrend01 |
+
+  Scenario Outline: trend to dashboard
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试输入项"
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
     And I set the parameter "SearchChartInput" with value "<name>"
     And I wait for loading invisible
-    When I "checked" the checkbox which name equal "<name>"
+    And I "checked" the checkbox which name is "<name>"
     And I click the "Ensure" button
 
     @dbTimechart

@@ -126,6 +126,25 @@ public class Checkbox {
     }
 
     /**
+     * 勾选或取消勾选checkbox（名称可直接点击）
+     *
+     * @param status   想要将复选框置为的状态，checked/unchecked
+     * @param nameList 想要勾选/取消勾选的名称（支持传入list）
+     */
+    @When("^I \"([^\"]*)\" the checkbox which name equal \"([^\"]*)\"$")
+    public void clickCheckboxWithEqualGivenName(String status, List<String> nameList) {
+        for (String name : nameList) {
+            String xpath = "(//span[text()='" + name + "'])[last()]";
+            WebElement label = webDriver.findElement(By.xpath(xpath));
+            WebElement span = label.findElement(By.xpath(".//ancestor::label"));
+            String attribute = span.getAttribute("class");
+            if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
+                label.findElement(By.xpath(".//ancestor::label")).click();
+            }
+        }
+    }
+
+    /**
      * 判断列表页下checkbox的状态
      *
      * @param name      想要判断的名称
