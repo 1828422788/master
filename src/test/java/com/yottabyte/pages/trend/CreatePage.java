@@ -326,7 +326,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[@yotta-test='trend-trend_app-select']/div")
     private WebElement appDropdownIcon;
 
-    @FindBy(xpath = "(//label[text()='今天']/following-sibling::i)[2]")
+    @FindBy(xpath = "(//span[@yotta-test='dashboard-chart_setting-dom'])[last()]")
     private WebElement setting;
 
     @FindBy(xpath = "//div[text()='Y轴 2']")
