@@ -247,20 +247,20 @@ Feature: 仪表盘输入项
 #    And I wait for "3000" millsecond
     Then I compare with list "TableList"
 
-  @dbinput1 @dbinput15
-  Scenario: 删除图表单和输入项
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "测试输入项1"
-    Then I will see the "dashboard.DetailPage" page
-    And I wait for "Delete" will be visible
-    And I click the "Delete" button
-    And I click the "Ensure" button
-    And I click the "FilterTime" button
-    And I click the "DeleteTime" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button under some element
-    Then I wait for "FilterTime" will be invisible
+#  @dbinput1 @dbinput15
+#  Scenario: 删除图表单和输入项
+#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+#    And I wait for loading invisible
+#    And I click the detail which name is "测试输入项1"
+#    Then I will see the "dashboard.DetailPage" page
+#    And I wait for "Delete" will be visible
+#    And I click the "Delete" button
+#    And I click the "Ensure" button
+#    And I click the "FilterTime" button
+#    And I click the "DeleteTime" button
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button under some element
+#    Then I wait for "FilterTime" will be invisible
 
   @dbinput2 @dbinput21
   Scenario Outline: 添加输入项 RZY-1669
@@ -299,17 +299,17 @@ Feature: 仪表盘输入项
       | name |
       | 测试输入项2 |
 
-  @dbinput2 @dbinput23
-  Scenario: 删除双引号输入项
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "测试输入项2"
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "FilterName" button
-    And I click the "DeleteTag" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button under some element
-    Then I wait for "FilterName" will be invisible
+#  @dbinput2 @dbinput23
+#  Scenario: 删除双引号输入项
+#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+#    And I wait for loading invisible
+#    And I click the detail which name is "测试输入项2"
+#    Then I will see the "dashboard.DetailPage" page
+#    And I click the "FilterName" button
+#    And I click the "DeleteTag" button
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button under some element
+#    Then I wait for "FilterName" will be invisible
 
   @dbinput3 @dbinput31
   Scenario: 增加标识前后缀RZY-273，RZY-274
@@ -382,17 +382,17 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I wait for "TabelAppname" will be visible
 
-  @dbinput3 @dbinput35
-  Scenario: 删除文本输入项
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "测试输入项3"
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "FilterName" button
-    And I click the "DeleteTag" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button under some element
-    Then I wait for "FilterName" will be invisible
+#  @dbinput3 @dbinput35
+#  Scenario: 删除文本输入项
+#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+#    And I wait for loading invisible
+#    And I click the detail which name is "测试输入项3"
+#    Then I will see the "dashboard.DetailPage" page
+#    And I click the "FilterName" button
+#    And I click the "DeleteTag" button
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button under some element
+#    Then I wait for "FilterName" will be invisible
 
   @dbinput4 @dbinput41
   Scenario: 修改图表搜索语句
@@ -647,15 +647,15 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
-  @dbinput5 @dbinput54
-  Scenario: 删除下拉菜单输入项
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "测试输入项5"
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "FilterName" button
-    And I click the "DeleteTag" button
-    And I click the "Ensure" button under some element
+#  @dbinput5 @dbinput54
+#  Scenario: 删除下拉菜单输入项
+#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+#    And I wait for loading invisible
+#    And I click the detail which name is "测试输入项5"
+#    Then I will see the "dashboard.DetailPage" page
+#    And I click the "FilterName" button
+#    And I click the "DeleteTag" button
+#    And I click the "Ensure" button under some element
 
   @dbinput6 @dbinput61
   Scenario: 验证下拉菜单默认输入项 RZY-280
@@ -800,16 +800,16 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
-  @dbinput6 @dbinput67
-  Scenario: 增加动态菜单多选及标识值前后缀 RZY-288，RZY-3432
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "测试输入项6"
-    Then I will see the "dashboard.DetailPage" page
-    And I move the mouse pointer to the "FilterName"
-    And I click the "FilterName" button
-    And I click the "DeleteTag" button
-    And I click the "Ensure" button under some element
+#  @dbinput6 @dbinput67
+#  Scenario: 增加动态菜单多选及标识值前后缀 RZY-288，RZY-3432
+#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+#    And I wait for loading invisible
+#    And I click the detail which name is "测试输入项6"
+#    Then I will see the "dashboard.DetailPage" page
+#    And I move the mouse pointer to the "FilterName"
+#    And I click the "FilterName" button
+#    And I click the "DeleteTag" button
+#    And I click the "Ensure" button under some element
 
   @dbinput7 @dbinput71
   Scenario: 增加动态菜单多选及标识值前后缀 RZY-288，RZY-3432
