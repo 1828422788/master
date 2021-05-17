@@ -1,8 +1,8 @@
 @dbtrendreport
 
-Feature: 仪表盘输入项
+Feature:批量导入趋势图
 
-  Scenario Outline: 新建仪表盘及tag
+  Scenario Outline: 新建仪表盘及tag，导入趋势图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "仪表盘<name>"
