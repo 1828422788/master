@@ -954,11 +954,10 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getMailReceiverList() {
-//        mailReceiverList.click();
-//        return super.getLastDropdownList();
-//            String xpath = "//label[contains(text(),'接收者')]/following::div[@yotta-test='alert-alert_methods_email_account_group-select']";
-        String xpath = "//label[contains(text(),'接收者')]/following::div[@yotta-test='alert-alert_methods_email_account_group-select']//span[@aria-label='PlusDownOutlined']";
-            return getDropdownListbyPath(xpath);
+//      String xpath = "//label[contains(text(),'接收者')]/following::div[@yotta-test='alert-alert_methods_email_account_group-select']";
+//        String xpath = "//label[contains(text(),'接收者')]/following::div[@yotta-test='alert-alert_methods_email_account_group-select']//span[@aria-label='PlusDownOutlined']";
+        String xpath = "//label[contains(text(),'接收者')]/following::div[@yotta-test='alert-alert_methods_email_account_group-select']/div";
+        return getDropdownListbyPath(xpath);
     }
 
 //    @FindBy(xpath = "//label[contains(text(),'接收者')]/following::label[contains(text(),'发送条件')]/following::div[@yotta-test='alert-alert_methods_levels-select']//span[@aria-label='PlusDownOutlined']")
@@ -1023,6 +1022,13 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getTestRunButton() {
         return testRunButton;
+    }
+
+    @FindBy(xpath = "//span[text()='邮件告警']/following::span[text()='测试运行']/parent::button[@yotta-test='alert-alert_methods_attempt_run-button']")
+    private WebElement mailTestRunButton;
+
+    public WebElement getMailTestRunButton() {
+        return mailTestRunButton;
     }
 
     //测试运行窗口提示
