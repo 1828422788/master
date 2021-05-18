@@ -987,6 +987,13 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='仪表盘表格样式']/parent::div")
     private WebElement chartStyleTable;
 
+    @FindBy(xpath = "(//span[contains(@yotta-test,'setting')]//ancestor::div[contains(@class,'config')]/following-sibling::div[contains(@class,'action')]//span[contains(@yotta-test,'refresh')])[last()]")
+    private WebElement refreshChart;
+
+    public WebElement getRefreshChart() {
+        return refreshChart;
+    }
+
     public WebElement getAutotestCopy() {
         return autotestCopy;
     }

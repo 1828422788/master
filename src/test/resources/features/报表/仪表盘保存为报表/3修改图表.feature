@@ -1,5 +1,5 @@
 @saveDashboardAsReport @dashboardChartSettings
-Feature:趋势图添加到仪表盘保存为报表
+Feature:修改图表
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -39,7 +39,12 @@ Feature:趋势图添加到仪表盘保存为报表
     And I click the "Example" button
     And I click the "<legendPosition>" button
     Then I click the "Generate" button
+
+    Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
+    And I move the mouse pointer to the "RefreshChart"
+    And I click the "RefreshChart" button
+    And I wait for "4000" millsecond
 
   Examples:
     | name     | folder  |  tag         | chart            | label          | order          | unit   |  button        | pile | min  | max   | legendPosition   |
@@ -79,7 +84,12 @@ Feature:趋势图添加到仪表盘保存为报表
     And I click the "Example" button
     And I click the "<legendPosition>" button
     Then I click the "Generate" button
+
+    Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
+    And I move the mouse pointer to the "RefreshChart"
+    And I click the "RefreshChart" button
+    And I wait for "4000" millsecond
 
     Examples:
       | name     | folder  |  tag         | chart            | label          |unit  |legendPosition  |
@@ -110,7 +120,12 @@ Feature:趋势图添加到仪表盘保存为报表
     And I click the "<color>" button
     And I choose the "<typeInfo>" from the "ShowLabel"
     Then I click the "Generate" button
+
+    Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
+    And I move the mouse pointer to the "RefreshChart"
+    And I click the "RefreshChart" button
+    And I wait for "4000" millsecond
 
     Examples:
       | name     | folder    |  tag         | chart |  typeInfo     |   color   |
@@ -145,7 +160,12 @@ Feature:趋势图添加到仪表盘保存为报表
     And I choose the "<typeInfo>" from the "ShowLabel"
     And I choose the "<option>" from the "LabelLocation"
     Then I click the "Generate" button
+
+    Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
+    And I move the mouse pointer to the "RefreshChart"
+    And I click the "RefreshChart" button
+    And I wait for "4000" millsecond
 
     Examples:
       | name     | folder    |  tag         | chart |  typeInfo     | option         |   color   |
@@ -178,7 +198,12 @@ Feature:趋势图添加到仪表盘保存为报表
     And I set the parameter "<field>" with value "<repulsion>"
     And I click the "<multistage>" button
     Then I click the "Generate" button
+
+    Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
+    And I move the mouse pointer to the "RefreshChart"
+    And I click the "RefreshChart" button
+    And I wait for "4000" millsecond
 
     Examples:
       | name     | folder    |  tag         | chart        |   color   | repulsion | multistage  | field  |
@@ -216,7 +241,12 @@ Feature:趋势图添加到仪表盘保存为报表
     And I choose the "<upperValue>" from the "TopLimit" in config
     And I choose the "<lowerValue>" from the "LowerLimit" in config
     Then I click the "Generate" button
+
+    Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
+    And I move the mouse pointer to the "RefreshChart"
+    And I click the "RefreshChart" button
+    And I wait for "4000" millsecond
 
     Examples:
       | name     | folder    |  tag         | chart        | xValue | actualValue|  predictedValue| upperValue | lowerValue |
@@ -278,7 +308,12 @@ Feature:趋势图添加到仪表盘保存为报表
     And I click the "AddColor" button
     And I click the "Red" button
     Then I click the "Generate" button
-    And I wait for "10000" millsecond
+
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "2000" millsecond
+    And I move the mouse pointer to the "RefreshChart"
+    And I click the "RefreshChart" button
+    And I wait for "4000" millsecond
 
     Examples:
       | name     | folder    |  tag         | chart        |
@@ -345,7 +380,12 @@ Feature:趋势图添加到仪表盘保存为报表
     And I click the "AddColor" button
     And I click the "Orange" button
     Then I click the "Generate" button
-    And I wait for "10000" millsecond
+
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "2000" millsecond
+    And I move the mouse pointer to the "RefreshChart"
+    And I click the "RefreshChart" button
+    And I wait for "4000" millsecond
 
     Examples:
       | name     | folder    |  tag         | chart        |
@@ -369,7 +409,12 @@ Feature:趋势图添加到仪表盘保存为报表
     And I click the "<folder>" button
     And I click the "<tag>" button
     And I hide the element "Content"
+
+    Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
+    And I move the mouse pointer to the "RefreshChart"
+    And I click the "RefreshChart" button
+    And I wait for "4000" millsecond
 
     Examples:
       | name     | folder    |  tag         | chart           |
@@ -403,7 +448,12 @@ Feature:趋势图添加到仪表盘保存为报表
     And I click the "Region" button
     And I click the "Select<region>" button
     And I click the "Generate" button
+
+    Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
+    And I move the mouse pointer to the "RefreshChart"
+    And I click the "RefreshChart" button
+    And I wait for "4000" millsecond
 
     Examples:
       | name     | folder    |  tag         | chart            | region   |
@@ -443,7 +493,12 @@ Feature:趋势图添加到仪表盘保存为报表
     And I click the "Region" button
     And I click the "Select<region>" button
     And I click the "Generate" button
+
+    Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
+    And I move the mouse pointer to the "RefreshChart"
+    And I click the "RefreshChart" button
+    And I wait for "4000" millsecond
 
     Examples:
       | name     | folder    |  tag         | chart            | region   |
@@ -477,7 +532,12 @@ Feature:趋势图添加到仪表盘保存为报表
     And I click the "Generate" button
     And I wait for "2000" millsecond
     And I refresh the website
-    And I wait for "10000" millsecond
+
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "2000" millsecond
+    And I move the mouse pointer to the "RefreshChart"
+    And I click the "RefreshChart" button
+    And I wait for "4000" millsecond
 
     Examples:
       | name     | folder    |  tag         | chart     | value     | field        | color     |
