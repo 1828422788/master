@@ -526,7 +526,7 @@ Feature:3修改图表
     And I click the "<tag>" button
     And I wait for "500" millsecond
     And I click the "Setting" button
-    And I set the parameter "NumericField" with value "cnt"
+    And I choose the "cnt" from the "NumericField"
     And I click the "Icon" button
     And I click the "AccordingField" button
     And I choose the "icon" from the "FieldValue"
@@ -541,8 +541,8 @@ Feature:3修改图表
     And I wait for "2000" millsecond
 
     Examples:
-      | name | folder |  tag   | chart       | color | tab              | dropdown   | dd_value |
-      | 其他 | Other  | Single | Single_icon | Red   | AccordingField   | FieldValue | icon     |
+      | name | folder |  tag   | chart       | color |
+      | 其他 | Other  | Single | Single_icon | Red   |
 
   Scenario Outline: 修改图表_其他_single_font
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
@@ -564,7 +564,7 @@ Feature:3修改图表
     And I hide the element "Content"
     And I wait for "500" millsecond
     And I click the "Setting" button
-    And I set the parameter "NumericField" with value "cnt"
+    And I choose the "cnt" from the "NumericField"
     And I click the "Icon" button
     And I click the "AccordingName" button
     And I set the parameter "IconName" with value "font-awesome-flag"
@@ -602,7 +602,7 @@ Feature:3修改图表
     And I hide the element "Content"
     And I wait for "500" millsecond
     And I click the "Setting" button
-    And I set the parameter "NumericField" with value "cnt"
+    And I choose the "cnt" from the "NumericField"
     And I click the "Exhibition" button
     And I click the "AccordingArea" button
     And I click the "AddRange" button
