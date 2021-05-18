@@ -1,5 +1,5 @@
 @saveDashboardAsReport @dashboardChartSettings
-Feature:趋势图添加到仪表盘保存为报表
+Feature:3修改图表
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -39,8 +39,9 @@ Feature:趋势图添加到仪表盘保存为报表
     And I click the "Example" button
     And I click the "<legendPosition>" button
     Then I click the "Generate" button
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
     And I wait for "2000" millsecond
-
   Examples:
     | name     | folder  |  tag         | chart            | label          | order          | unit   |  button        | pile | min  | max   | legendPosition   |
     | 序列     | Order   | LineChart    | LineChart        | FirstLabel     |                |   个   |  Smooth        |      |  1   |   25  | FirstPosition    |
@@ -79,6 +80,8 @@ Feature:趋势图添加到仪表盘保存为报表
     And I click the "Example" button
     And I click the "<legendPosition>" button
     Then I click the "Generate" button
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
     And I wait for "2000" millsecond
 
     Examples:
@@ -110,6 +113,8 @@ Feature:趋势图添加到仪表盘保存为报表
     And I click the "<color>" button
     And I choose the "<typeInfo>" from the "ShowLabel"
     Then I click the "Generate" button
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
     And I wait for "2000" millsecond
 
     Examples:
@@ -145,6 +150,8 @@ Feature:趋势图添加到仪表盘保存为报表
     And I choose the "<typeInfo>" from the "ShowLabel"
     And I choose the "<option>" from the "LabelLocation"
     Then I click the "Generate" button
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
     And I wait for "2000" millsecond
 
     Examples:
@@ -178,6 +185,8 @@ Feature:趋势图添加到仪表盘保存为报表
     And I set the parameter "<field>" with value "<repulsion>"
     And I click the "<multistage>" button
     Then I click the "Generate" button
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
     And I wait for "2000" millsecond
 
     Examples:
@@ -216,6 +225,8 @@ Feature:趋势图添加到仪表盘保存为报表
     And I choose the "<upperValue>" from the "TopLimit" in config
     And I choose the "<lowerValue>" from the "LowerLimit" in config
     Then I click the "Generate" button
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
     And I wait for "2000" millsecond
 
     Examples:
@@ -278,7 +289,9 @@ Feature:趋势图添加到仪表盘保存为报表
     And I click the "AddColor" button
     And I click the "Red" button
     Then I click the "Generate" button
-    And I wait for "10000" millsecond
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
+    And I wait for "2000" millsecond
 
     Examples:
       | name     | folder    |  tag         | chart        |
@@ -345,7 +358,9 @@ Feature:趋势图添加到仪表盘保存为报表
     And I click the "AddColor" button
     And I click the "Orange" button
     Then I click the "Generate" button
-    And I wait for "10000" millsecond
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
+    And I wait for "2000" millsecond
 
     Examples:
       | name     | folder    |  tag         | chart        |
@@ -368,7 +383,8 @@ Feature:趋势图添加到仪表盘保存为报表
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
-    And I hide the element "Content"
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
     And I wait for "2000" millsecond
 
     Examples:
@@ -403,6 +419,8 @@ Feature:趋势图添加到仪表盘保存为报表
     And I click the "Region" button
     And I click the "Select<region>" button
     And I click the "Generate" button
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
     And I wait for "2000" millsecond
 
     Examples:
@@ -443,12 +461,14 @@ Feature:趋势图添加到仪表盘保存为报表
     And I click the "Region" button
     And I click the "Select<region>" button
     And I click the "Generate" button
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
     And I wait for "2000" millsecond
 
     Examples:
       | name     | folder    |  tag         | chart            | region   |
-      | 地图     | Map       | Attackmap    | Attackmap_China  | World    |
-      | 地图     | Map       | Attackmap    | Attackmap_World  | China    |
+      | 地图     | Map       | Attackmap    | Attackmap_China  | China    |
+      | 地图     | Map       | Attackmap    | Attackmap_World  | World    |
 
   Scenario Outline: 修改图表_其他
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
@@ -473,12 +493,12 @@ Feature:趋势图添加到仪表盘保存为报表
     And I choose the "<value>" from the "<field>"
     And I click the "Exhibition" button
     And I click the "AddColor" button
-    And I click the "Green" button
+    And I click the "<color>" button
     And I click the "Generate" button
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
     And I wait for "2000" millsecond
-    And I refresh the website
-    And I wait for "10000" millsecond
-
+    
     Examples:
       | name     | folder    |  tag         | chart     | value     | field        | color     |
       | 其他     | Other     | Single       | Single    | cnt       | NumericField | Green     |
@@ -487,3 +507,197 @@ Feature:趋势图添加到仪表盘保存为报表
       | 其他     | Other     | Funnel       | Funnel    | count()   | FieldValue   | LightGreen|
 
 
+  Scenario Outline: 修改图表_其他_single_icon
+    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I wait for "2000" millsecond
+    When I click the detail which name is "仪表盘_<name>"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "TagIcon" will be visible
+    And I click the "TagIcon" button
+    And I wait for "500" millsecond
+    And I set the parameter "SearchTagInput" with value "<tag>"
+    And I wait for "500" millsecond
+    And I click the Element with text "<tag>"
+    And I wait for "2000" millsecond
+    And I click the "LastChartType" button under some element
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<folder>" will be visible
+    And I click the "<folder>" button
+    And I click the "<tag>" button
+    And I wait for "500" millsecond
+    And I click the "Setting" button
+    And I set the parameter "NumericField" with value "cnt"
+    And I click the "Icon" button
+    And I click the "AccordingField" button
+    And I choose the "icon" from the "FieldValue"
+    And I click the "Exhibition" button
+    And I set the parameter "FontSize" with value "100"
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "<color>" button
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
+    And I wait for "2000" millsecond
+
+    Examples:
+      | name | folder |  tag   | chart       | color | tab              | dropdown   | dd_value |
+      | 其他 | Other  | Single | Single_icon | Red   | AccordingField   | FieldValue | icon     |
+
+  Scenario Outline: 修改图表_其他_single_font
+    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I wait for "2000" millsecond
+    When I click the detail which name is "仪表盘_<name>"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "TagIcon" will be visible
+    And I click the "TagIcon" button
+    And I wait for "500" millsecond
+    And I set the parameter "SearchTagInput" with value "<tag>"
+    And I wait for "500" millsecond
+    And I click the Element with text "<tag>"
+    And I wait for "2000" millsecond
+    And I click the "LastChartType" button under some element
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<folder>" will be visible
+    And I click the "<folder>" button
+    And I click the "<tag>" button
+    And I hide the element "Content"
+    And I wait for "500" millsecond
+    And I click the "Setting" button
+    And I set the parameter "NumericField" with value "cnt"
+    And I click the "Icon" button
+    And I click the "AccordingName" button
+    And I set the parameter "IconName" with value "font-awesome-flag"
+    And I click the "Exhibition" button
+    And I set the parameter "FontSize" with value "100"
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "<color>" button
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
+    And I wait for "2000" millsecond
+
+    Examples:
+      | name | folder |  tag   | chart       | color |
+      | 其他 | Other  | Single | Single_font | Orange|
+
+  Scenario Outline: 修改图表_其他_single_backgr
+    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I wait for "2000" millsecond
+    When I click the detail which name is "仪表盘_<name>"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "TagIcon" will be visible
+    And I click the "TagIcon" button
+    And I wait for "500" millsecond
+    And I set the parameter "SearchTagInput" with value "<tag>"
+    And I wait for "500" millsecond
+    And I click the Element with text "<tag>"
+    And I wait for "2000" millsecond
+    And I click the "LastChartType" button under some element
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<folder>" will be visible
+    And I click the "<folder>" button
+    And I click the "<tag>" button
+    And I hide the element "Content"
+    And I wait for "500" millsecond
+    And I click the "Setting" button
+    And I set the parameter "NumericField" with value "cnt"
+    And I click the "Exhibition" button
+    And I click the "AccordingArea" button
+    And I click the "AddRange" button
+    And I set the parameter "MinRange" with value "1"
+    And I set the parameter "MaxRange" with value "100"
+    And I click the "AddColor" button
+    And I click the "Yellow" button
+    And I click the "AddRange" button
+    And I set the parameter "MinRange" with value "100"
+    And I set the parameter "MaxRange" with value "200"
+    And I click the "AddColor" button
+    And I click the "Orange" button
+    And I wait for "1000" millsecond
+    And I click the "Background" button
+    And I wait for "1000" millsecond
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
+    And I wait for "2000" millsecond
+
+    Examples:
+      | name | folder |  tag   | chart               |
+      | 其他 | Other  | Single | Single_range_backgr |
+
+  Scenario Outline: 修改图表_其他_radar
+    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I wait for "2000" millsecond
+    When I click the detail which name is "仪表盘_<name>"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "TagIcon" will be visible
+    And I click the "TagIcon" button
+    And I wait for "500" millsecond
+    And I set the parameter "SearchTagInput" with value "<tag>"
+    And I wait for "500" millsecond
+    And I click the Element with text "<tag>"
+    And I wait for "2000" millsecond
+    And I click the "LastChartType" button under some element
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<folder>" will be visible
+    And I click the "<folder>" button
+    And I click the "<tag>" button
+    And I hide the element "Content"
+    And I wait for "500" millsecond
+    And I click the "Setting" button
+    And I click the "Divide" button
+    And I click the "DeleteLast" button
+    And I choose the "apache.geo.city" from the "FieldValue" in config
+    And I click the "Indicator" button
+    And I choose the "apache.geo.city" from the "FieldValue" in config
+    And I wait for "1500" millsecond
+    And I click the "UnifyMetric" button
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "DarkBlue" button
+    And I wait for "1000" millsecond
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
+    And I wait for "2000" millsecond
+
+    Examples:
+      | name | folder |  tag   | chart |
+      | 其他 | Other  | Radar  | Radar |
+
+  Scenario Outline: 修改图表_其他_matrixheatmap
+    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I wait for "2000" millsecond
+    When I click the detail which name is "仪表盘_<name>"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "TagIcon" will be visible
+    And I click the "TagIcon" button
+    And I wait for "500" millsecond
+    And I set the parameter "SearchTagInput" with value "<tag>"
+    And I wait for "500" millsecond
+    And I click the Element with text "<tag>"
+    And I wait for "2000" millsecond
+    And I click the "LastChartType" button under some element
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<folder>" will be visible
+    And I click the "<folder>" button
+    And I click the "<tag>" button
+    And I hide the element "Content"
+    And I wait for "500" millsecond
+    And I click the "Setting" button
+    And I click the "Xaxis" button
+    And I choose the "count()" from the "FieldValue" in config
+    And I click the "Yaxis" button
+    And I choose the "apache.status" from the "FieldValue" in config
+    And I set the parameter "Segments" with value "10"
+    And I wait for "1000" millsecond
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
+    And I wait for "2000" millsecond
+
+    Examples:
+      | name | folder |  tag         | chart         |
+      | 其他 | Other  | Matrixheatmap| Matrixheatmap |

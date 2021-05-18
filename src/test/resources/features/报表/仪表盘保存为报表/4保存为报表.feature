@@ -1,5 +1,5 @@
 @saveDashboardAsReport
-Feature:趋势图添加到仪表盘保存为报表
+Feature:4保存为报表
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
