@@ -1,5 +1,5 @@
 @saveDashboardAsReport @createDashboards_report
-Feature:创建仪表盘
+Feature:1创建仪表盘
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

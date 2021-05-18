@@ -1,5 +1,5 @@
 @saveDashboardAsReport  @addTablesToDashboard
-Feature:添加表格
+Feature:2添加表格
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
