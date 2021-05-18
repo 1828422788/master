@@ -2,7 +2,6 @@
 Feature: 测试运行-邮件
 
   @testrun0 @bvtalert0
-
   Scenario Outline:  Scenario Outline:
     Given I wait for loading complete
     Given open the "alert.ListPage" page for uri "/alerts/"

@@ -1024,13 +1024,6 @@ public class CreatePage extends PageTemplate {
         return testRunButton;
     }
 
-    @FindBy(xpath = "//span[text()='邮件告警']/following::span[text()='测试运行']/parent::button[@yotta-test='alert-alert_methods_attempt_run-button']")
-    private WebElement mailTestRunButton;
-
-    public WebElement getMailTestRunButton() {
-        return mailTestRunButton;
-    }
-
     //测试运行窗口提示
 //    @FindBy(xpath = "//div[@class='ant-modal-header']/div[@id='rcDialogTitle0'][@class='ant-modal-title'][contains(text(),'提示')]")
     @FindBy(xpath = "//div[@yotta-test='dialog-container-modal']//h4[contains(text(),'提示')]")
@@ -1103,5 +1096,20 @@ public class CreatePage extends PageTemplate {
     public WebElement getResolveConfirmButton() {
         return resolveConfirmButton;
     }
+
+    @FindBy(xpath = "//span[text()='邮件告警']/following::span[text()='测试运行']/parent::button[@yotta-test='alert-alert_methods_attempt_run-button']")
+    private WebElement mailTestRunButton;
+
+    public WebElement getMailTestRunButton() {
+        return mailTestRunButton;
+    }
+
+    @FindBy(xpath = "//span[text()='邮件告警']/following::button[@yotta-test='alert-alert_methods_preview-button']")
+    private WebElement mailPreviewButton;
+
+    public WebElement getMailPreviewButton() {
+        return mailPreviewButton;
+    }
+
 
 }
