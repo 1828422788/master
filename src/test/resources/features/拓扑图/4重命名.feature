@@ -3,6 +3,7 @@ Feature: 拓扑图重命名（RZY-352）
 
   Background:
     Given open the "topology.ListPage" page for uri "/topology/"
+    And I wait for loading invisible
 
   Scenario Outline:
     Given the data name is "拓扑图无标签" then i click the "重命名" button in more menu

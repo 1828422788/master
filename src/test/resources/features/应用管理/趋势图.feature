@@ -89,10 +89,12 @@ Feature: 应用趋势图
     And I wait for "500" millsecond
     And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for "500" millsecond
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     And I wait for loading invisible
     And I wait for "Header" will be visible
+    And I wait for "500" millsecond
     And I click the "NextButton" button
     And I wait for "1500" millsecond
     When I set the parameter "NameInput" with value "<name>"
@@ -101,6 +103,7 @@ Feature: 应用趋势图
     And I wait for "500" millsecond
     And I click the "Complete" button
     And I wait for "SuccessCreate" will be visible
+    And I wait for "500" millsecond
     And I click the "Report" button
     And switch to another window
     And I close all tabs except main tab
