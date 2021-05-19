@@ -22,7 +22,7 @@ Feature:监控预览样列
 #    And I wait for "2000" millsecond
 #    And I click the "mailReceiverLabel" button
 #    Given I wait for loading complete
-#
+
 #    And I wait for "MailAlertContentPanel" will be visible
 #    And I select all text in "MailAlertContentPanel" alert element
 #    Given I wait for loading complete

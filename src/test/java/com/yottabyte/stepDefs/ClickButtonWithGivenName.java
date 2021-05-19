@@ -34,11 +34,10 @@ public class ClickButtonWithGivenName {
      */
     @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
     public void clickButtonWithGivenName(String dataName, String buttonName) {
-        try{
+        try {
             WebElement tr = listPageUtils.getRow(dataName);
             this.click(buttonName, tr);
-        }
-        catch (org.openqa.selenium.StaleElementReferenceException exception){
+        } catch (org.openqa.selenium.StaleElementReferenceException exception) {
             try {
                 WebElement tr = listPageUtils.getRow(dataName);
                 this.click(buttonName, tr);
@@ -58,7 +57,7 @@ public class ClickButtonWithGivenName {
      */
     @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button in more menu$")
     public void clickButtonInMoreMenuWithGivenName(String dataName, String buttonName) {
-        try{
+        try {
             WebElement tr = listPageUtils.getRow(dataName);
             WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='operation-more-button']"));
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
@@ -75,8 +74,7 @@ public class ClickButtonWithGivenName {
             }
 
 
-        }
-        catch (org.openqa.selenium.StaleElementReferenceException exception){
+        } catch (org.openqa.selenium.StaleElementReferenceException exception) {
             WebElement tr = listPageUtils.getRow(dataName);
             WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='operation-more-button']"));
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
@@ -227,14 +225,13 @@ public class ClickButtonWithGivenName {
     private void click(String buttonName, WebElement tr) {
         String xpath;
         if (webDriver.getCurrentUrl().contains("/app/list/") || webDriver.getCurrentUrl().contains("/app/siem/assets/")) {
-           // xpath = ".//span[contains(text(),'" + buttonName + "')][not(@class)]";
+            // xpath = ".//span[contains(text(),'" + buttonName + "')][not(@class)]";
             xpath = ".//span[text()='" + buttonName + "']";
         } else if ("详情".equals(buttonName)) {
             xpath = ".//span[contains(text(),'" + buttonName + "')]";
-        }else if (webDriver.getCurrentUrl().contains("/sources/input/agent/") || webDriver.getCurrentUrl().contains("/agent/groupcollect/") || (webDriver.getCurrentUrl().contains("/reports/") && !("编辑".equals(buttonName)))) {
+        } else if (webDriver.getCurrentUrl().contains("/sources/input/agent/") || webDriver.getCurrentUrl().contains("/agent/groupcollect/") || (webDriver.getCurrentUrl().contains("/reports/") && !("编辑".equals(buttonName)))) {
             xpath = ".//a[text()='" + buttonName + "']";
-        }
-        else {
+        } else {
             xpath = ".//span[text()='" + buttonName + "']";
 //            xpath = ".//a[text()='" + buttonName + "']";
         }
@@ -263,13 +260,13 @@ public class ClickButtonWithGivenName {
 
         if (webDriver.getCurrentUrl().contains("/sources/input/agent/")) {
             xpath = "(.//span[contains(text(),'" + name + "')])[2]";
-        } else if (webDriver.getCurrentUrl().contains("/dashboard/")){
+        } else if (webDriver.getCurrentUrl().contains("/dashboard/")) {
             xpath = ".//span[contains(text(),'" + name + "')]";
-        } else if(webDriver.getCurrentUrl().contains("/topology/")){
+        } else if (webDriver.getCurrentUrl().contains("/topology/")) {
             xpath = ".//a[contains(text(),'" + name + "')]";
-        } else if(webDriver.getCurrentUrl().contains("/knowledge/")){
+        } else if (webDriver.getCurrentUrl().contains("/knowledge/")) {
             xpath = ".//a[contains(text(),'" + name + "')]";
-        }else {
+        } else {
             xpath = ".//span";
         }
         tr.findElement(By.xpath(xpath)).click();
@@ -456,7 +453,7 @@ public class ClickButtonWithGivenName {
         WebElement tr = listPageUtils.getRow(name);
         WebElement element = tr.findElement(By.xpath(".//span[contains(@class,'expansion')]//span[@role='img']"));
         String current_label = element.getAttribute("aria-label");
-        String status = current_label.equals("AddOutlined")? "close" : "expand" ;
+        String status = current_label.equals("AddOutlined") ? "close" : "expand";
         if (!action.equals(status)) {
             ClickEvent.clickUnderneathButton(element);
         }
@@ -478,7 +475,6 @@ public class ClickButtonWithGivenName {
 //            label.click();
 //        }
 //    }
-
 
     @Given("^the data name in agent beats table \"([^\"]*)\" then i click the \"([^\"]*)\" switch")
     public void BeatsoperateSwitch(String tableName, String status) {
