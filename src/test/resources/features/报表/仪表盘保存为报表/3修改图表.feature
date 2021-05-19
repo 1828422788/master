@@ -132,7 +132,7 @@ Feature:3修改图表
     Examples:
       | name     | folder    |  tag         | chart |  typeInfo     |   color   |
       | 维度     | Dimension | Pie          | Pie   |  只展示名称   |   Red     |
-      | 维度     | Dimension | Rose         | Rose  |  展示全部     |   Green   |
+      | 维度     | Dimension | Rose         | Rose  |  全部展示     |   Green   |
       | 维度     | Dimension | Bar          | Bar   |  不展示       |   Yellow  |
       | 维度     | Dimension | Sun          | Sun   |               | DarkBlue  |
 
@@ -171,7 +171,7 @@ Feature:3修改图表
     Examples:
       | name     | folder    |  tag         | chart |  typeInfo     | option         |   color   |
       | 维度     | Dimension | Bar          | Bar   |  只展示名称   |  柱状外右侧    |   Red     |
-      | 维度     | Dimension | Bar          | Bar   |  展示全部     |  柱状内靠左侧  |   Green   |
+      | 维度     | Dimension | Bar          | Bar   |  全部展示     |  柱状内靠左侧  |   Green   |
 
   Scenario Outline: 修改图表_关系
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
