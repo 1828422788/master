@@ -408,7 +408,8 @@ Feature:3修改图表
     And I click the "Value" button
     And I choose the "count()" from the "FieldValue" in config
     And I click the "Divide" button
-    And I choose the "apache.geo.province" from the "FieldValue" in config
+    And I click the "DeleteLast" button
+    And I choose the "<field>" from the "FieldValue" in config
     And I click the "Region" button
     And I click the "Select<region>" button
     And I wait for "1000" millsecond
@@ -418,9 +419,9 @@ Feature:3修改图表
     And I wait for "2000" millsecond
 
     Examples:
-      | name     | folder    |  tag         | chart            | region   |
-      | 地图     | Map       | Regionmap    | Regionmap_Jiangsu| Jiangsu  |
-      | 地图     | Map       | Regionmap    | Regionmap_China  | China    |
+      | name     | folder    |  tag         | chart            | region   | field               |
+      | 地图     | Map       | Regionmap    | Regionmap_Jiangsu| Jiangsu  | apache.geo.city     |
+      | 地图     | Map       | Regionmap    | Regionmap_China  | China    | apache.geo.province |
 
   Scenario Outline: 修改图表_地图
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
