@@ -27,17 +27,23 @@ Feature:3修改图表
     And I click the "Setting" button under some element
     And I click the "<label>" button
     And I click the "<order>" button
+    And I wait for "1000" millsecond
     And I click the "Yaxis" button
     And I set the parameter "unit" with value "<unit>"
+    And I wait for "1000" millsecond
     And I click the "<button>" button
+    And I wait for "1000" millsecond
     And I set the parameter "Min" with value "<min>"
     And I set the parameter "Max" with value "<max>"
 
     And I click the "Group" button
+    And I wait for "1000" millsecond
     And I click the "<pile>" button
+    And I wait for "1000" millsecond
 
     And I click the "Example" button
     And I click the "<legendPosition>" button
+    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
     And I click the "Setting" button
@@ -70,15 +76,19 @@ Feature:3修改图表
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
     And I click the "<label>" button
+    And I wait for "1000" millsecond
     And I click the "Yaxis" button
     And I set the parameter "unit" with value "<unit>"
+    And I wait for "1000" millsecond
 
     And I click the "Bubble" button
     And I click the "AccordingField" button
     And I choose the "count()" from the "BubbleSize"
+    And I wait for "1000" millsecond
 
     And I click the "Example" button
     And I click the "<legendPosition>" button
+    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
     And I click the "Setting" button
@@ -111,7 +121,9 @@ Feature:3修改图表
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I choose the "<typeInfo>" from the "ShowLabel"
+    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
     And I click the "Setting" button
@@ -147,8 +159,10 @@ Feature:3修改图表
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I choose the "<typeInfo>" from the "ShowLabel"
     And I choose the "<option>" from the "LabelLocation"
+    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
     And I click the "Setting" button
@@ -182,8 +196,10 @@ Feature:3修改图表
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I set the parameter "<field>" with value "<repulsion>"
     And I click the "<multistage>" button
+    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
     And I click the "Setting" button
@@ -224,6 +240,7 @@ Feature:3修改图表
     And I choose the "<upperValue>" from the "Outlier" in config
     And I choose the "<upperValue>" from the "TopLimit" in config
     And I choose the "<lowerValue>" from the "LowerLimit" in config
+    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
     And I click the "Setting" button
@@ -288,6 +305,7 @@ Feature:3修改图表
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Red" button
+    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
     And I click the "Setting" button
@@ -357,6 +375,7 @@ Feature:3修改图表
     And I choose the "散点图" from the "TypeChartField" in config
     And I click the "AddColor" button
     And I click the "Orange" button
+    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
     And I click the "Setting" button
@@ -365,32 +384,6 @@ Feature:3修改图表
     Examples:
       | name     | folder    |  tag         | chart        |
       | 复合     | Compound  | Multiaxis    | Multiaxis_2  |
-
-  Scenario Outline: 修改图表_地图
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘_<name>"
-    Then I will see the "dashboard.DetailPage" page
-    And I wait for "TagIcon" will be visible
-    And I click the "TagIcon" button
-    And I wait for "500" millsecond
-    And I set the parameter "SearchTagInput" with value "<tag>"
-    And I wait for "500" millsecond
-    And I click the Element with text "<tag>"
-    And I wait for "2000" millsecond
-    And I click the "LastChartType" button under some element
-    Then I will see the "trend.CreatePage" page
-    And I wait for "<folder>" will be visible
-    And I click the "<folder>" button
-    And I click the "<tag>" button
-    And I wait for "1000" millsecond
-    And I click the "Setting" button
-    And I wait for "2000" millsecond
-
-    Examples:
-      | name     | folder    |  tag         | chart           |
-      | 地图     | Map       | Regionmap    | Regionmap_World |
-      | 地图     | Map       | Heatmap      | Heatmap         |
 
   Scenario Outline: 修改图表_区划地图
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
@@ -418,6 +411,7 @@ Feature:3修改图表
     And I choose the "apache.geo.province" from the "FieldValue" in config
     And I click the "Region" button
     And I click the "Select<region>" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
     And I wait for "1000" millsecond
     And I click the "Setting" button
@@ -425,8 +419,34 @@ Feature:3修改图表
 
     Examples:
       | name     | folder    |  tag         | chart            | region   |
-      | 地图     | Map       | Regionmap    | Regionmap_China  | China    |
       | 地图     | Map       | Regionmap    | Regionmap_Jiangsu| Jiangsu  |
+      | 地图     | Map       | Regionmap    | Regionmap_China  | China    |
+
+  Scenario Outline: 修改图表_地图
+    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I wait for "2000" millsecond
+    When I click the detail which name is "仪表盘_<name>"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "TagIcon" will be visible
+    And I click the "TagIcon" button
+    And I wait for "500" millsecond
+    And I set the parameter "SearchTagInput" with value "<tag>"
+    And I wait for "500" millsecond
+    And I click the Element with text "<tag>"
+    And I wait for "2000" millsecond
+    And I click the "LastChartType" button under some element
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<folder>" will be visible
+    And I click the "<folder>" button
+    And I click the "<tag>" button
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
+    And I wait for "2000" millsecond
+
+    Examples:
+      | name     | folder    |  tag         | chart           |
+      | 地图     | Map       | Regionmap    | Regionmap_World |
+      | 地图     | Map       | Heatmap      | Heatmap         |
 
   Scenario Outline: 修改图表_攻击地图
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
@@ -460,6 +480,7 @@ Feature:3修改图表
     And I choose the "cnt" from the "FieldValue" in config
     And I click the "Region" button
     And I click the "Select<region>" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
     And I wait for "1000" millsecond
     And I click the "Setting" button
@@ -494,6 +515,7 @@ Feature:3修改图表
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
     And I wait for "1000" millsecond
     And I click the "Setting" button
@@ -535,6 +557,7 @@ Feature:3修改图表
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
     And I wait for "1000" millsecond
     And I click the "Setting" button
@@ -573,6 +596,7 @@ Feature:3修改图表
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I click the "Generate" button
     And I wait for "1000" millsecond
     And I click the "Setting" button
@@ -605,7 +629,7 @@ Feature:3修改图表
     And I choose the "cnt" from the "NumericField"
     And I click the "Exhibition" button
     And I click the "AccordingArea" button
-    And I click the "AddRange" button
+    And I wait for "2000" millsecond
     And I set the parameter "MinRange" with value "1"
     And I set the parameter "MaxRange" with value "100"
     And I click the "AddColor" button
