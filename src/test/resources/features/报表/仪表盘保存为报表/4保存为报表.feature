@@ -19,7 +19,8 @@ Feature:4保存为报表
     And I click the Element with text "<chart>"
     And I wait for "3000" millsecond
     And I click the "SettingIcon" button
-    And I move the mouse pointer to the "SaveAs"
+    And I click the "SaveAsReport" button
+#    And I move the mouse pointer to the "SaveAs"
     And I click the "SaveAsReport" button
     And switch to another window
     And I close all tabs except main tab

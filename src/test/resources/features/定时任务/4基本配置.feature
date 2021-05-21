@@ -55,7 +55,7 @@ Feature: 定时任务_基本配置
     And I set the parameter "SavedSearchName" with value " "
     And I click the "EnsureCreateSavedSearch" button under some element
     And I wait for "TipText" will be visible
-    And I will see the element "TipText" contains "名称 不能为空"
+    And I will see the element "TipText" contains "名称格式有误，仅支持中文、数字、字母、中划线、下划线以及括号的组合"
 
   Scenario Outline: check_details_period
     Given open the "timedTask.ListPage" page for uri "/schedule/"
