@@ -1,4 +1,4 @@
-@setup1
+@setup1 @pre00
 Feature: 新建数据集all_、安装app
 
   @newdsall
