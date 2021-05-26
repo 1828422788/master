@@ -580,7 +580,7 @@ Feature: 日志展现_普通统计视图
     Examples:
       |     stat                | field          | message                       |  button       |
       | DataSlice               | StartDataValue | 请填写合理的数值分段！        |               |
-#      | DataHistogram           | DataSpan       |                              |               |
+      | DataHistogram           | DataSpan       | 请填写合理的数值间隔！        |               |
       | TotalPercent            | PercentInput   | 请输入正确的数值(0<数值<100)  |    AddPercent |
       | PercentDegree           | GoalValue      | 请填写合理的数值！            |               |
 
