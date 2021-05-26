@@ -69,6 +69,7 @@ Feature:所有趋势图添加到仪表盘
       | 地图     | Attackmap    |
       | 地图     | Regionmap    |
       | 地图     | Geostatsmap  |
+      | 其他     | Ring         |
       | 其他     | Liquidfill   |
       | 其他     | Wordcloud    |
       | 其他     | Sequence     |
