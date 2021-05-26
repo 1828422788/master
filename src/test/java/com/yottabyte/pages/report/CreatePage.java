@@ -34,7 +34,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='报表分组']/following-sibling::div//input[@class='el-input__inner']")
     private WebElement reportGroup;
 
-    @FindBy(xpath = "//li[@class='yotta-menu-item']")
+    @FindBy(xpath = "//li[contains(@yotta-test,'report-item')]")
     private WebElement li;
 
     @FindBy(className = "yotta-accordion-header")

@@ -36,6 +36,7 @@ Feature: 报表新建_执行计划
     And I choose the "PDF" from the "ReportType"
     And I wait for "2000" millsecond
     And I choose the "test_app" from the "App" in config
+    And I wait for "2000" millsecond
     And I choose the "<period>" from the "Period"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
