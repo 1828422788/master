@@ -68,6 +68,6 @@ Feature:2添加表格
       | 其他     | Liquidfill   | Liquidfill          | Green                                                               | tag:sample04061424_chart \| stats count() as cnt\| eval cnt_perc=cnt/1000 |
       | 其他     | Wordcloud    | Wordcloud           | Green                                                               | tag:sample04061424_chart \| stats count() by apache.geo.city |
       | 其他     | Radar        | Radar               | DarkBlue                                                            | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
-      | 其他     | Funnel       | Funnel              | FirstPosition_LightGreen                                            | tag:sample04061424_chart \| stats count() by apache.clientip \| limit 5 |
+      | 其他     | Funnel       | Funnel              | LightGreen                                                          | tag:sample04061424_chart \| stats count() by apache.clientip \| limit 5 |
       | 其他     | Matrixheatmap| Matrixheatmap       |                                                                     | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
       | 其他     | Table        | Table               |                                                                     | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city \| limit 5 |

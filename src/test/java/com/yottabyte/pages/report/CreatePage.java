@@ -94,7 +94,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='参数设置']")
     private WebElement parameterSetting;
 
-    @FindBy(xpath = "((//span[text()='编辑']/ancestor::button[contains(@yotta-test,'report-edit_')])[last()]) | (//label[@name='operate_edit']/*)")
+    @FindBy(xpath = "((//span[text()='编辑']/ancestor::button[contains(@yotta-test,'report-edit_')])[last()]) | (//label[@name='operate_edit'])")
     private WebElement editButton;
 
     @FindBy(className = "ant-collapse-header")
