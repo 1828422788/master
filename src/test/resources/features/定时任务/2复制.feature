@@ -23,8 +23,8 @@ Feature: 定时任务复制
     And I set the parameter "Period" with value "<periodNum>"
     And I choose the "<periodTime>" from the "Unit"
     And I set the parameter "StartTimeInput" with value "23:58:10"
-    And I set the parameter "TagInput" with value "auto_package"
-    And I click the "SelectAddedTag" button
+    And I choose the "auto_package" from the "TaskGroup"
+    And I click the Circle "BasicSettings" button
     And I set the parameter "Name" with value "<taskName>"
     And I click the "Submit" button
     And I wait for "SuccessMessage" will be visible
