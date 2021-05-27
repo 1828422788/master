@@ -11,21 +11,22 @@ Feature: 定时任务_基本配置
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
+    And switch to window "编辑报表"
+    And I close all tabs except main tab
+    Then I will see the "timedTask.EditPage" page
     And I wait for element "SelectedUser" change text to username
-    And I set the parameter "TaskName" with value "Test_Schedule"
+    And I set the parameter "Name" with value "Test_Schedule"
     And I set the parameter "Period" with value "5"
-    And I choose the "分钟" from the "ExecuteTime"
+    And I choose the "分钟" from the "Unit"
     And I set the parameter "StartTimeInput" with value "23:59:10"
-    And I will see the "timedTask.EditPage" page
     And I click the "Parse" button
     And I wait for "EnsureButton" will be visible
     And I wait for "ParseResult" will be visible
     And I will see the element "ParseResult" contains " 00:04:10"
     And I click the "EnsureButton" button
-    And I will see the "splSearch.SearchPage" page
-    And I click the "EnsureButton" button
+    And I click the "Submit" button
     And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "创建成功"
+    Then I will see the success message "保存成功"
 
   Scenario: create_saved_search
     Given open the "splSearch.SearchPage" page for uri "/search/"

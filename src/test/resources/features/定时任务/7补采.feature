@@ -11,12 +11,15 @@ Feature:定时任务补采
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
+    And switch to window "编辑报表"
+    And I close all tabs except main tab
+    Then I will see the "timedTask.EditPage" page
     And I wait for element "SelectedUser" change text to username
-    And I set the parameter "TaskName" with value "<name>"
+    And I set the parameter "Name" with value "<name>"
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
-    And I click the "EnsureButton" button
+    And I click the "Submit" button
     And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "创建成功"
+    Then I will see the success message "保存成功"
 
     Examples:
       |    name              |

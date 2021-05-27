@@ -36,6 +36,9 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='确定']/ancestor::button)[last()]")
     private WebElement ensureButton;
 
+    @FindBy(xpath = "(//span[text()='取消']/ancestor::button)[last()]")
+    private WebElement cancel;
+
     @FindBy(xpath = "//span[text()='crontab']")
     private WebElement crontab;
 
@@ -71,6 +74,27 @@ public class EditPage extends PageTemplate {
 
     @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']/ancestor::div[1]/following-sibling::div/p")
     private WebElement errorMessage;
+
+    @FindBy(xpath = "//input[@class='yotta-time-picker-input']")
+    private WebElement startTimeInput;
+
+    @FindBy(xpath = "//div[@yotta-test='schedule-time_range-date_time_picker']")
+    private WebElement datePicker;
+
+    @FindBy(xpath = "//div[@name='startTimeValue']/ancestor::div[contains(@class,'yotta-col')]/span")
+    private WebElement whenToStart;
+
+    public WebElement getWhenToStart() {
+        return whenToStart;
+    }
+
+    public WebElement getDatePicker() {
+        return datePicker;
+    }
+
+    public WebElement getStartTimeInput() {
+        return startTimeInput;
+    }
 
     public WebElement getErrorMessage() {
         return errorMessage;
@@ -136,6 +160,10 @@ public class EditPage extends PageTemplate {
 
     public WebElement getEnsureButton() {
         return ensureButton;
+    }
+
+    public WebElement getCancel() {
+        return cancel;
     }
 
     public WebElement getBasicSettings() {
@@ -237,6 +265,10 @@ public class EditPage extends PageTemplate {
 
     public WebElement getDataSet() {
         return dataset;
+    }
+
+    public WebElement getSubmit() {
+        return getYottaButton("schedule-submit-button");
     }
 
     @FindBy(xpath = "//*[@yotta-test='schedule-app-select']/div")
