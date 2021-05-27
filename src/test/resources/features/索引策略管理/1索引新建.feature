@@ -7,24 +7,24 @@ Feature: 索引信息新建
 
   @second @indexSettingSmoke
   Scenario Outline: RZY-1474:新建
-    Given I click the "AddButton" button
-    Then I will see the "index.CreatePage" page
-    When I set the parameter "Name" with value "<name>"
-    And I set the parameter "Desc" with value "<desc>"
-    And I set the parameter "SavedTime" with value "<savedTime>"
-    And I set the parameter "DivideTime" with value "<divideTime>"
-    And I switch the "SavedSizeButton" button to "checked"
-    And I set the parameter "SavedSize" with value "<savedSize>"
-    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
-    And I click the "CreateButton" button
-    And I wait for "1000" millsecond
-    And I will see the element "Message" name is "保存成功"
+#    Given I click the "AddButton" button
+#    Then I will see the "index.CreatePage" page
+#    When I set the parameter "Name" with value "<name>"
+#    And I set the parameter "Desc" with value "<desc>"
+#    And I set the parameter "SavedTime" with value "<savedTime>"
+#    And I set the parameter "DivideTime" with value "<divideTime>"
+#    And I switch the "SavedSizeButton" button to "checked"
+#    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
+#    And I set the parameter "SavedSize" with value "<savedSize>"
+#    And I click the "CreateButton" button
+#    And I wait for "1000" millsecond
+#    And I will see the element "Message" name is "保存成功"
     Given open the "index.ListPage" page for uri "/indexmatchrules/"
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
     And I wait for "2000" millsecond
-    When I choose the "<name>" from the "IndexName"
-#    And I set the parameter "Desc" with value "AutoTest"
+#    When I choose the "<name>" from the "IndexName"
+    And I set the parameter "Desc" with value "AutoTest"
     And I set the parameter "Tag" with value "AutoTest"
     And I set the parameter "AppName" with value "AutoTest"
     And I click the "CreateButton" button
@@ -123,7 +123,7 @@ Feature: 索引信息新建
     Then I will see the "index.MatchRuleCreatePage" page
     And I wait for "1000" millsecond
     When I choose the "<name>" from the "IndexName"
-#    And I set the parameter "Desc" with value "<desc>"
+    And I set the parameter "Desc" with value "<desc>"
     And I set the parameter "Tag" with value "<name>"
     And I set the parameter "AppName" with value "<name>"
     And I click the "CreateButton" button

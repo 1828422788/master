@@ -37,8 +37,15 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSavedSizeButton() {
-        return getIndexSwitchButton("保存大小");
+        return SavedSizeButton;
     }
+
+    @FindBy(xpath = "//input[@yotta-test='indexsetting-quota-switch']/ancestor::span")
+    private WebElement SavedSizeButton;
+
+//    public WebElement getSavedSizeButton() {
+//        return getIndexSwitchButton("保存大小");
+//    }
 
     public WebElement getAdvance() {
         return getIndexSwitchButton("正排优化");
@@ -61,10 +68,10 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSavedSizeDropDown() {
-        String xpath = "//label[contains(text(),'保存大小')]/parent::div/parent::div/following-sibling::div[1]//span[@class='yotta-select-selection-icon']";
+        String xpath = "//div[@yotta-test='indexsetting-quota_unit-select']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         element.click();
-        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu'])[last()]"));
+        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu css-1hq8cx5'])[last()]"));
     }
 
     public WebElement getSavedTimeDropDown() {
@@ -94,11 +101,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSavedTime() {
-        return getInputElement("保存时间");
+        return super.getYottaInput("indexsetting-expired_time-input");
     }
 
     public WebElement getDivideTime() {
-        return getInputElement("切分时间");
+        return super.getYottaInput("indexsetting-rotation_period-input");
     }
 
     public WebElement getColdTime() {
@@ -106,7 +113,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSavedSize() {
-        return getInputElement("保存大小");
+        return super.getYottaInput("indexsetting-quota-input");
     }
 
     public WebElement getSavedCopy() { return getInputElementWithoutLabel("天后删除副本"); }

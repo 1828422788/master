@@ -14,10 +14,10 @@ public class MatchRuleCreatePage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(xpath = "//span[text()='appname']/preceding-sibling::div//input")
+    @FindBy(xpath = "(//div[@yotta-test='indexsetting-appname-autocomplete'])//input")
     private WebElement appName;
 
-    @FindBy(xpath = "//span[text()='tag']/preceding-sibling::div//input")
+    @FindBy(xpath = "(//div[@yotta-test='indexsetting-tag-autocomplete'])//input")
     private WebElement tag;
 
     @FindBy(xpath = "//span[text()='匹配规则']/parent::span/preceding-sibling::input")
@@ -49,7 +49,7 @@ public class MatchRuleCreatePage extends PageTemplate {
         return getDropdownList("Topic名");
     }
 
-    @FindBy(xpath = "//label[text()='描述']/ancestor::div/following-sibling::div[1]//input" )
+    @FindBy(xpath = "(//input[@yotta-test='indexsetting-description-input'])" )
     private WebElement Desc;
 
     public WebElement getDesc() {
