@@ -1,6 +1,7 @@
+@pre00
 Feature: 导入监控用例，新建sslldap配置
 
-  @upres1 @pre00
+  @upres1
   Scenario:执行导入
     When open the "dbConnectionPre.ResListPage" page for uri "/resource/"
 #    Then I wait for "ImportAndExportButton" will be visible
@@ -21,7 +22,7 @@ Feature: 导入监控用例，新建sslldap配置
 #    And I wait for "Message" will be visible
     And I wait for "AddSuccMessage" will be visible
 
-  @pre00 @newldapconnssl
+  @newldapconnssl
   Scenario Outline: 新建ssl ldap配置-1个
     Given open the "dbConnectionPre.LdapConnListPage" page for uri "/ldapconnection/"
     And I click the "CreateLdapConn" button
@@ -46,3 +47,29 @@ Feature: 导入监控用例，新建sslldap配置
     Examples:
       | NewLdapConnName  | NewBaseDName      | NewLdapHost   | NewLdapConnPort | NewBindDnName              | LdapUserPassword |
       | ldpconnsamplessl | dc=example,dc=org | 192.168.1.221 | 636             | cn=admin,dc=example,dc=org | admin            |
+
+
+  @newresourcetag
+  Scenario Outline: 创建宏，目的是创建一个资源标签，供UI自动化使用
+    Given open the "macroSearch.ListPage" page for uri "/macro/"
+    When I click the "CreateMacroButton" button
+    Then I will see the "macroSearch.CreatePage" page
+    And I wait for "2000" millsecond
+
+    When I set the parameter "MacroName" with value "<name>"
+    When I click the "MacroResTagList" button
+
+    When I set the parameter "MacroResTagInput" with value "autoui001"
+    And I choose the "autoui001" from the "MacroResTagList"
+
+    And I set the parameter "Definition" with value "<definition>"
+    And I set the parameter "ValidateExpression" with value "<validateExpression>"
+    And I set the parameter "ValidateFalseInfo" with value "<validateFalseInfo>"
+    And I wait for "2000" millsecond
+
+    And I click the "SaveMacroButton" button
+#    Then I will see the success message "保存成功"
+
+    Examples: 新建成功
+      | name        | definition         | validateExpression | validateFalseInfo |
+      | resourcetag | tag:sample04061424 |                    |                   |

@@ -21,4 +21,3 @@ Feature:
     Examples:
       | usernameValue | passwordValue     | errorMessage                        |
       | admin         | admin@rizhiyi.com | error message contains "用户名邮箱或密码错误" |
-
