@@ -105,10 +105,12 @@ Feature: 定时任务新建
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Name" with value "<taskName>"
     And I set the parameter "Describe" with value "testing"
-    And I set the parameter "TagInput" with value "auto_package"
+    And I choose the "auto_package" from the "TaskGroup"
+    And I click the Circle "BasicSettings" button
 
     And I set the parameter "Period" with value "<periodNum>"
     And I set the parameter "StartTimeInput" with value "23:58:10"
+    And I will see the element "DatePicker" contains "2020-06-01 - 2020-06-09"
     And I click the "Submit" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
@@ -165,15 +167,15 @@ Feature: 定时任务新建
     And I set the parameter "Name" with value "<taskName>"
     And I set the parameter "Describe" with value "testing"
     And I set the parameter "CrontabInput" with value "<crontab>"
-    And I click the "EnsureButton" button
+    And I click the "Submit" button
     And I wait for "<element>" will be visible
     And I will see the element "<element>" contains "<message>"
 
     Examples:
       | taskName | crontab | message                             | element          |
       | test     |         | crontab模式下, 执行计划不能为零或空 | TipText          |
-      | test     | test    | crontab格式错误！                   | ErrorMessage     |
-      | test     | 0*      | crontab格式错误！                   | ErrorMessage     |
+      | test     | test    | crontab格式错误！                   | Message          |
+      | test     | 0*      | crontab格式错误！                   | Message          |
 
   Scenario: schedule_message_error_realtime
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -202,15 +204,15 @@ Feature: 定时任务新建
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Name" with value "<name>"
     Then I set the parameter "Period" with value "<period>"
-    Then I click the "EnsureButton" button
+    And I click the "Submit" button
     And I wait for "TipText" will be visible
     And I will see the element "TipText" contains "<message>"
 
     Examples:
       | name | period | message                           |
-      |      |        | 名称格式有误，仅支持中文、数字、字母、中划线、下划线以及括号的组合。 |
-      | test |        | 定时模式下, 时间间隔应该为正整数  |
-      | test | 0      | 定时模式下, 时间间隔应该为正整数  |
+      |      |        | 请输入名称                        |
+      | test |        | 定时模式下, 时间间隔不能为零或空  |
+      | test | 0      | 定时模式下, 时间间隔不能为零或空  |
       | test | 1.5    | 定时模式下, 时间间隔应该为正整数  |
       | test | test   | 定时模式下, 时间间隔应该为正整数  |
       | test | 1      | 请输入正确的时间格式：HH:mm:ss.SSS|
@@ -230,9 +232,9 @@ Feature: 定时任务新建
     Then I will see the "timedTask.EditPage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Name" with value " "
-    Then I click the "EnsureButton" button
+    And I click the "Submit" button
     And I wait for "TipText" will be visible
-    And I will see the element "TipText" contains "名称格式有误，仅支持中文、数字、字母、中划线、下划线以及括号的组合。"
+    And I will see the element "TipText" contains "名称 不能为空"
 
   Scenario Outline: sample_timeperiod(RZY-396,397,403,404,2695,2696,2698)
     Given open the "timedTask.ListPage" page for uri "/schedule/"

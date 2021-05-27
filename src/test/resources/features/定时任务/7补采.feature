@@ -33,6 +33,7 @@ Feature:定时任务补采
     And I wait for "Loading" will be invisible
     When I click the "CreateComplement" button under some element
     Then I wait for "ComplementPanel" will be visible
+    And I wait for "1000" millsecond
     When I choose the "Test_Complement_2" from the "SelectName"
     And I click the "DatePicker" button
     And I set the parameter "StartDate" with value "2020-04-28"

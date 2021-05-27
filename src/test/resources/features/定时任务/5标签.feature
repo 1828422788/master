@@ -32,7 +32,6 @@ Feature: 定时任务标签
     And I will see the element "AppOfTheLastItem" contains "无"
     When the data name is "{'column':'1','name':'Tag_Schedule'}" then i click the "标签" button in more menu
     And I choose the "auto_package" from the "TagField"
-    And I click the "TagPanel" button
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
