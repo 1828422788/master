@@ -41,7 +41,7 @@ Feature: 定时任务批量操作
     And I click the "AddResourceTags" button
     And I wait for "Ensure" will be visible
     And I choose the "auto_package" from the "TagField"
-    And I click the "TagPanel" button
+    And I wait for "1500" millsecond
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
@@ -64,23 +64,23 @@ Feature: 定时任务批量操作
     And I will see the element "TagOfTheLastItem" contains "auto_package"
     And the data name is "{'column':'1','name':'test_multi_3'}" then I "close" the item
 
-  Scenario: switch_off
+  Scenario: disable
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible
+    When I set the parameter "SearchInput" with value "test_multi_"
+    And I wait for "2000" millsecond
     And I wait for "BatchControl" will be visible
-    And the data name is "{'column':'1','name':'test_multi_1'}" then I "close" the switch
+    And I click the "BatchControl" button under some element
+    And I click the "SelectAll" button
+    And I click the "SelectBatchOperation" button under some element
+    And I click the "DisableResources" button
+    And I wait for "Ensure" will be visible
+    And I will see the message "确定停止 3 个资源"
+    When I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "禁用成功"
-    And I wait for "SuccessMessage" will be invisible
-
-    And the data name is "{'column':'1','name':'test_multi_2'}" then I "close" the switch
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "禁用成功"
-    And I wait for "SuccessMessage" will be invisible
-
-    And the data name is "{'column':'1','name':'test_multi_3'}" then I "close" the switch
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "禁用成功"
+    Then I will see the success message "更新成功"
+    And I wait for loading complete
+    And I click the "CompleteBatchControl" button under some element
     
   Scenario: multi_switch
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -167,3 +167,4 @@ Feature: 定时任务批量操作
       | DeleteResources |
       | AddResourceTags |
       | EnableResources |
+      | DisableResources|

@@ -70,6 +70,9 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(xpath = "//span[contains(text(),'启动')]/ancestor::li")
     private WebElement enableResources;
 
+    @FindBy(xpath = "//span[contains(text(),'停止')]/ancestor::li")
+    private WebElement disableResources;
+
     @FindBy(xpath = "//span[contains(text(),'添加资源标签')]/ancestor::li")
     private WebElement addResourceTags;
 
@@ -234,6 +237,10 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
 
     public WebElement getEnableResources() {
         return enableResources;
+    }
+
+    public WebElement getDisableResources() {
+        return disableResources;
     }
 
     public WebElement getAddResourceTags() {

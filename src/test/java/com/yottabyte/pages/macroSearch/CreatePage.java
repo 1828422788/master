@@ -66,8 +66,16 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
     private WebElement lastDropdown;
 
-    @FindBy(xpath = "//label[contains(text(),'资源标签')]/following-sibling::div//input[@class='el-input__inner']")
-    private WebElement macroResTag;
+    public WebElement getMacroResTagList() {
+        String xpath = "//label[contains(text(),'资源标签')]/following::div[@yotta-test='resource_tag-change_resource_tag-select']/div";
+        return getDropdownListbyPath(xpath);
+    }
+
+    @FindBy(xpath = "//label[contains(text(),'资源标签')]/following::div[@yotta-test='resource_tag-change_resource_tag-select']//input")
+    private WebElement macroResTagInput;
+    public WebElement getMacroResTagInput() {
+        return macroResTagInput;
+    }
 
     @FindBy(xpath = "//label[contains(text(),'所属应用')]/following-sibling::div//input[@class='el-input__inner']")
     private WebElement belongToApps;
@@ -82,14 +90,6 @@ public class CreatePage extends PageTemplate {
     public WebElement getApp() {
         app.click();
         return lastDropdown;
-    }
-
-    public WebElement getMacroResTag() {
-        macroResTag.click();
-        WebElement lastDropdownList = super.getLastDropdownList();
-        new WaitElement().waitUntilInvisible("(//p[@class='el-select-dropdown__empty'])[last()]");
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(emptyDropdown));
-        return lastDropdownList;
     }
 
     public WebElement getBelongToApps() {

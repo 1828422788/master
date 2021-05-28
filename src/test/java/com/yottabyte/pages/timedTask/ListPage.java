@@ -47,7 +47,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//label[contains(text(),'结束时间')]/following-sibling::div//input[@placeholder='请输入时间']")
     private WebElement endTime;
 
-    @FindBy(xpath = "//div[@class='yotta-select-option'][1]")
+    @FindBy(xpath = "//div[contains(@class,'yotta-select-option')][1]")
     private WebElement li;
 
     @FindBy(xpath = "//span[text()='是否覆盖已存在定时任务结果']/preceding-sibling::label/span")
