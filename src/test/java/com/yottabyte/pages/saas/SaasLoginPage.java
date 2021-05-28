@@ -34,7 +34,7 @@ public class SaasLoginPage extends PageTemplate {
         return password;
     }
 
-    @FindBy(xpath = "//span[text()='登 录']/parent::button")
+    @FindBy(xpath = "//span[text()='登录']/parent::button")
     private WebElement loginButton;
 
     public WebElement getLoginButton() {

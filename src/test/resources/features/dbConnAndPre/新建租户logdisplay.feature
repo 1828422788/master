@@ -1,17 +1,17 @@
+@tenantbvt
 Feature: 租户系统-租户新建
-  Background:
-    Given open the "saas.SaasLoginPage" page for uri "/domain/tenant/"
 
-  @logdisplay
+  @newsaas
   Scenario Outline: 新建logdisplay域
-#    Given open the "saas.SaasLoginPage" page for uri "/domain/tenant/"
-#    When I set the parameter "Username" with properties "admin"
-#    And I set the parameter "Password" with properties "admin@rizhiyi.com"
-#    And I click the "LoginButton" button
+    Given open the "saas.SaasLoginPage" page for uri "/auth/domainlogin/"
+    When I set the parameter "Username" with value "admin"
+    And I set the parameter "Password" with value "admin@rizhiyi.com"
+    And I click the "LoginButton" button
+    Given open the "saas.ListPage" page for uri "/domain/tenant/"
 
-    And I will see the "tenant.ListPage" page
+#    And I will see the "saas.ListPage" page
     And I click the "CreateButton" button
-    Then I will see the "tenant.CreatePage" page
+    Then I will see the "saas.CreatePage" page
 
     And I set the parameter "tenantName" with value "<name>"
     And I set the parameter "DomainName" with value "<domainName>"
