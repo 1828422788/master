@@ -25,7 +25,7 @@ public class ListPage extends PageTemplate {
         return super.getSuccessMessage();
     }
 
-    public WebElement getPriority() {
+    public WebElement getSearchInput() {
         return SearchInput;
     }
 
