@@ -14,7 +14,7 @@ public class ListPage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(xpath = "//span[@class='yotta-message-content']")
+    @FindBy(xpath = "//p")
     private WebElement verifyText;
 
     public WebElement getVerifyText() {
