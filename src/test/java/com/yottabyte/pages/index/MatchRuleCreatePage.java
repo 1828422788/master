@@ -39,7 +39,7 @@ public class MatchRuleCreatePage extends PageTemplate {
         String xpath = "//label[contains(text(),'" + name + "')]/parent::div/following-sibling::div//span[@class='yotta-select-selection-icon']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         element.click();
-        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu'])[last()]"));
+        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu css-1hq8cx5'])[last()]"));
     }
     public WebElement getIndexName() {
         return getDropdownList("索引名");

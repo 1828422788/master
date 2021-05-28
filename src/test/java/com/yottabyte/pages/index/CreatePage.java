@@ -22,14 +22,14 @@ public class CreatePage extends PageTemplate {
         String xpath = "//label[contains(text(),'" + name + "')]/parent::div/following-sibling::div//span[@class='yotta-select-selection-icon']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         element.click();
-        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu'])[last()]"));
+        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu css-1hq8cx5'])[last()]"));
     }
 
     public WebElement getSinkswitch() {
         return sinkswitch;
     }
 
-    @FindBy(xpath = "//label[contains(text(),'索引下沉')]/parent::div/following-sibling::div//label")
+    @FindBy(xpath = "//input[@yotta-test='indexsetting-index_sink-switch']/ancestor::span")
     private WebElement sinkswitch;
 
     public WebElement getDivideTimeDropDown() {
@@ -43,20 +43,22 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@yotta-test='indexsetting-quota-switch']/ancestor::span")
     private WebElement SavedSizeButton;
 
-//    public WebElement getSavedSizeButton() {
-//        return getIndexSwitchButton("保存大小");
-//    }
+    @FindBy(xpath = "//input[@yotta-test='indexsetting-index_sink-switch']/ancestor::span")
+    private WebElement IndexSink;
 
     public WebElement getAdvance() {
         return getIndexSwitchButton("正排优化");
     }
 
+    @FindBy(xpath = "//input[@yotta-test='indexsetting-index_freeze-switch']/ancestor::span")
+    public WebElement IndexFrezee;
+
     public WebElement getIndexFrezee() {
-        return getIndexSwitchButton("索引冻结");
+        return IndexFrezee;
     }
 
     public WebElement getIndexSink() {
-        return getIndexSwitchButton("索引下沉");
+        return IndexSink;
     }
 
     public WebElement getOpenDataConf() {
@@ -117,21 +119,23 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSavedCopy() { return getInputElementWithoutLabel("天后删除副本"); }
-//    public WebElement getFreeze() { return getInputElementWithoutLabel("天前的索引拒绝入库"); }
 
-//    public WebElement getFreeze() { return getInputElementWithoutLabel("天后拒绝入库"); }
-//
-//    public WebElement getSinkHDD() { return getInputElementWithoutLabel("天后下沉到HDD"); }
+    @FindBy(xpath = "//input[@yotta-test='indexsetting-freeze-input']")
+    public WebElement Freeze;
 
-    public WebElement getFreeze() { return getInputElement("索引冻结"); }
-    public WebElement getSinkHDD() { return getInputElement("索引下沉");}
+    public WebElement getFreeze() { return Freeze; }
+
+    @FindBy(xpath ="//input[@yotta-test='indexsetting-sink_hdd-input']")
+    private WebElement SinkHDD;
+
+    public WebElement getSinkHDD() { return SinkHDD;}
+
+    @FindBy(xpath = "//input[@yotta-test='indexsetting-sink_nas-input']")
+    private WebElement SinkNAS;
 
     public WebElement getSinkNAS() {
         return SinkNAS;
     }
-
-    @FindBy(xpath = "//div[text()='天后下沉到NAS']/parent::span/preceding-sibling::input[@class='yotta-input yotta-input-large']")
-    private WebElement SinkNAS;
 
     public WebElement getCreateButton() {
         return getButton("新建");
