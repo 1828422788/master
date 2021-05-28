@@ -18,7 +18,7 @@ public class ListPage extends PageTemplate {
         return searchInput;
     }
 
-    @FindBy(xpath = "//span[text()='新建']/parent::button")
+    @FindBy(xpath = "//button[@yotta-test='domainsystem-create-button']")
     private WebElement createButton;
     public WebElement getCreateButton() {
         return createButton;

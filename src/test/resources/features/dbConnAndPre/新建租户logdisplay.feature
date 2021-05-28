@@ -4,14 +4,22 @@ Feature: 租户系统-租户新建
   @newsaas
   Scenario Outline: 新建logdisplay域
     Given open the "saas.SaasLoginPage" page for uri "/auth/domainlogin/"
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     When I set the parameter "Username" with value "admin"
     And I set the parameter "Password" with value "admin@rizhiyi.com"
     And I click the "LoginButton" button
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     Given open the "saas.ListPage" page for uri "/domain/tenant/"
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
+    And I zoom the screen up to the maximum
 
-#    And I will see the "saas.ListPage" page
-    And I click the "CreateButton" button
-    Then I will see the "saas.CreatePage" page
+    When I click the "CreateButton" button
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
+    Given open the "saas.CreatePage" page for uri "/domain/tenant/new/"
 
     And I set the parameter "tenantName" with value "<name>"
     And I set the parameter "DomainName" with value "<domainName>"

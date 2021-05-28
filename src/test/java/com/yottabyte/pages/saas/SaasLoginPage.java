@@ -16,25 +16,26 @@ public class SaasLoginPage extends PageTemplate {
 
     public SaasLoginPage(WebDriver driver) {
         super(driver);
-        webDriver = driver;
-        parentPageName = "";
+//
+//        webDriver = driver;
+//        parentPageName = "";
     }
 
-    @FindBy(xpath = "//label[text()='用户名']/following::input")
+    @FindBy(xpath = "//input[@yotta-test='domainlogin-username-input']")
     private WebElement username;
 
     public WebElement getUsername() {
         return username;
     }
 
-    @FindBy(xpath = "//label[text()='密码']/following::input")
+    @FindBy(xpath = "//input[@yotta-test='domainlogin-password-input']")
     private WebElement password;
 
     public WebElement getPassword() {
         return password;
     }
 
-    @FindBy(xpath = "//span[text()='登录']/parent::button")
+    @FindBy(xpath = "//button[@yotta-test='domainlogin-submit-button']")
     private WebElement loginButton;
 
     public WebElement getLoginButton() {

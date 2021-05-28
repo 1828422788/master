@@ -25,14 +25,14 @@ public class CreatePage extends PageTemplate {
         return switchButton;
     }
 
-    @FindBy(xpath = "//label[text()='名称：']/following-sibling::div/input[@placeholder='请输入']")
+    @FindBy(xpath = "//input[@yotta-test='domainsystem-display_name-input']")
     private WebElement tenantName;
 
     public WebElement getTenantName() {
         return tenantName;
     }
 
-    @FindBy(xpath = "//label[text()='域名：']/following-sibling::div/input[@placeholder='请输入']")
+    @FindBy(xpath = "//input[@yotta-test='domainsystem-name-input']")
     private WebElement domainName;
 
     public WebElement getDomainName() {
@@ -40,28 +40,26 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSupportFeatureList() {
-        String xpath = "//label[text()='支持特性：']/following-sibling::div//div[@class='ant-select-selection__rendered']/div/following-sibling::ul/li";
+        String xpath = "//div[@yotta-test='domainsystem-feature-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
         return getLastDropdownList();
     }
 
-    @FindBy(xpath = "//label[text()='每日限额：']/following-sibling::div//input")
+    @FindBy(xpath = "//input[@yotta-test='domainsystem-daily_limit_num-input']")
     private WebElement dailyLimit;
-
     public WebElement getDailyLimit() {
         return dailyLimit;
     }
 
-    @FindBy(xpath = "//label[text()='文件上传限制：']/following-sibling::div//input")
+    @FindBy(xpath = "//input[@yotta-test='domainsystem-file_limit-input']")
     private WebElement uploadLimit;
-
     public WebElement getUploadLimit() {
         return uploadLimit;
     }
 
-    @FindBy(xpath = "//label[text()='超额次数限定：']/following-sibling::div//input")
+    @FindBy(xpath = "//input[@yotta-test='domainsystem-file_limit-input']")
     private WebElement excessLimit;
 
     public WebElement getExcessLimit() {
@@ -69,37 +67,36 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getExcessBehaviorList() {
-        String xpath = "//label[text()='超额行为：']/following-sibling::div//div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        String xpath = "//div[@yotta-test='domainsystem-excess_action-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
         return getLastDropdownList();
     }
 
-    @FindBy(xpath = "//label[text()='管理员名称：']/following-sibling::div//input")
+    @FindBy(xpath = "//label[contains(text(),'管理员名称')]/following::input[@name='owner_name']")
     private WebElement managerName;
 
     public WebElement getManagerName() {
         return managerName;
     }
 
-    @FindBy(xpath = "//label[text()='管理员邮箱：']/following-sibling::div//input")
+    @FindBy(xpath = "//input[@yotta-test='domainsystem-tenant_email-input']")
     private WebElement managerEmail;
 
     public WebElement getManagerEmail() {
         return managerEmail;
     }
 
-    @FindBy(xpath = "//label[text()='管理员密码：']/following-sibling::div//input")
+    @FindBy(xpath = "//input[@yotta-test='domainsystem-new_password_1-input']")
     private WebElement managerPassword;
 
     public WebElement getManagerPassword() {
         return managerPassword;
     }
 
-    @FindBy(xpath = "//label[text()='管理员密码：']/following-sibling::div//input[@placeholder='请再次输入']")
+    @FindBy(xpath = "//input[@yotta-test='domainsystem-new_password_2-input']")
     private WebElement inputAgain;
-
     public WebElement getInputAgain() {
         return inputAgain;
     }
