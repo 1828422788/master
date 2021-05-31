@@ -84,6 +84,20 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//div[@name='startTimeValue']/ancestor::div[contains(@class,'yotta-col')]/span")
     private WebElement whenToStart;
 
+    @FindBy(xpath = "//*[@yotta-test='schedule-choose_dataset-link']")
+    private WebElement selectDataset;
+
+    @FindBy(xpath = "//span[contains(@class,'selected')]//span[text()='all_']")
+    private WebElement selectedDatasetAll;
+
+    public WebElement getSelectedDatasetAll() {
+        return selectedDatasetAll;
+    }
+
+    public WebElement getSelectDataset() {
+        return selectDataset;
+    }
+
     public WebElement getWhenToStart() {
         return whenToStart;
     }

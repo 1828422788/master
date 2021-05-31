@@ -32,7 +32,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']")
     private WebElement tagField;
 
-    @FindBy(xpath = "//span[text()='创建补采任务']/ancestor::div[2]")
+    @FindBy(xpath = "//span[text()='创建补采任务']/ancestor::div[1]")
     private WebElement complementPanel;
 
     @FindBy(xpath = "//label[contains(text(),'开始时间')]/following-sibling::div//input[@placeholder='请选择日期']")
