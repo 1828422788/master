@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
@@ -234,4 +235,33 @@ public class ClickSomeButton {
             System.out.println("skip this step!");
         }
     }
+
+    /**
+     * 点击鼠标右键
+     *
+     * @param buttonName 元素名称
+     */
+    @When("^I open the context menu of the \"([^\"]*)\" element$")
+    public void contextMenuElement(String buttonName) {
+        if (buttonName != null && buttonName.trim().length() != 0) {
+            String parameters = "";
+            WebElement button;
+            if (JsonStringPaser.isJson(buttonName)) {
+                Map<String, Object> map = JsonStringPaser.json2Stirng(buttonName);
+                for (Map.Entry<String, Object> entry : map.entrySet()) {
+                    buttonName = entry.getKey();
+                    parameters = (String) entry.getValue();
+                }
+                button = GetElementFromPage.getWebElementWithName(buttonName, parameters);
+            } else {
+                button = GetElementFromPage.getWebElementWithName(buttonName);
+            }
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", button);
+            Actions a = new Actions(webDriver);
+            a.moveToElement(button).contextClick().build().perform();
+        } else {
+            System.out.println("skip this step!");
+        }
+    }
+
 }

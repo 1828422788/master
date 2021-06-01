@@ -9,9 +9,10 @@ Feature:3修改图表
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
     And I wait for "2000" millsecond
     When I click the detail which name is "仪表盘_<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "TagIcon" will be visible
-    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
@@ -59,9 +60,10 @@ Feature:3修改图表
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
     And I wait for "2000" millsecond
     When I click the detail which name is "仪表盘_<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "TagIcon" will be visible
-    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
@@ -102,9 +104,10 @@ Feature:3修改图表
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
     And I wait for "2000" millsecond
     When I click the detail which name is "仪表盘_<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "TagIcon" will be visible
-    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
@@ -140,9 +143,10 @@ Feature:3修改图表
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
     And I wait for "2000" millsecond
     When I click the detail which name is "仪表盘_<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "TagIcon" will be visible
-    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
@@ -177,9 +181,10 @@ Feature:3修改图表
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
     And I wait for "2000" millsecond
     When I click the detail which name is "仪表盘_<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "TagIcon" will be visible
-    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
@@ -216,9 +221,10 @@ Feature:3修改图表
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
     And I wait for "2000" millsecond
     When I click the detail which name is "仪表盘_<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "TagIcon" will be visible
-    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
@@ -254,9 +260,10 @@ Feature:3修改图表
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
     And I wait for "2000" millsecond
     When I click the detail which name is "仪表盘_<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "TagIcon" will be visible
-    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
@@ -319,9 +326,10 @@ Feature:3修改图表
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
     And I wait for "2000" millsecond
     When I click the detail which name is "仪表盘_<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "TagIcon" will be visible
-    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
@@ -389,9 +397,10 @@ Feature:3修改图表
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
     And I wait for "2000" millsecond
     When I click the detail which name is "仪表盘_<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "TagIcon" will be visible
-    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
@@ -427,9 +436,10 @@ Feature:3修改图表
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
     And I wait for "2000" millsecond
     When I click the detail which name is "仪表盘_<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "TagIcon" will be visible
-    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
@@ -453,9 +463,10 @@ Feature:3修改图表
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
     And I wait for "2000" millsecond
     When I click the detail which name is "仪表盘_<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "TagIcon" will be visible
-    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
@@ -496,9 +507,10 @@ Feature:3修改图表
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
     And I wait for "2000" millsecond
     When I click the detail which name is "仪表盘_<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "TagIcon" will be visible
-    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
@@ -534,9 +546,10 @@ Feature:3修改图表
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
     And I wait for "2000" millsecond
     When I click the detail which name is "仪表盘_<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "TagIcon" will be visible
-    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
@@ -572,9 +585,10 @@ Feature:3修改图表
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
     And I wait for "2000" millsecond
     When I click the detail which name is "仪表盘_<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "TagIcon" will be visible
-    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
@@ -611,9 +625,10 @@ Feature:3修改图表
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
     And I wait for "2000" millsecond
     When I click the detail which name is "仪表盘_<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "TagIcon" will be visible
-    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
@@ -656,9 +671,10 @@ Feature:3修改图表
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
     And I wait for "2000" millsecond
     When I click the detail which name is "仪表盘_<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "TagIcon" will be visible
-    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
@@ -696,9 +712,10 @@ Feature:3修改图表
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
     And I wait for "2000" millsecond
     When I click the detail which name is "仪表盘_<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "TagIcon" will be visible
-    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond

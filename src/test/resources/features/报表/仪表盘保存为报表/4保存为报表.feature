@@ -12,15 +12,15 @@ Feature:4保存为报表
     And I set the parameter "SearchInput" with value "仪表盘_<dashboard_name>"
     And I wait for "2000" millsecond
     When I click the detail which name is "仪表盘_<dashboard_name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "TagIcon" will be visible
-    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
 
     And I click the Element with text "<chart>"
     And I wait for "3000" millsecond
     And I click the "SettingIcon" button
     And I click the "SaveAs" button
-#    And I move the mouse pointer to the "SaveAs"
     And I click the "SaveAsReport" button
     And switch to another window
     And I close all tabs except main tab
