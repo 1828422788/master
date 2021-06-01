@@ -2,6 +2,7 @@ package com.yottabyte.pages.configs;
 
 import com.yottabyte.pages.DateEditorPage;
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -27,7 +28,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "ReactCodeMirror")
     private WebElement searchInput;
 
-    @FindBy(xpath = "//div[@class='yotta-date-time-picker']")
+    @FindBy(xpath = "//div[@yotta-test='search_bar-time-date_time_picker']")
     private WebElement dateEditor;
 
     @FindBy(xpath = "//label[@class='yotta-date-time-picker-label' and text()='最近1小时']")
@@ -106,7 +107,9 @@ public class CreatePage extends PageTemplate {
         return Collapse;
     }
 
-    public  WebElement getEventList() { return EventList; }
+    public WebElement getEventList() {
+        return EventList;
+    }
 
     public WebElement getCheckSuccess4() {
         return checkSuccess4;
@@ -136,7 +139,9 @@ public class CreatePage extends PageTemplate {
         return failedMessage;
     }
 
-    public WebElement getExtractSample() { return extractSample; }
+    public WebElement getExtractSample() {
+        return extractSample;
+    }
 
     public WebElement getConfigDone() {
         return configDone;
@@ -179,17 +184,22 @@ public class CreatePage extends PageTemplate {
         return super.getYottaRadio("config-int-radio");
     }
 
-    public WebElement getFloatRadio() { return super.getYottaRadio("config-float-radio"); }
+    public WebElement getFloatRadio() {
+        return super.getYottaRadio("config-float-radio");
+    }
 
     public WebElement getAddRule() {
         return super.getYottaButton("config-add-rule");
     }
 
-    public WebElement getRuleName() { return super.getYottaDropdownList("config-custom_rule_type-select"); }
+    public WebElement getRuleName() {
+        return super.getYottaDropdownList("config-custom_rule_type-select");
+    }
 
     public WebElement getRedirect() {
         return super.getYottaDropdownList("config-rule-select");
     }
+
 
     public WebElement getStruct() {
         return super.getYottaTextarea("config-struct_format-textarea");
@@ -211,7 +221,9 @@ public class CreatePage extends PageTemplate {
         return super.getYottaInput("config-codec-input");
     }
 
-    public WebElement getDictionary() { return super.getYottaDropdownList("config-dict-select"); }
+    public WebElement getDictionary() {
+        return super.getYottaDropdownList("config-dict-select");
+    }
 
     public WebElement getBaseField() {
         return super.getYottaDropdownList("config-dict_basic_field-select");
@@ -281,7 +293,9 @@ public class CreatePage extends PageTemplate {
         return super.getYottaInput("config-format_rule-input");
     }
 
-    public WebElement getFieldSeparator() { return super.getYottaInput("config-field_split-input"); }
+    public WebElement getFieldSeparator() {
+        return super.getYottaInput("config-field_split-input");
+    }
 
     public WebElement getKeyRegex() {
         return super.getYottaInput("config-key_reg-input");
@@ -295,7 +309,9 @@ public class CreatePage extends PageTemplate {
         return super.getYottaInput("config-group_reg-input");
     }
 
-    public WebElement getKVSeparator() { return super.getYottaInput("config-kv_split-input"); }
+    public WebElement getKVSeparator() {
+        return super.getYottaInput("config-kv_split-input");
+    }
 
     public WebElement getKeepKey() {
         return super.getYottaInput("config-key_reserved-input");
@@ -333,13 +349,21 @@ public class CreatePage extends PageTemplate {
         return super.getYottaTextarea("config-logsample-textarea");
     }
 
-    public WebElement getLogSource() { return super.getYottaInput("config-log_source-input"); }
+    public WebElement getLogSource() {
+        return super.getYottaInput("config-log_source-input");
+    }
 
-    public WebElement getLogHostname() { return super.getYottaInput("config-log_hostname-input"); }
+    public WebElement getLogHostname() {
+        return super.getYottaInput("config-log_hostname-input");
+    }
 
-    public WebElement getAppname() { return super.getYottaInput("config-log_appname-input"); }
+    public WebElement getAppname() {
+        return super.getYottaInput("config-log_appname-input");
+    }
 
-    public WebElement getRegex() { return super.getYottaTextarea("config-expression-textarea"); }
+    public WebElement getRegex() {
+        return super.getYottaTextarea("config-expression-textarea");
+    }
 
     public WebElement getPathInput() {
         WebElement plusButton = super.getYottaButton("config-add_path-button");
@@ -347,82 +371,153 @@ public class CreatePage extends PageTemplate {
         return super.getYottaInput("config-path-input");
     }
 
-    public WebElement getCheckbox() { return super.getYottaCheckbox("config-attach_root-checkbox"); }
+    public WebElement getCheckbox() {
+        return super.getYottaCheckbox("config-attach_root-checkbox");
+    }
 
-    public WebElement getReplaceFirst() { return super.getYottaCheckbox("config-replace_first-checkbox"); }
+    public WebElement getReplaceFirst() {
+        return super.getYottaCheckbox("config-replace_first-checkbox");
+    }
 
-    public WebElement getStrictMode() { return super.getYottaCheckbox("config-strict_mode-checkbox"); }
+    public WebElement getStrictMode() {
+        return super.getYottaCheckbox("config-strict_mode-checkbox");
+    }
 
-    public WebElement getStripField() { return super.getYottaCheckbox("config-strip_field-checkbox"); }
+    public WebElement getStripField() {
+        return super.getYottaCheckbox("config-strip_field-checkbox");
+    }
 
-    public WebElement getReplaceContent() { return super.getYottaTextarea("config-replacement-textarea"); }
+    public WebElement getReplaceContent() {
+        return super.getYottaTextarea("config-replacement-textarea");
+    }
 
-    public WebElement getEnsureAddParseRule() { return super.getYottaButtonByText("确定"); }
+    public WebElement getEnsureAddParseRule() {
+        return super.getYottaButtonByText("确定");
+    }
 
-    public WebElement getRuleRemark() { return super.getYottaInput("config-another_name-input"); }
+    public WebElement getRuleRemark() {
+        return super.getYottaInput("config-another_name-input");
+    }
 
-    public WebElement getMessage() { return message; }
+    public WebElement getMessage() {
+        return message;
+    }
 
-    public WebElement getResult() { return result; }
+    public WebElement getResult() {
+        return result;
+    }
 
-    public WebElement getReadSavedLog() { return super.getYottaTab("读取已存日志"); }
+    public WebElement getReadSavedLog() {
+        return super.getYottaTab("读取已存日志");
+    }
 
-    public WebElement getCreate() { return super.getYottaButton("config-create_log-button"); }
+    public WebElement getCreate() {
+        return super.getYottaButton("config-create_log-button");
+    }
 
-    public WebElement getEventListLogSample() { return super.getYottaTextarea("config-eventlist_logsample-textarea"); }
+    public WebElement getEventListLogSample() {
+        return super.getYottaTextarea("config-eventlist_logsample-textarea");
+    }
 
-    public WebElement getEventListSource() { return super.getYottaInput("config-eventlist_log_source-input"); }
-
-    @Override
-    public WebElement getSave() { return super.getYottaButton("config-save_log-button"); }
-
-    public WebElement getClearIcon() { return clearIcon; }
-
-    public List<WebElement> getRuleList() { return ruleList; }
-
-    public WebElement getAsLogSample() { return super.getYottaButton("config-as_logsample-button"); }
-
-    public WebElement getUseCheckLog() { return super.getYottaButton("config-check_log-button"); }
-
-    public WebElement getStatus() { return status; }
-
-    public WebElement getField() { return super.getYottaButton("config-log_field-button"); }
-
-    public WebElement getParseField() { return super.getYottaDropdownList("config-log_field-select"); }
-
-    public List<WebElement> getFieldTitle() { return fieldTitle; }
-
-    public List<WebElement> getFieldValue() { return fieldValue; }
-
-    public WebElement getGoBack() { return super.getYottaButton("config-back_eventlist-button"); }
-
-    public WebElement getDeleteLog() { return super.getYottaButton("config-delete-button"); }
-
-    public WebElement getCancelDeleteLog() { return super.getYottaButton("config-cancel_delete-button"); }
-
-    public WebElement getSaveLogEmpty() { return saveLogEmpty; }
-
-    public WebElement getPopoverTip() { return super.getYottaPopover("config-delete-popover"); }
+    public WebElement getEventListSource() {
+        return super.getYottaInput("config-eventlist_log_source-input");
+    }
 
     @Override
-    public WebElement getSearchInput() { return searchInput; }
+    public WebElement getSave() {
+        return super.getYottaButton("config-save_log-button");
+    }
 
-    public WebElement getDateEditor() { return dateEditor; }
+    public WebElement getClearIcon() {
+        return clearIcon;
+    }
+
+    public List<WebElement> getRuleList() {
+        return ruleList;
+    }
+
+    public WebElement getAsLogSample() {
+        return super.getYottaButton("config-as_logsample-button");
+    }
+
+    public WebElement getUseCheckLog() {
+        return super.getYottaButton("config-check_log-button");
+    }
+
+    public WebElement getStatus() {
+        return status;
+    }
+
+    public WebElement getField() {
+        return super.getYottaButton("config-log_field-button");
+    }
+
+    public WebElement getParseField() {
+        return super.getYottaDropdownList("config-log_field-select");
+    }
+
+    public List<WebElement> getFieldTitle() {
+        return fieldTitle;
+    }
+
+    public List<WebElement> getFieldValue() {
+        return fieldValue;
+    }
+
+    public WebElement getGoBack() {
+        return super.getYottaButton("config-back_eventlist-button");
+    }
+
+    public WebElement getDeleteLog() {
+        return super.getYottaButton("config-delete-button");
+    }
+
+    public WebElement getCancelDeleteLog() {
+        return super.getYottaButton("config-cancel_delete-button");
+    }
+
+    public WebElement getSaveLogEmpty() {
+        return saveLogEmpty;
+    }
+
+    public WebElement getPopoverTip() {
+        return super.getYottaPopover("config-delete-popover");
+    }
+
+    @Override
+    public WebElement getSearchInput() {
+        return searchInput;
+    }
+
+    public WebElement getDateEditor() {
+        return dateEditor;
+    }
 
     public WebElement getRecentOneHour() {
         return oneHour;
 //        return (new DateEditorPage(webDriver)).getOneHour();
     }
 
-    public WebElement getSearchButton() { return super.getYottaButtonByText("搜索"); }
+    public WebElement getSearchButton() {
+        String xpath = "//span[text()='搜索']/parent::button[@yotta-test='search_bar-submit-button']";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        return element;
+//        return super.getYottaButtonByText("搜索");
+    }
 
-    public WebElement getRawLog() { return rawLog; }
+    public WebElement getRawLog() {
+        return rawLog;
+    }
 
-    public WebElement getSaveSearchLog() { return super.getYottaButton("config-save_search_log-button"); }
+    public WebElement getSaveSearchLog() {
+        return super.getYottaButton("config-save_search_log-button");
+    }
 
     public WebElement getBoolean1() {
         return booleanList.get(0);
     }
 
-    public WebElement getSuccessMessage() { return successMessage; }
+    public WebElement getSuccessMessage() {
+        return successMessage;
+    }
 }

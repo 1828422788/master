@@ -1,7 +1,8 @@
 @configsSmoke @configs26
 Feature: 字段提取重定向解析
 
-  Scenario Outline: RZY-2867: 副规则+主规则
+  @configs26a
+  Scenario Outline: RZY-2867-1: 副规则
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
     And I click the "Create" button
@@ -25,14 +26,20 @@ Feature: 字段提取重定向解析
     And I switch the "SwitchButton" button to "enable"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
+
+  @configs26b
+  Scenario Outline: RZY-2867: 主规则
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
     And I choose the "重定向规则" from the "ParseRule" in config
+    Given I wait for loading complete
     Then I wait for "2000" millsecond
-    And I choose the "RZY2867redirect副规则" from the "Redirect" in config
+#    And I choose the "RZY2867redirect副规则" from the "Redirect" in config
+    And I choose the "RZY2867redirect副规则" from the "Redirect"
+    Given I wait for loading complete
     Then I wait for "2000" millsecond
     And I click the "EnsureAddParseRule" button
     And I click the "NextButton" button under some element
