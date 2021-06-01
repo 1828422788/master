@@ -228,7 +228,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(tagName = "table")
     private List<WebElement> tableList;
 
-    @FindBy(xpath = "//div[@class='yotta-textarea']/textarea")
+    @FindBy(xpath = "//textarea[@yotta-test='dashboard-general_config_query-textarea']")
     private WebElement spl;
 
     @FindBy(xpath = "(//*[@class='el-dialog__body']/following-sibling::div//button/span[contains(text(),'确定')])[last()]")
@@ -797,13 +797,13 @@ public class DetailPage extends PageTemplate {
         return searchDashInput;
     }
 
-    @FindBy(xpath = "//input[@yotta-test='dashboard-filter_tab-input']")
+    @FindBy(xpath = "//input[@yotta-test='dashboard-nav_filter-input']")
     private WebElement searchTagInput;
 
     @FindBy(xpath = "//a[text()='first']")
     private WebElement firstTag;
 
-    @FindBy(xpath = "(//li[@class='yotta-menu-item'])[last()]//a")
+    @FindBy(xpath = "(//div[@class='yotta-tree-node']//span[text()])[last()]")
     private WebElement lastTag;
 
     @FindBy(xpath = "//span[contains(text(),'first')]")
@@ -855,7 +855,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='appname:']")
     private WebElement hoverElement;
 
-    @FindBy(xpath = "//span[contains(text(),'名称')]/following-sibling::span/input")
+    @FindBy(xpath = "//input[@yotta-test='dashboard-new_tab_name-input']")
     private WebElement tagName;
 
     @FindBy(xpath = "//span[contains(text(),'插入图表')]/following-sibling::span/input")

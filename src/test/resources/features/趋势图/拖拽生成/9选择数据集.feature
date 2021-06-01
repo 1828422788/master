@@ -203,7 +203,7 @@ Feature: 趋势图_选择数据集
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | append [[ tag:sample04061424_display ]]"
     When I click the "CloseSPL" button
-    And I wait for "TableBody" will be visible
+    And I wait for "5000" millsecond
     And I click the "NextButton" button under some element
 
     And I wait for "Dimensions" will be visible

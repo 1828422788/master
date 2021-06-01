@@ -32,8 +32,8 @@ Feature: 新建用户和字段提取
     And I set the parameter "Tag" with value "<tag>"
     And I upload a file with name "/src/test/resources/testdata/log/<log>.txt"
     And I click the "UploadButton" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "上传完成"
+    And I wait for "VerifyText" will be visible
+    And I will see the element "VerifyText" contains "上传完成"
     And I wait for "5000" millsecond
 
     Examples:

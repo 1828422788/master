@@ -19,7 +19,10 @@ Feature: 定时任务复制
     And I wait for element "SelectedUser" change text to username
     And I choose the "test_app" from the "AppDropdown"
     And I set the parameter "Describe" with value "testing"
-
+    And I will see the element "SelectDataset" contains "已选择 1 个数据集/节点"
+    And I click the "SelectDataset" button
+    And I wait for "SelectedDatasetAll" will be visible
+    And I click the "Cancel" button
     And I set the parameter "Period" with value "<periodNum>"
     And I choose the "<periodTime>" from the "Unit"
     And I set the parameter "StartTimeInput" with value "23:58:10"
@@ -90,7 +93,7 @@ Feature: 定时任务复制
     And I wait for "Loading" will be invisible
     When the data name is "{'column':'1','name':'copytask(副本)'}" then i click the "copytask(副本)" button
     Then I will see the "timedTask.DetailPage" page
-    And I will see the element "DetailDataSet" contains "(*)"
+#    And I will see the element "DetailDataSet" contains "(*)"
     And I will see the element "SearchContent" contains "tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>1000000,1,0)"
     And I will see the element "TimePeriod" contains "-1d ~ now"
     And I will see the element "Description" contains "testing"
@@ -106,7 +109,10 @@ Feature: 定时任务复制
     And I will see the input element "Name" value will be "copytask(副本)"
     And I will see the input element "Describe" value will be "testing"
     And I will see the input element "Number" value will be "123"
-    And I will see the element "DataSet" contains "(*)"
+    And I will see the element "SelectDataset" contains "已选择 1 个数据集/节点"
+    And I click the "SelectDataset" button
+    And I wait for "SelectedDatasetAll" will be visible
+    And I click the "Cancel" button
     And I will see the element "SelectedGroup" contains "auto_package"
     And I will see the element "SelectedApp" contains "test_app"
     And I will see the input element "Period" value will be "5"

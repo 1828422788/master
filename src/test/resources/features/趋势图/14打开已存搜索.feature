@@ -33,7 +33,9 @@ Feature: 趋势图_已存搜索
     And I click the "EnsureButton" button
     And I click the "OpenSavedSearchList" button
     And I wait for "2000" millsecond
-    And "删除" the data "trend_test" in tiny saved search
+    And "更多" the data "trend_test" in tiny saved search
+    And I wait for "Delete" will be visible
+    And I click the "Delete" button
     And I wait for "ConfirmMessage" will be visible
     And I will see the text "取消" exist in page
     And I will see the text "确定" exist in page
@@ -65,7 +67,9 @@ Feature: 趋势图_已存搜索
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "OpenSavedSearchList" button
     And I wait for "2000" millsecond
-    And "删除" the data "trend_test" in tiny saved search
+    And "更多" the data "trend_test" in tiny saved search
+    And I wait for "Delete" will be visible
+    And I click the "Delete" button
     And I wait for "Cancel" will be visible
     And I will see the element "ConfirmMessage" contains "确认删除 trend_test?"
     And I wait for "EnsureButton" will be visible

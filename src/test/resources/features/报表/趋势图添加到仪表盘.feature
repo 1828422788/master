@@ -27,6 +27,8 @@ Feature:趋势图添加到仪表盘保存为报表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "<tag>"
     And I click the "EnsureCreateTagButton" button
@@ -47,10 +49,13 @@ Feature:趋势图添加到仪表盘保存为报表
     And I set the parameter "SearchInput" with value "趋势图_<folder>"
     And I wait for "2000" millsecond
     When I click the detail which name is "趋势图_<folder>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "TagIcon" will be visible
-    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
+    And I open the context menu of the "LastTag" element
     And I wait for "500" millsecond
+    And I wait for "CreatNewTag" will be visible
     And I click the "CreatNewTag" button
     When I set the parameter "TagName" with value "<tag>"
     And I click the "EnsureCreateTagButton" button
@@ -82,9 +87,10 @@ Feature:趋势图添加到仪表盘保存为报表
     And I set the parameter "SearchInput" with value "趋势图_<folder>"
     And I wait for "2000" millsecond
     When I click the detail which name is "趋势图_<folder>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "TagIcon" will be visible
-    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
@@ -172,15 +178,16 @@ Feature:趋势图添加到仪表盘保存为报表
     And I set the parameter "SearchInput" with value "趋势图_<dashboard_name>"
     And I wait for "2000" millsecond
     When I click the detail which name is "趋势图_<dashboard_name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "TagIcon" will be visible
-    And I click the "TagIcon" button
-
+    And I wait for "LastTag" will be visible
+    And I set the parameter "SearchTagInput" with value "<chart>"
+    And I wait for "500" millsecond
     And I click the Element with text "<chart>"
     And I wait for "3000" millsecond
     And I click the "SettingIcon" button
     And I click the "SaveAs" button
-#    And I move the mouse pointer to the "SaveAs"
     And I click the "SaveAsReport" button
     And switch to another window
     And I close all tabs except main tab

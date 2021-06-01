@@ -27,7 +27,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//li[@yotta-test='trend-dataset_trend-menu_item']")
     private WebElement newTrendFromDataset;
 
-    @FindBy(xpath = "//span[contains(text(),'标签')]/ancestor::div[@class='yotta-modal']")
+    @FindBy(xpath = "//span[contains(text(),'标签')]/ancestor::div[contains(@class,'modal-header')]")
     private WebElement tagPanel;
 
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']")

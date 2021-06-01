@@ -19,8 +19,8 @@ Feature: 趋势图_提示
 
     Examples:
       | timePeriod    | name | message           |
-      | Today         |      | 名称格式有误，仅支持中文，数字，字母，中划线以及下划线的组合。 |
-      | Today         |a/b   | 名称格式有误，仅支持中文，数字，字母，中划线以及下划线的组合。 |
+      | Today         |      | 名称格式有误，仅支持中文、数字、字母、中划线、下划线以及括号的组合。 |
+      | Today         |a/b   | 名称格式有误，仅支持中文、数字、字母、中划线、下划线以及括号的组合。 |
 
   Scenario: cancel_test
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -130,7 +130,7 @@ Feature: 趋势图_提示
     And I wait for "NameInput" will be visible
     And I click the "Complete" button under some element
     And I wait for "TipText" will be visible
-    And I will see the element "TipText" contains "名称格式有误，仅支持中文，数字，字母，中划线以及下划线的组合。"
+    And I will see the element "TipText" contains "名称格式有误，仅支持中文、数字、字母、中划线、下划线以及括号的组合。"
 
   Scenario: new_trend_step2_change
     Given open the "trend.ListPage" page for uri "/trend/"

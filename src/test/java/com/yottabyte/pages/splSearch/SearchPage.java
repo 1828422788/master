@@ -2300,4 +2300,11 @@ public class SearchPage extends ListPageFactory {
     public WebElement getMergeURL() {
         return mergeURL;
     }
+
+    @FindBy(xpath = "//span[text()='删除']")
+    private WebElement delete;
+
+    public WebElement getDelete() {
+        return delete;
+    }
 }
