@@ -116,7 +116,7 @@ public class LogInAndOut {
         WebElement userIcon = webDriver.findElement(By.xpath("//span[contains(@class,'yotta-icon-UserFilled')]"));
         waitElement.elementVisible(userIcon);
         userIcon.click();
-        WebElement loginUserName = webDriver.findElement(By.xpath("//div[@class='yotta-avatar yotta-avatar-square']/following-sibling::div//p"));
+        WebElement loginUserName = webDriver.findElement(By.xpath("//div[@class='yotta-avatar yotta-avatar-square css-1itn9ek']/following-sibling::div//p"));
         if (!loginUserName.getText().equals(username)) {
             userLogin(username, password);
         }

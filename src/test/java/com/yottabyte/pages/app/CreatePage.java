@@ -106,10 +106,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@yotta-test='application-nav_modal_name-input']/parent::div/following-sibling::div")
     private WebElement nameMessage;
 
-    @FindBy(xpath = "//div[@class='yotta-modal navModal']/div[2]/form/div/div[2]//input")
+    @FindBy(xpath = "//input[@yotta-test='application-nav_modal_name-input']")
     private WebElement menuName;
 
-    @FindBy(xpath = "//div[@class='yotta-modal navModal']/div[2]/form/div[2]/div[2]//input")
+    @FindBy(xpath = "//input[@yotta-test='application-nav_modal_url-input']")
     private WebElement url;
 
     @FindBy(xpath = "//input[@yotta-test='application-nav_modal_url-input']/parent::div/following-sibling::div")

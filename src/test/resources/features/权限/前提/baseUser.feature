@@ -64,15 +64,16 @@ Feature: 基础用户创建
 
   Scenario: 分配搜索权限给AutoTest
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
-    When the data name is "SearchAuth" then i click the "更多" button
-    And I click the "MoreOfAuth" button
     And I wait for loading invisible
+    When the data name is "SearchAuth" then i click the "授权" button in more menu
+    And I wait for "2000" millsecond
     And I "check" the checkbox which name is "AutoTest" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
 
   Scenario: 授权索引配置
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
