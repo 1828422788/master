@@ -61,34 +61,40 @@ Feature: 报表_批量操作
     And I will see the element "TagOfTheLastItem" contains "auto_package"
     And the data name is "{'column':'1','name':'test_multi_3'}" then I "close" the item
 
-  Scenario: switch_off
-    And the data name is "{'column':'1','name':'test_multi_1'}" then I "close" the switch
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "禁用成功"
-    And I wait for "SuccessMessage" will be invisible
-
-    And the data name is "{'column':'1','name':'test_multi_2'}" then I "close" the switch
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "禁用成功"
-    And I wait for "SuccessMessage" will be invisible
-
-    And the data name is "{'column':'1','name':'test_multi_3'}" then I "close" the switch
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "禁用成功"
-    
-  Scenario: multi_switch
+  Scenario: disable
+    When I set the parameter "SearchInput" with value "test_multi_"
+    And I wait for "2000" millsecond
+    And I wait for "BatchControl" will be visible
     And I click the "BatchControl" button under some element
     And I "checked" the checkbox which name is "test_multi_1" in the list
     And I "checked" the checkbox which name is "test_multi_2" in the list
     And I "checked" the checkbox which name is "test_multi_3" in the list
     And I click the "SelectBatchOperation" button under some element
+    And I click the "DisableResources" button
+    And I wait for "Ensure" will be visible
+    And I will see the message "确定停止 3 个资源"
+    When I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "更新成功"
+    And I wait for loading complete
+    And I click the "CompleteBatchControl" button under some element
+    
+  Scenario: multi_switch
+    And I click the "BatchControl" button under some element
+    And I "checked" the checkbox which name is "test_multi_2" in the list
+    And I "checked" the checkbox which name is "test_multi_3" in the list
+    And I click the "SelectBatchOperation" button under some element
     And I click the "EnableResources" button
     And I wait for "Ensure" will be visible
-    And I will see the message "确定启用 3 个资源"
+    And I will see the message "确定启用 2 个资源"
     When I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I click the "CompleteBatchControl" button under some element
+    And the data name is "{'column':'1','name':'test_multi_1'}" then I "open" the switch
+    And I wait for "100" millsecond
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "开启成功"
 
   Scenario: verify_switch
     When the data name is "{'column':'1','name':'test_multi_1'}" then I "close" the switch
@@ -142,12 +148,10 @@ Feature: 报表_批量操作
     And I click the "CompleteBatchControl" button under some element
 
   Scenario Outline: verify_delete_files
-    When I click the "ReportListButton" button
-    Then I wait for "SelectedReport" will be visible
-    And I wait for element "SelectedReport" change text to "全部报表文件"
-    And I wait for "5000" millsecond
-    And I wait for "LastGeneratedReport" will be visible
-    And I choose the "<name>" from the "ListOfReports" in config
+    When I set the parameter "SearchInput" with value "<name>"
+    And I wait for "2000" millsecond
+    And the data name is "{'column':'1','name':'<name>'}" then i click the "<name>" button
+    And I wait for element "SelectedReport" change text to "<name>"
     And I wait for "2000" millsecond
     Then I wait for "NoData" will be visible
 
