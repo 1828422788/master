@@ -43,7 +43,6 @@ Feature:4保存为报表
       | 维度          | Pie          |
       | 维度          | Rose         |
       | 维度          | Bar          |
-      | 维度          | Bar2         |
       | 维度          | Sun          |
       | 关系          | Chord        |
       | 关系          | Sankey       |
@@ -83,7 +82,6 @@ Feature:4保存为报表
       | Pie          |
       | Rose         |
       | Bar          |
-      | Bar2         |
       | Sun          |
       | Chord        |
       | Sankey       |
