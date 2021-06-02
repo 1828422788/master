@@ -815,6 +815,9 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='新建标签页']")
     private WebElement creatNewTag;
+    public WebElement getCreatNewTag() {
+        return creatNewTag;
+    }
 
     @FindBy(xpath = "//a[text()='Delete']/following-sibling::*[@yotta-test='dashboard-delete_tab-dom']")
     private WebElement deleteNewTag;
@@ -1219,10 +1222,6 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getFirst() {
         return first;
-    }
-
-    public WebElement getCreatNewTag() {
-        return creatNewTag;
     }
 
     public WebElement getEditTag() {
