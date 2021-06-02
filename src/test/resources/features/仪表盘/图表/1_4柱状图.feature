@@ -1,4 +1,4 @@
-@dashboard0330 @dashboard19
+@dashboard0330 @dashboard19 @dashboardChart
 Feature: 仪表盘柱状图
 
   @dashboard @dashboardSmoke
@@ -42,6 +42,8 @@ Feature: 仪表盘柱状图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "<name>"
     And I click the "EnsureCreateTagButton" button
@@ -57,6 +59,8 @@ Feature: 仪表盘柱状图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
@@ -77,6 +81,8 @@ Feature: 仪表盘柱状图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I wait for "500" millsecond
@@ -126,6 +132,8 @@ Feature: 仪表盘柱状图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘柱状图"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
@@ -144,6 +152,8 @@ Feature: 仪表盘柱状图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘柱状图"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -172,6 +182,8 @@ Feature: 仪表盘柱状图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘柱状图"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -200,6 +212,8 @@ Feature: 仪表盘柱状图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘柱状图"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -228,6 +242,8 @@ Feature: 仪表盘柱状图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘柱状图"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -254,6 +270,8 @@ Feature: 仪表盘柱状图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -287,6 +305,8 @@ Feature: 仪表盘柱状图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -325,6 +345,8 @@ Feature: 仪表盘柱状图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘柱状图"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -348,28 +370,28 @@ Feature: 仪表盘柱状图
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will contain "apache.clientip:64.20.177.254"
 
-  @cleanDashboard
-  Scenario Outline: 删除仪表盘
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    When the data name is "<name>" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    And I wait for "500" millsecond
-    Then I will see the success message "删除仪表盘成功"
-
-    Examples:
-      | name   |
-      | 仪表盘柱状图 |
-
-  @cleanDashboard
-  Scenario Outline: 删除仪表盘所建趋势图
-    Given open the "trend.ListPage" page for uri "/trend/"
-    When the data name is "<name>" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    And I wait for "500" millsecond
-    And I will see the success message "删除成功"
-
-    Examples:
-      | name   |
-      | 仪表盘柱状图 |
+#  @cleanDashboard
+#  Scenario Outline: 删除仪表盘
+#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+#    When the data name is "<name>" then i click the "删除" button in more menu
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button
+#    And I wait for "500" millsecond
+#    Then I will see the success message "删除仪表盘成功"
+#
+#    Examples:
+#      | name   |
+#      | 仪表盘柱状图 |
+#
+#  @cleanDashboard
+#  Scenario Outline: 删除仪表盘所建趋势图
+#    Given open the "trend.ListPage" page for uri "/trend/"
+#    When the data name is "<name>" then i click the "删除" button in more menu
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button
+#    And I wait for "500" millsecond
+#    And I will see the success message "删除成功"
+#
+#    Examples:
+#      | name   |
+#      | 仪表盘柱状图 |

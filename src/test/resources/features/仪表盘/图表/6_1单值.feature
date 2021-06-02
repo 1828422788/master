@@ -1,4 +1,4 @@
-@dashboard6
+@dashboard6 @dashboardChart
 Feature: 仪表盘单值
 
   @dashboard @dashboardSmoke
@@ -41,6 +41,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "<name>"
     And I click the "EnsureCreateTagButton" button
@@ -56,6 +58,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     And I click the "AddEventButton" button
@@ -77,6 +81,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "ChartType" button
     And I wait for "1000" millsecond
@@ -111,6 +117,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
@@ -127,6 +135,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
@@ -156,6 +166,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
@@ -177,6 +189,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
@@ -196,6 +210,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
@@ -214,6 +230,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
@@ -231,6 +249,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Edit" button
@@ -251,6 +271,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -267,6 +289,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I click the "TimeRangeDanzhi" button
@@ -280,6 +304,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -300,6 +326,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -323,6 +351,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -346,6 +376,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -369,6 +401,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -387,6 +421,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -411,6 +447,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -434,6 +472,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -461,6 +501,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -484,6 +526,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -502,6 +546,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -530,6 +576,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -553,6 +601,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -573,6 +623,8 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "3000" millsecond
     And I click the "SettingChart" button
