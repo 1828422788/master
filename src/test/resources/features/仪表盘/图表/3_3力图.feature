@@ -1,5 +1,5 @@
-@dashboard4
-Feature: 仪表盘区划地图
+@dashboard3 @dashboardChart
+Feature: 仪表盘力图
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
@@ -10,8 +10,8 @@ Feature: 仪表盘区划地图
     Then I will see the success message "新建仪表盘成功"
 
     Examples:
-      | name    |
-      | 仪表盘区划地图 |
+      | name  |
+      | 仪表盘力图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
@@ -33,14 +33,16 @@ Feature: 仪表盘区划地图
     And I wait for "SuccessCreate" will be visible
 
     Examples:
-      | spl                                                                                            | name    |
-      | tag:sample04061424 \| stats count() by apache.geo.country,apache.geo.province,apache.geo.city | 仪表盘区划地图 |
+      | spl                                                                                                                                                                                                            | name  |
+      | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | 仪表盘力图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "<name>"
     And I click the "EnsureCreateTagButton" button
@@ -49,13 +51,15 @@ Feature: 仪表盘区划地图
 
     Examples:
       | name |
-      | 区划地图 |
+      | 力图   |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 添加图表
+  Scenario Outline: 添加图表(RZY-4490，RZY-3394)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
@@ -63,34 +67,40 @@ Feature: 仪表盘区划地图
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
     And I set the parameter "SearchChartInput" with value "<name>"
-    And I wait for loading invisible
+    And I wait for "SpinDot" will be invisible
     And I click the "{'Checkbox':'<name>'}" button
     And I click the "Ensure" button
 
     Examples:
-      | name    |
-      | 仪表盘区划地图 |
+      | name  |
+      | 仪表盘力图 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 修改为区划地图
+  Scenario Outline: 修改为力图 RZY-307
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
+    And I wait for "500" millsecond
     And I click the "ChartType" button
     And I wait for "1000" millsecond
     Then I will see the "trend.CreatePageDash" page
-    And I wait for "Map" will be visible
-    And I click the "Map" button
+    And I wait for "Relation" will be visible
+    And I click the "Relation" button
     And I click the "<targetName>" button
 #    And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
-#    And I choose the "count()" from the "DataValue"
-    And I click the "Divide" button
-    And I wait for "1000" millsecond
-#    And I choose the "apache.geo.country" from the "DataValueDivide"
+    And I choose the "apache.x_forward" from the "DataValue"
+    And I click the "Target" button
+    And I choose the "apache.resp_len" from the "DataValue"
+    And I click the "Weight" button
+    And I choose the "count()" from the "DataValue"
+    And I click the "Exhibition" button
+    And I set the parameter "Repulsion" with value "12"
     Then I click the "Generate" button
     And I wait for "3000" millsecond
     And I click the "Setting" button under some element
@@ -101,46 +111,6 @@ Feature: 仪表盘区划地图
     And I wait for "3000" millsecond
 
     Examples:
-      | name    | targetName |
-      | 仪表盘区划地图 | Regionmap  |
-
-  @dashboard @dashboardSmoke
-  Scenario: 区划地图下钻 RZY-3399,RZY-321
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘区划地图"
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenDrilldown" button to "enable"
-#    And I click the "OpenDrilldown" button
-    And I wait for "500" millsecond
-    When the chart title is "仪表盘区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
-    And I click the "DrillSetting" button
-    And I choose the "地图向下钻取" from the "DrillAction"
-    And I wait for "1000" millsecond
-    And I choose the "apache.geo.province" from the "ProvinceDrillAction"
-    And I wait for "1000" millsecond
-    And I choose the "apache.geo.city" from the "CityDrillAction"
-    And I click the "Ensure" button
-    And I wait for "ChinaPoint" will be visible
-    And I click the Circle "ChinaPoint" button
-#    And I click the "ChinaPoint" button
-    And I wait for "NeimengguText" will be visible
-    And I click the Circle "Neimenggu" button
-#    And I click the "Neimenggu" button
-    And I wait for "TongliaoshiText" will be visible
-
-  @dashboard @dashboardSmoke
-  Scenario Outline: 地图下钻 RZY-3769
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
-    Then I will see the "dashboard.DetailPage" page
-    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
-    And I click the "Edit" button
-    Then I will see the "TextLayer" result will contain "<json>"
-
-    Examples:
-      | name        | json                                                                                                                                                                                                                                                                                                                                                                           |
-      | 仪表盘区划地图 |  \n  "drilldown": {\n    "type": "map"\n  } |
+      | name  | targetName |
+      | 仪表盘力图 | Force      |
 

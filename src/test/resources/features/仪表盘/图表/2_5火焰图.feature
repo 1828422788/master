@@ -1,4 +1,4 @@
-@dashboard24
+@dashboard24 @dashboardChart
 Feature: 仪表盘火焰图
 
   @dashboard @dashboardSmoke
@@ -18,6 +18,8 @@ Feature: 仪表盘火焰图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "<name>"
     And I click the "EnsureCreateTagButton" button
@@ -61,6 +63,8 @@ Feature: 仪表盘火焰图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
@@ -81,6 +85,8 @@ Feature: 仪表盘火焰图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I click the "ChartType" button
@@ -120,6 +126,8 @@ Feature: 仪表盘火焰图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I click the Circle "ShanDong" button
@@ -139,26 +147,26 @@ Feature: 仪表盘火焰图
       | name    |
       | 仪表盘火焰图 |
 
-  @cleanDashboard
-  Scenario Outline: 删除仪表盘
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    When the data name is "<name>" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    Then I will see the success message "删除仪表盘成功"
-
-    Examples:
-      | name    |
-      | 仪表盘火焰图 |
-
-  @cleanDashboard
-  Scenario Outline: 删除仪表盘所建趋势图
-    Given open the "trend.ListPage" page for uri "/trend/"
-    When the data name is "<name>" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    And I will see the success message "删除成功"
-
-    Examples:
-      | name    |
-      | 仪表盘火焰图 |
+#  @cleanDashboard
+#  Scenario Outline: 删除仪表盘
+#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+#    When the data name is "<name>" then i click the "删除" button in more menu
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button
+#    Then I will see the success message "删除仪表盘成功"
+#
+#    Examples:
+#      | name    |
+#      | 仪表盘火焰图 |
+#
+#  @cleanDashboard
+#  Scenario Outline: 删除仪表盘所建趋势图
+#    Given open the "trend.ListPage" page for uri "/trend/"
+#    When the data name is "<name>" then i click the "删除" button in more menu
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button
+#    And I will see the success message "删除成功"
+#
+#    Examples:
+#      | name    |
+#      | 仪表盘火焰图 |

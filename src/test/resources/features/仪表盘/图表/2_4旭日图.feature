@@ -1,5 +1,5 @@
-@dashboard14
-Feature: 仪表盘散点图
+@dashboard15 @dashboardChart
+Feature: 仪表盘旭日图
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
@@ -11,7 +11,7 @@ Feature: 仪表盘散点图
 
     Examples:
       | name   |
-      | 仪表盘散点图 |
+      | 仪表盘旭日图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
@@ -34,13 +34,15 @@ Feature: 仪表盘散点图
 
     Examples:
       | spl                                                                          | name   |
-      | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | 仪表盘散点图 |
+      | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | 仪表盘旭日图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "<name>"
     And I click the "EnsureCreateTagButton" button
@@ -49,13 +51,15 @@ Feature: 仪表盘散点图
 
     Examples:
       | name |
-      | 散点图  |
+      | 旭日图  |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
@@ -69,37 +73,33 @@ Feature: 仪表盘散点图
 
     Examples:
       | name   |
-      | 仪表盘散点图 |
+      | 仪表盘旭日图 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 修改为散点图 RZY-304
+  Scenario Outline: 修改为旭日图 RZY-3398
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    And I wait for "500" millsecond
     And I click the "ChartType" button
     And I wait for "1000" millsecond
     Then I will see the "trend.CreatePageDash" page
-    And I wait for "Order" will be visible
-    And I click the "Order" button
+    And I wait for "Dimension" will be visible
+    And I click the "Dimension" button
     And I click the "<targetName>" button
 #    And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "SettingChart" button under some element
-    And I choose the "apache.clientip" from the "DataValue"
-    And I wait for "1000" millsecond
-    And I click the "Yaxis" button
     And I choose the "count()" from the "DataValue"
     And I wait for "1000" millsecond
-    And I click the "Group" button
-    And I choose the "apache.resp_len" from the "DataValue"
-    And I wait for "1000" millsecond
-    And I click the "Bubble" button
-    And I click the "AccordingField" button
-    And I choose the "count()" from the "BubbleSize"
-    And I wait for "1000" millsecond
+    And I click the "Divide" button
+#    And I choose the "apache.clientip" from the "DataValue"
+#    And I wait for "1000" millsecond
+#    And I choose the "apache.resp_len" from the "DataValue"
+#    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
     And I click the "SettingChart" button under some element
@@ -111,29 +111,29 @@ Feature: 仪表盘散点图
     And I wait for "3000" millsecond
 
     Examples:
-      | name   | targetName   |
-      | 仪表盘散点图 | ScatterChart |
-
-  @cleanDashboard
-  Scenario Outline: 删除仪表盘
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    When the data name is "<name>" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    Then I will see the success message "删除仪表盘成功"
-
-    Examples:
-      | name   |
-      | 仪表盘散点图 |
-
-  @cleanDashboard
-  Scenario Outline: 删除仪表盘所建趋势图
-    Given open the "trend.ListPage" page for uri "/trend/"
-    When the data name is "<name>" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    And I will see the success message "删除成功"
-
-    Examples:
-      | name   |
-      | 仪表盘散点图 |
+      | name   | targetName |
+      | 仪表盘旭日图 | Sunburst   |
+#
+#  @cleanDashboard
+#  Scenario Outline: 删除仪表盘
+#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+#    When the data name is "<name>" then i click the "删除" button in more menu
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button
+#    Then I will see the success message "删除仪表盘成功"
+#
+#    Examples:
+#      | name   |
+#      | 仪表盘旭日图 |
+#
+#  @cleanDashboard
+#  Scenario Outline: 删除仪表盘所建趋势图
+#    Given open the "trend.ListPage" page for uri "/trend/"
+#    When the data name is "<name>" then i click the "删除" button in more menu
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button
+#    And I will see the success message "删除成功"
+#
+#    Examples:
+#      | name   |
+#      | 仪表盘旭日图 |
