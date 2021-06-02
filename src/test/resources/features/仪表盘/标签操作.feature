@@ -20,6 +20,8 @@ Feature: 仪表盘标签操作
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "标签页移出"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "第一个标签"
     And I click the "EnsureCreateTagButton" button
@@ -32,6 +34,8 @@ Feature: 仪表盘标签操作
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "标签页移出"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
     And I click the "MoveoutTag" button
@@ -55,6 +59,8 @@ Feature: 仪表盘标签操作
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "接收标签页"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When I click the "TagPageName" button
     And I wait for "2000" millsecond
@@ -73,6 +79,8 @@ Feature: 仪表盘标签操作
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "接收标签页"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
     And I wait for "1000" millsecond

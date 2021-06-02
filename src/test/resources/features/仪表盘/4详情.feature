@@ -321,8 +321,8 @@ Feature: 仪表盘详情页
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
-    And I move the mouse pointer to the "SaveAs"
-#    And I click the "SaveAs" button
+#    And I move the mouse pointer to the "SaveAs"
+    And I click the "SaveAs" button
     And I click the "SaveAsReport" button
     And switch to another window
     And I close all tabs except main tab

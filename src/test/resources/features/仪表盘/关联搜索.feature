@@ -1,4 +1,4 @@
-@dashboard2
+@dashboard2 @dashboard
 Feature: 仪表盘关联搜索
 
   @dashboard2a @dashboardSmoke
@@ -229,6 +229,8 @@ Feature: 仪表盘关联搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘关联搜索"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I click the "Entry" button under some element
