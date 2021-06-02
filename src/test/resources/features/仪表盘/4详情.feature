@@ -43,6 +43,8 @@ Feature: 仪表盘详情页
   Scenario: 新建待删除tag(RZY-3390)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I wait for "2000" millsecond
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab

@@ -85,3 +85,29 @@ Feature:批量导入趋势图
       | name                   |
       | Matrixheatmap_2661     |
 
+  @dbsample4
+  Scenario Outline:
+    And I set the parameter "SearchInput" with value "趋势图_<folder>"
+    And I wait for "2000" millsecond
+    When I click the detail which name is "趋势图_<folder>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "LastTag" will be visible
+    And I wait for "500" millsecond
+    And I set the parameter "SearchTagInput" with value "<tag>"
+    And I wait for "500" millsecond
+    And I click the Element with text "<tag>"
+    And I wait for "2000" millsecond
+    Then I click the "AddEventButton" button
+    And I click the "AddChart" button
+    And I wait for "SpinDot" will be invisible
+    And I set the parameter "SearchChartInput" with value "<chart>"
+    And I wait for loading invisible
+    And I click the "{'Checkbox':'<chart>'}" button
+    And I click the "Ensure" button
+    And I wait for "3000" millsecond
+
+    Examples:
+      | folder   |  tag         | chart                           |
+      | 序列     | LineChart    | LineChart_2477                  |

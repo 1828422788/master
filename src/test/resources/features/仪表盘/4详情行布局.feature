@@ -1,7 +1,7 @@
 @dashboard @dashboard04
 Feature: 仪表盘详情行布局
 
-  @dashboard04b @dashboardSmoke
+  @dashboard04pre @dashboardSmoke
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -40,7 +40,7 @@ Feature: 仪表盘详情行布局
       | 仪表盘行布局 |
 
 
-  @dashboard04c @dashboardSmoke
+  @dashboard04b @dashboardSmoke
   Scenario: 新建一个行布局标签页(RZY-4628)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -51,7 +51,7 @@ Feature: 仪表盘详情行布局
     Given I wait for loading complete
     And I wait for "2000" millsecond
     And I set the parameter "TagName" with value "rowLayout"
-#    And I click the "RowLayout" button
+    And I click the "RowLayout" button
     And I click the "EnsureCreateTagButton" button
     And I wait for "5000" millsecond
     And I back to before
@@ -66,10 +66,8 @@ Feature: 仪表盘详情行布局
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
-#    Then I will see the "AddChart,AddEvent,AddInput" is "disabled"
     And I wait for "AddChart" will be visible
     Then I will see the "AddChartItem" is "yotta-menu-item-disabled"
-#    And I will see the element "AddChartItem" attribute "aria-disabled" is "true"
     And I click the "AddRow" button
     And I wait for loading invisible
     And I set the parameter "TagName" with value "第一行"
