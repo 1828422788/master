@@ -1,7 +1,7 @@
 @dashboard @dashboard03
 Feature: 仪表盘详情页
 
-  @dashboard @dashboardSmoke
+  @dashboard03pre @dashboardSmoke
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
 #    And I click the "CreateButton" button
