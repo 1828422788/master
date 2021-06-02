@@ -1,5 +1,5 @@
 @dashboard3 @dashboardChart
-Feature: 仪表盘力图
+Feature: 仪表盘_3_3_力图
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘

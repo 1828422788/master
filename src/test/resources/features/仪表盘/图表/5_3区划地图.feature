@@ -1,5 +1,5 @@
 @dashboard4 @dashboardChart
-Feature: 仪表盘区划地图
+Feature: 仪表盘_5_3_区划地图
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘

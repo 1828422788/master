@@ -1,5 +1,5 @@
 @dashboard10 @dashboardChart
-Feature: 仪表盘字符云图
+Feature: 仪表盘_6_4_字符云图
 
   @dashboard
   Scenario Outline: 新建仪表盘

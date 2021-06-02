@@ -1,5 +1,5 @@
 @dashboard21 @dashboardChart
-Feature: 仪表盘桑基图
+Feature: 仪表盘_3_2_桑基图
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘

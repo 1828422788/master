@@ -1,5 +1,5 @@
 @dashboard25 @dashboardChart
-Feature: 仪表盘热力地图
+Feature: 仪表盘_5_1_热力地图
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘

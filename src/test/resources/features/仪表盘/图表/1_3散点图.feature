@@ -1,5 +1,5 @@
 @dashboard14 @dashboardChart
-Feature: 仪表盘散点图
+Feature: 仪表盘_1_3_散点图
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘

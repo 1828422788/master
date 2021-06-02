@@ -1,5 +1,5 @@
 @dashboard24 @dashboardChart
-Feature: 仪表盘火焰图
+Feature: 仪表盘_2_5_火焰图
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘

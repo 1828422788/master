@@ -524,7 +524,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='钻取变量单值']/following-sibling::div[last()]/div/div[last()]/div/span")
     private WebElement singleValue;
 
-    @FindBy(xpath = "//div[text()='仪表盘单值']/following-sibling::div[last()]//span[1]")
+    @FindBy(xpath = "//div[text()='仪表盘单值' and @yotta-test='dashboard-chart_title-dom']/following-sibling::div[last()]//span[1]")
     private WebElement dashboardSingleValue;
 
     @FindBy(xpath = "//span[text()='thumbs-up:']/parent::div/parent::div")
@@ -533,14 +533,14 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='钻取变量单值value']/following-sibling::div[last()]/div/div[last()]/div/span")
     private WebElement singleValue1;
 
-    @FindBy(xpath = "//label[text()='钻取类型：']/following-sibling::div[@class='yotta-select yotta-select-large']")
-    private WebElement drillAction;
+    @FindBy(xpath = "//div[@yotta-test='dashboard-drilldown_type-select']//div[@class='yotta-select-selection']")
+    private WebElement drillAction; //钻取类型
 
-    @FindBy(xpath = "//label[text()='省下钻字段：']/following-sibling::div[@yotta-test='dashboard-drilldown_map_province-select']")
-    private WebElement provinceDrillAction;
+    @FindBy(xpath = "//div[@yotta-test='dashboard-drilldown_map_province-select']//div[@class='yotta-select-selection']")
+    private WebElement provinceDrillAction; //省下钻字段
 
-    @FindBy(xpath = "//label[text()='市下钻字段：']/following-sibling::div[@yotta-test='dashboard-drilldown_map_city-select']")
-    private WebElement cityDrillAction;
+    @FindBy(xpath = "//div[@yotta-test='dashboard-drilldown_map_city-select']//div[@class='yotta-select-selection']")
+    private WebElement cityDrillAction; //市下钻字段
 
     @FindBy(xpath = "//textarea[@yotta-test='dashboard-drilldown_custom_url-textarea']")
     private WebElement url;

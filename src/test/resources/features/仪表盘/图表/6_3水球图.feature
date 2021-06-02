@@ -1,5 +1,5 @@
 @dashboard22 @dashboardChart
-Feature: 仪表盘水球图
+Feature: 仪表盘_6_3_水球图
 
   @dashboard
   Scenario Outline: 新建仪表盘

@@ -1,5 +1,5 @@
 @dashboard40 @dashboardChart
-Feature: 仪表盘雷达图
+Feature: 仪表盘_6_6_雷达图
 
   @dashboard
   Scenario Outline: 新建仪表盘

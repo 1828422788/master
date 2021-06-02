@@ -1,5 +1,5 @@
 @dashboard17 @dashboardChart
-Feature: 仪表盘曲线图
+Feature: 仪表盘_1_1_曲线图
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘

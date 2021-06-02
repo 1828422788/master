@@ -1,5 +1,5 @@
 @dashboard41 @dashboardChart
-Feature: 仪表盘面积图
+Feature: 仪表盘_1_2_面积图
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘

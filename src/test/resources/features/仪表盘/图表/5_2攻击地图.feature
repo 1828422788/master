@@ -1,5 +1,5 @@
 @dashboard13 @dashboardChart
-Feature: 仪表盘攻击地图
+Feature: 仪表盘_5_2_攻击地图
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘

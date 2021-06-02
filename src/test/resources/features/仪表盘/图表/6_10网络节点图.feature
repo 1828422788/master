@@ -1,5 +1,5 @@
 @dashboard30 @dashboardChart
-Feature: 仪表盘网络节点图
+Feature: 仪表盘_6_10_网络节点图
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘

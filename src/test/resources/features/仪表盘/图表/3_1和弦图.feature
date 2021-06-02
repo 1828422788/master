@@ -1,5 +1,5 @@
 @dashboard7 @dashboardChart
-Feature: 仪表盘和弦图
+Feature: 仪表盘_3_1_和弦图
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘

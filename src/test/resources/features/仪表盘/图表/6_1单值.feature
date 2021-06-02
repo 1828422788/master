@@ -1,5 +1,5 @@
 @dashboard6 @dashboardChart
-Feature: 仪表盘单值
+Feature: 仪表盘_6_1_单值
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘

@@ -1,5 +1,5 @@
 @dashboard23 @dashboardChart
-Feature: 仪表盘漏斗图
+Feature: 仪表盘_6_7_漏斗图
 
   @dashboard
   Scenario Outline: 新建仪表盘

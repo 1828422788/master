@@ -1,5 +1,5 @@
 @dashboard28 @dashboardChart
-Feature: 仪表盘矩阵热力图
+Feature: 仪表盘_6_8_矩阵热力图
 
   @dashboard
   Scenario Outline: 新建仪表盘

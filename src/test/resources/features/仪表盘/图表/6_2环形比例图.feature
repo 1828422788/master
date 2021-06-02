@@ -1,5 +1,5 @@
 @dashboard27 @dashboardChart
-Feature: 仪表盘环形比例图
+Feature: 仪表盘_6_2_环形比例图
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘

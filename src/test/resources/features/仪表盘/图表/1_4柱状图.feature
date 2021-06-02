@@ -1,5 +1,5 @@
 @dashboard0330 @dashboard19 @dashboardChart
-Feature: 仪表盘柱状图
+Feature: 仪表盘1_4_柱状图
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘

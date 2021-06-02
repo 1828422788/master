@@ -1,5 +1,5 @@
 @dashboard8 @dashboard0429 @dbmyaxes @dashboardChart
-Feature: 仪表盘多Y轴图
+Feature: 仪表盘_4_2_多Y轴图
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘

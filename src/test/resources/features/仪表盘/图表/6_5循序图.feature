@@ -1,5 +1,5 @@
 @dashboard11 @dashboardChart
-Feature: 仪表盘循序图
+Feature: 仪表盘_6_5_循序图
 
   @dashboard
   Scenario Outline: 新建仪表盘

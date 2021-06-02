@@ -1,5 +1,5 @@
 @dashboard26 @dashboardChart
-Feature: 仪表盘玫瑰图
+Feature: 仪表盘_2_2_玫瑰图
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
