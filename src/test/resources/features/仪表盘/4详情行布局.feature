@@ -45,9 +45,13 @@ Feature: 仪表盘详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    When I set the parameter "TagName" with value "rowLayout"
-    And I click the "RowLayout" button
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
+    And I set the parameter "TagName" with value "rowLayout"
+#    And I click the "RowLayout" button
     And I click the "EnsureCreateTagButton" button
     And I wait for "5000" millsecond
     And I back to before
@@ -57,6 +61,8 @@ Feature: 仪表盘详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
@@ -85,6 +91,8 @@ Feature: 仪表盘详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
     And I move the mouse pointer to the "EditRowIcon"
@@ -99,6 +107,8 @@ Feature: 仪表盘详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
@@ -127,6 +137,8 @@ Feature: 仪表盘详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
@@ -142,6 +154,8 @@ Feature: 仪表盘详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
@@ -160,6 +174,8 @@ Feature: 仪表盘详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
@@ -185,6 +201,8 @@ Feature: 仪表盘详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
     And I move the mouse pointer to the "DeleteRowIcon"
@@ -199,6 +217,8 @@ Feature: 仪表盘详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
 #    And I click the "MoreXuanTing" button
@@ -214,6 +234,8 @@ Feature: 仪表盘详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
     And I move the mouse pointer to the "DeleteNoNameRowIcon"
@@ -243,6 +265,8 @@ Feature: 仪表盘详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
@@ -279,6 +303,8 @@ Feature: 仪表盘详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
     And I wait for "500" millsecond
@@ -328,6 +354,8 @@ Feature: 仪表盘详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
     And I wait for "500" millsecond
@@ -456,6 +484,8 @@ Feature: 仪表盘详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
     And I click the "FilterName" button
@@ -480,6 +510,8 @@ Feature: 仪表盘详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
@@ -595,6 +627,8 @@ Feature: 仪表盘详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     Then I wait for "FilterName" will be visible
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
@@ -622,6 +656,8 @@ Feature: 仪表盘详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
     And I click the "FilterName" button
@@ -653,6 +689,8 @@ Feature: 仪表盘详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
@@ -689,6 +727,8 @@ Feature: 仪表盘详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
     And I click the "FilterName" button
@@ -719,6 +759,8 @@ Feature: 仪表盘详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button under some element

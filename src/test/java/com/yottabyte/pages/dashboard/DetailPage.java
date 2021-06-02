@@ -857,6 +857,7 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//input[@yotta-test='dashboard-new_tab_name-input']")
     private WebElement tagName;
+    public WebElement getTagName() { return tagName; }
 
     @FindBy(xpath = "//span[contains(text(),'插入图表')]/following-sibling::span/input")
     private WebElement chartForAdd;
@@ -2301,8 +2302,6 @@ public class DetailPage extends PageTemplate {
     public WebElement getEventName() {
         return getNewInputElement("名称");
     }
-
-    public WebElement getTagName() { return tagName; }
 
     public WebElement getChartForAdd() { return chartForAdd; }
 
