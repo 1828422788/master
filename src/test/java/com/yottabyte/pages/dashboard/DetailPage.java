@@ -855,7 +855,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='appname:']")
     private WebElement hoverElement;
 
-    @FindBy(xpath = "//input[@yotta-test='dashboard-new_tab_name-input']")
+    @FindBy(xpath = "")
     private WebElement tagName;
     public WebElement getTagName() { return tagName; }
 
