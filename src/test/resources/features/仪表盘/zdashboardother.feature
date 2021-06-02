@@ -27,3 +27,4 @@ Feature:仪表盘校验
     And I click the "Ensure" button
     And I wait for "ErrorMessage" will be visible
     Then I will see the error message "名称格式有误, 仅支持汉字，数字，字母，中划线及下划线"
+

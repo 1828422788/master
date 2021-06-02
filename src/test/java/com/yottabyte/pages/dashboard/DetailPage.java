@@ -147,6 +147,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='添加图表']/ancestor::li")
     private WebElement addChartItem;
 
+    public WebElement getAddChartItem() {
+        return addChartItem;
+    }
+
     @FindBy(xpath = "//span[text()='添加事件列表']")
     private WebElement addEvent;
 
@@ -855,7 +859,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='appname:']")
     private WebElement hoverElement;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "//input[@yotta-test='dashboard-new_tab_name-input']")
     private WebElement tagName;
     public WebElement getTagName() { return tagName; }
 
@@ -1086,10 +1090,6 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getAddChart() {
         return addChart;
-    }
-
-    public WebElement getAddChartItem() {
-        return addChartItem;
     }
 
     public WebElement getAddRow() {

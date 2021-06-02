@@ -1,18 +1,6 @@
 @dashboard @dashboard04
 Feature: 仪表盘详情行布局
 
-  @dashboard04a @dashboardSmoke
-  Scenario Outline: 新建仪表盘
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the "Create" button
-    When I set the parameter "DashBoardName" with value "<name>"
-    And I click the "Ensure" button
-    Then I will see the success message "新建仪表盘成功"
-
-    Examples:
-      | name   |
-      | 仪表盘行布局 |
-
   @dashboard04b @dashboardSmoke
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
@@ -38,6 +26,18 @@ Feature: 仪表盘详情行布局
       | 行布局趋势图1 | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10 |
       | 行布局趋势图2 | tag:sample04061424 \| stats count() by apache.geo.country,apache.geo.province,apache.geo.city |
       | 行布局趋势图3 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
+
+  @dashboard04a @dashboardSmoke
+  Scenario Outline: 新建仪表盘
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the "Create" button
+    When I set the parameter "DashBoardName" with value "<name>"
+    And I click the "Ensure" button
+    Then I will see the success message "新建仪表盘成功"
+
+    Examples:
+      | name   |
+      | 仪表盘行布局 |
 
 
   @dashboard04c @dashboardSmoke
