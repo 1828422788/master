@@ -130,7 +130,7 @@ Feature: 仪表盘事件列表
     And I wait for "Message" will be visible
     Then I will see the message "提交事件操作成功"
 
-  @dashboard @dashboardSmoke
+  @dashboard1j @dashboardSmoke
   Scenario: 验证事件操作显示于字段 RZY-3628,RZY-3290
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -145,7 +145,7 @@ Feature: 仪表盘事件列表
     And I wait for "1000" millsecond
     Then I will see the "Event" doesn't exist
 
-  @dashboard @dashboardSmoke
+  @dashboard1k @dashboardSmoke
   Scenario: 验证事件操作显示于字段 RZY-3628,RZY-3290
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -163,7 +163,7 @@ Feature: 仪表盘事件列表
     And I close all tabs except main tab
     Then the page's title will be "趋势图列表"
 
-  @dashboard @dashboardSmoke
+  @dashboard1l @dashboardSmoke
   Scenario: 修改事件操作动作类型为搜索
     Given open the "event.ListPage" page for uri "/event/action/"
     When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button
@@ -176,7 +176,7 @@ Feature: 仪表盘事件列表
     And I wait for "Message" will be visible
     Then I will see the message "提交事件操作成功"
 
-  @dashboard @dashboardSmoke
+  @dashboard1m @dashboardSmoke
   Scenario Outline: 验证事件操作动作类型为搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -199,7 +199,7 @@ Feature: 仪表盘事件列表
       | button       |
       | EventAppname |
 
-  @dashboard @dashboardSmoke
+  @dashboard1n @dashboardSmoke
   Scenario: 实时查看 RZY-3409
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -219,7 +219,7 @@ Feature: 仪表盘事件列表
 #    Then I will see the input element "TimeRange" value will contains "30秒窗口"
     Then I will see the "TimeRange" result will be "30秒窗口"
 
-  @dashboard @dashboardSmoke
+  @dashboard1o @dashboardSmoke
   Scenario: 配置字段提取 RZY-3412
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -250,7 +250,7 @@ Feature: 仪表盘事件列表
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
-  @dashboard @dashboardSmoke
+  @dashboard1p @dashboardSmoke
   Scenario: 添加到知识库 RZY-3413
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -273,7 +273,7 @@ Feature: 仪表盘事件列表
     And I click the "Done" button
     Then I will see the element "SuccessAdd" name is "新建成功"
 
-  @dashboard @dashboardSmoke
+  @dashboard1q @dashboardSmoke
   Scenario: 通用配置 RZY-3619
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -312,7 +312,7 @@ Feature: 仪表盘事件列表
     Then I will see the text "测试描述" exist in page
 #    Then I will see the "DescribeText" result will be "测试描述"
 
-  @dashboard
+  @dashboard1r
   Scenario Outline: 高级编辑 RZY-3620
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

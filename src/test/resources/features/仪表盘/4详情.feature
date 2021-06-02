@@ -2,152 +2,6 @@
 Feature: 仪表盘详情页
 
   @dashboard @dashboardSmoke
-  Scenario: 新建第一个tag(RZY-3388)
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    When I click the detail which name is "FirstAutoTest"
-    Then I will see the "dashboard.DetailPage" page
-    When I set the parameter "TagName" with value "first"
-    And I click the "EnsureCreateTagButton" button
-    And I wait for "2000" millsecond
-    And I back to before
-
-  @dashboard @dashboardSmoke
-  Scenario: 新建待删除tag(RZY-3390)
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    When I click the detail which name is "FirstAutoTest"
-    Then I will see the "dashboard.DetailPage" page
-    And I wait for "First" will be visible
-    And I click the "First" button
-    And I wait for "500" millsecond
-    And I click the "CreatNewTag" button
-    When I set the parameter "TagName" with value "forDelete"
-    And I click the "EnsureCreateTagButton" button
-    And I wait for "3000" millsecond
-    And I back to before
-
-  @dashboard @dashboardSmoke
-  Scenario: 编辑tag(RZY-4488)
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    When I click the detail which name is "FirstAutoTest"
-    Then I will see the "dashboard.DetailPage" page
-    And I wait for "First" will be visible
-    And I click the "First" button
-    And I wait for "500" millsecond
-    And I click the "EditTag" button
-    And I wait for "InputforTag" will be visible
-    And I set the parameter "InputforTag" with value "Delete"
-#    And I alter the input element "InputforTag" value to "Delete"
-    And I wait for "3000" millsecond
-    And I click the "SaveTagInput" button
-#    And I wait for "500" millsecond
-    Then I will see the success message "标签名称修改成功"
-
-  @dashboard @dashboardSmoke
-  Scenario: 删除tag(RZY-4489)
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    When I click the detail which name is "FirstAutoTest"
-    Then I will see the "dashboard.DetailPage" page
-    And I wait for "First" will be visible
-    And I click the "First" button
-    And I wait for "500" millsecond
-    And I click the "DeleteNewTag" button
-    And I click the "Ensure" button
-    And I wait for "500" millsecond
-    Then I will see the success message "标签页删除成功"
-
-  @dashboard @dashboardSmoke
-  Scenario: 夜间模式(RZY-237)
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    When I click the detail which name is "FirstAutoTest"
-    Then I will see the "dashboard.DetailPage" page
-#    And I wait for loading invisible
-    And I click the "SettingIcon" button
-    And I switch the dashboard "NightMode" button to "enable"
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "夜间模式已启用"
-    And I wait for "5000" millsecond
-    And I switch the dashboard "NightMode" button to "disable"
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "夜间模式已关闭"
-#    And I compare source image "<string>" with target image "<string>"
-
-  @dashboard @dashboardSmoke
-  Scenario: 关闭编辑(RZY-228)
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    When I click the detail which name is "FirstAutoTest"
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    Then I will see the element "EditLayout" attribute "class" is "yotta-menu-item"
-    Then I will see the element "ManualRefresh" attribute "class" is "yotta-menu-item"
-    Then I will see the element "AutoRefresh" attribute "class" is "yotta-menu-item"
-    And I switch the dashboard "OpenEdit" button to "disable"
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "编辑功能已禁用"
-
-  @dashboard @dashboardSmoke
-  Scenario: 验证关闭编辑(RZY-229)
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    When I click the detail which name is "FirstAutoTest"
-    Then I will see the "dashboard.DetailPage" page
-    And I wait for "SettingIcon" will be visible
-    And I click the "SettingIcon" button
-    Then I will see the "EditLayout,RemoveTag,ManualRefresh,AutoRefresh" is "yotta-menu-item-disabled"
-
-  @dashboard @dashboardSmoke
-  Scenario: 验证关闭编辑(RZY-229)
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    When I click the detail which name is "FirstAutoTest"
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "AddIcon" button
-    Then I will see the "LiList" is "yotta-menu-item-disabled"
-    And I hide the element "EventList"
-
-  @dashboard @dashboardSmoke
-  Scenario: 新建标签页，验证搜索
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    When I click the detail which name is "FirstAutoTest"
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "TagIcon" button
-    And I click the "AddTag" button
-    When I set the parameter "TagName" with value "testSearch"
-    And I click the "EnsureCreateTagButton" button
-    And I back to before
-
-  @dashboard @dashboardSmoke
-  Scenario: 验证标签搜索
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    When I click the detail which name is "FirstAutoTest"
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "TagIcon" button
-    And I set the parameter "SearchTagInput" with value "Search"
-    Then I will see the "FirstTag" doesn't exist
-    Then I click the "TestSearch" button
-
-  @dashboard @dashboardSmoke
-  Scenario: 仪表盘搜索，切换 RZY-240
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    When I click the detail which name is "FirstAutoTest"
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "DashboardIcon" button
-    And I set the parameter "SearchDashInput" with value "UIautotest"
-    And I wait for loading invisible
-    Then I will see the "FirstAutoTest" doesn't exist
-    And I click the "UIAutoTest" button
-    And I wait for loading invisible
-    Then I will see the url contains "null"
-
-  @dashboard @dashboardSmoke
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
 #    And I click the "CreateButton" button
@@ -172,11 +26,181 @@ Feature: 仪表盘详情页
       | name            | spl                                   |
       | 验证仪表盘全局时间 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
 
-  @dashboard @dashboardSmoke
+  @dashboard03a @dashboardSmoke
+  Scenario: 新建第一个tag(RZY-3388)
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+    When I set the parameter "TagName" with value "first"
+    And I click the "EnsureCreateTagButton" button
+    And I wait for "2000" millsecond
+    And I back to before
+
+  @dashboard03b @dashboardSmoke
+  Scenario: 新建待删除tag(RZY-3390)
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "First" will be visible
+    And I click the "First" button
+    And I wait for "500" millsecond
+    And I click the "CreatNewTag" button
+    When I set the parameter "TagName" with value "forDelete"
+    And I click the "EnsureCreateTagButton" button
+    And I wait for "3000" millsecond
+    And I back to before
+
+  @dashboard03c @dashboardSmoke
+  Scenario: 编辑tag(RZY-4488)
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "First" will be visible
+    And I click the "First" button
+    And I wait for "500" millsecond
+    And I click the "EditTag" button
+    And I wait for "InputforTag" will be visible
+    And I set the parameter "InputforTag" with value "Delete"
+#    And I alter the input element "InputforTag" value to "Delete"
+    And I wait for "3000" millsecond
+    And I click the "SaveTagInput" button
+#    And I wait for "500" millsecond
+    Then I will see the success message "标签名称修改成功"
+
+  @dashboard03d @dashboardSmoke
+  Scenario: 删除tag(RZY-4489)
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "First" will be visible
+    And I click the "First" button
+    And I wait for "500" millsecond
+    And I click the "DeleteNewTag" button
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    Then I will see the success message "标签页删除成功"
+
+  @dashboard03e @dashboardSmoke
+  Scenario: 夜间模式(RZY-237)
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+#    And I wait for loading invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "NightMode" button to "enable"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "夜间模式已启用"
+    And I wait for "5000" millsecond
+    And I switch the dashboard "NightMode" button to "disable"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "夜间模式已关闭"
+#    And I compare source image "<string>" with target image "<string>"
+
+  @dashboard03f @dashboardSmoke
+  Scenario: 关闭编辑(RZY-228)
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    Then I will see the element "EditLayout" attribute "class" is "yotta-menu-item"
+    Then I will see the element "ManualRefresh" attribute "class" is "yotta-menu-item"
+    Then I will see the element "AutoRefresh" attribute "class" is "yotta-menu-item"
+    And I switch the dashboard "OpenEdit" button to "disable"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "编辑功能已禁用"
+
+  @dashboard03g @dashboardSmoke
+  Scenario: 验证关闭编辑(RZY-229)
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "SettingIcon" will be visible
+    And I click the "SettingIcon" button
+    Then I will see the "EditLayout,RemoveTag,ManualRefresh,AutoRefresh" is "yotta-menu-item-disabled"
+
+  @dashboard03h @dashboardSmoke
+  Scenario: 验证关闭编辑(RZY-229)
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "AddIcon" button
+    Then I will see the "LiList" is "yotta-menu-item-disabled"
+    And I hide the element "EventList"
+
+  @dashboard03i @dashboardSmoke
+  Scenario: 新建标签页，验证搜索
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "TagIcon" button
+    And I click the "AddTag" button
+    When I set the parameter "TagName" with value "testSearch"
+    And I click the "EnsureCreateTagButton" button
+    And I back to before
+
+  @dashboard03j @dashboardSmoke
+  Scenario: 验证标签搜索
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "TagIcon" button
+    And I set the parameter "SearchTagInput" with value "Search"
+    Then I will see the "FirstTag" doesn't exist
+    Then I click the "TestSearch" button
+
+  @dashboard03k @dashboardSmoke
+  Scenario: 仪表盘搜索，切换 RZY-240
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "DashboardIcon" button
+    And I set the parameter "SearchDashInput" with value "UIautotest"
+    And I wait for loading invisible
+    Then I will see the "FirstAutoTest" doesn't exist
+    And I click the "UIAutoTest" button
+    And I wait for loading invisible
+    Then I will see the url contains "null"
+
+  @dashboard03l @dashboardSmoke
   Scenario: 添加趋势图至仪表盘(RZY-3389)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
@@ -189,11 +213,13 @@ Feature: 仪表盘详情页
     And I click the "Ensure" button
     And I wait for "1000" millsecond
 
-  @dashboard @dashboardSmoke
+  @dashboard03m @dashboardSmoke
   Scenario: 复制标签页(RZY-4484)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "SettingIcon" will be visible
     And I click the "SettingIcon" button
@@ -203,11 +229,13 @@ Feature: 仪表盘详情页
     And I wait for "LastTag" will be visible
     Then I will see the element "LastTag" value is "testSearch_copy"
 
-  @dashboard @dashboardSmoke
+  @dashboard03n @dashboardSmoke
   Scenario: 高级编辑
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "SettingIcon" will be visible
     And I click the "SettingIcon" button
@@ -220,11 +248,13 @@ Feature: 仪表盘详情页
     And I wait for "7500" millsecond
     And I wait for "TrendTitle" will be visible
 
-  @dashboard @dashboardSmoke
+  @dashboard03o @dashboardSmoke
   Scenario: 新建全局时间选择器(RZY-225,RZY-4566)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "AddIcon" button
     And I click the "addInput" button
@@ -239,11 +269,13 @@ Feature: 仪表盘详情页
     And I wait for "SuccessMessage" will be visible
 #    Then I will see the success message "添加输入项成功"
 
-  @dashboard @dashboardSmoke
+  @dashboard03p @dashboardSmoke
   Scenario: 验证全局时间生效及打开过滤输入项(RZY-4567,RZY-225,RZY-4638,RZY-3392)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "settingIcon" button
     And I wait for "FilterAutoRefresh" will be visible
@@ -254,11 +286,13 @@ Feature: 仪表盘详情页
     And I wait for "Progress" will be invisible
     Then I will see the "DropdownLink" result will be "昨天"
 
-  @dashboard @dashboardSmoke
+  @dashboard03q @dashboardSmoke
   Scenario: 关闭过滤输入项自动更新(RZY-4637,)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "settingIcon" button
     And I wait for "FilterAutoRefresh" will be visible
@@ -276,11 +310,13 @@ Feature: 仪表盘详情页
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "enable"
 
-  @dashboard @dashboardSmoke
+  @dashboard03r @dashboardSmoke
   Scenario: 存为报表(RZY-235)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
     And I move the mouse pointer to the "SaveAs"
@@ -300,49 +336,3 @@ Feature: 仪表盘详情页
     And I click the "FinishButton" button
     And I wait for "3000" millsecond
     Then I will see the text "新建成功" exist in page
-
-  @cleanDashboard
-  Scenario: 删除全局时间 RZY-4570
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    When I click the detail which name is "FirstAutoTest"
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "settingIcon" button
-    And I wait for "FilterAutoRefresh" will be visible
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I wait for "1000" millsecond
-    And I move the mouse pointer to the "TimeName"
-    And I click the "TimeName" button
-    And I click the "deleteTimeTag" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button under some element
-    Then I wait for "TimeName" will be invisible
-
-  @cleanDashboard
-  Scenario Outline: 删除验证仪表盘全局时间趋势图
-    Given open the "trend.ListPage" page for uri "/trend/"
-    When the data name is "<name>" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    And I wait for "500" millsecond
-    And I will see the success message "删除成功"
-
-    Examples:
-      | name   |
-      | 验证仪表盘全局时间 |
-
-  @dashboard @dashboardSmoke
-  Scenario Outline: 删除报表
-    When open the "report.ListPage" page for uri "/reports/"
-    And I set the parameter "SearchInput" with value "<name>"
-    And I wait for loading invisible
-#    And the data name is "{'column':'2','name':'<name>'}" then i click the "更多" button
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
-    And I wait for "EnsureButton" will be visible
-    When I click the "EnsureButton" button
-    And I wait for "Message" will be visible
-    Then I wait for element "Message" change text to "删除成功"
-
-    Examples:
-      | name     |
-      | 仪表盘保存为报表 |
