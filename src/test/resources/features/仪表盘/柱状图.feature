@@ -1,4 +1,4 @@
-@dashboard0330
+@dashboard0330 @dashboard19
 Feature: 仪表盘柱状图
 
   @dashboard @dashboardSmoke

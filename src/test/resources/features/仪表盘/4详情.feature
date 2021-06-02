@@ -1,3 +1,4 @@
+@dashboard @dashboard03
 Feature: 仪表盘详情页
 
   @dashboard @dashboardSmoke

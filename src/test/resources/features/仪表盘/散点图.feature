@@ -1,3 +1,4 @@
+@dashboard14
 Feature: 仪表盘散点图
 
   @dashboard @dashboardSmoke

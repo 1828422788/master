@@ -1,3 +1,4 @@
+@dashboard24
 Feature: 仪表盘火焰图
 
   @dashboard @dashboardSmoke

@@ -1,6 +1,7 @@
+@dashboard @dashboard04
 Feature: 仪表盘详情行布局
 
-  @dashboard @dashboardSmoke
+  @dashboard04a @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -12,7 +13,7 @@ Feature: 仪表盘详情行布局
       | name   |
       | 仪表盘行布局 |
 
-  @dashboard @dashboardSmoke
+  @dashboard04b @dashboardSmoke
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -39,7 +40,7 @@ Feature: 仪表盘详情行布局
       | 行布局趋势图3 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
 
 
-  @dashboard @dashboardSmoke
+  @dashboard04c @dashboardSmoke
   Scenario: 新建一个行布局标签页(RZY-4628)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -51,7 +52,7 @@ Feature: 仪表盘详情行布局
     And I wait for "5000" millsecond
     And I back to before
 
-  @dashboard @dashboardSmoke
+  @dashboard04d @dashboardSmoke
   Scenario: 添加行(RZY-4629，RZY-3607)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -79,7 +80,7 @@ Feature: 仪表盘详情行布局
     And I click the "Ensure" button
     And I wait for "2000" millsecond
 
-  @dashboard @dashboardSmoke
+  @dashboard04e @dashboardSmoke
   Scenario: 编辑行(RZY-4630)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -93,7 +94,7 @@ Feature: 仪表盘详情行布局
     And I wait for "1000" millsecond
     Then I wait for "FirstRow" will be visible
 
-  @dashboard @dashboardSmoke
+  @dashboard04f @dashboardSmoke
   Scenario: 行布局添加图表(RZY-4631)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -121,7 +122,7 @@ Feature: 仪表盘详情行布局
     And I wait for "1000" millsecond
     And I click the "Ensure" button
 
-  @dashboard @dashboardSmoke
+  @dashboard04e @dashboardSmoke
   Scenario: 行布局添加全局输入项(RZY-4632)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -136,7 +137,7 @@ Feature: 仪表盘详情行布局
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
-  @dashboard @dashboardSmoke
+  @dashboard04f @dashboardSmoke
   Scenario: 行布局添加行内输入项(RZY-4633)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -154,7 +155,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     Then I wait for "InnerInputFilter" will be visible
 
-  @dashboard @dashboardSmoke
+  @dashboard04g @dashboardSmoke
   Scenario: 行布局添加事件列表(RZY-4634)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -179,7 +180,7 @@ Feature: 仪表盘详情行布局
     And I click the "Ensure" button under some element
     Then I wait for "RowEventName" will be visible
 
-  @dashboard @dashboardSmoke
+  @dashboard04h @dashboardSmoke
   Scenario: 删除行(RZY-4635)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -193,7 +194,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     Then I will see the success message "删除行成功"
 
-  @dashboard @dashboardSmoke
+  @dashboard04i @dashboardSmoke
   Scenario: 删除行内图表(RZY-4636)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -208,7 +209,7 @@ Feature: 仪表盘详情行布局
     Then I will see the success message "删除成功"
     Then I will see the "TrendOne" is not exist
 
-  @dashboard @dashboardSmoke
+  @dashboard04j @dashboardSmoke
   Scenario: 展示条件-文本输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -237,7 +238,7 @@ Feature: 仪表盘详情行布局
     And I click the "Ensure" button
     And I wait for "1000" millsecond
 
-  @dashboard @dashboardSmoke
+  @dashboard04k @dashboardSmoke
   Scenario: 展示条件-文本输入输入项 RZY-4783,RZY-4784
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -273,7 +274,7 @@ Feature: 仪表盘详情行布局
     Then I will see the "trendThree" doesn't exist
     Then I wait for "trendTwo" will be visible
 
-  @dashboard @dashboardSmoke
+  @dashboard04l @dashboardSmoke
   Scenario: 展示条件-文本输入输入项 RZY-4784,RZY-4793
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -322,7 +323,7 @@ Feature: 仪表盘详情行布局
     Then I will see the "trendThree" doesn't exist
     Then I wait for "trendTwo" will be visible
 
-  @dashboard @dashboardSmoke
+  @dashboard04m @dashboardSmoke
   Scenario: 展示条件-文本输入输入项 RZY-4784
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -450,7 +451,7 @@ Feature: 仪表盘详情行布局
     Then I will see the "trendTwo" doesn't exist
     Then I wait for "trendThree" will be visible
 
-  @dashboard @dashboardSmoke
+  @dashboard04n @dashboardSmoke
   Scenario: 展示条件-时间范围输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -474,7 +475,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I will see the success message "展示条件已关闭"
 
-  @dashboard @dashboardSmoke
+  @dashboard04o @dashboardSmoke
   Scenario: 展示条件-时间范围输入项 RZY-4790
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -589,7 +590,7 @@ Feature: 仪表盘详情行布局
     Then I will see the "trendTwo" doesn't exist
 #    Then I wait for "trendTwo" will be visible
 
-  @dashboard @dashboardSmoke
+  @dashboard04p @dashboardSmoke
   Scenario: 展示条件缺失校验 RZY-4792
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -616,7 +617,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
 
-  @dashboard @dashboardSmoke
+  @dashboard04q @dashboardSmoke
   Scenario: 展示条件-下拉菜单输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -647,7 +648,7 @@ Feature: 仪表盘详情行布局
     And I switch the dashboard "OpenShowCondition" button to "disable"
     And I wait for "1500" millsecond
 
-  @dashboard @dashboardSmoke
+  @dashboard04r @dashboardSmoke
   Scenario: 展示条件-下拉菜单输入项 RZY-4785
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -683,7 +684,7 @@ Feature: 仪表盘详情行布局
     Then I wait for "trendThree" will be visible
 
 
-  @dashboard @dashboardSmoke
+  @dashboard04s @dashboardSmoke
   Scenario: 展示条件-动态菜单输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -713,7 +714,7 @@ Feature: 仪表盘详情行布局
     And I switch the dashboard "OpenShowCondition" button to "disable"
     And I wait for "1500" millsecond
 
-  @dashboard @dashboardSmoke
+  @dashboard04t @dashboardSmoke
   Scenario: 展示条件-动态菜单输入项 RZY-4786
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -751,21 +752,6 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     Then I will see the "trendTwo" doesn't exist
     Then I wait for "trendThree" will be visible
-
-  @cleanDashboard
-  Scenario Outline: 删除行布局所建趋势图
-    Given open the "trend.ListPage" page for uri "/trend/"
-    When the data name is "<name>" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    And I wait for "500" millsecond
-    And I will see the success message "删除成功"
-
-    Examples:
-      | name   |
-      | 行布局趋势图1 |
-      | 行布局趋势图2 |
-      | 行布局趋势图3 |
 
 
 

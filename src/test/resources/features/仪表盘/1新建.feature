@@ -1,4 +1,4 @@
-@dashboard
+@dashboard @dashboard01
 Feature: 仪表盘新建（RZY-208至RZY-210）
 
   Background:

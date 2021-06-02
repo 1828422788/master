@@ -1,4 +1,4 @@
-@dashboard0429 @dbinput @dashboardSmoke @dashboard
+@dashboard0429 @dbinput @dashboard33 @dashboard
 Feature: 仪表盘输入项
 
   @dbinputpre0

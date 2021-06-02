@@ -1,3 +1,4 @@
+@dashboard10
 Feature: 仪表盘字符云图
 
   @dashboard

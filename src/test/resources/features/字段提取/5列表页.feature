@@ -25,6 +25,7 @@ Feature: 字段提取列表页
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "<appName>"
+    And I set the parameter "AppName" with value "<appName>"
     And I set the parameter "Tag" with value "<appName>"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible

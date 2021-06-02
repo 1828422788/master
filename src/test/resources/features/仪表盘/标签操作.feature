@@ -1,3 +1,4 @@
+@dashboard20
 Feature: 仪表盘标签操作
 
   @dashboard @dashboardSmoke

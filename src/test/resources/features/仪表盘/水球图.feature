@@ -1,3 +1,4 @@
+@dashboard22
 Feature: 仪表盘水球图
 
   @dashboard

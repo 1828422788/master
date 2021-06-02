@@ -1,4 +1,4 @@
-@dashboard @dashboardSmoke
+@dashboard @dashboard02
 Feature: 仪表盘搜索
 
   Background:

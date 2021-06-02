@@ -1,3 +1,4 @@
+@dashboard23
 Feature: 仪表盘漏斗图
 
   @dashboard

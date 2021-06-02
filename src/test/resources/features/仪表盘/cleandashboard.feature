@@ -301,3 +301,18 @@ Feature: 仪表盘删除
     Examples:
       | name    |
       | 仪表盘攻击地图 |
+
+  @cleanDashboard04
+  Scenario Outline: 删除行布局所建趋势图
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When the data name is "<name>" then i click the "删除" button in more menu
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    And I will see the success message "删除成功"
+
+    Examples:
+      | name   |
+      | 行布局趋势图1 |
+      | 行布局趋势图2 |
+      | 行布局趋势图3 |

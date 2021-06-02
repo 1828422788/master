@@ -1,3 +1,4 @@
+@dashboard3
 Feature: 仪表盘力图
 
   @dashboard @dashboardSmoke

@@ -1,3 +1,4 @@
+@dashboard31
 Feature: 仪表盘表格样式设置
 
   @dashboard @dashboardSmoke

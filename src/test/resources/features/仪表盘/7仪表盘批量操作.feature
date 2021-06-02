@@ -1,4 +1,4 @@
-@dashboard @dashboard_multi
+@dashboard @dashboard_multi @dashboard07
 
 Feature: 仪表盘批量操作
 

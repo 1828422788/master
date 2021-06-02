@@ -1,4 +1,4 @@
-@dashboard0330
+@dashboard0330 @dashboard42
 Feature: 仪表盘饼状图
 
   @dashboard @dashboardSmoke

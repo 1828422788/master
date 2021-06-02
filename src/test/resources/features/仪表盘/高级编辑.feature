@@ -1,4 +1,4 @@
-@dashboard0330
+@dashboard0330 @dashboard43
 Feature: 仪表盘高级编辑
 
   @dashboard @dashboardSmoke

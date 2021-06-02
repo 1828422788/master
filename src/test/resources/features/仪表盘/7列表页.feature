@@ -1,4 +1,4 @@
-@dashboard @dashboardSmoke
+@dashboard @dashboardSmoke @dashboard07
 Feature: 仪表盘列表页
 
   Scenario:页签管理（RZY-215）

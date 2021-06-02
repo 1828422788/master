@@ -1,3 +1,4 @@
+@dashboard41
 Feature: 仪表盘面积图
 
   @dashboard @dashboardSmoke

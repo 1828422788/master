@@ -1,3 +1,4 @@
+@dashboard17
 Feature: 仪表盘曲线图
 
   @dashboard @dashboardSmoke

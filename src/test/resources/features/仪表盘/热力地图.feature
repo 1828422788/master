@@ -1,3 +1,4 @@
+@dashboard25
 Feature: 仪表盘热力地图
 
   @dashboard @dashboardSmoke

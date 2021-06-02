@@ -1,3 +1,4 @@
+@dashboard18
 Feature: 仪表盘条形图
 
   @dashboard @dashboardSmoke

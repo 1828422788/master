@@ -1,4 +1,4 @@
-@dashboard0429 @dbmyaxes
+@dashboard8 @dashboard0429 @dbmyaxes
 Feature: 仪表盘多Y轴图
 
   @dashboard @dashboardSmoke

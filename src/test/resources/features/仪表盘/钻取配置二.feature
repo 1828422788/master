@@ -1,4 +1,4 @@
-@dashboard0330
+@dashboard0330 @dashboard39
 Feature: 仪表盘钻取配置二
 
   @dashboard @dashboardSmoke

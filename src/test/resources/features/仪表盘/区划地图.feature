@@ -1,3 +1,4 @@
+@dashboard4
 Feature: 仪表盘区划地图
 
   @dashboard @dashboardSmoke

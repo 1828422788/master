@@ -1,4 +1,4 @@
-@dashboard @dashboard11
+@dashboard @dashboard12
 Feature: 搜索页输入项
 
   Background:

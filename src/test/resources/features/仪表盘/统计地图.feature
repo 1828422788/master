@@ -1,3 +1,4 @@
+@dashboard29
 Feature: 仪表盘统计地图
 
   @dashboard @dashboardSmoke

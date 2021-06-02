@@ -1,3 +1,4 @@
+@dashboard21
 Feature: 仪表盘桑基图
 
   @dashboard @dashboardSmoke

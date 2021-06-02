@@ -1,3 +1,4 @@
+@dashboard15
 Feature: 仪表盘旭日图
 
   @dashboard @dashboardSmoke

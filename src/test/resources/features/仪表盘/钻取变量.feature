@@ -1,4 +1,4 @@
-@dashboard0330
+@dashboard0330 @dashboard37
 Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard @dashboardSmoke

@@ -1,4 +1,4 @@
-@dashboard1
+@dashboard @dashboard1
 Feature: 仪表盘事件列表
 
   @dashboard @dashboardSmoke

@@ -1,3 +1,4 @@
+@dashboard32
 Feature: 仪表盘调用链
 
   @dashboard @dashboardSmoke

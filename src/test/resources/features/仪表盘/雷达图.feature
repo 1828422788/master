@@ -1,3 +1,4 @@
+@dashboard40
 Feature: 仪表盘雷达图
 
   @dashboard

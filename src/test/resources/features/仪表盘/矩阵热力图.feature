@@ -1,3 +1,4 @@
+@dashboard28
 Feature: 仪表盘矩阵热力图
 
   @dashboard

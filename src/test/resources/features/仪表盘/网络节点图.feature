@@ -1,3 +1,4 @@
+@dashboard30
 Feature: 仪表盘网络节点图
 
   @dashboard @dashboardSmoke

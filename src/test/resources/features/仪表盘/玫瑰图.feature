@@ -1,3 +1,4 @@
+@dashboard26
 Feature: 仪表盘玫瑰图
 
   @dashboard @dashboardSmoke
