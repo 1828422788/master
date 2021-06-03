@@ -441,7 +441,7 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I click the "AddIcon" button
+    And I click the "AddEventButton" button
     And I click the "addInput" button
     And I set the parameter "inputSettingTitle" with value "全局时间"
     And I click the "inputSettingType" button

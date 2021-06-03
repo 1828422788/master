@@ -49,8 +49,8 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "First" will be visible
-    And I click the "First" button
+    And I wait for "LastTag" will be visible
+    And I open the context menu of the "LastTag" element
     And I wait for "500" millsecond
     And I wait for "CreatNewTag" will be visible
     And I click the "CreatNewTag" button
@@ -63,12 +63,15 @@ Feature: 仪表盘03详情页
   Scenario: 编辑tag(RZY-4488)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I wait for "2000" millsecond
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "First" will be visible
-    And I click the "First" button
+    And I wait for "LastTag" will be visible
+    And I open the context menu of the "LastTag" element
+#    And I click the "First" button
     And I wait for "500" millsecond
     And I click the "EditTag" button
     And I wait for "InputforTag" will be visible
@@ -83,12 +86,14 @@ Feature: 仪表盘03详情页
   Scenario: 删除tag(RZY-4489)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I wait for "2000" millsecond
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "First" will be visible
-    And I click the "First" button
+    And I wait for "LastTag" will be visible
+    And I open the context menu of the "LastTag" element
     And I wait for "500" millsecond
     And I click the "DeleteNewTag" button
     And I click the "Ensure" button
@@ -99,6 +104,8 @@ Feature: 仪表盘03详情页
   Scenario: 夜间模式(RZY-237)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I wait for "2000" millsecond
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -118,12 +125,14 @@ Feature: 仪表盘03详情页
   Scenario: 关闭编辑(RZY-228)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I wait for "2000" millsecond
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
-    Then I will see the element "EditLayout" attribute "class" is "yotta-menu-item"
+    Then I will see the elembent "EditLayout" attribute "class" is "yotta-menu-item"
     Then I will see the element "ManualRefresh" attribute "class" is "yotta-menu-item"
     Then I will see the element "AutoRefresh" attribute "class" is "yotta-menu-item"
     And I switch the dashboard "OpenEdit" button to "disable"
@@ -134,6 +143,8 @@ Feature: 仪表盘03详情页
   Scenario: 验证关闭编辑(RZY-229)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I wait for "2000" millsecond
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -146,11 +157,13 @@ Feature: 仪表盘03详情页
   Scenario: 验证关闭编辑(RZY-229)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I wait for "2000" millsecond
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I click the "AddIcon" button
+    And I click the "AddEventButton" button
     Then I will see the "LiList" is "yotta-menu-item-disabled"
     And I hide the element "EventList"
 
@@ -158,25 +171,38 @@ Feature: 仪表盘03详情页
   Scenario: 新建标签页，验证搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I wait for "2000" millsecond
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I click the "TagIcon" button
-    And I click the "AddTag" button
+#    And I click the "TagIcon" button
+#    And I click the "AddTag" button
+#    When I set the parameter "TagName" with value "testSearch"
+#    And I click the "EnsureCreateTagButton" button
+#    And I back to before
+    And I wait for "LastTag" will be visible
+    And I open the context menu of the "LastTag" element
+    And I wait for "500" millsecond
+    And I wait for "CreatNewTag" will be visible
+    And I click the "CreatNewTag" button
     When I set the parameter "TagName" with value "testSearch"
     And I click the "EnsureCreateTagButton" button
+    And I wait for "3000" millsecond
     And I back to before
 
   @dashboard03j @dashboardSmoke
   Scenario: 验证标签搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I wait for "2000" millsecond
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I click the "TagIcon" button
+#    And I click the "TagIcon" button
     And I set the parameter "SearchTagInput" with value "Search"
     Then I will see the "FirstTag" doesn't exist
     Then I click the "TestSearch" button
@@ -185,11 +211,13 @@ Feature: 仪表盘03详情页
   Scenario: 仪表盘搜索，切换 RZY-240
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I wait for "2000" millsecond
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I click the "DashboardIcon" button
+#    And I click the "DashboardIcon" button
     And I set the parameter "SearchDashInput" with value "UIautotest"
     And I wait for loading invisible
     Then I will see the "FirstAutoTest" doesn't exist
@@ -201,6 +229,8 @@ Feature: 仪表盘03详情页
   Scenario: 添加趋势图至仪表盘(RZY-3389)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I wait for "2000" millsecond
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -220,6 +250,8 @@ Feature: 仪表盘03详情页
   Scenario: 复制标签页(RZY-4484)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I wait for "2000" millsecond
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -236,6 +268,8 @@ Feature: 仪表盘03详情页
   Scenario: 高级编辑
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I wait for "2000" millsecond
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -255,11 +289,13 @@ Feature: 仪表盘03详情页
   Scenario: 新建全局时间选择器(RZY-225,RZY-4566)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I wait for "2000" millsecond
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I click the "AddIcon" button
+    And I click the "AddEventButton" button
     And I click the "addInput" button
     And I set the parameter "inputSettingTitle" with value "全局时间"
     And I wait for "500" millsecond
@@ -276,6 +312,8 @@ Feature: 仪表盘03详情页
   Scenario: 验证全局时间生效及打开过滤输入项(RZY-4567,RZY-225,RZY-4638,RZY-3392)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I wait for "2000" millsecond
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -293,6 +331,8 @@ Feature: 仪表盘03详情页
   Scenario: 关闭过滤输入项自动更新(RZY-4637,)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I wait for "2000" millsecond
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -317,10 +357,13 @@ Feature: 仪表盘03详情页
   Scenario: 存为报表(RZY-235)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I wait for "2000" millsecond
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+
     And I click the "SettingIcon" button
 #    And I move the mouse pointer to the "SaveAs"
     And I click the "SaveAs" button
