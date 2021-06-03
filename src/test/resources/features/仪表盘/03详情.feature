@@ -1,5 +1,5 @@
 @dashboard @dashboard03
-Feature: 仪表盘详03情页
+Feature: 仪表盘03详情页
 
   @dashboard03pre @dashboardSmoke
   Scenario Outline: 新建趋势图
@@ -52,6 +52,7 @@ Feature: 仪表盘详03情页
     And I wait for "First" will be visible
     And I click the "First" button
     And I wait for "500" millsecond
+    And I wait for "CreatNewTag" will be visible
     And I click the "CreatNewTag" button
     When I set the parameter "TagName" with value "forDelete"
     And I click the "EnsureCreateTagButton" button
