@@ -599,7 +599,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//input[@yotta-test='dashboard-filter_value-input']")
     private WebElement geoCity;
 
-    @FindBy(xpath = "(//div[@class='yotta-event-list-body']/div/div[@class='yotta-dropdown event-action-icon-dropdown']/span)[1]")
+    @FindBy(xpath = "(//div[@class='yotta-event-list-body']//div[contains(@class,'event-action-icon-dropdown')]/span)[1]")
     private WebElement eventOperate;
 
     @FindBy(xpath = "(//div[@class='event-item']/span)[1]")
