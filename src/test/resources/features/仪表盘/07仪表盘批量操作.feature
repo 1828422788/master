@@ -1,5 +1,5 @@
 @dashboard @dashboard_multi @dashboard07
-Feature: 仪表盘批量操作
+Feature: 仪表盘07批量操作
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

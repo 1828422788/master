@@ -1,5 +1,5 @@
 @dashboard @dashboard03
-Feature: 仪表盘详情页
+Feature: 仪表盘详03情页
 
   @dashboard03pre @dashboardSmoke
   Scenario Outline: 新建趋势图

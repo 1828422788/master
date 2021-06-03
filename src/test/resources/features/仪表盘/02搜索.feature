@@ -1,5 +1,5 @@
 @dashboard @dashboard02
-Feature: 仪表盘搜索
+Feature: 仪表盘02搜索
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

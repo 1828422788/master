@@ -1,5 +1,5 @@
 @dashboard @dashboardSmoke @dashboard05
-Feature: 仪表盘重命名
+Feature: 仪表盘05重命名
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

@@ -1,5 +1,5 @@
 @dashboard @dashboard04
-Feature: 仪表盘详情行布局
+Feature: 仪表盘04详情行布局
 
   @dashboard04pre @dashboardSmoke
   Scenario Outline: 新建趋势图

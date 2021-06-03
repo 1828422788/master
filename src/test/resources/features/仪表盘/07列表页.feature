@@ -1,5 +1,5 @@
 @dashboard @dashboardSmoke @dashboard07
-Feature: 仪表盘列表页
+Feature: 仪表盘07列表页
 
   Scenario:页签管理（RZY-215）
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

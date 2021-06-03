@@ -1,5 +1,5 @@
 @dashboard2 @dashboard
-Feature: 仪表盘关联搜索
+Feature: 仪表盘2关联搜索
 
   @dashboard2a @dashboardSmoke
   Scenario Outline: 新建字段提取 RZY-3222
