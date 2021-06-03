@@ -4,7 +4,6 @@ Feature: 仪表盘03详情页
   @dashboard03pre @dashboardSmoke
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
-#    And I click the "CreateButton" button
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
@@ -30,6 +29,8 @@ Feature: 仪表盘03详情页
   Scenario: 新建第一个tag(RZY-3388)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I wait for "2000" millsecond
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -132,9 +133,9 @@ Feature: 仪表盘03详情页
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
-    Then I will see the elembent "EditLayout" attribute "class" is "yotta-menu-item"
-    Then I will see the element "ManualRefresh" attribute "class" is "yotta-menu-item"
-    Then I will see the element "AutoRefresh" attribute "class" is "yotta-menu-item"
+    Then I will see the element "EditLayout" attribute "class" is "yotta-menu-item css-1jwdms"
+    Then I will see the element "ManualRefresh" attribute "class" is "yotta-menu-item css-1jwdms"
+    Then I will see the element "AutoRefresh" attribute "class" is "yotta-menu-item css-1jwdms"
     And I switch the dashboard "OpenEdit" button to "disable"
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "编辑功能已禁用"
@@ -218,7 +219,7 @@ Feature: 仪表盘03详情页
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
 #    And I click the "DashboardIcon" button
-    And I set the parameter "SearchDashInput" with value "UIautotest"
+    And I set the parameter "searchTagInput" with value "UIautotest"
     And I wait for loading invisible
     Then I will see the "FirstAutoTest" doesn't exist
     And I click the "UIAutoTest" button
@@ -260,7 +261,7 @@ Feature: 仪表盘03详情页
     And I click the "SettingIcon" button
     And I click the "CopyTag" button
     And I wait for "3000" millsecond
-    And I click the "TagIcon" button
+#    And I click the "TagIcon" button
     And I wait for "LastTag" will be visible
     Then I will see the element "LastTag" value is "testSearch_copy"
 

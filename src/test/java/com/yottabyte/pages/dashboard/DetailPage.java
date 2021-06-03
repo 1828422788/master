@@ -788,13 +788,6 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(@id, 'fullscreen')])[2]")
     private WebElement singleValueExhibition;
 
-    @FindBy(xpath = "//input[@yotta-test='dashboard-filter_dashboard-input']")
-    private WebElement searchDashInput;
-
-    public WebElement getSearchDashInput() {
-        return searchDashInput;
-    }
-
     @FindBy(xpath = "//input[@yotta-test='dashboard-nav_filter-input']")
     private WebElement searchTagInput;
 
@@ -868,6 +861,18 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getTagName() {
         return tagName;
+    }
+
+    @FindBy(xpath = "//input[@yotta-test='dashboard-new_row_name-input']")
+    private WebElement newRowName;
+    public WebElement getNewRowName() {
+        return newRowName;
+    }
+
+    @FindBy(xpath = "//input[@yotta-test='dashboard-edit_row_name-input']")
+    private WebElement editRowName;
+    public WebElement getEditRowName() {
+        return editRowName;
     }
 
     @FindBy(xpath = "//span[contains(text(),'插入图表')]/following-sibling::span/input")
@@ -1349,7 +1354,7 @@ public class DetailPage extends PageTemplate {
     private WebElement ensureAddTrend;
 
     private WebElement getSwitchButton(String name) {
-        String xpath = "//span[text()='" + name + "']/following-sibling::label";
+        String xpath = "//span[contains(text(),'" + name + "')]/following-sibling::label";
         return webDriver.findElement(By.xpath(xpath));
     }
 
@@ -2505,7 +2510,7 @@ public class DetailPage extends PageTemplate {
     }
 
     private WebElement getLi(String name) {
-        String xpath = "//span[text()='" + name + "']/ancestor::li";
+        String xpath = "//span[contains(text(),'" + name + "')]/ancestor::li";
         return webDriver.findElement(By.xpath(xpath));
     }
 
