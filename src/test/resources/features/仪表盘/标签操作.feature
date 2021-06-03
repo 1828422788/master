@@ -1,10 +1,12 @@
 @dashboard20
 Feature: 仪表盘标签操作
 
+  Background:
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for "2000" millsecond
+
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
     Then I click the "Ensure" button
@@ -18,8 +20,6 @@ Feature: 仪表盘标签操作
 
   @dashboard @dashboardSmoke
   Scenario: 新建标签页
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "标签页移出"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -32,8 +32,6 @@ Feature: 仪表盘标签操作
 
   @dashboard @dashboardSmoke
   Scenario: 移出标签页(RZY-230)
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "标签页移出"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -49,36 +47,29 @@ Feature: 仪表盘标签操作
 
   @dashboard @dashboardSmoke
   Scenario: 验证标签页移出成功(RZY-230)
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     Then I will see the data "标签页移出" values "{'column':'2','name':'-'}"
     Then I will see the data "接收标签页" values "{'column':'2','name':'第一个标签'}"
 
 
   @dashboard @dashboardSmoke
   Scenario: 切换标签页 RZY-4698
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "接收标签页"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    When I click the "TagPageName" button
+    And I wait for "LastTag" will be visible
+    And I open the context menu of the "LastTag" element
     And I wait for "2000" millsecond
-    And I click the "AddTag" button
+    And I click the "CreatNewTag" button
     And I set the parameter "TagName" with value "第二个标签"
     And I click the "EnsureCreateTagButton" button
     And I wait for loading complete
-    And I wait for "3000" millsecond
-    When I click the "TagPageName" button
-    And I wait for "2000" millsecond
-    And I click the "SecondTag" button
-    Then I will see the element "TagPageName" value is "第二个标签"
+    Then I will see the element "LastTag" value is "第二个标签"
 
   @dashboard @dashboardSmoke
   Scenario: 高级编辑 RZY-4485
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
+    Then I will see the data "标签页移出" values "{'column':'2','name':'-'}"
+    Then I will see the data "接收标签页" values "{'column':'2','name':'第一个标签, 第二个标签'}"
     And I click the detail which name is "接收标签页"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -96,10 +87,13 @@ Feature: 仪表盘标签操作
     And I click the "SettingIcon" button
     Then I will see the "EditLayout,RemoveTag,ManualRefresh,AutoRefresh" is "disabled"
 
+  @dashboard @dashboardSmoke
+  Scenario: 验证标签页
+    Then I will see the data "标签页移出" values "{'column':'2','name':'-'}"
+    Then I will see the data "接收标签页" values "{'column':'2','name':'验证高级编辑, 第二个标签'}"
+
   @cleanDashboard
   Scenario Outline: 删除仪表盘
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button

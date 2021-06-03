@@ -1,6 +1,10 @@
 @dashboard
 Feature:仪表盘校验
 
+  Background:
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for "2000" millsecond
+
   Scenario Outline: 新建失败校验(RZY-209)
     When I click the "Create" button
     And I set the parameter "DashBoardName" with value "<name>"

@@ -1,9 +1,12 @@
 @dashboard34
 Feature: 仪表盘输入项联动
-
+  
+  Background:
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for "2000" millsecond
+    
   @dashboard @dashboardSmoke
   Scenario: 新建仪表盘
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When I click the "Create" button
     And I set the parameter "DashBoardName" with value "仪表盘输入项联动"
     And I click the "Ensure" button
@@ -12,8 +15,6 @@ Feature: 仪表盘输入项联动
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -29,8 +30,6 @@ Feature: 仪表盘输入项联动
 
   @dashboard @dashboardSmoke
   Scenario Outline: 添加下拉菜单输入项
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "仪表盘输入项联动"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -58,8 +57,6 @@ Feature: 仪表盘输入项联动
 
   @dashboard @dashboardSmoke
   Scenario: 添加动态菜单输入项
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "仪表盘输入项联动"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -81,8 +78,6 @@ Feature: 仪表盘输入项联动
 
   @dashboard @dashboardSmoke
   Scenario: 添加事件列表
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "仪表盘输入项联动"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -98,8 +93,6 @@ Feature: 仪表盘输入项联动
 
   @dashboard @dashboardSmoke
   Scenario: 验证 RZY-3635
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "仪表盘输入项联动"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -122,8 +115,6 @@ Feature: 仪表盘输入项联动
 
   @dashboard @dashboardSmoke
   Scenario: 添加输入项
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "仪表盘输入项联动"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -137,8 +128,6 @@ Feature: 仪表盘输入项联动
 
   @dashboard @dashboardSmoke
   Scenario: 修改搜索语句
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "仪表盘输入项联动"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -154,8 +143,6 @@ Feature: 仪表盘输入项联动
 
   @dashboard @dashboardSmoke
   Scenario: 验证支持token filter RZY-3530
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "仪表盘输入项联动"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -174,11 +161,11 @@ Feature: 仪表盘输入项联动
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "500" millsecond
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
 
     Examples:
