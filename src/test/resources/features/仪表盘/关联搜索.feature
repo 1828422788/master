@@ -34,10 +34,10 @@ Feature: 仪表盘2关联搜索
     And I set the parameter "Tag" with value "<appName>"
     And I upload a file with name "/src/test/resources/testdata/log/<log>"
     And I click the "UploadButton" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "上传完成"
-#    And I wait for "VerifyText" will be visible
-#    And I wait for element "VerifyText" change text to "上传完成"
+#    And I wait for "SuccessMessage" will be visible
+#    Then I will see the success message "上传完成"
+    And I wait for "VerifyText" will be visible
+    And I wait for element "VerifyText" change text to "上传完成"
 
     Examples:
       | appName                      | log                         |
@@ -51,6 +51,7 @@ Feature: 仪表盘2关联搜索
     When I click the "Create" button
     And I set the parameter "DashBoardName" with value "仪表盘关联搜索"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
   @dashboard2d @dashboardSmoke

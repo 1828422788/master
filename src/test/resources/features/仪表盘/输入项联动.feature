@@ -7,6 +7,7 @@ Feature: 仪表盘输入项联动
     When I click the "Create" button
     And I set the parameter "DashBoardName" with value "仪表盘输入项联动"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
   @dashboard @dashboardSmoke
