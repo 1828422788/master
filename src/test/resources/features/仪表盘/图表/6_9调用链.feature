@@ -156,9 +156,10 @@ Feature: 仪表盘_6_9_调用链
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
     And I wait for "3000" millsecond
-    And I move the mouse pointer to the "CallChainText"
+    And I click the Circle "CallChainText" button
     And I click the "ShowDetails" button
     And I wait for "CallChainDetails" will be visible
+    And I wait for "2000" millsecond
     Then take part of "CallChainDetails" with name "actual/<image>"
     And I compare source image "actual/<image>" with target image "expect/<image>"
 
@@ -175,14 +176,10 @@ Feature: 仪表盘_6_9_调用链
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    And I wait for "3000" millsecond
-    And I move the mouse pointer to the "CallChainText"
-    And I click the "ShowDetails" button
-    And I wait for "1000" millsecond
-#And I click the "SettingChart" button
-    And I click the "FoldIcon" button
+    And I wait for "2000" millsecond
+    And I click the Circle "FoldIcon" button
     Then I will see the "CallChainTextChildNode" doesn't exist
-    And I click the "FoldIcon" button
+    And I click the Circle "FoldIcon" button
     Then I wait for "CallChainTextChildNode" will be visible
 
   @dashboard @dashboardSmoke

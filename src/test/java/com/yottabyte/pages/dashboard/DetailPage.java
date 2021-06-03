@@ -401,22 +401,22 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='测试描述']")
     private WebElement describeText;
 
-    @FindBy(xpath = "//div[text()='demorpcservice.demo']")
+    @FindBy(xpath = "//div[text()='demorpcservice.demo']/parent::div")
     private WebElement callChainText;
 
     @FindBy(xpath = "//div[text()='demorpcservice.demo']")
     private WebElement secondCallChainText;
 
-    @FindBy(xpath = "//div[text()='显示详情']")
+    @FindBy(xpath = "//div[text()='元数据']")
     private WebElement showDetails;
 
-    @FindBy(xpath = "//div[text()='demorpcservice.demo']")
+    @FindBy(xpath = "//div[text()='demorpcservice.demo']/preceding-sibling::div")
     private WebElement foldIcon;
 
     @FindBy(xpath = "//div[text()='mould1rpcservice.demoformould1']")
     private WebElement callChainTextChildNode;
 
-    @FindBy(xpath = "(//div[text()='binnaryannotations'])[2]/parent::div/parent::div")
+    @FindBy(xpath = "//div[text()='元数据']//ancestor::div[contains(@class,'yotta-tabs-top')]/parent::div")
     private WebElement callChainDetails;
 
     @FindBy(xpath = "//div[text()='第一行']/preceding-sibling::div/span[1]")
