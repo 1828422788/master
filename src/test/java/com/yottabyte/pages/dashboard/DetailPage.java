@@ -42,6 +42,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "control-panel-content")
     private WebElement filter;
 
+    @FindBy(xpath = "//input[@yotta-test='dashboard-add_events_name-input']")
+    private WebElement eventName;
+
     @FindBy(className = "el-switch__label--left")
     private WebElement clickableButton;
 
@@ -232,7 +235,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(tagName = "table")
     private List<WebElement> tableList;
 
-    @FindBy(xpath = "//textarea[@yotta-test='dashboard-general_config_query-textarea']")
+    @FindBy(xpath = "//textarea[contains(@yotta-test,'query-textarea')]")
     private WebElement spl;
 
     @FindBy(xpath = "(//*[@class='el-dialog__body']/following-sibling::div//button/span[contains(text(),'确定')])[last()]")
@@ -2299,7 +2302,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getEventName() {
-        return getNewInputElement("名称");
+        return eventName;
     }
 
     public WebElement getChartForAdd() { return chartForAdd; }

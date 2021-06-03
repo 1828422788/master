@@ -185,7 +185,7 @@ public class SetKeyWithValue {
     public void iSetTheParameterToJsonEditor(String value) {
         WebElement element = webDriver.findElement(By.xpath("(//*[@class='ace_text-input'])[last()]"));
 //        webDriver.findElement(By.id("jsoneditor")).click();
-        if (System.getProperty("os.name").startsWith("Linux"))
+        if (System.getProperty("os.name").startsWith("Linux") || System.getProperty("os.name").startsWith("Windows"))
             element.sendKeys(Keys.CONTROL, "a");
         else
             element.sendKeys(Keys.COMMAND, "a");

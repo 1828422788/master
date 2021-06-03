@@ -4,9 +4,11 @@ Feature: 仪表盘_6_4_字符云图
   @dashboard
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for "2000" millsecond
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
     Examples:
@@ -47,7 +49,7 @@ Feature: 仪表盘_6_4_字符云图
     When I set the parameter "TagName" with value "<name>"
     And I wait for "500" millsecond
     And I click the "EnsureCreateTagButton" button
-    And I wait for loading complete
+    And I wait for "2000" millsecond
     And I back to before
 
     Examples:
@@ -145,7 +147,9 @@ Feature: 仪表盘_6_4_字符云图
     And I set the parameter "{"title": "仪表盘字符云图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip, apache.resp_len | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "wordcloud","field": "","category": "apache.clientip"}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    Then I wait for element "ErrorMessage" change text to "chart -> field 字段值不能为空"
+    And I wait for "ErrorMessage" will be visible
+    And I will see the element "ErrorMessage" contains "chart -> field 字段值不能为空"
+#    Then I wait for element "ErrorMessage" change text to "chart -> field 字段值不能为空"
 
   @dashboard
   Scenario: 修改field为不存在 RZY-3755
@@ -161,8 +165,12 @@ Feature: 仪表盘_6_4_字符云图
     And I set the parameter "{"title": "仪表盘字符云图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip, apache.resp_len | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "wordcloud","field": "qwertycount()","category": "apache.clientip"}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "校验通过"
+    And I wait for "SuccessMessage" will be invisible
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for "2000" millsecond
     Then I wait for "NoData" will be visible
 
@@ -180,8 +188,12 @@ Feature: 仪表盘_6_4_字符云图
     Then I set the parameter "{"title": "仪表盘字符云图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip, apache.resp_len | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "wordcloud","field": "apache.clientip","category": ""}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "校验通过"
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for "2000" millsecond
     Then I wait for "NoData" will be visible
 
@@ -200,8 +212,12 @@ Feature: 仪表盘_6_4_字符云图
     Then I set the parameter "{"title": "仪表盘字符云图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip, apache.resp_len | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "wordcloud","field": "count()","category": "apache.resp_len"}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "校验通过"
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for "2000" millsecond
     Then I will see the "NoData" is not exist
 #    Then I wait for "NoData" will be visible
@@ -220,7 +236,11 @@ Feature: 仪表盘_6_4_字符云图
     Then I set the parameter "{"title": "仪表盘字符云图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip, apache.resp_len | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "wordcloud","field": "count()","category": "qwerty123"}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "校验通过"
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for "2000" millsecond
     Then I wait for "NoData" will be visible

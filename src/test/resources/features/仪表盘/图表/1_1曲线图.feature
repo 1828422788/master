@@ -4,9 +4,11 @@ Feature: 仪表盘_1_1_曲线图
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for "2000" millsecond
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
     Examples:
@@ -46,7 +48,7 @@ Feature: 仪表盘_1_1_曲线图
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "<name>"
     And I click the "EnsureCreateTagButton" button
-    And I wait for loading complete
+    And I wait for "2000" millsecond
     And I back to before
 
     Examples:
@@ -56,7 +58,9 @@ Feature: 仪表盘_1_1_曲线图
   @dashboard @dashboardSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
+    And I wait for "2000" millsecond
+    And I set the parameter "SearchInput" with value "<name>"
+    And I wait for "2000" millsecond
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -163,7 +167,9 @@ Feature: 仪表盘_1_1_曲线图
     And I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "1a","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    Then I wait for element "ErrorMessage" change text to "chart -> chartType 字段值不支持1a"
+    And I wait for "ErrorMessage" will be visible
+    And I will see the element "ErrorMessage" contains "chart -> chartType 字段值不支持1a"
+#    Then I wait for element "ErrorMessage" change text to "chart -> chartType 字段值不支持1a"
 
   @dashboard
   Scenario: 修改chartType为空 RZY-1271
@@ -179,7 +185,9 @@ Feature: 仪表盘_1_1_曲线图
     And I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    Then I wait for element "ErrorMessage" change text to "chart -> chartType 字段值不支持"
+    And I wait for "ErrorMessage" will be visible
+    And I will see the element "ErrorMessage" contains "chart -> chartType 字段值不支持"
+#    Then I wait for element "ErrorMessage" change text to "chart -> chartType 字段值不支持"
 
   @dashboard @dashboardSmoke
   Scenario Outline: chartType字段-置为序列图其他类型 RZY-1282,RZY-1283,RZY-1284
@@ -195,10 +203,12 @@ Feature: 仪表盘_1_1_曲线图
     Then I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "<chartType>","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    And I wait for "500" millsecond
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "校验通过"
-    And I wait for "500" millsecond
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SequenceChart" with name "actual/<image>"
@@ -224,7 +234,9 @@ Feature: 仪表盘_1_1_曲线图
     And I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    Then I wait for element "ErrorMessage" change text to "chart -> field 字段值不能为空"
+    And I wait for "ErrorMessage" will be visible
+    And I will see the element "ErrorMessage" contains "chart -> field 字段值不能为空"
+#    Then I wait for element "ErrorMessage" change text to "chart -> field 字段值不能为空"
 
   @dashboard @dashboardSmoke
   Scenario Outline: field byFields RZY-1286,RZY-1287,RZY-1299
@@ -240,9 +252,12 @@ Feature: 仪表盘_1_1_曲线图
     Then I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "<field>","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["<byField>"],"legend": {"placement": "bottom"}}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "校验通过"
-    And I wait for "500" millsecond
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SequenceChart" with name "actual/<image>"
@@ -267,8 +282,12 @@ Feature: 仪表盘_1_1_曲线图
     Then I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "<labelRotate>","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-#    Then I will see the success message "校验通过"
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "校验通过"
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then I will see the element "XaxisField" transform contains "<rotate>"
@@ -293,9 +312,12 @@ Feature: 仪表盘_1_1_曲线图
     Then I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "left","sortOrder": "<sortOrder>"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-#    Then I will see the success message "校验通过"
-    And I wait for "500" millsecond
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "校验通过"
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SequenceChart" with name "actual/<image>"
@@ -321,7 +343,9 @@ Feature: 仪表盘_1_1_曲线图
     And I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    Then I wait for element "ErrorMessage" change text to "chart -> field 字段值不能为空"
+    And I wait for "ErrorMessage" will be visible
+    And I will see the element "ErrorMessage" contains "chart -> field 字段值不能为空"
+#    Then I wait for element "ErrorMessage" change text to "chart -> field 字段值不能为空"
 
   @dashboard
   Scenario Outline: 修改yAxis field字段值置为错误值 RZY-1302
@@ -337,9 +361,12 @@ Feature: 仪表盘_1_1_曲线图
     And I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "<field>","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    #    Then I will see the success message "校验通过"
-    And I wait for "500" millsecond
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "校验通过"
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SequenceChart" with name "actual/<image>"
@@ -363,9 +390,12 @@ Feature: 仪表盘_1_1_曲线图
     Then I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": false,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "校验通过"
-    And I wait for "500" millsecond
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SequenceChart" with name "actual/多Y轴图_smooth_false"
@@ -385,8 +415,12 @@ Feature: 仪表盘_1_1_曲线图
     Then I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": false,"unit": "个","connectNull": true,"range": { "min": "<min>","max": "<max>"}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    And I wait for "500" millsecond
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "校验通过"
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SequenceChartYaxis" with name "actual/<image>"
@@ -413,7 +447,9 @@ Feature: 仪表盘_1_1_曲线图
     Then I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": false,"unit": "个","connectNull": true,"range": { "min": "<min>","max": "<max>"}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    Then I wait for element "ErrorMessage" change text to "<errorMessage>"
+    And I wait for "ErrorMessage" will be visible
+    And I will see the element "ErrorMessage" contains "<errorMessage>"
+#    Then I wait for element "ErrorMessage" change text to "<errorMessage>"
 
     Examples:
       |   min     |   max    |    errorMessage                                                     |
@@ -433,9 +469,12 @@ Feature: 仪表盘_1_1_曲线图
     Then I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "<legend>"}}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "校验通过"
-    And I wait for "500" millsecond
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then I will see the element "LineChartLegend" style contains "<image>"
@@ -461,9 +500,12 @@ Feature: 仪表盘_1_1_曲线图
     Then I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "<legend>"}}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "校验通过"
-    And I wait for "500" millsecond
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then I wait for "LineChartLegend" will be invisible
@@ -486,7 +528,9 @@ Feature: 仪表盘_1_1_曲线图
     And I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": ""}}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    Then I wait for element "ErrorMessage" change text to "chart -> placement 字段值不能为空"
+    And I wait for "ErrorMessage" will be visible
+    And I will see the element "ErrorMessage" contains "chart -> placement 字段值不能为空"
+#    Then I wait for element "ErrorMessage" change text to "chart -> placement 字段值不能为空"
 
   @dashboard
   Scenario: 修改legend字段值置为任意值 RZY-1315
@@ -502,7 +546,9 @@ Feature: 仪表盘_1_1_曲线图
     And I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "111"}}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    Then I wait for element "ErrorMessage" change text to "chart -> placement 字段值不支持 111"
+    And I wait for "ErrorMessage" will be visible
+    And I will see the element "ErrorMessage" contains "chart -> placement 字段值不支持 111"
+#    Then I wait for element "ErrorMessage" change text to "chart -> placement 字段值不支持 111"
 
 
   @dashboard
@@ -519,9 +565,12 @@ Feature: 仪表盘_1_1_曲线图
     And I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["<byFields>"],"legend": {"placement": "bottom"}}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    #    Then I will see the success message "校验通过"
-    And I wait for "500" millsecond
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "校验通过"
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SequenceChart" with name "actual/<image>"

@@ -4,9 +4,11 @@ Feature: 仪表盘_4_1_区间图
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for "2000" millsecond
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
     Examples:
@@ -46,7 +48,7 @@ Feature: 仪表盘_4_1_区间图
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "<name>"
     And I click the "EnsureCreateTagButton" button
-    And I wait for loading complete
+    And I wait for "2000" millsecond
     And I back to before
 
     Examples:
@@ -56,7 +58,9 @@ Feature: 仪表盘_4_1_区间图
   @dashboard @dashboardSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
+    And I wait for "2000" millsecond
+    And I set the parameter "SearchInput" with value "<name>"
+    And I wait for "2000" millsecond
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -149,7 +153,9 @@ Feature: 仪表盘_4_1_区间图
     And I set the parameter "{"title": "仪表盘区间图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | bucket timestamp span=1h as ts | stats count('apache.status') as 'count' by ts | esma count timefield=ts","startTime": "now/d","endTime": "now"},"chart": {"chartType": "qwertyuiop","xAxis": {"field": "ts"},"precision": "","yAxis": {"field": "count","predictField": "_predict_count","anomalyField": ""},"boundary": {"upperField": "upper95","lowerField": "lower95"}}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    Then I wait for element "ErrorMessage" change text to "chart -> chartType 字段值不支持qwertyuiop"
+    And I wait for "ErrorMessage" will be visible
+    And I will see the element "ErrorMessage" contains "chart -> chartType 字段值不支持qwertyuiop"
+#    Then I wait for element "ErrorMessage" change text to "chart -> chartType 字段值不支持qwertyuiop"
 
   @dashboard
   Scenario: 修改xAxis:field-ma RZY-3705
@@ -165,8 +171,12 @@ Feature: 仪表盘_4_1_区间图
     And I set the parameter "{  "title": "仪表盘区间图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | bucket timestamp span=1h as ts | stats count('apache.status') as 'count' by ts | esma count timefield=ts",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "rangeline",    "xAxis": {      "field": "ma"    },    "precision": "",    "yAxis": {      "field": "count",      "predictField": "_predict_count",      "anomalyField": ""    },    "boundary": {      "upperField": "upper95",      "lowerField": "lower95"    }  }}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "校验通过"
+    And I wait for "SuccessMessage" will be invisible
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SectionChartArea" with name "actual/区间图_xAxis_ma"
@@ -186,7 +196,12 @@ Feature: 仪表盘_4_1_区间图
     And I set the parameter "{  "title": "仪表盘区间图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | bucket timestamp span=1h as ts | stats count('apache.status') as 'count' by ts | esma count timefield=ts",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "rangeline",    "xAxis": {      "field": "ma"    },    "precision": "",    "yAxis": {      "field": "count",      "predictField": "_predict_count",      "anomalyField": ""    },    "boundary": {      "upperField": "upper95",      "lowerField": "lower95"    }  }}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "校验通过"
+    And I wait for "SuccessMessage" will be invisible
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SectionChartArea" with name "actual/区间图_xAxis_qwert"
@@ -206,9 +221,13 @@ Feature: 仪表盘_4_1_区间图
     And I set the parameter "{"title": "仪表盘区间图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | bucket timestamp span=1h as ts | stats count('apache.status') as 'count' by ts | esma count timefield=ts","startTime": "now/d","endTime": "now"},"chart": {"chartType": "rangeline","xAxis": {"field": "ts"},"precision": "","yAxis": {"field": "countqwerty","predictField": "","anomalyField": ""},"boundary": {"upperField": "upper95","lowerField": "lower95"}}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "校验通过"
+    And I wait for "SuccessMessage" will be invisible
     And I click the "Ensure" button
-    Then I wait for element "SuccessMessage" change text to "配置成功"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
+#    Then I wait for element "SuccessMessage" change text to "配置成功"
     And I wait for "2000" millsecond
     Then I wait for "NoData" will be visible
 
@@ -226,7 +245,12 @@ Feature: 仪表盘_4_1_区间图
     And I set the parameter "{  "title": "仪表盘区间图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | bucket timestamp span=1h as ts | stats count('apache.status') as 'count' by ts | esma count timefield=ts",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "rangeline",    "xAxis": {      "field": "ts"    },    "precision": "",    "yAxis": {      "field": "count",      "predictField": "_predict_count",      "anomalyField": ""    },    "boundary": {      "upperField": "<upperField>",      "lowerField": "<lowerField>"    }  }}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "校验通过"
+    And I wait for "SuccessMessage" will be invisible
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SectionChartArea" with name "actual/<iamge>"

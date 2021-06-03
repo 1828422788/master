@@ -4,9 +4,11 @@ Feature: 仪表盘_2_1_饼状图
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for "2000" millsecond
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
     Examples:
@@ -46,7 +48,7 @@ Feature: 仪表盘_2_1_饼状图
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "<name>"
     And I click the "EnsureCreateTagButton" button
-    And I wait for loading complete
+    And I wait for "2000" millsecond
     And I back to before
 
     Examples:
@@ -147,8 +149,12 @@ Feature: 仪表盘_2_1_饼状图
     Then I set the parameter "{"title": "仪表盘饼状图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "pie","field": "count()qwert","byFields": ["apache.resp_lenasdfg"],"precision": "","useFlameDrillDown": false}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "校验通过"
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for "3000" millsecond
     Then I will see the "PieData" is not exist
 
@@ -167,10 +173,12 @@ Feature: 仪表盘_2_1_饼状图
     Then I set the parameter "{  "title": "仪表盘饼状图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "<chartType>",    "field": "count()",    "byFields": [      "apache.clientip"    ],    "precision": "",    "useFlameDrillDown": false  }}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    And I wait for "500" millsecond
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "校验通过"
-    And I wait for "500" millsecond
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "DimensionChart" with name "actual/<image>"
@@ -197,10 +205,13 @@ Feature: 仪表盘_2_1_饼状图
     And I wait for "300" millsecond
     Then I set the parameter "{  "title": "仪表盘饼状图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "pie",    "field": "<field>",    "byFields": [      "<byField>"    ],    "precision": "",    "useFlameDrillDown": false  }}" to json editor
     And I wait for "500" millsecond
-    And I click the "Check" button
+    AAnd I click the "Check" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "校验通过"
-    And I wait for "500" millsecond
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "DimensionChart" with name "actual/<image>"
