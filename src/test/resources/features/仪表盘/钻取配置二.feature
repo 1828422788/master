@@ -7,6 +7,7 @@ Feature: 仪表盘钻取配置二
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
     Examples:
@@ -48,7 +49,7 @@ Feature: 仪表盘钻取配置二
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "测试钻取配置二"
     And I click the "Ensure" button
-    And I wait for loading complete
+    And I wait for "2000" millsecond
     And I back to before
 
     Examples:

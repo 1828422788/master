@@ -2479,7 +2479,7 @@ public class CreatePageDash extends PageTemplate {
         return secondSetting;
     }
 
-    @FindBy(xpath = "//*[@class='yotta-tag']/span[last()]")
+    @FindBy(xpath = "//*[contains(@class,'yotta-tag')]/span[last()]")
     private WebElement closeDivideItem;
 
     public WebElement getCloseDivideItem() {
