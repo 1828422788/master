@@ -651,7 +651,8 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//li[@yotta-test='event_list-event_action-menu_item']/span[text()='AutoTest']")
     private WebElement eventOperatorAutoTest;
 
-    @FindBy(xpath = "//span[@class='event-action-field-dropdown']")
+  //  @FindBy(xpath = "//span[@class='event-action-field-dropdown']")
+    @FindBy(xpath = "//span[text()='raw_message']")
     private WebElement rawMessage;
 
     @FindBy(xpath = "(//span[text()='查看上下文sample'])[last()]")
