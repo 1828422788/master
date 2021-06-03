@@ -611,6 +611,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//*[@yotta-test='dashboard-filter_value-select']/div")
     private WebElement filterDropdown;
 
+    @FindBy(xpath = "//*[@yotta-test='dashboard-filter_value-select']//input")
+    private WebElement filterDropdownInput;
+
     @FindBy(xpath = "//span[text()='filter']")
     private WebElement filterName;
 
@@ -1512,6 +1515,11 @@ public class DetailPage extends PageTemplate {
     public WebElement getFilterDropdown() {
         filterDropdown.click();
         return super.getLastDropdownList();
+    }
+
+    public WebElement getFilterDropdownInput() {
+        filterDropdown.click();
+        return filterDropdownInput;
     }
 
     public WebElement getCityTd() {

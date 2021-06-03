@@ -140,6 +140,7 @@ Feature: 仪表盘_6_2_环形比例图
     And I click the "RangeColor" button
     And I wait for "Yellow" will be visible
     And I click the "Yellow" button
+    And I wait for "2000" millsecond
     And I choose the "3" from the "DataPrecision"
     And I wait for "1000" millsecond
     Then I click the "Generate" button
