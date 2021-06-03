@@ -4,9 +4,11 @@ Feature: 仪表盘_6_7_漏斗图
   @dashboard
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for "2000" millsecond
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
     Examples:
@@ -46,7 +48,7 @@ Feature: 仪表盘_6_7_漏斗图
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "<name>"
     And I click the "EnsureCreateTagButton" button
-    And I wait for loading complete
+    And I wait for "2000" millsecond
     And I back to before
 
     Examples:

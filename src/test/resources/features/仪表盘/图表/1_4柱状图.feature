@@ -1,13 +1,14 @@
 @dashboard0330 @dashboard19 @dashboardChart
-Feature: 仪表盘1_4_柱状图
+Feature: 仪表盘_1_4_柱状图
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for "2000" millsecond
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
-    And I wait for "500" millsecond
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
     Examples:
@@ -47,7 +48,7 @@ Feature: 仪表盘1_4_柱状图
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "<name>"
     And I click the "EnsureCreateTagButton" button
-    And I wait for loading complete
+    And I wait for "2000" millsecond
     And I back to before
 
     Examples:
@@ -140,7 +141,7 @@ Feature: 仪表盘1_4_柱状图
     And I wait for loading invisible
     And I set the parameter "Spl" with value "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10"
     And I click the "Ensure" button
-    And I wait for "500" millsecond
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "配置成功"
     And I wait for "1500" millsecond
     And I click the "SettingIcon" button

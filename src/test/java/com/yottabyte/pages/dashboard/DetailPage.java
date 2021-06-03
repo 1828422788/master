@@ -42,6 +42,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "control-panel-content")
     private WebElement filter;
 
+    @FindBy(xpath = "//input[@yotta-test='dashboard-add_events_name-input']")
+    private WebElement eventName;
+
     @FindBy(className = "el-switch__label--left")
     private WebElement clickableButton;
 
@@ -232,7 +235,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(tagName = "table")
     private List<WebElement> tableList;
 
-    @FindBy(xpath = "//textarea[@yotta-test='dashboard-general_config_query-textarea']")
+    @FindBy(xpath = "//textarea[contains(@yotta-test,'query-textarea')]")
     private WebElement spl;
 
     @FindBy(xpath = "(//*[@class='el-dialog__body']/following-sibling::div//button/span[contains(text(),'确定')])[last()]")
@@ -398,22 +401,22 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='测试描述']")
     private WebElement describeText;
 
-    @FindBy(xpath = "//div[text()='demorpcservice.demo']")
+    @FindBy(xpath = "//div[text()='demorpcservice.demo']/parent::div")
     private WebElement callChainText;
 
     @FindBy(xpath = "//div[text()='demorpcservice.demo']")
     private WebElement secondCallChainText;
 
-    @FindBy(xpath = "//div[text()='显示详情']")
+    @FindBy(xpath = "//div[text()='元数据']")
     private WebElement showDetails;
 
-    @FindBy(xpath = "//div[text()='demorpcservice.demo']")
+    @FindBy(xpath = "//div[text()='demorpcservice.demo']/preceding-sibling::div")
     private WebElement foldIcon;
 
     @FindBy(xpath = "//div[text()='mould1rpcservice.demoformould1']")
     private WebElement callChainTextChildNode;
 
-    @FindBy(xpath = "(//div[text()='binnaryannotations'])[2]/parent::div/parent::div")
+    @FindBy(xpath = "//div[text()='元数据']//ancestor::div[contains(@class,'yotta-tabs-top')]/parent::div")
     private WebElement callChainDetails;
 
     @FindBy(xpath = "//div[text()='第一行']/preceding-sibling::div/span[1]")
@@ -2349,7 +2352,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getEventName() {
-        return getNewInputElement("名称");
+        return eventName;
     }
 
     public WebElement getChartForAdd() {

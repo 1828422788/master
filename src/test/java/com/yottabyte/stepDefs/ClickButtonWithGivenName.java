@@ -269,7 +269,9 @@ public class ClickButtonWithGivenName {
         } else {
             xpath = ".//span";
         }
-        tr.findElement(By.xpath(xpath)).click();
+//        tr.findElement(By.xpath(xpath)).click();
+        WebElement element = tr.findElement(By.xpath(xpath));
+        ClickEvent.clickUnderneathButton(element);
     }
 
     /**

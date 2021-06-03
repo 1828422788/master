@@ -4,9 +4,11 @@ Feature: 仪表盘_6_1_单值
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for "2000" millsecond
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
     Examples:
@@ -46,7 +48,7 @@ Feature: 仪表盘_6_1_单值
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "<name>"
     And I click the "EnsureCreateTagButton" button
-    And I wait for loading complete
+    And I wait for "2000" millsecond
     And I back to before
 
     Examples:
@@ -174,7 +176,9 @@ Feature: 仪表盘_6_1_单值
     And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "single","field": "a_","fontSize": "<fontSize>","useThousandSeparators": false,"unit": "个","unitPosition": "after","displayField": "icon","subtitle": "","useSparkline": false,"singleChartIcon": "none","sparklineXAxisField": "","displayMode": "default","color": "#5C9DF5","colorFillingMode": "font","liveRefreshMode": false}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    Then I wait for element "<status>" change text to "<message>"
+    And I wait for "<status>" will be visible
+    And I will see the element "<status>" contains "<message>"
+#    Then I wait for element "<status>" change text to "<message>"
 
     Examples:
       | fontSize | status         | message                                       |
@@ -198,7 +202,9 @@ Feature: 仪表盘_6_1_单值
     And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "single","field": "a_","fontSize": "100","useThousandSeparators": false,"unit": "个","unitPosition": "after","displayField": "icon","subtitle": "","useSparkline": false,"singleChartIcon": "none","sparklineXAxisField": "","displayMode": "default","color": "<color>","colorFillingMode": "font","liveRefreshMode": false}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    Then I wait for element "<status>" change text to "<message>"
+    And I wait for "<status>" will be visible
+    And I will see the element "<status>" contains "<message>"
+#    Then I wait for element "<status>" change text to "<message>"
 
     Examples:
       | color | status         | message               |
@@ -219,7 +225,9 @@ Feature: 仪表盘_6_1_单值
     And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "single","field": "a_","fontSize": "100","useThousandSeparators": false,"unit": "个","unitPosition": "after","displayField": "icon","subtitle": "","useSparkline": false,"singleChartIcon": "none","sparklineXAxisField": "","displayMode": "trending","color": "#5C9DF5","colorFillingMode": "font","liveRefreshMode": false}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    Then I wait for element "<status>" change text to "<message>"
+    And I wait for "<status>" will be visible
+    And I will see the element "<status>" contains "<message>"
+#    Then I wait for element "<status>" change text to "<message>"
 
     Examples:
       | status       | message                       |
@@ -238,7 +246,9 @@ Feature: 仪表盘_6_1_单值
     And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "single","field": "a_","fontSize": "24","singleChartIcon": "none","displayMode": "default","comparsionTime": "-7d","comparsionMode": "percent","color": "#5C9DF5","colorFillingMode": "font","liveRefreshMode": false}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    Then I will see the error message "<message>"
+    And I wait for "ErrorMessage" will be visible
+    And I will see the element "ErrorMessage" contains "<message>"
+#    Then I will see the error message "<message>"
 
     Examples:
       | message                              |
@@ -257,7 +267,9 @@ Feature: 仪表盘_6_1_单值
     And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "single","field": "a_","fontSize": "24","precision": "1","useThousandSeparators": false,"unit": "ge","unitPosition": "after","displayField": "chart","subtitle": "","useSparkline": false,"sparklineXAxisField": "","singleChartIcon": "fixed","fixedSetting": "","displayMode": "<mode>","colorFillingMode": "font","colorRanges": [{"from":"100","to":"<to>","color":"#259B24"}]}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    Then I wait for element "ErrorMessage" change text to "<message>"
+    And I wait for "ErrorMessage" will be visible
+    And I will see the element "ErrorMessage" contains "<message>"
+#    Then I wait for element "ErrorMessage" change text to "<message>"
 
     Examples:
       | mode    | to  | message                                  |
@@ -313,7 +325,9 @@ Feature: 仪表盘_6_1_单值
     And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "<chartType>"}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    Then I wait for element "ErrorMessage" change text to "<ErrorMessage>"
+    And I wait for "ErrorMessage" will be visible
+    And I will see the element "ErrorMessage" contains "<ErrorMessage>"
+#    Then I wait for element "ErrorMessage" change text to "<ErrorMessage>"
 
     Examples:
       | chartType    | ErrorMessage                       |
@@ -335,8 +349,12 @@ Feature: 仪表盘_6_1_单值
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "<singleChartIcon>",    "iconField": "icon",    "displayMode": "default",    "color": "#5C9DF5",    "colorFillingMode": "font",    "liveRefreshMode": false  }}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    And I wait for "500" millsecond
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "校验通过"
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SingleValueDiv" with name "actual/<image>"
@@ -360,8 +378,12 @@ Feature: 仪表盘_6_1_单值
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "<singleChartIcon>",    "fixedSetting": "search",    "displayMode": "default",    "color": "#5C9DF5",    "colorFillingMode": "font",    "liveRefreshMode": false  }}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    And I wait for "500" millsecond
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "校验通过"
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SingleValueDiv" with name "actual/<image>"
@@ -385,8 +407,12 @@ Feature: 仪表盘_6_1_单值
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "<singleChartIcon>",    "displayMode": "default",    "color": "#5C9DF5",    "colorFillingMode": "font",    "liveRefreshMode": false  }}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    And I wait for "500" millsecond
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "校验通过"
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SingleValueDiv" with name "actual/<image>"
@@ -410,7 +436,9 @@ Feature: 仪表盘_6_1_单值
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "<displayMode>",    "color": "#5C9DF5",    "colorFillingMode": "font",    "liveRefreshMode": false  }}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    Then I wait for element "ErrorMessage" change text to "<ErrorMessage>"
+    And I wait for "ErrorMessage" will be visible
+    And I will see the element "ErrorMessage" contains "<ErrorMessage>"
+#    Then I wait for element "ErrorMessage" change text to "<ErrorMessage>"
 
     Examples:
       | displayMode |  ErrorMessage                      |
@@ -431,8 +459,12 @@ Feature: 仪表盘_6_1_单值
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "default",    "color": "<color>",    "colorFillingMode": "font",    "liveRefreshMode": false  }}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    And I wait for "500" millsecond
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "校验通过"
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SingleValueDiv" with name "actual/<image>"
@@ -456,8 +488,12 @@ Feature: 仪表盘_6_1_单值
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "default",    "color": "#FFEB3B",    "colorFillingMode": "<colorFillingMode>",    "liveRefreshMode": false  }}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    And I wait for "500" millsecond
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "校验通过"
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "SingleValueDiv" with name "actual/<image>"
@@ -481,8 +517,12 @@ Feature: 仪表盘_6_1_单值
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "default",    "color": "#FFEB3B",    "colorFillingMode": "font",    "liveRefreshMode": <liveRefreshMode>  }}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    And I wait for "500" millsecond
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "校验通过"
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     And I click the "SettingChart" button
@@ -510,8 +550,12 @@ Feature: 仪表盘_6_1_单值
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "trending",    "comparsionTime": "-7d",    "comparsionMode": "percent"  }}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    And I wait for "500" millsecond
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "校验通过"
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     And I click the "SettingChart" button
@@ -535,7 +579,9 @@ Feature: 仪表盘_6_1_单值
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "<displayMode>",    "comparsionTime": "-7d",    "comparsionMode": "percent"  }}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    Then I wait for element "ErrorMessage" change text to "<ErrorMessage>"
+    And I wait for "ErrorMessage" will be visible
+    And I will see the element "ErrorMessage" contains "<ErrorMessage>"
+#    Then I wait for element "ErrorMessage" change text to "<ErrorMessage>"
 
     Examples:
       | displayMode |  ErrorMessage                       |
@@ -555,8 +601,12 @@ Feature: 仪表盘_6_1_单值
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "trending",    "comparsionTime": "<comparsionTime>",    "comparsionMode": "<comparsionMode>"  }}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    And I wait for "500" millsecond
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "校验通过"
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     And I click the "SettingChart" button
@@ -585,8 +635,12 @@ Feature: 仪表盘_6_1_单值
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "ranging",    "colorFillingMode": "font",    "colorRanges": [      {        "from": "100",        "to": "300",        "color": "#5C9DF5"      }    ]  }}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    And I wait for "500" millsecond
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "校验通过"
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for loading invisible
     And I wait for "2000" millsecond
     And I click the "SettingChart" button
@@ -610,7 +664,9 @@ Feature: 仪表盘_6_1_单值
     And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "<displayMode>",    "colorFillingMode": "font",    "colorRanges": [      {        "color": "#259B24",        "from": "<from>",        "to": "<to>"      }    ]  }}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    Then I wait for element "ErrorMessage" change text to "<ErrorMessage>"
+    And I wait for "ErrorMessage" will be visible
+    And I will see the element "ErrorMessage" contains "<ErrorMessage>"
+#    Then I wait for element "ErrorMessage" change text to "<ErrorMessage>"
 
     Examples:
       | displayMode |  from  |  to  |  ErrorMessage                              |

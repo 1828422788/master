@@ -4,9 +4,11 @@ Feature: 仪表盘_5_1_热力地图
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for "2000" millsecond
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
     Examples:
@@ -48,7 +50,7 @@ Feature: 仪表盘_5_1_热力地图
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "<name>"
     And I click the "EnsureCreateTagButton" button
-    And I wait for loading complete
+    And I wait for "2000" millsecond
     And I back to before
 
     Examples:
@@ -143,7 +145,9 @@ Feature: 仪表盘_5_1_热力地图
     And I set the parameter "{"title": "仪表盘热力地图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "appname:apache | stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "heatmap","field": "","category": "apache.geo.city"}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    Then I wait for element "ErrorMessage" change text to "chart -> field 字段值不能为空"
+    And I wait for "ErrorMessage" will be visible
+    And I will see the element "ErrorMessage" contains "chart -> field 字段值不能为空"
+#    Then I wait for element "ErrorMessage" change text to "chart -> field 字段值不能为空"
 
   @dashboard
   Scenario: 修改field为不存在 RZY-3759
@@ -159,8 +163,12 @@ Feature: 仪表盘_5_1_热力地图
     And I set the parameter "{"title": "仪表盘热力地图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "appname:apache | stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "heatmap","field": "qwertcount()","category": "apache.geo.city"}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "校验通过"
+    And I wait for "SuccessMessage" will be invisible
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for "2000" millsecond
     Then I wait for "NoData" will be visible
 
@@ -178,8 +186,12 @@ Feature: 仪表盘_5_1_热力地图
     Then I set the parameter "{"title": "仪表盘热力地图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "appname:apache | stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "heatmap","field": "apache.geo.city","category": ""}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "校验通过"
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for "2000" millsecond
     Then I wait for "NoData" will be visible
 
@@ -197,8 +209,12 @@ Feature: 仪表盘_5_1_热力地图
     Then I set the parameter "{"title": "仪表盘热力地图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "appname:apache | stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "heatmap","field": "count()","category": "qwerty"}}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "校验通过"
-    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
     And I wait for "2000" millsecond
     Then I wait for "NoData" will be visible
 
