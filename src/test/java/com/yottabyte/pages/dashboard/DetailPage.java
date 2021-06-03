@@ -23,7 +23,7 @@ import java.util.List;
 public class DetailPage extends PageTemplate {
     public DetailPage(WebDriver driver) {
         super(driver);
-        driver.manage().window().setSize(new Dimension(1920,1080));
+        driver.manage().window().setSize(new Dimension(1920, 1080));
 //        driver.manage().window().fullscreen();
     }
 
@@ -477,13 +477,13 @@ public class DetailPage extends PageTemplate {
     private WebElement jiangsu;
 
     @FindBy(xpath = "//span[text()='上海市']")
-    private WebElement  shanghai;
+    private WebElement shanghai;
 
     @FindBy(xpath = "//span[text()='成都市 ']")
-    private WebElement  chengdushi;
+    private WebElement chengdushi;
 
     @FindBy(xpath = "(//span[text()='成都市'])[last()]")
-    private WebElement  chengDuShi;
+    private WebElement chengDuShi;
 
     @FindBy(xpath = "//div[@class='yotta-select-menu']//span[text()='成都市']")
     private WebElement chengdushiList;
@@ -752,9 +752,6 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//i[@class='anticon css-ifnfqv'])/*")
     private List<WebElement> iconList;
 
-    @FindBy(xpath = "(//div[@class='yotta-dropdown'])[1]/span/span")
-    private WebElement AddIcon;
-
     @FindBy(xpath = "//*[@yotta-test='dashboard-tab_config-dropdown']/span")
     private WebElement settingIcon;
 
@@ -763,9 +760,6 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "(//ul[contains(@class,'yotta-menu')])[1]/li")
     private List<WebElement> liList;
-
-    @FindBy(xpath = "//*[@yotta-test='dashboard-tab_list-dropdown']/span")
-    private WebElement tagIcon;
 
     @FindBy(xpath = "//*[@yotta-test='dashboard-new_tab-menu_item']")
     private WebElement addTag;
@@ -813,23 +807,30 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//div[@class='yotta-tree-node']//span[text()])[last()]")
     private WebElement lastTag;
 
-    @FindBy(xpath = "//span[contains(text(),'first')]")
+    //  @FindBy(xpath = "//span[contains(text(),'first')]")
+    @FindBy(xpath = "//div[@class='yotta-tree-node']//span[text()='first']")
     private WebElement first;
 
     @FindBy(xpath = "//span[text()='新建标签页']")
     private WebElement creatNewTag;
+
     public WebElement getCreatNewTag() {
         return creatNewTag;
     }
 
-    @FindBy(xpath = "//a[text()='Delete']/following-sibling::*[@yotta-test='dashboard-delete_tab-dom']")
+   //@FindBy(xpath = "//a[text()='Delete']/following-sibling::*[@yotta-test='dashboard-delete_tab-dom']")
+    @FindBy(xpath = "//span[text()='删除']")
     private WebElement deleteNewTag;
 
-//    @FindBy(xpath = "//span[text()='新建标签页']/preceding-sibling::ul/li[2]")
-    @FindBy(xpath = "//span[text()='新建标签页']/parent::li/preceding-sibling::div/li[2]//input")
+    //@FindBy(xpath = "//span[text()='新建标签页']/parent::li/preceding-sibling::div/li[2]//input")
+    @FindBy(xpath = "//input[@yotta-test='dashboard-tab_name-input']")
     private WebElement inputforTag;
+    public WebElement getInputforTag() {
+        return inputforTag;
+    }
 
-    @FindBy(xpath = "//a[text()='forDelete']/following-sibling::span[1]")
+    //@FindBy(xpath = "//a[text()='forDelete']/following-sibling::span[1]")
+    @FindBy(xpath = "//span[text()='编辑']")
     private WebElement editTag;
 
     @FindBy(xpath = "//label[text()='所有时间']/following-sibling::i[4]")
@@ -867,7 +868,10 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//input[@yotta-test='dashboard-new_tab_name-input']")
     private WebElement tagName;
-    public WebElement getTagName() { return tagName; }
+
+    public WebElement getTagName() {
+        return tagName;
+    }
 
     @FindBy(xpath = "//span[contains(text(),'插入图表')]/following-sibling::span/input")
     private WebElement chartForAdd;
@@ -1110,33 +1114,61 @@ public class DetailPage extends PageTemplate {
         return textAce;
     }
 
-    public WebElement getEditRowIcon() { return editRowIcon; }
+    public WebElement getEditRowIcon() {
+        return editRowIcon;
+    }
 
-    public WebElement getDeleteRowIcon() { return deleteRowIcon; }
+    public WebElement getDeleteRowIcon() {
+        return deleteRowIcon;
+    }
 
-    public WebElement getDeleteNoNameRowIcon() { return deleteNoNameRowIcon; }
+    public WebElement getDeleteNoNameRowIcon() {
+        return deleteNoNameRowIcon;
+    }
 
-    public WebElement getFirstRow() { return firstRow; }
+    public WebElement getFirstRow() {
+        return firstRow;
+    }
 
-    public WebElement getInnerInputFilter() { return innerInputFilter; }
+    public WebElement getInnerInputFilter() {
+        return innerInputFilter;
+    }
 
-    public WebElement getRowEventName() { return rowEventName; }
+    public WebElement getRowEventName() {
+        return rowEventName;
+    }
 
-    public WebElement getMoreXuanTing() { return moreXuanTing; }
+    public WebElement getMoreXuanTing() {
+        return moreXuanTing;
+    }
 
-    public WebElement getMoreXuanTing2() { return moreXuanTing2; }
+    public WebElement getMoreXuanTing2() {
+        return moreXuanTing2;
+    }
 
-    public WebElement getDeleteTrend2() { return deleteTrend2; }
+    public WebElement getDeleteTrend2() {
+        return deleteTrend2;
+    }
 
-    public WebElement getDeleteTrend1() { return deleteTrend1; }
+    public WebElement getDeleteTrend1() {
+        return deleteTrend1;
+    }
 
-    public WebElement getTrendOne() { return trendOne; }
+    public WebElement getTrendOne() {
+        return trendOne;
+    }
 
-    public WebElement getTrendTwo() { return trendTwo; }
+    public WebElement getTrendTwo() {
+        return trendTwo;
+    }
 
-    public WebElement getTrendThree() { return trendThree; }
+    public WebElement getTrendThree() {
+        return trendThree;
+    }
 
-    public WebElement getChartDelete() { return chartDelete; }
+    public WebElement getChartDelete() {
+        return chartDelete;
+    }
 
     public WebElement getFullScreen() {
         return fullScreen;
@@ -1239,10 +1271,6 @@ public class DetailPage extends PageTemplate {
         return deleteNewTag;
     }
 
-    public WebElement getInputforTag() {
-        return inputforTag;
-    }
-
     public WebElement getSearchTagInput() {
         return searchTagInput;
     }
@@ -1273,10 +1301,6 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getTagInput() {
         return tagInput;
-    }
-
-    public WebElement getTagIcon() {
-        return tagIcon;
     }
 
     public WebElement getEditLayout() {
@@ -1336,9 +1360,6 @@ public class DetailPage extends PageTemplate {
         return deleteIcon;
     }
 
-    public WebElement getAddIcon() {
-        return AddIcon;
-    }
 
     public WebElement getSettingIcon() {
         return settingIcon;
@@ -1546,17 +1567,29 @@ public class DetailPage extends PageTemplate {
         return targetParam;
     }
 
-    public WebElement getNanjingshi() { return nanjingshi; }
+    public WebElement getNanjingshi() {
+        return nanjingshi;
+    }
 
-    public WebElement getNanjingshiList() { return nanjingshiList; }
+    public WebElement getNanjingshiList() {
+        return nanjingshiList;
+    }
 
-    public WebElement getNanjing() { return nanJing; }
+    public WebElement getNanjing() {
+        return nanJing;
+    }
 
-    public WebElement getChengdu() { return chengDu; }
+    public WebElement getChengdu() {
+        return chengDu;
+    }
 
-    public WebElement getTipOfLack() { return tipOfLack; }
+    public WebElement getTipOfLack() {
+        return tipOfLack;
+    }
 
-    public WebElement getSplOfLack() { return splOfLack; }
+    public WebElement getSplOfLack() {
+        return splOfLack;
+    }
 
     public WebElement getNoticeMessage() {
         return noticeMessage;
@@ -1858,17 +1891,25 @@ public class DetailPage extends PageTemplate {
         return this.getTagText("展示");
     }
 
-    public WebElement getIcon() { return this.getTagText("图标"); }
+    public WebElement getIcon() {
+        return this.getTagText("图标");
+    }
 
-    public WebElement getValue() { return this.getTagText("数值"); }
+    public WebElement getValue() {
+        return this.getTagText("数值");
+    }
 
     public WebElement getRegion() {
         return this.getTagText("区域");
     }
 
-    public WebElement getChinaDadio() { return chinaDadio; }
+    public WebElement getChinaDadio() {
+        return chinaDadio;
+    }
 
-    public WebElement getChinaPoint() { return chinaPoint; }
+    public WebElement getChinaPoint() {
+        return chinaPoint;
+    }
 
     public WebElement getProgress() {
         return progress;
@@ -2089,7 +2130,9 @@ public class DetailPage extends PageTemplate {
         return tagPageName;
     }
 
-    public WebElement getSecondTag() { return secondTag; }
+    public WebElement getSecondTag() {
+        return secondTag;
+    }
 
     public WebElement getUIautotest() {
         return uiautotest;
@@ -2235,7 +2278,9 @@ public class DetailPage extends PageTemplate {
         return editTime;
     }
 
-    public WebElement getDeleteTimeTag() { return deleteTimeTag; }
+    public WebElement getDeleteTimeTag() {
+        return deleteTimeTag;
+    }
 
     public WebElement getRecoverTag() {
         return recoverTag;
@@ -2305,73 +2350,137 @@ public class DetailPage extends PageTemplate {
         return eventName;
     }
 
-    public WebElement getChartForAdd() { return chartForAdd; }
+    public WebElement getChartForAdd() {
+        return chartForAdd;
+    }
 
-    public WebElement getRowLayout() { return rowLayout; }
+    public WebElement getRowLayout() {
+        return rowLayout;
+    }
 
-    public WebElement getJoinRow() { return joinRow; }
+    public WebElement getJoinRow() {
+        return joinRow;
+    }
 
-    public WebElement getLine2() { return line2; }
+    public WebElement getLine2() {
+        return line2;
+    }
 
-    public WebElement getLine1() { return line1; }
+    public WebElement getLine1() {
+        return line1;
+    }
 
     public WebElement getEnsureCreateTagButton() {
         return super.getButton("确定");
     }
 
-    public WebElement getEnsureErrorSplButton() { return ensureErrorSplButton; }
+    public WebElement getEnsureErrorSplButton() {
+        return ensureErrorSplButton;
+    }
 
-    public WebElement getListForBang() { return listForBang; }
+    public WebElement getListForBang() {
+        return listForBang;
+    }
 
-    public WebElement getColorValueDefault() { return colorValueDefault; }
+    public WebElement getColorValueDefault() {
+        return colorValueDefault;
+    }
 
-    public WebElement getColorValueRandom() { return colorValueRandom; }
+    public WebElement getColorValueRandom() {
+        return colorValueRandom;
+    }
 
-    public WebElement getColorValueCustom() { return colorValueCustom; }
+    public WebElement getColorValueCustom() {
+        return colorValueCustom;
+    }
 
-    public WebElement getAddValueColor() { return addValueColor; }
+    public WebElement getAddValueColor() {
+        return addValueColor;
+    }
 
-    public WebElement getAddRangeColor() { return addRangeColor; }
+    public WebElement getAddRangeColor() {
+        return addRangeColor;
+    }
 
-    public WebElement getFirstValueColor() { return firstValueColor; }
+    public WebElement getFirstValueColor() {
+        return firstValueColor;
+    }
 
-    public WebElement getLowerLimitValue() { return lowerLimitValue; }
+    public WebElement getLowerLimitValue() {
+        return lowerLimitValue;
+    }
 
-    public WebElement getMedianValue() { return medianValue; }
+    public WebElement getMedianValue() {
+        return medianValue;
+    }
 
-    public WebElement getUpperLimitValue() { return upperLimitValue; }
+    public WebElement getUpperLimitValue() {
+        return upperLimitValue;
+    }
 
-    public WebElement getChartFontColor() { return chartFontColor; }
+    public WebElement getChartFontColor() {
+        return chartFontColor;
+    }
 
-    public WebElement getChartFontColorValue() { return chartFontColorValue; }
+    public WebElement getChartFontColorValue() {
+        return chartFontColorValue;
+    }
 
-    public WebElement getChartColumnWidth() { return chartColumnWidth; }
+    public WebElement getChartColumnWidth() {
+        return chartColumnWidth;
+    }
 
-    public WebElement getValueOfNanjing() { return valueOfNanjing; }
+    public WebElement getValueOfNanjing() {
+        return valueOfNanjing;
+    }
 
-    public WebElement getValueOfNanjingDefault() { return valueOfNanjingDefault; }
+    public WebElement getValueOfNanjingDefault() {
+        return valueOfNanjingDefault;
+    }
 
-    public WebElement getChartEditorEnsure() { return chartEditorEnsure; }
+    public WebElement getChartEditorEnsure() {
+        return chartEditorEnsure;
+    }
 
-    public WebElement getValueOfNanjingTd() { return valueOfNanjingTd; }
+    public WebElement getValueOfNanjingTd() {
+        return valueOfNanjingTd;
+    }
 
-    public WebElement getValueOfShenzhenTd() { return valueOfShenzhenTd; }
+    public WebElement getValueOfShenzhenTd() {
+        return valueOfShenzhenTd;
+    }
 
-    public WebElement getValueOfNanjingTdText() { return valueOfNanjingTdText; }
+    public WebElement getValueOfNanjingTdText() {
+        return valueOfNanjingTdText;
+    }
 
-    public WebElement getChartStyleTable() { return chartStyleTable; }
+    public WebElement getChartStyleTable() {
+        return chartStyleTable;
+    }
 
-    public WebElement getEnsureMoveTagButton() { return ensureList.get(4); }
+    public WebElement getEnsureMoveTagButton() {
+        return ensureList.get(4);
+    }
 
-    public WebElement getEnsureDeleteTagButton() { return ensureList.get(6); }
+    public WebElement getEnsureDeleteTagButton() {
+        return ensureList.get(6);
+    }
 
-    public WebElement getEnsureCreateFilter() { return ensureList.get(8); }
+    public WebElement getEnsureCreateFilter() {
+        return ensureList.get(8);
+    }
 
-    public WebElement getEnsureCreateInput() { return ensureList.get(9); }
+    public WebElement getEnsureCreateInput() {
+        return ensureList.get(9);
+    }
 
-    public WebElement getChartTitle() { return this.getInput("图表标题"); }
+    public WebElement getChartTitle() {
+        return this.getInput("图表标题");
+    }
 
-    public WebElement getEnsure() { return super.getButton("确定"); }
+    public WebElement getEnsure() {
+        return super.getButton("确定");
+    }
 
     public WebElement getInputElement(String name) {
         return webDriver.findElement(By.xpath("//label[contains(text(),'" + name + "')]/following-sibling::div//input"));
