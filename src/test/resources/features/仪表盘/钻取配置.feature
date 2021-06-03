@@ -1,9 +1,12 @@
 @dashboard0429 @dbdrilldown @dashboard38
 Feature: 仪表盘钻取配置
 
+  Background:
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for "2000" millsecond
+
   @dashboard @dashboardSmoke @dbdrilldown
   Scenario Outline: 新建仪表盘
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
@@ -36,8 +39,6 @@ Feature: 仪表盘钻取配置
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -54,8 +55,6 @@ Feature: 仪表盘钻取配置
 
   @dashboard @dashboardSmoke
   Scenario: 添加图表
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -73,8 +72,6 @@ Feature: 仪表盘钻取配置
 
   @dashboard @dashboardSmoke
   Scenario: 开启钻取配置(RZY-4479)
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -86,8 +83,6 @@ Feature: 仪表盘钻取配置
 
   @dashboard @dashboardSmoke
   Scenario: 在当前页面跳转到搜索页-自动 RZY-318
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -108,8 +103,6 @@ Feature: 仪表盘钻取配置
 
   @dashboard @dashboardSmoke
   Scenario: 在新标签页跳转到搜索页-自动 RZY-318
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -131,8 +124,6 @@ Feature: 仪表盘钻取配置
 
   @dashboard @dashboardSmoke
   Scenario: 在当前页面跳转到搜索页-自定义 RZY-3439
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -161,8 +152,6 @@ Feature: 仪表盘钻取配置
 
   @dashboard @dashboardSmoke
   Scenario: 在新标签页跳转到搜索页-自定义 RZY-3439
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -191,8 +180,6 @@ Feature: 仪表盘钻取配置
 
   @dashboard @dashboardSmoke
   Scenario Outline: 在当前页面跳转到自定义URL RZY-319
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -219,8 +206,6 @@ Feature: 仪表盘钻取配置
 
   @dashboard @dashboardSmoke
   Scenario Outline: 在新标签跳转到自定义URL RZY-319
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -267,8 +252,6 @@ Feature: 仪表盘钻取配置
 
   @dashboard @dashboardSmoke
   Scenario: 仪表盘添加钻取趋势图
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "钻取跳转"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -285,8 +268,6 @@ Feature: 仪表盘钻取配置
 
   @dashboard @dashboardSmoke
   Scenario Outline: 仪表盘添加输入项
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "钻取跳转"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -306,8 +287,6 @@ Feature: 仪表盘钻取配置
 
   @dashboard @dashboardSmoke
   Scenario: 修改仪表盘配置
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "钻取跳转"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -322,8 +301,6 @@ Feature: 仪表盘钻取配置
 
   @dashboard @dashboardSmoke
   Scenario: 跳转到标签页(后三步待验证)
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -359,8 +336,6 @@ Feature: 仪表盘钻取配置
 
   @dashboard @dashboardSmoke
   Scenario: 单引号和双引号包裹 RZY-1740
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     And switch to window "仪表盘"
     And I close all tabs except main tab

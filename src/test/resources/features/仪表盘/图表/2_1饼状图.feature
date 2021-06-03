@@ -130,7 +130,7 @@ Feature: 仪表盘_2_1_饼状图
 
     Examples:
       | name    | json                                                                                                                                                                                                                                                                                                                                                                           |
-      | 仪表盘饼状图 |  "chart": {\n    "chartType": "pie",\n    "field": "count()",\n    "byFields": [\n      "apache.clientip"\n    ],\n    "precision": "",\n    "useFlameDrillDown": false\n |
+      | 仪表盘饼状图 |  "chart": {\n    "chartType": "pie",\n    "field": "count()",\n    "byFields": [\n      "apache.clientip"\n    ],\n    "precision": "",\n    "useFlameDrillDown": false |
 
   @dashboard
   Scenario: 修改为不存在的字段 RZY-3697

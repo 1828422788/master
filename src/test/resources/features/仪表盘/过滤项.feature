@@ -153,6 +153,8 @@ Feature: 仪表盘过滤项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "FilterDropdown" will be visible
     And I wait for "1000" millsecond
