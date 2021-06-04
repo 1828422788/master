@@ -54,9 +54,9 @@ Feature: 仪表盘04详情行布局
   Scenario Outline: 新建一个行布局标签页(RZY-4628)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "SearchInput" with value "<dashboardName>"
     And I wait for "2000" millsecond
-    When I click the detail which name is "<name>"
+    When I click the detail which name is "<dashboardName>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -69,7 +69,7 @@ Feature: 仪表盘04详情行布局
     And I back to before
 
     Examples:
-      | name   |
+      | dashboardName   |
       | 仪表盘行布局 |
       | 仪表盘行布局1 |
       | 仪表盘行布局2 |
@@ -168,9 +168,9 @@ Feature: 仪表盘04详情行布局
   Scenario Outline: 行布局添加全局输入项(RZY-4632)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "SearchInput" with value "<dashboardName>"
     And I wait for "2000" millsecond
-    When I click the detail which name is "<name>"
+    When I click the detail which name is "<dashboardName>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -184,7 +184,7 @@ Feature: 仪表盘04详情行布局
     Then I wait for "FilterName" will be visible
 
     Examples:
-      | name   |
+      | dashboardName   |
       | 仪表盘行布局 |
       | 仪表盘行布局1 |
       | 仪表盘行布局2 |
@@ -334,7 +334,7 @@ Feature: 仪表盘04详情行布局
     And I wait for "1000" millsecond
 
     Examples:
-      | name   |
+      | dashboardName   |
       | 仪表盘行布局1 |
       | 仪表盘行布局2 |
       | 仪表盘行布局3 |
