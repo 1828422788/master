@@ -881,8 +881,8 @@ public class DetailPage extends PageTemplate {
         return editRowName;
     }
 
-    @FindBy(xpath = "//span[contains(text(),'插入图表')]/following-sibling::span/input")
-    private WebElement chartForAdd;
+    @FindBy(xpath = "//input[@yotta-test='dashboard-new_row_filter_chart-input']")
+    private WebElement chartForAdd; //插入图表
 
     @FindBy(xpath = "//span[contains(text(),'行布局')]/preceding-sibling::span")
     private WebElement rowLayout;
