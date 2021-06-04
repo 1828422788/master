@@ -1,12 +1,16 @@
 @dashboard0330 @dashboard37
 Feature: 仪表盘钻取配置-钻取变量
 
+  Background:
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for "2000" millsecond
+
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
     Examples:
@@ -44,15 +48,13 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "chart"
     And I click the "Ensure" button
-    And I wait for loading complete
+    And I wait for "2000" millsecond
     And I back to before
 
     Examples:
@@ -61,8 +63,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard @dashboardSmoke
   Scenario: 添加图表
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -80,8 +80,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard @dashboardSmoke
   Scenario: 开启钻取配置
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -93,8 +91,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard
   Scenario Outline: 修改为字符云图
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -133,8 +129,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard @dashboardSmoke
   Scenario: 钻取变量字符云图click.name RZY-3265
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -164,8 +158,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard @dashboardSmoke
   Scenario: 钻取变量字符云图click.value RZY-3266
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -196,8 +188,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard @dashboardSmoke
   Scenario: 钻取变量字符云图click.name2 RZY-3267
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -228,8 +218,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard
   Scenario: 钻取变量字符云图click.value2 RZY-3268
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -261,8 +249,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard
   Scenario: 钻取变量字符云图row.fieldname RZY-3675
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -295,8 +281,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard
   Scenario: 钻取变量字符云图start end RZY-3676
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -329,8 +313,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard
   Scenario Outline: 添加区划地图图表 RZY-331
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -357,8 +339,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard @dashboardSmoke
   Scenario Outline: 修改为区划地图
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -402,8 +382,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard @dashboardSmoke
   Scenario: 钻取变量区划地图click.name RZY-3269
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -433,8 +411,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard @dashboardSmoke
   Scenario: 钻取变量区划地图click.value RZY-3270
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -466,8 +442,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard @dashboardSmoke
   Scenario: 钻取变量区划地图click.name2 RZY-3269
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -497,8 +471,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard
   Scenario: 钻取变量区划地图click.value2 RZY-3272
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -527,8 +499,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard
   Scenario: 钻取变量区划地图row.fieldname RZY-3673
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -558,8 +528,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard
   Scenario: 钻取变量区划地图start end RZY-3674
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -591,8 +559,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard
   Scenario Outline: 添加饼图图表
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -619,8 +585,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard @dashboardSmoke
   Scenario Outline: 修改为饼图
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -653,8 +617,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard @dashboardSmoke
   Scenario: 钻取变量饼图click.name RZY-3677
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -681,8 +643,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard @dashboardSmoke
   Scenario: 钻取变量饼图click.name2 RZY-3678
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -710,8 +670,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard @dashboardSmoke
   Scenario: 钻取变量饼图click.value RZY-3679
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -738,8 +696,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard
   Scenario: 钻取变量饼图click.value2 RZY-3680
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -767,8 +723,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard
   Scenario: 钻取变量饼图row.fieldname RZY-3681
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -796,8 +750,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard
   Scenario: 钻取变量饼图start end RZY-3682
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -829,8 +781,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard
   Scenario Outline: 添加单值图表
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -857,8 +807,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard @dashboardSmoke
   Scenario Outline: 修改为单值
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -894,8 +842,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard @dashboardSmoke
   Scenario: 钻取变量单值click.name,click.name2 RZY-3278
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -941,8 +887,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard
   Scenario: 钻取变量单值start end RZY-3667
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -987,8 +931,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard
   Scenario Outline: 添加单值图表value
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1015,8 +957,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard @dashboardSmoke
   Scenario Outline: 修改为单值value
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1050,8 +990,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard
   Scenario: 修改为单值value click.value value2 RZY-3666
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1104,8 +1042,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard
   Scenario Outline: 添加表格图表
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1132,8 +1068,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard @dashboardSmoke
   Scenario: 钻取变量表格click.name RZY-3280
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1160,8 +1094,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard @dashboardSmoke
   Scenario: 钻取变量表格click.name2 RZY-3282
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1198,8 +1130,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard @dashboardSmoke
   Scenario: 钻取变量表格click.value RZY-3281
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1225,8 +1155,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard
   Scenario: 钻取变量表格click.value2 RZY-3283
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1253,8 +1181,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard
   Scenario: 钻取变量表格row.fieldname RZY-3284
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1281,8 +1207,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard
   Scenario: 钻取变量表格start,end RZY-3654
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1322,8 +1246,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @dashboard
   Scenario: 统计表 RZY-297
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1333,7 +1255,6 @@ Feature: 仪表盘钻取配置-钻取变量
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button

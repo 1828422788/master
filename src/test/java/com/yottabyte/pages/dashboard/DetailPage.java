@@ -599,7 +599,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//input[@yotta-test='dashboard-filter_value-input']")
     private WebElement geoCity;
 
-    @FindBy(xpath = "(//div[@class='yotta-event-list-body']/div/div[@class='yotta-dropdown event-action-icon-dropdown']/span)[1]")
+    @FindBy(xpath = "(//div[@class='yotta-event-list-body']//div[contains(@class,'event-action-icon-dropdown')]/span)[1]")
     private WebElement eventOperate;
 
     @FindBy(xpath = "(//div[@class='event-item']/span)[1]")
@@ -610,6 +610,9 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//*[@yotta-test='dashboard-filter_value-select']/div")
     private WebElement filterDropdown;
+
+    @FindBy(xpath = "//*[@yotta-test='dashboard-filter_value-select']//input")
+    private WebElement filterDropdownInput;
 
     @FindBy(xpath = "//span[text()='filter']")
     private WebElement filterName;
@@ -877,7 +880,6 @@ public class DetailPage extends PageTemplate {
     public WebElement getEditRowName() {
         return editRowName;
     }
-
 
     @FindBy(xpath = "//span[contains(text(),'行布局')]/preceding-sibling::span")
     private WebElement rowLayout;
@@ -1510,6 +1512,11 @@ public class DetailPage extends PageTemplate {
     public WebElement getFilterDropdown() {
         filterDropdown.click();
         return super.getLastDropdownList();
+    }
+
+    public WebElement getFilterDropdownInput() {
+        filterDropdown.click();
+        return filterDropdownInput;
     }
 
     public WebElement getCityTd() {
@@ -2352,12 +2359,6 @@ public class DetailPage extends PageTemplate {
     public WebElement getEventName() {
         return eventName;
     }
-
-//    @FindBy(xpath = "//span[contains(text(),'插入图表')]/following-sibling::span/input")
-//    private WebElement chartForAdd;
-//    public WebElement getChartForAdd() {
-//        return chartForAdd;
-//    }
 
     public WebElement getRowLayout() {
         return rowLayout;

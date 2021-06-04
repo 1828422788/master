@@ -7,6 +7,7 @@ Feature: 仪表盘过滤项
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
     Examples:
@@ -152,6 +153,8 @@ Feature: 仪表盘过滤项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "FilterDropdown" will be visible
     And I wait for "1000" millsecond
@@ -257,10 +260,8 @@ Feature: 仪表盘过滤项
     And I click the "settingIcon" button
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
-    And I choose the "<cityNo>" from the "FilterDropdown"
-#    And I click the "Chengdu" button
-#    And I set the parameter "FilterDropDown1" with value "<cityNo>"
-#    And I hide the element "FilterDropDown"
+    And I set the parameter "FilterDropdownInput" with value "<cityNo>"
+    And I click the Element with text "<cityNo>"
     And I wait for "2000" millsecond
     And I click the "Update" button
     And I wait for "Progress" will be invisible
@@ -352,7 +353,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I choose the "<city>" from the "FilterDropdown"
+    And I wait for "1000" millsecond
+    And I set the parameter "FilterDropdownInput" with value "<city>"
+    And I click the Element with text "<city>"
     And I wait for "1000" millsecond
     And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible

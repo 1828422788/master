@@ -193,6 +193,7 @@ Feature: 权限-KV字典
     And I choose the "授权" from the "KVDropdownList"
     And I wait for loading invisible
     And I "check" the checkbox which name is "验证授权用户" in tiny table
+    And I wait for "800" millsecond
     And I click the "Ensure" button
     Then I will see the message "保存成功"
     And I logout current user
@@ -209,8 +210,7 @@ Feature: 权限-KV字典
   Scenario: 存储kvstore
     Given I login user "AutoTest" with password "All#123456"
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "KVAuth" then i click the "更多" button
-    Then I click the "Open" button
+    When the data name is "KVAuth" then i click the "打开" button in more menu
     Then I will see the "splSearch.SearchPage" page
     Given I set the parameter "SearchInput" with value "* | stats count() as 'count' by apache.geo.city,appname| rename apache.geo.city as apachecity| outputlookup AutoAuthKV"
     And I click the "DateEditor" button

@@ -90,7 +90,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getInputElement(String name) {
-        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/parent::div/following-sibling::div//div/input[@class='yotta-input yotta-input-large ']"));
+        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/parent::div/following-sibling::div//div/input[contains(@class,'yotta-input yotta-input-large')]"));
     }
 
     public WebElement getResourceInput() {
