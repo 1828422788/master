@@ -39,15 +39,15 @@ Feature: 仪表盘04详情行布局
     Examples:
       | name   |
       | 仪表盘行布局 |
-
+      | 仪表盘行布局1 |
 
   @dashboard04b @dashboardSmoke
-  Scenario: 新建一个行布局标签页(RZY-4628)
+  Scenario Outline: 新建一个行布局标签页(RZY-4628)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局"
+    And I set the parameter "SearchInput" with value "<name>"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局"
+    When I click the detail which name is "<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -59,6 +59,10 @@ Feature: 仪表盘04详情行布局
     And I wait for "5000" millsecond
     And I back to before
 
+    Examples:
+      | name   |
+      | 仪表盘行布局 |
+      | 仪表盘行布局1 |
 
   @dashboard04c @dashboardSmoke
   Scenario: 添加行(RZY-4629，RZY-3607)
@@ -143,12 +147,12 @@ Feature: 仪表盘04详情行布局
     And I click the "Ensure" button
 
   @dashboard04f @dashboardSmoke
-  Scenario: 行布局添加全局输入项(RZY-4632)
+  Scenario Outline: 行布局添加全局输入项(RZY-4632)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局"
+    And I set the parameter "SearchInput" with value "<name>"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局"
+    When I click the detail which name is "<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -160,6 +164,11 @@ Feature: 仪表盘04详情行布局
     And I set the parameter "FilterDefaultValue" with value "apache.geo.city"
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
+
+    Examples:
+      | name   |
+      | 仪表盘行布局 |
+      | 仪表盘行布局1 |
 
   @dashboard04g @dashboardSmoke
   Scenario: 行布局添加行内输入项(RZY-4633)
@@ -268,6 +277,19 @@ Feature: 仪表盘04详情行布局
     And I wait for "500" millsecond
     Then I will see the success message "删除行成功"
 
+
+  @dashboard04k1 @dashboardSmoke
+  Scenario: 展示条件-文本输入项预置
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "仪表盘行布局1"
+    And I wait for "2000" millseconds
+    When I click the detail which name is "仪表盘行布局1"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
+
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
 #    Then I will see the "AddChart,AddEvent,AddInput" is "disabled"
@@ -284,13 +306,14 @@ Feature: 仪表盘04详情行布局
     And I click the "Ensure" button
     And I wait for "1000" millsecond
 
+
   @dashboard04l @dashboardSmoke
   Scenario: 展示条件-文本输入输入项 RZY-4783,RZY-4784
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局"
+    And I set the parameter "SearchInput" with value "仪表盘行布局1"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局"
+    When I click the detail which name is "仪表盘行布局1"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -328,9 +351,9 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-文本输入输入项 RZY-4784,RZY-4793
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局"
+    And I set the parameter "SearchInput" with value "仪表盘行布局1"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局"
+    When I click the detail which name is "仪表盘行布局1"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -381,9 +404,9 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-文本输入输入项 RZY-4784
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局"
+    And I set the parameter "SearchInput" with value "仪表盘行布局1"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局"
+    When I click the detail which name is "仪表盘行布局1"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -513,9 +536,9 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-时间范围输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局"
+    And I set the parameter "SearchInput" with value "仪表盘行布局1"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局"
+    When I click the detail which name is "仪表盘行布局1"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -540,9 +563,9 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-时间范围输入项 RZY-4790
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局"
+    And I set the parameter "SearchInput" with value "仪表盘行布局1"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局"
+    When I click the detail which name is "仪表盘行布局1"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -659,9 +682,9 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件缺失校验 RZY-4792
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局"
+    And I set the parameter "SearchInput" with value "仪表盘行布局1"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局"
+    When I click the detail which name is "仪表盘行布局1"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -690,9 +713,9 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-下拉菜单输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局"
+    And I set the parameter "SearchInput" with value "仪表盘行布局1"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局"
+    When I click the detail which name is "仪表盘行布局1"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -725,9 +748,9 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-下拉菜单输入项 RZY-4785
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局"
+    And I set the parameter "SearchInput" with value "仪表盘行布局1"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局"
+    When I click the detail which name is "仪表盘行布局1"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -765,9 +788,9 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-动态菜单输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局"
+    And I set the parameter "SearchInput" with value "仪表盘行布局1"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局"
+    When I click the detail which name is "仪表盘行布局1"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -799,9 +822,9 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-动态菜单输入项 RZY-4786
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局"
+    And I set the parameter "SearchInput" with value "仪表盘行布局1"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局"
+    When I click the detail which name is "仪表盘行布局1"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page

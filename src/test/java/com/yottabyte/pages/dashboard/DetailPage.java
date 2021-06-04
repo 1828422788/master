@@ -217,7 +217,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='请输入选项值']")
     private WebElement choiceValue;
 
-    @FindBy(xpath = "//input[@placeholder='请输入']")
+    @FindBy(xpath = "//input[@yotta-test='dashboard-filter_value-input']")
     private WebElement filterValue;
 
     @FindBy(xpath = "//*[@placeholder='请输入趋势图名称']")
