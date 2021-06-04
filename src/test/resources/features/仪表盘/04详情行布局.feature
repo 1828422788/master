@@ -1,7 +1,7 @@
-@dashboard @dashboard04
+@dashboard @dashboard04  @dashboardSmoke
 Feature: 仪表盘04详情行布局
 
-  @dashboard04pre @dashboardSmoke
+  @dashboard04pre
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -28,7 +28,7 @@ Feature: 仪表盘04详情行布局
       | 行布局趋势图3 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
 
 
-  @dashboard04a @dashboardSmoke
+  @dashboard04a
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -50,7 +50,7 @@ Feature: 仪表盘04详情行布局
       | 仪表盘行布局9 |
       | 仪表盘行布局10 |
 
-  @dashboard04b @dashboardSmoke
+  @dashboard04b
   Scenario Outline: 新建一个行布局标签页(RZY-4628)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
