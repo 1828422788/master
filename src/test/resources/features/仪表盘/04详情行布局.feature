@@ -258,12 +258,14 @@ Feature: 仪表盘04详情行布局
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
+
     And I move the mouse pointer to the "DeleteNoNameRowIcon"
     And I click the "DeleteNoNameRowIcon" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "500" millsecond
     Then I will see the success message "删除行成功"
+
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
 #    Then I will see the "AddChart,AddEvent,AddInput" is "disabled"
@@ -273,7 +275,7 @@ Feature: 仪表盘04详情行布局
     And I click the "AddRow" button
     And I wait for "1500" millsecond
 #    And I set the parameter "TagName" with value "第一行"
-    And I set the parameter "ChartForAdd" with value "行布局"
+    And I set the parameter "NewRowName" with value "行布局"
     And I wait for loading invisible
     And I click the "{'Checkbox':'行布局趋势图2'}" button
     And I click the "{'Checkbox':'行布局趋势图3'}" button
@@ -523,7 +525,6 @@ Feature: 仪表盘04详情行布局
     And I click the "timeRangee" button
     And I wait for "DateEditor" will be visible
     And I click the "DateEditor" button
-#    And I click the "Shortcut" button
     And I click the "Today" button
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible

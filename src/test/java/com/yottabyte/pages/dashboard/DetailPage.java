@@ -878,8 +878,6 @@ public class DetailPage extends PageTemplate {
         return editRowName;
     }
 
-    @FindBy(xpath = "//span[contains(text(),'插入图表')]/following-sibling::span/input")
-    private WebElement chartForAdd;
 
     @FindBy(xpath = "//span[contains(text(),'行布局')]/preceding-sibling::span")
     private WebElement rowLayout;
@@ -2355,9 +2353,11 @@ public class DetailPage extends PageTemplate {
         return eventName;
     }
 
-    public WebElement getChartForAdd() {
-        return chartForAdd;
-    }
+//    @FindBy(xpath = "//span[contains(text(),'插入图表')]/following-sibling::span/input")
+//    private WebElement chartForAdd;
+//    public WebElement getChartForAdd() {
+//        return chartForAdd;
+//    }
 
     public WebElement getRowLayout() {
         return rowLayout;
