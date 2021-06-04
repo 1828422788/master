@@ -2067,7 +2067,7 @@ public class SearchPage extends ListPageFactory {
         return multiSelect;
     }
 
-    @FindBy(xpath = "//div[@class='yotta-textarea']/textarea")
+    @FindBy(xpath = "//textarea[contains(@yotta-test,'query-textarea')]")
     private WebElement inputItemSpl;
 
     public WebElement getInputItemSpl() {

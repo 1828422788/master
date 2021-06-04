@@ -485,7 +485,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='成都市'])[last()]")
     private WebElement chengDuShi;
 
-    @FindBy(xpath = "//div[@class='yotta-select-menu']//span[text()='成都市']")
+    @FindBy(xpath = "//div[contains(@class,'yotta-select-menu')]//span[text()='成都市']")
     private WebElement chengdushiList;
 
     @FindBy(xpath = "(//*[name()='rect'])[3]")
@@ -647,7 +647,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='南京市']")
     private WebElement nanjingshi;
 
-    @FindBy(xpath = "//div[@class='yotta-select-menu']//span[text()='南京市']")
+    @FindBy(xpath = "//div[contains(@class,'yotta-select-menu')]//span[text()='南京市']")
     private WebElement nanjingshiList;
 
     @FindBy(xpath = "//div[text()='南京市']")
