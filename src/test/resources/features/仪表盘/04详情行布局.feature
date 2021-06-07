@@ -46,9 +46,7 @@ Feature: 仪表盘04详情行布局
       | 仪表盘行布局5 |
       | 仪表盘行布局6 |
       | 仪表盘行布局7 |
-      | 仪表盘行布局8 |
-      | 仪表盘行布局9 |
-      | 仪表盘行布局10 |
+
 
   @dashboard04b
   Scenario Outline: 新建一个行布局标签页(RZY-4628)
@@ -78,9 +76,7 @@ Feature: 仪表盘04详情行布局
       | 仪表盘行布局5 |
       | 仪表盘行布局6 |
       | 仪表盘行布局7 |
-      | 仪表盘行布局8 |
-      | 仪表盘行布局9 |
-      | 仪表盘行布局10 |
+
 
   @dashboard04c @dashboardSmoke
   Scenario: 添加行(RZY-4629，RZY-3607)
@@ -332,9 +328,7 @@ Feature: 仪表盘04详情行布局
       | 仪表盘行布局5 |
       | 仪表盘行布局6 |
       | 仪表盘行布局7 |
-      | 仪表盘行布局8 |
-      | 仪表盘行布局9 |
-      | 仪表盘行布局10 |
+
 
   @dashboard04k2 @dashboardSmoke
   Scenario Outline: 行布局添加全局输入项(RZY-4632)
@@ -364,9 +358,6 @@ Feature: 仪表盘04详情行布局
       | 仪表盘行布局5 |
       | 仪表盘行布局6 |
       | 仪表盘行布局7 |
-      | 仪表盘行布局8 |
-      | 仪表盘行布局9 |
-      | 仪表盘行布局10 |
 
   @dashboard04l @dashboardSmoke
   Scenario: 展示条件-文本输入输入项 RZY-4783,RZY-4784
@@ -519,7 +510,7 @@ Feature: 仪表盘04详情行布局
 #    And I wait for "500" millsecond
 ##    And I will see the success message "展示条件已关闭"
 
-  @dashboard04n @dashboardSmoke
+  @dashboard04n1 @dashboardSmoke
   Scenario: 展示条件-文本输入输入项 RZY-4784
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -529,6 +520,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+
+    And I set the parameter "FilterValue" with value "a1111b"
+
     And I click the "SettingIcon" button
     And I wait for "500" millsecond
 #    And I switch the dashboard "OpenShowCondition" button to "disable"
@@ -574,7 +568,7 @@ Feature: 仪表盘04详情行布局
 #    And I wait for "1500" millsecond
 ##    And I will see the success message "展示条件已关闭"
 
-  @dashboard04n @dashboardSmoke
+  @dashboard04n2 @dashboardSmoke
   Scenario: 展示条件-文本输入输入项 RZY-4784
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -584,6 +578,7 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+
     And I click the "SettingIcon" button
     And I wait for "500" millsecond
 #    And I switch the dashboard "OpenShowCondition" button to "disable"
@@ -662,9 +657,9 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-时间范围输入项 RZY-4790
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局6"
+    And I set the parameter "SearchInput" with value "仪表盘行布局5"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局6"
+    When I click the detail which name is "仪表盘行布局5"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -697,23 +692,23 @@ Feature: 仪表盘04详情行布局
 #    And I will see the success message "展示条件已启用"
     Then I will see the "trendTwo" doesn't exist
     Then I wait for "trendThree" will be visible
-#    And I click the "trendThree" button
-#    And I wait for "1500" millsecond
-#    And I click the "SettingIcon" button
-#    And I wait for "500" millsecond
-#    And I switch the dashboard "OpenShowCondition" button to "disable"
-#    And I wait for "1500" millsecond
-##    And I will see the success message "展示条件已关闭"
-#    And I click the "trendThree" button
+    And I click the "trendThree" button
+    And I wait for "1500" millsecond
+    And I click the "SettingIcon" button
+    And I wait for "500" millsecond
+    And I switch the dashboard "OpenShowCondition" button to "disable"
+    And I wait for "1500" millsecond
+#    And I will see the success message "展示条件已关闭"
+    And I click the "trendThree" button
 
 
   @dashboard04p2 @dashboardSmoke
   Scenario: 展示条件-时间范围输入项 RZY-4790
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局7"
+    And I set the parameter "SearchInput" with value "仪表盘行布局5"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局7"
+    When I click the detail which name is "仪表盘行布局5"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -748,22 +743,22 @@ Feature: 仪表盘04详情行布局
 #    And I will see the success message "展示条件已启用"
     Then I will see the "trendThree" doesn't exist
     Then I wait for "trendTwo" will be visible
-#    And I click the "trendTwo" button
-#    And I wait for "1500" millsecond
-#    And I click the "SettingIcon" button
-#    And I wait for "500" millsecond
-#    And I switch the dashboard "OpenShowCondition" button to "disable"
-#    And I wait for "1500" millsecond
-##    And I will see the success message "展示条件已关闭"
-#    And I click the "trendThree" button
+    And I click the "trendTwo" button
+    And I wait for "1500" millsecond
+    And I click the "SettingIcon" button
+    And I wait for "500" millsecond
+    And I switch the dashboard "OpenShowCondition" button to "disable"
+    And I wait for "1500" millsecond
+#    And I will see the success message "展示条件已关闭"
+    And I click the "trendThree" button
 
   @dashboard04p3 @dashboardSmoke
   Scenario: 展示条件-时间范围输入项 RZY-4790
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局8"
+    And I set the parameter "SearchInput" with value "仪表盘行布局5"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局8"
+    When I click the detail which name is "仪表盘行布局5"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -804,9 +799,9 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件缺失校验 RZY-4792
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局8"
+    And I set the parameter "SearchInput" with value "仪表盘行布局5"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局8"
+    When I click the detail which name is "仪表盘行布局5"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -835,9 +830,9 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-下拉菜单输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局8"
+    And I set the parameter "SearchInput" with value "仪表盘行布局6"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局8"
+    When I click the detail which name is "仪表盘行布局6"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -870,9 +865,9 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-下拉菜单输入项 RZY-4785
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局9"
+    And I set the parameter "SearchInput" with value "仪表盘行布局7"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局9"
+    When I click the detail which name is "仪表盘行布局7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -910,9 +905,9 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-动态菜单输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局9"
+    And I set the parameter "SearchInput" with value "仪表盘行布局7"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局9"
+    When I click the detail which name is "仪表盘行布局7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -937,16 +932,16 @@ Feature: 仪表盘04详情行布局
     And I wait for "1000" millsecond
     And I click the "SettingIcon" button
     And I wait for "500" millsecond
-#    And I switch the dashboard "OpenShowCondition" button to "disable"
-#    And I wait for "1500" millsecond
+    And I switch the dashboard "OpenShowCondition" button to "disable"
+    And I wait for "1500" millsecond
 
   @dashboard04u @dashboardSmoke
   Scenario: 展示条件-动态菜单输入项 RZY-4786
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局10"
+    And I set the parameter "SearchInput" with value "仪表盘行布局7"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局10"
+    When I click the detail which name is "仪表盘行布局7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -982,3 +977,4 @@ Feature: 仪表盘04详情行布局
     And I wait for "500" millsecond
     Then I will see the "trendTwo" doesn't exist
     Then I wait for "trendThree" will be visible
+
