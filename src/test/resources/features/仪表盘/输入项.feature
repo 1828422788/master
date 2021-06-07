@@ -977,9 +977,9 @@ Feature: 仪表盘输入项
   Scenario: 增加动态菜单多选及标识值前后缀 RZY-288，RZY-3432
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "测试输入项6"
+    And I set the parameter "SearchInput" with value "测试输入项7"
     And I wait for "2000" millsecond
-    And I click the detail which name is "测试输入项8"
+    And I click the detail which name is "测试输入项7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page

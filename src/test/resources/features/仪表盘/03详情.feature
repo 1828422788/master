@@ -176,11 +176,6 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-#    And I click the "TagIcon" button
-#    And I click the "AddTag" button
-#    When I set the parameter "TagName" with value "testSearch"
-#    And I click the "EnsureCreateTagButton" button
-#    And I back to before
     And I wait for "LastTag" will be visible
     And I open the context menu of the "LastTag" element
     And I wait for "500" millsecond

@@ -797,7 +797,8 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//input[@yotta-test='dashboard-nav_filter-input']")
     private WebElement searchTagInput;
 
-    @FindBy(xpath = "//a[text()='first']")
+//    @FindBy(xpath = "//a[text()='first']")
+    @FindBy(xpath = "//div[@yotta-test='dashboard-nav_tab-dropdown']//span[text()='testSearch']")
     private WebElement firstTag;
 
     @FindBy(xpath = "(//div[@class='yotta-tree-node']//span[text()])[last()]")
@@ -2600,7 +2601,8 @@ public class DetailPage extends PageTemplate {
         return eventOpera;
     }
 
-    @FindBy(xpath = "//li[text()='testSearch']")
+//    @FindBy(xpath = "//li[text()='testSearch']")
+    @FindBy(xpath = "//div[@yotta-test='dashboard-nav_tab-dropdown']//span[text()='testSearch']")
     private WebElement tagTestSearch;
 
     public WebElement getTagTestSearch() {
