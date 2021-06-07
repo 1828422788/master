@@ -1,7 +1,7 @@
 @dashboard0429 @dbinput @dashboard33 @dashboard
 Feature: 仪表盘输入项
 
-  @dbinputpre0
+  @dbinputpre0 @dbinputpre
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -29,7 +29,7 @@ Feature: 仪表盘输入项
       | 仪表盘所用趋势图     | tag: sample04061424_chart \|stats count() by 'apache.geo.city'                            |
       | 仪表盘1669所用趋势图 | (appname:\"aa\") \|bucket timestamp span=6h as ts \|stats count(\'tag\') as \'tag\' by ts |
 
-  @dbinputpre1
+  @dbinputpre1 @dbinputpre
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -49,7 +49,7 @@ Feature: 仪表盘输入项
       | 测试输入项6 |
       | 测试输入项7 |
 
-  @dbinputpre2
+  @dbinputpre2 @dbinputpre
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -73,7 +73,7 @@ Feature: 仪表盘输入项
       | 测试输入项6 |
       | 测试输入项7 |
 
-  @dbinputpre3
+  @dbinputpre3 @dbinputpre
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
