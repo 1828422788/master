@@ -218,7 +218,7 @@ Feature: 仪表盘删除
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
 
-  @dashboard @cleanDashboard1
+  @cleanDashboard1
   Scenario: 删除事件操作
     Given open the "event.ListPage" page for uri "/event/action/"
     When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "删除" button
