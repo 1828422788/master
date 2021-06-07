@@ -649,9 +649,9 @@ Feature: 仪表盘04详情行布局
     Then I wait for "FilterName" will be visible
     And I click the "SettingIcon" button
     And I wait for "500" millsecond
-#    And I switch the dashboard "OpenShowCondition" button to "disable"
-#    And I wait for "500" millsecond
-#    And I will see the success message "展示条件已关闭"
+    And I switch the dashboard "OpenShowCondition" button to "disable"
+    And I wait for "500" millsecond
+    And I will see the success message "展示条件已关闭"
 
   @dashboard04p1 @dashboardSmoke
   Scenario: 展示条件-时间范围输入项 RZY-4790

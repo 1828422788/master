@@ -53,6 +53,8 @@ Feature: 仪表盘输入项
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "<name>"
+    And I wait for "2000" millsecond
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -77,6 +79,8 @@ Feature: 仪表盘输入项
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "<name>"
+    And I wait for "2000" millsecond
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -105,6 +109,8 @@ Feature: 仪表盘输入项
   Scenario Outline: RZY-1668添加单引号输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -125,6 +131,8 @@ Feature: 仪表盘输入项
   Scenario: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -142,6 +150,8 @@ Feature: 仪表盘输入项
   Scenario: 验证单引号输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -159,6 +169,8 @@ Feature: 仪表盘输入项
   Scenario: 删除图表单引号包裹
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -172,6 +184,8 @@ Feature: 仪表盘输入项
   Scenario: 删除单引号输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -186,6 +200,8 @@ Feature: 仪表盘输入项
   Scenario: 添加时间范围输入项(RZY-4573,RZY-227)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项1"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项1"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -207,6 +223,8 @@ Feature: 仪表盘输入项
   Scenario: 验证默认值添加图表 RZY-4617
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项1"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项1"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -226,6 +244,8 @@ Feature: 仪表盘输入项
   Scenario: 验证时间范围输入项 RZY-4573
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项1"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项1"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -243,6 +263,8 @@ Feature: 仪表盘输入项
   Scenario: 验证时间范围标识前后缀 RZY-4641
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项1"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项1"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -289,6 +311,8 @@ Feature: 仪表盘输入项
   Scenario Outline: 添加输入项 RZY-1669
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项2"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项2"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -309,6 +333,8 @@ Feature: 仪表盘输入项
   Scenario Outline: 验证 RZY-1669
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "<name>"
+    And I wait for "2000" millsecond
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -342,6 +368,8 @@ Feature: 仪表盘输入项
   Scenario: 增加标识前后缀RZY-273，RZY-274
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项3"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项3"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -360,6 +388,8 @@ Feature: 仪表盘输入项
   Scenario: 验证标识前后缀RZY-3798
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项3"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项3"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -383,6 +413,8 @@ Feature: 仪表盘输入项
   Scenario: 修改标识值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项3"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项3"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -401,6 +433,8 @@ Feature: 仪表盘输入项
   Scenario: 修改为自动搜索(RZY-272)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项3"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项3"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -433,6 +467,8 @@ Feature: 仪表盘输入项
   Scenario: 修改图表搜索语句
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项4"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项4"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -449,6 +485,8 @@ Feature: 仪表盘输入项
   Scenario: 添加下拉菜单输入项 RZY-275，RZY-279
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项4"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项4"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -473,6 +511,8 @@ Feature: 仪表盘输入项
   Scenario: 验证下拉菜单默认输入项 RZY-280
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项4"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项4"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -491,6 +531,8 @@ Feature: 仪表盘输入项
   Scenario: 验证下拉菜单搜索 RZY-276
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项4"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项4"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -519,6 +561,8 @@ Feature: 仪表盘输入项
   Scenario: 修改下拉菜单为自动搜索 RZY-278
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项4"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项4"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -533,6 +577,8 @@ Feature: 仪表盘输入项
   Scenario: 验证下拉菜单为自动搜索 RZY-278
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项4"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项4"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -559,6 +605,8 @@ Feature: 仪表盘输入项
   Scenario: 修改为多选并填入分割符 RZY-3428,RZY-3431
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项4"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项4"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -575,6 +623,8 @@ Feature: 仪表盘输入项
   Scenario: 验证多选生效 RZY-3428,RZY-3431
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项4"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项4"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -596,6 +646,8 @@ Feature: 仪表盘输入项
   Scenario: 增加前后缀值 RZY-3429
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项4"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项4"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -611,6 +663,8 @@ Feature: 仪表盘输入项
   Scenario: 验证前后缀生效 RZY-3429
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项4"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项4"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -646,6 +700,8 @@ Feature: 仪表盘输入项
   Scenario: 修改通用配置搜索语句
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项5"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项5"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -662,6 +718,8 @@ Feature: 仪表盘输入项
   Scenario: 增加标识值前后缀 RZY-3430
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项5"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项5"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -691,6 +749,8 @@ Feature: 仪表盘输入项
   Scenario: 验证标识符前后缀 RZY-3430
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项5"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项5"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -722,6 +782,8 @@ Feature: 仪表盘输入项
   Scenario: 验证下拉菜单默认输入项 RZY-280
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项6"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项6"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -738,6 +800,8 @@ Feature: 仪表盘输入项
   Scenario: 添加动态菜单输入项 RZY-281,RZY-283,RZY-286
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项6"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项6"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -763,6 +827,8 @@ Feature: 仪表盘输入项
   Scenario: 验证动态菜单默认值结果 RZY-287
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项6"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项6"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -781,6 +847,8 @@ Feature: 仪表盘输入项
   Scenario: 切换动态菜单值并验证结果 RZY-284
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项6"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项6"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -807,6 +875,8 @@ Feature: 仪表盘输入项
   Scenario: 验证动态字段、搜索内容 RZY-284,RZY-285
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项6"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项6"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -845,6 +915,8 @@ Feature: 仪表盘输入项
   Scenario: 增加动态菜单标识符前后缀 RZY-288
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项6"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项6"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -888,6 +960,8 @@ Feature: 仪表盘输入项
   Scenario: 增加动态菜单多选及标识值前后缀 RZY-288，RZY-3432
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项6"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项8"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -916,6 +990,8 @@ Feature: 仪表盘输入项
   Scenario: 验证多选 RZY-3432
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项7"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -942,6 +1018,8 @@ Feature: 仪表盘输入项
   Scenario: 验证修改值自动搜索 RZY-282
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项7"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -968,6 +1046,8 @@ Feature: 仪表盘输入项
   Scenario: 输入值支持eval RZY-1834
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项7"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -995,6 +1075,8 @@ Feature: 仪表盘输入项
   Scenario: 开启钻取配置(RZY-4479)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项7"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1008,6 +1090,8 @@ Feature: 仪表盘输入项
   Scenario: 钻取配置中link类型为custom RZY-1836
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项7"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1031,6 +1115,8 @@ Feature: 仪表盘输入项
   Scenario: 钻取配置中link类型为search RZY-1837
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项7"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1058,6 +1144,8 @@ Feature: 仪表盘输入项
   Scenario: 钻取配置中link类型为dashboard RZY-1838
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项7"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1082,6 +1170,8 @@ Feature: 仪表盘输入项
   Scenario Outline: 标题、标识校验（RZY-270,RZY-271）
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "测试输入项7"
+    And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
