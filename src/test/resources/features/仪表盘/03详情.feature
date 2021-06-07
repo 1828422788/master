@@ -198,8 +198,9 @@ Feature: 仪表盘03详情页
     Then I will see the "dashboard.DetailPage" page
 #    And I click the "TagIcon" button
     And I set the parameter "SearchTagInput" with value "Search"
-    Then I will see the "FirstTag" doesn't exist
+    Then I will see the "First" doesn't exist
     Then I click the "TestSearch" button
+    And I wait for "2000" millsecond
 
   @dashboard03k @dashboardSmoke
   Scenario: 仪表盘搜索，切换 RZY-240
@@ -229,6 +230,10 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "2000" millsecond
+    ###########delete########################
+    And I click the Circle "TestSearch" button
+    #########################################
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
     And I click the "AddChart" button
@@ -251,6 +256,9 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    ###########delete########################
+    And I click the Circle "TestSearch" button
+    #########################################
     And I wait for "SettingIcon" will be visible
     And I click the "SettingIcon" button
     And I click the "CopyTag" button
@@ -269,11 +277,14 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    ###########delete########################
+    And I click the Circle "TestSearch" button
+    #########################################
     And I wait for "SettingIcon" will be visible
     And I click the "SettingIcon" button
     And I click the "SuperEdit" button
     And I click the "Check" button
-    And I wait for "500" millsecond
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
     And I wait for loading invisible
@@ -290,6 +301,9 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    ###########delete########################
+    And I click the Circle "TestSearch" button
+    #########################################
     And I click the "AddEventButton" button
     And I click the "addInput" button
     And I set the parameter "inputSettingTitle" with value "全局时间"
@@ -313,6 +327,9 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    ###########delete########################
+    And I click the Circle "TestSearch" button
+    #########################################
     And I click the "settingIcon" button
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "enable"
@@ -332,6 +349,9 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    ###########delete########################
+    And I click the Circle "TestSearch" button
+    #########################################
     And I click the "settingIcon" button
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
@@ -344,7 +364,9 @@ Feature: 仪表盘03详情页
     And I click the "Update" button
     And I wait for "Progress" will be invisible
     Then I will see the "DropdownLink" result will be "今天"
-    And I click the "settingIcon" button
+    And I wait for "3000" millsecond
+    And I click the "SettingIcon" button
+    And I click the Circle "SettingIcon" button
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "enable"
 
@@ -358,6 +380,9 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    ###########delete########################
+    And I click the Circle "TestSearch" button
+    #########################################
 
     And I click the "SettingIcon" button
 #    And I move the mouse pointer to the "SaveAs"

@@ -833,13 +833,13 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='所有时间']/following-sibling::i[4]")
     private WebElement forthIcon;
 
-    @FindBy(xpath = "//a[text()='testSearch']")
+    @FindBy(xpath = "//div[@yotta-test='dashboard-nav_tab-dropdown']//span[text()='testSearch']")
     private WebElement testSearch;
 
     @FindBy(xpath = "//*[@yotta-test='dashboard-dashboard_list-dropdown']/span")
     private WebElement dashboardIcon;
 
-    @FindBy(xpath = "//span[text()='UIautotest']")
+    @FindBy(xpath = "//div[text()='UIautotest'and @yotta-test='dashboard-nav_dashboard-dom']")
     private WebElement uiAutoTest;
 
     @FindBy(xpath = "//li[text()='FirstAutoTest']")
