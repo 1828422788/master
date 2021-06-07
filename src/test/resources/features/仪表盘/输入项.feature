@@ -183,8 +183,8 @@ Feature: 仪表盘输入项
   @dbinput0 @dbinput05
   Scenario: 删除单引号输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "测试输入项"
+    And I wait for loading invisible测试输入项
+    And I set the parameter "SearchInput" with value ""
     And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项"
     And switch to window "仪表盘"
@@ -474,6 +474,10 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+
+    And I wait for "FilterAutoRefresh" will be visible
+    And I switch the dashboard "FilterAutoRefresh" button to "disable"
+
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -707,6 +711,10 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+
+    And I wait for "FilterAutoRefresh" will be visible
+    And I switch the dashboard "FilterAutoRefresh" button to "disable"
+
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -756,6 +764,7 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+
 #    And I wait for "Progress" will be invisible
     And I choose the "济南市,南京市" from the "FilterDropdown"
     And I click the "Update" button
@@ -854,6 +863,10 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+
+    And I wait for "FilterAutoRefresh" will be visible
+    And I switch the dashboard "FilterAutoRefresh" button to "disable"
+
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -997,6 +1010,10 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+
+    And I wait for "FilterAutoRefresh" will be visible
+    And I switch the dashboard "FilterAutoRefresh" button to "disable"
+
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
