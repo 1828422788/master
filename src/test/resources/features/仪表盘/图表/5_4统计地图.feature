@@ -47,14 +47,11 @@ Feature: 仪表盘_5_4_统计地图
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
-#    And I click the "Create" button
     Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "DateEditor" button
     And I click the "Today" button
-#    And I click the "FenPianQuYang" button
-#    And I alter the input element "FenPianQuYang" value to "0"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
@@ -87,6 +84,8 @@ Feature: 仪表盘_5_4_统计地图
     And I wait for loading invisible
     And I click the "{'Checkbox':'<name>'}" button
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I wait for element "SuccessMessage" change text to "添加成功"
 
     Examples:
       | name    |
@@ -112,8 +111,6 @@ Feature: 仪表盘_5_4_统计地图
     And I click the "Generate" button
     And I wait for "3000" millsecond
     And I click the "SettingChart" button under some element
-#    Then I hide the element "SettingContent"
-#    And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I move the mouse pointer to the "TrendTitle"
@@ -123,27 +120,3 @@ Feature: 仪表盘_5_4_统计地图
     Examples:
       | name    |
       | 仪表盘统计地图 |
-
-#  @cleanDashboard
-#  Scenario Outline: 删除仪表盘
-#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-#    When the data name is "<name>" then i click the "删除" button in more menu
-#    And I wait for "Ensure" will be visible
-#    And I click the "Ensure" button
-#    Then I will see the success message "删除仪表盘成功"
-#
-#    Examples:
-#      | name    |
-#      | 仪表盘统计地图 |
-#
-#  @cleanDashboard
-#  Scenario Outline: 删除仪表盘所建趋势图
-#    Given open the "trend.ListPage" page for uri "/trend/"
-#    When the data name is "<name>" then i click the "删除" button in more menu
-#    And I wait for "Ensure" will be visible
-#    And I click the "Ensure" button
-#    And I will see the success message "删除成功"
-#
-#    Examples:
-#      | name    |
-#      | 仪表盘统计地图 |

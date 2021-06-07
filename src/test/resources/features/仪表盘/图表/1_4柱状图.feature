@@ -19,7 +19,6 @@ Feature: 仪表盘_1_4_柱状图
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
-#    And I click the "Create" button
     Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
@@ -72,6 +71,8 @@ Feature: 仪表盘_1_4_柱状图
     And I wait for loading invisible
     And I click the "{'Checkbox':'<name>'}" button
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I wait for element "SuccessMessage" change text to "添加成功"
 
     Examples:
       | name   |
@@ -94,7 +95,6 @@ Feature: 仪表盘_1_4_柱状图
     And I click the "Order" button under some element
     And I wait for "<targetName>" will be visible
     And I click the "<targetName>" button
-#    And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "SettingChart" button under some element
     And I choose the "apache.clientip" from the "DataValue"
@@ -107,8 +107,6 @@ Feature: 仪表盘_1_4_柱状图
     And I set the parameter "Unit" with value "个"
     And I wait for "1000" millsecond
     And I click the "Group" button
-#    And I click the "AddField" button
-#    And I choose the "apache.resp_len" from the "DataValue"
     And I click the "Pile" button
     And I wait for "1000" millsecond
     And I click the "Exhibition" button
@@ -361,7 +359,6 @@ Feature: 仪表盘_1_4_柱状图
     And I click the "Today" button
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
-#    And I wait for "100" millsecond
     And I move the mouse pointer to the "TrendTitle"
     And I wait for "SwitchToTable" will be visible
     And I click the "SwitchToTable" button
@@ -370,29 +367,3 @@ Feature: 仪表盘_1_4_柱状图
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will contain "apache.clientip:64.20.177.254"
-
-#  @cleanDashboard
-#  Scenario Outline: 删除仪表盘
-#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-#    When the data name is "<name>" then i click the "删除" button in more menu
-#    And I wait for "Ensure" will be visible
-#    And I click the "Ensure" button
-#    And I wait for "500" millsecond
-#    Then I will see the success message "删除仪表盘成功"
-#
-#    Examples:
-#      | name   |
-#      | 仪表盘柱状图 |
-#
-#  @cleanDashboard
-#  Scenario Outline: 删除仪表盘所建趋势图
-#    Given open the "trend.ListPage" page for uri "/trend/"
-#    When the data name is "<name>" then i click the "删除" button in more menu
-#    And I wait for "Ensure" will be visible
-#    And I click the "Ensure" button
-#    And I wait for "500" millsecond
-#    And I will see the success message "删除成功"
-#
-#    Examples:
-#      | name   |
-#      | 仪表盘柱状图 |

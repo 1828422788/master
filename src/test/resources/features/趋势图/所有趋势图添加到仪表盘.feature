@@ -105,7 +105,8 @@ Feature:所有趋势图添加到仪表盘
     And I wait for loading invisible
     And I click the "{'Checkbox':'<chart>'}" button
     And I click the "Ensure" button
-    And I wait for "3000" millsecond
+    And I wait for "SuccessMessage" will be visible
+    Then I wait for element "SuccessMessage" change text to "添加成功"
 
     Examples:
       | folder   |  tag         | chart                           |

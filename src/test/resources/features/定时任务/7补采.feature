@@ -67,6 +67,7 @@ Feature:定时任务补采
     Then I will see the success message "创建成功"
     And I refresh the website
     And I will see the "timedTask.ListPage" page
+    And I wait for "2000" millsecond
 #    And I will see the data "{'column':'0','name':'Test_Complement'}" values "{'column':'6','name':'准备执行'}"
     And I will see the data "{'column':'0','name':'Test_Complement'}" values "{'column':'5','name':'否'}"
     When the data name is "{'column':'0','name':'Test_Complement'}" then i click the "暂停" button
@@ -74,6 +75,7 @@ Feature:定时任务补采
     Then I will see the success message "暂停成功"
     And I refresh the website
     And I will see the "timedTask.ListPage" page
+    And I wait for "2000" millsecond
     And I will see the data "{'column':'0','name':'Test_Complement'}" values "{'column':'6','name':'停止'}"
     When the data name is "{'column':'0','name':'Test_Complement'}" then i click the "恢复" button
     And I wait for "SuccessMessage" will be visible

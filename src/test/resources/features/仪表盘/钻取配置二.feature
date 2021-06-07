@@ -73,6 +73,7 @@ Feature: 仪表盘钻取配置二
     And I wait for loading invisible
     And I click the "{'Checkbox':'钻取配置1'}" button
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
   @dashboard @dashboardSmoke
