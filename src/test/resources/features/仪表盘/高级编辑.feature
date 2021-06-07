@@ -18,7 +18,6 @@ Feature: 仪表盘高级编辑
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
-#    And I click the "Create" button
     Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
@@ -67,6 +66,7 @@ Feature: 仪表盘高级编辑
     And I wait for loading invisible
     And I click the "{'Checkbox':'仪表盘所有'}" button
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
   @dashboard @dashboardSmoke

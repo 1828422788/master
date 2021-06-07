@@ -65,8 +65,6 @@ Feature: 仪表盘1事件列表
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible
-#    And I move the mouse pointer to the "HoverElement"
-#    And I click the "HoverElement" button
     And I click the "EventOperate" button
     And I click the "Event" button
     And switch to another window
@@ -93,7 +91,6 @@ Feature: 仪表盘1事件列表
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "HoverElement" will be visible
-#    And I click the "HoverElement" button
     And I click the "EventOperate" button
     And I click the "Event" button
     And switch to another window
@@ -141,7 +138,6 @@ Feature: 仪表盘1事件列表
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible
-#    And I click the "HoverElement" button
     And I click the "EventOperate" button
     And I wait for "1000" millsecond
     Then I will see the "Event" doesn't exist

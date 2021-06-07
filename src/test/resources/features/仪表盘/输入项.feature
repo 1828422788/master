@@ -238,6 +238,7 @@ Feature: 仪表盘输入项
     And I wait for loading invisible
     And I click the "{'Checkbox':'仪表盘所用趋势图'}" button
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
   @dbinput1 @dbinput13

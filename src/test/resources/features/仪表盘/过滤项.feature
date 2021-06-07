@@ -595,6 +595,8 @@ Feature: 仪表盘过滤项
     And I wait for loading invisible
     And I click the "{'Checkbox':'测试仪表盘eval'}" button
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I wait for element "SuccessMessage" change text to "添加成功"
     And I wait for loading invisible
     And I click the "AddEventButton" button
     And I wait for "500" millsecond
@@ -604,6 +606,8 @@ Feature: 仪表盘过滤项
     And I wait for loading invisible
     And I click the "{'Checkbox':'仪表盘过滤项所用趋势图'}" button
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I wait for element "SuccessMessage" change text to "添加成功"
 
   @dashboard @dashboardSmoke
   Scenario: 验证绑定图表默认 RZY-265,RZY-267

@@ -9,8 +9,6 @@ Feature: 仪表盘03详情页
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
-#    And I click the "FenPianQuYang" button
-#    And I alter the input element "FenPianQuYang" value to "0"
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -245,7 +243,8 @@ Feature: 仪表盘03详情页
     And I wait for loading invisible
     And I click the "{'Checkbox':'验证仪表盘全局时间'}" button
     And I click the "Ensure" button
-    And I wait for "1000" millsecond
+    And I wait for "SuccessMessage" will be visible
+    Then I wait for element "SuccessMessage" change text to "添加成功"
 
   @dashboard03m @dashboardSmoke
   Scenario: 复制标签页(RZY-4484)

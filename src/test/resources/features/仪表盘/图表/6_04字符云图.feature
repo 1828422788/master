@@ -1,5 +1,5 @@
 @dashboard10 @dashboardChart
-Feature: 仪表盘_6_4_字符云图
+Feature: 仪表盘_6_04_字符云图
 
   @dashboard
   Scenario Outline: 新建仪表盘
@@ -19,7 +19,6 @@ Feature: 仪表盘_6_4_字符云图
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
-#    And I click the "Create" button
     Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
@@ -73,6 +72,8 @@ Feature: 仪表盘_6_4_字符云图
     And I wait for loading invisible
     And I click the "{'Checkbox':'<name>'}" button
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I wait for element "SuccessMessage" change text to "添加成功"
 
     Examples:
       | name    |

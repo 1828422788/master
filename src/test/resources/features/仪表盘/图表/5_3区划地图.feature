@@ -19,7 +19,6 @@ Feature: 仪表盘_5_3_区划地图
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
-#    And I click the "Create" button
     Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
@@ -72,6 +71,8 @@ Feature: 仪表盘_5_3_区划地图
     And I wait for loading invisible
     And I click the "{'Checkbox':'<name>'}" button
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I wait for element "SuccessMessage" change text to "添加成功"
 
     Examples:
       | name    |
@@ -92,7 +93,6 @@ Feature: 仪表盘_5_3_区划地图
     And I wait for "Map" will be visible
     And I click the "Map" button
     And I click the "<targetName>" button
-#    And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
 #    And I choose the "count()" from the "DataValue"

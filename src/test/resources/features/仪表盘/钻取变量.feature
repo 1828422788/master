@@ -331,7 +331,8 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "{'Checkbox':'<name>'}" button
     And I wait for "500" millsecond
     And I click the "Ensure" button
-#    Then I wait for element "SuccessMessage" change text to "添加成功"
+    And I wait for "SuccessMessage" will be visible
+    Then I wait for element "SuccessMessage" change text to "添加成功"
 
     Examples:
       | name    |
@@ -577,7 +578,8 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "{'Checkbox':'<name>'}" button
     And I wait for "500" millsecond
     And I click the "Ensure" button
-#    Then I wait for element "SuccessMessage" change text to "添加成功"
+    And I wait for "SuccessMessage" will be visible
+    Then I wait for element "SuccessMessage" change text to "添加成功"
 
     Examples:
       | name    |
@@ -799,7 +801,8 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "{'Checkbox':'<name>'}" button
     And I wait for "500" millsecond
     And I click the "Ensure" button
-#    Then I wait for element "SuccessMessage" change text to "添加成功"
+    And I wait for "SuccessMessage" will be visible
+    Then I wait for element "SuccessMessage" change text to "添加成功"
 
     Examples:
       | name    |
@@ -949,7 +952,8 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "{'Checkbox':'<name>'}" button
     And I wait for "500" millsecond
     And I click the "Ensure" button
-#    Then I wait for element "SuccessMessage" change text to "添加成功"
+    And I wait for "SuccessMessage" will be visible
+    Then I wait for element "SuccessMessage" change text to "添加成功"
 
     Examples:
       | name    |
@@ -1060,7 +1064,8 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "{'Checkbox':'<name>'}" button
     And I wait for "500" millsecond
     And I click the "Ensure" button
-#    Then I wait for element "SuccessMessage" change text to "添加成功"
+    And I wait for "SuccessMessage" will be visible
+    Then I wait for element "SuccessMessage" change text to "添加成功"
 
     Examples:
       | name    |
