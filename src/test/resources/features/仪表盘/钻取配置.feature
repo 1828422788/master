@@ -266,6 +266,7 @@ Feature: 仪表盘钻取配置
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I wait for element "SuccessMessage" change text to "添加成功"
+    And I wait for "2000" millsecond
 
   @dashboard @dashboardSmoke
   Scenario Outline: 仪表盘添加输入项
@@ -309,7 +310,7 @@ Feature: 仪表盘钻取配置
     And I wait for "Progress" will be invisible
     When the chart title is "仪表盘钻取配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "DrillAction" will be visible
+    And I wait for "2000" millsecond
     And I choose the "跳转到标签页" from the "DrillAction"
     And I wait for "1000" millsecond
     And I click the "TargetTag" button
