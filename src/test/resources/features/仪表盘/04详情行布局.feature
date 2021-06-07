@@ -186,16 +186,6 @@ Feature: 仪表盘04详情行布局
     Examples:
       | dashboardName   |
       | 仪表盘行布局 |
-      | 仪表盘行布局1 |
-      | 仪表盘行布局2 |
-      | 仪表盘行布局3 |
-      | 仪表盘行布局4 |
-      | 仪表盘行布局5 |
-      | 仪表盘行布局6 |
-      | 仪表盘行布局7 |
-      | 仪表盘行布局8 |
-      | 仪表盘行布局9 |
-      | 仪表盘行布局10 |
 
   @dashboard04g @dashboardSmoke
   Scenario: 行布局添加行内输入项(RZY-4633)
@@ -332,6 +322,38 @@ Feature: 仪表盘04详情行布局
     And I click the "{'Checkbox':'行布局趋势图3'}" button
     And I click the "Ensure" button
     And I wait for "1000" millsecond
+
+    Examples:
+      | dashboardName   |
+      | 仪表盘行布局1 |
+      | 仪表盘行布局2 |
+      | 仪表盘行布局3 |
+      | 仪表盘行布局4 |
+      | 仪表盘行布局5 |
+      | 仪表盘行布局6 |
+      | 仪表盘行布局7 |
+      | 仪表盘行布局8 |
+      | 仪表盘行布局9 |
+      | 仪表盘行布局10 |
+
+  @dashboard04k2 @dashboardSmoke
+  Scenario Outline: 行布局添加全局输入项(RZY-4632)
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "<dashboardName>"
+    And I wait for "2000" millsecond
+    When I click the detail which name is "<dashboardName>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "AddEventButton" will be visible
+    When I click the "AddEventButton" button
+    And I click the "AddInput" button
+    And I set the parameter "FilterTitle" with value "filter"
+    And I set the parameter "FilterToken" with value "filter"
+    And I set the parameter "FilterDefaultValue" with value "apache.geo.city"
+    Then I click the "Ensure" button
+    Then I wait for "FilterName" will be visible
 
     Examples:
       | dashboardName   |
