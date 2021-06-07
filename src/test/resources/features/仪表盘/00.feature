@@ -13,30 +13,3 @@ Feature:批量导入趋势图
     And I click the "Configs" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And I choose the "filter" from the "ShowFilterConfig"
-    And I wait for "500" millsecond
-    And I choose the "包含" from the "ShowCondition"
-    And I wait for "ShowValue" will be visible
-    And I set the parameter "ShowValue" with value "-1h"
-    And I click the "Ensure" button
-    And I wait for "500" millsecond
-    And I will see the success message "配置成功"
-    And I click the "MoreXuanTing2" button
-#    And I click the "MoreConfig" button
-    And I click the "Configs" button
-    And I wait for loading invisible
-    And I wait for "1000" millsecond
-    And I choose the "filter" from the "ShowFilterConfig"
-    And I wait for "500" millsecond
-    And I choose the "匹配正则" from the "ShowCondition"
-    And I wait for "500" millsecond
-    And I set the parameter "ShowValue" with value "now/d,?now"
-    And I click the "Ensure" button
-    And I wait for "1000" millsecond
-    And I click the "SettingIcon" button
-    And I wait for "3000" millsecond
-    And I switch the dashboard "OpenShowCondition" button to "enable"
-    And I wait for "500" millsecond
-#    And I will see the success message "展示条件已启用"
-    Then I will see the "trendThree" doesn't exist
-    Then I wait for "trendTwo" will be visible
