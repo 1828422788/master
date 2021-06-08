@@ -196,11 +196,11 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-#    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
+    And I open the context menu of the "TestSearch" element
+    And I click the "SetAsDefault" button
     And I set the parameter "SearchTagInput" with value "Search"
     Then I will see the "First" doesn't exist
-    Then I click the "TestSearch" button
-    And I wait for "2000" millsecond
 
   @dashboard03k @dashboardSmoke
   Scenario: 仪表盘搜索，切换 RZY-240
@@ -212,7 +212,6 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-#    And I click the "DashboardIcon" button
     And I set the parameter "searchTagInput" with value "UIautotest"
     And I wait for loading invisible
     Then I will see the "FirstAutoTest" doesn't exist
@@ -231,15 +230,10 @@ Feature: 仪表盘03详情页
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
-    ###########delete########################
-    And I click the Circle "TestSearch" button
-    #########################################
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
     And I click the "AddChart" button
-#    And I wait for "SpinDot" will be invisible
     And I wait for "2000" millsecond
-#    And I set the parameter "SearchChartInput" with value "验证仪表盘全局时间"
     And I wait for loading invisible
     And I click the "{'Checkbox':'验证仪表盘全局时间'}" button
     And I click the "Ensure" button
@@ -256,14 +250,10 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    ###########delete########################
-    And I click the Circle "TestSearch" button
-    #########################################
     And I wait for "SettingIcon" will be visible
     And I click the "SettingIcon" button
     And I click the "CopyTag" button
     And I wait for "3000" millsecond
-#    And I click the "TagIcon" button
     And I wait for "LastTag" will be visible
     Then I will see the element "LastTag" value is "testSearch_copy"
 
@@ -277,9 +267,6 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    ###########delete########################
-    And I click the Circle "TestSearch" button
-    #########################################
     And I wait for "SettingIcon" will be visible
     And I click the "SettingIcon" button
     And I click the "SuperEdit" button
@@ -301,21 +288,16 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    ###########delete########################
-    And I click the Circle "TestSearch" button
-    #########################################
     And I click the "AddEventButton" button
     And I click the "addInput" button
     And I set the parameter "inputSettingTitle" with value "全局时间"
     And I wait for "500" millsecond
     And I click the "inputSettingType" button
-#    And I choose the "时间范围" from the "LastDropdownList"
     And I click the "timeRangee" button
     Then I wait for "setGlobalTimeRange" will be visible
     And I click the "setGlobalTimeRange" button
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
-#    Then I will see the success message "添加输入项成功"
 
   @dashboard03p @dashboardSmoke
   Scenario: 验证全局时间生效及打开过滤输入项(RZY-4567,RZY-225,RZY-4638,RZY-3392)
@@ -327,14 +309,10 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    ###########delete########################
-    And I click the Circle "TestSearch" button
-    #########################################
     And I click the "settingIcon" button
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "enable"
     And I click the "DateEditor" button under some element
-#    And I click the "Shortcut" button
     And I click the "Yesterday" button
     And I wait for "Progress" will be invisible
     Then I will see the "DropdownLink" result will be "昨天"
@@ -349,17 +327,12 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    ###########delete########################
-    And I click the Circle "TestSearch" button
-    #########################################
     And I click the "settingIcon" button
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
     And I wait for "Update" will be visible
     And I click the "DateEditor" button under some element
-#    And I click the "Shortcut" button
     And I click the "Today" button
-#    And I wait for "Progress" will be invisible
     And I will see the "DropdownLink" result will be "最近10分钟"
     And I click the "Update" button
     And I wait for "Progress" will be invisible
@@ -380,12 +353,7 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    ###########delete########################
-    And I click the Circle "TestSearch" button
-    #########################################
-
     And I click the "SettingIcon" button
-#    And I move the mouse pointer to the "SaveAs"
     And I click the "SaveAs" button
     And I click the "SaveAsReport" button
     And switch to another window
@@ -393,12 +361,10 @@ Feature: 仪表盘03详情页
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "仪表盘保存为报表"
     And I choose the "PDF" from the "ReportType"
-#    And I set the parameter "Subject" with value "test"
     And I set the parameter "Hour" with value "11"
     And I set the parameter "Minute" with value "11"
     And I click the "NextButton" button
     Then I will see the text "验证仪表盘全局时间" exist in page
-#    Then I will see the "TopoTitle" result will be "1验证仪表盘全局时间"
     And I click the "FinishButton" button
     And I wait for "3000" millsecond
     Then I will see the text "新建成功" exist in page

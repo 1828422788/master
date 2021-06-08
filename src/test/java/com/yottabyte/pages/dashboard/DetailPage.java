@@ -815,6 +815,13 @@ public class DetailPage extends PageTemplate {
         return creatNewTag;
     }
 
+    @FindBy(xpath = "//span[text()='设为默认']")
+    private WebElement setAsDefault;
+
+    public WebElement getSetAsDefault() {
+        return setAsDefault;
+    }
+
    //@FindBy(xpath = "//a[text()='Delete']/following-sibling::*[@yotta-test='dashboard-delete_tab-dom']")
     @FindBy(xpath = "//span[text()='删除']")
     private WebElement deleteNewTag;
