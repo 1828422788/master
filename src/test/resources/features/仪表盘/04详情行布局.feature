@@ -364,6 +364,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局1"
+    Given I wait for loading complete
     And I wait for "2000" millsecond
     When I click the detail which name is "仪表盘行布局1"
     And switch to window "仪表盘"
@@ -407,6 +408,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局2"
+    Given I wait for loading complete
     And I wait for "2000" millsecond
     When I click the detail which name is "仪表盘行布局2"
     And switch to window "仪表盘"
@@ -712,6 +714,7 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    Given I wait for loading complete
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
