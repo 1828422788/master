@@ -279,3 +279,43 @@ Feature: 日志展现_维度
       |   chartType   |  option        | element    |
       |      Flame    | DrillOut       | AreaChart  |
       |      Flame    | DrillIn        | BackToChart|
+
+  Scenario Outline: label_orientation
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip | limit 5 | eval cnt = cnt/7"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Type" button
+    And I click the "Dimension" button
+    And I click the "Bar" button
+
+    And I click the "Settings" button
+    And I click the "Exhibition" button
+    And I wait for "1000" millsecond
+    And I choose the "<typeInfo>" from the "ShowLabel" in config
+    And I choose the "柱状外两侧" from the "LabelLocation" in config
+    And I choose the "纵向" from the "ChartOrientation" in config
+    And I choose the "<label_orient>" from the "LabelOrientation" in config
+    And I choose the "<value_orient>" from the "ValueLabelOrientation" in config
+    And I choose the "<precision>" from the "Precision" in config
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "2000" millsecond
+    And I wait for "Chart" will be visible
+    And I move the mouse pointer to the "Type"
+    And I will see the element "BottomAxisLabel" contains "221.226.97.92"
+    And I will see the element "ValueLabel" contains "<value>"
+    And I will see the element "BottomAxisLabel" transform contains "<transform_label>"
+    And I will see the element "ValueLabel" transform contains "<transform_value>"
+
+
+    Examples:
+      |typeInfo  | label_orient | value_orient | precision | value        | transform_label | transform_value |
+      |只展示名称| 纵向         | 纵向         |           | 221.226.97.92| rotate(-90)     | rotate(-90)     |
+      |只展示名称| 纵向         | 横向         |           | 221.226.97.92| rotate(-90)     | rotate(0)       |
+      |全部展示  | 纵向         | 横向         |           | 5.5714285    | rotate(-90)     | rotate(0)       |
+      |全部展示  | 纵向         | 纵向         |  0        | 6            | rotate(-90)     | rotate(-90)     |
+      |全部展示  | 纵向         | 横向         |  1        | 5.6          | rotate(-90)     | rotate(0)       |
+      |全部展示  | 横向         | 纵向         |  2        | 5.57         | rotate(0)       | rotate(-90)     |
+      |全部展示  | 横向         | 横向         |  3        | 5.571        | rotate(0)       | rotate(0)       |

@@ -503,6 +503,23 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[name()='g']//*[name()='svg'][1]")
     private WebElement backToChart;
 
+    @FindBy(xpath = "//*[@class='bottom-axis']//*[name()='text']")
+    private WebElement bottomAxisLabel;
+
+    @FindBy(xpath = "//*[name()='rect']//following-sibling::*[name()='text']")
+    private WebElement valueLabel;
+
+    @FindBy(xpath = "(//span[text()='标签方向'])[last()]/ancestor::div[1]/following-sibling::div//div[@class='yotta-select-selection']")
+    private WebElement labelOrientation;
+
+    public WebElement getValueLabel() {
+        return valueLabel;
+    }
+
+    public WebElement getBottomAxisLabel() {
+        return bottomAxisLabel;
+    }
+
     public WebElement getBackToChart() {
         return backToChart;
     }
@@ -1275,6 +1292,24 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getLabelLocation() {
         return getDropdownElement("标签位置");
+    }
+
+    public WebElement getChartOrientation() {
+        return getDropdownElement("图表方向");
+    }
+
+    public WebElement getLabelOrientation() {
+        try{
+            Thread.sleep(700);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        ClickEvent.clickUnderneathButton(labelOrientation);
+        return this.getLastDropdownList();
+    }
+
+    public WebElement getValueLabelOrientation() {
+        return getDropdownElement("数值标签方向");
     }
 
     public WebElement getPrecision() {

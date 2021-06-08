@@ -550,7 +550,7 @@ public class ClickButtonWithGivenName {
     public void assertDisabled(String name) {
         WebElement tr = listPageUtils.getTinyTr("{'column':'1','name':'" + name + "'}");
         WebElement checkbox = tr.findElement(By.xpath(".//label"));
-        Assert.assertTrue(checkbox.getAttribute("class").contains("yotta-checkbox css-lbh8vb yotta-checkbox-small yotta-checkbox-disabled"));
+        Assert.assertTrue(checkbox.getAttribute("class").contains("yotta-checkbox-disabled"));
     }
 
     /**
