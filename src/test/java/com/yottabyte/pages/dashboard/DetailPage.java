@@ -2602,7 +2602,7 @@ public class DetailPage extends PageTemplate {
     }
 
 //    @FindBy(xpath = "//li[text()='testSearch']")
-    @FindBy(xpath = "//div[@yotta-test='dashboard-nav_tab-dropdown']//span[text()='testSearch']")
+    @FindBy(xpath = "(//div[@yotta-test='dashboard-nav_tab-dropdown']//span[text()='testSearch']) | (//li[contains(@class,'yotta-cascader-menu-item') and text()='testSearch'])")
     private WebElement tagTestSearch;
 
     public WebElement getTagTestSearch() {
