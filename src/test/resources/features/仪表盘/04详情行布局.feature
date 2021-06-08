@@ -22,10 +22,10 @@ Feature: 仪表盘04详情行布局
     And I wait for "SuccessCreate" will be visible
 
     Examples:
-      | name            | spl                                                       |
-      | 行布局趋势图1 | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10 |
+      | name    | spl                                                                                           |
+      | 行布局趋势图1 | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10    |
       | 行布局趋势图2 | tag:sample04061424 \| stats count() by apache.geo.country,apache.geo.province,apache.geo.city |
-      | 行布局趋势图3 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
+      | 行布局趋势图3 | tag:sample04061424_chart \|stats count() by 'apache.geo.city'                                 |
 
 
   @dashboard04a
@@ -37,7 +37,7 @@ Feature: 仪表盘04详情行布局
     Then I will see the success message "新建仪表盘成功"
 
     Examples:
-      | name   |
+      | name     |
       | 仪表盘行布局 |
       | 仪表盘行布局1 |
       | 仪表盘行布局2 |
@@ -46,6 +46,9 @@ Feature: 仪表盘04详情行布局
       | 仪表盘行布局5 |
       | 仪表盘行布局6 |
       | 仪表盘行布局7 |
+      | 仪表盘行布局51 |
+      | 仪表盘行布局52 |
+      | 仪表盘行布局53 |
 
 
   @dashboard04b
@@ -67,7 +70,7 @@ Feature: 仪表盘04详情行布局
     And I back to before
 
     Examples:
-      | dashboardName   |
+      | dashboardName |
       | 仪表盘行布局 |
       | 仪表盘行布局1 |
       | 仪表盘行布局2 |
@@ -76,7 +79,9 @@ Feature: 仪表盘04详情行布局
       | 仪表盘行布局5 |
       | 仪表盘行布局6 |
       | 仪表盘行布局7 |
-
+      | 仪表盘行布局51      |
+      | 仪表盘行布局52      |
+      | 仪表盘行布局53      |
 
   @dashboard04c @dashboardSmoke
   Scenario: 添加行(RZY-4629，RZY-3607)
@@ -180,8 +185,8 @@ Feature: 仪表盘04详情行布局
     Then I wait for "FilterName" will be visible
 
     Examples:
-      | dashboardName   |
-      | 仪表盘行布局 |
+      | dashboardName |
+      | 仪表盘行布局        |
 
   @dashboard04g @dashboardSmoke
   Scenario: 行布局添加行内输入项(RZY-4633)
@@ -320,7 +325,7 @@ Feature: 仪表盘04详情行布局
     And I wait for "1000" millsecond
 
     Examples:
-      | dashboardName   |
+      | dashboardName |
       | 仪表盘行布局1 |
       | 仪表盘行布局2 |
       | 仪表盘行布局3 |
@@ -328,7 +333,9 @@ Feature: 仪表盘04详情行布局
       | 仪表盘行布局5 |
       | 仪表盘行布局6 |
       | 仪表盘行布局7 |
-
+      | 仪表盘行布局51      |
+      | 仪表盘行布局52      |
+      | 仪表盘行布局53      |
 
   @dashboard04k2 @dashboardSmoke
   Scenario Outline: 行布局添加全局输入项(RZY-4632)
@@ -350,14 +357,17 @@ Feature: 仪表盘04详情行布局
     Then I wait for "FilterName" will be visible
 
     Examples:
-      | dashboardName   |
-      | 仪表盘行布局1 |
-      | 仪表盘行布局2 |
-      | 仪表盘行布局3 |
-      | 仪表盘行布局4 |
-      | 仪表盘行布局5 |
-      | 仪表盘行布局6 |
-      | 仪表盘行布局7 |
+      | dashboardName |
+      | 仪表盘行布局1       |
+      | 仪表盘行布局2       |
+      | 仪表盘行布局3       |
+      | 仪表盘行布局4       |
+      | 仪表盘行布局5       |
+      | 仪表盘行布局6       |
+      | 仪表盘行布局7       |
+      | 仪表盘行布局51      |
+      | 仪表盘行布局52      |
+      | 仪表盘行布局53      |
 
   @dashboard04l @dashboardSmoke
   Scenario: 展示条件-文本输入输入项 RZY-4783,RZY-4784
@@ -585,7 +595,7 @@ Feature: 仪表盘04详情行布局
     And I wait for "500" millsecond
 #    And I switch the dashboard "OpenShowCondition" button to "disable"
 #    And I wait for "1500" millsecond
-##    And I will see the success message "展示条件已关闭"
+##   And I will see the success message "展示条件已关闭"
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button under some element
     And I wait for loading invisible
@@ -629,12 +639,12 @@ Feature: 仪表盘04详情行布局
     Then I wait for "trendThree" will be visible
 
   @dashboard04o @dashboardSmoke
-  Scenario: 展示条件-时间范围输入项预置
+  Scenario Outline: 展示条件-时间范围输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局5"
+    And I set the parameter "SearchInput" with value "<dashboardName>"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局5"
+    When I click the detail which name is "<dashboardName>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -651,17 +661,23 @@ Feature: 仪表盘04详情行布局
     Then I wait for "FilterName" will be visible
     And I click the "SettingIcon" button
     And I wait for "500" millsecond
-    And I switch the dashboard "OpenShowCondition" button to "disable"
-    And I wait for "500" millsecond
-    And I will see the success message "展示条件已关闭"
+#    And I switch the dashboard "OpenShowCondition" button to "disable"
+#    And I wait for "500" millsecond
+#    And I will see the success message "展示条件已关闭"
+
+    Examples:
+      | dashboardName |
+      | 仪表盘行布局51      |
+      | 仪表盘行布局52      |
+      | 仪表盘行布局53      |
 
   @dashboard04p1 @dashboardSmoke
   Scenario: 展示条件-时间范围输入项 RZY-4790
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局5"
+    And I set the parameter "SearchInput" with value "仪表盘行布局51"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局5"
+    When I click the detail which name is "仪表盘行布局51"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -697,20 +713,20 @@ Feature: 仪表盘04详情行布局
     And I click the "trendThree" button
     And I wait for "1500" millsecond
     And I click the "SettingIcon" button
-    And I wait for "500" millsecond
+    And I wait for "2000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "disable"
-    And I wait for "1500" millsecond
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
 #    And I will see the success message "展示条件已关闭"
     And I click the "trendThree" button
-
 
   @dashboard04p2 @dashboardSmoke
   Scenario: 展示条件-时间范围输入项 RZY-4790
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局5"
+    And I set the parameter "SearchInput" with value "仪表盘行布局52"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局5"
+    When I click the detail which name is "仪表盘行布局52"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -759,9 +775,9 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-时间范围输入项 RZY-4790
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局5"
+    And I set the parameter "SearchInput" with value "仪表盘行布局53"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局5"
+    When I click the detail which name is "仪表盘行布局53"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -802,9 +818,9 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件缺失校验 RZY-4792
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局5"
+    And I set the parameter "SearchInput" with value "仪表盘行布局53"
     And I wait for "2000" millsecond
-    When I click the detail which name is "仪表盘行布局5"
+    When I click the detail which name is "仪表盘行布局53"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page

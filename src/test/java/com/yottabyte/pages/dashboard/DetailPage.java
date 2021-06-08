@@ -447,7 +447,7 @@ public class DetailPage extends PageTemplate {
     private WebElement moreXuanTing;
 
 //  @FindBy(xpath = "//div[text()='行布局趋势图2']/following-sibling::div[1]//span[@class='yotta-icon yotta-icon-DotEmblemOutlined']")
-    @FindBy(xpath = "//div[text()='行布局趋势图2']/following-sibling::div[1]//span[@aria-label='ElipsisVerticalOutlined']")
+    @FindBy(xpath = "//div[text()='行布局趋势图2']/following::div[@yotta-test='dashboard-chart_more_config-dropdown']/span/span/span")
     private WebElement moreXuanTing2;
 
     @FindBy(xpath = "//div[text()='行布局趋势图2']/following-sibling::div[1]/i[3]")
