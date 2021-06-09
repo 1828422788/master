@@ -1,5 +1,6 @@
 @dataset @dataseta @dataset1
 Feature: 数据集-a新建
+  And I zoom the screen up to the maximum
 
   @tc4082
   Scenario Outline: RZY-4082:新建数据集

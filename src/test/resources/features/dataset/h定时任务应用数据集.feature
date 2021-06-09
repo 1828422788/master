@@ -21,21 +21,26 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页，前置-数据
 
     When I click the "SaveAsOther" button
     When I click the "TimedTask" button
-    And I set the parameter "TaskName" with value "<taskName>"
-    When I click the "Crontab" button
-    And I wait for loading invisible
-    And I wait for "CrontabInput" will be visible
-    And I set the parameter "scheduleDescribe" with value "<describe>"
 
+    And switch to window "编辑报表"
+    And I close all tabs except main tab
+    Then I will see the "timedTask.EditPage" page
+    And I wait for element "SelectedUser" change text to username
+
+    And I set the parameter "Name" with value "<taskName>"
+    And I set the parameter "Describe" with value "<describe>"
+
+#    When I click the "Crontab" button
+#    And I wait for loading invisible
+#    And I wait for "CrontabInput" will be visible
     And I set the parameter "CrontabInput" with value "<crontab>"
 
-#    此处再次输入名称的原因是：之前输入的名称可能会消失，出现提示输入名称的情况，为了保险起见，再次输入名称
-    And I set the parameter "TaskName" with value "<taskName>"
+##    此处再次输入名称的原因是：之前输入的名称可能会消失，出现提示输入名称的情况，为了保险起见，再次输入名称
+#    And I set the parameter "TaskName" with value "<taskName>"
 
-#    And I click the "EnsureCrontab" button
-#    And I wait for "3000" millsecond
-#    Then I will see the success message "保存成功"
-    When I click the "EnsureButton" button
+#    When I click the "EnsureButton" button
+    And I click the "Submit" button
+
     And I wait for "1500" millsecond
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
