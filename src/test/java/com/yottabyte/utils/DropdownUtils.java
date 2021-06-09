@@ -131,7 +131,9 @@ public class DropdownUtils {
     }
 
     public WebElement getLastDropdownResourceGroupList() {
-        String str_selector = "[class='yotta-select-menu yotta-resource-tag-select-menu']";
+//        String str_selector = "[class='yotta-select-menu yotta-resource-tag-select-menu']";
+        String str_selector = "[class='yotta-select-menu css-1hq8cx5 yotta-resource-tag-select-menu']";
+
         List<WebElement> list = webDriver.findElements(By.cssSelector(str_selector));
 
         WebElement lastDropdownList = list.get(list.size() - 1);

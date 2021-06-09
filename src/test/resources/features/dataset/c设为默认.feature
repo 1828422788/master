@@ -14,7 +14,7 @@ Feature: 数据集-c设为默认
     And I set the parameter "Spl" with value "<Spl>"
 
     And I choose the "app之api全部用例" from the "appList"
-    And I choose the "auto_package" from the "ResourceGroupList"
+    And I choose the "auto_ui" from the "ResourceGroupList"
     When I click the "Spl" button
     And I wait for "5000" millsecond
     And I click the "Save" button

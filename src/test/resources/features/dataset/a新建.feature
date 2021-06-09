@@ -13,7 +13,7 @@ Feature: 数据集-a新建
 
     And I choose the "app之api全部用例" from the "appList"
     And I wait for "2000" millsecond
-    And I choose the "auto_package" from the "ResourceGroupList"
+    And I choose the "auto_ui" from the "ResourceGroupList"
     And I click the "Save" button
 
     Then I will see the "dataset.DetailPage" page
