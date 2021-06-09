@@ -22,7 +22,6 @@ Feature: 仪表盘钻取配置
   Scenario: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
-#    And I click the "Create" button
     Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city"
     And I click the "DateEditor" button
@@ -56,6 +55,82 @@ Feature: 仪表盘钻取配置
       | 钻取跳转   |
 
   @dashboard @dashboardSmoke
+  Scenario: 新建标签页钻取所需趋势图
+    And open the "trend.ListPage" page for uri "/trend/"
+    And I click the "NewTrendButton" button
+    Then I will see the "trend.CreatePageDash" page
+    And I set the parameter "SearchInput" with value "tag:sample04061424_chart AND 'apache.geo.province':江苏 | stats count()"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+    And I wait for "1500" millsecond
+    And I wait for loading invisible
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+    When I set the parameter "NameInput" with value "测试标签钻取"
+    And I click the "Complete" button under some element
+    And I wait for "SuccessCreate" will be visible
+
+  @dashboard @dashboardSmoke
+  Scenario: 仪表盘添加钻取趋势图
+    And I set the parameter "SearchInput" with value "钻取跳转"
+    And I wait for "2000" millsecond
+    And I click the detail which name is "钻取跳转"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "AddEventButton" will be visible
+    When I click the "AddEventButton" button
+    And I wait for "500" millsecond
+    And I click the "AddChart" button
+    And I set the parameter "SearchChartInput" with value "测试标签钻取"
+    And I wait for loading invisible
+    And I click the "{'Checkbox':'测试标签钻取'}" button
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I wait for element "SuccessMessage" change text to "添加成功"
+    And I wait for "2000" millsecond
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 仪表盘添加输入项
+    And I set the parameter "SearchInput" with value "钻取跳转"
+    And I wait for "2000" millsecond
+    And I click the detail which name is "钻取跳转"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+    When I click the "AddEventButton" button
+    And I click the "AddInput" button
+    And I set the parameter "FilterTitle" with value "<filter>"
+    And I wait for "500" millsecond
+    And I set the parameter "FilterToken" with value "<filter>"
+    And I wait for "1000" millsecond
+    And I set the parameter "FilterDefaultValue" with value "<defaultValue>"
+    Then I click the "Ensure" button
+
+    Examples:
+      | filter | defaultValue |
+      | city   | 苏州市          |
+
+  @dashboard @dashboardSmoke
+  Scenario: 修改仪表盘配置
+    And I set the parameter "SearchInput" with value "钻取跳转"
+    And I wait for "2000" millsecond
+    And I click the detail which name is "钻取跳转"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+    When the chart title is "测试标签钻取" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    And I click the "Configs" button
+    And I wait for loading invisible
+    And I set the parameter "Spl" with value "tag:sample04061424_chart AND apache.geo.city:${city}| stats count() by apache.geo.country, apache.geo.province, apache.geo.city"
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "配置成功"
+
+  @dashboard @dashboardSmoke
   Scenario: 添加图表
     And I set the parameter "SearchInput" with value "测试钻取配置"
     And I wait for "2000" millsecond
@@ -72,6 +147,7 @@ Feature: 仪表盘钻取配置
     And I wait for loading invisible
     And I "checked" the checkbox which name is "仪表盘钻取配置"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
   @dashboard @dashboardSmoke
@@ -247,83 +323,6 @@ Feature: 仪表盘钻取配置
       | url                    | title     |
       | https://www.baidu.com/ | 百度一下，你就知道 |
       | /trend/                | 趋势图列表     |
-
-  @dashboard @dashboardSmoke
-  Scenario: 新建标签页钻取所需趋势图
-    And open the "trend.ListPage" page for uri "/trend/"
-    And I click the "NewTrendButton" button
-#    And I click the "Create" button
-    Then I will see the "trend.CreatePageDash" page
-    And I set the parameter "SearchInput" with value "tag:sample04061424_chart AND 'apache.geo.province':江苏 | stats count()"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for "Header" will be visible
-    And I click the "NextButton" button
-    And I wait for "1500" millsecond
-    And I wait for loading invisible
-    And I wait for "Header" will be visible
-    And I click the "NextButton" button
-    When I set the parameter "NameInput" with value "测试标签钻取"
-    And I click the "Complete" button under some element
-    And I wait for "SuccessCreate" will be visible
-
-  @dashboard @dashboardSmoke
-  Scenario: 仪表盘添加钻取趋势图
-    And I set the parameter "SearchInput" with value "钻取跳转"
-    And I wait for "2000" millsecond
-    And I click the detail which name is "钻取跳转"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I wait for "AddEventButton" will be visible
-    When I click the "AddEventButton" button
-    And I wait for "500" millsecond
-    And I click the "AddChart" button
-    And I set the parameter "SearchChartInput" with value "测试标签钻取"
-    And I wait for loading invisible
-    And I click the "{'Checkbox':'测试标签钻取'}" button
-    And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
-    Then I wait for element "SuccessMessage" change text to "添加成功"
-    And I wait for "2000" millsecond
-
-  @dashboard @dashboardSmoke
-  Scenario Outline: 仪表盘添加输入项
-    And I set the parameter "SearchInput" with value "钻取跳转"
-    And I wait for "2000" millsecond
-    And I click the detail which name is "钻取跳转"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    When I click the "AddEventButton" button
-    And I click the "AddInput" button
-    And I set the parameter "FilterTitle" with value "<filter>"
-    And I wait for "500" millsecond
-    And I set the parameter "FilterToken" with value "<filter>"
-    And I wait for "1000" millsecond
-    And I set the parameter "FilterDefaultValue" with value "<defaultValue>"
-    Then I click the "Ensure" button
-
-    Examples:
-      | filter | defaultValue |
-      | city   | 苏州市          |
-
-  @dashboard @dashboardSmoke
-  Scenario: 修改仪表盘配置
-    And I set the parameter "SearchInput" with value "钻取跳转"
-    And I wait for "2000" millsecond
-    And I click the detail which name is "钻取跳转"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    When the chart title is "测试标签钻取" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
-    And I click the "Configs" button
-    And I wait for loading invisible
-    And I set the parameter "Spl" with value "tag:sample04061424_chart AND apache.geo.city:${city}| stats count() by apache.geo.country, apache.geo.province, apache.geo.city"
-    And I click the "Ensure" button
-    And I wait for "500" millsecond
-    Then I will see the success message "配置成功"
 
   @dashboard @dashboardSmoke
   Scenario: 跳转到标签页(后三步待验证)
