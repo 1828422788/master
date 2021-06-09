@@ -23,6 +23,7 @@ Feature: 仪表盘01新建（RZY-208至RZY-210）
 #    And I choose the "app之api全部用例" from the "BelongedApp"
     And I choose the "<datauser>" from the "LastDropdownList"
     And I click the "Ensure" button
+    Given I wait for loading complete
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 

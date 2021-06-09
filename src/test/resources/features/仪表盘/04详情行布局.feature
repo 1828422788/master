@@ -764,7 +764,8 @@ Feature: 仪表盘04详情行布局
     And I click the "trendTwo" button
     And I wait for "1500" millsecond
     And I click the "SettingIcon" button
-    And I wait for "500" millsecond
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "disable"
     Given I wait for loading complete
     And I wait for "2000" millsecond
