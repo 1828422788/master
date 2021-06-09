@@ -156,3 +156,53 @@ Feature: 日志展现_序列
       |   AreaChart   |
       |  ScatterChart |
       |  ColumnChart  |
+
+  Scenario Outline: order_label_orientation
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip | sort by cnt"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Type" button
+    And I click the "Order" button
+    And I click the "<chartType>" button
+
+    And I click the "Settings" button
+    And I click the "<label>" button
+    And I wait for "1000" millsecond
+    And I click the "Generate" button
+    And I click the "Settings" button
+    And I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
+    And I will see the element "BottomAxisLabel" contains "221.226.97.92"
+    And I will see the element "BottomAxisLabel" transform contains "<angle>"
+
+    Examples:
+      |   chartType   | label      | angle      |
+      |   LineChart   | FirstLabel | rotate(0)  |
+      |   AreaChart   |            | rotate(-45)|
+      |  ScatterChart | ThirdLabel | rotate(45) |
+      |  ColumnChart  | ForthLabel | rotate(-90)|
+
+  Scenario Outline: order_label_order
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() by apache.geo.city | limit 5"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Type" button
+    And I click the "Order" button
+    And I click the "<chartType>" button
+
+    And I click the "Settings" button
+    And I click the "<order>" button
+    And I wait for "1000" millsecond
+    And I click the "Generate" button
+    And I click the "Settings" button
+    And I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
+    And I will see the element "BottomAxisLabel" contains "<value>"
+
+    Examples:
+      |   chartType   | order           | value     |
+      |   AreaChart   |                 | 南京市    |
+      |  ScatterChart | AscendingOrder  | 北京市    |
+      |  ColumnChart  | DescendingOrder | 深圳市    |
