@@ -532,9 +532,7 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-
     And I set the parameter "FilterValue" with value "a1111b"
-
     And I click the "SettingIcon" button
     And I wait for "500" millsecond
 #    And I switch the dashboard "OpenShowCondition" button to "disable"
@@ -567,6 +565,7 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I wait for "3000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
+    Given I wait for loading complete
     And I wait for "1000" millsecond
 #    And I will see the success message "展示条件已启用"
     Then I will see the "trendTwo" doesn't exist
@@ -624,6 +623,7 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I wait for "3000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
+    Given I wait for loading complete
     And I wait for "1500" millsecond
 #    And I will see the success message "展示条件已启用"
 #    Then I will see the "trendThree" doesn't exist
@@ -744,7 +744,6 @@ Feature: 仪表盘04详情行布局
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
-#    And I click the "MoreConfig" button
     And I click the "Configs" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
@@ -767,7 +766,8 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I wait for "500" millsecond
     And I switch the dashboard "OpenShowCondition" button to "disable"
-    And I wait for "1500" millsecond
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
 #    And I will see the success message "展示条件已关闭"
     And I click the "trendThree" button
 
@@ -808,7 +808,8 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I wait for "3000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
-    And I wait for "500" millsecond
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
 #    And I will see the success message "展示条件已启用"
     Then I wait for "trendThree" will be visible
     Then I will see the "trendTwo" doesn't exist
@@ -915,7 +916,8 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I wait for "3000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
-    And I wait for "500" millsecond
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     Then I will see the "trendTwo" doesn't exist
     Then I wait for "trendThree" will be visible
 
@@ -993,7 +995,48 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I wait for "1500" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
-    And I wait for "500" millsecond
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     Then I will see the "trendTwo" doesn't exist
     Then I wait for "trendThree" will be visible
+
+
+  @cleanDashboard04
+  Scenario Outline: 删除行布局所建趋势图
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When the data name is "<name>" then i click the "删除" button in more menu
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    And I will see the success message "删除成功"
+
+    Examples:
+      | name   |
+      | 行布局趋势图1 |
+      | 行布局趋势图2 |
+      | 行布局趋势图3 |
+
+
+#  @cleanDashboard04
+#  Scenario Outline: 删除仪表盘
+#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+#    When the data name is "<name>" then i click the "删除" button in more menu
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button
+#    And I wait for "500" millsecond
+#    Then I will see the success message "删除仪表盘成功"
+#
+#    Examples:
+#      | name  |
+#      | 仪表盘行布局 |
+#      | 仪表盘行布局1 |
+#      | 仪表盘行布局2|
+#      | 仪表盘行布局3 |
+#      | 仪表盘行布局4 |
+#      | 仪表盘行布局5 |
+#      | 仪表盘行布局6 |
+#      | 仪表盘行布局7 |
+#      | 仪表盘行布局51 |
+#      | 仪表盘行布局52 |
+#      | 仪表盘行布局53 |
 
