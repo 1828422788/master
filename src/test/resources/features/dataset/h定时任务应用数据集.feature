@@ -7,6 +7,7 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页，前置-数据
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 #    And I drag the element "SearchPageSvg" to the "left" side
+    And I drag the element "SearchPageSvg" to the fixed side
     And I wait for loading invisible
     Given I set the parameter "SearchInput" with value "<spl>"
     #选择父子行为为无的数据集
@@ -43,7 +44,8 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页，前置-数据
 
     And I wait for "1500" millsecond
     And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "创建成功"
+#    Then I will see the success message "创建成功"
+    Then I will see the success message "保存成功"
 
     Examples:
       | spl                                                  | taskName | describe      | crontab        |
