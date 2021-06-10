@@ -58,9 +58,13 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页，前置-数据
         #验证数据集在定时任务中的显示
     When the data name is "{'column':'1','name':'<taskName>'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
+    Given I wait for loading complete
     And I wait for "5000" millsecond
-    And I wait for "dataSet" will be visible
-    Then I will see the "dataSet" result will be "<dataSetResult>"
+
+#    When I wait for "DataSetLink" will be visible
+    When I click the "DatasetLink" button
+    When I wait for "FatherChildNull1Task" will be visible
+#    Then I will see the "dataSet" result will be "<dataSetResult>"
 
     Examples:
       | taskName | dataSetResult |
@@ -133,9 +137,11 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页，前置-数据
         #验证数据集在定时任务中的显示
     When the data name is "{'column':'1','name':'<taskName>'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
+    Given I wait for loading complete
     And I wait for "5000" millsecond
-    And I wait for "dataSet" will be visible
-    Then I will see the "dataSet" result will be "<dataSetResult>"
+
+    When I click the "DatasetLink" button
+    When I wait for "HuiJuTask" will be visible
 
     Examples:
       | taskName | dataSetResult                                           |
@@ -205,9 +211,11 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页，前置-数据
     #验证数据集在定时任务中的显示
     When the data name is "{'column':'1','name':'<taskName>'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
+    Given I wait for loading complete
     And I wait for "5000" millsecond
-    And I wait for "dataSet" will be visible
-    Then I will see the "dataSet" result will be "<dataSetResult>"
+
+    When I click the "DatasetLink" button
+    When I wait for "JiCheng1Task" will be visible
 
     Examples:
       | taskName | dataSetResult       |

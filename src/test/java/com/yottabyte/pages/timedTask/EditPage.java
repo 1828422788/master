@@ -20,6 +20,37 @@ public class EditPage extends PageTemplate {
 
     @FindBy(xpath = "//label[text()='数据集']/ancestor::div[1]/following-sibling::div//span")
     private WebElement dataset;
+    public WebElement getDataSet() {
+        return dataset;
+    }
+
+    @FindBy(xpath = "//a[@yotta-test='schedule-choose_dataset-link']")
+    private WebElement datasetLink;
+    public WebElement getDatasetLink() {
+        return datasetLink;
+    }
+
+    //数据集父子行为是无的根节点的子节点
+    @FindBy(xpath = "//span[text()='无1']")
+    private WebElement fatherChildNull1Task;
+    public WebElement getFatherChildNull1Task(){
+        return fatherChildNull1Task;
+    }
+
+    //数据集父子行为是汇聚的根节点
+    @FindBy(xpath = "//span[text()='汇聚tree']")
+    private WebElement huiJuTask;
+    public WebElement getHuiJuTask() {
+        return huiJuTask;
+    }
+
+    //数据集父子行为是继承的根节点的子节点
+    @FindBy(xpath = "//span[text()='继承1']")
+    private WebElement jiCheng1Task;
+
+    public WebElement getJiCheng1Task() {
+        return jiCheng1Task;
+    }
 
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']")
     private WebElement taskGroup;
@@ -275,10 +306,6 @@ public class EditPage extends PageTemplate {
 
     public WebElement getPeriod() {
         return getYottaInput("schedule-frequency_value-input");
-    }
-
-    public WebElement getDataSet() {
-        return dataset;
     }
 
     public WebElement getSubmit() {
