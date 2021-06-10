@@ -19,7 +19,7 @@ public class CreatePage extends PageTemplate {
         driver.manage().window().setSize(new Dimension(1200, 900));
     }
 
-    @FindBy(className = "_1rpZECB9i9v8h6IEUve_yK")
+    @FindBy(className = "yotta-message-content")
     private WebElement successMessage;
 
     @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")
@@ -63,6 +63,9 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//div[@yotta-test='report-trend_selector-dropdown']//span[text()]")
     private WebElement chartList;  //添加趋势图
+
+    @FindBy(xpath = "//div[@yotta-test='report-preview-dropdown']//span[text()]")
+    private WebElement preview;  //预览
 
     @FindBy(xpath = "//div[@yotta-test='report-trend_selector-dropdown' and contains(@class,'disabled')]//span[text()]")
     private WebElement disabledChartList;
@@ -609,6 +612,17 @@ public class CreatePage extends PageTemplate {
     public WebElement getChartList() {
         ClickEvent.clickUnderneathButton(chartList);
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
+        String className = "yotta-dropdown-menu";
+        List<WebElement> list = webDriver.findElements(By.className(className));
+        WebElement lastDropdownList = list.get(list.size() - 1);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+        }
+        return lastDropdownList;
+    }
+
+    public WebElement getPreview() {
+        ClickEvent.clickUnderneathButton(preview);
         String className = "yotta-dropdown-menu";
         List<WebElement> list = webDriver.findElements(By.className(className));
         WebElement lastDropdownList = list.get(list.size() - 1);
