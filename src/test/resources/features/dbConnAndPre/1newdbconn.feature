@@ -1,7 +1,7 @@
 @newconn @autoui01
 Feature: 新建数据库连接配置
 
-  @splpre @autoui01
+  @splpre
   Scenario Outline: 新建连接配置-4个
     Given open the "dbConnectionPre.dbSettingPage" page for uri "/dbsettings/"
     And I click the "DbConnConfig" button
@@ -25,8 +25,7 @@ Feature: 新建数据库连接配置
 
     And I click the "NewButtton" button
     Then take a screenshot with name "actual/create_<newDbConnName>"
-    And I wait for element "SearchStatus" change text to "创建成功"
-    And I wait for element "ReminderBoxTitle" change text to "提示"
+    And I wait for element "succMessage" change text to "创建成功"
     When I click the "AffirmButton" button
 
     Examples:
@@ -60,8 +59,7 @@ Feature: 新建数据库连接配置
 
     And I click the "NewButtton" button
     Then take a screenshot with name "actual/create_<newDbConnName>"
-    And I wait for element "SearchStatus" change text to "创建成功"
-    And I wait for element "ReminderBoxTitle" change text to "提示"
+    And I wait for element "succMessage" change text to "创建成功"
     When I click the "AffirmButton" button
 
     Examples:

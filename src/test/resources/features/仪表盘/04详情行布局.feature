@@ -354,6 +354,7 @@ Feature: 仪表盘04详情行布局
     And I set the parameter "FilterToken" with value "filter"
     And I set the parameter "FilterDefaultValue" with value "apache.geo.city"
     Then I click the "Ensure" button
+    Given I wait for loading complete
     Then I wait for "FilterName" will be visible
 
     Examples:
@@ -492,7 +493,8 @@ Feature: 仪表盘04详情行布局
     And I wait for "ShowValue" will be visible
     And I set the parameter "ShowValue" with value "a1?b"
     And I click the "Ensure" button
-    And I wait for "500" millsecond
+    Given I wait for loading complete
+#    And I wait for "500" millsecond
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
 #    And I click the "MoreConfig" button
@@ -570,9 +572,8 @@ Feature: 仪表盘04详情行布局
 #    And I will see the success message "展示条件已启用"
     Then I will see the "trendTwo" doesn't exist
     Then I wait for "trendThree" will be visible
-
-#    And I click the "trendThree" button
-#    And I wait for "1500" millsecond
+    And I click the "trendThree" button
+    And I wait for "1500" millsecond
 #    And I click the "SettingIcon" button
 #    And I wait for "500" millsecond
 #    And I switch the dashboard "OpenShowCondition" button to "disable"
@@ -720,7 +721,7 @@ Feature: 仪表盘04详情行布局
 #    And I will see the success message "展示条件已关闭"
     And I click the "trendThree" button
 
-  @dashboard04p2 @dashboardSmoke
+  @dashboard04p20 @dashboardSmoke
   Scenario: 展示条件-时间范围输入项 RZY-4790
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -762,6 +763,27 @@ Feature: 仪表盘04详情行布局
     Then I will see the "trendThree" doesn't exist
     Then I wait for "trendTwo" will be visible
     And I click the "trendTwo" button
+    And I wait for "1500" millsecond
+#    And I click the "SettingIcon" button
+#    Given I wait for loading complete
+#    And I wait for "2000" millsecond
+#    And I switch the dashboard "OpenShowCondition" button to "disable"
+#    Given I wait for loading complete
+#    And I wait for "2000" millsecond
+##    And I will see the success message "展示条件已关闭"
+#    And I click the "trendThree" button
+
+  @dashboard04p21 @dashboardSmoke
+  Scenario: 展示条件-时间范围输入项 RZY-4790
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "仪表盘行布局52"
+    And I wait for "2000" millsecond
+    When I click the detail which name is "仪表盘行布局52"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+    Given I wait for loading complete
     And I wait for "1500" millsecond
     And I click the "SettingIcon" button
     Given I wait for loading complete

@@ -2555,6 +2555,12 @@ public class DetailPage extends PageTemplate {
         return getSwitchButton("启用展示条件");
     }
 
+    @FindBy(xpath = "//input[@yotta-test='dashboard-toggle_row_condition-switch']/parent::span/parent::label")
+    private WebElement newOpenShowCondition;
+    private WebElement getNewOpenShowCondition() {
+        return newOpenShowCondition;
+    }
+
     public WebElement getEnsureAddTrend() {
         return super.getButton("确定");
     }

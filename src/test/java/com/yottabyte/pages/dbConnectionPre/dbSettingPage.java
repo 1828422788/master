@@ -154,9 +154,14 @@ public class dbSettingPage extends PageTemplate {
         return searchInput;
     }
 
-    @FindBy(className = "yotta-search-control-text")
-    private WebElement searchStatus;
+    @FindBy(className = "yotta-dialog-contenttext")
+    private WebElement succMessage;
+    public WebElement getSuccMessage() {
+        return succMessage;
+    }
 
+    @FindBy(className = "yotta-dialog-contenttext")
+    private WebElement searchStatus;
     public WebElement getSearchStatus() {
         return searchStatus;
     }
@@ -278,14 +283,6 @@ public class dbSettingPage extends PageTemplate {
 
     public WebElement getAffirmDelDbLookupButton() {
         return super.getButton("确定");
-    }
-
-    //测试运行窗口提示
-    @FindBy(xpath = "//div[@class='ant-modal-header']/div[@class='ant-modal-title'][@id='rcDialogTitle0'][contains(text(),'提示')]")
-    private WebElement reminderBoxTitle;
-
-    public WebElement getTestRunReminder() {
-        return reminderBoxTitle;
     }
 
     //确认
