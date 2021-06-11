@@ -1,7 +1,7 @@
-@cleare0
+@cleardatabaseconn
 Feature: 新建数据库连接配置
 
-  @deldblookup @cleare0
+  @delconn @deldblookup
   Scenario Outline: 删除连接-3
     Given open the "dbConnectionPre.DbOutputPage" page for uri "/dbsettings/"
     And I click the "DbLookupConfig" button
@@ -18,7 +18,7 @@ Feature: 新建数据库连接配置
       | outsample_u |
       | deloutsample |
 
-  @deldblookup @cleare0
+  @delconn @deldblookup
   Scenario Outline: 删除连接-3
     Given open the "dbConnectionPre.dbSettingPage" page for uri "/dbsettings/"
     And I click the "DbLookupConfig" button

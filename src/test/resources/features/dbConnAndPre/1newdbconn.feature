@@ -5,10 +5,11 @@ Feature: 新建数据库连接配置
   Scenario Outline: 新建连接配置-4个
     Given open the "dbConnectionPre.dbSettingPage" page for uri "/dbsettings/"
     And I click the "DbConnConfig" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
 
     And I click the "CreateDbConn" button
-    And I wait for loading complete
+    Given I wait for loading complete
+    And I wait for "5000" millsecond
 
     And I set the parameter "NewDbConnName" with value "<newDbConnName>"
     And I choose the "<newDbConnTypeList>" from the "NewDbConnTypeList"
@@ -24,6 +25,8 @@ Feature: 新建数据库连接配置
     And I set the parameter "newConnDefaultDb" with value "<newConnDefaultDb>"
 
     And I click the "NewButtton" button
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
     Then take a screenshot with name "actual/create_<newDbConnName>"
     And I wait for element "succMessage" change text to "创建成功"
     When I click the "AffirmButton" button
