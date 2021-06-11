@@ -976,9 +976,11 @@ Feature: 仪表盘输入项
   @dbinput7 @dbinput71
   Scenario: 增加动态菜单多选及标识值前后缀 RZY-288，RZY-3432
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
+    Given I wait for loading complete
     And I set the parameter "SearchInput" with value "测试输入项7"
+    Given I wait for loading complete
     And I wait for "2000" millsecond
+    Then take a screenshot with name "actual/测试输入项7"
     And I click the detail which name is "测试输入项7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1230,6 +1232,9 @@ Feature: 仪表盘输入项
   @cleandbinput
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "<name>"
+    Given I wait for loading complete
     When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
@@ -1245,4 +1250,4 @@ Feature: 仪表盘输入项
       | 测试输入项4 |
       | 测试输入项5 |
       | 测试输入项6 |
-      | 测试输入项7 |
+#      | 测试输入项7 |

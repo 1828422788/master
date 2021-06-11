@@ -1040,26 +1040,29 @@ Feature: 仪表盘04详情行布局
       | 行布局趋势图3 |
 
 
-#  @cleanDashboard04
-#  Scenario Outline: 删除仪表盘
-#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-#    When the data name is "<name>" then i click the "删除" button in more menu
-#    And I wait for "Ensure" will be visible
-#    And I click the "Ensure" button
-#    And I wait for "500" millsecond
-#    Then I will see the success message "删除仪表盘成功"
-#
-#    Examples:
-#      | name  |
-#      | 仪表盘行布局 |
-#      | 仪表盘行布局1 |
-#      | 仪表盘行布局2|
-#      | 仪表盘行布局3 |
-#      | 仪表盘行布局4 |
-#      | 仪表盘行布局5 |
-#      | 仪表盘行布局6 |
-#      | 仪表盘行布局7 |
-#      | 仪表盘行布局51 |
+  @cleanDashboard04
+  Scenario Outline: 删除仪表盘
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "<name>"
+    Given I wait for loading complete
+    When the data name is "<name>" then i click the "删除" button in more menu
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    Then I will see the success message "删除仪表盘成功"
+
+    Examples:
+      | name  |
+      | 仪表盘行布局 |
+      | 仪表盘行布局1 |
+      | 仪表盘行布局2|
+      | 仪表盘行布局3 |
+      | 仪表盘行布局4 |
+      | 仪表盘行布局5 |
+      | 仪表盘行布局6 |
+      | 仪表盘行布局7 |
+      | 仪表盘行布局51 |
 #      | 仪表盘行布局52 |
-#      | 仪表盘行布局53 |
+      | 仪表盘行布局53 |
 
