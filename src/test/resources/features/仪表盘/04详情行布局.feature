@@ -1026,7 +1026,7 @@ Feature: 仪表盘04详情行布局
     Then I wait for "trendThree" will be visible
 
 
-  @cleanDashboard04
+  @cleanDashboard041
   Scenario Outline: 删除行布局所建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "删除" button in more menu
@@ -1042,7 +1042,7 @@ Feature: 仪表盘04详情行布局
       | 行布局趋势图3 |
 
 
-  @cleanDashboard04
+  @cleanDashboard042
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -1056,7 +1056,7 @@ Feature: 仪表盘04详情行布局
 
     Examples:
       | name  |
-      | 仪表盘行布局 |
+#      | 仪表盘行布局 |
       | 仪表盘行布局1 |
       | 仪表盘行布局2|
       | 仪表盘行布局3 |

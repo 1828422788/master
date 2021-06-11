@@ -10,7 +10,7 @@ Feature: 仪表盘删除
     Then I will see the success message "删除仪表盘成功"
 
     Examples:
-      | name              |
+      | name             |
       | 仪表盘曲线图       |
       | 仪表盘面积图       |
       | 仪表盘散点图       |
