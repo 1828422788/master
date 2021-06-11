@@ -778,6 +778,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局52"
+    Given I wait for loading complete
     And I wait for "2000" millsecond
     When I click the detail which name is "仪表盘行布局52"
     And switch to window "仪表盘"
@@ -799,7 +800,8 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局53"
-    And I wait for "2000" millsecond
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     When I click the detail which name is "仪表盘行布局53"
     And switch to window "仪表盘"
     And I close all tabs except main tab
