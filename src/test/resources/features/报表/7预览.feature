@@ -13,7 +13,6 @@ Feature: 报表预览
     And I choose the "<type>" from the "ReportType"
     And I set the parameter "Hour" with value "00"
     And I set the parameter "Minute" with value "00"
-    And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
     And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
@@ -39,7 +38,6 @@ Feature: 报表预览
     And I choose the "<type>" from the "ReportType"
     And I set the parameter "Hour" with value "00"
     And I set the parameter "Minute" with value "00"
-    And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
     And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButtonWord" will be visible
@@ -63,6 +61,7 @@ Feature: 报表预览
     And the data name is "{'column':'1','name':'Test_Preview_<type>'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
+    And I set the parameter "Subject" with value "运行测试_报表名称：<%report_name%>，发送时间：<%report_time%>"
     And I click the "NextButton" button under some element
     And I will see the "report.CreatePage<page>" page
     And I wait for "5000" millsecond
@@ -110,6 +109,7 @@ Feature: 报表预览
     And the data name is "{'column':'1','name':'Test_Preview_<type>'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
+    And I set the parameter "Subject" with value "下载到本地预览_报表名称：<%report_name%>，发送时间：<%report_time%>"
     And I click the "NextButton" button under some element
     And I will see the "report.CreatePage<page>" page
     And I wait for "5000" millsecond
