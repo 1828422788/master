@@ -33,7 +33,7 @@ Feature: 新建数据库连接配置
 
     Examples:
       | newDbConnName | newDbUserName | newDbUserPassword | newDbRetLines | newDbConnTypeList | newDbConnHost | newDbConnPort | newConnDefaultDb |
-      | v33dbx        | root          | 123456            | 1000          | mysql             | 192.168.1.171 | 3306          | v33dbx           |
+      | v33dbx       | root          | 123456            | 1000          | mysql             | 192.168.1.171 | 3306          | v33dbx           |
       | delv33dbx     | root          | 1233456           | 1000          | mysql             | 192.168.1.171 | 3306          | v33dbx           |
       | editv33dbx    | root          | 123456            | 1000          | mysql             | 192.168.1.171 | 3306          | v33dbx           |
       | v33vertica    | dbadmin       | 123456            | 1000          | vertica           | 192.168.1.221 | 5433          | docker           |
