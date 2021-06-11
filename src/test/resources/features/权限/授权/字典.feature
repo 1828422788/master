@@ -132,10 +132,11 @@ Feature: 权限-字典
     When the data name is "<name>" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     And I wait for loading invisible
+    And I click the "Next" button
     And I click the "GroupInputButton" button
     And I set the parameter "GroupInput" with value "字典分组AutoTest"
     And I choose the "字典分组AutoTest" from the "Group"
-    And I click the "Save" button
+    And I click the "Done" button
     And I wait for "Message" will be visible
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
