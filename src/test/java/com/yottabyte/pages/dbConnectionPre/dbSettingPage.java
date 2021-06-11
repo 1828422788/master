@@ -20,6 +20,18 @@ public class dbSettingPage extends PageTemplate {
         driver.manage().window().fullscreen();
     }
 
+    /**
+     * 数据库输出
+     */
+    @FindBy(xpath = "//div[@yotta-test='dbsettings-list_tabs-tabs']//div[contains(text(),'数据库输出')]")
+    private WebElement dbOutputLabel;
+    public WebElement getDbOutputLabel() {
+        return dbOutputLabel;
+    }
+
+    /**
+     * 连接配置
+     */
     @FindBy(xpath = "//div[contains(text(),'连接配置')]")
     private WebElement dbConnConfig;
 

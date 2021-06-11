@@ -1,22 +1,30 @@
 @cleardatabaseconn
 Feature: 新建数据库连接配置
 
-  @delconn @deldblookup
+  @delconn @deldbout
   Scenario Outline: 删除连接-3
-    Given open the "dbConnectionPre.DbOutputPage" page for uri "/dbsettings/"
-    And I click the "DbLookupConfig" button
-    And I wait for "1000" millsecond
+#    Given open the "dbConnectionPre.DbOutputPage" page for uri "/dbsettings/"
+    Given open the "dbConnectionPre.dbSettingPage" page for uri "/dbsettings/"
 
-    When I set the parameter "DbLookupSearchInput" with value "<dbLookupName>"
-    And I click the "DelDbLookupButton" button
+    And I click the "DbOutputLabel" button
+    Then I will see the "dbConnectionPre.DbOutputPage" page
+
+    And I wait for "1000" millsecond
+    Given I wait for loading complete
+
+    When I set the parameter "SearchNameInput" with value "<dbLookupName>"
+    When the data name is "<dbLookupName>" then i click the "删除" button in more menu
+#    And I click the "DelDbLookupButton" button
     And I wait for "AffirmDelDbLookupButton" will be visible
     And I click the "AffirmDelDbLookupButton" button
 
+    Then I will see the success message "删除仪表盘成功"
     Examples:
       | dbLookupName |
-      | outsample |
-      | outsample_u |
+      | outsample_u  |
+      | outsample    |
       | deloutsample |
+
 
   @delconn @deldblookup
   Scenario Outline: 删除连接-3
@@ -24,16 +32,18 @@ Feature: 新建数据库连接配置
     And I click the "DbLookupConfig" button
     And I wait for "1000" millsecond
 
+    Given I wait for loading complete
     When I set the parameter "DbLookupSearchInput" with value "<dbLookupName>"
-    And I click the "DelDbLookupButton" button
+    When the data name is "<dbLookupName>" then i click the "删除" button in more menu
+#    And I click the "DelDbLookupButton" button
     And I wait for "AffirmDelDbLookupButton" will be visible
     And I click the "AffirmDelDbLookupButton" button
 
     Examples:
-      | dbLookupName |
-      | lookupsample |
+      | dbLookupName    |
+      | lookupsample    |
       | dellookupsample |
-      | u_lookupsample |
+      | u_lookupsample  |
 
   @delconn @cleare00
   Scenario Outline: 删除连接
@@ -48,10 +58,10 @@ Feature: 新建数据库连接配置
 
     Examples:
       | DbConnName |
-      | v33dbx        |
-      | delv33dbx    |
-      | editv33dbx    |
-      | v33vertica    |
+      | v33dbx     |
+      | delv33dbx  |
+      | editv33dbx |
+      | v33vertica |
 
   @cleare00 @delldapconn
   Scenario Outline: 删除ldap连接

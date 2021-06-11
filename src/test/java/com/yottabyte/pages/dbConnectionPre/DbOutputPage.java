@@ -39,14 +39,14 @@ public class DbOutputPage extends PageTemplate {
         return newDbOutputButton;
     }
 
-    @FindBy(className = "CodeMirror")
-    private WebElement searchInput;
-
-    public WebElement getSearchInput() {
-        ExpectedCondition expectedCondition = ExpectedConditions.elementToBeClickable(searchInput);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
-        return searchInput;
-    }
+//    @FindBy(className = "CodeMirror")
+//    private WebElement searchInput;
+//
+//    public WebElement getSearchInput() {
+//        ExpectedCondition expectedCondition = ExpectedConditions.elementToBeClickable(searchInput);
+//        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+//        return searchInput;
+//    }
 
     @FindBy(className = "yotta-search-control-text")
     private WebElement searchStatus;
