@@ -17,7 +17,7 @@ public class CreatePageWORD extends PageTemplate {
         driver.manage().window().setSize(new Dimension(1600,900));
     }
 
-    @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")
+    @FindBy(className = "yotta-message-content")
     private WebElement successMessage;
 
     @FindBy(xpath = "//span[text()='完成']/ancestor::button")
@@ -286,6 +286,17 @@ public class CreatePageWORD extends PageTemplate {
 
     @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']/ancestor::div[1]/following-sibling::div[@class='yotta-dialog-content']//p")
     private WebElement errorMessage;
+
+    @FindBy(xpath = " //a[@aria-label='预览']")
+    private WebElement preview;
+
+    @FindBy(xpath = "//ul[@class='jodit_toolbar']")
+    private WebElement previewDropdownList;
+
+    public WebElement getPreview() {
+        preview.click();
+        return previewDropdownList;
+    }
 
     public WebElement getErrorMessage() {
         return errorMessage;
