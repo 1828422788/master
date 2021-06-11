@@ -354,7 +354,7 @@ Feature: 字段提取关联日志样例
     And I wait for "ParseButton" will be visible
     Then I wait for "2000" millsecond
     Then I click the "EventList" button
-    And I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:<appName>"s
+    And I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:<appName>"
     And I click the "DateEditor" button
 #    And I click the "RecentOneHour" button
     And I click the "SearchButton" button
