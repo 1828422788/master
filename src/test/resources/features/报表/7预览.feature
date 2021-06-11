@@ -84,6 +84,7 @@ Feature: 报表预览
 
   Scenario Outline: check_type
     When I set the parameter "SearchInput" with value "Test_Preview_<type>"
+    And I wait for "20000" millsecond
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'Test_Preview_<type>'}" then i click the "Test_Preview_<type>" button
     Then I will see the element "LastGeneratedReport" contains "<text>"
@@ -131,6 +132,7 @@ Feature: 报表预览
 
   Scenario Outline: check_type_2
     When I set the parameter "SearchInput" with value "Test_Preview_<type>"
+    And I wait for "20000" millsecond
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'Test_Preview_<type>'}" then i click the "Test_Preview_<type>" button
     Then I will see the element "LastGeneratedReport" contains "<text>"
