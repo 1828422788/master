@@ -1,4 +1,4 @@
-@cleanDashboard
+@cleanDashboard @cleanDashboardChart
 Feature: 仪表盘删除
 
   @cleanDashboard
