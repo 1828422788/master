@@ -788,7 +788,7 @@ Feature: 仪表盘04详情行布局
     And I wait for "1500" millsecond
     And I click the "SettingIcon" button
     Given I wait for loading complete
-    And I wait for "2000" millsecond
+    And I wait for "3000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "disable"
     Given I wait for loading complete
     And I wait for "2000" millsecond
@@ -1048,6 +1048,7 @@ Feature: 仪表盘04详情行布局
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "<name>"
     Given I wait for loading complete
+    And I wait for "3000" millsecond
     When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
@@ -1056,7 +1057,7 @@ Feature: 仪表盘04详情行布局
 
     Examples:
       | name  |
-#      | 仪表盘行布局 |
+      | 仪表盘行布局 |
       | 仪表盘行布局1 |
       | 仪表盘行布局2|
       | 仪表盘行布局3 |
