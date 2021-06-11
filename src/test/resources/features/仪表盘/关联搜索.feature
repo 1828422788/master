@@ -240,3 +240,50 @@ Feature: 仪表盘2关联搜索
     And I wait for "WorkflowList" will be visible
     And I compare with list "WorkflowList"
 
+
+  @cleanDashboard2
+  Scenario Outline: 删除仪表盘
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    When the data name is "<name>" then i click the "删除" button in more menu
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    Then I will see the success message "删除仪表盘成功"
+
+    Examples:
+      | name    |
+      | 仪表盘关联搜索 |
+
+  @cleanDashboard2
+  Scenario Outline: 删除字段提取
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+#    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    Then I will see the success message "删除成功"
+
+    Examples:
+      | name             |
+      | 仪表盘关联搜索_workflow |
+      | 仪表盘关联搜索_return   |
+      | 仪表盘关联搜索_message  |
+
+  @cleanDashboard2
+  Scenario Outline: 删除仪表盘所建趋势图
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When the data name is "<name>" then i click the "删除" button in more menu
+#    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    And I will see the success message "删除成功"
+
+    Examples:
+      | name        |
+      | 仪表盘workflow |
+      | 仪表盘return   |
+      | 仪表盘message  |

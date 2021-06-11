@@ -42,3 +42,4 @@ Feature: 仪表盘02搜索
     And I click the dashboard icon which name is "UIautotest"
     Then I will see the text "资源标签..............无" exist in page
 #    Then I will see the data "UIautotest" values "{'column':'5','name':''}"
+

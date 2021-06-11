@@ -570,3 +570,40 @@ Feature: 仪表盘1事件列表
     And I click the "Ensure" button
     Then I will see the success message "添加中，请稍后"
 
+
+  @cleanDashboard1
+  Scenario: 删除知识库
+    Given open the "knowledge.ListPage" page for uri "/knowledge/"
+    Given the data name is "apache" then i click the "删除" button in more menu
+    And I wait for "Ensure" will be visible
+    When I click the "Ensure" button
+    And I will see the success message "删除知识成功"
+
+  @cleanDashboard1
+  Scenario: 删除字段提取
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When the data name is "{'column':'1','name':'仪表盘配置字段提取'}" then i click the "删除" button in more menu
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    Then I will see the success message "删除成功"
+
+  @cleanDashboard1
+  Scenario: 删除事件操作
+    Given open the "event.ListPage" page for uri "/event/action/"
+    When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    Then I will see the success message "删除事件操作成功"
+
+  @cleanDashboard1
+  Scenario Outline: 删除仪表盘
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    When the data name is "<name>" then i click the "删除" button in more menu
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    Then I will see the success message "删除仪表盘成功"
+
+    Examples:
+      | name    |
+      | 仪表盘事件操作 |
