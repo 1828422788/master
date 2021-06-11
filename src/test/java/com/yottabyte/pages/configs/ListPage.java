@@ -36,11 +36,19 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[@class='el-dialog el-dialog--small']//tr")
     private List<WebElement> smallTr;
 
-//    @FindBy(xpath = "//label[text()='标签']/parent::div/following-sibling::div/span//div/input")
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']")
+    private WebElement tagInputDiv;
+    public WebElement getTagInputDiv(){
+        return tagInputDiv;
+    }
+
+    //    @FindBy(xpath = "//label[text()='标签']/parent::div/following-sibling::div/span//div/input")
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//input")
     private WebElement tagInput;
 
-    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//span[@class='yotta-select-selection-placeholder']")
+
+    //div[@yotta-test='resource_tag-change_resource_tag-select']//span[@class='yotta-select-selection-placeholder']
+    @FindBy(xpath = "")
     private WebElement tagToInput;
 
     @FindBy(xpath = "//ul[@role='listbox']")

@@ -72,6 +72,8 @@ Feature: 字段提取列表页
     And I wait for loading invisible
     Then I will see the search result "{'column':'1','name':'<name>'}"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button in more menu
+    When I click the "TagInputDiv" button
+    Given I wait for loading complete
     Then I set the parameter "TagInput" with value "configtag"
     Given I wait for loading complete
     And I wait for "1000" millsecond
