@@ -57,6 +57,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@yotta-test='dictionary-name-input']")
     private WebElement name;
 
+    @FindBy(xpath = "//button[@yotta-test='step-next-button']/span")
+    private WebElement next;
+
+    @FindBy(xpath = "//button[@yotta-test='step-done-button']/span")
+    private WebElement done;
+
     @FindBy(className = "ant-select-selection__choice__content")
     private WebElement resourceTag;
 
@@ -66,7 +72,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//textarea[@yotta-test='dictionary-editing-textarea']")
     private WebElement editOnlineArea;
 
-    @FindBy(xpath = "//p[text()='更新字典内容成功']")
+    @FindBy(xpath = "//p[text()='添加成功']")
     private WebElement message;
 
 //    @FindBy(className = "ant-upload-list-item-name")
@@ -99,6 +105,10 @@ public class CreatePage extends PageTemplate {
     public WebElement getMessage() {
         return message;
     }
+
+    public WebElement getNext() { return next; }
+
+    public WebElement getDone() { return done; }
 
     public WebElement getFileName() {
         return fileName;
