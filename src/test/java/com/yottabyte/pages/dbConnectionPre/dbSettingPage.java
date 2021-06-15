@@ -172,7 +172,8 @@ public class dbSettingPage extends PageTemplate {
         return succMessage;
     }
 
-    @FindBy(className = "yotta-dialog-contenttext")
+//  @FindBy(className = "yotta-dialog-contenttext")
+    @FindBy(className = "yotta-search-control-text")
     private WebElement searchStatus;
     public WebElement getSearchStatus() {
         return searchStatus;
