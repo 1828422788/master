@@ -369,26 +369,26 @@ Feature: 仪表盘03详情页
     And I wait for "3000" millsecond
     Then I will see the text "新建成功" exist in page
 
-  @cleanDashboard03
-  Scenario: 删除全局时间 RZY-4570
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    When I click the detail which name is "FirstAutoTest"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "settingIcon" button
-    And I wait for "FilterAutoRefresh" will be visible
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I wait for "1000" millsecond
-    And I move the mouse pointer to the "TimeName"
-    And I click the "TimeName" button
-    And I click the "deleteTimeTag" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button under some element
-    Then I wait for "TimeName" will be invisible
+#  @cleanDashboard03 @tc4570
+#  Scenario: 删除全局时间 RZY-4570
+#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+#    And I wait for loading invisible
+#    When I click the detail which name is "FirstAutoTest"
+#    And switch to window "仪表盘"
+#    And I close all tabs except main tab
+#    Then I will see the "dashboard.DetailPage" page
+#    And I click the "settingIcon" button
+#    And I wait for "FilterAutoRefresh" will be visible
+#    And I switch the dashboard "OpenEdit" button to "enable"
+#    And I wait for "1000" millsecond
+#    And I move the mouse pointer to the "TimeName"
+#    And I click the "TimeName" button
+#    And I click the "deleteTimeTag" button
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button under some element
+#    Then I wait for "TimeName" will be invisible
 
-  @cleanDashboard03
+  @cleanDashboard03 @cleanDashboard031
   Scenario Outline: 删除验证仪表盘全局时间趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "删除" button in more menu
@@ -401,7 +401,7 @@ Feature: 仪表盘03详情页
       | name   |
       | 验证仪表盘全局时间 |
 
-  @cleanDashboard03
+  @cleanDashboard03 @cleanDashboard032
   Scenario Outline: 删除报表
     When open the "report.ListPage" page for uri "/reports/"
     And I set the parameter "SearchInput" with value "<name>"
