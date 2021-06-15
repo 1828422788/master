@@ -31,7 +31,8 @@ Feature: 已存搜索新建（RZY-150）
   @newsaved2
   Scenario Outline: 新建监控使用已存搜索
     When I set the parameter "SearchInput" with value "<splQuery>"
-    And I choose1 the "新建" from the "SavedSearchList"
+    And I choose the "新建" from the "SavedSearchList"
+
     And I wait for loading complete
 
     And I set the parameter "SavedSearchName" with value "<name>"
@@ -50,7 +51,8 @@ Feature: 已存搜索新建（RZY-150）
   @newsaved3
   Scenario Outline: 添加已存搜索-增删改查、重名
     When I set the parameter "SearchInput" with value "<splQuery>"
-    And I choose1 the "新建" from the "SavedSearchList"
+    And I choose the "新建" from the "SavedSearchList"
+
     And I wait for loading complete
 
     And I set the parameter "SavedSearchName" with value "<name>"
@@ -69,7 +71,8 @@ Feature: 已存搜索新建（RZY-150）
   @newsaved4
   Scenario Outline: 新建索引模式及高基搜索
     When I set the parameter "SearchInput" with value "<splQuery>"
-    And I choose1 the "新建" from the "SavedSearchList"
+    And I choose the "新建" from the "SavedSearchList"
+
     And I wait for loading complete
 
     And I set the parameter "SavedSearchName" with value "<name>"
@@ -83,9 +86,11 @@ Feature: 已存搜索新建（RZY-150）
       | spark_cnt   | tag:\"sample04061424\" \| stats count() as cnt, max(apache.status) as r_max_status by apache.clientip   | 创建成功    |
       | base_sample | starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip | 创建成功    |
 
+  @newsaved5
   Scenario Outline: 权限及数据集相关
     When I set the parameter "SearchInput" with value "<splQuery>"
-    And I choose1 the "新建" from the "SavedSearchList"
+    And I choose the "新建" from the "SavedSearchList"
+
     And I wait for loading complete
 
     And I set the parameter "SavedSearchName" with value "<name>"

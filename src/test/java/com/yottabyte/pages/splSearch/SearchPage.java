@@ -76,7 +76,6 @@ public class SearchPage extends ListPageFactory {
     private WebElement openSavedSearchButton;
 
     public WebElement getSavedSearchList() {
-//        String xpath = "//span[text()='已存搜索']/i";
         String xpath = "//div[@yotta-test='search-search_option-dom']/span/span[@aria-label='PlusDownOutlined']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
@@ -114,7 +113,8 @@ public class SearchPage extends ListPageFactory {
         return chosenSavedSearch;
     }
 
-    @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")
+//    @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")
+    @FindBy(xpath = "//input[@yotta-test='search-new_savedsearch_name-input']")
     private WebElement savedSearchName;
 
     public WebElement getSavedSearchName() {
