@@ -274,19 +274,19 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'校验')]/ancestor::button/following-sibling::button")
     private WebElement ensureEdit;
 
-    @FindBy(xpath = "//div[text()='仪表盘多Y轴图']/parent::div")
+    @FindBy(xpath = "//div[text()='仪表盘多Y轴图' and @yotta-test='dashboard-chart_title-dom']/parent::div")
     private WebElement multiYaxisArea;
 
-    @FindBy(xpath = "//div[text()='仪表盘区间图']/parent::div")
+    @FindBy(xpath = "//div[text()='仪表盘区间图' and @yotta-test='dashboard-chart_title-dom']/parent::div")
     private WebElement sectionChartArea;
 
-    @FindBy(xpath = "//div[text()='仪表盘和弦图']/parent::div")
+    @FindBy(xpath = "//div[text()='仪表盘和弦图' and @yotta-test='dashboard-chart_title-dom']/parent::div")
     private WebElement chordChart;
 
-    @FindBy(xpath = "//div[text()='仪表盘饼状图']/parent::div")
+    @FindBy(xpath = "//div[text()='仪表盘饼状图' and @yotta-test='dashboard-chart_title-dom']/parent::div")
     private WebElement dimensionChart;
 
-    @FindBy(xpath = "//div[text()='仪表盘曲线图']/parent::div")
+    @FindBy(xpath = "//div[text()='仪表盘曲线图' and @yotta-test='dashboard-chart_title-dom']/parent::div")
     private WebElement sequenceChart;
 
     @FindBy(xpath = "//*[@yotta-test='dashboard-chart_switch_table-icon']")
@@ -932,7 +932,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='本月']/following-sibling::i[4]")
     private WebElement deleteForTable;
 
-    @FindBy(id = "fullscreenAll")
+    @FindBy(xpath = "//div[@yotta-test='dashboard-chart_title-dom']/parent::div")
     private WebElement fullScreen;
 
     @FindBy(className = "ace_text-layer")
@@ -1013,7 +1013,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='南京市']/ancestor::td/following-sibling::td//span")
     private WebElement valueOfNanjingTdText;
 
-    @FindBy(xpath = "//div[text()='仪表盘表格样式']/parent::div")
+    @FindBy(xpath = "//div[text()='仪表盘表格样式' and @yotta-test='dashboard-chart_title-dom']/parent::div")
     private WebElement chartStyleTable;
 
     @FindBy(xpath = "(//span[contains(@yotta-test,'setting')]//ancestor::div[contains(@class,'config')]/following-sibling::div[contains(@class,'action')]//span[contains(@yotta-test,'refresh')])[last()]")
