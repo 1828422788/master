@@ -1,4 +1,4 @@
-@dlother @searchset
+@dlother @spage
 Feature: 搜索配置
 
   @searchset1
