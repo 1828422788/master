@@ -76,32 +76,39 @@ Feature: 日志展现_普通统计视图
     And I wait for "1000" millsecond
     Then I choose the "apache.resp_len" from the "FieldValue" in config
     And I wait for "2000" millsecond
-    Then I choose the "<statisticType>" from the "StatisticType" in config
-    And I set the parameter "StartDate" with current date
-    And I set the parameter "StartTime" with value "00:00:00"
+    And I set the parameter "StartDate" with yesterday date
+    And I set the parameter "StartTime" with value "08:00:00"
     And I set the parameter "EndDate" with current date
-    And I set the parameter "EndTime" with value "23:59:59"
+    And I set the parameter "EndTime" with value "08:00:00"
+    And I wait for "2000" millsecond
+    Then I choose the "<statisticType>" from the "StatisticType" in config
+    And I wait for "2000" millsecond
     And I click the "Generate" button under some element
     And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
+    And I wait for "1500" millsecond
+    And I move the mouse pointer to the "ColumnChartElement"
+    And I wait for "Tooltip" will be visible
+    And I will see the element "Tooltip" contains "<tooltip>"
     Then I compare source image "actual/普通统计视图/<caseNum>" with target image "expect/普通统计视图/<caseNum>"
 
     Examples:
-      | statisticType | caseNum            |
-      |计数           | 812_时间分段_计数  |
-      |独立数         | 813_时间分段_独立数 |
-      |总计           | 2721_时间分段_总计  |
-      |平均值         | 2722_时间分段_平均值 |
-      |最大值         | 2723_时间分段_最大值 |
-      |最小值         | 2724_时间分段_最小值 |
+      | statisticType | caseNum              | tooltip            |
+      |计数           | 812_时间分段_计数    | count : 254        |
+      |独立数         | 813_时间分段_独立数  | count : 5          |
+      |总计           | 2721_时间分段_总计   | count : 1795176    |
+      |平均值         | 2722_时间分段_平均值 | count : 7067.62204 |
+      |最大值         | 2723_时间分段_最大值 | count : 173837     |
+      |最小值         | 2724_时间分段_最小值 | count : 61         |
 
 
   Scenario Outline: dataslice(RZY-814,3137)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
+    And I wait for "1500" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -122,12 +129,17 @@ Feature: 日志展现_普通统计视图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
+    And I wait for "1500" millsecond
+    And I move the mouse pointer to the "ColumnChartElement<num>"
+    And I wait for "Tooltip" will be visible
+    And I will see the element "Tooltip" contains "<tooltip1>"
+    And I will see the element "Tooltip" contains "<tooltip2>"
     Then I compare source image "actual/普通统计视图/<caseNum>" with target image "expect/普通统计视图/<caseNum>"
 
     Examples:
-      | fieldValue           | start1 | end1   | start2  |end2    | start3 | end3 | caseNum          |
-      | apache.resp_len      |1       | 100    | 100     | 500    |500     | 10000| 814_数值分段_整数  |
-      | apache.geo.latitude  |0       | 22.5   | 22.5    | 32.05  |32.05   | 39.90| 3137_数值分段_实数 |
+      | fieldValue           | start1 | end1   | start2  |end2    | start3 | end3 | caseNum            | tooltip1     | tooltip2     | num |
+      | apache.resp_len      |1       | 100    | 100     | 500    |500     | 10000| 814_数值分段_整数  | count : 220  | 1 - 100      |     |
+      | apache.geo.latitude  |0       | 22.5   | 22.5    | 32.05  |32.05   | 39.90| 3137_数值分段_实数 | count : 120  | 22.5 - 32.05 | 2   |
 
 
   Scenario Outline: timehistogram(RZY-815)
@@ -146,10 +158,22 @@ Feature: 日志展现_普通统计视图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
+    And I wait for "1500" millsecond
+    And I move the mouse pointer to the "ColumnChartElement"
+    And I wait for "Tooltip" will be visible
+    And I will see the element "Tooltip" contains "count : 59"
+    And I will see the element "Tooltip" contains "00:00 -"
+    And I will see the element "Tooltip" contains "01:00"
+    And I wait for "1500" millsecond
+    And I move the mouse pointer to the "ColumnChartElement2"
+    And I wait for "Tooltip" will be visible
+    And I will see the element "Tooltip" contains "count : 60"
+    And I will see the element "Tooltip" contains "01:00 -"
+    And I will see the element "Tooltip" contains "02:00"
     Then I compare source image "actual/普通统计视图/<caseNum>" with target image "expect/普通统计视图/<caseNum>"
 
     Examples:
-      | timeSpan | time   | caseNum              |
+      | timeSpan | time   | caseNum                   |
       | 1        |        | 815_时间直方图/815_1h     |
       | 3600     | 秒     | 815_时间直方图/815_3600s  |
       | 60       | 分钟   | 815_时间直方图/815_60m    |
@@ -179,6 +203,14 @@ Feature: 日志展现_普通统计视图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
+    And I wait for "1500" millsecond
+    And I move the mouse pointer to the "ColumnChartElement"
+    And I wait for "Tooltip" will be visible
+    And I will see the element "Tooltip" contains "05/15 00:00 - 05/22 00:00"
+    And I wait for "1500" millsecond
+    And I move the mouse pointer to the "ColumnChartElement2"
+    And I wait for "Tooltip" will be visible
+    And I will see the element "Tooltip" contains "05/22 00:00 - 05/29 00:00"
     Then I compare source image "actual/普通统计视图/<caseNum>" with target image "expect/普通统计视图/<caseNum>"
 
     Examples:
@@ -205,12 +237,17 @@ Feature: 日志展现_普通统计视图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/816_数值直方图/<caseNum>"
+    And I wait for "1500" millsecond
+    And I move the mouse pointer to the "ColumnChartElement"
+    And I wait for "Tooltip" will be visible
+    And I will see the element "Tooltip" contains "<tooltip1>"
+    And I will see the element "Tooltip" contains "<tooltip2>"
     Then I compare source image "actual/普通统计视图/816_数值直方图/<caseNum>" with target image "expect/普通统计视图/816_数值直方图/<caseNum>"
 
     Examples:
-      | number  | caseNum    |
-      | 500     | 816_500    |
-      | 1000    | 816_1000   |
+      | number  | caseNum    | tooltip1    | tooltip2 |
+      | 500     | 816_500    | count : 220 | 0 - 500  |
+      | 5000    | 816_5000   | count : 244 | 0 - 5000 |
 
   Scenario Outline: classifyfieldvalue(RZY-817)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"

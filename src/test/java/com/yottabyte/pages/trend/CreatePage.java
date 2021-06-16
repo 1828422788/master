@@ -44,10 +44,10 @@ public class CreatePage extends PageTemplate {
     private WebElement dataSetPosition;
 
     // with bubbles
-    @FindBy(xpath = "//*[text()='124']/ancestor::*[2]")
+    @FindBy(xpath = "//*[text()='124']/parent::*[name()='g']")
     private WebElement countryChina;
 
-    @FindBy(xpath = "//*[text()='46']/ancestor::*[2]")
+    @FindBy(xpath = "//*[text()='46']/parent::*[name()='g']")
     private WebElement provinceJiangsu;
 
     @FindBy(xpath = "//*[text()='POST']/preceding-sibling::*")
