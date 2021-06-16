@@ -124,6 +124,7 @@ Feature: 权限-KV字典
   Scenario: 验证读取权限
     Given I login user "AutoTest" with password "All#123456"
     And open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "KVAuth" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I click the "KvDropdown" button
@@ -153,6 +154,7 @@ Feature: 权限-KV字典
   Scenario: 验证读取+编辑权限
     Given I login user "AutoTest" with password "All#123456"
     And open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "KVAuth" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I click the "KvDropdown" button
@@ -169,6 +171,7 @@ Feature: 权限-KV字典
 
   Scenario: 授权读取+编辑+转授权限
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "KVAuth" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I wait for "1000" millsecond
@@ -182,6 +185,7 @@ Feature: 权限-KV字典
   Scenario: 验证读取+编辑+转授权限
     Given I login user "AutoTest" with password "All#123456"
     And open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "KVAuth" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I click the "KvDropdown" button
@@ -201,6 +205,7 @@ Feature: 权限-KV字典
   Scenario: 验证
     Given I login user "验证授权用户" with password "All#123456"
     And open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "KVAuth" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I click the "KvDropdown" button
@@ -210,6 +215,7 @@ Feature: 权限-KV字典
   Scenario: 存储kvstore
     Given I login user "AutoTest" with password "All#123456"
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "KVAuth" then i click the "打开" button in more menu
     Then I will see the "splSearch.SearchPage" page
     Given I set the parameter "SearchInput" with value "* | stats count() as 'count' by apache.geo.city,appname| rename apache.geo.city as apachecity| outputlookup AutoAuthKV"
@@ -222,6 +228,7 @@ Feature: 权限-KV字典
   Scenario: 验证是否成功
     Given I login user "AutoTest" with password "All#123456"
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "KVAuth" then i click the "更多" button
     Then I click the "Open" button
     Then I will see the "splSearch.SearchPage" page
@@ -237,6 +244,7 @@ Feature: 权限-KV字典
 
   Scenario: 授权读取+编辑+转授+删除权限
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "KVAuth" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I choose the "授权" from the "KVDropdownList"
@@ -249,6 +257,7 @@ Feature: 权限-KV字典
   Scenario: 验证读取+编辑+转授+删除权限
     Given I login user "AutoTest" with password "All#123456"
     And open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "KVAuth" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I choose the "删除" from the "KVDropdownList"
