@@ -211,6 +211,7 @@ Feature: 仪表盘_1_1_曲线图
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "配置成功"
     And I wait for loading invisible
+    And I drag the scroll bar to the element "FullScreen"
     And I wait for "2000" millsecond
     Then take part of "SequenceChart" with name "actual/<image>"
     And I compare source image "actual/<image>" with target image "expect/<image>"
@@ -260,6 +261,7 @@ Feature: 仪表盘_1_1_曲线图
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "配置成功"
     And I wait for loading invisible
+    And I drag the scroll bar to the element "FullScreen"
     And I wait for "2000" millsecond
     Then take part of "SequenceChart" with name "actual/<image>"
     And I compare source image "actual/<image>" with target image "expect/<image>"
@@ -320,6 +322,7 @@ Feature: 仪表盘_1_1_曲线图
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "配置成功"
     And I wait for loading invisible
+    And I drag the scroll bar to the element "FullScreen"
     And I wait for "2000" millsecond
     Then take part of "SequenceChart" with name "actual/<image>"
     And I compare source image "actual/<image>" with target image "expect/<image>"
@@ -369,6 +372,7 @@ Feature: 仪表盘_1_1_曲线图
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "配置成功"
     And I wait for loading invisible
+    And I drag the scroll bar to the element "FullScreen"
     And I wait for "2000" millsecond
     Then take part of "SequenceChart" with name "actual/<image>"
     And I compare source image "actual/<image>" with target image "expect/<image>"
@@ -398,6 +402,7 @@ Feature: 仪表盘_1_1_曲线图
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "配置成功"
     And I wait for loading invisible
+    And I drag the scroll bar to the element "FullScreen"
     And I wait for "2000" millsecond
     Then take part of "SequenceChart" with name "actual/多Y轴图_smooth_false"
 #    And I compare source image "actual/多Y轴图_smooth_false" with target image "expect/多Y轴图_smooth_false"
@@ -423,6 +428,7 @@ Feature: 仪表盘_1_1_曲线图
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "配置成功"
     And I wait for loading invisible
+    And I drag the scroll bar to the element "FullScreen"
     And I wait for "2000" millsecond
     Then take part of "SequenceChartYaxis" with name "actual/<image>"
     And I compare source image "actual/<image>" with target image "expect/<image>"
@@ -573,6 +579,7 @@ Feature: 仪表盘_1_1_曲线图
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "配置成功"
     And I wait for loading invisible
+    And I drag the scroll bar to the element "FullScreen"
     And I wait for "2000" millsecond
     Then take part of "SequenceChart" with name "actual/<image>"
     And I compare source image "actual/<image>" with target image "expect/<image>"
