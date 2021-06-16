@@ -28,9 +28,8 @@ Feature: 权限-模式学习
     And I click the "SearchButton" button
     Then I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "2000" millsecond
-    #### jira:RZY-7134
-    ##Then I will see the "Mode" doesn't exist
-    ###Then I logout current user
+    Then I will see the "Mode" doesn't exist
+    Then I logout current user
 
   Scenario Outline: 勾选模式学习
     Given open the "roles.ListPage" page for uri "/account/roles/"

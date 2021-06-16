@@ -1,4 +1,4 @@
-@authtest
+#@authtest
 Feature: 权限-用户
 
   Scenario: 授权无新建权限
@@ -120,6 +120,7 @@ Feature: 权限-用户
     And I wait for loading invisible
     Then I click the "User" button
     And I wait for loading invisible
+
     And I "checked" the checkbox which name is "AutoTestAuth" in auth table
     And I "unchecked" the checkbox which name is "AutoTestAuth" in auth table
     And I click the "SaveButton" button

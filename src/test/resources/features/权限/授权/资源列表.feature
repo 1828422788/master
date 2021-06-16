@@ -1,4 +1,4 @@
-#@authtest
+@authtest
 Feature: 权限-资源列表
 
   Scenario: 取消勾选可查看资源列表
