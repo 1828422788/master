@@ -95,9 +95,17 @@ Feature: 日志展现_复合
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
-    And I wait for "AreaChartElement" will be visible
-    And I will see the "ColumnChartElement" is display
-    And I will see the "ScatterChartElement" is display
+    And I will see the element "FieldAxis_1" contains "max(apache.resp_len)"
+    And I will see the element "MinAxis_1" contains "1 面"
+    And I will see the element "MaxAxis_1" contains "170K 面"
+    And I will see the element "FieldAxis_2" contains "min(apache.resp_len)"
+    And I will see the element "MinAxis_2" contains "2 柱"
+    And I will see the element "MaxAxis_2" contains "150K 柱"
+    And I will see the element "FieldAxis_3" contains "sum(apache.status)"
+    And I will see the element "MinAxis_3" contains "0 散"
+    And I will see the element "MaxAxis_3" contains "49K 散"
+    And I will see the element "Legend" contains "200"
+    And I will see the element "Legend" contains "400"
     And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/4复合/<caseNum>_<chartType>"
@@ -162,6 +170,17 @@ Feature: 日志展现_复合
     And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
+    And I will see the element "FieldAxis_1" contains "max(apache.resp_len)"
+    And I will see the element "MinAxis_1" contains "1 面"
+    And I will see the element "MaxAxis_1" contains "170K 面"
+    And I will see the element "FieldAxis_2" contains "min(apache.resp_len)"
+    And I will see the element "MinAxis_2" contains "2 柱"
+    And I will see the element "FieldAxis_3" contains "sum(apache.status)"
+    And I will see the element "MinAxis_3" contains "0 散"
+    And I will see the element "MaxAxis_3" contains "49K 散"
+    And I will see the element "Legend" contains "max(apache.resp_len)"
+    And I will see the element "Legend" contains "min(apache.resp_len)"
+    And I will see the element "Legend" contains "sum(apache.status)"
     And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/4复合/<caseNum>_<chartType>"

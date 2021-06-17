@@ -512,6 +512,64 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='标签方向'])[last()]/ancestor::div[1]/following-sibling::div//div[@class='yotta-select-selection']")
     private WebElement labelOrientation;
 
+    //axis
+    @FindBy(xpath = "//*[contains(@class,'vx-axis')][1]//*[contains(@class,'vx-axis-label')]")
+    private WebElement fieldAxis_1;
+
+    @FindBy(xpath = "//*[contains(@class,'vx-axis')][2]//*[contains(@class,'vx-axis-label')]")
+    private WebElement fieldAxis_2;
+
+    @FindBy(xpath = "//*[contains(@class,'vx-axis')][3]//*[contains(@class,'vx-axis-label')]")
+    private WebElement fieldAxis_3;
+
+    @FindBy(xpath = "//*[contains(@class,'vx-legend')]/parent::div/parent::div")
+    private WebElement legend;
+
+    public WebElement getLegend() {
+        return legend;
+    }
+
+    public WebElement getFieldAxis_1() {
+        return fieldAxis_1;
+    }
+
+    public WebElement getFieldAxis_2() {
+        return fieldAxis_2;
+    }
+
+    public WebElement getFieldAxis_3() {
+        return fieldAxis_3;
+    }
+
+    public WebElement getMaxAxis_1() {
+        return getAxisRange("1","last()");
+    }
+
+    public WebElement getMaxAxis_2() {
+        return getAxisRange("2","last()");
+    }
+
+    public WebElement getMaxAxis_3() {
+        return getAxisRange("3","last()");
+    }
+
+    public WebElement getMinAxis_1() {
+        return getAxisRange("1","1");
+    }
+
+    public WebElement getMinAxis_2() {
+        return getAxisRange("2","1");
+    }
+
+    public WebElement getMinAxis_3() {
+        return getAxisRange("3","1");
+    }
+
+    public WebElement getAxisRange(String axisNum, String pos) {
+        String xpath = "//*[contains(@class,'vx-axis')][" + axisNum + "]//*[contains(@class,'tick') and name()='g'][" + pos + "]";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
     public WebElement getValueLabel() {
         return valueLabel;
     }
