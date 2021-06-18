@@ -105,7 +105,7 @@ Feature: 日志展现_复合
     And I will see the element "MinAxis_3" contains "0 散"
     And I will see the element "MaxAxis_3" contains "49K 散"
     And I will see the element "Legend" contains "200"
-    And I will see the element "Legend" contains "400"
+    And I will see the element "Legend" contains "404"
     And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/4复合/<caseNum>_<chartType>"
