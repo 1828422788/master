@@ -1,4 +1,4 @@
-@fulllink @fulllinkCreateFull
+@fulllinkCreateFull
 Feature: 全链路_创建
   Background:
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
@@ -26,7 +26,8 @@ Feature: 全链路_创建
     And I set the parameter "StartField" with value "from"
     And I set the parameter "EndField" with value "to"
     And I set the parameter "NameSeparator" with value "_"
-    And I set the parameter "LayerNumber" with value "3"
+    And I set the parameter "LayerNumber" with value "3" 
+    And I click the Circle "FieldName" button
     And I click the "Ensure" button
     And I wait for "2000" millsecond
     And I click the "Save" button

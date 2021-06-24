@@ -1,4 +1,4 @@
-@fulllink @fulllinkSchedule
+@fulllinkSchedule
 Feature: 全链路_定时任务
 
   Scenario: 创建定时任务

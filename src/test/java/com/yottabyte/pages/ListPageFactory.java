@@ -88,6 +88,14 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(xpath = "//thead//span[@class='yotta-checkbox-check']")
     private WebElement selectAll;
 
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']")
+    private WebElement tagField;
+
+    public WebElement getTagField() {
+        tagField.click();
+        return this.getLastDropdownList();
+    }
+
     public WebElement getSelectAll() {
         return selectAll;
     }
