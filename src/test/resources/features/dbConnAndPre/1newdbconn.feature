@@ -100,6 +100,8 @@ Feature: 新建数据库连接配置
     And I wait for loading complete
 
     When I set the parameter "DbConnNameSearchInput" with value "<newDbConnName>"
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
     And I click the "EditDbConnNameButton" button
 
     Examples:
