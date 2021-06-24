@@ -130,6 +130,34 @@ public class SetKeyWithValue {
     }
 
     /**
+     * 在定时任务中使用，将执行时间设置为当前时间后addMinutes分钟
+     * @param timeElement 输入框时间元素名称
+     */
+    @And("^I set the time parameter \"([^\"]*)\" as \"([^\"]*)\" minutes later from now$")
+    public void setTimeParamAsFewMinLater(String timeElement, int addMinutes) {
+        WebElement elementTime = GetElementFromPage.getWebElementWithName(timeElement);
+        int hours = LocalDateTime.now().getHour();
+        int minutes = LocalDateTime.now().getMinute() + addMinutes;
+        int seconds = LocalDateTime.now().getSecond();
+        if (minutes > 59) {
+            minutes = minutes % 60;
+            hours = hours + 1;
+        }
+        if (hours > 23) {
+            hours = 0;
+        }
+        String hours_str=Integer.toString(hours), minutes_str=Integer.toString(minutes), seconds_str=Integer.toString(seconds);
+        if (hours<10)
+            hours_str = "0" + hours;
+        if (minutes<10)
+            minutes_str = "0" + minutes;
+        if (seconds<10)
+            seconds_str = "0" + seconds;
+        iSetTheParameterWithValue(elementTime, hours_str + ":" + minutes_str + ":" + seconds_str);
+        elementTime.click();
+    }
+
+    /**
      * 给搜索框传值
      *
      * @param name 搜索内容
