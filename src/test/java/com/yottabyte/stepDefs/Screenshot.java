@@ -59,6 +59,7 @@ public class Screenshot {
 
         Actions action = new Actions(webdriver);
         action.moveByOffset(0,0).build().perform();
+        ((JavascriptExecutor) webdriver).executeScript("arguments[0].scrollIntoView(false);", element);
         File screen = ((TakesScreenshot) driver.getWrappedDriver()).getScreenshotAs(OutputType.FILE);
         BufferedImage img = ImageIO.read(screen);
 

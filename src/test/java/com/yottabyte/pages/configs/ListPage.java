@@ -48,7 +48,7 @@ public class ListPage extends ListPageFactory {
 
 
     //div[@yotta-test='resource_tag-change_resource_tag-select']//span[@class='yotta-select-selection-placeholder']
-    @FindBy(xpath = "")
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//div[@class='yotta-select-selection-content']")
     private WebElement tagToInput;
 
     @FindBy(xpath = "//ul[@role='listbox']")

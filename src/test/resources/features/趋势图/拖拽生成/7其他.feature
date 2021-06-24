@@ -606,7 +606,7 @@ Feature: 趋势图_拖拽_其他
     When I click the "ElementInValues" button
     And I wait for "Panel" will be visible
     And I choose the "<compareWith1>" from the "CompareField" in config
-    And I click the "GeoCity" button
+    And I click the Circle "GeoCity" button
     And I wait for "2000" millsecond
 
     When I click the "ElementInValues" button

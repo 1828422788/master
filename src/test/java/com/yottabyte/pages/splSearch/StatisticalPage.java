@@ -99,10 +99,10 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "(//p[text()='Step2']/following-sibling::div//span[contains(@class,'yotta-checkbox-input')])[1]")
     private WebElement wholeField;
 
-    @FindBy(xpath = "//*[text()='230']/ancestor::*[2]")
+    @FindBy(xpath = "//*[text()='230']/parent::*[name()='g']")
     private WebElement countryChina;
 
-    @FindBy(xpath = "//*[text()='42']/ancestor::*[2]")
+    @FindBy(xpath = "//*[text()='42']/parent::*[name()='g']")
     private WebElement provinceSichuan;
 
     @FindBy(xpath = "//*[text()='TOP']/following-sibling::div//div[@class='yotta-select-selection']")
@@ -116,6 +116,27 @@ public class StatisticalPage extends PageTemplate {
 
     @FindBy(xpath = "//li[@yotta-test='search-save_option_trend-menu_item']")
     private WebElement saveAsTrend;
+
+    @FindBy(xpath = "//*[@class='vx-group']//*[@y and @height and @fill and @height!=0]")
+    private WebElement columnChartElement;
+
+    @FindBy(xpath = "(//*[@class='vx-group']//*[@y and @height and @fill and @height!=0])[2]")
+    private WebElement columnChartElement2;
+
+    @FindBy(xpath = "//div[contains(@class,'tooltip')]")
+    private WebElement tooltip;
+
+    public WebElement getTooltip() {
+        return tooltip;
+    }
+
+    public WebElement getColumnChartElement() {
+        return columnChartElement;
+    }
+
+    public WebElement getColumnChartElement2() {
+        return columnChartElement2;
+    }
 
     public WebElement getIndependentStats() {
         return getYottaCheckbox("search-EventsCounting_unique-checkbox"); //独立数统计
@@ -179,10 +200,12 @@ public class StatisticalPage extends PageTemplate {
     }
 
     public WebElement getEndDate() {
+        endDate.click();
         return endDate;
     }
 
     public WebElement getEndTime() {
+        endTime.click();
         return endTime;
     }
 
@@ -257,10 +280,12 @@ public class StatisticalPage extends PageTemplate {
     }
 
     public WebElement getStartTime() {
+        startTime.click();
         return startTime;
     }
 
     public WebElement getStartDate() {
+        startDate.click();
         return startDate;
     }
 

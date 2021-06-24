@@ -7,6 +7,8 @@ Feature: 趋势图_已存搜索
     When I set the parameter "SearchInput" with value "* | stats count()"
     And I click the "DateEditor" button
     And I click the "Today" button
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "NewSavedSearch" button
     And I wait for "SavedSearchName" will be visible
     And I set the parameter "SavedSearchName" with value ""

@@ -83,6 +83,13 @@ Feature:趋势图_拖拽_复合
     When I click the "CloseSPL" button
     And I wait for "AreaChartElement" will be visible
     And I wait for "ColumnChartElement" will be visible
+    And I will see the element "FieldAxis_1" contains "avg(apache.resp_len)"
+    And I will see the element "MinAxis_1" contains "0 柱"
+    And I will see the element "MaxAxis_1" contains "3K 柱"
+    And I will see the element "FieldAxis_2" contains "dc(apache.resp_len)"
+    And I will see the element "MinAxis_2" contains "2 面"
+    And I will see the element "Legend" contains "avg(apache.resp_len)"
+    And I will see the element "Legend" contains "dc(apache.resp_len)"
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_柱面"
     And I compare source image "actual/拖拽_<chartType>_柱面" with target image "expect/拖拽_<chartType>_柱面"
@@ -170,6 +177,14 @@ Feature:趋势图_拖拽_复合
     When I click the "CloseSPL" button
     And I wait for "LineChartElement" will be visible
     And I wait for "ScatterChartElement" will be visible
+    And I will see the element "FieldAxis_1" contains "count(apache.resp_len)"
+    And I will see the element "MinAxis_1" contains "1 曲"
+    And I will see the element "MaxAxis_1" contains "15 曲"
+    And I will see the element "FieldAxis_2" contains "max(apache.resp_len)"
+    And I will see the element "MinAxis_2" contains "0 散"
+    And I will see the element "MaxAxis_2" contains "9K 散"
+    And I will see the element "Legend" contains "count(apache.resp_len)"
+    And I will see the element "Legend" contains "max(apache.resp_len)"
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_曲散"
     And I compare source image "actual/拖拽_<chartType>_曲散" with target image "expect/拖拽_<chartType>_曲散"
@@ -194,6 +209,14 @@ Feature:趋势图_拖拽_复合
     Then I will see the "trend.CreatePage" page
     And I wait for "LineChartElement" will be visible
     And I wait for "ScatterChartElement" will be visible
+    And I will see the element "FieldAxis_1" contains "count(apache.resp_len)"
+    And I will see the element "MinAxis_1" contains "1 曲"
+    And I will see the element "MaxAxis_1" contains "15 曲"
+    And I will see the element "FieldAxis_2" contains "max(apache.resp_len)"
+    And I will see the element "MinAxis_2" contains "0 散"
+    And I will see the element "MaxAxis_2" contains "9K 散"
+    And I will see the element "Legend" contains "count(apache.resp_len)"
+    And I will see the element "Legend" contains "max(apache.resp_len)"
 
     Examples:
       |  chartType |  chart_1  | chart_2  | color_1 | color_2 |
@@ -259,6 +282,14 @@ Feature:趋势图_拖拽_复合
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.resp_len),avg(apache.resp_len) by apache.clientip,apache.method"
     When I click the "CloseSPL" button
+    And I will see the element "FieldAxis_1" contains "count(apache.resp_len)"
+    And I will see the element "MinAxis_1" contains "0 曲"
+    And I will see the element "MaxAxis_1" contains "15 曲"
+    And I will see the element "FieldAxis_2" contains "avg(apache.resp_len)"
+    And I will see the element "MinAxis_2" contains "0 面"
+    And I will see the element "MaxAxis_2" contains "8K 面"
+    And I will see the element "Legend" contains "GET"
+    And I will see the element "Legend" contains "POST"
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_对比"
     And I compare source image "actual/拖拽_<chartType>_对比" with target image "expect/拖拽_<chartType>_对比"
