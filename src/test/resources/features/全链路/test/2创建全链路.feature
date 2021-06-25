@@ -34,6 +34,66 @@ Feature: 全链路_创建
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"
 
+  Scenario: 输入项1
+    When the data name is "FullLink_Test" then i click the "编辑" button
+    And I will see the "fulllink.CreatePage" page
+    And I wait for "3000" millsecond
+    And I wait for "DisabledSave" will be visible
+    And I click the "Switch" button
+    And I wait for "Save" will be visible
+    And I click the "AddInputItem" button
+    And I wait for "Token" will be visible
+    And I set the parameter "Title" with value "productNoname"
+    And I set the parameter "Token" with value "productNoname"
+    And I wait for "2000" millsecond
+    And I choose the "下拉菜单" from the "ParameterType" in config
+    And I wait for "Value" will be visible
+    And I set the parameter "Value" with value "消费贷"
+    And I set the parameter "Label" with value "消费贷"
+    And I click the "Add" button
+    And I choose the "消费贷" from the "DefaultValue" in config
+    And I wait for "2000" millsecond
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    And I will see the element "SuccessMessage" contains "创建变量 "productNoname" 成功"
+    And I wait for "5000" millsecond
+    And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
+    And I will see the element "SuccessMessage" contains "保存成功"
+
+  Scenario: 输入项2
+    When the data name is "FullLink_Test" then i click the "编辑" button
+    And I will see the "fulllink.CreatePage" page
+    And I wait for "3000" millsecond
+    And I wait for "DisabledSave" will be visible
+    And I click the "Switch" button
+    And I wait for "Save" will be visible
+    And I click the "AddInputItem" button
+    And I wait for "Token" will be visible
+    And I set the parameter "Title" with value "eventNoname"
+    And I set the parameter "Token" with value "eventNoname"
+    And I wait for "2000" millsecond
+    And I choose the "下拉菜单" from the "ParameterType" in config
+    And I wait for "Value" will be visible
+    And I set the parameter "Value" with value "线上消费贷额度申请"
+    And I set the parameter "Label" with value "线上消费贷额度申请"
+    And I click the "Add" button
+    And I set the parameter "Value" with value "线上消费贷可提额度计算"
+    And I set the parameter "Label" with value "线上消费贷可提额度计算"
+    And I click the "Add" button
+    And I set the parameter "Value" with value "贷款开立发放"
+    And I set the parameter "Label" with value "贷款开立发放"
+    And I click the "Add" button
+    And I choose the "线上消费贷额度申请" from the "DefaultValue" in config
+    And I wait for "2000" millsecond
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    And I will see the element "SuccessMessage" contains "创建变量 "eventNoname" 成功"
+    And I wait for "5000" millsecond
+    And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
+    And I will see the element "SuccessMessage" contains "保存成功"
+
   Scenario: 时间轴SPL配置
     When the data name is "FullLink_Test" then i click the "编辑" button
     And I will see the "fulllink.CreatePage" page
@@ -43,7 +103,7 @@ Feature: 全链路_创建
     And I wait for "Save" will be visible
     And I choose the "时间轴SPL配置" from the "Settings"
     And I wait for "TimelineSPL" will be visible
-    And I set the value "index=schedule schedule_name:fulllink | bucket start_timestamp span=1h as ts  | stats sum(_TimeoutErrorCount) as _TimeoutErrorCount,sum(_noSelfErrorCount) as _noSelfErrorCount,sum(_selfErrorCount) as _selfErrorCount by ts|eval level=case(_selfErrorCount>0,2,_selfErrorCount==0&&_TimeoutErrorCount>0,1,default,0)|rename _selfErrorCount as "_自身错误",_noSelfErrorCount as "_非自身错误",_TimeoutErrorCount as "_超时错误"" to the textarea "TimelineSPL"
+    And I set the value "index=schedule schedule_name:fulllink productNoname:${productNoname} eventNoname:${eventNoname} | bucket start_timestamp span=1h as ts  | stats sum(_TimeoutErrorCount) as _TimeoutErrorCount, sum(_noSelfErrorCount) as _noSelfErrorCount, sum(_selfErrorCount) as _selfErrorCount by ts|eval level=case(_selfErrorCount>0,2,_selfErrorCount==0&&_TimeoutErrorCount>0,1,default,0)|rename _selfErrorCount as "_自身错误", _noSelfErrorCount as "_非自身错误", _TimeoutErrorCount as "_超时错误"" to the textarea "TimelineSPL"
     And I click the "RequestData" button
     And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
@@ -60,7 +120,7 @@ Feature: 全链路_创建
     And I wait for "Save" will be visible
     And I click the "DataConfig" button
     When I will see the "splSearch.SearchPage" page
-    When I set the parameter "SearchInput" with value "index=schedule schedule_name:fulllink | table start_timestamp,productNoname,eventNoname,ssi,_totalCount,_avgTimeCost,_maxTimeCost,_succRate,_selfErrorCount,_noSelfErrorCount,_TimeoutErrorCount,from,to|rename _totalCount as \"_调用量\",_succRate as \"_成功率\",_avgTimeCost as \"_平均耗时\",_maxTimeCost as \"_最大耗时\",_selfErrorCount as \"_自身错误\",_noSelfErrorCount as \"_非自身错误\",_TimeoutErrorCount as \"_超时错误\""
+    When I set the parameter "SearchInput" with value "index=schedule schedule_name:fulllink productNoname:${productNoname} eventNoname:${eventNoname} | table start_timestamp, productNoname, eventNoname, ssi, _totalCount, _avgTimeCost, _maxTimeCost, _succRate, _selfErrorCount, _noSelfErrorCount, _TimeoutErrorCount, from, to | rename _totalCount as \"_调用量\", _succRate as \"_成功率\", _avgTimeCost as \"_平均耗时\", _maxTimeCost as \"_最大耗时\", _selfErrorCount as \"_自身错误\", _noSelfErrorCount as \"_非自身错误\", _TimeoutErrorCount as \"_超时错误\""
     And I click the "DateEditor" button under some element
     And I click the "CustomTimeTab" button
     And I set the parameter "StartDateField" with value "2021-05-28"

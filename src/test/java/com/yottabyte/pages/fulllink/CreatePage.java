@@ -1,13 +1,13 @@
 package com.yottabyte.pages.fulllink;
 
 import com.yottabyte.pages.PageTemplate;
-import com.yottabyte.pages.splSearch.SearchPage;
-import com.yottabyte.utils.GetTime;
+import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CreatePage extends PageTemplate {
     public CreatePage(WebDriver driver) {
@@ -15,36 +15,58 @@ public class CreatePage extends PageTemplate {
         driver.manage().window().setSize(new Dimension(1600, 900));
     }
 
+    @FindBy(xpath = "//div[contains(@class,'yotta-select-option')]")
+    private WebElement li;
+
     @FindBy(xpath = "//label[contains(@class,yotta-switch-round)]")
     private WebElement switchEdit;
+
     public WebElement getSwitch() {
         return switchEdit;
     }
 
     @FindBy(xpath = "//span[text()='保存']/parent::button[contains(@class,'disabled')]")
     private WebElement disabledSave;
+
     public WebElement getDisabledSave() {
         return disabledSave;
     }
 
-    @FindBy(xpath ="//div[@class='yotta-dropdown-menu']//ul")
+    @FindBy(xpath = "//div[@class='yotta-dropdown-menu']//ul")
     private WebElement dropdownList;
 
     @FindBy(xpath = "//span[@aria-label='SettingOutlined']/parent::button")
     private WebElement settings;
-    public WebElement getSettings(){
+
+    public WebElement getSettings() {
         settings.click();
         return dropdownList;
     }
 
     @FindBy(xpath = "//span[@aria-label='GalaxeeOutlined']/parent::button")
     private WebElement dataConfig;
-    public WebElement getDataConfig(){
+
+    public WebElement getDataConfig() {
         return dataConfig;
+    }
+
+    @FindBy(xpath = "//span[@aria-label='AddOutlined']/parent::button")
+    private WebElement addInputItem;
+
+    public WebElement getAddInputItem() {
+        return addInputItem;
+    }
+
+    @FindBy(xpath = "//span[@aria-label='FilterOutlined']/parent::button")
+    private WebElement filter;
+
+    public WebElement getFilter() {
+        return filter;
     }
 
     @FindBy(xpath = "//div[contains(@class,'yotta-textarea')]//textarea")
     private WebElement timelineSPL;
+
     public WebElement getTimelineSPL() {
         return timelineSPL;
     }
@@ -91,5 +113,41 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getInputElement(String name) {
         return webDriver.findElement(By.xpath("//div[text()='" + name + "']/following-sibling::div//input"));
+    }
+
+    public WebElement getToken() {
+        return getYottaInput("fulllink_param-template-标识：-input");
+    }
+
+    public WebElement getTitle() {
+        return getYottaInput("fulllink_param-template-标题：-input");
+    }
+
+    @FindBy(xpath = "//div[contains(@class,'yotta-select-menu')]")
+    private WebElement dropdownListType;
+
+    @FindBy(xpath = "//div[@yotta-test='fulllink_param-type-select']//span[@class='yotta-select-selection-icon']")
+    private WebElement parameterType;
+    public WebElement getParameterType() {
+        parameterType.click();
+        parameterType.click();
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(dropdownListType));
+        return dropdownListType;
+    }
+
+    public WebElement getValue() {
+        return getYottaInput("fulllink_param-create-option-value-input");
+    }
+
+    public WebElement getLabel() {
+        return getYottaInput("fulllink_param-create-option-label-input");
+    }
+
+    public WebElement getAdd() {
+        return getYottaDiv("fulllink_param-display-option-add-dom");
+    }
+
+    public WebElement getDefaultValue() {
+        return getYottaDropdownList("fulllink_param-select-value-select");
     }
 }
