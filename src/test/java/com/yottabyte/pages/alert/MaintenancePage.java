@@ -109,6 +109,12 @@ public class MaintenancePage extends PageTemplate {
         return getLastDropdownList();
     }
 
+    @FindBy(xpath = "//div[@yotta-test='alert-fixed_start_time-time_picker']//input")
+    private WebElement maintainBeginTimeInput;
+    public WebElement getMaintainBeginTimeInput() {
+        return maintainBeginTimeInput;
+    }
+
     public WebElement getMaintainBeginTimeList() {
 //        String xpath = "//span[text()='开始时间']/following::div/span/input[@placeholder='请选择']/following-sibling::span/i";
         String xpath = "//div[@yotta-test='alert-fixed_start_time-time_picker']/span/span";
@@ -124,15 +130,21 @@ public class MaintenancePage extends PageTemplate {
         return downOutlinedButton;
     }
 
+    @FindBy(xpath = "//div[@yotta-test='alert-fixed_end_time-time_picker']//input")
+    private WebElement maintainEndTimeInput;
+    public WebElement getMaintainEndTimeInput() {
+        return maintainEndTimeInput;
+    }
+
     public WebElement getMaintainEndTimeList() {
 //        String xpath = "//span[text()='结束时间']/following::div/span/input[@placeholder='请选择']/following-sibling::span/i";
         String xpath = "//div[@yotta-test='alert-fixed_end_time-time_picker']/span/span";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        for (int j=0;j<22;j++){
-            downOutlinedButton.click();
-        }
+//        for (int j=0;j<22;j++){
+//            downOutlinedButton.click();
+//        }
         return getMaintainTimeDropdownList();
     }
 

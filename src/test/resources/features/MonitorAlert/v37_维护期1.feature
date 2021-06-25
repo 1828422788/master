@@ -17,16 +17,18 @@ Feature: 监控维护期
     And I click the "AlertNameBody" button
     And I wait for "3000" millsecond
     And I wait for loading complete
-#    And I click the "AlertNameCheckbox" button
     And I click the "AlertNameEnsure" button
 
     And I wait for loading complete
-#    And I choose the "02" from the "MaintainBeginTimeList"
+    And I set the parameter "MaintainBeginTimeInput" with value "02:00"
     And I choose2 the "02" from the "MaintainBeginTimeList"
+    Given I wait for loading complete
     And I wait for "2000" millsecond
     And I click the "BeginTimeLabel" button
     And I wait for "1000" millsecond
+    And I set the parameter "MaintainEndTimeInput" with value "23:00"
     And I choose2 the "23" from the "MaintainEndTimeList"
+    Given I wait for loading complete
     And I wait for "2000" millsecond
     And I click the "BeginTimeLabel" button
     And I wait for "1000" millsecond
