@@ -215,7 +215,7 @@ Feature: 定时任务新建
       | test | 0      | 定时模式下, 时间间隔不能为零或空  |
       | test | 1.5    | 定时模式下, 时间间隔应该为正整数  |
       | test | test   | 定时模式下, 时间间隔应该为正整数  |
-      | test | 1      | 请输入正确的时间格式：HH:mm:ss.SSS|
+      | test | 1      | 请输入正确的时间格式：HH:mm:ss    |
 
   Scenario: schedule_name_space
     Given open the "splSearch.SearchPage" page for uri "/search/"
