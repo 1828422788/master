@@ -45,6 +45,7 @@ Feature: 全链路_创建
     And I wait for "TimelineSPL" will be visible
     And I set the value "index=schedule schedule_name:fulllink | bucket start_timestamp span=1h as ts  | stats sum(_TimeoutErrorCount) as _TimeoutErrorCount,sum(_noSelfErrorCount) as _noSelfErrorCount,sum(_selfErrorCount) as _selfErrorCount by ts|eval level=case(_selfErrorCount>0,2,_selfErrorCount==0&&_TimeoutErrorCount>0,1,default,0)|rename _selfErrorCount as "_自身错误",_noSelfErrorCount as "_非自身错误",_TimeoutErrorCount as "_超时错误"" to the textarea "TimelineSPL"
     And I click the "RequestData" button
+    And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
