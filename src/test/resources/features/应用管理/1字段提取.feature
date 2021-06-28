@@ -271,11 +271,13 @@ Feature: 应用字段提取（RZY-2129）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "dictionary.CreatePage" page
-    And I move the mouse pointer to the "DeleteAppName"
-    And I click the "DeleteApp" button
-    Then I click the "SaveButton" button
-    And I wait for "Message" will be visible
-    Then I will see the message "更新字典内容成功"
+    And I click the "Next" button
+    Then I wait for "800" millsecond
+  #  And I move the mouse pointer to the "DeleteAppName"
+  #  And I click the "DeleteApp" button
+    Then I click the "Done" button
+   # And I wait for "Message" will be visible
+    Then I will see the message "添加成功"
     And I wait for "3000" millsecond
 
   Scenario: 根据app搜索应用
