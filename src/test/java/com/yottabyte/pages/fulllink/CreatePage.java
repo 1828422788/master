@@ -79,6 +79,10 @@ public class CreatePage extends PageTemplate {
         return getYottaButtonByText("确定");
     }
 
+    public WebElement getCancel() {
+        return getYottaButtonByText("取消");
+    }
+
     public WebElement getRequestData() {
         return getYottaButtonByText("请求数据");
     }
@@ -123,6 +127,10 @@ public class CreatePage extends PageTemplate {
         return getYottaInput("fulllink_param-template-标题：-input");
     }
 
+    public WebElement getDynamicField() {
+        return getYottaInput("fulllink_param-template-动态字段：-input");
+    }
+
     @FindBy(xpath = "//div[contains(@class,'yotta-select-menu')]")
     private WebElement dropdownListType;
 
@@ -149,5 +157,13 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getDefaultValue() {
         return getYottaDropdownList("fulllink_param-select-value-select");
+    }
+
+    public WebElement getSPL() {
+        return getYottaTextarea("fulllink_param-dynamic-query-textarea");
+    }
+
+    public WebElement getMessage() {
+        return getSuccessMessage();
     }
 }
