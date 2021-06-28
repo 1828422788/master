@@ -163,6 +163,10 @@ public class CreatePage extends PageTemplate {
         return getYottaTextarea("fulllink_param-dynamic-query-textarea");
     }
 
+    public WebElement getTable() {
+        return getYottaTable("table_chart-list-table");
+    }
+
     public WebElement getMessage() {
         return getSuccessMessage();
     }

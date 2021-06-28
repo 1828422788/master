@@ -26,7 +26,7 @@ Feature: 全链路_定时任务
     And I set the parameter "Name" with value "fulllink"
     And I set the parameter "Period" with value "10"
     And I choose the "天" from the "Unit"
-    And I set the parameter "Number" with value "200"
+    And I set the parameter "Number" with value "400"
     And I will see the element "DatePicker" contains "05-28 00:00:00 - 05-29 00:00:00"
     And I set the time parameter "StartTimeInput" as "2" minutes later from now
     And I click the Circle "BasicSettings" button

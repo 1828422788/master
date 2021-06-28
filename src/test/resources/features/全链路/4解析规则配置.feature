@@ -4,14 +4,14 @@ Feature: 全链路_解析规则配置
   Background:
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
     And I wait for "3000" millsecond
-
-  Scenario Outline: 解析规则配置
     When the data name is "AutoTest" then i click the "编辑" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "3000" millsecond
     And I wait for "DisabledSave" will be visible
     And I click the "Switch" button
     And I wait for "Save" will be visible
+
+  Scenario Outline: 解析规则配置
     And I choose the "链路解析规则配置" from the "Settings"
     And I wait for "FieldName" will be visible
     And I set the parameter "FieldName" with value "<fieldName>"
@@ -36,12 +36,6 @@ Feature: 全链路_解析规则配置
     | node        | timestamp    | from     | to     | _           | 0           |
 
   Scenario Outline: 解析规则配置_取消
-    When the data name is "AutoTest" then i click the "编辑" button
-    And I will see the "fulllink.CreatePage" page
-    And I wait for "3000" millsecond
-    And I wait for "DisabledSave" will be visible
-    And I click the "Switch" button
-    And I wait for "Save" will be visible
     And I choose the "链路解析规则配置" from the "Settings"
     And I wait for "FieldName" will be visible
     And I set the parameter "FieldName" with value "<fieldName>"
@@ -66,12 +60,6 @@ Feature: 全链路_解析规则配置
       | node        | timestamp    | from     | to     | _           | 3           |
 
   Scenario Outline: 解析规则配置_确定
-    When the data name is "AutoTest" then i click the "编辑" button
-    And I will see the "fulllink.CreatePage" page
-    And I wait for "3000" millsecond
-    And I wait for "DisabledSave" will be visible
-    And I click the "Switch" button
-    And I wait for "Save" will be visible
     And I choose the "链路解析规则配置" from the "Settings"
     And I wait for "FieldName" will be visible
     And I set the parameter "FieldName" with value "<fieldName>"

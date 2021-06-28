@@ -4,14 +4,19 @@ Feature: 全链路_输入项
   Background:
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
     And I wait for "3000" millsecond
-
-  Scenario Outline: 输入项_空
-    When the data name is "FullLink_Test" then i click the "编辑" button
+    When the data name is "AutoTest" then i click the "编辑" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "3000" millsecond
     And I wait for "DisabledSave" will be visible
     And I click the "Switch" button
     And I wait for "Save" will be visible
+
+  Scenario: 没有输入项
+    When I click the "Filter" button
+    And I wait for "2000" millsecond
+    And I will see the text "当前没有可操作的输入项" exist in page
+
+  Scenario Outline: 输入项_空
     And I click the "AddInputItem" button
     And I wait for "Token" will be visible
     And I set the parameter "Title" with value "<title>"
@@ -26,12 +31,6 @@ Feature: 全链路_输入项
     |          | token     |
 
   Scenario Outline: 输入项_可选值为空
-    When the data name is "FullLink_Test" then i click the "编辑" button
-    And I will see the "fulllink.CreatePage" page
-    And I wait for "3000" millsecond
-    And I wait for "DisabledSave" will be visible
-    And I click the "Switch" button
-    And I wait for "Save" will be visible
     And I click the "AddInputItem" button
     And I wait for "Token" will be visible
     And I set the parameter "Title" with value "productNoname"
@@ -51,12 +50,6 @@ Feature: 全链路_输入项
     |         | label   |
 
   Scenario Outline: 输入项_动态字段为空
-    When the data name is "FullLink_Test" then i click the "编辑" button
-    And I will see the "fulllink.CreatePage" page
-    And I wait for "3000" millsecond
-    And I wait for "DisabledSave" will be visible
-    And I click the "Switch" button
-    And I wait for "Save" will be visible
     And I click the "AddInputItem" button
     And I wait for "Token" will be visible
     And I set the parameter "Title" with value "productNoname"
