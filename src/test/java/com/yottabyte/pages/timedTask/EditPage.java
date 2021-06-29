@@ -121,6 +121,9 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(@class,'selected')]//span[text()='all_']")
     private WebElement selectedDatasetAll;
 
+    @FindBy(xpath = "//label[text()='所属应用']/ancestor::div[1]/following-sibling::div/div")
+    private WebElement appComboBox;
+
     public WebElement getSelectedDatasetAll() {
         return selectedDatasetAll;
     }
@@ -160,6 +163,11 @@ public class EditPage extends PageTemplate {
     public WebElement getSavedSearch() {
         getYottaDiv("schedule-saved_search-dropdown").click();
         return savedSearchList;
+    }
+
+    public WebElement getAppComboBox() {
+        appComboBox.click();
+        return super.getLastDropdownList();
     }
 
     public WebElement getCount() {
