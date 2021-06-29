@@ -35,7 +35,6 @@ Feature: 应用定时任务(RZY-2123)
     Examples:
       | spl                                                                                                      | time  | taskName |
       | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts | Today | AutoApp  |
-      #| tag:sample04061424_chart  | Today | AutoApp  |
 
   Scenario Outline: 编辑定时任务
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -144,17 +143,20 @@ Feature: 应用定时任务(RZY-2123)
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
-    And I wait for element "SearchContent" change text to "tag:sample04061424_chart | bucket timestamp span=1h as ts | stats count(apache.clientip) as c_ip by ts"
+    And switch to window "编辑报表"
+    And I close all tabs except main tab
+    Then I will see the "timedTask.EditPage" page
+    And I wait for element "Textarea" change text to "tag:sample04061424_chart | bucket timestamp span=1h as ts | stats count(apache.clientip) as c_ip by ts"
     And I wait for element "SelectedUser" change text to username
-    And I set the parameter "TaskName" with value "AutoTestCreate"
+    And I set the parameter "Name" with value "AutoTestCreate"
     And I click the "Crontab" button
     And I wait for "CrontabInput" will be visible
     And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I wait for "1500" millsecond
     And I choose the "AutoTestAppWithAllResources" from the "AppComboBox"
-    And I click the "EnsureCrontab" button
+    And I click the "Submit" button
     And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "创建成功"
+    Then I will see the success message "保存成功"
 
   Scenario: 在app外按照应用搜索
     Given open the "timedTask.ListPage" page for uri "/schedule/"

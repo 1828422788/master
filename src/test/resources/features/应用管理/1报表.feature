@@ -113,8 +113,8 @@ Feature: 应用报表（RZY-2127）
     And I choose the "AutoTestForReport" from the "ChartList"
     And I wait for "TopoTitle" will be visible
     And I click the "Save" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "新建成功"
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" value contains "新建成功"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "ReportApp"
 
@@ -146,8 +146,8 @@ Feature: 应用报表（RZY-2127）
     And I set the parameter "Name" with value "AutoAppForReport"
     And I click the "NextButton" button
     And I click the "SaveInApp" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "更新成功"
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" value contains "更新成功"
 
   Scenario Outline: 报表标签
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -213,8 +213,9 @@ Feature: 应用报表（RZY-2127）
     And I choose the "AutoTestForReport" from the "ChartList"
     And I wait for "TopoTitle" will be visible
     And I click the "Save" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "新建成功"
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" value contains "新建成功"
+
 
   Scenario: 验证应用搜索
     Given open the "report.ListPage" page for uri "/reports/"
