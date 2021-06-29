@@ -11,8 +11,8 @@ Feature: 趋势图_提示
     And I wait for "SaveAsOther" will be visible
     Then I click the "SaveAsOther" button
     Then I click the "Trend" button
-    And I wait for "TaskName" will be visible
-    When I set the parameter "TaskName" with value "<name>"
+    And I wait for "TrendName" will be visible
+    When I set the parameter "TrendName" with value "<name>"
     And I click the "EnsureButton" button
     And I wait for "TipText" will be visible
     And I will see the element "TipText" contains "<message>"
@@ -34,8 +34,8 @@ Feature: 趋势图_提示
     And I wait for "SaveAsOther" will be visible
     Then I click the "SaveAsOther" button
     Then I click the "Trend" button
-    And I wait for "TaskName" will be visible
-    When I set the parameter "TaskName" with value "test"
+    And I wait for "TrendName" will be visible
+    When I set the parameter "TrendName" with value "test"
     And I choose the "test_app" from the "AppComboBox"
     And I set the parameter "TagInput" with value "auto_package"
     And I click the "SelectAddedTag" button
@@ -44,7 +44,7 @@ Feature: 趋势图_提示
 
     And I click the "SaveAsOther" button
     And I click the "Trend" button
-    And I will see the input element "TaskName" value will be ""
+    And I will see the input element "TrendName" value will be ""
     And I will see the input element "Describe" value will be ""
     And I will see the "SelectedApp" doesn't exist
     And I will see the "SelectedTag" doesn't exist
