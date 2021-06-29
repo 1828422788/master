@@ -19,6 +19,8 @@ Feature: 定时任务_基本配置
     And I set the parameter "Period" with value "5"
     And I choose the "分钟" from the "Unit"
     And I set the parameter "StartTimeInput" with value "23:59:10"
+    And I click the "StartTimeInput" button
+    And I click the Circle "BasicSettings" button
     And I click the "Parse" button
     And I wait for "EnsureButton" will be visible
     And I wait for "ParseResult" will be visible

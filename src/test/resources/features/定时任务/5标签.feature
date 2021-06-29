@@ -20,6 +20,8 @@ Feature: 定时任务标签
     And I set the parameter "Period" with value "5"
     And I choose the "分钟" from the "Unit"
     And I set the parameter "StartTimeInput" with value "23:59:00"
+    And I click the "StartTimeInput" button
+    And I click the Circle "BasicSettings" button
     And I click the "Submit" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
