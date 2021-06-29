@@ -263,7 +263,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'Y轴 3')])[last()]")
     private WebElement yaxis3;
 
-    @FindBy(xpath = "(//span[text()='字段值']/ancestor::div[1]/following-sibling::div//span[contains(@class,'input')])[last()]")
+    @FindBy(xpath = "(//span[text()='字段值']/ancestor::div[1]/following-sibling::div//input)[last()]")
     private WebElement groupField;
 
     @FindBy(className = "yotta-alert-message")
