@@ -366,7 +366,7 @@ public class SetKeyWithValue {
         if (elementName != null && elementName.trim().length() != 0) {
             WebElement element = GetElementFromPage.getWebElementWithName(elementName);
             element.click();
-            WebElement inputElement = webDriver.findElement(By.xpath("//li//input"));
+            WebElement inputElement = webDriver.findElement(By.xpath("//input[contains(@class,'yotta-tag')]"));
             inputElement.sendKeys(value);
             inputElement.sendKeys(Keys.ENTER);
         }
