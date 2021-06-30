@@ -1,5 +1,5 @@
 @fulllink @fulllinkInputItem
-Feature: 全链路_输入项
+Feature: 全链路_3输入项
 
   Background:
     Given open the "fulllink.ListPage" page for uri "/fulllink/"

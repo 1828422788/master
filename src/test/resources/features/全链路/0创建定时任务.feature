@@ -1,5 +1,5 @@
 @fulllink @fulllinkCreateSchedule
-Feature: 全链路_定时任务
+Feature: 全链路_0定时任务
 
   Scenario Outline: 创建定时任务
     Given open the "splSearch.SearchPage" page for uri "/search/"

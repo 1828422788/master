@@ -1,5 +1,5 @@
 @fulllink @fulllinkCreate
-Feature: 全链路_创建
+Feature: 全链路_1创建
 
   Background:
     Given open the "fulllink.ListPage" page for uri "/fulllink/"

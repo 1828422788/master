@@ -1,5 +1,5 @@
 @fulllink @fulllinkTimeline
-Feature: 全链路_时间轴SPL配置
+Feature: 全链路_4时间轴SPL配置
 
   Background:
     Given open the "fulllink.ListPage" page for uri "/fulllink/"

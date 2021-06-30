@@ -1,5 +1,5 @@
 @fulllink @fulllinkDataConfig
-Feature: 全链路_数据项配置
+Feature: 全链路_5数据项配置
 
   Background:
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
