@@ -69,12 +69,6 @@ Feature: 全链路_输入项
     | *   |           |
 
   Scenario: 输入项
-    When the data name is "AutoTest" then i click the "编辑" button
-    And I will see the "fulllink.CreatePage" page
-    And I wait for "3000" millsecond
-    And I wait for "DisabledSave" will be visible
-    And I click the "Switch" button
-    And I wait for "Save" will be visible
     And I click the "AddInputItem" button
     And I wait for "Token" will be visible
     And I set the parameter "Title" with value "method"
