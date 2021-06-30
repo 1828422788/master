@@ -6,7 +6,7 @@ Feature: 全链路_定时任务
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button under some element
-    And I click the "今天" button
+    And I click the "Today" button
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
@@ -28,4 +28,4 @@ Feature: 全链路_定时任务
 
     Examples:
     | spl |
-    | tag:sample04061424_chart AND NOT apache.geo.city:"黔东南苗族侗族自治州" \| stats count() as  _totalCount by apache.geo.city, apache.method \| rename apache.geo.city as city, apache.method as method \| eval node =method+"_"+city, from = city, to = if(city=="南京市","北京市",to), to = if(city=="深圳市","北京市",to), to = if(city=="成都市","北京市",to), to = if(city=="北京市","泰安市",to), to = if(city=="海口市","济南市",to), to = if(city=="泰安市","济南市",to), to = if(city=="济南市","苏州市",to), to = if(city=="临沂市","苏州市",to), to = if(city=="苏州市","海口市",to) \| eval from = method+"_"+from, to = method+"_"+to |
+    | tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count() as  _totalCount by apache.geo.city, apache.method \| rename apache.geo.city as city, apache.method as method \| eval node =method+\"_\"+city, from = city, to = if(city==\"南京市\",\"北京市\",to), to = if(city==\"深圳市\",\"北京市\",to), to = if(city==\"成都市\",\"北京市\",to), to = if(city==\"北京市\",\"泰安市\",to), to = if(city==\"海口市\",\"济南市\",to), to = if(city==\"泰安市\",\"济南市\",to), to = if(city==\"济南市\",\"苏州市\",to), to = if(city==\"临沂市\",\"苏州市\",to), to = if(city==\"苏州市\",\"海口市\",to) \| eval from = method+\"_\"+from, to = method+\"_\"+to |
