@@ -1,4 +1,4 @@
-@fulllink @fulllinkTimeline
+@fulllink @fulllinkTimeline @fulllink_test
 Feature: 全链路_4时间轴SPL配置
 
   Background:

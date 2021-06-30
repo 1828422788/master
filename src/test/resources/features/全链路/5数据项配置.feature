@@ -45,6 +45,7 @@ Feature: 全链路_5数据项配置
     And I will see the input element "SearchInput" value will be ""
     And I will see the element "DateEditor" contains "-1m, now"
 
+  @fulllink_test
   Scenario: 数据项配置
     And I click the "DataConfig" button
     When I will see the "splSearch.SearchPage" page
@@ -57,9 +58,8 @@ Feature: 全链路_5数据项配置
     And I wait for "Table" will be visible
     And I wait for "SuccessMessage" will be invisible
     And I click the "Preview" button
-    And I wait for "SuccessMessage" will be visible
-    And I will see the element "SuccessMessage" contains "创建链路图成功"
     And I wait for "5000" millsecond
+    And I wait for "Preview" will be invisible
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"

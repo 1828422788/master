@@ -13,6 +13,7 @@ Feature: 全链路_1创建
     Then I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "名称格式有误, 仅支持汉字，数字，字母，中划线及下划线"
 
+  @fulllink_test
   Scenario: 创建全链路
     When I click the "Create" button
     And I wait for "Name" will be visible

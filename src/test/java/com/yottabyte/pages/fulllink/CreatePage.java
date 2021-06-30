@@ -83,6 +83,10 @@ public class CreatePage extends PageTemplate {
         return getYottaButtonByText("取消");
     }
 
+    public WebElement getUpdate() {
+        return getYottaButtonByText("更新");
+    }
+
     public WebElement getRequestData() {
         return getYottaButtonByText("请求数据");
     }
@@ -140,6 +144,31 @@ public class CreatePage extends PageTemplate {
         parameterType.click();
         parameterType.click();
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(dropdownListType));
+        return dropdownListType;
+    }
+
+    @FindBy(xpath = "(//div[@class='_1QKcLCq5ljwLNAWWQDBSOB'])[1]//div[text()]")
+    private WebElement firstInput;
+    public WebElement getFirstInput() {
+        return firstInput;
+    }
+
+    @FindBy(xpath = "(//div[@class='_1QKcLCq5ljwLNAWWQDBSOB'])[1]//div[@yotta-test='fulllink_param-list-item-edit-dom']")
+    private WebElement firstInputEdit;
+    public WebElement getFirstInputEdit() {
+        return firstInputEdit;
+    }
+
+    @FindBy(xpath = "(//div[@class='_1QKcLCq5ljwLNAWWQDBSOB'])[1]//div[@yotta-test='fulllink_param-list-item-delete-dom']")
+    private WebElement firstInputDelete;
+    public WebElement getFirstInputDelete() {
+        return firstInputDelete;
+    }
+
+    @FindBy(xpath = "(//div[@class='_1QKcLCq5ljwLNAWWQDBSOB'])[1]//div[@yotta-test='(//div[@class='_1QKcLCq5ljwLNAWWQDBSOB'])[1]//div[@yotta-test='fulllink_param-item-select']']")
+    private WebElement firstInputList;
+    public WebElement getFirstInputList() {
+        firstInputList.click();
         return dropdownListType;
     }
 

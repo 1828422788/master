@@ -1,4 +1,4 @@
-@fulllink @fulllinkCreateSchedule
+@fulllink @fulllinkCreateSchedule @fulllink_test
 Feature: 全链路_0定时任务
 
   Scenario Outline: 创建定时任务
