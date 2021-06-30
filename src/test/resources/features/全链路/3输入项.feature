@@ -130,6 +130,8 @@ Feature: 全链路_3输入项
 
   @fulllink_test
   Scenario: 输入项
+    When I click the "Filter" button
+    And I wait for "FirstInput" will be visible
     When I move the mouse pointer to the "FirstInput"
     And I click the "FirstInputEdit" button
     And I wait for "Token" will be visible

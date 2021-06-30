@@ -63,3 +63,21 @@ Feature: 全链路_5数据项配置
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"
+
+  Scenario Outline: 选择输入项
+    When I click the "Filter" button
+    And I wait for "FirstInput" will be visible
+    And I choose the "<input>" from the "FirstInputList"
+    And I click the "Update" button
+    And I wait for "SuccessMessage" will be visible
+    And I will see the element "SuccessMessage" contains "更新变量 "method" 成功"
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
+    And I will see the element "SuccessMessage" contains "保存成功"
+
+  Examples:
+    | input    |
+    | POST     |
+    | GET      |
+    | *        |

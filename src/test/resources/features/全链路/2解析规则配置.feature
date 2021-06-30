@@ -14,7 +14,7 @@ Feature: 全链路_2解析规则配置
   Scenario: 数据项配置_提示
     And I click the "DataConfig" button
     When I will see the "splSearch.SearchPage" page
-    When I set the parameter "SearchInput" with value "index=schedule schedule_name:FullLink_Autotest method:${method} | table start_timestamp, method, city, node, from, to, _totalCount | rename _totalCount as \"_调用量\""
+    When I set the parameter "SearchInput" with value "index=schedule schedule_name:FullLink_Autotest | table start_timestamp, method, city, node, from, to, _totalCount | rename _totalCount as \"_调用量\""
     And I click the "DateEditor" button under some element
     And I click the "Today" button
     And I wait for "1000" millsecond

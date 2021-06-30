@@ -165,7 +165,7 @@ public class CreatePage extends PageTemplate {
         return firstInputDelete;
     }
 
-    @FindBy(xpath = "(//div[@class='_1QKcLCq5ljwLNAWWQDBSOB'])[1]//div[@yotta-test='(//div[@class='_1QKcLCq5ljwLNAWWQDBSOB'])[1]//div[@yotta-test='fulllink_param-item-select']']")
+    @FindBy(xpath = "(//div[@class='_1QKcLCq5ljwLNAWWQDBSOB'])[1]//div[@yotta-test='fulllink_param-item-select']")
     private WebElement firstInputList;
     public WebElement getFirstInputList() {
         firstInputList.click();
