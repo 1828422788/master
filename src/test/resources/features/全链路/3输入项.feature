@@ -67,3 +67,33 @@ Feature: 全链路_输入项
     | spl | dyn_field |
     |     |           |
     | *   |           |
+
+  Scenario: 输入项
+    When the data name is "AutoTest" then i click the "编辑" button
+    And I will see the "fulllink.CreatePage" page
+    And I wait for "3000" millsecond
+    And I wait for "DisabledSave" will be visible
+    And I click the "Switch" button
+    And I wait for "Save" will be visible
+    And I click the "AddInputItem" button
+    And I wait for "Token" will be visible
+    And I set the parameter "Title" with value "method"
+    And I set the parameter "Token" with value "method"
+    And I wait for "2000" millsecond
+    And I choose the "下拉菜单" from the "ParameterType" in config
+    And I wait for "Value" will be visible
+    And I set the parameter "Value" with value "POST"
+    And I click the "Add" button
+    And I set the parameter "Value" with value "GET"
+    And I click the "Add" button
+    And I set the parameter "Value" with value "*"
+    And I click the "Add" button
+    And I choose the "*" from the "DefaultValue" in config
+    And I wait for "2000" millsecond
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    And I will see the element "SuccessMessage" contains "创建变量 "method" 成功"
+    And I wait for "5000" millsecond
+    And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
+    And I will see the element "SuccessMessage" contains "保存成功"

@@ -85,6 +85,6 @@ Feature: 全链路_解析规则配置
     And I will see the element "SuccessMessage" contains "保存成功"
 
     Examples:
-      | fieldName   | timestamp    | start    | end    | separator   | layernum    |
-      | node        | timestamp    | from     | to     | _           | 3           |
+      | fieldName   | timestamp       | start    | end    | separator   | layernum    |
+      | node        | start_timestamp | from     | to     | _           | 2           |
 
