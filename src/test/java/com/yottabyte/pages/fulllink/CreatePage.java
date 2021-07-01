@@ -95,6 +95,10 @@ public class CreatePage extends PageTemplate {
         return getYottaButtonByText("预览该链路图");
     }
 
+    public WebElement getRender() {
+        return getYottaButtonByText("重新渲染");
+    }
+
     public WebElement getFieldName() {
         return getInputElement("名称关联字段");
     }
@@ -170,6 +174,42 @@ public class CreatePage extends PageTemplate {
     public WebElement getFirstInputList() {
         firstInputList.click();
         return dropdownListType;
+    }
+
+    @FindBy(xpath = "(//div[@class='h5_2m6UeENBHGdeqIoE9r'])[1]")
+    private WebElement numLabel_1;
+    public WebElement getNumLabel_1() {
+        return numLabel_1;
+    }
+
+    @FindBy(xpath = "(//div[@class='h5_2m6UeENBHGdeqIoE9r'])[2]")
+    private WebElement numLabel_2;
+    public WebElement getNumLabel_2() {
+        return numLabel_2;
+    }
+
+    @FindBy(xpath = "//div[text()='高']/following-sibling::div/span[text()='min']/following-sibling::div//input")
+    private WebElement high_Min;
+    public WebElement getHigh_Min() {
+        return high_Min;
+    }
+
+    @FindBy(xpath = "//div[text()='高']/following-sibling::div/span[text()='max']/following-sibling::div//input")
+    private WebElement high_Max;
+    public WebElement getHigh_Max() {
+        return high_Max;
+    }
+
+    @FindBy(xpath = "//div[text()='中']/following-sibling::div/span[text()='min']/following-sibling::div//input")
+    private WebElement medium_Min;
+    public WebElement getMedium_Min() {
+        return medium_Min;
+    }
+
+    @FindBy(xpath = "//div[text()='中']/following-sibling::div/span[text()='max']/following-sibling::div//input")
+    private WebElement medium_Max;
+    public WebElement getMedium_Max() {
+        return medium_Max;
     }
 
     public WebElement getValue() {

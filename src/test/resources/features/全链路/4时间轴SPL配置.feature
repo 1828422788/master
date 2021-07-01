@@ -1,4 +1,4 @@
-@fulllink @fulllinkTimeline @fulllink_test
+@fulllink @fulllinkTimeline
 Feature: 全链路_4时间轴SPL配置
 
   Background:
@@ -11,6 +11,18 @@ Feature: 全链路_4时间轴SPL配置
     And I click the "Switch" button
     And I wait for "Save" will be visible
 
+  Scenario: 时间轴SPL配置_取消
+    And I choose the "时间轴SPL配置" from the "Settings"
+    And I wait for "TimelineSPL" will be visible
+    And I set the value "index=schedule schedule_name:FullLink_Autotest method:${method}  | bucket start_timestamp span=1h as ts" to the textarea "TimelineSPL"
+    And I click the "Cancel" button
+    And I wait for "Cancel" will be invisible
+    And I choose the "时间轴SPL配置" from the "Settings"
+    And I wait for "TimelineSPL" will be visible
+    And I will see the input element "TimelineSPL" value will be ""
+    And I click the "Cancel" button
+
+  @fulllink_test
   Scenario: 时间轴SPL配置
     And I choose the "时间轴SPL配置" from the "Settings"
     And I wait for "TimelineSPL" will be visible
