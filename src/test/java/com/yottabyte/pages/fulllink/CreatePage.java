@@ -236,6 +236,30 @@ public class CreatePage extends PageTemplate {
         return getYottaTable("table_chart-list-table");
     }
 
+    @FindBy(xpath = "(//div[@class='_26xWyHOlBU1ujfUt9LqAf7']/span[@aria-label='ClockCircleOutlined']) | (//div[@class='_1g2HQ9D3pUyYExRKkZHI9M']/span[@aria-label='PlusDownOutlined'])")
+    private WebElement timeAxis;
+    public WebElement getTimeAxis() {
+        return timeAxis;
+    }
+
+    @FindBy(xpath = "//div[@class='_1g2HQ9D3pUyYExRKkZHI9M']/span[@aria-label='SettingOutlined']")
+    private WebElement dateSetting;
+    public WebElement getDateSetting() {
+        return dateSetting;
+    }
+
+    @FindBy(xpath = "//div[text()='播放速度']/following-sibling::div//div[@class='yotta-slider-knob']")
+    private WebElement speedHandle;
+    public WebElement getSpeedHandle() {
+        return speedHandle;
+    }
+
+    @FindBy(xpath = "//div[@class='_1g2HQ9D3pUyYExRKkZHI9M']//span[@aria-label='SlowPlayCircleOutlined']")
+    private WebElement liveBroadcast;
+    public WebElement getLiveBroadcast() {
+        return liveBroadcast;
+    }
+
     public WebElement getMessage() {
         return getSuccessMessage();
     }
