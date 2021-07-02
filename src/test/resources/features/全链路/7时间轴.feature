@@ -25,3 +25,9 @@ Feature: 全链路_7时间轴
     And I click the "LiveBroadcast" button
     And I wait for "2000" millsecond
     And I will see the "SuccessMessage" doesn't exist
+    And I click the "LiveBroadcast" button
+    And I wait for "SuccessMessage" will be visible
+    And I will see the element "SuccessMessage" contains "直播中"
+    And I click the "LiveBroadcast" button
+    And I wait for "2000" millsecond
+    And I will see the "SuccessMessage" doesn't exist

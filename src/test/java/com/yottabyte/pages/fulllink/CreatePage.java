@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -188,6 +189,12 @@ public class CreatePage extends PageTemplate {
         return numLabel_2;
     }
 
+    @FindBy(xpath = "(//div[@class='h5_2m6UeENBHGdeqIoE9r'])[3]")
+    private WebElement numLabel_3;
+    public WebElement getNumLabel_3() {
+        return numLabel_3;
+    }
+
     @FindBy(xpath = "//div[text()='高']/following-sibling::div/span[text()='min']/following-sibling::div//input")
     private WebElement high_Min;
     public WebElement getHigh_Min() {
@@ -258,6 +265,28 @@ public class CreatePage extends PageTemplate {
     private WebElement liveBroadcast;
     public WebElement getLiveBroadcast() {
         return liveBroadcast;
+    }
+
+    @FindBy(xpath = "//canvas")
+    private WebElement canvas;
+    public WebElement getCanvas() {
+        return canvas;
+    }
+
+    public WebElement getCanvasElement() {
+        WebElement header =  webDriver.findElement(By.xpath("//header//li[1]"));
+        float x = header.getLocation().getX();
+        float y = header.getLocation().getY();
+        Actions action = new Actions(webDriver);
+        action.moveByOffset((int)x,(int)y*3).click().perform();
+        action.moveByOffset((int)x,(int)y*3).click().perform();
+        return canvas;
+    }
+
+    @FindBy(xpath = "//div[contains(@class,'yotta-drawer-right')]")
+    private WebElement elementDetails;
+    public WebElement getElementDetails() {
+        return elementDetails;
     }
 
     public WebElement getMessage() {

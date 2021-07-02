@@ -83,3 +83,22 @@ Feature: 全链路_5数据项配置
     | POST     | 1    | 7    |
     | GET      | 1    | 9    |
     | *        | 2    | 16   |
+
+  Scenario: 改变名称分割层数
+    And I choose the "链路解析规则配置" from the "Settings"
+    And I wait for "FieldName" will be visible
+    And I set the parameter "LayerNumber" with value "3"
+    And I click the Circle "FieldName" button
+    And I click the "Ensure" button
+    And I wait for "5000" millsecond
+    And I will see the element "NumLabel_3" contains "16"
+    And I choose the "链路解析规则配置" from the "Settings"
+    And I wait for "FieldName" will be visible
+    And I set the parameter "LayerNumber" with value "2"
+    And I click the Circle "FieldName" button
+    And I click the "Ensure" button
+    And I wait for "5000" millsecond
+    And I will see the "NumLabel_3" doesn't exist
+    And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
+    And I will see the element "SuccessMessage" contains "保存成功"
