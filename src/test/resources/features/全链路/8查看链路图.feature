@@ -1,4 +1,4 @@
-@fulllinkCheck
+@fulllink @fulllinkCheck
 Feature: 全链路_8查看链路图
 
   Background:
