@@ -21,8 +21,12 @@ Feature: 定时任务新建
     And I set the parameter "Period" with value "5"
     And I choose the "分钟" from the "Unit"
     And I set the parameter "StartTimeInput" with value "23:59:10"
+    And I click the "StartTimeInput" button
+    And I click the Circle "BasicSettings" button
     And I will see the element "WhenToStart" contains "今天开始"
     And I set the parameter "StartTimeInput" with value "00:01:10"
+    And I click the "StartTimeInput" button
+    And I click the Circle "BasicSettings" button
     And I will see the element "WhenToStart" contains "明天开始"
     And I click the "Submit" button
     And I wait for "Message" will be visible
@@ -65,6 +69,8 @@ Feature: 定时任务新建
     And I set the parameter "Period" with value "<periodNum>"
     And I choose the "<periodTime>" from the "Unit"
     And I set the parameter "StartTimeInput" with value "23:58:10"
+    And I click the "StartTimeInput" button
+    And I click the Circle "BasicSettings" button
     And I will see the element "DatePicker" contains "<timeDisplay>"
     And I click the "Submit" button
     And I wait for "SuccessMessage" will be visible
@@ -110,6 +116,8 @@ Feature: 定时任务新建
 
     And I set the parameter "Period" with value "<periodNum>"
     And I set the parameter "StartTimeInput" with value "23:58:10"
+    And I click the "StartTimeInput" button
+    And I click the Circle "BasicSettings" button
     And I will see the element "DatePicker" contains "2020-06-01 - 2020-06-09"
     And I click the "Submit" button
     And I wait for "SuccessMessage" will be visible

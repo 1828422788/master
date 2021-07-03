@@ -121,6 +121,7 @@ Feature: 应用事件操作（RZY-2141）
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I refresh the website
+    And I wait for "800" millsecond
     Then I will see the search result "{'column':'1','name':'<name>','contains':'no'}"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "EventApp"

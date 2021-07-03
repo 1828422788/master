@@ -89,12 +89,12 @@ Feature: 应用仪表盘
     Then I will see the "dashboard.ListPage" page
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
-    When I set the parameter "TagName" with value "test"
-    And I click the "EnsureCreateTagButton" button
-    And I wait for loading invisible
+    #When I set the parameter "TagName" with value "test"
+    #And I click the "EnsureCreateTagButton" button
+    #And I wait for loading invisible
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "DashboardApp"
-    Then the page's title will be "<title>"
+    #Then the page's title will be "<title>"
 
     Examples:
       | name    | title |

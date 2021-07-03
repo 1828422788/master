@@ -49,7 +49,6 @@ Feature: 全链路_创建
     And I choose the "下拉菜单" from the "ParameterType" in config
     And I wait for "Value" will be visible
     And I set the parameter "Value" with value "消费贷"
-    And I set the parameter "Label" with value "消费贷"
     And I click the "Add" button
     And I choose the "消费贷" from the "DefaultValue" in config
     And I wait for "2000" millsecond
@@ -76,13 +75,10 @@ Feature: 全链路_创建
     And I choose the "下拉菜单" from the "ParameterType" in config
     And I wait for "Value" will be visible
     And I set the parameter "Value" with value "线上消费贷额度申请"
-    And I set the parameter "Label" with value "线上消费贷额度申请"
     And I click the "Add" button
     And I set the parameter "Value" with value "线上消费贷可提额度计算"
-    And I set the parameter "Label" with value "线上消费贷可提额度计算"
     And I click the "Add" button
     And I set the parameter "Value" with value "贷款开立发放"
-    And I set the parameter "Label" with value "贷款开立发放"
     And I click the "Add" button
     And I choose the "线上消费贷额度申请" from the "DefaultValue" in config
     And I wait for "2000" millsecond

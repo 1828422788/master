@@ -758,7 +758,8 @@ public class SearchPage extends ListPageFactory {
     @FindBy(className = "yotta-message-content")
     private WebElement message;
 
-    @FindBy(xpath = "//label[text()='搜索内容']/parent::div/following-sibling::div")
+    //@FindBy(xpath = "//label[text()='搜索内容']/parent::div/following-sibling::div")
+    @FindBy(xpath = "//textarea[@yotta-test='schedule-query-input']")
     private WebElement searchContent;
 
     @FindBy(xpath = "//button[@class='ant-btn ant-btn-primary']")
@@ -1205,7 +1206,8 @@ public class SearchPage extends ListPageFactory {
         return ensureList.get(4);
     }
 
-    @FindBy(xpath = "//label[text()='名称']/ancestor::div[1]/following-sibling::div//input")
+   // @FindBy(xpath = "//label[text()='名称']/ancestor::div[1]/following-sibling::div//input")
+    @FindBy(xpath = "//input[@yotta-test='schedule-name-input']")
     private WebElement taskName;
 
     public WebElement getApplyButton() {
