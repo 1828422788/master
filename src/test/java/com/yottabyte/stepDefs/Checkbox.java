@@ -159,7 +159,6 @@ public class Checkbox {
     }
 
 
-
     /**
      * 判断字段提取列表页下checkbox的状态
      *
@@ -395,4 +394,20 @@ public class Checkbox {
         Assert.assertTrue((attribute.contains("checked") && "checked".equals(status))
                 || (!attribute.contains("checked") && "unchecked".equals(status)));
     }
+
+    /**
+     * 判断告警搜索页面checkbox是否被勾选
+     *
+     * @param nameList
+     * @param status
+     */
+    @Then("^I will see the checkbox in alert search which name is \"([^\"]*)\" and status is \"([^\"]*)\"$")
+    public void iWillSeeTheCheckboxInAlertSearchWhichNameIsAndStatusIs(List<String> nameList, String status) {
+        for (String name : nameList) {
+            //div[@yotta-test='incident-custom-popover']//span/input[@value='source']
+            String xpath = "//div[@yotta-test='incident-custom-popover']//span/input[@value='" + name + "']";
+            this.assertCheckboxStatus(status, xpath);
+        }
+    }
+
 }

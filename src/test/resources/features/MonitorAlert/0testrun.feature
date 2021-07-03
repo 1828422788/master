@@ -1,7 +1,7 @@
 @chsrun
 Feature: 测试运行-邮件，样例
 
-  Scenario Outline:  Scenario Outline:
+  Scenario Outline: testsample
     Given I wait for loading complete
     Given open the "alert.ListPage" page for uri "/alerts/"
     When I set the parameter "AlertListSearchInput" with value "<name>"
@@ -22,7 +22,7 @@ Feature: 测试运行-邮件，样例
 #    And I wait for "2000" millsecond
 #    And I click the "mailReceiverLabel" button
 #    Given I wait for loading complete
-#
+
 #    And I wait for "MailAlertContentPanel" will be visible
 #    And I select all text in "MailAlertContentPanel" alert element
 #    Given I wait for loading complete
