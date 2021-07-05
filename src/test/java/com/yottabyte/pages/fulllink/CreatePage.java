@@ -278,8 +278,8 @@ public class CreatePage extends PageTemplate {
         float x = header.getLocation().getX();
         float y = header.getLocation().getY();
         Actions action = new Actions(webDriver);
-        action.moveByOffset((int)x,(int)y*3).click().perform();
-        action.moveByOffset((int)x,(int)y*3).click().perform();
+        action.moveByOffset((int)x,(int)y*3).click().build().perform();
+        action.moveByOffset((int)x,(int)y*3).click().build().perform();
         return canvas;
     }
 

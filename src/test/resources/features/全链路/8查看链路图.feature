@@ -14,7 +14,8 @@ Feature: 全链路_8查看链路图
     When I click the "CanvasElement" button
     And I wait for "ElementDetails" will be visible
     And I will see the element "ElementDetails" contains "节点详情"
-    And I will see the element "ElementDetails" contains "GET_成都市"
+    And I will see the element "ElementDetails" contains "GET_"
+    And I will see the element "ElementDetails" contains "市"
     And I will see the element "ElementDetails" contains "节点异常状态"
     And I will see the element "ElementDetails" contains "数量："
-    And I will see the element "ElementDetails" contains "13"
+    And I will see the element "ElementDetails" contains "3"
