@@ -88,6 +88,10 @@ public class CreatePage extends PageTemplate {
         return getYottaButtonByText("更新");
     }
 
+    public WebElement getSearch() {
+        return getYottaButtonByText("搜索");
+    }
+
     public WebElement getRequestData() {
         return getYottaButtonByText("请求数据");
     }

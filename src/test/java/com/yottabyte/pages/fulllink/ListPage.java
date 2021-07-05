@@ -47,4 +47,28 @@ public class ListPage extends ListPageFactory {
     public WebElement getName() {
         return name;
     }
+
+    @FindBy(xpath = "((//div[contains(text(),'资源标签')][last()])/following-sibling::span/div)[1]")
+    private WebElement groupField;
+
+    @FindBy(xpath = "((//div[contains(text(),'所属应用')][last()])/following-sibling::div)[1]")
+    private WebElement appField;
+
+    public WebElement getGroupField() {
+        groupField.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getAppField() {
+        appField.click();
+        return super.getLastDropdownList();
+    }
+
+    @FindBy(className = "yotta-pageheader-title")
+    private WebElement hideElement;
+
+    public WebElement getHideElement() {
+        hideElement.click();
+        return hideElement;
+    }
 }
