@@ -20,7 +20,7 @@ Feature: 应用定时任务(RZY-2123)
     And switch to window "编辑报表"
     And I close all tabs except main tab
     Then I will see the "timedTask.EditPage" page
-    And I wait for "800" millsecond
+    And I wait for "2000" millsecond
     And I wait for element "Textarea" change text to "<spl>"
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Name" with value "<taskName>"
@@ -43,7 +43,7 @@ Feature: 应用定时任务(RZY-2123)
     When the data name is "AutoTestAppWithAllResources" then i click the "打开" button in more menu
     Then I will see the "app.AppPage" page
     When I click the "TimedTask" button
-    And I wait for "800" millsecond
+    And I wait for "2000" millsecond
     And the data name is "{'column':'1','name':'AutoApp'}" then i click the "编辑" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AutoTestAppWithAllResources"
@@ -66,7 +66,7 @@ Feature: 应用定时任务(RZY-2123)
     Then I will see the "app.AppPage" page
     When I click the "TimedTask" button
     Then I will see the "timedTask.ListPage" page
-    And I wait for "800" millsecond
+    And I wait for "2000" millsecond
     When the data name is "{'column':'1','name':'AutoCreateApp'}" then I "close" the switch
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "禁用成功"
@@ -80,7 +80,7 @@ Feature: 应用定时任务(RZY-2123)
     Then I will see the "app.AppPage" page
     When I click the "TimedTask" button
     And I will see the "timedTask.ListPage" page
-    And I wait for "800" millsecond
+    And I wait for "2000" millsecond
     When the data name is "{'column':'1','name':'AutoCreateApp'}" then i click the "复制" button in more menu
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "复制成功"
@@ -93,7 +93,7 @@ Feature: 应用定时任务(RZY-2123)
     Then I will see the "app.AppPage" page
     When I click the "TimedTask" button
     And I will see the "timedTask.ListPage" page
-    And I wait for "800" millsecond
+    And I wait for "2000" millsecond
     When the data name is "{'column':'1','name':'AutoCreateApp'}" then i click the "标签" button in more menu
     And I click the Element with text "请选择或输入"
     And I wait for "Tag" will be visible

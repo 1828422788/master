@@ -89,21 +89,21 @@ Feature: 应用趋势图
     And I wait for "500" millsecond
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "500" millsecond
+    And I wait for "2000" millsecond
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     And I wait for loading invisible
     And I wait for "Header" will be visible
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I click the "NextButton" button
     And I wait for "1500" millsecond
     When I set the parameter "NameInput" with value "<name>"
     And I wait for "1500" millsecond
     And I choose the "TrendApp" from the "AppDropdown"
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I click the "Complete" button
     And I wait for "SuccessCreate" will be visible
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I click the "Report" button
     And switch to another window
     And I close all tabs except main tab
@@ -114,11 +114,11 @@ Feature: 应用趋势图
     And I wait for "1500" millsecond
     And I choose the "PDF" from the "ReportType"
     And I set the parameter "Subject" with value "test"
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I set the parameter "Hour" with value "11"
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I set the parameter "Minute" with value "11"
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I click the "NextButton" button
     And I wait for "1500" millsecond
     And I choose the "TrendApp" from the "ChartList"
@@ -127,8 +127,8 @@ Feature: 应用趋势图
 #    And I wait for "TrendTitle" will be visible
 #    And I will see the element "TrendTitle" name is "1<name>"
 #    And I click the "Save" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "新建成功"
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" value contains "新建成功"
 
     Examples:
       | name    |
@@ -203,7 +203,6 @@ Feature: 应用趋势图
     And I wait for "BeforeDeleteApp" will be visible
     And I move the mouse pointer to the "BeforeDeleteApp"
     And I wait for "2000" millsecond
-    And I click the "DeleteApp" button
 #    And I move the mouse pointer to the "DeleteApp"
 #    And I click the "DeleteApp" button
     And I click the "Complete" button
@@ -215,7 +214,7 @@ Feature: 应用趋势图
     And I choose the "TrendApp" from the "AppDropdown"
     And I wait for loading invisible
     Then I will see the search result contains "AutoApp_副本"
-    Then I will see the search result "{'column':'0','name':'AutoApp','contains':'no'}"
+   # Then I will see the search result "{'column':'0','name':'AutoApp','contains':'no'}"
 
   Scenario: 修改app资源范围为全局
     Given open the "app.ListPage" page for uri "/app/list/"
