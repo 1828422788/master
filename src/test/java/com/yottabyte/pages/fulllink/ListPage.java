@@ -71,4 +71,16 @@ public class ListPage extends ListPageFactory {
         hideElement.click();
         return hideElement;
     }
+
+    @FindBy(xpath = "//div[contains(text(),'资源标签')]/following-sibling::span//span[@class='yotta-tag-content']")
+    private WebElement selectedTag;
+    public WebElement getSelectedTag() {
+        return selectedTag;
+    }
+
+    @FindBy(xpath = "//div[contains(text(),'所属应用')]/following-sibling::div//span[@class='yotta-select-selection-value']")
+    private WebElement selectedApp;
+    public WebElement getSelectedApp(){
+        return selectedApp;
+    }
 }

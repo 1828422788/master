@@ -13,6 +13,21 @@ Feature: 全链路_1创建
     Then I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "名称格式有误, 仅支持汉字，数字，字母，中划线及下划线"
 
+  Scenario: 创建全链路_取消
+    When I click the "Create" button
+    And I wait for "Name" will be visible
+    And I choose the "test_app" from the "AppField"
+    And I wait for "2000" millsecond
+    And I choose the "auto_package" from the "GroupField"
+    And I set the parameter "Name" with value "AutoTest_1"
+    And I will see the element "SelectedApp" contains "test_app"
+    And I click the "Cancel" button
+    When I click the "Create" button
+    And I wait for "Name" will be visible
+    And I will see the input element "Name" value will be ""
+    And I will see the "SelectedApp" doesn't exist
+    And I will see the "SelectedTag" doesn't exist
+
   Scenario: 创建全链路1
     When I click the "Create" button
     And I wait for "Name" will be visible
