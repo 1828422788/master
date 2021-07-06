@@ -223,6 +223,12 @@ public class CreatePage extends PageTemplate {
         return medium_Max;
     }
 
+    @FindBy(xpath = "(//div[@role='tab'])[1]")
+    private WebElement tab;
+    public WebElement getTab() {
+        return tab;
+    }
+
     public WebElement getValue() {
         return getYottaInput("fulllink_param-create-option-value-input");
     }

@@ -45,6 +45,28 @@ Feature: 全链路_5数据项配置
     And I will see the input element "SearchInput" value will be ""
     And I will see the element "DateEditor" contains "-1m, now"
 
+  Scenario: 数据项配置_修改指标项配置
+    And I click the "DataConfig" button
+    When I will see the "splSearch.SearchPage" page
+    When I set the parameter "SearchInput" with value "index=schedule schedule_name:FullLink_Autotest method:${method} | table start_timestamp, method, city, node, from, to, _totalCount | rename _totalCount as \"_Count\""
+    And I click the "DateEditor" button under some element
+    And I click the "Today" button
+    And I wait for "1000" millsecond
+    And I click the "SearchButton" button under some element
+    And I will see the "fulllink.CreatePage" page
+    And I wait for "Table" will be visible
+    And I wait for "SuccessMessage" will be invisible
+    And I click the "Preview" button
+    And I wait for "5000" millsecond
+    And I wait for "Preview" will be invisible
+    And I choose the "链路指标项配置" from the "Settings"
+    And I wait for "High_Min" will be visible
+    And I will see the element "Tab" contains "Count"
+    And I click the "Cancel" button
+    And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
+    And I will see the element "SuccessMessage" contains "保存成功"
+
   @fulllink_test
   Scenario: 数据项配置
     And I click the "DataConfig" button
@@ -60,6 +82,10 @@ Feature: 全链路_5数据项配置
     And I click the "Preview" button
     And I wait for "5000" millsecond
     And I wait for "Preview" will be invisible
+    And I choose the "链路指标项配置" from the "Settings"
+    And I wait for "High_Min" will be visible
+    And I will see the element "Tab" contains "数量"
+    And I click the "Cancel" button
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"
