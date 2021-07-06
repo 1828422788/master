@@ -652,4 +652,50 @@ public class ClickButtonWithGivenName {
         WebElement button = tr.findElement(By.xpath(".//span[text()='" + buttonName + "']"));
         button.click();
     }
+
+
+    /**
+     * 在更多操作中寻找对应名称的操作按钮并点击
+     *
+     * @param dataName   字符串：第一列所要匹配的名称，json：{'column':'start from 0','name':''}
+     * @param buttonName 按钮名称
+     */
+    @When("^the incident data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button in more menu$")
+    public void clickButtonInMoreMenuWithGivenIncidentName(String dataName, String buttonName) {
+        try {
+            WebElement tr = listPageUtils.getRow(dataName);
+            WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
+            WebElement lastMenuList = dropdownUtils.getIncidentMenuList();
+            List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
+            if (buttonName != null && buttonName.trim().length() != 0) {
+                for (WebElement e : elements) {
+                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+                    if (buttonName.equals(e.getText())) {
+                        e.click();
+                        break;
+                    }
+                }
+            }
+
+
+        } catch (org.openqa.selenium.StaleElementReferenceException exception) {
+            WebElement tr = listPageUtils.getRow(dataName);
+            WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
+            WebElement lastMenuList = dropdownUtils.getIncidentMenuList();
+            List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
+            if (buttonName != null && buttonName.trim().length() != 0) {
+                for (WebElement e : elements) {
+                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+                    if (buttonName.equals(e.getText())) {
+                        e.click();
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+
 }

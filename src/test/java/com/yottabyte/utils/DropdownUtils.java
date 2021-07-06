@@ -208,6 +208,16 @@ public class DropdownUtils {
         return lastMenuList;
     }
 
+    public WebElement getIncidentMenuList() {
+        List<WebElement> list = webDriver.findElements(By.className("incident-change-menu"));
+        WebElement lastMenuList = list.get(list.size() - 1);
+        if (lastMenuList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastMenuList);
+        }
+        return lastMenuList;
+    }
+
+
 
 
 }
