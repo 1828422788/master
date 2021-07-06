@@ -1,4 +1,4 @@
-@previewReport
+@previewReport @report
 Feature: 报表预览
 
   Background:
@@ -79,7 +79,7 @@ Feature: 报表预览
       | type  | page | sec   |
       | PDF   |      | 20000 |
       | EXCEL |      | 20000 |
-      | WORD  | WORD | 50000 |
+      | WORD  | WORD | 60000 |
 
 
   Scenario Outline: check_type
@@ -128,7 +128,7 @@ Feature: 报表预览
       | type  | page | sec    |
       | PDF   |      | 20000  |
       | EXCEL |      | 20000  |
-      | WORD  | WORD | 50000  |
+      | WORD  | WORD | 60000  |
 
   Scenario Outline: check_type_2
     When I set the parameter "SearchInput" with value "Test_Preview_<type>"
