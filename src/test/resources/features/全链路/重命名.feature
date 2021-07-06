@@ -13,7 +13,12 @@ Feature: 全链路_重命名
     Then I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "创建成功"
 
-  Scenario: 重命名字段
+  Scenario: 重命名_取消
+    When the data name is "Rename_Test" then i click the "重命名" button in more menu
+    And I will see the input element "Name" value will be "Rename_Test"
+    And I set the parameter "Name" with value "TEST_TEST"
+    And I click the "Cancel" button
+    Then I will see the search result "{'column':'0','name':'TEST_TEST','contains':'no'}"
     When the data name is "Rename_Test" then i click the "重命名" button in more menu
     And I will see the input element "Name" value will be "Rename_Test"
 

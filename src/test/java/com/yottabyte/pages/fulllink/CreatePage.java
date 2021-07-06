@@ -88,6 +88,10 @@ public class CreatePage extends PageTemplate {
         return getYottaButtonByText("更新");
     }
 
+    public WebElement getSearch() {
+        return getYottaButtonByText("搜索");
+    }
+
     public WebElement getRequestData() {
         return getYottaButtonByText("请求数据");
     }
@@ -219,6 +223,12 @@ public class CreatePage extends PageTemplate {
         return medium_Max;
     }
 
+    @FindBy(xpath = "(//div[@role='tab'])[1]")
+    private WebElement tab;
+    public WebElement getTab() {
+        return tab;
+    }
+
     public WebElement getValue() {
         return getYottaInput("fulllink_param-create-option-value-input");
     }
@@ -278,8 +288,14 @@ public class CreatePage extends PageTemplate {
         float x = header.getLocation().getX();
         float y = header.getLocation().getY();
         Actions action = new Actions(webDriver);
-        action.moveByOffset((int)x,(int)y*3).click().perform();
-        action.moveByOffset((int)x,(int)y*3).click().perform();
+        int i=10;
+        boolean isPresent;
+        do {
+            action.moveByOffset((int) x, (int) y * 3).click().build().perform();
+            i--;
+            isPresent = webDriver.findElements(By.xpath("//div[contains(@class,'yotta-drawer-right')]")).size()>0;
+        }
+        while (!isPresent && i!=0);
         return canvas;
     }
 
