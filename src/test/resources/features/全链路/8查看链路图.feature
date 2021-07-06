@@ -10,7 +10,7 @@ Feature: 全链路_8查看链路图
     
   Scenario: 查看全链路
     And I wait for "Canvas" will be visible
-    And I wait for "2000" millsecond
+    And I wait for "5000" millsecond
     When I click the "CanvasElement" button
     And I wait for "ElementDetails" will be visible
     And I will see the element "ElementDetails" contains "节点详情"

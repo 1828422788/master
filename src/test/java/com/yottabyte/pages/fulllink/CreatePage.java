@@ -288,8 +288,14 @@ public class CreatePage extends PageTemplate {
         float x = header.getLocation().getX();
         float y = header.getLocation().getY();
         Actions action = new Actions(webDriver);
-        action.moveByOffset((int)x,(int)y*3).click().build().perform();
-        action.moveByOffset((int)x,(int)y*3).click().build().perform();
+        int i=10;
+        boolean isPresent;
+        do {
+            action.moveByOffset((int) x, (int) y * 3).click().build().perform();
+            i--;
+            isPresent = webDriver.findElements(By.xpath("//div[contains(@class,'yotta-drawer-right')]")).size()>0;
+        }
+        while (!isPresent && i!=0);
         return canvas;
     }
 
