@@ -88,7 +88,7 @@ Feature: 全链路_1创建
     Then I will see the search result "{'column':'0','name':'AutoTest_2','contains':'no'}"
 
   @fulllink_test
-  Scenario: 创建全链路1
+  Scenario: 创建全链路
     When I click the "Create" button
     And I wait for "Name" will be visible
     And I set the parameter "Name" with value "AutoTest"
