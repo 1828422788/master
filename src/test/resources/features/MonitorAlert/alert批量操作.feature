@@ -66,7 +66,7 @@ Feature: alert批量操作
     When I click the "AddResourceTags" button
     Given I wait for loading complete
     And I wait for "2000" millsecond
-    And I choose the "AutoTest" from the "ResourceGroupList"
+    And I choose the "autoui001" from the "ResourceGroupList"
     And I wait for "2000" millsecond
 
     When I click the "Ensure" button
@@ -81,7 +81,7 @@ Feature: alert批量操作
     And I wait for "2000" millsecond
     And the data name is "{'column':'1','name':'<name>'}" then I "expand" the item
     And I wait for "2000" millsecond
-    And I will see the element "TagOfTheLastItem" contains "AutoTest"
+    And I will see the element "TagOfTheLastItem" contains "autoui001"
     And the data name is "{'column':'1','name':'<name>'}" then I "close" the item
 
     Examples:

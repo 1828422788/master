@@ -62,11 +62,26 @@ public class IncidentPage extends PageTemplate {
         return getIncidentStatusMenuList();
     }
 
-    @FindBy(xpath = "//div[@yotta-test='incident-owner-select']/div")
-    private WebElement ownerList;
     public WebElement getOwnerList(){
-        return ownerList;
+        String xpath = "//div[@yotta-test='incident-owner-select']/div";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getIncidentStatusMenuList();
     }
+
+    @FindBy(xpath = "//span[@aria-label='RightOutlined']")
+    private WebElement ariaLabelRight;
+    public WebElement getAriaLabelRight(){
+        return ariaLabelRight;
+    }
+
+    @FindBy(xpath = "//div[contains(text(),'前往')]/input")
+    private WebElement paginationInput;
+    public WebElement getPaginationInput(){
+        return paginationInput;
+    }
+
 
 
 }
