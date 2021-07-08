@@ -308,4 +308,34 @@ public class CreatePage extends PageTemplate {
     public WebElement getMessage() {
         return getSuccessMessage();
     }
+
+    @FindBy(xpath = "(//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[1]")
+    private WebElement firstTick;
+    public WebElement getFirstTick() {
+        return firstTick;
+    }
+
+    @FindBy(xpath = "(//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[2]")
+    private WebElement secondTick;
+    public WebElement getSecondTick() {
+        return secondTick;
+    }
+
+    @FindBy(xpath = "(//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[3]")
+    private WebElement thirdTick;
+    public WebElement getThirdTick() {
+        return thirdTick;
+    }
+
+    @FindBy(xpath = "(//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[4]")
+    private WebElement forthTick;
+    public WebElement getForthTick() {
+        return forthTick;
+    }
+
+    @FindBy(xpath = "//*[name()='text' and text()='0:00']//following-sibling::*[name()='rect']")
+    private WebElement tick0000;
+    public WebElement getTick0000() {
+        return tick0000;
+    }
 }
