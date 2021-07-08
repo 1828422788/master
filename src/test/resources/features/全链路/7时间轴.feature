@@ -187,6 +187,32 @@ Feature: 全链路_7时间轴
     And I wait for "2000" millsecond
     And I will see the "SuccessMessage" doesn't exist
 
+  Scenario: 录播
+    Given open the "fulllink.ListPage" page for uri "/fulllink/"
+    And I wait for "3000" millsecond
+    When the data name is "AutoTest_TimeAxis" then i click the "编辑" button
+    And I will see the "fulllink.CreatePage" page
+    And I wait for "3000" millsecond
+    And I wait for "DisabledSave" will be visible
+    And I click the "Switch" button
+    And I wait for "Save" will be visible
+    And I wait for "TimeAxis" will be visible
+    When I click the "TimeAxis" button
+    And I click the Circle "Tick0000" button
+    And I wait for "1000" millsecond
+    And I click the Circle "FirstTick" button
+    And I wait for "1000" millsecond
+    And I click the Circle "Play" button
+    And I wait for element "NumLabel_2" change text to "7"
+    And take a screenshot with name "actual/fulllink/直播/FirstTick"
+    And I wait for element "NumLabel_2" change text to "5"
+    And take a screenshot with name "actual/fulllink/直播/SecondTick"
+    And I wait for element "NumLabel_2" change text to "6"
+    And take a screenshot with name "actual/fulllink/直播/ThirdTick"
+    And I wait for element "NumLabel_2" change text to "9"
+    And take a screenshot with name "actual/fulllink/直播/ForthTick"
+    
+
   Scenario Outline: 时间轴
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
     And I wait for "3000" millsecond
@@ -202,8 +228,7 @@ Feature: 全链路_7时间轴
     And I wait for "1000" millsecond
     And I click the Circle "<tick>" button
     And I wait for "4000" millsecond
-    And take a screenshot
-#    And take part of "Canvas" with name "actual/fulllink/<tick>"
+    And take a screenshot with name "actual/fulllink/<tick>"
     And I will see the element "NumLabel_1" contains "<num1>"
     And I will see the element "NumLabel_2" contains "<num2>"
 

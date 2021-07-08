@@ -33,7 +33,7 @@ public class TakeScreenShot {
     public void screenShot(String name) {
         String actualImgFilePath = "";
         String systemName = System.getProperty("os.name");
-        if (systemName.toLowerCase().contains("linux")) {
+        if (systemName.toLowerCase().contains("linux") || systemName.toLowerCase().contains("windows")) {
             actualImgFilePath = "./" + name + ".png";
         } else if (systemName.contains("Mac")) {
             actualImgFilePath = System.getProperty("user.dir") + sp + "target" + sp +

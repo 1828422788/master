@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class CreatePage extends PageTemplate {
     public CreatePage(WebDriver driver) {
         super(driver);
-        driver.manage().window().setSize(new Dimension(1600, 900));
+        driver.manage().window().setSize(new Dimension(1920, 1080));
     }
 
     @FindBy(xpath = "//div[contains(@class,'yotta-select-option')]")
@@ -275,6 +275,12 @@ public class CreatePage extends PageTemplate {
     private WebElement liveBroadcast;
     public WebElement getLiveBroadcast() {
         return liveBroadcast;
+    }
+
+    @FindBy(xpath = "//div[@class='_1g2HQ9D3pUyYExRKkZHI9M']//span[@aria-label='PlayCircleOutlined']")
+    private WebElement play;
+    public WebElement getPlay() {
+        return play;
     }
 
     @FindBy(xpath = "//canvas")
