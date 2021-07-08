@@ -131,7 +131,6 @@ public class DropdownUtils {
     }
 
     public WebElement getLastDropdownResourceGroupList() {
-//        String str_selector = "[class='yotta-select-menu yotta-resource-tag-select-menu']";
         String str_selector = "[class='yotta-select-menu css-1hq8cx5 yotta-resource-tag-select-menu']";
 
         List<WebElement> list = webDriver.findElements(By.cssSelector(str_selector));
@@ -209,7 +208,7 @@ public class DropdownUtils {
     }
 
     public WebElement getIncidentMenuList() {
-        List<WebElement> list = webDriver.findElements(By.className("incident-change-menu"));
+        List<WebElement> list = webDriver.findElements(By.className("yotta-dropdown-menu"));
         WebElement lastMenuList = list.get(list.size() - 1);
         if (lastMenuList.getAttribute("style").contains("display: none;")) {
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastMenuList);
@@ -217,7 +216,26 @@ public class DropdownUtils {
         return lastMenuList;
     }
 
+    public WebElement getIncidentSubMenuList() {
+        String str_selector = "[class='yotta-menu css-11pryi8']";
+        //List<WebElement> list = webDriver.findElements(By.className("yotta-menu css-11pryi8"));
+        List<WebElement> list = webDriver.findElements(By.cssSelector(str_selector));
+        WebElement lastMenuList = list.get(list.size() - 1);
+        if (lastMenuList.getAttribute("style").contains("display: none;")) {
+                ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastMenuList);
+        }
+        return lastMenuList;
 
+        }
 
+        public WebElement getIncidentStatusMenuList() {
+            String str_selector = "[class='yotta-select-menu css-1hq8cx5']";
+            List<WebElement> list = webDriver.findElements(By.cssSelector(str_selector));
+            WebElement lastMenuList = list.get(list.size() - 1);
+            if (lastMenuList.getAttribute("style").contains("display: none;")) {
+                ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastMenuList);
+            }
+            return lastMenuList;
+        }
 
 }

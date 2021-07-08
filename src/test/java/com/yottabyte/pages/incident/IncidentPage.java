@@ -2,6 +2,7 @@ package com.yottabyte.pages.incident;
 
 import com.yottabyte.pages.ListPageFactory;
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -46,5 +47,26 @@ public class IncidentPage extends PageTemplate {
     public WebElement getNameCell13(){
         return nameCell13;
     }
+
+    @FindBy(xpath = "//button[@yotta-test='incident-more-button']")
+    private WebElement moreButton;
+    public WebElement getMoreButton(){
+        return moreButton;
+    }
+
+    public WebElement getStatusList(){
+        String xpath = "//div[@yotta-test='incident-status-select']/div";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getIncidentStatusMenuList();
+    }
+
+    @FindBy(xpath = "//div[@yotta-test='incident-owner-select']/div")
+    private WebElement ownerList;
+    public WebElement getOwnerList(){
+        return ownerList;
+    }
+
 
 }
