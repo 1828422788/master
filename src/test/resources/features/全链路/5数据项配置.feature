@@ -31,6 +31,7 @@ Feature: 全链路_5数据项配置
     And I click the "DataConfig" button
     When I will see the "splSearch.SearchPage" page
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.clientip"
+    And I will see the text "暂无数据" exist in page
     And I wait for "1000" millsecond
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -40,7 +41,7 @@ Feature: 全链路_5数据项配置
     And I wait for "Table" will be visible
     And I click the "Cancel" button
     And I click the "DataConfig" button
-    And I will see the "Table" doesn't exist
+    And I will see the text "暂无数据" exist in page
     When I will see the "splSearch.SearchPage" page
     And I will see the input element "SearchInput" value will be ""
     And I will see the element "DateEditor" contains "-1m, now"

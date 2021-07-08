@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class CreatePage extends PageTemplate {
     public CreatePage(WebDriver driver) {
         super(driver);
-        driver.manage().window().setSize(new Dimension(1600, 900));
+        driver.manage().window().setSize(new Dimension(1920, 1080));
     }
 
     @FindBy(xpath = "//div[contains(@class,'yotta-select-option')]")
@@ -277,6 +277,12 @@ public class CreatePage extends PageTemplate {
         return liveBroadcast;
     }
 
+    @FindBy(xpath = "//div[@class='_1g2HQ9D3pUyYExRKkZHI9M']//span[@aria-label='PlayCircleOutlined']")
+    private WebElement play;
+    public WebElement getPlay() {
+        return play;
+    }
+
     @FindBy(xpath = "//canvas")
     private WebElement canvas;
     public WebElement getCanvas() {
@@ -337,5 +343,17 @@ public class CreatePage extends PageTemplate {
     private WebElement tick0000;
     public WebElement getTick0000() {
         return tick0000;
+    }
+
+    @FindBy(xpath = "//div[text()='节点详情']//following-sibling::div[@class='_3ty-idnSV_yEDshRdCXAKx']//*[name()='rect' and @fill='#E6BA6D']")
+    private WebElement mediumAlarm;
+    public WebElement getMediumAlarm() {
+        return mediumAlarm;
+    }
+
+    @FindBy(xpath = "//div[text()='节点详情']//following-sibling::div[@class='_3ty-idnSV_yEDshRdCXAKx']//*[name()='rect' and @fill='#CF675E']")
+    private WebElement highAlarm;
+    public WebElement getHighAlarm() {
+        return highAlarm;
     }
 }
