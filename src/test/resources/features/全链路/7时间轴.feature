@@ -135,7 +135,7 @@ Feature: 全链路_7时间轴
     And I set the parameter "High_Min" with value "5"
     And I set the parameter "High_Max" with value "10"
     And I set the parameter "Medium_Min" with value "0"
-    And I set the parameter "Medium_Max" with value "1"
+    And I set the parameter "Medium_Max" with value "4"
     And I click the Circle "High_Min" button
     And I click the "Render" button
     And I wait for "2000" millsecond

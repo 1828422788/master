@@ -344,4 +344,16 @@ public class CreatePage extends PageTemplate {
     public WebElement getTick0000() {
         return tick0000;
     }
+
+    @FindBy(xpath = "//div[text()='节点详情']//following-sibling::div[@class='_3ty-idnSV_yEDshRdCXAKx']//*[name()='rect' and @fill='#E6BA6D']")
+    private WebElement mediumAlarm;
+    public WebElement getMediumAlarm() {
+        return mediumAlarm;
+    }
+
+    @FindBy(xpath = "//div[text()='节点详情']//following-sibling::div[@class='_3ty-idnSV_yEDshRdCXAKx']//*[name()='rect' and @fill='#CF675E']")
+    private WebElement highAlarm;
+    public WebElement getHighAlarm() {
+        return highAlarm;
+    }
 }
