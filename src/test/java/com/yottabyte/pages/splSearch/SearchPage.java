@@ -749,7 +749,7 @@ public class SearchPage extends ListPageFactory {
     }
 
     // @FindBy(xpath = "(//span[text()='确 定']/ancestor::button)[last()]")
-    @FindBy(xpath = "//span[text()='确定']")
+    @FindBy(xpath = "//button[@yotta-test='schedule-submit-button']/span")
     private WebElement ensureCrontab;
 
     @FindBy(xpath = "//div[contains(text(),'事件')]")

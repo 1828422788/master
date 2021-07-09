@@ -10,6 +10,7 @@ Feature: 权限-定时任务
     When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "全选"
     When I "checked" the checkbox which name is "可查看搜索页"
+    When I "checked" the checkbox which name is "可查看统计菜单"
     And I click the "Resource" button
     When I "checked" the checkbox which name is "可查看定时任务"
     When I "unchecked" the checkbox which name is "新建定时任务"
@@ -32,6 +33,7 @@ Feature: 权限-定时任务
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "2000" millsecond
     And I click the "SaveAsOther" button
     Then I will see the "TimedTask" doesn't exist
     Then I logout current user
@@ -59,18 +61,22 @@ Feature: 权限-定时任务
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
+    And switch to another window
+    Then I close all tabs except main tab
     And I wait for element "SelectedUser" change text to "AutoTest"
     And I set the parameter "TaskName" with value "AutoTestCreate"
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
+    And I wait for "800" millsecond
     And I click the "EnsureCrontab" button
     And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "创建成功"
+    Then I will see the success message "保存成功"
     Then I logout current user
 
   @logout
   Scenario: 验证无读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -138,6 +144,7 @@ Feature: 权限-定时任务
   @logout
   Scenario Outline: 授权读取+编辑
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -195,6 +202,7 @@ Feature: 权限-定时任务
   @logout
   Scenario Outline: 授权读取+编辑+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -308,6 +316,7 @@ Feature: 权限-定时任务
   @logout
   Scenario Outline: 授权读取+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -363,6 +372,7 @@ Feature: 权限-定时任务
   @logout
   Scenario Outline: 授权读取+删除+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -385,6 +395,7 @@ Feature: 权限-定时任务
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for loading invisible
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "<function>" button
     When the data name is "{'column':'1','name':'<name>'}" then i click the "查看" button
     And I will see the "timedTask.EditPage" page
@@ -424,13 +435,15 @@ Feature: 权限-定时任务
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
+    And switch to another window
+    Then I close all tabs except main tab
     And I wait for element "SelectedUser" change text to "admin"
     And I set the parameter "TaskName" with value "新建有效期测试"
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
     And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "创建成功"
+    Then I will see the success message "保存成功"
     Then I logout current user
 
  # @logout
@@ -548,6 +561,7 @@ Feature: 权限-定时任务
   @logout
   Scenario Outline: 授权所有权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -609,6 +623,7 @@ Feature: 权限-定时任务
   @logout
   Scenario: 给AutoTest授权
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'AutoTestEdit'}" then i click the "更多" button
     And I click the "Auth" button
     And I wait for loading invisible
@@ -754,6 +769,7 @@ Feature: 权限-定时任务
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
+
     Then I logout current user
 
     Examples:

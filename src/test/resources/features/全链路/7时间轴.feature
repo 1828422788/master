@@ -126,8 +126,10 @@ Feature: 全链路_7时间轴
     And I wait for "Save" will be visible
     And I wait for "TimeAxis" will be visible
     When I click the "TimeAxis" button
+    And I wait for "Tick0000" will be visible
     And I click the Circle "Tick0000" button
     And I wait for "1000" millsecond
+    And I wait for "FirstTick" will be visible
     And I click the Circle "FirstTick" button
     And I wait for "1000" millsecond
     And I choose the "链路指标项配置" from the "Settings"
@@ -170,8 +172,10 @@ Feature: 全链路_7时间轴
     And I wait for "Save" will be visible
     And I wait for "TimeAxis" will be visible
     When I click the "TimeAxis" button
+    And I wait for "Tick0000" will be visible
     And I click the Circle "Tick0000" button
     And I wait for "1000" millsecond
+    And I wait for "FirstTick" will be visible
     And I click the Circle "FirstTick" button
     And I wait for "1000" millsecond
     And I click the "LiveBroadcast" button
@@ -198,8 +202,10 @@ Feature: 全链路_7时间轴
     And I wait for "Save" will be visible
     And I wait for "TimeAxis" will be visible
     When I click the "TimeAxis" button
+    And I wait for "Tick0000" will be visible
     And I click the Circle "Tick0000" button
     And I wait for "1000" millsecond
+    And I wait for "FirstTick" will be visible
     And I click the Circle "FirstTick" button
     And I wait for "1000" millsecond
     And I click the Circle "Play" button
@@ -224,8 +230,10 @@ Feature: 全链路_7时间轴
     And I wait for "Save" will be visible
     And I wait for "TimeAxis" will be visible
     When I click the "TimeAxis" button
+    And I wait for "Tick0000" will be visible
     And I click the Circle "Tick0000" button
     And I wait for "1000" millsecond
+    And I wait for "<tick>" will be visible
     And I click the Circle "<tick>" button
     And I wait for "4000" millsecond
     And take a screenshot with name "actual/fulllink/<tick>"
