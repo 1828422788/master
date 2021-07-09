@@ -115,13 +115,28 @@ public class MaintenancePage extends PageTemplate {
         return maintainBeginTimeInput;
     }
 
+    @FindBy(css = "[class='yotta-popover css-1shj747 yotta-time-picker-popover']")
+    private WebElement beginTimeListHideItem;
+    public WebElement getBeginTimeListHideItem() {
+//        String str_selector = "[class='yotta-popover css-1shj747 yotta-time-picker-popover']";
+//        WebElement element = webDriver.findElement(By.cssSelector(str_selector));
+        return maintainBeginTimeInput;
+    }
+
     public WebElement getMaintainBeginTimeList() {
-//        String xpath = "//span[text()='开始时间']/following::div/span/input[@placeholder='请选择']/following-sibling::span/i";
         String xpath = "//div[@yotta-test='alert-fixed_start_time-time_picker']/span/span";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getMaintainTimeDropdownList();
+        return getMaintainBeginTimeDropdownList();
+    }
+
+    public WebElement getMaintainBeginTimeList1() {
+        String xpath = "//div[@yotta-test='alert-fixed_start_time-time_picker']/span/span";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getMaintainBeginTimeDropdownList();
     }
 
     @FindBy(xpath = "//span[@class='yotta-icon yotta-icon-DownOutlined yotta-time-table-column-down']")
@@ -137,7 +152,6 @@ public class MaintenancePage extends PageTemplate {
     }
 
     public WebElement getMaintainEndTimeList() {
-//        String xpath = "//span[text()='结束时间']/following::div/span/input[@placeholder='请选择']/following-sibling::span/i";
         String xpath = "//div[@yotta-test='alert-fixed_end_time-time_picker']/span/span";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
@@ -145,7 +159,13 @@ public class MaintenancePage extends PageTemplate {
 //        for (int j=0;j<22;j++){
 //            downOutlinedButton.click();
 //        }
-        return getMaintainTimeDropdownList();
+        return getMaintainEndTimeDropdownList();
+    }
+
+    @FindBy(xpath = "//main[@yotta-test='navigation-main-dom']")
+    private WebElement mainDom;
+    public WebElement getMainDom() {
+        return mainDom;
     }
 
     @FindBy(xpath = "//span[text()='单次']/parent::label")
@@ -195,7 +215,7 @@ public class MaintenancePage extends PageTemplate {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getMaintainTimeDropdownList();
+        return getMaintainBeginTimeList();
     }
 
     @FindBy(xpath = "//div[@class='ant-calendar-picker-container ant-calendar-picker-container-placement-bottomLeft']//a[text()='确定']")

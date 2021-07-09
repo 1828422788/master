@@ -213,8 +213,11 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     public WebElement getAlertNoteTypeDropdownList() {
         return dropdownUtils.getAlertNoteTypeDropdownList();
     }
-    public WebElement getMaintainTimeDropdownList() {
-        return dropdownUtils.getMaintainTimeDropdownList();
+    public WebElement getMaintainBeginTimeDropdownList() {
+        return dropdownUtils.getMaintainBeginTimeDropdownList();
+    }
+    public WebElement getMaintainEndTimeDropdownList() {
+        return dropdownUtils.getMaintainEndTimeDropdownList();
     }
 
     public WebElement getYottaDropdownList(String text) {

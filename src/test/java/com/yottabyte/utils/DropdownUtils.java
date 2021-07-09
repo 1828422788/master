@@ -132,7 +132,6 @@ public class DropdownUtils {
 
     public WebElement getLastDropdownResourceGroupList() {
         String str_selector = "[class='yotta-select-menu css-1hq8cx5 yotta-resource-tag-select-menu']";
-
         List<WebElement> list = webDriver.findElements(By.cssSelector(str_selector));
 
         WebElement lastDropdownList = list.get(list.size() - 1);
@@ -175,12 +174,22 @@ public class DropdownUtils {
         return lastDropdownList;
     }
 
-    public WebElement getMaintainTimeDropdownList() {
+    public WebElement getMaintainBeginTimeDropdownList() {
         String className;
         className = "yotta-time-table-column-list";
         List<WebElement> list = webDriver.findElements(By.className(className));
-//        WebElement lastDropdownList = list.get(list.size() - 1);
         WebElement lastDropdownList = list.get(0);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+        }
+        return lastDropdownList;
+    }
+
+    public WebElement getMaintainEndTimeDropdownList() {
+        String className;
+        className = "yotta-time-table-column-list";
+        List<WebElement> list = webDriver.findElements(By.className(className));
+        WebElement lastDropdownList = list.get(2);
         if (lastDropdownList.getAttribute("style").contains("display: none;")) {
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
         }

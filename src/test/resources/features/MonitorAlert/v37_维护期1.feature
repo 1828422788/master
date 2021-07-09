@@ -34,7 +34,7 @@ Feature: 监控维护期
     And I wait for "1000" millsecond
 
     And I click the "SaveButton" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "创建成功"
 
     Examples:
       | reason                          | alert_name                     |
@@ -187,3 +187,39 @@ Feature: 监控维护期
   Scenario: 返回监控首页
     When I click the "ReturnToAlertPage" button
     Then the page's title will be "监控"
+
+
+  @maintain101
+  Scenario Outline: test
+    Given I click the "CreateButton" button
+    When I set the parameter "MaintainReason" with value "<reason>"
+
+    And I click the "ChooseAlertButton" button
+    And I set the parameter "AlertNameSearchInput" with value "<alert_name>"
+    And I click the "AlertNameSearchIcon" button
+    And I wait for loading complete
+    And I wait for "3000" millsecond
+    And I click the "AlertNameBody" button
+    And I wait for "3000" millsecond
+    And I wait for loading complete
+    And I click the "AlertNameEnsure" button
+
+    And I wait for loading complete
+    And I set the parameter "MaintainBeginTimeInput" with value "02:00"
+    And I choose2 the "02" from the "MaintainBeginTimeList"
+    Given I wait for loading complete
+    And I hide the time picker popover
+    And I wait for "2000" millsecond
+    And I set the parameter "MaintainEndTimeInput" with value "23:00"
+    And I choose2 the "23" from the "MaintainEndTimeList"
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
+    And I hide the time picker popover
+    And I wait for "3000" millsecond
+
+    And I click the "SaveButton" button
+    Then I will see the success message "创建成功"
+
+    Examples:
+      | reason                          | alert_name                     |
+      | 维护期101                        | 维护期_字段统计_分组事件数status_邮件_每天0-23点 |

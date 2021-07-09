@@ -21,6 +21,7 @@ import java.util.List;
  */
 public class IChooseValueFromSelectList {
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
+
     /**
      * 在下拉框中，根据配置文件名称选择
      *
@@ -131,7 +132,6 @@ public class IChooseValueFromSelectList {
             }
         }
     }
-
 
 
     public void iChooseTheFromThe(List<String> values, List<WebElement> elements) {
@@ -264,6 +264,7 @@ public class IChooseValueFromSelectList {
             }
         }
     }
+
     public void iChooseTheFromTheInReport(List<String> values, WebElement parentElement) {
         List<WebElement> elements = webDriver.findElements(By.xpath("//li"));
         for (String value : values) {
@@ -522,8 +523,8 @@ public class IChooseValueFromSelectList {
 //        list.add("sunxc");
 //        new IChooseValueFromSelectList().iCancelAllSelectionExcept(e, list);
 //
-//        System.out.println("done");
-//    }
+//        System.out.println("done");//
+//        }
 
     @And("^I choose1 the \"([^\"]*)\" from the \"([^\"]*)\" in config$")
     public void iChooseTheFromTheInConfig1(List<String> values, String selectListName) {
@@ -536,7 +537,6 @@ public class IChooseValueFromSelectList {
             iChooseTheFromThe1(values, element);
         }
     }
-
 
 
     @And("^I choose1 the \"([^\"]*)\" from the \"([^\"]*)\"$")
@@ -554,8 +554,8 @@ public class IChooseValueFromSelectList {
                     ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
                     String curText = e.getText();
                     if (value.equals(curText)) {
-                            e.click();
-                            break;
+                        e.click();
+                        break;
                     }
                 }
             }
@@ -588,8 +588,8 @@ public class IChooseValueFromSelectList {
                     ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
                     String curElementText = e.getText();
                     if (curElementText.contains(value)) {
-                            e.click();
-                            break;
+                        e.click();
+                        break;
                     }
                 }
             }
