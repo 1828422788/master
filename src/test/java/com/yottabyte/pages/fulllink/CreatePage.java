@@ -144,6 +144,12 @@ public class CreatePage extends PageTemplate {
         return getYottaInput("fulllink_param-template-动态字段：-input");
     }
 
+    @FindBy(xpath = "//button[@yotta-test='fulllink_param-dynamic-search-button']/following-sibling::div")
+    private WebElement searchResultMessage;
+    public WebElement getSearchResultMessage(){
+        return searchResultMessage;
+    }
+
     @FindBy(xpath = "//div[contains(@class,'yotta-select-menu')]")
     private WebElement dropdownListType;
 
@@ -271,7 +277,7 @@ public class CreatePage extends PageTemplate {
         return speedHandle;
     }
 
-    @FindBy(xpath = "//div[@class='_1g2HQ9D3pUyYExRKkZHI9M']//span[@aria-label='SlowPlayCircleOutlined']")
+    @FindBy(xpath = "//div[contains(@class,'_1g2HQ9D3pUyYExRKkZHI9M')]//span[@aria-label='SlowPlayCircleOutlined']")
     private WebElement liveBroadcast;
     public WebElement getLiveBroadcast() {
         return liveBroadcast;
