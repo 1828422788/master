@@ -26,8 +26,10 @@ Feature: 全链路_8查看链路图
     And I wait for "3000" millsecond
     And I wait for "TimeAxis" will be visible
     When I click the "TimeAxis" button
+    And I wait for "Tick0000" will be visible
     And I click the Circle "Tick0000" button
     And I wait for "1000" millsecond
+    And I wait for "FirstTick" will be visible
     And I click the Circle "FirstTick" button
     And I wait for "1000" millsecond
     And I wait for "Canvas" will be visible
