@@ -769,6 +769,7 @@ Feature: 权限-定时任务
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
+
     Then I logout current user
 
     Examples:
