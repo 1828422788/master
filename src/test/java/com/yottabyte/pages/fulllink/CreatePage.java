@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class CreatePage extends PageTemplate {
     public CreatePage(WebDriver driver) {
         super(driver);
-        driver.manage().window().setSize(new Dimension(1600, 900));
+        driver.manage().window().setSize(new Dimension(1920, 1080));
     }
 
     @FindBy(xpath = "//div[contains(@class,'yotta-select-option')]")
@@ -88,6 +88,10 @@ public class CreatePage extends PageTemplate {
         return getYottaButtonByText("更新");
     }
 
+    public WebElement getSearch() {
+        return getYottaButtonByText("搜索");
+    }
+
     public WebElement getRequestData() {
         return getYottaButtonByText("请求数据");
     }
@@ -138,6 +142,12 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getDynamicField() {
         return getYottaInput("fulllink_param-template-动态字段：-input");
+    }
+
+    @FindBy(xpath = "//button[@yotta-test='fulllink_param-dynamic-search-button']/following-sibling::div")
+    private WebElement searchResultMessage;
+    public WebElement getSearchResultMessage(){
+        return searchResultMessage;
     }
 
     @FindBy(xpath = "//div[contains(@class,'yotta-select-menu')]")
@@ -219,6 +229,12 @@ public class CreatePage extends PageTemplate {
         return medium_Max;
     }
 
+    @FindBy(xpath = "(//div[@role='tab'])[1]")
+    private WebElement tab;
+    public WebElement getTab() {
+        return tab;
+    }
+
     public WebElement getValue() {
         return getYottaInput("fulllink_param-create-option-value-input");
     }
@@ -261,10 +277,16 @@ public class CreatePage extends PageTemplate {
         return speedHandle;
     }
 
-    @FindBy(xpath = "//div[@class='_1g2HQ9D3pUyYExRKkZHI9M']//span[@aria-label='SlowPlayCircleOutlined']")
+    @FindBy(xpath = "//div[contains(@class,'_1g2HQ9D3pUyYExRKkZHI9M')]//span[@aria-label='SlowPlayCircleOutlined']")
     private WebElement liveBroadcast;
     public WebElement getLiveBroadcast() {
         return liveBroadcast;
+    }
+
+    @FindBy(xpath = "//div[@class='_1g2HQ9D3pUyYExRKkZHI9M']//span[@aria-label='PlayCircleOutlined']")
+    private WebElement play;
+    public WebElement getPlay() {
+        return play;
     }
 
     @FindBy(xpath = "//canvas")
@@ -278,8 +300,14 @@ public class CreatePage extends PageTemplate {
         float x = header.getLocation().getX();
         float y = header.getLocation().getY();
         Actions action = new Actions(webDriver);
-        action.moveByOffset((int)x,(int)y*3).click().build().perform();
-        action.moveByOffset((int)x,(int)y*3).click().build().perform();
+        int i=10;
+        boolean isPresent;
+        do {
+            action.moveByOffset((int) x, (int) y * 3).click().build().perform();
+            i--;
+            isPresent = webDriver.findElements(By.xpath("//div[contains(@class,'yotta-drawer-right')]")).size()>0;
+        }
+        while (!isPresent && i!=0);
         return canvas;
     }
 
@@ -291,5 +319,47 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getMessage() {
         return getSuccessMessage();
+    }
+
+    @FindBy(xpath = "(//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[1]")
+    private WebElement firstTick;
+    public WebElement getFirstTick() {
+        return firstTick;
+    }
+
+    @FindBy(xpath = "(//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[2]")
+    private WebElement secondTick;
+    public WebElement getSecondTick() {
+        return secondTick;
+    }
+
+    @FindBy(xpath = "(//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[3]")
+    private WebElement thirdTick;
+    public WebElement getThirdTick() {
+        return thirdTick;
+    }
+
+    @FindBy(xpath = "(//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[4]")
+    private WebElement forthTick;
+    public WebElement getForthTick() {
+        return forthTick;
+    }
+
+    @FindBy(xpath = "//*[name()='text' and text()='0:00']//following-sibling::*[name()='rect']")
+    private WebElement tick0000;
+    public WebElement getTick0000() {
+        return tick0000;
+    }
+
+    @FindBy(xpath = "//div[text()='节点详情']//following-sibling::div[@class='_3ty-idnSV_yEDshRdCXAKx']//*[name()='rect' and @fill='#E6BA6D']")
+    private WebElement mediumAlarm;
+    public WebElement getMediumAlarm() {
+        return mediumAlarm;
+    }
+
+    @FindBy(xpath = "//div[text()='节点详情']//following-sibling::div[@class='_3ty-idnSV_yEDshRdCXAKx']//*[name()='rect' and @fill='#CF675E']")
+    private WebElement highAlarm;
+    public WebElement getHighAlarm() {
+        return highAlarm;
     }
 }

@@ -91,6 +91,13 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']")
     private WebElement tagField;
 
+    @FindBy(xpath = "//div[contains(@class,'spinner')]")
+    private WebElement loading;
+
+    public WebElement getLoading() {
+        return loading;
+    }
+
     public WebElement getTagField() {
         tagField.click();
         return this.getLastDropdownList();
@@ -212,6 +219,10 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
 
     public WebElement getLastDropdownResourceGroupList() {
         return utils.getLastDropdownResourceGroupList();
+    }
+
+    public WebElement getIncidentStatusMenuList() {
+        return utils.getIncidentStatusMenuList();
     }
 
     public WebElement getLastDropdownList37() {

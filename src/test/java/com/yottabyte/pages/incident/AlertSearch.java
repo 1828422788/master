@@ -71,6 +71,12 @@ public class AlertSearch extends PageTemplate {
     }
 
     @FindBy(xpath = "//table[@yotta-test='incident-list-table']//tr[2]/td[2]")
+    private WebElement nameCell21;
+    public WebElement getNameCell21(){
+        return nameCell21;
+    }
+
+    @FindBy(xpath = "//table[@yotta-test='incident-list-table']//tr[2]/td[2]")
     private WebElement nameCell22;
     public WebElement getNameCell22(){
         return nameCell22;

@@ -1,4 +1,4 @@
-@previewReport
+@previewReport @report
 Feature: 报表预览
 
   Background:
@@ -68,7 +68,7 @@ Feature: 报表预览
     And I choose the "运行测试" from the "Preview"
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "正在生成测试报表，请稍后查看接收邮箱"
-    And I wait for "25000" millsecond
+    And I wait for "<sec>" millsecond
     And I wait for "SuccessMessage" will be invisible
 #    And I wait for element "SuccessMessage" change text to "下载到本地预览成功，请查看并下载完报表历史也最新文件"
     When I click the "FinishButton" button under some element
@@ -76,10 +76,10 @@ Feature: 报表预览
     And I will see the element "ResultMessage" contains "更新成功"
 
     Examples:
-      | type  | page |
-      | PDF   |      |
-      | EXCEL |      |
-      | WORD  | WORD |
+      | type  | page | sec   |
+      | PDF   |      | 20000 |
+      | EXCEL |      | 20000 |
+      | WORD  | WORD | 60000 |
 
 
   Scenario Outline: check_type
@@ -117,7 +117,7 @@ Feature: 报表预览
     And I choose the "下载到本地预览" from the "Preview"
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "正在生成测试报表，请稍后查看报表历史页"
-    And I wait for "25000" millsecond
+    And I wait for "<sec>" millsecond
     And I wait for "SuccessMessage" will be invisible
 #    And I wait for element "SuccessMessage" change text to "下载到本地预览成功，请查看并下载完报表历史也最新文件"
     When I click the "FinishButton" button under some element
@@ -125,10 +125,10 @@ Feature: 报表预览
     And I will see the element "ResultMessage" contains "更新成功"
 
     Examples:
-      | type  | page |
-      | PDF   |      |
-      | EXCEL |      |
-      | WORD  | WORD |
+      | type  | page | sec    |
+      | PDF   |      | 20000  |
+      | EXCEL |      | 20000  |
+      | WORD  | WORD | 60000  |
 
   Scenario Outline: check_type_2
     When I set the parameter "SearchInput" with value "Test_Preview_<type>"

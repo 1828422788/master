@@ -86,7 +86,7 @@ Feature: 全链路_3输入项
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"
 
-  Scenario Outline: 输入项_动态字段为空
+  Scenario Outline: 输入项_动态字段_提示
     And I click the "AddInputItem" button
     And I wait for "Token" will be visible
     And I set the parameter "Title" with value "productNoname"
@@ -96,14 +96,18 @@ Feature: 全链路_3输入项
     And I wait for "SPL" will be visible
     And I set the value "<spl>" to the textarea "SPL"
     And I set the parameter "DynamicField" with value "<dyn_field>"
-    And I click the "Ensure" button
-    And I wait for "Message" will be visible
-    And I will see the message contains "请填写必填项"
+    And I click the "<button>" button
+    And I wait for "<element>" will be visible
+    And I will see the element "<element>" contains "<message>"
 
   Examples:
-    | spl | dyn_field |
-    |     |           |
-    | *   |           |
+    | spl | dyn_field   | button  | element             | message          |
+    |     |             | Ensure  | Message             | 请填写必填项     |
+    | *   |             | Ensure  | Message             | 请填写必填项     |
+    |     |             | Search  | Message             | 搜索语句不能为空 |
+    | *   |             | Search  | Message             | 请先填写动态字段 |
+    | *\\ |apache.method| Search  | SearchResultMessage | 搜索失败         |
+    | *   |apache.method| Search  | SearchResultMessage | 搜索成功         |
 
   @fulllink_test
   Scenario: 输入项

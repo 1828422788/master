@@ -343,4 +343,28 @@ public class CheckButtonAttribute {
 //        Assert.assertTrue(element.getAttribute(attribute).contains(attributeName));
         Assert.assertEquals(attributeName, actualText);
     }
+
+    /**
+     * 判断inputBox显示
+     *
+     * @param buttonNameList 元素名称（支持list）
+     */
+    @And("^I will see the inputbox \"([^\"]*)\" contains \"([^\"]*)\" display$")
+    public void checkInputBoxIsDisplay(List<String> buttonNameList) {
+        for (String buttonName : buttonNameList) {
+            WebElement element = GetElementFromPage.getWebElementWithName(buttonName);
+            Assert.assertFalse(element.getAttribute("value").contains("display: none;"));
+        }
+    }
+
+    /**
+     * @param elementName 元素名称
+     * @param expectText  期望值
+     */
+    @Then("^I will see the input box \"([^\"]*)\" contains \"([^割]*)\"$")
+    public void iWillSeeTheInputBoxContains(String elementName, String expectText) {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        Assert.assertEquals(element.getAttribute("value"),expectText);
+    }
+
 }
