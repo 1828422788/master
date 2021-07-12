@@ -348,7 +348,8 @@ Feature: 日志展现_其它
     And I click the "Divide" button
     And I choose the "<childIDvalue>" from the "FieldValue" in config
     And I click the "Info" button
-    And I choose the "<infoValue>" from the "InfoField" in config
+    And I wait for "2000" millsecond
+    And I cancel all selections from the "InfoColumn" except value "<infoValue>"
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button

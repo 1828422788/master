@@ -20,11 +20,12 @@ Feature: 全链路_7时间轴
     And I choose the "分钟" from the "Unit"
     And I set the parameter "Number" with value "50"
     And I will see the element "DatePicker" contains "今天"
-    And I set the time parameter "StartTimeInput" as "2" minutes later from now
+    And I set the time parameter "StartTimeInput" as "1" minutes later from now
     And I click the Circle "BasicSettings" button
     And I click the "Submit" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
+    And I wait for "60000" millsecond
 
     Examples:
       | spl |
@@ -135,8 +136,8 @@ Feature: 全链路_7时间轴
     And I choose the "链路指标项配置" from the "Settings"
     And I wait for "High_Min" will be visible
     And I set the parameter "High_Min" with value "5"
-    And I set the parameter "High_Max" with value "10"
-    And I set the parameter "Medium_Min" with value "0"
+    And I set the parameter "High_Max" with value "15"
+    And I set the parameter "Medium_Min" with value "3"
     And I set the parameter "Medium_Max" with value "4"
     And I click the Circle "High_Min" button
     And I click the "Render" button
