@@ -49,7 +49,7 @@ Feature: 权限-已存搜索
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for loading invisible
     And I click the "SavedSearch" button
-    And I set the parameter "TaskName" with value "AutoTestCreate"
+    And I set the parameter "SavedSearchName" with value "AutoTestCreate"
     And I click the "EnsureCreateSavedSearch" button
     Then I will see the success message "创建成功"
 
@@ -85,6 +85,7 @@ Feature: 权限-已存搜索
 
   Scenario Outline: 授权读取
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -232,7 +233,7 @@ Feature: 权限-已存搜索
   Scenario Outline: 新建AutoTest已存搜索
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I click the "SavedSearch" button
-    And I set the parameter "TaskName" with value "<name>"
+    And I set the parameter "OfflineTaskName" with value "<name>"
     And I click the "EnsureCreateSavedSearch" button
     Then I will see the success message "创建成功"
 
@@ -294,6 +295,7 @@ Feature: 权限-已存搜索
     And I wait for loading invisible
     And I click the "OpenSavedSearchList" button
     And I wait for loading invisible
+    #########3.8定位范围
     And "删除" the data "<name>" in tiny saved search
     And I click the "DeleteSavedSearch" button
     Then I will see the message "删除成功"
@@ -369,6 +371,7 @@ Feature: 权限-已存搜索
     And I click the star before "{'column':'2','name':'<name>'}" in saved search
     Then I will see the message "更新成功"
     And I wait for "Message" will be invisible
+    #######3.8定位范围
     And "删除" the data "AutoTestCreate" in tiny saved search
     And I click the "DeleteSavedSearch" button
     Then I will see the message "删除成功"
@@ -388,7 +391,7 @@ Feature: 权限-已存搜索
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for loading invisible
     And I click the "SavedSearch" button
-    And I set the parameter "TaskName" with value "<name>"
+    And I set the parameter "OfflineTaskName" with value "<name>"
     And I click the "EnsureCreateSavedSearch" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
@@ -406,6 +409,7 @@ Feature: 权限-已存搜索
     And I wait for "2000" millsecond
     Given open the "splSearch.SavedSearchPage" page for uri "/savedsearches/"
     And I wait for loading invisible
+
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "<function>" button
     Then I will see the "Star" is "yotta-icon yotta-icon-StarFilled"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
