@@ -49,6 +49,21 @@ Feature: 全链路_3输入项
     |         |         |
     |         | label   |
 
+  Scenario: 输入项_添加已经存在的
+    And I click the "AddInputItem" button
+    And I wait for "Token" will be visible
+    And I set the parameter "Title" with value "productNoname"
+    And I set the parameter "Token" with value "productNoname"
+    And I wait for "2000" millsecond
+    And I choose the "下拉菜单" from the "ParameterType" in config
+    And I wait for "Value" will be visible
+    And I set the parameter "Value" with value "value"
+    And I click the "Add" button
+    And I set the parameter "Value" with value "value"
+    And I click the "Add" button
+    And I wait for "Message" will be visible
+    And I will see the message contains "当前值已经存在"
+
   Scenario Outline: 添加输入项
     And I click the "AddInputItem" button
     And I wait for "Token" will be visible
