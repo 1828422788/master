@@ -1,4 +1,4 @@
-@knowledge
+@knowledge @knowledge4
 Feature: 知识编辑（RZY-879）
 
   Background:

@@ -29,6 +29,7 @@ public class LoginBeforeAllTests {
     private static String loginURL;
 
     public LoginBeforeAllTests(SharedDriver driver, ConfigManager manager) {
+        System.out.println("chsfinduml==============================================[2]");
         webDriver = driver;
         config = manager;
         baseURL = "http://" + manager.get("rizhiyi_server_host");
@@ -37,6 +38,7 @@ public class LoginBeforeAllTests {
 
     @Before
     public void beforeScenario() {
+        System.out.println("chsfinduml==============================================[3]");
         if (isValidCookie()) {
             return;
         }
@@ -55,6 +57,8 @@ public class LoginBeforeAllTests {
     }
 
     public static void login() {
+        System.out.println("chsfinduml==============================================[4]");
+
         PageTemplate loginPage;
         String username;
         String password;
@@ -111,6 +115,7 @@ public class LoginBeforeAllTests {
     }
 
     public static void setPageFactory(String pageFactoryName) {
+        System.out.println("chsfinduml==============================================[5]");
         if (!pageFactoryName.startsWith("com.yottabyte.pages.")) {
             pageFactoryName = "com.yottabyte.pages." + pageFactoryName;
         }

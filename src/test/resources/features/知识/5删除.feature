@@ -1,4 +1,4 @@
-@knowledge @knowledgeSmoke
+@knowledge @knowledgeSmoke @delknowledge
 Feature: 知识删除（RZY-881）
 
   Background:

@@ -21,6 +21,8 @@ public class LoadingPage {
      */
     @Then("^I will see the \"([^\"]*)\" page$")
     public void loadNewPage(String pageName) {
+        System.out.println("chsfinduml==============================================[5]");
+
         ConstructPageFactoryWithName c = new ConstructPageFactoryWithName();
         c.constructPageFactoryWithName(pageName);
     }
@@ -32,6 +34,7 @@ public class LoadingPage {
      */
     @Given("^open the \"([^\"]*)\" page for uri \"([^\"]*)\"$")
     public void openThePageForURI(String pageName, String uri) {
+        System.out.println("chsfinduml==============================================[6]");
         webDriver.get(baseURL + uri);
         int times = 0;
         while (!webDriver.getCurrentUrl().contains(uri) && times < 10) {

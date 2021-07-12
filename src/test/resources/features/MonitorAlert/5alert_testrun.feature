@@ -44,16 +44,16 @@ Feature: 测试运行-邮件
       | name                    |
       |	api00_spl统计ip_cnt_高_扩展chart_all_合并	|
       |	api00_spl统计ip_cnt_高_扩展chart_all_宏	|
-      | api00_spl统计_非按行发送sample |
       |	api00_all_事件数_扩展chart_all_sample_合并	|
       |	api00_all_事件计数_设备切分ip_扩展chart_all_交易日	|
       |	api00_all_事件计数_设备切分ip_扩展chart_all_合并	|
-      |	api00_spl统计_按行发送sample	|
-      |	api00_spl统计_按行发送_抑制_连续触发3次_分组单字段	|
-      |	api00_spl统计_按行发送_抑制_连续触发3次_分组多字段	|
-      |	api00_spl统计_按行发送_抑制翻倍_cnt_10-59min_分组单字段	|
-      |	api00_spl统计_按行发送_抑制翻倍_cnt_10-59min_分组多字段	|
-      |	api00_spl统计_按行发送_抑制翻倍_cnt_10-59min_无分组	|
+      | api00_spl统计_非按行发送0_sample_1封|
+      |	api00_spl统计_按行发送1_sample_4封	|
+      |	api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_无分组_4封 |
+      |	api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_分组多字段_2封	|
+      |	api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_分组单字段_2封	|
+      |	api00_spl统计_按行发送3_抑制[连续触发]3次_分组多字段_112 |
+      |	api00_spl统计_按行发送3_抑制[连续触发]3次_分组单字段_112 |
       |	api00_基线_status_在区间内_all_合并	|
       |	api00_基线_status_在区间外_邮件_合并	|
       |	api00_基线_status_在区间外_邮件_合并_交易日	|

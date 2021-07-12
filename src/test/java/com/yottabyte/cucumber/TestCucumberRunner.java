@@ -33,6 +33,7 @@ import java.util.List;
 public class TestCucumberRunner {
     @AfterAll
     public static void generateReport() {
+        System.out.println("chsfinduml==============================================[10]");
         File reportOutputDirectory = new File("target");
         List<String> jsonFiles = new ArrayList<>();
         jsonFiles.add("target/cucumber.json");

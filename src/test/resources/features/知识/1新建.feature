@@ -1,4 +1,4 @@
-@knowledge
+@knowledge @knowledge1
 Feature: 知识新建（RZY-868）
 
   Scenario Outline: 新建知识
