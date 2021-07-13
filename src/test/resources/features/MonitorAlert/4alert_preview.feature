@@ -47,11 +47,11 @@ Feature:监控预览
       | api00_all_事件计数_设备切分ip_扩展chart_all_合并                   |
       | api00_spl统计ip_cnt_高_扩展chart_all_合并                     |
       | api00_spl统计ip_cnt_高_扩展chart_all_宏                      |
-      | api00_spl统计_非按行发送0_sample_1封|
-      |	api00_spl统计_按行发送1_sample_4封	|
-      |	api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_无分组_4封 |
-      |	api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_分组多字段_2封	|
-      |	api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_分组单字段_2封	|
+      | api00_spl统计_非按行发送0_sample_111111|
+      |	api00_spl统计_按行发送1_sample_444444	|
+      |	api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_无分组_44040004 |
+      |	api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_分组多字段_22020002 |
+      |	api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_分组单字段_22020002 |
       |	api00_spl统计_按行发送3_抑制[连续触发]3次_分组多字段_112 |
       |	api00_spl统计_按行发送3_抑制[连续触发]3次_分组单字段_112 |
       | api00_基线_status_在区间内_all_合并                            |

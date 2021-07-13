@@ -26,13 +26,13 @@ Feature: 监控启用
       | api00_all_事件计数_设备切分ip_扩展chart_all_合并                   |
       | api00_spl统计ip_cnt_高_扩展chart_all_合并                     |
       | api00_spl统计ip_cnt_高_扩展chart_all_宏                      |
-      | api00_spl统计_按行发送sample                                 |
-      | api00_spl统计_按行发送_抑制_连续触发3次_分组单字段                       |
-      | api00_spl统计_按行发送_抑制_连续触发3次_分组多字段                       |
-      | api00_spl统计_按行发送_抑制翻倍_cnt_10-59min_分组单字段               |
-      | api00_spl统计_按行发送_抑制翻倍_cnt_10-59min_分组多字段               |
-      | api00_spl统计_按行发送_抑制翻倍_cnt_10-59min_无分组                 |
-      | api00_spl统计_非按行发送sample                                |
+      | api00_spl统计_非按行发送0_sample_111111|
+      |	api00_spl统计_按行发送1_sample_444444	|
+      |	api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_无分组_44040004 |
+      |	api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_分组多字段_22020002 |
+      |	api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_分组单字段_22020002 |
+      |	api00_spl统计_按行发送3_抑制[连续触发]3次_分组多字段_112 |
+      |	api00_spl统计_按行发送3_抑制[连续触发]3次_分组单字段_112 |
       | api00_基线_status_在区间内_all_合并                            |
       | api00_基线_status_在区间外_邮件_合并                             |
       | api00_基线_status_在区间外_邮件_合并_交易日                         |
