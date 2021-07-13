@@ -30,6 +30,10 @@ Feature: 全链路_6指标项配置
   Scenario: 指标项配置_步进按钮
     And I choose the "链路指标项配置" from the "Settings"
     And I wait for "High_Min" will be visible
+    And I set the parameter "High_Min" with value "0"
+    And I set the parameter "High_Max" with value "0"
+    And I set the parameter "Medium_Min" with value "0"
+    And I set the parameter "Medium_Max" with value "0"
     And I set the parameter "High_Min" with value "2" using step buttons
     And I set the parameter "High_Max" with value "3" using step buttons
     And I set the parameter "Medium_Min" with value "1" using step buttons
