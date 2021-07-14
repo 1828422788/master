@@ -600,6 +600,20 @@ public class ClickButtonWithGivenName {
         Assert.assertFalse(!switchButton.isEnabled());
     }
 
+
+    /**
+     * 查看checkbox的状态
+     *
+     * @param status       checked/unchecked
+     * @param name         基准名称
+     */
+    @Then("^I will see the checkbox with text \"([^\"]*)\" is \"([^\"]*)\"$")
+    public void checkCheckboxDisabled(String name, String status) {
+        WebElement checkBox = webDriver.findElement(By.xpath("//*[text()='" + name + "']//ancestor::label[1]"));
+        String currentStatus = checkBox.getAttribute("class");
+        Assert.assertTrue((currentStatus.contains("checked") && "checked".equals(status)) || (!currentStatus.contains("checked") && "unchecked".equals(status)));
+    }
+
     /**
      * 在仪表盘中，根据图表标题及要点击按钮的class来点击元素
      *
