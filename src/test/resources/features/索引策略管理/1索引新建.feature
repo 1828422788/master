@@ -79,7 +79,7 @@ Feature: 索引信息新建
     And I set the parameter "DivideTime" with value "<divideTime>"
     And I choose the "小时" from the "DivideTimeDropDown"
     And I click the "CreateButton" button
-#    And I wait for "1000" millsecond
+    And I wait for "1000" millsecond
     And I will see the element "Message" name is "保存成功"
     Given open the "index.ListPage" page for uri "/indexmatchrules/"
     When I click the "AddButton" button
