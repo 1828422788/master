@@ -1,4 +1,4 @@
-@dashboard0429 @dbinput @dashboard33 @dashboard
+@dashboardpart1 @dashboard0429 @dbinput @dashboard33
 Feature: 仪表盘输入项
 
   @dbinputpre0 @dbinputpre
@@ -1250,4 +1250,4 @@ Feature: 仪表盘输入项
       | 测试输入项4 |
       | 测试输入项5 |
       | 测试输入项6 |
-#      | 测试输入项7 |
+      | 测试输入项7 |

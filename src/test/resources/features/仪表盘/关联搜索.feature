@@ -2,7 +2,7 @@
 Feature: 仪表盘2关联搜索
 
   @dashboard2a @dashboardSmoke
-  Scenario Outline: 新建字段提取 RZY-3222
+  Scenario Outline: 新建字段提取RZY-3222
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
