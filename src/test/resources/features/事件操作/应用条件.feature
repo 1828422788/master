@@ -68,6 +68,7 @@ Feature: 事件操作应用条件
     And I click the "RightIcon" button
     And I wait for "EventOperate" will be visible
     And I click the "EventOperate" button
+    And I wait for "2000" millsecond
     Then I will see the "Condition" doesn't exist
 
   Scenario: 修改事件操作设置应用条件为等于
