@@ -1,4 +1,4 @@
-@dashboardpart1 @dashboard0429 @dbinput @dashboard33
+@dashboard @dashboard0429 @dbinput @dashboard33
 Feature: 仪表盘输入项
 
   @dbinputpre0 @dbinputpre

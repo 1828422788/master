@@ -1,4 +1,4 @@
-@dashboardpart1 @dashboard03
+@dashboard @dashboard03
 Feature: 仪表盘03详情页
 
   @dashboard03pre @dashboardSmoke
