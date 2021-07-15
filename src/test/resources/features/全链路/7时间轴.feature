@@ -162,6 +162,22 @@ Feature: 全链路_7时间轴
     Then I click the "TimeAxis" button
     And I wait for "SpeedHandle" will be invisible
 
+  Scenario:时间轴_提示没有数据
+    Given open the "fulllink.ListPage" page for uri "/fulllink/"
+    And I wait for "3000" millsecond
+    When the data name is "AutoTest" then i click the "编辑" button
+    And I will see the "fulllink.CreatePage" page
+    And I wait for "3000" millsecond
+    And I wait for "DisabledSave" will be visible
+    And I wait for "TimeAxis" will be visible
+    When I click the "TimeAxis" button
+    And I click the "DateSetting" button
+    And I wait for "DateEditor" will be visible
+    Then I click the "DateEditor" button
+    And I click the "LastDate" button
+    And I wait for "Message" will be visible
+    And I will see the message contains "当前日期没有数据！"
+
   Scenario: 直播
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
     And I wait for "3000" millsecond

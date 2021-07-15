@@ -1,5 +1,5 @@
-@fulllink @fulllinkCheck
-Feature: 全链路_8查看链路图
+@fulllink @fulllinkUpdate
+Feature: 全链路_8更新链路布局
 
   Background:
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
