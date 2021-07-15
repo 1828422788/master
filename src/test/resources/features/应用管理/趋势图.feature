@@ -90,11 +90,11 @@ Feature: 应用趋势图
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "2000" millsecond
-    And I wait for "Header" will be visible
+    #And I wait for "Header" will be visible
     And I click the "NextButton" button
     And I wait for loading invisible
-    And I wait for "Header" will be visible
-    And I wait for "1500" millsecond
+    #And I wait for "Header" will be visible
+    And I wait for "2000" millsecond
     And I click the "NextButton" button
     And I wait for "1500" millsecond
     When I set the parameter "NameInput" with value "<name>"
@@ -190,15 +190,18 @@ Feature: 应用趋势图
     And I wait for loading invisible
     When the data name is "TrendApp" then i click the "打开" button in more menu
     Then I will see the "trend.ListPage" page
+    And I wait for "2000" millsecond
     When the data name is "AutoApp" then i click the "编辑" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "TrendApp"
     Then I will see the "trend.CreatePage" page
-    And I wait for "Header" will be visible
+    #And I wait for "Header" will be visible
+    And I wait for "2000" millsecond
     And I click the "NextButton" button
-    And I wait for loading invisible
-    And I wait for "Header" will be visible
+    And I wait for "2000" millsecond
+    #And I wait for "Header" will be visible
     And I click the "NextButton" button
+    And I wait for "2000" millsecond
     When I set the parameter "NameInput" with value "AutoApp"
     And I wait for "BeforeDeleteApp" will be visible
     And I move the mouse pointer to the "BeforeDeleteApp"

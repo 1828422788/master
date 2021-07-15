@@ -120,7 +120,7 @@ Feature: 仪表盘_6_09_调用链
     And I click the "Divide" button
     And I choose the "modulename" from the "FieldValue"
     And I click the "Info" button
-    And I choose the "binnaryannotations" from the "InfoField"
+    And I cancel all selections from the "InfoColumn" except value "binnaryannotations"
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I wait for "500" millsecond
@@ -268,7 +268,7 @@ Feature: 仪表盘_6_09_调用链
     And I click the "Divide" button
     And I choose the "modulename" from the "FieldValue"
     And I click the "Info" button
-    And I choose the "binnaryannotations" from the "InfoField"
+    And I cancel all selections from the "InfoColumn" except value "binnaryannotations"
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I wait for "500" millsecond

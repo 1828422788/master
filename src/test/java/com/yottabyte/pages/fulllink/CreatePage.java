@@ -362,4 +362,28 @@ public class CreatePage extends PageTemplate {
     public WebElement getHighAlarm() {
         return highAlarm;
     }
+
+    @FindBy(xpath = "//span[text()='次要告警']/preceding-sibling::span//input")
+    private WebElement minorAlarm;
+    public WebElement getMinorAlarm() {
+        return minorAlarm;
+    }
+
+    @FindBy(xpath = "//div[text()='节点详情']//following-sibling::div[@class='_3ty-idnSV_yEDshRdCXAKx']//*[@class='vx-linepath']")
+    private WebElement alarmLine;
+    public WebElement getAlarmLine() {
+        return alarmLine;
+    }
+
+    @FindBy(xpath = "//div[text()='url']//following-sibling::input")
+    private WebElement URL;
+    public WebElement getURL() {
+        return URL;
+    }
+
+    @FindBy(xpath = "//span[text()='新窗口']/preceding-sibling::span//input")
+    private WebElement newTab;
+    public WebElement getNewTab() {
+        return newTab;
+    }
 }

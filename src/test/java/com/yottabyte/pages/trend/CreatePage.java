@@ -494,6 +494,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[@class='vx-group geo']/following-sibling::*/*[contains(@id,'link')]")
     private WebElement attackmapElement;
 
+    @FindBy(xpath = "//*[@stroke-linecap='round' and @fill!='#000']")
+    private WebElement geostatsmapElement;
+
     @FindBy(xpath = "(//div[contains(@class,'help-text')])[1]")
     private WebElement tipText;
 
@@ -588,6 +591,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getTipText() {
         return tipText;
+    }
+
+    public WebElement getGeostatsmapElement() {
+        return geostatsmapElement;
     }
 
     public WebElement getAttackmapElement() {
