@@ -277,10 +277,28 @@ public class CreatePage extends PageTemplate {
         return speedHandle;
     }
 
+    @FindBy(xpath = "//div[text()='时间范围']/following-sibling::div[contains(@class,'yotta-date-picker')]")
+    private WebElement dateEditor;
+    public WebElement getDateEditor() {
+        return dateEditor;
+    }
+
+    @FindBy(xpath = "(//tr//td[contains(@class,'next-month')])[last()]")
+    private WebElement lastDate;
+    public WebElement getLastDate() {
+        return lastDate;
+    }
+
     @FindBy(xpath = "//div[contains(@class,'_1g2HQ9D3pUyYExRKkZHI9M')]//span[@aria-label='SlowPlayCircleOutlined']")
     private WebElement liveBroadcast;
     public WebElement getLiveBroadcast() {
         return liveBroadcast;
+    }
+
+    @FindBy(xpath = "//div[contains(@class,'_1g2HQ9D3pUyYExRKkZHI9M')]//span[@aria-label='EditOutlined']")
+    private WebElement ignoreException;
+    public WebElement getIgnoreException() {
+        return ignoreException;
     }
 
     @FindBy(xpath = "//div[@class='_1g2HQ9D3pUyYExRKkZHI9M']//span[@aria-label='PlayCircleOutlined']")
@@ -361,5 +379,29 @@ public class CreatePage extends PageTemplate {
     private WebElement highAlarm;
     public WebElement getHighAlarm() {
         return highAlarm;
+    }
+
+    @FindBy(xpath = "//span[text()='次要告警']/preceding-sibling::span//input")
+    private WebElement minorAlarm;
+    public WebElement getMinorAlarm() {
+        return minorAlarm;
+    }
+
+    @FindBy(xpath = "//div[text()='节点详情']//following-sibling::div[@class='_3ty-idnSV_yEDshRdCXAKx']//*[@class='vx-linepath']")
+    private WebElement alarmLine;
+    public WebElement getAlarmLine() {
+        return alarmLine;
+    }
+
+    @FindBy(xpath = "//div[text()='url']//following-sibling::input")
+    private WebElement URL;
+    public WebElement getURL() {
+        return URL;
+    }
+
+    @FindBy(xpath = "//span[text()='新窗口']/preceding-sibling::span//input")
+    private WebElement newTab;
+    public WebElement getNewTab() {
+        return newTab;
     }
 }
