@@ -22,7 +22,8 @@ public class AppPage extends PageTemplate {
     @FindBy(xpath = "//*[@yotta-test='navigation-header_banner-dom']")
     private WebElement title;
 
-    @FindBy(className = "yotta-table-placeholder")
+    //@FindBy(className = "yotta-table-placeholder")
+    @FindBy(className = "yotta-table-body")
     private WebElement emptyText;
 
     @FindBy(className = "el-icon-arrow-down")

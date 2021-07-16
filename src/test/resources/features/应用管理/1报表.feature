@@ -37,6 +37,7 @@ Feature: 应用报表（RZY-2127）
     And I wait for "AddDataset" will be visible
     When I upload a file "Upload" with name "/target/download-files/<appName>.tar"
     And I will see the element "VerifyText" name is "上传完成"
+    And I wait for "2000" millsecond
     And I choose the "__admin__" from the "Role"
     And I click the "AddDataset" button
     And I set the parameter "SearchInput" with value "AutoTestApp"
@@ -139,6 +140,7 @@ Feature: 应用报表（RZY-2127）
     Then I will see the "app.AppPage" page
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.ListPage" page
+    And I wait for "2000" millsecond
     When the data name is "{'column':'1','name':'AutoAppReport'}" then i click the "编辑" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ReportApp"
@@ -156,6 +158,7 @@ Feature: 应用报表（RZY-2127）
     Then I will see the "app.AppPage" page
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.ListPage" page
+    And I wait for "2000" millsecond
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button in more menu
     And I click the Element with text "请选择或输入"
     And I wait for "Tag" will be visible
@@ -223,6 +226,7 @@ Feature: 应用报表（RZY-2127）
     And I choose the "ReportApp" from the "AppDropdown"
     And I wait for loading invisible
     Then I will see the search result "{'column':'1','name':'无app','contains':'no'}"
+    And I wait for "2000" millsecond
     Then I will see the search result contains "{'column':'1','name':'AutoAppForReport'}"
 
   Scenario Outline: 修改app资源范围
@@ -246,6 +250,7 @@ Feature: 应用报表（RZY-2127）
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.ListPage" page
     Given open the "report.ListPage" page for uri "/reports/"
+    And I wait for "2000" millsecond
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
     And I click the "Ensure" button
 
@@ -256,6 +261,7 @@ Feature: 应用报表（RZY-2127）
 
   Scenario: 删除趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
+    And I wait for "2000" millsecond
     When the data name is "AutoTestForReport" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button

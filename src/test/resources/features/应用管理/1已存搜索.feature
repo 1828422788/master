@@ -37,6 +37,7 @@ Feature: 应用已存搜索（RZY-2125）
     And I wait for "AddDataset" will be visible
     When I upload a file "Upload" with name "/target/download-files/<appName>.tar"
     And I will see the element "VerifyText" name is "上传完成"
+    And I wait for "2000" millsecond
     And I choose the "__admin__" from the "Role"
     And I click the "AddDataset" button
     And I set the parameter "SearchInput" with value "AutoTestApp"
@@ -165,6 +166,7 @@ Feature: 应用已存搜索（RZY-2125）
     And I will see the element "Title" name is "SavedsearchesApp"
     Then I will see the "splSearch.SavedSearchPage" page
 #    When the data name is "{'column':'1','name':'AutoApp'}" then i click the "加载" button
+    And I wait for "2000" millsecond
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
