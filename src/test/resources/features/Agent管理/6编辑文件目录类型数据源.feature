@@ -108,7 +108,7 @@ Feature: Agent编辑文件目录类型数据源
     And I set the parameter "LastModifyTime" with value "20"
     When I choose the "<timekind>" from the "TimeKind"
     And I click the "Ensure" button
-#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
+# #   Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
     Examples:
