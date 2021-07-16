@@ -28,8 +28,8 @@ Feature: 应用定时任务(RZY-2123)
     And I wait for "2000" millsecond
     And I choose the "AutoTestAppWithAllResources" from the "AppComboBox"
     And I wait for "2000" millsecond
-    And I click the "Crontab" button
-    And I wait for "2000" millsecond
+    #And I click the "Crontab" button
+    #And I wait for "2000" millsecond
     And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I wait for "2000" millsecond
     And I click the "Submit" button
@@ -183,6 +183,7 @@ Feature: 应用定时任务(RZY-2123)
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'AutoTestCreate'}" then i click the "编辑" button
     Then I will see the "timedTask.EditPage" page
+    And I wait for "2000" millsecond
     And I move the mouse pointer to the "DeleteAppicon"
     And I click the "DeleteApp" button
     And I click the "SaveButton" button
@@ -230,6 +231,7 @@ Feature: 应用定时任务(RZY-2123)
 
   Scenario Outline: 复原app资源范围
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "<name>" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I wait for loading invisible
