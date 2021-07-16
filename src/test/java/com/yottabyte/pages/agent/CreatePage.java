@@ -841,7 +841,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getTimeKind(){
-        return getDropDownListElement("最后修改时间");
+        return getDropDownListElement1("最后修改时间");
     }
 
     public WebElement getParam() {
@@ -1029,4 +1029,12 @@ public class CreatePage extends PageTemplate {
         element.click();
         return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu'])[last()]"));
     }
+    public WebElement getDropDownListElement1(String name) {
+        DropdownUtils dropdownUtils = new DropdownUtils();
+        String xpath = "//label[text()='" + name + "']/parent::div/following-sibling::div//span[@class='yotta-select-selection-value']";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        element.click();
+        return webDriver.findElement(By.xpath("//div[@class='yotta-select-menu css-1hq8cx5']"));
+    }
+
 }
