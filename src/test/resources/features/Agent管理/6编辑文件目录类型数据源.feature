@@ -1,4 +1,4 @@
-@agent @agent_addfile
+@agent @agent_addfile @test_editfile
 Feature: Agent编辑文件目录类型数据源
 
   Background:
