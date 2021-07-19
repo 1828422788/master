@@ -28,7 +28,7 @@ Feature: alert批量操作
     Given I wait for loading complete
     And I wait for "2000" millsecond
 
-    When I click the "allSelectCheckbox" button
+    When I click the "AllSelectCheckbox" button
     And I click the "SelectBatchOperation" button
     Given I wait for loading complete
 

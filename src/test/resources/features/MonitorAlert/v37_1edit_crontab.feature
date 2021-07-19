@@ -32,10 +32,6 @@ Feature: 设置监控执行计划
       |	api00_all_事件计数_设备切分ip_扩展chart_all_合并	|
       |	api00_spl统计ip_cnt_高_扩展chart_all_合并	|
       |	api00_spl统计ip_cnt_高_扩展chart_all_宏	|
-      |	api00_spl统计_按行发送sample	|
-      |	api00_spl统计_按行发送_抑制_连续触发3次_分组单字段	|
-      |	api00_spl统计_按行发送_抑制_连续触发3次_分组多字段	|
-      |	api00_spl统计_非按行发送sample	|
       |	api00_基线_status_在区间内_all_合并	|
       |	api00_基线_status_在区间外_邮件_合并	|
       |	api00_基线_status_在区间外_邮件_合并_交易日	|

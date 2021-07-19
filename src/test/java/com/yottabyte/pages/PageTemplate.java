@@ -220,6 +220,10 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return dropdownUtils.getMaintainEndTimeDropdownList();
     }
 
+    public WebElement getMaintainWeekEndTimeDropdownList() {
+        return dropdownUtils.getMaintainWeekEndTimeDropdownList();
+    }
+
     public WebElement getYottaDropdownList(String text) {
         return dropdownUtils.getDropdownList(text);
     }

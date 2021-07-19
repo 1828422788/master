@@ -69,7 +69,7 @@ Feature: 索引信息新建
       | spl                                     |
       | index=indexerror * AND 'logtype':apache |
 
-  @second @indexSettingSmoke
+  @second @indexSettingSmoke @i1478
   Scenario Outline: RZY-1478:保存时间
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
