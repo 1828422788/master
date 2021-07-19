@@ -129,8 +129,9 @@ Feature: Agent分组设置
     And I wait for loading invisible
     And I click the "<name>" button
     And I click the "More" button
-    And I wait for "Delete" will be visible
-    And I click the "Delete" button
+#    在3.8中没有更多的设置，直接将more定位到删除图标上面了！！！
+#    And I wait for "Delete" will be visible
+#    And I click the "Delete" button
     And I click the "Ensure" button
     And I wait for "Addsuccessmsg" will be visible
     Then I will see the element "Addsuccessmsg" name is "删除 Agent 分组成功"
