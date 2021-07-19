@@ -64,7 +64,7 @@ Feature: Agent页面跳转
 
   Scenario: 跳转到在搜索页面验证
     And I click the "Datafetch" button
-#    原版本为跳转到字段提取页面，3.8改为在搜索中验证，故将datafetch的值改为在搜索中验证
+#    原版本为跳转到字段提取页面，3.8改为在搜索中验证，故将Datafetch的值改为在搜索中验证
     Then the page's title will be "搜索"
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
     And I wait for loading invisible
