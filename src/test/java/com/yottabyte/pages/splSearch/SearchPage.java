@@ -1732,9 +1732,7 @@ public class SearchPage extends ListPageFactory {
         return message;
     }
 
-    //@FindBy(xpath = "//svg/use/svg[@id='icon-sousuoye_xiazai']::parent")
-//    @FindBy(xpath = "//span[contains(text(),'事件列表')]/following-sibling::span[@class='yotta-icon yotta-icon-DownloadOutlined']")
-    @FindBy(xpath = "//span[contains(text(),'事件列表')]/following-sibling::span[@yotta-test='event_list-download-icon']")
+    @FindBy(xpath = "//span[contains(text(),'事件列表')]/following-sibling::span[@yotta-test='event_list-download-dom']")
     private WebElement downloadEvent;
 
     public WebElement getDownloadEvent() {
@@ -1879,7 +1877,6 @@ public class SearchPage extends ListPageFactory {
     public WebElement getUpperTrend() {
         return upperTrend;
     }
-
 
     //保存为定时任务弹窗中的【描述】
     @FindBy(xpath = "//label[text()='描述']/ancestor::div[1]/following-sibling::div//input")

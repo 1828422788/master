@@ -37,9 +37,9 @@ Feature: 监控维护期
     Then I will see the success message "创建成功"
 
     Examples:
-      | reason                          | alert_name                     |
+      | reason                          | alert_name                      |
       | 维护期_字段统计_分组事件数status_邮件_每天0-23点 | 维护期_字段统计_分组事件数status_邮件_每天0-23点 |
-      | 维护期_del                        | 维护期_字段统计_分组事件数status_邮件_每天0-23点 |
+      | 维护期_del                         | 维护期_字段统计_分组事件数status_邮件_每天0-23点 |
       | 维护期_update                      | 维护期_字段统计_分组事件数status_邮件_每天0-23点 |
 
   @maintain2
@@ -72,7 +72,7 @@ Feature: 监控维护期
 
 
     Examples:
-      | reason                          | alert_name                      |
+      | reason                           | alert_name                       |
       | 维护期_字段统计_分组事件数status_邮件_单次今天9点开始 | 维护期_字段统计_分组事件数status_邮件_单次今天9点开始 |
       | 维护期_字段统计_分组事件数status_邮件_永久       | 维护期_字段统计_分组事件数status_邮件_永久       |
 
@@ -113,7 +113,7 @@ Feature: 监控维护期
     Then I will see the success message "创建成功"
 
     Examples:
-      | reason                        | alert_name                    |
+      | reason                         | alert_name                     |
       | 维护期_字段统计_分组事件数status_邮件_每周一至周六 | 维护期_字段统计_分组事件数status_邮件_每周一至周六 |
 
   @maintain4
@@ -151,7 +151,7 @@ Feature: 监控维护期
     Then I will see the success message "创建成功"
 
     Examples:
-      | reason                        | alert_name                    |
+      | reason                         | alert_name                     |
       | 维护期_字段统计_分组事件数status_邮件_每月1-30 | 维护期_字段统计_分组事件数status_邮件_每月1-30 |
 
   @smoke @alertSmoke
@@ -162,7 +162,7 @@ Feature: 监控维护期
  #   Then I will see the search result "{'column':'0','name':'<reasonName>'}"
 
     Examples:
-      | reasonName                      |
+      | reasonName                       |
       | 维护期_字段统计_分组事件数status_邮件_单次今天9点开始 |
 
   @maintain5
@@ -178,7 +178,7 @@ Feature: 监控维护期
 #    Then I click the "MaintainFlag" button
 
     Examples:
-      | alert_name                      |
+      | alert_name                       |
       | 维护期_字段统计_分组事件数status_邮件_每月1-30   |
       | 维护期_字段统计_分组事件数status_邮件_每周一至周六   |
       | 维护期_字段统计_分组事件数status_邮件_每天0-23点  |
@@ -186,10 +186,19 @@ Feature: 监控维护期
       | 维护期_字段统计_分组事件数status_邮件_单次今天9点开始 |
 
   @maintaindel
-  Scenario: 删除维护期
-    When the data name is "维护期_del" then i click the "删除" button
+  Scenario Outline: 删除维护期
+    When the data name is "<reasonName>" then i click the "删除" button
     And I click the "EnsureDelete" button
     Then I will see the success message "删除成功"
+
+    Examples:
+      | reasonName                       |
+#      | 维护期_del                          |
+      | 维护期_字段统计_分组事件数status_邮件_每月1-30   |
+      | 维护期_字段统计_分组事件数status_邮件_每周一至周六   |
+      | 维护期_字段统计_分组事件数status_邮件_每天0-23点  |
+      | 维护期_字段统计_分组事件数status_邮件_永久       |
+      | 维护期_字段统计_分组事件数status_邮件_单次今天9点开始 |
 
   @toalert
   Scenario: 返回监控首页

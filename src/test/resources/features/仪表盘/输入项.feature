@@ -1218,6 +1218,7 @@ Feature: 仪表盘输入项
   @cleandbinput
   Scenario Outline: 删除仪表盘所建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
+    Given I wait for loading complete
     When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
