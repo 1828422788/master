@@ -5,6 +5,31 @@ Feature: alert批量操作
     Given open the "alert.ListPage" page for uri "/alerts/"
     Given I wait for loading complete
 
+  @alertbatch0
+  Scenario Outline:  alert批量操作-新建
+    And I set the parameter "SearchInputName" with value "<name>"
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "复制" button in more menu
+
+    And I set the parameter "SearchInputName" with value "<name>(副本)"
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
+    When the data name is "{'column':'1','name':'<name>(副本)'}" then i click the "编辑" button
+
+    Then I will see the "alert.CreatePage" page
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
+    And I set the parameter "AlertName" with value "<newName>"
+
+    When I click the "SaveButton" button
+
+    Examples:
+      | name                                | newName             |
+      | api00_all_事件数_扩展chart_all_sample_合并 | test删除_事件计数_设备切分ip1 |
+      | api00_all_事件数_扩展chart_all_sample_合并 | test删除_事件计数_设备切分ip2 |
+
+
   @alertbatch1
   Scenario Outline:  alert批量操作空操作
     When I click the "BatchControl" button
@@ -115,30 +140,4 @@ Feature: alert批量操作
       | name                |
       | test删除_事件计数_设备切分ip1 |
       | test删除_事件计数_设备切分ip2 |
-
-
-  @alertbatch8
-  Scenario Outline:  alert批量操作-删除-验证
-    And I set the parameter "SearchInputName" with value "<name>"
-    Given I wait for loading complete
-    And I wait for "2000" millsecond
-    Then I will see the "<name>" then i click the "复制" button in more menu
-
-    And I set the parameter "SearchInputName" with value "<name>(副本)"
-    Given I wait for loading complete
-    And I wait for "2000" millsecond
-    When the data name is "{'column':'1','name':'<name>(副本)'}" then i click the "编辑" button
-
-    Then I will see the "alert.CreatePage" page
-    Given I wait for loading complete
-    And I wait for "2000" millsecond
-    And I set the parameter "AlertName" with value "<newName>"
-
-    When I click the "SaveButton" button
-
-    Examples:
-      | name                                | newName             |
-      | api00_all_事件数_扩展chart_all_sample_合并 | test删除_事件计数_设备切分ip1 |
-      | api00_all_事件数_扩展chart_all_sample_合并 | test删除_事件计数_设备切分ip2 |
-
 
