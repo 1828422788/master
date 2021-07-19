@@ -181,7 +181,7 @@ Feature: Agent分组采集
   Scenario Outline: 删除Agent分组
     And I click the "<name>" button
     And I click the "More" button
-    And I click the "Delete" button
+#    And I click the "Delete" button
     And I click the "Ensure" button
     And I wait for "Addsuccessmsg" will be visible
 #    Then I will see the element "Addsuccessmsg" name is "删除 Agent 分组成功"

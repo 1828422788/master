@@ -9,7 +9,10 @@ Feature: Agent批量操作
 
   Scenario:  Agent批量操作空操作
     And I click the "AgentMultiButton" button
-#    And I will see the message "请务必选择至少一个 Agent 进行操作。"
+    And I click the "AgentMultiCHooseButton" button
+    And I click the "MemoButton" button
+    And I wait for "2000" millsecond
+    And I will see the message "请务必选择至少一个 Agent 进行操作。"
 
   Scenario Outline: Agent批量操作修改备注
     And I click the "AgentMultiButton" button
@@ -33,6 +36,7 @@ Feature: Agent批量操作
     When the column is "1" then i "checked" the agent label in agent page
     And I click the "AgentMultiCHooseButton" button
     And I click the "Stop" button
+    And I wait for "2000" millsecond
     And I will see the message "您选中的 Agents 将停止采集数据，是否继续？"
     And I click the "CancelButton" button
 #    And I wait for "30000" millsecond

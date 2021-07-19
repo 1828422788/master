@@ -14,6 +14,7 @@ Feature: Agent编辑文件性能类型数据源
     And I click the "Create" button
     And I click the "FuctionType" button
     And I click the "Next" button
+    And I wait for "1000" millsecond
     And I set the parameter "SpecialPort" with value "23"
 #    And I set the parameter "EidtFrequency" with value "500"
     And I click the "Next" button
@@ -21,8 +22,10 @@ Feature: Agent编辑文件性能类型数据源
     And I set the parameter "PreAppname" with value "autotop_info"
     And I set the parameter "Tag" with value "autotop_info"
     And I click the "Next" button
+    And I wait for "1000" millsecond
     And I wait for "Finish" will be visible
     And I click the "Finish" button
+    And I wait for "1000" millsecond
     And I will see the element "Addsuccessmsg" name is "添加成功"
 
 
