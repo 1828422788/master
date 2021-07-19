@@ -16,7 +16,7 @@ Feature: 路由编辑
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "iis1"
     And I set the parameter "Tag" with value "heka"
-    And I upload a file with name "/src/test/resources/testdata/log/apache_10.dms"
+    And I upload a file with name "/src/test/resources/testdata/log/apache_10.txt"
     And I click the "UploadButton" button
 #    And I wait for element "VerifyText" change text to "上传完成"
 
@@ -35,7 +35,7 @@ Feature: 路由编辑
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "sunxctest"
     And I set the parameter "Tag" with value "sunxctest"
-    And I upload a file with name "/src/test/resources/testdata/log/apache_10.dms"
+    And I upload a file with name "/src/test/resources/testdata/log/apache_10.txt"
     And I click the "UploadButton" button
 #    Then I wait for element "VerifyText" change text to "上传完成"
 

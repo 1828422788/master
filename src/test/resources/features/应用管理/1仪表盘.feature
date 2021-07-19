@@ -37,6 +37,7 @@ Feature: 应用仪表盘
     And I wait for "AddDataset" will be visible
     When I upload a file "Upload" with name "/target/download-files/<appName>.tar"
     And I will see the element "VerifyText" name is "上传完成"
+    And I wait for "2000" millsecond
     And I choose the "__admin__" from the "Role"
     And I click the "AddDataset" button
     And I set the parameter "SearchInput" with value "AutoTestApp"
@@ -87,6 +88,7 @@ Feature: 应用仪表盘
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "DashboardApp"
     Then I will see the "dashboard.ListPage" page
+    And I wait for "2000" millsecond
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     #When I set the parameter "TagName" with value "test"

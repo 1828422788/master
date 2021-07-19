@@ -778,11 +778,11 @@ public class ClickButtonWithGivenName {
 
         }
     }
-
     /**
      * 隐藏元素
      *
      */
+
     @And("^I hide the time picker popover$")
     public void hideItemDisplaying() {
         String str_selector = "[class='yotta-popover css-1shj747 yotta-time-picker-popover']";

@@ -75,6 +75,7 @@ Feature: 应用数据集
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "DatasetApp"
     Then I will see the "dataset.ListPage" page
+    And I wait for "2000" millsecond
     When the data name is "DatasetApp内新建" then i click the "编辑" button
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "DatasetApp"
@@ -94,7 +95,9 @@ Feature: 应用数据集
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "DatasetApp"
     Then I will see the "dataset.ListPage" page
+    And I wait for "2000" millsecond
     When the data name is "DatasetApp内新建" then i click the "标签" button in more menu
+    And I wait for "2000" millsecond
     And I click the Element with text "请选择或输入"
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "AutoApp"
@@ -130,6 +133,7 @@ Feature: 应用数据集
     When I choose the "AutoApp" from the "ResourceDropdown"
     And I wait for loading invisible
     Then I will see the search result contains "DatasetApp内新建"
+    And I wait for "2000" millsecond
     Then I will see the search result "{'column':'0','name':'DatasetApp内新建无标签','contains':'no'}"
 
   Scenario Outline: 根据名称搜索
@@ -201,6 +205,7 @@ Feature: 应用数据集
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "DatasetApp"
     Then I will see the "dataset.ListPage" page
+    And I wait for "2000" millsecond
     Given the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     When I click the "Ensure" button

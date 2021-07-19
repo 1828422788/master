@@ -277,10 +277,28 @@ public class CreatePage extends PageTemplate {
         return speedHandle;
     }
 
+    @FindBy(xpath = "//div[text()='时间范围']/following-sibling::div[contains(@class,'yotta-date-picker')]")
+    private WebElement dateEditor;
+    public WebElement getDateEditor() {
+        return dateEditor;
+    }
+
+    @FindBy(xpath = "(//tr//td[contains(@class,'next-month')])[last()]")
+    private WebElement lastDate;
+    public WebElement getLastDate() {
+        return lastDate;
+    }
+
     @FindBy(xpath = "//div[contains(@class,'_1g2HQ9D3pUyYExRKkZHI9M')]//span[@aria-label='SlowPlayCircleOutlined']")
     private WebElement liveBroadcast;
     public WebElement getLiveBroadcast() {
         return liveBroadcast;
+    }
+
+    @FindBy(xpath = "//div[contains(@class,'_1g2HQ9D3pUyYExRKkZHI9M')]//span[@aria-label='EditOutlined']")
+    private WebElement ignoreException;
+    public WebElement getIgnoreException() {
+        return ignoreException;
     }
 
     @FindBy(xpath = "//div[@class='_1g2HQ9D3pUyYExRKkZHI9M']//span[@aria-label='PlayCircleOutlined']")

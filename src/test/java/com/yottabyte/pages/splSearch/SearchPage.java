@@ -612,7 +612,7 @@ public class SearchPage extends ListPageFactory {
     private WebElement xValue;
 
     //    @FindBy(xpath = "//span[text()='事件操作']/i")
-    @FindBy(xpath = "//button[@yotta-test='event_list-event_action-button']")
+    @FindBy(xpath = "//button[@yotta-test='event_list-event_action-button']/span")
     private WebElement eventOperate;
 
     @FindBy(xpath = "//li[text()='配置字段提取']")

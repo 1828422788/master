@@ -9,6 +9,7 @@ Feature: 拓扑图搜索（RZY-354至355）
     Given I choose the "<group>" from the "ResourceDropdown"
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'0','name':'<name>'}"
+    And I wait for "3000" millsecond
     Then I will see the search result "{'column':'0','name':'拓扑图无标签','contains':'no'}"
 
     Examples:

@@ -39,6 +39,7 @@ Feature: 应用搜索宏（RZY-2126）
     And I wait for "AddDataset" will be visible
     When I upload a file "Upload" with name "/target/download-files/<appName>.tar"
     And I will see the element "VerifyText" name is "上传完成"
+    And I wait for "2000" millsecond
     And I choose the "__admin__" from the "Role"
     And I click the "AddDataset" button
     And I set the parameter "SearchInput" with value "AutoTestApp"
@@ -109,6 +110,7 @@ Feature: 应用搜索宏（RZY-2126）
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "MacroApp"
     Then I will see the "searchMacro.ListPage" page
+    And I wait for "2000" millsecond
     When the data name is "AutoApp" then i click the "标签" button in more menu
     And I click the Element with text "请选择或输入"
     And I wait for "Tag" will be visible
@@ -166,6 +168,7 @@ Feature: 应用搜索宏（RZY-2126）
 
   Scenario Outline: 修改app资源范围
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for "2000" millsecond
     When the data name is "<name>" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I wait for loading invisible
@@ -183,6 +186,7 @@ Feature: 应用搜索宏（RZY-2126）
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "MacroApp"
     Then I will see the "searchMacro.ListPage" page
+    And I wait for "2000" millsecond
     When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
