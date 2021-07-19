@@ -54,6 +54,7 @@ Feature: Agent页面跳转
     And I click the "ConfigDatasource" button
 #    Then I will see the element "ConfigDatasourceMsg" name is "将数据源分发至"
     And I click the "Cancle" button
+    And I wait for "1000" millsecond
     And I click the "CurrentConfiguration" button
     Then the data name "192.168.1.253:514" in table "SyslogTable" then i click the "更多" button
     And I wait for "Delete" will be visible
