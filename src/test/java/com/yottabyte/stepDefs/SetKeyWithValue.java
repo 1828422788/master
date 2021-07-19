@@ -372,6 +372,21 @@ public class SetKeyWithValue {
         }
     }
 
+    @And("^I set the parameter \"([^\"]*)\" with link \"([^割]*)\" for current environment$")
+    public void iSetTheParameterWithLink(String elementName, String value) {
+        if (elementName != null && elementName.trim().length() != 0) {
+            WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+            ConfigManager config = new ConfigManager();
+            String host = config.get("rizhiyi_server_host").split("@")[0];
+            element.click();
+            element.sendKeys(Keys.CONTROL + "a");
+            element.sendKeys(Keys.END);
+            element.sendKeys(Keys.SHIFT, Keys.HOME);
+            element.sendKeys(Keys.BACK_SPACE);
+            element.sendKeys("http://" + host + "/" + value);
+        }
+    }
+
     @And("^I press the parameter \"([^\"]*)\" with enter$")
     public void iPressTheParameterWithEnter(String elementName) {
         if (elementName != null && elementName.trim().length() != 0) {

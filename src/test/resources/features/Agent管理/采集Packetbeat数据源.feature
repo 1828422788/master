@@ -14,9 +14,11 @@ Feature: Agent编辑Packetbeat类型数据源
     And I click the "Create" button
     And I click the "PacketbeatType" button
     And I click the "Next" button
+    And I wait for "1000" millsecond
     And I set the parameter "Appname" with value "autoPacketbeattest"
     And I set the parameter "Tag" with value "autoPacketbeattest"
     And I click the "Next" button
+    And I wait for "1000" millsecond
     And I click the "Finish" button
     And I will see the element "Addsuccessmsg" name is "添加成功"
 

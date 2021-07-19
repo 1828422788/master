@@ -21,7 +21,9 @@ Feature: Agent备份功能
 
   Scenario: Agent备份，添加备份页面的下载Agent高级配置
     And I click the "BackupSenior" button
+    And I wait for "2000" millsecond
     And I click the "DownloadConfiguration" button
+    And I wait for "50000" millsecond
 
   Scenario: Agent备份，添加备份页面的关闭Agent高级配置
     And I click the "BackupSenior" button
@@ -45,6 +47,7 @@ Feature: Agent备份功能
     And I set the parameter "BackUpName" with value "hekabackup"
     And I set the parameter "BackUpTimeout" with value "1"
     And I click the "Next" button
+    And I wait for "1000" millsecond
     And I click the "Finish" button
     And I wait for "Addsuccessmsg" will be visible
     And I will see the element "Addsuccessmsg" name is "添加成功"

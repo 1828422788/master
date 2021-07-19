@@ -106,7 +106,7 @@ public class ListPage extends PageTemplate {
         return Stop;
     }
 
-    @FindBy(xpath = "//span[text()='停止']")
+    @FindBy(xpath = "//div[@class='yotta-popover-wrap']/span/ul/li/span[text()='停止']")
     private WebElement Stop;
 
     public WebElement getStart() {
