@@ -124,6 +124,7 @@ Feature: 应用已存搜索（RZY-2125）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "SavedsearchesApp"
     Then I will see the "splSearch.SavedSearchPage" page
+    And I wait for "2000" millsecond
     When the data name is "{'column':'1','name':'AutoApp'}" then i click the "标签" button in more menu
     And I click the Element with text "请选择或输入"
     And I wait for "Tag" will be visible
@@ -148,6 +149,7 @@ Feature: 应用已存搜索（RZY-2125）
 
   Scenario Outline: 修改app资源范围
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "<name>" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I wait for loading invisible

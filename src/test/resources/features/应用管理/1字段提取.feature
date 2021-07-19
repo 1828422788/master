@@ -299,6 +299,7 @@ Feature: 应用字段提取（RZY-2129）
 
   Scenario Outline: 修改app资源范围
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "<name>" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I wait for loading invisible
@@ -338,6 +339,7 @@ Feature: 应用字段提取（RZY-2129）
     And I will see the element "Title" name is "ConfigsApp"
     And I wait for "500" millsecond
     Then I will see the "configs.ListPage" page
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button

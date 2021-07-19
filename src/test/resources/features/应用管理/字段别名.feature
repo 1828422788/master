@@ -103,7 +103,7 @@ Feature: 应用字段别名
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "2000" millsecond
+    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "TrList" will be visible
    # Then I compare with list "TrList"
@@ -138,7 +138,7 @@ Feature: 应用字段别名
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "2000" millsecond
+    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I compare with list "TrList"
 
