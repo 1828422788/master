@@ -33,6 +33,9 @@ public class GroupPage extends PageTemplate {
     @FindBy(xpath = "//textarea[contains(@placeholder,'请输入描述')]")
     private WebElement Description;
 
+    @FindBy(xpath = "//div[text()='采集配置']")
+    private WebElement Addgroupinput;
+
     public GroupPage(WebDriver driver) {
         super(driver);
     }
@@ -105,15 +108,17 @@ public class GroupPage extends PageTemplate {
     public WebElement getMore() {
         return More;
     }
-    @FindBy(xpath = "//span[text()='更多']//ancestor::span")
+    @FindBy(xpath = "//span[@aria-label='DeleteOutlined']")
     private WebElement More;
 
     public WebElement getAddgroupinput() {
-        return super.getButton("采集配置");
+//        return super.getButton("采集配置");
+        return Addgroupinput;
     }
 
     public WebElement getAddgroupinputbutton() {
-        return super.getButton("添加「sunxctest」分组数据源");
+//        return super.getButton("添加「sunxctest」分组数据源");
+        return super.getButton("添加");
     }
 
     @FindBy(xpath = "//span[text()='删除']")

@@ -229,7 +229,7 @@ public class ClickButtonWithGivenName {
             xpath = ".//span[text()='" + buttonName + "']";
         } else if ("详情".equals(buttonName)) {
             xpath = ".//span[contains(text(),'" + buttonName + "')]";
-        } else if (webDriver.getCurrentUrl().contains("/sources/input/agent/") || webDriver.getCurrentUrl().contains("/agent/groupcollect/") || (webDriver.getCurrentUrl().contains("/reports/") && !("编辑".equals(buttonName)))) {
+        } else if (webDriver.getCurrentUrl().contains("/sources/input/agent/") ||webDriver.getCurrentUrl().contains("/agent/agentgroup/") || webDriver.getCurrentUrl().contains("/agent/groupcollect/") || (webDriver.getCurrentUrl().contains("/reports/") && !("编辑".equals(buttonName)))) {
             xpath = ".//a[text()='" + buttonName + "']";
         } else {
             xpath = ".//span[text()='" + buttonName + "']";

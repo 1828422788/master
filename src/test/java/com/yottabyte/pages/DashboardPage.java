@@ -19,4 +19,5 @@ public class DashboardPage extends PageTemplate {
         WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
         return webDriver.getTitle();
     }
+
 }
