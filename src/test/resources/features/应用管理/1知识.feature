@@ -118,6 +118,7 @@ Feature: 应用知识
     And I click the "SearchAll" button
     And I wait for "SearchCount" will be visible
     And I will see the "app.AppPage" page
+    And I wait for "2000" millsecond
     And I will see the element "Title" name is "KnowledgeApp"
 
     Examples:

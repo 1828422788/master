@@ -778,19 +778,18 @@ public class ClickButtonWithGivenName {
 
         }
     }
-
     /**
      * 隐藏元素
      *
      */
+
     @And("^I hide the time picker popover$")
     public void hideItemDisplaying() {
         String str_selector = "[class='yotta-popover css-1shj747 yotta-time-picker-popover']";
         List<WebElement> list5 = webDriver.findElements(By.cssSelector(str_selector));
-        for(WebElement curE5:list5)
+        for(WebElement curElement:list5)
         {
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", curE5);
-
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", curElement);
         }
     }
 

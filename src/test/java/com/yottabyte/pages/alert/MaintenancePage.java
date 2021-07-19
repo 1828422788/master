@@ -131,14 +131,6 @@ public class MaintenancePage extends PageTemplate {
         return getMaintainBeginTimeDropdownList();
     }
 
-    public WebElement getMaintainBeginTimeList1() {
-        String xpath = "//div[@yotta-test='alert-fixed_start_time-time_picker']/span/span";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-        ClickEvent.clickUnderneathButton(element);
-        return getMaintainBeginTimeDropdownList();
-    }
-
     @FindBy(xpath = "//span[@class='yotta-icon yotta-icon-DownOutlined yotta-time-table-column-down']")
     private WebElement downOutlinedButton;
     public WebElement getDownOutlinedButton() {
@@ -160,6 +152,14 @@ public class MaintenancePage extends PageTemplate {
 //            downOutlinedButton.click();
 //        }
         return getMaintainEndTimeDropdownList();
+    }
+
+    public WebElement getMaintainWeekEndTimeList() {
+        String xpath = "//div[@yotta-test='alert-fixed_end_time-time_picker']/span/span";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getMaintainWeekEndTimeDropdownList();
     }
 
     @FindBy(xpath = "//main[@yotta-test='navigation-main-dom']")
