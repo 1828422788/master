@@ -308,7 +308,7 @@ public class CreatePage extends PageTemplate {
         return Compressed;
     }
 
-    @FindBy(xpath = "//span[@class='yotta-switch-slider']")
+    @FindBy(xpath = "//input[@yotta-test='agent-compressed-switch']")
     private WebElement Compressed;
 
     public WebElement getEdit() {
