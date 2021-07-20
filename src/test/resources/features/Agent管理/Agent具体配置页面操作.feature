@@ -1,4 +1,4 @@
-@agent2
+@agent2 @testinput_out
 Feature: Agent具体配置高级配置及清理缓存操作
 
   Background:
@@ -77,20 +77,21 @@ Feature: Agent具体配置高级配置及清理缓存操作
   Scenario: 输出配置关闭输出压缩
     And I click the "OutputEdit" button
     And I click the "Editconfig" button
+    And I wait for "1000" millsecond
     And I click the "Compressed" button
     And I click the "Ensure" button
     And I wait for "CompressStatus" will be visible
-    And I wait for "20000" millsecond
     And I will see the element "CompressStatus" name is "关闭"
 
   Scenario: 输出配置开启输出压缩
     And I click the "OutputEdit" button
     And I click the "Editconfig" button
+    And I wait for "1000" millsecond
     And I click the "Compressed" button
     And I click the "Ensure" button
     And I wait for "CompressStatus" will be visible
-    And I wait for "20000" millsecond
     And I will see the element "CompressStatus" name is "开启"
+#    change text to "开启"
 
   Scenario Outline: 输出配置修改发送速率限制
     And I click the "OutputEdit" button

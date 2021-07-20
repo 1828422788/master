@@ -25,6 +25,7 @@ Feature: Agent编辑文件目录类型数据源
     And I click the "Next" button
     And I wait for loading invisible
     And I click the "ChooseButton" button
+    And I wait for "2000" millsecond
     And I click the "Next" button
     And I wait for loading invisible
     And I set the parameter "Appname" with value "autohekafiletest"
