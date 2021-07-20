@@ -240,4 +240,4 @@ Feature: Agent编辑数据库数据类型数据源
     And I wait for loading invisible
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element "ChangeMemo" name is "删除连接成功。"
+#    Then I will see the element "ChangeMemo" name is "删除连接成功。"#
