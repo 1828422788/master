@@ -1,11 +1,13 @@
 Feature: 新建数据库查找
 
+  Background:
+    And I zoom the browse to full screen
+
   @newdblookup @splpre @dleval
   Scenario Outline: 新建查找-3
     Given open the "dbConnectionPre.dbSettingPage" page for uri "/dbsettings/"
     And I click the "DbLookupConfig" button
     And I wait for "1000" millsecond
-    And I zoom the screen up to the maximum
 
     And I click the "NewDbLookup" button
     Given I wait for loading complete
@@ -14,7 +16,6 @@ Feature: 新建数据库查找
     Given I wait for loading complete
 
     When I set the parameter "SearchInput" with value "<splQuery>"
-    And I zoom the screen up to the maximum
 #    When I click the "DateEditor" button
 #    When I click the "Today" button
     When I click the "SearchButton" button

@@ -6,7 +6,6 @@ Feature: 清理字典用例
 
   Scenario Outline: RZY-4158删除字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
-    And I zoom the screen up to the maximum
     And I wait for loading invisible
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
     Given I wait for loading complete

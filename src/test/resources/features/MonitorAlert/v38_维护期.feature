@@ -187,18 +187,16 @@ Feature: 监控维护期
 
   @maintaindel
   Scenario Outline: 删除维护期
+    Given open the "alert.MaintenancePage" page for uri "/alerts/maintenance/"
     When the data name is "<reasonName>" then i click the "删除" button
     And I click the "EnsureDelete" button
-    Then I will see the success message "删除成功"
-
+#    Then I will see the success message "删除成功"
+    And I set the parameter "ReasonNameSearchInput" with value "<reasonName>"
+    And I will see the "TmpNoData" is display
+    
     Examples:
       | reasonName                       |
-#      | 维护期_del                          |
-      | 维护期_字段统计_分组事件数status_邮件_每月1-30   |
-      | 维护期_字段统计_分组事件数status_邮件_每周一至周六   |
-      | 维护期_字段统计_分组事件数status_邮件_每天0-23点  |
-      | 维护期_字段统计_分组事件数status_邮件_永久       |
-      | 维护期_字段统计_分组事件数status_邮件_单次今天9点开始 |
+      | 维护期_del                          |
 
   @toalert
   Scenario: 返回监控首页

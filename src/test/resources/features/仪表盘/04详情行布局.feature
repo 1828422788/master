@@ -1,4 +1,4 @@
-@dashboard @dashboard04 @dashboardSmoke
+@dashboard1 @dashboard04 @dashboardSmoke
 Feature: 仪表盘04详情行布局
 
   @dashboard04pre

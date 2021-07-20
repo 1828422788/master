@@ -107,8 +107,8 @@ public class OperateBrowser {
     /**
      * 把屏幕放大到全屏
      */
-    @And("^I zoom the screen up to the maximum$")
-    public void zoomScreentoMax() {
+    @And("^I zoom the browse to full screen$")
+    public void zoomBrowsetoFullScreen() {
         webDriver.manage().window().fullscreen();
     }
 

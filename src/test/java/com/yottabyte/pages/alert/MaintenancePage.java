@@ -358,4 +358,10 @@ public class MaintenancePage extends PageTemplate {
         return super.getErrorMessage();
     }
 
+    @FindBy(xpath="//table[@yotta-test='alert-maintenance-table']//div[text()='暂无数据']")
+    private WebElement tmpNoData;
+    public WebElement getTmpNoData()
+    {
+        return tmpNoData;
+    }
 }
