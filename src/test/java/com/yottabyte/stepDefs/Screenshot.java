@@ -52,7 +52,7 @@ public class Screenshot {
      * @throws IOException
      */
     @And("^take part of \"([^\"]*)\" with name \"([^\"]*)\"$")
-    public void takePartScreenshot(String elementName, String name) throws IOException {
+    public void takePartScreenshot(String elementName, String name) throws IOException, InterruptedException {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         WebDriver webdriver = LoginBeforeAllTests.getWebDriver();
         WrapsDriver driver = (WrapsDriver) webdriver;
@@ -60,6 +60,7 @@ public class Screenshot {
         Actions action = new Actions(webdriver);
         action.moveByOffset(0,0).build().perform();
         ((JavascriptExecutor) webdriver).executeScript("arguments[0].scrollIntoView(false);", element);
+        Thread.sleep(2000);
         File screen = ((TakesScreenshot) driver.getWrappedDriver()).getScreenshotAs(OutputType.FILE);
         BufferedImage img = ImageIO.read(screen);
 
