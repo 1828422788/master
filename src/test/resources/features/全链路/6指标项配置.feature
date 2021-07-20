@@ -81,8 +81,38 @@ Feature: 全链路_6指标项配置
     And I will see the element "ElementDetails" contains "3"
     And I wait for "HighAlarm" will be visible
 
+  Scenario: 修改指标项配置2_钻取
+    And I choose the "链路指标项配置" from the "Settings"
+    And I wait for "High_Min" will be visible
+    And I set the parameter "URL" with link "search/?query=${click.nodeName}" for current environment
+    And I click the "NewTab" button
+    And I click the "Render" button
+    And I wait for "5000" millsecond
+    And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
+    And I will see the element "SuccessMessage" contains "保存成功"
 
-  Scenario: 修改指标项配置2
+  Scenario: 查看全链路2
+    And I wait for "Canvas" will be visible
+    And I wait for "5000" millsecond
+    When I click the "CanvasElement" button
+    And I wait for "ElementDetails" will be visible
+    And I will see the element "ElementDetails" contains "节点详情"
+    And I will see the element "ElementDetails" contains "_"
+    And I will see the element "ElementDetails" contains "市"
+    And I will see the element "ElementDetails" contains "节点异常状态"
+    And I will see the element "ElementDetails" contains "数量："
+    And I wait for "HighAlarm" will be visible
+    And I click the Circle "HighAlarm" button
+    And switch to window "搜索"
+    And I close all tabs except main tab
+    Then I will see the "splSearch.SearchPage" page
+    And I wait for "SearchInput" will be visible
+    And I will see the element "SearchInput" contains "POST_"
+    And I will see the element "SearchInput" contains "市"
+
+
+  Scenario: 修改指标项配置3
     And I choose the "链路指标项配置" from the "Settings"
     And I wait for "High_Min" will be visible
     And I set the parameter "High_Min" with value "11"
@@ -106,29 +136,6 @@ Feature: 全链路_6指标项配置
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"
 
-  Scenario: 查看全链路2
-    And I wait for "Canvas" will be visible
-    And I wait for "5000" millsecond
-    When I click the "CanvasElement" button
-    And I wait for "ElementDetails" will be visible
-    And I will see the element "ElementDetails" contains "节点详情"
-    And I will see the element "ElementDetails" contains "_"
-    And I will see the element "ElementDetails" contains "市"
-    And I will see the element "ElementDetails" contains "节点异常状态"
-    And I will see the element "ElementDetails" contains "数量："
-    And I wait for "MediumAlarm" will be visible
-
-  Scenario: 修改指标项配置3_钻取
-    And I choose the "链路指标项配置" from the "Settings"
-    And I wait for "High_Min" will be visible
-    And I set the parameter "URL" with link "search/?query=${click.nodeName}" for current environment
-    And I click the "NewTab" button
-    And I click the "Render" button
-    And I wait for "5000" millsecond
-    And I click the "Save" button
-    And I wait for "SuccessMessage" will be visible
-    And I will see the element "SuccessMessage" contains "保存成功"
-
   Scenario: 查看全链路3
     And I wait for "Canvas" will be visible
     And I wait for "5000" millsecond
@@ -140,13 +147,6 @@ Feature: 全链路_6指标项配置
     And I will see the element "ElementDetails" contains "节点异常状态"
     And I will see the element "ElementDetails" contains "数量："
     And I wait for "MediumAlarm" will be visible
-    And I click the Circle "MediumAlarm" button
-    And switch to window "搜索"
-    And I close all tabs except main tab
-    Then I will see the "splSearch.SearchPage" page
-    And I wait for "SearchInput" will be visible
-    And I will see the element "SearchInput" contains "POST_"
-    And I will see the element "SearchInput" contains "市"
 
   Scenario: 修改指标项配置4_次要告警
     And I choose the "链路指标项配置" from the "Settings"
