@@ -1869,7 +1869,6 @@ public class SearchPage extends ListPageFactory {
     //保存为趋势图成功之后提示弹窗中的确定按钮
     @FindBy(xpath = "//div[@class='minaCXZ5tceRilaw8FVvn']/button")
     private WebElement trendEnsureAfterEnsure;
-
     public WebElement getTrendEnsureAfterEnsure() {
         return super.getButton("确定");
     }

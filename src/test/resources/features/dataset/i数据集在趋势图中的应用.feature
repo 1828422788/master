@@ -5,20 +5,20 @@ Feature: 数据集-j在趋势图中的应用
   Scenario Outline: 新建父子行为无的趋势图
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-#    And I drag the element "SearchPageSvg" to the "left" side
+    #And I drag the element "SearchPageSvg" to the "left" side
     Given I set the parameter "SearchInput" with value "<spl>"
     And I drag the element "SearchPageSvg" to the fixed side
-        #选择父子行为为无的数据集
+    #选择父子行为为无的数据集
     And I click the "fatherChildNull" button
     And I click the "DateEditor" button
     And I click the "RecentSevenDay" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
-#    And I drag the element "SearchPageSvg" to the "right" side
+    #And I drag the element "SearchPageSvg" to the "right" side
     And I click the "SaveAsOther" button
     And I click the "saveTrend" button
     And I set the parameter "trendName" with value "<trendName>"
-    And I click the "EnsureCrontab" button
+    And I click the "TrendEnsureAfterEnsure" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "创建成功"
 
@@ -64,8 +64,7 @@ Feature: 数据集-j在趋势图中的应用
     And I click the "SaveAsOther" button
     And I click the "saveTrend" button
     And I set the parameter "trendName" with value "<trendName>"
-
-    And I click the "EnsureCrontab" button
+    And I click the "TrendEnsureAfterEnsure" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "创建成功"
 
@@ -108,8 +107,7 @@ Feature: 数据集-j在趋势图中的应用
     And I click the "SaveAsOther" button
     And I click the "saveTrend" button
     And I set the parameter "trendName" with value "<trendName>"
-
-    And I click the "EnsureCrontab" button
+    And I click the "TrendEnsureAfterEnsure" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "创建成功"
 

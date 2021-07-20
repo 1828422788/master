@@ -53,6 +53,7 @@ public class SharedDriver extends EventFiringWebDriver {
     };
 
     static {
+        System.out.println("chsfinduml==============================================[11]");
         Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
         ConfigManager config = new ConfigManager();
         DesiredCapabilities browser = null;
@@ -105,6 +106,7 @@ public class SharedDriver extends EventFiringWebDriver {
 //        REAL_DRIVER.manage().window().fullscreen();
         REAL_DRIVER.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         REAL_DRIVER.manage().timeouts().pageLoadTimeout(5, TimeUnit.MINUTES);
+        System.out.println("chsfinduml==============================================[12]");
     }
 
     @Override
@@ -126,6 +128,7 @@ public class SharedDriver extends EventFiringWebDriver {
     @After
     public void embedScreenshot(Scenario scenario) {
         try {
+            System.out.println("chsfinduml==============================================[13]");
             LogEntries logEntries = REAL_DRIVER.manage().logs().get(LogType.BROWSER);
             System.out.println("=============================浏览器控制台日志================================");
             GetLogger.getTraceIdFromRequest(REAL_DRIVER);
@@ -151,6 +154,7 @@ public class SharedDriver extends EventFiringWebDriver {
      * @return
      */
     private static DesiredCapabilities ChromeDes() {
+        System.out.println("chsfinduml==============================================[14]");
         String sp = File.separator;
         ConfigManager config = new ConfigManager();
         try {
@@ -186,6 +190,7 @@ public class SharedDriver extends EventFiringWebDriver {
 
 
     private static DesiredCapabilities LocalChromeDes() {
+        System.out.println("chsfinduml==============================================[15]");
         String sp = File.separator;
         String downloadFilepath = System.getProperty("user.dir") + sp + "target" + sp + "download-files";
         try {
@@ -276,6 +281,7 @@ public class SharedDriver extends EventFiringWebDriver {
     }
 
     private static LoggingPreferences getLogPreferences() {
+        System.out.println("chsfinduml==============================================[16]");
         LoggingPreferences logPrefs = new LoggingPreferences();
         logPrefs.enable(LogType.PERFORMANCE, Level.ALL);
         logPrefs.enable(LogType.BROWSER, Level.ALL);
