@@ -3,6 +3,7 @@ Feature: Agent具体配置高级配置及清理缓存操作
 
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
+    And I zoom the browse to full screen
     And I wait for loading invisible
     When I click the detail which column is "0" in agent page
     And switch to another window
@@ -81,6 +82,7 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I click the "Compressed" button
     And I click the "Ensure" button
     And I wait for "CompressStatus" will be visible
+    And I wait for "5000" millsecond
     And I will see the element "CompressStatus" name is "关闭"
 
   Scenario: 输出配置开启输出压缩
@@ -90,17 +92,19 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I click the "Compressed" button
     And I click the "Ensure" button
     And I wait for "CompressStatus" will be visible
+    And I wait for "5000" millsecond
     And I will see the element "CompressStatus" name is "开启"
 #    change text to "开启"
 
   Scenario Outline: 输出配置修改发送速率限制
     And I click the "OutputEdit" button
+    And I wait for "2000" millsecond
     And I click the "Editconfig" button
     And I set the parameter "SendSpeedLimit" with value "100"
     And I choose the "<sendspeed>" from the "SendSpeed"
     And I click the "Ensure" button
     And I wait for loading invisible
-    And I wait for "10000" millsecond
+    And I wait for "2000" millsecond
 #    And I will see the element "SendSpeedStatus" contains "<sendspeedstatus>"
 #    And I will see the element "SendSpeedStatus" name is "<sendspeedstatus>"
 
@@ -112,6 +116,7 @@ Feature: Agent具体配置高级配置及清理缓存操作
 
   Scenario Outline: 输出配置修改单行日志最大长度
     And I click the "OutputEdit" button
+    And I wait for "2000" millsecond
     And I click the "Editconfig" button
     And I set the parameter "LogLength" with value "<loglength>"
     And I click the "Ensure" button
