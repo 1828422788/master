@@ -63,12 +63,12 @@ Feature: 报表_下载
     And I wait for "2000" millsecond
     And the data name is "{'column':'1','name':'<name>_EXCEL'}" then i click the "<name>_EXCEL" button
     And I wait for element "SelectedReport" change text to "<name>_EXCEL"
-    Then I will see the element "LastGeneratedReport" contains ".xls"
+    Then I will see the element "LastGeneratedReport" contains ".xlsx"
     And I click the "Download" button
     And I wait for "4000" millsecond
     And I download the latest report to local
 #    And I wait for "2000" millsecond
-#    Then I compare source report file "expect/<name>_EXCEL.xls" with target report file "<name>_EXCEL.xls"
+#    Then I compare source report file "expect/<name>_EXCEL.xlsx" with target report file "<name>_EXCEL.xlsx"
 
     Examples:
       |          name        |

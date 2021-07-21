@@ -32,7 +32,7 @@ Feature: 报表_文件列表
       |    name               |  format    |
       |  test_report_PDF      |  .pdf      |
       |  test_report_URL      |  .pdf      |
-      |  test_report_EXCEL    |  .xls      |
+      |  test_report_EXCEL    |  .xlsx     |
 
   Scenario Outline: check_type_dropdown
     When I set the parameter "SearchInput" with value "<name_1>"
@@ -48,7 +48,7 @@ Feature: 报表_文件列表
 
     Examples:
       |    name_1          |  format_1  | name_2            | format_2   |
-      |  test_report_PDF   |  .pdf      | test_report_EXCEL | .xls       |
+      |  test_report_PDF   |  .pdf      | test_report_EXCEL | .xlsx      |
 
   Scenario: report_list_button
     When I click the "ReportListButton" button under some element
