@@ -101,7 +101,7 @@ Feature: 报表预览
     Examples:
       | type  | text |
       | PDF   | .pdf |
-      | EXCEL | .xls |
+      | EXCEL | .xlsx|
       | WORD  | .docx|
 
   Scenario Outline: preview_下载到本地预览
@@ -149,7 +149,7 @@ Feature: 报表预览
     Examples:
       | type  | text |
       | PDF   | .pdf |
-      | EXCEL | .xls |
+      | EXCEL | .xlsx|
       | WORD  | .docx|
 
   Scenario Outline: delete_reports

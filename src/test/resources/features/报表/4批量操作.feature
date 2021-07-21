@@ -22,7 +22,7 @@ Feature: 报表_批量操作
     When I click the "FinishButton" button under some element
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
-    And I wait for "10000" millsecond
+    And I wait for "25000" millsecond
 
   Examples:
     |   name               |
