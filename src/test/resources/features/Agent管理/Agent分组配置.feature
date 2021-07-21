@@ -4,6 +4,7 @@ Feature: Agent分组采集
 
   Background:
     Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
+    And I zoom the browse to full screen
 
   Scenario Outline: 新建Agent分组设置并添加ip
     And I wait for loading complete

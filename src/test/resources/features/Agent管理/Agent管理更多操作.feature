@@ -5,6 +5,7 @@ Feature: Agent更多操作
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
     And I wait for loading invisible
+    And I zoom the browse to full screen
     And I close all tabs except main tab
     And I click the "More" button
 

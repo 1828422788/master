@@ -4,6 +4,7 @@ Feature: Agent分组设置
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
     And I wait for loading invisible
+    And I zoom the browse to full screen
 
   Scenario Outline: 新建Agent分组设置成功
     Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
