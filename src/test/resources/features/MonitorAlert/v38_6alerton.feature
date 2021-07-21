@@ -12,11 +12,12 @@ Feature: 监控启用
 #   And I wait for "3000" millsecond
     And I wait for loading complete
     When I set the parameter "AlertListSearchInput" with value "<name>"
+    Given I wait for loading complete
     And I wait for "3000" millsecond
 
     When the data name is "{'column':'1','name':'<name>'}" then I "open" the switch
+    Given I wait for loading complete
     And I wait for "3000" millsecond
-    And I wait for loading complete
 
     Then I will see the element "{'column':'1','name':'<name>'}" is "open"
 

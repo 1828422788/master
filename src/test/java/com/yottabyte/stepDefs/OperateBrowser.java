@@ -5,6 +5,7 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -107,9 +108,18 @@ public class OperateBrowser {
     /**
      * 把屏幕放大到全屏
      */
-    @And("^I zoom the screen up to the maximum$")
-    public void zoomScreentoMax() {
+    @And("^I zoom the browse to full screen$")
+    public void zoomBrowsetoFullScreen() {
         webDriver.manage().window().fullscreen();
     }
 
+    /**
+     * 比较标签页的数量
+     * @param expectedNum 预期数量
+     */
+    @And("^I will see the number of open tabs equals \"([^\"]*)\"$")
+    public void numberOfOpenTabs(int expectedNum) {
+        int actualNum = webDriver.getWindowHandles().size();
+        Assert.assertEquals(expectedNum,actualNum);
+    }
 }

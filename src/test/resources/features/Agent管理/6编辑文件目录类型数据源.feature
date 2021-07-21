@@ -4,6 +4,7 @@ Feature: Agent编辑文件目录类型数据源
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
     And I wait for loading invisible
+    And I zoom the browse to full screen
     When I click the detail which column is "0" in agent page
     And switch to another window
     And I close all tabs except main tab
@@ -25,6 +26,7 @@ Feature: Agent编辑文件目录类型数据源
     And I click the "Next" button
     And I wait for loading invisible
     And I click the "ChooseButton" button
+    And I wait for "2000" millsecond
     And I click the "Next" button
     And I wait for loading invisible
     And I set the parameter "Appname" with value "autohekafiletest"

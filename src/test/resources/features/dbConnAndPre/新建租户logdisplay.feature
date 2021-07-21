@@ -1,6 +1,9 @@
 @tenantbvt
 Feature: 租户系统-租户新建
 
+  Background:
+    And I zoom the browse to full screen
+
   @newsaas
   Scenario Outline: 新建logdisplay域
     Given open the "saas.SaasLoginPage" page for uri "/auth/domainlogin/"
@@ -14,7 +17,6 @@ Feature: 租户系统-租户新建
     Given open the "saas.ListPage" page for uri "/domain/tenant/"
     Given I wait for loading complete
     And I wait for "1000" millsecond
-    And I zoom the screen up to the maximum
 
     When I click the "CreateButton" button
     Given I wait for loading complete

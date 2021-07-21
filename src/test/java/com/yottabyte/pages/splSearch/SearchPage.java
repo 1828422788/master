@@ -1732,9 +1732,7 @@ public class SearchPage extends ListPageFactory {
         return message;
     }
 
-    //@FindBy(xpath = "//svg/use/svg[@id='icon-sousuoye_xiazai']::parent")
-//    @FindBy(xpath = "//span[contains(text(),'事件列表')]/following-sibling::span[@class='yotta-icon yotta-icon-DownloadOutlined']")
-    @FindBy(xpath = "//span[contains(text(),'事件列表')]/following-sibling::span[@yotta-test='event_list-download-icon']")
+    @FindBy(xpath = "//span[contains(text(),'事件列表')]/following-sibling::span[@yotta-test='event_list-download-dom']")
     private WebElement downloadEvent;
 
     public WebElement getDownloadEvent() {
@@ -1871,7 +1869,6 @@ public class SearchPage extends ListPageFactory {
     //保存为趋势图成功之后提示弹窗中的确定按钮
     @FindBy(xpath = "//div[@class='minaCXZ5tceRilaw8FVvn']/button")
     private WebElement trendEnsureAfterEnsure;
-
     public WebElement getTrendEnsureAfterEnsure() {
         return super.getButton("确定");
     }
@@ -1879,7 +1876,6 @@ public class SearchPage extends ListPageFactory {
     public WebElement getUpperTrend() {
         return upperTrend;
     }
-
 
     //保存为定时任务弹窗中的【描述】
     @FindBy(xpath = "//label[text()='描述']/ancestor::div[1]/following-sibling::div//input")

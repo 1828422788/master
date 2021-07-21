@@ -4,6 +4,7 @@ Feature: Agent分组采集
 
   Background:
     Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
+    And I zoom the browse to full screen
 
   Scenario Outline: 新建Agent分组设置并添加ip
     And I wait for loading complete
@@ -159,6 +160,7 @@ Feature: Agent分组采集
 #    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
     And I wait for loading invisible
     Given the data name "Changeautohekafileappname" in table "AppNameTable" then i click the "编辑" button
+#    And I click the "EditAutoFile1" button
     And I wait for loading invisible
     And I set the parameter "Appname" with value "autohekafiletest"
     And I click the "Ensure" button
@@ -180,7 +182,7 @@ Feature: Agent分组采集
   Scenario Outline: 删除Agent分组
     And I click the "<name>" button
     And I click the "More" button
-    And I click the "Delete" button
+#    And I click the "Delete" button
     And I click the "Ensure" button
     And I wait for "Addsuccessmsg" will be visible
 #    Then I will see the element "Addsuccessmsg" name is "删除 Agent 分组成功"

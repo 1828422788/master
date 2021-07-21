@@ -1,6 +1,9 @@
 @extra1 @ndb2046
 Feature: 新建数据库输出
 
+  Background:
+    And I zoom the browse to full screen
+
   @newdboutput @splpre @dleval
   Scenario Outline: 新建数据库输出-3
     Given open the "dbConnectionPre.DbOutputPage" page for uri "/dbsettings/"
@@ -9,7 +12,6 @@ Feature: 新建数据库输出
 
     And I click the "NewDbOutputButton" button
     Given I wait for loading complete
-    And I zoom the screen up to the maximum
 
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Given I wait for loading complete
@@ -20,7 +22,6 @@ Feature: 新建数据库输出
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "NextStepButton" button
     Given I wait for loading complete
-    And I zoom the screen up to the maximum
     And I choose the "<DbOutputConnList>" from the "DbOutputConnList"
     And I wait for "2000" millsecond
     And I choose the "<DbOutputDirList>" from the "DbOutputDirList"
@@ -28,7 +29,6 @@ Feature: 新建数据库输出
     And I click the "OutputDbTableLink" button
     And I wait for "2000" millsecond
     And I click the "NextStepButton" button
-    And I zoom the screen up to the maximum
 
     And I click the "AddFieldMap" button
     Given I wait for loading complete

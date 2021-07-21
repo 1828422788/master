@@ -12,7 +12,7 @@ public class ConfigManager {
     static {
         defaultProperties = new Properties();
         try {
-            System.out.println("chsfinduml==============================================[1]");
+            System.out.println("chsfinduml===========================================[12_1]");
             defaultProperties.load(new FileReader("config/default.properties"));
             File customConfigFile = new File("config/custom.properties");
             if (customConfigFile.exists()) {

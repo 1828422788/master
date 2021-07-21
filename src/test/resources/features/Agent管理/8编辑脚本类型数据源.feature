@@ -4,6 +4,7 @@ Feature: Agent编辑脚本类型数据源
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
     And I wait for loading invisible
+    And I zoom the browse to full screen
     When I click the detail which column is "0" in agent page
     And switch to another window
     And I close all tabs except main tab

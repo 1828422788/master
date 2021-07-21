@@ -1,8 +1,10 @@
-#@agent_backup @agent2
+@agent_backup @agent2
 Feature: Agent备份功能
 
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
+#    And I zoom the screen up to the maximum
+    And I zoom the browse to full screen
     And I wait for loading invisible
     When I click the detail which column is "0" in agent page
     And switch to another window
@@ -18,10 +20,13 @@ Feature: Agent备份功能
     And I click the "BackupSenior" button
     And I click the "ChangeConfiguration" button
 #    Then I will see the element "ChangeMemo" name is "提交修改 Agent 配置成功，正在尝试重启。"
+    And I wait for "3000" millsecond   
 
   Scenario: Agent备份，添加备份页面的下载Agent高级配置
     And I click the "BackupSenior" button
+    And I wait for "2000" millsecond
     And I click the "DownloadConfiguration" button
+    And I wait for "50000" millsecond
 
   Scenario: Agent备份，添加备份页面的关闭Agent高级配置
     And I click the "BackupSenior" button
@@ -45,6 +50,7 @@ Feature: Agent备份功能
     And I set the parameter "BackUpName" with value "hekabackup"
     And I set the parameter "BackUpTimeout" with value "1"
     And I click the "Next" button
+    And I wait for "1000" millsecond
     And I click the "Finish" button
     And I wait for "Addsuccessmsg" will be visible
     And I will see the element "Addsuccessmsg" name is "添加成功"
@@ -103,14 +109,16 @@ Feature: Agent备份功能
     And I set the parameter "Document" with value "/data/rizhiyi/logs/heka"
     And I set the parameter "WhiteList" with value ".*\.log"
     And I set the parameter "BackUPTime" with value "0"
+    And I wait for "Next" will be visible
     And I click the "Next" button
+    And I wait for loading invisible
     And I click the "Next" button
     And I click the "BackUpObject" button
     And I click the "EditBackUpObject" button
     And I set the parameter "ThreadNum" with value "1"
     And I click the "Save" button
     And I wait for "ChangeMemo" will be visible
-    And I will see the success message "修改成功"
+#    And I will see the success message "修改成功"
 #    Then I will see the element "ChangeMemo" name is "修改成功"
 
   Scenario Outline: 备份策略编辑目的对象服务器地址

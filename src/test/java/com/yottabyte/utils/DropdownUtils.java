@@ -196,6 +196,17 @@ public class DropdownUtils {
         return lastDropdownList;
     }
 
+    public WebElement getMaintainWeekEndTimeDropdownList() {
+        String className;
+        className = "yotta-time-table-column-list";
+        List<WebElement> list = webDriver.findElements(By.className(className));
+        WebElement lastDropdownList = list.get(0);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+        }
+        return lastDropdownList;
+    }
+
     public WebElement getAlertNoteTypeDropdownList() {
         String className = "yotta-dropdown-menu";
         List<WebElement> list = webDriver.findElements(By.className(className));

@@ -1,5 +1,8 @@
 Feature: 编辑DbOutput
 
+  Background:
+    And I zoom the browse to full screen
+
   @editdbo @dleval
   Scenario Outline: 编辑数据库输出-1
     Given open the "dbConnectionPre.DbOutputPage" page for uri "/dbsettings/"
@@ -13,7 +16,6 @@ Feature: 编辑DbOutput
 
     Given I click the "EditButton" button
     Given I wait for loading complete
-    And I zoom the screen up to the maximum
 
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Given I wait for loading complete
@@ -21,7 +23,6 @@ Feature: 编辑DbOutput
 
     And I click the "NextStepButton" button
     Given I wait for loading complete
-    And I zoom the screen up to the maximum
     And I wait for "2000" millsecond
 
     And I click the "NextStepButton" button

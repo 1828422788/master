@@ -115,11 +115,12 @@ public class LoginBeforeAllTests {
     }
 
     public static void setPageFactory(String pageFactoryName) {
-        System.out.println("chsfinduml==============================================[5]");
+        System.out.println("chsfinduml==============================================[51]");
         if (!pageFactoryName.startsWith("com.yottabyte.pages.")) {
             pageFactoryName = "com.yottabyte.pages." + pageFactoryName;
         }
         try {
+            System.out.println("chsfinduml==============================================[53]");
             Constructor<?> c = Class.forName(pageFactoryName).getDeclaredConstructor(WebDriver.class);
             c.setAccessible(true);
             pageFactory = c.newInstance(webDriver);

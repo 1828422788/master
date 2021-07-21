@@ -229,7 +229,7 @@ public class ClickButtonWithGivenName {
             xpath = ".//span[text()='" + buttonName + "']";
         } else if ("详情".equals(buttonName)) {
             xpath = ".//span[contains(text(),'" + buttonName + "')]";
-        } else if (webDriver.getCurrentUrl().contains("/sources/input/agent/") || webDriver.getCurrentUrl().contains("/agent/groupcollect/") || (webDriver.getCurrentUrl().contains("/reports/") && !("编辑".equals(buttonName)))) {
+        } else if (webDriver.getCurrentUrl().contains("/sources/input/agent/") ||webDriver.getCurrentUrl().contains("/agent/agentgroup/") || webDriver.getCurrentUrl().contains("/agent/groupcollect/") || (webDriver.getCurrentUrl().contains("/reports/") && !("编辑".equals(buttonName)))) {
             xpath = ".//a[text()='" + buttonName + "']";
         } else {
             xpath = ".//span[text()='" + buttonName + "']";
@@ -269,7 +269,8 @@ public class ClickButtonWithGivenName {
         } else {
             xpath = ".//span";
         }
-//        tr.findElement(By.xpath(xpath)).click();
+
+//      tr.findElement(By.xpath(xpath)).click();
         WebElement element = tr.findElement(By.xpath(xpath));
         ClickEvent.clickUnderneathButton(element);
     }
@@ -778,19 +779,18 @@ public class ClickButtonWithGivenName {
 
         }
     }
-
     /**
      * 隐藏元素
      *
      */
+
     @And("^I hide the time picker popover$")
     public void hideItemDisplaying() {
         String str_selector = "[class='yotta-popover css-1shj747 yotta-time-picker-popover']";
         List<WebElement> list5 = webDriver.findElements(By.cssSelector(str_selector));
-        for(WebElement curE5:list5)
+        for(WebElement curElement:list5)
         {
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", curE5);
-
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", curElement);
         }
     }
 

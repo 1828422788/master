@@ -404,4 +404,12 @@ public class CreatePage extends PageTemplate {
     public WebElement getNewTab() {
         return newTab;
     }
+
+    @FindBy(xpath = "//div[@class='_2bB7pFw1Yds7dYqu0W7dJ7']//span[@aria-label='AddOutlined']")
+    private WebElement magnify;
+    public WebElement getMagnify() {
+        for (int i=0; i<15; i++)
+            magnify.click();
+        return magnify;
+    }
 }

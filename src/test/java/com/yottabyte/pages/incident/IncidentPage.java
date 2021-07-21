@@ -82,6 +82,21 @@ public class IncidentPage extends PageTemplate {
         return paginationInput;
     }
 
+    @FindBy(xpath = "//div[@class='yotta-pagination-elements'][1]")
+    private WebElement totalItem;
+    public WebElement getTotalItem()
+    {
+        return totalItem;
+    }
+
+    public WebElement getEveryPageList()
+    {
+        String xpath = "//div[contains(text(),'每页')][@class='yotta-pagination-elements']/div/div";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getIncidentStatusMenuList();
+    }
 
 
 }

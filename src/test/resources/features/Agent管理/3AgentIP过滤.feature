@@ -4,6 +4,7 @@ Feature: AgentIP过滤
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
     And I wait for loading invisible
+    And I zoom the browse to full screen
     And I close all tabs except main tab
 
   Scenario Outline: Agent过滤

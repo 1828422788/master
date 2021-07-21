@@ -4,6 +4,7 @@ Feature: Agent编辑Packetbeat类型数据源
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
     And I wait for loading invisible
+    And I zoom the browse to full screen
     When I click the detail which column is "0" in agent page
     And switch to another window
     And I close all tabs except main tab
@@ -14,9 +15,11 @@ Feature: Agent编辑Packetbeat类型数据源
     And I click the "Create" button
     And I click the "PacketbeatType" button
     And I click the "Next" button
+    And I wait for "1000" millsecond
     And I set the parameter "Appname" with value "autoPacketbeattest"
     And I set the parameter "Tag" with value "autoPacketbeattest"
     And I click the "Next" button
+    And I wait for "1000" millsecond
     And I click the "Finish" button
     And I will see the element "Addsuccessmsg" name is "添加成功"
 

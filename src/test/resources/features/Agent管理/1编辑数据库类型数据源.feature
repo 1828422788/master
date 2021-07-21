@@ -4,6 +4,7 @@ Feature: Agent编辑数据库数据类型数据源
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
     And I wait for loading invisible
+    And I zoom the browse to full screen
     When I click the detail which column is "0" in agent page
     And switch to another window
     And I close all tabs except main tab
@@ -42,7 +43,6 @@ Feature: Agent编辑数据库数据类型数据源
     Given the data name "autotestmysql" in agent table "DatabaseTypeTable" then i click the "close" switch
     Then I wait for loading invisible
     And I wait for element "DatabaseTypeSwitchStatus" change text to "已禁用"
-
 
 
   Scenario: mysql数据库类型数据源启用
@@ -240,4 +240,4 @@ Feature: Agent编辑数据库数据类型数据源
     And I wait for loading invisible
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element "ChangeMemo" name is "删除连接成功。"
+#    Then I will see the element "ChangeMemo" name is "删除连接成功。"#

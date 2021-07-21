@@ -21,7 +21,7 @@ public class LoadingPage {
      */
     @Then("^I will see the \"([^\"]*)\" page$")
     public void loadNewPage(String pageName) {
-        System.out.println("chsfinduml==============================================[5]");
+        System.out.println("chsfinduml==============================================[0001]");
 
         ConstructPageFactoryWithName c = new ConstructPageFactoryWithName();
         c.constructPageFactoryWithName(pageName);

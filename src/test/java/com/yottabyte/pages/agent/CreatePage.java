@@ -115,10 +115,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSyslogChar() {
         DropdownUtils dropdownUtils = new DropdownUtils();
-        WebElement element = webDriver.findElement(By.xpath("(//div[contains(@class,'ant-select-selection--single')])[last()]/span/i"));
+        WebElement element = webDriver.findElement(By.xpath("//span[@class='yotta-select-selection-value']"));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu'])[last()]"));
+        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu css-1hq8cx5'])[last()]"));
 //        return dropdownUtils.getLastDropdownList();
     }
 
@@ -231,7 +231,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getDatafetch() {
-        return super.getYottaButtonByText("提取字段");
+        return super.getYottaButtonByText("在搜索中验证");
     }
 
 
@@ -267,6 +267,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//td[text()='autohekafiletest']/following-sibling::td//a[text()='编辑']")
     private WebElement EditAutoFile;
 
+//    @FindBy(xpath = "//td[text()='Changeautohekafileappname']/following-sibling::td//a[text()='编辑']")
+//    private WebElement EditAutoFile1;
+//    public WebElement getEditAutoFile1() {
+//        return EditAutoFile1;
+//    }
+
+
     public WebElement getJmxInput() {
         return webDriver.findElement(By.xpath("//span[text()='JmxInput']"));
     }
@@ -301,7 +308,7 @@ public class CreatePage extends PageTemplate {
         return Compressed;
     }
 
-    @FindBy(xpath = "//span[@class='yotta-switch-slider']")
+    @FindBy(xpath = "//input[@yotta-test='agent-compressed-switch']")
     private WebElement Compressed;
 
     public WebElement getEdit() {
@@ -708,11 +715,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCharsetKind(){
-        return getDropDownListElement("charset");
+        return getDropDownListElement3("charset");
     }
 
     public WebElement getCharacterKind(){
-        return getDropDownListElement("字符集");
+        return getDropDownListElement2("字符集");
     }
 
     public WebElement getRoot() {
@@ -837,7 +844,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSendSpeed(){
-        return getDropDownListElement("发送速率限制");
+        return getDropDownListElement1("发送速率限制");
     }
 
     public WebElement getTimeKind(){
@@ -1036,5 +1043,20 @@ public class CreatePage extends PageTemplate {
         element.click();
         return webDriver.findElement(By.xpath("//div[@class='yotta-select-menu css-1hq8cx5']"));
     }
+    public WebElement getDropDownListElement2(String name) {
+        DropdownUtils dropdownUtils = new DropdownUtils();
+        String xpath = "//label[text()='" + name + "']/parent::div/following-sibling::div//span[@class='yotta-select-selection-value']";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        element.click();
+        return webDriver.findElement(By.xpath("//div[@class='yotta-modal-body']"));
+    }
+    public WebElement getDropDownListElement3(String name) {
+        DropdownUtils dropdownUtils = new DropdownUtils();
+        String xpath = "//label[text()='" + name + "']/parent::div/following-sibling::div//span[@class='yotta-select-selection-value']";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        element.click();
+        return webDriver.findElement(By.xpath("//form[@class='yotta-form yotta-form-horizontal css-qv2t8c']"));
+    }
+
 
 }
