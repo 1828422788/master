@@ -1,4 +1,4 @@
-@agent3 @agent_group2
+@agent3 @agent_group2 @test_agent_group
 
 Feature: Agent分组采集
 
