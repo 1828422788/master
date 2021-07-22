@@ -93,6 +93,28 @@ Feature:定时任务补采
     And I wait for "Notice" will be visible
     Then I will see the element "Notice" contains "请选择定时任务"
 
+  Scenario: create_complement_checkfields_name2
+    Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I click the "Complement" button under some element
+    And I will see the "timedTask.ListPage" page
+    And I wait for "Loading" will be invisible
+    When I click the "CreateComplement" button under some element
+    Then I wait for "ComplementPanel" will be visible
+    When I choose the "Test_Complement" from the "SelectName"
+    And I click the "DatePicker" button
+    And I set the parameter "StartDate" with value "2021-04-28"
+    And I set the parameter "StartTime" with value "00:00:00.000"
+    And I set the parameter "EndDate" with value "2021-04-29"
+    And I set the parameter "EndTime" with value "05:00:00.000"
+    And I click the "Apply" button
+    And I wait for "2000" millsecond
+    And I move the mouse pointer to the "SelectNameField"
+    And I click the "DeleteSelection" button
+    When I click the "Ensure" button
+    #问题：RZY-6574
+#    And I wait for "Notice" will be visible
+#    Then I will see the element "Notice" contains "请选择定时任务"
+
   Scenario: create_complement_checkfields_interval
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I click the "Complement" button under some element
