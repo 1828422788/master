@@ -28,6 +28,7 @@ Feature: Agent分组采集
     And I click the "OpenGroupButton" button
     And I wait for loading invisible
 #    And I wait for loading complete
+    And I wait for "2000" millsecond
     Then I will see the agent search result contains "1"
 #  @indexSettingSmoke
     Examples: 成功
