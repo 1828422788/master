@@ -204,3 +204,23 @@ Feature: 全链路_6指标项配置
     And I will see the element "ElementDetails" contains "节点异常状态"
     And I will see the element "ElementDetails" contains "数量："
     And I wait for "AlarmLine" will be visible
+
+  Scenario: 查看全链路5_钻取
+    And I wait for "Canvas" will be visible
+    And I click the "Magnify" button
+    And I wait for "5000" millsecond
+    When I click the "CanvasElement" button
+    And I wait for "ElementDetails" will be visible
+    And I will see the element "ElementDetails" contains "节点详情"
+    And I will see the element "ElementDetails" contains "_"
+    And I will see the element "ElementDetails" contains "市"
+    And I will see the element "ElementDetails" contains "节点异常状态"
+    And I will see the element "ElementDetails" contains "数量："
+    And I click the Circle "AlarmLineFirst" button
+    And switch to window "搜索"
+    And I will see the number of open tabs equals "2"
+    And I close all tabs except main tab
+    Then I will see the "splSearch.SearchPage" page
+    And I wait for "SearchInput" will be visible
+    And I will see the element "SearchInput" contains "POST_"
+    And I will see the element "SearchInput" contains "市"
