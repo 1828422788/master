@@ -38,6 +38,7 @@ Feature: 事件管理界面
     And I choose the "10" from the "EveryPageList"
     And I set the parameter "PaginationInput" with value "2"
     And I press the parameter "PaginationInput" with enter
+    Given I wait for loading complete
     Then I will see the element "NameCell13" contains "<alertref>"
 
     Examples:
