@@ -393,6 +393,12 @@ public class CreatePage extends PageTemplate {
         return alarmLine;
     }
 
+    @FindBy(xpath = "(//div[text()='节点详情']//following-sibling::div[@class='_3ty-idnSV_yEDshRdCXAKx']//*[@class='vx-linepath']/following-sibling::*//*[name()='circle'])[1]")
+    private WebElement alarmLineFirst;
+    public WebElement getAlarmLineFirst() {
+        return alarmLineFirst;
+    }
+
     @FindBy(xpath = "//div[text()='url']//following-sibling::input")
     private WebElement URL;
     public WebElement getURL() {

@@ -33,6 +33,7 @@ Feature: 报表新建_编辑_复合word
     And I click the "Yaxis" button
     And I set the parameter "Actual" with value "cnt"
     And I set the parameter "Predict" with value "_predict_cnt"
+    And I set the parameter "Outlier" with value "upper95"
     And I set the parameter "TopLimit" with value "upper95"
     And I set the parameter "LowerLimit" with value "lower95"
     And I click the "ParameterSetting" button
