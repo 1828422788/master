@@ -17,6 +17,7 @@ Feature: 日志展现_其他_单值
 
     And I click the "Type" button
     And I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
@@ -37,6 +38,7 @@ Feature: 日志展现_其他_单值
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Exhibition" button
+    And I wait for "2000" millsecond
     And I set the parameter "FontSize" with value "100"
     And I click the "Icon" button
     And I click the "AccordingField" button
@@ -46,6 +48,7 @@ Feature: 日志展现_其他_单值
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
     And I wait for "<chartType>Element" will be visible
     And I will see the element "<chartType>Element" style contains "font-size: 100px"
     And I will see the element "<chartType>Element" style contains "color: rgb(92, 157, 245)"
@@ -76,7 +79,9 @@ Feature: 日志展现_其他_单值
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Exhibition" button
+    And I wait for "2000" millsecond
     And I set the parameter "FontSize" with value "100"
+    And I wait for "1000" millsecond
     And I click the "Background" button
     And I wait for "1000" millsecond
     And I click the "Generate" button
@@ -106,6 +111,7 @@ Feature: 日志展现_其他_单值
     And I click the "Settings" button
     And I click the "Exhibition" button
     And I click the "AccordingTrend" button
+    And I wait for "2000" millsecond
     And I set the parameter "FontSize" with value "150"
     And I choose the "<timeValue>" from the "ContrastTime" in config
     And I wait for "1000" millsecond
@@ -144,6 +150,7 @@ Feature: 日志展现_其他_单值
     And I set the parameter "MaxRange" with value "<maxVal1>"
     And I click the "AddColor" button
     And I click the "<color1>" button
+    And I wait for "2000" millsecond
     And I click the "AddRange" button
     And I set the parameter "MinRange" with value "<minVal2>"
     And I set the parameter "MaxRange" with value "<maxVal2>"
@@ -156,6 +163,7 @@ Feature: 日志展现_其他_单值
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
     And I wait for "<chartType>Element" will be visible
     And I will see the element "<chartType>Element" style contains "font-size: 100px"
     And I wait for "2000" millsecond
@@ -179,9 +187,11 @@ Feature: 日志展现_其他_单值
     And I choose the "data" from the "NumericField" in config
     And I choose the "name" from the "DisplayField" in config
     And I click the "Exhibition" button
+    And I wait for "2000" millsecond
     And I set the parameter "FontSize" with value "100"
     And I click the "AddColor" button
     And I click the "Orange" button
+    And I wait for "2000" millsecond
     And I choose the "<precision>" from the "Precision" in config
     # Button ThousandSeparator or Background
     And I click the "<buttonSwitch>" button
@@ -277,6 +287,7 @@ Feature: 日志展现_其他_单值
     And I set the parameter "MaxRange" with value "7"
     And I click the "AddColor" button
     And I click the "Red" button
+    And I wait for "2000" millsecond
     And I click the "AddRange" button
     And I set the parameter "MinRange" with value "7"
     And I set the parameter "MaxRange" with value "10"
@@ -317,12 +328,14 @@ Feature: 日志展现_其他_单值
     And I click the "Exhibition" button
     And I set the parameter "FontSize" with value "60"
     And I set the parameter "Unit" with value "个"
+    And I wait for "2000" millsecond
     And I click the "AddColor" button
     And I click the "<color>" button
     And I wait for "1000" millsecond
     And I click the "Icon" button
     And I click the "AccordingName" button
     And I set the parameter "IconName" with value "<fontValue>"
+    And I wait for "2000" millsecond
     And I click the "SecondTitle" button
     And I set the parameter "TitleName" with value "二级title"
     And I wait for "1000" millsecond
