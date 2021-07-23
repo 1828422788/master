@@ -17,7 +17,8 @@ Feature: 应用定时任务(RZY-2123)
     And I click the "SaveAsOther" button
     And I wait for "2000" millsecond
     And I click the "TimedTask" button
-    And switch to window "编辑报表"
+    #And switch to window "编辑报表"
+    And switch to window "定时任务配置"
     And I close all tabs except main tab
     And I wait for "2000" millsecond
     Then I will see the "timedTask.EditPage" page
