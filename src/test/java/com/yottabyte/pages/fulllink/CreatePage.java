@@ -418,4 +418,10 @@ public class CreatePage extends PageTemplate {
             magnify.click();
         return magnify;
     }
+
+    @FindBy(xpath = "")
+    private WebElement tooltip;
+    public WebElement getTooltip() {
+        return tooltip;
+    }
 }

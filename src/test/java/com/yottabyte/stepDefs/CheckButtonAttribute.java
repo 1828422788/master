@@ -60,6 +60,17 @@ public class CheckButtonAttribute {
     }
 
     /**
+     * 检查元素fill是否包含某值
+     *
+     * @param buttonNameList 元素名称（支持list）
+     * @param attribute      属性值
+     */
+    @Then("^I will see the element \"([^\"]*)\" fill contains \"([^\"]*)\"$")
+    public void checkFill(List<String> buttonNameList, String attribute) {
+        this.checkElementsContainsAttribute(buttonNameList, "fill", attribute);
+    }
+
+    /**
      * 检查元素的某一属性是否包含某一值
      *
      * @param buttonNameList 两种情况：1：传入的是列表 2：传入的元素是一个列表
