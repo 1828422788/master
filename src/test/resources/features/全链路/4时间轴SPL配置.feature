@@ -26,7 +26,7 @@ Feature: 全链路_4时间轴SPL配置
   Scenario: 时间轴SPL配置
     And I choose the "时间轴SPL配置" from the "Settings"
     And I wait for "TimelineSPL" will be visible
-    And I set the value "index=schedule schedule_name:FullLink_Autotest method:${method}  | bucket start_timestamp span=1h as ts" to the textarea "TimelineSPL"
+    And I set the value "index=schedule schedule_name:FullLink_Autotest method:${method}  | bucket start_timestamp span=1h as ts | stats count()  as _COUNT by ts | eval level = 0" to the textarea "TimelineSPL"
     And I click the "RequestData" button
     And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
