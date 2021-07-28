@@ -43,6 +43,8 @@ Feature: 日志展现_维度
     And I click the "Type" button
     And I click the "Dimension" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I click the "Value" button
     And I click the "Divide" button

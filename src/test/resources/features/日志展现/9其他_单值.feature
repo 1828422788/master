@@ -77,6 +77,8 @@ Feature: 日志展现_其他_单值
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I click the "Exhibition" button
     And I wait for "2000" millsecond

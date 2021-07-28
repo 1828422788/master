@@ -172,6 +172,7 @@ Feature: 趋势图新建_地图
     And I click the "Type" button
     And I click the "Map" button
     And I click the "<chartType>" button
+    And I click the "Type" button
 
     And I click the "Settings" button
     And I click the "Exhibition" button

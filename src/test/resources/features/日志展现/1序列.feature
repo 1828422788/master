@@ -41,6 +41,8 @@ Feature: 日志展现_序列
     And I click the "Type" button
     And I click the "Order" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I click the "Yaxis" button
     And I set the parameter "Unit" with value "<unitValue>"
@@ -70,6 +72,8 @@ Feature: 日志展现_序列
     And I click the "Type" button
     And I click the "Order" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I click the "Group" button
     And I click the "<buttonChoice>" button

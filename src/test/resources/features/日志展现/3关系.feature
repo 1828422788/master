@@ -42,6 +42,8 @@ Feature: 日志展现_关系
     And I click the "Type" button
     And I click the "Connection" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I click the "Exhibition" button
     And I set the parameter "Repulsion" with value "<repValue>"
@@ -70,6 +72,8 @@ Feature: 日志展现_关系
     And I click the "Type" button
     And I click the "Connection" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I click the "Exhibition" button
     And I click the "AddColor" button
