@@ -29,7 +29,7 @@ Feature: 全链路_7时间轴
 
     Examples:
       | spl |
-      | tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| bucket timestamp span=15m as ts \| stats count() as  _totalCount by ts, apache.geo.city, apache.method \| rename apache.geo.city as city, apache.method as method \| eval node =method+\"_\"+city, from = city, to = if(city==\"南京市\",\"北京市\",to), to = if(city==\"深圳市\",\"北京市\",to), to = if(city==\"成都市\",\"北京市\",to), to = if(city==\"北京市\",\"泰安市\",to), to = if(city==\"海口市\",\"济南市\",to), to = if(city==\"泰安市\",\"济南市\",to), to = if(city==\"济南市\",\"苏州市\",to), to = if(city==\"临沂市\",\"苏州市\",to), to = if(city==\"苏州市\",\"海口市\",to) \| eval from = method+\"_\"+from, to = method+\"_\"+to |
+      | tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| bucket timestamp span=15m as tstamp \| stats count() as  _totalCount by tstamp, apache.geo.city, apache.method \| rename apache.geo.city as city, apache.method as method \| eval node =method+\"_\"+city, from = city, to = if(city==\"南京市\",\"北京市\",to), to = if(city==\"深圳市\",\"北京市\",to), to = if(city==\"成都市\",\"北京市\",to), to = if(city==\"北京市\",\"泰安市\",to), to = if(city==\"海口市\",\"济南市\",to), to = if(city==\"泰安市\",\"济南市\",to), to = if(city==\"济南市\",\"苏州市\",to), to = if(city==\"临沂市\",\"苏州市\",to), to = if(city==\"苏州市\",\"海口市\",to) \| eval from = method+\"_\"+from, to = method+\"_\"+to |
 
 
   Scenario: 创建全链路
@@ -68,7 +68,7 @@ Feature: 全链路_7时间轴
 
     Examples:
       | fieldName   | timestamp       | start    | end    | separator   | layernum    |
-      | node        | ts              | from     | to     | _           | 2           |
+      | node        | tstamp          | from     | to     | _           | 2           |
 
   Scenario: 时间轴SPL配置
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
@@ -81,7 +81,7 @@ Feature: 全链路_7时间轴
     And I wait for "Save" will be visible
     And I choose the "时间轴SPL配置" from the "Settings"
     And I wait for "TimelineSPL" will be visible
-    And I set the value "index=schedule schedule_name:FullLink_Autotest_TimeAxis | bucket ts span=30m as ts_1" to the textarea "TimelineSPL"
+    And I set the value "index=schedule schedule_name:FullLink_Autotest_TimeAxis  | bucket tstamp span=1h as ts | stats count()  as _COUNT by ts | eval level = 2" to the textarea "TimelineSPL"
     And I click the "RequestData" button
     And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
@@ -100,7 +100,7 @@ Feature: 全链路_7时间轴
     And I wait for "Save" will be visible
     And I click the "DataConfig" button
     When I will see the "splSearch.SearchPage" page
-    When I set the parameter "SearchInput" with value "index=schedule schedule_name:FullLink_Autotest_TimeAxis | table start_timestamp, ts, method, city, node, from, to, _totalCount | rename _totalCount as \"_数量\""
+    When I set the parameter "SearchInput" with value "index=schedule schedule_name:FullLink_Autotest_TimeAxis | table start_timestamp, tstamp, method, city, node, from, to, _totalCount | rename _totalCount as \"_数量\""
     And I click the "DateEditor" button under some element
     And I click the "Today" button
     And I wait for "1000" millsecond

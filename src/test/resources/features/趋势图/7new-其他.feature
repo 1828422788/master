@@ -198,6 +198,8 @@ Feature: 趋势图新建_其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I click the "Exhibition" button
     And I wait for "2000" millsecond
@@ -295,11 +297,13 @@ Feature: 趋势图新建_其他
     And I set the parameter "MaxRange" with value "<maxVal1>"
     And I click the "AddColor" button
     And I click the "<color1>" button
+    And I wait for "2000" millsecond
     And I click the "AddRange" button
     And I set the parameter "MinRange" with value "<minVal2>"
     And I set the parameter "MaxRange" with value "<maxVal2>"
     And I click the "AddColor" button
     And I click the "<color2>" button
+    And I wait for "2000" millsecond
     And I click the "<colorFill>" button
     And I wait for "2000" millsecond
     And I click the "Generate" button

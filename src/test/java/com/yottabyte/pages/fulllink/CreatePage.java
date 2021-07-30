@@ -339,25 +339,25 @@ public class CreatePage extends PageTemplate {
         return getSuccessMessage();
     }
 
-    @FindBy(xpath = "(//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[1]")
+    @FindBy(xpath = "(//div[contains(@class,'_1FmmywLM1qOtExZfMYeqLv')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[1]")
     private WebElement firstTick;
     public WebElement getFirstTick() {
         return firstTick;
     }
 
-    @FindBy(xpath = "(//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[2]")
+    @FindBy(xpath = "(//div[contains(@class,'_1FmmywLM1qOtExZfMYeqLv')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[2]")
     private WebElement secondTick;
     public WebElement getSecondTick() {
         return secondTick;
     }
 
-    @FindBy(xpath = "(//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[3]")
+    @FindBy(xpath = "(//div[contains(@class,'_1FmmywLM1qOtExZfMYeqLv')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[3]")
     private WebElement thirdTick;
     public WebElement getThirdTick() {
         return thirdTick;
     }
 
-    @FindBy(xpath = "(//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[4]")
+    @FindBy(xpath = "(//div[contains(@class,'_1FmmywLM1qOtExZfMYeqLv')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[4]")
     private WebElement forthTick;
     public WebElement getForthTick() {
         return forthTick;
@@ -393,6 +393,12 @@ public class CreatePage extends PageTemplate {
         return alarmLine;
     }
 
+    @FindBy(xpath = "(//div[text()='节点详情']//following-sibling::div[@class='_3ty-idnSV_yEDshRdCXAKx']//*[@class='vx-linepath']/following-sibling::*//*[name()='circle'])[1]")
+    private WebElement alarmLineFirst;
+    public WebElement getAlarmLineFirst() {
+        return alarmLineFirst;
+    }
+
     @FindBy(xpath = "//div[text()='url']//following-sibling::input")
     private WebElement URL;
     public WebElement getURL() {
@@ -403,5 +409,19 @@ public class CreatePage extends PageTemplate {
     private WebElement newTab;
     public WebElement getNewTab() {
         return newTab;
+    }
+
+    @FindBy(xpath = "//div[@class='_2bB7pFw1Yds7dYqu0W7dJ7']//span[@aria-label='AddOutlined']")
+    private WebElement magnify;
+    public WebElement getMagnify() {
+        for (int i=0; i<15; i++)
+            magnify.click();
+        return magnify;
+    }
+
+    @FindBy(xpath = "")
+    private WebElement tooltip;
+    public WebElement getTooltip() {
+        return tooltip;
     }
 }

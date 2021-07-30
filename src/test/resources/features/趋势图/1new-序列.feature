@@ -66,6 +66,8 @@ Feature: 趋势图新建_序列
     And I click the "Type" button under some element
     And I click the "Order" button under some element
     And I click the "<chartType>" button under some element
+    And I click the "Type" button
+
     And I click the "Settings" button under some element
     And I click the "ShowAllLabels" button
     And I click the "Group" button
@@ -148,6 +150,8 @@ Feature: 趋势图新建_序列
     And I click the "Type" button under some element
     And I click the "Order" button under some element
     And I click the "<chartType>" button under some element
+    And I click the "Type" button
+
     And I click the "Settings" button under some element
     And I click the "ShowAllLabels" button
     And I click the "Yaxis" button

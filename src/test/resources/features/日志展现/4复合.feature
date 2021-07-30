@@ -31,6 +31,7 @@ Feature: 日志展现_复合
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
     And I wait for "<chartType>Element" will be visible
     And I will see the "LineChartElement" is display
     And I will see the "ScatterChartElement" is display
@@ -95,6 +96,7 @@ Feature: 日志展现_复合
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
     And I will see the element "FieldAxis_1" contains "max(apache.resp_len)"
     And I will see the element "MinAxis_1" contains "1 面"
     And I will see the element "MaxAxis_1" contains "170K 面"

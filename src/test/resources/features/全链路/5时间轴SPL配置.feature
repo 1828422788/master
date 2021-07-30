@@ -1,5 +1,5 @@
 @fulllink @fulllinkTimeline
-Feature: 全链路_4时间轴SPL配置
+Feature: 全链路_5时间轴SPL配置
 
   Background:
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
@@ -22,14 +22,30 @@ Feature: 全链路_4时间轴SPL配置
     And I will see the input element "TimelineSPL" value will be ""
     And I click the "Cancel" button
 
-  @fulllink_test
-  Scenario: 时间轴SPL配置
+  Scenario Outline: 时间轴SPL配置
     And I choose the "时间轴SPL配置" from the "Settings"
     And I wait for "TimelineSPL" will be visible
-    And I set the value "index=schedule schedule_name:FullLink_Autotest method:${method}  | bucket start_timestamp span=1h as ts" to the textarea "TimelineSPL"
+    And I set the value "index=schedule schedule_name:FullLink_Autotest method:${method}  | bucket start_timestamp span=1h as ts | stats count()  as _COUNT by ts | eval level = <level>" to the textarea "TimelineSPL"
     And I click the "RequestData" button
     And I wait for "SuccessMessage" will be invisible
+    And I wait for "TimeAxis" will be visible
+    When I click the "TimeAxis" button
+    And I wait for "Tick0000" will be visible
+    And I will see the element "Tick0000" fill contains "<color>"
+#    And I move the mouse pointer to the "Tick0000"
+#    And I wait for "Tooltip" will be visible
+#    And I will see the element "Tooltip" contains "COUNT:"
     And I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"
+
+  Examples:
+    | level   | color    |
+    | 2       | #CB3B2F  |
+    | 1       | #ECA222  |
+
+   @fulllink_test
+    Examples:
+    | level    | color   |
+    | 0        | #3034B3 |

@@ -20,6 +20,7 @@ Feature: 日志展现_序列
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/1序列/<caseNum>_<chartType>"
@@ -40,6 +41,8 @@ Feature: 日志展现_序列
     And I click the "Type" button
     And I click the "Order" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I click the "Yaxis" button
     And I set the parameter "Unit" with value "<unitValue>"
@@ -69,6 +72,8 @@ Feature: 日志展现_序列
     And I click the "Type" button
     And I click the "Order" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I click the "Group" button
     And I click the "<buttonChoice>" button

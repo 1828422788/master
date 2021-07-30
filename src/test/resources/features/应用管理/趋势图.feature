@@ -76,7 +76,7 @@ Feature: 应用趋势图
       | name     |
       | TrendApp |
 
-  Scenario Outline: 新建趋势图并存为报表
+  Scenario Outline: 新建趋势图并存为报表--有bug
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
     When the data name is "TrendApp" then i click the "打开" button in more menu

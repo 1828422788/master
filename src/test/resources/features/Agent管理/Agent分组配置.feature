@@ -1,9 +1,10 @@
-@agent3 @agent_group2
+@agent3 @agent_group2 @test_agent_group
 
 Feature: Agent分组采集
 
   Background:
     Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
+    And I zoom the browse to full screen
 
   Scenario Outline: 新建Agent分组设置并添加ip
     And I wait for loading complete
@@ -27,6 +28,7 @@ Feature: Agent分组采集
     And I click the "OpenGroupButton" button
     And I wait for loading invisible
 #    And I wait for loading complete
+    And I wait for "2000" millsecond
     Then I will see the agent search result contains "1"
 #  @indexSettingSmoke
     Examples: 成功

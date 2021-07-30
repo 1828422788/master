@@ -20,6 +20,7 @@ Feature: 日志展现_地图
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
@@ -57,6 +58,7 @@ Feature: 日志展现_地图
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
     And I wait for "<chartType>Element" will be visible
     And I wait for "3000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<regionBut>_<chartType>"
@@ -81,6 +83,7 @@ Feature: 日志展现_地图
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
     And I wait for "<chartType>DarkElement" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
@@ -201,6 +204,7 @@ Feature: 日志展现_地图
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
     And I will see the "<chartType>Element" is display
     And I wait for "3000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
@@ -280,6 +284,7 @@ Feature: 日志展现_地图
     And I click the "Type" button
     And I click the "Map" button
     And I click the "<chartType>" button
+    And I click the "Type" button
 
     And I click the "Settings" button
     And I click the "Exhibition" button

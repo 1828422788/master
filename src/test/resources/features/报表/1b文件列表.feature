@@ -32,7 +32,7 @@ Feature: 报表_文件列表
       |    name               |  format    |
       |  test_report_PDF      |  .pdf      |
       |  test_report_URL      |  .pdf      |
-      |  test_report_EXCEL    |  .xls      |
+      |  test_report_EXCEL    |  .xlsx     |
 
   Scenario Outline: check_type_dropdown
     When I set the parameter "SearchInput" with value "<name_1>"
@@ -48,7 +48,7 @@ Feature: 报表_文件列表
 
     Examples:
       |    name_1          |  format_1  | name_2            | format_2   |
-      |  test_report_PDF   |  .pdf      | test_report_EXCEL | .xls       |
+      |  test_report_PDF   |  .pdf      | test_report_EXCEL | .xlsx      |
 
   Scenario: report_list_button
     When I click the "ReportListButton" button under some element
@@ -56,30 +56,6 @@ Feature: 报表_文件列表
     And I wait for element "SelectedReport" change text to "全部报表文件"
     And I wait for "5000" millsecond
     And I wait for "LastGeneratedReport" will be visible
-
-  @reportLayout
-  Scenario Outline: download_layout
-    When I set the parameter "SearchInput" with value "report_Layout_<layout>"
-    And I wait for "2000" millsecond
-    And the data name is "{'column':'1','name':'report_Layout_<layout>'}" then i click the "report_Layout_<layout>" button
-    And I wait for element "SelectedReport" change text to "report_Layout_<layout>"
-    Then I will see the element "LastGeneratedReport" contains ".pdf"
-    And I click the "Download" button
-    And I wait for "4000" millsecond
-    And I download the latest report to local
-    And I wait for "4000" millsecond
-    Then I compare source report file "expect/report_Layout_<layout>.pdf" with target report file "report_Layout_<layout>.pdf"
-
-    Examples:
-      | layout |
-      | 1      |
-      | 2      |
-      | 3      |
-      | 4      |
-      | 5      |
-      | 6      |
-      | 7      |
-      | 8      |
 
 
 

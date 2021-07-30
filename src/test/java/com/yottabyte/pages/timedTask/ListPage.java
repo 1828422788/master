@@ -89,6 +89,13 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "yotta-pageheader-title")
     private WebElement hideElement;
 
+    @FindBy(xpath = "//div[contains(@class,'yotta-select-selection')]//span[@aria-label='CloseCircleFilled']")
+    private WebElement deleteSelection;
+
+    public WebElement getDeleteSelection() {
+        return deleteSelection;
+    }
+
     public WebElement getHideElement() {
         hideElement.click();
         return hideElement;
@@ -164,6 +171,10 @@ public class ListPage extends ListPageFactory {
         selectName.click();
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
         return super.getLastDropdownList();
+    }
+
+    public WebElement getSelectNameField() {
+        return selectName;
     }
 
     public WebElement getComplement() {

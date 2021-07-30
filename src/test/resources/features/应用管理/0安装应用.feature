@@ -1,4 +1,4 @@
-@app
+@app @app-install
 Feature: 应用安装（RZY-1988）
 
   Scenario: 新建数据集
@@ -17,6 +17,7 @@ Feature: 应用安装（RZY-1988）
     And I wait for "AddDataset" will be visible
     When I upload a file "Upload" with name "/target/download-files/<appName>.tar"
     And I will see the element "VerifyText" name is "上传完成"
+    And I wait for "2000" millsecond
     And I choose the "__admin__" from the "Role"
     And I click the "AddDataset" button
     And I set the parameter "SearchInput" with value "AutoTestApp"
@@ -92,7 +93,9 @@ Feature: 应用安装（RZY-1988）
     And I wait for "AddDataset" will be visible
     When I upload a file "Upload" with name "/target/download-files/测试无资源.tar"
     And I will see the element "VerifyText" name is "上传完成"
+    And I wait for "2000" millsecond
     And I choose the "__admin__" from the "Role"
+    And I wait for "2000" millsecond
     And I click the "NextButton" button
     And I wait for "Message" will be visible
     Then I will see the message "请勿导入空资源包！"

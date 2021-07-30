@@ -65,26 +65,37 @@ public class ListPage extends PageTemplate {
         return AgentDownloadButton;
     }
 
-    @FindBy(xpath = "//span[text()='下载命令']/ancestor::button")
+
+//    @FindBy(xpath = "//span[text()='下载命令']/ancestor::button")
+    @FindBy(xpath = "//button[@yotta-test='agent-download_command-button']")
     private WebElement CopyLinux;
+    public WebElement getCopyLinux() { return CopyLinux; }
 
 
-    public WebElement getDownloadFile() {
-        return super.getButton("下载文件");
-    }
-    @FindBy(xpath = "//span[text()='下载文件']/ancestor::button")
+//    @FindBy(xpath = "//span[text()='下载文件']/ancestor::button")
+    @FindBy(xpath = "//button[@yotta-test='agent-win_download_file-button']")
     private WebElement DownloadFile;
+    public WebElement getDownloadFile() {
+//        return super.getButton("下载文件");
+        return DownloadFile;
+    }
 
     @FindBy(xpath = "//li/span[text()='下载安装包']")
     private WebElement AgentDownloadButton;
 
+    @FindBy(xpath = "//button[@yotta-test='agent-download_mac_gui-button']")
+    private WebElement WindowsGUIButton;
+
     public WebElement getWindowsGUIButton() {
-        return super.getYottaButtonByText("下载文件");
+//        return super.getYottaButtonByText("下载文件");
+        return WindowsGUIButton;
     }
 
+    @FindBy(xpath = "//button[@yotta-test='agent-download_win_gui-button']")
+    private WebElement MacOsGUIButton;
     public WebElement getMacOsGUIButton() {
-
-        return super.getYottaButtonByText("下载命令");
+        return MacOsGUIButton;
+//        return super.getYottaButtonByText("下载命令");
     }
 
     public WebElement getAuthButton() {

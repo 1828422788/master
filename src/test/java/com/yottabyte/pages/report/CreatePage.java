@@ -1025,6 +1025,10 @@ public class CreatePage extends PageTemplate {
         return getInputSetting("实际值");
     }
 
+    public WebElement getOutlier() {
+        return getInputSetting("异常值");
+    }
+
     public WebElement getIconName() {
         return getInputSetting("图标名称");
     }

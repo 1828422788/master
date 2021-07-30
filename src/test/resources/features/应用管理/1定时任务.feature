@@ -1,30 +1,31 @@
-@app @appSmoke
+@app @appSmoke @timetask
 Feature: 应用定时任务(RZY-2123)
 
-  Scenario Outline: 新建定时任务
+  Scenario: 新建定时任务
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
     When the data name is "AutoTestAppWithAllResources" then i click the "打开" button in more menu
     Then I will see the "app.AppPage" page
     When I click the "Search" button
     Then I will see the "splSearch.SearchPage" page
-    Given I set the parameter "SearchInput" with value "<spl>"
+    Given I set the parameter "SearchInput" with value "tag:sample04061424_chart | bucket timestamp span=1h as ts | stats count(apache.clientip) as c_ip by ts"
     And I click the "DateEditor" button
-    And I click the "<time>" button
+    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "2000" millsecond
     And I click the "SaveAsOther" button
     And I wait for "2000" millsecond
     And I click the "TimedTask" button
-    And switch to window "编辑报表"
+    #And switch to window "编辑报表"
+    And switch to window "定时任务配置"
     And I close all tabs except main tab
     And I wait for "2000" millsecond
     Then I will see the "timedTask.EditPage" page
     And I wait for "2000" millsecond
    # And I wait for element "Textarea" change text to "<spl>"
    # And I wait for element "SelectedUser" change text to username
-    And I set the parameter "Name" with value "<taskName>"
+    And I set the parameter "Name" with value "AutoApp"
     And I wait for "2000" millsecond
     And I choose the "AutoTestAppWithAllResources" from the "AppComboBox"
     And I wait for "2000" millsecond
@@ -36,11 +37,8 @@ Feature: 应用定时任务(RZY-2123)
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
-    Examples:
-      | spl                                                                                                      | time  | taskName |
-      | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts | Today | AutoApp  |
 
-  Scenario Outline: 编辑定时任务
+  Scenario: 编辑定时任务
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
     When the data name is "AutoTestAppWithAllResources" then i click the "打开" button in more menu
@@ -51,16 +49,11 @@ Feature: 应用定时任务(RZY-2123)
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AutoTestAppWithAllResources"
     And I will see the "timedTask.EditPage" page
-    And I wait for element "Textarea" change text to "<spl>"
+    And I wait for element "Textarea" change text to "tag:sample04061424_chart | bucket timestamp span=1h as ts | stats count(apache.clientip) as c_ip by ts"
     And I set the parameter "Name" with value "AutoCreateApp"
     And I click the "SaveButton" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
-
-    Examples:
-      | spl                                                                                                      |
-      | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts |
-
 
   Scenario: 禁用定时任务
     Given open the "app.ListPage" page for uri "/app/list/"

@@ -83,7 +83,7 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I click the "Ensure" button
     And I wait for "CompressStatus" will be visible
     And I wait for "5000" millsecond
-    And I will see the element "CompressStatus" name is "关闭"
+    And I will see the element "CompressStatus" name is "开启"
 
   Scenario: 输出配置开启输出压缩
     And I click the "OutputEdit" button
@@ -93,8 +93,7 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I click the "Ensure" button
     And I wait for "CompressStatus" will be visible
     And I wait for "5000" millsecond
-    And I will see the element "CompressStatus" name is "开启"
-#    change text to "开启"
+    And I will see the element "CompressStatus" name is "关闭"
 
   Scenario Outline: 输出配置修改发送速率限制
     And I click the "OutputEdit" button
@@ -113,6 +112,24 @@ Feature: Agent具体配置高级配置及清理缓存操作
       | KB/S      | 100 KB/s       |
       | B/S       | 100 B/s          |
       | MB/S      | 100 MB/s      |
+
+
+  Scenario Outline: 输出配置修改发送速率限制为无限制
+    And I click the "OutputEdit" button
+    And I wait for "2000" millsecond
+    And I click the "Editconfig" button
+    And I set the parameter "SendSpeedLimit" with value "0"
+    And I choose the "<sendspeed>" from the "SendSpeed"
+    And I click the "Ensure" button
+    And I wait for loading invisible
+    And I wait for "2000" millsecond
+#    And I will see the element "SendSpeedStatus" contains "<sendspeedstatus>"
+#    And I will see the element "SendSpeedStatus" name is "<sendspeedstatus>"
+
+    Examples:
+      | sendspeed | sendspeedstatus |
+      | MB/S      | 100 MB/s      |
+
 
   Scenario Outline: 输出配置修改单行日志最大长度
     And I click the "OutputEdit" button

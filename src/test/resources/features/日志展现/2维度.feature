@@ -20,6 +20,7 @@ Feature: 日志展现_维度
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
     And I wait for "<element>" will be visible
     And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
@@ -42,6 +43,8 @@ Feature: 日志展现_维度
     And I click the "Type" button
     And I click the "Dimension" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I click the "Value" button
     And I click the "Divide" button

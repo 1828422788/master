@@ -64,7 +64,7 @@ Feature: 报表新建_编辑_关系word
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
-    And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>_repuls50"
+    And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>_repuls20"
     And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart  | stats count() by apache.clientip,apache.request_path |limit 10" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Connection" button
@@ -83,7 +83,7 @@ Feature: 报表新建_编辑_关系word
     And I click the "AddColor" button
     And I click the "<color>" button
     And I wait for "2000" millsecond
-    And I set the parameter "Repulsion" with value "50"
+    And I set the parameter "Repulsion" with value "20"
     And I wait for "1000" millsecond
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button

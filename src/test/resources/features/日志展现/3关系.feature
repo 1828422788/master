@@ -20,6 +20,7 @@ Feature: 日志展现_关系
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
     And I wait for "<chartType>Element" will be visible
     And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
@@ -41,6 +42,8 @@ Feature: 日志展现_关系
     And I click the "Type" button
     And I click the "Connection" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I click the "Exhibition" button
     And I set the parameter "Repulsion" with value "<repValue>"
@@ -69,6 +72,8 @@ Feature: 日志展现_关系
     And I click the "Type" button
     And I click the "Connection" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I click the "Exhibition" button
     And I click the "AddColor" button
