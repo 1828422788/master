@@ -130,9 +130,6 @@ Feature: 全链路_7时间轴
     And I wait for "Tick0000" will be visible
     And I click the Circle "Tick0000" button
     And I wait for "1000" millsecond
-    And I wait for "FirstTick" will be visible
-    And I click the Circle "FirstTick" button
-    And I wait for "1000" millsecond
     And I choose the "链路指标项配置" from the "Settings"
     And I wait for "High_Min" will be visible
     And I set the parameter "High_Min" with value "5"
