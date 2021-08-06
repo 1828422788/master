@@ -146,7 +146,9 @@ Feature: 日志展现_其他_单值
     And I choose the "cnt" from the "NumericField" in config
     And I click the "Exhibition" button
     And I click the "AccordingArea" button
+    And I wait for "1000" millsecond
     And I set the parameter "FontSize" with value "100"
+    And I wait for "1000" millsecond
     And I click the "AddRange" button
     And I set the parameter "MinRange" with value "<minVal1>"
     And I set the parameter "MaxRange" with value "<maxVal1>"
@@ -191,6 +193,7 @@ Feature: 日志展现_其他_单值
     And I click the "Exhibition" button
     And I wait for "2000" millsecond
     And I set the parameter "FontSize" with value "100"
+    And I wait for "1000" millsecond
     And I click the "AddColor" button
     And I click the "Orange" button
     And I wait for "2000" millsecond

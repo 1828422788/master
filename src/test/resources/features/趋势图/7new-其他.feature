@@ -250,6 +250,7 @@ Feature: 趋势图新建_其他
     And I click the "AccordingTrend" button
     And I wait for "2000" millsecond
     And I set the parameter "FontSize" with value "100"
+    And I wait for "1000" millsecond
     And I choose the "<timeValue>" from the "ContrastTime" in config
     And I wait for "1000" millsecond
     And I click the "Generate" button
@@ -398,6 +399,7 @@ Feature: 趋势图新建_其他
     And I click the "Exhibition" button
     And I wait for "2000" millsecond
     And I set the parameter "FontSize" with value "60"
+    And I wait for "1000" millsecond
     And I click the "AddColor" button
     And I click the "Purple" button
     And I wait for "1000" millsecond
@@ -446,6 +448,7 @@ Feature: 趋势图新建_其他
     And I click the "Exhibition" button
     And I wait for "2000" millsecond
     And I set the parameter "FontSize" with value "60"
+    And I wait for "1000" millsecond
     And I set the parameter "Unit" with value "个"
     And I wait for "2000" millsecond
     And I click the "AddColor" button

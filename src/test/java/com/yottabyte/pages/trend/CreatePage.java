@@ -138,10 +138,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@value='max']/ancestor::div[1]/label/input")
     private WebElement intervalInput;
 
-    @FindBy(xpath="(//span[@class='css-trkpwz'])[last()-1]/ancestor::div[1]")
+    @FindBy(xpath="(//*[contains(@class,'color-picker-inner')])[last()-1]")
     private WebElement changeColor;
 
-    @FindBy(xpath="(//div[text()='Hex'])[last()-1]/preceding-sibling::input")
+    @FindBy(xpath="//div[contains(@class,'yotta-color-palette-input')]//input")
     private WebElement colorCode;
 
     @FindBy(xpath = "//input[@value='min']/ancestor::div[2]/span[contains(@class,'icon-DeleteOutlined')]")
@@ -159,10 +159,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='值']/ancestor::div[1]/span[contains(@class,'icon-DeleteOutlined')])[last()]")
     private WebElement deleteLastValue;
 
-    @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div//span/span")
+    @FindBy(xpath = "(//label[contains(text(),'字体颜色')]/following-sibling::div//*[contains(@class,'color-picker')])[2]")
     private WebElement changeFontColor;
 
-    @FindBy(xpath = "(//div[text()='Hex'])[last()]/preceding-sibling::input")
+    @FindBy(xpath = "//div[contains(@class,'yotta-color-palette-input')]//input")
     private WebElement fontColor;
 
     @FindBy(xpath = "//label[contains(text(),'对齐方式')]/following-sibling::div//span[contains(@class,'yotta-select-selection-value')]")
