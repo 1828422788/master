@@ -16,7 +16,7 @@ Feature: 全链路_0定时任务
     Then I will see the "timedTask.EditPage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Name" with value "FullLink_Autotest"
-    And I set the parameter "Period" with value "10"
+    And I set the parameter "Period" with value "1"
     And I choose the "天" from the "Unit"
     And I set the parameter "Number" with value "200"
     And I will see the element "DatePicker" contains "今天"

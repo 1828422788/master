@@ -42,10 +42,10 @@ Feature: 全链路_5时间轴SPL配置
 
   Examples:
     | level   | color    |
-    | 2       | #CB3B2F  |
-    | 1       | #ECA222  |
+    | 3       | #CB3B2F  |
+    | 2       | #ECA222  |
 
    @fulllink_test
     Examples:
     | level    | color   |
-    | 0        | #3034B3 |
+    | 1        | #3034B3 |

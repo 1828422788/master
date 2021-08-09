@@ -162,25 +162,25 @@ public class CreatePage extends PageTemplate {
         return dropdownListType;
     }
 
-    @FindBy(xpath = "(//div[@class='_1QKcLCq5ljwLNAWWQDBSOB'])[1]//div[text()]")
+    @FindBy(xpath = "(//div[@class='_1T0uykvblfx-ViJ-v5R6u8'])[1]//div[text()]")
     private WebElement firstInput;
     public WebElement getFirstInput() {
         return firstInput;
     }
 
-    @FindBy(xpath = "(//div[@class='_1QKcLCq5ljwLNAWWQDBSOB'])[1]//div[@yotta-test='fulllink_param-list-item-edit-dom']")
+    @FindBy(xpath = "(//div[@class='_1T0uykvblfx-ViJ-v5R6u8'])[1]//div[@yotta-test='fulllink_param-list-item-edit-dom']")
     private WebElement firstInputEdit;
     public WebElement getFirstInputEdit() {
         return firstInputEdit;
     }
 
-    @FindBy(xpath = "(//div[@class='_1QKcLCq5ljwLNAWWQDBSOB'])[1]//div[@yotta-test='fulllink_param-list-item-delete-dom']")
+    @FindBy(xpath = "(//div[@class='_1T0uykvblfx-ViJ-v5R6u8'])[1]//div[@yotta-test='fulllink_param-list-item-delete-dom']")
     private WebElement firstInputDelete;
     public WebElement getFirstInputDelete() {
         return firstInputDelete;
     }
 
-    @FindBy(xpath = "(//div[@class='_1QKcLCq5ljwLNAWWQDBSOB'])[1]//div[@yotta-test='fulllink_param-item-select']")
+    @FindBy(xpath = "(//div[@class='_1T0uykvblfx-ViJ-v5R6u8'])[1]//div[@yotta-test='fulllink_param-item-select']")
     private WebElement firstInputList;
     public WebElement getFirstInputList() {
         firstInputList.click();
@@ -259,13 +259,13 @@ public class CreatePage extends PageTemplate {
         return getYottaTable("table_chart-list-table");
     }
 
-    @FindBy(xpath = "(//div[@class='_26xWyHOlBU1ujfUt9LqAf7']/span[@aria-label='ClockCircleOutlined']) | (//div[@class='_1g2HQ9D3pUyYExRKkZHI9M']/span[@aria-label='PlusDownOutlined'])")
+    @FindBy(xpath = "(//div[contains(@style,'bottom')]//span[@aria-label='ClockCircleOutlined']) | (//div[contains(@style,'bottom')]//span[@aria-label='PlusDownOutlined'])")
     private WebElement timeAxis;
     public WebElement getTimeAxis() {
         return timeAxis;
     }
 
-    @FindBy(xpath = "//div[@class='_1g2HQ9D3pUyYExRKkZHI9M']/span[@aria-label='SettingOutlined']")
+    @FindBy(xpath = "//div[contains(@style,'bottom')]//span[@aria-label='SettingOutlined']")
     private WebElement dateSetting;
     public WebElement getDateSetting() {
         return dateSetting;
@@ -289,19 +289,19 @@ public class CreatePage extends PageTemplate {
         return lastDate;
     }
 
-    @FindBy(xpath = "//div[contains(@class,'_1g2HQ9D3pUyYExRKkZHI9M')]//span[@aria-label='SlowPlayCircleOutlined']")
+    @FindBy(xpath = "//div[contains(@style,'bottom')]//span[@aria-label='SlowPlayCircleOutlined']")
     private WebElement liveBroadcast;
     public WebElement getLiveBroadcast() {
         return liveBroadcast;
     }
 
-    @FindBy(xpath = "//div[contains(@class,'_1g2HQ9D3pUyYExRKkZHI9M')]//span[@aria-label='EditOutlined']")
+    @FindBy(xpath = "//div[contains(@style,'bottom')]//span[@aria-label='EditOutlined']")
     private WebElement ignoreException;
     public WebElement getIgnoreException() {
         return ignoreException;
     }
 
-    @FindBy(xpath = "//div[@class='_1g2HQ9D3pUyYExRKkZHI9M']//span[@aria-label='PlayCircleOutlined']")
+    @FindBy(xpath = "//div[contains(@style,'bottom')]//span[@aria-label='PlayCircleOutlined']")
     private WebElement play;
     public WebElement getPlay() {
         return play;
@@ -419,7 +419,7 @@ public class CreatePage extends PageTemplate {
         return magnify;
     }
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "//div[contains(@class,'tooltip-content')]")
     private WebElement tooltip;
     public WebElement getTooltip() {
         return tooltip;
