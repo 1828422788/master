@@ -10,6 +10,7 @@ Feature: 用户新建（RZY-1164）
     When I set the parameter "UserName" with value "<UserName>"
     And I set the parameter "FullName" with value "<FullName>"
     And I set the parameter "Email" with value "<Email>"
+    And I wait for "2000" millsecond
     And I set the parameter "Password" with value "<Password>"
     And I click the "CreateButton" button
     And I wait for "SuccessMessage" will be visible
