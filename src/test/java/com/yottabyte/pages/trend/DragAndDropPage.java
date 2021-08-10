@@ -15,7 +15,7 @@ public class DragAndDropPage extends CreatePage {
         driver.manage().window().setSize(new Dimension(1500,900));
     }
 
-    @FindBy(className = "_3vWjsNSa82KJ2BOg98qxO8")
+    @FindBy(id = "spl-chart")
     private WebElement chart;
 
     @FindBy(xpath = "//span[@aria-label='InfoCircleFilled']/ancestor::div/following-sibling::div/p")

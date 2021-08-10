@@ -120,10 +120,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='预设置']/following-sibling::span")
     private WebElement selectColor;
 
-    @FindBy(xpath = "//img[contains(@src,'3.png')]/ancestor::a")
+    @FindBy(xpath = "//img[contains(@src,'/3.') and contains(@src,'.png')]/ancestor::a")
     private WebElement continuity;
 
-    @FindBy(xpath = "//img[contains(@src,'4.png')]/ancestor::a")
+    @FindBy(xpath = "//img[contains(@src,'/4.') and contains(@src,'.png')]/ancestor::a")
     private WebElement discrete;
 
     @FindBy(xpath = "//label[text()='下限值']/following-sibling::input")
