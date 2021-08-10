@@ -40,7 +40,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='保存为']")
     private WebElement saveAs;
 
-    @FindBy(xpath = "//div[@class='_3ET1_zfWFNtizQm9NnT996']/span")
+    @FindBy(xpath = "//span[@yotta-test='trend-dataset_query-tag']/span")
     private WebElement dataSetPosition;
 
     // with bubbles
