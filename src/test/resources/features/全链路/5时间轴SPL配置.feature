@@ -33,8 +33,8 @@ Feature: 全链路_5时间轴SPL配置
     And I will see the element "SuccessMessage" contains "保存成功"
     And I wait for "TimeAxis" will be visible
     When I click the "TimeAxis" button
-    And I wait for "Tick0000" will be visible
-    And I will see the element "Tick0000" fill contains "<color>"
+#    And I wait for "Tick0000" will be visible
+#    And I will see the element "Tick0000" fill contains "<color>"
 #    And I move the mouse pointer to the "Tick0000"
 #    And I wait for "Tooltip" will be visible
 #    And I will see the element "Tooltip" contains "COUNT:"

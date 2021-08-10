@@ -49,7 +49,7 @@ Feature: 全链路_4数据项配置
   Scenario: 数据项配置_修改指标项配置
     And I click the "DataConfig" button
     When I will see the "splSearch.SearchPage" page
-    When I set the parameter "SearchInput" with value "index=schedule schedule_name:FullLink_Autotest method:${method} | table start_timestamp, method, city, node, from, to, _totalCount | rename _totalCount as \"_Count\""
+    When I set the parameter "SearchInput" with value "index=schedule schedule_name:FullLink_Autotest method:${method} | table start_timestamp, method, city, node, from, to, _totalCount | rename _totalCount as \"_TEST\""
     And I click the "DateEditor" button under some element
     And I click the "Today" button
     And I wait for "1000" millsecond
@@ -62,7 +62,7 @@ Feature: 全链路_4数据项配置
     And I wait for "Preview" will be invisible
     And I choose the "链路指标项配置" from the "Settings"
     And I wait for "High_Min" will be visible
-    And I will see the element "Tab" contains "Count"
+    And I will see the element "Tab" contains "TEST"
     And I click the "Cancel" button
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
@@ -72,7 +72,7 @@ Feature: 全链路_4数据项配置
   Scenario: 数据项配置
     And I click the "DataConfig" button
     When I will see the "splSearch.SearchPage" page
-    When I set the parameter "SearchInput" with value "index=schedule schedule_name:FullLink_Autotest method:${method} | table start_timestamp, method, city, node, from, to, _totalCount | rename _totalCount as \"_数量\""
+    When I set the parameter "SearchInput" with value "index=schedule schedule_name:FullLink_Autotest method:${method} | table start_timestamp, method, city, node, from, to, _totalCount | rename _totalCount as \"_COUNT\""
     And I click the "DateEditor" button under some element
     And I click the "Today" button
     And I wait for "1000" millsecond
@@ -85,7 +85,7 @@ Feature: 全链路_4数据项配置
     And I wait for "Preview" will be invisible
     And I choose the "链路指标项配置" from the "Settings"
     And I wait for "High_Min" will be visible
-    And I will see the element "Tab" contains "数量"
+    And I will see the element "Tab" contains "COUNT"
     And I click the "Cancel" button
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
