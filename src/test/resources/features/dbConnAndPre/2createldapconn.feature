@@ -18,7 +18,8 @@ Feature: 新建ldap连接配置
     And I set the parameter "LdapUserPassword" with value "<LdapUserPassword>"
     And I click the "LdapConnVerifyButton" button
     And I click the "SaveButton" button
-    And I will see the success message contains "成功"
+    Then I will see the success message "创建成功"
+
 
     Examples:
       | NewLdapConnName | NewBaseDName      | NewLdapHost   | NewLdapConnPort | NewBindDnName              | LdapUserPassword |
