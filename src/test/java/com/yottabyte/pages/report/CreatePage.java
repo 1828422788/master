@@ -236,7 +236,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='yotta-tooltip-content']")
     private WebElement tipElement;
 
-    @FindBy(xpath = "//div[@class='_1rpZECB9i9v8h6IEUve_yK']")
+    @FindBy(xpath = "//div[@class='_3mi8yqwNeiv6VsJn7tRZs-']")
     private WebElement resultMessage;
 
     @FindBy(xpath = "((//div[contains(@class,'help-text')])[1]) | (//div[@class='_1JeVvK6jBB88_F6voAZyhi'])")

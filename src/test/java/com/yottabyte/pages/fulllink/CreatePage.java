@@ -187,19 +187,19 @@ public class CreatePage extends PageTemplate {
         return dropdownListType;
     }
 
-    @FindBy(xpath = "(//div[@class='h5_2m6UeENBHGdeqIoE9r'])[1]")
+    @FindBy(xpath = "(//div[@class='_3b_Dsz30d0RUi_KUMY3pDX'])[1]")
     private WebElement numLabel_1;
     public WebElement getNumLabel_1() {
         return numLabel_1;
     }
 
-    @FindBy(xpath = "(//div[@class='h5_2m6UeENBHGdeqIoE9r'])[2]")
+    @FindBy(xpath = "(//div[@class='_3b_Dsz30d0RUi_KUMY3pDX'])[2]")
     private WebElement numLabel_2;
     public WebElement getNumLabel_2() {
         return numLabel_2;
     }
 
-    @FindBy(xpath = "(//div[@class='h5_2m6UeENBHGdeqIoE9r'])[3]")
+    @FindBy(xpath = "(//div[@class='_3b_Dsz30d0RUi_KUMY3pDX'])[3]")
     private WebElement numLabel_3;
     public WebElement getNumLabel_3() {
         return numLabel_3;
@@ -411,7 +411,7 @@ public class CreatePage extends PageTemplate {
         return newTab;
     }
 
-    @FindBy(xpath = "//div[@class='_2bB7pFw1Yds7dYqu0W7dJ7']//span[@aria-label='AddOutlined']")
+    @FindBy(xpath = "//div[@class='_19NPoBJ3m1Q77P7Rxw-rz3']//span[@aria-label='AddOutlined']")
     private WebElement magnify;
     public WebElement getMagnify() {
         for (int i=0; i<15; i++)
