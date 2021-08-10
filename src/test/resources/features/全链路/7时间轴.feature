@@ -100,7 +100,7 @@ Feature: 全链路_7时间轴
     And I wait for "Save" will be visible
     And I click the "DataConfig" button
     When I will see the "splSearch.SearchPage" page
-    When I set the parameter "SearchInput" with value "index=schedule schedule_name:FullLink_Autotest_TimeAxis | table start_timestamp, tstamp, method, city, node, from, to, _totalCount | rename _totalCount as \"_数量\""
+    When I set the parameter "SearchInput" with value "index=schedule schedule_name:FullLink_Autotest_TimeAxis | table start_timestamp, tstamp, method, city, node, from, to, _totalCount | rename _totalCount as \"_COUNT\""
     And I click the "DateEditor" button under some element
     And I click the "Today" button
     And I wait for "1000" millsecond
