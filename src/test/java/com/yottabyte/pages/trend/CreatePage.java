@@ -40,7 +40,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='保存为']")
     private WebElement saveAs;
 
-    @FindBy(xpath = "//div[@class='_3ET1_zfWFNtizQm9NnT996']/span")
+    @FindBy(xpath = "//span[@yotta-test='trend-dataset_query-tag']/span")
     private WebElement dataSetPosition;
 
     // with bubbles
@@ -120,10 +120,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='预设置']/following-sibling::span")
     private WebElement selectColor;
 
-    @FindBy(xpath = "//img[contains(@src,'3.png')]/ancestor::a")
+    @FindBy(xpath = "//img[contains(@src,'/3.') and contains(@src,'.png')]/ancestor::a")
     private WebElement continuity;
 
-    @FindBy(xpath = "//img[contains(@src,'4.png')]/ancestor::a")
+    @FindBy(xpath = "//img[contains(@src,'/4.') and contains(@src,'.png')]/ancestor::a")
     private WebElement discrete;
 
     @FindBy(xpath = "//label[text()='下限值']/following-sibling::input")
