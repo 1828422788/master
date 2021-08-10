@@ -40,7 +40,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//span[@class='yotta-select-selection-placeholder']")
     private WebElement tagToInput;
 
-    @FindBy(className = "_2Nx4n7Ix35X7-zjayRNUAi")
+    @FindBy(className = "eZlMl5cMATsyDvx0oXyIl")
     private WebElement clickUpload;
 
     @FindBy(xpath = "//*[@yotta-test='topology-list_app-select']/div")
