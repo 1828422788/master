@@ -56,7 +56,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='SuccessEditAutoTest'][@class='runner-banned-name']/following-sibling::span")
     private WebElement userStatus;
 
-    @FindBy(xpath = "//div[@class='fLYa-RU6BWGtl53OVrQ3V']//div[@class='yotta-select-selection-content']")
+    @FindBy(xpath = "//span[@class='yotta-select-selection-placeholder']")
     private WebElement groupIcon;
 
     @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
