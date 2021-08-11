@@ -13,6 +13,8 @@ Feature: Agent添加数据源校验
   Scenario: 添加文件目录类型数据源校验
     And I click the "Create" button
     And I click the "Next" button
+    And I wait for "2000" millsecond
+    And I click the "Next" button
     Then I will see the element "MemoMessage" name is "请检查输入项，确保完整正确再点击下一步。"
     Then I click the "Ensure" button
     Then I will see the element "RootMessage" name is "请务必输入路径"
@@ -25,12 +27,15 @@ Feature: Agent添加数据源校验
     Then I will see the element "RootMessage" name is "请务必输入路径"
     And I set the parameter "Document" with value "/data/rizhiyi/logs"
     And I click the "Next" button
+    And I wait for "3000" millsecond
     And I click the "Back" button
     And I set the parameter "Document" with value "/data/rizhiyi/logs/heka"
     And I set the parameter "WhiteList" with value "hekad-daemon\.log"
+    And I wait for "3000" millsecond
     And I set the parameter "BlackList" with value "hekad\.stderr"
     And I set the parameter "LastChangeTime" with value "10"
     And I click the "Next" button
+    And I wait for "2000" millsecond
     And I click the "Next" button
     Then I will see the element "MemoMessage" name is "请检查输入项，确保完整正确再点击下一步。"
     And I click the "Ensure" button

@@ -219,7 +219,7 @@ public class CreatePage extends PageTemplate {
         return Addsuccessmsg;
     }
 
-    @FindBy(xpath = "//p[@class='_2NgnDeeFcMbAQtph5b6tcP']")
+    @FindBy(xpath = "//p[@class='_3DIIhntPCyDeqabIY5U3Hb']")
     private WebElement Addsuccessmsg;
 
     public WebElement getContinueAdd() {
@@ -556,14 +556,14 @@ public class CreatePage extends PageTemplate {
         return RootMessage;
     }
 
-    @FindBy(xpath = "//label[contains(@title,'文件或目录')]/parent::div/following-sibling::div//div[@class='ant-form-explain']")
+    @FindBy(xpath = "//label[contains(text(),'文件或目录')]/../../div[2]//div[@class='yotta-form-field-help-text']")
     private WebElement RootMessage;
 
     public WebElement getWhiteListMessage() {
         return WhiteListMessage;
     }
 
-    @FindBy(xpath = "//label[contains(@title,'文件路径白名单')]/parent::div/following-sibling::div//div[@class='ant-form-explain']")
+    @FindBy(xpath = "//label[contains(text(),'文件路径白名单')]/../../div[2]//div[@class='yotta-form-field-help-text']")
     private WebElement WhiteListMessage;
 
     public WebElement getBackupLocalDisk() {
@@ -703,7 +703,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getFrequency(){
-        return getDropDownListElement("采集频率");
+        return getDropDownListElement3("采集频率");
     }
 
     public WebElement getBackUpTimeoutUnit(){
@@ -719,7 +719,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCharacterKind(){
-        return getDropDownListElement2("字符集");
+        return getDropDownListElement3("字符集");
     }
 
     public WebElement getRoot() {
@@ -772,7 +772,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getInternalTimeKind() {
-        return getDropDownListElement("间隔时间");
+        return getDropDownListElement3("间隔时间");
     }
 
     public WebElement getEidtFrequency() {
@@ -844,11 +844,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSendSpeed(){
-        return getDropDownListElement1("发送速率限制");
+        return getDropDownListElement3("发送速率限制");
     }
 
     public WebElement getTimeKind(){
-        return getDropDownListElement1("最后修改时间");
+        return getDropDownListElement3("最后修改时间");
     }
 
     public WebElement getParam() {
@@ -991,7 +991,7 @@ public class CreatePage extends PageTemplate {
         return MemoMessage;
     }
 
-    @FindBy(xpath = "//p[@class='_1JjlGgMGUnJmBrqR_9PZl8']")
+    @FindBy(xpath = "//div[@yotta-test='dialog-content-dom']/p")
     private WebElement MemoMessage;
 
     public WebElement getInputElement(String text) {
@@ -1036,26 +1036,12 @@ public class CreatePage extends PageTemplate {
         element.click();
         return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu'])[last()]"));
     }
-    public WebElement getDropDownListElement1(String name) {
-        DropdownUtils dropdownUtils = new DropdownUtils();
-        String xpath = "//label[text()='" + name + "']/parent::div/following-sibling::div//span[@class='yotta-select-selection-value']";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        element.click();
-        return webDriver.findElement(By.xpath("//div[@class='yotta-select-menu css-1hq8cx5']"));
-    }
-    public WebElement getDropDownListElement2(String name) {
-        DropdownUtils dropdownUtils = new DropdownUtils();
-        String xpath = "//label[text()='" + name + "']/parent::div/following-sibling::div//span[@class='yotta-select-selection-value']";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        element.click();
-        return webDriver.findElement(By.xpath("//div[@class='yotta-modal-body']"));
-    }
     public WebElement getDropDownListElement3(String name) {
         DropdownUtils dropdownUtils = new DropdownUtils();
         String xpath = "//label[text()='" + name + "']/parent::div/following-sibling::div//span[@class='yotta-select-selection-value']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         element.click();
-        return webDriver.findElement(By.xpath("//form[@class='yotta-form yotta-form-horizontal css-qv2t8c']"));
+        return webDriver.findElement(By.xpath("//div[@class='yotta-select-menu css-ncm03v']"));
     }
 
 

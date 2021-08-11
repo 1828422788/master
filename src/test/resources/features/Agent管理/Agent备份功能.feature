@@ -26,7 +26,7 @@ Feature: Agent备份功能
     And I click the "BackupSenior" button
     And I wait for "2000" millsecond
     And I click the "DownloadConfiguration" button
-    And I wait for "50000" millsecond
+    And I wait for "2000" millsecond
 
   Scenario: Agent备份，添加备份页面的关闭Agent高级配置
     And I click the "BackupSenior" button

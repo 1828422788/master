@@ -216,12 +216,12 @@ public class ListPage extends PageTemplate {
 
 
     public WebElement getGroupButton() {
-        String xpath = "//ul[@class='_2FuqHHfRc-c7BJzf3RvYta']//span[text()='sunxctest']";
+        String xpath = "//ul[@class='_2d0jYQFI7QWW8Boa3SyEAI']//span[text()='sunxctest']";
         return webDriver.findElement(By.xpath(xpath));
     }
 
     public WebElement getMoveGroupButton() {
-        String xpath = "//li[@class='_2YNvVzZq0iDG7om4qpUbnZ u2IISjUg-4utuzI7OuxuR']/span[text()='sunxctest']";
+        String xpath = "//ul[@class='_2d0jYQFI7QWW8Boa3SyEAI']//span[text()='sunxctest']";
         return webDriver.findElement(By.xpath(xpath));
     }
 
