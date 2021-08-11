@@ -22,7 +22,7 @@ public class LoginPage extends PageTemplate {
     @FindBy(className = "ant-message")
     private WebElement message;
 
-    @FindBy(xpath = "//div[@class='yotta-dialog-content']//p")
+    @FindBy(xpath = "//button[@yotta-test='dialog-error_code-button']")
     private WebElement errorMessage;
 
     @FindBy(xpath = "//a[text()='去修改→']")
