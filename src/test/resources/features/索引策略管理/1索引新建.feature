@@ -215,9 +215,12 @@ Feature: 索引信息新建
     And I switch the "SavedSizeButton" button to "checked"
     And I set the parameter "SavedSize" with value "2"
     And I choose the "TB" from the "SavedSizeDropDown"
-#    And I choose the "1份" from the "IndexDataDropDown"
-#    And I switch the "副本存留" button to "checked"
     And I set the parameter "DivideNumber" with value "1"
+    And I wait for "2000" millsecond
+    And I choose the "2份" from the "IndexDataDropDown"
+    And I switch the "CopySaveButton" button to "checked"
+    And I set the parameter "SavedCopy" with value "1"
+    And I wait for "3000" millsecond
     And I click the "Next" button
     And I wait for "1000" millsecond
     And I click the "Next" button

@@ -71,6 +71,14 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@yotta-test='indexsetting-index_freeze-switch']/ancestor::span")
     public WebElement IndexFrezee;
 
+    @FindBy(xpath = "//input[@yotta-test='indexsetting-copy_retention-switch']/ancestor::span")
+    public WebElement copySaveButton;
+    public WebElement getCopySaveButton(){
+        return copySaveButton;
+    }
+
+
+
     public WebElement getIndexFrezee() {
         return IndexFrezee;
     }
@@ -184,7 +192,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getInputElementWithoutLabel(String name) {
-        return webDriver.findElement(By.xpath("//div[text()='" + name + "']/input"));
+        return webDriver.findElement(By.xpath("//div[text()='" + name + "']/../../input"));
     }
 
     public WebElement getIndexSwitchButton(String name){
