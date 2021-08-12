@@ -1014,7 +1014,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCity() {
-        return getInputElement("市级下钻");
+        return getInputSetting("市级下钻");
     }
 
     public WebElement getPredict() {
