@@ -189,9 +189,6 @@ Feature: 索引信息新建
     And I set the parameter "SavedSize" with value "<savedSize>"
     And I set the parameter "DivideNumber" with value "1"
     And I click the "Next" button
-    And I wait for "1000" millsecond
-    And I click the "Next" button
-    And I click the "Finish" button
 
 
     Examples:
@@ -210,6 +207,7 @@ Feature: 索引信息新建
   Scenario: 新建索引(索引数据和副本存留)
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "Next" button
     When I set the parameter "Name" with value "index_data"
     And I set the parameter "Desc" with value "AutoTestIndexData"
     And I set the parameter "SavedTime" with value "150"
@@ -219,14 +217,18 @@ Feature: 索引信息新建
     And I choose the "TB" from the "SavedSizeDropDown"
 #    And I choose the "1份" from the "IndexDataDropDown"
 #    And I switch the "副本存留" button to "checked"
-    And I click the "CreateButton" button
-    And I wait for "Message" will be visible
-    And I will see the element "Message" name is "保存成功"
+    And I set the parameter "DivideNumber" with value "1"
+    And I click the "Next" button
+    And I wait for "1000" millsecond
+    And I click the "Next" button
+    And I click the "Finish" button
+    And I will see the element "Message" name is "索引配置完成!"
 
   @second @indexSettingSmoke
   Scenario: 新建索引(索引冻结)
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "Next" button
     And I switch the "SavedSizeButton" button to "checked"
     And I set the parameter "SavedSize" with value "2"
     And I choose the "TB" from the "SavedSizeDropDown"
