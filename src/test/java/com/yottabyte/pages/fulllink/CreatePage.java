@@ -259,7 +259,7 @@ public class CreatePage extends PageTemplate {
         return getYottaTable("table_chart-list-table");
     }
 
-    @FindBy(xpath = "(//div[contains(@style,'bottom')]//span[@aria-label='ClockCircleOutlined']) | (//div[contains(@style,'bottom')]//span[@aria-label='PlusDownOutlined'])")
+    @FindBy(xpath = "(//div[contains(@class,'L4TC32tiuLqwLC0W0MqWg')]//span[@aria-label='ClockCircleOutlined']) | (//div[contains(@style,'bottom')]//span[@aria-label='PlusDownOutlined'])")
     private WebElement timeAxis;
     public WebElement getTimeAxis() {
         return timeAxis;
