@@ -22,7 +22,7 @@ public class CreatePage extends PageTemplate {
         String xpath = "//label[contains(text(),'" + name + "')]/parent::div/following-sibling::div//span[@class='yotta-select-selection-icon']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         element.click();
-        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu css-1hq8cx5'])[last()]"));
+        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu css-ncm03v'])[last()]"));
     }
 
     public WebElement getSinkswitch() {
@@ -31,6 +31,24 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//input[@yotta-test='indexsetting-index_sink-switch']/ancestor::span")
     private WebElement sinkswitch;
+
+
+    @FindBy(xpath = "//button[@yotta-test='step-next-button']")
+    private WebElement Next;
+    public WebElement getNext(){
+        return Next;
+    }
+    @FindBy(xpath = "//button[@yotta-test='step-done-button']")
+    private WebElement finish;
+    public WebElement getFinish(){
+        return finish;
+    }
+
+
+    public WebElement getDivideNumber() {
+        return super.getYottaInput("indexsetting-number_of_shards-input");
+    }
+
 
     public WebElement getDivideTimeDropDown() {
         return getDropdownList("切分时间");
@@ -73,7 +91,7 @@ public class CreatePage extends PageTemplate {
         String xpath = "//div[@yotta-test='indexsetting-quota_unit-select']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         element.click();
-        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu css-1hq8cx5'])[last()]"));
+        return webDriver.findElement(By.xpath("//div[@class='yotta-select-menu css-ncm03v']"));
     }
 
     public WebElement getSavedTimeDropDown() {
@@ -146,7 +164,7 @@ public class CreatePage extends PageTemplate {
         return message;
     }
 
-    @FindBy(xpath = "//p[@class='yotta-dialog-contenttext']")
+    @FindBy(xpath = "//div[@class='_17RY_WoeDGM4OxQT-RomsY']")
     private WebElement message;
 
     public WebElement getErrorMessage() {

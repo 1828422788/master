@@ -9,6 +9,7 @@ Feature: 索引信息新建
   Scenario Outline: RZY-1474:新建
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "Next" button
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Desc" with value "<desc>"
     And I set the parameter "SavedTime" with value "<savedTime>"
@@ -16,9 +17,12 @@ Feature: 索引信息新建
     And I switch the "SavedSizeButton" button to "checked"
     And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
     And I set the parameter "SavedSize" with value "<savedSize>"
-    And I click the "CreateButton" button
+    And I set the parameter "DivideNumber" with value "<divideNumber>"
+    And I click the "Next" button
     And I wait for "1000" millsecond
-    And I will see the element "Message" name is "保存成功"
+    And I click the "Next" button
+    And I click the "Finish" button
+    And I will see the element "Message" name is "索引配置完成!"
     Given open the "index.ListPage" page for uri "/indexmatchrules/"
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
@@ -32,8 +36,8 @@ Feature: 索引信息新建
     And I will see the element "Message" name is "保存成功"
 
     Examples: 新建成功
-      | name       | desc     | savedTime | divideTime | savedSize | savedSizeDropDown |
-      | indexerror | AutoTest | 2         | 1          | 100       | MB                |
+      | name       | desc     | savedTime | divideTime | savedSize | savedSizeDropDown | divideNumber |
+      | indexerror | AutoTest | 2         | 1          | 100       | MB                | 2            |
 
   @second @indexSettingSmoke
   Scenario: 上传日志
@@ -48,14 +52,19 @@ Feature: 索引信息新建
   Scenario: RZY-1474:新建索引
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "Next" button
     When I set the parameter "Name" with value "error"
     And I set the parameter "Desc" with value "AutoTest"
     And I set the parameter "SavedTime" with value "2"
     And I set the parameter "DivideTime" with value "1"
+    And I set the parameter "DivideNumber" with value "1"
 #    And I set the parameter "SavedSize" with value "100"
 #    And I choose the "MB" from the "SavedSizeDropDown"
-    And I click the "CreateButton" button
-    And I will see the element "Message" name is "保存成功"
+    And I click the "Next" button
+    And I wait for "1000" millsecond
+    And I click the "Next" button
+    And I click the "Finish" button
+    And I will see the element "Message" name is "索引配置完成!"
 
   @second @indexSettingSmoke
   Scenario Outline: 验证1474搜索结果
@@ -73,14 +82,18 @@ Feature: 索引信息新建
   Scenario Outline: RZY-1478:保存时间
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "Next" button
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Desc" with value "<desc>"
     And I set the parameter "SavedTime" with value "<savedTime>"
     And I set the parameter "DivideTime" with value "<divideTime>"
     And I choose the "小时" from the "DivideTimeDropDown"
-    And I click the "CreateButton" button
+    And I set the parameter "DivideNumber" with value "1"
+    And I click the "Next" button
     And I wait for "1000" millsecond
-    And I will see the element "Message" name is "保存成功"
+    And I click the "Next" button
+    And I click the "Finish" button
+    And I will see the element "Message" name is "索引配置完成!"
     Given open the "index.ListPage" page for uri "/indexmatchrules/"
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
@@ -110,6 +123,7 @@ Feature: 索引信息新建
   Scenario Outline: RZY-1479:保存大小
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "Next" button
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Desc" with value "<desc>"
     And I switch the "SavedSizeButton" button to "checked"
@@ -117,9 +131,12 @@ Feature: 索引信息新建
     And I set the parameter "DivideTime" with value "<divideTime>"
     And I set the parameter "SavedSize" with value "1"
     And I choose the "MB" from the "SavedSizeDropDown"
-    And I click the "CreateButton" button
+    And I set the parameter "DivideNumber" with value "1"
+    And I click the "Next" button
     And I wait for "1000" millsecond
-    And I will see the element "Message" name is "保存成功"
+    And I click the "Next" button
+    And I click the "Finish" button
+    And I will see the element "Message" name is "索引配置完成!"
     Given open the "index.ListPage" page for uri "/indexmatchrules/"
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
@@ -147,28 +164,34 @@ Feature: 索引信息新建
   Scenario: RZY-1481:新建-路由规则(前提)
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "Next" button
     When I set the parameter "Name" with value "iisidx"
     And I set the parameter "Desc" with value "AutoCreate"
     And I set the parameter "SavedTime" with value "10"
     And I set the parameter "DivideTime" with value "1"
-    And I click the "CreateButton" button
-    And I wait for "Message" will be visible
-    And I will see the element "Message" name is "保存成功"
+    And I set the parameter "DivideNumber" with value "1"
+    And I click the "Next" button
+    And I wait for "1000" millsecond
+    And I click the "Next" button
+    And I click the "Finish" button
+    And I will see the element "Message" name is "索引配置完成!"
 
   @second @indexSettingSmoke
   Scenario Outline: 新建失败
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "Next" button
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Desc" with value "<desc>"
     And I set the parameter "SavedTime" with value "<savedTime>"
     And I set the parameter "DivideTime" with value "<divideTime>"
     And I switch the "SavedSizeButton" button to "checked"
     And I set the parameter "SavedSize" with value "<savedSize>"
-#    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
-    And I click the "CreateButton" button
-#    And I wait for "Message" will be visible
-#    And I will see the element "Message" name is "<message>"
+    And I set the parameter "DivideNumber" with value "1"
+    And I click the "Next" button
+    And I wait for "1000" millsecond
+    And I click the "Next" button
+    And I click the "Finish" button
 
 
     Examples:
