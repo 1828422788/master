@@ -5,6 +5,7 @@ Feature: 字段提取KeyValue正则匹配
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
 
+  @configs1111
   Scenario Outline: RZY-1535:KeyValue正则匹配
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
