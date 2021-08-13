@@ -61,7 +61,8 @@ Feature: 应用事件操作（RZY-2141）
   Scenario: 新建事件操作
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "EventApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "EventApp"
+   # When the data name is "EventApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "EventApp"
     Then I will see the "event.ListPage" page
@@ -82,7 +83,8 @@ Feature: 应用事件操作（RZY-2141）
   Scenario: 编辑事件操作
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "EventApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "EventApp"
+    #When the data name is "EventApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I wait for "1000" millsecond
     And I will see the element "Title" name is "EventApp"
@@ -100,7 +102,8 @@ Feature: 应用事件操作（RZY-2141）
   Scenario Outline: 搜索事件操作
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "EventApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "EventApp"
+    #When the data name is "EventApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "EventApp"
     Then I will see the "event.ListPage" page
@@ -118,7 +121,8 @@ Feature: 应用事件操作（RZY-2141）
   Scenario Outline: 删除事件操作
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "EventApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "EventApp"
+    #When the data name is "EventApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "EventApp"
     Then I will see the "event.ListPage" page

@@ -34,10 +34,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//button[@class='el-button el-button--default el-button--primary ']/span")
     private WebElement ensureButton;
 
-    @FindBy(xpath = "//span[text()='菜单颜色']/following-sibling::div")
+    @FindBy(xpath = "//div[@yotta-test='application-open_color_picker-dom']")
     private WebElement colorPicker;
 
-    @FindBy(xpath = "//div[@class='flexbox-fix']//input")
+    @FindBy(xpath = "//input[@class='yotta-input yotta-input-small css-3gtf8k']")
     private WebElement colorValue;
 
     @FindBy(className = "el-color-dropdown__btn")
@@ -47,7 +47,7 @@ public class CreatePage extends PageTemplate {
     private WebElement fadeOut;
 
   //  @FindBy(className = "ant-select-arrow-icon")
-    @FindBy(className ="yotta-select-selection-icon")
+    @FindBy(className ="yotta-select-selection-content")
     private WebElement dropdownArrow;
 
     @FindBy(xpath = "//div[@class='el-dialog__wrapper yw-modal-form yw-new-modal-form']")
