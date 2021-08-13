@@ -194,7 +194,7 @@ Feature: 应用仪表盘
       | 仪表盘验证App |
       | 仪表盘重命名   |
 
-  Scenario Outline: 修改app资源范围
+  Scenario Outline: 修改app资源范围---bug
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "<name>" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
@@ -206,7 +206,7 @@ Feature: 应用仪表盘
       | name         |
       | DashboardApp |
 
-  Scenario: 验证资源范围修改成功并删除app外资源
+  Scenario: 验证资源范围修改成功并删除app外资源---bug
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
     When  I click the detail which name is "DashboardApp"
