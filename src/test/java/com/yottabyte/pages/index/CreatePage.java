@@ -175,6 +175,11 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='_17RY_WoeDGM4OxQT-RomsY']")
     private WebElement message;
 
+    @FindBy(xpath = "//div[@class='yotta-form-field-help-text']")
+    private WebElement helpMessage;
+        public WebElement getHelpMessage(){
+            return helpMessage;
+        }
     public WebElement getErrorMessage() {
         return super.getErrorMessage();
     }
