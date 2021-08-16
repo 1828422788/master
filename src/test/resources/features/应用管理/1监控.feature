@@ -59,7 +59,7 @@ Feature: 应用监控模块（RZY-2122）
   Scenario Outline: 验证单个资源的app资源范围是否正确
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "<name>" then i click the "打开" button in more menu
+    When  I click the detail which name is "<name>"
     And I will see the "app.AppPage" page
     And I wait for loading invisible
     And I wait for "EmptyText" will be visible
@@ -72,7 +72,7 @@ Feature: 应用监控模块（RZY-2122）
   Scenario: 新建监控
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AlertApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "AlertApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AlertApp"
     Then I will see the "alert.ListPage" page
@@ -93,7 +93,7 @@ Feature: 应用监控模块（RZY-2122）
   Scenario: 编辑监控
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AlertApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "AlertApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AlertApp"
     Then I will see the "alert.ListPage" page
@@ -111,7 +111,7 @@ Feature: 应用监控模块（RZY-2122）
   Scenario Outline: 复制监控
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AlertApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "AlertApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AlertApp"
     Then I will see the "alert.ListPage" page
@@ -131,7 +131,7 @@ Feature: 应用监控模块（RZY-2122）
   Scenario: 告警插件
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AlertApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "AlertApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AlertApp"
     Then I will see the "alert.ListPage" page
@@ -150,7 +150,7 @@ Feature: 应用监控模块（RZY-2122）
   Scenario: 修改标签
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AlertApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "AlertApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AlertApp"
     Then I will see the "alert.ListPage" page
@@ -165,7 +165,7 @@ Feature: 应用监控模块（RZY-2122）
   Scenario: 根据标签搜索
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AlertApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "AlertApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AlertApp"
     Then I will see the "alert.ListPage" page
@@ -178,7 +178,7 @@ Feature: 应用监控模块（RZY-2122）
   Scenario Outline: 启用禁用功能
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AlertApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "AlertApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AlertApp"
     Then I will see the "alert.ListPage" page
@@ -197,7 +197,7 @@ Feature: 应用监控模块（RZY-2122）
   Scenario: 取消所属应用
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AlertApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "AlertApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AlertApp"
     Then I will see the "alert.ListPage" page
@@ -222,6 +222,7 @@ Feature: 应用监控模块（RZY-2122）
 
   Scenario Outline: 修改app资源范围
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "<name>" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I wait for loading invisible
@@ -235,7 +236,7 @@ Feature: 应用监控模块（RZY-2122）
   Scenario Outline: 删除
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AlertApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "AlertApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AlertApp"
     Then I will see the "alert.ListPage" page

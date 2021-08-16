@@ -59,7 +59,7 @@ Feature: 应用已存搜索（RZY-2125）
   Scenario Outline: 验证单个资源的app资源范围是否正确
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "<name>" then i click the "打开" button in more menu
+    When  I click the detail which name is "<name>"
     And I will see the "app.AppPage" page
     And I wait for loading invisible
     And I wait for "EmptyText" will be visible
@@ -72,7 +72,7 @@ Feature: 应用已存搜索（RZY-2125）
   Scenario: 新建已存搜索
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AutoTestAppWithAllResources" then i click the "打开" button in more menu
+    When  I click the detail which name is "AutoTestAppWithAllResources"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AutoTestAppWithAllResources"
     Then I will see the "splSearch.SearchPage" page
@@ -107,7 +107,7 @@ Feature: 应用已存搜索（RZY-2125）
   Scenario: 已存搜索加载
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "SavedsearchesApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "SavedsearchesApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "SavedsearchesApp"
     Then I will see the "splSearch.SavedSearchPage" page
@@ -120,7 +120,7 @@ Feature: 应用已存搜索（RZY-2125）
   Scenario: 已存搜索标签
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "SavedsearchesApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "SavedsearchesApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "SavedsearchesApp"
     Then I will see the "splSearch.SavedSearchPage" page
@@ -138,7 +138,7 @@ Feature: 应用已存搜索（RZY-2125）
   Scenario: 根据标签搜索
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "SavedsearchesApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "SavedsearchesApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "SavedsearchesApp"
     Then I will see the "splSearch.SavedSearchPage" page
@@ -163,7 +163,7 @@ Feature: 应用已存搜索（RZY-2125）
   Scenario Outline: 已存搜索删除
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "SavedsearchesApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "SavedsearchesApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "SavedsearchesApp"
     Then I will see the "splSearch.SavedSearchPage" page
