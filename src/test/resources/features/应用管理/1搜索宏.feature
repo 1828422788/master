@@ -61,7 +61,7 @@ Feature: 应用搜索宏（RZY-2126）
   Scenario Outline: 验证单个资源的app资源范围是否正确
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "<name>" then i click the "打开" button in more menu
+    When  I click the detail which name is "<name>"
     And I will see the "app.AppPage" page
     And I wait for loading invisible
     And I wait for "EmptyText" will be visible
@@ -74,7 +74,7 @@ Feature: 应用搜索宏（RZY-2126）
   Scenario: 新建搜索宏
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "MacroApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "MacroApp"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "MacroApp"
     Then I will see the "searchMacro.ListPage" page
@@ -90,7 +90,7 @@ Feature: 应用搜索宏（RZY-2126）
   Scenario: 编辑搜索宏
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "MacroApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "MacroApp"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "MacroApp"
     Then I will see the "searchMacro.ListPage" page
@@ -106,7 +106,7 @@ Feature: 应用搜索宏（RZY-2126）
   Scenario: 搜索宏标签
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "MacroApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "MacroApp"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "MacroApp"
     Then I will see the "searchMacro.ListPage" page
@@ -123,7 +123,7 @@ Feature: 应用搜索宏（RZY-2126）
   Scenario: 根据标签查找
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "MacroApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "MacroApp"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "MacroApp"
     Then I will see the "searchMacro.ListPage" page
@@ -137,7 +137,7 @@ Feature: 应用搜索宏（RZY-2126）
   Scenario: 按名称搜索搜索宏
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "MacroApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "MacroApp"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "MacroApp"
     Then I will see the "searchMacro.ListPage" page
@@ -182,7 +182,7 @@ Feature: 应用搜索宏（RZY-2126）
   Scenario Outline: 搜索宏删除
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "MacroApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "MacroApp"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "MacroApp"
     Then I will see the "searchMacro.ListPage" page
