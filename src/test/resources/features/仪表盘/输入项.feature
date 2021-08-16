@@ -27,7 +27,7 @@ Feature: 仪表盘输入项
     Examples:
       | name         | spl                                                                                       |
       | 仪表盘所用趋势图     | tag: sample04061424_chart \|stats count() by 'apache.geo.city'                            |
-      | 仪表盘1669所用趋势图 | (appname:\"aa\") \|bucket timestamp span=6h as ts \|stats count(\'tag\') as \'tag\' by ts |
+      | 仪表盘1669所用趋势图 | (appname:\"apache\") \|bucket timestamp span=6h as ts \|stats count(\'tag\') as \'tag\' by ts |
 
   @dbinputpre1 @dbinputpre
   Scenario Outline: 新建仪表盘
@@ -1229,26 +1229,26 @@ Feature: 仪表盘输入项
       | name         |
       | 仪表盘1669所用趋势图 |
       | 仪表盘所用趋势图     |
-
-  @cleandbinput
-  Scenario Outline: 删除仪表盘
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    Given I wait for loading complete
-#    And I set the parameter "SearchInput" with value "<name>"
+#
+#  @cleandbinput
+#  Scenario Outline: 删除仪表盘
+#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
 #    Given I wait for loading complete
-    When the data name is "<name>" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    And I wait for "500" millsecond
-    Then I will see the success message "删除仪表盘成功"
-
-    Examples:
-      | name  |
-      | 测试输入项 |
-      | 测试输入项1 |
-      | 测试输入项2|
-      | 测试输入项3 |
-      | 测试输入项4 |
-      | 测试输入项5 |
-      | 测试输入项6 |
-      | 测试输入项7 |
+##    And I set the parameter "SearchInput" with value "<name>"
+##    Given I wait for loading complete
+#    When the data name is "<name>" then i click the "删除" button in more menu
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button
+#    And I wait for "500" millsecond
+#    Then I will see the success message "删除仪表盘成功"
+#
+#    Examples:
+#      | name  |
+#      | 测试输入项 |
+#      | 测试输入项1 |
+#      | 测试输入项2|
+#      | 测试输入项3 |
+#      | 测试输入项4 |
+#      | 测试输入项5 |
+#      | 测试输入项6 |
+#      | 测试输入项7 |
