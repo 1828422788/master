@@ -42,6 +42,7 @@ public class SharedDriver extends EventFiringWebDriver {
     private static final Thread CLOSE_THREAD = new Thread() {
         @Override
         public void run() {
+            System.out.println("chsfinduml==============================================[10]");
             REAL_DRIVER.close();
             if (service != null && service.isRunning()) {
                 service.stop();
