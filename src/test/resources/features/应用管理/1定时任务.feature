@@ -4,7 +4,7 @@ Feature: 应用定时任务(RZY-2123)
   Scenario: 新建定时任务
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AutoTestAppWithAllResources" then i click the "打开" button in more menu
+    When  I click the detail which name is "AutoTestAppWithAllResources"
     Then I will see the "app.AppPage" page
     When I click the "Search" button
     Then I will see the "splSearch.SearchPage" page
@@ -30,7 +30,6 @@ Feature: 应用定时任务(RZY-2123)
     And I choose the "AutoTestAppWithAllResources" from the "AppComboBox"
     And I wait for "2000" millsecond
     #And I click the "Crontab" button
-    #And I wait for "2000" millsecond
     And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I wait for "2000" millsecond
     And I click the "Submit" button
@@ -41,7 +40,7 @@ Feature: 应用定时任务(RZY-2123)
   Scenario: 编辑定时任务
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AutoTestAppWithAllResources" then i click the "打开" button in more menu
+    When  I click the detail which name is "AutoTestAppWithAllResources"
     Then I will see the "app.AppPage" page
     When I click the "TimedTask" button
     And I wait for "2000" millsecond
@@ -58,7 +57,7 @@ Feature: 应用定时任务(RZY-2123)
   Scenario: 禁用定时任务
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AutoTestAppWithAllResources" then i click the "打开" button in more menu
+    When  I click the detail which name is "AutoTestAppWithAllResources"
     Then I will see the "app.AppPage" page
     When I click the "TimedTask" button
     Then I will see the "timedTask.ListPage" page
@@ -72,7 +71,7 @@ Feature: 应用定时任务(RZY-2123)
   Scenario: 复制定时任务
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AutoTestAppWithAllResources" then i click the "打开" button in more menu
+    When  I click the detail which name is "AutoTestAppWithAllResources"
     Then I will see the "app.AppPage" page
     When I click the "TimedTask" button
     And I will see the "timedTask.ListPage" page
@@ -85,7 +84,7 @@ Feature: 应用定时任务(RZY-2123)
   Scenario: 定时任务标签
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AutoTestAppWithAllResources" then i click the "打开" button in more menu
+    When  I click the detail which name is "AutoTestAppWithAllResources"
     Then I will see the "app.AppPage" page
     When I click the "TimedTask" button
     And I will see the "timedTask.ListPage" page
@@ -105,7 +104,7 @@ Feature: 应用定时任务(RZY-2123)
   Scenario: 根据定时任务标签进行查询
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AutoTestAppWithAllResources" then i click the "打开" button in more menu
+    When  I click the detail which name is "AutoTestAppWithAllResources"
     Then I will see the "app.AppPage" page
     When I click the "TimedTask" button
     And I will see the "timedTask.ListPage" page
@@ -118,7 +117,7 @@ Feature: 应用定时任务(RZY-2123)
   Scenario Outline: 根据定时任务名称进行查询
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AutoTestAppWithAllResources" then i click the "打开" button in more menu
+    When  I click the detail which name is "AutoTestAppWithAllResources"
     Then I will see the "app.AppPage" page
     When I click the "TimedTask" button
     And I will see the "timedTask.ListPage" page
@@ -169,7 +168,7 @@ Feature: 应用定时任务(RZY-2123)
   Scenario: 取消所属应用
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AutoTestAppWithAllResources" then i click the "打开" button in more menu
+    When  I click the detail which name is "AutoTestAppWithAllResources"
     Then I will see the "app.AppPage" page
     When I click the "TimedTask" button
     And I will see the "timedTask.ListPage" page
@@ -205,7 +204,7 @@ Feature: 应用定时任务(RZY-2123)
   Scenario Outline: app中定时任务删除
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AutoTestAppWithAllResources" then i click the "打开" button in more menu
+    When  I click the detail which name is "AutoTestAppWithAllResources"
     Then I will see the "app.AppPage" page
     When I click the "TimedTask" button
     And I will see the "timedTask.ListPage" page

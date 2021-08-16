@@ -59,7 +59,7 @@ Feature: 应用报表（RZY-2127）
   Scenario Outline: 验证单个资源的app资源范围是否正确
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "<name>" then i click the "打开" button in more menu
+    When  I click the detail which name is "<name>"
     And I will see the "app.AppPage" page
     And I wait for loading invisible
     And I wait for "EmptyText" will be visible
@@ -93,7 +93,7 @@ Feature: 应用报表（RZY-2127）
   Scenario: 新建报表
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "ReportApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "ReportApp"
     Then I will see the "app.AppPage" page
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.ListPage" page
@@ -122,7 +122,7 @@ Feature: 应用报表（RZY-2127）
   Scenario: 禁用报表
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "ReportApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "ReportApp"
     Then I will see the "app.AppPage" page
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.ListPage" page
@@ -136,7 +136,7 @@ Feature: 应用报表（RZY-2127）
   Scenario: 编辑报表
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "ReportApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "ReportApp"
     Then I will see the "app.AppPage" page
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.ListPage" page
@@ -154,7 +154,7 @@ Feature: 应用报表（RZY-2127）
   Scenario Outline: 报表标签
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "ReportApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "ReportApp"
     Then I will see the "app.AppPage" page
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.ListPage" page
@@ -177,7 +177,7 @@ Feature: 应用报表（RZY-2127）
   Scenario: 根据标签查找
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "ReportApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "ReportApp"
     Then I will see the "app.AppPage" page
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.ListPage" page
@@ -191,7 +191,7 @@ Feature: 应用报表（RZY-2127）
   Scenario: 已生成报表
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "ReportApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "ReportApp"
     Then I will see the "app.AppPage" page
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.ListPage" page
@@ -245,7 +245,7 @@ Feature: 应用报表（RZY-2127）
   Scenario Outline: 删除报表
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "ReportApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "ReportApp"
     Then I will see the "app.AppPage" page
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.ListPage" page
