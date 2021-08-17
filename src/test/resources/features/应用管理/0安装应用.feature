@@ -19,6 +19,7 @@ Feature: 应用安装（RZY-1988）
     And I will see the element "VerifyText" name is "上传完成"
     And I wait for "2000" millsecond
     And I choose the "__admin__" from the "Role"
+    And I wait for "2000" millsecond
     And I click the "AddDataset" button
     And I set the parameter "SearchInput" with value "AutoTestApp"
     And I wait for "500" millsecond
