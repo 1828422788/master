@@ -142,8 +142,7 @@ public class DetailPage extends PageTemplate {
     }
 
 
-//  @FindBy(xpath = "//p[@class='ZCeC8SpdlkeuifyWkLOfA']/i")
-    @FindBy(xpath = "//span[@class='yotta-icon yotta-icon-EditOutlined OfJ6FYy2hbp-IAuGnUxzJ']")
+    @FindBy(xpath = "//span[@yotta-test='dataset-edit-icon']")
     private WebElement pencil;  //铅笔头
 
     public WebElement getPencil() {

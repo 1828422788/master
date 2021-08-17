@@ -341,7 +341,6 @@ Feature: 仪表盘输入项
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I set value with element "TableList"
-    And I wait for "10000" millsecond
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
