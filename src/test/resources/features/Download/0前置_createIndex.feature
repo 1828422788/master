@@ -17,9 +17,9 @@ Feature: 新建collect使用索引
     And I set the parameter "SavedSize" with value "<savedSize>"
 #    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
     And I click the "Next" button
-    And I click the "Next" button
     And I wait for "1000" millsecond
     And I click the "Next" button
+    And I wait for "1000" millsecond
     And I click the "Finish" button
     And I will see the element "Message" name is "索引配置完成!"
 #    And I click the "CreateButton" button
