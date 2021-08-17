@@ -38,6 +38,7 @@ public class CreatePage extends PageTemplate {
     public WebElement getNext(){
         return Next;
     }
+
     @FindBy(xpath = "//button[@yotta-test='step-done-button']")
     private WebElement finish;
     public WebElement getFinish(){
