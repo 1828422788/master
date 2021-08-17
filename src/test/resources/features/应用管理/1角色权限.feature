@@ -4,7 +4,7 @@ Feature: 应用角色权限（RZY-2144）
   Background:
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AuthApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "AuthApp"
     And I will see the "app.AppPage" page
     Then I will see the "roles.ListPage" page
 
