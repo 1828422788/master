@@ -36,7 +36,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[@class='el-dialog el-dialog--small']//tr")
     private List<WebElement> smallTr;
 
-    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']")
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//span[text()='请选择或输入']")
     private WebElement tagInputDiv;
     public WebElement getTagInputDiv(){
         return tagInputDiv;
