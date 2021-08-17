@@ -97,16 +97,16 @@ Feature: 应用字段别名
     Then I set value with element "TrList"
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AppFieldConfig" then i click the "打开" button in more menu
+    When  I click the detail which name is "AppFieldConfig"
     Then I will see the "splSearch.SearchPage" page
     And I set the parameter "SearchInput" with value "*|stats count() by app|limit 1"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "5000" millsecond
-   # And I wait for element "SearchStatus" change text to "搜索完成!"
-   # And I wait for "TrList" will be visible
-   # Then I compare with list "TrList"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "TrList" will be visible
+    Then I compare with list "TrList"
 
   Scenario: 添加多个字段别名映射
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -156,7 +156,7 @@ Feature: 应用字段别名
   Scenario: 验证删除成功
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AppFieldConfig" then i click the "打开" button in more menu
+    When  I click the detail which name is "AppFieldConfig"
     Then I will see the "splSearch.SearchPage" page
     And I set the parameter "SearchInput" with value "* | stats count() by app"
     And I click the "DateEditor" button
@@ -189,7 +189,7 @@ Feature: 应用字段别名
     Then I set value with element "TrList"
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AppFieldConfig" then i click the "打开" button in more menu
+    When  I click the detail which name is "AppFieldConfig"
     Then I will see the "splSearch.SearchPage" page
     And I set the parameter "SearchInput" with value "* | stats count() by province,app|limit 1"
     And I click the "DateEditor" button
