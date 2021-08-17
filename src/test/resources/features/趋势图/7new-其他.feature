@@ -465,7 +465,6 @@ Feature: 趋势图新建_其他
     And I click the "Settings" button
     And I wait for "2000" millsecond
     And I wait for "<chartType>Element" will be visible
-    And I will see the element "<chartType>Element" style contains "font-size: 60px"
     And I will see the element "<chartType>Element" style contains "<style>"
     And I will see the element "<chartType>Element" contains "个"
     And I wait for "2000" millsecond

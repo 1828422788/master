@@ -239,7 +239,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='_3mi8yqwNeiv6VsJn7tRZs-']")
     private WebElement resultMessage;
 
-    @FindBy(xpath = "((//div[contains(@class,'help-text')])[1]) | (//div[@class='_1JeVvK6jBB88_F6voAZyhi'])")
+    @FindBy(xpath = "((//div[contains(@class,'help-text')])[1]) | (//div[@class='SPuuh0MNLAnweio5-PDK8'])")
     private WebElement tipText;
 
     @FindBy(xpath = "(//span[contains(text(),'添加颜色区间')]/ancestor::div[1]/preceding-sibling::div//input)[last()-1]")

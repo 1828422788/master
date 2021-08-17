@@ -89,10 +89,10 @@ Feature: 应用KV字典
       | test | te te | 字段名称仅支持字母、数字、下划线 |
       | test | 测试    | 字段名称仅支持字母、数字、下划线 |
 
-  Scenario: 存储kvstore
+  Scenario: 存储kvstore----bugRZY-7554
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "KVApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "KVApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "KVApp"
     Then I will see the "splSearch.SearchPage" page
@@ -103,7 +103,7 @@ Feature: 应用KV字典
     And I wait for "3000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  Scenario: 验证是否成功
+  Scenario: 验证是否成功---bugRZY-7554
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
     When the data name is "KVApp" then i click the "打开" button in more menu

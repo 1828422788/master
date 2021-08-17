@@ -209,7 +209,6 @@ Feature: 日志展现_其他_单值
     And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
-    And I will see the element "<chartType>Element" style contains "font-size: 100px"
     And I will see the element "<chartType>Element" style contains "<style>"
     And I will see the element "<chartType>Element" contains "<num>"
     And I wait for "2000" millsecond

@@ -66,7 +66,7 @@ Feature: 应用趋势图
   Scenario Outline: 验证单个资源的app资源范围是否正确
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "<name>" then i click the "打开" button in more menu
+    When  I click the detail which name is "<name>"
     And I will see the "app.AppPage" page
     And I wait for loading invisible
    # And I wait for "EmptyText" will be visible
@@ -79,7 +79,7 @@ Feature: 应用趋势图
   Scenario Outline: 新建趋势图并存为报表--有bug
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "TrendApp" then i click the "打开" button in more menu
+    When I click the detail which name is "TrendApp"
     Then I will see the "trend.ListPage" page
     And I click the "NewTrendButton" button
 #    And I click the "Create" button
@@ -137,7 +137,7 @@ Feature: 应用趋势图
   Scenario Outline: 复制趋势图
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "TrendApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "TrendApp"
     Then I will see the "trend.ListPage" page
     And I wait for "1500" millsecond
     When the data name is "<name>" then i click the "复制" button in more menu
@@ -151,7 +151,7 @@ Feature: 应用趋势图
   Scenario: 搜索趋势图
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "TrendApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "TrendApp"
     Then I will see the "trend.ListPage" page
     When I set the parameter "SearchInput" with value "AutoApp_副本"
     And I click the "Search" button
@@ -163,7 +163,7 @@ Feature: 应用趋势图
   Scenario: 标签
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "TrendApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "TrendApp"
     Then I will see the "trend.ListPage" page
     And I wait for "1500" millsecond
     When the data name is "AutoApp_副本" then i click the "标签" button in more menu
@@ -178,7 +178,7 @@ Feature: 应用趋势图
   Scenario: 按照标签搜索
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "TrendApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "TrendApp"
     Then I will see the "trend.ListPage" page
     When I choose the "testTag" from the "ResourceDropdown"
     And I wait for loading invisible
@@ -188,7 +188,7 @@ Feature: 应用趋势图
   Scenario: 编辑趋势图
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "TrendApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "TrendApp"
     Then I will see the "trend.ListPage" page
     And I wait for "2000" millsecond
     When the data name is "AutoApp" then i click the "编辑" button
@@ -231,7 +231,7 @@ Feature: 应用趋势图
   Scenario Outline: 趋势图删除
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "TrendApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "TrendApp"
     Then I will see the "trend.ListPage" page
     And I wait for loading invisible
     When the data name is "<name>" then i click the "删除" button in more menu
