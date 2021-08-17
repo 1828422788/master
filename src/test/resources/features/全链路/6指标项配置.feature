@@ -67,6 +67,7 @@ Feature: 全链路_6指标项配置
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"
+    And I clear the browser's cache
 
   Scenario: 查看全链路1
     And I wait for "Canvas" will be visible
@@ -78,7 +79,7 @@ Feature: 全链路_6指标项配置
     And I will see the element "ElementDetails" contains "GET_"
     And I will see the element "ElementDetails" contains "市"
     And I will see the element "ElementDetails" contains "节点异常状态"
-    And I will see the element "ElementDetails" contains "数量："
+    And I will see the element "ElementDetails" contains "COUNT："
     And I will see the element "ElementDetails" contains "3"
     And I wait for "HighAlarm" will be visible
 
@@ -91,6 +92,7 @@ Feature: 全链路_6指标项配置
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"
+    And I clear the browser's cache
 
   Scenario: 查看全链路2_钻取1
     And I wait for "Canvas" will be visible
@@ -102,7 +104,7 @@ Feature: 全链路_6指标项配置
     And I will see the element "ElementDetails" contains "_"
     And I will see the element "ElementDetails" contains "市"
     And I will see the element "ElementDetails" contains "节点异常状态"
-    And I will see the element "ElementDetails" contains "数量："
+    And I will see the element "ElementDetails" contains "COUNT："
     And I wait for "HighAlarm" will be visible
     And I click the Circle "HighAlarm" button
     And switch to window "搜索"
@@ -122,6 +124,7 @@ Feature: 全链路_6指标项配置
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"
+    And I clear the browser's cache
 
   Scenario: 查看全链路2_钻取2
     And I wait for "Canvas" will be visible
@@ -133,7 +136,7 @@ Feature: 全链路_6指标项配置
     And I will see the element "ElementDetails" contains "_"
     And I will see the element "ElementDetails" contains "市"
     And I will see the element "ElementDetails" contains "节点异常状态"
-    And I will see the element "ElementDetails" contains "数量："
+    And I will see the element "ElementDetails" contains "COUNT："
     And I wait for "HighAlarm" will be visible
     And I click the Circle "HighAlarm" button
     And switch to window "搜索"
@@ -168,6 +171,7 @@ Feature: 全链路_6指标项配置
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"
+    And I clear the browser's cache
 
   Scenario: 查看全链路3
     And I wait for "Canvas" will be visible
@@ -179,7 +183,7 @@ Feature: 全链路_6指标项配置
     And I will see the element "ElementDetails" contains "_"
     And I will see the element "ElementDetails" contains "市"
     And I will see the element "ElementDetails" contains "节点异常状态"
-    And I will see the element "ElementDetails" contains "数量："
+    And I will see the element "ElementDetails" contains "COUNT："
     And I wait for "MediumAlarm" will be visible
 
   Scenario: 修改指标项配置4_次要告警
@@ -191,6 +195,7 @@ Feature: 全链路_6指标项配置
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"
+    And I clear the browser's cache
 
   Scenario: 查看全链路4
     And I wait for "Canvas" will be visible
@@ -202,8 +207,9 @@ Feature: 全链路_6指标项配置
     And I will see the element "ElementDetails" contains "_"
     And I will see the element "ElementDetails" contains "市"
     And I will see the element "ElementDetails" contains "节点异常状态"
-    And I will see the element "ElementDetails" contains "数量："
+    And I will see the element "ElementDetails" contains "COUNT："
     And I wait for "AlarmLine" will be visible
+    And I clear the browser's cache
 
   Scenario: 查看全链路5_钻取
     And I wait for "Canvas" will be visible
@@ -215,7 +221,7 @@ Feature: 全链路_6指标项配置
     And I will see the element "ElementDetails" contains "_"
     And I will see the element "ElementDetails" contains "市"
     And I will see the element "ElementDetails" contains "节点异常状态"
-    And I will see the element "ElementDetails" contains "数量："
+    And I will see the element "ElementDetails" contains "COUNT："
     And I click the Circle "AlarmLineFirst" button
     And switch to window "搜索"
     And I will see the number of open tabs equals "2"

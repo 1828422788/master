@@ -369,13 +369,13 @@ public class CreatePage extends PageTemplate {
         return tick0000;
     }
 
-    @FindBy(xpath = "(//div[text()='节点详情']//following-sibling::div[@class='_3ty-idnSV_yEDshRdCXAKx']//*[name()='rect' and @fill='#E6BA6D'])[last()]")
+    @FindBy(xpath = "(//div[text()='节点详情']//following-sibling::div[@class='_3mtb4GvDMP7X8mWzaihDk2']//*[name()='rect' and @fill='#E6BA6D'])[last()]")
     private WebElement mediumAlarm;
     public WebElement getMediumAlarm() {
         return mediumAlarm;
     }
 
-    @FindBy(xpath = "(//div[text()='节点详情']//following-sibling::div[@class='_3ty-idnSV_yEDshRdCXAKx']//*[name()='rect' and @fill='#CF675E'])[last()]")
+    @FindBy(xpath = "(//div[text()='节点详情']//following-sibling::div[@class='_3mtb4GvDMP7X8mWzaihDk2']//*[name()='rect' and @fill='#CF675E'])[last()]")
     private WebElement highAlarm;
     public WebElement getHighAlarm() {
         return highAlarm;
@@ -387,13 +387,13 @@ public class CreatePage extends PageTemplate {
         return minorAlarm;
     }
 
-    @FindBy(xpath = "//div[text()='节点详情']//following-sibling::div[@class='_3ty-idnSV_yEDshRdCXAKx']//*[@class='vx-linepath']")
+    @FindBy(xpath = "//div[text()='节点详情']//following-sibling::div[@class='_3mtb4GvDMP7X8mWzaihDk2']//*[@class='vx-linepath']")
     private WebElement alarmLine;
     public WebElement getAlarmLine() {
         return alarmLine;
     }
 
-    @FindBy(xpath = "(//div[text()='节点详情']//following-sibling::div[@class='_3ty-idnSV_yEDshRdCXAKx']//*[@class='vx-linepath']/following-sibling::*//*[name()='circle'])[1]")
+    @FindBy(xpath = "(//div[text()='节点详情']//following-sibling::div[@class='_3mtb4GvDMP7X8mWzaihDk2']//*[@class='vx-linepath']/following-sibling::*//*[name()='circle'])[1]")
     private WebElement alarmLineFirst;
     public WebElement getAlarmLineFirst() {
         return alarmLineFirst;
