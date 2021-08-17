@@ -25,9 +25,9 @@ Feature: 仪表盘输入项
     And I wait for "SuccessCreate" will be visible
 
     Examples:
-      | name         | spl                                                                                       |
-      | 仪表盘所用趋势图     | tag: sample04061424_chart \|stats count() by 'apache.geo.city'                            |
-      | 仪表盘1669所用趋势图 | (appname:\"apache\") \|bucket timestamp span=6h as ts \|stats count(\'tag\') as \'tag\' by ts |
+      | name         | spl                                                                                           |
+      | 仪表盘所用趋势图     | tag: sample04061424_chart \|stats count() by 'apache.geo.city'                                |
+      | 仪表盘1669所用趋势图 | (appname:\"vendors\") \|bucket timestamp span=6h as ts \|stats count(\'tag\') as \'tag\' by ts |
 
   @dbinputpre1 @dbinputpre
   Scenario Outline: 新建仪表盘
@@ -97,7 +97,7 @@ Feature: 仪表盘输入项
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
     Examples:
-      | name |
+      | name   |
       | 测试输入项2 |
       | 测试输入项3 |
       | 测试输入项4 |
@@ -328,7 +328,7 @@ Feature: 仪表盘输入项
 
     Examples:
       | filter | defaultValue |
-      | filter | aa           |
+      | filter | vendors      |
 
   @dbinput2 @dbinput22
   Scenario Outline: 验证 RZY-1669
@@ -341,6 +341,7 @@ Feature: 仪表盘输入项
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I set value with element "TableList"
+    And I wait for "10000" millsecond
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -350,7 +351,7 @@ Feature: 仪表盘输入项
     Then I compare with list "TableList"
 
     Examples:
-      | name |
+      | name   |
       | 测试输入项2 |
 
 #  @dbinput2 @dbinput23
