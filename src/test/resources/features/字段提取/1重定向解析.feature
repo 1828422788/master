@@ -44,6 +44,7 @@ Feature: 字段提取重定向解析
 #    And I make the element "RedirectNameInput" visible
 #    When I set the parameter "RedirectNameInput" with value "RZY2867redirect副规则"
     And I choose the "RZY2867redirect副规则" from the "RedirectList" in config
+
     Given I wait for loading complete
     Then I wait for "2000" millsecond
     And I click the "EnsureAddParseRule" button

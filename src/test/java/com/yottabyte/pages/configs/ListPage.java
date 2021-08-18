@@ -25,6 +25,7 @@ public class ListPage extends ListPageFactory {
     DropdownUtils dropdownUtils = new DropdownUtils();
 
     @FindBy(className = "yotta-spinner-spin")
+//    @FindBy(className = "yotta-spinner-container")
     private WebElement loading;
 
     @FindBy(className = "ant-modal-content")

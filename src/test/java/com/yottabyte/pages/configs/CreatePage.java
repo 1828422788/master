@@ -1,14 +1,18 @@
 package com.yottabyte.pages.configs;
 
+import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.DateEditorPage;
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Sleeper;
 
 import java.util.List;
 
@@ -518,18 +522,21 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//input[@yotta-test='config-another_name-input']")
     private WebElement anotherName;
+
     public WebElement getAnotherName() {
         return anotherName;
     }
 
     @FindBy(xpath = "//label[contains(text(),'重定向规则')]/following::div[@yotta-test='config-rule-select']")
     private WebElement redirectNameDiv;
+
     public WebElement getRedirectrNameDiv() {
         return redirectNameDiv;
     }
 
     @FindBy(xpath = "//label[contains(text(),'重定向规则')]/following::div[@yotta-test='config-rule-select']//span[@aria-label='PlusDownOutlined']")
     private WebElement redirectNameSpan;
+
     public WebElement getRedirectrNameSpan() {
         return redirectNameSpan;
     }
@@ -542,6 +549,7 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//label[contains(text(),'重定向规则')]/following::div[@yotta-test='config-rule-select']//input")
     private WebElement redirectNameInput;
+
     public WebElement getRedirectrNameInput() {
         return redirectNameInput;
     }
@@ -550,17 +558,9 @@ public class CreatePage extends PageTemplate {
 //        return super.getYottaDropdownList("config-rule-select");
 //    }
 
-    public WebElement getRedirectList() {
-        String xpath;
-        xpath = "(//div[@yotta-test='config-rule-select']/div)";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-        ClickEvent.clickUnderneathButton(element);
+    public WebElement getRedirectList() throws InterruptedException {
         return getRedirectLastDropdownList();
     }
-
-
-
 
 
 }
