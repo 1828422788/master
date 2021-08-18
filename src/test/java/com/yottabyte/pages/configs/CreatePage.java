@@ -550,6 +550,20 @@ public class CreatePage extends PageTemplate {
 //        return super.getYottaDropdownList("config-rule-select");
 //    }
 
+    @FindBy(xpath = "//div[@yotta-test='config-rule-select']//input")
+    private WebElement redirectListInput;
+    public WebElement getRedirectListInput(){
+        WebElement element = webDriver.findElement(By.xpath("//div[@yotta-test='config-rule-select']"));
+        element.click();
+        return redirectListInput;
+    }
+
+    @FindBy(xpath = "//div[contains(@class,'yotta-select-option')][1]")
+    private WebElement firstOptionInList;
+    public WebElement getFirstOptionInList(){
+        return firstOptionInList;
+    }
+
     public WebElement getRedirectList() {
         String xpath;
         xpath = "(//div[@yotta-test='config-rule-select']/div)";
