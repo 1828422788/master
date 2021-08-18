@@ -306,8 +306,4 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return webDriver.findElement(By.xpath(xpath));
     }
 
-    public WebElement getRedirectLastDropdownList() {
-        return dropdownUtils.getRedirectLastDropdownList();
-    }
-
 }

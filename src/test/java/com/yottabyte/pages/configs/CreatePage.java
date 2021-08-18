@@ -527,13 +527,6 @@ public class CreatePage extends PageTemplate {
         return anotherName;
     }
 
-    @FindBy(xpath = "//label[contains(text(),'重定向规则')]/following::div[@yotta-test='config-rule-select']")
-    private WebElement redirectNameDiv;
-
-    public WebElement getRedirectrNameDiv() {
-        return redirectNameDiv;
-    }
-
     @FindBy(xpath = "//label[contains(text(),'重定向规则')]/following::div[@yotta-test='config-rule-select']//span[@aria-label='PlusDownOutlined']")
     private WebElement redirectNameSpan;
 
@@ -541,26 +534,81 @@ public class CreatePage extends PageTemplate {
         return redirectNameSpan;
     }
 
-//    @FindBy(xpath = "//label[contains(text(),'重定向规则')]/following::div[@yotta-test='config-rule-select']//span[text()='请选择']")
-//    private WebElement redirectNameSpan;
-//    public WebElement getRedirectrNameSpan() {
-//        return redirectNameSpan;
-//    }
-
     @FindBy(xpath = "//label[contains(text(),'重定向规则')]/following::div[@yotta-test='config-rule-select']//input")
     private WebElement redirectNameInput;
-
     public WebElement getRedirectrNameInput() {
         return redirectNameInput;
     }
 
-//    public WebElement getRedirect() {
-//        return super.getYottaDropdownList("config-rule-select");
-//    }
-
-    public WebElement getRedirectList() throws InterruptedException {
-        return getRedirectLastDropdownList();
+    @FindBy(xpath = "//div[@yotta-test='config-rule-select']//input")
+    private WebElement redirectListInput;
+    public WebElement getRedirectListInput(){
+        WebElement element = webDriver.findElement(By.xpath("//div[@yotta-test='config-rule-select']"));
+        element.click();
+        return redirectListInput;
     }
 
+    @FindBy(xpath = "//div[contains(@class,'yotta-select-option')][1]")
+    private WebElement firstOptionInList;
+    public WebElement getFirstOptionInList(){
+        return firstOptionInList;
+    }
+
+    public WebElement getRedirectList() throws InterruptedException {
+        String xpath;
+        xpath = "(//div[@yotta-test='config-rule-select']/div)";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+
+        String str_scrollbar = "yotta-virtual-list-scrollbar";
+        WebElement ScrollbarE = webDriver.findElement(By.className(str_scrollbar));
+        if (ScrollbarE.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", ScrollbarE);
+        }
+
+        WaitForElement.waitForElementWithExpectedCondition(
+                LoginBeforeAllTests.getWebDriver(), ExpectedConditions.elementToBeClickable(ScrollbarE));
+//      ScrollbarE.click();
+
+        for (int i = 1; i < 5; i++) {
+            System.out.println(i + "i-------------------------------------------------------------------------------------------------------------");
+            System.out.println("-----arguments[0].scrollIntoView(false)-----------------------------------------------------------------------------------------------------");
+//            ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView(false);", ScrollbarE);
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollTo(0,document.body.scrollHeight)", ScrollbarE);
+
+        }
+
+        for (int i = 1; i < 5; i++) {
+            System.out.println(i + "i-------------------------------------------------------------------------------------------------------------");
+            if (ScrollbarE.getAttribute("style").contains("display: none;")) {
+                ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", ScrollbarE);
+            }
+
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", ScrollbarE);
+
+            WaitForElement.waitForElementWithExpectedCondition(
+                    LoginBeforeAllTests.getWebDriver(), ExpectedConditions.elementToBeClickable(ScrollbarE));
+            System.out.println("------sleep------------------------------------------------------------------------------------------------------");
+            Thread.sleep(10000);
+
+            int sourceX = ScrollbarE.getLocation().getX();
+            int sourceY = ScrollbarE.getLocation().getY();
+            System.out.println("sourceX===" + sourceX);
+            System.out.println("sourceY===" + sourceY);
+            System.out.println("------ScrollbarE, sourceX, sourceY------------------------------------------------------------------------------");
+            new Actions(webDriver).dragAndDropBy(ScrollbarE, 0, 20).build().perform();
+        }
+
+
+        String str_selector = "[class='yotta-select-menu css-ncm03v']";
+        List<WebElement> list = webDriver.findElements(By.cssSelector(str_selector));
+        WebElement lastDropdownList = list.get(list.size() - 1);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+
+        }
+        return lastDropdownList;
+    }
 
 }
