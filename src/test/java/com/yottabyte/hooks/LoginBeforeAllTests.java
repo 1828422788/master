@@ -10,6 +10,7 @@ import com.yottabyte.webDriver.SharedDriver;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -47,6 +48,7 @@ public class LoginBeforeAllTests {
         logInAndOut.logout();
 //        deleteAllCookies();
         webDriver.get(baseURL + loginURL);
+        webDriver.manage().window().setSize(new Dimension(1920,1080));
         login();
         setPageFactory("PublicNavBarPage");
     }
