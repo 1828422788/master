@@ -1,9 +1,6 @@
 @incident @cruxee
 Feature: 事件管理-合并策略-5个
 
-  Background:
-    And I zoom the browse to full screen
-
   @newcru1 @newcru
   Scenario Outline: 合并2组_高_字段统计_分组条件name_归并告警数量18条
     Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/policy/list/"
