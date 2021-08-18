@@ -122,4 +122,12 @@ public class OperateBrowser {
         int actualNum = webDriver.getWindowHandles().size();
         Assert.assertEquals(expectedNum,actualNum);
     }
+
+    /**
+     * 清除缓存
+     */
+    @And("^I clear the browser's cache$")
+    public void clearBrowserCache() {
+        webDriver.manage().deleteAllCookies();
+    }
 }

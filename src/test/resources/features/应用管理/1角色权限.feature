@@ -19,6 +19,7 @@ Feature: 应用角色权限（RZY-2144）
     Then I will see the success message "创建成功"
 
   Scenario: 编辑角色
+    And I wait for "2000" millsecond
     When the data name is "AutoApp" then i click the "编辑" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AuthApp"
@@ -29,6 +30,7 @@ Feature: 应用角色权限（RZY-2144）
     Then I will see the success message "更新成功"
 
   Scenario: 角色复制
+    And I wait for "2000" millsecond
     When the data name is "AutoApp" then i click the "复制" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AuthApp"
