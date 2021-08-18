@@ -1,10 +1,12 @@
 package com.yottabyte.utils;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
+import com.yottabyte.stepDefs.ClickSomeButton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
@@ -242,20 +244,60 @@ public class DropdownUtils {
         List<WebElement> list = webDriver.findElements(By.cssSelector(str_selector));
         WebElement lastMenuList = list.get(list.size() - 1);
         if (lastMenuList.getAttribute("style").contains("display: none;")) {
-                ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastMenuList);
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastMenuList);
         }
         return lastMenuList;
 
+    }
+
+    public WebElement getIncidentStatusMenuList() {
+        String str_selector = "[class='yotta-select-menu css-1hq8cx5']";
+        List<WebElement> list = webDriver.findElements(By.cssSelector(str_selector));
+        WebElement lastMenuList = list.get(list.size() - 1);
+        if (lastMenuList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastMenuList);
+        }
+        return lastMenuList;
+    }
+
+    public WebElement getRedirectLastDropdownList() {
+        String str_scrollbar = "yotta-virtual-list-scrollbar";
+        for (int i = 1; i < 5; i++) {
+            System.out.println(i + "i-------------------------------------------------------------------------------------------------------------");
+            WebElement ScrollbarE = webDriver.findElement(By.className(str_scrollbar));
+            if (ScrollbarE.getAttribute("style").contains("display: none;")) {
+                ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", ScrollbarE);
+            }
+
+            WaitForElement.waitForElementWithExpectedCondition(
+                    LoginBeforeAllTests.getWebDriver(), ExpectedConditions.elementToBeClickable(ScrollbarE));
+
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView(false);", ScrollbarE);
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollTo(document.body.scrollHeight,0)", ScrollbarE);
+
+            int sourceX = ScrollbarE.getLocation().getX();
+            int sourceY = ScrollbarE.getLocation().getY();
+            new Actions(webDriver).dragAndDropBy(ScrollbarE, sourceX, sourceY + 50).build().perform();
+            System.out.println("---------------------dragAndDropBy(ScrollbarE, sourceX, sourceY + 20)------------------------------------------------------------------------------------------");
+//                ScrollbarE.click();
         }
 
-        public WebElement getIncidentStatusMenuList() {
-            String str_selector = "[class='yotta-select-menu css-1hq8cx5']";
-            List<WebElement> list = webDriver.findElements(By.cssSelector(str_selector));
-            WebElement lastMenuList = list.get(list.size() - 1);
-            if (lastMenuList.getAttribute("style").contains("display: none;")) {
-                ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastMenuList);
-            }
-            return lastMenuList;
+        String str_selector = "[class='yotta-select-menu css-ncm03v']";
+        List<WebElement> list = webDriver.findElements(By.cssSelector(str_selector));
+        for (WebElement curElement : list) {
+//            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", curElement);
+            System.out.println("---------------------------------------------------------------------------------------------------------------");
+            System.out.println(curElement);
         }
+        System.out.println("---------------------------------------------------------------------------------------------------------------");
+        System.out.println("------------------WebElement lastDropdownList = list.get(list.size() - 1)-----------------------------------------------------");
+        System.out.println("---------------------------------------------------------------------------------------------------------------");
+        WebElement lastDropdownList = list.get(list.size() - 1);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+
+        }
+        return lastDropdownList;
+    }
 
 }

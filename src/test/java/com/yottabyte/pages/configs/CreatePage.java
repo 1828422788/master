@@ -196,11 +196,6 @@ public class CreatePage extends PageTemplate {
         return super.getYottaDropdownList("config-custom_rule_type-select");
     }
 
-    public WebElement getRedirect() {
-        return super.getYottaDropdownList("config-rule-select");
-    }
-
-
     public WebElement getStruct() {
         return super.getYottaTextarea("config-struct_format-textarea");
     }
@@ -520,4 +515,52 @@ public class CreatePage extends PageTemplate {
     public WebElement getSuccessMessage() {
         return successMessage;
     }
+
+    @FindBy(xpath = "//input[@yotta-test='config-another_name-input']")
+    private WebElement anotherName;
+    public WebElement getAnotherName() {
+        return anotherName;
+    }
+
+    @FindBy(xpath = "//label[contains(text(),'重定向规则')]/following::div[@yotta-test='config-rule-select']")
+    private WebElement redirectNameDiv;
+    public WebElement getRedirectrNameDiv() {
+        return redirectNameDiv;
+    }
+
+    @FindBy(xpath = "//label[contains(text(),'重定向规则')]/following::div[@yotta-test='config-rule-select']//span[@aria-label='PlusDownOutlined']")
+    private WebElement redirectNameSpan;
+    public WebElement getRedirectrNameSpan() {
+        return redirectNameSpan;
+    }
+
+//    @FindBy(xpath = "//label[contains(text(),'重定向规则')]/following::div[@yotta-test='config-rule-select']//span[text()='请选择']")
+//    private WebElement redirectNameSpan;
+//    public WebElement getRedirectrNameSpan() {
+//        return redirectNameSpan;
+//    }
+
+    @FindBy(xpath = "//label[contains(text(),'重定向规则')]/following::div[@yotta-test='config-rule-select']//input")
+    private WebElement redirectNameInput;
+    public WebElement getRedirectrNameInput() {
+        return redirectNameInput;
+    }
+
+//    public WebElement getRedirect() {
+//        return super.getYottaDropdownList("config-rule-select");
+//    }
+
+    public WebElement getRedirectList() {
+        String xpath;
+        xpath = "(//div[@yotta-test='config-rule-select']/div)";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getRedirectLastDropdownList();
+    }
+
+
+
+
+
 }

@@ -2,7 +2,7 @@
 Feature: 字段提取重定向解析
 
   @configs26a
-  Scenario Outline: RZY-2867-1: 副规则
+  Scenario: RZY-2867-1: 副规则
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
     And I click the "Create" button
@@ -26,6 +26,7 @@ Feature: 字段提取重定向解析
     And I switch the "SwitchButton" button to "enable"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
+    And I wait for "5000" millsecond
 
   @configs26b
   Scenario Outline: RZY-2867: 主规则
@@ -37,8 +38,12 @@ Feature: 字段提取重定向解析
     And I choose the "重定向规则" from the "ParseRule" in config
     Given I wait for loading complete
     Then I wait for "2000" millsecond
-#    And I choose the "RZY2867redirect副规则" from the "Redirect" in config
-    And I choose the "RZY2867redirect副规则" from the "Redirect"
+#    And I let element "ParseRule" lose focus
+#    And I make the element "RedirectNamespan" visible
+#    And I click1 the "RedirectNamespan" button
+#    And I make the element "RedirectNameInput" visible
+#    When I set the parameter "RedirectNameInput" with value "RZY2867redirect副规则"
+    And I choose the "RZY2867redirect副规则" from the "RedirectList" in config
     Given I wait for loading complete
     Then I wait for "2000" millsecond
     And I click the "EnsureAddParseRule" button
@@ -69,5 +74,5 @@ Feature: 字段提取重定向解析
 #    Then I will see the spl search result "<searchResult>"
 
     Examples:
-      | appName      | log              | tag                                   | searchResult                     |
+      | appName      | log              | tag                                   | searchResult                      |
       | redirect_zhu | json_sdyd_41.log | redirect_zhu AND appname:redirect_zhu | {"other.key":"other.key: value "} |
