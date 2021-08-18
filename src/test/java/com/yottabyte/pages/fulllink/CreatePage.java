@@ -307,6 +307,18 @@ public class CreatePage extends PageTemplate {
         return play;
     }
 
+    @FindBy(xpath = "//div[contains(@style,'bottom')]//span[@aria-label='EditOutlined']")
+    private WebElement alarmIgnore;
+    public WebElement getAlarmIgnore() {
+        return alarmIgnore;
+    }
+
+    @FindBy(xpath = "//div[contains(@class,'yotta-textarea')]//textarea")
+    private WebElement alarmIgnoreTextarea;
+    public WebElement getAlarmIgnoreTextarea() {
+        return alarmIgnoreTextarea;
+    }
+
     @FindBy(xpath = "//canvas")
     private WebElement canvas;
     public WebElement getCanvas() {
