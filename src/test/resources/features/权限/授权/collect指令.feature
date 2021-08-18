@@ -17,12 +17,18 @@ Feature: 权限-collect指令
     Given open the "index.ListPage" page for uri "/indexsettings/"
     And I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "Next" button
+    And I wait for "2000" millsecond
     When I set the parameter "Name" with value "autotestauth"
     And I set the parameter "SavedTime" with value "2"
     And I set the parameter "DivideTime" with value "1"
-    And I click the "CreateButton" button
+    And I wait for "2000" millsecond
+    And I click the "Next" button
+    And I wait for "2000" millsecond
+    And I click the "Next" button
+    And I click the "Finish" button
     And I wait for "Message" will be visible
-    Then I will see the message "保存成功"
+    Then I will see the message "索引配置完成!"
     And I logout current user
 
   Scenario: 验证无法使用collect指令
