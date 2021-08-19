@@ -154,7 +154,6 @@ Feature: 字典管理
     Given I wait for loading complete
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
-    Given I wait for loading complete
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
     And I upload a file with name "/src/test/resources/testdata/dictionary/test/wymtest1.csv"
     And I wait for "FileName" will be visible

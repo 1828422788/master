@@ -42,7 +42,7 @@ public class CustomConfigs extends PageTemplate {
         return MailServerSet;
     }
 
-    @FindBy(xpath = "//div[@class='_1o8bbS9akwRGJGcMWEWK1j']/a[contains(text(),'交易日功能')]")
+    @FindBy(xpath = "//a[contains(text(),'交易日功能')]")
     private WebElement trandateFeature;
     public WebElement getTrandateFeature() {
         return trandateFeature;
