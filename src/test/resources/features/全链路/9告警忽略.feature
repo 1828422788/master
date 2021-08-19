@@ -31,10 +31,12 @@ Feature: 全链路_9告警忽略
     And I click the "AlarmIgnore" button
     And I set the value "TEST" to the textarea "AlarmIgnoreTextarea"
     And I click the "Cancel" button
+    And I wait for "2000" millsecond
     And I move the mouse pointer to the "Tick0000"
     And I wait for "Tooltip" will be visible
     And I will see the element "Tooltip" contains "COUNT:"
     And I will see the element "Tooltip" contains "处理状态:0/4"
+    And I wait for "2000" millsecond
     And I move the mouse pointer to the "FirstTick"
     And I wait for "Tooltip" will be visible
     And I will see the element "Tooltip" contains "未处理"
@@ -53,10 +55,12 @@ Feature: 全链路_9告警忽略
     And I click the "AlarmIgnore" button
     And I set the value "TEST" to the textarea "AlarmIgnoreTextarea"
     And I click the "Ensure" button
+    And I wait for "2000" millsecond
     And I move the mouse pointer to the "Tick0000"
     And I wait for "Tooltip" will be visible
     And I will see the element "Tooltip" contains "COUNT:"
     And I will see the element "Tooltip" contains "处理状态:1/4"
+    And I wait for "2000" millsecond
     And I move the mouse pointer to the "FirstTick"
     And I wait for "Tooltip" will be visible
     And I will see the element "Tooltip" contains "处理人:admin"
@@ -76,10 +80,12 @@ Feature: 全链路_9告警忽略
     And I click the "AlarmIgnore" button
     And I set the value "<text>" to the textarea "AlarmIgnoreTextarea"
     And I click the "Ensure" button
+    And I wait for "2000" millsecond
     And I move the mouse pointer to the "Tick0000"
     And I wait for "Tooltip" will be visible
     And I will see the element "Tooltip" contains "处理状态:<info>"
     And I will see the element "Tick0000" fill contains "<color>"
+    And I wait for "2000" millsecond
     And I move the mouse pointer to the "<tick>"
     And I wait for "Tooltip" will be visible
     And I will see the element "Tooltip" contains "处理信息:<text>"
@@ -106,10 +112,12 @@ Feature: 全链路_9告警忽略
     And I click the "AlarmIgnore" button
     And I set the value "Text_1" to the textarea "AlarmIgnoreTextarea"
     And I click the "Ensure" button
+    And I wait for "2000" millsecond
     And I move the mouse pointer to the "Tick0000"
     And I wait for "Tooltip" will be visible
     And I will see the element "Tooltip" contains "处理状态:4/4"
     And I will see the element "Tick0000" fill contains "#1785ff"
+    And I wait for "2000" millsecond
     And I move the mouse pointer to the "FirstTick"
     And I wait for "Tooltip" will be visible
     And I will see the element "Tooltip" contains "处理信息:Text_1"
