@@ -25,7 +25,7 @@ Feature: 字典管理
       | dictionaryNameWithOutCsv | dictionaryName    | totalItem | editOnlineArea                                                                                         |
       | wymtestcreate            | wymtestcreate.csv | 共 1 条         | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
 
-  @tc4136 @dict2
+  @tc4136_1 @dict2
   Scenario Outline: RZY-4136新建字典
     And I wait for loading invisible
 #    Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
@@ -33,6 +33,7 @@ Feature: 字典管理
     Then I will see the "TotalItem" result will be "<totalItem>"
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
+    Given I wait for loading complete
     And I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
     Then I click the "EditOnline" button
     Then I will see the element "EditOnlineArea" name is "<editOnlineArea>"
@@ -97,6 +98,7 @@ Feature: 字典管理
     Given I wait for loading complete
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
+    Given I wait for loading complete
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymdoubletest1.csv"
     And I wait for "FileName" will be visible
@@ -118,6 +120,7 @@ Feature: 字典管理
     Given I wait for loading complete
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
+    Given I wait for loading complete
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
     Then I click the "EditOnline" button
     Then I will see the element "EditOnlineArea" value is "<editOnlineArea>"
@@ -151,6 +154,7 @@ Feature: 字典管理
     Given I wait for loading complete
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
+    Given I wait for loading complete
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
     And I upload a file with name "/src/test/resources/testdata/dictionary/test/wymtest1.csv"
     And I wait for "FileName" will be visible
@@ -172,6 +176,7 @@ Feature: 字典管理
     Given I wait for loading complete
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
+    Given I wait for loading complete
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
     Then I click the "EditOnline" button
     Then I will see the element "EditOnlineArea" value is "<editOnlineArea>"
@@ -204,6 +209,7 @@ Feature: 字典管理
     Given I wait for loading complete
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
+    Given I wait for loading complete
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
     Then I click the "EditOnline" button
     Then I set the value "<edited>" to the textarea "EditOnlineArea"
@@ -238,6 +244,7 @@ Feature: 字典管理
     When I wait for loading complete
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
+    Given I wait for loading complete
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
     Then I click the "EditOnline" button
     Then I set the value "<edited>" to the textarea "EditOnlineArea"
@@ -261,6 +268,7 @@ Feature: 字典管理
     Given I wait for loading complete
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
+    Given I wait for loading complete
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
     And I click the "EditOnline" button
     Then I will see the element "EditOnlineArea" value is "<edited>"
