@@ -158,8 +158,9 @@ Feature: 权限-全链路
     And I set the parameter "Name" with value "权限测试重命名"
     And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
-    And the data name is "权限测试重命名" then i click the "更多" button
-    And I click the "Auth" button
+    #And the data name is "权限测试重命名" then i click the "更多" button
+    #And I click the "Auth" button
+    And the data name is "权限测试重命名" then i click the "授权" button in more menu
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
     Then I logout current user
@@ -547,8 +548,9 @@ Feature: 权限-全链路
     And I set the parameter "Name" with value "二次授权测试重命名"
     And I click the "Ensure" button
     Then I will see the success message "修改成功"
-    And the data name is "二次授权测试重命名" then i click the "更多" button
-    And I click the "Auth" button
+    # the data name is "二次授权测试重命名" then i click the "更多" button
+    #And I click the "Auth" button
+    And the data name is "二次授权测试重命名" then i click the "授权" button in more menu
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
     Then I logout current user
