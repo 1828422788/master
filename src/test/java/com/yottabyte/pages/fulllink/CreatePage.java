@@ -307,6 +307,18 @@ public class CreatePage extends PageTemplate {
         return play;
     }
 
+    @FindBy(xpath = "//div[contains(@style,'bottom')]//span[@aria-label='EditOutlined']")
+    private WebElement alarmIgnore;
+    public WebElement getAlarmIgnore() {
+        return alarmIgnore;
+    }
+
+    @FindBy(xpath = "//div[contains(@class,'yotta-textarea')]//textarea")
+    private WebElement alarmIgnoreTextarea;
+    public WebElement getAlarmIgnoreTextarea() {
+        return alarmIgnoreTextarea;
+    }
+
     @FindBy(xpath = "//canvas")
     private WebElement canvas;
     public WebElement getCanvas() {
@@ -339,25 +351,25 @@ public class CreatePage extends PageTemplate {
         return getSuccessMessage();
     }
 
-    @FindBy(xpath = "(//div[contains(@class,'_1FmmywLM1qOtExZfMYeqLv')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[1]")
+    @FindBy(xpath = "(//div[contains(@class,'_3mA4bCVgSrVEqpzjJpKPEf')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[1]")
     private WebElement firstTick;
     public WebElement getFirstTick() {
         return firstTick;
     }
 
-    @FindBy(xpath = "(//div[contains(@class,'_1FmmywLM1qOtExZfMYeqLv')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[2]")
+    @FindBy(xpath = "(//div[contains(@class,'_3mA4bCVgSrVEqpzjJpKPEf')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[2]")
     private WebElement secondTick;
     public WebElement getSecondTick() {
         return secondTick;
     }
 
-    @FindBy(xpath = "(//div[contains(@class,'_1FmmywLM1qOtExZfMYeqLv')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[3]")
+    @FindBy(xpath = "(//div[contains(@class,'_3mA4bCVgSrVEqpzjJpKPEf')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[3]")
     private WebElement thirdTick;
     public WebElement getThirdTick() {
         return thirdTick;
     }
 
-    @FindBy(xpath = "(//div[contains(@class,'_1FmmywLM1qOtExZfMYeqLv')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[4]")
+    @FindBy(xpath = "(//div[contains(@class,'_3mA4bCVgSrVEqpzjJpKPEf')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[4]")
     private WebElement forthTick;
     public WebElement getForthTick() {
         return forthTick;

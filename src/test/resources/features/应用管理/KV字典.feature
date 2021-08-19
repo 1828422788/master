@@ -106,7 +106,7 @@ Feature: 应用KV字典
   Scenario: 验证是否成功---bugRZY-7554
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "KVApp" then i click the "打开" button in more menu
+    And I click the detail which name is "KVApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "KVApp"
     Then I will see the "splSearch.SearchPage" page
