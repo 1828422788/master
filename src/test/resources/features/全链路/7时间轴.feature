@@ -45,7 +45,7 @@ Feature: 全链路_7时间轴
   Scenario Outline: 解析规则配置
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
     And I wait for "3000" millsecond
-    When the data name is "AutoTest_TimeAxis" then i click the "编辑" button
+    When the data name is "<name>" then i click the "编辑" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "3000" millsecond
     And I wait for "DisabledSave" will be visible
@@ -67,13 +67,14 @@ Feature: 全链路_7时间轴
     And I will see the element "SuccessMessage" contains "保存成功"
 
     Examples:
-      | fieldName   | timestamp       | start    | end    | separator   | layernum    |
-      | node        | tstamp          | from     | to     | _           | 2           |
+      | name              | fieldName   | timestamp       | start    | end    | separator   | layernum    |
+      | AutoTest_TimeAxis | node        | tstamp          | from     | to     | _           | 2           |
+      | AutoTest_1        | node        | tstamp          | from     | to     | _           | 2           |
 
-  Scenario: 时间轴SPL配置
+  Scenario Outline: 时间轴SPL配置
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
     And I wait for "3000" millsecond
-    When the data name is "AutoTest_TimeAxis" then i click the "编辑" button
+    When the data name is "<name>" then i click the "编辑" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "3000" millsecond
     And I wait for "DisabledSave" will be visible
@@ -89,10 +90,15 @@ Feature: 全链路_7时间轴
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"
 
-  Scenario: 数据项配置
+    Examples:
+      | name              |
+      | AutoTest_TimeAxis |
+      | AutoTest_1        |
+
+  Scenario Outline: 数据项配置
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
     And I wait for "3000" millsecond
-    When the data name is "AutoTest_TimeAxis" then i click the "编辑" button
+    When the data name is "<name>" then i click the "编辑" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "3000" millsecond
     And I wait for "DisabledSave" will be visible
@@ -115,11 +121,16 @@ Feature: 全链路_7时间轴
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"
 
+    Examples:
+      | name              |
+      | AutoTest_TimeAxis |
+      | AutoTest_1        |
 
-  Scenario: 指标项配置
+
+  Scenario Outline: 指标项配置
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
     And I wait for "3000" millsecond
-    When the data name is "AutoTest_TimeAxis" then i click the "编辑" button
+    When the data name is "<name>" then i click the "编辑" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "3000" millsecond
     And I wait for "DisabledSave" will be visible
@@ -142,6 +153,11 @@ Feature: 全链路_7时间轴
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"
+
+    Examples:
+      | name              |
+#      | AutoTest_TimeAxis |
+      | AutoTest_1        |
 
   Scenario:时间轴显示
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
