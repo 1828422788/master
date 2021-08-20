@@ -223,6 +223,14 @@ Feature: 事件管理-合并策略-5个
     And I set the parameter "CruxeePolicyName" with value "<CruxeePolicyName>"
     And I set the parameter "CruxeePolicyDes" with value "UI自动测试"
 
+    #添加应用条件--按name相等
+    When I click the "AddAppCondition" button
+    And I choose the "name" from the "AppConditionFieldslist" in config
+    And I wait for "2000" millsecond
+    And I choose the "like" from the "AppConditionOperatorsList" in config
+    And I wait for "2000" millsecond
+    And I set the parameter "AppConditionInput" with value "api00_incident界面用例"
+
     #添加分组条件--按name相等
     When I click the "AddGroupCondition" button
     And I choose the "name" from the "GroupConditionFieldslist" in config
