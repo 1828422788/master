@@ -1,10 +1,30 @@
-@bvtalert @alertcase @onalert
+@alertcase @onalert
 Feature: 监控启用
 
   Background:
     Given open the "alert.ListPage" page for uri "/alerts/"
 #    And I wait for "3000" millsecond
     And I wait for loading invisible
+
+  @bvtalert
+  Scenario Outline: 启用高优先级用例
+    Given open the "alert.ListPage" page for uri "/alerts/"
+#   And I wait for "3000" millsecond
+    And I wait for loading complete
+    When I set the parameter "AlertListSearchInput" with value "<name>"
+    Given I wait for loading complete
+    And I wait for "3000" millsecond
+
+    When the data name is "{'column':'1','name':'<name>'}" then I "open" the switch
+    Given I wait for loading complete
+    And I wait for "3000" millsecond
+
+    Then I will see the element "{'column':'1','name':'<name>'}" is "open"
+
+    Examples:
+      | name                |
+      | api00_incident界面用例1 |
+      | api00_incident界面用例2 |
 
   @onalert0
   Scenario Outline: 启用高优先级用例
@@ -28,13 +48,13 @@ Feature: 监控启用
       | api00_all_事件计数_设备切分ip_扩展chart_all_合并                   |
       | api00_spl统计ip_cnt_高_扩展chart_all_合并                     |
       | api00_spl统计ip_cnt_高_扩展chart_all_宏                      |
-      | api00_spl统计_非按行发送0_sample_111111|
-      |	api00_spl统计_按行发送1_sample_444444	|
-      |	api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_无分组_44040004 |
-      |	api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_分组多字段_22020002 |
-      |	api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_分组单字段_22020002 |
-      |	api00_spl统计_按行发送3_抑制[连续触发]3次_分组多字段_112 |
-      |	api00_spl统计_按行发送3_抑制[连续触发]3次_分组单字段_112 |
+      | api00_spl统计_非按行发送0_sample_111111                       |
+      | api00_spl统计_按行发送1_sample_444444                        |
+      | api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_无分组_44040004       |
+      | api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_分组多字段_22020002     |
+      | api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_分组单字段_22020002     |
+      | api00_spl统计_按行发送3_抑制[连续触发]3次_分组多字段_112                 |
+      | api00_spl统计_按行发送3_抑制[连续触发]3次_分组单字段_112                 |
       | api00_基线_status_在区间内_all_合并                            |
       | api00_基线_status_在区间外_邮件_合并                             |
       | api00_基线_status_在区间外_邮件_合并_交易日                         |

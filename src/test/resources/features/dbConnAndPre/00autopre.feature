@@ -2,7 +2,7 @@
 Feature: 导入监控用例，新建sslldap配置
 
   @upres1
-  Scenario:执行导入
+  Scenario Outline:执行导入
     When open the "dbConnectionPre.ResListPage" page for uri "/resource/"
 #    Then I wait for "ImportAndExportButton" will be visible
     Then I wait for loading complete
@@ -12,7 +12,7 @@ Feature: 导入监控用例，新建sslldap配置
     Then I will see the "dbConnectionPre.ImportResPage" page
     And I wait for "AddDataset" will be visible
     And I wait for "2000" millsecond
-    When I upload a file "Upload" with name "/src/test/resources/testdata/app/v35资源包监控60个.tar"
+    When I upload a file "Upload" with name "<appPath>"
     And I wait for "2000" millsecond
 
     And I choose the "__admin__" from the "RoleList"
@@ -21,6 +21,12 @@ Feature: 导入监控用例，新建sslldap配置
     And I click the "CompleteButton" button
 #    And I wait for "Message" will be visible
     And I wait for "AddSuccMessage" will be visible
+
+    Examples:
+      | appPath                                          |
+      | /src/test/resources/testdata/app/v35资源包监控60个.tar |
+      | /src/test/resources/testdata/app/alertadd.tar |
+
 
   @newldapconnssl
   Scenario Outline: 新建ssl ldap配置-1个
