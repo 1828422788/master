@@ -214,3 +214,39 @@ Feature: 事件管理-合并策略-5个
     Examples:
       | CruxeePolicyName    | SendPolicyName |
       | 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则 | 邮件_all_20分钟 |
+
+
+  @newcru6 @newcru
+  Scenario Outline: 按name合并_连续不断发送1小时
+    Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/policy/list/"
+    When I click the "CreateCruxeePolicy" button
+    And I set the parameter "CruxeePolicyName" with value "<CruxeePolicyName>"
+    And I set the parameter "CruxeePolicyDes" with value "UI自动测试"
+
+    #添加分组条件--按name相等
+    When I click the "AddGroupCondition" button
+    And I choose the "name" from the "GroupConditionFieldslist" in config
+    And I wait for "2000" millsecond
+
+    #添加停止条件--(告警连续不断发送超过1小时，未收到新告警时间15秒)
+    When I click the "AddStopCondition" button
+    And I set the parameter "StopConditionContinuousAlertInput" with value "1"
+    And I choose the "小时" from the "StopConditionContinuousAlertInputUnitList"
+    And I wait for "2000" millsecond
+
+    And I choose the "未收到新告警的时间" from the "StopConditionSecondNameslist"
+    And I wait for "2000" millsecond
+    And I set the parameter "StopConditionNoAlertTimeInput" with value "15"
+    And I choose the "秒" from the "StopConditionNoAlertTimeInputUnitList"
+    And I wait for "2000" millsecond
+
+    And I choose the "<SendPolicyName>" from the "SendPolicyNameslist"
+
+    When I click the "StartCruxeePolicy" button
+    When I click the "NewCruxeePolicy" button
+    And I wait for "AffirmButton" will be visible
+    When I click the "AffirmButton" button
+
+    Examples:
+      | CruxeePolicyName    | SendPolicyName |
+      | 事件样例name分组 | 邮件_all_20分钟 |
