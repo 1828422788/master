@@ -212,8 +212,8 @@ Feature: 事件管理-合并策略-5个
     When I click the "AffirmButton" button
 
     Examples:
-      | CruxeePolicyName    | SendPolicyName |
-      | 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则 | 邮件_all_20分钟 |
+      | CruxeePolicyName    | SendP合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则olicyName |
+      |  | 邮件_all_20分钟 |
 
 
   @newcru6 @newcru
