@@ -16,7 +16,6 @@ Feature: 告警搜索界面
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the element "NameCell21" contains "<alertname>"
     Then I will see the element "NameCell22" contains "<alertname>"
-    And I will see the "CustomButton" is display
     And I wait for "500" millsecond
 
     Examples:
@@ -52,4 +51,5 @@ Feature: 告警搜索界面
       | alertname     |
       | api00_all_事件数 |
 
-#后续加翻面，查看搜索历史
+#后续加翻面，每页10，跳转，查看搜索历史
+#17 AND name:api00_all_事件数

@@ -251,7 +251,7 @@ public class DropdownUtils {
     }
 
     public WebElement getIncidentStatusMenuList() {
-        String str_selector = "[class='yotta-select-menu css-1hq8cx5']";
+        String str_selector = "[class='yotta-select-menu css-ncm03v']";
         List<WebElement> list = webDriver.findElements(By.cssSelector(str_selector));
         WebElement lastMenuList = list.get(list.size() - 1);
         if (lastMenuList.getAttribute("style").contains("display: none;")) {

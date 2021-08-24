@@ -98,5 +98,12 @@ public class IncidentPage extends PageTemplate {
         return getIncidentStatusMenuList();
     }
 
+    public WebElement getNo3page()
+    {
+        String xpath = "//table[@yotta-test='incident-list-table']/following::span[text()='3']";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        return element;
+    }
+
 
 }
