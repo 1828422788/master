@@ -920,7 +920,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//span[contains(@class,'yotta-icon-ChartSquareFilled')])[2]")
     private WebElement secondChartType;
 
-    @FindBy(xpath = "//div[contains(@class,'table')]//ancestor::div[contains(@class,'_3G8kJ778TGi99RkoVXOccV')]/preceding-sibling::div[contains(@class,'config')]//span[@yotta-test='dashboard-chart_type-dom']")
+    @FindBy(xpath = "//div[contains(@class,'table')]//parent::div/preceding-sibling::div[contains(@class,'config')]//span[@yotta-test='dashboard-chart_type-dom']")
     private WebElement lastChartType;
 
     @FindBy(xpath = "//*[@yotta-test='dashboard-delete_chart-icon']")
