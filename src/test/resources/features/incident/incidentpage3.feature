@@ -1,4 +1,4 @@
-@incident @incidentpage
+@incident @incidentpage @incidentpage3
 Feature: 事件管理界面
 
   @incidentpage3
