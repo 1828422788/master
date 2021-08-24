@@ -1,5 +1,5 @@
 @alertsearch
-Feature: 监控搜索界面
+Feature: 告警搜索界面
 
   Background:
     Given open the "incident.AlertSearchPage" page for uri "/app/incident/alertsearch/"
