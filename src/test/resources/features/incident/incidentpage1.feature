@@ -23,7 +23,8 @@ Feature: 事件管理界面_分页功能
     And I press the parameter "PaginationInput" with enter
     Given I wait for loading complete
     Then I will see the element "NameCell13" contains "<alertref>"
-
+    Then I will see the every page "<everypage>" 条
+    
     Examples:
       | alertref         | everypage |
       | api00_all_事件数描述项 | 20        |
@@ -45,6 +46,7 @@ Feature: 事件管理界面_分页功能
     When I click the "AriaLabelRight" button
     Given I wait for loading complete
     Then I will see the element "NameCell13" contains "<alertref>"
+    Then I will see the every page "30" 条
 
     Examples:
       | alertref         |
@@ -65,6 +67,7 @@ Feature: 事件管理界面_分页功能
     When I click the "No3page" button
     Given I wait for loading complete
     Then I will see the element "NameCell13" contains "<alertref>"
+    Then I will see the every page "30" 条
 
     Examples:
       | alertref         |

@@ -378,4 +378,14 @@ public class CheckButtonAttribute {
         Assert.assertEquals(element.getAttribute("value"),expectText);
     }
 
+    /**
+     * @param expectText  期望值
+     */
+    @Then("^I will see the every page \"([^\"]*)\" 条$")
+    public void iWillSeeTheEveryPageEventNumber(String expectText) {
+            String xpath = "//div[contains(text(),'每页')]//span[text()='"+expectText+"']";
+            WebElement element = webDriver.findElement(By.xpath(xpath));
+            Assert.assertEquals(element.getText(),expectText);
+    }
+
 }
