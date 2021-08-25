@@ -713,6 +713,46 @@ public class ClickButtonWithGivenName {
     }
 
     /**
+     * 在更多操作中单击列表项
+     *
+     * @param buttonName  列表项
+     */
+    @When("^in incident page i click the \"([^\"]*)\" button in more menu$")
+    public void clickButtonInMoreMenuOnIncidentPage(String buttonName) {
+        try {
+            WebElement button = webDriver.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
+            WebElement lastMenuList = dropdownUtils.getIncidentPageMoreMenuList();
+            List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
+            if (buttonName != null && buttonName.trim().length() != 0) {
+                for (WebElement e : elements) {
+                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+                    if (buttonName.equals(e.getText())) {
+                        e.click();
+                        break;
+                    }
+                }
+            }
+
+        } catch (org.openqa.selenium.StaleElementReferenceException exception) {
+            WebElement button = webDriver.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
+            WebElement lastMenuList = dropdownUtils.getIncidentPageMoreMenuList();
+            List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
+            if (buttonName != null && buttonName.trim().length() != 0) {
+                for (WebElement e : elements) {
+                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+                    if (buttonName.equals(e.getText())) {
+                        e.click();
+                        break;
+                    }
+                }
+            }
+
+        }
+    }
+
+    /**
      * 在更多操作中寻找双层列表中的子列表项
      *
      * @param subDataName 子列表项
