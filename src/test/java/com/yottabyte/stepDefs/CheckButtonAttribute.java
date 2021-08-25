@@ -388,4 +388,16 @@ public class CheckButtonAttribute {
             Assert.assertEquals(element.getText(),expectText);
     }
 
+    /**
+     * @param expectText  期望值
+     */
+    @Then("^I will see the message \"([^\"]*)\" on page$")
+    public void iWillSeeTheMessageOnPage(String expectText) {
+        String xpath = "//span[contains(text(),'"+expectText+"')]";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        Assert.assertEquals(element.getText(),expectText);
+    }
+
+
+
 }

@@ -1,7 +1,6 @@
 @incident @incidentpage @incidentpage0
 Feature: 事件管理界面
 
-
   @incidentpage01
   Scenario Outline: 验证清空按钮
     Given open the "incident.IncidentPage" page for uri "/app/incident/"

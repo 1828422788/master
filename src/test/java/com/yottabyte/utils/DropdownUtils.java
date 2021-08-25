@@ -238,6 +238,26 @@ public class DropdownUtils {
         return lastMenuList;
     }
 
+    public WebElement getIncidentPageMoreMenuList() {
+        List<WebElement> list = webDriver.findElements(By.className("yotta-dropdown-menu"));
+        WebElement lastMenuList = list.get(list.size() - 1);
+        System.out.println("getIncidentPageMoreMenuList list.size()==============================================="+list.size());
+        if (lastMenuList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastMenuList);
+        }
+        return lastMenuList;
+    }
+
+    public WebElement getIncidentPageMoreMenuSubList() {
+        List<WebElement> list = webDriver.findElements(By.className("yotta-submenu"));
+        WebElement lastMenuList = list.get(list.size() - 1);
+        System.out.println("getIncidentPageMoreMenuSubList list.size()==============================================="+list.size());
+        if (lastMenuList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastMenuList);
+        }
+        return lastMenuList;
+    }
+
     public WebElement getIncidentSubMenuList() {
         String str_selector = "[class='yotta-menu css-11pryi8']";
         //List<WebElement> list = webDriver.findElements(By.className("yotta-menu css-11pryi8"));

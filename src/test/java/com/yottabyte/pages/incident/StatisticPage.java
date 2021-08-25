@@ -12,8 +12,8 @@ import org.openqa.selenium.support.ui.*;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class IncidentPage extends PageTemplate {
-    public IncidentPage(WebDriver driver) {
+public class StatisticPage extends PageTemplate {
+    public StatisticPage(WebDriver driver) {
         super(driver);
         driver.manage().window().fullscreen();
     }
@@ -22,20 +22,6 @@ public class IncidentPage extends PageTemplate {
     private WebElement mainDom;
     public WebElement getMainDom(){
         return mainDom;
-    }
-
-//    @FindBy(className = "CodeMirror-code")
-    @FindBy(xpath = "//input[@yotta-test='incident-query-input']")
-    private WebElement searchInput;
-
-    public WebElement getSearchInput() {
-        ExpectedCondition expectedCondition = ExpectedConditions.elementToBeClickable(searchInput);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
-        return searchInput;
-    }
-
-    public WebElement getSearchButton() {
-        return super.getButton("搜索");
     }
 
     public WebElement getClearButton(){
@@ -105,15 +91,9 @@ public class IncidentPage extends PageTemplate {
         return element;
     }
 
-    public WebElement getExecuteButton() {
-        return super.getButton("执行");
-    }
+    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
+    private WebElement searchNameInput;
 
-    public WebElement getExecuteRet() {
-        String xpath ="//div/p[contains(text(),'执行结果:')]/following-sibling::pre";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        return element;
-    }
-
+    public WebElement getSearchNameInput() { return searchNameInput; }
 
 }

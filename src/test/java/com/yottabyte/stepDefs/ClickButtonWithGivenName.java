@@ -712,78 +712,145 @@ public class ClickButtonWithGivenName {
         }
     }
 
+    /**
+     * 在更多操作中寻找双层列表中的子列表项
+     *
+     * @param subDataName 子列表项
+     * @param buttonName  父列表项
+     */
+    @When("^in incident page i click the \"([^\"]*)\" and \"([^\"]*)\" button in more menu$")
+    public void clickButtonInMoreMenuOnIncidentPage(String buttonName, String subDataName) {
+            try {
+                WebElement button = webDriver.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
+                ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
+                WebElement lastMenuList = dropdownUtils.getIncidentPageMoreMenuList();
+                List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
+                if (buttonName != null && buttonName.trim().length() != 0) {
+                    for (WebElement e : elements) {
+                        ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+                        if (buttonName.equals(e.getText())) {
+                            e.click();
+                            break;
+                        }
+                    }
+                }
+
+                WebElement lastSubMenuList = dropdownUtils.getIncidentPageMoreMenuSubList();
+                List<WebElement> subElements = lastSubMenuList.findElements(By.tagName("span"));
+                if (subDataName != null && subDataName.trim().length() != 0) {
+                    for (WebElement subE : subElements) {
+                        ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", subE);
+                        if (subDataName.equals(subE.getText())) {
+                            subE.click();
+                            break;
+                        }
+                    }
+                }
+
+            } catch (org.openqa.selenium.StaleElementReferenceException exception) {
+                WebElement button = webDriver.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
+                ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
+                WebElement lastMenuList = dropdownUtils.getIncidentPageMoreMenuList();
+                List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
+                if (buttonName != null && buttonName.trim().length() != 0) {
+                    for (WebElement e : elements) {
+                        ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+                        if (buttonName.equals(e.getText())) {
+                            e.click();
+                            break;
+                        }
+                    }
+                }
+
+                WebElement lastSubMenuList = dropdownUtils.getIncidentPageMoreMenuSubList();
+                List<WebElement> subElements = lastSubMenuList.findElements(By.tagName("span"));
+                if (subDataName != null && subDataName.trim().length() != 0) {
+                    for (WebElement subE : subElements) {
+                        ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", subE);
+                        if (subDataName.equals(subE.getText())) {
+                            subE.click();
+                            break;
+                        }
+                    }
+                }
+
+            }
+    }
 
     /**
-     * 在更多操作中寻找对应名称的操作按钮并点击
+     * 在更多操作中寻找双层列表中的子列表项
      *
-     * @param subDataName 字符串：第一列所要匹配的名称，json：{'column':'start from 0','name':''}
-     * @param buttonName  按钮名称
+     * @param subDataName 子列表项
+     * @param buttonName  父列表项
      */
-    @When("^the incident page \"([^\"]*)\" then i click the \"([^\"]*)\" button in more menu$")
-    public void clickButtonInMoreMenuWithGivenIncidentPage(String subDataName, String buttonName) {
-        try {
-//          WebElement tr = listPageUtils.getRow(dataName);
-            WebElement button = webDriver.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-            WebElement lastMenuList = dropdownUtils.getIncidentMenuList();
-            List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
-            if (buttonName != null && buttonName.trim().length() != 0) {
-                for (WebElement e : elements) {
-                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
-                    if (buttonName.equals(e.getText())) {
-                        e.click();
-                        break;
+    @When("^in incident page i click 10 times the \"([^\"]*)\" and \"([^\"]*)\" button in more menu$")
+    public void clickButtonInMoreMenuWithGivenIncidentPage(String buttonName, String subDataName) {
+        WebElement table = pagingInfo.getTableList().get(0);
+        List<WebElement> trList = table.findElements(By.tagName("tr"));
+        for (WebElement tr : trList)
+        {
+            try {
+                WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
+                ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
+                WebElement lastMenuList = dropdownUtils.getIncidentPageMoreMenuList();
+                List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
+                if (buttonName != null && buttonName.trim().length() != 0) {
+                    for (WebElement e : elements) {
+                        ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+                        if (buttonName.equals(e.getText())) {
+                            e.click();
+                            break;
+                        }
                     }
                 }
-            }
 
-            WebElement lastSubMenuList = dropdownUtils.getIncidentSubMenuList();
-            List<WebElement> subElements = lastSubMenuList.findElements(By.tagName("span"));
-            if (subDataName != null && subDataName.trim().length() != 0) {
-                for (WebElement subE : subElements) {
-                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", subE);
-                    if (subDataName.equals(subE.getText())) {
-                        subE.click();
-                        break;
+                WebElement lastSubMenuList = dropdownUtils.getIncidentPageMoreMenuSubList();
+                List<WebElement> subElements = lastSubMenuList.findElements(By.tagName("span"));
+                if (subDataName != null && subDataName.trim().length() != 0) {
+                    for (WebElement subE : subElements) {
+                        ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", subE);
+                        if (subDataName.equals(subE.getText())) {
+                            subE.click();
+                            break;
+                        }
                     }
                 }
-            }
 
-        } catch (org.openqa.selenium.StaleElementReferenceException exception) {
-//          WebElement tr = listPageUtils.getRow(dataName);
-            WebElement button = webDriver.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-            WebElement lastMenuList = dropdownUtils.getIncidentMenuList();
-            List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
-            if (buttonName != null && buttonName.trim().length() != 0) {
-                for (WebElement e : elements) {
-                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
-                    if (buttonName.equals(e.getText())) {
-                        e.click();
-                        break;
+            } catch (org.openqa.selenium.StaleElementReferenceException exception) {
+                WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
+                ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
+                WebElement lastMenuList = dropdownUtils.getIncidentPageMoreMenuList();
+                List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
+                if (buttonName != null && buttonName.trim().length() != 0) {
+                    for (WebElement e : elements) {
+                        ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+                        if (buttonName.equals(e.getText())) {
+                            e.click();
+                            break;
+                        }
                     }
                 }
-            }
 
-            WebElement lastSubMenuList = dropdownUtils.getIncidentSubMenuList();
-            List<WebElement> subElements = lastSubMenuList.findElements(By.tagName("span"));
-            if (subDataName != null && subDataName.trim().length() != 0) {
-                for (WebElement subE : subElements) {
-                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", subE);
-                    if (subDataName.equals(subE.getText())) {
-                        subE.click();
-                        break;
+                WebElement lastSubMenuList = dropdownUtils.getIncidentPageMoreMenuSubList();
+                List<WebElement> subElements = lastSubMenuList.findElements(By.tagName("span"));
+                if (subDataName != null && subDataName.trim().length() != 0) {
+                    for (WebElement subE : subElements) {
+                        ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", subE);
+                        if (subDataName.equals(subE.getText())) {
+                            subE.click();
+                            break;
+                        }
                     }
                 }
-            }
 
+            }
         }
     }
+
     /**
      * 隐藏元素
      *
      */
-
     @And("^I hide the time picker popover$")
     public void hideItemDisplaying() {
         String str_selector = "[class='yotta-popover css-1shj747 yotta-time-picker-popover']";

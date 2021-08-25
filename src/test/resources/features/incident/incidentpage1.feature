@@ -18,10 +18,12 @@ Feature: 事件管理界面_分页功能
 
     And I choose the "<everypage>" from the "EveryPageList"
     Given I wait for loading complete
+    And I wait for "2000" millsecond
     And I set the parameter "PaginationInput" with value "2"
     Given I wait for loading complete
     And I press the parameter "PaginationInput" with enter
     Given I wait for loading complete
+    And I wait for "2000" millsecond
     Then I will see the element "NameCell13" contains "<alertref>"
     Then I will see the every page "<everypage>" 条
     
