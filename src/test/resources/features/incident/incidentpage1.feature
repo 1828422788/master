@@ -17,14 +17,16 @@ Feature: 事件管理界面_分页功能
     Then I will see the element "NameCell13" contains "<alertref>"
 
     And I choose the "<everypage>" from the "EveryPageList"
+    Given I wait for loading complete
     And I set the parameter "PaginationInput" with value "2"
+    Given I wait for loading complete
     And I press the parameter "PaginationInput" with enter
     Given I wait for loading complete
     Then I will see the element "NameCell13" contains "<alertref>"
 
     Examples:
       | alertref         | everypage |
-      | api00_all_事件数描述项 | 10        |
+      | api00_all_事件数描述项 | 20        |
       | api00_all_事件数描述项 | 50        |
 
 
