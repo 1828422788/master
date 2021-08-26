@@ -215,7 +215,7 @@ Feature:3修改图表
       | 关系     | Connection| Chord        | Chord        | Red       |           |             |         |
       | 关系     | Connection| Sankey       | Sankey       | Yellow    |           |             |         |
       | 关系     | Connection| Sankey       | Sankey_Mult  | Red       |           | Multistage  |         |
-      | 关系     | Connection| Force        | Force        | Green     | 50        |             | Repulsion|
+      | 关系     | Connection| Force        | Force        | Green     | 20        |             | Repulsion|
 
   Scenario Outline: 修改图表_区间图
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
