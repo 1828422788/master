@@ -566,6 +566,8 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getFinishButton() {
+        if (webDriver.findElements(By.xpath("//span[text()='布局设计']/ancestor::div/following-sibling::div//span[text()='1']")).size()==0 && webDriver.findElements(By.xpath("//span[text()='布局设计']")).size()==1)
+            getLayout1().click();
         return getYottaButtonByText("完成");
     }
 
