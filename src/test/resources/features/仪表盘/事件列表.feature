@@ -364,7 +364,6 @@ Feature: 仪表盘1事件列表
     And I click the "ChengDuShi" button
     And switch to another window
     And I will see the "splSearch.SearchPage" page
-#    Then I will see the element "SearchInput" name is "apache.geo.city:成都市 AND 'apache.geo.city':成都市"
     Then I will see the "SearchInput" result will be "apache.geo.city:成都市 AND 'apache.geo.city':成都市"
 
   @dashboard @dashboardSmoke
