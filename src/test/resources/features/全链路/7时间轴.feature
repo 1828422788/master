@@ -156,7 +156,7 @@ Feature: 全链路_7时间轴
 
     Examples:
       | name              |
-#      | AutoTest_TimeAxis |
+      | AutoTest_TimeAxis |
       | AutoTest_1        |
 
   Scenario:时间轴显示
