@@ -1,4 +1,4 @@
-@incident @cruxee
+@cruxee
 Feature: 事件管理-合并策略-5个
 
   @newcru1 @newcru
