@@ -139,7 +139,7 @@ Feature: 日志展现_普通统计视图
     Examples:
       | fieldValue           | start1 | end1   | start2  |end2    | start3 | end3 | caseNum            | tooltip1     | tooltip2     |
       | apache.resp_len      |1       | 100    | 100     | 500    |500     | 10000| 814_数值分段_整数  | count : 220  | 1 - 100      |
-      | apache.geo.latitude  |0       | 22.5   | 22.5    | 32.05  |32.05   | 39.90| 3137_数值分段_实数 | count : 120  | 22.5 - 32.05 |
+      | apache.geo.latitude  |0       | 22.5   | 22.5    | 32.05  |32.05   | 39.90| 3137_数值分段_实数 | count : 1    | 22.5         |
 
 
   Scenario Outline: timehistogram(RZY-815)

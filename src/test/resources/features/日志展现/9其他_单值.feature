@@ -275,9 +275,12 @@ Feature: 日志展现_其他_单值
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I choose the "cnt_2" from the "NumericField" in config
+    And I wait for "1000" millsecond
     And I choose the "time" from the "DisplayField" in config
+    And I wait for "1000" millsecond
     And I click the "Sparkline" button
     And I choose the "ts" from the "SparklineField" in config
+    And I wait for "1000" millsecond
     And I click the "Facet" button
     And I choose the "apache.method" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "1"
@@ -286,6 +289,7 @@ Feature: 日志展现_其他_单值
     And I click the "AccordingArea" button
     And I wait for "1000" millsecond
     And I set the parameter "FontSize" with value "80"
+    And I wait for "1000" millsecond
     And I click the "AddRange" button
     And I set the parameter "MinRange" with value "1"
     And I set the parameter "MaxRange" with value "7"

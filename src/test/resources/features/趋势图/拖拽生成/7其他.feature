@@ -173,7 +173,7 @@ Feature: 趋势图_拖拽_其他
     And I click the "Exhibition" button
     And I wait for "1000" millsecond
     And I choose the "2" from the "Precision"
-    And I set the parameter "FontSize" with value "<size>" using step buttons
+    And I set the parameter "FontSize" with value "80" using step buttons
 
     And I wait for "AddColorSingleChart" will be visible
     And I click the "AddColorSingleChart" button
@@ -220,7 +220,7 @@ Feature: 趋势图_拖拽_其他
 
     Examples:
       |  chartType | size | position  | tab          | button        | field      | text               | color  | content     | style             |
-      |  Single    | 80   | After     | Icon         | AccordingName | IconName   | font-awesome-flag  | Green  | 个          | rgb(50, 194, 125) |
+      |  Single    | 36   | After     | Icon         | AccordingName | IconName   | font-awesome-flag  | Green  | 个          | rgb(50, 194, 125) |
       |  Single    | 80   | Before    | SecondTitle  |               | TitleName  |  二级title         | Purple | 4,448.09    | rgb(161, 20, 249) |
 
   Scenario Outline: drag_and_drop_single5
