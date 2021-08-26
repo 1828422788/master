@@ -85,7 +85,7 @@ Feature: 导入监控用例，新建sslldap配置
 
 
   @onalertpre00
-  Scenario Outline: 启用
+  Scenario Outline: 启用监控
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading complete
     When I set the parameter "AlertListSearchInput" with value "<name>"

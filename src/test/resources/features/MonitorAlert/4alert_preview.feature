@@ -31,10 +31,11 @@ Feature:监控预览
 
     When I click the "MailPreviewButton" button
     Given I wait for loading complete
-    And I wait for "20000" millsecond
+    And I wait for "30000" millsecond
 
     And I wait for element "PreviewReminder" change text to "提示"
     Then take a screenshot with name "actual/preview_<name>"
+    Given I wait for loading complete
     And I wait for element "PreviewAlertReminderText" change text to "<name>"
 
     Given I wait for loading complete
