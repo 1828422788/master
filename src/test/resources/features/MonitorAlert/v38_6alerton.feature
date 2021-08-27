@@ -1,30 +1,19 @@
 @alertcase @onalert
 Feature: 监控启用
 
-  Background:
-    Given open the "alert.ListPage" page for uri "/alerts/"
-#    And I wait for "3000" millsecond
-    And I wait for loading invisible
-
-  @bvtalert
-  Scenario Outline: 启用高优先级用例
-    Given open the "alert.ListPage" page for uri "/alerts/"
-#   And I wait for "3000" millsecond
+  @bvtalert00
+  Scenario Outline: 执行
+    Given open the "system.CustomConfigs" page for uri "/system/"
     And I wait for loading complete
-    When I set the parameter "AlertListSearchInput" with value "<name>"
-    Given I wait for loading complete
+    When I click the "MailServerSet" button
+    And I wait for loading complete
+    When I set the parameter "EmailPassword" with value "<EmailPassword>"
     And I wait for "3000" millsecond
-
-    When the data name is "{'column':'1','name':'<name>'}" then I "open" the switch
-    Given I wait for loading complete
-    And I wait for "3000" millsecond
-
-    Then I will see the element "{'column':'1','name':'<name>'}" is "open"
+    When I set the parameter "EmailLogName" with value "sender"
 
     Examples:
-      | name                |
-      | api00_incident界面用例1 |
-      | api00_incident界面用例2 |
+      | EmailPassword    |
+      | RTQGPNDFYLCFBAFD |
 
   @onalert0
   Scenario Outline: 启用高优先级用例
