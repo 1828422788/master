@@ -27,6 +27,7 @@ Feature: 报表新建_编辑_序列word
     And I click the "<typeChart>" button
 
     When I click the "ParameterSetting" button
+    And I wait for "FieldValue" will be visible
     And I set the parameter "FieldValue" with value "apache.clientip"
     And I click the "<label>" button
     And I click the "<order>" button
@@ -74,6 +75,7 @@ Feature: 报表新建_编辑_序列word
     And I click the "<typeChart>" button
 
     When I click the "ParameterSetting" button
+    And I wait for "FieldValue" will be visible
     And I set the parameter "FieldValue" with value "apache.clientip"
     And I click the "<label>" button
     And I click the "<order>" button
@@ -121,6 +123,7 @@ Feature: 报表新建_编辑_序列word
     And I click the "<typeChart>" button
 
     When I click the "ParameterSetting" button
+    And I wait for "FieldValue" will be visible
     And I set the parameter "FieldValue" with value "apache.clientip"
     And I click the "<label>" button
     And I click the "Yaxis" button
