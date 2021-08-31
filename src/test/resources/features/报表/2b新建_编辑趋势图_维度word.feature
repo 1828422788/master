@@ -28,6 +28,7 @@ Feature: 报表新建_编辑_维度word
     And I click the "<typeChart>" button
 
     When I click the "ParameterSetting" button
+    And I wait for "FieldValue" will be visible
     And I set the parameter "FieldValue" with value "ip_count"
 
     And I click the "Divide" button
@@ -71,6 +72,7 @@ Feature: 报表新建_编辑_维度word
     And I click the "<typeChart>" button
 
     When I click the "ParameterSetting" button
+    And I wait for "FieldValue" will be visible
     And I set the parameter "FieldValue" with value "count()"
 
     And I click the "Divide" button
@@ -114,6 +116,7 @@ Feature: 报表新建_编辑_维度word
     And I click the "<typeChart>" button
 
     When I click the "ParameterSetting" button
+    And I wait for "FieldValue" will be visible
     And I set the parameter "FieldValue" with value "ip_count"
 
     And I click the "Divide" button

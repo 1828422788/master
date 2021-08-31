@@ -28,6 +28,7 @@ Feature: 报表新建_编辑_关系
     And I click the "<typeChart>" button
 
     When I click the "ParameterSetting" button
+    And I wait for "FieldValue" will be visible
     And I set the parameter "FieldValue" with value "<source>"
 
     And I click the "Target" button
@@ -78,6 +79,7 @@ Feature: 报表新建_编辑_关系
     And I click the "<typeChart>" button
 
     When I click the "ParameterSetting" button
+    And I wait for "FieldValue" will be visible
     And I set the parameter "FieldValue" with value "<source>"
 
     And I click the "Target" button
@@ -128,6 +130,7 @@ Feature: 报表新建_编辑_关系
     And I click the "<typeChart>" button
 
     When I click the "ParameterSetting" button
+    And I wait for "FieldValue" will be visible
     And I set the parameter "FieldValue" with value "fromstate"
 
     And I click the "Target" button

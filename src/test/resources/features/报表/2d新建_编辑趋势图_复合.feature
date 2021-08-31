@@ -73,6 +73,7 @@ Feature: 报表新建_编辑_复合
 
     When I click the "ParameterSetting" button
     And I click the "Xaxis" button
+    And I wait for "FieldValue" will be visible
     And I set the parameter "FieldValue" with value "apache.resp_len"
     And I click the "FirstLabel" button
     And I click the "AscendingOrder" button
@@ -149,6 +150,7 @@ Feature: 报表新建_编辑_复合
 
     When I click the "ParameterSetting" button
     And I click the "Xaxis" button
+    And I wait for "FieldValue" will be visible
     And I set the parameter "FieldValue" with value "apache.resp_len"
     And I click the "FirstLabel" button
     And I click the "AscendingOrder" button
