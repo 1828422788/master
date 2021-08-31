@@ -2,7 +2,7 @@
 Feature: 事件管理界面
 
   @statistic1
-  Scenario Outline: 标记为-已解决高级
+  Scenario Outline: 标记为-已解决、高级告警，admin用户
     Given open the "incident.IncidentPage" page for uri "/app/incident/"
     Given I wait for loading complete
     And I wait for "2000" millsecond
@@ -19,7 +19,7 @@ Feature: 事件管理界面
       | api00_all_事件数描述项 |
 
   @statistic21
-  Scenario Outline: 负责人-Derek
+  Scenario Outline: 负责人-Leibniz
     Given open the "incident.IncidentPage" page for uri "/app/incident/"
     Given I wait for loading complete
     And I wait for "2000" millsecond
@@ -38,7 +38,7 @@ Feature: 事件管理界面
 
 
   @statistic22
-  Scenario Outline:
+  Scenario Outline:标记为-已解决、中级告警，用户-Leibniz
     Given open the "incident.IncidentPage" page for uri "/app/incident/"
     Given I wait for loading complete
     And I wait for "2000" millsecond
@@ -82,7 +82,7 @@ Feature: 事件管理界面
 
 
   @statistic32
-  Scenario Outline:
+  Scenario Outline:标记为-已解决、高级告警，用户-Derek
     Given open the "incident.IncidentPage" page for uri "/app/incident/"
     Given I wait for loading complete
     And I wait for "2000" millsecond
@@ -126,7 +126,7 @@ Feature: 事件管理界面
 
 
   @statistic42
-  Scenario Outline:
+  Scenario Outline:标记为-已解决、高级告警，用户-钟阿城
     Given open the "incident.IncidentPage" page for uri "/app/incident/"
     Given I wait for loading complete
     And I wait for "2000" millsecond
@@ -150,7 +150,7 @@ Feature: 事件管理界面
       | api00_incident界面用例1描述项 |
 
   @statistic5
-  Scenario Outline:
+  Scenario Outline: 3个解决高级告警用户
     Given open the "incident.StatisticPage" page for uri "/app/incident/workload"
     Given I wait for loading complete
     And I wait for "2000" millsecond
@@ -165,3 +165,4 @@ Feature: 事件管理界面
       | name  | num |
       | admin | 19  |
       | Derek | 9   |
+      | 钟阿城   | 9   |
