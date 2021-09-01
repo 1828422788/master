@@ -315,8 +315,10 @@ Feature: 趋势图_拖拽_其他
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | eval value1 = apache.resp_len/5000 | eval value2 = apache.resp_len/10000 | stats avg(value1),avg(value2)"
     When I click the "CloseSPL" button
-    And I will see the text "展示数据" exist in page
-    And I will see the text "对比数据" exist in page
+    And I will see the text "avg(value1)" exist in page
+    And I will see the text "avg(value2)" exist in page
+    And I will see the text "展示数据" is not existed in page
+    And I will see the text "对比数据" is not existed in page
     Then I wait for "Chart" will be visible
     And I wait for "<chartType>Element_1" will be visible
     And I will see the element "<chartType>Element_1" contains "65.3%"
@@ -344,6 +346,10 @@ Feature: 趋势图_拖拽_其他
     And I will see the element "ChartName" contains "拖拽_<chartType>_1"
     Then I will see the "trend.CreatePage" page
     And I wait for "<chartType>Element_1" will be visible
+    And I will see the text "展示数据" is not existed in page
+    And I will see the text "对比数据" is not existed in page
+    And I will see the text "avg(value1)" exist in page
+    And I will see the text "avg(value2)" exist in page
     And I will see the element "<chartType>Element_1" contains "65.3%"
     And I will see the element "<chartType>Element_2" contains "28.2%"
 
@@ -407,8 +413,10 @@ Feature: 趋势图_拖拽_其他
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | eval value1 = apache.resp_len/5000 | eval value2 = apache.resp_len/10000 | stats avg(value1),avg(value2)"
     When I click the "CloseSPL" button
-    And I will see the text "展示数据" exist in page
-    And I will see the text "对比数据" exist in page
+    And I will see the text "展示数据" is not existed in page
+    And I will see the text "对比数据" is not existed in page
+    And I will see the text "avg(value1)" exist in page
+    And I will see the text "avg(value2)" exist in page
     Then I wait for "Chart" will be visible
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_2"
