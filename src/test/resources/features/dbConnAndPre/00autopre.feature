@@ -100,6 +100,6 @@ Feature: 导入监控用例，新建sslldap配置
     Examples:
       | name          |
       | api00_all_事件数 |
-      | api00_事件管理用例1 |
-      | api00_事件管理用例2 |
-      | api00_事件管理用例3 |
+      | api00_incident界面用例1 |
+      | api00_incident界面用例2 |
+      | api00_incident界面用例3 |
