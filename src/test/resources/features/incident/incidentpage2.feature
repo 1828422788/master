@@ -15,7 +15,11 @@ Feature: 事件管理界面_查看功能
     When in incident page i click the "查看合并策略" button in more menu
     Given I wait for loading complete
     Given open the "incident.CruxeePolicyPage" page
-    Then I will see the "CruxeePolicyName" result will be "事件样例name分组"
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
+    And switch to window "编辑合并策略"
+    And I close all tabs except main tab
+    Then I will see the input element "CruxeePolicyName" value will be "事件样例name分组"
 
     Examples:
       | alertref               |

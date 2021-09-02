@@ -106,7 +106,7 @@ public class OperateBrowser {
     }
 
     /**
-     * 把屏幕放大到全屏
+     * 放大屏幕到全屏
      */
     @And("^I zoom the browse to full screen$")
     public void zoomBrowsetoFullScreen() {
