@@ -1,7 +1,7 @@
-@cruxee1 @alertsearch
+@incident @alertsearch
 Feature: 告警搜索界面
 
-  @alertsearch1 @incident
+  @alertsearch1
   Scenario Outline: 搜索当天数据
     Given open the "incident.AlertSearchPage" page for uri "/app/incident/alertsearch/"
     Given I wait for loading complete
