@@ -57,7 +57,6 @@ Feature: 导入监控用例，新建sslldap配置
       | NewLdapConnName  | NewBaseDName      | NewLdapHost   | NewLdapConnPort | NewBindDnName              | LdapUserPassword |
       | ldpconnsamplessl | dc=example,dc=org | 192.168.1.221 | 636             | cn=admin,dc=example,dc=org | admin            |
 
-
   @newresourcetag
   Scenario Outline: 创建宏，目的是创建一个资源标签，供UI自动化使用
     Given open the "macroSearch.ListPage" page for uri "/macro/"
@@ -82,24 +81,3 @@ Feature: 导入监控用例，新建sslldap配置
     Examples: 新建成功
       | name        | definition         | validateExpression | validateFalseInfo |
       | resourcetag | tag:sample04061424 |                    |                   |
-
-
-  @onalertpre00
-  Scenario Outline: 启用监控
-    Given open the "alert.ListPage" page for uri "/alerts/"
-    And I wait for loading complete
-    When I set the parameter "AlertListSearchInput" with value "<name>"
-    And I wait for "3000" millsecond
-
-    When the data name is "{'column':'1','name':'<name>'}" then I "open" the switch
-    And I wait for "3000" millsecond
-    And I wait for loading complete
-
-    Then I will see the element "{'column':'1','name':'<name>'}" is "open"
-
-    Examples:
-      | name          |
-      | api00_all_事件数 |
-      | api00_incident界面用例1 |
-      | api00_incident界面用例2 |
-      | api00_incident界面用例3 |
