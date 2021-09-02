@@ -34,6 +34,8 @@ Feature: 趋势图删除（RZY-1891）
     @cleanTrendDimension
     Examples:
       | name                                     |
+      | Pie_3                                    |
+      | Pie_2                                    |
       | Flame_DrillOut_分面                      |
       | Flame_DrillIn                            |
       | Sun_分面                                 |

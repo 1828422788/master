@@ -125,6 +125,8 @@ Feature:趋势图添加到仪表盘保存为报表
       | 维度     | Pie          | Pie_不展示                      |
       | 维度     | Pie          | Pie_只展示名称                  |
       | 维度     | Pie          | Pie_全部展示                    |
+      | 维度     | Pie          | Pie_2                           |
+      | 维度     | Pie          | Pie_3                           |
       | 维度     | Rose         | Rose_2858                       |
       | 维度     | Rose         | Rose_不展示                     |
       | 维度     | Rose         | Rose_只展示名称                 |

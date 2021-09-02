@@ -123,6 +123,8 @@ Feature: 展示趋势图
     @viewTrendDimension @trendView
     Examples:
       | name                                     |   element            |
+      | Pie_3                                    | PieElement           |
+      | Pie_2                                    | PieElement           |
       | Flame_DrillOut_分面                      | FlameElement         |
       | Flame_DrillIn                            | FlameElement         |
       | Sun_分面                                 | SunElement           |
