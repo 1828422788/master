@@ -22,6 +22,7 @@ Feature: 告警搜索界面
       | alertname     |
       | api00_all_事件数 |
 
+    #+号，展开全部，summary:   api00_all_事件数描述项;appname:   alertcef;custom_info.alert_name:   api00_all_事件数;agent:   rizhiyi
 
   @alertsearch2
   Scenario Outline: 搜索当天数据
