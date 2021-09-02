@@ -66,6 +66,7 @@ Feature: 趋势图新建_维度
     And I click the "Type" button under some element
     And I click the "Dimension" button under some element
     And I click the "<chartType>" button under some element
+    And I click the "Type" button
     And I click the "Settings" button under some element
     And I click the "Exhibition" button
     And I click the "AddColor" button
@@ -115,6 +116,7 @@ Feature: 趋势图新建_维度
     And I click the "Type" button under some element
     And I click the "Dimension" button under some element
     And I click the "<chartType>" button under some element
+    And I click the "Type" button
     And I click the "Settings" button under some element
     And I click the "Exhibition" button
     And I click the "AddColor" button
@@ -159,6 +161,7 @@ Feature: 趋势图新建_维度
     And I click the "Type" button under some element
     And I click the "Dimension" button under some element
     And I click the "<chartType>" button under some element
+    And I click the "Type" button
 
     And I click the "Settings" button under some element
     And I click the "Facet" button
@@ -204,6 +207,7 @@ Feature: 趋势图新建_维度
     And I click the "Type" button under some element
     And I click the "Dimension" button under some element
     And I click the "<chartType>" button under some element
+    And I click the "Type" button
 
     And I click the "Settings" button under some element
     And I click the "Divide" button
@@ -249,6 +253,7 @@ Feature: 趋势图新建_维度
     And I click the "Type" button under some element
     And I click the "Dimension" button under some element
     And I click the "<chartType>" button under some element
+    And I click the "Type" button
     And I click the "Settings" button under some element
     And I click the "Divide" button
     And I click the "DeleteFirst" button
@@ -308,6 +313,7 @@ Feature: 趋势图新建_维度
     And I click the "Type" button under some element
     And I click the "Dimension" button under some element
     And I click the "<chartType>" button under some element
+    And I click the "Type" button
     And I click the "Settings" button under some element
     And I click the "Divide" button
     And I click the "DeleteFirst" button
@@ -342,3 +348,45 @@ Feature: 趋势图新建_维度
     Examples:
       |   chartType   |  option    |
       |      Flame    | DrillOut   |
+
+  Scenario Outline: dimension_pie_ratio
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5"
+    And I wait for "1000" millsecond
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button under some element
+
+    And I wait for "Type" will be visible
+    And I click the "Type" button under some element
+    And I click the "Dimension" button under some element
+    And I click the "<chartType>" button under some element
+    And I click the "Type" button
+    And I click the "Settings" button under some element
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "<color>" button
+    And I wait for "1000" millsecond
+    And I set the parameter "SegmentsNumber" with value "<segments_num>"
+    And I set the parameter "RatioInnerToOuter" with value "<ratio>"
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "2000" millsecond
+    And I will see the text "其他" exist in page
+    And I will see the text "<client_ip>" is not existed in page
+    And I move the mouse pointer to the "Type"
+    And I wait for "2000" millsecond
+    And take part of "StatisticalChart" with name "actual/<chartType>_<segments_num>_<ratio>"
+    And I compare source image "actual/<chartType>_<segments_num>_<ratio>" with target image "expect/<chartType>_<segments_num>_<ratio>"
+    Then I click the "NextButton" button under some element
+
+    When I set the parameter "NameInput" with value "<chartType>_<segments_num>"
+    And I set the parameter "DescribeInput" with value "AutoCreate_<ratio>"
+    And I click the "Complete" button under some element
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      |   chartType   | color  | segments_num | ratio | client_ip      |
+      |      Pie      | Red    | 2            | 0.9   | 183.14.126.214 |
+      |      Pie      | Green  | 3            | 0     | 1.207.60.51    |

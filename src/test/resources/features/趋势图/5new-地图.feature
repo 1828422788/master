@@ -67,6 +67,7 @@ Feature: 趋势图新建_地图
     And I click the "Type" button
     And I click the "Map" button
     And I click the "<chartType>" button
+    And I click the "Type" button
     And I click the "Settings" button
     And I click the "Source" button
     And I choose the "clientlat" from the "FieldLatitude" in config
@@ -128,6 +129,7 @@ Feature: 趋势图新建_地图
     And I click the "Type" button
     And I click the "Map" button
     And I click the "<chartType>" button
+    And I click the "Type" button
     And I click the "Settings" button
     And I click the "Divide" button
     And I click the "DeleteLast" button
@@ -212,6 +214,7 @@ Feature: 趋势图新建_地图
     And I click the "Type" button
     And I click the "Map" button
     And I click the "<chartType>" button
+    And I click the "Type" button
     And I click the "Settings" button
     And I click the "Value" button
     And I choose the "count()" from the "FieldValue" in config
@@ -261,6 +264,7 @@ Feature: 趋势图新建_地图
     And I click the "Type" button
     And I click the "Map" button
     And I click the "<chartType>" button
+    And I click the "Type" button
 
     And I click the "Settings" button
     And I click the "Facet" button
@@ -302,6 +306,7 @@ Feature: 趋势图新建_地图
     And I click the "Type" button
     And I click the "Map" button
     And I click the "<chartType>" button
+    And I click the "Type" button
 
     And I click the "Settings" button
     And I click the "Facet" button

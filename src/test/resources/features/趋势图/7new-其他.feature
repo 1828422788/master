@@ -114,6 +114,7 @@ Feature: 趋势图新建_其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
 
     And I click the "Settings" button
     And I click the "Facet" button
@@ -154,6 +155,7 @@ Feature: 趋势图新建_其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
     And I click the "Settings" button
     And I click the "Icon" button
     And I click the "AccordingField" button
@@ -245,6 +247,7 @@ Feature: 趋势图新建_其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
     And I click the "Settings" button
     And I click the "Exhibition" button
     And I click the "AccordingTrend" button
@@ -288,6 +291,7 @@ Feature: 趋势图新建_其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
     And I click the "Settings" button
     And I choose the "cnt" from the "NumericField" in config
     And I click the "Exhibition" button
@@ -342,6 +346,7 @@ Feature: 趋势图新建_其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
     And I click the "Settings" button
     And I choose the "data" from the "NumericField" in config
     And I choose the "name" from the "DisplayField" in config
@@ -391,6 +396,8 @@ Feature: 趋势图新建_其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I choose the "count()" from the "NumericField" in config
     And I choose the "time" from the "DisplayField" in config
@@ -439,6 +446,8 @@ Feature: 趋势图新建_其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I choose the "count()" from the "NumericField" in config
     And I choose the "time" from the "DisplayField" in config
@@ -494,6 +503,8 @@ Feature: 趋势图新建_其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I choose the "cnt_2" from the "NumericField" in config
     And I choose the "time" from the "DisplayField" in config
@@ -557,6 +568,8 @@ Feature: 趋势图新建_其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I choose the "count_perc" from the "FieldValue" in config
     And I click the "Exhibition" button
@@ -596,6 +609,8 @@ Feature: 趋势图新建_其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I choose the "count_perc" from the "FieldValue" in config
     And I click the "Compare" button
@@ -650,6 +665,8 @@ Feature: 趋势图新建_其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I choose the "count_perc" from the "FieldValue" in config
     And I click the "Compare" button
@@ -694,6 +711,8 @@ Feature: 趋势图新建_其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I choose the "count_perc" from the "FieldValue" in config
     And I click the "Compare" button
@@ -759,6 +778,8 @@ Feature: 趋势图新建_其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I choose the "cnt_perc" from the "FieldValue" in config
     And I click the "Exhibition" button
@@ -811,6 +832,8 @@ Feature: 趋势图新建_其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I choose the "cnt" from the "FieldValue" in config
     And I click the "Facet" button
@@ -854,6 +877,8 @@ Feature: 趋势图新建_其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I click the "Divide" button
     And I click the "DeleteLast" button
@@ -898,6 +923,8 @@ Feature: 趋势图新建_其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I wait for "1000" millsecond
     And I click the "Settings" button
     And I click the "Value" button
@@ -942,6 +969,8 @@ Feature: 趋势图新建_其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I click the "Xaxis" button
     And I choose the "<xValue>" from the "FieldValue" in config
@@ -995,6 +1024,8 @@ Feature: 趋势图新建_其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I choose the "<function>" from the "Function" in config
     And I choose the "<parentIDvalue>" from the "ParentId" in config
@@ -1061,6 +1092,8 @@ Feature: 趋势图新建_其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I click the "TimeSequence" button
     And I choose the "<timeSeq>" from the "FieldValue" in config
@@ -1151,6 +1184,8 @@ Feature: 趋势图新建_其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
+
     And I click the "Settings" button
     And I choose the "<function>" from the "Function" in config
     And I choose the "<parentIDvalue>" from the "ParentId" in config
@@ -1215,6 +1250,7 @@ Feature: 趋势图新建_其他
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I click the "Type" button
 
     And I click the "Settings" button
     And I click the "Indicators" button
