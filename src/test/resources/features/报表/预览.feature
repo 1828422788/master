@@ -50,7 +50,8 @@ Feature: 报表_预览_all
       |   Attackmap_China    |
       |   Regionmap_World    |
       |   Regionmap_China    |
-      |   Regionmap_Jiangsu  |
+      |   Regionmap_Jiangsu_1|
+      |   Regionmap_Jiangsu_2|
       |   Single             |
       |   Single_icon        |
       |   Single_range_backgr|
@@ -109,7 +110,8 @@ Feature: 报表_预览_all
       |   Attackmap_China    |
       |   Regionmap_World    |
       |   Regionmap_China    |
-      |   Regionmap_Jiangsu  |
+      |   Regionmap_Jiangsu_1|
+      |   Regionmap_Jiangsu_2|
       |   Single             |
       |   Single_icon        |
       |   Single_font        |
@@ -167,7 +169,8 @@ Feature: 报表_预览_all
       |   Attackmap_China    |
       |   Regionmap_World    |
       |   Regionmap_China    |
-      |   Regionmap_Jiangsu  |
+      |   Regionmap_Jiangsu_1|
+      |   Regionmap_Jiangsu_2|
       |   Single             |
 #      |   Single_icon        |
 #      |   Single_font        |

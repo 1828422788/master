@@ -99,7 +99,7 @@ Feature: 报表新建_编辑_地图word
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
-    And I set the parameter "TrendDescribeField" with value "<typeChart>"
+    And I set the parameter "TrendDescribeField" with value "<typeChart>_<descr>_<region>"
     And I set the value "<SPL>" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Map" button
@@ -111,6 +111,10 @@ Feature: 报表新建_编辑_地图word
     And I set the parameter "GroupField" with value "<divideField>" and press enter
     And I click the "Region" button
     And I click the "Select<region>" button
+    And I click the "Exhibition" button
+    And I wait for "1000" millsecond
+    And I click the "<option1>" button
+    And I click the "<option2>" button
     And I click the "GoingDown" button
     And I set the parameter "Province" with value "<province>"
     And I set the parameter "City" with value "<city>"
@@ -124,7 +128,8 @@ Feature: 报表新建_编辑_地图word
     And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
-      |  reportType |   typeChart |  name             |   divideField       |   province          |   city          |  region | SPL |
-      |  WORD       | Regionmap   | Regionmap_World   | apache.geo.country  |     无              |   无            |  World  | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
-      |  WORD       | Regionmap   | Regionmap_China   | apache.geo.province | apache.geo.province | apache.geo.city |  China  | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
-      |  WORD       | Regionmap   | Regionmap_Jiangsu | apache.geo.city     | apache.geo.city     | apache.geo.city |  Jiangsu| starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |  reportType |   typeChart |  name              |   divideField       |   province          |   city          | option1     | option2     | descr            | region  | SPL |
+      |  WORD       | Regionmap   | Regionmap_World    | apache.geo.country  |     无              |   无            | ShowBubbles |             | light_label      |  World  | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |  WORD       | Regionmap   | Regionmap_China    | apache.geo.province | apache.geo.province | apache.geo.city |             | ShowLabels  | dark_bubbles     |  China  | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |  WORD       | Regionmap   | Regionmap_Jiangsu_1| apache.geo.city     | apache.geo.city     | apache.geo.city | ShowBubbles | ShowLabels  | light_noLabel    |  Jiangsu| starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |  WORD       | Regionmap   | Regionmap_Jiangsu_2| apache.geo.city     | apache.geo.city     | apache.geo.city |             |             | dark_label_bubble|  Jiangsu| starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.city |
