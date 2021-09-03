@@ -177,6 +177,42 @@ Feature:3修改图表
       | 维度     | Dimension | Bar          | Bar   |  只展示名称   |  柱状外右侧    |   Red     |
       | 维度     | Dimension | Bar          | Bar   |  全部展示     |  柱状内靠左侧  |   Green   |
 
+  Scenario Outline: 修改图表_维度_火焰图
+    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I wait for "2000" millsecond
+    When I click the detail which name is "仪表盘_<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "LastTag" will be visible
+    And I wait for "500" millsecond
+    And I set the parameter "SearchTagInput" with value "<tag>"
+    And I wait for "500" millsecond
+    And I click the Element with text "<tag>"
+    And I wait for "2000" millsecond
+    And I click the "LastChartType" button under some element
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<folder>" will be visible
+    And I click the "<folder>" button
+    And I click the "<tag>" button
+    And I hide the element "Content"
+    And I wait for "1000" millsecond
+    And I click the "Setting" button under some element
+    And I click the "Divide" button
+    And I click the "DeleteFirst" button
+    And I click the "DeleteFirst" button
+    And I click the "Exhibition" button
+    And I click the "DrillIn" button
+    And I wait for "1000" millsecond
+    Then I click the "Generate" button
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
+    And I wait for "2000" millsecond
+
+    Examples:
+      | name     | folder    |  tag         | chart |
+      | 维度     | Dimension | Flame        | Flame |
+
   Scenario Outline: 修改图表_关系
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
     And I wait for "2000" millsecond
@@ -666,6 +702,75 @@ Feature:3修改图表
     Examples:
       | name | folder |  tag   | chart               |
       | 其他 | Other  | Single | Single_range_backgr |
+
+  Scenario Outline: 修改图表_其他_环形比例图1
+    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I wait for "2000" millsecond
+    When I click the detail which name is "仪表盘_<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "LastTag" will be visible
+    And I wait for "500" millsecond
+    And I set the parameter "SearchTagInput" with value "<tag>"
+    And I wait for "500" millsecond
+    And I click the Element with text "<tag>"
+    And I wait for "2000" millsecond
+    And I click the "LastChartType" button under some element
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<folder>" will be visible
+    And I click the "<folder>" button
+    And I click the "<tag>" button
+    And I hide the element "Content"
+    And I wait for "500" millsecond
+    And I click the "Setting" button
+    And I choose the "count_perc" from the "FieldValue" in config
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "Orange" button
+    And I wait for "1000" millsecond
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
+    And I wait for "2000" millsecond
+
+    Examples:
+      | name | folder |  tag   | chart         |
+      | 其他 | Other  | Ring   | Ring_oneField |
+
+  Scenario Outline: 修改图表_其他_环形比例图2
+    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I wait for "2000" millsecond
+    When I click the detail which name is "仪表盘_<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "LastTag" will be visible
+    And I wait for "500" millsecond
+    And I set the parameter "SearchTagInput" with value "<tag>"
+    And I wait for "500" millsecond
+    And I click the Element with text "<tag>"
+    And I wait for "2000" millsecond
+    And I click the "LastChartType" button under some element
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<folder>" will be visible
+    And I click the "<folder>" button
+    And I click the "<tag>" button
+    And I hide the element "Content"
+    And I wait for "500" millsecond
+    And I click the "Setting" button
+    And I choose the "count_perc" from the "FieldValue" in config
+    And I click the "Compare" button
+    And I choose the "count2_perc" from the "FieldValue" in config
+    And I wait for "1000" millsecond
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
+    And I wait for "2000" millsecond
+
+    Examples:
+      | name | folder |  tag   | chart         |
+      | 其他 | Other  | Ring   | Ring_twoFields|
 
   Scenario Outline: 修改图表_其他_radar
     And I set the parameter "SearchInput" with value "仪表盘_<name>"

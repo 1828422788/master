@@ -67,11 +67,13 @@ Feature:1创建仪表盘
     | 维度     | Rose         |
     | 维度     | Bar          |
     | 维度     | Sun          |
+    | 维度     | Flame        |
     | 关系     | Sankey       |
     | 关系     | Force        |
     | 复合     | Multiaxis    |
     | 地图     | Attackmap    |
     | 地图     | Regionmap    |
+    | 其他     | Ring         |
     | 其他     | Liquidfill   |
     | 其他     | Wordcloud    |
     | 其他     | Radar        |
