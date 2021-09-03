@@ -43,4 +43,3 @@ Feature:监控预览样列
     Examples:
       | name                                  |
       | api3_nods_事件数_ping主机                  |
-      | api00_spl统计ip_cnt_高_扩展chart_all_宏     |

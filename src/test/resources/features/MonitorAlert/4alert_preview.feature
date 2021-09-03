@@ -1,4 +1,4 @@
-@bvtalert @alertcase
+@bvtalert @alertcase @preview
 Feature:监控预览
 
   @bvtalert00
@@ -13,7 +13,7 @@ Feature:监控预览
 
     Examples:
       | EmailPassword    |
-      | RTQGPNDFYLCFBAFD |
+      | OUFBDLBHXBQGDIHG |
 
 
   @bvtalert0 @preview0
@@ -171,5 +171,5 @@ Feature:监控预览
 
     Examples:
       | EmailPassword    |
-      | RTQGPNDFYLCFBAFD1 |
+      | OUFBDLBHXBQGDIHG1 |
 

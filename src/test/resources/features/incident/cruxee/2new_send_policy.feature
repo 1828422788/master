@@ -1,4 +1,4 @@
-@sendpolicy @cruxee
+@sendpolicy @cruxee @autoui01
 Feature: 事件管理_发送策略_4个
 
   @newsend

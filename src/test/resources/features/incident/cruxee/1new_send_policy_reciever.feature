@@ -1,4 +1,4 @@
-@recieve @cruxee
+@recieve @cruxee @autoui01
 Feature: 事件管理_用户接收组_7个
 
   @newrec
