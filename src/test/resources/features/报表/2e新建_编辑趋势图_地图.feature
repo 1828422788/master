@@ -125,7 +125,9 @@ Feature: 报表新建_编辑_地图
     And I click the "Exhibition" button
     And I wait for "1000" millsecond
     And I click the "<option1>" button
+    And I wait for "1000" millsecond
     And I click the "<option2>" button
+    And I wait for "1000" millsecond
     And I click the "GoingDown" button
     And I set the parameter "Province" with value "<province>"
     And I set the parameter "City" with value "<city>"
