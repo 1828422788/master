@@ -89,7 +89,8 @@ Feature: 字段提取列表页
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'1','name':'<name>'}"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button in more menu
-    And I cancel selection "configtag" from the "TagGroup" in config
+    And I choose the "configtag" from the "TagGroup" in config
+#    And I cancel selection "configtag" from the "TagGroup" in config
     And I click the "Ensure" button
     Then I wait for loading invisible
     And I will see the "SearchResultIsEmpty" result will be "暂无数据"
