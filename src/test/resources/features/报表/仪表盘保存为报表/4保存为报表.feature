@@ -44,6 +44,7 @@ Feature:4保存为报表
       | 维度          | Rose         |
       | 维度          | Bar          |
       | 维度          | Sun          |
+      | 维度          | Flame        |
       | 关系          | Chord        |
       | 关系          | Sankey       |
       | 关系          | Force        |
@@ -53,6 +54,7 @@ Feature:4保存为报表
       | 地图          | Attackmap    |
       | 地图          | Regionmap    |
       | 其他          | Single       |
+      | 其他          | Ring         |
       | 其他          | Liquidfill   |
       | 其他          | Wordcloud    |
       | 其他          | Funnel       |
@@ -83,6 +85,7 @@ Feature:4保存为报表
       | Rose         |
       | Bar          |
       | Sun          |
+      | Flame        |
       | Chord        |
       | Sankey       |
       | Force        |
@@ -92,6 +95,7 @@ Feature:4保存为报表
       | Attackmap    |
       | Regionmap    |
       | Single       |
+      | Ring         |
       | Liquidfill   |
       | Wordcloud    |
       | Funnel       |
