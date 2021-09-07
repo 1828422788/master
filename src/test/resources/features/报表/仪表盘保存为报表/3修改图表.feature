@@ -487,7 +487,7 @@ Feature:3修改图表
     And I click the "<folder>" button
     And I click the "<tag>" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button
+    And I click the Circle "Setting" button
     And I wait for "2000" millsecond
 
     Examples:
