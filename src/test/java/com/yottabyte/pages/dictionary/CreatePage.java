@@ -158,4 +158,10 @@ public class CreatePage extends PageTemplate {
         return element;
     }
 
+    public WebElement getBackButton() {
+        String xpath="//span[text()='返回']/parent::button";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        return element;
+    }
+
 }

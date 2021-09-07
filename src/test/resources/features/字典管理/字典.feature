@@ -6,8 +6,6 @@ Feature: 字典管理
 
   Background:
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
-    And switch to window "字典管理"
-    And I close all tabs except main tab
 
   @tc4136 @dict1
   Scenario Outline: RZY-4136新建字典
@@ -96,6 +94,8 @@ Feature: 字典管理
 
   @tc4140_2 @dict6
   Scenario Outline: RZY-4140上传非同名文件step2
+    #    And switch to window "字典管理"
+    And I close all tabs except main tab
     Given I wait for loading complete
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
     Given I wait for loading complete
@@ -109,12 +109,9 @@ Feature: 字典管理
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
     Then I click the "DoneButton" button
     Given I wait for loading complete
-    Then I click the "SaveButton" button
-    Given I wait for loading complete
-#    Then I wait for "Tip" will be visible
-    And I wait for element "Tip" change text to "提示"
-    Then I will see the message "更新字典内容成功"
-    Then I click the "EnsureButton" button
+#    And I wait for element "Tip" change text to "提示"
+#    Then I will see the message "更新字典内容成功"
+    Then I click the "BackButton" button
 
     Examples:
       | dictionaryNameWithOutCsv | dictionaryName     | editOnlineArea                                                                                                                                                                                                 |
@@ -128,9 +125,11 @@ Feature: 字典管理
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     Given I wait for loading complete
+#    Then I click the "EditOnline" button
+#    Then I will see the element "EditOnlineArea" value is "<editOnlineArea>"
+    And I will see the last line "bubble.test^archiver.process.fds" is display
+    And I click the "Next" button
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
-    Then I click the "EditOnline" button
-    Then I will see the element "EditOnlineArea" value is "<editOnlineArea>"
 
     Examples:
       | dictionaryNameWithOutCsv | dictionaryName     | editOnlineArea                                                                                                                                                                                                 |
@@ -161,14 +160,14 @@ Feature: 字典管理
     Given I wait for loading complete
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
-    Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
     And I upload a file with name "/src/test/resources/testdata/dictionary/test/wymtest1.csv"
     And I wait for "FileName" will be visible
-    Then I click the "SaveButton" button
+    And I click the "Next" button
+    Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
+    Then I click the "DoneButton" button
     Given I wait for loading complete
-#    Then I wait for "Tip" will be visible
-    Then I will see the message "更新字典内容成功"
-    Then I click the "EnsureButton" button
+#    Then I will see the message "更新字典内容成功"
+    Then I click the "BackButton" button
 
     Examples:
       | dictionaryNameWithOutCsv | dictionaryName      | editOnlineArea                                                       |
@@ -183,9 +182,12 @@ Feature: 字典管理
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     Given I wait for loading complete
+#    Then I click the "EditOnline" button
+#    Then I will see the element "EditOnlineArea" value is "<editOnlineArea>"
+    And I will see the last line "bubble.test^archiver.process.fds" is display
+    And I click the "Next" button
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
-    Then I click the "EditOnline" button
-    Then I will see the element "EditOnlineArea" value is "<editOnlineArea>"
+
 
     Examples:
       | dictionaryNameWithOutCsv | dictionaryName      | editOnlineArea                                                       |
@@ -216,17 +218,19 @@ Feature: 字典管理
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     Given I wait for loading complete
+    And I will see the last line "bubble.test^archiver.process.fds" is display
+#    Then I click the "EditOnline" button
+#    Then I set the value "<edited>" to the textarea "EditOnlineArea"
+#    Then I click the "CancelButton" button
+#    Then I will see the element "EditOnlineArea" value is "<editOnlineArea>"
+    And I click the "Next" button
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
-    Then I click the "EditOnline" button
-    Then I set the value "<edited>" to the textarea "EditOnlineArea"
-    Then I click the "CancelButton" button
-    Then I will see the element "EditOnlineArea" value is "<editOnlineArea>"
 
     Examples:
       | dictionaryNameWithOutCsv | dictionaryName        | editOnlineArea                                                       | edited |
       | wymtestcanceledit        | wymtestcanceledit.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu | 123456 |
 
-  @tc4143 @dict13
+  @tc41431 @dict13
   Scenario Outline: RZY-4143（在线编辑-保存修改）
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
@@ -243,30 +247,29 @@ Feature: 字典管理
       | dictionaryName      | edited  | dictionaryNameWithOutCsv |
       | wymtestsaveedit.csv | rizhiyi | wymtestsaveedit          |
 
-  @tc4143 @dict14
+  @tc41432 @dict14
   Scenario Outline: RZY-4143（在线编辑-保存修改）
+    And I close all tabs except main tab
     Given I wait for loading complete
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
     When I wait for loading complete
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     Given I wait for loading complete
-    Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
-    Then I click the "EditOnline" button
-    Then I set the value "<edited>" to the textarea "EditOnlineArea"
-    Then I click the "SaveEdit" button
+#    Then I set the value "<edited>" to the textarea "EditOnlineArea"
+    And I will see the last line "bubble.test^archiver.process.fds" is display
+    And I will see1 the last line "bubble.test^archiver.process.fds" is display
+#    Then I click the "SaveEdit" button
     Given I wait for loading complete
     And I wait for "2000" millsecond
-#    Then I wait for "Tip" will be visible
-    And I wait for element "Tip" change text to "提示"
-    Then I will see the message "更新字典内容成功"
-    Then I click the "EnsureButton" button
+    And I click the "Next" button
+    Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
 
     Examples:
       | dictionaryName      | edited  | dictionaryNameWithOutCsv |
       | wymtestsaveedit.csv | rizhiyi | wymtestsaveedit          |
 
-  @tc4143 @dict15
+  @tc41433 @dict15
   Scenario Outline: RZY-4143（在线编辑-保存修改）
     Given I wait for loading complete
     Then I will see the "dictionary.ListPage" page
@@ -275,16 +278,18 @@ Feature: 字典管理
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     Given I wait for loading complete
+#    And I click the "EditOnline" button
+#    Then I will see the element "EditOnlineArea" value is "<edited>"
+    And I will see the last line "bubble.test^archiver.process.fds" is display
+    And I click the "Next" button
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
-    And I click the "EditOnline" button
-    Then I will see the element "EditOnlineArea" value is "<edited>"
 
     Examples:
       | dictionaryName      | edited  | dictionaryNameWithOutCsv |
       | wymtestsaveedit.csv | rizhiyi | wymtestsaveedit          |
 
 #  Scenario Outline: RZY-4145(列表页添加一个标签)
-#
+
 #    When I click the "UploadButton" button
 #    Then I wait for "PopUpWindow" will be visible
 #    And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
