@@ -1,4 +1,4 @@
-@dashboard14 @dashboardChart
+@dashboard14 @dashboardChart @dashboard
 Feature: 仪表盘_1_3_散点图
 
   @dashboard @dashboardSmoke

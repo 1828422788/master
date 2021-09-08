@@ -3,6 +3,8 @@
 
 @dictionary
 Feature: 字典管理
+  #加字典用:右键菜单的每一项
+  #重置功能
 
   Background:
     Given open the "dictionary.ListPage" page for uri "/dictionary/"

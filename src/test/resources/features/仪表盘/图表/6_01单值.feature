@@ -1,4 +1,4 @@
-@dashboard6 @dashboardChart
+@dashboard6 @dashboardChart @dashboard
 Feature: 仪表盘_6_01_单值
 
   @dashboard @dashboardSmoke
