@@ -24,8 +24,8 @@ Feature: 日志展现_其它
     And I wait for "2000" millsecond
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
-#    Then I compare source image "actual/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<caseNum>_<chartType>"
+#    Then I compare source image "actual/高级搜索视图/6其它_<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它_<caseNum>_<chartType>"
 
     Examples:
       |  chartType    |caseNum  |   spl   |
@@ -53,8 +53,8 @@ Feature: 日志展现_其它
     And I wait for "2000" millsecond
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
-#    Then I compare source image "actual/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<caseNum>_<chartType>"
+#    Then I compare source image "actual/高级搜索视图/6其它_<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它_<caseNum>_<chartType>"
 
     Examples:
       |  chartType    |caseNum  |   spl   |
@@ -86,8 +86,8 @@ Feature: 日志展现_其它
     And I wait for "2000" millsecond
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/<chartType>_<caseNum>"
-    Then I compare source image "actual/高级搜索视图/6其它/<chartType>_<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>_<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<chartType>_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/6其它_<chartType>_<caseNum>" with target image "expect/高级搜索视图/6其它_<chartType>_<caseNum>"
 
     Examples:
       | chartType  | caseNum | spl                                                                       |
@@ -117,8 +117,8 @@ Feature: 日志展现_其它
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/<chartType>_<caseNum>"
-    Then I compare source image "actual/高级搜索视图/6其它/<chartType>_<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>_<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<chartType>_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/6其它_<chartType>_<caseNum>" with target image "expect/高级搜索视图/6其它_<chartType>_<caseNum>"
 
     Examples:
       | chartType  | caseNum | spl                                                                       |
@@ -142,8 +142,8 @@ Feature: 日志展现_其它
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
-    Then I compare source image "actual/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/6其它_<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它_<caseNum>_<chartType>"
 
     Examples:
       |  chartType    |caseNum  |   spl   |
@@ -177,8 +177,8 @@ Feature: 日志展现_其它
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
-    Then I compare source image "actual/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/6其它_<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它_<caseNum>_<chartType>"
 
     Examples:
       |  chartType    | divField       | color1   | caseNum  |   spl   |
@@ -212,8 +212,8 @@ Feature: 日志展现_其它
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
-    Then I compare source image "actual/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/6其它_<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它_<caseNum>_<chartType>"
 
     Examples:
       |  chartType    | countValue |  divValue      |  color1   |caseNum  |   spl   |
@@ -245,8 +245,8 @@ Feature: 日志展现_其它
     And I wait for "2000" millsecond
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
-    Then I compare source image "actual/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/6其它_<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它_<caseNum>_<chartType>"
 
     Examples:
       |  chartType     |  xValue         |  yValue       | segNum |caseNum  |   spl   |
@@ -290,8 +290,8 @@ Feature: 日志展现_其它
     And I wait for "2000" millsecond
     And I wait for "ChainTableElement" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
-    Then I compare source image "actual/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/6其它_<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它_<caseNum>_<chartType>"
 
     Examples:
       |  chartType | color  | precision |  column           |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum |   spl   |
@@ -327,8 +327,8 @@ Feature: 日志展现_其它
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
-    Then I compare source image "actual/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/6其它_<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它_<caseNum>_<chartType>"
 
     Examples:
       |  chartType |  timeSeq  |  source         | target    |   segmentation    | mark   | caseNum |   spl   |
@@ -368,8 +368,8 @@ Feature: 日志展现_其它
     And I wait for "Chart" will be visible
     And I wait for "ChainTreeElement" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
-    Then I compare source image "actual/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/6其它_<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它_<caseNum>_<chartType>"
 
     Examples:
       |  chartType | color  | precision |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum   |   spl   |
@@ -393,8 +393,8 @@ Feature: 日志展现_其它
     And I wait for "2000" millsecond
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/Network/<chartType>_<node>"
-    Then I compare source image "actual/高级搜索视图/6其它/Network/<chartType>_<node>" with target image "expect/高级搜索视图/6其它/Network/<chartType>_<node>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<chartType>_<node>"
+    Then I compare source image "actual/高级搜索视图/6其它_<chartType>_<node>" with target image "expect/高级搜索视图/6其它_<chartType>_<node>"
 
     Examples:
       |  chartType    | node             |
@@ -426,8 +426,8 @@ Feature: 日志展现_其它
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/Network/<chartType>_<color>_<repValue>"
-    Then I compare source image "actual/高级搜索视图/6其它/Network/<chartType>_<color>_<repValue>" with target image "expect/高级搜索视图/6其它/Network/<chartType>_<color>_<repValue>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<chartType>_<color>_<repValue>"
+    Then I compare source image "actual/高级搜索视图/6其它_<chartType>_<color>_<repValue>" with target image "expect/高级搜索视图/6其它_<chartType>_<color>_<repValue>"
 
     Examples:
       |  chartType    | color      | repValue  |
@@ -465,8 +465,8 @@ Feature: 日志展现_其它
     And I wait for "2000" millsecond
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/Network/<chartType>_<node>_<color>"
-    Then I compare source image "actual/高级搜索视图/6其它/Network/<chartType>_<node>_<color>" with target image "expect/高级搜索视图/6其它/Network/<chartType>_<node>_<color>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<chartType>_<node>_<color>"
+    Then I compare source image "actual/高级搜索视图/6其它_<chartType>_<node>_<color>" with target image "expect/高级搜索视图/6其它_<chartType>_<node>_<color>"
 
     Examples:
       |  chartType    | node        | color   |

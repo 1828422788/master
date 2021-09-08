@@ -236,13 +236,13 @@ Feature: 日志展现_普通统计视图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/816_数值直方图/<caseNum>"
+    And take part of "Chart" with name "actual/普通统计视图/816_数值直方图_<caseNum>"
     And I wait for "1500" millsecond
     And I move the mouse pointer to the "ColumnChartElement"
     And I wait for "Tooltip" will be visible
     And I will see the element "Tooltip" contains "<tooltip1>"
     And I will see the element "Tooltip" contains "<tooltip2>"
-    Then I compare source image "actual/普通统计视图/816_数值直方图/<caseNum>" with target image "expect/普通统计视图/816_数值直方图/<caseNum>"
+    Then I compare source image "actual/普通统计视图/816_数值直方图_<caseNum>" with target image "expect/普通统计视图/816_数值直方图_<caseNum>"
 
     Examples:
       | number  | caseNum    | tooltip1    | tooltip2 |
@@ -265,7 +265,7 @@ Feature: 日志展现_普通统计视图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/817_字段值分类/<screenName>_<value1>"
+    And take part of "Chart" with name "actual/普通统计视图/817_字段值分类_<screenName>_<value1>"
 
     Examples:
       |  charttype   | value1 | screenName |
@@ -294,8 +294,8 @@ Feature: 日志展现_普通统计视图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
-    Then I compare source image "actual/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>" with target image "expect/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
+    And take part of "Chart" with name "actual/普通统计视图/2727_字段数值_<statType>_<chart>_<timeSpan><time>"
+    Then I compare source image "actual/普通统计视图/2727_字段数值_<statType>_<chart>_<timeSpan><time>" with target image "expect/普通统计视图/2727_字段数值_<statType>_<chart>_<timeSpan><time>"
 
     Examples:
       | statType  | chart   | timeSpan| time |
@@ -332,8 +332,8 @@ Feature: 日志展现_普通统计视图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
-    Then I compare source image "actual/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>" with target image "expect/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
+    And take part of "Chart" with name "actual/普通统计视图/2727_字段数值_<statType>_<chart>_<timeSpan><time>"
+    Then I compare source image "actual/普通统计视图/2727_字段数值_<statType>_<chart>_<timeSpan><time>" with target image "expect/普通统计视图/2727_字段数值_<statType>_<chart>_<timeSpan><time>"
 
     Examples:
       | statType  | chart   | timeSpan| time |
@@ -361,8 +361,8 @@ Feature: 日志展现_普通统计视图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/2727_字段数值/2727_<chart>_<timeSpan>_clientip"
-    Then I compare source image "actual/普通统计视图/2727_字段数值/2727_<chart>_<timeSpan>_clientip" with target image "expect/普通统计视图/2727_字段数值/2727_<chart>_<timeSpan>_clientip"
+    And take part of "Chart" with name "actual/普通统计视图/2727_字段数值_<chart>_<timeSpan>_clientip"
+    Then I compare source image "actual/普通统计视图/2727_字段数值_<chart>_<timeSpan>_clientip" with target image "expect/普通统计视图/2727_字段数值_<chart>_<timeSpan>_clientip"
 
     Examples:
       | chart     | timeSpan|
@@ -436,8 +436,8 @@ Feature: 日志展现_普通统计视图
     And I wait for "MultiStatsChart" will be visible
     And I drag the scroll bar to the element "MultiStatsChart"
     And I wait for "2000" millsecond
-    And take part of "MultiStatsChart" with name "actual/普通统计视图/822_多级统计/822_chart_step1"
-    Then I compare source image "actual/普通统计视图/822_多级统计/822_chart_step1" with target image "expect/普通统计视图/822_多级统计/822_chart_step1"
+    And take part of "MultiStatsChart" with name "actual/普通统计视图/822_多级统计_step1"
+    Then I compare source image "actual/普通统计视图/822_多级统计_step1" with target image "expect/普通统计视图/822_多级统计_step1"
 
   Scenario: multilevelstats_step2(RZY-822)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
@@ -465,8 +465,8 @@ Feature: 日志展现_普通统计视图
     And I wait for "MultiStatsChart" will be visible
     And I drag the scroll bar to the element "MultiStatsChart"
     And I wait for "2000" millsecond
-    And take part of "MultiStatsChart" with name "actual/普通统计视图/822_多级统计/822_chart_step2"
-#    Then I compare source image "actual/普通统计视图/822_多级统计/822_chart_step2" with target image "expect/普通统计视图/822_多级统计/822_chart_step2"
+    And take part of "MultiStatsChart" with name "actual/普通统计视图/822_多级统计_step2"
+#    Then I compare source image "actual/普通统计视图/822_多级统计_step2" with target image "expect/普通统计视图/822_多级统计_step2"
 
   Scenario: multilevelstats_step3(RZY-822)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
@@ -502,8 +502,8 @@ Feature: 日志展现_普通统计视图
     And I wait for "MultiStatsChart" will be visible
     And I drag the scroll bar to the element "MultiStatsChart"
     And I wait for "2000" millsecond
-    And take part of "MultiStatsChart" with name "actual/普通统计视图/822_多级统计/822_chart_step3"
-#    Then I compare source image "actual/普通统计视图/822_多级统计/822_chart_step3" with target image "expect/普通统计视图/822_多级统计/822_chart_step3"
+    And take part of "MultiStatsChart" with name "actual/普通统计视图/822_多级统计_step3"
+#    Then I compare source image "actual/普通统计视图/822_多级统计_step3" with target image "expect/普通统计视图/822_多级统计_step3"
 
 
   Scenario:geogrdistr(RZY-825)
@@ -519,20 +519,20 @@ Feature: 日志展现_普通统计视图
     And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/825_地理分布/825_world"
-    Then I compare source image "actual/普通统计视图/825_地理分布/825_world" with target image "expect/普通统计视图/825_地理分布/825_world"
+    And take part of "Chart" with name "actual/普通统计视图/825_地理分布_world"
+    Then I compare source image "actual/普通统计视图/825_地理分布_world" with target image "expect/普通统计视图/825_地理分布_world"
 
     When I click the Circle "CountryChina" button
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/825_地理分布/825_china"
-    Then I compare source image "actual/普通统计视图/825_地理分布/825_china" with target image "expect/普通统计视图/825_地理分布/825_china"
+    And take part of "Chart" with name "actual/普通统计视图/825_地理分布5_china"
+    Then I compare source image "actual/普通统计视图/825_地理分布_china" with target image "expect/普通统计视图/825_地理分布_china"
 
     When I click the Circle "ProvinceSichuan" button
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/825_地理分布/825_sichuan"
-    Then I compare source image "actual/普通统计视图/825_地理分布/825_sichuan" with target image "expect/普通统计视图/825_地理分布/825_sichuan"
+    And take part of "Chart" with name "actual/普通统计视图/825_地理分布_sichuan"
+    Then I compare source image "actual/普通统计视图/825_地理分布_sichuan" with target image "expect/普通统计视图/825_地理分布_sichuan"
 
   Scenario Outline: check_field
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"

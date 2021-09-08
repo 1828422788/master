@@ -24,8 +24,8 @@ Feature: 日志展现_维度
     And I wait for "<element>" will be visible
     And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/2维度/<caseNum>_<chartType>"
-    Then I compare source image "actual/高级搜索视图/2维度/<caseNum>_<chartType>" with target image "expect/高级搜索视图/2维度/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/2维度_<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/2维度_<caseNum>_<chartType>" with target image "expect/高级搜索视图/2维度_<caseNum>_<chartType>"
 
     Examples:
       |   chartType   | element     |   caseNum  |  spl   |
@@ -59,8 +59,8 @@ Feature: 日志展现_维度
     And I wait for "Chart" will be visible
     And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/2维度/<caseNum>_<chartType>"
-    Then I compare source image "actual/高级搜索视图/2维度/<caseNum>_<chartType>" with target image "expect/高级搜索视图/2维度/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/2维度_<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/2维度_<caseNum>_<chartType>" with target image "expect/高级搜索视图/2维度_<caseNum>_<chartType>"
 
     Examples:
       |   chartType   | color1   |  caseNum  |
@@ -86,8 +86,8 @@ Feature: 日志展现_维度
     And I wait for "Chart" will be visible
     And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/2维度/label/<chartType>_<option>_<descr>"
-    Then I compare source image "actual/高级搜索视图/2维度/label/<chartType>_<option>_<descr>" with target image "expect/高级搜索视图/2维度/label/<chartType>_<option>_<descr>"
+    And take part of "Chart" with name "actual/高级搜索视图/2维度_<chartType>_<option>_<descr>"
+    Then I compare source image "actual/高级搜索视图/2维度_<chartType>_<option>_<descr>" with target image "expect/高级搜索视图/2维度_<chartType>_<option>_<descr>"
 
     Examples:
       |   chartType   |  option     | descr      |
@@ -124,8 +124,8 @@ Feature: 日志展现_维度
     And I wait for "Chart" will be visible
     And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option>_<descr>"
-    Then I compare source image "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option>_<descr>" with target image "expect/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option>_<descr>"
+    And take part of "Chart" with name "actual/高级搜索视图/2维度_<typeInfo>_<chartType>_<option>_<descr>"
+    Then I compare source image "actual/高级搜索视图/2维度_<typeInfo>_<chartType>_<option>_<descr>" with target image "expect/高级搜索视图/2维度_<typeInfo>_<chartType>_<option>_<descr>"
 
 
     Examples:
@@ -168,8 +168,8 @@ Feature: 日志展现_维度
     And I wait for "Chart" will be visible
     And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/2维度/<chartType>_<typeInfo>_分面"
-    Then I compare source image "actual/高级搜索视图/2维度/<chartType>_<typeInfo>_分面" with target image "expect/高级搜索视图/2维度/<chartType>_<typeInfo>_分面"
+    And take part of "Chart" with name "actual/高级搜索视图/2维度_<chartType>_<typeInfo>_分面"
+    Then I compare source image "actual/高级搜索视图/2维度_<chartType>_<typeInfo>_分面" with target image "expect/高级搜索视图/2维度_<chartType>_<typeInfo>_分面"
 
     Examples:
       |   chartType   |  color  |  typeInfo    |
@@ -204,8 +204,8 @@ Feature: 日志展现_维度
     And I wait for "Chart" will be visible
     And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/2维度/<chartType>_分面"
-#    Then I compare source image "actual/高级搜索视图/2维度/<chartType>_分面" with target image "expect/高级搜索视图/2维度/<chartType>_分面"
+    And take part of "Chart" with name "actual/高级搜索视图/2维度_<chartType>_分面"
+#    Then I compare source image "actual/高级搜索视图/2维度_<chartType>_分面" with target image "expect/高级搜索视图/2维度_<chartType>_分面"
 
     Examples:
       |   chartType   |  color   |  spl   |
@@ -237,8 +237,8 @@ Feature: 日志展现_维度
     And I wait for "Chart" will be visible
     And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/2维度/<chartType>_<option>"
-    Then I compare source image "actual/高级搜索视图/2维度/<chartType>_<option>" with target image "expect/高级搜索视图/2维度/<chartType>_<option>"
+    And take part of "Chart" with name "actual/高级搜索视图/2维度_<chartType>_<option>"
+    Then I compare source image "actual/高级搜索视图/2维度_<chartType>_<option>" with target image "expect/高级搜索视图/2维度_<chartType>_<option>"
 
     Examples:
       |   chartType   |  option        | element      |
@@ -275,8 +275,8 @@ Feature: 日志展现_维度
     And I wait for "Chart" will be visible
     And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/2维度/<chartType>_<option>_分面"
-    Then I compare source image "actual/高级搜索视图/2维度/<chartType>_<option>_分面" with target image "expect/高级搜索视图/2维度/<chartType>_<option>_分面"
+    And take part of "Chart" with name "actual/高级搜索视图/2维度_<chartType>_<option>_分面"
+    Then I compare source image "actual/高级搜索视图/2维度_<chartType>_<option>_分面" with target image "expect/高级搜索视图/2维度_<chartType>_<option>_分面"
 
     Examples:
       |   chartType   |  option        | element    |
