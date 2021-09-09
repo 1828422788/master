@@ -170,7 +170,7 @@ Feature: 日志展现_普通统计视图
     And I move the mouse pointer to the "ColumnChartElement"
     And I wait for "Tooltip" will be visible
     And I will see the element "Tooltip" contains "count : <tooltip1>"
-    And I will see the element "Tooltip" contains "count : <tooltip2>"
+    And I will see the element "Tooltip" contains "<tooltip2>"
 
     And I click the "<save>" button
     When I set the parameter "<input>" with value "<caseNum>"
@@ -304,7 +304,7 @@ Feature: 日志展现_普通统计视图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/816_数值直方图_<caseNum>"
+    And take part of "Chart" with name "actual/普通统计视图/816_数值直方图_<number>"
     And I wait for "1500" millsecond
     And I move the mouse pointer to the "ColumnChartElement"
     And I wait for "Tooltip" will be visible
@@ -312,21 +312,21 @@ Feature: 日志展现_普通统计视图
     And I will see the element "Tooltip" contains "<tooltip2>"
 
     And I click the "<save>" button
-    When I set the parameter "<input>" with value "816_数值直方图_<caseNum>"
+    When I set the parameter "<input>" with value "816_数值直方图_<number>"
     And I click the "<ok>" button
-    Then I compare source image "actual/普通统计视图/816_数值直方图_<caseNum>" with target image "expect/普通统计视图/816_数值直方图_<caseNum>"
+    Then I compare source image "actual/普通统计视图/816_数值直方图_<number>" with target image "expect/普通统计视图/816_数值直方图_<number>"
 
     @logDisplay @logDisplayGeneral
     Examples:
-      | number | caseNum  | tooltip1    | tooltip2 | save        | input     | ok      |
-      | 500    | 816_500  | count : 220 | 0 - 500  |             |           |         |
-      | 5000   | 816_5000 | count : 244 | 0 - 5000 |             |           |         |
+      | number | tooltip1    | tooltip2 | save        | input     | ok      |
+      | 500    | count : 220 | 0 - 500  |             |           |         |
+      | 5000   | count : 244 | 0 - 5000 |             |           |         |
 
     @saveAsTrendStatistics
     Examples:
-      | number | caseNum  | tooltip1    | tooltip2 | save        | input     | ok      |
-      | 500    | 816_500  | count : 220 | 0 - 500  | SaveAsTrend | NameInput | Ensure  |
-      | 5000   | 816_5000 | count : 244 | 0 - 5000 | SaveAsTrend | NameInput | Ensure  |
+      | number | tooltip1    | tooltip2 | save        | input     | ok      |
+      | 500    | count : 220 | 0 - 500  | SaveAsTrend | NameInput | Ensure  |
+      | 5000   | count : 244 | 0 - 5000 | SaveAsTrend | NameInput | Ensure  |
 
   Scenario Outline: classifyfieldvalue(RZY-817)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
