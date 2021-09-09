@@ -20,11 +20,12 @@ public class IncidentPage extends PageTemplate {
 
     @FindBy(xpath = "//main[@yotta-test='navigation-main-dom']")
     private WebElement mainDom;
-    public WebElement getMainDom(){
+
+    public WebElement getMainDom() {
         return mainDom;
     }
 
-//    @FindBy(className = "CodeMirror-code")
+    //    @FindBy(className = "CodeMirror-code")
     @FindBy(xpath = "//input[@yotta-test='incident-query-input']")
     private WebElement searchInput;
 
@@ -38,23 +39,31 @@ public class IncidentPage extends PageTemplate {
         return super.getButton("搜索");
     }
 
-    public WebElement getClearButton(){
+    public WebElement getClearButton() {
         return getYottaButton("incident-empty-button");
     }
 
     @FindBy(xpath = "//table[@yotta-test='incident-list-table']//tr[1]/td[3]")
     private WebElement nameCell13;
-    public WebElement getNameCell13(){
+
+    public WebElement getNameCell13() {
         return nameCell13;
+    }
+
+    public WebElement getNameCell01() {
+        String xpath = "//table[@yotta-test='incident-list-table']//tr[1]/td[2]";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        return element;
     }
 
     @FindBy(xpath = "//button[@yotta-test='incident-more-button']")
     private WebElement moreButton;
-    public WebElement getMoreButton(){
+
+    public WebElement getMoreButton() {
         return moreButton;
     }
 
-    public WebElement getStatusList(){
+    public WebElement getStatusList() {
         String xpath = "//div[@yotta-test='incident-status-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
@@ -62,7 +71,7 @@ public class IncidentPage extends PageTemplate {
         return getIncidentStatusMenuList();
     }
 
-    public WebElement getOwnerList(){
+    public WebElement getOwnerList() {
         String xpath = "//div[@yotta-test='incident-owner-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
@@ -72,25 +81,26 @@ public class IncidentPage extends PageTemplate {
 
     @FindBy(xpath = "//span[@aria-label='RightOutlined']")
     private WebElement ariaLabelRight;
-    public WebElement getAriaLabelRight(){
+
+    public WebElement getAriaLabelRight() {
         return ariaLabelRight;
     }
 
     @FindBy(xpath = "//div[contains(text(),'前往')]/input")
     private WebElement paginationInput;
-    public WebElement getPaginationInput(){
+
+    public WebElement getPaginationInput() {
         return paginationInput;
     }
 
     @FindBy(xpath = "//div[@class='yotta-pagination-elements'][1]")
     private WebElement totalItem;
-    public WebElement getTotalItem()
-    {
+
+    public WebElement getTotalItem() {
         return totalItem;
     }
 
-    public WebElement getEveryPageList()
-    {
+    public WebElement getEveryPageList() {
         String xpath = "//div[contains(text(),'每页')][@class='yotta-pagination-elements']/div/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
@@ -98,8 +108,7 @@ public class IncidentPage extends PageTemplate {
         return getIncidentStatusMenuList();
     }
 
-    public WebElement getNo3page()
-    {
+    public WebElement getNo3page() {
         String xpath = "//table[@yotta-test='incident-list-table']/following::span[text()='3']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         return element;
@@ -110,7 +119,7 @@ public class IncidentPage extends PageTemplate {
     }
 
     public WebElement getExecuteRet() {
-        String xpath ="//div/p[contains(text(),'执行结果:')]/following-sibling::pre";
+        String xpath = "//div/p[contains(text(),'执行结果:')]/following-sibling::pre";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         return element;
     }
