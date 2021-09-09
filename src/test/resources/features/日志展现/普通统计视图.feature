@@ -1,4 +1,3 @@
-@all @logDisplay @logDisplayGeneral
 Feature: 日志展现_普通统计视图
 
   Background:
@@ -22,14 +21,27 @@ Feature: 日志展现_普通统计视图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
+
+    And I click the "<save>" button
+    When I set the parameter "<input>" with value "<caseNum>"
+    And I click the "<ok>" button
     Then I compare source image "actual/普通统计视图/<caseNum>" with target image "expect/普通统计视图/<caseNum>"
 
+    @logDisplay @logDisplayGeneral
     Examples:
-      | chart   | value1                | caseNum            |
-      | 曲线图   | logtype               | 807_事件计数_曲线图 |
-      | 面积图   | apache.geo.city       | 808_事件计数_面积图 |
-      | 散点图   | apache.x_forward      | 810_事件计数_散点图 |
-      | 柱状图   | apache.referer_domain | 809_事件计数_柱状图 |
+      | chart   | value1                | caseNum             | save        | input     | ok      |
+      | 曲线图  | logtype               | 807_事件计数_曲线图 |             |           |         |
+      | 面积图  | apache.geo.city       | 808_事件计数_面积图 |             |           |         |
+      | 散点图  | apache.x_forward      | 810_事件计数_散点图 |             |           |         |
+      | 柱状图  | apache.referer_domain | 809_事件计数_柱状图 |             |           |         |
+
+    @saveAsTrendStatistics
+    Examples:
+      | chart   | value1                | caseNum             | save        | input     | ok      |
+      | 曲线图  | logtype               | 807_事件计数_曲线图 | SaveAsTrend | NameInput | Ensure  |
+      | 面积图  | apache.geo.city       | 808_事件计数_面积图 | SaveAsTrend | NameInput | Ensure  |
+      | 散点图  | apache.x_forward      | 810_事件计数_散点图 | SaveAsTrend | NameInput | Ensure  |
+      | 柱状图  | apache.referer_domain | 809_事件计数_柱状图 | SaveAsTrend | NameInput | Ensure  |
 
 
   Scenario Outline: count_independent(RZY-2718)
@@ -51,11 +63,21 @@ Feature: 日志展现_普通统计视图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
+
+    And I click the "<save>" button
+    When I set the parameter "<input>" with value "<caseNum>"
+    And I click the "<ok>" button
     Then I compare source image "actual/普通统计视图/<caseNum>" with target image "expect/普通统计视图/<caseNum>"
 
+    @logDisplay @logDisplayGeneral
     Examples:
-      | chart   | value1                |     value2    |     caseNum              |
-      | 曲线图   | apache.clientip      | appname       |2718_事件计数_独立数统计 |
+      | chart  | value1          | value2  |     caseNum             | save        | input     | ok      |
+      | 曲线图 | apache.clientip | appname |2718_事件计数_独立数统计 |             |           |         |
+
+    @saveAsTrendStatistics
+    Examples:
+      | chart  | value1          | value2  |     caseNum             | save        | input     | ok      |
+      | 曲线图 | apache.clientip | appname |2718_事件计数_独立数统计 | SaveAsTrend | NameInput | Ensure  |
 
 
   Scenario Outline: timeslice(RZY-812,813,2721,2722,2723,2724)
@@ -93,16 +115,31 @@ Feature: 日志展现_普通统计视图
     And I move the mouse pointer to the "ColumnChartElement"
     And I wait for "Tooltip" will be visible
     And I will see the element "Tooltip" contains "<tooltip>"
+
+    And I click the "<save>" button
+    When I set the parameter "<input>" with value "<caseNum>"
+    And I click the "<ok>" button
     Then I compare source image "actual/普通统计视图/<caseNum>" with target image "expect/普通统计视图/<caseNum>"
 
+    @logDisplay @logDisplayGeneral
     Examples:
-      | statisticType | caseNum              | tooltip            |
-      |计数           | 812_时间分段_计数    | count : 254        |
-      |独立数         | 813_时间分段_独立数  | count : 5          |
-      |总计           | 2721_时间分段_总计   | count : 1795176    |
-      |平均值         | 2722_时间分段_平均值 | count : 7067.62204 |
-      |最大值         | 2723_时间分段_最大值 | count : 173837     |
-      |最小值         | 2724_时间分段_最小值 | count : 61         |
+      | statisticType | caseNum              | tooltip            | save        | input     | ok      |
+      |计数           | 812_时间分段_计数    | count : 254        |             |           |         |
+      |独立数         | 813_时间分段_独立数  | count : 5          |             |           |         |
+      |总计           | 2721_时间分段_总计   | count : 1795176    |             |           |         |
+      |平均值         | 2722_时间分段_平均值 | count : 7067.62204 |             |           |         |
+      |最大值         | 2723_时间分段_最大值 | count : 173837     |             |           |         |
+      |最小值         | 2724_时间分段_最小值 | count : 61         |             |           |         |
+
+    @saveAsTrendStatistics
+    Examples:
+      | statisticType | caseNum              | tooltip            | save        | input     | ok      |
+      |计数           | 812_时间分段_计数    | count : 254        | SaveAsTrend | NameInput | Ensure  |
+      |独立数         | 813_时间分段_独立数  | count : 5          | SaveAsTrend | NameInput | Ensure  |
+      |总计           | 2721_时间分段_总计   | count : 1795176    | SaveAsTrend | NameInput | Ensure  |
+      |平均值         | 2722_时间分段_平均值 | count : 7067.62204 | SaveAsTrend | NameInput | Ensure  |
+      |最大值         | 2723_时间分段_最大值 | count : 173837     | SaveAsTrend | NameInput | Ensure  |
+      |最小值         | 2724_时间分段_最小值 | count : 61         | SaveAsTrend | NameInput | Ensure  |
 
 
   Scenario Outline: dataslice(RZY-814,3137)
@@ -132,15 +169,25 @@ Feature: 日志展现_普通统计视图
     And I wait for "3000" millsecond
     And I move the mouse pointer to the "ColumnChartElement"
     And I wait for "Tooltip" will be visible
-    And I will see the element "Tooltip" contains "<tooltip1>"
+    And I will see the element "Tooltip" contains "count : <tooltip1>"
     And I will see the element "Tooltip" contains "<tooltip2>"
+
+    And I click the "<save>" button
+    When I set the parameter "<input>" with value "<caseNum>"
+    And I click the "<ok>" button
     Then I compare source image "actual/普通统计视图/<caseNum>" with target image "expect/普通统计视图/<caseNum>"
 
+    @logDisplay @logDisplayGeneral
     Examples:
-      | fieldValue           | start1 | end1   | start2  |end2    | start3 | end3 | caseNum            | tooltip1     | tooltip2     |
-      | apache.resp_len      |1       | 100    | 100     | 500    |500     | 10000| 814_数值分段_整数  | count : 220  | 1 - 100      |
-      | apache.geo.latitude  |0       | 22.5   | 22.5    | 32.05  |32.05   | 39.90| 3137_数值分段_实数 | count : 1    | 22.5         |
+      | fieldValue          |start1| end1|start2|end2  |start3|end3 | caseNum            |tooltip1| tooltip2| save        | input     | ok      |
+      | apache.resp_len     |1     | 100 |100   |500   |500   |10000| 814_数值分段_整数  |220     | 1 - 100 |             |           |         |
+      | apache.geo.latitude |0     |22.5 |22.5  |32.05 |32.05 |39.90| 3137_数值分段_实数 |1       | 22.5    |             |           |         |
 
+    @saveAsTrendStatistics
+    Examples:
+      | fieldValue          |start1| end1|start2|end2  |start3|end3 | caseNum            |tooltip1| tooltip2| save        | input     | ok      |
+      | apache.resp_len     |1     | 100 |100   |500   |500   |10000| 814_数值分段_整数  |220     | 1 - 100 | SaveAsTrend | NameInput | Ensure  |
+      | apache.geo.latitude |0     |22.5 |22.5  |32.05 |32.05 |39.90| 3137_数值分段_实数 |1       | 22.5    | SaveAsTrend | NameInput | Ensure  |
 
   Scenario Outline: timehistogram(RZY-815)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
@@ -170,13 +217,25 @@ Feature: 日志展现_普通统计视图
     And I will see the element "Tooltip" contains "count : 60"
 #    And I will see the element "Tooltip" contains "01:00 -"
 #    And I will see the element "Tooltip" contains "02:00"
+
+    And I click the "<save>" button
+    When I set the parameter "<input>" with value "<caseNum>"
+    And I click the "<ok>" button
     Then I compare source image "actual/普通统计视图/<caseNum>" with target image "expect/普通统计视图/<caseNum>"
 
+    @logDisplay @logDisplayGeneral
     Examples:
-      | timeSpan | time   | caseNum                   |
-      | 1        |        | 815_时间直方图/815_1h     |
-      | 3600     | 秒     | 815_时间直方图/815_3600s  |
-      | 60       | 分钟   | 815_时间直方图/815_60m    |
+      | timeSpan | time  | caseNum              | save        | input     | ok      |
+      | 1        |       | 815_时间直方图_1h    |             |           |         |
+      | 3600     | 秒    | 815_时间直方图_3600s |             |           |         |
+      | 60       | 分钟  | 815_时间直方图_60m   |             |           |         |
+
+    @saveAsTrendStatistics
+    Examples:
+      | timeSpan | time  | caseNum              | save        | input     | ok      |
+      | 1        |       | 815_时间直方图_1h    | SaveAsTrend | NameInput | Ensure  |
+      | 3600     | 秒    | 815_时间直方图_3600s | SaveAsTrend | NameInput | Ensure  |
+      | 60       | 分钟  | 815_时间直方图_60m   | SaveAsTrend | NameInput | Ensure  |
 
 
   Scenario Outline: timehistogram(RZY-2725)
@@ -211,14 +270,23 @@ Feature: 日志展现_普通统计视图
     And I move the mouse pointer to the "ColumnChartElement2"
     And I wait for "Tooltip" will be visible
     And I will see the element "Tooltip" contains "05/22 00:00 - 05/29 00:00"
+
+    And I click the "<save>" button
+    When I set the parameter "<input>" with value "<caseNum>"
+    And I click the "<ok>" button
     Then I compare source image "actual/普通统计视图/<caseNum>" with target image "expect/普通统计视图/<caseNum>"
 
+    @logDisplay @logDisplayGeneral
     Examples:
-      | timeSpan | time   | caseNum              |
-      | 7        | 天     | 2725_时间直方图/2725_7d    |
-      | 1        | 周     | 2725_时间直方图/2725_1w    |
+      | timeSpan | time | caseNum            | save        | input     | ok      |
+      | 7        | 天   | 2725_时间直方图_7d |             |           |         |
+      | 1        | 周   | 2725_时间直方图_1w |             |           |         |
 
-
+    @saveAsTrendStatistics
+    Examples:
+      | timeSpan | time | caseNum            | save        | input     | ok      |
+      | 7        | 天   | 2725_时间直方图_7d | SaveAsTrend | NameInput | Ensure  |
+      | 1        | 周   | 2725_时间直方图_1w | SaveAsTrend | NameInput | Ensure  |
 
   Scenario Outline: datehistogram(RZY-816)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
@@ -236,18 +304,29 @@ Feature: 日志展现_普通统计视图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/816_数值直方图/<caseNum>"
+    And take part of "Chart" with name "actual/普通统计视图/816_数值直方图_<number>"
     And I wait for "1500" millsecond
     And I move the mouse pointer to the "ColumnChartElement"
     And I wait for "Tooltip" will be visible
     And I will see the element "Tooltip" contains "<tooltip1>"
     And I will see the element "Tooltip" contains "<tooltip2>"
-    Then I compare source image "actual/普通统计视图/816_数值直方图/<caseNum>" with target image "expect/普通统计视图/816_数值直方图/<caseNum>"
 
+    And I click the "<save>" button
+    When I set the parameter "<input>" with value "816_数值直方图_<number>"
+    And I click the "<ok>" button
+    Then I compare source image "actual/普通统计视图/816_数值直方图_<number>" with target image "expect/普通统计视图/816_数值直方图_<number>"
+
+    @logDisplay @logDisplayGeneral
     Examples:
-      | number  | caseNum    | tooltip1    | tooltip2 |
-      | 500     | 816_500    | count : 220 | 0 - 500  |
-      | 5000    | 816_5000   | count : 244 | 0 - 5000 |
+      | number | tooltip1    | tooltip2 | save        | input     | ok      |
+      | 500    | count : 220 | 0 - 500  |             |           |         |
+      | 5000   | count : 244 | 0 - 5000 |             |           |         |
+
+    @saveAsTrendStatistics
+    Examples:
+      | number | tooltip1    | tooltip2 | save        | input     | ok      |
+      | 500    | count : 220 | 0 - 500  | SaveAsTrend | NameInput | Ensure  |
+      | 5000   | count : 244 | 0 - 5000 | SaveAsTrend | NameInput | Ensure  |
 
   Scenario Outline: classifyfieldvalue(RZY-817)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
@@ -265,15 +344,27 @@ Feature: 日志展现_普通统计视图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/817_字段值分类/<screenName>_<value1>"
+    And take part of "Chart" with name "actual/普通统计视图/817_字段值分类_<charttype>_<value1>"
 
+    And I click the "<save>" button
+    When I set the parameter "<input>" with value "817_字段值分类_<charttype>_<value1>"
+    And I click the "<ok>" button
+
+    @logDisplay @logDisplayGeneral
     Examples:
-      |  charttype   | value1 | screenName |
-      |    饼图      |  5    | 817_饼图    |
-      |    饼图      |  20   | 817_饼图    |
-      |    条形图    |  10   | 817_条形图    |
-      |    条形图    |  50   | 817_条形图    |
+      | charttype|value1 | save        | input     | ok      |
+      | 饼图     |  5    |             |           |         |
+      | 饼图     |  20   |             |           |         |
+      | 条形图   |  10   |             |           |         |
+      | 条形图   |  50   |             |           |         |
 
+    @saveAsTrendStatistics
+    Examples:
+      | charttype|value1 | save        | input     | ok      |
+      | 饼图     |  5    | SaveAsTrend | NameInput | Ensure  |
+      | 饼图     |  20   | SaveAsTrend | NameInput | Ensure  |
+      | 条形图   |  10   | SaveAsTrend | NameInput | Ensure  |
+      | 条形图   |  50   | SaveAsTrend | NameInput | Ensure  |
 
   Scenario Outline: fieldnumber1(RZY-2727)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
@@ -294,16 +385,28 @@ Feature: 日志展现_普通统计视图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
-    Then I compare source image "actual/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>" with target image "expect/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
+    And take part of "Chart" with name "actual/普通统计视图/2727_字段数值_<statType>_<chart>_<timeSpan><time>"
 
+    And I click the "<save>" button
+    When I set the parameter "<input>" with value "2727_字段数值_<statType>_<chart>_<timeSpan><time>"
+    And I click the "<ok>" button
+    Then I compare source image "actual/普通统计视图/2727_字段数值_<statType>_<chart>_<timeSpan><time>" with target image "expect/普通统计视图/2727_字段数值_<statType>_<chart>_<timeSpan><time>"
+
+    @logDisplay @logDisplayGeneral
     Examples:
-      | statType  | chart   | timeSpan| time |
-      |  总计     |  曲线图   |   1     | 小时  |
-      |  平均值   |  面积图   |   60    |  分钟 |
-      |  最大值   |  散点图   |   60    |  分钟 |
-      |  最小值   |  柱状图   |  3600   |  秒   |
+      | statType | chart  | timeSpan| time | save        | input     | ok      |
+      |  总计    | 曲线图 |   1     | 小时 |             |           |         |
+      |  平均值  | 面积图 |   60    | 分钟 |             |           |         |
+      |  最大值  | 散点图 |   60    | 分钟 |             |           |         |
+      |  最小值  | 柱状图 |  3600   | 秒   |             |           |         |
 
+    @saveAsTrendStatistics
+    Examples:
+      | statType | chart  | timeSpan| time | save        | input     | ok      |
+      |  总计    | 曲线图 |   1     | 小时 | SaveAsTrend | NameInput | Ensure  |
+      |  平均值  | 面积图 |   60    | 分钟 | SaveAsTrend | NameInput | Ensure  |
+      |  最大值  | 散点图 |   60    | 分钟 | SaveAsTrend | NameInput | Ensure  |
+      |  最小值  | 柱状图 |  3600   | 秒   | SaveAsTrend | NameInput | Ensure  |
 
   Scenario Outline: fieldnumber2(RZY-2727)
     When I set the parameter "SearchInput" with value "tag:display_may"
@@ -332,13 +435,24 @@ Feature: 日志展现_普通统计视图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
-    Then I compare source image "actual/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>" with target image "expect/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
+    And take part of "Chart" with name "actual/普通统计视图/2727_字段数值_<statType>_<chart>_<timeSpan><time>"
 
+    And I click the "<save>" button
+    When I set the parameter "<input>" with value "2727_字段数值_<statType>_<chart>_<timeSpan><time>"
+    And I click the "<ok>" button
+    Then I compare source image "actual/普通统计视图/2727_字段数值_<statType>_<chart>_<timeSpan><time>" with target image "expect/普通统计视图/2727_字段数值_<statType>_<chart>_<timeSpan><time>"
+
+    @logDisplay @logDisplayGeneral
     Examples:
-      | statType  | chart   | timeSpan| time |
-      |  总计     |  曲线图   |   7     | 天   |
-      |  平均值   |  面积图   |   1     |  周  |
+      | statType  | chart     | timeSpan| time | save        | input     | ok      |
+      |  总计     |  曲线图   |   7     | 天   |             |           |         |
+      |  平均值   |  面积图   |   1     | 周   |             |           |         |
+
+    @saveAsTrendStatistics
+    Examples:
+      | statType  | chart     | timeSpan| time | save        | input     | ok      |
+      |  总计     |  曲线图   |   7     | 天   | SaveAsTrend | NameInput | Ensure  |
+      |  平均值   |  面积图   |   1     | 周   | SaveAsTrend | NameInput | Ensure  |
 
   Scenario Outline: fieldnumber3
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
@@ -361,12 +475,22 @@ Feature: 日志展现_普通统计视图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/2727_字段数值/2727_<chart>_<timeSpan>_clientip"
-    Then I compare source image "actual/普通统计视图/2727_字段数值/2727_<chart>_<timeSpan>_clientip" with target image "expect/普通统计视图/2727_字段数值/2727_<chart>_<timeSpan>_clientip"
+    And take part of "Chart" with name "actual/普通统计视图/2727_字段数值_<chart>_<timeSpan>_clientip"
 
+    And I click the "<save>" button
+    When I set the parameter "<input>" with value "2727_字段数值_<chart>_<timeSpan>_clientip"
+    And I click the "<ok>" button
+    Then I compare source image "actual/普通统计视图/2727_字段数值_<chart>_<timeSpan>_clientip" with target image "expect/普通统计视图/2727_字段数值_<chart>_<timeSpan>_clientip"
+
+    @logDisplay @logDisplayGeneral
     Examples:
-      | chart     | timeSpan|
-      |  柱状图   |   1     |
+      | chart     | timeSpan| save        | input     | ok      |
+      |  柱状图   |   1     |             |           |         |
+
+    @saveAsTrendStatistics
+    Examples:
+      | chart     | timeSpan| save        | input     | ok      |
+      |  柱状图   |   1     | SaveAsTrend | NameInput | Ensure  |
 
   Scenario Outline: totalpercent(RZY-819,2730)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
@@ -387,13 +511,23 @@ Feature: 日志展现_普通统计视图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/<screenName>"
+
+    And I click the "<save>" button
+    When I set the parameter "<input>" with value "<screenName>"
+    And I click the "<ok>" button
     Then I compare source image "actual/普通统计视图/<screenName>" with target image "expect/普通统计视图/<screenName>"
 
+    @logDisplay @logDisplayGeneral
     Examples:
-      |  percent1  |   percent2   |  screenName            |
-      |    80      |      75      |  819_累计百分比_80_75   |
-      |   30.30    |      25      |  2730_累计百分比_实数     |
+      | percent1 | percent2 | screenName           | save        | input     | ok      |
+      |   80     |    75    | 819_累计百分比_80_75 |             |           |         |
+      |  30.30   |    25    | 2730_累计百分比_实数 |             |           |         |
 
+    @saveAsTrendStatistics
+    Examples:
+      | percent1 | percent2 | screenName           | save        | input     | ok      |
+      |   80     |    75    | 819_累计百分比_80_75 | SaveAsTrend | NameInput | Ensure  |
+      |  30.30   |    25    | 2730_累计百分比_实数 | SaveAsTrend | NameInput | Ensure  |
 
   Scenario Outline: percentdegree(RZY-821, 3136)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
@@ -411,15 +545,25 @@ Feature: 日志展现_普通统计视图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/<screenName>"
+
+    And I click the "<save>" button
+    When I set the parameter "<input>" with value "<screenName>"
+    And I click the "<ok>" button
     Then I compare source image "actual/普通统计视图/<screenName>" with target image "expect/普通统计视图/<screenName>"
 
+    @logDisplay @logDisplayGeneral
     Examples:
-      |  value1     | screenName               |
-      |     100     |  821_百分位等级_100        |
-      |  1262.50    |  3136_百分位等级_1262-50   |
+      |  value1  | screenName              | save        | input     | ok      |
+      |     100  |  821_百分位等级_100     |             |           |         |
+      |  1262.50 |  3136_百分位等级_1262-50|             |           |         |
 
+    @saveAsTrendStatistics
+    Examples:
+      |  value1  | screenName              | save        | input     | ok      |
+      |     100  |  821_百分位等级_100     | SaveAsTrend | NameInput | Ensure  |
+      |  1262.50 |  3136_百分位等级_1262-50| SaveAsTrend | NameInput | Ensure  |
 
-  Scenario: multilevelstats_step1(RZY-822)
+  Scenario Outline: multilevelstats_step1(RZY-822)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -436,10 +580,23 @@ Feature: 日志展现_普通统计视图
     And I wait for "MultiStatsChart" will be visible
     And I drag the scroll bar to the element "MultiStatsChart"
     And I wait for "2000" millsecond
-    And take part of "MultiStatsChart" with name "actual/普通统计视图/822_多级统计/822_chart_step1"
-    Then I compare source image "actual/普通统计视图/822_多级统计/822_chart_step1" with target image "expect/普通统计视图/822_多级统计/822_chart_step1"
+    And take part of "MultiStatsChart" with name "actual/普通统计视图/822_多级统计_step1"
 
-  Scenario: multilevelstats_step2(RZY-822)
+    And I click the "<save>" button
+    When I set the parameter "<input>" with value "822_多级统计_step1"
+    And I click the "<ok>" button
+
+    @logDisplay @logDisplayGeneral
+    Examples:
+      | save        | input     | ok      |
+      |             |           |         |
+
+    @saveAsTrendStatistics
+    Examples:
+      | save        | input     | ok      |
+      | SaveAsTrend | NameInput | Ensure  |
+
+  Scenario Outline: multilevelstats_step2(RZY-822)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -465,10 +622,23 @@ Feature: 日志展现_普通统计视图
     And I wait for "MultiStatsChart" will be visible
     And I drag the scroll bar to the element "MultiStatsChart"
     And I wait for "2000" millsecond
-    And take part of "MultiStatsChart" with name "actual/普通统计视图/822_多级统计/822_chart_step2"
-#    Then I compare source image "actual/普通统计视图/822_多级统计/822_chart_step2" with target image "expect/普通统计视图/822_多级统计/822_chart_step2"
+    And take part of "MultiStatsChart" with name "actual/普通统计视图/822_多级统计_step2"
 
-  Scenario: multilevelstats_step3(RZY-822)
+    And I click the "<save>" button
+    When I set the parameter "<input>" with value "822_多级统计_step2"
+    And I click the "<ok>" button
+
+    @logDisplay @logDisplayGeneral
+    Examples:
+      | save        | input     | ok      |
+      |             |           |         |
+
+    @saveAsTrendStatistics
+    Examples:
+      | save        | input     | ok      |
+      | SaveAsTrend | NameInput | Ensure  |
+
+  Scenario Outline: multilevelstats_step3(RZY-822)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -502,11 +672,23 @@ Feature: 日志展现_普通统计视图
     And I wait for "MultiStatsChart" will be visible
     And I drag the scroll bar to the element "MultiStatsChart"
     And I wait for "2000" millsecond
-    And take part of "MultiStatsChart" with name "actual/普通统计视图/822_多级统计/822_chart_step3"
-#    Then I compare source image "actual/普通统计视图/822_多级统计/822_chart_step3" with target image "expect/普通统计视图/822_多级统计/822_chart_step3"
+    And take part of "MultiStatsChart" with name "actual/普通统计视图/822_多级统计_step3"
 
+    And I click the "<save>" button
+    When I set the parameter "<input>" with value "822_多级统计_step3"
+    And I click the "<ok>" button
 
-  Scenario:geogrdistr(RZY-825)
+    @logDisplay @logDisplayGeneral
+    Examples:
+      | save        | input     | ok      |
+      |             |           |         |
+
+    @saveAsTrendStatistics
+    Examples:
+      | save        | input     | ok      |
+      | SaveAsTrend | NameInput | Ensure  |
+
+  Scenario Outline:geogrdistr(RZY-825)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -519,21 +701,50 @@ Feature: 日志展现_普通统计视图
     And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/825_地理分布/825_world"
-    Then I compare source image "actual/普通统计视图/825_地理分布/825_world" with target image "expect/普通统计视图/825_地理分布/825_world"
+    And take part of "Chart" with name "actual/普通统计视图/825_地理分布_world"
+
+    And I click the "<save>" button
+    When I set the parameter "<input>" with value "825_地理分布_world"
+    And I click the "<ok>" button
+    And I wait for "1000" millsecond
+    And I click the "<ok>" button
+    Then I compare source image "actual/普通统计视图/825_地理分布_world" with target image "expect/普通统计视图/825_地理分布_world"
 
     When I click the Circle "CountryChina" button
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/825_地理分布/825_china"
-    Then I compare source image "actual/普通统计视图/825_地理分布/825_china" with target image "expect/普通统计视图/825_地理分布/825_china"
+    And take part of "Chart" with name "actual/普通统计视图/825_地理分布_china"
+
+    And I click the "<save>" button
+    When I set the parameter "<input>" with value "825_地理分布_china"
+    And I click the "<ok>" button
+    And I wait for "1000" millsecond
+    And I click the "<ok>" button
+    Then I compare source image "actual/普通统计视图/825_地理分布_china" with target image "expect/普通统计视图/825_地理分布_china"
 
     When I click the Circle "ProvinceSichuan" button
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/825_地理分布/825_sichuan"
-    Then I compare source image "actual/普通统计视图/825_地理分布/825_sichuan" with target image "expect/普通统计视图/825_地理分布/825_sichuan"
+    And take part of "Chart" with name "actual/普通统计视图/825_地理分布_sichuan"
 
+    And I click the "<save>" button
+    When I set the parameter "<input>" with value "825_地理分布_sichuan"
+    And I click the "<ok>" button
+    And I wait for "1000" millsecond
+    And I click the "<ok>" button
+    Then I compare source image "actual/普通统计视图/825_地理分布_sichuan" with target image "expect/普通统计视图/825_地理分布_sichuan"
+
+    @logDisplay @logDisplayGeneral
+    Examples:
+      | save        | input     | ok      |
+      |             |           |         |
+
+    @saveAsTrendStatistics
+    Examples:
+      | save        | input     | ok      |
+      | SaveAsTrend | NameInput | Ensure  |
+
+  @logDisplay @logDisplayGeneral
   Scenario Outline: check_field
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
@@ -560,6 +771,7 @@ Feature: 日志展现_普通统计视图
     | MultilevelStatistics    | Generate     | 请选择统计字段         |
     | GeographicalDistribution| Generate     | 请选择统计字段         |
 
+  @logDisplay @logDisplayGeneral
   Scenario Outline: check_field2
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
@@ -581,6 +793,7 @@ Feature: 日志展现_普通统计视图
       | FieldNumber             | 请选择分组字段！       | YAxis         |
       | PercentDegree           | 请输入目标值。         | FieldValue    |
 
+  @logDisplay @logDisplayGeneral
   Scenario Outline: check_field3
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
@@ -599,6 +812,7 @@ Feature: 日志展现_普通统计视图
       | a             |
       | 0             |
 
+  @logDisplay @logDisplayGeneral
   Scenario Outline: check_field4
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
@@ -621,6 +835,7 @@ Feature: 日志展现_普通统计视图
       | TotalPercent            | PercentInput   | 请输入正确的数值(0<数值<100)  |    AddPercent |
       | PercentDegree           | GoalValue      | 请填写合理的数值！            |               |
 
+  @logDisplay @logDisplayGeneral
   Scenario Outline: check_field5
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
@@ -645,6 +860,7 @@ Feature: 日志展现_普通统计视图
     | a          | 请正确填写分组字段值! | GroupValue     |            |
     |            | 请正确填写分组字段值! |                | SelfRadio  |
 
+  @logDisplay @logDisplayGeneral
   Scenario: check_field6
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
@@ -664,6 +880,7 @@ Feature: 日志展现_普通统计视图
     And I wait for "Message" will be visible
     And I will see the message "添加百分比"
 
+  @logDisplay @logDisplayGeneral
   Scenario: check_field7
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element

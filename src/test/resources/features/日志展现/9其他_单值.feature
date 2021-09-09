@@ -20,8 +20,8 @@ Feature: 日志展现_其他_单值
     And I wait for "2000" millsecond
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<chartType>_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/6其它_<chartType>_<caseNum>" with target image "expect/高级搜索视图/6其它_<chartType>_<caseNum>"
 
     Examples:
       |  chartType    |caseNum  |   spl   |
@@ -61,8 +61,8 @@ Feature: 日志展现_其他_单值
     And I will see the element "<chartType>Element" style contains "color: rgb(92, 157, 245)"
     And I will see the element "<chartType>Element" contains "124"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>"
-    Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<chartType>_<caseNum>_<iconValue>"
+    Then I compare source image "actual/高级搜索视图/6其它_<chartType>_<caseNum>_<iconValue>" with target image "expect/高级搜索视图/6其它_<chartType>_<caseNum>_<iconValue>"
 
     Examples:
       |  chartType    |   iconValue  |  caseNum  |   spl   |
@@ -95,8 +95,8 @@ Feature: 日志展现_其他_单值
     And I will see the element "<chartType>Element" style contains "color: rgb(255, 255, 255)"
     And I will see the element "<chartType>Element" contains "124"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<chartType>_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/6其它_<chartType>_<caseNum>" with target image "expect/高级搜索视图/6其它_<chartType>_<caseNum>"
 
     Examples:
       |  chartType    |  caseNum  |   spl   |
@@ -126,8 +126,8 @@ Feature: 日志展现_其他_单值
     And I will see the element "<chartType>Element" style contains "color: rgb(255, 255, 255)"
     And I will see the element "<chartType>Element" contains "124"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<chartType>_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/6其它_<chartType>_<caseNum>" with target image "expect/高级搜索视图/6其它_<chartType>_<caseNum>"
 
     Examples:
       |  chartType    |  caseNum  | timeValue    |   spl   |
@@ -171,8 +171,8 @@ Feature: 日志展现_其他_单值
     And I wait for "<chartType>Element" will be visible
     And I will see the element "<chartType>Element" style contains "font-size: 100px"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>"
-    Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<chartType>_<caseNum>_<colorFill>"
+    Then I compare source image "actual/高级搜索视图/6其它_<chartType>_<caseNum>_<colorFill>" with target image "expect/高级搜索视图/6其它_<chartType>_<caseNum>_<colorFill>"
 
     Examples:
       |  chartType    |  caseNum  | minVal1 | maxVal1  |  color1  | minVal2 | maxVal2  |  color2  | colorFill     |   spl   |
@@ -212,8 +212,8 @@ Feature: 日志展现_其他_单值
     And I will see the element "<chartType>Element" style contains "<style>"
     And I will see the element "<chartType>Element" contains "<num>"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<chartType>_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/6其它_<chartType>_<caseNum>" with target image "expect/高级搜索视图/6其它_<chartType>_<caseNum>"
 
     Examples:
       |  chartType    | precision |  unitPosition       |  buttonSwitch     |  caseNum                |     style                | num       |
@@ -257,8 +257,8 @@ Feature: 日志展现_其他_单值
     And I will see the element "<chartType>Element" style contains "color: rgb(255, 255, 255)"
     And I will see the element "<chartType>Element" contains "5"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>"
-    Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<chartType>_<caseNum>_<colorFill>"
+    Then I compare source image "actual/高级搜索视图/6其它_<chartType>_<caseNum>_<colorFill>" with target image "expect/高级搜索视图/6其它_<chartType>_<caseNum>_<colorFill>"
 
     Examples:
       |  chartType    | colorFill    | caseNum     |
@@ -312,8 +312,8 @@ Feature: 日志展现_其他_单值
     And I will see the element "<chartType>Element" style contains "font-size: 80px"
     And I will see the element "<chartType>Element" style contains "color: rgb(255, 255, 255)"
     And I wait for "3000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<chartType>_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/6其它_<chartType>_<caseNum>" with target image "expect/高级搜索视图/6其它_<chartType>_<caseNum>"
 
     Examples:
       |  chartType    | caseNum          |
@@ -353,8 +353,8 @@ Feature: 日志展现_其他_单值
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<option>"
-    Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<option>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<option>"
+    And take part of "Chart" with name "actual/高级搜索视图/6其它_<chartType>_<caseNum>_<option>"
+    Then I compare source image "actual/高级搜索视图/6其它_<chartType>_<caseNum>_<option>" with target image "expect/高级搜索视图/6其它_<chartType>_<caseNum>_<option>"
 
     Examples:
       |  chartType    | caseNum     | fontValue          | option         | color    |

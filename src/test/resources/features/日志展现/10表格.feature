@@ -30,8 +30,8 @@ Feature: 日志展现_表格
 
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/8表格/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/8表格_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/8表格_<caseNum>" with target image "expect/高级搜索视图/8表格_<caseNum>"
 
     Examples:
       | caseNum  |
@@ -58,8 +58,8 @@ Feature: 日志展现_表格
     And I will see the element "Cell" style contains "font-style: italic;"
     And I will see the element "Cell" style contains "text-align: right;"
     And I wait for "3000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/8表格/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/8表格_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/8表格_<caseNum>" with target image "expect/高级搜索视图/8表格_<caseNum>"
 
     Examples:
       | caseNum      |
@@ -83,8 +83,8 @@ Feature: 日志展现_表格
     And I wait for "Chart" will be visible
     And I will see the element "Cell" style contains "<style>"
     And I wait for "3000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/8表格/<caseNum>_<color>"
-    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>_<color>" with target image "expect/高级搜索视图/8表格/<caseNum>_<color>"
+    And take part of "Chart" with name "actual/高级搜索视图/8表格_<caseNum>_<color>"
+    Then I compare source image "actual/高级搜索视图/8表格_<caseNum>_<color>" with target image "expect/高级搜索视图/8表格_<caseNum>_<color>"
 
     Examples:
       |   color      | caseNum  |  style                                |
@@ -131,8 +131,8 @@ Feature: 日志展现_表格
     And I will see the element "Cell" style contains "text-decoration: underline"
     And I will see the element "Cell" style contains "background-color: rgb(0, 255, 0)"
     And I wait for "3000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/8表格/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/8表格_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/8表格_<caseNum>" with target image "expect/高级搜索视图/8表格_<caseNum>"
 
     Examples:
       | caseNum  |
@@ -170,8 +170,8 @@ Feature: 日志展现_表格
     And I wait for "Chart" will be visible
     And I will see the element "Cell" style contains "<style>"
     And I wait for "3000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/8表格/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/8表格_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/8表格_<caseNum>" with target image "expect/高级搜索视图/8表格_<caseNum>"
 
     Examples:
       |  button               | caseNum          |   style   |
@@ -193,8 +193,8 @@ Feature: 日志展现_表格
     And I wait for "Chart" will be visible
     And I will see the element "<element>" style contains "<style>"
     And I wait for "3000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/8表格/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/8表格_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/8表格_<caseNum>" with target image "expect/高级搜索视图/8表格_<caseNum>"
 
     Examples:
       |   button      | caseNum       |   element  | style    |
@@ -239,8 +239,8 @@ Feature: 日志展现_表格
     And I will see the element "Cell" style contains "font-weight: bold;"
     And I will see the element "Cell" style contains "text-align: center;"
     And I wait for "3000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/8表格/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/8表格_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/8表格_<caseNum>" with target image "expect/高级搜索视图/8表格_<caseNum>"
 
     Examples:
       | caseNum     |
@@ -265,8 +265,8 @@ Feature: 日志展现_表格
     And I click the "EnsureButton" button
 
     And I wait for "3000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/8表格/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/8表格_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/8表格_<caseNum>" with target image "expect/高级搜索视图/8表格_<caseNum>"
 
     Examples:
       | caseNum         |
@@ -294,8 +294,8 @@ Feature: 日志展现_表格
 
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/8表格/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/8表格_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/8表格_<caseNum>" with target image "expect/高级搜索视图/8表格_<caseNum>"
 
     Examples:
       | caseNum           |
