@@ -29,8 +29,10 @@ Feature: 报表新建_编辑_复合
 
     When I click the "ParameterSetting" button
     And I click the "Xaxis" button
+    And I wait for "1000" millsecond
     And I set the parameter "FieldValue" with value "ts"
     And I click the "Yaxis" button
+    And I wait for "1000" millsecond
     And I set the parameter "Actual" with value "cnt"
     And I set the parameter "Predict" with value "_predict_cnt"
     And I set the parameter "Outlier" with value "upper95"

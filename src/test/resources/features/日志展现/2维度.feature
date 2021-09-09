@@ -322,3 +322,35 @@ Feature: 日志展现_维度
       |全部展示  | 纵向         | 横向         |  1        | 5.6          | rotate(-90)     | rotate(0)       |
       |全部展示  | 横向         | 纵向         |  2        | 5.57         | rotate(0)       | rotate(-90)     |
       |全部展示  | 横向         | 横向         |  3        | 5.571        | rotate(0)       | rotate(0)       |
+
+  Scenario Outline: dimension_pie_ratio
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Type" button
+    And I click the "Dimension" button
+    And I click the "<chartType>" button under some element
+    And I click the "Type" button
+    And I click the "Settings" button under some element
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "<color>" button
+    And I wait for "1000" millsecond
+    And I set the parameter "SegmentsNumber" with value "<segments_num>"
+    And I set the parameter "RatioInnerToOuter" with value "<ratio>"
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "2000" millsecond
+    And I will see the text "其他" exist in page
+    And I will see the text "<client_ip>" is not existed in page
+    And I move the mouse pointer to the "Type"
+    And I wait for "2000" millsecond
+    And take part of "StatisticalChart" with name "actual/高级搜索视图/2维度_<chartType>_<segments_num>_<ratio>"
+    And I compare source image "actual/高级搜索视图/2维度_<chartType>_<segments_num>_<ratio>" with target image "expect/高级搜索视图/2维度_<chartType>_<segments_num>_<ratio>"
+
+    Examples:
+      |   chartType   | color  | segments_num | ratio | client_ip      |
+      |      Pie      | Red    | 2            | 0.9   | 183.14.126.214 |
+      |      Pie      | Green  | 3            | 0     | 1.207.60.51    |

@@ -28,10 +28,12 @@ Feature: 报表新建_编辑_序列word
 
     When I click the "ParameterSetting" button
     And I wait for "FieldValue" will be visible
+    And I wait for "1000" millsecond
     And I set the parameter "FieldValue" with value "apache.clientip"
     And I click the "<label>" button
     And I click the "<order>" button
     And I click the "Yaxis" button
+    And I wait for "1000" millsecond
     And I set the parameter "FieldValue" with value "count()"
     And I set the parameter "unit" with value "<unit>"
     And I click the "<button>" button
@@ -76,10 +78,12 @@ Feature: 报表新建_编辑_序列word
 
     When I click the "ParameterSetting" button
     And I wait for "FieldValue" will be visible
+    And I wait for "1000" millsecond
     And I set the parameter "FieldValue" with value "apache.clientip"
     And I click the "<label>" button
     And I click the "<order>" button
     And I click the "Yaxis" button
+    And I wait for "1000" millsecond
     And I set the parameter "FieldValue" with value "count()"
     And I set the parameter "unit" with value "<unit>"
     And I set the parameter "Min" with value "<min>"
@@ -124,9 +128,11 @@ Feature: 报表新建_编辑_序列word
 
     When I click the "ParameterSetting" button
     And I wait for "FieldValue" will be visible
+    And I wait for "1000" millsecond
     And I set the parameter "FieldValue" with value "apache.clientip"
     And I click the "<label>" button
     And I click the "Yaxis" button
+    And I wait for "1000" millsecond
     And I set the parameter "FieldValue" with value "count()"
     And I set the parameter "unit" with value "<unit>"
 
@@ -169,6 +175,7 @@ Feature: 报表新建_编辑_序列word
 
     When I click the "ParameterSetting" button
     And I click the "Yaxis" button
+    And I wait for "1000" millsecond
     And I set the parameter "unit" with value "<unit>"
     And I click the "<button>" button
     And I set the parameter "Min" with value "<min>"
