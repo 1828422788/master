@@ -344,27 +344,27 @@ Feature: 日志展现_普通统计视图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/817_字段值分类_<screenName>_<value1>"
+    And take part of "Chart" with name "actual/普通统计视图/817_字段值分类_<charttype>_<value1>"
 
     And I click the "<save>" button
-    When I set the parameter "<input>" with value "817_字段值分类_<screenName>_<value1>"
+    When I set the parameter "<input>" with value "817_字段值分类_<charttype>_<value1>"
     And I click the "<ok>" button
 
     @logDisplay @logDisplayGeneral
     Examples:
-      | charttype|value1 | screenName | save        | input     | ok      |
-      | 饼图     |  5    | 817_饼图   |             |           |         |
-      | 饼图     |  20   | 817_饼图   |             |           |         |
-      | 条形图   |  10   | 817_条形图 |             |           |         |
-      | 条形图   |  50   | 817_条形图 |             |           |         |
+      | charttype|value1 | save        | input     | ok      |
+      | 饼图     |  5    |             |           |         |
+      | 饼图     |  20   |             |           |         |
+      | 条形图   |  10   |             |           |         |
+      | 条形图   |  50   |             |           |         |
 
     @saveAsTrendStatistics
     Examples:
-      | charttype|value1 | screenName | save        | input     | ok      |
-      | 饼图     |  5    | 817_饼图   | SaveAsTrend | NameInput | Ensure  |
-      | 饼图     |  20   | 817_饼图   | SaveAsTrend | NameInput | Ensure  |
-      | 条形图   |  10   | 817_条形图 | SaveAsTrend | NameInput | Ensure  |
-      | 条形图   |  50   | 817_条形图 | SaveAsTrend | NameInput | Ensure  |
+      | charttype|value1 | save        | input     | ok      |
+      | 饼图     |  5    | SaveAsTrend | NameInput | Ensure  |
+      | 饼图     |  20   | SaveAsTrend | NameInput | Ensure  |
+      | 条形图   |  10   | SaveAsTrend | NameInput | Ensure  |
+      | 条形图   |  50   | SaveAsTrend | NameInput | Ensure  |
 
   Scenario Outline: fieldnumber1(RZY-2727)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
