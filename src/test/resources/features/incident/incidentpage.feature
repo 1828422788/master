@@ -31,7 +31,7 @@ Feature: 事件管理界面
     And I set the parameter "SearchInput" with value "alertcef.name:<alertname>"
     When I click the "SearchButton" button under some element
     And I wait for "2000" millsecond
-    Then I will see the element "NameCell01" contains "name:<alertname>"
+    Then I will see the element "NameCell12" contains "name:<alertname>"
     Then I will see the element "NameCell13" contains "<alertref>"
 
     Examples:

@@ -50,7 +50,7 @@ public class IncidentPage extends PageTemplate {
         return nameCell13;
     }
 
-    public WebElement getNameCell01() {
+    public WebElement getNameCell12() {
         String xpath = "//table[@yotta-test='incident-list-table']//tr[1]/td[2]";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         return element;
