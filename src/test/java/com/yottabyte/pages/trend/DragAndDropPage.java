@@ -133,6 +133,14 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(xpath = "//div[@yotta-test='trend-BI_param_fixedSetting-auto_complete']//input")
     private WebElement iconName;
 
+    @FindBy(xpath = "//*[contains(@class,'pageheader') and contains(text(),'新建趋势图')]")
+    private WebElement hideElement;
+
+    public WebElement getHideElement(){
+        hideElement.click();
+        return hideElement;
+    }
+
     public WebElement getRangeColor() {
         return rangeColor;
     }
@@ -761,5 +769,4 @@ public class DragAndDropPage extends CreatePage {
         String xpath = "//input[contains(@yotta-test,'" + test +"')]";
         return webDriver.findElement(By.xpath(xpath));
     }
-
 }

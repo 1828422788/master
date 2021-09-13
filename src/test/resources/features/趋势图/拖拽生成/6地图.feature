@@ -29,6 +29,7 @@ Feature: 趋势图_拖拽_地图
     And I click the "<chartType>" button
     Then I wait for "Chart" will be visible
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.geo.city) by apache.geo.city"
@@ -75,6 +76,7 @@ Feature: 趋势图_拖拽_地图
     And I wait for "1000" millsecond
     And I click the "<switch>" button
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "<spl>"
@@ -120,6 +122,7 @@ Feature: 趋势图_拖拽_地图
     And I drag the element "GeoCity" to the "City"
     Then I wait for "Chart" will be visible
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.geo.country) by apache.geo.country,apache.geo.province,apache.geo.city"

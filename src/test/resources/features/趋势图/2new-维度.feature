@@ -316,6 +316,7 @@ Feature: 趋势图新建_维度
     And I click the "Type" button
     And I click the "Settings" button under some element
     And I click the "Divide" button
+    And I wait for "1000" millsecond
     And I click the "DeleteFirst" button
     And I click the "DeleteFirst" button
     And I click the "Exhibition" button

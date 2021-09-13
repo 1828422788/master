@@ -34,6 +34,7 @@ Feature: 趋势图_拖拽_维度
     And I click the "<color>" button
     And I choose the "<label>" from the "ShowLabel"
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.method) by apache.method"
@@ -90,6 +91,7 @@ Feature: 趋势图_拖拽_维度
     And I click the "Exhibition" button
     And I click the "<drill>" button
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count() by apache.method,apache.status"
@@ -153,6 +155,7 @@ Feature: 趋势图_拖拽_维度
     And I wait for "<color>" will be visible
     And I click the "<color>" button
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count() by apache.geo.province,apache.geo.city"
