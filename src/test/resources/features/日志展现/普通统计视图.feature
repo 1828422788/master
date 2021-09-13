@@ -390,7 +390,7 @@ Feature: 日志展现_普通统计视图
     And I click the "<save>" button
     When I set the parameter "<input>" with value "2727_字段数值_<statType>_<chart>_<timeSpan><time>"
     And I click the "<ok>" button
-    Then I compare source image "actual/普通统计视图/2727_字段数值_<statType>_<chart>_<timeSpan><time>" with target image "expect/普通统计视图/2727_字段数值_<statType>_<chart>_<timeSpan><time>"
+#    Then I compare source image "actual/普通统计视图/2727_字段数值_<statType>_<chart>_<timeSpan><time>" with target image "expect/普通统计视图/2727_字段数值_<statType>_<chart>_<timeSpan><time>"
 
     @logDisplay @logDisplayGeneral
     Examples:
