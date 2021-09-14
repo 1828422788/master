@@ -67,7 +67,6 @@ Feature: 全链路_6指标项配置
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"
-    And I clear the browser's cache
 
   Scenario: 查看全链路1
     And I wait for "Canvas" will be visible
@@ -92,7 +91,6 @@ Feature: 全链路_6指标项配置
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"
-    And I clear the browser's cache
 
   Scenario: 查看全链路2_钻取1
     And I wait for "Canvas" will be visible
@@ -124,7 +122,6 @@ Feature: 全链路_6指标项配置
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"
-    And I clear the browser's cache
 
   Scenario: 查看全链路2_钻取2
     And I wait for "Canvas" will be visible
@@ -171,7 +168,6 @@ Feature: 全链路_6指标项配置
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"
-    And I clear the browser's cache
 
   Scenario: 查看全链路3
     And I wait for "Canvas" will be visible
@@ -195,7 +191,6 @@ Feature: 全链路_6指标项配置
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"
-    And I clear the browser's cache
 
   Scenario: 查看全链路4
     And I wait for "Canvas" will be visible
@@ -209,7 +204,6 @@ Feature: 全链路_6指标项配置
     And I will see the element "ElementDetails" contains "节点异常状态"
     And I will see the element "ElementDetails" contains "COUNT："
     And I wait for "AlarmLine" will be visible
-    And I clear the browser's cache
 
   Scenario: 查看全链路5_钻取
     And I wait for "Canvas" will be visible
