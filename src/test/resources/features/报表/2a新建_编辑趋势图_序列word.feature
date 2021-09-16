@@ -85,16 +85,20 @@ Feature: 报表新建_编辑_序列word
     And I click the "Yaxis" button
     And I wait for "1000" millsecond
     And I set the parameter "FieldValue" with value "count()"
+    And I wait for "1000" millsecond
     And I set the parameter "unit" with value "<unit>"
     And I set the parameter "Min" with value "<min>"
     And I set the parameter "Max" with value "<max>"
 
     And I click the "Group" button
+    And I wait for "1000" millsecond
     And I set the parameter "GroupField" with value "apache.method" and press enter
+    And I wait for "1000" millsecond
     And I click the "Pile" button
     And I wait for "2000" millsecond
 
     And I click the "Example" button
+    And I wait for "1000" millsecond
     And I click the "<legendPosition>" button
     And I wait for "2000" millsecond
     When I click the "ParameterSetting" button
