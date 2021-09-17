@@ -3,7 +3,7 @@ Feature: 全链路_9告警忽略
 
   Background:
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
-    And I wait for "3000" millsecond
+    And I wait for "Loading" will be invisible
     When the data name is "AutoTest_1" then i click the "编辑" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "3000" millsecond

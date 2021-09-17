@@ -34,7 +34,7 @@ Feature: 全链路_7时间轴
 
   Scenario: 创建全链路
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
-    And I wait for "3000" millsecond
+    And I wait for "Loading" will be invisible
     When I click the "Create" button
     And I wait for "Name" will be visible
     And I set the parameter "Name" with value "AutoTest_TimeAxis"
@@ -44,7 +44,7 @@ Feature: 全链路_7时间轴
 
   Scenario Outline: 解析规则配置
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
-    And I wait for "3000" millsecond
+    And I wait for "Loading" will be invisible
     When the data name is "<name>" then i click the "编辑" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "3000" millsecond
@@ -73,7 +73,7 @@ Feature: 全链路_7时间轴
 
   Scenario Outline: 时间轴SPL配置
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
-    And I wait for "3000" millsecond
+    And I wait for "Loading" will be invisible
     When the data name is "<name>" then i click the "编辑" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "3000" millsecond
@@ -97,7 +97,7 @@ Feature: 全链路_7时间轴
 
   Scenario Outline: 数据项配置
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
-    And I wait for "3000" millsecond
+    And I wait for "Loading" will be invisible
     When the data name is "<name>" then i click the "编辑" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "3000" millsecond
@@ -129,7 +129,7 @@ Feature: 全链路_7时间轴
 
   Scenario Outline: 指标项配置
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
-    And I wait for "3000" millsecond
+    And I wait for "Loading" will be invisible
     When the data name is "<name>" then i click the "编辑" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "3000" millsecond
@@ -161,7 +161,7 @@ Feature: 全链路_7时间轴
 
   Scenario:时间轴显示
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
-    And I wait for "3000" millsecond
+    And I wait for "Loading" will be invisible
     When the data name is "AutoTest_TimeAxis" then i click the "编辑" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "3000" millsecond
@@ -177,7 +177,7 @@ Feature: 全链路_7时间轴
 
   Scenario:时间轴_提示没有数据
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
-    And I wait for "3000" millsecond
+    And I wait for "Loading" will be invisible
     When the data name is "AutoTest" then i click the "编辑" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "3000" millsecond
@@ -193,7 +193,7 @@ Feature: 全链路_7时间轴
 
   Scenario: 直播
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
-    And I wait for "3000" millsecond
+    And I wait for "Loading" will be invisible
     When the data name is "AutoTest_TimeAxis" then i click the "编辑" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "3000" millsecond
@@ -223,7 +223,7 @@ Feature: 全链路_7时间轴
 
   Scenario: 录播
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
-    And I wait for "3000" millsecond
+    And I wait for "Loading" will be invisible
     When the data name is "AutoTest_TimeAxis" then i click the "编辑" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "3000" millsecond
@@ -251,7 +251,7 @@ Feature: 全链路_7时间轴
 
   Scenario Outline: 时间轴
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
-    And I wait for "3000" millsecond
+    And I wait for "Loading" will be invisible
     When the data name is "AutoTest_TimeAxis" then i click the "编辑" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "3000" millsecond

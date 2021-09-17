@@ -75,12 +75,15 @@ Feature: 报表新建_编辑_复合
 
     When I click the "ParameterSetting" button
     And I click the "Xaxis" button
+    And I wait for "1000" millsecond
     And I wait for "FieldValue" will be visible
     And I set the parameter "FieldValue" with value "apache.resp_len"
     And I click the "FirstLabel" button
     And I click the "AscendingOrder" button
     And I click the "Yaxis" button
+    And I wait for "1000" millsecond
     And I click the "AddField" button
+    And I wait for "1000" millsecond
     And I click the "Yaxis1" button
     And I set the parameter "Min" with value "1"
     And I set the parameter "Max" with value "170000"
@@ -92,6 +95,7 @@ Feature: 报表新建_编辑_复合
     And I click the "ConnectEmptyData" button
 
     And I click the "AddField" button
+    And I wait for "1000" millsecond
     And I click the "Yaxis2" button
     And I set the parameter "Unit" with value "柱"
     And I set the parameter "Min" with value "2"
@@ -101,6 +105,7 @@ Feature: 报表新建_编辑_复合
     And I choose the "柱状图" from the "TypeChartField"
 
     And I click the "AddField" button
+    And I wait for "1000" millsecond
     And I click the "Yaxis3" button
     And I set the parameter "Unit" with value "散"
     And I set the parameter "Min" with value ""
@@ -152,12 +157,14 @@ Feature: 报表新建_编辑_复合
 
     When I click the "ParameterSetting" button
     And I click the "Xaxis" button
+    And I wait for "1000" millsecond
     And I wait for "FieldValue" will be visible
     And I set the parameter "FieldValue" with value "apache.resp_len"
     And I click the "FirstLabel" button
     And I click the "AscendingOrder" button
     And I click the "Yaxis" button
     And I click the "AddField" button
+    And I wait for "1000" millsecond
     And I click the "Yaxis1" button
     And I set the parameter "Min" with value "1"
     And I set the parameter "Max" with value "170000"
@@ -173,6 +180,7 @@ Feature: 报表新建_编辑_复合
     And I click the "ConnectEmptyData" button
 
     And I click the "AddField" button
+    And I wait for "1000" millsecond
     And I click the "Yaxis2" button
     And I set the parameter "Unit" with value "柱"
     And I set the parameter "Min" with value "2"
@@ -184,6 +192,7 @@ Feature: 报表新建_编辑_复合
     And I click the "Red" button
 
     And I click the "AddField" button
+    And I wait for "1000" millsecond
     And I click the "Yaxis3" button
     And I set the parameter "Unit" with value "散"
     And I set the parameter "Min" with value ""
