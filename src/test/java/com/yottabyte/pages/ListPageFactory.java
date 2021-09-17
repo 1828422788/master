@@ -213,6 +213,10 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
         return successMessage;
     }
 
+    public WebElement getLastDropdownListEditCommand() {
+        return utils.getLastDropdownListEditCommand();
+    }
+
     public WebElement getLastDropdownList() {
         return utils.getLastDropdownList();
     }
