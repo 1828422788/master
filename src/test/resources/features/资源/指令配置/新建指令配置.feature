@@ -117,13 +117,13 @@ Feature: 新建指令配置
     Examples: 新建成功
       | maxLineNum | name             | splQuery                                                                                              |
       | 100        | generating_demo  | \|generating_demo                                                                                     |
-      | 100        | streaming_demo   | \| makeresults \| eval ct="1,2,3,4" \| eval ct=split(ct,",") \| mvexpand ct \| streaming_demo         |
-      | 100        | centralized_demo | \| makeresults \| eval ct="1,2,3,4" \| eval ct=split(ct,",") \| mvexpand ct \| centralized_demo       |
-      | 100        | transformed_demo | \| makeresults \| eval ct="1,2,3,4" \| eval ct=split(ct,",") \| mvexpand ct \| transformed_demo       |
-      | 100        | caculate_cnt     | \| makeresults \| eval ct="1,2,3,4" \| eval ct=split(ct,",") \| mvexpand ct \| caculate_cnt           |
-      | 100        | caculate_sum     | \| makeresults \| eval ct="1,2,3,4" \| eval ct=split(ct,",") \| mvexpand ct \| caculate_sum           |
-      | 100        | caculate2_cnt    | \| makeresults \| eval ct="1,2,3,4" \| eval ct=split(ct,",") \| mvexpand ct \| caculate2 function=cnt |
-      | 100        | caculate2_avg    | \| makeresults \| eval ct="1,2,3,4" \| eval ct=split(ct,",") \| mvexpand ct \| caculate2 function=avg |
+      | 100        | streaming_demo   | \| makeresults \| eval ct=\"1,2,3,4\" \| eval ct=split(ct,\",\") \| mvexpand ct \| streaming_demo         |
+      | 100        | centralized_demo | \| makeresults \| eval ct=\"1,2,3,4\" \| eval ct=split(ct,\",\") \| mvexpand ct \| centralized_demo       |
+      | 100        | transformed_demo | \| makeresults \| eval ct=\"1,2,3,4\" \| eval ct=split(ct,\",\") \| mvexpand ct \| transformed_demo       |
+      | 100        | caculate_cnt     | \| makeresults \| eval ct=\"1,2,3,4\" \| eval ct=split(ct,\",\") \| mvexpand ct \| caculate_cnt           |
+      | 100        | caculate_sum     | \| makeresults \| eval ct=\"1,2,3,4\" \| eval ct=split(ct,\",\") \| mvexpand ct \| caculate_sum           |
+      | 100        | caculate2_cnt    | \| makeresults \| eval ct=\"1,2,3,4\" \| eval ct=split(ct,\",\") \| mvexpand ct \| caculate2 function=cnt |
+      | 100        | caculate2_avg    | \| makeresults \| eval ct=\"1,2,3,4\" \| eval ct=split(ct,\",\") \| mvexpand ct \| caculate2 function=avg |
 
 
 
