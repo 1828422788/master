@@ -20,7 +20,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='上传完成']")
     private WebElement verifyText;
 
-    @FindBy(xpath = "//button[@class='yotta-button yotta-button-large yotta-button-primary css-naifsn']/span[text()='上传']")
+    @FindBy(xpath = "//button[@class='yotta-button yotta-button-large yotta-button-primary css-8gkgwl']/span[text()='上传']")
     private WebElement confirmUpload;
 
     @FindBy(xpath = "//p[text()='创建成功']")
