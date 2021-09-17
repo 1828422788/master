@@ -901,4 +901,17 @@ public class ClickButtonWithGivenName {
         }
     }
 
+    /**
+     * 查看禁用/启用按钮是否为禁用/启用状态
+     *
+     * @param name   名称
+     * @param status 状态 close/open
+     */
+    @Then("^I will see the checkbox \"([^\"]*)\" is \"([^\"]*)\"$")
+    public void verifyCheckboxStatus(String name, String status) {
+        WebElement element = GetElementFromPage.getWebElementWithName(name);
+        String selected = element.isSelected() ? "open" : "close";
+        Assert.assertTrue(status.equals(selected));
+    }
+
 }
