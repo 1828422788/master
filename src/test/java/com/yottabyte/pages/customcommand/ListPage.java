@@ -32,11 +32,17 @@ public class ListPage extends ListPageFactory {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        return getLastDropdownResourceGroupList();
     }
 
     public WebElement getProgramparam() {
         String xpath = "//input[@yotta-test='customcommand-arguments-input']";
+        WebElement webElement = webDriver.findElement(By.xpath(xpath));
+        return webElement;
+    }
+
+    public WebElement getMaxinputs() {
+        String xpath = "//input[@yotta-test='customcommand-maxinputs-input']";
         WebElement webElement = webDriver.findElement(By.xpath(xpath));
         return webElement;
     }

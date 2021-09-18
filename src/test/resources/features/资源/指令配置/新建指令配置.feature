@@ -58,13 +58,15 @@ Feature: 新建指令配置
     And I set the parameter "CommandName" with value "<tgzName>"
     And I choose the "<tgzName>.tgz" from the "ProcessName"
     And I wait for "1000" millsecond
-#    Then I choose the "autoui001" from the "ResourceTagList"
-#    And I wait for "1000" millsecond
+    Then I choose the "autoui001" from the "ResourceTagList"
+    And I wait for "1000" millsecond
+    And I hide the select menu
     And I set the parameter "Programparam" with value "<programparam>"
     And I wait for "1000" millsecond
-#    When I click the "CmdChunked" button
-#    Given I wait for loading complete
-#    Then I will see the checkbox "CmdChunked" is "open"
+    When I click the "CmdChunked" button
+    Given I wait for loading complete
+    Then I will see the checkbox "CmdChunked" is "open"
+    And I set the parameter "Maxinputs" with value "10"
     Then I choose the "<cmdType>" from the "CommandType"
     And I wait for "2000" millsecond
     Then I click the "Apply" button

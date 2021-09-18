@@ -902,6 +902,20 @@ public class ClickButtonWithGivenName {
     }
 
     /**
+     * 隐藏元素
+     *
+     */
+    @And("^I hide the select menu$")
+    public void hideSelectMenuDisplaying() {
+        String str_selector = "[class='yotta-select-menu css-ncm03v yotta-resource-tag-select-menu']";
+        List<WebElement> list = webDriver.findElements(By.cssSelector(str_selector));
+        for(WebElement curElement:list)
+        {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", curElement);
+        }
+    }
+
+    /**
      * 查看禁用/启用按钮是否为禁用/启用状态
      *
      * @param name   名称
