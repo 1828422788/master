@@ -198,3 +198,53 @@ Feature: 报表新建_编辑_维度
       |  reportType | typeChart   | color     |  name     | SPL   |
       |  EXCEL      | Sun         | DarkBlue  |Sunburst   | \| makeresults count=10 \| eval app="test_1" \| eval tag="T_1" \| append [[ \| makeresults count=10 \| eval app="test_2" \| eval tag="T_2"]] \| chart rendertype="sunburst" count() over tag by app|
 
+  Scenario Outline: new_report_trend_pie
+    When I set the parameter "Name" with value "<name>_<ratio>_<reportType>"
+    And I choose the "<reportType>" from the "ReportType"
+    And I click the "NextButton" button under some element
+    Then I wait for "ChartListButton" will be visible
+    When I choose the "报表测试" from the "ChartList"
+    And I click the "ChartListButton" button
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
+    And I click the "ChosenTrendLast" button
+    And I click the "EditButton" button
+
+    Then I set the parameter "TrendNameField" with value "<name>"
+    And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>_ratio<ratio>_seg<segments_num>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5" to the textarea "TrendSplField"
+    And I click the "TrendChartType" button
+    And I click the "Dimension" button
+    And I click the "<typeChart>" button
+
+    When I click the "ParameterSetting" button
+    And I wait for "FieldValue" will be visible
+    And I set the parameter "FieldValue" with value "ip_count"
+
+    And I click the "Divide" button
+    And I set the parameter "GroupField" with value "apache.clientip" and press enter
+
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "<color>" button
+    And I wait for "1000" millsecond
+    And I set the parameter "SegmentsNumber" with value "<segments_num>"
+    And I set the parameter "RatioInnerToOuter" with value "<ratio>"
+    And I wait for "1000" millsecond
+    When I click the "ParameterSetting" button
+    Then I click the "EnsureButton" button
+
+    When I click the "FinishButton" button under some element
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
+
+    @report @reportChartsPDF
+    Examples:
+      |  reportType | typeChart | color  |  name  | segments_num | ratio |
+      |  PDF        | Pie       | Red    |  Pie_1 | 2            | 0.9   |
+      |  PDF        | Pie       | Green  |  Pie_2 | 3            | 0     |
+
+    @reportChartsEXCEL
+    Examples:
+      |  reportType | typeChart | color  |  name  | segments_num | ratio |
+      |  EXCEL      | Pie       | Red    |  Pie_1 | 2            | 0.9   |
+      |  EXCEL      | Pie       | Green  |  Pie_2 | 3            | 0     |

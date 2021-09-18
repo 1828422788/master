@@ -987,6 +987,14 @@ public class CreatePage extends PageTemplate {
         return getInputSetting("分段数");
     }
 
+    public WebElement getSegmentsNumber() {
+        return getInputSetting("展示前N项");
+    }
+
+    public WebElement getRatioInnerToOuter(){
+        return getInputSetting("内环占外环比");
+    }
+
     public WebElement getFieldValue() {
         return getInputSetting("字段值");
     }

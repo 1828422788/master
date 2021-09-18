@@ -139,6 +139,44 @@ Feature:3修改图表
       | 维度     | Dimension | Bar          | Bar   |  不展示       |   Yellow  |
       | 维度     | Dimension | Sun          | Sun   |               | DarkBlue  |
 
+  Scenario Outline: 修改图表_维度_pie
+    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I wait for "2000" millsecond
+    When I click the detail which name is "仪表盘_<name>"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "LastTag" will be visible
+    And I wait for "500" millsecond
+    And I set the parameter "SearchTagInput" with value "<tag>"
+    And I wait for "500" millsecond
+    And I click the Element with text "<tag>"
+    And I wait for "2000" millsecond
+    And I click the "LastChartType" button under some element
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<folder>" will be visible
+    And I click the "<folder>" button
+    And I click the "<tag>" button
+    And I hide the element "Content"
+    And I wait for "1000" millsecond
+    And I click the "Setting" button under some element
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "<color>" button
+    And I wait for "1000" millsecond
+    And I set the parameter "SegmentsNumber" with value "<segments_num>"
+    And I set the parameter "RatioInnerToOuter" with value "<ratio>"
+    And I wait for "1000" millsecond
+    Then I click the "Generate" button
+    And I wait for "1000" millsecond
+    And I click the "Setting" button
+    And I wait for "2000" millsecond
+
+    Examples:
+      | name     | folder    |  tag  | chart | color  | segments_num | ratio |
+      | 维度     | Dimension | Pie   | Pie_1 | Red    | 2            | 0.9   |
+      | 维度     | Dimension | Pie   | Pie_2 | Green  | 3            | 0     |
+
   Scenario Outline: 修改图表_维度_bar
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
     And I wait for "2000" millsecond
@@ -174,8 +212,8 @@ Feature:3修改图表
 
     Examples:
       | name     | folder    |  tag         | chart |  typeInfo     | option         |   color   |
-      | 维度     | Dimension | Bar          | Bar   |  只展示名称   |  柱状外右侧    |   Red     |
-      | 维度     | Dimension | Bar          | Bar   |  全部展示     |  柱状内靠左侧  |   Green   |
+      | 维度     | Dimension | Bar          | Bar_1 |  只展示名称   |  柱状外右侧    |   Red     |
+      | 维度     | Dimension | Bar          | Bar_2 |  全部展示     |  柱状内靠左侧  |   Green   |
 
   Scenario Outline: 修改图表_维度_火焰图
     And I set the parameter "SearchInput" with value "仪表盘_<name>"

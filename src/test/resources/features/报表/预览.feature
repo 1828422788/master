@@ -38,6 +38,8 @@ Feature: 报表_预览_all
       |   Bar1               |
       |   Bar2               |
       |   Sunburst           |
+      |   Pie_1              |
+      |   Pie_2              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -98,6 +100,8 @@ Feature: 报表_预览_all
       |   Bar1               |
       |   Bar2               |
       |   Sunburst           |
+      |   Pie_1              |
+      |   Pie_2              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -157,6 +161,8 @@ Feature: 报表_预览_all
       |   Bar1               |
       |   Bar2               |
       |   Sunburst           |
+      |   Pie_1              |
+      |   Pie_2              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
