@@ -199,7 +199,7 @@ Feature: 报表新建_编辑_维度
       |  EXCEL      | Sun         | DarkBlue  |Sunburst   | \| makeresults count=10 \| eval app="test_1" \| eval tag="T_1" \| append [[ \| makeresults count=10 \| eval app="test_2" \| eval tag="T_2"]] \| chart rendertype="sunburst" count() over tag by app|
 
   Scenario Outline: new_report_trend_pie
-    When I set the parameter "Name" with value "<name>_<ratio>_<reportType>"
+    When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
