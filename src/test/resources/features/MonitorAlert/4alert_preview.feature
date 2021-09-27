@@ -1,5 +1,20 @@
-@bvtalert @alertcase
+@bvtalert @alertcase @preview
 Feature:监控预览
+
+  @bvtalert00
+  Scenario Outline: 执行
+    Given open the "system.CustomConfigs" page for uri "/system/"
+    And I wait for loading complete
+    When I click the "MailServerSet" button
+    And I wait for loading complete
+    When I set the parameter "EmailPassword" with value "<EmailPassword>"
+    And I wait for "3000" millsecond
+    When I set the parameter "EmailLogName" with value "sender"
+
+    Examples:
+      | EmailPassword    |
+      | OUFBDLBHXBQGDIHG |
+
 
   @bvtalert0 @preview0
   Scenario Outline:
@@ -31,10 +46,11 @@ Feature:监控预览
 
     When I click the "MailPreviewButton" button
     Given I wait for loading complete
-    And I wait for "20000" millsecond
+    And I wait for "30000" millsecond
 
     And I wait for element "PreviewReminder" change text to "提示"
     Then take a screenshot with name "actual/preview_<name>"
+    Given I wait for loading complete
     And I wait for element "PreviewAlertReminderText" change text to "<name>"
 
     Given I wait for loading complete
@@ -47,13 +63,13 @@ Feature:监控预览
       | api00_all_事件计数_设备切分ip_扩展chart_all_合并                   |
       | api00_spl统计ip_cnt_高_扩展chart_all_合并                     |
       | api00_spl统计ip_cnt_高_扩展chart_all_宏                      |
-      | api00_spl统计_非按行发送0_sample_111111|
-      |	api00_spl统计_按行发送1_sample_444444	|
-      |	api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_无分组_44040004 |
-      |	api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_分组多字段_22020002 |
-      |	api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_分组单字段_22020002 |
-      |	api00_spl统计_按行发送3_抑制[连续触发]3次_分组多字段_112 |
-      |	api00_spl统计_按行发送3_抑制[连续触发]3次_分组单字段_112 |
+      | api00_spl统计_非按行发送0_sample_111111                       |
+      | api00_spl统计_按行发送1_sample_444444                        |
+      | api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_无分组_44040004       |
+      | api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_分组多字段_22020002     |
+      | api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_分组单字段_22020002     |
+      | api00_spl统计_按行发送3_抑制[连续触发]3次_分组多字段_112                 |
+      | api00_spl统计_按行发送3_抑制[连续触发]3次_分组单字段_112                 |
       | api00_基线_status_在区间内_all_合并                            |
       | api00_基线_status_在区间外_邮件_合并                             |
       | api00_基线_status_在区间外_邮件_合并_交易日                         |
@@ -142,3 +158,18 @@ Feature:监控预览
 #      | api9_事件_multiwords_切分_扩展chart插图_键值_邮件_splark             |
 #      | api9_字段统计_切分ip_最大数status_扩展chart键值_all_spark             |
       | api_RZY-2980:新建监控-基本配置-执行计划-crontab-周一到周五下午14：00~14：45之间 |
+
+  @bvtalert00end
+  Scenario Outline: 执行
+    Given open the "system.CustomConfigs" page for uri "/system/"
+    And I wait for loading complete
+    When I click the "MailServerSet" button
+    And I wait for loading complete
+    When I set the parameter "EmailPassword" with value "<EmailPassword>"
+    And I wait for "3000" millsecond
+    When I set the parameter "EmailLogName" with value "sender"
+
+    Examples:
+      | EmailPassword    |
+      | OUFBDLBHXBQGDIHG1 |
+

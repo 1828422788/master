@@ -1,4 +1,4 @@
-@dashboard0429 @dbdrilldown @dashboard38
+@dashboard @dashboard0429 @dbdrilldown @dashboard38
 Feature: 仪表盘钻取配置
 
   Background:

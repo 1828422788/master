@@ -22,6 +22,30 @@ import java.util.Map;
 public class ClickSomeButton {
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
+    @When("^I click1 the \"([^\"]*)\" button$")
+    public void clickButton1(String buttonName) {
+        if (buttonName != null && buttonName.trim().length() != 0) {
+            String parameters = "";
+            WebElement button;
+            if (JsonStringPaser.isJson(buttonName)) {
+                Map<String, Object> map = JsonStringPaser.json2Stirng(buttonName);
+                for (Map.Entry<String, Object> entry : map.entrySet()) {
+                    buttonName = entry.getKey();
+                    System.out.println("parameters ==== " + buttonName.toString());
+                    parameters = (String) entry.getValue();
+                    System.out.println("parameters ==== " + parameters.toString());
+                }
+                button = GetElementFromPage.getWebElementWithName(buttonName, parameters);
+            } else {
+                System.out.println("else ======= " + buttonName.toString());
+                button = GetElementFromPage.getWebElementWithName(buttonName);
+            }
+            clickElement(button);
+        } else {
+            System.out.println("skip this step!");
+        }
+    }
+
     @When("^I click the \"([^\"]*)\" button$")
     public void clickButton(String buttonName) {
         if (buttonName != null && buttonName.trim().length() != 0) {

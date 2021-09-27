@@ -239,7 +239,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='_3mi8yqwNeiv6VsJn7tRZs-']")
     private WebElement resultMessage;
 
-    @FindBy(xpath = "((//div[contains(@class,'help-text')])[1]) | (//div[@class='_1JeVvK6jBB88_F6voAZyhi'])")
+    @FindBy(xpath = "((//div[contains(@class,'help-text')])[1]) | (//div[@class='SPuuh0MNLAnweio5-PDK8'])")
     private WebElement tipText;
 
     @FindBy(xpath = "(//span[contains(text(),'添加颜色区间')]/ancestor::div[1]/preceding-sibling::div//input)[last()-1]")
@@ -566,6 +566,8 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getFinishButton() {
+        if (webDriver.findElements(By.xpath("//span[text()='布局设计']/ancestor::div/following-sibling::div//span[text()='1']")).size()==0 && webDriver.findElements(By.xpath("//span[text()='布局设计']")).size()==1)
+            getLayout1().click();
         return getYottaButtonByText("完成");
     }
 
@@ -983,6 +985,14 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSegments() {
         return getInputSetting("分段数");
+    }
+
+    public WebElement getSegmentsNumber() {
+        return getInputSetting("展示前N项");
+    }
+
+    public WebElement getRatioInnerToOuter(){
+        return getInputSetting("内环占外环比");
     }
 
     public WebElement getFieldValue() {

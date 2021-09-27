@@ -216,7 +216,7 @@ Feature: 权限-KV字典
     Given I login user "AutoTest" with password "All#123456"
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "KVAuth" then i click the "打开" button in more menu
+    And I click the detail which name is "KVAuth"
     Then I will see the "splSearch.SearchPage" page
     Given I set the parameter "SearchInput" with value "* | stats count() as 'count' by apache.geo.city,appname| rename apache.geo.city as apachecity| outputlookup AutoAuthKV"
     And I click the "DateEditor" button
@@ -230,8 +230,9 @@ Feature: 权限-KV字典
     Given I login user "AutoTest" with password "All#123456"
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "KVAuth" then i click the "更多" button
-    Then I click the "Open" button
+    #When the data name is "KVAuth" then i click the "更多" button
+    #Then I click the "Open" button
+    And I click the detail which name is "KVAuth"
     Then I will see the "splSearch.SearchPage" page
     Given I set the parameter "SearchInput" with value "* | stats count() by apache.geo.city | lookup appname AutoAuthKV on apache.geo.city=apachecity"
     And I click the "DateEditor" button
@@ -271,8 +272,7 @@ Feature: 权限-KV字典
   Scenario Outline: 删除app
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "<name>" then i click the "更多" button
-    Then I click the "Delete" button
+    Then the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible

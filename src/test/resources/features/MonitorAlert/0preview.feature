@@ -22,7 +22,7 @@ Feature:监控预览样列
 #    And I wait for "2000" millsecond
 #    And I click the "mailReceiverLabel" button
 #    Given I wait for loading complete
-
+#
 #    And I wait for "MailAlertContentPanel" will be visible
 #    And I select all text in "MailAlertContentPanel" alert element
 #    Given I wait for loading complete
@@ -30,10 +30,11 @@ Feature:监控预览样列
 
     When I click the "MailPreviewButton" button
     Given I wait for loading complete
-    And I wait for "20000" millsecond
+    And I wait for "30000" millsecond
 
     And I wait for element "PreviewReminder" change text to "提示"
     Then take a screenshot with name "actual/preview_<name>"
+    Given I wait for loading complete
     And I wait for element "PreviewAlertReminderText" change text to "<name>"
 
     Given I wait for loading complete
@@ -42,4 +43,3 @@ Feature:监控预览样列
     Examples:
       | name                                  |
       | api3_nods_事件数_ping主机                  |
-      | api00_spl统计ip_cnt_高_扩展chart_all_宏     |

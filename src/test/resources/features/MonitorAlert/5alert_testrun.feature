@@ -1,6 +1,21 @@
 @bvtalert @testrun @alertcase
 Feature: 测试运行-邮件
 
+  @bvtalert00
+  Scenario Outline: 执行
+    Given open the "system.CustomConfigs" page for uri "/system/"
+    And I wait for loading complete
+    When I click the "MailServerSet" button
+    And I wait for loading complete
+    When I set the parameter "EmailPassword" with value "<EmailPassword>"
+    And I wait for "3000" millsecond
+    When I set the parameter "EmailLogName" with value "sender"
+
+    Examples:
+      | EmailPassword    |
+      | OUFBDLBHXBQGDIHG |
+
+
   @testrun0 @bvtalert0
   Scenario Outline:  Scenario Outline:
     Given I wait for loading complete
@@ -144,3 +159,18 @@ Feature: 测试运行-邮件
 #      |	api9_事件_multiwords_切分_扩展chart插图_键值_邮件_splark	|
 #      |	api9_字段统计_切分ip_最大数status_扩展chart键值_all_spark	|
 #      |	api_RZY-2980:新建监控-基本配置-执行计划-crontab-周一到周五下午14：00~14：45之间	|
+
+  @bvtalert00end
+  Scenario Outline: 执行
+    Given open the "system.CustomConfigs" page for uri "/system/"
+    And I wait for loading complete
+    When I click the "MailServerSet" button
+    And I wait for loading complete
+    When I set the parameter "EmailPassword" with value "<EmailPassword>"
+    And I wait for "3000" millsecond
+    When I set the parameter "EmailLogName" with value "sender"
+
+    Examples:
+      | EmailPassword    |
+      | OUFBDLBHXBQGDIHG1 |
+

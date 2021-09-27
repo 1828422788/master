@@ -1,7 +1,6 @@
-@incident @cruxee @incident1
+@cruxee @cruxee1 @autoui01
 Feature: 创建接收告警邮件用户、用户组
 
-  @incident @incident1
   Scenario Outline: 添加普通用户
     Given open the "users.ListPage" page for uri "/account/users/"
     And I click the "CreateUser" button
@@ -19,8 +18,8 @@ Feature: 创建接收告警邮件用户、用户组
       | Derek     | Derek Parfit              | 2312200836@qq.com        | All#123456 | success message "创建成功" |
       | Leibniz   | Gottfried Wilhelm Leibniz | Leibniz@qq.cn            | All#123456 | success message "创建成功" |
       | kongfeili | kongfeili                 | kongfeili@qq.cn          | All#123456 | success message "创建成功" |
+      | 钟阿城        | 钟阿城                       | zhongacheng@qq.cn        | All#123456 | success message "创建成功" |
 
-  @incident @incident2
   Scenario Outline: 新建用户分组样例1个
     Given open the "incident.UserGroupCreatePage" page for uri "/account/usergroups/"
 #    Given open the "userGroups.CreatePage" page for uri "/account/usergroups/"
@@ -46,4 +45,4 @@ Feature: 创建接收告警邮件用户、用户组
 
     Examples:
       | UserGroupName | UserGroupDes | message |
-      | 日志易用户体验组    | 测试incident策略 | 创建成功    |
+      | 日志易用户体验组      | 测试incident策略 | 创建成功    |

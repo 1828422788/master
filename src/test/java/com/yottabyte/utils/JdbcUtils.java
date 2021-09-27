@@ -17,7 +17,6 @@ public class JdbcUtils {
         this.dbName = config.get("managerDBName");
     }
 
-
     public static Connection getConnection() {
         if (port == null)
             port = "3306";

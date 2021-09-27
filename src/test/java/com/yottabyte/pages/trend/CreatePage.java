@@ -77,7 +77,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[contains(@class,'yotta-tag-close')])[last()]")
     private WebElement deleteLast;
 
-// Labels
+    // Labels
     @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div//label[1]")
     private WebElement firstLabel;
 
@@ -243,7 +243,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[contains(@class,'close-icon')]")
     private WebElement closeWindow;
 
-//Colors ------------------------------------------------------------------
+    //Colors ------------------------------------------------------------------
     @FindBy(xpath = "(//div[contains(@style,'rgb(161, 20, 249)')])[last()] | (//div[contains(@style,'rgb(156, 39, 176)')])[last()]")
     private WebElement purple;
 
@@ -1263,8 +1263,16 @@ public class CreatePage extends PageTemplate {
         return getInputSetting("分段数");
     }
 
+    public WebElement getSegmentsNumber() {
+        return getInputSetting("展示前N项");
+    }
 
-//--Switch elements
+    public WebElement getRatioInnerToOuter(){
+        return getInputSetting("内环占外环比");
+    }
+
+
+    //--Switch elements
     public WebElement getPile() {
         return getSwitchElement("堆叠");
     }
@@ -1803,7 +1811,7 @@ public class CreatePage extends PageTemplate {
     }
 
 
-//Table Color -----------------------------------------------
+    //Table Color -----------------------------------------------
     public WebElement getPencil() {
         return pencil;
     }
@@ -1994,7 +2002,7 @@ public class CreatePage extends PageTemplate {
         return this.getLastDropdownList();
     }
 
-        private WebElement getElementWithText(String name) {
+    private WebElement getElementWithText(String name) {
         return webDriver.findElement(By.xpath("(//*[contains(text(),'" + name + "')])[last()]"));
     }
 
@@ -2016,5 +2024,4 @@ public class CreatePage extends PageTemplate {
     public WebElement getDeleteApp() {
         return deleteApp;
     }
-
 }

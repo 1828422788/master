@@ -1110,11 +1110,8 @@ public class SearchPage extends ListPageFactory {
     }
 
     //    @FindBy(xpath = "//div[@class='FuxVN2ckQ3GarEY_A-nCW _1-1tE5LfHAmNb4CRGuJvph']/span")
-    @FindBy(xpath = "//div[@class='p7B75U-cQYEP70wv7xtAs']/span[contains(text(),'搜索无数据')]")
-    private WebElement
-
-
-            noDataInfo;
+    @FindBy(xpath = "//div[@class='_2YAZQlwDuoETP_0qJcok5e']/span[contains(text(),'搜索无数据')]")
+    private WebElement noDataInfo;
 
     public WebElement getNoDataInfo() {
         return noDataInfo;

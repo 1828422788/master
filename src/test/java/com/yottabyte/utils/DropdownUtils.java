@@ -1,10 +1,12 @@
 package com.yottabyte.utils;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
+import com.yottabyte.stepDefs.ClickSomeButton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
@@ -120,6 +122,15 @@ public class DropdownUtils {
         return lastDropdownList;
     }
 
+    public WebElement getLastDropdownListEditCommand() {
+        List<WebElement> list = webDriver.findElements(By.xpath(("//div[contains(@class,'yotta-select-menu')]")));
+        WebElement lastDropdownList = list.get(list.size() - 1);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+        }
+        return lastDropdownList;
+    }
+
     public WebElement getLastDropdownList37() {
         String className = "yotta-dropdown-menu";
         List<WebElement> list = webDriver.findElements(By.className(className));
@@ -131,7 +142,7 @@ public class DropdownUtils {
     }
 
     public WebElement getLastDropdownResourceGroupList() {
-        String str_selector = "[class='yotta-select-menu css-1hq8cx5 yotta-resource-tag-select-menu']";
+        String str_selector = "[class='yotta-select-menu css-ncm03v yotta-resource-tag-select-menu']";
         List<WebElement> list = webDriver.findElements(By.cssSelector(str_selector));
 
         WebElement lastDropdownList = list.get(list.size() - 1);
@@ -236,26 +247,46 @@ public class DropdownUtils {
         return lastMenuList;
     }
 
+    public WebElement getIncidentPageMoreMenuList() {
+        List<WebElement> list = webDriver.findElements(By.className("yotta-dropdown-menu"));
+        WebElement lastMenuList = list.get(list.size() - 1);
+        System.out.println("getIncidentPageMoreMenuList list.size()==============================================="+list.size());
+        if (lastMenuList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastMenuList);
+        }
+        return lastMenuList;
+    }
+
+    public WebElement getIncidentPageMoreMenuSubList() {
+        List<WebElement> list = webDriver.findElements(By.className("yotta-submenu"));
+        WebElement lastMenuList = list.get(list.size() - 1);
+        System.out.println("getIncidentPageMoreMenuSubList list.size()==============================================="+list.size());
+        if (lastMenuList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastMenuList);
+        }
+        return lastMenuList;
+    }
+
     public WebElement getIncidentSubMenuList() {
         String str_selector = "[class='yotta-menu css-11pryi8']";
         //List<WebElement> list = webDriver.findElements(By.className("yotta-menu css-11pryi8"));
         List<WebElement> list = webDriver.findElements(By.cssSelector(str_selector));
         WebElement lastMenuList = list.get(list.size() - 1);
         if (lastMenuList.getAttribute("style").contains("display: none;")) {
-                ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastMenuList);
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastMenuList);
         }
         return lastMenuList;
 
-        }
+    }
 
-        public WebElement getIncidentStatusMenuList() {
-            String str_selector = "[class='yotta-select-menu css-1hq8cx5']";
-            List<WebElement> list = webDriver.findElements(By.cssSelector(str_selector));
-            WebElement lastMenuList = list.get(list.size() - 1);
-            if (lastMenuList.getAttribute("style").contains("display: none;")) {
-                ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastMenuList);
-            }
-            return lastMenuList;
+    public WebElement getIncidentStatusMenuList() {
+        String str_selector = "[class='yotta-select-menu css-ncm03v']";
+        List<WebElement> list = webDriver.findElements(By.cssSelector(str_selector));
+        WebElement lastMenuList = list.get(list.size() - 1);
+        if (lastMenuList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastMenuList);
         }
+        return lastMenuList;
+    }
 
 }

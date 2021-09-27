@@ -1,4 +1,4 @@
-@editcru
+@editcru @incident
 Feature: 事件管理-合并策略-11个
 
   @editcru1

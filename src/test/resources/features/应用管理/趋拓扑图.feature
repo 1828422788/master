@@ -60,10 +60,10 @@ Feature: 应用拓扑图（RZY-2142）
   Scenario Outline: 验证资源正确
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "<name>" then i click the "打开" button in more menu
+    When  I click the detail which name is "<name>"
     And I will see the "app.AppPage" page
     And I wait for loading invisible
-    Then I will see the search result "app所选资源"
+    #Then I will see the search result "app所选资源"
     And I will see the element "Title" name is "<name>"
 
     Examples:
@@ -73,7 +73,7 @@ Feature: 应用拓扑图（RZY-2142）
   Scenario: 新建拓扑图
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "TopologyApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "TopologyApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "TopologyApp"
     Then I will see the "topology.ListPage" page
@@ -94,7 +94,7 @@ Feature: 应用拓扑图（RZY-2142）
   Scenario: 拓扑图重命名
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "TopologyApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "TopologyApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "TopologyApp"
     Then I will see the "topology.ListPage" page
@@ -109,7 +109,7 @@ Feature: 应用拓扑图（RZY-2142）
   Scenario: 新建无标签拓扑图
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "TopologyApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "TopologyApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "TopologyApp"
     Then I will see the "topology.ListPage" page
@@ -122,7 +122,7 @@ Feature: 应用拓扑图（RZY-2142）
   Scenario Outline: 根据标签搜索（RZY-355）
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "TopologyApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "TopologyApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "TopologyApp"
     Then I will see the "topology.ListPage" page
@@ -139,7 +139,7 @@ Feature: 应用拓扑图（RZY-2142）
   Scenario Outline: 根据输入内容搜索（RZY-354）
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "TopologyApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "TopologyApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "TopologyApp"
     Then I will see the "topology.ListPage" page
@@ -156,7 +156,7 @@ Feature: 应用拓扑图（RZY-2142）
   Scenario: 拓扑图详情
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "TopologyApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "TopologyApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "TopologyApp"
     Then I will see the "topology.ListPage" page
@@ -165,7 +165,7 @@ Feature: 应用拓扑图（RZY-2142）
     And I will see the "app.AppPage" page
     And I wait for loading invisible
     Then I will see the url contains "app"
-#    Then the page's title will be "拓扑图详情"
+    Then the page's title will be "AutoApp"
     And open the "topology.ListPage" page for uri "/topology/"
 
   Scenario: 新建无所属应用的拓扑图
@@ -200,7 +200,7 @@ Feature: 应用拓扑图（RZY-2142）
   Scenario Outline: 删除拓扑图
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "TopologyApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "TopologyApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "TopologyApp"
     Then I will see the "topology.ListPage" page

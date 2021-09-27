@@ -75,8 +75,8 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//p[text()='添加成功']")
     private WebElement message;
 
-//    @FindBy(className = "ant-upload-list-item-name")
-    @FindBy(xpath = "//span[@class='yotta-typography-text yotta-file-upload-text']")
+//    @FindBy(xpath = "//span[@class='yotta-typography-text yotta-file-upload-text']")
+    @FindBy(xpath = "//span[@class='yotta-typography-text css-16briua yotta-file-upload-text']")
     private WebElement fileName;
 
     @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']")
@@ -144,4 +144,24 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getGroupInputButton() { return groupInputButton;}
+
+    public WebElement getLastLine()
+    {
+        String xpath="//div[@id='hot']//td[text()='bubble.test^archiver.process.fds']";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        return element;
+    }
+
+    public WebElement getDoneButton() {
+        String xpath="//span[text()='完成']/parent::button";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        return element;
+    }
+
+    public WebElement getBackButton() {
+        String xpath="//span[text()='返回']/parent::button";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        return element;
+    }
+
 }

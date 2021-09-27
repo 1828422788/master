@@ -8,15 +8,23 @@ Feature: 新建collect使用索引
   Scenario Outline: 新建索引
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "Next" button
+
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Desc" with value "<desc>"
     And I set the parameter "SavedTime" with value "<savedTime>"
     And I set the parameter "DivideTime" with value "<divideTime>"
     And I set the parameter "SavedSize" with value "<savedSize>"
 #    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
-    And I click the "CreateButton" button
-    And I wait for "3000" millsecond
-    And I will see the element "Message" name is "保存成功"
+    And I click the "Next" button
+    And I wait for "1000" millsecond
+    And I click the "Next" button
+    And I wait for "1000" millsecond
+    And I click the "Finish" button
+    And I will see the element "Message" name is "索引配置完成!"
+#    And I click the "CreateButton" button
+#    And I wait for "3000" millsecond
+#    And I will see the element "Message" name is "保存成功"
 
     Examples: 新建成功
       | name             | desc        | savedTime | divideTime | savedSize | savedSizeDropDown |

@@ -101,6 +101,8 @@ Feature: 报表_删除
       |   Bar1               |
       |   Bar2               |
       |   Sunburst           |
+      |   Pie_1              |
+      |   Pie_2              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -113,7 +115,8 @@ Feature: 报表_删除
       |   Attackmap_China    |
       |   Regionmap_World    |
       |   Regionmap_China    |
-      |   Regionmap_Jiangsu  |
+      |   Regionmap_Jiangsu_1|
+      |   Regionmap_Jiangsu_2|
       |   Single             |
       |   Single_icon        |
       |   Single_font        |
@@ -153,6 +156,8 @@ Feature: 报表_删除
       |   Bar1               |
       |   Bar2               |
       |   Sunburst           |
+      |   Pie_1              |
+      |   Pie_2              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -165,7 +170,8 @@ Feature: 报表_删除
       |   Attackmap_China    |
       |   Regionmap_World    |
       |   Regionmap_China    |
-      |   Regionmap_Jiangsu  |
+      |   Regionmap_Jiangsu_1|
+      |   Regionmap_Jiangsu_2|
       |   Single             |
 #      |   Single_icon        |
 #      |   Single_font        |
@@ -205,6 +211,8 @@ Feature: 报表_删除
       |   Bar1               |
       |   Bar2               |
       |   Sunburst           |
+      |   Pie_1              |
+      |   Pie_2              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -217,7 +225,8 @@ Feature: 报表_删除
       |   Attackmap_China    |
       |   Regionmap_World    |
       |   Regionmap_China    |
-      |   Regionmap_Jiangsu  |
+      |   Regionmap_Jiangsu_1|
+      |   Regionmap_Jiangsu_2|
       |   Single             |
       |   Single_icon        |
       |   Single_font        |

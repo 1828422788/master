@@ -106,7 +106,7 @@ public class OperateBrowser {
     }
 
     /**
-     * 把屏幕放大到全屏
+     * 放大屏幕到全屏
      */
     @And("^I zoom the browse to full screen$")
     public void zoomBrowsetoFullScreen() {
@@ -121,5 +121,13 @@ public class OperateBrowser {
     public void numberOfOpenTabs(int expectedNum) {
         int actualNum = webDriver.getWindowHandles().size();
         Assert.assertEquals(expectedNum,actualNum);
+    }
+
+    /**
+     * 清除缓存
+     */
+    @And("^I clear the browser's cache$")
+    public void clearBrowserCache() {
+        webDriver.manage().deleteAllCookies();
     }
 }

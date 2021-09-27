@@ -14,8 +14,8 @@ Feature: 日志展现_timechart
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/7timechart/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/7timechart/<caseNum>" with target image "expect/高级搜索视图/7timechart/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/7timechart_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/7timechart_<caseNum>" with target image "expect/高级搜索视图/7timechart_<caseNum>"
 
     Examples:
       |  caseNum    |   spl|
@@ -55,8 +55,8 @@ Feature: 日志展现_timechart
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/7timechart/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/7timechart/<caseNum>" with target image "expect/高级搜索视图/7timechart/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/7timechart_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/7timechart_<caseNum>" with target image "expect/高级搜索视图/7timechart_<caseNum>"
 
     Examples:
       |  caseNum    | minVal | maxVal| colorChoice |  spl|
@@ -88,8 +88,8 @@ Feature: 日志展现_timechart
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/7timechart/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/7timechart/<caseNum>" with target image "expect/高级搜索视图/7timechart/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/7timechart_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/7timechart_<caseNum>" with target image "expect/高级搜索视图/7timechart_<caseNum>"
 
     Examples:
       |  caseNum    | minVal | maxVal| colorChoice|  spl|
@@ -123,8 +123,8 @@ Feature: 日志展现_timechart
     And I wait for "Chart" will be visible
     And I wait for "<element>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/7timechart/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/7timechart/<caseNum>" with target image "expect/高级搜索视图/7timechart/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/7timechart_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/7timechart_<caseNum>" with target image "expect/高级搜索视图/7timechart_<caseNum>"
 
     Examples:
       |  caseNum    | element      | color    |button    |   spl|

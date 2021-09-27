@@ -1,4 +1,4 @@
-@dashboard31 @dashboardChart
+@dashboard31 @dashboardChart @dashboard
 Feature: 仪表盘_6_00_表格样式设置
 
   @dashboard @dashboardSmoke

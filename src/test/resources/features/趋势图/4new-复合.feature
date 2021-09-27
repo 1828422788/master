@@ -20,6 +20,7 @@ Feature: 趋势图新建_复合
     And I click the "Type" button
     And I click the "Compound" button
     And I click the "<chartType>" button
+    And I click the "Type" button
     And I click the "Settings" button
     And I click the "Xaxis" button
     And I choose the "<xValue>" from the "FieldValue" in config
@@ -79,6 +80,7 @@ Feature: 趋势图新建_复合
     And I click the "Type" button
     And I click the "Compound" button
     And I click the "<chartType>" button
+    And I click the "Type" button
 
     And I click the "Settings" button
     And I click the "Xaxis" button
@@ -167,6 +169,7 @@ Feature: 趋势图新建_复合
     And I click the "Type" button
     And I click the "Compound" button
     And I click the "<chartType>" button
+    And I click the "Type" button
 
     And I click the "Settings" button
     And I click the "Xaxis" button

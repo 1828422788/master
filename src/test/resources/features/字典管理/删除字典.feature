@@ -23,13 +23,17 @@ Feature: 清理字典用例
     When I click the "ConfirmButton" button
 
     Examples:
-      | dictionaryName                  | totalItem |
-      | wymtestcreate.csv               | 1         |
-      | wymtestdownload.csv             | 1         |
-      | wymtestdifname.csv              | 1         |
-      | wymtestsamename.csv             | 1         |
-      | wymtestcanceledit.csv           | 1         |
-      | wymtestsaveedit.csv             | 1         |
+      | dictionaryName          | totalItem |
+      | wymtestcreate.csv       | 1         |
+      | wymtestdownload.csv     | 1         |
+      | wymtestdifname.csv      | 1         |
+      | wymtestsamename.csv     | 1         |
+      | wymtestcanceledit.csv   | 1         |
+      | wymtestsaveedit.csv     | 1         |
+      #字段提取的2个
+      | win_sys_sourcename.csv  | 1         |
+      | win_sys_sourcename1.csv | 1         |
+
 #      | wymtestchangetag.csv            | 1         |
 #      | wymtestauthorizecancel.csv      | 1         |
 #      | wymtestrevokeauthsave.csv       | 1         |

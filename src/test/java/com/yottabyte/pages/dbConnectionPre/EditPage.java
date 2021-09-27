@@ -80,8 +80,17 @@ public class EditPage extends PageTemplate {
         return super.getButton("验证");
     }
 
+    @FindBy(xpath = "//span[text()='保存']//parent::button")
+    private WebElement saveButton;
     public WebElement getSaveButton() {
-        return super.getButton("保存");
+//        return super.getButton("保存");
+          return saveButton;
     }
 
+    @FindBy(xpath = "//button[@yotta-test='dialog-confirm-button']")
+    private WebElement confirmButton;
+    public WebElement getConfirmButton()
+    {
+        return confirmButton;
+    }
 }

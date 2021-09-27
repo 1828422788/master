@@ -1010,7 +1010,7 @@ public class CreatePage extends PageTemplate {
     }
 
     //预览提示中监控名称
-    @FindBy(xpath = "//div[@class='yotta-modal-body']/div[@class='HTIw3Zf6MVpXrv-OFu2L8']")
+    @FindBy(xpath = "//div[@class='yotta-modal-body']/div[@class='_1IEul268XANMZLCA8E8UKv']")
     private WebElement previewAlertReminderText;
 
     public WebElement getPreviewAlertReminderText() {

@@ -1,4 +1,4 @@
-@dashboard18 @dashboardChart
+@dashboard18 @dashboardChart @dashboard
 Feature: 仪表盘_2_3_条形图
 
   @dashboard @dashboardSmoke

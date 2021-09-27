@@ -1,4 +1,4 @@
-@dashboard36
+@dashboard @dashboard36
 Feature: 仪表盘通用配置
 
   @dashboard @dashboardSmoke

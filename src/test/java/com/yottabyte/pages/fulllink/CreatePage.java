@@ -307,6 +307,18 @@ public class CreatePage extends PageTemplate {
         return play;
     }
 
+    @FindBy(xpath = "//div[contains(@style,'bottom')]//span[@aria-label='EditOutlined']")
+    private WebElement alarmIgnore;
+    public WebElement getAlarmIgnore() {
+        return alarmIgnore;
+    }
+
+    @FindBy(xpath = "//div[contains(@class,'yotta-textarea')]//textarea")
+    private WebElement alarmIgnoreTextarea;
+    public WebElement getAlarmIgnoreTextarea() {
+        return alarmIgnoreTextarea;
+    }
+
     @FindBy(xpath = "//canvas")
     private WebElement canvas;
     public WebElement getCanvas() {
@@ -339,25 +351,25 @@ public class CreatePage extends PageTemplate {
         return getSuccessMessage();
     }
 
-    @FindBy(xpath = "(//div[contains(@class,'_1FmmywLM1qOtExZfMYeqLv')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[1]")
+    @FindBy(xpath = "(//div[contains(@class,'_3mA4bCVgSrVEqpzjJpKPEf')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[1]")
     private WebElement firstTick;
     public WebElement getFirstTick() {
         return firstTick;
     }
 
-    @FindBy(xpath = "(//div[contains(@class,'_1FmmywLM1qOtExZfMYeqLv')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[2]")
+    @FindBy(xpath = "(//div[contains(@class,'_3mA4bCVgSrVEqpzjJpKPEf')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[2]")
     private WebElement secondTick;
     public WebElement getSecondTick() {
         return secondTick;
     }
 
-    @FindBy(xpath = "(//div[contains(@class,'_1FmmywLM1qOtExZfMYeqLv')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[3]")
+    @FindBy(xpath = "(//div[contains(@class,'_3mA4bCVgSrVEqpzjJpKPEf')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[3]")
     private WebElement thirdTick;
     public WebElement getThirdTick() {
         return thirdTick;
     }
 
-    @FindBy(xpath = "(//div[contains(@class,'_1FmmywLM1qOtExZfMYeqLv')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[4]")
+    @FindBy(xpath = "(//div[contains(@class,'_3mA4bCVgSrVEqpzjJpKPEf')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[4]")
     private WebElement forthTick;
     public WebElement getForthTick() {
         return forthTick;
@@ -369,13 +381,13 @@ public class CreatePage extends PageTemplate {
         return tick0000;
     }
 
-    @FindBy(xpath = "(//div[text()='节点详情']//following-sibling::div[@class='_3ty-idnSV_yEDshRdCXAKx']//*[name()='rect' and @fill='#E6BA6D'])[last()]")
+    @FindBy(xpath = "(//div[text()='节点详情']//following-sibling::div[@class='_3mtb4GvDMP7X8mWzaihDk2']//*[name()='rect' and @fill='#E6BA6D'])[last()]")
     private WebElement mediumAlarm;
     public WebElement getMediumAlarm() {
         return mediumAlarm;
     }
 
-    @FindBy(xpath = "(//div[text()='节点详情']//following-sibling::div[@class='_3ty-idnSV_yEDshRdCXAKx']//*[name()='rect' and @fill='#CF675E'])[last()]")
+    @FindBy(xpath = "(//div[text()='节点详情']//following-sibling::div[@class='_3mtb4GvDMP7X8mWzaihDk2']//*[name()='rect' and @fill='#CF675E'])[last()]")
     private WebElement highAlarm;
     public WebElement getHighAlarm() {
         return highAlarm;
@@ -387,13 +399,13 @@ public class CreatePage extends PageTemplate {
         return minorAlarm;
     }
 
-    @FindBy(xpath = "//div[text()='节点详情']//following-sibling::div[@class='_3ty-idnSV_yEDshRdCXAKx']//*[@class='vx-linepath']")
+    @FindBy(xpath = "//div[text()='节点详情']//following-sibling::div[@class='_3mtb4GvDMP7X8mWzaihDk2']//*[@class='vx-linepath']")
     private WebElement alarmLine;
     public WebElement getAlarmLine() {
         return alarmLine;
     }
 
-    @FindBy(xpath = "(//div[text()='节点详情']//following-sibling::div[@class='_3ty-idnSV_yEDshRdCXAKx']//*[@class='vx-linepath']/following-sibling::*//*[name()='circle'])[1]")
+    @FindBy(xpath = "(//div[text()='节点详情']//following-sibling::div[@class='_3mtb4GvDMP7X8mWzaihDk2']//*[@class='vx-linepath']/following-sibling::*//*[name()='circle'])[1]")
     private WebElement alarmLineFirst;
     public WebElement getAlarmLineFirst() {
         return alarmLineFirst;
