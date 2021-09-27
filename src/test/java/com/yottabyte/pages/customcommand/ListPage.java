@@ -41,17 +41,18 @@ public class ListPage extends ListPageFactory {
         return webElement;
     }
 
+    public WebElement getCmdChunked() {
+        String xpath = "//input[@yotta-test='customcommand-chunked-switch']";
+        WebElement webElement = webDriver.findElement(By.xpath(xpath));
+        return webElement;
+    }
+
     public WebElement getMaxinputs() {
         String xpath = "//input[@yotta-test='customcommand-maxinputs-input']";
         WebElement webElement = webDriver.findElement(By.xpath(xpath));
         return webElement;
     }
 
-    public WebElement getCmdChunked() {
-        String xpath = "//input[@yotta-test='customcommand-chunked-switch']";
-        WebElement webElement = webDriver.findElement(By.xpath(xpath));
-        return webElement;
-    }
     @FindBy(xpath = "//span[text()='应用']")
     private WebElement apply;
 
@@ -85,12 +86,14 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getSave() {
-        return this.getButton("yotta-button yotta-button-large yotta-button-primary css-naifsn");
+        return this.getButton("yotta-button yotta-button-large yotta-button-primary css-8gkgwl");
     }
 
     public WebElement getConfirm() {
         return this.getYottaButton("dialog-confirm-button");
     }
+
+    public WebElement getEnsure() { return this.getYottaButton("role_authorization-confirm-button"); }
 
     public WebElement getYottaButton(String name) {
         return webDriver.findElement(By.xpath("//button[@yotta-test='" + name + "']//ancestor::span[last()]"));
