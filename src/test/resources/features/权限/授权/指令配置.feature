@@ -832,6 +832,7 @@ Feature: 权限-趋势图
       | name             |
       | AutoUserEdit_副本 |
 
+
   Scenario Outline: 验证所有权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
