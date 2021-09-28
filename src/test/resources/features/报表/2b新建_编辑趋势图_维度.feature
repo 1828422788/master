@@ -158,6 +158,58 @@ Feature: 报表新建_编辑_维度
       |  EXCEL      |  Bar           |  Bar1       |  只展示名称    |  柱状外右侧    | Red      |
       |  EXCEL      |  Bar           |  Bar2       |  全部展示      |  柱状内靠左侧  | Green    |
 
+  Scenario Outline: new_report_trend_bar_label_orientation
+    When I set the parameter "Name" with value "<name>_<reportType>"
+    And I choose the "<reportType>" from the "ReportType"
+    And I click the "NextButton" button under some element
+    Then I wait for "ChartListButton" will be visible
+    When I choose the "报表测试" from the "ChartList"
+    And I click the "ChartListButton" button
+    Then I will see the element "ChosenTrendLast" contains "报表测试"
+    And I click the "ChosenTrendLast" button
+    And I click the "EditButton" button
+
+    Then I set the parameter "TrendNameField" with value "<name>"
+    And I set the parameter "TrendDescribeField" with value "vertical_<typeInfo>_<color>_<label_orient>_<value_orient>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart  | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5" to the textarea "TrendSplField"
+    And I click the "TrendChartType" button
+    And I click the "Dimension" button
+    And I click the "<typeChart>" button
+
+    When I click the "ParameterSetting" button
+    And I wait for "FieldValue" will be visible
+    And I set the parameter "FieldValue" with value "ip_count"
+
+    And I click the "Divide" button
+    And I set the parameter "GroupField" with value "apache.clientip" and press enter
+
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "<color>" button
+    And I choose the "<typeInfo>" from the "ShowLabel" in config
+    And I choose the "柱状外两侧" from the "LabelLocation" in config
+    And I choose the "纵向" from the "ChartOrientation" in config
+    And I choose the "<label_orient>" from the "LabelOrientation" in config
+    And I choose the "<value_orient>" from the "ValueLabelOrientation" in config
+    When I click the "ParameterSetting" button
+    Then I click the "EnsureButton" button
+
+    When I click the "FinishButton" button under some element
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
+
+    @report @reportChartsPDF
+    Examples:
+      |  reportType |   typeChart    |  name       |  typeInfo     | label_orient | value_orient | color  |
+      |  PDF        |  Bar           |  Bar3       |  全部展示     | 横向         | 纵向         | Red    |
+      |  PDF        |  Bar           |  Bar4       |  只展示名称   | 纵向         | 横向         | Orange |
+
+    @reportChartsEXCEL
+    Examples:
+      |  reportType |   typeChart    |  name       |  typeInfo     | label_orient | value_orient | color  |
+      |  EXCEL      |  Bar           |  Bar3       |  全部展示     | 横向         | 纵向         | Red    |
+      |  EXCEL      |  Bar           |  Bar4       |  只展示名称   | 纵向         | 横向         | Orange |
+
   Scenario Outline: new_report_trend_sunburst
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"

@@ -1063,6 +1063,27 @@ public class CreatePage extends PageTemplate {
         return getDropdownElement("标签位置");
     }
 
+    public WebElement getChartOrientation() {
+        return getDropdownElement("图表方向");
+    }
+
+    @FindBy(xpath = "(//span[text()='标签方向'])[last()]/ancestor::div[1]/following-sibling::div//div[@class='yotta-select-selection']")
+    private WebElement labelOrientation;
+
+    public WebElement getLabelOrientation() {
+        try{
+            Thread.sleep(700);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        ClickEvent.clickUnderneathButton(labelOrientation);
+        return this.getLastDropdownList();
+    }
+
+    public WebElement getValueLabelOrientation() {
+        return getDropdownElement("数值标签方向");
+    }
+
     public WebElement getPrecision() {
         return getDropdownElement("数据精度");
     }

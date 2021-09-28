@@ -37,6 +37,8 @@ Feature: 报表_预览_all
       |   Sun                |
       |   Bar1               |
       |   Bar2               |
+      |   Bar3               |
+      |   Bar4               |
       |   Sunburst           |
       |   Pie_1              |
       |   Pie_2              |
@@ -99,6 +101,8 @@ Feature: 报表_预览_all
       |   Sun                |
       |   Bar1               |
       |   Bar2               |
+      |   Bar3               |
+      |   Bar4               |
       |   Sunburst           |
       |   Pie_1              |
       |   Pie_2              |
@@ -160,6 +164,8 @@ Feature: 报表_预览_all
       |   Sun                |
       |   Bar1               |
       |   Bar2               |
+      |   Bar3               |
+      |   Bar4               |
       |   Sunburst           |
       |   Pie_1              |
       |   Pie_2              |
