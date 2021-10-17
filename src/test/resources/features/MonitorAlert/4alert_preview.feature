@@ -13,7 +13,7 @@ Feature:监控预览
 
     Examples:
       | EmailPassword    |
-      | OUFBDLBHXBQGDIHG |
+      | EDMIEMFKTIRAYEFI |
 
 
   @bvtalert0 @preview0
@@ -171,5 +171,5 @@ Feature:监控预览
 
     Examples:
       | EmailPassword    |
-      | OUFBDLBHXBQGDIHG1 |
+      | EDMIEMFKTIRAYEFI1 |
 

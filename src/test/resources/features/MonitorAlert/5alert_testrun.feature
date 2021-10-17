@@ -13,7 +13,7 @@ Feature: 测试运行-邮件
 
     Examples:
       | EmailPassword    |
-      | OUFBDLBHXBQGDIHG |
+      | EDMIEMFKTIRAYEFI |
 
 
   @testrun0 @bvtalert0
@@ -172,5 +172,5 @@ Feature: 测试运行-邮件
 
     Examples:
       | EmailPassword    |
-      | OUFBDLBHXBQGDIHG1 |
+      | EDMIEMFKTIRAYEFI1 |
 
