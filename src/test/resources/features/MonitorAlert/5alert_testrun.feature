@@ -45,8 +45,8 @@ Feature: 测试运行-邮件
 #    And I wait for "2000" millsecond
 
     And I click the "MailTestRunButton" button
+    And I wait for "30000" millsecond
     Given I wait for loading complete
-    And I wait for "20000" millsecond
 
     And I wait for element "TestRunReminder" change text to "提示"
     Then take a screenshot with name "actual/trm_<name>"
@@ -70,7 +70,7 @@ Feature: 测试运行-邮件
       |	api00_spl统计_按行发送3_抑制[连续触发]3次_分组多字段_112 |
       |	api00_spl统计_按行发送3_抑制[连续触发]3次_分组单字段_112 |
       |	api00_基线_status_在区间内_all_合并	|
-      |	api00_基线_status_在区间外_邮件_合并	|
+#      |	api00_基线_status_在区间外_邮件_合并	|
       |	api00_基线_status_在区间外_邮件_合并_交易日	|
       |	api00_字段统计_切分ip_最大数status_扩展chart键值_all	|
       |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_交易日	|
@@ -126,13 +126,13 @@ Feature: 测试运行-邮件
       |	api3_all_事件计数_设备切分ip_扩展chart_all抑制45	|
       |	api3_all_连续统计_status<404_低_邮件	|
       |	api3_all_连续统计_status=200_邮件_抑制59	|
-      |	api3_all_连续统计_status>=200_邮件_合并	|
+#      |	api3_all_连续统计_status>=200_邮件_合并	|
       |	api3_nods_事件数_ping主机	|
       |	api3_spl统计stats_dc_邮件	|
       |	api3_事件_multiwords_切分_扩展chart插图_键值_邮件	|
       |	api3_基线_len_24hours大于100_邮件	|
       |	api3_基线_len_24hour小于100_邮件	|
-      |	api3_基线_len_24hour小于100_邮件_抑制10-120m16:06	|
+#      |	api3_基线_len_24hour小于100_邮件_抑制10-120m16:06	|
       |	api3_基线_len_24hour小于100_邮件_抑制10-30m	|
       |	api3_字段统计_分组事件数status_邮件	|
       |	api3_字段统计_去重数status_邮件	|
@@ -140,7 +140,7 @@ Feature: 测试运行-邮件
       |	api3_字段统计_总和status_邮件	|
       |	api3_字段统计_最小数resplen_邮件_不告警	|
       |	api3_连续统计_status>200_扩展chat_键值_all_连续触发3次	|
-      |	api4_spl统计avg_高_扩展avg_邮件_搜索宏	|
+#      |	api4_spl统计avg_高_扩展avg_邮件_搜索宏	|
       |	api4_spl统计bucket_扩展bucket	|
       |	api4_基线_status_在区间外_邮件_同比1天前	|
       |	api4_基线_status_在区间外_邮件_同比2天前	|
@@ -150,11 +150,11 @@ Feature: 测试运行-邮件
       |	api4_基线_status_在区间外_邮件_同比6天前	|
       |	api4_基线_status_在区间外_邮件_同比一周前	|
       |	api4_基线_status_在区间外_邮件_同比一月前	|
-      |	api4_基线_status_在区间外_邮件_环比上一时间段	|
+#      |	api4_基线_status_在区间外_邮件_环比上一时间段	|
       |	api7_guest_ds200_事件数_邮件	|
       |	api7_nods_事件数_rsyslog	|
       |	api7_nods_字段统计ip_20秒_邮件	|
-      |	api7_spl统计avg_高_扩展avg_all	|
+#      |	api7_spl统计avg_高_扩展avg_all	|
 #      |	api9_all_事件计数_设备切分ip_扩展chart_all_spark	|
 #      |	api9_事件_multiwords_切分_扩展chart插图_键值_邮件_splark	|
 #      |	api9_字段统计_切分ip_最大数status_扩展chart键值_all_spark	|
