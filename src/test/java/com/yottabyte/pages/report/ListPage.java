@@ -23,6 +23,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//button[@yotta-test='report-new-button']")
     private WebElement newReportButton;
 
+    @FindBy(xpath = "//li[@yotta-test='trend-normal_trend-menu_item']")
+    private WebElement startFromEmpty;
+
     @FindBy(xpath = "//span[text()='确定']/ancestor::button")
     private WebElement ensureButton;
 
@@ -152,7 +155,9 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getNewReportButton() {
-        return newReportButton;
+        newReportButton.click();
+        return startFromEmpty;
+//        return newReportButton;
     }
 
     public WebElement getEnsureButton() {

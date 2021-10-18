@@ -36,7 +36,7 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "((//*[name()='g']//ancestor::div[@id])[last()]) | (//div[contains(@id,'percentile')])")
     private WebElement chart;
 
-    @FindBy(xpath = "((//*[name()='g']//ancestor::div[@class='_2b2CvprRChpNxvZZkBbBoD']/div[1])[last()])")
+    @FindBy(xpath = "((//*[name()='g']//ancestor::div[@class='_1oKQ3m52X6q8QXkh6bYZmt']/div[1])[last()])")
     private WebElement multiStatsChart;
 
     @FindBy(xpath = "(//span[text()='下一步']/ancestor::button)[last()]")
