@@ -219,7 +219,7 @@ public class CreatePage extends PageTemplate {
         return Addsuccessmsg;
     }
 
-    @FindBy(xpath = "//p[@class='_3DIIhntPCyDeqabIY5U3Hb']")
+    @FindBy(xpath = "//p[@class='u0VLkwy2WvS4Dd9eBdIN']")
     private WebElement Addsuccessmsg;
 
     public WebElement getContinueAdd() {
