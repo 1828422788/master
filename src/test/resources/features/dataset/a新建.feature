@@ -23,7 +23,8 @@ Feature: 数据集-a新建
     Then I will see the "dataset.DetailPage" page
     Given I wait for loading complete
    #返回列表页验证
-    And I click the "backList" button
+    And I click the "backList" button    And I click the "backList" button
+
 #    Then I will see the "dataset.ListPage" page
 
     Given I wait for loading complete
