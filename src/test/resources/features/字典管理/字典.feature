@@ -26,6 +26,7 @@ Feature: 字典管理
       | dictionaryNameWithOutCsv | dictionaryName    | totalItem | editOnlineArea                                                                                         |
       | wymtestcreate            | wymtestcreate.csv | 共 1 条     | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
 
+
   @tc4136_1 @dict2
   Scenario Outline: RZY-4136新建字典
     Given I wait for loading complete

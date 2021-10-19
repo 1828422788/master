@@ -69,5 +69,24 @@ Feature: 新建collect使用索引
     Examples:
       | appName | tag    | rule | topicname | indexname   | message | desc    |
       | apache  | flink1 |      | ftopic1   | flinkindex1 | 保存成功    | 测试流式告警1 |
-      | apache  | flink1 |      | ftopic1   | flinkindex2 | 保存成功    | 测试流式告警2 |
+      | apache  | flink2 |      | ftopic2   | flinkindex2 | 保存成功    | 测试流式告警2 |
+
+
+  @flinkalert2
+  Scenario Outline: 新建字典
+    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+    When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/flinkalert.csv"
+    And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
+    And I click the "EnsureUpload" button
+    Given I wait for loading complete
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "创建字典成功"
+    Then I click the "EnsureButton" button
+
+    Examples:
+      | dictionaryNameWithOutCsv |
+      | flinkalert            |
 
