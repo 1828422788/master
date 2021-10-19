@@ -23,7 +23,7 @@ Feature: 全链路_3输入项
     And I set the parameter "Token" with value "<token>"
     And I click the "Ensure" button
     And I wait for "Message" will be visible
-    And I will see the message contains "请填写必填项"
+    And I will see the message contains "请检查必填项"
 
   Examples:
     | title    | token     |
@@ -117,10 +117,10 @@ Feature: 全链路_3输入项
 
   Examples:
     | spl | dyn_field   | button  | element             | message          |
-    |     |             | Ensure  | Message             | 请填写必填项     |
-    | *   |             | Ensure  | Message             | 请填写必填项     |
+    |     |             | Ensure  | Message             | 请检查必填项     |
+    | *   |             | Ensure  | Message             | 请检查必填项     |
     |     |             | Search  | Message             | 搜索语句不能为空 |
-    | *   |             | Search  | Message             | 请先填写动态字段 |
+    | *   |             | Search  | Message             | 请输入动态字段   |
     | *\\ |apache.method| Search  | SearchResultMessage | 搜索失败         |
     | *   |apache.method| Search  | SearchResultMessage | 搜索成功         |
 

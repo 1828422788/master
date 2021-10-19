@@ -39,7 +39,7 @@ Feature: 全链路_9告警忽略
     And I wait for "2000" millsecond
     And I move the mouse pointer to the "FirstTick"
     And I wait for "Tooltip" will be visible
-    And I will see the element "Tooltip" contains "未处理"
+    And I will see the element "Tooltip" contains "无处理"
 
   Scenario: 告警忽略_没有保存
     And I wait for "DisabledSave" will be visible
@@ -64,7 +64,7 @@ Feature: 全链路_9告警忽略
     And I move the mouse pointer to the "FirstTick"
     And I wait for "Tooltip" will be visible
     And I will see the element "Tooltip" contains "处理人:admin"
-    And I will see the element "Tooltip" contains "处理信息:TEST"
+    And I will see the element "Tooltip" contains "处理意见:TEST"
 
   Scenario Outline: 告警忽略
     And I wait for "DisabledSave" will be visible
@@ -88,7 +88,7 @@ Feature: 全链路_9告警忽略
     And I wait for "2000" millsecond
     And I move the mouse pointer to the "<tick>"
     And I wait for "Tooltip" will be visible
-    And I will see the element "Tooltip" contains "处理信息:<text>"
+    And I will see the element "Tooltip" contains "处理意见:<text>"
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"
@@ -120,7 +120,7 @@ Feature: 全链路_9告警忽略
     And I wait for "2000" millsecond
     And I move the mouse pointer to the "FirstTick"
     And I wait for "Tooltip" will be visible
-    And I will see the element "Tooltip" contains "处理信息:Text_1"
+    And I will see the element "Tooltip" contains "处理意见:Text_1"
     And I will see the element "FirstTick" fill contains "#1785ff"
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
