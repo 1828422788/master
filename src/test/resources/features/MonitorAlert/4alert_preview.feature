@@ -149,11 +149,11 @@ Feature:监控预览
       | api4_基线_status_在区间外_邮件_同比6天前                             |
       | api4_基线_status_在区间外_邮件_同比一周前                             |
       | api4_基线_status_在区间外_邮件_同比一月前                             |
-      | api4_基线_status_在区间外_邮件_环比上一时间段                           |
+#      | api4_基线_status_在区间外_邮件_环比上一时间段                           |
       | api7_guest_ds200_事件数_邮件                                  |
       | api7_nods_事件数_rsyslog                                    |
       | api7_nods_字段统计ip_20秒_邮件                                  |
-      | api7_spl统计avg_高_扩展avg_all                                |
+#      | api7_spl统计avg_高_扩展avg_all                                |
 #      | api9_all_事件计数_设备切分ip_扩展chart_all_spark                   |
 #      | api9_事件_multiwords_切分_扩展chart插图_键值_邮件_splark             |
 #      | api9_字段统计_切分ip_最大数status_扩展chart键值_all_spark             |
