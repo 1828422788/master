@@ -125,9 +125,15 @@ public class CreatePage extends PageTemplate {
     private WebElement selectedUser;
 
     @FindBy(xpath = "//div[contains(@yotta-test,'report-container-collapse')]//div[contains(@class,'yotta-accordion')][last()]//span[contains(@class,'text')]")
-    private WebElement chosenTrendLast;
+    private WebElement lastTrendTitle;
 
     @FindBy(xpath = "//div[contains(@yotta-test,'report-container-collapse')]//div[contains(@class,'yotta-accordion')][1]//span[contains(@class,'text')]")
+    private WebElement firstTrendTitle;
+
+    @FindBy(xpath = "(//div[contains(@yotta-test,'report-container-collapse')]//div[contains(@class,'yotta-accordion')][last()]//span[@aria-label]//parent::span)[1]")
+    private WebElement chosenTrendLast;
+
+    @FindBy(xpath = "(//div[contains(@yotta-test,'report-container-collapse')]//div[contains(@class,'yotta-accordion')][1]//span[@aria-label]//parent::span)[1]")
     private WebElement chosenTrendFirst;
 
     @FindBy(xpath = "//span[@yotta-test='report-close_2-icon']")
@@ -369,6 +375,14 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getChosenTrendFirst() {
         return chosenTrendFirst;
+    }
+
+    public WebElement getLastTrendTitle() {
+        return lastTrendTitle;
+    }
+
+    public WebElement getFirstTrendTitle() {
+        return firstTrendTitle;
     }
 
     public WebElement getLastTrendDelete() {

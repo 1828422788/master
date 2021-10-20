@@ -17,7 +17,7 @@ Feature: 报表禁用/启用
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试"
+    Then I will see the element "LastTrendTitle" contains "报表测试"
     When I click the "FinishButton" button under some element
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"

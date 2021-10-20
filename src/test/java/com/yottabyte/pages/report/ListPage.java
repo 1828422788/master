@@ -101,6 +101,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "yotta-pageheader-title")
     private WebElement hideElement;
 
+    @FindBy(xpath = "//li[@yotta-test='report-generated_report-button']")
+    private WebElement reportListButton;
+
     public WebElement getHideElement() {
         hideElement.click();
         return hideElement;
@@ -147,7 +150,9 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getReportListButton() {
-        return super.getButton("已生成报表");
+        super.getButton("其他").click();
+        return reportListButton;
+//        return super.getButton("已生成报表");
     }
 
     public WebElement getReturnList() {

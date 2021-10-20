@@ -200,7 +200,7 @@ Feature:报表_富文本编辑_趋势图
     And I click the "BackButton" button under some element
     And I choose the "PDF" from the "ReportType"
     And I click the "NextButton" button under some element
-    Then I will see the element "ChosenTrendLast" contains "<name>"
+    Then I will see the element "LastTrendTitle" contains "<name>"
 
     When I click the "FinishButton" button under some element
     And I wait for "ResultMessage" will be visible
