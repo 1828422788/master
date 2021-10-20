@@ -245,6 +245,9 @@ public class CreatePage extends PageTemplate {
     public WebElement getCurrentConfiguration() {
         return super.getYottaButtonByText("查看当前配置");
     }
+    public WebElement getSearchThis(){
+        return super.getYottaButtonByText("在搜索中验证");
+    }
 
     public WebElement getAutohekafiletest() {
         return autohekafiletest;

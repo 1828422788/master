@@ -256,6 +256,11 @@ public class ListPage extends PageTemplate {
         WebElement element =  webDriver.findElement(By.xpath(xpath));
         return element;
     }
+    @FindBy(xpath = "//span[@class='events-title']")
+    private WebElement EventsTitle;
+    public WebElement getEventsTitle(){
+        return EventsTitle;
+    }
 
     public ListPage(WebDriver driver) {
         super(driver);
