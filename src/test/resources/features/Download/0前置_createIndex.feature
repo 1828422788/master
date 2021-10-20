@@ -73,7 +73,7 @@ Feature: 新建collect使用索引
 
 
   @flinkalert2
-  Scenario Outline: 新建字典
+  Scenario Outline: 新建flinkalert字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
@@ -90,3 +90,27 @@ Feature: 新建collect使用索引
       | dictionaryNameWithOutCsv |
       | flinkalert            |
 
+
+  @flinkalert3
+  Scenario Outline:执行导入flinkaert1
+    When open the "dbConnectionPre.ResListPage" page for uri "/resource/"
+    Then I wait for loading complete
+    And I click the "ImportAndExportButton" button
+    And I click the "ImportButton" button
+
+    Then I will see the "dbConnectionPre.ImportResPage" page
+    And I wait for "AddDataset" will be visible
+    And I wait for "2000" millsecond
+    When I upload a file "Upload" with name "<appPath>"
+    And I wait for "2000" millsecond
+
+    And I choose the "__admin__" from the "RoleList"
+    And I click the "NextButton" button
+
+    And I click the "CompleteButton" button
+    Then I wait for loading complete
+    And I wait for "AddSuccMessage" will be visible
+
+    Examples:
+      | appPath                                          |
+      | /src/test/resources/testdata/app/flinkaert1.tar |
