@@ -33,8 +33,8 @@ Feature: 新建collect使用索引
       | collectmodetrue  | 测试collect前置 | 7         | 1          | 1         | TB                |
       | collectmulti     | 测试collect前置 | 7         | 1          | 1         | TB                |
       | collectdelete    | 测试collect前置 | 7         | 1          | 1         | TB                |
-      | flinkindex1      | 测试collect前置 | 7         | 1          | 1         | TB                |
-      | flinkindex2      | 测试collect前置 | 7         | 1          | 1         | TB                |
+      | iflink1          | 测试collect前置 | 7         | 1          | 1         | TB                |
+      | iflink2          | 测试collect前置 | 7         | 1          | 1         | TB                |
 
 
   @flinkalert0
@@ -67,9 +67,9 @@ Feature: 新建collect使用索引
 
     @indexSettingSmoke
     Examples:
-      | appName | tag    | rule | topicname | indexname   | message | desc    |
-      | apache  | flink1 |      | ftopic1   | flinkindex1 | 保存成功    | 测试流式告警1 |
-      | apache  | flink2 |      | ftopic2   | flinkindex2 | 保存成功    | 测试流式告警2 |
+      | appName | tag    | rule | topicname | indexname | message | desc    |
+      | apache  | flink1 |      | ftopic1   | iflink1   | 保存成功    | 测试流式告警1 |
+      | apache  | flink2 |      | ftopic2   | iflink2   | 保存成功    | 测试流式告警2 |
 
 
   @flinkalert2
@@ -88,7 +88,7 @@ Feature: 新建collect使用索引
 
     Examples:
       | dictionaryNameWithOutCsv |
-      | flinkalert            |
+      | flinkalert               |
 
 
   @flinkalert3
@@ -112,5 +112,5 @@ Feature: 新建collect使用索引
     And I wait for "AddSuccMessage" will be visible
 
     Examples:
-      | appPath                                          |
+      | appPath                                         |
       | /src/test/resources/testdata/app/flinkaert1.tar |
