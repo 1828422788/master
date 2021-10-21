@@ -133,15 +133,15 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getToken() {
-        return getYottaInput("fulllink_param-template-标识：-input");
+        return getYottaInput("fulllink_param-template-标识-input");
     }
 
     public WebElement getTitle() {
-        return getYottaInput("fulllink_param-template-标题：-input");
+        return getYottaInput("fulllink_param-template-标题-input");
     }
 
     public WebElement getDynamicField() {
-        return getYottaInput("fulllink_param-template-动态字段：-input");
+        return getYottaInput("fulllink_param-template-动态字段 :-input");
     }
 
     @FindBy(xpath = "//button[@yotta-test='fulllink_param-dynamic-search-button']/following-sibling::div")
@@ -162,44 +162,44 @@ public class CreatePage extends PageTemplate {
         return dropdownListType;
     }
 
-    @FindBy(xpath = "(//div[@class='_1T0uykvblfx-ViJ-v5R6u8'])[1]//div[text()]")
+    @FindBy(xpath = "(//div[@class='_4K_lJwSAFY4PpMx9646tk'])[1]//div[text()]")
     private WebElement firstInput;
     public WebElement getFirstInput() {
         return firstInput;
     }
 
-    @FindBy(xpath = "(//div[@class='_1T0uykvblfx-ViJ-v5R6u8'])[1]//div[@yotta-test='fulllink_param-list-item-edit-dom']")
+    @FindBy(xpath = "(//div[@class='_4K_lJwSAFY4PpMx9646tk'])[1]//div[@yotta-test='fulllink_param-list-item-edit-dom']")
     private WebElement firstInputEdit;
     public WebElement getFirstInputEdit() {
         return firstInputEdit;
     }
 
-    @FindBy(xpath = "(//div[@class='_1T0uykvblfx-ViJ-v5R6u8'])[1]//div[@yotta-test='fulllink_param-list-item-delete-dom']")
+    @FindBy(xpath = "(//div[@class='_4K_lJwSAFY4PpMx9646tk'])[1]//div[@yotta-test='fulllink_param-list-item-delete-dom']")
     private WebElement firstInputDelete;
     public WebElement getFirstInputDelete() {
         return firstInputDelete;
     }
 
-    @FindBy(xpath = "(//div[@class='_1T0uykvblfx-ViJ-v5R6u8'])[1]//div[@yotta-test='fulllink_param-item-select']")
+    @FindBy(xpath = "(//div[@class='_4K_lJwSAFY4PpMx9646tk'])[1]//div[@yotta-test='fulllink_param-item-select']")
     private WebElement firstInputList;
     public WebElement getFirstInputList() {
         firstInputList.click();
         return dropdownListType;
     }
 
-    @FindBy(xpath = "(//div[@class='_3b_Dsz30d0RUi_KUMY3pDX'])[1]")
+    @FindBy(xpath = "//div[@id='minimap']//following-sibling::div[2]//div[@style][1]")
     private WebElement numLabel_1;
     public WebElement getNumLabel_1() {
         return numLabel_1;
     }
 
-    @FindBy(xpath = "(//div[@class='_3b_Dsz30d0RUi_KUMY3pDX'])[2]")
+    @FindBy(xpath = "//div[@id='minimap']//following-sibling::div[2]//div[@style][2]")
     private WebElement numLabel_2;
     public WebElement getNumLabel_2() {
         return numLabel_2;
     }
 
-    @FindBy(xpath = "(//div[@class='_3b_Dsz30d0RUi_KUMY3pDX'])[3]")
+    @FindBy(xpath = "//div[@id='minimap']//following-sibling::div[2]//div[@style][3]")
     private WebElement numLabel_3;
     public WebElement getNumLabel_3() {
         return numLabel_3;
@@ -259,7 +259,7 @@ public class CreatePage extends PageTemplate {
         return getYottaTable("table_chart-list-table");
     }
 
-    @FindBy(xpath = "(//div[contains(@class,'L4TC32tiuLqwLC0W0MqWg')]//span[@aria-label='ClockCircleOutlined']) | (//div[contains(@style,'bottom')]//span[@aria-label='PlusDownOutlined'])")
+    @FindBy(xpath = "(//div[contains(@style,'bottom') and contains(@class,'_32i6D2VjlKlvBR1pDZvvHC')]//span[@aria-label='ClockCircleOutlined']) | (//div[contains(@style,'bottom')]//span[@aria-label='PlusDownOutlined'])")
     private WebElement timeAxis;
     public WebElement getTimeAxis() {
         return timeAxis;
@@ -351,25 +351,25 @@ public class CreatePage extends PageTemplate {
         return getSuccessMessage();
     }
 
-    @FindBy(xpath = "(//div[contains(@class,'_3mA4bCVgSrVEqpzjJpKPEf')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[1]")
+    @FindBy(xpath = "(((//*[name()='rect' and contains(@class,'vx-bar')])[2]/following-sibling::*[name()='g'])//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[1]")
     private WebElement firstTick;
     public WebElement getFirstTick() {
         return firstTick;
     }
 
-    @FindBy(xpath = "(//div[contains(@class,'_3mA4bCVgSrVEqpzjJpKPEf')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[2]")
+    @FindBy(xpath = "(((//*[name()='rect' and contains(@class,'vx-bar')])[2]/following-sibling::*[name()='g'])//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[2]")
     private WebElement secondTick;
     public WebElement getSecondTick() {
         return secondTick;
     }
 
-    @FindBy(xpath = "(//div[contains(@class,'_3mA4bCVgSrVEqpzjJpKPEf')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[3]")
+    @FindBy(xpath = "(((//*[name()='rect' and contains(@class,'vx-bar')])[2]/following-sibling::*[name()='g'])//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[3]")
     private WebElement thirdTick;
     public WebElement getThirdTick() {
         return thirdTick;
     }
 
-    @FindBy(xpath = "(//div[contains(@class,'_3mA4bCVgSrVEqpzjJpKPEf')][2]//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[4]")
+    @FindBy(xpath = "(((//*[name()='rect' and contains(@class,'vx-bar')])[2]/following-sibling::*[name()='g'])//*[name()='text']//following-sibling::*[name()='rect' and @fill!='#48517d'and @fill!='none'])[4]")
     private WebElement forthTick;
     public WebElement getForthTick() {
         return forthTick;
@@ -381,13 +381,13 @@ public class CreatePage extends PageTemplate {
         return tick0000;
     }
 
-    @FindBy(xpath = "(//div[text()='节点详情']//following-sibling::div[@class='_3mtb4GvDMP7X8mWzaihDk2']//*[name()='rect' and @fill='#E6BA6D'])[last()]")
+    @FindBy(xpath = "(//div[text()='节点详情']//following-sibling::div[2]//*[name()='rect' and @fill='#E6BA6D'])[last()]")
     private WebElement mediumAlarm;
     public WebElement getMediumAlarm() {
         return mediumAlarm;
     }
 
-    @FindBy(xpath = "(//div[text()='节点详情']//following-sibling::div[@class='_3mtb4GvDMP7X8mWzaihDk2']//*[name()='rect' and @fill='#CF675E'])[last()]")
+    @FindBy(xpath = "(//div[text()='节点详情']//following-sibling::div[2]//*[name()='rect' and @fill='#CF675E'])[last()]")
     private WebElement highAlarm;
     public WebElement getHighAlarm() {
         return highAlarm;
@@ -399,13 +399,13 @@ public class CreatePage extends PageTemplate {
         return minorAlarm;
     }
 
-    @FindBy(xpath = "//div[text()='节点详情']//following-sibling::div[@class='_3mtb4GvDMP7X8mWzaihDk2']//*[@class='vx-linepath']")
+    @FindBy(xpath = "//div[text()='节点详情']//following-sibling::div[2]//*[@class='vx-linepath']")
     private WebElement alarmLine;
     public WebElement getAlarmLine() {
         return alarmLine;
     }
 
-    @FindBy(xpath = "(//div[text()='节点详情']//following-sibling::div[@class='_3mtb4GvDMP7X8mWzaihDk2']//*[@class='vx-linepath']/following-sibling::*//*[name()='circle'])[1]")
+    @FindBy(xpath = "(//div[text()='节点详情']//following-sibling::div[2]//*[@class='vx-linepath']/following-sibling::*//*[name()='circle'])[1]")
     private WebElement alarmLineFirst;
     public WebElement getAlarmLineFirst() {
         return alarmLineFirst;
@@ -423,7 +423,7 @@ public class CreatePage extends PageTemplate {
         return newTab;
     }
 
-    @FindBy(xpath = "//div[@class='_19NPoBJ3m1Q77P7Rxw-rz3']//span[@aria-label='AddOutlined']")
+    @FindBy(xpath = "//div[@id='minimap']//following-sibling::div[2]//span[@aria-label='AddOutlined']")
     private WebElement magnify;
     public WebElement getMagnify() {
         for (int i=0; i<15; i++)

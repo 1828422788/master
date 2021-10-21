@@ -24,8 +24,8 @@ Feature: 全链路_4数据项配置
 
   Examples:
     | message        | sec  | spl  |
-    | spl错误！      | 1000 | tag:sample04061424_chart \| stats/ count() by apache.clientip |
-    | 正在搜索数据...| 0    | starttime = \"-1000d\" endtime = \"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.clientip   |
+    | spl错误        | 1000 | tag:sample04061424_chart \| stats/ count() by apache.clientip |
+    | 正在搜索数据   | 0    | starttime = \"-1000d\" endtime = \"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.clientip   |
 
   Scenario: 数据项配置_取消
     And I click the "DataConfig" button
@@ -99,6 +99,7 @@ Feature: 全链路_4数据项配置
     And I will see the element "SuccessMessage" contains "更新变量 "method" 成功"
     And I click the "Update" button
     And I wait for "SuccessMessage" will be invisible
+    And I wait for "2000" millsecond
     And I will see the element "NumLabel_1" contains "<num1>"
     And I will see the element "NumLabel_2" contains "<num2>"
     And I click the "Save" button

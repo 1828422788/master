@@ -52,7 +52,8 @@ Feature: 仪表盘输入项
   @dbinputpre2 @dbinputpre
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
     And I set the parameter "SearchInput" with value "<name>"
     And I wait for "2000" millsecond
     And I click the detail which name is "<name>"
@@ -199,7 +200,8 @@ Feature: 仪表盘输入项
   @dbinput1 @dbinput11
   Scenario: 添加时间范围输入项(RZY-4573,RZY-227)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
+    And I wait for "2000" millsecond
+    Given I wait for loading complete
     And I set the parameter "SearchInput" with value "测试输入项1"
     And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项1"
@@ -997,7 +999,7 @@ Feature: 仪表盘输入项
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchFilterButton" button under some element
-    And I wait for loading invisible
+    Given I wait for loading complete
     And I choose the "北京市" from the "DefaultDropdownList"
     And I set the parameter "PrefixValue" with value "apache.geo.city:"
     And I set the parameter "SuffixValue" with value " AND tag:sample*"
@@ -1008,7 +1010,7 @@ Feature: 仪表盘输入项
   @dbinput7 @dbinput72
   Scenario: 验证多选 RZY-3432
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
+    Given I wait for loading complete
     And I set the parameter "SearchInput" with value "测试输入项7"
     And I wait for "2000" millsecond
     And I click the detail which name is "测试输入项7"
@@ -1022,7 +1024,7 @@ Feature: 仪表盘输入项
 
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
-    And I wait for loading invisible
+    Given I wait for loading complete
     And I set the parameter "Spl" with value "${filter} | stats count() by apache.geo.city"
     And I click the "Ensure" button
     And I wait for "1000" millsecond
@@ -1032,7 +1034,7 @@ Feature: 仪表盘输入项
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     And I click the "Configs" button
-    And I wait for loading invisible
+    Given I wait for loading complete
     And I set the parameter "Spl" with value "apache.geo.city:北京市 AND tag:sample* OR apache.geo.city:深圳市 AND tag:sample* | stats count() by apache.geo.city"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible

@@ -52,10 +52,10 @@ Feature: 仪表盘删除
     Then I will see the success message "删除仪表盘成功"
 
     Examples:
-      | name  |
-      | 测试输入项 |
+      | name   |
+      | 测试输入项  |
       | 测试输入项1 |
-      | 测试输入项2|
+      | 测试输入项2 |
       | 测试输入项3 |
       | 测试输入项4 |
       | 测试输入项5 |
