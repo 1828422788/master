@@ -58,10 +58,6 @@ public class CreatePage extends PageTemplate {
         return getCheckpageElement("tag");
     }
 
-    public WebElement getPreviewMessage() {
-        return PreviewMessage;
-    }
-
     public WebElement getPreview() {
         return super.getYottaButtonByText("预览");
     }
@@ -89,7 +85,7 @@ public class CreatePage extends PageTemplate {
         return SyslogEditip;
     }
 
-    @FindBy(xpath = "//span[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[1]/descendant::input")
+    @FindBy(xpath = "//span[text()='Syslog 配置修改']//ancestor::div[@role='dialog']//div[@class='yotta-spinner-overlay']/div/div[2]/div[1]//input")
     private WebElement SyslogEditip;
 
     public WebElement getSyslogEditappname() {
@@ -104,13 +100,13 @@ public class CreatePage extends PageTemplate {
         return SyslogEditdelete;
     }
 
-    @FindBy(xpath = "//span[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[2]/descendant::input")
+    @FindBy(xpath = "//span[text()='Syslog 配置修改']//ancestor::div[@role='dialog']//div[@class='yotta-spinner-overlay']/div/div[2]/div[2]//input")
     private WebElement SyslogEditappname;
 
-    @FindBy(xpath = "//span[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[3]/descendant::input")
+    @FindBy(xpath = "//span[text()='Syslog 配置修改']//ancestor::div[@role='dialog']//div[@class='yotta-spinner-overlay']/div/div[2]/div[3]//input")
     private WebElement SyslogEdittag;
 
-    @FindBy(xpath = "//span[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[5]/descendant::span")
+    @FindBy(xpath = "//span[text()='Syslog 配置修改']//ancestor::div[@role='dialog']//div[@class='yotta-spinner-overlay']/div/div[2]/div[1]//span")
     private WebElement SyslogEditdelete;
 
     public WebElement getSyslogChar() {
@@ -118,7 +114,7 @@ public class CreatePage extends PageTemplate {
         WebElement element = webDriver.findElement(By.xpath("//span[@class='yotta-select-selection-value']"));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu css-1hq8cx5'])[last()]"));
+        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu css-ncm03v'])[last()]"));
 //        return dropdownUtils.getLastDropdownList();
     }
 
@@ -452,9 +448,17 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='连续监视']/following-sibling::span")
     private WebElement Monitoring;
 
+    @FindBy(xpath = "//span[@class='TGJwWrAqPrO83sRV_1wER']")
+//    @FindBy(xpath = "//span[@class='yotta-message-content']")
+    private WebElement PreviewMessage1;
+    public WebElement getPreviewMessage1(){
+        return PreviewMessage1;
+    }
     @FindBy(xpath = "//div[@class='yotta-form-field-help-text']")
     private WebElement PreviewMessage;
-
+    public WebElement getPreviewMessage(){
+        return PreviewMessage;
+    }
     public WebElement getEditMysql() {
         return EditMysql;
     }
