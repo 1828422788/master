@@ -1,257 +1,410 @@
-@1.2  @galaxee @galaxee2
-Feature: 数据大屏-b双轴折线图
+@galaxee @galaxee1   @1.4
+Feature: 数据大屏-d双轴折线图
 
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 双轴折线图-X轴-布局-搜索 RZY-1905,RZY-2012,RZY-2013,RZY-2016,RZY-2017,RZY-2015
+
+  Scenario: 双轴折线图-静态数据 RZY-2014
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When I click the "Create" button
+    And I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
-    When I click the "Create" button
-    And I set the parameter "Name" with value "双轴折线图-XY轴-布局-搜索"
-    And I click the "Ensure" button
-    #双轴折线图
-    And I wait for "Chart" will be visible
-    And I move the mouse pointer to the "Chart"
-    And I wait for "Line2y" will be visible
-    And I move the mouse pointer to the "Line2y"
-    And I click the "Line2y" button
-    And I click the "Style" button
-    #数据
-    And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample04061424_chart | bucket timestamp span=2h as ts |stats count(apache.status),dc(apache.status) by apache.status"
-    And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
-
-    And I choose the "apache.status" from the "Xaxis"
-    And I wait for "1000" millsecond
-    And I choose the "count(apache.status)" from the "FirstYaxis"
-    And I wait for "1000" millsecond
-    And I choose the "dc(apache.status)" from the "SecondYaxis"
-
-     #样式-尺寸
-    And I click the "Style" button
-    And I click the "ChartPosition" button
-    And I set the parameter "Width" with value "1500"
-    And I set the parameter "Height" with value "635"
-    And I set the parameter "ChartXaxis" with value "90"
-    And I set the parameter "ChartYaxis" with value "170"
-# x轴
-    And I wait for "XaxisHeader" will be visible
-    And I click the "XaxisHeader" button
-      #文本
-    And I wait for "XaxisWordSize" will be visible
-    And I set the parameter "XaxisWordSize" with value "20"
-#    And I click the "XaxisWordColor" button
-    And I wait for "XColorInput" will be visible
-    And I set the parameter "XColorInput" with value "#CF3131"
-    And I click the "EnsureColor" button
-#    And I wait for "EnsureColor" will be invisible
-    And I choose the "bolder" from the "XaxisWordBold"
-     #轴标签
-    And I set the parameter "XaxisShift" with value "5"
-    And I choose the "倾斜" from the "XaxisAngle"
-     #显示分割线
-    And I click the "XaxisSeparator" button
-#    And I switch the "XaxisSeparator" button to "enable"
-       #分割线的设置
-    And I set the parameter "XDividingLineBold" with value "3"
-
-#    And I click the "XDividingLineColor" button
-    And I wait for "XDividingLineColor" will be visible
-    And I set the parameter "XDividingLineColor" with value "#CD9080"
-    And I click the "EnsureColor" button
-#    And I wait for "EnsureColor" will be invisible
-
-    And I choose the "dotted" from the "XDividingLineType"
-     # 轴线
-#    And I click the "xLineColor" button
-    And I wait for "xLineColor" will be visible
-    And I set the parameter "xLineColor" with value "#26CC55"
-    And I click the "EnsureColor" button
-#    And I wait for "EnsureColor" will be invisible
-    And I set the parameter "XLineBold" with value "4"
-#Y1轴
-    And I click the "YaxisHeader" button
-     #文本
-    And I wait for "YaxisWordSize" will be visible
-    And I set the parameter "YaxisWordSize" with value "20"
-#    And I click the "YaxisWordColor" button
-    And I wait for "YColorInput" will be visible
-    And I set the parameter "YColorInput" with value "#19B535"
-    And I click the "EnsureColor" button
-#    And I wait for "EnsureColor" will be invisible
-    And I choose the "bold" from the "YaxisWordBold"
-     # 轴标签
-    And I set the parameter "YaxisShift" with value "10"
-    And I choose the "倾斜" from the "YaxisAngle"
-     #分割线
-    #分割线的设置
-    And I set the parameter "Y1DividingLineBold" with value "2"
-
-#    And I click the "Y1DividingLineColor" button
-    And I wait for "Y1DividingLineColor" will be visible
-    And I set the parameter "Y1DividingLineColor" with value "#BBB80B"
-    And I click the "EnsureColor" button
-#    And I wait for "EnsureColor" will be invisible
-
-    And I choose the "dashed" from the "Y1DividingLineType"
-    # 轴线
-#    And I click the "Y1LineColor" button
-    And I wait for "Y1LineColor" will be visible
-    And I set the parameter "Y1LineColor" with value "#CBD50D"
-    And I click the "EnsureColor" button
-#    And I wait for "EnsureColor" will be invisible
-    And I set the parameter "Y1LineBold" with value "4"
-
-#布局
-    And I click the "Layout" button
-    And I wait for "LayoutBottom" will be visible
-    And I set the parameter "LayoutBottom" with value "20"
-    And I set the parameter "LayoutLeft" with value "20"
-    And I set the parameter "LayoutRight" with value "20"
-
-#数据系列
-    And I click the "DataSeries" button
-    And I wait for "FirstSeriesBold" will be visible
-    And I set the parameter "FirstSeriesBold" with value "5"
-    And I click the "Smooth" button
-    And I click the "Area" button
-    And I set the parameter "SecondSeriesBold" with value "5"
-    And I click the "SecondSmooth" button
-    And I click the "SecondArea" button
-
-    And I wait for "Save" will be visible
+    And switch to another window
+    And I close all tabs except main tab
     And I wait for "2000" millsecond
+    And I click the "Create" button
+    And I wait for "2000" millsecond
+    And I set the parameter "Name" with value "双轴折线图-静态数据"
+    And I wait for "3000" millsecond
+    And I click the "Ensure" button
+    Then I will see the "galaxee.NewCreatePage" page
+    And switch to another window
+    And I close all tabs except main tab
+    And I wait for "1500" millsecond
+
+    #    选择组件
+    And I wait for "Module" will be visible
+    And I click the "Moudle" button
+    And I wait for "1000" millsecond
+#    选择常规图表
+    And I wait for "Chart" will be visible
+    And I click the "Chart" button
+
+    #双轴折线图
+    And I wait for "Line2y" will be visible
+    And I click the "Line2y" button under some element
+
+    #    选择样式
+    And I wait for "Style" will be visible
+    And I click the "Style" button
+    And I wait for "2000" millsecond
+
+#    图表布局
+    And I wait for "ChartPosition" will be visible
+    And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
+    And I set the parameter "Width" with value "1500"
+    And I wait for "1000" millsecond
+    And I set the parameter "Height" with value "635"
+    And I wait for "1000" millsecond
+    And I set the parameter "ChartXaxis" with value "90"
+    And I wait for "1000" millsecond
+    And I set the parameter "ChartYaxis" with value "170"
+
+    #    图例
+    And I wait for "ChartPosition" will be visible
+    And I click the "ChartPosition" button
+    And I wait for "Layout" will be visible
+    And I click the "Layout" button
+    And I wait for "2000" millsecond
+    And I click the "ExampleEyes" button
+    And I wait for "Example" will be visible
+    And I click the "Example" button
+    And I wait for "ExampleWordSize" will be visible
+    And I set the parameter "ExampleWordSize" with value "16"
+    And I wait for "2000" millsecond
+    And I wait for "ExampleColor" will be visible
+    And I set the parameter "ExampleColor" with value "#D73535"
+    And I wait for "2000" millsecond
+    And I choose the "bolder" from the "ExampleWordBold"
+    And I wait for "ExampleOnMiddle" will be visible
+    And I click the "ExampleOnMiddle" button
+    And I wait for "ExampleOnTop" will be visible
+    And I click the "ExampleOnTop" button
+    And I wait for "2000" millsecond
+    And I set the parameter "ExampleHorizontalSpacing" with value "30"
+    And I wait for "1000" millsecond
+
+    #数据
+    And I wait for "Data" will be visible
+    And I click the "Data" button
+    And I choose the "静态数据" from the "DataSourceType"
+    And I wait for "2000" millsecond
+      #选择静态数据
+    And I set the parameter "Xaxis" with value "x"
+    And I set the parameter "FirstYaxis" with value "y"
+    And I set the parameter "SecondYaxis" with value "z"
+    And I wait for "2000" millsecond
+    And I click the "UpdateData" button
+    And I set the parameter "updateFrequency" with value "1"
+
+    And I wait for element "XaxisFieldText" change text to "匹配成功"
+    And I wait for element "FirstYaxisFieldText" change text to "匹配成功"
+    And I wait for "2000" millsecond
+    #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "保存成功"
+    Then I will see the success message "保存当前大屏成功"
+##################################无耻的分割线###############################
+
+  Scenario: 双轴折线图-样式搜索 RZY-1905,RZY-2012,RZY-2013,RZY-2016,RZY-2017,RZY-2015
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    And I click the "Create" button
+    Then I will see the "galaxee.CreatePage" page
+    And switch to another window
+    And I close all tabs except main tab
+    And I wait for "2000" millsecond
+    And I click the "Create" button
+    And I wait for "2000" millsecond
+    And I set the parameter "Name" with value "双轴折线图-样式搜索"
+    And I wait for "3000" millsecond
+    And I click the "Ensure" button
+    Then I will see the "galaxee.NewCreatePage" page
+    And switch to another window
+    And I close all tabs except main tab
+    And I wait for "1500" millsecond
+
+#    ===============================选择组件
+    And I wait for "Module" will be visible
+    And I click the "Moudle" button
+    And I wait for "1000" millsecond
+#    ==============================选择常规图表
+    And I wait for "Chart" will be visible
+    And I click the "Chart" button
+
+#    ==============================双轴折线图
+    And I wait for "Line2y" will be visible
+    And I click the "Line2y" button under some element
+
+#    ==============================选择样式
+    And I wait for "Style" will be visible
+    And I click the "Style" button
+    And I wait for "2000" millsecond
+
+
+#    ==============================图表布局
+    And I wait for "ChartPosition" will be visible
+    And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
+    And I set the parameter "Width" with value "1500"
+    And I wait for "1000" millsecond
+    And I set the parameter "Height" with value "635"
+    And I wait for "1000" millsecond
+    And I set the parameter "ChartXaxis" with value "90"
+    And I wait for "1000" millsecond
+    And I set the parameter "ChartYaxis" with value "170"
+
+#      ============================图表边距布局
+    And I click the "Layout" button
+    And I wait for "2000" millsecond
+    And I set the parameter "LayoutBottom" with value "40"
+    And I set the parameter "LayoutLeft" with value "40"
+    And I wait for "2000" millsecond
+    And I set the parameter "LayoutRight" with value "40"
+    And I wait for "1000" millsecond
+
+#    ==================================坐标轴设置
+    And I click the "Axes" button
+
+#=====================================x轴
+    And I wait for "XaxisHeader" will be visible
+    And I click the "XaxisHeader" button
+    And I wait for "1000" millsecond
+#       ===============================打开轴标签元素
+    And I click the "Xlable" button
+    And I wait for "1000" millsecond
+    #   轴标签文字大小
+    And  I wait for "XaxisWordSize" will be visible
+    And I set the parameter "XaxisWordSize" with value "16"
+    #    轴标签文字颜色
+    And I wait for "XColorInput" will be visible
+    And I set the parameter "XColorInput" with value "#CF3131"
+    And I wait for "2000" millsecond
+    #    轴标签文字粗细
+    And I choose the "bolder" from the "XaxisWordBold"
+    #    标签旋转角度
+    And I wait for "XaxisAngle" will be visible
+    And I set the parameter "XaxisAngle" with value "10"
+    #    关闭轴标签元素
+    And I click the "Xlable" button
+    And I wait for "2000" millsecond
+
+#    =====================================使x轴轴线元素可见
+    And I wait for "XaxesLines" will be visible
+    And I click the "XaxesLines" button
+    #     x轴轴线颜色
+    And I wait for "XLineColor" will be visible
+    And I set the parameter "XLineColor" with value "#26CC55"
+    And I wait for "2000" millsecond
+    #    关闭轴线元素
+    And I click the "XaxesLines" button
+
+#    ====================================使x轴网格线元素可见
+    And I click the "XaxisEyes" button
+    And I wait for "XgridLines" will be visible
+    And I click the "Xgridlines" button
+    #     x轴网格线颜色
+    And I wait for "XDividingLineColor" will be visible
+    And I set the parameter "XDividingLineColor" with value "#CD9080"
+    And I wait for "2000" millsecond
+    #    关闭x轴网格线
+    And I click the "Xgridlines" button
+#关闭x轴
+    And I click the "XaxisHeader" button
+
+ #=======================================Y轴
+    And I wait for "YaxisHeader" will be visible
+    And I click the "YaxisHeader" button
+    And I wait for "1000" millsecond
+
+   #   使轴标题元素可见
+   #  And I click the "XEyes" button
+
+
+   #    =================================打开轴标签元素
+    And I click the "Ylable" button
+    And I wait for "1000" millsecond
+    #   轴标签文字大小
+    And  I wait for "YaxisWordSize" will be visible
+    And I set the parameter "YaxisWordSize" with value "16"
+    #    轴标签文字颜色
+    And I wait for "YColorInput" will be visible
+    And I set the parameter "YColorInput" with value "#19B535"
+    And I wait for "2000" millsecond
+    #    轴标签文字粗细
+    And I choose the "bold" from the "YaxisWordBold"
+    #    标签旋转角度
+    And I wait for "YaxisAngle" will be visible
+    And I set the parameter "YaxisAngle" with value "10"
+    #    关闭轴标签元素
+    And I click the "Ylable" button
+    And I wait for "2000" millsecond
+
+    #    ===============================使y轴轴线元素可见
+    And I wait for "YaxesLines" will be visible
+    And I click the "YaxesLines" button
+    #     y轴轴线颜色
+    And I wait for "YLineColor" will be visible
+    And I set the parameter "YLineColor" with value "#CBD50D"
+    And I wait for "2000" millsecond
+    #    关闭轴线元素
+    And I click the "YaxesLines" button
+    And I wait for "2000" millsecond
+
+
+    #    =================================使y轴网格线元素可见
+    And I click the "YaxisEyes" button
+    And I wait for "YgridLines" will be visible
+    And I click the "Ygridlines" button
+    #     y轴网格线颜色
+    And I wait for "YDividingLineColor" will be visible
+    And I wait for "1000" millsecond
+    And I set the parameter "YDividingLineColor" with value "#BBB80B"
+    And I wait for "2000" millsecond
+    #    关闭y轴网格线
+    And I click the "Ygridlines" button
+    And I wait for "2000" millsecond
+
+#关闭y轴
+    And I click the "YaxisHeader" button
+
+#    =========================================打开Z轴
+    And I wait for "ZaxisHeader" will be visible
+    And I click the "ZaxisHeader" button
+    And I wait for "1000" millsecond
+
+   #    打开轴标签元素
+    And I click the "Zlable" button
+    And I wait for "1000" millsecond
+    #   轴标签文字大小
+    And  I wait for "ZaxisWordSize" will be visible
+    And I set the parameter "ZaxisWordSize" with value "16"
+    #    轴标签文字颜色
+    And I wait for "ZColorInput" will be visible
+    And I set the parameter "ZColorInput" with value "#9900FF"
+    And I wait for "2000" millsecond
+    #    轴标签文字粗细
+    And I choose the "bold" from the "ZaxisWordBold"
+    #    标签旋转角度
+    And I wait for "ZaxisAngle" will be visible
+    And I set the parameter "ZaxisAngle" with value "10"
+    #    关闭轴标签元素
+    And I click the "Zlable" button
+    And I wait for "2000" millsecond
+
+    #    使Z轴轴线元素可见
+    And I wait for "ZaxesLines" will be visible
+    And I click the "ZaxesLines" button
+    #     Z轴轴线颜色
+    And I wait for "ZLineColor" will be visible
+    And I set the parameter "ZLineColor" with value "#9900FF"
+    And I wait for "2000" millsecond
+    #    关闭轴线元素
+    And I click the "ZaxesLines" button
+    And I wait for "2000" millsecond
+
+
+#    =================================使Z轴网格线元素可见
+    And I click the "ZaxisEyes" button
+    And I wait for "ZgridLines" will be visible
+    And I click the "Zgridlines" button
+    #     Z轴网格线颜色
+    And I wait for "ZDividingLineColor" will be visible
+    And I wait for "1000" millsecond
+    And I set the parameter "ZDividingLineColor" with value "#9900FF"
+    And I wait for "2000" millsecond
+    #    关闭Z轴网格线
+    And I click the "Zgridlines" button
+    And I wait for "2000" millsecond
+    And I click the "ZaxesLines" button
+    #     Z轴轴线颜色
+    And I wait for "ZLineColor" will be visible
+    And I set the parameter "ZLineColor" with value "#9900FF"
+    And I wait for "2000" millsecond
+#关闭Z轴
+    And I click the "ZaxisHeader" button
+
+#     ===================================系列
+    And I wait for "Series" will be visible
+    And I click the "Series" button
+
+    And I click the "SeriesOne" button
+    And I wait for "1000" millsecond
+    And I set the parameter "FillColor" with value "#FF0000"
+    And I wait for "2000" millsecond
+    And I click the "SeriesStyle" button
+    And I wait for "SeriesOneBold" will be visible
+    And I set the parameter "SeriesOneBold" with value "3"
+    And I wait for "1000" millsecond
+    And I choose the "虚线" from the "XDividingLineType"
+    And I wait for "1000" millsecond
+    And I wait for "Zcolor" will be visible
+    And I set the parameter "Zcolor" with value "#0066ff"
+    And I wait for "2000" millsecond
+    And I click the "SeriesStyle" button
+
+    And I click the "DataBuild" button
+    And I wait for "1000" millsecond
+    And I choose the "方形" from the "DataStyle"
+    And I wait for "2000" millsecond
+    And I set the parameter "DataSize" with value "10"
+    And I click the "DataBuild" button
+#   ===========================================
+    And I click the "SeriesTwo" button
+    And I wait for "1000" millsecond
+    And I set the parameter "FillColor" with value "#9933FF"
+    And I wait for "2000" millsecond
+    And I click the "SeriesStyle" button
+    And I wait for "SeriesOneBold" will be visible
+    And I set the parameter "SeriesOneBold" with value "3"
+    And I wait for "1000" millsecond
+    And I choose the "点线" from the "XDividingLineType"
+    And I wait for "1000" millsecond
+    And I wait for "Zcolor" will be visible
+    And I set the parameter "Zcolor" with value "#ffff00"
+    And I wait for "2000" millsecond
+    And I click the "SeriesStyle" button
+
+    And I click the "DataBuild" button
+    And I wait for "1000" millsecond
+    And I choose the "圆点" from the "DataStyle"
+    And I wait for "1000" millsecond
+    And I set the parameter "DataSize" with value "10"
+    And I click the "DataBuild" button
+
+#    ===============================================数据
+    And I wait for "Data" will be visible
+    And I click the "Data" button
+    And I choose the "SPL" from the "DataSourceType"
+    And I wait for "2000" millsecond
+    And I click the "DataCon" button
+    And I wait for "SplInput" will be visible
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | bucket timestamp span=2h as ts |stats count(apache.status),dc(apache.status) by apache.status"
+    And I wait for "2000" millsecond
+
+    And I click the "DateEditor" button
+    And I click the "RecentSevenDay" button
+    And I wait for "2000" millsecond
+
+    And I click the "Search" button
+    And I wait for "6000" millsecond
+    And I wait for "SearchTip" will be visible
+    And I click the "CloseData" button
+    And I wait for "2000" millsecond
+    And I set the parameter "Xaxis" with value "apache.status"
+    And I set the parameter "FirstYaxis" with value "count(apache.status)"
+    And I set the parameter "SecondYaxis" with value "dc(apache.status)"
+    And I wait for "2000" millsecond
+    And I click the "UpdateData" button
+    And I set the parameter "updateFrequency" with value "1"
+
+    And I wait for element "XaxisFieldText" change text to "匹配成功"
+    And I wait for element "FirstYaxisFieldText" change text to "匹配成功"
+    And I wait for "2000" millsecond
+
+
+#   ==========================================保存
+    And I wait for "Save" will be visible
+    And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "保存当前大屏成功"
 
 
 ##################################无耻的分割线##############################
 
-  Scenario: 双轴折线图-静态数据 RZY-2014
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When I click the "Create" button
-    Then I will see the "galaxee.CreatePage" page
-    When I click the "Create" button
-    And I set the parameter "Name" with value "双轴折线图-静态数据"
-    And I click the "Ensure" button
-    #双轴折线图
-    And I click the "Chart" button
-    And I wait for "Line2y" will be visible
-    And I click the "Line2y" button
-    And I click the "Style" button
-    #图例
-    And I click the "Example" button
-    And I set the parameter "ExampleWordSize" with value "20"
-#    And I click the "ExampleColor" button
-    And I wait for "ExampleColor" will be visible
-    And I set the parameter "ExampleColor" with value "#D73535"
-    And I click the "EnsureColor" button
-#    And I wait for "EnsureColor" will be invisible
-    And I choose the "bolder" from the "ExampleWordBold"
-    And I choose the "居中" from the "ExampleHorizontal"
-    And I choose the "顶部" from the "ExampleVertical"
-    #尺寸
-    And I click the "ChartPosition" button
-    And I wait for "Width" will be visible
-    And I set the parameter "Width" with value "1500"
-    And I set the parameter "Height" with value "635"
-    And I set the parameter "ChartXaxis" with value "90"
-    And I set the parameter "ChartYaxis" with value "170"
-    #数据
-    And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample04061424_chart | bucket timestamp span=2h as ts |stats count(apache.status),dc(apache.status) by apache.status"
-    And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
-      #选择静态数据
-    And I click the "dataSourceType" button
-    And I wait for "1000" millsecond
-    And I click the "statisticsData" button
-    And I click the "Ensure" button
 
-    And I wait for "tipsText" will be invisible
-
-    And I choose the "apache.status" from the "Xaxis"
-    And I wait for "1000" millsecond
-    And I choose the "count(apache.status)" from the "FirstYaxis"
-    And I wait for "1000" millsecond
-    And I choose the "dc(apache.status)" from the "SecondYaxis"
-
-   #分组
-    And I click the "AddGroup" button
-    And I choose the "apache.status" from the "Group"
-    #保存
-    And I wait for "Save" will be visible
-    And I wait for "2000" millsecond
-    And I click the "Save" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "保存成功"
-
-
-##################################无耻的分割线###############################
-
-  Scenario: 双轴折线图-绑定搜索
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When I click the "Create" button
-    Then I will see the "galaxee.CreatePage" page
-    When I click the "Create" button
-    And I set the parameter "Name" with value "双轴折线图-绑定搜索"
-    And I click the "Ensure" button
-      #在【其他】中添加一个【搜索】控件
-    And I click the "Other" button
-    And I click the "otherSearch" button under some element
-    And I hide the element "otherDropdown"
-    And I wait for "SplInput" will be visible
-    And I set the parameter "SplInput" with value "tag:sample04061424_chart | bucket timestamp span=2h as ts |stats count(apache.status),dc(apache.status) by apache.status"
-    And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
-    And I set the parameter "updateFrequency" with value "0.1"
-   #双轴折线图
-    And I click the "Chart" button
-    And I wait for "Line2y" will be visible
-    And I click the "Line2y" button
-    And I click the "Style" button
-    #尺寸
-    And I click the "ChartPosition" button
-    And I wait for "Width" will be visible
-    And I set the parameter "Width" with value "1500"
-    And I set the parameter "Height" with value "635"
-    And I set the parameter "ChartXaxis" with value "90"
-    And I set the parameter "ChartYaxis" with value "170"
-
-      #在数据源类型中选择绑定搜索
-    And I click the "Data" button
-    And I click the "dataSourceType" button
-    And I wait for "1000" millsecond
-    And I click the "bindingSearch" button
-      #选择上步添加的搜索
-    And I click the "bindingSearchChoose" button
-    And I click the "search_widget" button
-      #再次点击搜索控件中的【搜索按钮】
-    And I click the "pictureTwo" button
-    And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
-     #对滚动条形图的参数进行设置
-    And I click the "pictureOne" button
-    And I click the "Data" button
-
-    And I choose the "apache.status" from the "Xaxis"
-    And I wait for "1000" millsecond
-    And I choose the "count(apache.status)" from the "FirstYaxis"
-    And I wait for "1000" millsecond
-    And I choose the "dc(apache.status)" from the "SecondYaxis"
-
-
-      #保存
-    And I wait for "Save" will be visible
-    And I wait for "2000" millsecond
-    And I click the "Save" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "保存成功"
 
 
 
