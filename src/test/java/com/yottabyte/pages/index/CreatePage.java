@@ -168,13 +168,12 @@ public class CreatePage extends PageTemplate {
         return getButton("新建");
     }
 
-    @Override
+    @FindBy(xpath = "//div[@class='_1ePOYFmBdVT4o-CHDZn9rC']")
+    private WebElement message;
+
     public WebElement getMessage() {
         return message;
     }
-
-    @FindBy(xpath = "//div[@class='_1ePOYFmBdVT4o-CHDZn9rC']")
-    private WebElement message;
 
     @FindBy(xpath = "//div[@class='yotta-form-field-help-text']")
     private WebElement helpMessage;
