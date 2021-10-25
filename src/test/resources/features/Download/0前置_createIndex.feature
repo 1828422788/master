@@ -77,8 +77,8 @@ Feature: 新建collect使用索引
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
-    And I upload a file with name "/src/test/resources/testdata/dictionary/<dictionaryNameWithOutCsv>"
-    And I wait for "FileName" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/<dictionaryNameWithOutCsv>.csv"
+#    And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
     And I click the "EnsureUpload" button
     Given I wait for loading complete
@@ -88,9 +88,9 @@ Feature: 新建collect使用索引
 
     Examples:
       | dictionaryNameWithOutCsv |
-      | falertcidr.csv           |
-      | falertdict1.csv          |
-      | falertdict2.csv          |
+      | falertcidr           |
+      | falertdict1          |
+      | falertdict2          |
 
 
   @flinkalert3
