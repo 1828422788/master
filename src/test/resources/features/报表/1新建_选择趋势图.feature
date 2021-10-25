@@ -59,6 +59,7 @@ Feature: 报表新建_选择
     And I click the "ChosenTrendLast" button
     And I will see the element "TrendData" contains "((*)) OR (tag:sample04061424_chart) OR (tag:sample04061424_display)"
     And I click the "EditButton" button
+    And I wait for "3000" millsecond
     And I will see the element "TrendDatasetField" contains "((*)) OR (tag:sample04061424_chart) OR (tag:sample04061424_display)"
     And I set the value "starttime="now/d" endtime="now/d+24h" * | stats count()" to the textarea "TrendSplField"
     Then I click the "EnsureButton" button

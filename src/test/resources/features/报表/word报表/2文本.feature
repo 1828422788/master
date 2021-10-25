@@ -70,6 +70,10 @@ Feature:报表_富文本编辑_本文
     And I set the parameter "FooterText" with value "<text> footer" in word report
     And I wait for "2000" millsecond
 
+    And I click the element "TextArea" in word report
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
+
     And I select all text in "TextArea" element
     And I wait for "2000" millsecond
     And I click the element "Color" in word report
@@ -79,10 +83,6 @@ Feature:报表_富文本编辑_本文
 
     And I will see the element "HeaderTextStyle" style contains "<colorstyle>"
     And I will see the element "FooterTextStyle" style contains "<colorstyle>"
-
-    And I click the element "TextAreaLocator" in word report
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
     And I wait for "2000" millsecond
     When I click the "FinishButton" button under some element
     And I wait for "ResultMessage" will be visible

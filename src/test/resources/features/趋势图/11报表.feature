@@ -58,7 +58,7 @@ Feature: 趋势图新建_报表
 
     Examples:
       |   type  |  trend_name    | added_trend      |   page    |
-      | PDF     |  Trend_Test_1  | ChosenTrendLast  |           |
+      | PDF     |  Trend_Test_1  | LastTrendTitle   |           |
       | WORD    |  Trend_Test_2  | LastAddedTrend   |   WORD    |
 
 
