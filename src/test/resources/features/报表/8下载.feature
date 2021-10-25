@@ -61,6 +61,7 @@ Feature: 报表_下载
       |   Sunburst           |
       |   Pie_1              |
       |   Pie_2              |
+      |   Flame              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -119,6 +120,7 @@ Feature: 报表_下载
       |   Sunburst           |
       |   Pie_1              |
       |   Pie_2              |
+      |   Flame              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -177,6 +179,7 @@ Feature: 报表_下载
       |   Sunburst           |
       |   Pie_1              |
       |   Pie_2              |
+      |   Flame              |
       |   Chord              |
       |   Sankey             |
       |   Force              |

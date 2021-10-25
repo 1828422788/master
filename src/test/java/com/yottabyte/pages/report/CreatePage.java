@@ -729,6 +729,10 @@ public class CreatePage extends PageTemplate {
         return getYottaDiv("chart_selector-change_type_sunburst-dom");
     }
 
+    public WebElement getFlame() {
+        return getYottaDiv("chart_selector-change_type_flame-dom");
+    }
+
     public WebElement getChord() {
         return getYottaDiv("chart_selector-change_type_chord-dom");
     }

@@ -32,6 +32,7 @@ Feature: 报表_检查文件
       |   Sunburst           |
       |   Pie_1              |
       |   Pie_2              |
+      |   Flame              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -84,6 +85,7 @@ Feature: 报表_检查文件
       |   Sunburst           |
       |   Pie_1              |
       |   Pie_2              |
+      |   Flame              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -136,6 +138,7 @@ Feature: 报表_检查文件
       |   Sunburst           |
       |   Pie_1              |
       |   Pie_2              |
+      |   Flame              |
       |   Chord              |
       |   Sankey             |
       |   Force              |

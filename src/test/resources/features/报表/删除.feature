@@ -103,6 +103,7 @@ Feature: 报表_删除
       |   Sunburst           |
       |   Pie_1              |
       |   Pie_2              |
+      |   Flame              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -158,6 +159,7 @@ Feature: 报表_删除
       |   Sunburst           |
       |   Pie_1              |
       |   Pie_2              |
+      |   Flame              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -213,6 +215,7 @@ Feature: 报表_删除
       |   Sunburst           |
       |   Pie_1              |
       |   Pie_2              |
+      |   Flame              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
