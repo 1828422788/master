@@ -77,7 +77,7 @@ Feature: 新建collect使用索引
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When I click the "UploadButton" button
     Then I wait for "PopUpWindow" will be visible
-    And I upload a file with name "/src/test/resources/testdata/dictionary/flinkalert.csv"
+    And I upload a file with name "/src/test/resources/testdata/dictionary/<dictionaryNameWithOutCsv>"
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
     And I click the "EnsureUpload" button
@@ -88,7 +88,9 @@ Feature: 新建collect使用索引
 
     Examples:
       | dictionaryNameWithOutCsv |
-      | flinkalert               |
+      | falertcidr.csv           |
+      | falertdict1.csv          |
+      | falertdict2.csv          |
 
 
   @flinkalert3
@@ -112,5 +114,5 @@ Feature: 新建collect使用索引
     And I wait for "AddSuccMessage" will be visible
 
     Examples:
-      | appPath                                         |
-      | /src/test/resources/testdata/app/flinkaert1.tar |
+      | appPath                                          |
+      | /src/test/resources/testdata/app/flinkalerts.tar |
