@@ -7,6 +7,7 @@ Feature: 权限-应用列表页
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I "checked" the checkbox which name is "全选" in trend page
+    And I wait for "2000" millsecond
     And I "unchecked" the checkbox which name is "全选" in trend page
     And I click the "App" button
     And I "checked" the checkbox which name is "可新建应用"

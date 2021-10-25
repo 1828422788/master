@@ -326,10 +326,11 @@ public class Checkbox {
         for (String name : nameList) {
             String xpath = "(//span[contains(text(),'" + name + "') and contains(@class,'checkbox')])[1]";
             WebElement label = webDriver.findElement(By.xpath(xpath));
-            WebElement span = label.findElement(By.xpath(".//preceding-sibling::span"));
+            WebElement span = label.findElement(By.xpath(".//ancestor::label"));
             String attribute = span.getAttribute("class");
             if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
-                label.findElement(By.xpath(".//ancestor::label")).click();
+                //label.findElement(By.xpath(".//ancestor::label")).click();
+                span.findElement(By.xpath(".//input[@yotta-test='role-function_check_all-checkbox']")).click();
             }
         }
     }
