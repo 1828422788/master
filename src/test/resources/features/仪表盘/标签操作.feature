@@ -1,4 +1,4 @@
-@dashboard20
+@dashboard20 @dashboardpart3
 Feature: 仪表盘标签操作
 
   Background:

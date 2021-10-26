@@ -323,14 +323,26 @@ public class Checkbox {
      */
     @When("^I \"([^\"]*)\" the checkbox which name is \"([^\"]*)\" in trend page$")
     public void clickCheckboxWithGivenNameInTrend(String status, List<String> nameList) {
-        for (String name : nameList) {
-            String xpath = "(//span[contains(text(),'" + name + "') and contains(@class,'checkbox')])[1]";
-            WebElement label = webDriver.findElement(By.xpath(xpath));
-            WebElement span = label.findElement(By.xpath(".//ancestor::label"));
-            String attribute = span.getAttribute("class");
-            if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
-                //label.findElement(By.xpath(".//ancestor::label")).click();
-                span.findElement(By.xpath(".//input[@yotta-test='role-function_check_all-checkbox']")).click();
+        if (webDriver.getCurrentUrl().contains("/roles/")) {
+            for (String name : nameList) {
+                String xpath = "(//span[contains(text(),'" + name + "') and contains(@class,'checkbox')])[1]";
+                WebElement label = webDriver.findElement(By.xpath(xpath));
+                WebElement span = label.findElement(By.xpath(".//ancestor::label"));
+                String attribute = span.getAttribute("class");
+                if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
+                    //label.findElement(By.xpath(".//ancestor::label")).click();
+                    span.findElement(By.xpath(".//input[@yotta-test='role-function_check_all-checkbox']")).click();
+                }
+            }
+        } else if (webDriver.getCurrentUrl().contains("/trend/")){
+            for (String name : nameList) {
+                String xpath = "(//span[contains(text(),'" + name + "') and contains(@class,'checkbox')])[1]";
+                WebElement label = webDriver.findElement(By.xpath(xpath));
+                WebElement span = label.findElement(By.xpath(".//preceding-sibling::span"));
+                String attribute = span.getAttribute("class");
+                if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
+                    label.findElement(By.xpath(".//ancestor::label")).click();
+                }
             }
         }
     }
