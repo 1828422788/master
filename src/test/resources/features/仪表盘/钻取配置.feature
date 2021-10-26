@@ -1,11 +1,11 @@
-@dashboard @dashboard0429 @dbdrilldown @dashboard38
+@dashboardpart1 @dashboard0429 @dbdrilldown @dashboard38
 Feature: 仪表盘钻取配置
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
 
-  @dashboard @dashboardSmoke @dbdrilldown
+  @dbdrilldown
   Scenario Outline: 新建仪表盘
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
@@ -18,7 +18,7 @@ Feature: 仪表盘钻取配置
       | 测试钻取配置 |
       | 钻取跳转   |
 
-  @dashboard @dashboardSmoke @dbdrilldown1
+  @dbdrilldown1
   Scenario: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -36,7 +36,7 @@ Feature: 仪表盘钻取配置
     And I click the "Complete" button
     And I wait for "SuccessCreate" will be visible
 
-  @dashboard @dashboardSmoke
+
   Scenario Outline: 新建标签页
     And I set the parameter "SearchInput" with value "<name>"
     And I wait for "2000" millsecond
@@ -54,7 +54,7 @@ Feature: 仪表盘钻取配置
       | 测试钻取配置 |
       | 钻取跳转   |
 
-  @dashboard @dashboardSmoke
+
   Scenario: 新建标签页钻取所需趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -73,7 +73,7 @@ Feature: 仪表盘钻取配置
     And I click the "Complete" button under some element
     And I wait for "SuccessCreate" will be visible
 
-  @dashboard @dashboardSmoke
+
   Scenario: 仪表盘添加钻取趋势图
     And I set the parameter "SearchInput" with value "钻取跳转"
     And I wait for "2000" millsecond
@@ -93,7 +93,7 @@ Feature: 仪表盘钻取配置
     Then I wait for element "SuccessMessage" change text to "添加成功"
     And I wait for "2000" millsecond
 
-  @dashboard @dashboardSmoke
+
   Scenario Outline: 仪表盘添加输入项
     And I set the parameter "SearchInput" with value "钻取跳转"
     And I wait for "2000" millsecond
@@ -114,7 +114,7 @@ Feature: 仪表盘钻取配置
       | filter | defaultValue |
       | city   | 苏州市          |
 
-  @dashboard @dashboardSmoke
+
   Scenario: 修改仪表盘配置
     And I set the parameter "SearchInput" with value "钻取跳转"
     And I wait for "2000" millsecond
@@ -130,7 +130,7 @@ Feature: 仪表盘钻取配置
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "配置成功"
 
-  @dashboard @dashboardSmoke
+
   Scenario: 添加图表
     And I set the parameter "SearchInput" with value "测试钻取配置"
     And I wait for "2000" millsecond
@@ -150,7 +150,7 @@ Feature: 仪表盘钻取配置
     And I wait for "SuccessMessage" will be visible
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
-  @dashboard @dashboardSmoke
+
   Scenario: 开启钻取配置(RZY-4479)
     And I set the parameter "SearchInput" with value "测试钻取配置"
     And I wait for "2000" millsecond
@@ -163,7 +163,7 @@ Feature: 仪表盘钻取配置
 #    And I click the "OpenDrilldown" button
     And I wait for "500" millsecond
 
-  @dashboard @dashboardSmoke
+
   Scenario: 在当前页面跳转到搜索页-自动 RZY-318
     And I set the parameter "SearchInput" with value "测试钻取配置"
     And I wait for "2000" millsecond
@@ -185,7 +185,7 @@ Feature: 仪表盘钻取配置
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 'apache.geo.province':江苏"
 
-  @dashboard @dashboardSmoke
+
   Scenario: 在新标签页跳转到搜索页-自动 RZY-318
     And I set the parameter "SearchInput" with value "测试钻取配置"
     And I wait for "2000" millsecond
@@ -208,7 +208,7 @@ Feature: 仪表盘钻取配置
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 'apache.geo.province':江苏"
 
-  @dashboard @dashboardSmoke
+
   Scenario: 在当前页面跳转到搜索页-自定义 RZY-3439
     And I set the parameter "SearchInput" with value "测试钻取配置"
     And I wait for "2000" millsecond
@@ -238,7 +238,7 @@ Feature: 仪表盘钻取配置
 #    Then I will see the input element "TimeRange" value will contains "今天"
     Then I will see the "TimeRange" result will be "今天"
 
-  @dashboard @dashboardSmoke
+
   Scenario: 在新标签页跳转到搜索页-自定义 RZY-3439
     And I set the parameter "SearchInput" with value "测试钻取配置"
     And I wait for "2000" millsecond
@@ -268,7 +268,7 @@ Feature: 仪表盘钻取配置
 #    Then I will see the input element "TimeRange" value will contains "今天"
     Then I will see the "TimeRange" result will be "今天"
 
-  @dashboard @dashboardSmoke
+
   Scenario Outline: 在当前页面跳转到自定义URL RZY-319
     And I set the parameter "SearchInput" with value "测试钻取配置"
     And I wait for "2000" millsecond
@@ -296,7 +296,7 @@ Feature: 仪表盘钻取配置
       | https://www.baidu.com/ | 百度一下，你就知道 |
       | /alerts/               | 监控        |
 
-  @dashboard @dashboardSmoke
+
   Scenario Outline: 在新标签跳转到自定义URL RZY-319
     And I set the parameter "SearchInput" with value "测试钻取配置"
     And I wait for "2000" millsecond
@@ -324,7 +324,7 @@ Feature: 仪表盘钻取配置
       | https://www.baidu.com/ | 百度一下，你就知道 |
       | /trend/                | 趋势图列表     |
 
-  @dashboard @dashboardSmoke
+
   Scenario: 跳转到标签页(后三步待验证)
     And I set the parameter "SearchInput" with value "测试钻取配置"
     And I wait for "2000" millsecond
@@ -361,7 +361,7 @@ Feature: 仪表盘钻取配置
     And I wait for "Progress" will be invisible
     Then I will see the element "GeoCity" attribute "Value" is "南京市"
 
-  @dashboard @dashboardSmoke
+
   Scenario: 单引号和双引号包裹 RZY-1740
     And I set the parameter "SearchInput" with value "测试钻取配置"
     And I wait for "2000" millsecond

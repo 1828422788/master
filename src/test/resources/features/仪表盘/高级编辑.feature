@@ -1,7 +1,7 @@
-@dashboard0330 @dashboard43 @dashboard
+@@dashboardpart1 @dashboard0330 @dashboard43
 Feature: 仪表盘高级编辑
 
-  @dashboard @dashboard43a1
+  @dashboard43a1
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -14,7 +14,7 @@ Feature: 仪表盘高级编辑
       | name   |
       | 测试高级编辑 |
 
-  @dashboard @dashboard43a2
+  @dashboard43a2
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -36,7 +36,7 @@ Feature: 仪表盘高级编辑
       | spl                                                                           | name   |
       | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10  | 仪表盘所有 |
 
-  @dashboard @dashboard43a3
+  @dashboard43a3
   Scenario: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -49,7 +49,7 @@ Feature: 仪表盘高级编辑
     And I wait for "2000" millsecond
     And I back to before
 
-  @dashboard @dashboard43a4
+  @dashboard43a4
   Scenario: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -69,7 +69,7 @@ Feature: 仪表盘高级编辑
     And I wait for "SuccessMessage" will be visible
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
-  @dashboard @dashboard43b1
+  @dashboard43b1
   Scenario: 修改query字段 RZY-1276
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -94,7 +94,7 @@ Feature: 仪表盘高级编辑
     Then I will see the "TableHeader" result will contain "apache.geo.country"
 #    Then I will see the "TableHeader" result will be "apache.geo.country"
 
-  @dashboard @dashboard43b2
+  @dashboard43b2
   Scenario: 修改开始时间 RZY-1277
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -117,7 +117,7 @@ Feature: 仪表盘高级编辑
     And I wait for "Progress" will be invisible
     Then I will see the "DropdownLink" result will be "最近2天"
 
-  @dashboard @dashboard43b3
+  @dashboard43b3
   Scenario Outline: 校验开始时间和结束时间 RZY-1277
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -140,7 +140,7 @@ Feature: 仪表盘高级编辑
       |       | now | search -> startTime 字段不能为空 |
       | -2d   |     | search -> endTime 字段不能为空   |
 
-  @dashboard @dashboard43c
+  @dashboard43c
   Scenario Outline: 校验x、y、w、h RZY-1269,RZY-1272,RZY-1273,RZY-1274
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -172,7 +172,7 @@ Feature: 仪表盘高级编辑
       | 0  | 0  | 12 |    | 0行 63列：Unexpected ',' |
       | 0  | 0  | 12 | 0  | h 字段值不能低于其允许最小值'1'    |
 
-  @dashboard @dashboard43d1
+  @dashboard43d1
   Scenario: 验证修改title字段 RZY-1278
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -192,7 +192,7 @@ Feature: 仪表盘高级编辑
     And I click the "Ensure" button
     Then I will see the "TrendTitle" result will be "仪表盘高级编辑"
 
-  @dashboard @dashboard43d2
+  @dashboard43d2
   Scenario: 验证title字段为空 RZY-1278
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -211,7 +211,7 @@ Feature: 仪表盘高级编辑
     Then I will see the success message "校验通过"
 
 
-  @dashboard @dashboard43d3
+  @dashboard43d3
   Scenario: 验证备注字段 RZY-1279
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -236,7 +236,7 @@ Feature: 仪表盘高级编辑
 #    And I move the mouse pointer to the "CustomTitle"
     Then I will see the text "测试描述" exist in page
 
-  @dashboard @dashboard43e1
+  @dashboard43e1
   Scenario: 验证清空JSON RZY-3442
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -254,7 +254,7 @@ Feature: 仪表盘高级编辑
     And I wait for "500" millsecond
     Then I will see the error message "title 字段为必填项"
 
-  @dashboard @dashboard43e2
+  @dashboard43e2
   Scenario: 验证重置JSON RZY-3441
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -277,7 +277,7 @@ Feature: 仪表盘高级编辑
     And I wait for "500" millsecond
     Then I will see the success message "校验通过"
 
-  @dashboard @dashboard43e3
+  @dashboard43e3
   Scenario: 验证美化JSON RZY-3440
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -299,7 +299,7 @@ Feature: 仪表盘高级编辑
 #    And I compare source image "actual/高级编辑_美化JSON" with target image "expect/高级编辑_美化JSON"
 
 
-  @dashboard @dashboard43e4
+  @dashboard43e4
   Scenario Outline: 切换主题 RZY-3444
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -323,7 +323,7 @@ Feature: 仪表盘高级编辑
       | 测试高级编辑    | 高级编辑_切换主题 |
 
 
-  @dashboard @dashboard43f1
+  @dashboard43f1
   Scenario: 开启钻取配置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -336,7 +336,7 @@ Feature: 仪表盘高级编辑
     And I wait for "500" millsecond
     Then I will see the success message "钻取功能已启用"
 
-  @dashboard @dashboard43f2
+  @dashboard43f2
   Scenario: 高级搜索钻取-type RZY-1489
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -361,7 +361,7 @@ Feature: 仪表盘高级编辑
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 'apache.geo.province':江苏"
 
-  @dashboard @dashboard43f3
+  @dashboard43f3
   Scenario: 高级搜索钻取-blank RZY-1490 RZY-3764
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -385,7 +385,7 @@ Feature: 仪表盘高级编辑
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 'apache.geo.province':江苏"
 
-  @dashboard @dashboard43f4
+  @dashboard43f4
   Scenario: 高级搜索钻取-query及timeRange  RZY-3821,RZY-1492,RZY-1493
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -411,7 +411,7 @@ Feature: 仪表盘高级编辑
     Then I will see the "TimeRange" result will be "昨天"
 #    Then I will see the input element "TimeRange" value will contains "昨天"
 
-  @dashboard @dashboard43f5
+  @dashboard43f5
   Scenario Outline: 高级搜索钻取修改校验query,timeRange RZY-1492,RZY-1493
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -435,7 +435,7 @@ Feature: 仪表盘高级编辑
       | "mode": "custom"                                                                                                       | drilldown -> query 字段为必填项     |
       | "mode": "custom","query": "tag:sample04061424 \| where apache.status<400 && apache.status>200 \| stats count() as cnt" | drilldown -> timeRange 字段为必填项 |
 
-  @dashboard @dashboard43g1
+  @dashboard43g1
   Scenario: 新建输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -450,7 +450,7 @@ Feature: 仪表盘高级编辑
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
-  @dashboard @dashboard43g2
+  @dashboard43g2
   Scenario: 修改仪表盘配置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -469,7 +469,7 @@ Feature: 仪表盘高级编辑
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
 
-  @dashboard @dashboard43h1
+  @dashboard43h1
   Scenario: 验证输入值支持eval
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -481,7 +481,7 @@ Feature: 仪表盘高级编辑
     And I click the "CountNum" button
     Then I will see the input element "FilterInput" value will contains "224"
 
-  @dashboard @dashboard43h2
+  @dashboard43h2
   Scenario Outline: 跳转到搜索页面—自动 RZY-3762
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -532,7 +532,7 @@ Feature: 仪表盘高级编辑
       | name       | targetName |  json    |
       | 测试高级编辑 | Pie        | "drilldown": {\n    "type": "search",\n    "blank": true,\n    "mode": "auto"\n  }  |
 
-  @dashboard @dashboard43i1
+  @dashboard43i1
   Scenario: 跳转到搜索页—自定义 RZY-3763
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -558,7 +558,7 @@ Feature: 仪表盘高级编辑
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
 
-  @dashboard @dashboard43i2
+  @dashboard43i2
   Scenario Outline: 跳转到自定义URL RZY-3765
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -595,7 +595,7 @@ Feature: 仪表盘高级编辑
       | name       | url                              |  json    |
       | 测试高级编辑 | https://www.rizhiyi.com/        | "drilldown": {\n    "type": "custom",\n    "blank": false,\n    "link": "https://www.rizhiyi.com/"\n  }  |
 
-  @dashboard @dashboard43i3
+  @dashboard43i3
   Scenario Outline: chartType RZY-3694
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

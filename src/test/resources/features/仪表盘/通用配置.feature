@@ -1,7 +1,6 @@
-@dashboard @dashboard36
+@dashboardpart1 @dashboard36
 Feature: 仪表盘通用配置
 
-  @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -14,7 +13,6 @@ Feature: 仪表盘通用配置
       | name   |
       | 测试通用配置 |
 
-  @dashboard @dashboardSmoke
   Scenario: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -27,7 +25,6 @@ Feature: 仪表盘通用配置
     And I wait for loading complete
     And I back to before
 
-  @dashboard @dashboardSmoke
   Scenario: 添加事件列表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -44,7 +41,6 @@ Feature: 仪表盘通用配置
     And I click the "Today" button
     And I click the "Ensure" button
 
-  @dashboard @dashboardSmoke
   Scenario: 修改图表标题  RZY-290
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -61,7 +57,6 @@ Feature: 仪表盘通用配置
     And I wait for "Ensure" will be invisible
     Then I will see the element "CustomTitle" name is "测试通用配置"
 
-  @dashboard @dashboardSmoke
   Scenario: 修改spl RZY-291,RZY-292,RZY-293
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -95,7 +90,6 @@ Feature: 仪表盘通用配置
 #    Then I will see the input element "TimeRange" value will contains "昨天"
     Then I will see the "TimeRange" result will be "昨天"
 
-  @dashboard @dashboardSmoke
   Scenario: 修改图表描述 RZY-295
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

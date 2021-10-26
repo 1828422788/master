@@ -1,4 +1,4 @@
-@dashboard0330 @dashboard35 dashboardpart3
+@dashboard0330 @dashboard35 @dashboardpart3
 Feature: 仪表盘过滤项
 
 
