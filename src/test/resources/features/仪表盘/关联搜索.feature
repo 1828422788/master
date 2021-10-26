@@ -1,4 +1,4 @@
-@dashboard2 @dashboard
+@dashboard2 @dashboardpart3
 Feature: 仪表盘2关联搜索
 
   @dashboard2a @dashboardSmoke
