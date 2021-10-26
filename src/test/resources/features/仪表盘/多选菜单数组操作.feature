@@ -1,4 +1,4 @@
-@dashboard9
+@dashboard9 @dashboardpart3
 Feature: 仪表盘多选菜单数组操作
 
   @dashboard @dashboardSmoke

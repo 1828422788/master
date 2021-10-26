@@ -1,4 +1,4 @@
-@dashboard34
+@dashboard34 @dashboardpart3
 Feature: 仪表盘输入项联动
   
   Background:
