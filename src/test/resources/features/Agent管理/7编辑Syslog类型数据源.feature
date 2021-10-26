@@ -24,7 +24,7 @@ Feature: Agent编辑Syslog类型数据源
     And I set the parameter "Syslogtag" with value "autohekaSyslog"
     And I click the "Next" button
     And I wait for "Finish" will be visible
-  #    And I will see the element "CheckListenaddress" name is "192.168.1.139:514"  ！！！！！创建syslog的数据源为进入agent的本机IP
+#    And I will see the element "CheckListenaddress" name is "192.168.1.139:514"  ！！！！！创建syslog的数据源为进入agent的本机IP
 #    And I wait for loading invisible
     And I click the "Finish" button
     And I will see the element "Addsuccessmsg" name is "添加成功"

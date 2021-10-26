@@ -1,10 +1,7 @@
 package com.yottabyte.pages.galaxee;
 
 import com.yottabyte.pages.PageTemplate;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 
 /**
@@ -18,7 +15,8 @@ public class ListPage extends PageTemplate {
         driver.manage().window().fullscreen();
     }
 
-    @FindBy(className = "big-v-create-button")
+//    @FindBy(className = "yotta-icon yotta-icon-AdditionAlternative")
+    @FindBy(xpath = "//span[@class='yotta-icon yotta-icon-AdditionAlternative']")
     private WebElement create;
 
     @FindBy(xpath = "//div[contains(text(),'galaxeeTest')]/preceding-sibling::div//i[@class='iconfont icon-shanchuxuanting_icon']")
@@ -64,6 +62,26 @@ public WebElement getEnsure(){return ensure;}
     @FindBy(xpath = "//div[@class='big-v-search']/i[@class='iconfont icon-search']")
     private WebElement searchName;
     public WebElement getSearchName(){return searchName;}
+
+    public WebElement getEdit() { return this.getEveryButton("页面设置","编辑"); }
+    //    大屏编辑的按钮
+    public WebElement getEveryButton(String dataName,String className){
+        String xpath;
+        xpath="//input[@value='"+dataName+"']//ancestor::div[@class='_3THzRCdOcKS-tY5zQlLXSL _6f2Nt4huRGMZUgMsUle8F']//span[text()='"+className+"']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+    //    大屏删除的按钮
+    public WebElement getEveryButton1(String dataName,String className){
+        String xpath;
+        xpath="//input[@value='"+dataName+"']//ancestor::div[@class='_3THzRCdOcKS-tY5zQlLXSL _6f2Nt4huRGMZUgMsUle8F']//span[@aria-label='"+className+"']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+    //    大屏发布的按钮
+    public WebElement getEveryButton2(String dataName,String className){
+        String xpath;
+        xpath="//input[@value='"+dataName+"']//ancestor::div[@class='_1pngSqPPRgouIB-WH5lx3c']/div[2]//span[@aria-label='"+className+"']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
 
 
 
