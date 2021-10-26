@@ -1,11 +1,11 @@
-@dashboard34 @dashboardpart3
+@dashboard34 @dashboardpart2
 Feature: 仪表盘输入项联动
   
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
     
-  @dashboard @dashboardSmoke
+
   Scenario: 新建仪表盘
     When I click the "Create" button
     And I set the parameter "DashBoardName" with value "仪表盘输入项联动"
@@ -13,7 +13,7 @@ Feature: 仪表盘输入项联动
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
-  @dashboard @dashboardSmoke
+
   Scenario Outline: 新建标签页
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
@@ -28,7 +28,7 @@ Feature: 仪表盘输入项联动
       | name     |
       | 仪表盘输入项联动 |
 
-  @dashboard @dashboardSmoke
+
   Scenario Outline: 添加下拉菜单输入项
     And I click the detail which name is "仪表盘输入项联动"
     And switch to window "仪表盘"
@@ -55,7 +55,7 @@ Feature: 仪表盘输入项联动
       | name |
       | f1   |
 
-  @dashboard @dashboardSmoke
+
   Scenario: 添加动态菜单输入项
     And I click the detail which name is "仪表盘输入项联动"
     And switch to window "仪表盘"
@@ -76,7 +76,7 @@ Feature: 仪表盘输入项联动
     And I wait for loading invisible
     Then I click the "Ensure" button
 
-  @dashboard @dashboardSmoke
+
   Scenario: 添加事件列表
     And I click the detail which name is "仪表盘输入项联动"
     And switch to window "仪表盘"
@@ -91,7 +91,7 @@ Feature: 仪表盘输入项联动
     And I click the "Today" button
     Then I click the "Ensure" button
 
-  @dashboard @dashboardSmoke
+
   Scenario: 验证 RZY-3635
     And I click the detail which name is "仪表盘输入项联动"
     And switch to window "仪表盘"
@@ -113,7 +113,7 @@ Feature: 仪表盘输入项联动
     Then I will see the "splSearch.SearchPage" page
     Then I will see the element "SearchInput" name is "logtype:apache AND hostname:192.168.1.183"
 
-  @dashboard @dashboardSmoke
+
   Scenario: 添加输入项
     And I click the detail which name is "仪表盘输入项联动"
     And switch to window "仪表盘"
@@ -126,7 +126,7 @@ Feature: 仪表盘输入项联动
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
-  @dashboard @dashboardSmoke
+
   Scenario: 修改搜索语句
     And I click the detail which name is "仪表盘输入项联动"
     And switch to window "仪表盘"
@@ -141,7 +141,7 @@ Feature: 仪表盘输入项联动
     And I wait for "500" millsecond
     Then I will see the success message "配置成功"
 
-  @dashboard @dashboardSmoke
+
   Scenario: 验证支持token filter RZY-3530
     And I click the detail which name is "仪表盘输入项联动"
     And switch to window "仪表盘"
