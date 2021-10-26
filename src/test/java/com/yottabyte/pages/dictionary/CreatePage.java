@@ -75,7 +75,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//p[text()='添加成功']")
     private WebElement message;
 
-//    @FindBy(xpath = "//span[@class='yotta-typography-text yotta-file-upload-text']")
     @FindBy(xpath = "//span[@class='yotta-typography-text css-16briua yotta-file-upload-text']")
     private WebElement fileName;
 

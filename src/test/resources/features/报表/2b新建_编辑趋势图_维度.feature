@@ -300,3 +300,51 @@ Feature: 报表新建_编辑_维度
       |  reportType | typeChart | color  |  name  | segments_num | ratio |
       |  EXCEL      | Pie       | Red    |  Pie_1 | 2            | 0.9   |
       |  EXCEL      | Pie       | Green  |  Pie_2 | 3            | 0     |
+
+  Scenario Outline: new_report_trend_flame
+    When I set the parameter "Name" with value "<name>_<reportType>"
+    And I choose the "<reportType>" from the "ReportType"
+    And I click the "NextButton" button under some element
+    Then I wait for "ChartListButton" will be visible
+    When I choose the "报表测试" from the "ChartList"
+    And I click the "ChartListButton" button
+    And I wait for "ChosenTrendLast" will be visible
+    And I click the "ChosenTrendLast" button
+    And I click the "EditButton" button
+
+    Then I set the parameter "TrendNameField" with value "<name>"
+    And I set the parameter "TrendDescribeField" with value "<typeChart>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart AND (apache.status:200) AND NOT (apache.geo.city:黔东南苗族侗族自治州) AND NOT (apache.geo.city:南京市) | stats count() as cnt by apache.method, apache.status, apache.geo.province, apache.geo.city | sort by apache.method, apache.status, apache.geo.province, apache.geo.city" to the textarea "TrendSplField"
+    And I click the "TrendChartType" button
+    And I click the "Dimension" button
+    And I click the "<typeChart>" button
+
+    When I click the "ParameterSetting" button
+    And I wait for "FieldValue" will be visible
+    And I set the parameter "FieldValue" with value "cnt"
+
+    And I click the "Divide" button
+    And I set the parameter "GroupField" with value "apache.geo.province" and press enter
+
+    And I click the "Exhibition" button
+    And I wait for "1000" millsecond
+
+    And I click the "Divide" button
+    And I set the parameter "GroupField" with value "apache.geo.city" and press enter
+    And I wait for "1000" millsecond
+    When I click the "ParameterSetting" button
+    Then I click the "EnsureButton" button
+
+    When I click the "FinishButton" button under some element
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
+
+    @report @reportChartsPDF
+    Examples:
+      |  reportType | typeChart | name   |
+      |  PDF        | Flame     | Flame  |
+
+    @reportChartsEXCEL
+    Examples:
+      |  reportType | typeChart | name   |
+      |  EXCEL      | Flame     | Flame  |
