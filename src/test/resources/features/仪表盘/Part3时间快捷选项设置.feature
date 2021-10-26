@@ -1,4 +1,4 @@
-@dashboard @dashboardSmoke @dashboard16 @dashboardpart3
+@dashboardpart3 @dashboard16
 Feature: 系统设置-时间快捷选项设置
 
   Scenario Outline: 输入关键字搜索相关配置

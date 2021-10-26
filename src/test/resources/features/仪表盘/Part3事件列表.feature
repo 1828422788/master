@@ -1,7 +1,7 @@
-@dashboard1
+@dashboardpart3 @dashboard1
 Feature: 仪表盘1事件列表
 
-  @dashboard1a @dashboardSmoke
+  @dashboard1a
   Scenario: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When I click the "Create" button
@@ -10,7 +10,7 @@ Feature: 仪表盘1事件列表
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
-  @dashboard1b @dashboardSmoke
+  @dashboard1b
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -27,7 +27,7 @@ Feature: 仪表盘1事件列表
       | name    |
       | 仪表盘事件操作 |
 
-  @dashboard1c @dashboardSmoke
+  @dashboard1c
   Scenario: 添加事件列表 RZY-3389,RZY-339
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -44,7 +44,7 @@ Feature: 仪表盘1事件列表
     And I click the "Today" button
     And I click the "Ensure" button
 
-  @dashboard1d @dashboardSmoke
+  @dashboard1d
   Scenario: 添加事件操作
     Given open the "event.ListPage" page for uri "/event/action/"
     When I click the "Create" button
@@ -55,7 +55,7 @@ Feature: 仪表盘1事件列表
     And I wait for "Message" will be visible
     Then I will see the message "提交事件操作成功"
 
-  @dashboard1e @dashboardSmoke
+  @dashboard1e
   Scenario: 验证事件操作 RZY-338
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -71,7 +71,7 @@ Feature: 仪表盘1事件列表
     And I close all tabs except main tab
     Then the page's title will be "趋势图列表"
 
-  @dashboard1f @dashboardSmoke
+  @dashboard1f
   Scenario: 修改事件操作 RZY-3291,RZY-3289
     Given open the "event.ListPage" page for uri "/event/action/"
     When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button
@@ -82,7 +82,7 @@ Feature: 仪表盘1事件列表
     And I wait for "Message" will be visible
     Then I will see the message "提交事件操作成功"
 
-  @dashboard1g @dashboardSmoke
+  @dashboard1g
   Scenario: 验证事件操作显示于两者 RZY-3291,RZY-3288
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -97,7 +97,7 @@ Feature: 仪表盘1事件列表
     And I close all tabs except main tab
     Then the page's title will be "趋势图列表"
 
-  @dashboard1h @dashboardSmoke
+  @dashboard1h
   Scenario: 验证事件操作显示于两者
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -117,7 +117,7 @@ Feature: 仪表盘1事件列表
     And I close all tabs except main tab
     Then the page's title will be "趋势图列表"
 
-  @dashboard1i @dashboardSmoke
+  @dashboard1i
   Scenario: 修改事件操作显示于字段 RZY-3628,RZY-3290
     Given open the "event.ListPage" page for uri "/event/action/"
     When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button
@@ -128,7 +128,7 @@ Feature: 仪表盘1事件列表
     And I wait for "Message" will be visible
     Then I will see the message "提交事件操作成功"
 
-  @dashboard1j @dashboardSmoke
+  @dashboard1j
   Scenario: 验证事件操作显示于字段 RZY-3628,RZY-3290
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -142,7 +142,7 @@ Feature: 仪表盘1事件列表
     And I wait for "1000" millsecond
     Then I will see the "Event" doesn't exist
 
-  @dashboard1k @dashboardSmoke
+  @dashboard1k
   Scenario: 验证事件操作显示于字段 RZY-3628,RZY-3290
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -160,7 +160,7 @@ Feature: 仪表盘1事件列表
     And I close all tabs except main tab
     Then the page's title will be "趋势图列表"
 
-  @dashboard1l @dashboardSmoke
+  @dashboard1l
   Scenario: 修改事件操作动作类型为搜索
     Given open the "event.ListPage" page for uri "/event/action/"
     When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button
@@ -173,7 +173,7 @@ Feature: 仪表盘1事件列表
     And I wait for "Message" will be visible
     Then I will see the message "提交事件操作成功"
 
-  @dashboard1m @dashboardSmoke
+  @dashboard1m
   Scenario Outline: 验证事件操作动作类型为搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -196,7 +196,7 @@ Feature: 仪表盘1事件列表
       | button       |
       | EventAppname |
 
-  @dashboard1n @dashboardSmoke
+  @dashboard1n
   Scenario: 实时查看 RZY-3409
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -216,7 +216,7 @@ Feature: 仪表盘1事件列表
 #    Then I will see the input element "TimeRange" value will contains "30秒窗口"
     Then I will see the "TimeRange" result will be "30秒窗口"
 
-  @dashboard1o @dashboardSmoke
+  @dashboard1o
   Scenario: 配置字段提取 RZY-3412
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -247,7 +247,7 @@ Feature: 仪表盘1事件列表
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
-  @dashboard1p @dashboardSmoke
+  @dashboard1p
   Scenario: 添加到知识库 RZY-3413
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -270,7 +270,7 @@ Feature: 仪表盘1事件列表
     And I click the "Done" button
     Then I will see the element "SuccessAdd" name is "新建成功"
 
-  @dashboard1q @dashboardSmoke
+  @dashboard1q
   Scenario: 通用配置 RZY-3619
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -327,7 +327,7 @@ Feature: 仪表盘1事件列表
       | 仪表盘事件操作 | {\n  "title": "通用配置",\n  "description": "测试描述",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 6,\n  "search": {\n    "query": "'apache.geo.city': 成都市",\n    "startTime": "now/d",\n    "endTime": "now"\n  }\n} |
 
 
-  @dashboard @dashboardSmoke
+  @dashboard
   Scenario: 开启钻取配置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -340,7 +340,7 @@ Feature: 仪表盘1事件列表
 #    And I click the "OpenDrilldown" button
     And I wait for "500" millsecond
 
-  @dashboard @dashboardSmoke
+
   Scenario: 跳转到搜索页1 RZY-3622
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -366,7 +366,7 @@ Feature: 仪表盘1事件列表
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.geo.city:成都市 AND 'apache.geo.city':成都市"
 
-  @dashboard @dashboardSmoke
+
   Scenario: 跳转到搜索页2 RZY-3622
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -400,7 +400,7 @@ Feature: 仪表盘1事件列表
 #    Then I will see the input element "TimeRange" value will contains "所有时间"
     Then I will see the "TimeRange" result will be "所有时间"
 
-  @dashboard @dashboardSmoke
+
   Scenario Outline: 在新标签跳转到自定义URL RZY-3625
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -429,7 +429,7 @@ Feature: 仪表盘1事件列表
       | url                    | title     |
       | https://www.baidu.com/ | 百度一下，你就知道 |
 
-  @dashboard @dashboardSmoke
+
   Scenario: 新建全局时间选择器
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -454,7 +454,7 @@ Feature: 仪表盘1事件列表
     And I wait for "SuccessMessage" will be visible
 #    Then I will see the success message "添加输入项成功"
 
-  @dashboard @dashboardSmoke
+
   Scenario: 跳转到标签页 RZY-3802,RZY-3624
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -498,7 +498,7 @@ Feature: 仪表盘1事件列表
     Then I will see the url contains "globalTimeRange="
 
 
-  @dashboard @dashboardSmoke
+
   Scenario: 删除全局时间添加文本输入过滤项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -524,7 +524,7 @@ Feature: 仪表盘1事件列表
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
-  @dashboard @dashboardSmoke
+
   Scenario: 管理本页过滤项/输入项 数值 RZY-3626,RZY-320
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -553,7 +553,7 @@ Feature: 仪表盘1事件列表
     Then I will see the element "FilterInput" value is "成都市"
     And I will see the "shanghai" doesn't exist
 
-  @dashboard @dashboardSmoke
+
   Scenario: 校验添加名称 RZY-337
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
