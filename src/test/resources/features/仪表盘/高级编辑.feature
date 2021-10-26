@@ -1,4 +1,4 @@
-@@dashboardpart1 @dashboard0330 @dashboard43
+@dashboardpart1 @dashboard0330 @dashboard43
 Feature: 仪表盘高级编辑
 
   @dashboard43a1
