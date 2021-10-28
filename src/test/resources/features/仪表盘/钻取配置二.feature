@@ -1,7 +1,7 @@
-@dashboard0330 @dashboard39 @dashboard
+@dashboardpart1 @dashboard0330 @dashboard39
 Feature: 仪表盘钻取配置二
 
-  @dashboard @dashboardSmoke
+
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -14,7 +14,7 @@ Feature: 仪表盘钻取配置二
       | name   |
       | 钻取配置二 |
 
-  @dashboard @dashboardSmoke
+
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -39,7 +39,7 @@ Feature: 仪表盘钻取配置二
       |  name    |  spl                             |
       | 钻取配置1 | *\|stats count() by json.caller |
 
-  @dashboard @dashboardSmoke
+
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -56,7 +56,7 @@ Feature: 仪表盘钻取配置二
       | name   |
       | 钻取配置二 |
 
-  @dashboard @dashboardSmoke
+
   Scenario: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -76,7 +76,7 @@ Feature: 仪表盘钻取配置二
     And I wait for "SuccessMessage" will be visible
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
-  @dashboard @dashboardSmoke
+
   Scenario: 开启钻取配置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -90,7 +90,7 @@ Feature: 仪表盘钻取配置二
 #    And I click the "OpenDrilldown" button
     And I wait for "500" millsecond
 
-  @dashboard @dashboardSmoke
+
   Scenario: 无钻取动作0 RZY-316
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -103,7 +103,7 @@ Feature: 仪表盘钻取配置二
     And I wait for loading invisible
     Then I will see the element "DrillActionText" value is "无钻取动作"
 
-  @dashboard @dashboardSmoke
+
   Scenario Outline: url默认格式和原始模式 RZY-1741
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

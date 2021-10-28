@@ -1,11 +1,11 @@
-@dashboard20 @dashboardpart3
+@dashboardpart3 @dashboard20
 Feature: 仪表盘标签操作
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
 
-  @dashboard @dashboardSmoke
+
   Scenario Outline: 新建仪表盘
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
@@ -18,7 +18,7 @@ Feature: 仪表盘标签操作
       | 接收标签页 |
       | 标签页移出 |
 
-  @dashboard @dashboardSmoke
+
   Scenario: 新建标签页
     And I click the detail which name is "标签页移出"
     And switch to window "仪表盘"
@@ -30,7 +30,7 @@ Feature: 仪表盘标签操作
     And I wait for "3000" millsecond
     And I back to before
 
-  @dashboard @dashboardSmoke
+
   Scenario: 移出标签页(RZY-230)
     And I click the detail which name is "标签页移出"
     And switch to window "仪表盘"
@@ -45,13 +45,12 @@ Feature: 仪表盘标签操作
     And I wait for "3000" millsecond
     And I back to before
 
-  @dashboard @dashboardSmoke
+
   Scenario: 验证标签页移出成功(RZY-230)
     Then I will see the data "标签页移出" values "{'column':'2','name':'-'}"
     Then I will see the data "接收标签页" values "{'column':'2','name':'第一个标签'}"
 
 
-  @dashboard @dashboardSmoke
   Scenario: 切换标签页 RZY-4698
     And I click the detail which name is "接收标签页"
     And switch to window "仪表盘"
@@ -66,7 +65,7 @@ Feature: 仪表盘标签操作
     And I wait for loading complete
     Then I will see the element "LastTag" value is "第二个标签"
 
-  @dashboard @dashboardSmoke
+
   Scenario: 高级编辑 RZY-4485
     Then I will see the data "标签页移出" values "{'column':'2','name':'-'}"
     Then I will see the data "接收标签页" values "{'column':'2','name':'第一个标签, 第二个标签'}"
@@ -87,7 +86,7 @@ Feature: 仪表盘标签操作
     And I click the "SettingIcon" button
     Then I will see the "EditLayout,RemoveTag,ManualRefresh,AutoRefresh" is "disabled"
 
-  @dashboard @dashboardSmoke
+
   Scenario: 验证标签页
     Then I will see the data "标签页移出" values "{'column':'2','name':'-'}"
     Then I will see the data "接收标签页" values "{'column':'2','name':'验证高级编辑, 第二个标签'}"

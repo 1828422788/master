@@ -1,11 +1,11 @@
-@dashboard0330 @dashboard37
+@dashboardpart1 @dashboard0330 @dashboard37
 Feature: 仪表盘钻取配置-钻取变量
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
 
-  @dashboard @dashboardSmoke
+
   Scenario Outline: 新建仪表盘
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
@@ -17,7 +17,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | name   |
       | 测试钻取变量 |
 
-  @dashboard @dashboardSmoke
+
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -46,7 +46,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | 钻取变量单值      | tag:sample04061424_display \| stats avg(apache.status) \|eval icon=if('avg(apache.status)'>300,'thumbs-down','thumbs-up')    |
       | 钻取变量单值value | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10     |
 
-  @dashboard @dashboardSmoke
+
   Scenario Outline: 新建标签页
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
@@ -61,7 +61,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | name   |
       | 测试钻取变量 |
 
-  @dashboard @dashboardSmoke
+
   Scenario: 添加图表
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -78,7 +78,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "Ensure" button
 #    Then I wait for element "SuccessMessage" change text to "添加成功"
 
-  @dashboard @dashboardSmoke
+
   Scenario: 开启钻取配置
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -89,7 +89,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    And I click the "OpenDrilldown" button
     And I wait for "500" millsecond
 
-  @dashboard
+
   Scenario Outline: 修改为字符云图
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
@@ -127,7 +127,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | name    | image     |
       | 测试钻取变量 | Wordcloud |
 
-  @dashboard @dashboardSmoke
+
   Scenario: 钻取变量字符云图click.name RZY-3265
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -156,7 +156,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    Then I will see the input element "TimeRange" value will contains "今天"
     Then I will see the "TimeRange" result will be "今天"
 
-  @dashboard @dashboardSmoke
+
   Scenario: 钻取变量字符云图click.value RZY-3266
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -186,7 +186,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    Then I will see the input element "TimeRange" value will contains "今天"
     Then I will see the "TimeRange" result will be "今天"
 
-  @dashboard @dashboardSmoke
+
   Scenario: 钻取变量字符云图click.name2 RZY-3267
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -216,7 +216,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    Then I will see the input element "TimeRange" value will contains "今天"
     Then I will see the "TimeRange" result will be "今天"
 
-  @dashboard
+
   Scenario: 钻取变量字符云图click.value2 RZY-3268
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -247,7 +247,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    Then I will see the input element "TimeRange" value will contains "今天"
     Then I will see the "TimeRange" result will be "今天"
 
-  @dashboard
+
   Scenario: 钻取变量字符云图row.fieldname RZY-3675
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -279,7 +279,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    Then I will see the input element "TimeRange" value will contains "今天"
     Then I will see the "TimeRange" result will be "今天"
 
-  @dashboard
+
   Scenario: 钻取变量字符云图start end RZY-3676
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -311,7 +311,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    Then I will see the input element "TimeRange" value will contains "本月"
     Then I will see the "TimeRange" result will be "本月"
 
-  @dashboard
+
   Scenario Outline: 添加区划地图图表 RZY-331
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -338,7 +338,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | name    |
       | 钻取变量区划地图 |
 
-  @dashboard @dashboardSmoke
+
   Scenario Outline: 修改为区划地图
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
@@ -381,7 +381,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | name    |
       | 测试钻取变量 |
 
-  @dashboard @dashboardSmoke
+
   Scenario: 钻取变量区划地图click.name RZY-3269
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -410,7 +410,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    Then I will see the input element "TimeRange" value will contains "今天"
     Then I will see the "TimeRange" result will be "今天"
 
-  @dashboard @dashboardSmoke
+
   Scenario: 钻取变量区划地图click.value RZY-3270
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -441,7 +441,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "TimeRange" result will be "今天"
 
 
-  @dashboard @dashboardSmoke
+
   Scenario: 钻取变量区划地图click.name2 RZY-3269
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -470,7 +470,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    Then I will see the input element "TimeRange" value will contains "今天"
     Then I will see the "TimeRange" result will be "今天"
 
-  @dashboard
+
   Scenario: 钻取变量区划地图click.value2 RZY-3272
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -498,7 +498,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "SearchInput" result will contain "tag:sample04061424 | stats count() as cn by apache.geo.country,apache.geo.province,apache.geo.city | where cn =="
 #    Then I will see the "SearchInput" result will be "tag:sample04061424 | stats count() as cn by apache.geo.country,apache.geo.province,apache.geo.city | where cn =="
 
-  @dashboard
+
   Scenario: 钻取变量区划地图row.fieldname RZY-3673
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -527,7 +527,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    Then I will see the input element "TimeRange" value will contains "今天"
     Then I will see the "TimeRange" result will be "今天"
 
-  @dashboard
+
   Scenario: 钻取变量区划地图start end RZY-3674
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -558,7 +558,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    Then I will see the input element "TimeRange" value will contains "本月"
     Then I will see the "TimeRange" result will be "本月"
 
-  @dashboard
+
   Scenario Outline: 添加饼图图表
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -585,7 +585,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | name    |
       | 钻取变量饼图 |
 
-  @dashboard @dashboardSmoke
+
   Scenario Outline: 修改为饼图
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -617,7 +617,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | name   | targetName |
       | 仪表盘饼状图 | Pie  |
 
-  @dashboard @dashboardSmoke
+
   Scenario: 钻取变量饼图click.name RZY-3677
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -643,7 +643,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by apache.clientip"
 
-  @dashboard @dashboardSmoke
+
   Scenario: 钻取变量饼图click.name2 RZY-3678
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -670,7 +670,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by appname"
 
-  @dashboard @dashboardSmoke
+
   Scenario: 钻取变量饼图click.value RZY-3679
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -696,7 +696,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.clientip:64.20.177.254"
 
-  @dashboard
+
   Scenario: 钻取变量饼图click.value2 RZY-3680
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -723,7 +723,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==24"
 
-  @dashboard
+
   Scenario: 钻取变量饼图row.fieldname RZY-3681
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -750,7 +750,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.clientip:64.20.177.254"
 
-  @dashboard
+
   Scenario: 钻取变量饼图start end RZY-3682
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -781,7 +781,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    Then I will see the input element "TimeRange" value will contains "本月"
     Then I will see the "TimeRange" result will be "本月"
 
-  @dashboard
+
   Scenario Outline: 添加单值图表
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -808,7 +808,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | name    |
       | 钻取变量单值 |
 
-  @dashboard @dashboardSmoke
+
   Scenario Outline: 修改为单值
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -843,7 +843,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | name   | targetName |
       | 钻取变量单值 | Single  |
 
-  @dashboard @dashboardSmoke
+
   Scenario: 钻取变量单值click.name,click.name2 RZY-3278
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -888,7 +888,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:*display | stats avg(apache.status) |eval icon=if('avg(apache.status)'>300,'thumbs-down','thumbs-up')"
 
-  @dashboard
+
   Scenario: 钻取变量单值start end RZY-3667
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -932,7 +932,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    Then I will see the input element "TimeRange" value will contains "本月"
     Then I will see the "TimeRange" result will be "本月"
 
-  @dashboard
+
   Scenario Outline: 添加单值图表value
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -959,7 +959,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | name    |
       | 钻取变量单值value |
 
-  @dashboard @dashboardSmoke
+
   Scenario Outline: 修改为单值value
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -992,7 +992,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | name   | targetName |
       | 钻取变量单值value | Single  |
 
-  @dashboard
+
   Scenario: 修改为单值value click.value value2 RZY-3666
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -1044,7 +1044,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.clientip:12"
 
-  @dashboard
+
   Scenario Outline: 添加表格图表
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -1071,7 +1071,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | name    |
       | 钻取变量表格 |
 
-  @dashboard @dashboardSmoke
+
   Scenario: 钻取变量表格click.name RZY-3280
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -1097,7 +1097,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by apache.clientip"
 
-  @dashboard @dashboardSmoke
+
   Scenario: 钻取变量表格click.name2 RZY-3282
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -1133,7 +1133,6 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "SearchInput" result will be "* | stats count() by apache.resp_len"
 
 
-  @dashboard @dashboardSmoke
   Scenario: 钻取变量表格click.value RZY-3281
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -1158,7 +1157,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.clientip:36.46.208.22"
 
-  @dashboard
+
   Scenario: 钻取变量表格click.value2 RZY-3283
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -1184,7 +1183,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.resp_len:1222"
 
-  @dashboard
+
   Scenario: 钻取变量表格row.fieldname RZY-3284
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -1210,7 +1209,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.resp_len:1222"
 
-  @dashboard
+
   Scenario: 钻取变量表格start,end RZY-3654
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -1249,7 +1248,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    Then I will see the input element "TimeRange" value will contains "最近7天"
     Then I will see the "TimeRange" result will be "最近7天"
 
-  @dashboard
+
   Scenario: 统计表 RZY-297
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"

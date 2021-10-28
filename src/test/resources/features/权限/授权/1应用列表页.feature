@@ -12,7 +12,7 @@ Feature: 权限-应用列表页
     And I click the "App" button
     And I "checked" the checkbox which name is "可新建应用"
     And I click the "Resource" button
-    And I "checked" the checkbox which name is "新建拓扑图"
+    And I "checked" the checkbox which name is "新建拓扑图,新建仪表盘"
     And I click the "SaveButton" button
 
   Scenario Outline: 验证可新建应用
@@ -229,7 +229,7 @@ Feature: 权限-应用列表页
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
-    When the data name is "<name>" then i click the "打开" button
+    And I click the detail which name is "<name>"
     And I wait for "1500" millsecond
     Then the page's title will be "403 Permission Denied"
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -241,7 +241,7 @@ Feature: 权限-应用列表页
 
     Examples:
       | name            |function|
-      | AutoTestForAuth |查看\n打开  |
+      | AutoTestForAuth |查看  |
 
   @logout
   Scenario Outline: 授权读取+编辑
@@ -260,7 +260,8 @@ Feature: 权限-应用列表页
     And I wait for loading invisible
     And I wait for "1500" millsecond
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
-    When the data name is "<name>" then i click the "打开" button
+   # When the data name is "<name>" then i click the "打开" button
+    And I click the detail which name is "<name>"
     Then the page's title will be "403 Permission Denied"
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "<name>" then i click the "编辑" button
@@ -276,7 +277,7 @@ Feature: 权限-应用列表页
 
     Examples:
       | name            |function|
-      | AutoTestForAuth |编辑\n打开  |
+      | AutoTestForAuth |编辑  |
 
   #Scenario Outline: 有效期限
   #  Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -324,14 +325,13 @@ Feature: 权限-应用列表页
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
-    When the data name is "<name>" then i click the "更多" button
-    Then I click the "Export" button
+   # When the data name is "<name>" then i click the "更多" button
+   # Then I click the "Export" button
+    When the data name is "<name>" then i click the "导出" button
     Then the page's title will be "应用管理"
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for "1500" millsecond
-    When the data name is "<name>" then i click the "更多" button
-    And I wait for "1500" millsecond
-    Then I click the "Export" button
+    When the data name is "<name>" then i click the "导出" button
     And I will see the "app.CreatePage" page
     And I wait for loading invisible
     And I click the "ExportButton" button
@@ -344,7 +344,7 @@ Feature: 权限-应用列表页
 
     Examples:
       | name            |function|
-      | EventAppForAuth |查看\n更多  |
+      | EventAppForAuth |查看\n导出  |
 
  # @logout
  # Scenario: 验证有效期限生效
@@ -373,14 +373,11 @@ Feature: 权限-应用列表页
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
-    When the data name is "<name>" then i click the "更多" button
-    Then I click the "Open" button
+    And I click the detail which name is "<name>"
     Then the page's title will be "403 Permission Denied"
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for "2000" millsecond
-    When the data name is "<name>" then i click the "更多" button
-    And I wait for "1500" millsecond
-    Then I click the "Export" button
+    When the data name is "<name>" then i click the "导出" button in more menu
     And I will see the "app.CreatePage" page
     And I wait for loading invisible
     And I click the "ExportButton" button
@@ -392,8 +389,7 @@ Feature: 权限-应用列表页
     Then I will see the input element "Name" value will contains "<name>"
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "<name>" then i click the "更多" button
-    Then I click the "Delete" button
+    When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
@@ -410,6 +406,8 @@ Feature: 权限-应用列表页
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "可使用事件操作"
+    And I wait for "2000" millsecond
     Then I click the "{'TabButton':'应用'}" button
     And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "<name>" in auth table
@@ -420,8 +418,7 @@ Feature: 权限-应用列表页
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
-    When the data name is "<name>" then i click the "更多" button
-    Then I click the "Open" button
+    And I click the detail which name is "<name>"
     Then the page's title will be "事件操作"
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for "1500" millsecond
@@ -434,8 +431,7 @@ Feature: 权限-应用列表页
     Then I will see the success message "更新成功"
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for "1500" millsecond
-    When the data name is "<name>" then i click the "更多" button
-    Then I click the "Export" button
+    When the data name is "<name>" then i click the "导出" button in more menu
     And I will see the "app.CreatePage" page
     And I wait for loading invisible
     And I click the "ExportButton" button
@@ -463,8 +459,7 @@ Feature: 权限-应用列表页
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
-    When the data name is "<name>" then i click the "更多" button
-    Then I click the "Open" button
+    And I click the detail which name is "<name>"
     Then the page's title will be "事件操作"
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "<name>" then i click the "编辑" button
@@ -476,8 +471,7 @@ Feature: 权限-应用列表页
     Then I will see the success message "更新成功"
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for "1500" millsecond
-    When the data name is "<name>" then i click the "更多" button
-    Then I click the "Export" button
+    When the data name is "<name>" then i click the "导出" button in more menu
     And I will see the "app.CreatePage" page
     And I wait for loading invisible
     And I click the "ExportButton" button
@@ -505,6 +499,7 @@ Feature: 权限-应用列表页
 
   Scenario: 【AutoTest】管理【关联角色】
     Given open the "users.ListPage" page for uri "/account/users/"
+    And I wait for "2000" millsecond
     And I click the detail which name is "{'column':'1','name':'AutoTest'}"
     Then I will see the "users.EditPage" page
     And I wait for "EditInfoButton" will be visible
@@ -516,6 +511,7 @@ Feature: 权限-应用列表页
 
   Scenario: 验证授权用户加入关联角色分组
     Given open the "users.ListPage" page for uri "/account/users/"
+    And I wait for "2000" millsecond
     And I click the detail which name is "{'column':'1','name':'验证授权用户'}"
     Then I will see the "users.EditPage" page
     And I wait for "EditInfoButton" will be visible
@@ -535,9 +531,8 @@ Feature: 权限-应用列表页
     And I "checked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And I wait for "5000" millsecond
-    And the data name is "关联权限测试用户" then i click the "更多" button
-    Then I click the "Auth" button
+    And I wait for "2000" millsecond
+    And the data name is "关联权限测试用户" then i click the "授权" button in more menu
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
@@ -555,30 +550,30 @@ Feature: 权限-应用列表页
       | name            |
       | EventAppForAuth |
 
-  Scenario Outline: 验证授权权限
-    Given I login user "AutoTest" with password "All#123456"
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "关联权限测试用户" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'应用'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" function "读取,删除" from the auth table which name is "<name>"
-    And I click the "SaveButton" button
-    Given I login user "验证授权用户" with password "All#123456"
-    And I wait for "2000" millsecond
-    Given open the "app.ListPage" page for uri "/app/list/"
-    And I wait for loading invisible
-    When the data name is "<name>" then i click the "更多" button
-    Then I click the "Delete" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
-    And I will see the success message "删除成功"
+  #Scenario Outline: 验证授权权限
+  #  Given I login user "AutoTest" with password "All#123456"
+  #  Given open the "roles.ListPage" page for uri "/account/roles/"
+  #  And the data name is "关联权限测试用户" then i click the "授权" button
+  #  And I will see the "roles.AuthorizationPage" page
+  #  And I wait for "Loading" will be invisible
+  #  Then I click the "{'TabButton':'应用'}" button
+  #  And I wait for "Loading" will be invisible
+  #  And I "checked" function "读取,删除" from the auth table which name is "<name>"
+  #  And I click the "SaveButton" button
+  #  Given I login user "验证授权用户" with password "All#123456"
+  #  And I wait for "2000" millsecond
+  #  Given open the "app.ListPage" page for uri "/app/list/"
+  #  And I wait for loading invisible
+  #  When the data name is "<name>" then i click the "更多" button
+  #  Then I click the "Delete" button
+  #  And I wait for "Ensure" will be visible
+  #  And I click the "Ensure" button
+  #  And I wait for "SuccessMessage" will be visible
+  #  And I will see the success message "删除成功"
 
-    Examples:
-      | name            |
-      | EventAppForAuth |
+  #  Examples:
+  #    | name            |
+  #    | EventAppForAuth |
 
   @cleanAuth
   Scenario Outline: 删除角色
@@ -597,8 +592,8 @@ Feature: 权限-应用列表页
   @cleanAuth
   Scenario Outline: 清理
     Given open the "topology.ListPage" page for uri "/topology/"
-    When the data name is "<name>" then i click the "更多" button
-    And I click the "Delete" button
+    And I wait for "2000" millsecond
+    When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
