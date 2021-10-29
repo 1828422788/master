@@ -34,7 +34,7 @@ public class CruxeePolicyPage extends PageTemplate {
         return super.getButton("新建");
     }
 
-    @FindBy(xpath = "//input[@placeholder='请输入名称']")
+    @FindBy(xpath = "//input[@placeholder='请输入名称'][@yotta-test='incident-plicy_name-input']")
     private WebElement cruxeePolicyName;
 
     public WebElement getCruxeePolicyName() {

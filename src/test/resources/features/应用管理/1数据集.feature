@@ -57,7 +57,7 @@ Feature: 应用数据集
   Scenario: 新建数据集
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "DatasetApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "DatasetApp"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "DatasetApp"
     Then I will see the "dataset.ListPage" page
@@ -71,7 +71,7 @@ Feature: 应用数据集
   Scenario: 编辑数据集
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "DatasetApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "DatasetApp"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "DatasetApp"
     Then I will see the "dataset.ListPage" page
@@ -91,7 +91,7 @@ Feature: 应用数据集
   Scenario: 修改标签
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "DatasetApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "DatasetApp"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "DatasetApp"
     Then I will see the "dataset.ListPage" page
@@ -111,7 +111,7 @@ Feature: 应用数据集
   Scenario: 新建无标签数据集
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "DatasetApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "DatasetApp"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "DatasetApp"
     Then I will see the "dataset.ListPage" page
@@ -125,7 +125,7 @@ Feature: 应用数据集
   Scenario: 根据标签搜索
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "DatasetApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "DatasetApp"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "DatasetApp"
     Then I will see the "dataset.ListPage" page
@@ -139,7 +139,7 @@ Feature: 应用数据集
   Scenario Outline: 根据名称搜索
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "DatasetApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "DatasetApp"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "DatasetApp"
     Then I will see the "dataset.ListPage" page
@@ -156,7 +156,7 @@ Feature: 应用数据集
   Scenario: 取消所属应用
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "DatasetApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "DatasetApp"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "DatasetApp"
     Then I will see the "dataset.ListPage" page
@@ -201,7 +201,7 @@ Feature: 应用数据集
   Scenario Outline: 删除数据集
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "DatasetApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "DatasetApp"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "DatasetApp"
     Then I will see the "dataset.ListPage" page

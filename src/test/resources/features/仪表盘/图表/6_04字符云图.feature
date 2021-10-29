@@ -1,4 +1,4 @@
-@dashboard10 @dashboardChart
+@dashboard10 @dashboardChart @dashboard
 Feature: 仪表盘_6_04_字符云图
 
   @dashboard

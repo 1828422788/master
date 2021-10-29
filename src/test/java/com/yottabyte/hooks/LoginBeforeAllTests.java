@@ -10,6 +10,7 @@ import com.yottabyte.webDriver.SharedDriver;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -29,7 +30,7 @@ public class LoginBeforeAllTests {
     private static String loginURL;
 
     public LoginBeforeAllTests(SharedDriver driver, ConfigManager manager) {
-        System.out.println("chsfinduml==============================================[2]");
+        System.out.println("chsfinduml==============================================[2]入口");
         webDriver = driver;
         config = manager;
         baseURL = "http://" + manager.get("rizhiyi_server_host");
@@ -38,7 +39,7 @@ public class LoginBeforeAllTests {
 
     @Before
     public void beforeScenario() {
-        System.out.println("chsfinduml==============================================[3]");
+        System.out.println("chsfinduml==============================================[3]public void beforeScenario()");
         if (isValidCookie()) {
             return;
         }
@@ -47,6 +48,8 @@ public class LoginBeforeAllTests {
         logInAndOut.logout();
 //        deleteAllCookies();
         webDriver.get(baseURL + loginURL);
+        webDriver.manage().window().setSize(new Dimension(1920,1080));
+        System.out.println("chsfinduml==============================================[4pre]beforeScenario");
         login();
         setPageFactory("PublicNavBarPage");
     }
@@ -58,7 +61,6 @@ public class LoginBeforeAllTests {
 
     public static void login() {
         System.out.println("chsfinduml==============================================[4]");
-
         PageTemplate loginPage;
         String username;
         String password;
@@ -120,7 +122,6 @@ public class LoginBeforeAllTests {
             pageFactoryName = "com.yottabyte.pages." + pageFactoryName;
         }
         try {
-            System.out.println("chsfinduml==============================================[53]");
             Constructor<?> c = Class.forName(pageFactoryName).getDeclaredConstructor(WebDriver.class);
             c.setAccessible(true);
             pageFactory = c.newInstance(webDriver);

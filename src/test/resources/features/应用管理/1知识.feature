@@ -59,7 +59,7 @@ Feature: 应用知识
   Scenario Outline: 验证单个资源的app资源范围是否正确
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "<name>" then i click the "打开" button in more menu
+    When  I click the detail which name is "<name>"
     And I will see the "app.AppPage" page
     And I wait for loading invisible
     And I wait for "EmptyText" will be visible
@@ -72,7 +72,7 @@ Feature: 应用知识
   Scenario: 新增知识并验证是否跳转到外部
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "KnowledgeApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "KnowledgeApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "KnowledgeApp"
     Then I will see the "knowledge.ListPage" page
@@ -91,7 +91,7 @@ Feature: 应用知识
   Scenario: 知识编辑
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "KnowledgeApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "KnowledgeApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "KnowledgeApp"
     Then I will see the "knowledge.ListPage" page
@@ -110,7 +110,7 @@ Feature: 应用知识
   Scenario Outline: 全文搜索
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "KnowledgeApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "KnowledgeApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "KnowledgeApp"
     Then I will see the "knowledge.ListPage" page
@@ -128,7 +128,7 @@ Feature: 应用知识
   Scenario: 修改标签
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "KnowledgeApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "KnowledgeApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "KnowledgeApp"
     Then I will see the "knowledge.ListPage" page
@@ -145,7 +145,7 @@ Feature: 应用知识
   Scenario: 标签搜索
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "KnowledgeApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "KnowledgeApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "KnowledgeApp"
     Then I will see the "knowledge.ListPage" page
@@ -193,7 +193,7 @@ Feature: 应用知识
   Scenario Outline: 删除知识
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "KnowledgeApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "KnowledgeApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "KnowledgeApp"
     Then I will see the "knowledge.ListPage" page

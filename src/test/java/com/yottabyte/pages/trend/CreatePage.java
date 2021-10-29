@@ -40,7 +40,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='保存为']")
     private WebElement saveAs;
 
-    @FindBy(xpath = "//div[@class='_3ET1_zfWFNtizQm9NnT996']/span")
+    @FindBy(xpath = "//span[@yotta-test='trend-dataset_query-tag']/span")
     private WebElement dataSetPosition;
 
     // with bubbles
@@ -77,7 +77,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[contains(@class,'yotta-tag-close')])[last()]")
     private WebElement deleteLast;
 
-// Labels
+    // Labels
     @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div//label[1]")
     private WebElement firstLabel;
 
@@ -120,10 +120,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='预设置']/following-sibling::span")
     private WebElement selectColor;
 
-    @FindBy(xpath = "//img[contains(@src,'3.png')]/ancestor::a")
+    @FindBy(xpath = "//img[contains(@src,'/3.') and contains(@src,'.png')]/ancestor::a")
     private WebElement continuity;
 
-    @FindBy(xpath = "//img[contains(@src,'4.png')]/ancestor::a")
+    @FindBy(xpath = "//img[contains(@src,'/4.') and contains(@src,'.png')]/ancestor::a")
     private WebElement discrete;
 
     @FindBy(xpath = "//label[text()='下限值']/following-sibling::input")
@@ -138,10 +138,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@value='max']/ancestor::div[1]/label/input")
     private WebElement intervalInput;
 
-    @FindBy(xpath="(//span[@class='css-trkpwz'])[last()-1]/ancestor::div[1]")
+    @FindBy(xpath="(//*[contains(@class,'color-picker-inner')])[last()-1]")
     private WebElement changeColor;
 
-    @FindBy(xpath="(//div[text()='Hex'])[last()-1]/preceding-sibling::input")
+    @FindBy(xpath="//div[contains(@class,'yotta-color-palette-input')]//input")
     private WebElement colorCode;
 
     @FindBy(xpath = "//input[@value='min']/ancestor::div[2]/span[contains(@class,'icon-DeleteOutlined')]")
@@ -159,10 +159,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='值']/ancestor::div[1]/span[contains(@class,'icon-DeleteOutlined')])[last()]")
     private WebElement deleteLastValue;
 
-    @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div//span/span")
+    @FindBy(xpath = "(//label[contains(text(),'字体颜色')]/following-sibling::div//*[contains(@class,'color-picker')])[2]")
     private WebElement changeFontColor;
 
-    @FindBy(xpath = "(//div[text()='Hex'])[last()]/preceding-sibling::input")
+    @FindBy(xpath = "//div[contains(@class,'yotta-color-palette-input')]//input")
     private WebElement fontColor;
 
     @FindBy(xpath = "//label[contains(text(),'对齐方式')]/following-sibling::div//span[contains(@class,'yotta-select-selection-value')]")
@@ -243,7 +243,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[contains(@class,'close-icon')]")
     private WebElement closeWindow;
 
-//Colors ------------------------------------------------------------------
+    //Colors ------------------------------------------------------------------
     @FindBy(xpath = "(//div[contains(@style,'rgb(161, 20, 249)')])[last()] | (//div[contains(@style,'rgb(156, 39, 176)')])[last()]")
     private WebElement purple;
 
@@ -1263,8 +1263,16 @@ public class CreatePage extends PageTemplate {
         return getInputSetting("分段数");
     }
 
+    public WebElement getSegmentsNumber() {
+        return getInputSetting("展示前N项");
+    }
 
-//--Switch elements
+    public WebElement getRatioInnerToOuter(){
+        return getInputSetting("内环占外环比");
+    }
+
+
+    //--Switch elements
     public WebElement getPile() {
         return getSwitchElement("堆叠");
     }
@@ -1803,7 +1811,7 @@ public class CreatePage extends PageTemplate {
     }
 
 
-//Table Color -----------------------------------------------
+    //Table Color -----------------------------------------------
     public WebElement getPencil() {
         return pencil;
     }
@@ -1994,7 +2002,7 @@ public class CreatePage extends PageTemplate {
         return this.getLastDropdownList();
     }
 
-        private WebElement getElementWithText(String name) {
+    private WebElement getElementWithText(String name) {
         return webDriver.findElement(By.xpath("(//*[contains(text(),'" + name + "')])[last()]"));
     }
 
@@ -2016,5 +2024,4 @@ public class CreatePage extends PageTemplate {
     public WebElement getDeleteApp() {
         return deleteApp;
     }
-
 }

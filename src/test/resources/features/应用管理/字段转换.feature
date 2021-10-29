@@ -36,7 +36,7 @@ Feature: 应用字段转换
   Scenario: 验证正则类型字段转换生效1
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AppFieldConfig" then i click the "打开" button in more menu
+    When  I click the detail which name is "AppFieldConfig"
     Then I will see the "splSearch.SearchPage" page
     And I set the parameter "SearchInput" with value "appname:apache"
     And I click the "DateEditor" button
@@ -87,7 +87,7 @@ Feature: 应用字段转换
   Scenario: 验证正则类型字段转换生效2
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AppFieldConfig" then i click the "打开" button in more menu
+    When  I click the detail which name is "AppFieldConfig"
     Then I will see the "splSearch.SearchPage" page
     And I set the parameter "SearchInput" with value "apache.clientip"
     And I click the "DateEditor" button

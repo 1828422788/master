@@ -23,8 +23,8 @@ Feature: 日志展现_序列
     And I wait for "2000" millsecond
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/1序列/<caseNum>_<chartType>"
-    Then I compare source image "actual/高级搜索视图/1序列/<caseNum>_<chartType>" with target image "expect/高级搜索视图/1序列/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/1序列_<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/1序列_<caseNum>_<chartType>" with target image "expect/高级搜索视图/1序列_<caseNum>_<chartType>"
 
     Examples:
       |   chartType   |   caseNum  |
@@ -45,9 +45,12 @@ Feature: 日志展现_序列
 
     And I click the "Settings" button
     And I click the "Yaxis" button
+    And I wait for "1000" millsecond
     And I set the parameter "Unit" with value "<unitValue>"
+    And I wait for "1000" millsecond
     And I set the parameter "Min" with value "1"
     And I set the parameter "Max" with value "15"
+    And I wait for "1000" millsecond
     And I click the "<buttonChoice>" button
     And I wait for "1000" millsecond
     And I click the "Generate" button
@@ -56,8 +59,8 @@ Feature: 日志展现_序列
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/1序列/<caseNum>_<chartType>_<buttonChoice>"
-    Then I compare source image "actual/高级搜索视图/1序列/<caseNum>_<chartType>_<buttonChoice>" with target image "expect/高级搜索视图/1序列/<caseNum>_<chartType>_<buttonChoice>"
+    And take part of "Chart" with name "actual/高级搜索视图/1序列_<caseNum>_<chartType>_<buttonChoice>"
+    Then I compare source image "actual/高级搜索视图/1序列_<caseNum>_<chartType>_<buttonChoice>" with target image "expect/高级搜索视图/1序列_<caseNum>_<chartType>_<buttonChoice>"
 
     Examples:
       |   chartType   | unitValue  | buttonChoice      |  caseNum  |
@@ -87,8 +90,8 @@ Feature: 日志展现_序列
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/1序列/<caseNum>_<chartType>_Pile"
-    Then I compare source image "actual/高级搜索视图/1序列/<caseNum>_<chartType>_Pile" with target image "expect/高级搜索视图/1序列/<caseNum>_<chartType>_Pile"
+    And take part of "Chart" with name "actual/高级搜索视图/1序列_<caseNum>_<chartType>_Pile"
+    Then I compare source image "actual/高级搜索视图/1序列_<caseNum>_<chartType>_Pile" with target image "expect/高级搜索视图/1序列_<caseNum>_<chartType>_Pile"
 
     Examples:
       |   chartType   | buttonChoice  | color  |  caseNum  |
@@ -117,8 +120,8 @@ Feature: 日志展现_序列
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/1序列/<caseNum>_<chartType>"
-    Then I compare source image "actual/高级搜索视图/1序列/<caseNum>_<chartType>" with target image "expect/高级搜索视图/1序列/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/1序列_<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/1序列_<caseNum>_<chartType>" with target image "expect/高级搜索视图/1序列_<caseNum>_<chartType>"
 
     Examples:
       |   chartType   |   bubbleSize |caseNum  |
@@ -152,8 +155,8 @@ Feature: 日志展现_序列
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/1序列/分面_<chartType>"
-    Then I compare source image "actual/高级搜索视图/1序列/分面_<chartType>" with target image "expect/高级搜索视图/1序列/分面_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/1序列_分面_<chartType>"
+    Then I compare source image "actual/高级搜索视图/1序列_分面_<chartType>" with target image "expect/高级搜索视图_1序列/分面_<chartType>"
 
     Examples:
       |   chartType   |

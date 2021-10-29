@@ -4,6 +4,7 @@ import com.yottabyte.config.ConfigManager;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.Agent;
 import com.yottabyte.utils.GetElementFromPage;
+import com.yottabyte.utils.JdbcUtils;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -14,7 +15,9 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 public class SetKeyWithValue {
@@ -44,7 +47,7 @@ public class SetKeyWithValue {
      * 选中文本（搜索页）
      *
      * @param start 起始位置
-     * @param end 结束位置
+     * @param end   结束位置
      */
     @When("^I select the string from \"([^\"]*)\" to \"([^\"]*)\" in search box$")
     public void selectTheButtonWithText(Integer start, Integer end) {
@@ -64,7 +67,7 @@ public class SetKeyWithValue {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         String ip = agent.getIp();
         Assert.assertNotNull("无正在运行中的Agent！", ip);
-        String dataName = ip +":"+"299";
+        String dataName = ip + ":" + "299";
         iSetTheParameterWithValue(element, dataName);
     }
 
@@ -87,7 +90,7 @@ public class SetKeyWithValue {
     @And("^I set the parameter \"([^\"]*)\" with current date$")
     public void setParamWithCurrentDate(String elementName) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
-        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date(System.currentTimeMillis());
         String current_date = formatter.format(date);
         iSetTheParameterWithValue(element, current_date);
@@ -101,15 +104,16 @@ public class SetKeyWithValue {
     @And("^I set the parameter \"([^\"]*)\" with yesterday date$")
     public void setParamWithYesterdayDate(String elementName) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
-        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
-        Date date = new Date(System.currentTimeMillis()-24*60*60*1000);
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date(System.currentTimeMillis() - 24 * 60 * 60 * 1000);
         String current_date = formatter.format(date);
         iSetTheParameterWithValue(element, current_date);
     }
 
     /**
      * 在report中使用，将执行时间设置为当前时间后addMinutes分钟
-     * @param hourElement 输入框小时元素名称
+     *
+     * @param hourElement   输入框小时元素名称
      * @param minuteElement 输入框分钟元素名称
      */
     @And("^I set the parameters \"([^\"]*)\" and \"([^\"]*)\" as \"([^\"]*)\" minutes later from now$")
@@ -131,6 +135,7 @@ public class SetKeyWithValue {
 
     /**
      * 在定时任务中使用，将执行时间设置为当前时间后addMinutes分钟
+     *
      * @param timeElement 输入框时间元素名称
      */
     @And("^I set the time parameter \"([^\"]*)\" as \"([^\"]*)\" minutes later from now$")
@@ -146,12 +151,12 @@ public class SetKeyWithValue {
         if (hours > 23) {
             hours = 0;
         }
-        String hours_str=Integer.toString(hours), minutes_str=Integer.toString(minutes), seconds_str=Integer.toString(seconds);
-        if (hours<10)
+        String hours_str = Integer.toString(hours), minutes_str = Integer.toString(minutes), seconds_str = Integer.toString(seconds);
+        if (hours < 10)
             hours_str = "0" + hours;
-        if (minutes<10)
+        if (minutes < 10)
             minutes_str = "0" + minutes;
-        if (seconds<10)
+        if (seconds < 10)
             seconds_str = "0" + seconds;
         iSetTheParameterWithValue(elementTime, hours_str + ":" + minutes_str + ":" + seconds_str);
         elementTime.click();
@@ -194,9 +199,9 @@ public class SetKeyWithValue {
     private void sendKeys(WebElement element, String value) {
 //        element.click();
         element.sendKeys(Keys.CONTROL + "a");
-            element.sendKeys(Keys.END);
-            element.sendKeys(Keys.SHIFT, Keys.HOME);
-            element.sendKeys(Keys.BACK_SPACE);
+        element.sendKeys(Keys.END);
+        element.sendKeys(Keys.SHIFT, Keys.HOME);
+        element.sendKeys(Keys.BACK_SPACE);
         element.clear();
         element.sendKeys(value);
 
@@ -212,11 +217,13 @@ public class SetKeyWithValue {
     @And("^I set the parameter \"([^割]*)\" to json editor$")
     public void iSetTheParameterToJsonEditor(String value) {
         WebElement element = webDriver.findElement(By.xpath("(//*[@class='ace_text-input'])[last()]"));
+        System.out.println(element + "Done================================================================");
 //        webDriver.findElement(By.id("jsoneditor")).click();
         if (System.getProperty("os.name").startsWith("Linux") || System.getProperty("os.name").startsWith("Windows"))
             element.sendKeys(Keys.CONTROL, "a");
         else
             element.sendKeys(Keys.COMMAND, "a");
+        System.out.println(Keys.COMMAND + "Done================================================================");
         element.sendKeys(Keys.BACK_SPACE);
         element.sendKeys(value);
     }
@@ -300,7 +307,7 @@ public class SetKeyWithValue {
                 "            window.getSelection().removeAllRanges();\n" +
                 "            window.getSelection().addRange( range );\n" +
                 "        }";
-        JavascriptExecutor executor = (JavascriptExecutor)webDriver;
+        JavascriptExecutor executor = (JavascriptExecutor) webDriver;
         executor.executeScript(jScript, element);
     }
 
@@ -317,24 +324,24 @@ public class SetKeyWithValue {
                 "            window.getSelection().removeAllRanges();\n" +
                 "            window.getSelection().addRange( range );\n" +
                 "        }";
-        JavascriptExecutor executor = (JavascriptExecutor)webDriver;
+        JavascriptExecutor executor = (JavascriptExecutor) webDriver;
         executor.executeScript(jScript, element);
     }
 
     @And("^I set the parameter \"([^\"]*)\" with value \"([^割]*)\" in word report$")
-    public void iSetParameterWithValue(String elementName, String value){
+    public void iSetParameterWithValue(String elementName, String value) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         String jScript = "arguments[0].innerHTML=\"" + value + "\";";
-        JavascriptExecutor executor = (JavascriptExecutor)webDriver;
+        JavascriptExecutor executor = (JavascriptExecutor) webDriver;
         executor.executeScript(jScript, element);
     }
 
     @And("^I set the table cell in row \"([^\"]*)\" and column \"([^\"]*)\" with value \"([^割]*)\" in word report$")
-    public void iSetTableCellWithValue(String row, String column, String value){
+    public void iSetTableCellWithValue(String row, String column, String value) {
         String xpath = "//tr[" + row + "]/td[" + column + "]";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         String jScript = "arguments[0].innerHTML=\"" + value + "\";";
-        JavascriptExecutor executor = (JavascriptExecutor)webDriver;
+        JavascriptExecutor executor = (JavascriptExecutor) webDriver;
         executor.executeScript(jScript, element);
     }
 
@@ -355,7 +362,7 @@ public class SetKeyWithValue {
                 String jScript = "arguments[0].innerHTML=\"" + value + "</br>\"; \n" +
                         "var par = document.createElement('p'); \n" +
                         "arguments[0].parentNode.insertBefore(par, arguments[0].nextSibling);";
-                JavascriptExecutor executor = (JavascriptExecutor)webDriver;
+                JavascriptExecutor executor = (JavascriptExecutor) webDriver;
                 executor.executeScript(jScript, element);
             }
         }
@@ -422,18 +429,19 @@ public class SetKeyWithValue {
             stepUp.click();
             float step = Float.parseFloat(element.getAttribute("value")) - element_value;
             stepDown.click();
-            int times = (int)((new_value - element_value) / step);
+            int times = (int) ((new_value - element_value) / step);
             times = (times < 0) ? -times : times;
-            for(int i=0; i < times ; i++){
-               if (new_value > element_value) {
-                   stepUp.click();
-               } else if (new_value < element_value) {
-                   stepDown.click();
-               } else if (new_value == element_value) {
-                   break;
-               }
-               element_value = Float.parseFloat(element.getAttribute("value"));
+            for (int i = 0; i < times; i++) {
+                if (new_value > element_value) {
+                    stepUp.click();
+                } else if (new_value < element_value) {
+                    stepDown.click();
+                } else if (new_value == element_value) {
+                    break;
+                }
+                element_value = Float.parseFloat(element.getAttribute("value"));
             }
         }
     }
+
 }

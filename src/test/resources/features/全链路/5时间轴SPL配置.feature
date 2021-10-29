@@ -3,7 +3,7 @@ Feature: 全链路_5时间轴SPL配置
 
   Background:
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
-    And I wait for "3000" millsecond
+    And I wait for "Loading" will be invisible
     When the data name is "AutoTest" then i click the "编辑" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "3000" millsecond
@@ -35,17 +35,18 @@ Feature: 全链路_5时间轴SPL配置
     When I click the "TimeAxis" button
     And I wait for "Tick0000" will be visible
     And I will see the element "Tick0000" fill contains "<color>"
-#    And I move the mouse pointer to the "Tick0000"
-#    And I wait for "Tooltip" will be visible
-#    And I will see the element "Tooltip" contains "COUNT:"
+    And I move the mouse pointer to the "Tick0000"
+    And I wait for "Tooltip" will be visible
+    And I will see the element "Tooltip" contains "COUNT:"
     And I wait for "2000" millsecond
 
   Examples:
     | level   | color    |
-    | 2       | #CB3B2F  |
-    | 1       | #ECA222  |
+    | 4       | #1785ff  |
+    | 3       | #CB3B2F  |
+    | 2       | #ECA222  |
 
    @fulllink_test
     Examples:
     | level    | color   |
-    | 0        | #3034B3 |
+    | 1        | #3034B3 |

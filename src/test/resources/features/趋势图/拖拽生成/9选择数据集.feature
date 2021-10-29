@@ -44,6 +44,7 @@ Feature: 趋势图_选择数据集
     Then I wait for "Chart" will be visible
     And I wait for "2000" millsecond
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "<spl>"
@@ -116,6 +117,7 @@ Feature: 趋势图_选择数据集
     Then I wait for "Chart" will be visible
     And I wait for "2000" millsecond
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "<spl>"
@@ -169,6 +171,7 @@ Feature: 趋势图_选择数据集
     Then I wait for "Chart" will be visible
     And I wait for "2000" millsecond
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "<spl>"
@@ -231,6 +234,7 @@ Feature: 趋势图_选择数据集
     And I wait for "3000" millsecond
     And I wait for "Chart" will be visible
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     Then I will see the element "SPL" contains "tag:sample04061424_chart | append [[ tag:sample04061424_display ]] | timechart span=30m count(apache.clientip) by apache.method"

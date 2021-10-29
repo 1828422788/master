@@ -27,7 +27,12 @@ Feature: 报表_检查文件
       |   Sun                |
       |   Bar1               |
       |   Bar2               |
+      |   Bar3               |
+      |   Bar4               |
       |   Sunburst           |
+      |   Pie_1              |
+      |   Pie_2              |
+      |   Flame              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -40,7 +45,8 @@ Feature: 报表_检查文件
       |   Attackmap_China    |
       |   Regionmap_World    |
       |   Regionmap_China    |
-      |   Regionmap_Jiangsu  |
+      |   Regionmap_Jiangsu_1|
+      |   Regionmap_Jiangsu_2|
       |   Single             |
       |   Single_icon        |
       |   Single_font        |
@@ -74,7 +80,12 @@ Feature: 报表_检查文件
       |   Sun                |
       |   Bar1               |
       |   Bar2               |
+      |   Bar3               |
+      |   Bar4               |
       |   Sunburst           |
+      |   Pie_1              |
+      |   Pie_2              |
+      |   Flame              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -87,7 +98,8 @@ Feature: 报表_检查文件
       |   Attackmap_China    |
       |   Regionmap_World    |
       |   Regionmap_China    |
-      |   Regionmap_Jiangsu  |
+      |   Regionmap_Jiangsu_1|
+      |   Regionmap_Jiangsu_2|
       |   Single             |
 #      |   Single_icon        |
 #      |   Single_font        |
@@ -121,7 +133,12 @@ Feature: 报表_检查文件
       |   Sun                |
       |   Bar1               |
       |   Bar2               |
+      |   Bar3               |
+      |   Bar4               |
       |   Sunburst           |
+      |   Pie_1              |
+      |   Pie_2              |
+      |   Flame              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -134,7 +151,8 @@ Feature: 报表_检查文件
       |   Attackmap_China    |
       |   Regionmap_World    |
       |   Regionmap_China    |
-      |   Regionmap_Jiangsu  |
+      |   Regionmap_Jiangsu_1|
+      |   Regionmap_Jiangsu_2|
       |   Single             |
       |   Single_icon        |
       |   Single_font        |

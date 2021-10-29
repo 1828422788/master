@@ -16,7 +16,7 @@ Feature: 报表新建_编辑_地图
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试"
+    And I wait for "ChosenTrendLast" will be visible
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
@@ -55,7 +55,7 @@ Feature: 报表新建_编辑_地图
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试"
+    And I wait for "ChosenTrendLast" will be visible
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
@@ -105,12 +105,12 @@ Feature: 报表新建_编辑_地图
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试"
+    And I wait for "ChosenTrendLast" will be visible
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
-    And I set the parameter "TrendDescribeField" with value "<typeChart>"
+    And I set the parameter "TrendDescribeField" with value "<typeChart>_<descr>_<region>"
     And I set the value "<SPL>" to the textarea "TrendSplField"
     And I click the "TrendChartType" button
     And I click the "Map" button
@@ -122,6 +122,12 @@ Feature: 报表新建_编辑_地图
     And I set the parameter "GroupField" with value "<divideField>" and press enter
     And I click the "Region" button
     And I click the "Select<region>" button
+    And I click the "Exhibition" button
+    And I wait for "1000" millsecond
+    And I click the "<option1>" button
+    And I wait for "1000" millsecond
+    And I click the "<option2>" button
+    And I wait for "1000" millsecond
     And I click the "GoingDown" button
     And I set the parameter "Province" with value "<province>"
     And I set the parameter "City" with value "<city>"
@@ -136,14 +142,16 @@ Feature: 报表新建_编辑_地图
 
     @report @reportChartsPDF
     Examples:
-      |  reportType |   typeChart |  name             |   divideField       |   province          |   city          |  region | SPL |
-      |  PDF        | Regionmap   | Regionmap_World   | apache.geo.country  |     无              |   无            |  World  | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
-      |  PDF        | Regionmap   | Regionmap_China   | apache.geo.province | apache.geo.province | apache.geo.city |  China  | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
-      |  PDF        | Regionmap   | Regionmap_Jiangsu | apache.geo.city     | apache.geo.city     | apache.geo.city |  Jiangsu| starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |  reportType |   typeChart |  name              |   divideField       |   province          |   city          | option1     | option2     | descr            | region  | SPL |
+      |  PDF        | Regionmap   | Regionmap_World    | apache.geo.country  |     无              |   无            | ShowBubbles |             | light_label      |  World  | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |  PDF        | Regionmap   | Regionmap_China    | apache.geo.province | apache.geo.province | apache.geo.city |             | ShowLabels  | dark_bubbles     |  China  | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |  PDF        | Regionmap   | Regionmap_Jiangsu_1| apache.geo.city     | apache.geo.city     | apache.geo.city | ShowBubbles | ShowLabels  | light_noLabel    |  Jiangsu| starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |  PDF        | Regionmap   | Regionmap_Jiangsu_2| apache.geo.city     | apache.geo.city     | apache.geo.city |             |             | dark_label_bubble|  Jiangsu| starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.city |
 
     @reportChartsEXCEL
     Examples:
-      |  reportType |   typeChart |  name             |   divideField       |   province          |   city          |  region | SPL |
-      |  EXCEL      | Regionmap   | Regionmap_World   | apache.geo.country  |     无              |   无            |  World  | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
-      |  EXCEL      | Regionmap   | Regionmap_China   | apache.geo.province | apache.geo.province | apache.geo.city |  China  | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
-      |  EXCEL      | Regionmap   | Regionmap_Jiangsu | apache.geo.city     | apache.geo.city     | apache.geo.city |  Jiangsu| starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |  reportType |   typeChart |  name              |   divideField       |   province          |   city          | option1     | option2     | descr            | region  | SPL |
+      |  EXCEL      | Regionmap   | Regionmap_World    | apache.geo.country  |     无              |   无            | ShowBubbles |             | light_label      |  World  | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |  EXCEL      | Regionmap   | Regionmap_China    | apache.geo.province | apache.geo.province | apache.geo.city |             | ShowLabels  | dark_bubbles     |  China  | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |  EXCEL      | Regionmap   | Regionmap_Jiangsu_1| apache.geo.city     | apache.geo.city     | apache.geo.city | ShowBubbles | ShowLabels  | light_noLabel    |  Jiangsu| starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |  EXCEL      | Regionmap   | Regionmap_Jiangsu_2| apache.geo.city     | apache.geo.city     | apache.geo.city |             |             | dark_label_bubble|  Jiangsu| starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() by apache.geo.city |

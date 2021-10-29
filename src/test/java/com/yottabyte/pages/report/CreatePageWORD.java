@@ -281,7 +281,7 @@ public class CreatePageWORD extends PageTemplate {
     @FindBy(xpath = "//i[@class = 'jodit_resizer-bottomright']")
     private WebElement bottomRightCorner;
 
-    @FindBy(xpath = "//div[@class='_1rpZECB9i9v8h6IEUve_yK']")
+    @FindBy(xpath = "//div[@class='_3w5kb67yheTrRvK5dl9mNd']")
     private WebElement resultMessage;
 
     @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']/ancestor::div[1]/following-sibling::div[@class='yotta-dialog-content']//p")

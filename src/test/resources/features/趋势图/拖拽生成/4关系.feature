@@ -37,6 +37,7 @@ Feature: 趋势图_拖拽_关系
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count() by apache.method,apache.geo.province"
     When I click the "CloseSPL" button
@@ -83,12 +84,13 @@ Feature: 趋势图_拖拽_关系
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count() by apache.method,apache.geo.province"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>"
-    And I compare source image "actual/拖拽_<chartType>" with target image "expect/拖拽_<chartType>"
+#    And I compare source image "actual/拖拽_<chartType>" with target image "expect/拖拽_<chartType>"
     And I click the "NextButton" button under some element
 
     When I will see the "trend.CreatePage" page

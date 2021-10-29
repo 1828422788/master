@@ -15,7 +15,7 @@ Feature: 路由新建（RZY-1481）
     And I set the parameter "Tag" with value "<tag>"
     And I set the parameter "AppName" with value "<appName>"
     And I click the "CreateButton" button
-#    And I will see the success message "<message>"
+    And I will see the success message "<message>"
 
   @indexSettingSmoke
     Examples:

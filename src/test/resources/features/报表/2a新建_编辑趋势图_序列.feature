@@ -16,7 +16,7 @@ Feature: 报表新建_编辑_序列
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试"
+    And I wait for "ChosenTrendLast" will be visible
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
@@ -27,10 +27,13 @@ Feature: 报表新建_编辑_序列
     And I click the "<typeChart>" button
 
     When I click the "ParameterSetting" button
+    And I wait for "FieldValue" will be visible
+    And I wait for "1000" millsecond
     And I set the parameter "FieldValue" with value "apache.clientip"
     And I click the "<label>" button
     And I click the "<order>" button
     And I click the "Yaxis" button
+    And I wait for "1000" millsecond
     And I set the parameter "FieldValue" with value "count()"
     And I set the parameter "unit" with value "<unit>"
     And I wait for "1000" millsecond
@@ -72,7 +75,7 @@ Feature: 报表新建_编辑_序列
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试"
+    And I wait for "ChosenTrendLast" will be visible
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
@@ -83,10 +86,13 @@ Feature: 报表新建_编辑_序列
     And I click the "<typeChart>" button
 
     When I click the "ParameterSetting" button
+    And I wait for "FieldValue" will be visible
+    And I wait for "1000" millsecond
     And I set the parameter "FieldValue" with value "apache.clientip"
     And I click the "<label>" button
     And I click the "<order>" button
     And I click the "Yaxis" button
+    And I wait for "1000" millsecond
     And I set the parameter "FieldValue" with value "count()"
     And I set the parameter "unit" with value "<unit>"
     And I wait for "1000" millsecond
@@ -128,7 +134,7 @@ Feature: 报表新建_编辑_序列
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试"
+    And I wait for "ChosenTrendLast" will be visible
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
@@ -139,9 +145,12 @@ Feature: 报表新建_编辑_序列
     And I click the "<typeChart>" button
 
     When I click the "ParameterSetting" button
+    And I wait for "FieldValue" will be visible
+    And I wait for "1000" millsecond
     And I set the parameter "FieldValue" with value "apache.clientip"
     And I click the "<label>" button
     And I click the "Yaxis" button
+    And I wait for "1000" millsecond
     And I set the parameter "FieldValue" with value "count()"
     And I wait for "1000" millsecond
     And I set the parameter "unit" with value "<unit>"
@@ -181,7 +190,7 @@ Feature: 报表新建_编辑_序列
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试"
+    And I wait for "ChosenTrendLast" will be visible
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
@@ -193,6 +202,7 @@ Feature: 报表新建_编辑_序列
 
     When I click the "ParameterSetting" button
     And I click the "Yaxis" button
+    And I wait for "1000" millsecond
     And I set the parameter "unit" with value "<unit>"
     And I wait for "1000" millsecond
     And I click the "<button>" button

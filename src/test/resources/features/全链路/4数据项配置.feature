@@ -3,7 +3,7 @@ Feature: 全链路_4数据项配置
 
   Background:
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
-    And I wait for "3000" millsecond
+    And I wait for "Loading" will be invisible
     When the data name is "AutoTest" then i click the "编辑" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "3000" millsecond
@@ -24,8 +24,8 @@ Feature: 全链路_4数据项配置
 
   Examples:
     | message        | sec  | spl  |
-    | spl错误！      | 1000 | tag:sample04061424_chart \| stats/ count() by apache.clientip |
-    | 正在搜索数据...| 0    | starttime = \"-1000d\" endtime = \"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.clientip   |
+    | spl错误        | 1000 | tag:sample04061424_chart \| stats/ count() by apache.clientip |
+    | 正在搜索数据   | 0    | starttime = \"-1000d\" endtime = \"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.clientip   |
 
   Scenario: 数据项配置_取消
     And I click the "DataConfig" button
@@ -49,7 +49,7 @@ Feature: 全链路_4数据项配置
   Scenario: 数据项配置_修改指标项配置
     And I click the "DataConfig" button
     When I will see the "splSearch.SearchPage" page
-    When I set the parameter "SearchInput" with value "index=schedule schedule_name:FullLink_Autotest method:${method} | table start_timestamp, method, city, node, from, to, _totalCount | rename _totalCount as \"_Count\""
+    When I set the parameter "SearchInput" with value "index=schedule schedule_name:FullLink_Autotest method:${method} | table start_timestamp, method, city, node, from, to, _totalCount | rename _totalCount as \"_TEST\""
     And I click the "DateEditor" button under some element
     And I click the "Today" button
     And I wait for "1000" millsecond
@@ -62,7 +62,7 @@ Feature: 全链路_4数据项配置
     And I wait for "Preview" will be invisible
     And I choose the "链路指标项配置" from the "Settings"
     And I wait for "High_Min" will be visible
-    And I will see the element "Tab" contains "Count"
+    And I will see the element "Tab" contains "TEST"
     And I click the "Cancel" button
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
@@ -72,7 +72,7 @@ Feature: 全链路_4数据项配置
   Scenario: 数据项配置
     And I click the "DataConfig" button
     When I will see the "splSearch.SearchPage" page
-    When I set the parameter "SearchInput" with value "index=schedule schedule_name:FullLink_Autotest method:${method} | table start_timestamp, method, city, node, from, to, _totalCount | rename _totalCount as \"_数量\""
+    When I set the parameter "SearchInput" with value "index=schedule schedule_name:FullLink_Autotest method:${method} | table start_timestamp, method, city, node, from, to, _totalCount | rename _totalCount as \"_COUNT\""
     And I click the "DateEditor" button under some element
     And I click the "Today" button
     And I wait for "1000" millsecond
@@ -85,7 +85,7 @@ Feature: 全链路_4数据项配置
     And I wait for "Preview" will be invisible
     And I choose the "链路指标项配置" from the "Settings"
     And I wait for "High_Min" will be visible
-    And I will see the element "Tab" contains "数量"
+    And I will see the element "Tab" contains "COUNT"
     And I click the "Cancel" button
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
@@ -99,6 +99,7 @@ Feature: 全链路_4数据项配置
     And I will see the element "SuccessMessage" contains "更新变量 "method" 成功"
     And I click the "Update" button
     And I wait for "SuccessMessage" will be invisible
+    And I wait for "2000" millsecond
     And I will see the element "NumLabel_1" contains "<num1>"
     And I will see the element "NumLabel_2" contains "<num2>"
     And I click the "Save" button

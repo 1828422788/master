@@ -21,15 +21,16 @@ Feature: 已存搜索新建（RZY-150）
     Then I will see the success message "创建成功"
 
     Examples: 保存成功
-      | name                              | searchResName | splQuery                                                                                                    |
-      | spark_count                  | auto_ui       | starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip |
-      | 极简模式200status                | auto_ui       | starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip |
-      | 200status_continuous_spark   | auto_ui       | tag:continuous                                                                                              |
-      | app_spark_count_byip_sort_授权 | auto_ui       | tag:spark OR tag:c* \| stats count() as cnt by apache.clientip \| sort by cnt                               |
-      | offlinetask_sample           | auto_ui       | * \| transaction apache.status maxspan=1h                                                                   |
+      | name                         | searchResName | splQuery                                                                                                                                                                                                                     |
+      | spark_count                  | auto_ui       | starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip                                                                                                                  |
+      | 极简模式200status                | auto_ui       | starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip                                                                                                                  |
+      | 200status_continuous_spark   | auto_ui       | tag:continuous                                                                                                                                                                                                               |
+      | app_spark_count_byip_sort_授权 | auto_ui       | tag:spark OR tag:c* \| stats count() as cnt by apache.clientip \| sort by cnt                                                                                                                                                |
+      | offlinetask_sample           | auto_ui       | * \| transaction apache.status maxspan=1h                                                                                                                                                                                    |
+      | lookup_joiner_cidr_wildcard  | auto_ui       | appname:a \| rename 'json.value' as rvalue \| lookup mask,pattern,raw joiner1.csv on json.id=id,json.ip=mask,rvalue=pattern match_type=cidr(json.ip),wildcard(rvalue)\|table json.id, json.ip, rvalue, raw \| sort by rvalue |
 
   @newsaved2
-  Scenario Outline: 新建监控使用已存搜索
+  Scenario Outline: 新建监控使用搜索
     When I set the parameter "SearchInput" with value "<splQuery>"
     And I choose the "新建" from the "SavedSearchList"
 
@@ -82,8 +83,8 @@ Feature: 已存搜索新建（RZY-150）
     Then I will see the success message "创建成功"
 
     Examples: 保存成功
-      | name        | splQuery                                                                                              | message |
-      | spark_cnt   | tag:\"sample04061424\" \| stats count() as cnt, max(apache.status) as r_max_status by apache.clientip   | 创建成功    |
+      | name        | splQuery                                                                                                    | message |
+      | spark_cnt   | tag:\"sample04061424\" \| stats count() as cnt, max(apache.status) as r_max_status by apache.clientip       | 创建成功    |
       | base_sample | starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip | 创建成功    |
 
   @newsaved5

@@ -35,14 +35,15 @@ public class CustomConfigs extends PageTemplate {
     @FindBy(xpath = "//span[text()='报表趋势图个数限制']//ancestor::div[1]/following-sibling::input")
     private WebElement trendLimit;
 
-    @FindBy(xpath = "//div[@class='_1o8bbS9akwRGJGcMWEWK1j']/a[contains(text(),'邮件服务器设置')]")
+    @FindBy(xpath = "//a[contains(text(),'邮件服务器设置')]")
     private WebElement MailServerSet;
 
     public WebElement getMailServerSet() {
         return MailServerSet;
     }
 
-    @FindBy(xpath = "//div/a[contains(text(),'交易日功能')]")
+
+    @FindBy(xpath = "//a[contains(text(),'交易日功能')]")
     private WebElement trandateFeature;
     public WebElement getTrandateFeature() {
         return trandateFeature;

@@ -36,7 +36,7 @@ Feature:趋势图_拖拽_复合
     And I set the parameter "Min" with value ""
     And I set the parameter "Max" with value "3000"
     And I wait for "1000" millsecond
-    And I click the "Clientip" button
+    And I click the "HideElement" button
     And I wait for "2000" millsecond
     And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
@@ -47,7 +47,7 @@ Feature:趋势图_拖拽_复合
     And I wait for "<color_1>" will be visible
     And I click the "<color_1>" button
     And I wait for "1000" millsecond
-    And I click the "Clientip" button
+    And I click the "HideElement" button
     And I wait for "2000" millsecond
 
     And I wait for "EditSecondField" will be visible
@@ -56,7 +56,7 @@ Feature:趋势图_拖拽_复合
     And I set the parameter "Min" with value "2"
     And I set the parameter "Max" with value ""
     And I wait for "1000" millsecond
-    And I click the "Clientip" button
+    And I click the "HideElement" button
     And I wait for "2000" millsecond
     And I wait for "ElementInValues2" will be visible
     When I click the "ElementInValues2" button
@@ -68,7 +68,7 @@ Feature:趋势图_拖拽_复合
     And I wait for "<color_2>" will be visible
     And I click the "<color_2>" button
     And I wait for "1000" millsecond
-    And I click the "Clientip" button
+    And I click the "HideElement" button
     And I wait for "2000" millsecond
     And I click the "Xaxis" button
     And I click the "AscendingOrder" button
@@ -77,6 +77,7 @@ Feature:趋势图_拖拽_复合
     And I click the "Exhibition" button
     And I will see the "AddColor" doesn't exist
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats avg(apache.resp_len),dc(apache.resp_len) by apache.clientip"
@@ -133,7 +134,7 @@ Feature:趋势图_拖拽_复合
     And I set the parameter "Min" with value "1"
     And I set the parameter "Max" with value "15"
     And I wait for "1000" millsecond
-    And I click the "Clientip" button
+    And I click the "HideElement" button
     And I wait for "2000" millsecond
     And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
@@ -144,7 +145,7 @@ Feature:趋势图_拖拽_复合
     And I wait for "<color_1>" will be visible
     And I click the "<color_1>" button
     And I wait for "1000" millsecond
-    And I click the "Clientip" button
+    And I click the "HideElement" button
     And I wait for "2000" millsecond
 
     And I wait for "EditSecondField" will be visible
@@ -153,7 +154,7 @@ Feature:趋势图_拖拽_复合
     And I set the parameter "Min" with value "0"
     And I set the parameter "Max" with value "9000"
     And I wait for "1000" millsecond
-    And I click the "Clientip" button
+    And I click the "HideElement" button
     And I wait for "2000" millsecond
     And I wait for "ElementInValues2" will be visible
     When I click the "ElementInValues2" button
@@ -164,13 +165,14 @@ Feature:趋势图_拖拽_复合
     And I wait for "<color_2>" will be visible
     And I click the "<color_2>" button
     And I wait for "1000" millsecond
-    And I click the "Clientip" button
+    And I click the "HideElement" button
 
     And I click the "Xaxis" button
     And I click the "DescendingOrder" button
     And I click the "Exhibition" button
     And I will see the "AddColor" doesn't exist
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.resp_len),max(apache.resp_len) by apache.clientip"
@@ -237,7 +239,7 @@ Feature:趋势图_拖拽_复合
     And I set the parameter "Unit" with value "曲"
     And I set the parameter "Max" with value "15"
     And I wait for "1000" millsecond
-    And I click the "Clientip" button
+    And I click the "HideElement" button
     And I wait for "2000" millsecond
     And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
@@ -247,7 +249,7 @@ Feature:趋势图_拖拽_复合
     And I will see the "EditColor" doesn't exist
     And I click the "ConnectEmptyData" button
     And I wait for "1000" millsecond
-    And I click the "Clientip" button
+    And I click the "HideElement" button
     And I wait for "2000" millsecond
 
     And I wait for "EditSecondField" will be visible
@@ -255,7 +257,7 @@ Feature:趋势图_拖拽_复合
     And I set the parameter "Unit" with value "面"
     And I set the parameter "Max" with value "8000"
     And I wait for "1000" millsecond
-    And I click the "Clientip" button
+    And I click the "HideElement" button
     And I wait for "2000" millsecond
     And I wait for "ElementInValues2" will be visible
     When I click the "ElementInValues2" button
@@ -266,7 +268,7 @@ Feature:趋势图_拖拽_复合
     And I set the parameter "AreaTransparency" with value "0.3" using step buttons
     And I click the "Smooth" button
     And I wait for "1000" millsecond
-    And I click the "Clientip" button
+    And I click the "HideElement" button
     And I wait for "2000" millsecond
     And I click the "Xaxis" button
     And I click the "DescendingOrder" button
@@ -277,7 +279,7 @@ Feature:趋势图_拖拽_复合
     And I click the "<color>" button
     And I wait for "2000" millsecond
 
-
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.resp_len),avg(apache.resp_len) by apache.clientip,apache.method"

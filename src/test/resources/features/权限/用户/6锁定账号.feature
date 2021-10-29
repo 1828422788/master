@@ -10,4 +10,4 @@ Feature: 用户账号锁定
     When I set the parameter "Username" with value "AutoTestForEdit"
     And I set the parameter "Password" with value "123"
     And I click the "LoginButton" button
-    Then I will see the error message contains "账户被锁定"
+    Then I will see the error message contains "错误码: API_1100"

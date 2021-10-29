@@ -22,7 +22,7 @@ public class CreatePage extends PageTemplate {
         String xpath = "//label[contains(text(),'" + name + "')]/parent::div/following-sibling::div//span[@class='yotta-select-selection-icon']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         element.click();
-        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu css-1hq8cx5'])[last()]"));
+        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu css-ncm03v'])[last()]"));
     }
 
     public WebElement getSinkswitch() {
@@ -31,6 +31,25 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//input[@yotta-test='indexsetting-index_sink-switch']/ancestor::span")
     private WebElement sinkswitch;
+
+
+    @FindBy(xpath = "//button[@yotta-test='step-next-button']")
+    private WebElement Next;
+    public WebElement getNext(){
+        return Next;
+    }
+
+    @FindBy(xpath = "//button[@yotta-test='step-done-button']")
+    private WebElement finish;
+    public WebElement getFinish(){
+        return finish;
+    }
+
+
+    public WebElement getDivideNumber() {
+        return super.getYottaInput("indexsetting-number_of_shards-input");
+    }
+
 
     public WebElement getDivideTimeDropDown() {
         return getDropdownList("切分时间");
@@ -53,6 +72,14 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@yotta-test='indexsetting-index_freeze-switch']/ancestor::span")
     public WebElement IndexFrezee;
 
+    @FindBy(xpath = "//input[@yotta-test='indexsetting-copy_retention-switch']/ancestor::span")
+    public WebElement copySaveButton;
+    public WebElement getCopySaveButton(){
+        return copySaveButton;
+    }
+
+
+
     public WebElement getIndexFrezee() {
         return IndexFrezee;
     }
@@ -73,7 +100,7 @@ public class CreatePage extends PageTemplate {
         String xpath = "//div[@yotta-test='indexsetting-quota_unit-select']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         element.click();
-        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu css-1hq8cx5'])[last()]"));
+        return webDriver.findElement(By.xpath("//div[@class='yotta-select-menu css-ncm03v']"));
     }
 
     public WebElement getSavedTimeDropDown() {
@@ -141,14 +168,18 @@ public class CreatePage extends PageTemplate {
         return getButton("新建");
     }
 
-    @Override
+    @FindBy(xpath = "//div[@class='_1ePOYFmBdVT4o-CHDZn9rC']")
+    private WebElement message;
+
     public WebElement getMessage() {
         return message;
     }
 
-    @FindBy(xpath = "//p[@class='yotta-dialog-contenttext']")
-    private WebElement message;
-
+    @FindBy(xpath = "//div[@class='yotta-form-field-help-text']")
+    private WebElement helpMessage;
+        public WebElement getHelpMessage(){
+            return helpMessage;
+        }
     public WebElement getErrorMessage() {
         return super.getErrorMessage();
     }
@@ -166,7 +197,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getInputElementWithoutLabel(String name) {
-        return webDriver.findElement(By.xpath("//div[text()='" + name + "']/input"));
+        return webDriver.findElement(By.xpath("//div[text()='" + name + "']/../../input"));
     }
 
     public WebElement getIndexSwitchButton(String name){

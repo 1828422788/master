@@ -15,7 +15,7 @@ public class DragAndDropPage extends CreatePage {
         driver.manage().window().setSize(new Dimension(1500,900));
     }
 
-    @FindBy(className = "_3vWjsNSa82KJ2BOg98qxO8")
+    @FindBy(id = "spl-chart")
     private WebElement chart;
 
     @FindBy(xpath = "//span[@aria-label='InfoCircleFilled']/ancestor::div/following-sibling::div/p")
@@ -132,6 +132,14 @@ public class DragAndDropPage extends CreatePage {
 
     @FindBy(xpath = "//div[@yotta-test='trend-BI_param_fixedSetting-auto_complete']//input")
     private WebElement iconName;
+
+    @FindBy(xpath = "//*[contains(@class,'pageheader') and contains(text(),'新建趋势图')]")
+    private WebElement hideElement;
+
+    public WebElement getHideElement(){
+        hideElement.click();
+        return hideElement;
+    }
 
     public WebElement getRangeColor() {
         return rangeColor;
@@ -761,5 +769,4 @@ public class DragAndDropPage extends CreatePage {
         String xpath = "//input[contains(@yotta-test,'" + test +"')]";
         return webDriver.findElement(By.xpath(xpath));
     }
-
 }

@@ -18,7 +18,7 @@ Feature: 日志展现_表格
     And I will see the element "SelectedValueColorType" contains "无"
     And I choose the "梯度" from the "ColorType" in config
 
-    And I set the parameter "FontColor" with value "#de2626"
+    And I set the parameter "FontColor" with value "de2626"
     And I choose the "粗体" from the "FontStyle" in config
     And I set the parameter "ColumnWidth" with value "15"
     And I choose the "居中" from the "Alignment" in config
@@ -30,8 +30,8 @@ Feature: 日志展现_表格
 
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/8表格/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/8表格_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/8表格_<caseNum>" with target image "expect/高级搜索视图/8表格_<caseNum>"
 
     Examples:
       | caseNum  |
@@ -42,10 +42,10 @@ Feature: 日志展现_表格
     Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
-    And I will see the input element "FontColor" value will be "#4a4a4a"
+    And I will see the input element "FontColor" value will be "4A4A4A"
     And I choose the "梯度" from the "ColorType" in config
 
-    And I set the parameter "FontColor" with value "#5522e0"
+    And I set the parameter "FontColor" with value "5522E0FF"
     And I choose the "斜体" from the "FontStyle" in config
     And I set the parameter "ColumnWidth" with value "80"
     And I choose the "居右" from the "Alignment" in config
@@ -58,8 +58,8 @@ Feature: 日志展现_表格
     And I will see the element "Cell" style contains "font-style: italic;"
     And I will see the element "Cell" style contains "text-align: right;"
     And I wait for "3000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/8表格/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/8表格_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/8表格_<caseNum>" with target image "expect/高级搜索视图/8表格_<caseNum>"
 
     Examples:
       | caseNum      |
@@ -83,8 +83,8 @@ Feature: 日志展现_表格
     And I wait for "Chart" will be visible
     And I will see the element "Cell" style contains "<style>"
     And I wait for "3000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/8表格/<caseNum>_<color>"
-    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>_<color>" with target image "expect/高级搜索视图/8表格/<caseNum>_<color>"
+    And take part of "Chart" with name "actual/高级搜索视图/8表格_<caseNum>_<color>"
+    Then I compare source image "actual/高级搜索视图/8表格_<caseNum>_<color>" with target image "expect/高级搜索视图/8表格_<caseNum>_<color>"
 
     Examples:
       |   color      | caseNum  |  style                                |
@@ -98,29 +98,29 @@ Feature: 日志展现_表格
     And I choose the "范围" from the "ColorType" in config
 
     #RED
-    And I set the parameter "ColorCode" with value "#FF0000"
-    And I click the Circle "ColorPopover" button
+    And I set the parameter "ColorCode" with value "FF0000FF"
+    And I click the "ChangeColor" button
     And I click the "AddInterval" button
     And I set the parameter "IntervalInput" with value "4"
     #ORANGE
-    And I set the parameter "ColorCode" with value "#FFA500"
-    And I click the Circle "ColorPopover" button
+    And I set the parameter "ColorCode" with value "FFA500FF"
+    And I click the "ChangeColor" button
     And I click the "AddInterval" button
     And I set the parameter "IntervalInput" with value "6"
     #YELLOW
-    And I set the parameter "ColorCode" with value "#FFFF00"
-    And I click the Circle "ColorPopover" button
+    And I set the parameter "ColorCode" with value "FFFF00FF"
+    And I click the "ChangeColor" button
     And I click the "AddInterval" button
     And I set the parameter "IntervalInput" with value "10"
     #GREEN
-    And I set the parameter "ColorCode" with value "#00FF00"
-    And I click the Circle "ColorPopover" button
+    And I set the parameter "ColorCode" with value "00FF00FF"
+    And I click the "ChangeColor" button
 
     And I wait for "2000" millsecond
     And I choose the "下划线" from the "FontStyle" in config
     And I set the parameter "ColumnWidth" with value "80"
     And I will see the element "SelectedAlignment" contains "居左"
-    And I set the parameter "FontColor" with value "#5522e0"
+    And I set the parameter "FontColor" with value "5522E0FF"
     And I click the "EnsureButton" button
 
     And I wait for "Chart" will be visible
@@ -131,8 +131,8 @@ Feature: 日志展现_表格
     And I will see the element "Cell" style contains "text-decoration: underline"
     And I will see the element "Cell" style contains "background-color: rgb(0, 255, 0)"
     And I wait for "3000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/8表格/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/8表格_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/8表格_<caseNum>" with target image "expect/高级搜索视图/8表格_<caseNum>"
 
     Examples:
       | caseNum  |
@@ -146,23 +146,23 @@ Feature: 日志展现_表格
     And I choose the "范围" from the "ColorType" in config
 
     #RED
-    And I set the parameter "ColorCode" with value "#FF0000"
-    And I click the Circle "ColorPopover" button
+    And I set the parameter "ColorCode" with value "FF0000FF"
+    And I click the "ChangeColor" button
     And I click the "AddInterval" button
     And I set the parameter "IntervalInput" with value "4"
     #ORANGE
-    And I set the parameter "ColorCode" with value "#FFA500"
-    And I click the Circle "ColorPopover" button
+    And I set the parameter "ColorCode" with value "FFA500FF"
+    And I click the "ChangeColor" button
     And I click the "AddInterval" button
     And I set the parameter "IntervalInput" with value "6"
     #YELLOW
-    And I set the parameter "ColorCode" with value "#FFFF00"
-    And I click the Circle "ColorPopover" button
+    And I set the parameter "ColorCode" with value "FFFF00FF"
+    And I click the "ChangeColor" button
     And I click the "AddInterval" button
     And I set the parameter "IntervalInput" with value "10"
     #GREEN
-    And I set the parameter "ColorCode" with value "#00FF00"
-    And I click the Circle "ColorPopover" button
+    And I set the parameter "ColorCode" with value "00FF00FF"
+    And I click the "ChangeColor" button
     And I wait for "2000" millsecond
     And I click the "<button>" button
     And I click the "EnsureButton" button
@@ -170,8 +170,8 @@ Feature: 日志展现_表格
     And I wait for "Chart" will be visible
     And I will see the element "Cell" style contains "<style>"
     And I wait for "3000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/8表格/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/8表格_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/8表格_<caseNum>" with target image "expect/高级搜索视图/8表格_<caseNum>"
 
     Examples:
       |  button               | caseNum          |   style   |
@@ -193,8 +193,8 @@ Feature: 日志展现_表格
     And I wait for "Chart" will be visible
     And I will see the element "<element>" style contains "<style>"
     And I wait for "3000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/8表格/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/8表格_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/8表格_<caseNum>" with target image "expect/高级搜索视图/8表格_<caseNum>"
 
     Examples:
       |   button      | caseNum       |   element  | style    |
@@ -211,26 +211,26 @@ Feature: 日志展现_表格
     And I click the "CustomColor" button
     And I click the "AddValue" button
     And I set the parameter "InputValue" with value "5"
-    And I set the parameter "ColorCode" with value "#FF0000"
+    And I set the parameter "ColorCode" with value "FF0000FF"
     And I click the Circle "ChangeColor" button
     And I click the "AddValue" button
     And I set the parameter "InputValue" with value "7"
-    And I set the parameter "ColorCode" with value "#00FF00"
+    And I set the parameter "ColorCode" with value "00FF00FF"
     And I click the Circle "ChangeColor" button
     And I click the "AddValue" button
     And I set the parameter "InputValue" with value "10"
-    And I set the parameter "ColorCode" with value "#FFFF00"
+    And I set the parameter "ColorCode" with value "FFFF00FF"
     And I click the Circle "ChangeColor" button
     And I click the "AddValue" button
     And I set the parameter "InputValue" with value "24"
-    And I set the parameter "ColorCode" with value "#FF00FF"
+    And I set the parameter "ColorCode" with value "FF00FFFF"
     And I click the Circle "ChangeColor" button
     And I click the "CustomColor" button
     And I click the "DeleteLastValue" button
     And I choose the "粗体" from the "FontStyle" in config
     And I will see the element "SelectedAlignment" contains "居左"
     And I choose the "居中" from the "Alignment" in config
-    And I set the parameter "FontColor" with value "#744e78"
+    And I set the parameter "FontColor" with value "744E78FF"
 
     And I click the "EnsureButton" button
 
@@ -239,8 +239,8 @@ Feature: 日志展现_表格
     And I will see the element "Cell" style contains "font-weight: bold;"
     And I will see the element "Cell" style contains "text-align: center;"
     And I wait for "3000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/8表格/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/8表格_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/8表格_<caseNum>" with target image "expect/高级搜索视图/8表格_<caseNum>"
 
     Examples:
       | caseNum     |
@@ -255,16 +255,18 @@ Feature: 日志展现_表格
     And I click the "CustomColor" button
     And I click the "AddValue" button
     And I set the parameter "InputValue" with value "117.136.79.162"
-    And I set the parameter "ColorCode" with value "#FF0000"
+    And I set the parameter "ColorCode" with value "FF0000FF"
+    And I click the "ChangeColor" button
     And I click the "AddValue" button
     And I set the parameter "InputValue" with value "1.207.60.51"
-    And I set the parameter "ColorCode" with value "#00FF00"
+    And I set the parameter "ColorCode" with value "00FF00FF"
+    And I click the "ChangeColor" button
     And I click the "CustomColor" button
     And I click the "EnsureButton" button
 
     And I wait for "3000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/8表格/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/8表格_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/8表格_<caseNum>" with target image "expect/高级搜索视图/8表格_<caseNum>"
 
     Examples:
       | caseNum         |
@@ -292,8 +294,8 @@ Feature: 日志展现_表格
 
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/8表格/<caseNum>"
-    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
+    And take part of "Chart" with name "actual/高级搜索视图/8表格_<caseNum>"
+    Then I compare source image "actual/高级搜索视图/8表格_<caseNum>" with target image "expect/高级搜索视图/8表格_<caseNum>"
 
     Examples:
       | caseNum           |

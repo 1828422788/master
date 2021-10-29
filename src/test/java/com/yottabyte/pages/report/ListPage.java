@@ -23,6 +23,12 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//button[@yotta-test='report-new-button']")
     private WebElement newReportButton;
 
+    @FindBy(xpath = "//li[@yotta-test='trend-normal_trend-menu_item']")
+    private WebElement startFromEmpty;
+
+    @FindBy(xpath = "//li[@yotta-test='trend-dataset_trend-menu_item']")
+    private WebElement newReportUsingTemplate;
+
     @FindBy(xpath = "//span[text()='确定']/ancestor::button")
     private WebElement ensureButton;
 
@@ -98,6 +104,12 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "yotta-pageheader-title")
     private WebElement hideElement;
 
+    @FindBy(xpath = "//li[@yotta-test='report-generated_report-button']")
+    private WebElement reportListButton;
+
+    @FindBy(xpath = "//li[@yotta-test='report-report_template_management-button']")
+    private WebElement templateManager;
+
     public WebElement getHideElement() {
         hideElement.click();
         return hideElement;
@@ -144,7 +156,14 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getReportListButton() {
-        return super.getButton("已生成报表");
+        super.getButton("其他").click();
+        return reportListButton;
+//        return super.getButton("已生成报表");
+    }
+
+    public WebElement getTemplateManager() {
+        super.getButton("其他").click();
+        return templateManager;
     }
 
     public WebElement getReturnList() {
@@ -152,7 +171,14 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getNewReportButton() {
-        return newReportButton;
+        newReportButton.click();
+        return startFromEmpty;
+//        return newReportButton;
+    }
+
+    public WebElement getNewReportUsingTemplate() {
+        newReportButton.click();
+        return newReportUsingTemplate;
     }
 
     public WebElement getEnsureButton() {

@@ -25,7 +25,7 @@ public class CreatePage extends PageTemplate {
         driver.manage().window().fullscreen();
     }
 
-    @FindBy(className = "el-input__inner")
+    @FindBy(xpath = "//div/input[@placeholder='请输入可视化应用名称']")
     private WebElement name;
 
     @FindBy(xpath = "(//span[contains(text(),'确定')][not(@class)]/ancestor::button)[2]")
@@ -42,9 +42,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//div[@class='screenshot'])[2]")
     private WebElement bank;
-
-    @FindBy(xpath = "//li[contains(text(),'图表')]")
-    private WebElement chart;
 
     @FindBy(xpath = "//li[contains(text(),'地图')]")
     private WebElement map;
@@ -69,9 +66,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "barchart")
     private WebElement bar;
-
-    @FindBy(className = "rangechart")
-    private WebElement range;
 
     @FindBy(xpath = "//li[text()='玫瑰图']")
     private WebElement rose;
@@ -146,9 +140,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//i[@class='iconfont icon-yidaodibu_icon']")
     private WebElement downMoveToBottom;
 
-    @FindBy(xpath = "//div[text()='样式']")
-  //   @FindBy(xpath = "//div[@class='el-tabs__nav']/div[text()='样式']")
-     private WebElement style;
 
     @FindBy(xpath = "//div[text()='交互']")
     //   @FindBy(xpath = "//div[@class='el-tabs__nav']/div[text()='样式']")
@@ -228,19 +219,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "arcbarchart")
     private WebElement arcBar;
 
-    @FindBy(xpath = "(//label[text()='图表尺寸']/following-sibling::div//input)[1]")
-    private WebElement width;
-
-    @FindBy(xpath = "(//label[text()='图表尺寸']/following-sibling::div//input)[2]")
-    private WebElement height;
-
-    @FindBy(xpath = "(//label[text()='位置']/following-sibling::div//input)[1]")
-   // @FindBy(xpath = "(//label[text()='图表位移']/following-sibling::div//input)[1]")
-    private WebElement chartXaxis;
-
-   @FindBy(xpath = "(//label[text()='位置']/following-sibling::div//input)[2]")
-    //@FindBy(xpath = "(//label[text()='图表位移']/following-sibling::div//input)[2]")
-    private WebElement chartYaxis;
 
     @FindBy(xpath = "(//div[text()='极坐标系']/following-sibling::div//label[contains(text(),'中心纬度,经度')]/following-sibling::div//input)[2]")
     private WebElement polarYaxis;
@@ -1168,10 +1146,6 @@ public class CreatePage extends PageTemplate {
         return dateEditor;
     }
 
-    public WebElement getRange() {
-        return range;
-    }
-
     public WebElement getPile() {
         return pile;
     }
@@ -1267,78 +1241,9 @@ public class CreatePage extends PageTemplate {
         return this.header("图例");
     }
 
-    public WebElement getLayout() {
-        return this.header("布局");
-    }
 
-    public WebElement getNumber(){return this.header("数值");}
-    //柱图中的数值
-    public WebElement getNumberWordSize() {
-        return this.input("数值", "字体大小");
-    }
-    public WebElement getNumberWordBold() {
-        return this.dropdownList("数值", "字体粗细");
-    }
 
-    public WebElement getDataSeries() {
-        return this.header("数据系列");
-    }
 
-    public WebElement getTitleSize() {
-        return this.input("标题", "字号");
-    }
-
-    public WebElement getYaxisWordColor() {
-        return this.colorPicker("y轴", "文本");
-    }
-
-    public WebElement getTagWordColor() {
-        return this.colorInput("标签", "颜色");
-    }
-
-    public WebElement getYaxisWordSize() {
-        return this.input("y轴", "字号");
-    }
-
-    public WebElement getTagWordSize() {
-        return this.input("标签", "字号");
-    }
-
-    public WebElement getExampleWordSize() {
-        return this.input("图例", "字体大小");
-    }
-
-    public WebElement getXaxisSeparator() {
-        return this.switchButton("x轴");
-    }
-
-    public WebElement getYaxisSeparator() {
-        return this.switchButton("y轴");
-    }
-
-    public WebElement getXaxisAngle() {
-        return this.dropdownList("x轴", "角度");
-    }
-
-    public WebElement getYaxisAngle() {
-        return this.dropdownList("y轴", "角度");
-    }
-
-    public WebElement getXaxisShift() {
-        return this.input("x轴", "位移");
-    }
-
-    public WebElement getYaxisShift() {
-        return this.input("y轴", "位移");
-    }
-
-    public WebElement getXaxisWordBold() {
-        return this.dropdownList("x轴", "字体粗细");
-    }
-
-    public WebElement getYaxisWordBold() {
-        return this.dropdownList("y轴", "字体粗细");
-    }
 
     public WebElement getExampleWordBold() {
         return this.dropdownList("图例", "字体粗细");
@@ -1352,21 +1257,6 @@ public class CreatePage extends PageTemplate {
         return this.dropdownList("图例", "垂直位置");
     }
 
-    public WebElement getLayoutTop() {
-        return this.input("布局", "顶部");
-    }
-
-    public WebElement getLayoutBottom() {
-        return this.input("布局", "底部");
-    }
-
-    public WebElement getLayoutLeft() {
-        return this.input("布局", "左侧");
-    }
-
-    public WebElement getLayoutRight() {
-        return this.input("布局", "右侧");
-    }
 
     public WebElement getEnsureColor() {
         return ensureColor;
@@ -1376,29 +1266,7 @@ public class CreatePage extends PageTemplate {
         return pageBackground;
     }
 
-    public WebElement getXColorInput() {
-        return this.colorInput("x轴", "颜色");
-    }
 
-    public WebElement getYColorInput() {
-        return this.colorInput("y轴", "颜色");
-    }
-
-    public WebElement getXaxisWordColor() {
-        return this.colorPicker("x轴", "文本");
-    }
-
-    public WebElement getXaxisWordSize() {
-        return this.input("x轴", "字号");
-    }
-
-    public WebElement getXaxisHeader() {
-        return this.header("x轴");
-    }
-
-    public WebElement getYaxisHeader() {
-        return this.header("y轴");
-    }
 
     public WebElement getPreview() {
         return preview;
@@ -1412,25 +1280,6 @@ public class CreatePage extends PageTemplate {
         return chartPosition;
     }
 
-    public WebElement getWidth() {
-        return width;
-    }
-
-    public WebElement getHeight() {
-        return height;
-    }
-
-    public WebElement getChartXaxis() {
-        return chartXaxis;
-    }
-
-    public WebElement getChartYaxis() {
-        return chartYaxis;
-    }
-
-    public WebElement getStyle() {
-        return style;
-    }
 
     public WebElement getInteractive() {
         return interactive;
@@ -1563,10 +1412,6 @@ public class CreatePage extends PageTemplate {
         return line;
     }
 
-    public WebElement getChart() {
-        return chart;
-    }
-
     public WebElement getBank() {
         return bank;
     }
@@ -1592,7 +1437,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCreate() {
-        return super.getButton("创建");
+        return super.getButton("创建项目");
     }
 
     public WebElement getEnsure() {
@@ -2673,6 +2518,13 @@ private WebElement dataType;
     private WebElement indexDropdown;
     public  WebElement getIndexDropdown(){return indexDropdown;}
 
+
+    @FindBy(xpath = "//span[@class='yotta-icon yotta-icon-PresentationAlternative']")
+    private WebElement back;
+    public WebElement getBack() {
+        return back;
+    }
+
     //网络下拉菜单
     @FindBy(xpath = "//li[contains(text(),'网络')]/ul")
     private WebElement netDropdown;
@@ -2866,32 +2718,6 @@ public WebElement getTitleHorizontal(){return this.dropdownList("标题","对齐
     @FindBy(xpath = "//label[contains(text(),'间距')]/following-sibling::div/input")
     private WebElement flipSpacing;
     public WebElement getFlipSpacing(){return flipSpacing;}
-
-// 柱图-X轴-分割线
-    //宽度
-    @FindBy(xpath = "//div[text()='x轴']/following-sibling::div//label[contains(text(),'显示分割线')]/parent::div/following-sibling::div[1]//label[contains(text(),'宽度')]/following-sibling::div/input")
-    private WebElement xDividingLineBold;
-    public WebElement  getXDividingLineBold(){return xDividingLineBold;}
-    //颜色
-    @FindBy(xpath = "//div[text()='x轴']/following-sibling::div//label[contains(text(),'显示分割线')]/parent::div/following-sibling::div[2]//label[contains(text(),'颜色')]/following-sibling::div//span[@class='sp-original-input-container']//input")
-    private WebElement xDividingLineColor;
-    public WebElement getXDividingLineColor(){return xDividingLineColor;}
-    //类型
-    @FindBy(xpath = "//div[text()='x轴']/following-sibling::div//label[contains(text(),'显示分割线')]/parent::div/following-sibling::div[3]//label[contains(text(),'类型')]/following-sibling::div//input")
-    private WebElement xDividingLineType;
-    public WebElement getXDividingLineType(){
-        xDividingLineType.click();
-        return this.getLastDropdownList();
-    }
-    //轴线
-    @FindBy(xpath = "//div[text()='x轴']/following-sibling::div//label[contains(text(),'轴线')]/parent::div/following-sibling::div[1]//label[contains(text(),'颜色')]/following-sibling::div//span[@class='sp-original-input-container']//input")
-    private WebElement xLineColor;
-    public WebElement getXLineColor(){return xLineColor;}
-
-    @FindBy(xpath = "//div[text()='x轴']/following-sibling::div//label[contains(text(),'轴线')]/parent::div/following-sibling::div[2]//label[contains(text(),'宽度')]/following-sibling::div//input")
-    private WebElement xLineBold;
-    public WebElement getXLineBold(){return xLineBold;}
-
 
 // 柱图-Y轴-分割线
     //宽度

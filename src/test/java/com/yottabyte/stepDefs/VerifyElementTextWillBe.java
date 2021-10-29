@@ -75,13 +75,14 @@ public class VerifyElementTextWillBe {
             assertEquals(value, webElement.getText());
         } else {
             String realValue = element.getAttribute("value");
+            System.out.println("realValue============="+realValue);
+            System.out.println("Value============="+value);
             assertEquals(value, realValue);
         }
     }
 
     /**
      * 验证元素的value是否包含某一值
-     *
      * @param elementName 元素名称
      * @param value       值
      */

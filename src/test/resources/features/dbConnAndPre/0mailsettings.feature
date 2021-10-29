@@ -21,4 +21,4 @@ Feature: 配置发送邮箱
 
     Examples:
       | SMTPPort | SMTPAddress      | SendEmail            | EmailPassword    |
-      | 465      | smtp.vip.163.com | dfuture1@vip.163.com | RTQGPNDFYLCFBAFD |
+      | 465      | smtp.vip.126.com | dfuture@vip.126.com | EDMIEMFKTIRAYEFI1 |

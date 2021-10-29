@@ -16,7 +16,7 @@ Feature: 报表_发送
     And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I click the "NextButton" button under some element
     And I wait for "5000" millsecond
-    Then I will see the element "ChosenTrendLast" contains "<name>"
+    Then I will see the element "LastTrendTitle" contains "<name>"
     When I click the "FinishButton" button under some element
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "更新成功"
@@ -36,7 +36,11 @@ Feature: 报表_发送
       |   Sun                |
       |   Bar1               |
       |   Bar2               |
+      |   Bar3               |
+      |   Bar4               |
       |   Sunburst           |
+      |   Pie_1              |
+      |   Pie_2              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -49,7 +53,8 @@ Feature: 报表_发送
       |   Attackmap_China    |
       |   Regionmap_World    |
       |   Regionmap_China    |
-      |   Regionmap_Jiangsu  |
+      |   Regionmap_Jiangsu_1|
+      |   Regionmap_Jiangsu_2|
       |   Single             |
       |   Single_icon        |
       |   Single_range_backgr|
@@ -73,7 +78,7 @@ Feature: 报表_发送
     And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I click the "NextButton" button under some element
     And I wait for "5000" millsecond
-    Then I will see the element "ChosenTrendLast" contains "<name>"
+    Then I will see the element "LastTrendTitle" contains "<name>"
     When I click the "FinishButton" button under some element
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "更新成功"
@@ -93,7 +98,11 @@ Feature: 报表_发送
       |   Sun                |
       |   Bar1               |
       |   Bar2               |
+      |   Bar3               |
+      |   Bar4               |
       |   Sunburst           |
+      |   Pie_1              |
+      |   Pie_2              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -106,7 +115,8 @@ Feature: 报表_发送
       |   Attackmap_China    |
       |   Regionmap_World    |
       |   Regionmap_China    |
-      |   Regionmap_Jiangsu  |
+      |   Regionmap_Jiangsu_1|
+      |   Regionmap_Jiangsu_2|
       |   Single             |
 #      |   Single_icon        |
 #      |   Single_font        |
@@ -149,7 +159,11 @@ Feature: 报表_发送
       |   Sun                |
       |   Bar1               |
       |   Bar2               |
+      |   Bar3               |
+      |   Bar4               |
       |   Sunburst           |
+      |   Pie_1              |
+      |   Pie_2              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -162,7 +176,8 @@ Feature: 报表_发送
       |   Attackmap_China    |
       |   Regionmap_World    |
       |   Regionmap_China    |
-      |   Regionmap_Jiangsu  |
+      |   Regionmap_Jiangsu_1|
+      |   Regionmap_Jiangsu_2|
       |   Single             |
       |   Single_icon        |
       |   Single_font        |

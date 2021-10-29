@@ -125,9 +125,15 @@ public class CreatePage extends PageTemplate {
     private WebElement selectedUser;
 
     @FindBy(xpath = "//div[contains(@yotta-test,'report-container-collapse')]//div[contains(@class,'yotta-accordion')][last()]//span[contains(@class,'text')]")
-    private WebElement chosenTrendLast;
+    private WebElement lastTrendTitle;
 
     @FindBy(xpath = "//div[contains(@yotta-test,'report-container-collapse')]//div[contains(@class,'yotta-accordion')][1]//span[contains(@class,'text')]")
+    private WebElement firstTrendTitle;
+
+    @FindBy(xpath = "(//div[contains(@yotta-test,'report-container-collapse')]//div[contains(@class,'yotta-accordion')][last()]//span[@aria-label]//parent::span)[1]")
+    private WebElement chosenTrendLast;
+
+    @FindBy(xpath = "(//div[contains(@yotta-test,'report-container-collapse')]//div[contains(@class,'yotta-accordion')][1]//span[@aria-label]//parent::span)[1]")
     private WebElement chosenTrendFirst;
 
     @FindBy(xpath = "//span[@yotta-test='report-close_2-icon']")
@@ -236,10 +242,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='yotta-tooltip-content']")
     private WebElement tipElement;
 
-    @FindBy(xpath = "//div[@class='_1rpZECB9i9v8h6IEUve_yK']")
+    @FindBy(xpath = "//div[@class='_3w5kb67yheTrRvK5dl9mNd']")
     private WebElement resultMessage;
 
-    @FindBy(xpath = "((//div[contains(@class,'help-text')])[1]) | (//div[@class='_1JeVvK6jBB88_F6voAZyhi'])")
+    @FindBy(xpath = "((//div[contains(@class,'help-text')])[1]) | (//div[@class='SPuuh0MNLAnweio5-PDK8'])")
     private WebElement tipText;
 
     @FindBy(xpath = "(//span[contains(text(),'添加颜色区间')]/ancestor::div[1]/preceding-sibling::div//input)[last()-1]")
@@ -369,6 +375,14 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getChosenTrendFirst() {
         return chosenTrendFirst;
+    }
+
+    public WebElement getLastTrendTitle() {
+        return lastTrendTitle;
+    }
+
+    public WebElement getFirstTrendTitle() {
+        return firstTrendTitle;
     }
 
     public WebElement getLastTrendDelete() {
@@ -566,6 +580,8 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getFinishButton() {
+        if (webDriver.findElements(By.xpath("//span[text()='布局设计']/ancestor::div/following-sibling::div//span[text()='1']")).size()==0 && webDriver.findElements(By.xpath("//span[text()='布局设计']")).size()==1)
+            getLayout1().click();
         return getYottaButtonByText("完成");
     }
 
@@ -711,6 +727,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSun() {
         return getYottaDiv("chart_selector-change_type_sunburst-dom");
+    }
+
+    public WebElement getFlame() {
+        return getYottaDiv("chart_selector-change_type_flame-dom");
     }
 
     public WebElement getChord() {
@@ -985,6 +1005,14 @@ public class CreatePage extends PageTemplate {
         return getInputSetting("分段数");
     }
 
+    public WebElement getSegmentsNumber() {
+        return getInputSetting("展示前N项");
+    }
+
+    public WebElement getRatioInnerToOuter(){
+        return getInputSetting("内环占外环比");
+    }
+
     public WebElement getFieldValue() {
         return getInputSetting("字段值");
     }
@@ -1014,7 +1042,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCity() {
-        return getInputElement("市级下钻");
+        return getInputSetting("市级下钻");
     }
 
     public WebElement getPredict() {
@@ -1051,6 +1079,27 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getLabelLocation() {
         return getDropdownElement("标签位置");
+    }
+
+    public WebElement getChartOrientation() {
+        return getDropdownElement("图表方向");
+    }
+
+    @FindBy(xpath = "(//span[text()='标签方向'])[last()]/ancestor::div[1]/following-sibling::div//div[@class='yotta-select-selection']")
+    private WebElement labelOrientation;
+
+    public WebElement getLabelOrientation() {
+        try{
+            Thread.sleep(700);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        ClickEvent.clickUnderneathButton(labelOrientation);
+        return this.getLastDropdownList();
+    }
+
+    public WebElement getValueLabelOrientation() {
+        return getDropdownElement("数值标签方向");
     }
 
     public WebElement getPrecision() {

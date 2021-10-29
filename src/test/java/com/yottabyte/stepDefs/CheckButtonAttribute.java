@@ -9,9 +9,8 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -375,7 +374,68 @@ public class CheckButtonAttribute {
     @Then("^I will see the input box \"([^\"]*)\" contains \"([^割]*)\"$")
     public void iWillSeeTheInputBoxContains(String elementName, String expectText) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
-        Assert.assertEquals(element.getAttribute("value"),expectText);
+        Assert.assertEquals(element.getAttribute("value"), expectText);
+    }
+
+    /**
+     * @param expectText 期望值
+     */
+    @Then("^I will see the every page \"([^\"]*)\" 条$")
+    public void iWillSeeTheEveryPageEventNumber(String expectText) {
+        String xpath = "//div[contains(text(),'每页')]//span[text()='" + expectText + "']";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        Assert.assertEquals(element.getText(), expectText);
+    }
+
+    /**
+     * @param expectText 期望值
+     */
+    @Then("^I will see the message \"([^\"]*)\" on page$")
+    public void iWillSeeTheMessageOnPage(String expectText) {
+        String xpath = "//span[contains(text(),'" + expectText + "')]";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        Assert.assertEquals(element.getText(), expectText);
+    }
+
+    /**
+     * 判断按钮显示
+     *
+     * @param lastLineName 元素名称
+     */
+    @And("^I will see the last line \"([^\"]*)\" is display$")
+    public void checktheLastLineIsDisplay(String lastLineName) {
+        //bubble.test^archiver.process.fds
+        //div[@id='hot']//td[text()='bubble.test^archiver.process.fds']
+        String xpath = "//div[@id='hot']//td[text()='" + lastLineName + "']";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        Assert.assertFalse(element.getAttribute("style").contains("display: none;"));
+
+    }
+
+    /**
+     * 判断按钮显示
+     *
+     * @param lastLineName 元素名称
+     */
+    @And("^I will see1 the last line \"([^\"]*)\" is display$")
+    public void checktheLastLineIsDisplay1(String lastLineName) {
+        //bubble.test^archiver.process.fds
+        //div[@id='hot']//td[text()='bubble.test^archiver.process.fds']
+        String xpath = "//div[@id='hot']//td[text()='" + lastLineName + "']";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        Assert.assertFalse(element.getAttribute("style").contains("display: none;"));
+        ((JavascriptExecutor) webDriver).executeScript("arguments[0].setAttribute('id','id-last-line')", element);
+        WebElement id_element = webDriver.findElement(By.id("id-last-line"));
+        id_element.click();
+        id_element.click();
+        System.out.println("edit last one============");
+        Actions a = new Actions(webDriver);
+        a.moveToElement(id_element).sendKeys(Keys.CONTROL, "a").perform();
+        a.moveToElement(id_element).sendKeys(Keys.BACK_SPACE);
+        a.moveToElement(id_element).sendKeys("testedit");
+        a.moveToElement(id_element).sendKeys(Keys.ENTER);
+//        id_element.sendKeys("");
+//        a.moveToElement(id_element).contextClick().build().perform();
     }
 
 }

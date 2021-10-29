@@ -34,6 +34,7 @@ Feature: 趋势图_拖拽_其他
     And I wait for "<color>" will be visible
     And I click the "<color>" button
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.clientip)"
@@ -75,6 +76,7 @@ Feature: 趋势图_拖拽_其他
     And I click the "Absolute" button
     And I choose the "<timeValue>" from the "ContrastTime" in config
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.clientip)"
@@ -127,6 +129,7 @@ Feature: 趋势图_拖拽_其他
     And I click the "<color2>" button
     And I wait for "1000" millsecond
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.clientip)"
@@ -165,7 +168,7 @@ Feature: 趋势图_拖拽_其他
     And I wait for "Panel" will be visible
     And I choose the "平均值" from the "TypeFunction"
     And I wait for "1000" millsecond
-    And I click the "Resplen" button
+    And I click the "HideElement" button
     And I click the "<tab>" button
     And I wait for "1000" millsecond
     And I click the "<button>" button
@@ -173,7 +176,7 @@ Feature: 趋势图_拖拽_其他
     And I click the "Exhibition" button
     And I wait for "1000" millsecond
     And I choose the "2" from the "Precision"
-    And I set the parameter "FontSize" with value "<size>" using step buttons
+    And I set the parameter "FontSize" with value "80" using step buttons
 
     And I wait for "AddColorSingleChart" will be visible
     And I click the "AddColorSingleChart" button
@@ -184,6 +187,7 @@ Feature: 趋势图_拖拽_其他
     And I set the parameter "Unit" with value "个"
     And I click the "UnitPosition<position>" button
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats avg(apache.resp_len)"
@@ -220,7 +224,7 @@ Feature: 趋势图_拖拽_其他
 
     Examples:
       |  chartType | size | position  | tab          | button        | field      | text               | color  | content     | style             |
-      |  Single    | 80   | After     | Icon         | AccordingName | IconName   | font-awesome-flag  | Green  | 个          | rgb(50, 194, 125) |
+      |  Single    | 36   | After     | Icon         | AccordingName | IconName   | font-awesome-flag  | Green  | 个          | rgb(50, 194, 125) |
       |  Single    | 80   | Before    | SecondTitle  |               | TitleName  |  二级title         | Purple | 4,448.09    | rgb(161, 20, 249) |
 
   Scenario Outline: drag_and_drop_single5
@@ -238,7 +242,7 @@ Feature: 趋势图_拖拽_其他
     And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
     Then I wait for "Chart" will be visible
-    And I click the "<tab>" button
+    And I click the "Icon" button
     And I wait for "1000" millsecond
     And I click the "AccordingField" button
     And I click the "ChartType" button
@@ -254,6 +258,7 @@ Feature: 趋势图_拖拽_其他
     And I wait for "<color>" will be visible
     And I click the "<color>" button
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | eval icon_value = "quidditch" | stats count(apache.resp_len) by icon_value"
@@ -297,12 +302,12 @@ Feature: 趋势图_拖拽_其他
     And I wait for "Panel" will be visible
     And I choose the "平均值" from the "TypeFunction"
     And I wait for "1000" millsecond
-    And I click the "Value1" button
+    And I click the "HideElement" button
     And I click the "SecondElementInValues" button
     And I wait for "Panel" will be visible
     And I choose the "平均值" from the "TypeFunction"
     And I wait for "1000" millsecond
-    And I click the "Value1" button
+    And I click the "HideElement" button
     And I click the "Exhibition" button
     And I wait for "1000" millsecond
     And I wait for "AddColorSingleChart" will be visible
@@ -311,12 +316,15 @@ Feature: 趋势图_拖拽_其他
     And I click the "<color>" button
     And I choose the "1" from the "Precision"
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | eval value1 = apache.resp_len/5000 | eval value2 = apache.resp_len/10000 | stats avg(value1),avg(value2)"
     When I click the "CloseSPL" button
-    And I will see the text "展示数据" exist in page
-    And I will see the text "对比数据" exist in page
+    And I will see the text "avg(value1)" exist in page
+    And I will see the text "avg(value2)" exist in page
+    And I will see the text "展示数据" is not existed in page
+    And I will see the text "对比数据" is not existed in page
     Then I wait for "Chart" will be visible
     And I wait for "<chartType>Element_1" will be visible
     And I will see the element "<chartType>Element_1" contains "65.3%"
@@ -344,6 +352,10 @@ Feature: 趋势图_拖拽_其他
     And I will see the element "ChartName" contains "拖拽_<chartType>_1"
     Then I will see the "trend.CreatePage" page
     And I wait for "<chartType>Element_1" will be visible
+    And I will see the text "展示数据" is not existed in page
+    And I will see the text "对比数据" is not existed in page
+    And I will see the text "avg(value1)" exist in page
+    And I will see the text "avg(value2)" exist in page
     And I will see the element "<chartType>Element_1" contains "65.3%"
     And I will see the element "<chartType>Element_2" contains "28.2%"
 
@@ -371,12 +383,12 @@ Feature: 趋势图_拖拽_其他
     And I wait for "Panel" will be visible
     And I choose the "平均值" from the "TypeFunction"
     And I wait for "1000" millsecond
-    And I click the "Value1" button
+    And I click the "HideElement" button
     And I click the "SecondElementInValues" button
     And I wait for "Panel" will be visible
     And I choose the "平均值" from the "TypeFunction"
     And I wait for "1000" millsecond
-    And I click the "Value1" button
+    And I click the "HideElement" button
     And I click the "Exhibition" button
     And I wait for "1000" millsecond
     And I click the "AccordingArea" button
@@ -403,12 +415,15 @@ Feature: 趋势图_拖拽_其他
     And I click the "Red" button
     And I wait for "1000" millsecond
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | eval value1 = apache.resp_len/5000 | eval value2 = apache.resp_len/10000 | stats avg(value1),avg(value2)"
     When I click the "CloseSPL" button
-    And I will see the text "展示数据" exist in page
-    And I will see the text "对比数据" exist in page
+    And I will see the text "展示数据" is not existed in page
+    And I will see the text "对比数据" is not existed in page
+    And I will see the text "avg(value1)" exist in page
+    And I will see the text "avg(value2)" exist in page
     Then I wait for "Chart" will be visible
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_2"
@@ -449,6 +464,7 @@ Feature: 趋势图_拖拽_其他
     And I wait for "<color>" will be visible
     And I click the "<color>" button
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.geo.city) by apache.geo.city"
@@ -507,6 +523,7 @@ Feature: 趋势图_拖拽_其他
     And I wait for "<color>" will be visible
     And I click the "<color>" button
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.geo.city) by apache.geo.city"
@@ -569,6 +586,7 @@ Feature: 趋势图_拖拽_其他
     And I wait for "<color>" will be visible
     And I click the "<color>" button
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.geo.city) by apache.geo.city"
@@ -606,13 +624,13 @@ Feature: 趋势图_拖拽_其他
     When I click the "ElementInValues" button
     And I wait for "Panel" will be visible
     And I choose the "<compareWith1>" from the "CompareField" in config
-    And I click the Circle "GeoCity" button
+    And I click the "HideElement" button
     And I wait for "2000" millsecond
 
     When I click the "ElementInValues" button
     And I wait for "Panel" will be visible
     And I choose the "<compareWith2>" from the "CompareField" in config
-    And I click the "GeoCity" button
+    And I click the "HideElement" button
     And I wait for "2000" millsecond
     And I click the "Example" button
     And I wait for "1000" millsecond
@@ -623,6 +641,7 @@ Feature: 趋势图_拖拽_其他
     And I click the "AddColor" button
     And I click the "<color>" button
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "starttime="now/d" endtime="now" tag:sample04061424_chart | stats count(apache.geo.city) by apache.geo.city| eval _compare="当前" | append [[ starttime="now/d-1d" endtime="now-1d" tag:sample04061424_chart | stats count(apache.geo.city) by apache.geo.city| eval _compare="环比" ]] | append [[ starttime="now/d-1w" endtime="now-1w" tag:sample04061424_chart | stats count(apache.geo.city) by apache.geo.city| eval _compare="同比一周" ]]"
@@ -667,6 +686,7 @@ Feature: 趋势图_拖拽_其他
     And I wait for "1000" millsecond
     And I click the "RightPosition" button
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.geo.city) by apache.geo.city"
@@ -716,6 +736,7 @@ Feature: 趋势图_拖拽_其他
     And I wait for "3000" millsecond
     And I wait for "Chart" will be visible
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.clientip)"
@@ -752,9 +773,10 @@ Feature: 趋势图_拖拽_其他
     When I click the "ElementInValues" button
     And I wait for "Panel" will be visible
     And I choose the "上周同比值" from the "CompareField" in config
-    And I click the "Clientip" button
+    And I click the "HideElement" button
     And I wait for "2000" millsecond
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "starttime="now/d" endtime="now" tag:sample04061424_chart | stats count(apache.clientip) | eval _compare="当前" | append [[ starttime="now/d-1w" endtime="now-1w" tag:sample04061424_chart | stats count(apache.clientip) | eval _compare="同比一周" ]]"

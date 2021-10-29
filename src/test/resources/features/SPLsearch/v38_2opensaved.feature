@@ -1,4 +1,4 @@
-@spage @opensaved
+@opensaved
 Feature: 已存搜索加载（RZY-153）
 
   Background:

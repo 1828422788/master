@@ -1,153 +1,78 @@
- @galaxee @galaxee0 @1.16
-Feature: 数据大屏-p环形柱图
+@galaxee @galaxee1   @1.13
+Feature: 数据大屏-m环形柱图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 环形柱图样式-搜索 RZY-3723,RZY-3724
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+
+  Scenario: 环形柱图之静态数据 RZY-3660
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
-    When I click the "Create" button
-    And I set the parameter "Name" with value "环形柱图样式-搜索"
-    And I click the "Ensure" button
-      #选择环形柱图
-    And I click the "Chart" button
+    And switch to another window
+    And I close all tabs except main tab
     And I wait for "2000" millsecond
-    And I wait for "circularCylinderChart" will be visible
-    And I click the "circularCylinderChart" button
-# #设置样式
-#   # 1 设置图表尺寸位置
-    And I wait for "Style" will be visible
-    And I click the "Style" button
-    And I wait for "ChartPosition" will be visible
-    And I click the "ChartPosition" button
-    And  I wait for "Width" will be visible
-    And I set the parameter "Width" with value "884"
-    And I set the parameter "Height" with value "680"
-    And I set the parameter "ChartXaxis" with value "440"
-    And I set the parameter "ChartYaxis" with value "188"
-    #2 修改样式
-    And I click the "styleCirCylChart" button
-  #文本字体大小
-    And I set the parameter "textFontSize" with value "20"
-  #文本字体颜色
-#    And I click the "textFontColor" button
-    And I wait for "textFontColor" will be visible
-    And I set the parameter "textFontColor" with value "#E0CD41"
-    And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
-  #文本字体粗细
-    And I choose the "bolder" from the "TextWordBold"
-    And I set the parameter "ThresholdMin" with value "2"
-    And I set the parameter "CacheValue" with value "114"
-  #环柱渐变色1
-#    And I click the "gradation1" button
-    And I wait for "gradation1" will be visible
-    And I set the parameter "gradation1" with value "#D931DC"
-    And I click the "EnsureColor" button
-#    And I wait for "EnsureColor" will be invisible
-  #环柱渐变色2
-#    And I click the "gradation2" button
-    And I wait for "gradation2" will be visible
-    And I set the parameter "gradation2" with value "#8CD927"
-    And I click the "EnsureColor" button
-#    And I wait for "EnsureColor" will be invisible
-  #环柱渐变色3
-#    And I click the "gradation3" button
-    And I wait for "gradation3" will be visible
-    And I set the parameter "gradation3" with value "#D75541"
-    And I click the "EnsureColor" button
-#    And I wait for "EnsureColor" will be invisible
-    #3 全局样式修改名成
-    And I click the "globalStyle" button
-    And I set the parameter "globalStyleName" with value "环形柱图样式修改"
-    #开启背景动画
-    And I click the "backgroundAuto" button
-   #数据设置（数据源类型默认：搜索）
-    And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | limit 10"
-#    And I click the "DateEditor" button
-#    And I click the "RecentSevenDay" button
-    And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
-    And I set the parameter "updateFrequency" with value "0.1"
+    And I click the "Create" button
+    And I wait for "2000" millsecond
+    And I set the parameter "Name" with value "环形柱图之静态数据"
+    And I wait for "3000" millsecond
+    And I click the "Ensure" button
+    Then I will see the "galaxee.NewCreatePage" page
+    And switch to another window
+    And I close all tabs except main tab
+    And I wait for "1500" millsecond
 
-    And I choose the "apache.clientip" from the "dataSearchLabel"
+#    ===============================选择组件
+    And I wait for "Module" will be visible
+    And I click the "Moudle" button
     And I wait for "1000" millsecond
-    And I choose the "ip_count" from the "dataSearchValue"
-          #保存
-    And I wait for "Save" will be visible
-    And I wait for "2000" millsecond
-    And I click the "Save" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "保存成功"
-
-#  Scenario Outline: 环形柱图数据之样式搜索发布并截图
-#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-#    And switch to window "<name>"
-#    And I close all tabs except main tab
-#    And I wait for loading invisible
-#    Then take a screenshot with name "galaxee/<name>"
-#    #删除
-#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-#    Then I click the "Ensure" button
-#
-#    Examples:
-#      |name               |
-#      |环形柱图样式-搜索   |
-
-
-##################################无耻的分割线###############################
-
-  Scenario: 环形柱图数据之静态数据 RZY-3660
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When I click the "Create" button
-    Then I will see the "galaxee.CreatePage" page
-    When I click the "Create" button
-    And I set the parameter "Name" with value "环形柱图数据之静态数据"
-    And I click the "Ensure" button
-          #选择环形柱图
+#    ==============================选择常规图表
+    And I wait for "Chart" will be visible
     And I click the "Chart" button
-    And I wait for "2000" millsecond
+
+#    ==============================环形柱图
     And I wait for "circularCylinderChart" will be visible
-    And I click the "circularCylinderChart" button
+    And I click the "circularCylinderChart" button under some element
+#    ==============================选择样式
     And I wait for "Style" will be visible
     And I click the "Style" button
+    And I wait for "2000" millsecond
 
+ #    ==============================图表布局
+    And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I wait for "Width" will be visible
     And I set the parameter "Width" with value "884"
+    And I wait for "1000" millsecond
     And I set the parameter "Height" with value "680"
+    And I wait for "1000" millsecond
     And I set the parameter "ChartXaxis" with value "440"
+    And I wait for "1000" millsecond
     And I set the parameter "ChartYaxis" with value "188"
-     #数据设置
-    And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip  | limit 10"
-#    And I click the "DateEditor" button
-#    And I click the "RecentSevenDay" button
-    And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
-    And I set the parameter "updateFrequency" with value "0.1"
-      #选择静态数据
-    And I click the "dataSourceType" button
-    And I wait for "1000" millsecond
-    And I click the "statisticsData" button
-    And I click the "Ensure" button
-    And I wait for "tipsText" will be invisible
-
-    And I choose the "apache.clientip" from the "dataSearchLabel"
-    And I wait for "1000" millsecond
-    And I choose the "ip_count" from the "dataSearchValue"
-
-      #保存
-    And I wait for "Save" will be visible
     And I wait for "2000" millsecond
-    And I click the "Save" button under some element
+
+ #数据
+    And I wait for "Data" will be visible
+    And I click the "Data" button
+    And I choose the "静态数据" from the "DataSourceType"
+    And I wait for "2000" millsecond
+     #选择静态数据
+    And I set the parameter "DataField" with value "value"
+    And I set the parameter "DataSearchLabel" with value "label"
+    And I wait for "2000" millsecond
+    And I click the "UpdateData" button
+    And I set the parameter "updateFrequency" with value "1"
+
+    And I wait for element "DataFieldText1" change text to "匹配成功"
+    And I wait for element "DataLabelText" change text to "匹配成功"
+    And I wait for "2000" millsecond
+
+
+    #保存
+    And I wait for "Save" will be visible
+    And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "保存成功"
+    Then I will see the success message "保存当前大屏成功"
 
 
 #  Scenario Outline: 环形柱图数据之静态数据发布并截图
@@ -166,68 +91,115 @@ Feature: 数据大屏-p环形柱图
 #    Examples:
 #      |name            |
 #      |环形柱图数据之静态数据   |
+ ##################################无耻的分割线###############################
 
-######################################无耻的分割线################################
 
-   Scenario: 环形柱图数据之绑定搜索
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+  Scenario: 环形柱图-样式搜索 RZY-3723,RZY-3724
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
-    When I click the "Create" button
-    And I set the parameter "Name" with value "环形柱图数据之绑定搜索"
+    And switch to another window
+    And I close all tabs except main tab
+    And I wait for "2000" millsecond
+    And I click the "Create" button
+    And I wait for "2000" millsecond
+    And I set the parameter "Name" with value "环形柱图-样式搜索"
+    And I wait for "3000" millsecond
     And I click the "Ensure" button
-      #在【其他】中添加一个【搜索】控件
-    And I click the "Other" button
-    And I click the "otherSearch" button under some element
-     And I hide the element "otherDropdown"
+    Then I will see the "galaxee.NewCreatePage" page
+    And switch to another window
+    And I close all tabs except main tab
+    And I wait for "1500" millsecond
+
+#    ===============================选择组件
+    And I wait for "Module" will be visible
+    And I click the "Moudle" button
+    And I wait for "1000" millsecond
+#    ==============================选择常规图表
+    And I wait for "Chart" will be visible
+    And I click the "Chart" button
+
+#    ==============================环形柱图
+    And I wait for "circularCylinderChart" will be visible
+    And I click the "circularCylinderChart" button under some element
+#    ==============================选择样式
+    And I wait for "Style" will be visible
+    And I click the "Style" button
+    And I wait for "2000" millsecond
+
+ #    ==============================图表布局
+    And I wait for "ChartPosition" will be visible
+    And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
+    And I set the parameter "Width" with value "884"
+    And I wait for "1000" millsecond
+    And I set the parameter "Height" with value "680"
+    And I wait for "1000" millsecond
+    And I set the parameter "ChartXaxis" with value "440"
+    And I wait for "1000" millsecond
+    And I set the parameter "ChartYaxis" with value "188"
+
+    And I wait for "GraphicAttribute" will be visible
+    And I click the "GraphicAttribute" button
+    And I wait for "InnerRadius" will be visible
+    And I set the parameter "InnerRadius" with value "0.1"
+    And I wait for "2000" millsecond
+    And I set the parameter "OuterRadius" with value "0.9"
+    And I wait for "2000" millsecond
+    And I set the parameter "CapsuleWidth" with value "5"
+    And I wait for "1000" millsecond
+    And I click the "GraphicAttribute" button
+
+    And I wait for "FanCon" will be visible
+    And I click the "FanCon" button
+    And I set the parameter "Tone" with value "#E0CD41"
+    And I wait for "2000" millsecond
+    And I click the "FanCon" button
+    And I click the "CirleTextStyle" button
+    And I wait for "2000" millsecond
+    And I set the parameter "CircleWorldSize" with value "16"
+    And I choose the "bolder" from the "CircleWorleBold"
+    And I set the parameter "CircleWorldColor" with value "#D931DC"
+    And I wait for "2000" millsecond
+    And I click the "CirleTextStyle" button
+
+ #    ===============================================数据
+    And I wait for "Data" will be visible
+    And I click the "Data" button
+    And I choose the "SPL" from the "DataSourceType"
+    And I wait for "2000" millsecond
+    And I click the "DataCon" button
     And I wait for "SplInput" will be visible
-    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip  | limit 10"
-#     And I click the "DateEditor" button
-#     And I click the "RecentSevenDay" button
-     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
-    And I set the parameter "updateFrequency" with value "0.1"
-            #选择环形柱图
-     And I click the "Chart" button
-     And I wait for "circularCylinderChart" will be visible
-     And I click the "circularCylinderChart" button
-     And I wait for "Style" will be visible
-     And I click the "Style" button
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | limit 10"
+    And I wait for "2000" millsecond
 
-     And I click the "ChartPosition" button
-     And I wait for "Width" will be visible
-     And I set the parameter "Width" with value "884"
-     And I set the parameter "Height" with value "680"
-     And I set the parameter "ChartXaxis" with value "440"
-     And I set the parameter "ChartYaxis" with value "188"
-      #在数据源类型中选择绑定搜索
-    And I click the "Data" button
-    And I click the "dataSourceType" button
-     And I wait for "1000" millsecond
-    And I click the "bindingSearch" button
-      #选择上步添加的搜索
-    And I click the "bindingSearchChoose" button
-    And I click the "search_widget" button
-      #再次点击搜索控件中的【搜索按钮】
-    And I click the "pictureTwo" button
+    And I click the "DateEditor" button
+    And I click the "RecentSevenDay" button
+    And I wait for "2000" millsecond
+
     And I click the "Search" button
-     And I wait for "SearchTip" will be invisible
-     #对占比图的参数进行设置
-    And I click the "pictureOne" button
-    And I click the "Data" button
+    And I wait for "6000" millsecond
+    And I wait for "SearchTip" will be visible
+    And I click the "CloseData" button
+    And I wait for "2000" millsecond
+    And I set the parameter "DataField" with value "ip_count"
+    And I set the parameter "DataSearchLabel" with value "apache.clientip"
+    And I wait for "2000" millsecond
+    And I click the "UpdateData" button
+    And I set the parameter "updateFrequency" with value "1"
 
-    And I choose the "apache.clientip" from the "dataSearchLabel"
-     And I wait for "1000" millsecond
-    And I choose the "ip_count" from the "dataSearchValue"
-        #保存
-     And I wait for "Save" will be visible
-     And I wait for "2000" millsecond
-     And I click the "Save" button
-     And I wait for "SuccessMessage" will be visible
-     Then I will see the success message "保存成功"
+    And I wait for element "DataFieldText1" change text to "匹配成功"
+    And I wait for element "DataLabelText" change text to "匹配成功"
+    And I wait for "2000" millsecond
 
-#
-#  Scenario Outline: 环形柱图数据之绑定搜索发布并截图
+
+ #   ==========================================保存
+    And I wait for "Save" will be visible
+    And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "保存当前大屏成功"
+
+#  Scenario Outline: 环形柱图数据之样式搜索发布并截图
 #    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
 #    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
 #    And switch to window "<name>"
@@ -240,8 +212,11 @@ Feature: 数据大屏-p环形柱图
 #    Then I click the "Ensure" button
 #
 #    Examples:
-#      |name              |
-#      |环形柱图数据之绑定搜索 |
+#      |name               |
+#      |环形柱图样式-搜索   |
+
+
+
 
 
 

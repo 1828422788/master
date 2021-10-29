@@ -4,7 +4,7 @@ Feature: 应用本地上传日志（RZY-2148）
   Background:
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AutoTestAppWithAllResources" then i click the "打开" button in more menu
+    When  I click the detail which name is "AutoTestAppWithAllResources"
     And I will see the "app.AppPage" page
 
   Scenario: 上传日志

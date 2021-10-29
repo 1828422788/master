@@ -55,10 +55,11 @@ Feature: 报表新建_选择
     And I wait for "2000" millsecond
     When I choose the "报表测试_数据集" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试_数据集"
+    Then I will see the element "LastTrendTitle" contains "报表测试_数据集"
     And I click the "ChosenTrendLast" button
     And I will see the element "TrendData" contains "((*)) OR (tag:sample04061424_chart) OR (tag:sample04061424_display)"
     And I click the "EditButton" button
+    And I wait for "3000" millsecond
     And I will see the element "TrendDatasetField" contains "((*)) OR (tag:sample04061424_chart) OR (tag:sample04061424_display)"
     And I set the value "starttime="now/d" endtime="now/d+24h" * | stats count()" to the textarea "TrendSplField"
     Then I click the "EnsureButton" button
@@ -85,7 +86,7 @@ Feature: 报表新建_选择
     And I click the "EditButton" button
     And I set the parameter "TrendNameField" with value "报表测试_1"
     And I click the "EnsureButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试_1"
+    Then I will see the element "LastTrendTitle" contains "报表测试_1"
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     And I click the "ChosenTrendLast" button
@@ -93,7 +94,7 @@ Feature: 报表新建_选择
     And I click the "EditButton" button
     And I set the parameter "TrendNameField" with value "报表测试_2"
     And I click the "EnsureButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试_2"
+    Then I will see the element "LastTrendTitle" contains "报表测试_2"
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     And I click the "ChosenTrendLast" button
@@ -101,7 +102,7 @@ Feature: 报表新建_选择
     And I click the "EditButton" button
     And I set the parameter "TrendNameField" with value "报表测试_3"
     And I click the "EnsureButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试_3"
+    Then I will see the element "LastTrendTitle" contains "报表测试_3"
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     And I click the "ChosenTrendLast" button
@@ -109,7 +110,7 @@ Feature: 报表新建_选择
     And I click the "EditButton" button
     And I set the parameter "TrendNameField" with value "报表测试_4"
     And I click the "EnsureButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试_4"
+    Then I will see the element "LastTrendTitle" contains "报表测试_4"
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     And I click the "ChosenTrendLast" button
@@ -117,7 +118,7 @@ Feature: 报表新建_选择
     And I click the "EditButton" button
     And I set the parameter "TrendNameField" with value "报表测试_5"
     And I click the "EnsureButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试_5"
+    Then I will see the element "LastTrendTitle" contains "报表测试_5"
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     And I click the "ChosenTrendLast" button
@@ -125,7 +126,7 @@ Feature: 报表新建_选择
     And I click the "EditButton" button
     And I set the parameter "TrendNameField" with value "报表测试_6"
     And I click the "EnsureButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试_6"
+    Then I will see the element "LastTrendTitle" contains "报表测试_6"
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     And I click the "ChosenTrendLast" button
@@ -133,14 +134,14 @@ Feature: 报表新建_选择
     And I click the "EditButton" button
     And I set the parameter "TrendNameField" with value "报表测试_7"
     And I click the "EnsureButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试_7"
+    Then I will see the element "LastTrendTitle" contains "报表测试_7"
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
     And I set the parameter "TrendNameField" with value "报表测试_8"
     And I click the "EnsureButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试_8"
+    Then I will see the element "LastTrendTitle" contains "报表测试_8"
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     And I click the "ChosenTrendLast" button
@@ -148,7 +149,7 @@ Feature: 报表新建_选择
     And I click the "EditButton" button
     And I set the parameter "TrendNameField" with value "报表测试_9"
     And I click the "EnsureButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试_9"
+    Then I will see the element "LastTrendTitle" contains "报表测试_9"
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     And I click the "ChosenTrendLast" button
@@ -156,7 +157,7 @@ Feature: 报表新建_选择
     And I click the "EditButton" button
     And I set the parameter "TrendNameField" with value "报表测试_10"
     And I click the "EnsureButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试_10"
+    Then I will see the element "LastTrendTitle" contains "报表测试_10"
     And I wait for "AlertMessage" will be visible
     And I will see the element "AlertMessage" contains "每个报表最多保存10个趋势图"
     And I wait for "DisabledChartList" will be visible
@@ -175,7 +176,7 @@ Feature: 报表新建_选择
     And I click the "EditButton" button
     And I set the parameter "TrendNameField" with value "报表测试_1"
     And I click the "EnsureButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试_1"
+    Then I will see the element "LastTrendTitle" contains "报表测试_1"
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     And I click the "ChosenTrendLast" button
@@ -183,7 +184,7 @@ Feature: 报表新建_选择
     And I click the "EditButton" button
     And I set the parameter "TrendNameField" with value "报表测试_2"
     And I click the "EnsureButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试_2"
+    Then I will see the element "LastTrendTitle" contains "报表测试_2"
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     And I click the "ChosenTrendLast" button
@@ -191,13 +192,13 @@ Feature: 报表新建_选择
     And I click the "EditButton" button
     And I set the parameter "TrendNameField" with value "报表测试_3"
     And I click the "EnsureButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试_3"
+    Then I will see the element "LastTrendTitle" contains "报表测试_3"
     And I click the "ChosenTrendLast" button
     And I drag the scroll bar to the element "TopOfThePage"
     And I wait for "2000" millsecond
     When I click the "<button>" button
-    Then I will see the element "ChosenTrendFirst" contains "<trendFirst>"
-    And I will see the element "ChosenTrendLast" contains "<trendLast>"
+    Then I will see the element "FirstTrendTitle" contains "<trendFirst>"
+    And I will see the element "LastTrendTitle" contains "<trendLast>"
     When I click the "FinishButton" button under some element
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
@@ -220,7 +221,7 @@ Feature: 报表新建_选择
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试"
+    Then I will see the element "LastTrendTitle" contains "报表测试"
     When I click the "ChosenTrendLast" button
     Then I will see the element "TrendDescription" contains "AutoCreate"
     And I will see the element "TrendSpl" contains "tag:sample04061424_chart | stats count()"
@@ -251,7 +252,7 @@ Feature: 报表新建_选择
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试"
+    Then I will see the element "LastTrendTitle" contains "报表测试"
     When I click the "ChosenTrendLast" button
     When I click the "EditButton" button
     Then I set the parameter "TrendNameField" with value "<name>"

@@ -29,11 +29,12 @@ Feature: 新建数据库连接配置
     And I wait for "2000" millsecond
     Then take a screenshot with name "actual/create_<newDbConnName>"
     And I wait for element "succMessage" change text to "创建成功"
+    Then I will see the message contains "创建成功"
     When I click the "AffirmButton" button
 
     Examples:
       | newDbConnName | newDbUserName | newDbUserPassword | newDbRetLines | newDbConnTypeList | newDbConnHost | newDbConnPort | newConnDefaultDb |
-      | v33dbx       | root          | 123456            | 1000          | mysql             | 192.168.1.171 | 3306          | v33dbx           |
+      | v33dbx        | root          | 123456            | 1000          | mysql             | 192.168.1.171 | 3306          | v33dbx           |
       | delv33dbx     | root          | 1233456           | 1000          | mysql             | 192.168.1.171 | 3306          | v33dbx           |
       | editv33dbx    | root          | 123456            | 1000          | mysql             | 192.168.1.171 | 3306          | v33dbx           |
       | v33vertica    | dbadmin       | 123456            | 1000          | vertica           | 192.168.1.221 | 5433          | docker           |
@@ -67,7 +68,7 @@ Feature: 新建数据库连接配置
 
     Examples:
       | newDbConnName | newDbUserName | newDbUserPassword | newDbRetLines | newDbConnTypeList | newDbConnHost | newDbConnPort | newConnDefaultDb |
-      | v33clickhouse    | dbadmin       | 123456            | 1000          | clickhouse           | 192.168.1.221 | 8123          | docker           |
+      | v33clickhouse | dbadmin       | 123456            | 1000          | clickhouse        | 192.168.1.221 | 8123          | docker           |
 
   @editconn
   Scenario Outline:复制
@@ -106,6 +107,6 @@ Feature: 新建数据库连接配置
 
     Examples:
       | newDbConnName | newDbUserName | newDbUserPassword | newDbRetLines | newDbConnTypeList | newDbConnHost | newDbConnPort | newConnDefaultDb |
-      | editv33dbx    | root          | 123456            | 999         | mysql             | 192.168.1.171 | 3306          | v33dbx           |
+      | editv33dbx    | root          | 123456            | 999           | mysql             | 192.168.1.171 | 3306          | v33dbx           |
 
 

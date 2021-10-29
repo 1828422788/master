@@ -3,7 +3,7 @@ Feature: 全链路_重命名
 
   Background:
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
-    And I wait for "3000" millsecond
+    And I wait for "Loading" will be invisible
 
   Scenario: 创建全链路
     When I click the "Create" button

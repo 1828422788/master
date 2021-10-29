@@ -323,13 +323,26 @@ public class Checkbox {
      */
     @When("^I \"([^\"]*)\" the checkbox which name is \"([^\"]*)\" in trend page$")
     public void clickCheckboxWithGivenNameInTrend(String status, List<String> nameList) {
-        for (String name : nameList) {
-            String xpath = "(//span[contains(text(),'" + name + "') and contains(@class,'checkbox')])[1]";
-            WebElement label = webDriver.findElement(By.xpath(xpath));
-            WebElement span = label.findElement(By.xpath(".//preceding-sibling::span"));
-            String attribute = span.getAttribute("class");
-            if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
-                label.findElement(By.xpath(".//ancestor::label")).click();
+        if (webDriver.getCurrentUrl().contains("/roles/")) {
+            for (String name : nameList) {
+                String xpath = "(//span[contains(text(),'" + name + "') and contains(@class,'checkbox')])[1]";
+                WebElement label = webDriver.findElement(By.xpath(xpath));
+                WebElement span = label.findElement(By.xpath(".//ancestor::label"));
+                String attribute = span.getAttribute("class");
+                if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
+                    //label.findElement(By.xpath(".//ancestor::label")).click();
+                    span.findElement(By.xpath(".//input[@yotta-test='role-function_check_all-checkbox']")).click();
+                }
+            }
+        } else if (webDriver.getCurrentUrl().contains("/trend/")){
+            for (String name : nameList) {
+                String xpath = "(//span[contains(text(),'" + name + "') and contains(@class,'checkbox')])[1]";
+                WebElement label = webDriver.findElement(By.xpath(xpath));
+                WebElement span = label.findElement(By.xpath(".//preceding-sibling::span"));
+                String attribute = span.getAttribute("class");
+                if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
+                    label.findElement(By.xpath(".//ancestor::label")).click();
+                }
             }
         }
     }
@@ -390,7 +403,10 @@ public class Checkbox {
 
     private void assertCheckboxStatus(String status, String xpath) {
         WebElement label = webDriver.findElement(By.xpath(xpath));
+        System.out.println("================================================================================================");
+        System.out.println("================label"+label.toString());
         String attribute = label.getAttribute("class");
+        System.out.println("================attribute"+attribute.toString());
         Assert.assertTrue((attribute.contains("checked") && "checked".equals(status))
                 || (!attribute.contains("checked") && "unchecked".equals(status)));
     }
@@ -401,11 +417,10 @@ public class Checkbox {
      * @param nameList
      * @param status
      */
-    @Then("^I will see the checkbox in alert search which name is \"([^\"]*)\" and status is \"([^\"]*)\"$")
-    public void iWillSeeTheCheckboxInAlertSearchWhichNameIsAndStatusIs(List<String> nameList, String status) {
+    @Then("^I will see the checkbox in alert search page which name is \"([^\"]*)\" and status is \"([^\"]*)\"$")
+    public void iWillSeeTheCheckboxInAlertSearchPageWhichNameIsAndStatusIs(List<String> nameList, String status) {
         for (String name : nameList) {
-            //div[@yotta-test='incident-custom-popover']//span/input[@value='source']
-            String xpath = "//div[@yotta-test='incident-custom-popover']//span/input[@value='" + name + "']";
+            String xpath = "//div[@yotta-test='incident-custom-popover']//span/input[@value='" + name + "']/parent::span/parent::label";
             this.assertCheckboxStatus(status, xpath);
         }
     }

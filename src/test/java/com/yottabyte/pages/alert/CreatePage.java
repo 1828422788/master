@@ -1002,7 +1002,7 @@ public class CreatePage extends PageTemplate {
     }
 
     //预览窗口提示
-    @FindBy(xpath = "//div[@yotta-test='alert-alert_methods_preview-modal']//span[contains(text(),'提示')]")
+    @FindBy(xpath = "//div[@yotta-test='alert-alert_methods_preview-modal']/div/span[contains(text(),'提示')]")
     private WebElement previewReminder;
 
     public WebElement getPreviewReminder() {
@@ -1010,7 +1010,7 @@ public class CreatePage extends PageTemplate {
     }
 
     //预览提示中监控名称
-    @FindBy(xpath = "//div[@class='yotta-modal-body']/div[@class='HTIw3Zf6MVpXrv-OFu2L8']")
+    @FindBy(xpath = "//div[@class='yotta-modal-body']/div[1]")
     private WebElement previewAlertReminderText;
 
     public WebElement getPreviewAlertReminderText() {

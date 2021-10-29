@@ -8,6 +8,7 @@ Feature: 索引信息编辑（RZY-1477至1480）
   Scenario Outline:修改切分时间成功
     Given the data name is "{'column':'2','name':'AutoTestForsxc'}" then i click the "编辑" button
     Then I will see the "index.CreatePage" page
+
     And I set the parameter "DivideTime" with value "<divideTime>"
     And I choose the "<divideTimeDropDown>" from the "DivideTimeDropDown"
     And I click the "SavedButton" button

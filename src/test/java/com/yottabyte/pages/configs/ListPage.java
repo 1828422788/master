@@ -25,6 +25,7 @@ public class ListPage extends ListPageFactory {
     DropdownUtils dropdownUtils = new DropdownUtils();
 
     @FindBy(className = "yotta-spinner-spin")
+//    @FindBy(className = "yotta-spinner-container")
     private WebElement loading;
 
     @FindBy(className = "ant-modal-content")
@@ -36,7 +37,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[@class='el-dialog el-dialog--small']//tr")
     private List<WebElement> smallTr;
 
-    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']")
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//span[text()='请选择或输入']")
     private WebElement tagInputDiv;
     public WebElement getTagInputDiv(){
         return tagInputDiv;
@@ -57,7 +58,8 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "el-message-box__message")
     private WebElement message;
 
-    @FindBy(className = "ant-empty-description")
+//  @FindBy(className = "ant-empty-description")
+    @FindBy(className = "yotta-empty-description")
     private WebElement searchResultIsEmpty;
 
     @FindBy(xpath = "//ul[@yotta-test='operation-more-menu']/li/span[text()='授权']")
@@ -124,7 +126,7 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getTagGroup() {
-        return dropdownUtils.getDropdownList("标签");
+        return dropdownUtils.getDropdownList("resource_tag-change_resource_tag-select");
     }
 
     public WebElement getResourceGroupList() {

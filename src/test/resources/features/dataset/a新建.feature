@@ -17,14 +17,17 @@ Feature: 数据集-a新建
     And I choose the "app之api全部用例" from the "appList"
     And I wait for "2000" millsecond
     And I choose the "auto_ui" from the "ResourceGroupList"
+    Given I wait for loading complete
     And I click the "Save" button
 
     Then I will see the "dataset.DetailPage" page
-    And I wait for loading invisible
+    Given I wait for loading complete
    #返回列表页验证
-    And I click the "backList" button
+    And I click the "backList" button    And I click the "backList" button
 
-    And I wait for loading invisible
+#    Then I will see the "dataset.ListPage" page
+
+    Given I wait for loading complete
     Then I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'2','name':'jnd'}"
     And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'3','name':'无'}"
     And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'4','name':'app之api全部用例'}"

@@ -16,7 +16,7 @@ Feature: 报表新建_编辑_关系
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试"
+    And I wait for "ChosenTrendLast" will be visible
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
@@ -28,6 +28,7 @@ Feature: 报表新建_编辑_关系
     And I click the "<typeChart>" button
 
     When I click the "ParameterSetting" button
+    And I wait for "FieldValue" will be visible
     And I set the parameter "FieldValue" with value "<source>"
 
     And I click the "Target" button
@@ -66,7 +67,7 @@ Feature: 报表新建_编辑_关系
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试"
+    And I wait for "ChosenTrendLast" will be visible
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
@@ -78,6 +79,7 @@ Feature: 报表新建_编辑_关系
     And I click the "<typeChart>" button
 
     When I click the "ParameterSetting" button
+    And I wait for "FieldValue" will be visible
     And I set the parameter "FieldValue" with value "<source>"
 
     And I click the "Target" button
@@ -116,7 +118,7 @@ Feature: 报表新建_编辑_关系
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试"
+    And I wait for "ChosenTrendLast" will be visible
     And I click the "ChosenTrendLast" button
     And I click the "EditButton" button
 
@@ -128,6 +130,7 @@ Feature: 报表新建_编辑_关系
     And I click the "<typeChart>" button
 
     When I click the "ParameterSetting" button
+    And I wait for "FieldValue" will be visible
     And I set the parameter "FieldValue" with value "fromstate"
 
     And I click the "Target" button

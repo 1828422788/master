@@ -3,7 +3,7 @@ Feature: 全链路_批量操作
 
   Background:
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
-    And I wait for "3000" millsecond
+    And I wait for "Loading" will be invisible
 
   Scenario Outline: 创建全链路
     When I click the "Create" button

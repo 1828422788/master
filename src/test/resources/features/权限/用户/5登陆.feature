@@ -22,6 +22,7 @@ Feature: 用户登陆（RZY-1152、RZY-1153）
 
   Scenario Outline: 启用账号
     Given open the "users.ListPage" page for uri "/account/users/"
+    And I wait for loading invisible
     When the data name is "{'column':'3','name':'<name>'}" then i click the "启用" button
     Then I wait for "SuccessMessage" will be visible
 

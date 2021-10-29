@@ -45,7 +45,7 @@ Feature: 报表_布局设计
     And I click the "EditButton" button
     And I set the parameter "TrendNameField" with value "报表测试_1"
     And I click the "EnsureButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试_1"
+    Then I will see the element "LastTrendTitle" contains "报表测试_1"
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     And I click the "ChosenTrendLast" button
@@ -53,7 +53,7 @@ Feature: 报表_布局设计
     And I click the "EditButton" button
     And I set the parameter "TrendNameField" with value "报表测试_2"
     And I click the "EnsureButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试_2"
+    Then I will see the element "LastTrendTitle" contains "报表测试_2"
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     And I click the "ChosenTrendLast" button
@@ -61,7 +61,7 @@ Feature: 报表_布局设计
     And I click the "EditButton" button
     And I set the parameter "TrendNameField" with value "报表测试_3"
     And I click the "EnsureButton" button
-    Then I will see the element "ChosenTrendLast" contains "报表测试_3"
+    Then I will see the element "LastTrendTitle" contains "报表测试_3"
 
     And I click the "Layout<layout>" button
     And I will see the "Badge1" is display

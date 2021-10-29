@@ -216,12 +216,12 @@ public class ListPage extends PageTemplate {
 
 
     public WebElement getGroupButton() {
-        String xpath = "//ul[@class='_2FuqHHfRc-c7BJzf3RvYta']//span[text()='sunxctest']";
+        String xpath = "//ul[@class='_1TZwQL-XuZ_YtCVKccMfCv']//span[text()='sunxctest']";
         return webDriver.findElement(By.xpath(xpath));
     }
 
     public WebElement getMoveGroupButton() {
-        String xpath = "//li[@class='_2YNvVzZq0iDG7om4qpUbnZ u2IISjUg-4utuzI7OuxuR']/span[text()='sunxctest']";
+        String xpath = "//ul[@class='_1TZwQL-XuZ_YtCVKccMfCv']//span[text()='sunxctest']";
         return webDriver.findElement(By.xpath(xpath));
     }
 
@@ -255,6 +255,11 @@ public class ListPage extends PageTemplate {
         String xpath =  "//span[@class='yotta-message-content']";
         WebElement element =  webDriver.findElement(By.xpath(xpath));
         return element;
+    }
+    @FindBy(xpath = "//span[@class='events-title']")
+    private WebElement EventsTitle;
+    public WebElement getEventsTitle(){
+        return EventsTitle;
     }
 
     public ListPage(WebDriver driver) {

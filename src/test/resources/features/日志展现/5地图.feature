@@ -23,8 +23,8 @@ Feature: 日志展现_地图
     And I wait for "2000" millsecond
     And I wait for "<chartType>Element" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
-    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图_<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/5地图_<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图_<caseNum>_<chartType>"
 
     Examples:
       |   chartType   |   caseNum  |   spl   |
@@ -61,8 +61,8 @@ Feature: 日志展现_地图
     And I wait for "2000" millsecond
     And I wait for "<chartType>Element" will be visible
     And I wait for "3000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<regionBut>_<chartType>"
-    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<regionBut>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<regionBut>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图_<caseNum>_<regionBut>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/5地图_<caseNum>_<regionBut>_<chartType>" with target image "expect/高级搜索视图/5地图_<caseNum>_<regionBut>_<chartType>"
 
     Examples:
       |chartType|      source     |  sourceLon | sourceLat  | target     | targetLon | targetLat |  weight | regionBut |caseNum  |
@@ -86,8 +86,8 @@ Feature: 日志展现_地图
     And I wait for "2000" millsecond
     And I wait for "<chartType>DarkElement" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
-    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图_<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/5地图_<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图_<caseNum>_<chartType>"
 
     Examples:
       |chartType|caseNum  |   spl   |
@@ -115,8 +115,8 @@ Feature: 日志展现_地图
     And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>_<region>"
-    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>_<region>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>_<region>"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图_<caseNum>_<chartType>_<region>"
+    Then I compare source image "actual/高级搜索视图/5地图_<caseNum>_<chartType>_<region>" with target image "expect/高级搜索视图/5地图_<caseNum>_<chartType>_<region>"
 
     Examples:
       |chartType| divideField         |  region |caseNum  |   spl   |
@@ -143,20 +143,20 @@ Feature: 日志展现_地图
     And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/World"
-    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/World" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/World"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图_<caseNum>_<chartType>_World"
+    Then I compare source image "actual/高级搜索视图/5地图_<caseNum>_<chartType>_World" with target image "expect/高级搜索视图/5地图_<caseNum>_<chartType>_World"
 
     When I click the Circle "CountryChina" button
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/China"
-    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/China" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/China"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图_<caseNum>_<chartType>_China"
+    Then I compare source image "actual/高级搜索视图/5地图_<caseNum>_<chartType>_China" with target image "expect/高级搜索视图/5地图_<caseNum>_<chartType>_China"
 
     When I click the Circle "ProvinceJiangsu" button
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu"
-    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图_<caseNum>_<chartType>_Jiangsu"
+    Then I compare source image "actual/高级搜索视图/5地图_<caseNum>_<chartType>_Jiangsu" with target image "expect/高级搜索视图/5地图_<caseNum>_<chartType>_Jiangsu"
 
     Examples:
       |chartType|  region | provinceDrilldown   | cityDrilldown   |caseNum  |   spl   |
@@ -175,8 +175,8 @@ Feature: 日志展现_地图
     And I wait for "Chart" will be visible
     And I will see the "<chartType>Element" is display
     And I wait for "3000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
-#    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图_<caseNum>_<chartType>"
+#    Then I compare source image "actual/高级搜索视图/5地图_<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图_<caseNum>_<chartType>"
 
     Examples:
       |chartType   |caseNum  |   spl   |
@@ -207,8 +207,8 @@ Feature: 日志展现_地图
     And I wait for "2000" millsecond
     And I will see the "<chartType>Element" is display
     And I wait for "3000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
-#    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图_<caseNum>_<chartType>"
+#    Then I compare source image "actual/高级搜索视图/5地图_<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图_<caseNum>_<chartType>"
 
     Examples:
       |chartType   | caseNum  |   spl   |
@@ -238,8 +238,8 @@ Feature: 日志展现_地图
     And I wait for "Chart" will be visible
     And I will see the "<chartType>Element" is display
     And I wait for "3000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
-#    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图_<caseNum>_<chartType>"
+#    Then I compare source image "actual/高级搜索视图/5地图_<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图_<caseNum>_<chartType>"
 
     Examples:
       |chartType   | caseNum  |   spl   |
@@ -269,8 +269,8 @@ Feature: 日志展现_地图
     And I click the "DeleteMin" button
     And I click the "HideElement" button
     And I wait for "3000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
-#    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图_<caseNum>_<chartType>"
+#    Then I compare source image "actual/高级搜索视图/5地图_<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图_<caseNum>_<chartType>"
 
     Examples:
       |chartType   | caseNum  |   spl   |
@@ -295,8 +295,8 @@ Feature: 日志展现_地图
     And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
-    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图_<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/5地图_<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图_<caseNum>_<chartType>"
 
     Examples:
       |chartType|caseNum        |   spl   |
@@ -327,8 +327,8 @@ Feature: 日志展现_地图
     And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>_<region>"
-    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>_<region>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>_<region>"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图_<caseNum>_<chartType>_<region>"
+    Then I compare source image "actual/高级搜索视图/5地图_<caseNum>_<chartType>_<region>" with target image "expect/高级搜索视图/5地图_<caseNum>_<chartType>_<region>"
 
     Examples:
       |chartType| divideField         |  region |caseNum      |   spl   |
@@ -360,20 +360,20 @@ Feature: 日志展现_地图
     And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/World_white"
-    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/World_white" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/World_white"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图_<caseNum>_<chartType>_World_white"
+    Then I compare source image "actual/高级搜索视图/5地图_<caseNum>_<chartType>_World_white" with target image "expect/高级搜索视图/5地图_<caseNum>_<chartType>_World_white"
 
     When I click the Circle "OpenChina" button
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/China_white"
-    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/China_white" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/China_white"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图_<caseNum>_<chartType>_China_white"
+    Then I compare source image "actual/高级搜索视图/5地图_<caseNum>_<chartType>_China_white" with target image "expect/高级搜索视图/5地图_<caseNum>_<chartType>_China_white"
 
     When I click the Circle "OpenJiangsu" button
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu_white"
-    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu_white" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu_white"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图_<caseNum>_<chartType>_Jiangsu_white"
+    Then I compare source image "actual/高级搜索视图/5地图_<caseNum>_<chartType>_Jiangsu_white" with target image "expect/高级搜索视图/5地图_<caseNum>_<chartType>_Jiangsu_white"
 
     Examples:
       |chartType| divideField         |  region |caseNum  |   spl   |
@@ -399,8 +399,8 @@ Feature: 日志展现_地图
     And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
-    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图_<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/5地图_<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图_<caseNum>_<chartType>"
 
     Examples:
       |   chartType   |   caseNum  |   spl   |
@@ -431,8 +431,8 @@ Feature: 日志展现_地图
     And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
-    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图_<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/5地图_<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图_<caseNum>_<chartType>"
 
     Examples:
       |   chartType   |   caseNum  |   spl   |

@@ -3,7 +3,7 @@ Feature: 全链路_2解析规则配置
 
   Background:
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
-    And I wait for "3000" millsecond
+    And I wait for "Loading" will be invisible
     When the data name is "AutoTest" then i click the "编辑" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "3000" millsecond
@@ -24,7 +24,7 @@ Feature: 全链路_2解析规则配置
     And I wait for "SuccessMessage" will be invisible
     And I click the "Preview" button
     And I wait for "Message" will be visible
-    And I will see the element "Message" contains "请检查链路图解析规则配置"
+    And I will see the element "Message" contains "请检查链路解析规则配置"
 
   Scenario Outline: 解析规则配置
     And I choose the "链路解析规则配置" from the "Settings"

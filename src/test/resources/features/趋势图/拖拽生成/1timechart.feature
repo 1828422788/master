@@ -35,7 +35,7 @@ Feature: 趋势图_拖拽_timechart
     And I set the parameter "Span" with value "<span>"
     And I set the parameter "MinSpan" with value "<minspan>"
     And I set the parameter "Bins" with value "<bins>"
-    And I hide the element "Panel"
+    And I click the "HideElement" button
     And I wait for "ElementInValues" will be visible
     And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
@@ -43,7 +43,7 @@ Feature: 趋势图_拖拽_timechart
     When I click the "ElementInValues" button
     And I wait for "2000" millsecond
     And I choose the "<comparePeriod>" from the "CompareField" in config
-    And I click the "Timestamp" button
+    And I click the "HideElement" button
     And I click the "Yaxis" button
     And I wait for "Min" will be visible
     And I click the "<button>" button
@@ -62,6 +62,7 @@ Feature: 趋势图_拖拽_timechart
     And I choose the "0" from the "Precision"
     And I wait for "Chart" will be visible
 
+    And I click the "HideElement" button
     And I click the "CheckSPL" button
     And I wait for "SPL" will be visible
     And I will see the element "SPL" contains "<SPLcheck>"

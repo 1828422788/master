@@ -24,7 +24,7 @@ Feature: Agent编辑Syslog类型数据源
     And I set the parameter "Syslogtag" with value "autohekaSyslog"
     And I click the "Next" button
     And I wait for "Finish" will be visible
-  #    And I will see the element "CheckListenaddress" name is "192.168.1.139:514"  ！！！！！创建syslog的数据源为进入agent的本机IP
+#    And I will see the element "CheckListenaddress" name is "192.168.1.139:514"  ！！！！！创建syslog的数据源为进入agent的本机IP
 #    And I wait for loading invisible
     And I click the "Finish" button
     And I will see the element "Addsuccessmsg" name is "添加成功"
@@ -76,7 +76,7 @@ Feature: Agent编辑Syslog类型数据源
     And I set the parameter "SyslogEditip" with value "<ipkind>"
     And I wait for loading invisible
     And I click the "Ensure" button
-    Then I will see the element "PreviewMessage" name is "格式错，192.168.1.60 或 *.*.*.* 或 1:2::3 或 1:2:3:4:0:*:5:6"
+    Then I will see the element "PreviewMessage1" name is "格式错，192.168.1.60 或 *.*.*.* 或 1:2::3 或 1:2:3:4:0:*:5:6"
 
     Examples:
       | ipkind |
@@ -105,7 +105,7 @@ Feature: Agent编辑Syslog类型数据源
     And I set the parameter "SyslogEditappname" with value "<appnamekind>"
     And I wait for loading invisible
     And I click the "Ensure" button
-    Then I will see the element "PreviewMessage" name is "请以字母或数字下划线为元素"
+    Then I will see the element "PreviewMessage1" name is "请以字母或数字下划线为元素"
 
 
     Examples:
@@ -133,7 +133,7 @@ Feature: Agent编辑Syslog类型数据源
     And I set the parameter "SyslogEdittag" with value "<tagkind>"
     And I wait for loading invisible
     And I click the "Ensure" button
-    Then I will see the element value in json "{'PreviewMessage':'请以字母、数字、中文或下划线为元素,tags 之间可用 "," 分隔。'}"
+    Then I will see the element value in json "{'PreviewMessage1':'请以字母、数字、中文或下划线为元素,tags 之间可用 "," 分隔。'}"
 
 
     Examples:

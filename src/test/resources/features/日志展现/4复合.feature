@@ -37,8 +37,8 @@ Feature: 日志展现_复合
     And I will see the "ScatterChartElement" is display
     And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/4复合/<caseNum>_<chartType>"
-    Then I compare source image "actual/高级搜索视图/4复合/<caseNum>_<chartType>" with target image "expect/高级搜索视图/4复合/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/4复合_<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/4复合_<caseNum>_<chartType>" with target image "expect/高级搜索视图/4复合_<caseNum>_<chartType>"
 
     Examples:
       | xValue | actualValue|  predictedValue| upperValue | lowerValue |   chartType   |   caseNum  |   spl   |
@@ -110,8 +110,8 @@ Feature: 日志展现_复合
     And I will see the element "Legend" contains "404"
     And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/4复合/<caseNum>_<chartType>"
-    Then I compare source image "actual/高级搜索视图/4复合/<caseNum>_<chartType>" with target image "expect/高级搜索视图/4复合/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/4复合_<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/4复合_<caseNum>_<chartType>" with target image "expect/高级搜索视图/4复合_<caseNum>_<chartType>"
 
     Examples:
       |   chartType   | caseNum  |   spl   |
@@ -185,8 +185,8 @@ Feature: 日志展现_复合
     And I will see the element "Legend" contains "sum(apache.status)"
     And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/4复合/<caseNum>_<chartType>"
-    Then I compare source image "actual/高级搜索视图/4复合/<caseNum>_<chartType>" with target image "expect/高级搜索视图/4复合/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/4复合_<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/4复合_<caseNum>_<chartType>" with target image "expect/高级搜索视图/4复合_<caseNum>_<chartType>"
 
     Examples:
       |   chartType   | caseNum  |   spl   |

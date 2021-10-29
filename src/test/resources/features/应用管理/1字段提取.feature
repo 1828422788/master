@@ -63,7 +63,7 @@ Feature: 应用字段提取（RZY-2129）
   Scenario Outline: 验证单个资源的app资源范围是否正确
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "<name>" then i click the "打开" button in more menu
+    When  I click the detail which name is "<name>"
     And I will see the "app.AppPage" page
     And I wait for loading invisible
     And I wait for "EmptyText" will be visible
@@ -76,7 +76,7 @@ Feature: 应用字段提取（RZY-2129）
   Scenario: 新建字段提取
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "ConfigsApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "ConfigsApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "configs.ListPage" page
@@ -108,7 +108,7 @@ Feature: 应用字段提取（RZY-2129）
   Scenario Outline: 复制字段提取
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "ConfigsApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "ConfigsApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "configs.ListPage" page
@@ -127,7 +127,7 @@ Feature: 应用字段提取（RZY-2129）
   Scenario: 编辑字段提取
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "ConfigsApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "ConfigsApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "configs.ListPage" page
@@ -148,7 +148,7 @@ Feature: 应用字段提取（RZY-2129）
   Scenario: 验证所属app生效及修改标签
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "ConfigsApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "ConfigsApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "configs.ListPage" page
@@ -170,7 +170,7 @@ Feature: 应用字段提取（RZY-2129）
   Scenario: 按照标签搜索
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "ConfigsApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "ConfigsApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "configs.ListPage" page
@@ -183,7 +183,7 @@ Feature: 应用字段提取（RZY-2129）
   Scenario Outline: 上传字典管理
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "ConfigsApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "ConfigsApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     And I click the "Dictionary" button
@@ -206,7 +206,7 @@ Feature: 应用字段提取（RZY-2129）
   Scenario: 字典管理标签
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "ConfigsApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "ConfigsApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     And I click the "Dictionary" button
@@ -226,7 +226,7 @@ Feature: 应用字段提取（RZY-2129）
   Scenario: 根据标签搜索字典
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "ConfigsApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "ConfigsApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     And I click the "Dictionary" button
@@ -244,7 +244,7 @@ Feature: 应用字段提取（RZY-2129）
   Scenario: 根据名称搜索字典
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "ConfigsApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "ConfigsApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     And I click the "Dictionary" button
@@ -261,7 +261,7 @@ Feature: 应用字段提取（RZY-2129）
   Scenario: 编辑字典
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "ConfigsApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "ConfigsApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     And I click the "Dictionary" button
@@ -313,7 +313,7 @@ Feature: 应用字段提取（RZY-2129）
   Scenario Outline: 删除字典管理
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "ConfigsApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "ConfigsApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     And I click the "Dictionary" button
@@ -334,7 +334,7 @@ Feature: 应用字段提取（RZY-2129）
   Scenario Outline: 删除字段提取
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "ConfigsApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "ConfigsApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     And I wait for "500" millsecond

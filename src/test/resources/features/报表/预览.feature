@@ -13,7 +13,7 @@ Feature: 报表_预览_all
     And I wait for element "SelectedUser" change text to username
     And I click the "NextButton" button under some element
     And I wait for "5000" millsecond
-    Then I will see the element "ChosenTrendLast" contains "<name>"
+    Then I will see the element "LastTrendTitle" contains "<name>"
     And I choose the "下载到本地预览" from the "Preview"
     And I wait for "10000" millsecond
     And I wait for "SuccessMessage" will be invisible
@@ -37,7 +37,11 @@ Feature: 报表_预览_all
       |   Sun                |
       |   Bar1               |
       |   Bar2               |
+      |   Bar3               |
+      |   Bar4               |
       |   Sunburst           |
+      |   Pie_1              |
+      |   Pie_2              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -50,7 +54,8 @@ Feature: 报表_预览_all
       |   Attackmap_China    |
       |   Regionmap_World    |
       |   Regionmap_China    |
-      |   Regionmap_Jiangsu  |
+      |   Regionmap_Jiangsu_1|
+      |   Regionmap_Jiangsu_2|
       |   Single             |
       |   Single_icon        |
       |   Single_range_backgr|
@@ -96,7 +101,11 @@ Feature: 报表_预览_all
       |   Sun                |
       |   Bar1               |
       |   Bar2               |
+      |   Bar3               |
+      |   Bar4               |
       |   Sunburst           |
+      |   Pie_1              |
+      |   Pie_2              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -109,7 +118,8 @@ Feature: 报表_预览_all
       |   Attackmap_China    |
       |   Regionmap_World    |
       |   Regionmap_China    |
-      |   Regionmap_Jiangsu  |
+      |   Regionmap_Jiangsu_1|
+      |   Regionmap_Jiangsu_2|
       |   Single             |
       |   Single_icon        |
       |   Single_font        |
@@ -130,7 +140,7 @@ Feature: 报表_预览_all
     And I wait for element "SelectedUser" change text to username
     And I click the "NextButton" button under some element
     And I wait for "5000" millsecond
-    Then I will see the element "ChosenTrendLast" contains "<name>"
+    Then I will see the element "LastTrendTitle" contains "<name>"
     And I choose the "下载到本地预览" from the "Preview"
     And I wait for "10000" millsecond
     And I wait for "SuccessMessage" will be invisible
@@ -154,7 +164,11 @@ Feature: 报表_预览_all
       |   Sun                |
       |   Bar1               |
       |   Bar2               |
+      |   Bar3               |
+      |   Bar4               |
       |   Sunburst           |
+      |   Pie_1              |
+      |   Pie_2              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -167,7 +181,8 @@ Feature: 报表_预览_all
       |   Attackmap_China    |
       |   Regionmap_World    |
       |   Regionmap_China    |
-      |   Regionmap_Jiangsu  |
+      |   Regionmap_Jiangsu_1|
+      |   Regionmap_Jiangsu_2|
       |   Single             |
 #      |   Single_icon        |
 #      |   Single_font        |

@@ -42,6 +42,7 @@ public class SharedDriver extends EventFiringWebDriver {
     private static final Thread CLOSE_THREAD = new Thread() {
         @Override
         public void run() {
+            System.out.println("chsfinduml==============================================[last10]");
             REAL_DRIVER.close();
             if (service != null && service.isRunning()) {
                 service.stop();
@@ -106,7 +107,7 @@ public class SharedDriver extends EventFiringWebDriver {
 //        REAL_DRIVER.manage().window().fullscreen();
         REAL_DRIVER.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         REAL_DRIVER.manage().timeouts().pageLoadTimeout(5, TimeUnit.MINUTES);
-        System.out.println("chsfinduml==============================================[12]");
+        System.out.println("chsfinduml==============================================[12_2]SharedDriver()");
     }
 
     @Override
@@ -154,7 +155,7 @@ public class SharedDriver extends EventFiringWebDriver {
      * @return
      */
     private static DesiredCapabilities ChromeDes() {
-        System.out.println("chsfinduml==============================================[14]");
+        System.out.println("chsfinduml==============================================[12_11]static DesiredCapabilities ChromeDes()");
         String sp = File.separator;
         ConfigManager config = new ConfigManager();
         try {
@@ -190,7 +191,7 @@ public class SharedDriver extends EventFiringWebDriver {
 
 
     private static DesiredCapabilities LocalChromeDes() {
-        System.out.println("chsfinduml==============================================[15]");
+        System.out.println("chsfinduml==============================================[12_11]static DesiredCapabilities LocalChromeDes()");
         String sp = File.separator;
         String downloadFilepath = System.getProperty("user.dir") + sp + "target" + sp + "download-files";
         try {
@@ -281,7 +282,6 @@ public class SharedDriver extends EventFiringWebDriver {
     }
 
     private static LoggingPreferences getLogPreferences() {
-        System.out.println("chsfinduml==============================================[16]");
         LoggingPreferences logPrefs = new LoggingPreferences();
         logPrefs.enable(LogType.PERFORMANCE, Level.ALL);
         logPrefs.enable(LogType.BROWSER, Level.ALL);

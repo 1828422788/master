@@ -59,7 +59,8 @@ Feature: 应用仪表盘
   Scenario Outline: 验证单个资源的app资源范围是否正确
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "<name>" then i click the "打开" button in more menu
+    When  I click the detail which name is "<name>"
+    #When the data name is "<name>" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I wait for loading invisible
     And I wait for "EmptyText" will be visible
@@ -72,7 +73,7 @@ Feature: 应用仪表盘
   Scenario: 新建仪表盘
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "DashboardApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "DashboardApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "DashboardApp"
     Then I will see the "dashboard.ListPage" page
@@ -84,7 +85,7 @@ Feature: 应用仪表盘
   Scenario Outline: 仪表盘详情页
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "DashboardApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "DashboardApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "DashboardApp"
     Then I will see the "dashboard.ListPage" page
@@ -131,7 +132,8 @@ Feature: 应用仪表盘
   Scenario: 按照名称搜索
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "DashboardApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "DashboardApp"
+    #When the data name is "DashboardApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "DashboardApp"
     Then I will see the "dashboard.ListPage" page
@@ -145,7 +147,7 @@ Feature: 应用仪表盘
   Scenario: 重命名仪表盘
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "DashboardApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "DashboardApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "DashboardApp"
     Then I will see the "dashboard.ListPage" page
@@ -158,7 +160,7 @@ Feature: 应用仪表盘
   Scenario: 仪表盘标签
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "DashboardApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "DashboardApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "DashboardApp"
     Then I will see the "dashboard.ListPage" page
@@ -175,7 +177,7 @@ Feature: 应用仪表盘
   Scenario Outline: 删除仪表盘
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "DashboardApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "DashboardApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "DashboardApp"
     And I click the "Dashboard" button
@@ -192,7 +194,7 @@ Feature: 应用仪表盘
       | 仪表盘验证App |
       | 仪表盘重命名   |
 
-  Scenario Outline: 修改app资源范围
+  Scenario Outline: 修改app资源范围---bug
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "<name>" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
@@ -204,10 +206,10 @@ Feature: 应用仪表盘
       | name         |
       | DashboardApp |
 
-  Scenario: 验证资源范围修改成功并删除app外资源
+  Scenario: 验证资源范围修改成功并删除app外资源---bug
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "DashboardApp" then i click the "打开" button in more menu
+    When  I click the detail which name is "DashboardApp"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "DashboardApp"
     And I click the "Dashboard" button

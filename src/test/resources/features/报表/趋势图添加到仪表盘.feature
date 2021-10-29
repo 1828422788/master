@@ -70,11 +70,13 @@ Feature:趋势图添加到仪表盘保存为报表
     | 维度     | Bar          |
     | 维度     | Bar2         |
     | 维度     | Sun          |
+    | 维度     | Flame        |
     | 关系     | Sankey       |
     | 关系     | Force        |
     | 复合     | Multiaxis    |
     | 地图     | Attackmap    |
     | 地图     | Regionmap    |
+    | 其他     | Ring         |
     | 其他     | Liquidfill   |
     | 其他     | Wordcloud    |
     | 其他     | Radar        |
@@ -125,6 +127,8 @@ Feature:趋势图添加到仪表盘保存为报表
       | 维度     | Pie          | Pie_不展示                      |
       | 维度     | Pie          | Pie_只展示名称                  |
       | 维度     | Pie          | Pie_全部展示                    |
+      | 维度     | Pie          | Pie_2                           |
+      | 维度     | Pie          | Pie_3                           |
       | 维度     | Rose         | Rose_2858                       |
       | 维度     | Rose         | Rose_不展示                     |
       | 维度     | Rose         | Rose_只展示名称                 |
@@ -142,6 +146,7 @@ Feature:趋势图添加到仪表盘保存为报表
       | 维度     | Bar2         | Bar_全部展示_柱状内靠右侧       |
       | 维度     | Bar2         | Bar_不展示                      |
       | 维度     | Sun          | Sun_2850                        |
+      | 维度     | Flame        | Flame_DrillIn                   |
       | 关系     | Chord        | Chord_2505                      |
       | 关系     | Sankey       | Sankey_2507                     |
       | 关系     | Sankey       | Sankey_Multistage               |
@@ -162,6 +167,8 @@ Feature:趋势图添加到仪表盘保存为报表
       | 其他     | Single       | Single_backgr                   |
       | 其他     | Single       | Single_rangeF                   |
       | 其他     | Single       | Single_rangeB                   |
+      | 其他     | Ring         | Ring_onefield                   |
+      | 其他     | Ring         | Ring_twofields                  |
       | 其他     | Liquidfill   | Liquidfill_percent              |
       | 其他     | Wordcloud    | Wordcloud_2625                  |
       | 其他     | Radar        | Radar_2633                      |
@@ -213,6 +220,7 @@ Feature:趋势图添加到仪表盘保存为报表
       | 维度          | Bar          |
       | 维度          | Bar2         |
       | 维度          | Sun          |
+      | 维度          | Flame        |
       | 关系          | Chord        |
       | 关系          | Sankey       |
       | 关系          | Force        |
@@ -222,6 +230,7 @@ Feature:趋势图添加到仪表盘保存为报表
       | 地图          | Attackmap    |
       | 地图          | Regionmap    |
       | 其他          | Single       |
+      | 其他          | Ring         |
       | 其他          | Liquidfill   |
       | 其他          | Wordcloud    |
       | 其他          | Funnel       |
@@ -253,6 +262,7 @@ Feature:趋势图添加到仪表盘保存为报表
       | Bar          |
       | Bar2         |
       | Sun          |
+      | Flame        |
       | Chord        |
       | Sankey       |
       | Force        |
@@ -262,6 +272,7 @@ Feature:趋势图添加到仪表盘保存为报表
       | Attackmap    |
       | Regionmap    |
       | Single       |
+      | Ring         |
       | Liquidfill   |
       | Wordcloud    |
       | Funnel       |

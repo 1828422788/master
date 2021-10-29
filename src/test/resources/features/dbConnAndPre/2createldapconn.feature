@@ -6,7 +6,6 @@ Feature: 新建ldap连接配置
     And I click the "CreateLdapConn" button
 
     Then I will see the "dbConnectionPre.EditPage" page
-
     And I wait for loading complete
     And I wait for "2000" millsecond
 
@@ -17,8 +16,11 @@ Feature: 新建ldap连接配置
     And I set the parameter "NewBindDnName" with value "<NewBindDnName>"
     And I set the parameter "LdapUserPassword" with value "<LdapUserPassword>"
     And I click the "LdapConnVerifyButton" button
-    And I click the "SaveButton" button
-    And I will see the success message contains "成功"
+    Given I wait for loading complete
+    And I click1 the "SaveButton" button
+    Given I wait for loading complete
+    Then I will see the message contains "创建成功"
+    And I click the "ConfirmButton" button
 
     Examples:
       | NewLdapConnName | NewBaseDName      | NewLdapHost   | NewLdapConnPort | NewBindDnName              | LdapUserPassword |

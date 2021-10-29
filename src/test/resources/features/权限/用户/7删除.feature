@@ -3,6 +3,7 @@ Feature: 用户删除
 
   Scenario Outline: 删除用户成功
     Given open the "users.ListPage" page for uri "/account/users/"
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
     And I click the "EnsureButton" button
 #    And I refresh the website

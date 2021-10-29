@@ -4,7 +4,7 @@ Feature: 应用路由管理
   Background:
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    When the data name is "AutoTestAppWithAllResources" then i click the "打开" button in more menu
+    When  I click the detail which name is "AutoTestAppWithAllResources"
     Then I will see the "app.AppPage" page
     And I click the "Indexsetting" button
     And I will see the element "Title" name is "AutoTestAppWithAllResources"
