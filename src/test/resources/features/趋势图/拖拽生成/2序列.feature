@@ -211,7 +211,7 @@ Feature: 趋势图_拖拽_序列
     And I wait for "Chart" will be visible
     When I click the "ElementInValues" button
     And I wait for "Panel" will be visible
-    And I wait for "1000" will be visible
+    And I wait for "1000" millsecond
     And I choose the "<comparePeriod>" from the "CompareField" in config
     And I click the "HideElement" button
     And I click the "Yaxis" button

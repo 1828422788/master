@@ -1,10 +1,10 @@
-@indexSetting
+@indexSetting @indexSettingSmoke
 Feature: topic编辑（RZY-2428）
 
   Background:
-    Given open the "index.TopicSetting" page for uri "/indexmatchrules/topicsettings/"
+    Given open the "index.TopicSetting" page for uri "/topicsettings/"
 
-  Scenario Outline:
+  Scenario Outline:编辑topic
     When the data name is "topictest" then i click the "编辑" button
     And I set the parameter "Describe" with value "<describe>"
     And I click the "EnsureButton" button
@@ -13,7 +13,7 @@ Feature: topic编辑（RZY-2428）
   @second @indexSettingSmoke
     Examples:
       | describe      | message                |
-      | 描述test描述，点击保存 | success message "更新成功" |
+      | 测试topic编辑功能 | success message "更新成功" |
 
     Examples: RZY-2427
       | describe                                                                                                                                                                                                                                                        | message                     |

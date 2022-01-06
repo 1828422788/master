@@ -48,11 +48,12 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "LastTag" will be visible
-    And I open the context menu of the "LastTag" element
+    And I click the "ShowDashboards" button
+    And I wait for "LastDashboard" will be visible
+    And I open the context menu of the "LastDashboard" element
     And I wait for "500" millsecond
-    And I wait for "CreatNewTag" will be visible
-    And I click the "CreatNewTag" button
+    And I wait for "CreateNewTag" will be visible
+    And I click the "CreateNewTag" button
     When I set the parameter "TagName" with value "forDelete"
     And I click the "EnsureCreateTagButton" button
     And I wait for "3000" millsecond
@@ -68,6 +69,7 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I open the context menu of the "LastTag" element
 #    And I click the "First" button
@@ -91,6 +93,7 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I open the context menu of the "LastTag" element
     And I wait for "500" millsecond
@@ -131,9 +134,9 @@ Feature: 仪表盘03详情页
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
-    Then I will see the element "EditLayout" attribute "class" is "yotta-menu-item css-1jwdms"
-    Then I will see the element "ManualRefresh" attribute "class" is "yotta-menu-item css-1jwdms"
-    Then I will see the element "AutoRefresh" attribute "class" is "yotta-menu-item css-1jwdms"
+    Then I will see the element "EditLayout" attribute "class" is "yotta-menu-item css"
+    Then I will see the element "ManualRefresh" attribute "class" is "yotta-menu-item css"
+    Then I will see the element "AutoRefresh" attribute "class" is "yotta-menu-item css"
     And I switch the dashboard "OpenEdit" button to "disable"
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "编辑功能已禁用"
@@ -176,11 +179,12 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
-    And I open the context menu of the "LastTag" element
+    And I open the context menu of the "LastDashboard" element
     And I wait for "500" millsecond
-    And I wait for "CreatNewTag" will be visible
-    And I click the "CreatNewTag" button
+    And I wait for "CreateNewTag" will be visible
+    And I click the "CreateNewTag" button
     When I set the parameter "TagName" with value "testSearch"
     And I click the "EnsureCreateTagButton" button
     And I wait for "3000" millsecond
@@ -196,6 +200,7 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I open the context menu of the "TestSearch" element
     And I click the "SetAsDefault" button
@@ -212,6 +217,7 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I set the parameter "searchTagInput" with value "UIautotest"
     And I wait for loading invisible
     Then I will see the "FirstAutoTest" doesn't exist
@@ -254,6 +260,7 @@ Feature: 仪表盘03详情页
     And I click the "SettingIcon" button
     And I click the "CopyTag" button
     And I wait for "3000" millsecond
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     Then I will see the element "LastTag" value is "testSearch_copy"
 
@@ -391,6 +398,10 @@ Feature: 仪表盘03详情页
   @cleanDashboard03 @cleanDashboard031
   Scenario Outline: 删除验证仪表盘全局时间趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
+    And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "<name>"
+    Given I wait for loading complete
+    And I wait for "3000" millsecond
     When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button

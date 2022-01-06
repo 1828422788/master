@@ -97,7 +97,7 @@ Feature: 应用报表（RZY-2127）
     Then I will see the "app.AppPage" page
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.ListPage" page
-    When I click the "Create" button
+    And I click the "NewReportButton" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.CreatePage" page
@@ -205,7 +205,7 @@ Feature: 应用报表（RZY-2127）
 
   Scenario: 新建无所属应用的报表
     Given open the "report.ListPage" page for uri "/reports/"
-    And I click the "Create" button
+    And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "无app"
     And I choose the "PDF" from the "ReportType"

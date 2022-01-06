@@ -5,7 +5,8 @@ Feature: Agent具体配置高级配置及清理缓存操作
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
     And I zoom the browse to full screen
     And I wait for loading invisible
-    When I click the detail which column is "0" in agent page
+#    When I click the detail which column is "0" in agent page
+    When I click the detail which name is "253" in agent page
     And switch to another window
     And I close all tabs except main tab
     And I wait for loading invisible
@@ -75,7 +76,7 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I wait for "ChangeMemo" will be visible
 #    Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
-  Scenario: 输出配置关闭输出压缩
+  Scenario: 输出配置开启输出压缩
     And I click the "OutputEdit" button
     And I click the "Editconfig" button
     And I wait for "1000" millsecond
@@ -85,7 +86,7 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I wait for "5000" millsecond
     And I will see the element "CompressStatus" name is "开启"
 
-  Scenario: 输出配置开启输出压缩
+  Scenario: 输出配关闭输出压缩
     And I click the "OutputEdit" button
     And I click the "Editconfig" button
     And I wait for "1000" millsecond

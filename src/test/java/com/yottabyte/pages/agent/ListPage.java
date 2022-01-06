@@ -79,6 +79,11 @@ public class ListPage extends PageTemplate {
 //        return super.getButton("下载文件");
         return DownloadFile;
     }
+    @FindBy(xpath = "//tbody/tr[1]/td[1]//a[@yotta-test='agent-open_detail-dom']")
+    private WebElement ListName;
+    public WebElement getListName(){
+        return ListName;
+    }
 
     @FindBy(xpath = "//li/span[text()='下载安装包']")
     private WebElement AgentDownloadButton;
@@ -180,6 +185,11 @@ public class ListPage extends PageTemplate {
         String xpath = "//span[text()='高级']/ancestor::button";
         return webDriver.findElement(By.xpath(xpath));
     }
+    @FindBy(xpath = "//span[text()='192.168.1.139']")
+    private WebElement AgentOTN;
+    public WebElement getAgentOTN(){
+        return AgentOTN;
+    }
     public WebElement getInputElement(String text) {
         String xpath = "//input[contains(@placeholder,' " + text + "')]";
         return webDriver.findElement(By.xpath(xpath));
@@ -210,23 +220,25 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getFinishButton() {
-        String xpath = "//span[text()='完成']//ancestor::button)[1]";
+        String xpath = "//span[text()='完成']";
         return webDriver.findElement(By.xpath(xpath));
     }
 
 
     public WebElement getGroupButton() {
-        String xpath = "//ul[@class='_1TZwQL-XuZ_YtCVKccMfCv']//span[text()='sunxctest']";
+        String xpath = "//div[@class='yotta-spinner-container']//span[text()='sunxctest']";
         return webDriver.findElement(By.xpath(xpath));
     }
 
     public WebElement getMoveGroupButton() {
-        String xpath = "//ul[@class='_1TZwQL-XuZ_YtCVKccMfCv']//span[text()='sunxctest']";
+        String xpath = "//div[@class='yotta-spinner-container']//span[text()='sunxctest']";
         return webDriver.findElement(By.xpath(xpath));
     }
 
+    @FindBy(xpath = "//label[text()='备注']//ancestor::div[@role='dialog']//span[text()='确定']//ancestor::button")
+    private WebElement MemoEnsure;
     public WebElement getMemoEnsure() {
-        return super.getYottaButtonByText("确定");
+        return MemoEnsure;
     }
 
     @FindBy(xpath = "//p/span[text()='sunxctest']")

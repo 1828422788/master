@@ -1,5 +1,5 @@
 @reportCreateCharts @allReports @reportChartsWORD
-Feature: 报表新建_编辑_维度word
+Feature: 报表_2_2维度word
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"

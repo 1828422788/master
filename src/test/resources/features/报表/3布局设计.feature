@@ -1,5 +1,5 @@
 @report @allReports @reportLayout
-Feature: 报表_布局设计
+Feature: 报表_3_布局设计
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"

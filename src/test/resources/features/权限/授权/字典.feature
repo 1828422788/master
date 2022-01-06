@@ -134,8 +134,8 @@ Feature: 权限-字典
     And I wait for loading invisible
     And I click the "Next" button
     And I click the "GroupInputButton" button
-    And I set the parameter "GroupInput" with value "字典分组AutoTest"
-    And I choose the "字典分组AutoTest" from the "Group"
+    #And I set the parameter "GroupInput" with value "字典分组AutoTest"
+    #And I choose the "字典分组AutoTest" from the "Group"
     And I click the "Done" button
     And I wait for "Message" will be visible
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
@@ -143,8 +143,8 @@ Feature: 权限-字典
     And the data name is "<name>" then i click the "更多" button
     Then I click the "Label" button
     Then I click the "TagButton" button
-    And I set the parameter "Tag" with value "test"
-    And I choose the "test" from the "TagDropdown"
+   # And I set the parameter "Tag" with value "test"
+   # And I choose the "test" from the "TagDropdown"
     And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
@@ -233,8 +233,8 @@ Feature: 权限-字典
     When the data name is "<name>" then i click the "更多" button
     And I click the "Label" button
     Then I click the "TagButton" button
-    And I set the parameter "Tag" with value "test"
-    And I choose the "test" from the "TagDropdown"
+   # And I set the parameter "Tag" with value "test"
+   # And I choose the "test" from the "TagDropdown"
     And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "修改成功"
@@ -404,8 +404,8 @@ Feature: 权限-字典
     And the data name is "<name>" then i click the "更多" button
     Then I click the "Label" button
     Then I click the "TagButton" button
-    And I set the parameter "Tag" with value "test"
-    And I choose the "test" from the "TagDropdown"
+   # And I set the parameter "Tag" with value "test"
+   # And I choose the "test" from the "TagDropdown"
     And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
@@ -571,8 +571,8 @@ Feature: 权限-字典
     And I wait for loading invisible
     And I click the "Next" button
     And I click the "GroupInputButton" button
-    And I set the parameter "GroupInput" with value "字典分组AutoTest"
-    And I choose the "字典分组AutoTest" from the "Group"
+   # And I set the parameter "GroupInput" with value "字典分组AutoTest"
+   # And I choose the "字典分组AutoTest" from the "Group"
     And I click the "Done" button
     And I wait for "Message" will be visible
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
@@ -760,8 +760,8 @@ Feature: 权限-字典
     When the data name is "<name>" then i click the "更多" button
     Then I click the "Label" button
     Then I click the "TagButton" button
-    And I set the parameter "Tag" with value "test"
-    And I choose the "test" from the "TagDropdown"
+    #And I set the parameter "Tag" with value "test"
+    #And I choose the "test" from the "TagDropdown"
     And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
@@ -802,8 +802,8 @@ Feature: 权限-字典
     And I wait for loading invisible
     And I click the "Next" button
     And I click the "GroupInputButton" button
-    And I set the parameter "GroupInput" with value "字典分组AutoTest"
-    And I choose the "字典分组AutoTest" from the "Group"
+    #And I set the parameter "GroupInput" with value "字典分组AutoTest"
+    #And I choose the "字典分组AutoTest" from the "Group"
     And I click the "Done" button
     And I wait for "Message" will be visible
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
@@ -811,8 +811,8 @@ Feature: 权限-字典
     When the data name is "<name>" then i click the "更多" button
     Then I click the "Label" button
     Then I click the "TagButton" button
-    And I set the parameter "Tag" with value "test"
-    And I choose the "test" from the "TagDropdown"
+    #And I set the parameter "Tag" with value "test"
+    #And I choose the "test" from the "TagDropdown"
     And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     Given open the "dictionary.ListPage" page for uri "/dictionary/"

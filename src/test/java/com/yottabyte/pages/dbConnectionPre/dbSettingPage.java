@@ -243,7 +243,8 @@ public class dbSettingPage extends PageTemplate {
     }
 
     public WebElement getDbLookupSearchFieldR1C1List() {
-        String xpath = "//span[contains(text(),'字段映射')]/following::span[contains(text(),'搜索字段')]/following-sibling::div/div[@class='yotta-select-selection']";
+//        String xpath = "//span[contains(text(),'字段映射')]/following::span[contains(text(),'搜索字段')]/following::div[@yotta-test='dbsettings-search_field_0-select']";
+        String xpath = "//div[@yotta-test='dbsettings-search_field_0-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
@@ -251,7 +252,8 @@ public class dbSettingPage extends PageTemplate {
     }
 
     public WebElement getDbLookupSearchFieldR1C2List() {
-        String xpath = "//span[contains(text(),'字段映射')]/following::span[contains(text(),'表格列名称')]/following-sibling::div/div[@class='yotta-select-selection']";
+//        String xpath = "//span[contains(text(),'字段映射')]/following::span[contains(text(),'表格列名称')]/following-sibling::div/div[@class='yotta-select-selection']";
+        String xpath = "//div[@yotta-test='dbsettings-db_field_0-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
@@ -266,7 +268,8 @@ public class dbSettingPage extends PageTemplate {
     }
 
     public WebElement getDbLookupLookupFieldR1C1List() {
-        String xpath = "//span[contains(text(),'Lookup 字段')]/following::span[contains(text(),'表格列名称')]/following-sibling::div/div[@class='yotta-select-selection']";
+//        String xpath = "//span[contains(text(),'Lookup 字段')]/following::span[contains(text(),'表格列名称')]/following-sibling::div/div[@class='yotta-select-selection']";
+        String xpath = "//div[@yotta-test='dbsettings-column_field_0-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);

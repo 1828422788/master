@@ -1,5 +1,5 @@
 @reportTextEditor @report
-Feature: 报表_富文本编辑_限制
+Feature: 报表_富文本编辑_8_限制
 
   Scenario: change_limit
     Given open the "system.CustomConfigs" page for uri "/system/"

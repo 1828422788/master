@@ -31,7 +31,8 @@ Feature: 应用字段转换
     And I wait for "1000" millsecond
     And I choose the "AutoTest" from the "FieldConvertRule"
     And I wait for "1000" millsecond
-    And I click the "SaveButton" button
+    And I click the "SaveFieldButton" button
+
 
   Scenario: 验证正则类型字段转换生效1
     Given open the "app.ListPage" page for uri "/app/list/"

@@ -36,7 +36,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='yotta-dropdown-menu']//ul")
     private WebElement dropdownList;
 
-    @FindBy(xpath = "//span[@aria-label='SettingOutlined']/parent::button")
+    @FindBy(xpath = "//span[@aria-label='Setting']/parent::button")
     private WebElement settings;
 
     public WebElement getSettings() {
@@ -44,21 +44,21 @@ public class CreatePage extends PageTemplate {
         return dropdownList;
     }
 
-    @FindBy(xpath = "//span[@aria-label='GalaxeeOutlined']/parent::button")
+    @FindBy(xpath = "//span[@aria-label='Galaxee']/parent::button")
     private WebElement dataConfig;
 
     public WebElement getDataConfig() {
         return dataConfig;
     }
 
-    @FindBy(xpath = "//span[@aria-label='AddOutlined']/parent::button")
+    @FindBy(xpath = "//span[@aria-label='Add']/parent::button")
     private WebElement addInputItem;
 
     public WebElement getAddInputItem() {
         return addInputItem;
     }
 
-    @FindBy(xpath = "//span[@aria-label='FilterOutlined']/parent::button")
+    @FindBy(xpath = "//span[@aria-label='Filter']/parent::button")
     private WebElement filter;
 
     public WebElement getFilter() {
@@ -162,25 +162,25 @@ public class CreatePage extends PageTemplate {
         return dropdownListType;
     }
 
-    @FindBy(xpath = "(//div[@class='_4K_lJwSAFY4PpMx9646tk'])[1]//div[text()]")
+    @FindBy(xpath = "(//div[@class='_5467104612c2d94cf02969836df5bb04'])[1]//div[text()]")
     private WebElement firstInput;
     public WebElement getFirstInput() {
         return firstInput;
     }
 
-    @FindBy(xpath = "(//div[@class='_4K_lJwSAFY4PpMx9646tk'])[1]//div[@yotta-test='fulllink_param-list-item-edit-dom']")
+    @FindBy(xpath = "(//div[@class='_5467104612c2d94cf02969836df5bb04'])[1]//div[@yotta-test='fulllink_param-list-item-edit-dom']")
     private WebElement firstInputEdit;
     public WebElement getFirstInputEdit() {
         return firstInputEdit;
     }
 
-    @FindBy(xpath = "(//div[@class='_4K_lJwSAFY4PpMx9646tk'])[1]//div[@yotta-test='fulllink_param-list-item-delete-dom']")
+    @FindBy(xpath = "(//div[@class='_5467104612c2d94cf02969836df5bb04'])[1]//div[@yotta-test='fulllink_param-list-item-delete-dom']")
     private WebElement firstInputDelete;
     public WebElement getFirstInputDelete() {
         return firstInputDelete;
     }
 
-    @FindBy(xpath = "(//div[@class='_4K_lJwSAFY4PpMx9646tk'])[1]//div[@yotta-test='fulllink_param-item-select']")
+    @FindBy(xpath = "(//div[@class='_5467104612c2d94cf02969836df5bb04'])[1]//div[@yotta-test='fulllink_param-item-select']")
     private WebElement firstInputList;
     public WebElement getFirstInputList() {
         firstInputList.click();
@@ -259,13 +259,13 @@ public class CreatePage extends PageTemplate {
         return getYottaTable("table_chart-list-table");
     }
 
-    @FindBy(xpath = "(//div[contains(@style,'bottom') and contains(@class,'_32i6D2VjlKlvBR1pDZvvHC')]//span[@aria-label='ClockCircleOutlined']) | (//div[contains(@style,'bottom')]//span[@aria-label='PlusDownOutlined'])")
+    @FindBy(xpath = "(//div[contains(@style,'bottom') and contains(@class,'_32i6D2VjlKlvBR1pDZvvHC')]//span[@aria-label='Clock']) | (//div[contains(@style,'bottom')]//span[@aria-label='PlusDown'])")
     private WebElement timeAxis;
     public WebElement getTimeAxis() {
         return timeAxis;
     }
 
-    @FindBy(xpath = "//div[contains(@style,'bottom')]//span[@aria-label='SettingOutlined']")
+    @FindBy(xpath = "//div[contains(@style,'bottom')]//span[@aria-label='Setting']")
     private WebElement dateSetting;
     public WebElement getDateSetting() {
         return dateSetting;
@@ -289,25 +289,25 @@ public class CreatePage extends PageTemplate {
         return lastDate;
     }
 
-    @FindBy(xpath = "//div[contains(@style,'bottom')]//span[@aria-label='SlowPlayCircleOutlined']")
+    @FindBy(xpath = "//div[contains(@style,'bottom')]//span[@aria-label='SlowPlayCircle']")
     private WebElement liveBroadcast;
     public WebElement getLiveBroadcast() {
         return liveBroadcast;
     }
 
-    @FindBy(xpath = "//div[contains(@style,'bottom')]//span[@aria-label='EditOutlined']")
+    @FindBy(xpath = "//div[contains(@style,'bottom')]//span[@aria-label='Edit']")
     private WebElement ignoreException;
     public WebElement getIgnoreException() {
         return ignoreException;
     }
 
-    @FindBy(xpath = "//div[contains(@style,'bottom')]//span[@aria-label='PlayCircleOutlined']")
+    @FindBy(xpath = "//div[contains(@style,'bottom')]//span[@aria-label='PlayCircle']")
     private WebElement play;
     public WebElement getPlay() {
         return play;
     }
 
-    @FindBy(xpath = "//div[contains(@style,'bottom')]//span[@aria-label='EditOutlined']")
+    @FindBy(xpath = "//div[contains(@style,'bottom')]//span[@aria-label='Edit']")
     private WebElement alarmIgnore;
     public WebElement getAlarmIgnore() {
         return alarmIgnore;
@@ -423,7 +423,7 @@ public class CreatePage extends PageTemplate {
         return newTab;
     }
 
-    @FindBy(xpath = "//div[@id='minimap']//following-sibling::div[2]//span[@aria-label='AddOutlined']")
+    @FindBy(xpath = "//div[@id='minimap']//following-sibling::div[2]//span[@aria-label='Add']")
     private WebElement magnify;
     public WebElement getMagnify() {
         for (int i=0; i<15; i++)

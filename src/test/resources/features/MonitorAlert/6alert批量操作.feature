@@ -91,9 +91,12 @@ Feature: alert批量操作
     When I click the "AddResourceTags" button
     Given I wait for loading complete
     And I wait for "2000" millsecond
+    When I click the "TagInputDiv" button
+    Given I wait for loading complete
+    Then I set the parameter "TagInput" with value "autoui001"
+    Given I wait for loading complete
     And I choose the "autoui001" from the "ResourceGroupList"
     And I wait for "2000" millsecond
-
     When I click the "Ensure" button
 #    And I wait for "100" millsecond
 #    Then I will see the success message "更新成功"

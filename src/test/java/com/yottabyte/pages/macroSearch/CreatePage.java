@@ -51,7 +51,7 @@ public class CreatePage extends PageTemplate {
     }
 
 //    @FindBy(xpath = "//span[contains(text(),'使用基于eval的定义')]/preceding-sibling::label/span[@class='ant-checkbox']")
-    @FindBy(xpath = "//span[contains(text(),'使用基于eval的定义')]/preceding-sibling::label/span[@class='yotta-checkbox-input']")
+    @FindBy(xpath = "//span[@class='yotta-checkbox-input']")
     private WebElement MacroEvalCheckbox;
     public WebElement getMacroEvalCheckbox() {
         return MacroEvalCheckbox;

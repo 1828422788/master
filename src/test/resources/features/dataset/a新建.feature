@@ -19,14 +19,16 @@ Feature: 数据集-a新建
     And I choose the "auto_ui" from the "ResourceGroupList"
     Given I wait for loading complete
     And I click the "Save" button
-
     Then I will see the "dataset.DetailPage" page
     Given I wait for loading complete
+
    #返回列表页验证
-    And I click the "backList" button    And I click the "backList" button
-
-#    Then I will see the "dataset.ListPage" page
-
+    And I click the "backList" button
+    Then I will see the "dataset.ListPage" page
+    Given I wait for loading complete
+    When I set the parameter "SearchNameInput" with value "<name>"
+    And I click the "Search" button
+    And I wait for "2000" millsecond
     Given I wait for loading complete
     Then I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'2','name':'jnd'}"
     And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'3','name':'无'}"
@@ -38,7 +40,6 @@ Feature: 数据集-a新建
       | name    | alias | Spl |
       | JNDTest | jnd   | *   |
 
-# # ################################## 插播几条查询的case，依赖与上一条case的新建
   @tc4075
   Scenario Outline: RZY-4075:按资源查询
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -78,10 +79,13 @@ Feature: 数据集-a新建
     And I wait for loading invisible
 #    Given the data name is "<name>" then i click the "标签" button
     When the data name is "{'column':'0','name':'<name>'}" then i click the "标签" button in more menu
-    And I click the "TagDropdown" button
-    And I set the parameter "TagInput" with value "<Type>"
-    And I wait for "2000" millsecond
-    And I choose the "<Type>" from the "TagDropdown"
+    Given I wait for loading complete
+#    And I click the "TagDropdown" button
+#    And I set the parameter "TagInput" with value "<Type>"
+#    And I wait for "2000" millsecond
+#    And I choose the "<Type>" from the "TagDropdown"
+    And I choose the "<Type>" from the "ResourceGroupList"
+    Given I wait for loading complete
     And I click the "Ensure" button
    #Then I will see the success message "修改成功"
     And I wait for loading invisible

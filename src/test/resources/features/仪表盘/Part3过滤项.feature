@@ -302,8 +302,6 @@ Feature: 仪表盘过滤项
     And I click the "SearchFilterButton" button under some element
     And I wait for loading invisible
     Then I will see the error message "缺少选中的字段"
-#    Then I wait for "LackField" will be visible
-#    Then I click the "EnsureErrorSplButton" button
     And I wait for "2500" millsecond
     And I set the parameter "DynamicField" with value "apache.geo.city"
     And I set the parameter "Spl" with value "hello goodbey"
@@ -311,8 +309,6 @@ Feature: 仪表盘过滤项
     And I click the "SearchFilterButton" button under some element
     And I wait for loading invisible
     Then I will see the error message "搜索语句须为stats类型"
-#    Then I wait for "搜索语句须为stats类型" will be visible
-#    And I click the "EnsureErrorSplButton" button
 
   Scenario: 设置动态菜单自动搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -534,7 +530,7 @@ Feature: 仪表盘过滤项
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "测试过滤项" then I click the button which classname is "yotta-icon yotta-icon-DeleteFilled" in dashboard
+    When the chart title is "测试过滤项" then I click the button which classname is "yotta-icon yotta-icon-Delete" in dashboard
     And I click the "Ensure" button
 
 
@@ -608,7 +604,7 @@ Feature: 仪表盘过滤项
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "测试仪表盘eval" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "测试仪表盘eval" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "测试仪表盘eval","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "appname:apache|stats count() by 'apache.status'","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "eval","name": "filter","value": "${click.value2}-204"}]}}" to json editor
     And I wait for "500" millsecond

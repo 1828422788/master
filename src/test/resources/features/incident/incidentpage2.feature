@@ -1,8 +1,8 @@
 @incident @incidentpage @incidentpage2
-Feature: 事件管理界面_查看功能
+Feature: 事件管理界面_查看合并策略功能
 
   @incidentpage21
-  Scenario Outline:
+  Scenario Outline:查看合并策略功能
     Given open the "incident.IncidentPage" page for uri "/app/incident/"
     Given I wait for loading complete
     And I wait for "2000" millsecond
@@ -13,11 +13,14 @@ Feature: 事件管理界面_查看功能
     When I click the "SearchButton" button under some element
     And I wait for "2000" millsecond
     When in incident page i click the "查看合并策略" button in more menu
-    Given I wait for loading complete
-    Given open the "incident.CruxeePolicyPage" page
-    And switch to window "编辑合并策略"
+    And switch to window "合并策略"
     And I close all tabs except main tab
+    And switch to another window
+    And I close all tabs except main tab
+    Then I will see the "incident.CruxeePolicyPage" page
+    Given I wait for loading complete
     And I wait for "2000" millsecond
+
     Then I will see the input element "CruxeePolicyName" value will be "事件样例name分组"
 
     Examples:

@@ -1,4 +1,4 @@
-@dlother @searchset
+@searchpage @searchset
 Feature: 搜索配置
 
   @searchset1
@@ -30,22 +30,16 @@ Feature: 搜索配置
   @searchset2
   Scenario Outline: RZY-2410:索引模式_已存搜索列表
     Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I set the parameter "SearchInput" with value "<splQuery>"
-    And I click the "SearchButton" button
-    And I click the "NewSavedSearch" button
+    And I choose the "打开列表" from the "SavedSearchList"
     And I wait for loading complete
-
-    And I set the parameter "SavedSearchName" with value "<name>"
-    And I click the "EnsureCreateSavedSearch" button
-    And I wait for loading complete
-    Then I will see the success message "创建成功"
-
-    And I click the "AcceptCreateDownloadTask" button
     And I wait for "2000" millsecond
-    And I click the "OpenSavedSearchList" button
-    And I wait for "5000" millsecond
-    And "加载" the data "<name>" in tiny saved search
+
+    And I set the parameter "SavedSearchInput" with value "<name>"
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
+
+#    And "加载" the data "<name>" in tiny saved search
+    Given I click the which saved name is "<name>"
     Then I will see the input element "SearchInput" value will be "<spl>"
 
     Examples:

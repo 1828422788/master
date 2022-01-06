@@ -73,6 +73,13 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     @FindBy(xpath = "//div[@class='ant-popover-inner-content']//p")
     private WebElement loginUserName;
 
+    @FindBy(xpath = "//div[contains(@class,'spinner')]")
+    private WebElement loading;
+
+    public WebElement getLoading() {
+        return loading;
+    }
+
     public WebElement getUserIcon() {
         return userIcon;
     }
@@ -87,6 +94,10 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
 
     public WebElement getSave() {
         return getButton("保存");
+    }
+
+    public WebElement getReturn() {
+        return getButton("返回");
     }
 
     public WebElement getApp() {
@@ -176,6 +187,10 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return dropdownUtils.getLastDropdownList();
     }
 
+    public WebElement getV40LastDropdownList() {
+        return dropdownUtils.getV40LastDropdownList();
+    }
+
     public WebElement getIncidentStatusMenuList() {
         return dropdownUtils.getIncidentStatusMenuList();
     }
@@ -202,8 +217,9 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
 
     public WebElement getLastDropdownListOnSendPolicyPage(String xpath) {
         WebElement element = webDriver.findElement(By.xpath(xpath));
-        element.click();
-        return dropdownUtils.getLastDropdownListOnSendPolicyPage();
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return dropdownUtils.getV40LastDropdownList();
     }
 
     public WebElement getLastSendPluginDropdownList() {

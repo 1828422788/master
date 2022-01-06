@@ -25,6 +25,13 @@ public class MaintenancePage extends PageTemplate {
         return reasonNameSearchInput;
     }
 
+    @FindBy(xpath = "//span[@aria-label='Search']")
+    private WebElement reasonNameSearchIcon;
+
+    public WebElement getReasonNameSearchIcon() {
+        return reasonNameSearchIcon;
+    }
+
     @FindBy(xpath = "//span[text()='新建']/parent::button")
     private WebElement createButton;
 

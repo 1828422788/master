@@ -1,4 +1,4 @@
-@cruxee @cruxee1 @autoui01
+@cruxee @cruxee1 @autoui02
 Feature: 创建接收告警邮件用户、用户组
 
   Scenario Outline: 添加普通用户

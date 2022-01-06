@@ -1,5 +1,5 @@
 @reportCreateCharts @allReports
-Feature: 报表新建_编辑_复合
+Feature: 报表_2_4复合
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
@@ -75,7 +75,7 @@ Feature: 报表新建_编辑_复合
 
     When I click the "ParameterSetting" button
     And I click the "Xaxis" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "FieldValue" will be visible
     And I set the parameter "FieldValue" with value "apache.resp_len"
     And I click the "FirstLabel" button
@@ -157,7 +157,7 @@ Feature: 报表新建_编辑_复合
 
     When I click the "ParameterSetting" button
     And I click the "Xaxis" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "FieldValue" will be visible
     And I set the parameter "FieldValue" with value "apache.resp_len"
     And I click the "FirstLabel" button

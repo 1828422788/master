@@ -42,16 +42,17 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//*[text()='新建']")
     private WebElement createResourceGroup;
 
-    @FindBy(xpath = "//button/span[text()='导入/导出']")
+   // @FindBy(xpath = "//button/span[text()='导入/导出']")
+    @FindBy(xpath = "//button[@yotta-test='knowledge-import_or_export-button']/span")
     private WebElement uploadAndDownloadButton;
 
     @FindBy(css = "body > div.el-popover.port-menu")
     private WebElement uploadAndDownloadMenu;
 
-    @FindBy(xpath = "//button/span[text()='导入']")
+    @FindBy(xpath = "//li/span[text()='导入']")
     private WebElement uploadButton;
 
-    @FindBy(xpath = "//button/span[text()='导出']")
+    @FindBy(xpath = "//li/span[text()='导出']")
     private WebElement downloadButton;
 
     @FindBy(className = "el-upload__input")
@@ -198,7 +199,7 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getRole() {
-        return super.getDropdownList("分配角色");
+        return super.getDropdownList("resource-assign_role-select");
     }
 
     public WebElement getNextButton() {
@@ -241,8 +242,9 @@ public class ListPage extends PageTemplate {
     }
 
     private void clickUploadAndDownloadButton() {
-        ExpectedCondition e = ExpectedConditions.invisibilityOf(loadingElement);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, e);
+       // ExpectedCondition e = ExpectedConditions.invisibilityOf(loadingElement);
+        //WaitForElement.waitForElementWithExpectedCondition(webDriver, e);
+        ExpectedCondition e = ExpectedConditions.invisibilityOf(uploadAndDownloadButton);
         uploadAndDownloadButton.click();
     }
 

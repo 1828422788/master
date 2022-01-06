@@ -32,8 +32,8 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(className = "ant-empty-description")
     private WebElement emptyData;
 
-    @FindBy(className = "ant-input-search-icon")
-    private WebElement searchIcon;
+    @FindBy(xpath = "//span[@aria-label='Search']")
+    private WebElement search;
 
     @FindBy(className = "yotta-message-content")
     private WebElement successMessage;
@@ -88,11 +88,21 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(xpath = "//thead//span[@class='yotta-checkbox-check']")
     private WebElement selectAll;
 
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//input")
+    private WebElement tag;
+
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']")
     private WebElement tagField;
 
     @FindBy(xpath = "//div[contains(@class,'spinner')]")
     private WebElement loading;
+
+    @FindBy(xpath = "//*[contains(text(),'暂无数据')]")
+    private WebElement noData;
+
+    public WebElement getNoData() {
+        return noData;
+    }
 
     public WebElement getLoading() {
         return loading;
@@ -128,8 +138,12 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
         return message;
     }
 
+    public WebElement getSearch() {
+        return search;
+    }
+
     public WebElement getSearchIcon() {
-        return searchIcon;
+        return search;
     }
 
     public WebElement getEmptyData() {
@@ -150,7 +164,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     }
 
     public WebElement getTag() {
-        return getInputElement("标签");
+        return tag;
     }
 
     public WebElement getTagDropdown() {
@@ -225,12 +239,24 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
         return utils.getLastDropdownResourceGroupList();
     }
 
+    public WebElement getV40LastDropdownList() {
+        return utils.getV40LastDropdownList();
+    }
+
+    public WebElement getDataSetResourceGroupList() {
+        return utils.getDataSetResourceGroupList();
+    }
+
     public WebElement getIncidentStatusMenuList() {
         return utils.getIncidentStatusMenuList();
     }
 
     public WebElement getLastDropdownList37() {
         return utils.getLastDropdownList37();
+    }
+
+    public WebElement getRemoteIndexPageList1() {
+        return utils.getRemoteIndexPageList1();
     }
 
     public WebElement getLastDropdownListEditApp() {
@@ -255,7 +281,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     }
 
     public WebElement getCompleteBatchControl() {
-        return this.getButton("取消");
+        return this.getButton("完成");
     }
 
     public WebElement getEnableResources() {
@@ -280,6 +306,13 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
 
     public WebElement getModal() {
         return modal;
+    }
+
+    @FindBy(xpath = "//div[@yotta-test='table-filter_tag-select']//input")
+    private WebElement globalTagInput;
+    public WebElement getGlobalTagInput() {
+        webDriver.findElement(By.xpath("//div[@yotta-test='table-filter_tag-select']")).click();
+        return globalTagInput;
     }
 
     @Override

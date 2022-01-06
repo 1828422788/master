@@ -12,6 +12,7 @@ Feature:2添加表格
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -26,7 +27,7 @@ Feature:2添加表格
     And I click the "{'Checkbox':'报表测试'}" button
     And I click the "Ensure" button
     And I wait for "5000" millsecond
-    When the chart title is "报表测试" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "报表测试" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for "ChartTitle" will be visible
     And I set the parameter "ChartTitle" with value "<chart>"

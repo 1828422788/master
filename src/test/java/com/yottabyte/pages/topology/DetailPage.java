@@ -259,6 +259,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[@yotta-test='topology_edit-index-tabs']//div/div[text()='分组']")
     private WebElement group;
 
+    @FindBy(xpath = "//div[text()='编辑拓扑图']/parent::div/label")
+    private WebElement editTopologySwitch;
+
     public WebElement getLineWidth() { return getYottaDropdownList("topology_gui-lineWidth-select-with-prepend"); }
 
     public WebElement getLineType() {
@@ -274,7 +277,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getEditTopologySwitch() {
-        return getYottaInput("toplogy_opt-edit-switch");
+        return editTopologySwitch;
         }
 
     public WebElement getSetting() { return setting;}

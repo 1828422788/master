@@ -152,6 +152,7 @@ Feature: 应用字段提取（RZY-2129）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "configs.ListPage" page
+    And I wait for "2000" millsecond
     Then I will see the search result "{'column':'1','name':'AutoTestCopy','contains':'no'}"
     When the data name is "{'column':'1','name':'AutoTest'}" then i click the "复制" button in more menu
     And I refresh the website
@@ -339,7 +340,7 @@ Feature: 应用字段提取（RZY-2129）
     And I will see the element "Title" name is "ConfigsApp"
     And I wait for "500" millsecond
     Then I will see the "configs.ListPage" page
-    And I wait for loading invisible
+    And I wait for "3000" millsecond
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button

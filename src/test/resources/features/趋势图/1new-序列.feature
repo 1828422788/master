@@ -8,7 +8,7 @@ Feature: 趋势图新建_序列
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario Outline: order(RZY-2477,2005,2491,2499)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip "
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by apache.clientip,cnt | limit 8 "
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -55,7 +55,7 @@ Feature: 趋势图新建_序列
     |  ColumnChart  |  2499   |
 
   Scenario Outline: order
-    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip "
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by apache.clientip,cnt | limit 8 "
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -99,7 +99,7 @@ Feature: 趋势图新建_序列
       |  ColumnChart  |    Pile       | Yellow |
 
   Scenario Outline: order_bubble
-    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by cnt, apache.clientip"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -142,7 +142,7 @@ Feature: 趋势图新建_序列
       |  ScatterChart |    cnt       | bubbles   |
 
   Scenario Outline: order_switch
-    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by apache.clientip,cnt | limit 8"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -191,7 +191,7 @@ Feature: 趋势图新建_序列
 
 
   Scenario Outline: order_limit
-    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by apache.clientip,cnt | limit 8"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"

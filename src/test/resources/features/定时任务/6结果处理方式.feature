@@ -1,4 +1,4 @@
-@all @JDBCtimedTask
+@JDBCtimedTask
 Feature: 定时任务_结果处理方式
 
   @timedTask
@@ -28,6 +28,10 @@ Feature: 定时任务_结果处理方式
       |    name     |   caseNum    |
       |  oracle     |  3301        |
       |  mysql      |  3357        |
+
+    @timedTaskSmoke
+    Examples:
+      |    name     |   caseNum    |
       |  sql_server |  3358        |
 
   @timedTask
@@ -68,6 +72,10 @@ Feature: 定时任务_结果处理方式
       | mysqlrzy    | root     | rizhiyi&2014 | 192.168.1.139 |      |        |                |           | 端口 不能为空         |
       | mysqlrzy    | root     | rizhiyi&2014 | 192.168.1.139 | 3306 |        |                |           | 数据库类型 不能为空   |
       | mysqlrzy    | root     | rizhiyi&2014 | 192.168.1.139 | 3306 | mysql  |                |           | 数据库名 不能为空     |
+
+    @timedTaskSmoke
+    Examples:
+      | connectName | userName | password     | host          | port | dbType | dbName         | tableName | result                |
       | mysqlrzy    | root     | rizhiyi&2014 | 192.168.1.139 | 3306 | mysql  | rizhiyi_system |           | 数据库表名称 不能为空 |
 
   Scenario Outline: add_jdbc

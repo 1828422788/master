@@ -37,7 +37,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@yotta-test='application-open_color_picker-dom']")
     private WebElement colorPicker;
 
-    @FindBy(xpath = "//input[@class='yotta-input yotta-input-small css-3gtf8k']")
+    @FindBy(xpath = "//span[text()='#']/following-sibling::input")
     private WebElement colorValue;
 
     @FindBy(className = "el-color-dropdown__btn")
@@ -85,7 +85,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "item-title-edit-group")
     private WebElement editGroup;
 
-    @FindBy(xpath = "//span[text()='事件操作']/following-sibling::p/span[contains(@class, 'yotta-icon-AddCircleOutlined')]")
+    @FindBy(xpath = "//span[text()='事件操作']/following-sibling::p/span[contains(@class, 'yotta-icon-AddCircle')]")
     private WebElement addSubmenu;
 
     @FindBy(xpath = "//span[text()='全局']")
@@ -130,11 +130,17 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='添加']")
     private WebElement addKVStore;
 
-    @FindBy(xpath = "(//label[text()='名称'])[last()]/following-sibling::input")
+    @FindBy(xpath = "//input[@yotta-test='application-kvstore_modal_name-input']")
     private WebElement KVName;
 
-    @FindBy(xpath = "(//label[text()='字段列表']/following-sibling::div//input)[last()]")
-    private WebElement KVFieldInput;
+    @FindBy(xpath = "//div[@class='d1ba667c0198c8a39f8bf7f9563eb67e'][1]//input")
+    private WebElement KVFieldInput1;
+
+    @FindBy(xpath = "//div[@class='d1ba667c0198c8a39f8bf7f9563eb67e'][2]//input")
+    private WebElement KVFieldInput2;
+
+    @FindBy(xpath = "//div[@class='d1ba667c0198c8a39f8bf7f9563eb67e'][3]//input")
+    private WebElement KVFieldInput3;
 
     @FindBy(xpath = "//span[text()='添加字段']")
     private WebElement addKVField;
@@ -187,10 +193,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='字段萃取']")
     private WebElement fieldExtract;
 
-    @FindBy(id = "FieldConfig_name")
+   // @FindBy(id = "FieldConfig_name")
+    @FindBy(xpath = "//input[@yotta-test='application-field_lookup_name-input']")
     private WebElement fieldSearchName;
 
-    @FindBy(id = "FieldConfig_csvPath")
+  //  @FindBy(id = "FieldConfig_csvPath")
+    @FindBy(xpath = "//input[@yotta-test='application-field_lookup_csv_path-input']")
     private WebElement csvPath;
 
     @FindBy(xpath = "(//input[contains(@id,'.input')])[last()]")
@@ -229,7 +237,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@yotta-test='application-field_transform_fields-input']")
     private WebElement fieldConfigFields;
 
-    @FindBy(xpath = "(//span[text()='保存'])[last()]/ancestor::button")
+    @FindBy(xpath = "//div[@class='yotta-col yotta-col-18 yotta-form-item-content']/button[@yotta-test='application-save-button']")
     private WebElement saveButton;
 
     @FindBy(xpath = "//button[@yotta-test='application-field_extract_save-button']")
@@ -240,6 +248,11 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='来源字段']/parent::span/following-sibling::input")
     private WebElement fieldSource;
+
+    @FindBy(xpath = "//div[@class='yotta-modal-footer yotta-modal-footer-with-divider']//span[text()='保存']")
+    private WebElement fieldSavedButton;
+
+    public WebElement getFieldSavedButton() { return fieldSavedButton; }
 
     public WebElement getKVTagInput() { return KVTagInput; }
 
@@ -413,8 +426,16 @@ public class CreatePage extends PageTemplate {
         return addKVField;
     }
 
-    public WebElement getKVFieldInput() {
-        return KVFieldInput;
+    public WebElement getKVFieldInput1() {
+        return KVFieldInput1;
+    }
+
+    public WebElement getKVFieldInput2() {
+        return KVFieldInput2;
+    }
+
+    public WebElement getKVFieldInput3() {
+        return KVFieldInput3;
     }
 
     public WebElement getKVName() {
@@ -528,6 +549,8 @@ public class CreatePage extends PageTemplate {
     public WebElement getErrorMessage() {
         return message;
     }
+
+    public WebElement getMessage() { return message; }
 
     public WebElement getUploadButton() {
         return uploadButton;

@@ -1,7 +1,7 @@
-@dashboard23 @dashboardChart
+@dashboard6_07 @dashboardChart
 Feature: 仪表盘_6_07_漏斗图
 
-  @dashboard
+
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -15,7 +15,7 @@ Feature: 仪表盘_6_07_漏斗图
       | name   |
       | 仪表盘漏斗图 |
 
-  @dashboard
+
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -37,7 +37,7 @@ Feature: 仪表盘_6_07_漏斗图
       | spl                                                         | name   |
       | tag:sample04061424_display \| stats count() by apache.clientip \| limit 8 | 仪表盘漏斗图 |
 
-  @dashboard
+
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -54,7 +54,7 @@ Feature: 仪表盘_6_07_漏斗图
       | name |
       | 漏斗图  |
 
-  @dashboard
+
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -78,7 +78,7 @@ Feature: 仪表盘_6_07_漏斗图
       | name   |
       | 仪表盘漏斗图 |
 
-  @dashboard
+
   Scenario Outline: 修改为漏斗图 RZY-3402
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

@@ -1,5 +1,5 @@
 @all @logDisplay @logDisplayOrder
-Feature: 日志展现_序列
+Feature: 日志展现_1序列
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -7,7 +7,7 @@ Feature: 日志展现_序列
     And I drag the element "SearchPageSvg" to the "left" side
 
   Scenario Outline: order(RZY-2770,2771,2769,2768)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by apache.clientip,cnt | limit 8"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -34,7 +34,7 @@ Feature: 日志展现_序列
       |  ColumnChart  |     2768   |
 
   Scenario Outline: line(RZY-832)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by apache.clientip,cnt | limit 8"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -68,7 +68,7 @@ Feature: 日志展现_序列
       |   LineChart   |   个       | ConnectEmptyData  | 832       |
 
   Scenario Outline: pile(RZY-2767,2773)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip "
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by apache.clientip,cnt | limit 8 "
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -99,7 +99,7 @@ Feature: 日志展现_序列
       |  ColumnChart  |    Pile       | Yellow | 2773      |
 
   Scenario Outline: scatter_bubble (RZY-4204)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by apache.clientip,cnt | limit 8"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -129,7 +129,7 @@ Feature: 日志展现_序列
 
 
   Scenario Outline: order_facet
-    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method, apache.status  \| sort by cnt, apache.clientip"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method, apache.status | sort by cnt, apache.clientip"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -156,7 +156,7 @@ Feature: 日志展现_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/1序列_分面_<chartType>"
-    Then I compare source image "actual/高级搜索视图/1序列_分面_<chartType>" with target image "expect/高级搜索视图_1序列/分面_<chartType>"
+    Then I compare source image "actual/高级搜索视图/1序列_分面_<chartType>" with target image "expect/高级搜索视图/1序列_分面_<chartType>"
 
     Examples:
       |   chartType   |

@@ -6,7 +6,8 @@ Feature: Agent备份功能
 #    And I zoom the screen up to the maximum
     And I zoom the browse to full screen
     And I wait for loading invisible
-    When I click the detail which column is "0" in agent page
+#    When I click the detail which column is "0" in agent page
+    When I click the detail which name is "253" in agent page
     And switch to another window
     And I close all tabs except main tab
     And I wait for loading invisible
@@ -34,7 +35,7 @@ Feature: Agent备份功能
     Then I wait for loading invisible
 #    And I will see the "AgentConfigurationTitle" doesn't exist
 
-  Scenario: Agent备份，添加备份
+  Scenario: Agent备份，添加备份到本地磁盘
     And I click the "AddBackUP" button
     And I set the parameter "Document" with value "/data/rizhiyi/logs/heka"
     And I set the parameter "WhiteList" with value ".*\.log"
@@ -58,14 +59,13 @@ Feature: Agent备份功能
   Scenario: 备份策略禁用
     Given the data name "hekabackup" in agent table "BackUpTable" then i click the "close" switch
     Then I wait for loading invisible
-    And I wait for element "BackUpSwitchStatus" change text to "已禁用"
+    And I wait for element "BackUpSwitchStatus1" change text to "已禁用"
 
 
   Scenario: 备份策略启用
     Given the data name "hekabackup" in agent table "BackUpTable" then i click the "open" switch
     Then I wait for loading invisible
-    And I wait for element "BackUpSwitchStatus" change text to "已启用"
-
+    And I wait for element "BackUpSwitchStatus1" change text to "已启用"
 
   Scenario: 备份策略新建目的对象
     And I click the "AddBackUP" button
@@ -86,6 +86,7 @@ Feature: Agent备份功能
     And I wait for "ChangeMemo" will be visible
 #    And I will see the success message "保存成功"
 
+#  备份策略备份到目的磁盘
 
   Scenario: 备份策略编辑目的对象安全链接
     And I click the "AddBackUP" button
@@ -157,7 +158,30 @@ Feature: Agent备份功能
     And I wait for "ChangeMemo" will be visible
 #    Then I will see the element "ChangeMemo" name is "修改成功"
 
-  Scenario: 备份策略编辑目的对象删除
+  Scenario: Agent备份，添加备份到目的对象
+    And I click the "AddBackUP" button
+    And I set the parameter "Document" with value "/data/rizhiyi/logs/heka"
+    And I set the parameter "WhiteList" with value ".*\.log"
+    And I set the parameter "BackUPTime" with value "0"
+    And I wait for "Next" will be visible
+    And I click the "Next" button
+    And I wait for loading invisible
+    And I click the "Next" button
+#    And I click the "Next" button
+    And I wait for "BackUpObject" will be visible
+    And I click the "BackUpObject" button
+    And I set the parameter "BackUpRoot1" with value "/tmp/"
+    And I set the parameter "BackUpName" with value "fute"
+    And I wait for "2000" millsecond
+    And I set the parameter "BackUpRoute" with value "0 */1 * * * *"
+    And I set the parameter "BackUpTimeout" with value "1"
+    And I click the "Next" button
+    And I wait for "1000" millsecond
+    And I click the "Finish" button
+    And I wait for "Addsuccessmsg" will be visible
+    And I will see the element "Addsuccessmsg" name is "添加成功"
+
+  Scenario: 备份策略目的对象删除失败
     And I click the "AddBackUP" button
     And I set the parameter "Document" with value "/data/rizhiyi/logs/heka"
     And I set the parameter "WhiteList" with value ".*\.log"
@@ -168,19 +192,99 @@ Feature: Agent备份功能
     And I wait for loading invisible
     And I click the "BackUpObject" button
     And I click the "DeleteBackUpObject" button
+#    And I wait for loading invisible
+    And I click the "Ensure" button
+    And I wait for "2000" millsecond
+#    And I wait for "ChangeMemofail" will be visible
+    Then I will see the element "ChangeMemofail" name is "删除目的对象失败，原因：Remote[autotest] is used by backup[fute]"
+
+  Scenario: 去除对象依赖
+    And I click the "FuteEdit" button
+    And I click the "Next" button
+    And I wait for "2000" millsecond
+    And I click the "Next" button
+    And I wait for "BackupLocalDisk" will be visible
+    And I click the "BackupLocalDisk" button
+    And I wait for "1000" millsecond
+    And I click the "Next" button
+    And I wait for "1000" millsecond
+    And I click the "Finish" button
+    And I wait for "Addsuccessmsg" will be visible
+    And I will see the element "Addsuccessmsg" name is "修改成功"
+
+
+  Scenario: 备份策略目的对象删除成功
+    And I click the "AddBackUP" button
+    And I set the parameter "Document" with value "/data/rizhiyi/logs/heka"
+    And I set the parameter "WhiteList" with value ".*\.log"
+    And I set the parameter "BackUPTime" with value "0"
+    And I click the "Next" button
     And I wait for loading invisible
+    And I click the "Next" button
+    And I wait for loading invisible
+    And I click the "BackUpObject" button
+    And I click the "DeleteBackUpObject" button
+#    And I wait for loading invisible
+    And I click the "Ensure" button
+#    And I wait for "ChangeMemo" will be visible
+    Then I will see the element "ChangeMemo" name is "删除目的对象成功。"
+
+  Scenario: 分发目的对象
+    Given the data name "hekabackup" in table "BackUpTable" then i click the "更多" button
+    And I click the "Distribution" button
+    And I wait for "1000" millsecond
+    And I click the "AgentOne" button
+    And I wait for "1000" millsecond
+    And I click the "EnsureDistribution" button
+    And I wait for element "ChangeMemoSuccess" change text to "操作成功。"
+
+  Scenario: 检验分发结果
+    Given open the "agent.ListPage" page for uri "/sources/input/agent/"
+    And I zoom the browse to full screen
+    And I wait for loading invisible
+    And I wait for "2000" millsecond
+    And I click the "AgentOTN" button
+    And switch to another window
+    And I close all tabs except main tab
+    And I wait for loading invisible
+    And I will see the "agent.CreatePage" page
+    And I move the mouse pointer to the "DetailMoreButton"
+    And I click the "BackUp" button
+    And I wait for loading invisible
+    And I wait for element "OneBackup" change text to "hekabackup"
+
+
+  Scenario Outline: 原始备份策略删除
+    Then I wait for loading invisible
+    Given the data name "<deletename>" in table "BackUpTable" then i click the "更多" button
+    And I click the "Delete" button
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element "ChangeMemo" name is "删除目的对象成功。"
-
-  Scenario: 备份策略删除
+#    Then I will see the element "ChangeMemo" name is "删除备份配置成功"
+  Examples:
+    | deletename  |
+    | hekabackup  |
+    | fute        |
+  Scenario: 分发备份策略删除
+    Given open the "agent.ListPage" page for uri "/sources/input/agent/"
+    And I zoom the browse to full screen
+    And I wait for loading invisible
+    And I wait for "2000" millsecond
+    And I click the "AgentOTN" button
+    And switch to another window
+    And I close all tabs except main tab
+    And I wait for loading invisible
+    And I will see the "agent.CreatePage" page
+    And I move the mouse pointer to the "DetailMoreButton"
+    And I click the "BackUp" button
     Then I wait for loading invisible
     Given the data name "hekabackup" in table "BackUpTable" then i click the "更多" button
     And I click the "Delete" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element "ChangeMemo" name is "删除备份配置成功"
+
 
 
 

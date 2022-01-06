@@ -929,8 +929,6 @@ Feature: 趋势图新建_其他
     And I click the "Settings" button
     And I click the "Value" button
     And I choose the "<countValue>" from the "FieldValue" in config
-    And I click the "Divide" button
-    And I choose the "<divValue>" from the "FieldValue" in config
     And I click the "Example" button
     And I click the "FirstPosition" button
     And I click the "Exhibition" button
@@ -953,8 +951,8 @@ Feature: 趋势图新建_其他
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
-      | chartType | countValue | divValue        | color1     | caseNum | spl                                                                      |
-      | Funnel    | cnt        | apache.clientip | LightGreen | 2858    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt by apache.geo.city \| sort by cnt, +apache.geo.city |
+      | chartType | countValue | color1     | caseNum | spl                                                                      |
+      | Funnel    | cnt        | LightGreen | 2858    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt by apache.geo.city \| sort by cnt, +apache.geo.city |
 
   Scenario Outline: matrixheatmap
     When I set the parameter "SearchInput" with value "<spl>"
@@ -1052,7 +1050,7 @@ Feature: 趋势图新建_其他
     And I wait for "ChainTableElement" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
+#    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -1212,7 +1210,7 @@ Feature: 趋势图新建_其他
     And I wait for "ChainTreeElement" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
+#    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"

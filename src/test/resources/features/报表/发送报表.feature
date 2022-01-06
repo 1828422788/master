@@ -41,6 +41,7 @@ Feature: 报表_发送
       |   Sunburst           |
       |   Pie_1              |
       |   Pie_2              |
+      |   Flame              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -58,6 +59,8 @@ Feature: 报表_发送
       |   Single             |
       |   Single_icon        |
       |   Single_range_backgr|
+      |   Ring_1             |
+      |   Ring_2             |
       |   Liquidfill         |
       |   Wordcloud          |
       |   Radar              |
@@ -103,6 +106,7 @@ Feature: 报表_发送
       |   Sunburst           |
       |   Pie_1              |
       |   Pie_2              |
+      |   Flame              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -121,6 +125,8 @@ Feature: 报表_发送
 #      |   Single_icon        |
 #      |   Single_font        |
       |   Single_range_backgr|
+      |   Ring_1             |
+      |   Ring_2             |
       |   Liquidfill         |
       |   Wordcloud          |
       |   Radar              |
@@ -164,6 +170,7 @@ Feature: 报表_发送
       |   Sunburst           |
       |   Pie_1              |
       |   Pie_2              |
+      |   Flame              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -182,6 +189,8 @@ Feature: 报表_发送
       |   Single_icon        |
       |   Single_font        |
       |   Single_range_backgr|
+      |   Ring_1             |
+      |   Ring_2             |
       |   Liquidfill         |
       |   Wordcloud          |
       |   Radar              |

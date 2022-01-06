@@ -43,12 +43,13 @@ Feature: 导入监控用例，新建sslldap配置
     And I set the parameter "NewLdapConnPort" with value "<NewLdapConnPort>"
     And I click the "LdapSSlOnOff" button
 
-    When I upload a file "Upload" with name "/src/test/resources/testdata/app/ca.crt"
+    When I upload a file "Upload" with name "/src/test/resources/testdata/app/cert.pem"
 
     And I set the parameter "NewBindDnName" with value "<NewBindDnName>"
     And I set the parameter "LdapUserPassword" with value "<LdapUserPassword>"
     And I click the "LdapConnVerifyButton" button
-    And I click1 the "SaveButton" button
+    And I wait for "2000" millsecond
+    And I click the "SaveButton" button
     Given I wait for loading complete
     Then I will see the message contains "创建成功"
     And I click the "ConfirmButton" button

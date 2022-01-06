@@ -1,5 +1,5 @@
 @report @reportLimit @allReports
-Feature: 报表_趋势图个数限制
+Feature: 报表_7_趋势图个数限制
 
   Scenario Outline: change_limit_error
     Given open the "system.CustomConfigs" page for uri "/system/"

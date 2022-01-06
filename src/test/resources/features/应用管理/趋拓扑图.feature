@@ -144,8 +144,9 @@ Feature: 应用拓扑图（RZY-2142）
     And I will see the element "Title" name is "TopologyApp"
     Then I will see the "topology.ListPage" page
     Given I set the parameter "SearchInput" with value "<name>"
+    And I wait for "2000" millsecond
     And I click the "Search" button
-    And I wait for loading invisible
+    And I wait for "2000" millsecond
     Then I will see the search result "{'column':'0','name':'<name>'}"
     Then I will see the search result "{'column':'0','name':'无标签','contains':'no'}"
 
@@ -191,7 +192,10 @@ Feature: 应用拓扑图（RZY-2142）
     Then I will see the "app.CreatePage" page
     And I wait for loading invisible
     And I click the "OverallSituation" button
+    And I wait for "1500" millsecond
     And I click the "SaveButton" button
+    Then I wait for "1500" millsecond
+    And I will see the message "更新成功"
 
     Examples:
       | name        |

@@ -14,14 +14,18 @@ public class TopicSetting extends ListPageFactory {
     public TopicSetting(WebDriver driver) {
         super(driver);
     }
+    @FindBy(xpath = "//div[@class='yotta-form-field-help-text']")
+    private WebElement ErrorMessage;
 
     public WebElement getErrorMessage() {
         return ErrorMessage;
     }
 
-    @FindBy(xpath = "//div[@class='yotta-form-field-help-text']")
-    private WebElement ErrorMessage;
-
+    @FindBy(xpath = "//p[@class='yotta-dialog-contenttext']")
+    private WebElement ErrorLog;
+    public WebElement getErrorLog(){
+        return ErrorLog;
+    }
     public WebElement getCreateButton() {
         return super.getButton("新建");
     }

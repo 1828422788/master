@@ -153,6 +153,16 @@ public class ImageComparison {
         return difference;
     }
 
+    public static boolean imageComparison(String sourceImage, String targetImage) throws IOException {
+        String sourceFingerPrint = ImageComparison.toPhash(ImageIO.read(new File(sourceImage + ".png")));
+        String targetFingerPrint = ImageComparison.toPhash(ImageIO.read(new File(targetImage + ".png")));
+        int difference = ImageComparison.hammingDistance(sourceFingerPrint, targetFingerPrint);
+        if (difference > 5) {
+            return false;
+        }
+        return true;
+    }
+
     public static void main(String[] args) throws IOException {
         String phash1 = toPhash(ImageIO.read(new File("target/cucumber-html-reports/embeddings/actual_img/galaxee/line.png")));
         String phash2 = toPhash(ImageIO.read(new File("target/cucumber-html-reports/embeddings/actual_img/galaxee/line2y.png")));

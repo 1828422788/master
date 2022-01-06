@@ -1,5 +1,5 @@
 @report @allReports @reportBasic
-Feature: 报表新建_执行计划
+Feature: 报表_1a_基本设置
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
@@ -82,6 +82,7 @@ Feature: 报表新建_执行计划
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "PDF" from the "ReportType"
     And I choose the "<period>" from the "Period"
+    And I wait for "1000" millsecond
     And I choose the "<day>" from the "Day"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
@@ -111,7 +112,9 @@ Feature: 报表新建_执行计划
     And I wait for "2000" millsecond
     And I choose the "test_app" from the "App" in config
     And I choose the "<period>" from the "Period"
+    And I wait for "1000" millsecond
     And I choose the "<month>" from the "Month"
+    And I wait for "1000" millsecond
     And I choose the "<day>" from the "Day"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
@@ -137,7 +140,7 @@ Feature: 报表新建_执行计划
     And I set the parameter "Crontab" with value "<crontab>"
     And I click the "NextButton" button under some element
     And I wait for "TipText" will be visible
-    And I will see the element "TipTexy" contains "<message_text>"
+    And I will see the element "TipText" contains "<message_text>"
 
     Examples:
       |   name       |  crontab | message_text                                  |

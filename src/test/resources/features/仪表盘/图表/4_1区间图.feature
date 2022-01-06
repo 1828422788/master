@@ -1,7 +1,7 @@
-@dashboard5 @dashboardChart
+@dashboard4_1 @dashboardChart
 Feature: 仪表盘_4_1_区间图
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -15,7 +15,7 @@ Feature: 仪表盘_4_1_区间图
       | name   |
       | 仪表盘区间图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -37,7 +37,7 @@ Feature: 仪表盘_4_1_区间图
       | spl                                                                                                                        | name   |
       | tag:sample04061424_display \| bucket timestamp span=1h as ts \| stats count('apache.status') as 'count' by ts \| esma count timefield=ts | 仪表盘区间图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -54,7 +54,7 @@ Feature: 仪表盘_4_1_区间图
       | name |
       | 区间图  |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -80,7 +80,7 @@ Feature: 仪表盘_4_1_区间图
       | name   |
       | 仪表盘区间图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 修改为区间图 RZY-308
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -121,7 +121,7 @@ Feature: 仪表盘_4_1_区间图
       | name   | targetName |
       | 仪表盘区间图 | Rangeline  |
 
-  @dashboard
+
   Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3703
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -129,7 +129,7 @@ Feature: 仪表盘_4_1_区间图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I will see the "TextLayer" result will contain "<json>"
 
@@ -137,7 +137,7 @@ Feature: 仪表盘_4_1_区间图
       | name    | json                                                                                                                                                                                                                                                                                                                              |
       | 仪表盘区间图 |  \n  "chart": {\n    "chartType": "rangeline",\n    "xAxis": {\n      "field": "ts"\n    },\n    "precision": "",\n    "yAxis": {\n      "field": "count",\n      "predictField": "_predict_count",\n      "anomalyField": ""\n    },\n    "boundary": {\n      "upperField": "upper95",\n      "lowerField": "lower95"\n    } |
 
-  @dashboard
+
   Scenario: 修改chartType为其他值 RZY-3704
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -146,7 +146,7 @@ Feature: 仪表盘_4_1_区间图
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘区间图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "仪表盘区间图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘区间图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | bucket timestamp span=1h as ts | stats count('apache.status') as 'count' by ts | esma count timefield=ts","startTime": "now/d","endTime": "now"},"chart": {"chartType": "qwertyuiop","xAxis": {"field": "ts"},"precision": "","yAxis": {"field": "count","predictField": "_predict_count","anomalyField": ""},"boundary": {"upperField": "upper95","lowerField": "lower95"}}}" to json editor
     And I wait for "500" millsecond
@@ -155,7 +155,7 @@ Feature: 仪表盘_4_1_区间图
     And I will see the element "ErrorMessage" contains "chart -> chartType 字段值不支持qwertyuiop"
 #    Then I wait for element "ErrorMessage" change text to "chart -> chartType 字段值不支持qwertyuiop"
 
-  @dashboard
+
   Scenario: 修改xAxis:field-ma RZY-3705
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -164,7 +164,7 @@ Feature: 仪表盘_4_1_区间图
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘区间图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "仪表盘区间图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{  "title": "仪表盘区间图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | bucket timestamp span=1h as ts | stats count('apache.status') as 'count' by ts | esma count timefield=ts",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "rangeline",    "xAxis": {      "field": "ma"    },    "precision": "",    "yAxis": {      "field": "count",      "predictField": "_predict_count",      "anomalyField": ""    },    "boundary": {      "upperField": "upper95",      "lowerField": "lower95"    }  }}" to json editor
     And I wait for "500" millsecond
@@ -180,7 +180,7 @@ Feature: 仪表盘_4_1_区间图
     Then take part of "SectionChartArea" with name "actual/区间图_xAxis_ma"
 #    And I compare source image "actual/区间图_xAxis_ma" with target image "expect/区间图_xAxis_ma"
 
-  @dashboard
+
   Scenario: 修改xAxis:field-qwert RZY-3705
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -189,7 +189,7 @@ Feature: 仪表盘_4_1_区间图
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘区间图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "仪表盘区间图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{  "title": "仪表盘区间图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | bucket timestamp span=1h as ts | stats count('apache.status') as 'count' by ts | esma count timefield=ts",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "rangeline",    "xAxis": {      "field": "ma"    },    "precision": "",    "yAxis": {      "field": "count",      "predictField": "_predict_count",      "anomalyField": ""    },    "boundary": {      "upperField": "upper95",      "lowerField": "lower95"    }  }}" to json editor
     And I wait for "500" millsecond
@@ -205,7 +205,7 @@ Feature: 仪表盘_4_1_区间图
     Then take part of "SectionChartArea" with name "actual/区间图_xAxis_qwert"
 #    And I compare source image "actual/区间图_xAxis_qwert" with target image "expect/区间图_xAxis_qwert"
 
-  @dashboard
+
   Scenario: 修改yAxis:field为不存在 RZY-3706
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -214,7 +214,7 @@ Feature: 仪表盘_4_1_区间图
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘区间图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "仪表盘区间图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘区间图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | bucket timestamp span=1h as ts | stats count('apache.status') as 'count' by ts | esma count timefield=ts","startTime": "now/d","endTime": "now"},"chart": {"chartType": "rangeline","xAxis": {"field": "ts"},"precision": "","yAxis": {"field": "countqwerty","predictField": "","anomalyField": ""},"boundary": {"upperField": "upper95","lowerField": "lower95"}}}" to json editor
     And I wait for "500" millsecond
@@ -228,7 +228,7 @@ Feature: 仪表盘_4_1_区间图
     And I wait for "2000" millsecond
     Then I wait for "NoData" will be visible
 
-  @dashboard
+
   Scenario Outline: upperField和lowerField RZY-3708
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -237,7 +237,7 @@ Feature: 仪表盘_4_1_区间图
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘区间图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "仪表盘区间图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{  "title": "仪表盘区间图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | bucket timestamp span=1h as ts | stats count('apache.status') as 'count' by ts | esma count timefield=ts",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "rangeline",    "xAxis": {      "field": "ts"    },    "precision": "",    "yAxis": {      "field": "count",      "predictField": "_predict_count",      "anomalyField": ""    },    "boundary": {      "upperField": "<upperField>",      "lowerField": "<lowerField>"    }  }}" to json editor
     And I wait for "500" millsecond

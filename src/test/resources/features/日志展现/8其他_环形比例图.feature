@@ -1,5 +1,5 @@
 @all @logDisplay @logDisplayOther @logDisplayRing
-Feature: 日志展现_其它_环形比例图
+Feature: 日志展现_8其它_环形比例图
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"

@@ -32,7 +32,7 @@ Feature: 全链路_重命名
   Scenario: 验证重命名
     When I set the parameter "SearchInput" with value "Rename_Test"
     And I wait for "2000" millsecond
-    And I wait for "Nodata" will be visible
+    And I wait for "NoData" will be visible
     When I set the parameter "SearchInput" with value "Test_Rename"
     And I wait for "2000" millsecond
     When the data name is "Test_Rename" then i click the "编辑" button in more menu

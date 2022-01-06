@@ -37,7 +37,7 @@ public class InstallPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'AutoTestSourceForApp')]")
     private WebElement editText;
 
-   @FindBy(xpath = "//div[@class='yotta-spinner-overlay']/p")
+   @FindBy(xpath = "//div[@class='yotta-empty-description']")
     private WebElement importSuccess;
 
     @FindBy(xpath = "//span[text()='AutoTestApp']")

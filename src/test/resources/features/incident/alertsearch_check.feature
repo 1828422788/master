@@ -11,7 +11,7 @@ Feature: 监控搜索界面
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "2000" millsecond
-    Then I will see the message contains "Unexpected token . in JSON at position 17"
+    Then I will see the message contains "in JSON at position"
 
     Examples:
       | splQuery      |

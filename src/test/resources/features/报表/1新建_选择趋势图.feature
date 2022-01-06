@@ -1,5 +1,5 @@
 @report @allReports @reportSelectTrend
-Feature: 报表新建_选择
+Feature: 报表_1_选择趋势图
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
@@ -12,11 +12,9 @@ Feature: 报表新建_选择
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count()"
+    When I set the parameter "SearchInput" with value "* | stats count()"
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I wait for "1000" millsecond
-    And I click the "TestDataset" button
     And I wait for "1000" millsecond
     And I click the "Dataset_1" button
     And I wait for "1000" millsecond
@@ -57,10 +55,10 @@ Feature: 报表新建_选择
     And I click the "ChartListButton" button
     Then I will see the element "LastTrendTitle" contains "报表测试_数据集"
     And I click the "ChosenTrendLast" button
-    And I will see the element "TrendData" contains "((*)) OR (tag:sample04061424_chart) OR (tag:sample04061424_display)"
+    And I will see the element "TrendData" contains "(tag:sample04061424_chart) OR (tag:sample04061424_display)"
     And I click the "EditButton" button
     And I wait for "3000" millsecond
-    And I will see the element "TrendDatasetField" contains "((*)) OR (tag:sample04061424_chart) OR (tag:sample04061424_display)"
+    And I will see the element "TrendDatasetField" contains "(tag:sample04061424_chart) OR (tag:sample04061424_display)"
     And I set the value "starttime="now/d" endtime="now/d+24h" * | stats count()" to the textarea "TrendSplField"
     Then I click the "EnsureButton" button
 
@@ -70,7 +68,7 @@ Feature: 报表新建_选择
 
   Examples:
     |  tipText     |
-    |   名称：报表测试_数据集\n描述：AutoCreate\n搜索内容：tag:sample04061424_chart \| stats count()\n数据集：((*)) OR (tag:sample04061424_chart) OR (tag:sample04061424_display)\n统计类型：single\n时间范围：now/d,now  |
+    |   名称：报表测试_数据集\n描述：AutoCreate\n搜索内容：* \| stats count()\n数据集：(tag:sample04061424_chart) OR (tag:sample04061424_display)\n统计类型：single\n时间范围：now/d,now  |
 
   Scenario: new_report_10_trends
     When I set the parameter "Name" with value "test_10trends"

@@ -54,7 +54,7 @@ public class SharedDriver extends EventFiringWebDriver {
     };
 
     static {
-        System.out.println("chsfinduml==============================================[11]");
+        System.out.println("chsfinduml==============================================[11]static");
         Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
         ConfigManager config = new ConfigManager();
         DesiredCapabilities browser = null;

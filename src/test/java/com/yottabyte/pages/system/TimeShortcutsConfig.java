@@ -1,6 +1,7 @@
 package com.yottabyte.pages.system;
 
 import com.yottabyte.pages.PageTemplate;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -155,25 +156,28 @@ public class TimeShortcutsConfig extends PageTemplate {
 
     public WebElement getEnsureButton() { return ensureButton; }
 
-    @FindBy(xpath = "//span[text()='上一个月']/parent::div/following-sibling::div//span[text()='删除']")
-    private WebElement deleteRelative;
+    @FindBy(xpath = "//li//span[text()='删除']")
+    private WebElement delete;
 
-    public WebElement getDeleteRelative() { return deleteRelative; }
+    public WebElement getDeleteRelative() {
+        webDriver.findElement(By.xpath("//span[text()='上一个月']/parent::div/following-sibling::div//span[text()='更多']")).click();
+        return delete;
+    }
 
-    @FindBy(xpath = "//span[text()='最近10天']/parent::div/following-sibling::div//span[text()='删除']")
-    private WebElement deleteRecent;
+    public WebElement getDeleteRecent() {
+        webDriver.findElement(By.xpath("//span[text()='最近10天']/parent::div/following-sibling::div//span[text()='更多']")).click();
+        return delete;
+    }
 
-    public WebElement getDeleteRecent() { return deleteRecent; }
+    public WebElement getDeleteActual() {
+        webDriver.findElement(By.xpath("//span[text()='35分钟窗口']/parent::div/following-sibling::div//span[text()='更多']")).click();
+        return delete;
+    }
 
-    @FindBy(xpath = "//span[text()='35分钟窗口']/parent::div/following-sibling::div//span[text()='删除']")
-    private WebElement deleteActual;
-
-    public WebElement getDeleteActual() { return deleteActual; }
-
-    @FindBy(xpath = "//span[text()='前25个交易日']/parent::div/following-sibling::div//span[text()='删除']")
-    private WebElement deleteOther;
-
-    public WebElement getDeleteOther() { return deleteOther; }
+    public WebElement getDeleteOther() {
+        webDriver.findElement(By.xpath("//span[text()='前25个交易日']/parent::div/following-sibling::div//span[text()='更多']")).click();
+        return delete;
+    }
 
     @FindBy(className = "yotta-message-content")
     private WebElement errorMessage;

@@ -34,6 +34,7 @@ Feature: 图片库
     And I wait for loading invisible
     And I click the "PictureGallary" button
     And I wait for "2000" millsecond
+    And I click the "Manager" button
     And I click the "PictureToDelete" button
     Then I click the "Delete" button
     And I wait for "1000" millsecond

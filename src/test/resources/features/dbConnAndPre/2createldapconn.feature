@@ -1,6 +1,6 @@
 Feature: 新建ldap连接配置
 
-  @newldapconn @autoui01
+  @newldapconn @autoui02
   Scenario Outline: 新建ldap配置-3个
     Given open the "dbConnectionPre.LdapConnListPage" page for uri "/ldapconnection/"
     And I click the "CreateLdapConn" button
@@ -16,8 +16,8 @@ Feature: 新建ldap连接配置
     And I set the parameter "NewBindDnName" with value "<NewBindDnName>"
     And I set the parameter "LdapUserPassword" with value "<LdapUserPassword>"
     And I click the "LdapConnVerifyButton" button
-    Given I wait for loading complete
-    And I click1 the "SaveButton" button
+    Given I wait for loading invisible
+    And I click the "SaveButton" button
     Given I wait for loading complete
     Then I will see the message contains "创建成功"
     And I click the "ConfirmButton" button

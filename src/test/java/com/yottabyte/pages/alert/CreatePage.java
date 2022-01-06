@@ -1076,7 +1076,7 @@ public class CreatePage extends PageTemplate {
         return beforeDeleteApp;
     }
 
-    @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']")
+    @FindBy(xpath = "//span[@aria-label='CloseCircle']")
     private WebElement deleteApp;
 
     public WebElement getDeleteApp() {

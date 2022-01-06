@@ -8,13 +8,12 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 import java.util.List;
 import java.util.Map;
+
+import static java.lang.Thread.sleep;
 
 /**
  * 列表页中对表格的操作
@@ -224,12 +223,12 @@ public class ClickButtonWithGivenName {
      */
     private void click(String buttonName, WebElement tr) {
         String xpath;
-        if (webDriver.getCurrentUrl().contains("/app/list/") || webDriver.getCurrentUrl().contains("/app/siem/assets/")) {
+        if (webDriver.getCurrentUrl().contains("/app/list/") || webDriver.getCurrentUrl().contains("/app/siem/assets/") || webDriver.getCurrentUrl().contains("/reports/template/") ||(webDriver.getCurrentUrl().contains("/reports/") && !("编辑".equals(buttonName)))) {
             // xpath = ".//span[contains(text(),'" + buttonName + "')][not(@class)]";
             xpath = ".//span[text()='" + buttonName + "']";
         } else if ("详情".equals(buttonName)) {
             xpath = ".//span[contains(text(),'" + buttonName + "')]";
-        } else if (webDriver.getCurrentUrl().contains("/sources/input/agent/") ||webDriver.getCurrentUrl().contains("/agent/agentgroup/") || webDriver.getCurrentUrl().contains("/agent/groupcollect/") || (webDriver.getCurrentUrl().contains("/reports/") && !("编辑".equals(buttonName)))) {
+        } else if (webDriver.getCurrentUrl().contains("/sources/input/agent/") ||webDriver.getCurrentUrl().contains("/agent/agentgroup/") || webDriver.getCurrentUrl().contains("/agent/groupcollect/")) {
             xpath = ".//a[text()='" + buttonName + "']";
         } else {
             xpath = ".//span[text()='" + buttonName + "']";
@@ -263,9 +262,9 @@ public class ClickButtonWithGivenName {
         } else if (webDriver.getCurrentUrl().contains("/dashboard/")) {
             xpath = ".//span[contains(text(),'" + name + "')]";
         } else if (webDriver.getCurrentUrl().contains("/topology/")) {
-            xpath = ".//a[contains(text(),'" + name + "')]";
+            xpath = ".//span[contains(text(),'" + name + "')]";
         } else if (webDriver.getCurrentUrl().contains("/knowledge/")) {
-            xpath = ".//a[contains(text(),'" + name + "')]";
+            xpath = ".//span[contains(text(),'" + name + "')]";
         } else {
             xpath = ".//span";
         }
@@ -289,6 +288,44 @@ public class ClickButtonWithGivenName {
     }
 
     /**
+     * 点击已存搜索列表页
+     *
+     * @param name
+     */
+    @Given("^I click the which saved name is \"([^\"]*)\"$")
+    public void clickSavedSearchName(String name) {
+        String xpath;
+        xpath = ".//span[contains(text(),'" + name + "')]/parent::a[@yotta-test='search-load_savedsearch-button']";
+        WebElement e = webDriver.findElement(By.xpath(xpath));
+        e.click();
+    }
+
+    /**
+     * 点击已存搜索列表页
+     *
+     * @param name
+     */
+    @Given("^I click the which saved name is \"([^\"]*)\" on saved page$")
+    public void clickSavedSearchNameOnSavedPage(String name) {
+        String xpath;
+        xpath = ".//span[contains(text(),'" + name + "')]/parent::a";
+        WebElement e = webDriver.findElement(By.xpath(xpath));
+        e.click();
+    }
+
+    /**
+     * 点击已存搜索详情页
+     *
+     * @param name 若为json格式{'name':''}
+     */
+    @Then("^I click the detail which name is \"([^\"]*)\" in saved search$")
+    public void iClickTheDetailWhichNameIsInSavedSearch(String name) {
+        WebElement tr = listPageUtils.getTrWithoutPagingInConfig(name);
+        WebElement star = tr.findElement(By.xpath("//td[@class='yotta-table-cell yotta-table-cell-ellipsis']//span[text()='" + name + "']"));
+        star.click();
+    }
+
+    /**
      * 在agent页中，点击某一ip的详情页
      *
      * @param columnNum 列名称（从0开始）
@@ -300,8 +337,15 @@ public class ClickButtonWithGivenName {
         Map<String, Object> map = JsonStringPaser.json2Stirng(json);
         WebElement tr = listPageUtils.getRowWithoutPaging(map.get("name").toString(), table);
         int num = Integer.parseInt(columnNum) + 1;
-        tr.findElement(By.xpath("(./td)[" + num + "]/span")).click();
+        tr.findElement(By.xpath("(./td)[" + num + "]//span[contains(text(),'192')]")).click();
     }
+    @Given("^I click the detail which name is \"([^\"]*)\" in agent page")
+    public void clickNameInAgentPage(String dataname){
+        WebElement tr=webDriver.findElement(By.xpath("//span[text()='192.168.1."+dataname+"']"));
+       tr.click();
+
+    }
+
 
     /**
      * siem资产管理页面寻找对应的操作按钮并点击
@@ -456,7 +500,7 @@ public class ClickButtonWithGivenName {
         WebElement tr = listPageUtils.getRow(name);
         WebElement element = tr.findElement(By.xpath(".//span[contains(@class,'expansion')]//span[@role='img']"));
         String current_label = element.getAttribute("aria-label");
-        String status = current_label.equals("AddOutlined") ? "close" : "expand";
+        String status = current_label.equals("Add") ? "close" : "expand";
         if (!action.equals(status)) {
             ClickEvent.clickUnderneathButton(element);
         }
@@ -580,7 +624,6 @@ public class ClickButtonWithGivenName {
         WebElement star = tr.findElement(By.xpath(".//span[@yotta-test='search-follow_field-icon']"));
         star.click();
     }
-
 
     @Then("^I click the star before \"([^\"]*)\" in saved search list$")
     public void iClickTheStarBeforeInSavedSearchList(String name) {
@@ -830,6 +873,7 @@ public class ClickButtonWithGivenName {
         for (WebElement tr : trList)
         {
             try {
+                sleep(2000);
                 WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
                 ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
                 WebElement lastMenuList = dropdownUtils.getIncidentPageMoreMenuList();
@@ -844,6 +888,7 @@ public class ClickButtonWithGivenName {
                     }
                 }
 
+                sleep(2000);
                 WebElement lastSubMenuList = dropdownUtils.getIncidentPageMoreMenuSubList();
                 List<WebElement> subElements = lastSubMenuList.findElements(By.tagName("span"));
                 if (subDataName != null && subDataName.trim().length() != 0) {
@@ -856,7 +901,7 @@ public class ClickButtonWithGivenName {
                     }
                 }
 
-            } catch (org.openqa.selenium.StaleElementReferenceException exception) {
+            } catch (StaleElementReferenceException | InterruptedException exception) {
                 WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
                 ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
                 WebElement lastMenuList = dropdownUtils.getIncidentPageMoreMenuList();

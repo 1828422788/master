@@ -7,6 +7,8 @@ Feature: 权限-监控
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
+    And I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
     And I click the "Resource" button
     And I wait for "1000" millsecond
     When I "checked" the checkbox which name is "可查看监控,可查看仪表盘"
@@ -233,8 +235,8 @@ Feature: 权限-监控
     And I wait for "TagToInput" will be visible
     And I click the "TagToInput" button
     And I wait for "Tag" will be visible
-    And I set the parameter "Tag" with value "test"
-    And I choose the "test" from the "TagDropdown"
+ #   And I set the parameter "Tag" with value "test"
+ #   And I choose the "test" from the "TagDropdown"
     And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "更多" button
@@ -421,8 +423,8 @@ Feature: 权限-监控
     And I wait for "TagToInput" will be visible
     And I click the "TagToInput" button
     And I wait for "Tag" will be visible
-    And I set the parameter "Tag" with value "test"
-    And I choose the "test" from the "TagDropdown"
+    #And I set the parameter "Tag" with value "test"
+    #And I choose the "test" from the "TagDropdown"
     And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "更多" button
@@ -569,8 +571,8 @@ Feature: 权限-监控
     And I wait for "TagToInput" will be visible
     And I click the "TagToInput" button
     And I wait for "Tag" will be visible
-    And I set the parameter "Tag" with value "test"
-    And I choose the "test" from the "TagDropdown"
+    #And I set the parameter "Tag" with value "test"
+    #And I choose the "test" from the "TagDropdown"
     And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
@@ -732,15 +734,15 @@ Feature: 权限-监控
     And I wait for loading invisible
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "<userfunction>" button
     When the data name is "{'column':'1','name':'<name>'}" then I "open" the switch
-#    Then I will see the success message "启用成功"
+    Then I will see the success message "启用成功"
     And I wait for "SuccessMessage" will be invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "更多" button
     And I click the "Label" button
     And I wait for "2000" millsecond
     And I wait for "TagToInput" will be visible
     And I click the "TagToInput" button
-    And I wait for "Tag" will be visible
-    And I set the parameter "Tag" with value "test"
+    #And I wait for "Tag" will be visible
+    #And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
     And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"

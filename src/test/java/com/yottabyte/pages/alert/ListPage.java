@@ -438,7 +438,19 @@ public class ListPage extends ListPageFactory {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownResourceGroupList();
+        return getV40LastDropdownList();
+    }
+
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//span[text()='请选择或输入']")
+    private WebElement tagInputDiv;
+    public WebElement getTagInputDiv(){
+        return tagInputDiv;
+    }
+
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//input")
+    private WebElement tagInput;
+    public WebElement getTagInput(){
+        return tagInput;
     }
 
     @FindBy(xpath = "(//tr[contains(@class,'expansion')]//div[contains(text(),'资源标签......')])[last()]")

@@ -63,7 +63,8 @@ Feature: 趋势图复制(RZY-1889)
 
   Scenario: global_tag_app
     And I wait for "2000" millsecond
-    When I choose the "auto_package" from the "ResourceDropdown"
+    When I set the parameter "GlobalTagInput" with value "auto_package"
+    And I choose the "auto_package" from the "TagDropdown"
     And I click the "HideElement" button
     And I wait for "Loading" will be invisible
     And I choose the "test_app" from the "AppDropdown"

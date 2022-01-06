@@ -1,4 +1,4 @@
-#@authtest
+@authtest
 Feature: 权限-用户
 
   Scenario: 授权无新建权限
@@ -7,20 +7,21 @@ Feature: 权限-用户
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
+    And I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
     And I click the "Resource" button
     And I wait for "2000" millsecond
     And I "checked" the checkbox which name is "可查看仪表盘"
     And I wait for "2000" millsecond
     And I click the "UserAndValidate" button
     And I wait for "1000" millsecond
-   # And I "checked" the checkbox which name is "全选"
-   # And I "unchecked" the checkbox which name is "全选"
     And I "checked" the checkbox which name is "可查看用户页"
     And I click the "SaveButton" button
     Then I logout current user
 
   Scenario: 验证无新建权限
     Given I login user "AutoTest" with password "All#123456"
+    And I wait for loading invisible
     Given open the "users.ListPage" page for uri "/account/users/"
     And I wait for loading invisible
     Then I will see the "Create" doesn't exist
@@ -120,7 +121,6 @@ Feature: 权限-用户
     And I wait for loading invisible
     Then I click the "User" button
     And I wait for loading invisible
-
     And I "checked" the checkbox which name is "AutoTestAuth" in auth table
     And I "unchecked" the checkbox which name is "AutoTestAuth" in auth table
     And I click the "SaveButton" button

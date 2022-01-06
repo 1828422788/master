@@ -1,5 +1,5 @@
-@reportTextEditor @report @setup1
-Feature: 报表_单值趋势图
+@reportTextEditor @report
+Feature: 报表_0_单值趋势图
 
   Scenario: report_single_trend
     Given open the "trend.ListPage" page for uri "/trend/"

@@ -103,7 +103,7 @@ Feature: 趋势图_拖拽_维度
     Then I wait for "Chart" will be visible
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_<drill>"
-    And I compare source image "actual/拖拽_<chartType>_<drill>" with target image "expect/拖拽_<chartType>_<drill>_<drill>"
+    And I compare source image "actual/拖拽_<chartType>_<drill>" with target image "expect/拖拽_<chartType>_<drill>"
     And I click the "NextButton" button under some element
 
     When I will see the "trend.CreatePage" page
@@ -131,7 +131,7 @@ Feature: 趋势图_拖拽_维度
     Examples:
       | chartType | drill    | element    | element1    |
       | Flame     | DrillIn  | BackToChart| FlameElement|
-      | Flame     | DrillOut | AreaChart  | BackToChart |
+      | Flame     | DrillOut | DrillOut   | BackToChart |
 
   Scenario Outline: drag_and_drop_sunburst
     And I "checked" the checkbox which name is "apache.geo.province" in trend page

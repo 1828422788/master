@@ -24,7 +24,7 @@ public class EditPage extends PageTemplate {
         return dataset;
     }
 
-    @FindBy(xpath = "//a[@yotta-test='schedule-choose_dataset-link']")
+    @FindBy(xpath = "//*[@yotta-test='schedule-choose_dataset-link']")
     private WebElement datasetLink;
     public WebElement getDatasetLink() {
         return datasetLink;
@@ -103,7 +103,7 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(@class,'help-text')])[1]")
     private WebElement tipText;
 
-    @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']/ancestor::div[1]/following-sibling::div/p")
+    @FindBy(xpath = "//span[@aria-label='CloseCircle']/ancestor::div[1]/following-sibling::div/p")
     private WebElement errorMessage;
 
     @FindBy(xpath = "//input[@class='yotta-time-picker-input']")
@@ -206,6 +206,10 @@ public class EditPage extends PageTemplate {
         return getYottaTextarea("schedule-query-input");
     }
 
+    public WebElement getCrontab() {
+        return crontab;
+    }
+
     public WebElement getCrontabInput() {
         crontab.click();
         return getYottaInput("schedule-crontab-input");
@@ -228,7 +232,7 @@ public class EditPage extends PageTemplate {
     }
 
     public WebElement getAddJDBC() {
-        return getYottaLabel("schedule-add_jdbc-dom");
+        return getYottaButton("schedule-add_jdbc-dom");
     }
 
     public WebElement getJdbc() {
@@ -327,7 +331,7 @@ public class EditPage extends PageTemplate {
         return DeleteAppicon;
     }
 
-    @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']")
+    @FindBy(xpath = "//span[@aria-label='CloseCircle']")
     private WebElement deleteApp;
 
     public WebElement getDeleteApp() {

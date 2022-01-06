@@ -64,8 +64,8 @@ Feature: 趋势图_拖拽_地图
       |  Heatmap   |
 
   Scenario Outline: drag_and_drop_regionmap
-    And I drag the element "<element>" to the "Values"
-    And I drag the element "<element>" to the "Dimensions"
+    And I drag the element "<field>" to the "Values"
+    And I drag the element "<field>" to the "Dimensions"
     And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
     Then I wait for "Chart" will be visible
@@ -108,7 +108,7 @@ Feature: 趋势图_拖拽_地图
 
 
     Examples:
-      |  chartType   | element     |  region     |  switch    |  element                | spl     |
+      |  chartType   | field       |  region     |  switch    |  element                | spl     |
       |  Regionmap   | GeoCountry  |  World      | UseBubbles | RegionmapLightElement   | tag:sample04061424_chart \| stats count(apache.geo.country) by apache.geo.country   |
       |  Regionmap   | GeoProvince |  China      | ShowLabels | RegionmapDarkElement    | tag:sample04061424_chart \| stats count(apache.geo.province) by apache.geo.province |
 
@@ -133,7 +133,7 @@ Feature: 趋势图_拖拽_地图
     And I click the Circle "<click2>" button
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_<name>_下钻"
-    And I compare source image "actual/拖拽_<chartType>_<name>下钻" with target image "expect/拖拽_<chartType>_<name>_下钻"
+    And I compare source image "actual/拖拽_<chartType>_<name>_下钻" with target image "expect/拖拽_<chartType>_<name>_下钻"
     And I click the "NextButton" button under some element
 
     When I will see the "trend.CreatePage" page

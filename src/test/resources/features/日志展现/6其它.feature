@@ -1,5 +1,5 @@
 @all @logDisplay @logDisplayOther
-Feature: 日志展现_其它
+Feature: 日志展现_6其它
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"

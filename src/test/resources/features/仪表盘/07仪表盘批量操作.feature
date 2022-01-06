@@ -19,7 +19,6 @@ Feature: 仪表盘07批量操作
     And I wait for loading invisible
     And I click the dashboard icon which name is "Test_Batch_Control_Resource_1"
     Then I will see the text "资源标签..............AutoTestTag" exist in page
-#    Then I will see the data "{'column':'0','name':'Test_Batch_Control_Resource_1'}" values "{'column':'5','name':'AutoTestTag'}"
 
   Scenario: 批量操作-新建无标签资源
     When I click the "Create" button
@@ -30,12 +29,6 @@ Feature: 仪表盘07批量操作
     And I wait for loading invisible
     And I click the dashboard icon which name is "Test_Batch_Control_Resource_2"
     Then I will see the text "资源标签..............无" exist in page
-#    Then I will see the data "{'column':'0','name':'Test_Batch_Control_Resource_2'}" values "{'column':'5','name':''}"
-
-#    Examples: 新建成功
-#      | name                          | resourceTag |
-#      | Test_Batch_Control_Resource_1 | AutoTestTag |
-#      | Test_Batch_Control_Resource_2 |             |
 
 
   Scenario: 批量操作-空操作
@@ -43,42 +36,37 @@ Feature: 仪表盘07批量操作
     And I wait for "SelectBatchOperation" will be visible
     And I click the "SelectBatchOperation" button
     And I click the "AddResourceTags" button
-    Then I will see the message "请至少选择一个资源进行操作"
+    And I wait for "Message" will be visible
+    Then I will see the message contains "请至少选择一个资源进行操作"
 
   Scenario: 批量操作-添加资源标签
     When I click the "BatchControl" button
     And I click the "ListItemOne" button
     And I wait for "1000" millsecond
     And I click the "ListItemTwo" button
-#    And I "checked" the checkbox in list which name is "Test_Batch_Control_Resource_1,Test_Batch_Control_Resource_2" in column "1"
     And I click the "SelectBatchOperation" button
-#    And I click the "AddResourceTags" button
-#    And I wait for "Modal" will be visible
     And I click the "AddResouceTag" button
-    And I choose the "AutoTest" from the "MultiAddTag"
-#    And I set the parameter "Tag" with value "Multi_Add_Tag"
-#    And I choose the "Multi_Add_Tag" from the "TagDropdown"
+    And I click the "TagToInput" button
+    And I wait for "1000" millsecond
+    And I set the parameter "MultiInputTag" with value "auto_package"
+    And I wait for "500" millsecond
+    And I choose the "auto_package" from the "LastDropdownList"
     And I click the "Ensure" button
-    And I wait for "100" millsecond
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I wait for loading invisible
     And I click the dashboard icon which name is "Test_Batch_Control_Resource_2"
-    Then I will see the text "资源标签..............AutoTest" exist in page
+    Then I will see the text "资源标签..............auto_package" exist in page
     And I click the dashboard icon which name is "Test_Batch_Control_Resource_1"
-    Then I will see the text "资源标签..............AutoTest, AutoTestTag" exist in page
-#    Then I will see the data "{'column':'1','name':'Test_Batch_Control_Resource_2'}" values "{'column':'6','name':'Multi_Add_Tag'}"
-#    And I will see the data "{'column':'1','name':'Test_Batch_Control_Resource_1'}" values "{'column':'6','name':'Multi_Add_Tag, AutoTestTag'}"
-
+    Then I will see the text "资源标签..............auto_package, AutoTestTag" exist in page
+#
   Scenario: 批量操作-删除资源
     When I click the "BatchControl" button
     And I click the "ListItemOne" button
     And I wait for "1000" millsecond
     And I click the "ListItemTwo" button
-#    And I "checked" the checkbox in list which name is "Test_Batch_Control_Resource_1,Test_Batch_Control_Resource_2" in column "1"
     And I click the "SelectBatchOperation" button
     And I click the "DeleteResources" button
-#    And I wait for "Modal" will be visible
     And I click the "Ensure" button
-    And I wait for "500" millsecond
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
-#    And I click the "CompleteBatchControl" button

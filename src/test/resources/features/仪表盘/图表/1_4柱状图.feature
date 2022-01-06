@@ -1,7 +1,7 @@
-@dashboard0330 @dashboard19 @dashboardChart
+@dashboard1_4 @dashboardChart
 Feature: 仪表盘_1_4_柱状图
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -15,7 +15,7 @@ Feature: 仪表盘_1_4_柱状图
       | name   |
       | 仪表盘柱状图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -37,7 +37,7 @@ Feature: 仪表盘_1_4_柱状图
       | spl                                                              | name   |
       | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len | 仪表盘柱状图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -54,7 +54,7 @@ Feature: 仪表盘_1_4_柱状图
       | name |
       | 柱状图  |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -78,7 +78,7 @@ Feature: 仪表盘_1_4_柱状图
       | name   |
       | 仪表盘柱状图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 修改为柱状图 RZY-303
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -100,7 +100,7 @@ Feature: 仪表盘_1_4_柱状图
     And I choose the "apache.clientip" from the "DataValue"
     And I wait for "Right" will be visible
     And I click the "Right" button
-    And I click the "Ascending" button
+    And I click the "AscendingOrder" button
     And I click the "Yaxis" button
     And I choose the "count()" from the "DataValue"
     And I wait for "1000" millsecond
@@ -126,7 +126,7 @@ Feature: 仪表盘_1_4_柱状图
       | name   | targetName  |
       | 仪表盘柱状图 | ColumnChart |
 
-  @dashboard
+
   Scenario: 序列图支持的钻取变量预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -134,7 +134,7 @@ Feature: 仪表盘_1_4_柱状图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I set the parameter "Spl" with value "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10"
@@ -146,7 +146,7 @@ Feature: 仪表盘_1_4_柱状图
     And I switch the dashboard "OpenDrilldown" button to "enable"
     And I wait for "500" millsecond
 
-  @dashboard
+
   Scenario: 序列图支持的钻取变量click.name RZY-3255
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -155,7 +155,7 @@ Feature: 仪表盘_1_4_柱状图
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -176,7 +176,7 @@ Feature: 仪表盘_1_4_柱状图
     Then I will see the "TimeRange" result will be "今天"
 #    Then I will see the input element "TimeRange" value will contains "今天"
 
-  @dashboard
+
   Scenario: 序列图支持的钻取变量click.value RZY-3257
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -185,7 +185,7 @@ Feature: 仪表盘_1_4_柱状图
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -197,7 +197,7 @@ Feature: 仪表盘_1_4_柱状图
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
-    And I click the Circle "Zhutiao" button
+    And I click the Circle "Zhutiao2" button
     And switch to another window
 #    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
@@ -206,7 +206,7 @@ Feature: 仪表盘_1_4_柱状图
 #    Then I will see the input element "TimeRange" value will contains "今天"
     Then I will see the "TimeRange" result will be "今天"
 
-  @dashboard
+
   Scenario: 序列图支持的钻取变量click.name2 RZY-3258
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -215,7 +215,7 @@ Feature: 仪表盘_1_4_柱状图
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -236,7 +236,7 @@ Feature: 仪表盘_1_4_柱状图
 #    Then I will see the input element "TimeRange" value will contains "今天"
     Then I will see the "TimeRange" result will be "今天"
 
-  @dashboard
+
   Scenario: 序列图支持的钻取变量click.value2 RZY-3259
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -245,7 +245,7 @@ Feature: 仪表盘_1_4_柱状图
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -264,7 +264,7 @@ Feature: 仪表盘_1_4_柱状图
     Then I will see the "SearchInput" result will contain "tag:sample04061424_display | stats count() as cn by apache.resp_len,apache.clientip | where cn=="
 #    Then I will see the "SearchInput" result will be "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==6"
 
-  @dashboard
+
   Scenario Outline: 序列图支持的钻取变量start end RZY-3262,RZY-3263
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -273,7 +273,7 @@ Feature: 仪表盘_1_4_柱状图
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -299,7 +299,7 @@ Feature: 仪表盘_1_4_柱状图
       | 仪表盘柱状图 |   starttime=${start} endtime=${end} *       |  starttime=      |  endtime=      |
       | 仪表盘柱状图 |   timestamp:[${start} TO ${end}] AND tag:*  |  timestamp:      |  AND tag:*      |
 
-  @dashboard
+
   Scenario Outline: 序列图支持的钻取变量start,end钻取到标签页 RZY-3264
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -308,7 +308,7 @@ Feature: 仪表盘_1_4_柱状图
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到标签页" from the "DrillAction"
@@ -331,7 +331,8 @@ Feature: 仪表盘_1_4_柱状图
     And I click the Circle "Zhutiao" button
     And switch to another window
     And I close all tabs except main tab
-    And I will see the "splSearch.SearchPage" page
+    And I wait for loading invisible
+    And I click the "ShowDashboards" button
     Then I will see the url contains "<url>"
     Then I will see the element "CurrentDashboard" value is "<CurrentDashboard> "
 
@@ -339,7 +340,7 @@ Feature: 仪表盘_1_4_柱状图
       | name       |   url             |  CurrentDashboard |
       | 仪表盘柱状图 |  globalTimeRange= |  FirstAutoTest    |
 
-  @dashboard
+
   Scenario: 序列图支持的钻取变量row.fieldname RZY-3260
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -348,7 +349,7 @@ Feature: 仪表盘_1_4_柱状图
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"

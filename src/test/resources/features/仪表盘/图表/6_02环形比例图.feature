@@ -1,7 +1,7 @@
-@dashboard27 @dashboardChart
+@dashboard6_02 @dashboardChart
 Feature: 仪表盘_6_02_环形比例图
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -15,7 +15,7 @@ Feature: 仪表盘_6_02_环形比例图
       | name     |
       | 仪表盘环形比例图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -38,7 +38,7 @@ Feature: 仪表盘_6_02_环形比例图
       | spl                                                          | name     |
       | appname:huawei \| stats count() as num \| eval p = num/28000 | 仪表盘环形比例图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -55,7 +55,7 @@ Feature: 仪表盘_6_02_环形比例图
       | name  |
       | 环形比例图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -79,7 +79,7 @@ Feature: 仪表盘_6_02_环形比例图
       | name     |
       | 仪表盘环形比例图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario: 修改为环形比例图 RZY-4388
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -109,7 +109,7 @@ Feature: 仪表盘_6_02_环形比例图
     And I set the parameter "LayoutRow" with value "2"
     And I set the parameter "LayoutColumn" with value "2"
     And I click the "Exhibition" button
-    And I choose the "2" from the "DataPrecision"
+    And I choose the "2" from the "Precision"
     And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
@@ -119,7 +119,7 @@ Feature: 仪表盘_6_02_环形比例图
     And I click the "TrendTitle" button
     And I wait for "3000" millsecond
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario: 修改展示
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -142,7 +142,7 @@ Feature: 仪表盘_6_02_环形比例图
     And I wait for "Yellow" will be visible
     And I click the "Yellow" button
     And I wait for "2000" millsecond
-    And I choose the "3" from the "DataPrecision"
+    And I choose the "3" from the "Precision"
     And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond

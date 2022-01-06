@@ -24,7 +24,7 @@ public class StatisticalPage extends PageTemplate {
         driver.manage().window().setSize(new Dimension(1200,900));
     }
 
-    @FindBy(xpath = "(//div[contains(@yotta-test,'field') and contains(@yotta-test,'search')]//div[@class='yotta-select-selection'])[last()]")
+    @FindBy(xpath = "(//div[contains(@yotta-test,'field') and contains(@yotta-test,'search')]//div[contains(@class,'yotta-select-selection')])[last()]")
     private WebElement fieldValue; //字段值
 
     @FindBy(xpath = "(//span[text()='生成']/ancestor::button)[last()]")
@@ -36,16 +36,16 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "((//*[name()='g']//ancestor::div[@id])[last()]) | (//div[contains(@id,'percentile')])")
     private WebElement chart;
 
-    @FindBy(xpath = "((//*[name()='g']//ancestor::div[@class='_1oKQ3m52X6q8QXkh6bYZmt']/div[1])[last()])")
+    @FindBy(xpath = "//div[contains(@id,'multilevel-statistics-content')]/div[last()]")
     private WebElement multiStatsChart;
 
     @FindBy(xpath = "(//span[text()='下一步']/ancestor::button)[last()]")
     private WebElement nextStep;
 
-    @FindBy(xpath = "(//*[text()='展现方式']//following-sibling::div[1]//div[@class='yotta-select-selection'])[last()]")
+    @FindBy(xpath = "(//*[text()='展现方式']//following-sibling::div[1]//div[contains(@class,'yotta-select-selection')])[last()]")
     private WebElement presentType;
 
-    @FindBy(xpath = "(//*[text()='统计类型']//following-sibling::div[1]//div[@class='yotta-select-selection'])[last()]")
+    @FindBy(xpath = "(//*[text()='统计类型']//following-sibling::div[1]//div[contains(@class,'yotta-select-selection')])[last()]")
     private WebElement statisticType;
 
     @FindBy(xpath = "(//input[@placeholder='开始日期'])[last()]")
@@ -66,28 +66,28 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "(//input[@yotta-test='search-NumericalBucket_to-input'])[last()]")
     private WebElement endDataValue; //数值分段（到）
 
-    @FindBy(className = "yotta-icon-DragFilled")
+    @FindBy(xpath = "//span[@yotta-test='search-dataset_resize_handler-dom']")
     private WebElement hideElement;
 
-    @FindBy(xpath = "//span[text()='小时']//ancestor::div[@class='yotta-select-selection']")
+    @FindBy(xpath = "//span[text()='小时']//ancestor::div[contains(@class,'yotta-select-selection')]")
     private WebElement time;
 
     @FindBy(xpath = "//input[@yotta-test='search-ValuesStatistics_time-input' or @yotta-test='search-TimeHistogram_interval-input']")
     private WebElement timeSpan; //时间桶, 时间间隔
 
-    @FindBy(xpath = "//span[contains(text(),'75%')]/following-sibling::span[@aria-label='DeleteOutlined']")
+    @FindBy(xpath = "//span[contains(text(),'75%')]/following-sibling::span[@aria-label='Delete']")
     private WebElement closePercent75;
 
-    @FindBy(xpath = "//span[contains(text(),'25%')]/following-sibling::span[@aria-label='DeleteOutlined']")
+    @FindBy(xpath = "//span[contains(text(),'25%')]/following-sibling::span[@aria-label='Delete']")
     private WebElement closePercent25;
 
-    @FindBy(xpath = "//span[contains(text(),'50%')]/following-sibling::span[@aria-label='DeleteOutlined']")
+    @FindBy(xpath = "//span[contains(text(),'50%')]/following-sibling::span[@aria-label='Delete']")
     private WebElement closePercent50;
 
-    @FindBy(xpath = "//span[contains(text(),'95%')]/following-sibling::span[@aria-label='DeleteOutlined']")
+    @FindBy(xpath = "//span[contains(text(),'95%')]/following-sibling::span[@aria-label='Delete']")
     private WebElement closePercent95;
 
-    @FindBy(xpath = "//span[contains(text(),'99%')]/following-sibling::span[@aria-label='DeleteOutlined']")
+    @FindBy(xpath = "//span[contains(text(),'99%')]/following-sibling::span[@aria-label='Delete']")
     private WebElement closePercent99;
 
     @FindBy(xpath = "//td[text()='200']//preceding-sibling::td//span[contains(@class,'yotta-checkbox-input')]")
@@ -105,7 +105,7 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "//*[text()='42']/parent::*[name()='g']")
     private WebElement provinceSichuan;
 
-    @FindBy(xpath = "//*[text()='TOP']/following-sibling::div//div[@class='yotta-select-selection']")
+    @FindBy(xpath = "//*[text()='TOP']/following-sibling::div//div[contains(@class,'yotta-select-selection')]")
     private WebElement topElement;
 
     @FindBy(xpath = "(//span[text()='下一步']/ancestor::button)[last()]")
@@ -117,10 +117,10 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "//li[@yotta-test='search-save_option_trend-menu_item']")
     private WebElement saveAsTrend;
 
-    @FindBy(xpath = "//*[@class='vx-group']//*[@y and @height and @fill and @height!=0]")
+    @FindBy(xpath = "//*[@class='vx-group']//*[@y and @x and @height and @fill and @height!=0]")
     private WebElement columnChartElement;
 
-    @FindBy(xpath = "(//*[@class='vx-group']//*[@y and @height and @fill and @height!=0])[2]")
+    @FindBy(xpath = "(//*[@class='vx-group']//*[@y and @x and @height and @fill and @height!=0])[2]")
     private WebElement columnChartElement2;
 
     @FindBy(xpath = "//div[contains(@class,'tooltip')]")
@@ -295,6 +295,10 @@ public class StatisticalPage extends PageTemplate {
 
     public WebElement getGroupValue() {
         return getYottaInput("search-ValuesStatistics_top-input"); //分组字段值
+    }
+
+    public WebElement getEventCount() {
+        return getYottaButton("search-stats_EventsCounting-button"); //事件计数
     }
 
     public WebElement getTimeSlice() {

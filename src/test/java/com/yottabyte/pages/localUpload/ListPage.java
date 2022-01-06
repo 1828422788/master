@@ -37,7 +37,7 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getInputElement(String name) {
-        return webDriver.findElement(By.xpath("//span[contains(text(),'" + name + "')]/ancestor::div/following-sibling::div//input"));
+        return webDriver.findElement(By.xpath("//label[contains(text(),'" + name + "')]/parent::div/following-sibling::div//input"));
     }
 
     public WebElement getConfirmbutton() {

@@ -131,7 +131,7 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//span[contains(@class,'yotta-tag-close')])[1]")
     private WebElement deleteFirst;
 
-    @FindBy(xpath = "(//i[@class='anticon css-ifnfqv _2FmD69BXKIajYmOQLvFY29 _14T_hDxmrDu4vX6PHAQs1u'])[last()]")
+    @FindBy(xpath = "(//span[contains(@class,'yotta-tag-close')])[last()]")
     private WebElement deleteLast;
 
     @FindBy(xpath = "//span[text()='前面']")
@@ -482,8 +482,8 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//div[text()='降序'])[last()]/ancestor::label")
     private WebElement descendingOrder;
 
-    @FindBy(xpath = "(//div[text()='升序'])[last()]/ancestor::label")
-    private WebElement ascending;
+    @FindBy(xpath = "(//*[contains(text(),'升序')])[last()]")
+    private WebElement ascendingOrder;
 
 //Colors ------------------------------------------------------------------
     @FindBy(xpath = "(//div[contains(@style,'rgb(161, 20, 249)')])[last()] | (//div[contains(@style,'rgb(156, 39, 176)')])[last()]")
@@ -634,10 +634,10 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(id = "yw-search-fields-header")
     private WebElement tableHeader;
 
-    @FindBy(xpath = "//span[text()='新建成功']")
+    @FindBy(xpath = "//*[text()='新建成功']")
     private WebElement successCreate;
 
-    @FindBy(xpath = "//span[text()='更新成功']")
+    @FindBy(xpath = "//*[text()='更新成功']")
     private WebElement successUpdate;
 
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i")
@@ -646,7 +646,7 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(className = "ant-popover-inner-content")
     private WebElement content;
 
-    @FindBy(xpath = "(//span[contains(@class,'yotta-icon-SettingFilled')])[last()]")
+    @FindBy(xpath = "(//span[contains(@class,'yotta-icon-Setting')])[last()]")
     private WebElement setting;
 
     @FindBy(xpath = "//*[@yotta-test='dashboard-chart_setting-dom']")
@@ -691,10 +691,6 @@ public class CreatePageDash extends PageTemplate {
 
     @FindBy(xpath = "//input[@placeholder='请输入数字']")
     private WebElement wordSize;
-
-
-    @FindBy(xpath = "//*[@yotta-test='chartgui-select-select']/div")
-    private WebElement dataPrecision;
 
     @FindBy(xpath = "//span[text()='行数']/preceding-sibling::div/input")
     private WebElement layoutRow;
@@ -1028,11 +1024,6 @@ public class CreatePageDash extends PageTemplate {
 
     public WebElement getSecondLabel() {
         return secondLabel;
-    }
-
-    public WebElement getDataPrecision() {
-        dataPrecision.click();
-        return super.getLastDropdownList();
     }
 
     public WebElement getThirdLabel() {
@@ -2015,7 +2006,7 @@ public class CreatePageDash extends PageTemplate {
     }
 
     public WebElement getAscendingOrder() {
-        return ascending;
+        return ascendingOrder;
     }
 
     public WebElement getDescendingOrder() {

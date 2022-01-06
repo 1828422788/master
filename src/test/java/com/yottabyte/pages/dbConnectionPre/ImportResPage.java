@@ -37,9 +37,6 @@ public class ImportResPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'AutoTestSourceForApp')]")
     private WebElement editText;
 
-    @FindBy(xpath = "//div[@class='ant-spin-container']/p")
-    private WebElement importSuccess;
-
     @FindBy(xpath = "//span[text()='AutoTestApp']")
     private WebElement resultDataset;
 
@@ -55,7 +52,7 @@ public class ImportResPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='没有相关的资源权限']")
     private WebElement noResourceAuth;
 
-    @FindBy(xpath = "//div[@yotta-test='resource-assign_role-select']/div[@class='yotta-select-selection']")
+    @FindBy(xpath = "//div[@yotta-test='resource-assign_role-select']/div")
     private WebElement roleList;
 
     public WebElement getRoleList() {
@@ -124,6 +121,9 @@ public class ImportResPage extends PageTemplate {
     public WebElement getAddDataset() {
         return addDataset;
     }
+
+    @FindBy(xpath = "//div[@class='ant-spin-container']/p")
+    private WebElement importSuccess;
 
     public WebElement getImportSuccess() {
         return importSuccess;

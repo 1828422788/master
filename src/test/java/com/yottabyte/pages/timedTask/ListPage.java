@@ -17,7 +17,7 @@ public class ListPage extends ListPageFactory {
         driver.manage().window().fullscreen();
     }
 
-    @FindBy(xpath = "//span[text()='定时任务']/following-sibling::span/div")
+    @FindBy(xpath = "//div[@yotta-test='schedule-schedule_list-select']/div[contains(@class,'yotta-select-selection')]")
     private WebElement selectName;
 
     @FindBy(xpath = "//*[@placeholder='请选择时间范围']")
@@ -28,9 +28,6 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(xpath= "//div[@class='yotta-modal']")
     private WebElement tagPanel;
-
-    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']")
-    private WebElement tagField;
 
     @FindBy(xpath = "//span[text()='创建补采任务']/ancestor::div[1]")
     private WebElement complementPanel;
@@ -50,17 +47,11 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[contains(@class,'yotta-select-option')][1]")
     private WebElement li;
 
-    @FindBy(xpath = "//span[text()='是否覆盖已存在定时任务结果']/preceding-sibling::label/span")
+    @FindBy(xpath = "//span[text()='是否覆盖已存在定时任务结果']/parent::label/span")
     private WebElement overwrite;
 
-    @FindBy(xpath = "//span[@class='yotta-message-content']")
+    @FindBy(xpath = "//div[contains(@class,'help-text')]")
     private WebElement notice;
-
-    @FindBy(xpath = "//div[contains(@class,'spinner')]")
-    private WebElement loading;
-
-    @FindBy(xpath = "//*[text()='暂无数据']")
-    private WebElement noData;
 
     @FindBy(xpath = "(//span[contains(@class,'expansion-icon')])[last()]")
     private WebElement expandLastItem;
@@ -89,7 +80,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "yotta-pageheader-title")
     private WebElement hideElement;
 
-    @FindBy(xpath = "//div[contains(@class,'yotta-select-selection')]//span[@aria-label='CloseCircleFilled']")
+    @FindBy(xpath = "//div[contains(@class,'yotta-select-selection')]//span[@aria-label='CloseCircle']")
     private WebElement deleteSelection;
 
     public WebElement getDeleteSelection() {
@@ -121,14 +112,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getTagOfTheLastItem() {
         return tagOfTheLastItem;
-    }
-
-    public WebElement getNoData() {
-        return noData;
-    }
-
-    public WebElement getLoading() {
-        return loading;
     }
 
     public WebElement getStartDate() {
@@ -187,11 +170,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getTagPanel() {
         return tagPanel;
-    }
-
-    public WebElement getTagField() {
-        tagField.click();
-        return this.getLastDropdownList();
     }
 
     public WebElement getComplementPanel() {

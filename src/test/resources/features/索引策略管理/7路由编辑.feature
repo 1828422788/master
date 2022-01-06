@@ -4,7 +4,7 @@ Feature: 路由编辑
   Background:
     Given open the "index.ListPage" page for uri "/indexmatchrules/"
 
-  Scenario Outline: RZY-1483、1484
+  Scenario Outline: RZY-1483、1484编辑appname、tag、索引
     When the data name is "{'column':'3','name':'AutoAppName'}" then i click the "编辑" button
     Then I will see the "index.MatchRuleCreatePage" page
     And I set the parameter "AppName" with value "<appName>"
@@ -23,12 +23,13 @@ Feature: 路由编辑
       | index | appName | tag  |
       | error | iis1    | heka |
 
-  Scenario: RZY-2442、2443
+  Scenario: RZY-2442、2443-编辑索引、topic
     When the data name is "{'column':'3','name':'AutoCreateForSxcTest'}" then i click the "编辑" button
     Then I will see the "index.MatchRuleCreatePage" page
     And I wait for "2000" millsecond
     And I choose the "topictest" from the "TopicName"
-    When I choose the "indexerror" from the "IndexName"
+    And I wait for "2000" millsecond
+    And I choose the "indexerror" from the "IndexName"
     And I click the "SavedButton" button
     And I will see the success message "保存成功"
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
@@ -42,25 +43,17 @@ Feature: 路由编辑
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-#    Then I will see the element "EventNumber" name is "(10)"
+    And I wait for element "EventNumbers" change text to "事件(10)"
 
     Examples:
       | spl           |
-      | index=indexerror * |
+      | index=error * AND appname:iis1      |
+      | index=indexerror * AND appname:sunxctest |
 
-  Scenario: 编辑indexerror
+  Scenario: 编辑indexerror-appname、tag
     When the data name is "{'column':'3','name':'AutoCreateForSxcTest'}" then i click the "编辑" button
     Then I will see the "index.MatchRuleCreatePage" page
-    And I set the parameter "AppName" with value "testdisable"
-    And I set the parameter "Tag" with value "testdisable"
+    And I set the parameter "AppName" with value "testda"
+    And I set the parameter "Tag" with value "testda"
     And I click the "SavedButton" button
     And I will see the success message "保存成功"
-
-#  Scenario: 编辑index_sink
-#    When the data name is "{'column':'1','name':'index_sink'}" then i click the "编辑" button
-#    Then I will see the "index.MatchRuleCreatePage" page
-#    And I set the parameter "AppName" with value "testdisable"
-#    And I set the parameter "Tag" with value "testdisable"
-#    And I click the "SavedButton" button
-#    And I will see the success message "保存成功"

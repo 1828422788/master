@@ -42,6 +42,7 @@ Feature: 报表_预览_all
       |   Sunburst           |
       |   Pie_1              |
       |   Pie_2              |
+      |   Flame              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -59,6 +60,8 @@ Feature: 报表_预览_all
       |   Single             |
       |   Single_icon        |
       |   Single_range_backgr|
+      |   Ring_1             |
+      |   Ring_2             |
       |   Liquidfill         |
       |   Wordcloud          |
       |   Radar              |
@@ -106,6 +109,7 @@ Feature: 报表_预览_all
       |   Sunburst           |
       |   Pie_1              |
       |   Pie_2              |
+      |   Flame              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -124,6 +128,8 @@ Feature: 报表_预览_all
       |   Single_icon        |
       |   Single_font        |
       |   Single_range_backgr|
+      |   Ring_1             |
+      |   Ring_2             |
       |   Liquidfill         |
       |   Wordcloud          |
       |   Radar              |
@@ -132,7 +138,7 @@ Feature: 报表_预览_all
       |   Table              |
 
   @reportPreviewEXCEL
-  Scenario Outline: preview_pdf
+  Scenario Outline: preview_excel
     When I set the parameter "SearchInput" with value "<name>_EXCEL"
     And I wait for "2000" millsecond
     And the data name is "{'column':'1','name':'<name>_EXCEL'}" then i click the "编辑" button
@@ -169,6 +175,7 @@ Feature: 报表_预览_all
       |   Sunburst           |
       |   Pie_1              |
       |   Pie_2              |
+      |   Flame              |
       |   Chord              |
       |   Sankey             |
       |   Force              |
@@ -187,6 +194,8 @@ Feature: 报表_预览_all
 #      |   Single_icon        |
 #      |   Single_font        |
       |   Single_range_backgr|
+      |   Ring_1             |
+      |   Ring_2             |
       |   Liquidfill         |
       |   Wordcloud          |
       |   Radar              |

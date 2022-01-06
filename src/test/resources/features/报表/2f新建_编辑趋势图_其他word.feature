@@ -1,5 +1,5 @@
 @reportCreateCharts @allReports @reportChartsWORD
-Feature: 报表新建_编辑_其他word
+Feature: 报表_2_6其他word
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
@@ -171,6 +171,86 @@ Feature: 报表新建_编辑_其他word
       |  reportType |   typeChart    |  name                 |  color1  |  color2 |
       |  WORD       |   Single       | Single_range_backgr   |  Yellow  | Orange  |
 
+  Scenario Outline: new_report_trend_ring_1
+    When I set the parameter "Name" with value "<name>_<reportType>"
+    And I choose the "<reportType>" from the "ReportType"
+    And I click the "NextButton" button under some element
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
+    And I wait for "2000" millsecond
+    And I click the "EditButton" button
+
+    Then I set the parameter "TrendNameField" with value "<name>"
+    And I set the parameter "TrendDescribeField" with value "<typeChart>_<color>"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count, apache.clientip |eval count_perc=ip_count/50 | eval count2_perc=ip_count/200 | limit 6" to the textarea "TrendSplField"
+    And I click the "TrendChartType" button
+    And I click the "Other" button
+    And I click the "<typeChart>" button
+
+    When I click the "ParameterSetting" button
+    And I set the parameter "FieldValue" with value "count_perc"
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "<color>" button
+    And I wait for "1000" millsecond
+    And I click the "ParameterSetting" button
+    Then I click the "EnsureButton" button
+
+    When I click the "FinishButton" button under some element
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
+
+    Examples:
+      |  reportType |   typeChart    |  name    |  color   |
+      |  WORD       |   Ring         | Ring_1   |  Orange  |
+
+  Scenario Outline: new_report_trend_ring_2
+    When I set the parameter "Name" with value "<name>_<reportType>"
+    And I choose the "<reportType>" from the "ReportType"
+    And I click the "NextButton" button under some element
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "报表测试"
+    And I click the button with text "报表测试"
+    And I wait for "2000" millsecond
+    And I click the "EditButton" button
+
+    Then I set the parameter "TrendNameField" with value "<name>"
+    And I set the parameter "TrendDescribeField" with value "<typeChart>_DefaultColor_range"
+    And I set the value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count, apache.clientip |eval count_perc=ip_count/50 | eval count2_perc=ip_count/200 | limit 6" to the textarea "TrendSplField"
+    And I click the "TrendChartType" button
+    And I click the "Other" button
+    And I click the "<typeChart>" button
+
+    When I click the "ParameterSetting" button
+    And I set the parameter "FieldValue" with value "count_perc"
+    And I wait for "1000" millsecond
+    And I click the "Compare" button
+    And I set the parameter "FieldValue" with value "count2_perc"
+    And I wait for "1000" millsecond
+    And I click the "Exhibition" button
+    And I click the "AccordingArea" button
+    And I click the "AddRange" button
+    And I set the parameter "MinRange" with value "1"
+    And I set the parameter "MaxRange" with value "77"
+    And I click the "AddColor" button
+    And I click the "Red" button
+    And I click the "AddRange" button
+    And I set the parameter "MinRange" with value "77"
+    And I set the parameter "MaxRange" with value "80"
+    And I wait for "1000" millsecond
+    And I click the "ParameterSetting" button
+    Then I click the "EnsureButton" button
+
+    When I click the "FinishButton" button under some element
+    And I wait for "ResultMessage" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
+
+    Examples:
+      |  reportType |   typeChart    |  name    |
+      |  WORD       |   Ring         | Ring_2   |
 
   Scenario Outline: new_report_trend_liquidfill
     When I set the parameter "Name" with value "<name>_<reportType>"

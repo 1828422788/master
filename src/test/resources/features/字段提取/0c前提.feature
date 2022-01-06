@@ -6,7 +6,7 @@ Feature: 字段提取前提条件
     And curl update url "module=logriver&key=log_parser.xml_parse_extract_limit&value=5000"
     And curl update url "module=logriver&key=log_parser.switch_delete_timestamp&value=false"
     And curl restart url "modulename=logriver"
-    And curl restart url "modulename=logparserserver"
+#    And curl restart url "modulename=logparserserver"
     Then I wait for "180000" millsecond
 
   Scenario Outline: 1542、1543
@@ -86,5 +86,5 @@ Feature: 字段提取前提条件
     Given curl update url "module=logriver&key=log_parser.json_parse_extract_limit&value=10"
     Given curl update url "module=logriver&key=log_parser.xml_parse_extract_limit&value=10"
     And curl restart url "modulename=logriver"
-    And curl restart url "modulename=logparserserver"
+#    And curl restart url "modulename=logparserserver"
     Then I wait for "180000" millsecond

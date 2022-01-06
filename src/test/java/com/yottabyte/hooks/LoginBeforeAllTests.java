@@ -117,7 +117,7 @@ public class LoginBeforeAllTests {
     }
 
     public static void setPageFactory(String pageFactoryName) {
-        System.out.println("chsfinduml==============================================[51]");
+        System.out.println("chsfinduml==============================================[51]setPageFactory");
         if (!pageFactoryName.startsWith("com.yottabyte.pages.")) {
             pageFactoryName = "com.yottabyte.pages." + pageFactoryName;
         }

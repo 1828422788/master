@@ -1,5 +1,5 @@
 @reportCreateCharts @allReports @reportChartsWORD
-Feature: 报表新建_编辑_序列word
+Feature: 报表_2_1序列word
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
@@ -57,7 +57,7 @@ Feature: 报表新建_编辑_序列word
     Examples:
       |  reportType | typeChart | label        | order           |  unit  |  button        | min |   max  | legendPosition |  name    |
       |  WORD       | LineChart | FirstLabel   |                 |   个   |  Smooth        |  1  |   25   | FirstPosition  |LineChart |
-      |  WORD       | AreaChart | SecondLabel  | AscendingOrder  |  pcs.  |ConnectEmptyData|     |   20   | SecondPosition |AreaChart |
+#      |  WORD       | AreaChart | SecondLabel  | AscendingOrder  |  pcs.  |ConnectEmptyData|     |   20   | SecondPosition |AreaChart |
 
   Scenario Outline: new_report_trend_Order_Pile
     When I set the parameter "Name" with value "<name>_<reportType>"

@@ -26,6 +26,10 @@ Feature: 数据集-e对节点的操作
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading complete
     And I wait for "2000" millsecond
+    When I set the parameter "SearchNameInput" with value "node_op_jnd"
+    And I click the "Search" button
+    And I wait for "2000" millsecond
+    Given I wait for loading complete
     When the data name is "{'column':'0','name':'node_op_jnd'}" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
     Given I wait for loading complete
@@ -47,19 +51,21 @@ Feature: 数据集-e对节点的操作
     And I wait for "2000" millsecond
 #    When the data name is "node_op_jnd" then i click the "编辑" button
     When the data name is "{'column':'0','name':'node_op_jnd'}" then i click the "编辑" button
-#    And the data name is "{'column':'0','name':'node_op_jnd'}" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading complete
     When I click the "TopChild" button
     And I wait for loading complete
 
     And I wait for "modifyNodeSentence" will be visible
+    When I simply set the parameter "modifyNodeSentence" with value "appname:apache"
 
     When I click the "SaveDetail" button
     And I wait for "1000" millsecond
     #验证
     And I refresh the website
     When I click the "TopChild" button
+    And I wait for "1000" millsecond
+
     Then I will see the "modifyNodeSentence" result will be "appname:apache"
 
   @dataset @Override
@@ -68,7 +74,10 @@ Feature: 数据集-e对节点的操作
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading complete
     And I wait for "2000" millsecond
-#    When the data name is "node_op_jnd" then i click the "编辑" button
+    When I set the parameter "SearchNameInput" with value "node_op_jnd"
+    And I click the "Search" button
+    And I wait for "2000" millsecond
+    Given I wait for loading complete
     When the data name is "{'column':'0','name':'node_op_jnd'}" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading complete

@@ -69,7 +69,8 @@ public class DbOutputPage extends PageTemplate {
     }
 
     public WebElement getDbOutputConnList() {
-        String xpath = "//div[contains(text(),'连接')]/following-sibling::div/div[@class='yotta-select-selection']";
+//        String xpath = "//div[contains(text(),'连接')]/following-sibling::div/div[@class='yotta-select-selection']";
+        String xpath = "//div[@yotta-test='dbsettings-connection-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
@@ -77,7 +78,8 @@ public class DbOutputPage extends PageTemplate {
     }
 
     public WebElement getDbOutputDirList() {
-        String xpath = "//div[contains(text(),'目录')]/following-sibling::div/div[@class='yotta-select-selection']";
+//        String xpath = "//div[contains(text(),'目录')]/following-sibling::div/div[@class='yotta-select-selection']";
+        String xpath = "//div[@yotta-test='dbsettings-database-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
@@ -85,14 +87,14 @@ public class DbOutputPage extends PageTemplate {
 //        return super.getLastDropdownListOnSendPolicyPage(xpath)
     }
 
-    @FindBy(xpath = "//div[text()='表']/following-sibling::span/input[@placeholder='请输入']")
+//    @FindBy(xpath = "//div[text()='表']/following-sibling::span/input[@placeholder='请输入']")
+    @FindBy(xpath = "//input[@yotta-test='dbsettings-filter-input']")
     private WebElement OutputDbTable;
 
     public WebElement getOutputDbTable() {
         return OutputDbTable;
     }
 
-//    @FindBy(xpath = "//div[text()='表']/following::input[@placeholder='请输入']/following::ul/li/a[text()='outsample']")
     @FindBy(xpath = "//div[text()='表']/following-sibling::div//a[text()='outsample']")
     private WebElement OutputDbTableLink;
 

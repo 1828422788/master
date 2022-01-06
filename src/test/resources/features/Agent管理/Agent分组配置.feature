@@ -66,7 +66,7 @@ Feature: Agent分组采集
     Given the data name "autohekafiletest" in agent table "AppNameTable" then i click the "close" switch
     And I wait for loading invisible
     And I wait for "3000" millsecond
-    And I wait for element "DataSourceSwitchStatus" change text to "已禁用"
+    And I wait for element "DataSourceSwitchStatus1" change text to "已禁用"
 
   Scenario: 分组采集数据源启用
     And I click the "OpenGroupButton" button
@@ -76,7 +76,7 @@ Feature: Agent分组采集
     Given the data name "autohekafiletest" in agent table "AppNameTable" then i click the "open" switch
     And I wait for loading invisible
     And I wait for "3000" millsecond
-    And I wait for element "DataSourceSwitchStatus" change text to "已启用"
+    And I wait for element "DataSourceSwitchStatus1" change text to "已启用"
 
   Scenario: 分组采集数据修改日志内容白名单
     And I click the "OpenGroupButton" button

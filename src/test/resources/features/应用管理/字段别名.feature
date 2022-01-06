@@ -61,7 +61,7 @@ Feature: 应用字段别名
     And I set the parameter "FieldAliasModalName" with value "AutoTest"
     And I set the parameter "OriginalField" with value "appname"
     And I set the parameter "FieldAlias" with value "app"
-    And I click the "SaveButton" button under some element
+    And I click the "FieldSavedButton" button under some element
 
   Scenario Outline: 字段别名失败校验
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -74,7 +74,7 @@ Feature: 应用字段别名
     And I set the parameter "FieldAliasModalName" with value "<name>"
     And I set the parameter "OriginalField" with value "<original>"
     And I set the parameter "FieldAlias" with value "<alias>"
-    And I click the "SaveButton" button under some element
+    And I click the "FieldSavedButton" button under some element
     Then I will see the element "WarningInfo" value is "<warning>"
     And I wait for "5000" millsecond
 
@@ -123,7 +123,7 @@ Feature: 应用字段别名
     And I wait for "2000" millsecond
     And I set the parameter "FieldAlias" with value "province"
     And I wait for "1000" millsecond
-    And I click the "SaveButton" button under some element
+    And I click the "FieldSavedButton" button under some element
 
   Scenario: 验证多个字段别名映射
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -155,7 +155,7 @@ Feature: 应用字段别名
     And I wait for "AddFieldAlias" will be visible
     When the data name is "AutoTest" then i click the "编辑" button
     And I click the "DeleteAlias" button
-    And I click the "Ensure" button under some element
+    And I click the "fieldSavedButton" button under some element
 
   Scenario: 验证删除成功
     Given open the "app.ListPage" page for uri "/app/list/"

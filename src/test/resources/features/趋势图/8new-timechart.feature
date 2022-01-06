@@ -49,15 +49,22 @@ Feature: 趋势图新建_timechart
 
     And I click the "Settings" button
     And I click the "Xaxis" button
+    And I wait for "2000" millsecond
     And I click the "ThirdLabel" button
     And I click the "AscendingOrder" button
+    And I wait for "1000" millsecond
     And I click the "Yaxis" button
+    And I wait for "2000" millsecond
     And I set the parameter "Unit" with value "个"
+    And I wait for "2000" millsecond
     And I click the "Smooth" button
+    And I wait for "1000" millsecond
     And I click the "ConnectEmptyData" button
+    And I wait for "1000" millsecond
     And I set the parameter "Min" with value "<minVal>"
     And I set the parameter "Max" with value "<maxVal>"
     And I click the "Example" button
+    And I wait for "1000" millsecond
     And I click the "FirstPosition" button
     And I wait for "1000" millsecond
 
@@ -97,13 +104,17 @@ Feature: 趋势图新建_timechart
 
     And I click the "Settings" button
     And I click the "Xaxis" button
+    And I wait for "2000" millsecond
     And I click the "ThirdLabel" button
     And I click the "AscendingOrder" button
     And I click the "Yaxis" button
+    And I wait for "2000" millsecond
     And I set the parameter "Unit" with value "个"
+    And I wait for "1000" millsecond
     And I set the parameter "Min" with value "<minVal>"
     And I set the parameter "Max" with value "<maxVal>"
     And I click the "Example" button
+    And I wait for "1000" millsecond
     And I click the "FirstPosition" button
     And I click the "Exhibition" button
     And I click the "AddColor" button
@@ -140,10 +151,13 @@ Feature: 趋势图新建_timechart
 
     And I click the "Settings" button
     And I click the "Xaxis" button
+    And I wait for "2000" millsecond
     And I click the "ThirdLabel" button
     And I click the "AscendingOrder" button
     And I click the "Yaxis" button
+    And I wait for "2000" millsecond
     And I set the parameter "Unit" with value "个"
+    And I wait for "2000" millsecond
     And I click the "<button>" button
     And I click the "Exhibition" button
     And I click the "AddColor" button
@@ -196,7 +210,7 @@ Feature: 趋势图新建_timechart
     And I move the mouse pointer to the "Type"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<caseNum>"
-    And I compare source image "actual/<caseNum>" with target image "<caseNum>"
+    And I compare source image "actual/<caseNum>" with target image "expect/<caseNum>"
     Then I click the "NextButton" button under some element
     And I wait for "NameInput" will be visible
     And I click the "BackButton" button under some element

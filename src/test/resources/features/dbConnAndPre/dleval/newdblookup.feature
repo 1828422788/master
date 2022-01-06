@@ -3,7 +3,7 @@ Feature: 新建数据库查找
   Background:
     And I zoom the browse to full screen
 
-  @newdblookup @splpre @dleval
+  @newdblookup @splpre @autoui02
   Scenario Outline: 新建查找-3
     Given open the "dbConnectionPre.dbSettingPage" page for uri "/dbsettings/"
     And I click the "DbLookupConfig" button

@@ -1,5 +1,5 @@
 @reportTextEditor @report
-Feature:报表_富文本编辑_趋势图
+Feature:报表_富文本编辑_1_趋势图
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
@@ -58,24 +58,31 @@ Feature:报表_富文本编辑_趋势图
     And I wait for "2000" millsecond
 
     And I click the element "DeleteTrendName" in word report
+    And I wait for "1000" millsecond
     And I will see the "Trend_Name" doesn't exist
     And I will see the "<element>" is display
     And I click the element "Undo" in word report
+    And I wait for "1000" millsecond
     And I will see the "Trend_Name" is display
 
     And I click the element "DeleteTrendDescription" in word report
+    And I wait for "1000" millsecond
     And I will see the "Trend_Description" doesn't exist
     And I will see the "<element>" is display
     And I click the element "Undo" in word report
+    And I wait for "1000" millsecond
     And I will see the "Trend_Description" is display
 
     And I click the element "DeleteTrendTimerange" in word report
+    And I wait for "1000" millsecond
     And I will see the "Trend_Timerange" doesn't exist
     And I will see the "<element>" is display
     And I click the element "Undo" in word report
+    And I wait for "1000" millsecond
     And I will see the "Trend_Timerange" is display
 
     And I click the element "DeleteTrendChart" in word report
+    And I wait for "1000" millsecond
     And I will see the "Trend_Chart" doesn't exist
     And I will see the "<element>" doesn't exist
     And I wait for "2000" millsecond
@@ -200,6 +207,9 @@ Feature:报表_富文本编辑_趋势图
     And I click the "BackButton" button under some element
     And I choose the "PDF" from the "ReportType"
     And I click the "NextButton" button under some element
+    Then I will see the "LastTrendTitle" doesn't exist
+    When I choose the "<name>" from the "ChartList"
+    And I click the "ChartListButton" button
     Then I will see the element "LastTrendTitle" contains "<name>"
 
     When I click the "FinishButton" button under some element

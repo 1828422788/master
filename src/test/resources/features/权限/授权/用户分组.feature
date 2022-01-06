@@ -7,13 +7,13 @@ Feature: 权限-用户分组
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
+    And I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
     And I click the "Resource" button
     And I wait for "1000" millsecond
     And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "UserAndValidate" button
     And I wait for "1000" millsecond
-  #  And I "checked" the checkbox which name is "全选"
-  #  And I "unchecked" the checkbox which name is "全选"
     And I "checked" the checkbox which name is "可查看用户分组"
     And I click the "SaveButton" button
     Then I logout current user

@@ -105,7 +105,7 @@ Feature: 事件操作编辑
     Examples:
       | name                             | displayMethod |
       | raw_message                      | JSON          |
-    #  | raw_message,tag,hostname,logtype | XML           |
+      | raw_message,tag,hostname,logtype | XML           |
 
   Scenario: RZY-1376:显示于-两者
     When the data name is "{'column':'1','name':'查看上下文sample'}" then i click the "编辑" button

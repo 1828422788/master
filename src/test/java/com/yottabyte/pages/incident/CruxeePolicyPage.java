@@ -56,21 +56,21 @@ public class CruxeePolicyPage extends PageTemplate {
     }
 
     public WebElement getAppConditionFieldslist() {
-        String xpath = "//label[contains(text(),'应用条件')]/following::div[@yotta-test='incident-apply_field-select']/div[@class='yotta-select-selection']";
+        String xpath = "//label[contains(text(),'应用条件')]/following::div[@yotta-test='incident-apply_field-select']/div";
 //        return super.getDropdownListByCruxeePageXpath(xpath);
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        return getV40LastDropdownList();
     }
 
     public WebElement getAppConditionOperatorsList() {
-        String xpath = "//label[contains(text(),'应用条件')]/following::div[@yotta-test='incident-apply_operator-select']/div[@class='yotta-select-selection']";
+        String xpath = "//label[contains(text(),'应用条件')]/following::div[@yotta-test='incident-apply_operator-select']/div";
 //        return super.getLastDropdownListOnSendPolicyPage(xpath);
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        return getV40LastDropdownList();
 
     }
 
@@ -89,24 +89,21 @@ public class CruxeePolicyPage extends PageTemplate {
     }
 
     public WebElement getAppConditionSecondFieldslist() {
-//        String xpath = "//label[contains(text(),'应用条件')]/following::div[contains(text(),'请选择字段')]/following::div[contains(text(),'请选择字段')]/parent::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
-        String xpath = "//label[contains(text(),'应用条件')]/following::div[@yotta-test='incident-apply_field-select']/following::div[@yotta-test='incident-apply_field-select']/div[@class='yotta-select-selection']";
+        String xpath = "//label[contains(text(),'应用条件')]/following::div[@yotta-test='incident-apply_field-select']/following::div[@yotta-test='incident-apply_field-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        return getV40LastDropdownList();
     }
 
     public WebElement getAppConditionSecondOperatorsList() {
-//        String xpath = "//label[contains(text(),'应用条件')]/following::div[contains(text(),'请选择字段')]/following::div[contains(text(),'请选择字段')]/following::div[contains(text(),'请选择关系')]/parent::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
-        String xpath = "//label[contains(text(),'应用条件')]/following::div[@yotta-test='incident-apply_operator-select']/following::div[@yotta-test='incident-apply_operator-select']/div[@class='yotta-select-selection']";
+        String xpath = "//label[contains(text(),'应用条件')]/following::div[@yotta-test='incident-apply_operator-select']/following::div[@yotta-test='incident-apply_operator-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        return getV40LastDropdownList();
     }
 
-    //    @FindBy(xpath = "//label[contains(text(),'应用条件')]/following::div[contains(text(),'请选择字段')]/following::div[contains(text(),'请选择字段')]/following::div[contains(text(),'请选择关系')]/following::input[@placeholder='请输入值']")
     @FindBy(xpath = "//label[contains(text(),'应用条件')]/following::div[@yotta-test='incident-apply_field-select']/following::div[@yotta-test='incident-apply_field-select']/following::input[@placeholder='请输入值']")
     private WebElement appConditionSecondInput;
 
@@ -122,8 +119,6 @@ public class CruxeePolicyPage extends PageTemplate {
     }
 
     public WebElement getGroupConditionFieldslist() {
-        //String xpath = "//label[contains(text(),'分组条件')]/following::div//div[@class='ant-select-selection__rendered']/following-sibling::span/i";
-//        String xpath = "//label[contains(text(),'分组条件')]/following::div[@yotta-test='incident-category_field-select']//input[@class='yotta-select-selection-search']";
         String xpath = "//label[contains(text(),'分组条件')]/following::div[@yotta-test='incident-category_field-select']/div";
         return super.getDropdownListByCruxeePageXpath(xpath);
     }
@@ -136,21 +131,19 @@ public class CruxeePolicyPage extends PageTemplate {
     }
 
     public WebElement getStopConditionNameslist() {
-//      String xpath = "//div[text()='告警连续不断发送']/following::span[text()='超过']/following-sibling::input[@placeholder='请输入'][@type='text']/following::div[@class='ant-select-selection__rendered']/following::div//div[@class='ant-select-selection__rendered']/following-sibling::span/i";
-        String xpath = "//span[text()='告警连续不断发送']/following::span[text()='超过']/following::div[@yotta-test='incident-break_unit-select']/following::div[@yotta-test='incident-break_type-select']/div[@class='yotta-select-selection']";
+        String xpath = "//span[text()='告警连续不断发送']/following::span[text()='超过']/following::div[@yotta-test='incident-break_unit-select']/following::div[@yotta-test='incident-break_type-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        return getV40LastDropdownList();
     }
 
     public WebElement getStopConditionSecondNameslist() {
-//      String xpath = "//div[text()='告警连续不断发送']/following::input[@placeholder='请输入']/following::div[contains(text(),'小时')]/following::div//div[@class='ant-select-selection__rendered']/following-sibling::span/i";
-        String xpath = "//span[text()='告警连续不断发送']/following::div[@yotta-test='incident-break_unit-select']/following::div[@yotta-test='incident-break_type-select']/div[@class='yotta-select-selection']";
+        String xpath = "//span[text()='告警连续不断发送']/following::div[@yotta-test='incident-break_unit-select']/following::div[@yotta-test='incident-break_type-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        return getV40LastDropdownList();
     }
 
     @FindBy(xpath = "//input[@placeholder='请输入数量']")
@@ -161,12 +154,11 @@ public class CruxeePolicyPage extends PageTemplate {
     }
 
     public WebElement getStopConditionLastAlertFieldNamesList() {
-//      String xpath = "//label[contains(text(),'停止条件')]/parent::label/parent::div/following-sibling::div//span[text()='最后一条告警的字段']/following::div[@yotta-test='incident-break_field-select']/div[@class='yotta-select-selection']";
-        String xpath = "//span[text()='最后一条告警的字段']/following::div[@yotta-test='incident-break_field-select']/div[@class='yotta-select-selection']";
+        String xpath = "//span[text()='最后一条告警的字段']/following::div[@yotta-test='incident-break_field-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        return getV40LastDropdownList();
     }
 
     public WebElement getStopConditionLastAlertFieldOperatorsList() {
@@ -174,7 +166,7 @@ public class CruxeePolicyPage extends PageTemplate {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        return getV40LastDropdownList();
     }
 
     @FindBy(xpath = "//span[text()='告警连续不断发送']/following::input[@yotta-test='incident-break_value-input'][@placeholder='请输入']")
@@ -188,7 +180,7 @@ public class CruxeePolicyPage extends PageTemplate {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        return getV40LastDropdownList();
     }
 
     @FindBy(xpath = "//span[text()='最后一条告警的字段']/following::input[@placeholder='请输入']")
@@ -202,7 +194,7 @@ public class CruxeePolicyPage extends PageTemplate {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        return getV40LastDropdownList();
     }
 
     @FindBy(xpath = "//span[text()='未收到新告警的时间']/following::input[@yotta-test='incident-break_value-input']")
@@ -212,19 +204,19 @@ public class CruxeePolicyPage extends PageTemplate {
     }
 
     public WebElement getStopConditionNoAlertTimeInputUnitList() {
-        String xpath = "//span[text()='未收到新告警的时间']/following::div[@yotta-test='incident-break_unit-select']/div[@class='yotta-select-selection']";
+        String xpath = "//span[text()='未收到新告警的时间']/following::div[@yotta-test='incident-break_unit-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        return getV40LastDropdownList();
     }
 
     public WebElement getSendPolicyNameslist() {
-        String xpath = "//label[contains(text(),'发送策略')]/parent::div/following-sibling::div//div[@yotta-test='incident-policy_send_policy-select']/div[@class='yotta-select-selection']";
+        String xpath = "//label[contains(text(),'发送策略')]/parent::div/following-sibling::div//div[@yotta-test='incident-policy_send_policy-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        return getV40LastDropdownList();
     }
 
     public WebElement getNewCruxeePolicy() {
@@ -241,7 +233,6 @@ public class CruxeePolicyPage extends PageTemplate {
 
     @FindBy(xpath = "//div[@class='yotta-modal-footer']//span[text()='确定']/parent::button")
     private WebElement affirmButton;
-
     public WebElement getAffirmButton() {
         return affirmButton;
     }
@@ -251,6 +242,12 @@ public class CruxeePolicyPage extends PageTemplate {
 
     public WebElement getRetListButton() {
         return retListButton;
+    }
+
+    @FindBy(xpath = "//span[text()='确定']/parent::button[@yotta-test='dialog-confirm-button']")
+    private WebElement confirmButton;
+    public WebElement getConfirmButton() {
+        return confirmButton;
     }
 
     /**
@@ -263,7 +260,7 @@ public class CruxeePolicyPage extends PageTemplate {
         return cruPolicyNameListSearchInput;
     }
 
-    @FindBy(xpath = "//a[text()='编辑']")
+    @FindBy(xpath = "//span[text()='编辑']/parent::button")
     private WebElement editCruPolicyNameButton;
 
     public WebElement getEditCruPolicyNameButton() {
@@ -284,15 +281,14 @@ public class CruxeePolicyPage extends PageTemplate {
         return confirmDelCruPolicyName;
     }
 
-    @FindBy(xpath = "//span[text()='配置合并策略']/following::span[text()='配置自动规则']")
-
+    @FindBy(xpath = "//span[text()='编辑合并策略']/following::div[contains(text(),'高级配置')]")
     private WebElement setAutoRule;
 
     public WebElement getSetAutoRule() {
         return setAutoRule;
     }
 
-    @FindBy(xpath = "//span[text()='添加规则']/parent::div")
+    @FindBy(xpath = "//span[@yotta-test='incident-rule_condition-dom'][text()='添加规则']")
     private WebElement addRuleButton;
 
     public WebElement getAddRuleButton() {
@@ -300,11 +296,12 @@ public class CruxeePolicyPage extends PageTemplate {
     }
 
     public WebElement getAutoRulesList() {
-        String xpath = "//span[text()='规则1']/following::div[text()='请选择类型']/parent::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+//        String xpath = "//span[text()='规则1']/following::div[text()='请选择类型']/parent::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        String xpath = "//div[text()='规则1:']/following::div[@yotta-test='incident-rule_type-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        return getV40LastDropdownList();
     }
 
     @FindBy(xpath = "//span[text()='归并的告警数量']/following::span[text()='超过']/following::input[@placeholder='请输入数量']")
@@ -315,42 +312,42 @@ public class CruxeePolicyPage extends PageTemplate {
     }
 
     public WebElement getAutoHandleTaskTypeList() {
-        String xpath = "//span[text()='then']/following::div[text()='请选择类型']/parent::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+//        String xpath = "//span[text()='then']/following::div[text()='请选择类型']/parent::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        String xpath = "//div[text()='Then']/following::div[@yotta-test='incident-then_type-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        return getV40LastDropdownList();
     }
 
     public WebElement getTaskToUsersList() {
-        String xpath = "//span[text()='then']/following::div[text()='将任务分配给']/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        String xpath = "//div[text()='Then']/following::div[@yotta-test='incident-then_owner-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        return getV40LastDropdownList();
     }
 
-    @FindBy(xpath = "//div[text()='then']/following::span[text()='添 加']/parent::button")
+    @FindBy(xpath = "//div[text()='Then']/following::button[@yotta-test='incident-then_add-icon']")
     private WebElement addSecondAutoHandleRuleButton;
-
     public WebElement getAddSecondAutoHandleRuleButton() {
         return addSecondAutoHandleRuleButton;
     }
 
     public WebElement getSecondAutoHandleTaskTypeList() {
-        String xpath = "//div[text()='then']/following::div[text()='Derek']/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        String xpath = "//div[text()='Then']/following::div[@yotta-test='incident-then_type-select']/following::div[@yotta-test='incident-then_type-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        return getV40LastDropdownList();
     }
 
     public WebElement getTaskStatusList() {
-        String xpath = "//div[text()='then']/following::div[text()='修改状态为']/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        String xpath = "//div[text()='Then']/following::div[@yotta-test='incident-then_status-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        return getV40LastDropdownList();
     }
 
     @FindBy(xpath = "//label[contains(text(),'策略启用')]/parent::div/following-sibling::div//span[@class='yotta-switch-input']")
@@ -364,6 +361,12 @@ public class CruxeePolicyPage extends PageTemplate {
     private WebElement tip;
     public WebElement gitTip() {
         return tip;
+    }
+
+    @FindBy(xpath = "//div[contains(text(),'发送策略')]/parent::div")
+    private WebElement sendPolicyItem;
+    public WebElement getSendPolicyItem() {
+        return sendPolicyItem;
     }
 
 }

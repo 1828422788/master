@@ -21,7 +21,7 @@ Feature: 应用编辑
     And I set the parameter "MenuName" with value "知识"
     And I set the parameter "Url" with value "/knowledge/"
     And I click the "SaveMenuButton" button
-    And I wait for "SaveMenuButton" will be invisible
+    And I wait for "1500" millsecond
     And I choose the "知识" from the "DefaultPage"
     And I click the "SaveButton" button
 

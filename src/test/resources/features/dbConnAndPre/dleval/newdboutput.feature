@@ -4,7 +4,7 @@ Feature: 新建数据库输出
   Background:
     And I zoom the browse to full screen
 
-  @newdboutput @splpre @dleval
+  @newdboutput @splpre @autoui02
   Scenario Outline: 新建数据库输出-3
     Given open the "dbConnectionPre.DbOutputPage" page for uri "/dbsettings/"
 #    And I click the "DbOutputConfig" button

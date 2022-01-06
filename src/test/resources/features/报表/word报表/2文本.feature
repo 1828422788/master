@@ -1,5 +1,5 @@
 @reportTextEditor @report
-Feature:报表_富文本编辑_本文
+Feature:报表_富文本编辑_2_本文
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"

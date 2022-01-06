@@ -124,7 +124,7 @@ Feature: 全链路_3输入项
     | *\\ |apache.method| Search  | SearchResultMessage | 搜索失败         |
     | *   |apache.method| Search  | SearchResultMessage | 搜索成功         |
 
-  @fulllink_test
+  @fulllinkSmoke
   Scenario: 输入项
     And I click the "AddInputItem" button
     And I wait for "Token" will be visible
@@ -147,7 +147,7 @@ Feature: 全链路_3输入项
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"
 
-  @fulllink_test
+  @fulllinkSmoke
   Scenario: 输入项
     When I click the "Filter" button
     And I wait for "FirstInput" will be visible

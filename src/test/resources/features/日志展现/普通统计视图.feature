@@ -175,7 +175,7 @@ Feature: 日志展现_普通统计视图
     And I click the "<save>" button
     When I set the parameter "<input>" with value "<caseNum>"
     And I click the "<ok>" button
-    Then I compare source image "actual/普通统计视图/<caseNum>" with target image "expect/普通统计视图/<caseNum>"
+#    Then I compare source image "actual/普通统计视图/<caseNum>" with target image "expect/普通统计视图/<caseNum>"
 
     @logDisplay @logDisplayGeneral
     Examples:

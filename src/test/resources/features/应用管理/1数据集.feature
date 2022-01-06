@@ -145,6 +145,7 @@ Feature: 应用数据集
     Then I will see the "dataset.ListPage" page
     And I wait for loading invisible
     When I set the parameter "SearchInput" with value "<name>"
+    And I wait for "2000" millsecond
     And I click the "Search" button
     And I wait for loading invisible
     Then I will see the search result "<name>"
@@ -192,7 +193,10 @@ Feature: 应用数据集
     Then I will see the "app.CreatePage" page
     And I wait for loading invisible
     And I click the "OverallSituation" button
+    And I wait for "1500" millsecond
     And I click the "SaveButton" button
+    Then I wait for "1500" millsecond
+    And I will see the message "更新成功"
 
     Examples:
       | name       |

@@ -100,8 +100,9 @@ Feature: 应用已存搜索（RZY-2125）
     Given open the "splSearch.SavedSearchPage" page for uri "/savedsearches/"
     And I wait for loading invisible
     And I choose the "SavedsearchesApp" from the "AppDropdown"
-    And I wait for loading invisible
+    And I wait for "2000" millsecond
     Then I will see the search result contains "{'column':'1','name':'AutoApp'}"
+    And I wait for "2000" millsecond
     Then I will see the search result "{'column':'1','name':'验证无App','contains':'no'}"
 
   Scenario: 已存搜索加载
@@ -111,9 +112,15 @@ Feature: 应用已存搜索（RZY-2125）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "SavedsearchesApp"
     Then I will see the "splSearch.SavedSearchPage" page
-    When the data name is "{'column':'1','name':'AutoApp'}" then i click the "加载" button
-    And switch to another window
+    And I wait for "1500" millsecond
+   # And I click the detail which name is "AutoApp" in saved search
+    And I set the parameter "SearchInput" with value "AutoApp"
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
+    Given I click the which saved name is "AutoApp" on saved page
+    And switch to window "搜索"
     And I close all tabs except main tab
+    Then I will see the "splSearch.SearchPage" page
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "SavedsearchesApp"
 
@@ -135,17 +142,17 @@ Feature: 应用已存搜索（RZY-2125）
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
-  Scenario: 根据标签搜索
-    Given open the "app.ListPage" page for uri "/app/list/"
-    And I wait for loading invisible
-    When  I click the detail which name is "SavedsearchesApp"
-    And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "SavedsearchesApp"
-    Then I will see the "splSearch.SavedSearchPage" page
-    And I wait for loading invisible
-    And I choose the "testTag" from the "ResourceDropdown"
-    And I wait for loading invisible
-    Then I will see the search result contains "{'column':'1','name':'AutoApp'}"
+  #Scenario: 根据标签搜索  4.0去掉了该功能
+   # Given open the "app.ListPage" page for uri "/app/list/"
+   # And I wait for loading invisible
+   # When  I click the detail which name is "SavedsearchesApp"
+   # And I will see the "app.AppPage" page
+   # And I will see the element "Title" name is "SavedsearchesApp"
+   # Then I will see the "splSearch.SavedSearchPage" page
+   # And I wait for loading invisible
+   # And I choose the "testTag" from the "ResourceDropdown"
+   # And I wait for loading invisible
+   # Then I will see the search result contains "{'column':'1','name':'AutoApp'}"
 
   Scenario Outline: 修改app资源范围
     Given open the "app.ListPage" page for uri "/app/list/"

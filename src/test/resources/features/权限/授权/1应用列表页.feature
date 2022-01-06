@@ -91,8 +91,8 @@ Feature: 权限-应用列表页
     And I wait for "AddDataset" will be visible
     When I upload a file with name "/target/download-files/EventAppForAuth.tar"
     And I will see the element "VerifyText" name is "上传完成"
-    And I wait for "Ensure" will be visible
-    Then I click the "Ensure" button
+   # And I wait for "Ensure" will be visible
+   # Then I click the "Ensure" button
     And I wait for "2000" millsecond
     And I choose the "__user_AutoTest__" from the "Role"
     And I wait for "1500" millsecond
@@ -124,8 +124,8 @@ Feature: 权限-应用列表页
     And I wait for "AddDataset" will be visible
     When I upload a file with name "/target/download-files/EventAppForAuth.tar"
     And I will see the element "VerifyText" name is "上传完成"
-    And I wait for "Ensure" will be visible
-    Then I click the "Ensure" button
+    #And I wait for "Ensure" will be visible
+    #Then I click the "Ensure" button
     And I wait for "2000" millsecond
     And I choose the "__user_AutoTest__" from the "Role"
     And I click the "NextButton" button under some element
@@ -201,7 +201,7 @@ Feature: 权限-应用列表页
     And I wait for "CreateButton" will be visible
     And I click the "InstallButton" button
     Then I will see the "app.InstallPage" page
-    And I wait for "AddDataset" will be visible
+    #And I wait for "AddDataset" will be visible
     When I upload a file with name "/target/download-files/AutoTestForAuth.tar"
     And I wait for "Message" will be visible
     Then I will see the message "上传失败"

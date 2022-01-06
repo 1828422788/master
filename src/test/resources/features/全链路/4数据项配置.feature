@@ -59,7 +59,7 @@ Feature: 全链路_4数据项配置
     And I wait for "SuccessMessage" will be invisible
     And I click the "Preview" button
     And I wait for "5000" millsecond
-    And I wait for "Preview" will be invisible
+    And I wait for "NumLabel_1" will be visible
     And I choose the "链路指标项配置" from the "Settings"
     And I wait for "High_Min" will be visible
     And I will see the element "Tab" contains "TEST"
@@ -68,7 +68,7 @@ Feature: 全链路_4数据项配置
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"
 
-  @fulllink_test
+  @fulllinkSmoke
   Scenario: 数据项配置
     And I click the "DataConfig" button
     When I will see the "splSearch.SearchPage" page
@@ -82,7 +82,7 @@ Feature: 全链路_4数据项配置
     And I wait for "SuccessMessage" will be invisible
     And I click the "Preview" button
     And I wait for "5000" millsecond
-    And I wait for "Preview" will be invisible
+    And I wait for "NumLabel_1" will be visible
     And I choose the "链路指标项配置" from the "Settings"
     And I wait for "High_Min" will be visible
     And I will see the element "Tab" contains "COUNT"

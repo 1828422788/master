@@ -8,7 +8,7 @@ Feature: 宏下载验证
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-#    And I wait for element "SearchStatus" change text to "搜索出错!"
+#   And I wait for element "SearchStatus" change text to "搜索出错!"
 #yotta-test='search_control-message-text'
     And take a screenshot with name "macro_<name>.png"
 
@@ -80,7 +80,7 @@ Feature: 宏下载验证
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
 
     #下载到本地
-    Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
+    Given open the "splSearch.OfflineTaskPage" page for uri "/download/"
     When I set the parameter "DbListPageSearchInput" with value "<name>.csv"
     And I wait for "2000" millsecond
     Given the data name is "<name>.csv" then i click the "下载" button
@@ -132,7 +132,7 @@ Feature: 宏下载验证
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
 
     #下载到本地
-    Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
+    Given open the "splSearch.OfflineTaskPage" page for uri "/download/"
     When I set the parameter "DbListPageSearchInput" with value "macro_<name>.json"
     And I wait for "2000" millsecond
     Given the data name is "macro_<name>.json" then i click the "下载" button
@@ -163,7 +163,7 @@ Feature: 宏下载验证
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
 
     #下载到本地
-    Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
+    Given open the "splSearch.OfflineTaskPage" page for uri "/download/"
     When I set the parameter "DbListPageSearchInput" with value "<name>.json"
     And I wait for "2000" millsecond
     Given the data name is "<name>.json" then i click the "下载" button
@@ -201,7 +201,7 @@ Feature: 宏下载验证
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
 
     #下载到本地
-    Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
+    Given open the "splSearch.OfflineTaskPage" page for uri "/download/"
     When I set the parameter "DbListPageSearchInput" with value "macro_<name>.csv"
     And I wait for "2000" millsecond
     Given the data name is "macro_<name>.csv" then i click the "下载" button
@@ -228,7 +228,7 @@ Feature: 宏下载验证
     Then I click the "CreateDownloadTask" button
 
     #下载到本地
-    Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
+    Given open the "splSearch.OfflineTaskPage" page for uri "/download/"
     When I set the parameter "DbListPageSearchInput" with value "<name>.csv"
     And I wait for "2000" millsecond
     Given the data name is "<name>.csv" then i click the "下载" button
@@ -278,7 +278,7 @@ Feature: 宏下载验证
     Then I click the "CreateDownloadTask" button
 
     #下载到本地
-    Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
+    Given open the "splSearch.OfflineTaskPage" page for uri "/download/"
     When I set the parameter "DbListPageSearchInput" with value "macro_<macroname>.csv"
     And I wait for "2000" millsecond
     Given the data name is "macro_<macroname>.csv" then i click the "下载" button
@@ -303,7 +303,7 @@ Feature: 宏下载验证
     And I wait for "2000" millsecond
     Then I click the "CreateDownloadTask" button
 
-    Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
+    Given open the "splSearch.OfflineTaskPage" page for uri "/download/"
     When I set the parameter "DbListPageSearchInput" with value "<macroname>.csv"
     And I wait for "2000" millsecond
     Given the data name is "<macroname>.csv" then i click the "下载" button

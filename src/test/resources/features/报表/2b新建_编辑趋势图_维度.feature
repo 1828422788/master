@@ -1,5 +1,5 @@
 @reportCreateCharts @allReports
-Feature: 报表新建_编辑_维度
+Feature: 报表_2_2维度
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"

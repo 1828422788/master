@@ -185,6 +185,7 @@ Feature: 趋势图_拖拽_其他
 
     And I click the "ThousandSeparator" button
     And I set the parameter "Unit" with value "个"
+    And I set the parameter "UnitFontSize" with value "36" using step buttons
     And I click the "UnitPosition<position>" button
 
     And I click the "HideElement" button
@@ -440,7 +441,63 @@ Feature: 趋势图_拖拽_其他
       |  chartType | color  |
       |  Ring      | Orange  |
 
-  Scenario Outline: drag_and_drop_other
+  Scenario Outline: drag_and_drop_wordcloud
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
+    And I click the "SearchButton" button under some element
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I wait for "CheckBox" will be visible
+    And I "checked" the checkbox which name is "apache.geo.city" in trend page
+    Then I click the "NextButton" button under some element
+
+    When I will see the "trend.DragAndDropPage" page
+    And I wait for "Dimensions" will be visible
+    And I drag the element "GeoCity" to the "Values"
+    And I drag the element "GeoCity" to the "Dimensions"
+    And I wait for "<chartType>" will be visible
+    And I click the "<chartType>" button
+    And I wait for "2000" millsecond
+    Then I wait for "Chart" will be visible
+    And I click the "Exhibition" button
+    And I wait for "AddColor" will be visible
+    And I click the "AddColor" button
+    And I wait for "<color>" will be visible
+    And I click the "<color>" button
+
+    And I click the "HideElement" button
+    And I click the "CheckSPL" button
+    And I wait for "SPL" will be visible
+    And I will see the element "SPL" contains "tag:sample04061424_chart | stats count(apache.geo.city) by apache.geo.city"
+    When I click the "CloseSPL" button
+    And I wait for "<chartType>Element" will be visible
+    And I wait for "2000" millsecond
+    Then take part of "Chart" with name "actual/拖拽_<chartType>"
+#    And I compare source image "actual/拖拽_<chartType>" with target image "expect/拖拽_<chartType>"
+    And I click the "NextButton" button under some element
+
+    When I will see the "trend.CreatePage" page
+    And I set the parameter "NameInput" with value "拖拽_<chartType>"
+    And I set the parameter "DescribeInput" with value "<color>"
+    And I click the "Complete" button under some element
+    Then I wait for "SuccessCreate" will be visible
+    And I click the "ReturnButton" button under some element
+
+    When I will see the "trend.ListPage" page
+    And I wait for "AppOfTheLastItem" will be visible
+    And the data name is "{'column':'0','name':'拖拽_<chartType>'}" then i click the "展示趋势图" button in more menu
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the element "ChartName" contains "拖拽_<chartType>"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "<chartType>Element" will be visible
+
+    Examples:
+      |  chartType |  color  |
+      |  Wordcloud |  Purple |
+
+  Scenario Outline: drag_and_drop_funnel
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -496,7 +553,6 @@ Feature: 趋势图_拖拽_其他
 
     Examples:
       |  chartType |  color  |  button        |   tab     |
-      |  Wordcloud |  Purple |                |           |
       |  Funnel    |  Orange | RightPosition  | Example   |
 
   Scenario Outline: drag_and_drop_radar

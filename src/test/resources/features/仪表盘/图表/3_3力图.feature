@@ -1,7 +1,7 @@
-@dashboard3 @dashboardChart
+@dashboard3_2 @dashboardChart
 Feature: 仪表盘_3_3_力图
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -15,7 +15,7 @@ Feature: 仪表盘_3_3_力图
       | name  |
       | 仪表盘力图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -37,7 +37,7 @@ Feature: 仪表盘_3_3_力图
       | spl                                                                                                                                                                                                            | name  |
       | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | 仪表盘力图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -54,7 +54,7 @@ Feature: 仪表盘_3_3_力图
       | name |
       | 力图   |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 添加图表(RZY-4490，RZY-3394)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -78,7 +78,7 @@ Feature: 仪表盘_3_3_力图
       | name  |
       | 仪表盘力图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 修改为力图 RZY-307
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

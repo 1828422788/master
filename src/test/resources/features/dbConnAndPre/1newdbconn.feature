@@ -1,4 +1,4 @@
-@newconn @autoui01
+@newconn @autoui02
 Feature: 新建数据库连接配置
 
   @splpre

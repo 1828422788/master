@@ -2,12 +2,14 @@ package com.yottabyte.stepDefs;
 
 import com.yottabyte.config.ConfigManager;
 import com.yottabyte.hooks.LoginBeforeAllTests;
+import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.WaitForElement;
 import com.yottabyte.utils.ElementExist;
 import com.yottabyte.webDriver.SharedDriver;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -223,7 +225,47 @@ public class IChooseValueFromSelectList {
 //    }
 
     public void iChooseTheFromThe(List<String> values, WebElement parentElement) {
-        List<WebElement> elements = parentElement.findElements(By.xpath(".//span"));
+        String option = ".//span";
+        List<WebElement> elements = parentElement.findElements(By.xpath(option));
+        boolean success = false;
+        for (String value : values) {
+            if (value != null && value.trim().length() != 0) {
+                WebElement e = elements.get(0);
+                int counter = 0;
+                while (true) {
+                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+                    String cur_text = e.getText();
+                    if (value.equals(cur_text)) {
+                        success = true;
+                        e.click();
+                        break;
+                    }
+                    counter++;
+                    if (counter == elements.size()) {
+                        if (parentElement.findElements(By.xpath(option)).equals(elements)) {
+                            break;
+                        } else {
+                            elements = parentElement.findElements(By.xpath(option));
+                            counter = 0;
+                        }
+                    }
+                    e = elements.get(counter);
+                }
+            }
+            if (!success)
+                Assert.fail("No such option in the list:" + value + " is missing");
+        }
+    }
+
+    @And("^I choose5 the status \"([^\"]*)\" on the path \"([^\"]*)\" from the \"([^\"]*)\"$")
+    public void iChooseTheFromTheEvent5(List<String> values, String statusName, String elementName) {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+
+//      List<WebElement> elements = webDriver.findElements(By.xpath(".//div[@yotta-test='incident-active-option']"));
+        List<WebElement> elements = webDriver.findElements(By.xpath(".//div[@yotta-test='" + statusName + "']"));
+
         for (String value : values) {
             if (value != null && value.trim().length() != 0) {
                 for (WebElement e : elements) {
@@ -236,10 +278,59 @@ public class IChooseValueFromSelectList {
                 }
             }
         }
-//        System.out.println(parentElement);
-//        if (ElementExist.isElementExist(webDriver, parentElement) && values.size() > 1) {
-//            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", parentElement);
+    }
+
+    @And("^I choose the item \"([^\"]*)\" on the path \"([^\"]*)\" from the \"([^\"]*)\"$")
+    public void iChooseTheFromTheEvent6(List<String> values, String statusName, String elementName) {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+
+        List<WebElement> elements = webDriver.findElements(By.xpath("//span[@class='yotta-select-option-label']"));
+
+        for (String value : values) {
+            if (value != null && value.trim().length() != 0) {
+                for (WebElement e : elements) {
+                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+                    String cur_text = e.getText();
+                    if (value.equals(cur_text)) {
+                        e.click();
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    @And("^I choose6 the \"([^\"]*)\" from the \"([^\"]*)\"$")
+    public void iChooseTheFromTheEvent10(List<String> values, String elementName) {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+//        String str_selector = "[class='yotta-select-menu css-1eyjtz']";
+//        List<WebElement> list = webDriver.findElements(By.cssSelector(str_selector));
+//        System.out.println(list);
+//        WebElement lastDropdownList = list.get(list.size() - 1);
+//        System.out.println(lastDropdownList);
+//
+//        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+//            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
 //        }
+//        List<WebElement> elements = lastDropdownList.findElements(By.xpath(".//div[@yotta-test='incident-active-option']"));
+
+        List<WebElement> elements = webDriver.findElements(By.xpath(".//div[@yotta-test='incident-active-option']"));
+        for (String value : values) {
+            if (value != null && value.trim().length() != 0) {
+                for (WebElement e : elements) {
+                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+                    String cur_text = e.getText();
+                    if (value.equals(cur_text)) {
+                        e.click();
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -596,5 +687,33 @@ public class IChooseValueFromSelectList {
         }
     }
 
+
+    /**
+     * 选择下拉框内容
+     *
+     * @param value          想要选择的内容，支持list
+     * @param selectListName 下拉框元素名称
+     */
+    @And("^I choose66 the \"([^\"]*)\" from the \"([^\"]*)\"$")
+    public void iChooseTheFromThe66(String value, String selectListName) {
+        WebElement selectList = GetElementFromPage.getWebElementWithName(selectListName);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(selectList));
+        ClickEvent.clickUnderneathButton(selectList);
+        WebElement element = webDriver.findElement(By.xpath("//span[@class='yotta-select-option-label'][text()='" + value + "']"));
+        ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", element);
+        element.click();
+    }
+    /**
+     * 取消下拉框的选择
+     *
+     * @param buttonName         待取消的内容
+     */
+    @And("^I cancel selection \"([^\"]*)\"$")
+    public void iCancelSelection(String buttonName) {
+//        String xpath = "//span[contains(text(),'configtag')]/following-sibling::span[@aria-label='Close']";
+        String xpath = "//span[contains(text(),'" + buttonName + "')]/following-sibling::span[@aria-label='Close']";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        element.click();
+    }
 
 }

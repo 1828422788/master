@@ -75,7 +75,14 @@ Feature: 数据集-d编辑根事件
     Then I will see the data "{'column':'0','name':'edit2'}" values "{'column':'4','name':'app之api全部用例'}"
 #    And I will see the data "{'column':'0','name':'edit'}" values "{'column':'6','name':'auto_package'}"
 
+  @rzy4121
   Scenario: RZY-4121:修改名称(最后测试修改名称)
+    Given I wait for loading complete
+    When I set the parameter "SearchNameInput" with value "name_toupdate"
+    And I click the "Search" button
+    And I wait for "2000" millsecond
+    Given I wait for loading complete
+
     When the data name is "name_toupdate" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
     Given I wait for loading complete

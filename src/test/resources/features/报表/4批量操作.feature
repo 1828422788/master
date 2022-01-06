@@ -1,5 +1,5 @@
 @all @report @reportMulti
-Feature: 报表_批量操作
+Feature: 报表_4_批量操作
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
@@ -78,7 +78,7 @@ Feature: 报表_批量操作
     Then I will see the success message "更新成功"
     And I wait for loading complete
     And I click the "CompleteBatchControl" button under some element
-    
+
   Scenario: multi_switch
     And I click the "BatchControl" button under some element
     And I "checked" the checkbox which name is "test_multi_2" in the list
@@ -90,6 +90,7 @@ Feature: 报表_批量操作
     When I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
+    And I wait for "SuccessMessage" will be invisible
     And I click the "CompleteBatchControl" button under some element
     And the data name is "{'column':'1','name':'test_multi_1'}" then I "open" the switch
     And I wait for "100" millsecond
@@ -104,6 +105,7 @@ Feature: 报表_批量操作
     When the data name is "{'column':'1','name':'test_multi_2'}" then I "close" the switch
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "禁用成功"
+    And I wait for "SuccessMessage" will be invisible
     When the data name is "{'column':'1','name':'test_multi_3'}" then I "close" the switch
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "禁用成功"
@@ -117,8 +119,8 @@ Feature: 报表_批量操作
     And I will see the "report.ListPage" page
     And I wait for "Loading" will be invisible
     And I click the "BatchControl" button under some element
-    And I "checked" the checkbox which name is "test_multi_file_1" in trend list page
-    And I "checked" the checkbox which name is "test_multi_file_2" in trend list page
+    And I "checked" the checkbox which name is "test_multi_file_1" in the list
+    And I "checked" the checkbox which name is "test_multi_file_2" in the list
     And I click the "SelectBatchOperation" button under some element
     And I click the "DownloadResources" button
     And I wait for "Ensure" will be visible
@@ -136,8 +138,8 @@ Feature: 报表_批量操作
     And I wait for "LastGeneratedReport" will be visible
     And I wait for "Loading" will be invisible
     And I click the "BatchControl" button under some element
-    And I "checked" the checkbox which name is "test_multi_file_1" in trend list page
-    And I "checked" the checkbox which name is "test_multi_file_2" in trend list page
+    And I "checked" the checkbox which name is "test_multi_file_1" in the list
+    And I "checked" the checkbox which name is "test_multi_file_2" in the list
     And I click the "SelectBatchOperation" button under some element
     And I click the "DeleteResources" button
     And I wait for "Ensure" will be visible

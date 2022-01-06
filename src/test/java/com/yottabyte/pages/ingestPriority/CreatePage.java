@@ -29,12 +29,17 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//div[@class='yotta-select-selection yotta-select-selection-active']/span/span")
     private WebElement PriorityDropdownIcon;
+    @FindBy(xpath = "//div[@class='yotta-form-field-help-text']")
+    private WebElement helpmessage;
+    public WebElement getHelpmessage(){
+        return helpmessage;
+    }
 
     public WebElement getPriority(){
         String xpath = "//label[contains(text(),'')]/parent::div/parent::div/following-sibling::div[1]//span[@class='yotta-select-selection-icon']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         element.click();
-        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu css-ncm03v'])[last()]"));
+        return webDriver.findElement(By.xpath("//div[contains(@class,'yotta-select-menu')]"));
     }
 
     public WebElement getSaveButton() {

@@ -108,7 +108,7 @@ public class GroupPage extends PageTemplate {
     public WebElement getMore() {
         return More;
     }
-    @FindBy(xpath = "//span[@aria-label='DeleteOutlined']")
+    @FindBy(xpath = "//span[@aria-label='Delete']")
     private WebElement More;
 
     public WebElement getAddgroupinput() {
@@ -170,6 +170,11 @@ public class GroupPage extends PageTemplate {
         return Deletethree;
     }
 
+    @FindBy(xpath = "//div[@yotta-test='dialog-content-dom']/p")
+    private WebElement errorMessage;
+
+    public WebElement getErrorMessage() { return errorMessage; }
+
     @FindBy(xpath = "//p/span[text()='sunxc_test']")
     private WebElement Deletethree;
 
@@ -194,17 +199,19 @@ public class GroupPage extends PageTemplate {
     @FindBy(xpath = "//div/div[@class='yotta-select-selection-content']/div")
     private WebElement searchRole;
 
+    @FindBy(xpath = "//span[@class='yotta-message-content']")
+    private WebElement Addsuccessmsg;
     public WebElement getAddsuccessmsg() {
         return Addsuccessmsg;
     }
-
-    @FindBy(xpath = "//span[@class='yotta-message-content']")
-    private WebElement Addsuccessmsg;
-
+    @FindBy(xpath = "//p[contains(text(),'API: 操作失败，原因：')]")
+    private WebElement Addfailmsg;
+    public WebElement getAddfailmsg() {
+        return Addfailmsg;
+    }
     public WebElement getMessage() {
         return webDriver.findElement(By.xpath("//div[@class='ant-modal-body']//p"));
     }
-
     public WebElement getFinalmessage() {
         return Finalmessage;
     }

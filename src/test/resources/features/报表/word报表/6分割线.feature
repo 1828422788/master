@@ -1,5 +1,5 @@
 @reportTextEditor @report
-Feature:报表_富文本编辑_分割线
+Feature:报表_富文本编辑_6_分割线
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"

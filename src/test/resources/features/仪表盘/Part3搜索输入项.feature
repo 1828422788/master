@@ -127,7 +127,6 @@ Feature: 搜索页输入项
     And I set the parameter "Suffix" with value " |"
     And I wait for "500" millsecond
     And I click the "AcceptCreateDownloadTask" button
-    And I wait for "Progress" will be invisible
 #    And I wait for "2000" millsecond
 #    Then I wait for "InputItem" will be visible
     And I wait for "2000" millsecond
@@ -243,7 +242,6 @@ Feature: 搜索页输入项
     And I wait for "500" millsecond
     And I click the "AcceptCreateDownloadTask" button
     And I wait for "500" millsecond
-    And I wait for "Progress" will be invisible
     Then I wait for "InputItem" will be visible
     And I choose the "苏州市" from the "FilterDropdown"
     And I click the "SearchButton" button

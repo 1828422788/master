@@ -1,5 +1,5 @@
 @all @logDisplay @logDisplayDimension
-Feature: 日志展现_维度
+Feature: 日志展现_2维度
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"

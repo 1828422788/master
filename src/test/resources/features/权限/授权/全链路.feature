@@ -211,8 +211,8 @@ Feature: 权限-全链路
     And I wait for "TagToInput" will be visible
     And I click the "TagToInput" button
     And I wait for "Tag" will be visible
-    And I set the parameter "Tag" with value "test"
-    And I choose the "test" from the "TagDropdown"
+    #And I set the parameter "Tag" with value "test"
+    #And I choose the "test" from the "TagDropdown"
     And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And I wait for loading invisible
@@ -377,8 +377,8 @@ Feature: 权限-全链路
     And I wait for "TagToInput" will be visible
     And I click the "TagToInput" button
     And I wait for "Tag" will be visible
-    And I set the parameter "Tag" with value "test"
-    And I choose the "test" from the "TagDropdown"
+   # And I set the parameter "Tag" with value "test"
+   # And I choose the "test" from the "TagDropdown"
     And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And the data name is "<name>" then i click the "更多" button
@@ -548,8 +548,7 @@ Feature: 权限-全链路
     And I set the parameter "Name" with value "二次授权测试重命名"
     And I click the "Ensure" button
     Then I will see the success message "修改成功"
-    # the data name is "二次授权测试重命名" then i click the "更多" button
-    #And I click the "Auth" button
+    And I wait for "2000" millsecond
     And the data name is "二次授权测试重命名" then i click the "授权" button in more menu
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
@@ -587,8 +586,8 @@ Feature: 权限-全链路
     And I wait for "TagToInput" will be visible
     And I click the "TagToInput" button
     And I wait for "Tag" will be visible
-    And I set the parameter "Tag" with value "test"
-    And I choose the "test" from the "TagDropdown"
+   # And I set the parameter "Tag" with value "test"
+   # And I choose the "test" from the "TagDropdown"
     And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And the data name is "<name>" then i click the "更多" button

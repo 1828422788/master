@@ -1,5 +1,5 @@
-@report @setup1
-Feature: 报表_趋势图
+@report
+Feature: 报表_0_趋势图
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"

@@ -31,7 +31,7 @@ Feature: 权限-collect指令
     Then I will see the message "索引配置完成!"
     And I logout current user
 
-  Scenario: 验证无法使用collect指令
+  Scenario: 验证无法使用collect指令--RZY-7835
     Given I login user "AutoTest" with password "All#123456"
     And open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "*|collect index=autotestauth marker=\"appname=\\\"autotestappname\\\", tag=\\\"autotesttag\\\"\""
@@ -52,7 +52,7 @@ Feature: 权限-collect指令
     And I click the "SaveButton" button
     And I logout current user
 
-  Scenario: 验证无写入索引权限
+  Scenario: 验证无写入索引权限--RZY-7835
     Given I login user "AutoTest" with password "All#123456"
     And open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "*|collect index=autotestauth marker=\"appname=\\\"autotestappname\\\", tag=\\\"autotesttag\\\"\""

@@ -82,7 +82,7 @@ Feature: 全链路_7时间轴
     And I wait for "Save" will be visible
     And I choose the "时间轴SPL配置" from the "Settings"
     And I wait for "TimelineSPL" will be visible
-    And I set the value "index=schedule schedule_name:FullLink_Autotest_TimeAxis  | bucket tstamp span=1h as ts | stats count()  as _COUNT by ts | eval level = 2" to the textarea "TimelineSPL"
+    And I set the value "index=schedule schedule_name:FullLink_Autotest_TimeAxis  | bucket tstamp span=1h as ts | stats count()  as _COUNT by ts | eval level = 1" to the textarea "TimelineSPL"
     And I click the "RequestData" button
     And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
@@ -116,7 +116,7 @@ Feature: 全链路_7时间轴
     And I wait for "SuccessMessage" will be invisible
     And I click the "Preview" button
     And I wait for "5000" millsecond
-    And I wait for "Preview" will be invisible
+    And I wait for "NumLabel_1" will be visible
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "保存成功"

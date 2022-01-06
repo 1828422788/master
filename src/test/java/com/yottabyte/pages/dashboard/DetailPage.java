@@ -1,10 +1,7 @@
 package com.yottabyte.pages.dashboard;
 
 import com.yottabyte.pages.PageTemplate;
-import com.yottabyte.utils.ConstructPageFactoryWithName;
-import com.yottabyte.utils.GetTime;
-import com.yottabyte.utils.Paging;
-import com.yottabyte.utils.WaitForElement;
+import com.yottabyte.utils.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -27,68 +24,23 @@ public class DetailPage extends PageTemplate {
 //        driver.manage().window().fullscreen();
     }
 
-    @FindBy(className = "el-loading-mask")
-    private WebElement loading;
+    @FindBy(xpath = "(//span[@aria-label='Ellipsis'])[1]")
+    private WebElement tableEditor1;
 
-    @FindBy(xpath = "//span[contains(text(),'确定')]")
-    private List<WebElement> ensureList;
+    @FindBy(xpath = "(//span[@aria-label='Ellipsis'])[2]")
+    private WebElement tableEditor2;
 
-    @FindBy(xpath = "//th[text()='apache.geo.city']/i")
-    private WebElement chartEditor;
+    @FindBy(className = "yotta-dropdown-menu" )
+    private WebElement tableEditorList;
 
-    @FindBy(xpath = "(//*[@yotta-test='table_chart-edit-icon'])[2]")
-    private WebElement chartEditorNumber;
+    @FindBy(xpath = "//span[@aria-label='Visibility']")
+    private WebElement hiddenColumns;
 
     @FindBy(className = "control-panel-content")
     private WebElement filter;
 
     @FindBy(xpath = "//input[@yotta-test='dashboard-add_events_name-input']")
     private WebElement eventName;
-
-    @FindBy(className = "el-switch__label--left")
-    private WebElement clickableButton;
-
-    @FindBy(className = "icon-tianjiatubiaoxuanting_icon")
-    private WebElement addButton;
-
-    @FindBy(className = "icon-yichuyiruxuanting_icon")
-    private WebElement moveButton;
-
-    @FindBy(className = "icon-gengxinxuanting_icon")
-    private WebElement refreshButton;
-
-    @FindBy(className = "icon-cunweibaobiao_icon")
-    private WebElement saveAsReportButton;
-
-    @FindBy(className = "icon-yejianxuanting_icon")
-    private WebElement nightModeButton;
-
-    @FindBy(className = "icon-quanpingxuanting_icon")
-    private WebElement fullScreenButton;
-
-    @FindBy(className = "el-checkbox")
-    private List<WebElement> checkBox;
-
-    @FindBy(className = "el-tabs__item")
-    private List<WebElement> tabList;
-
-    @FindBy(className = "icon-qiehuan1")
-    private WebElement switchButton;
-
-    @FindBy(className = "dash-switch-ul")
-    private WebElement dropdownList;
-
-    @FindBy(className = "icon-guanbianniu")
-    private WebElement closeTag;
-
-    @FindBy(className = "dropdown-link-btn")
-    private WebElement dropDownLinkButton;
-
-    @FindBy(xpath = "//span[contains(text(),'恢复')][@class='action']")
-    private WebElement recoverTag;
-
-    @FindBy(xpath = "//div[@class='yotta-modal-footer']/button")
-    private WebElement ensureErrorSplButton;
 
     @FindBy(xpath = "//div[@class='yotta-checkbox-group']//span[@class='yotta-checkbox-input']")
     private WebElement listForBang;
@@ -123,14 +75,8 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//*[@yotta-test='dashboard-filter_setting-icon']")
     private WebElement editTime;
 
-    @FindBy(xpath = "(//span[text()='time']/following-sibling::span)[last()]")
-    private WebElement deleteTime;
-
     @FindBy(xpath = "//*[@yotta-test='dashboard-add_item-dropdown']/span/span")
     private WebElement addEventButton;
-
-    @FindBy(className = "yw-dropdown-menu")
-    private List<WebElement> eventList;
 
     @FindBy(xpath = "//div[@class='yotta-form-field']//span[@class='yotta-select-selection-value']")
     private WebElement inputType;
@@ -163,9 +109,6 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//*[@yotta-test='dashboard-add_input-menu_item']")
     private WebElement addInput;
 
-    @FindBy(xpath = "//div[@class='el-form-item dynamic-search-btn']//span")
-    private WebElement searchInputButton;
-
     @FindBy(xpath = "//*[@name='title']")
     private WebElement inputSettingTitle;
 
@@ -178,23 +121,11 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='设为全局时间']")
     private WebElement setGlobalTimeRange;
 
-    @FindBy(xpath = "//span[text()='全局时间']/following-sibling::div//i[contains(@class,'anticon css-ifnfqv')][2]")
-    private WebElement deleteIcon;
-
     @FindBy(xpath = "//label[contains(text(),'搜索内容')]/following-sibling::div//textarea")
     private WebElement searchInput;
 
-    @FindBy(xpath = "//label[contains(text(),'标题')]/following-sibling::div//input[@class='el-input__inner']")
-    private List<WebElement> titleList;
-
     @FindBy(xpath = "//div[@class='control']/following-sibling::span")
     private WebElement labelName;
-
-    @FindBy(className = "yw-tab-header-content")
-    private WebElement header;
-
-    @FindBy(className = "circular")
-    private WebElement circular;
 
     @FindBy(xpath = "//a[contains(text(),'UIautotest')]")
     private WebElement uiautotest;
@@ -204,9 +135,6 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//a[contains(text(),'测试标签页移出')]")
     private WebElement testMoveTag;
-
-//    @FindBy(className = "icon-tianjiatubiao_icon")
-//    private WebElement addTag;
 
     @FindBy(xpath = "//span[text()='单选']")
     private WebElement radio;
@@ -223,38 +151,14 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//*[@placeholder='请输入趋势图名称']")
     private WebElement trendName;
 
-    @FindBy(xpath = "//span[contains(text(),'仪表盘所用趋势图')]")
-    private WebElement dashboardTrend;
-
-    @FindBy(xpath = "//span[contains(text(),'仪表盘1669所用趋势图')]")
-    private WebElement dashboardTrend1669;
-
-    @FindBy(className = "icon-gengduopeizhi")
-    private WebElement chartSetting;
-
     @FindBy(tagName = "table")
     private List<WebElement> tableList;
 
     @FindBy(xpath = "//textarea[contains(@yotta-test,'query-textarea')]")
     private WebElement spl;
 
-    @FindBy(xpath = "(//*[@class='el-dialog__body']/following-sibling::div//button/span[contains(text(),'确定')])[last()]")
-    private WebElement settingEnsure;
-
-    @FindBy(xpath = "//div[text()='仪表盘所用趋势图']/following-sibling::div[1]/*[@class='anticon css-ifnfqv'][2]")
-    private WebElement deleteChart;
-
-    @FindBy(xpath = "//div[text()='是否删除图表?']/ancestor::div[@class='el-dialog el-dialog--tiny']//button")
-    private WebElement ensureDeleteChart;
-
-    @FindBy(xpath = "//div[@class='settings-content']//i")
-    private WebElement fieldValue;
-
     @FindBy(className = "widget-chart-settings-content")
     private WebElement content;
-
-    @FindBy(className = "icon-gengduopeizhi")
-    private WebElement config;
 
     @FindBy(tagName = "textarea")
     private WebElement textarea;
@@ -310,45 +214,20 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='second'][@class='main']")
     private WebElement main;
 
-    @FindBy(xpath = "//div[@x-placement]")
-    private WebElement remarkInfo;
-
-    @FindBy(xpath = "//*[@class='img iconfont icon-beizhu_icon']")
-    private WebElement remark;
-
-    @FindBy(className = "el-pagination__total")
-    private WebElement totalPage;
-
     @FindBy(xpath = "(//*[text()='{'])")
     private WebElement input;
 
     @FindBy(xpath = "//li[contains(text(),'清空JSON')]")
     private WebElement cleanJson;
 
-    //    @FindBy(id = "jsoneditor")
     @FindBy(className = "ace_text-input")
     private WebElement jsonEditor;
-
-    @FindBy(className = "el-icon-loading")
-    private WebElement iconLoading;
 
     @FindBy(xpath = "//*[@yotta-test='dashboard-new_filter_value-select']/div")
     private WebElement defaultValueIcon;
 
-    @FindBy(xpath = "//td[@data-col-name='a_']")
-    private WebElement singleChartFieldA;
-
-    @FindBy(className = "yw-single-chart-static")
-    private WebElement singleChartStatic;
-
-    @FindBy(className = "widget-chartType-selection-popover")
-    private WebElement selectionPopover;
-
     @FindBy(xpath = "(//*[name()='text'])[text()]")
     private WebElement xaxisField;
-
-    @FindBy(xpath = "//div[@class='el-dialog__wrapper yw-modal-plain yw-selection-modal dialog-fade-leave-active dialog-fade-leave-to']")
-    private WebElement fadingLeave;
 
     @FindBy(xpath = "//span[contains(text(),'生成')]")
     private WebElement generate;
@@ -371,14 +250,8 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//span[contains(@style,'background: rgb(37, 155, 36);')])[last()]")
     private WebElement green;
 
-    @FindBy(className = "single-chart-background-base")
-    private WebElement BackgroundColour;
-
     @FindBy(className = "main")
     private WebElement mainTitle;
-
-    @FindBy(className = "yw-single-chart-container")
-    private WebElement chartContainer;
 
     @FindBy(tagName = "table")
     private WebElement table;
@@ -386,16 +259,13 @@ public class DetailPage extends PageTemplate {
     @FindBy(tagName = "thead")
     private WebElement tableHeader;
 
-    @FindBy(xpath = "//i[@class='el-icon-check el-icon--right']")
-    private WebElement checkRight;
-
     @FindBy(xpath = "//div[@id='fullscreenAll']//label")
     private WebElement dropdownLink;
 
     @FindBy(xpath = "//div[@class='ant-modal-body']//i/ancestor::div")
     private WebElement message;
 
-    @FindBy(xpath = "//span[contains(@class,'yotta-icon-TooltipOutlined')]")
+    @FindBy(xpath = "//span[@yotta-test='dashboard-chart_description-icon']")
     private WebElement describe;
 
     @FindBy(xpath = "//div[text()='测试描述']")
@@ -443,17 +313,16 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='首行']/following-sibling::div//div[text()='测试行事件']")
     private WebElement rowEventName;
 
-    @FindBy(xpath = "//div[text()='行布局趋势图1']/following-sibling::div[1]/i")
+    @FindBy(xpath = "//div[text()='行布局趋势图1']/following::div[@yotta-test='dashboard-chart_more_config-dropdown']//*[@aria-label]")
     private WebElement moreXuanTing;
 
-//  @FindBy(xpath = "//div[text()='行布局趋势图2']/following-sibling::div[1]//span[@class='yotta-icon yotta-icon-DotEmblemOutlined']")
-    @FindBy(xpath = "//div[text()='行布局趋势图2']/following::div[@yotta-test='dashboard-chart_more_config-dropdown']/span/span/span")
+    @FindBy(xpath = "//div[text()='行布局趋势图2']/following::div[@yotta-test='dashboard-chart_more_config-dropdown']//*[@aria-label]")
     private WebElement moreXuanTing2;
 
-    @FindBy(xpath = "//div[text()='行布局趋势图2']/following-sibling::div[1]/i[3]")
+    @FindBy(xpath = "//div[text()='行布局趋势图2']/following-sibling::div//span[@yotta-test='dashboard-delete_chart-icon']")
     private WebElement deleteTrend2;
 
-    @FindBy(xpath = "//div[text()='行布局趋势图1']/following-sibling::div//span[@class='yotta-icon yotta-icon-DeleteFilled']")
+    @FindBy(xpath = "//div[text()='行布局趋势图1']/following-sibling::div//span[@yotta-test='dashboard-delete_chart-icon']")
     private WebElement deleteTrend1;
 
     @FindBy(xpath = "//div[text()='行布局趋势图1']")
@@ -464,9 +333,6 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//div[text()='行布局趋势图3']")
     private WebElement trendThree;
-
-    @FindBy(xpath = "//span[text()='删除']")
-    private WebElement chartDelete;
 
     @FindBy(xpath = "//span[text()='操作']")
     private WebElement operate;
@@ -492,16 +358,19 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//*[name()='rect'])[3]")
     private WebElement zhutiao;
 
+    @FindBy(xpath = "//*[name()='rect' and @height>22 and @clip-path]")
+    private WebElement zhutiao2;
+
     @FindBy(xpath = "(//*[name()='text'])[text()='64.20.177.254']")
     private WebElement ipZifu;
 
     @FindBy(xpath = "//span[text()='64.20.177.254']")
     private WebElement ip254;
 
-    @FindBy(xpath = "(//*[text()='1']/parent::*)[last()]")
+    @FindBy(xpath = "(//*[text()='1']/parent::*[name()='g'])[last()]")
     private WebElement taiwan;
 
-    @FindBy(xpath = "(//*[text()='1']/parent::*)[1]")
+    @FindBy(xpath = "(//*[text()='1']/parent::*[name()='g'])[1]")
     private WebElement neimenggu;
 
     @FindBy(xpath = "(//*[name()='text'])[text()='内蒙古']")
@@ -534,16 +403,16 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='thumbs-up:']/parent::div/parent::div")
     private WebElement singleValueDiv;
 
-    @FindBy(xpath = "//div[text()='钻取变量单值value']/following-sibling::div[last()]/div/div[last()]/div/span")
+    @FindBy(xpath = "//div[contains(@class,'single')]//span[contains(text(),':')]")
     private WebElement singleValue1;
 
-    @FindBy(xpath = "//div[@yotta-test='dashboard-drilldown_type-select']//div[@class='yotta-select-selection']")
+    @FindBy(xpath = "//div[@yotta-test='dashboard-drilldown_type-select']//div[contains(@class,'yotta-select-selection')]")
     private WebElement drillAction; //钻取类型
 
-    @FindBy(xpath = "//div[@yotta-test='dashboard-drilldown_map_province-select']//div[@class='yotta-select-selection']")
+    @FindBy(xpath = "//div[@yotta-test='dashboard-drilldown_map_province-select']//div[contains(@class,'yotta-select-selection')]")
     private WebElement provinceDrillAction; //省下钻字段
 
-    @FindBy(xpath = "//div[@yotta-test='dashboard-drilldown_map_city-select']//div[@class='yotta-select-selection']")
+    @FindBy(xpath = "//div[@yotta-test='dashboard-drilldown_map_city-select']//div[contains(@class,'yotta-select-selection')]")
     private WebElement cityDrillAction; //市下钻字段
 
     @FindBy(xpath = "//textarea[@yotta-test='dashboard-drilldown_custom_url-textarea']")
@@ -558,23 +427,14 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//*[@yotta-test='dashboard-drilldown_tab_target_tab-cascader']")
     private WebElement targetTag;
 
-    @FindBy(className = "el-cascader-menu")
-    private List<WebElement> menuList;
-
     @FindBy(xpath = "//label[contains(text(),'目标参数')]/following-sibling::div/div")
     private WebElement targetParam;
-
-    @FindBy(xpath = "(//ul[@class='ant-select-dropdown-menu-item-group-list'])[1]")
-    private WebElement inputGroup;
 
     @FindBy(xpath = "//div[text()='=']//span")
     private WebElement paramValue;
 
     @FindBy(xpath = "//*[@yotta-test='dashboard-drilldown_filter_value-select']")
     private WebElement paramValue1;
-
-    @FindBy(className = "is-multiple")
-    private WebElement paramDropdown;
 
     @FindBy(xpath = "//span[text()='${click.value2}']")
     private WebElement clickValue;
@@ -594,11 +454,23 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//*[@yotta-test='dashboard-drilldown_filter_token-input']")
     private WebElement tokenInput;
 
-    @FindBy(xpath = "(//input[@class='ant-input'])[not(@placeholder)]/following-sibling::div")
-    private WebElement optionFilterValue;
-
     @FindBy(xpath = "//input[@yotta-test='dashboard-filter_value-input']")
     private WebElement geoCity;
+
+    @FindBy(xpath = "//div[contains(@class,'filter')]/div[1]//span[text()]")
+    private WebElement firstFilter;
+
+    @FindBy(xpath = "//div[contains(@class,'filter')]/div[1]")
+    private WebElement firstFilterElement;
+
+    @FindBy(xpath = "//input[@yotta-test='dashboard-new_filter_width-number_input']")
+    private WebElement filterWidth;
+
+    @FindBy(xpath = "//input[@yotta-test='dashboard-new_filter_width-number_input']/following-sibling::span//*[@aria-label='Up']")
+    private WebElement increaseWidth;
+
+    @FindBy(xpath = "//input[@yotta-test='dashboard-new_filter_width-number_input']/following-sibling::span//*[@aria-label='Down']")
+    private WebElement decreaseWidth;
 
     @FindBy(xpath = "(//div[@class='yotta-event-list-body']//div[contains(@class,'event-action-icon-dropdown')]/span)[1]")
     private WebElement eventOperate;
@@ -629,15 +501,6 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='filter']/following-sibling::span")
     private WebElement filterSetting;
-
-    @FindBy(xpath = "(//a[@class='item-menu-btn iconfont icon-shanchuxuanting_icon'])[last()]")
-    private WebElement filterDelete;
-
-    @FindBy(xpath = "//span[contains(text(),'删除过滤项')]/ancestor::div[@class='el-dialog el-dialog--tiny']//button")
-    private WebElement ensureDeleteFilter;
-
-    @FindBy(xpath = "//span[contains(text(),'删除输入项')]/ancestor::div[@class='el-dialog el-dialog--tiny']//button")
-    private WebElement ensureDeleteInput;
 
     @FindBy(xpath = "//span[text()='单选']/ancestor::label")
     private WebElement singleChoice;
@@ -708,7 +571,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='24']")
     private WebElement countNum;
 
-    @FindBy(xpath = "//div[@id='fullscreenAll']//div[@id]/div")
+    @FindBy(xpath = "//div[@yotta-test='dashboard-chart_title-dom']")
     private WebElement customTitle;
 
     @FindBy(name = "trendDescription")
@@ -732,9 +595,6 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='请补全展示条件']")
     private WebElement tipErrorShowCondition;
 
-    @FindBy(className = "icon-fanyeqishangjiantou")
-    private WebElement eventIcon;
-
     @FindBy(xpath = "//span[text()='仪表盘测试事件列表']")
     private WebElement event;
 
@@ -752,9 +612,6 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//div[@class='yotta-dropdown-menu']/ul")
     private WebElement addChartDropdown;
-
-    @FindBy(xpath = "(//i[@class='anticon css-ifnfqv'])/*")
-    private List<WebElement> iconList;
 
     @FindBy(xpath = "//*[@yotta-test='dashboard-tab_config-dropdown']/span")
     private WebElement settingIcon;
@@ -798,22 +655,26 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//input[@yotta-test='dashboard-nav_filter-input']")
     private WebElement searchTagInput;
 
-//    @FindBy(xpath = "//a[text()='first']")
+    @FindBy(xpath = "//*[@yotta-test='dashboard-nav_expand-icon']")
+    private WebElement showDashboards;
+
     @FindBy(xpath = "//div[@yotta-test='dashboard-nav_tab-dropdown']//span[text()='testSearch']")
     private WebElement firstTag;
 
     @FindBy(xpath = "(//div[@class='yotta-tree-node']//span[text()])[last()]")
     private WebElement lastTag;
 
-    //  @FindBy(xpath = "//span[contains(text(),'first')]")
+    @FindBy(xpath = "(//span[@aria-label='FolderOpen']/ancestor::div[1]//*[@yotta-test])[1]")
+    private WebElement lastDashboard;
+
     @FindBy(xpath = "//div[@class='yotta-tree-node']//span[text()='first']")
     private WebElement first;
 
     @FindBy(xpath = "//span[text()='新建标签页']")
-    private WebElement creatNewTag;
+    private WebElement createNewTag;
 
-    public WebElement getCreatNewTag() {
-        return creatNewTag;
+    public WebElement getCreateNewTag() {
+        return createNewTag;
     }
 
     @FindBy(xpath = "//span[text()='设为默认']")
@@ -823,18 +684,15 @@ public class DetailPage extends PageTemplate {
         return setAsDefault;
     }
 
-   //@FindBy(xpath = "//a[text()='Delete']/following-sibling::*[@yotta-test='dashboard-delete_tab-dom']")
     @FindBy(xpath = "//span[text()='删除']")
     private WebElement deleteNewTag;
 
-    //@FindBy(xpath = "//span[text()='新建标签页']/parent::li/preceding-sibling::div/li[2]//input")
     @FindBy(xpath = "//input[@yotta-test='dashboard-tab_name-input']")
     private WebElement inputforTag;
     public WebElement getInputforTag() {
         return inputforTag;
     }
 
-    //@FindBy(xpath = "//a[text()='forDelete']/following-sibling::span[1]")
     @FindBy(xpath = "//span[text()='编辑']")
     private WebElement editTag;
 
@@ -853,10 +711,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//li[text()='FirstAutoTest']")
     private WebElement firstAutoTest;
 
-    @FindBy(xpath = "//span[@class='ant-dropdown-trigger']")
+    @FindBy(xpath = "//span[@aria-label='FolderOpen']/parent::span//following-sibling::span//*[@yotta-test='dashboard-nav_dashboard-dom']")
     private WebElement currentDashboard;
 
-    @FindBy(xpath = "//div[text()='返回列表']")
+    @FindBy(xpath = "//button[@yotta-test='dashboard-back_to_list-button']")
     private WebElement returnToList;
 
     @FindBy(xpath = "(//span[@class='yotta-select-selection-icon'])[last()]")
@@ -914,10 +772,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//*[@class='yotta-dropdown-menu'][last()]")
     private WebElement chartDropdown;
 
-    @FindBy(xpath = "//span[contains(@class,'yotta-icon-ChartSquareFilled')]")
+    @FindBy(xpath = "//span[contains(@class,'yotta-icon-ChartSquare')]")
     private WebElement chartType;
 
-    @FindBy(xpath = "(//span[contains(@class,'yotta-icon-ChartSquareFilled')])[2]")
+    @FindBy(xpath = "(//span[contains(@class,'yotta-icon-ChartSquare')])[2]")
     private WebElement secondChartType;
 
     @FindBy(xpath = "//div[contains(@class,'table')]//parent::div/preceding-sibling::div[contains(@class,'config')]//span[@yotta-test='dashboard-chart_type-dom']")
@@ -944,7 +802,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//input[@yotta-test='dashboard-add_chart_filter_name-input']")
     private WebElement searchChartInput;
 
-    @FindBy(xpath = "(//*[@yotta-test='dashboard-filter_value-select']/div)[last()]")
+    @FindBy(xpath = "(//*[contains(@class,'yotta-select-option')])[last()]")
     private WebElement lastFilter;
 
     @FindBy(xpath = "//span[text()='AutoTest_副本']")
@@ -986,10 +844,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='上限值']/following-sibling::input")
     private WebElement upperLimitValue;
 
-    @FindBy(xpath = "//label[text()='字体颜色：']/following-sibling::div//span[@class='css-trkpwz']")
+    @FindBy(xpath = "//label[text()='字体颜色：']/following-sibling::div//div[@class='color-picker-indicator']")
     private WebElement chartFontColor;
 
-    @FindBy(xpath = "//label[text()='字体颜色：']/following-sibling::div//div[text()='Hex']/preceding-sibling::input")
+    @FindBy(xpath = "//span[contains(@class,'prefix')]/following-sibling::input")
     private WebElement chartFontColorValue;
 
     @FindBy(xpath = "//label[text()='列宽度：']/following-sibling::div//input")
@@ -1013,6 +871,12 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='南京市']/ancestor::td/following-sibling::td//span")
     private WebElement valueOfNanjingTdText;
 
+    @FindBy(xpath = "//tr[1]/td[1]")
+    private WebElement firstColumnFirstValue;
+
+    @FindBy(xpath = "//tr[1]/td[2]")
+    private WebElement secondColumnFirstValue;
+
     @FindBy(xpath = "//div[text()='仪表盘表格样式' and @yotta-test='dashboard-chart_title-dom']/parent::div")
     private WebElement chartStyleTable;
 
@@ -1028,8 +892,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getLastFilter() {
-        lastFilter.click();
-        return super.getLastDropdownList();
+        return lastFilter;
     }
 
     public WebElement getShowCondition() {
@@ -1044,11 +907,6 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getOptionItems() {
         optionItems.click();
-        return super.getLastDropdownList();
-    }
-
-    public WebElement getOptionFilterValue() {
-        optionFilterValue.click();
         return super.getLastDropdownList();
     }
 
@@ -1180,10 +1038,6 @@ public class DetailPage extends PageTemplate {
         return trendThree;
     }
 
-    public WebElement getChartDelete() {
-        return chartDelete;
-    }
-
     public WebElement getFullScreen() {
         return fullScreen;
     }
@@ -1261,12 +1115,20 @@ public class DetailPage extends PageTemplate {
         return testSearch;
     }
 
+    public WebElement getShowDashboards() {
+        return showDashboards;
+    }
+
     public WebElement getFirstTag() {
         return firstTag;
     }
 
     public WebElement getLastTag() {
         return lastTag;
+    }
+
+    public WebElement getLastDashboard() {
+        return lastDashboard;
     }
 
     public WebElement getFirst() {
@@ -1361,19 +1223,10 @@ public class DetailPage extends PageTemplate {
         return getSwitchButton("过滤输入项自动更新");
     }
 
-    //添加趋势图的确定按钮
-    @FindBy(xpath = "//div[@class='Yt5JX-42Xe_Kz4p92ocJI']/button")
-    private WebElement ensureAddTrend;
-
     private WebElement getSwitchButton(String name) {
         String xpath = "//span[contains(text(),'" + name + "')]/following-sibling::label";
         return webDriver.findElement(By.xpath(xpath));
     }
-
-    public WebElement getDeleteIcon() {
-        return deleteIcon;
-    }
-
 
     public WebElement getSettingIcon() {
         return settingIcon;
@@ -1381,14 +1234,6 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getSettingChart() {
         return settingChart;
-    }
-
-    public WebElement getType() {
-        return iconList.get(4);
-    }
-
-    public WebElement getSetting() {
-        return iconList.get(5);
     }
 
     public WebElement getDelete() {
@@ -1417,10 +1262,6 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getEvent() {
         return event;
-    }
-
-    public WebElement getEventIcon() {
-        return eventIcon;
     }
 
     public WebElement getChartDesc() {
@@ -1467,10 +1308,6 @@ public class DetailPage extends PageTemplate {
         return multiSelect;
     }
 
-    public WebElement getEnsureDeleteInput() {
-        return ensureDeleteInput;
-    }
-
     public WebElement getAppname() {
         return appname;
     }
@@ -1485,14 +1322,6 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getSingleChoice() {
         return singleChoice;
-    }
-
-    public WebElement getEnsureDeleteFilter() {
-        return ensureDeleteFilter;
-    }
-
-    public WebElement getFilterDelete() {
-        return filterDelete;
     }
 
     public WebElement getFilterSetting() {
@@ -1540,6 +1369,26 @@ public class DetailPage extends PageTemplate {
         return geoCity;
     }
 
+    public WebElement getFirstFilter() {
+        return firstFilter;
+    }
+
+    public WebElement getFirstFilterElement() {
+        return firstFilterElement;
+    }
+
+    public WebElement getFilterWidth() {
+        return filterWidth;
+    }
+
+    public WebElement getIncreaseWidth() {
+        return increaseWidth;
+    }
+
+    public WebElement getDecreaseWidth() {
+        return decreaseWidth;
+    }
+
     public WebElement getClickValue() {
         return clickValue;
     }
@@ -1561,7 +1410,6 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getParamDropdown() {
-//        return paramDropdown;
         return super.getLastDropdownList();
     }
 
@@ -1576,10 +1424,6 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getInputSettingTitle() {
         return inputSettingTitle;
-    }
-
-    public WebElement getInputGroup() {
-        return inputGroup;
     }
 
     public WebElement getTargetParam() {
@@ -1638,20 +1482,12 @@ public class DetailPage extends PageTemplate {
         return dashboardMenu;
     }
 
-    public WebElement getTagMenu() {
-        return menuList.get(1);
-    }
-
     public WebElement getTargetTag() {
         return targetTag;
     }
 
     public WebElement getDateEditor() {
         return dateEditor;
-    }
-
-    public WebElement getDashboardTrend1669() {
-        return dashboardTrend1669;
     }
 
     // 获取今天按钮
@@ -1728,6 +1564,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getZhutiao() {
         return zhutiao;
+    }
+
+    public WebElement getZhutiao2() {
+        return zhutiao2;
     }
 
     public WebElement getIpZifu() {
@@ -1838,10 +1678,6 @@ public class DetailPage extends PageTemplate {
         return dropdownLink;
     }
 
-    public WebElement getCheckRight() {
-        return checkRight;
-    }
-
     public WebElement getTableHeader() {
         return tableHeader;
     }
@@ -1854,16 +1690,8 @@ public class DetailPage extends PageTemplate {
         return recover;
     }
 
-    public WebElement getChartContainer() {
-        return chartContainer;
-    }
-
     public WebElement getMainTitle() {
         return mainTitle;
-    }
-
-    public WebElement getBackgroundColour() {
-        return BackgroundColour;
     }
 
     public WebElement getGreen() {
@@ -1934,14 +1762,6 @@ public class DetailPage extends PageTemplate {
         return progress;
     }
 
-    public WebElement getFadingLeave() {
-        return fadingLeave;
-    }
-
-    public WebElement getSelectionPopover() {
-        return selectionPopover;
-    }
-
     public WebElement getSingle() {
         return this.getChart("single");
     }
@@ -1950,24 +1770,30 @@ public class DetailPage extends PageTemplate {
         return webDriver.findElement(By.xpath("(//div[@class='option-img " + chartName + "'])[last()]"));
     }
 
-    public WebElement getSingleChartStatic() {
-        return singleChartStatic;
+    public WebElement getTableEditor1() {
+        try{
+            Thread.sleep(700);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(tableEditor1));
+        ClickEvent.clickUnderneathButton(tableEditor1);
+        return tableEditorList;
     }
 
-    public WebElement getSingleChartFieldA() {
-        return singleChartFieldA;
+    public WebElement getTableEditor2() {
+        try{
+            Thread.sleep(700);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(tableEditor2));
+        ClickEvent.clickUnderneathButton(tableEditor2);
+        return tableEditorList;
     }
 
-    public WebElement getChartEditor() {
-        return chartEditor;
-    }
-
-    public WebElement getChartEditorNumber() {
-        return chartEditorNumber;
-    }
-
-    public WebElement getIconLoading() {
-        return iconLoading;
+    public WebElement getHiddenColumns() {
+        return hiddenColumns;
     }
 
     public WebElement getTestMoveTag() {
@@ -1989,18 +1815,6 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getInput() {
         return input;
-    }
-
-    public WebElement getTotalPage() {
-        return totalPage;
-    }
-
-    public WebElement getRemark() {
-        return remark;
-    }
-
-    public WebElement getRemarkInfo() {
-        return remarkInfo;
     }
 
     public WebElement getMain() {
@@ -2067,10 +1881,6 @@ public class DetailPage extends PageTemplate {
         return textarea;
     }
 
-    public WebElement getConfig() {
-        return config;
-    }
-
     public WebElement getContent() {
         return content;
     }
@@ -2081,23 +1891,6 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getGenerate() {
         return generate;
-    }
-
-    public WebElement getFieldValue() {
-        fieldValue.click();
-        return getLastDropdownList();
-    }
-
-    public WebElement getEnsureDeleteChart() {
-        return ensureDeleteChart;
-    }
-
-    public WebElement getDeleteChart() {
-        return deleteChart;
-    }
-
-    public WebElement getSettingEnsure() {
-        return settingEnsure;
     }
 
     public WebElement getSpl() {
@@ -2124,15 +1917,6 @@ public class DetailPage extends PageTemplate {
         return tableList;
     }
 
-    public WebElement getChartSetting() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(chartSetting));
-        return chartSetting;
-    }
-
-    public WebElement getDashboardTrend() {
-        return dashboardTrend;
-    }
-
     public WebElement getTrendName() {
         return trendName;
     }
@@ -2157,24 +1941,8 @@ public class DetailPage extends PageTemplate {
         return uiautotest;
     }
 
-    public WebElement getCircular() {
-        return circular;
-    }
-
-    public WebElement getHeader() {
-        return header;
-    }
-
     public WebElement getLabelName() {
         return labelName;
-    }
-
-    public WebElement getInputTitle() {
-        return titleList.get(titleList.size() - 1);
-    }
-
-    public WebElement getSearchInputButton() {
-        return searchInputButton;
     }
 
     // 获取本月按钮
@@ -2232,10 +2000,6 @@ public class DetailPage extends PageTemplate {
         return getInput("标识");
     }
 
-//    public WebElement getFilterToken() {
-//        return filterToken;
-//    }
-
     public WebElement getFilterField() {
         return getInput("过滤字段");
     }
@@ -2243,10 +2007,6 @@ public class DetailPage extends PageTemplate {
     public WebElement getFilterDefaultValue() {
         return getInput("默认值");
     }
-
-//    public WebElement getFilterDefaultValue() {
-//        return filterDefaultValue;
-//    }
 
     public WebElement getFilterJoinRow() {
         return filterJoinRow;
@@ -2288,11 +2048,6 @@ public class DetailPage extends PageTemplate {
         return deleteTag;
     }
 
-
-    public WebElement getDeleteTime() {
-        return deleteTime;
-    }
-
     public WebElement getEditTime() {
         return editTime;
     }
@@ -2301,64 +2056,8 @@ public class DetailPage extends PageTemplate {
         return deleteTimeTag;
     }
 
-    public WebElement getRecoverTag() {
-        return recoverTag;
-    }
-
     public WebElement getMoveoutTag() {
         return moveoutTag;
-    }
-
-    public WebElement getDropDownLinkButton() {
-        return dropDownLinkButton;
-    }
-
-    public WebElement getCloseTag() {
-        return closeTag;
-    }
-
-    public WebElement getDropdownList() {
-        return dropdownList;
-    }
-
-    public WebElement getSwitchButton() {
-        return switchButton;
-    }
-
-    public WebElement getTab() {
-        return tabList.get(tabList.size() - 1);
-    }
-
-    public List<WebElement> getCheckBox() {
-        return checkBox;
-    }
-
-    public WebElement getSaveAsReportButton() {
-        return saveAsReportButton;
-    }
-
-    public WebElement getNightModeButton() {
-        return nightModeButton;
-    }
-
-    public WebElement getFullScreenButton() {
-        return fullScreenButton;
-    }
-
-    public WebElement getAddButton() {
-        return addButton;
-    }
-
-    public WebElement getMoveButton() {
-        return moveButton;
-    }
-
-    public WebElement getRefreshButton() {
-        return refreshButton;
-    }
-
-    public WebElement getClickableButton() {
-        return clickableButton;
     }
 
     public WebElement getFilter() {
@@ -2387,10 +2086,6 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getEnsureCreateTagButton() {
         return super.getButton("确定");
-    }
-
-    public WebElement getEnsureErrorSplButton() {
-        return ensureErrorSplButton;
     }
 
     public WebElement getListForBang() {
@@ -2469,24 +2164,16 @@ public class DetailPage extends PageTemplate {
         return valueOfNanjingTdText;
     }
 
+    public WebElement getFirstColumnFirstValue() {
+        return firstColumnFirstValue;
+    }
+
+    public WebElement getSecondColumnFirstValue() {
+        return secondColumnFirstValue;
+    }
+
     public WebElement getChartStyleTable() {
         return chartStyleTable;
-    }
-
-    public WebElement getEnsureMoveTagButton() {
-        return ensureList.get(4);
-    }
-
-    public WebElement getEnsureDeleteTagButton() {
-        return ensureList.get(6);
-    }
-
-    public WebElement getEnsureCreateFilter() {
-        return ensureList.get(8);
-    }
-
-    public WebElement getEnsureCreateInput() {
-        return ensureList.get(9);
     }
 
     public WebElement getChartTitle() {
@@ -2499,18 +2186,6 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getInputElement(String name) {
         return webDriver.findElement(By.xpath("//label[contains(text(),'" + name + "')]/following-sibling::div//input"));
-    }
-
-    public WebElement getLastDropdownList() {
-        String className = "el-select-dropdown__list";
-        List<WebElement> list = webDriver.findElements(By.className(className));
-        WebElement lastDropdownList = list.get(list.size() - 1);
-        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
-        }
-        WebElement li = lastDropdownList.findElement(By.xpath(".//li"));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
-        return lastDropdownList;
     }
 
     private WebElement getTagText(String text) {
@@ -2615,7 +2290,6 @@ public class DetailPage extends PageTemplate {
         return eventOpera;
     }
 
-//    @FindBy(xpath = "//li[text()='testSearch']")
     @FindBy(xpath = "(//div[@yotta-test='dashboard-nav_tab-dropdown']//span[text()='testSearch']) | (//li[contains(@class,'yotta-cascader-menu-item') and text()='testSearch'])")
     private WebElement tagTestSearch;
 
@@ -2693,5 +2367,15 @@ public class DetailPage extends PageTemplate {
         return backIcon;
     }
 
+    @FindBy(xpath = "(//*[@yotta-test='dashboard-filter_value-select']/div/div//span)[last()]")
+    private WebElement lastFilterSpan;
+    public WebElement getLastFilterSpan() {
+        return lastFilterSpan;
+    }
 
+    @FindBy(xpath = "(//*[@yotta-test='dashboard-filter_value-select']/div/div//span/input)[last()]")
+    private WebElement lastFilterInput;
+    public WebElement getLastFilterInput() {
+        return lastFilterInput;
+    }
 }

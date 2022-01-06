@@ -1,7 +1,7 @@
-@dashboard4 @dashboardChart
+@dashboard5_3 @dashboardChart
 Feature: 仪表盘_5_3_区划地图
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -15,7 +15,7 @@ Feature: 仪表盘_5_3_区划地图
       | name    |
       | 仪表盘区划地图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -37,7 +37,7 @@ Feature: 仪表盘_5_3_区划地图
       | spl                                                                                            | name    |
       | tag:sample04061424 \| stats count() by apache.geo.country,apache.geo.province,apache.geo.city | 仪表盘区划地图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -54,7 +54,7 @@ Feature: 仪表盘_5_3_区划地图
       | name |
       | 区划地图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -78,7 +78,7 @@ Feature: 仪表盘_5_3_区划地图
       | name    |
       | 仪表盘区划地图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 修改为区划地图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -112,7 +112,7 @@ Feature: 仪表盘_5_3_区划地图
       | name    | targetName |
       | 仪表盘区划地图 | Regionmap  |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario: 区划地图下钻 RZY-3399,RZY-321
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -124,7 +124,7 @@ Feature: 仪表盘_5_3_区划地图
     And I switch the dashboard "OpenDrilldown" button to "enable"
 #    And I click the "OpenDrilldown" button
     And I wait for "500" millsecond
-    When the chart title is "仪表盘区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "仪表盘区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I choose the "地图向下钻取" from the "DrillAction"
     And I wait for "1000" millsecond
@@ -140,7 +140,7 @@ Feature: 仪表盘_5_3_区划地图
 #    And I click the "Neimenggu" button
     And I wait for "TongliaoshiText" will be visible
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 地图下钻 RZY-3769
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -148,7 +148,7 @@ Feature: 仪表盘_5_3_区划地图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I will see the "TextLayer" result will contain "<json>"
 

@@ -12,6 +12,7 @@ Feature:3修改图表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -23,7 +24,6 @@ Feature:3修改图表
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
-    And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
     And I click the "<label>" button
@@ -63,6 +63,7 @@ Feature:3修改图表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -74,7 +75,6 @@ Feature:3修改图表
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
-    And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
     And I click the "<label>" button
@@ -107,6 +107,7 @@ Feature:3修改图表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -118,7 +119,6 @@ Feature:3修改图表
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
-    And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
     And I click the "Exhibition" button
@@ -146,6 +146,7 @@ Feature:3修改图表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -157,7 +158,6 @@ Feature:3修改图表
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
-    And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
     And I click the "Exhibition" button
@@ -184,6 +184,7 @@ Feature:3修改图表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -195,7 +196,6 @@ Feature:3修改图表
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
-    And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
     And I click the "Exhibition" button
@@ -222,6 +222,7 @@ Feature:3修改图表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -233,7 +234,6 @@ Feature:3修改图表
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
-    And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
     And I click the "Exhibition" button
@@ -262,6 +262,7 @@ Feature:3修改图表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -273,7 +274,6 @@ Feature:3修改图表
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
-    And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
     And I click the "Divide" button
@@ -298,6 +298,7 @@ Feature:3修改图表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -309,7 +310,6 @@ Feature:3修改图表
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
-    And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
     And I click the "Exhibition" button
@@ -338,6 +338,7 @@ Feature:3修改图表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -349,7 +350,6 @@ Feature:3修改图表
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
-    And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
     And I click the "Xaxis" button
@@ -377,6 +377,7 @@ Feature:3修改图表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -388,7 +389,6 @@ Feature:3修改图表
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
-    And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
     And I click the "Xaxis" button
@@ -443,6 +443,7 @@ Feature:3修改图表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -454,7 +455,6 @@ Feature:3修改图表
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
-    And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
     And I click the "Xaxis" button
@@ -514,6 +514,7 @@ Feature:3修改图表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -525,7 +526,6 @@ Feature:3修改图表
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
-    And I hide the element "Content"
     And I wait for "500" millsecond
     And I click the "Setting" button
     And I click the "Value" button
@@ -553,6 +553,7 @@ Feature:3修改图表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -580,6 +581,7 @@ Feature:3修改图表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -591,7 +593,6 @@ Feature:3修改图表
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
-    And I hide the element "Content"
     And I wait for "500" millsecond
     And I click the "Setting" button
     And I click the "Source" button
@@ -624,6 +625,7 @@ Feature:3修改图表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -635,7 +637,6 @@ Feature:3修改图表
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
-    And I hide the element "Content"
     And I wait for "500" millsecond
     And I click the "Setting" button
     And I choose the "<value>" from the "<field>"
@@ -663,6 +664,7 @@ Feature:3修改图表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -702,6 +704,7 @@ Feature:3修改图表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -713,7 +716,6 @@ Feature:3修改图表
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
-    And I hide the element "Content"
     And I wait for "500" millsecond
     And I click the "Setting" button
     And I choose the "cnt" from the "NumericField"
@@ -742,6 +744,7 @@ Feature:3修改图表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -753,7 +756,6 @@ Feature:3修改图表
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
-    And I hide the element "Content"
     And I wait for "500" millsecond
     And I click the "Setting" button
     And I choose the "cnt" from the "NumericField"
@@ -788,6 +790,7 @@ Feature:3修改图表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -799,7 +802,6 @@ Feature:3修改图表
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
-    And I hide the element "Content"
     And I wait for "500" millsecond
     And I click the "Setting" button
     And I choose the "count_perc" from the "FieldValue" in config
@@ -823,6 +825,7 @@ Feature:3修改图表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -834,7 +837,6 @@ Feature:3修改图表
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
-    And I hide the element "Content"
     And I wait for "500" millsecond
     And I click the "Setting" button
     And I choose the "count_perc" from the "FieldValue" in config
@@ -857,6 +859,7 @@ Feature:3修改图表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -868,7 +871,6 @@ Feature:3修改图表
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
-    And I hide the element "Content"
     And I wait for "500" millsecond
     And I click the "Setting" button
     And I click the "Divide" button
@@ -898,6 +900,7 @@ Feature:3修改图表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
     And I wait for "500" millsecond
     And I set the parameter "SearchTagInput" with value "<tag>"
@@ -909,7 +912,6 @@ Feature:3修改图表
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
-    And I hide the element "Content"
     And I wait for "500" millsecond
     And I click the "Setting" button
     And I click the "Xaxis" button

@@ -3,6 +3,7 @@ package com.yottabyte.pages.report;
 import com.yottabyte.pages.ListPageFactory;
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.WaitForElement;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,10 +24,10 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//button[@yotta-test='report-new-button']")
     private WebElement newReportButton;
 
-    @FindBy(xpath = "//li[@yotta-test='trend-normal_trend-menu_item']")
+    @FindBy(xpath = "//li[@yotta-test='report-normal_report-menu_item']")
     private WebElement startFromEmpty;
 
-    @FindBy(xpath = "//li[@yotta-test='trend-dataset_trend-menu_item']")
+    @FindBy(xpath = "//li[@yotta-test='report-template_report-menu_item']")
     private WebElement newReportUsingTemplate;
 
     @FindBy(xpath = "//span[text()='确定']/ancestor::button")
@@ -35,13 +36,16 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "yotta-modal")
     private WebElement tagPanel;
 
-    @FindBy(xpath = "//div[contains(@yotta-test,'resource_tag-change_resource_tag-select')]//div[@class='yotta-select-selection']")
+    @FindBy(xpath = "//div[contains(@yotta-test,'resource_tag-change_resource_tag-select')]//div[contains(@class,'yotta-select-selection')]")
     private WebElement tagField;
 
-    @FindBy(xpath = "//tr[@class='yotta-table-row']/td[1]")
+    @FindBy(xpath = "(//tbody//tr[contains(@class,'yotta-table-row')])[1]/td[1]")
     private WebElement lastGeneratedReport;
 
-    @FindBy(xpath = "//div[@yotta-test='report-filter-select']//div[@class='yotta-select-selection']")
+    @FindBy(xpath = "(//tbody//tr[contains(@class,'yotta-table-row')])[last()]//td[1]")
+    private WebElement firstGeneratedReport;
+
+    @FindBy(xpath = "//div[@yotta-test='report-filter-select']//div[contains(@class,'yotta-select-selection')]")
     private WebElement listOfReports;
 
     @FindBy(xpath = "//div[@yotta-test='report-filter-select']//span[@class='yotta-select-selection-value']")
@@ -58,15 +62,6 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(xpath = "//tr/th[4]")
     private WebElement fourthColumnTitle;
-
-    @FindBy(xpath = "//div[text()='全部资源']/ancestor::div[2]")
-    private WebElement tagDropdown;
-
-    @FindBy(xpath = "//div[contains(@class,'spinner')]")
-    private WebElement loading;
-
-    @FindBy(xpath = "//*[text()='暂无数据']")
-    private WebElement noData;
 
     @FindBy(className = "ant-select-selection-selected-value")
     private WebElement pagination;
@@ -85,6 +80,9 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(xpath = "(//span[text()='下载'])[1]")
     private WebElement download;
+
+    @FindBy(xpath = "(//span[text()='查看'])[1]")
+    private WebElement check;
 
     @FindBy(xpath = "(//span[text()='删除'])[1]")
     private WebElement deleteReport;
@@ -109,6 +107,23 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(xpath = "//li[@yotta-test='report-report_template_management-button']")
     private WebElement templateManager;
+
+    @FindBy(xpath = "//span[contains(@aria-label,'Information')]")
+    private WebElement tooltip;
+
+    @FindBy(xpath = "//div[@role='tooltip']")
+    private WebElement tooltipElement;
+
+    @FindBy(xpath = "//li[@yotta-test='report-generated_report-button']/span")
+    private WebElement generateReport;
+
+    public WebElement getTooltipElement() {
+        return tooltipElement;
+    }
+
+    public WebElement getTooltip() {
+        return tooltip;
+    }
 
     public WebElement getHideElement() {
         hideElement.click();
@@ -147,22 +162,13 @@ public class ListPage extends ListPageFactory {
         return this.getLastDropdownList();
     }
 
-    public WebElement getNoData() {
-        return noData;
-    }
-
-    public WebElement getLoading() {
-        return loading;
-    }
-
     public WebElement getReportListButton() {
-        super.getButton("其他").click();
+        webDriver.findElement(By.xpath("//span[text()='其他']")).click();
         return reportListButton;
-//        return super.getButton("已生成报表");
     }
 
     public WebElement getTemplateManager() {
-        super.getButton("其他").click();
+        webDriver.findElement(By.xpath("//span[text()='其他']")).click();
         return templateManager;
     }
 
@@ -198,6 +204,10 @@ public class ListPage extends ListPageFactory {
         return lastGeneratedReport;
     }
 
+    public WebElement getFirstGeneratedReport() {
+        return firstGeneratedReport;
+    }
+
     public WebElement getListOfReports() {
         listOfReports.click();
         return this.getLastDropdownList();
@@ -223,17 +233,17 @@ public class ListPage extends ListPageFactory {
         return fourthColumnTitle;
     }
 
-    public WebElement getTagDropdown() {
-        tagDropdown.click();
-        return this.getLastDropdownList();
-    }
-
     public WebElement getReport() {
-        return super.getButton("已生成报表");
+        webDriver.findElement(By.xpath("//span[text()='其他']")).click();
+        return generateReport;
     }
 
     public WebElement getDownload() {
         return download;
+    }
+
+    public WebElement getCheck() {
+        return check;
     }
 
     public WebElement getDeleteReport() {

@@ -16,7 +16,6 @@ Feature: 全链路_5时间轴SPL配置
     And I wait for "TimelineSPL" will be visible
     And I set the value "index=schedule schedule_name:FullLink_Autotest method:${method}  | bucket start_timestamp span=1h as ts" to the textarea "TimelineSPL"
     And I click the "Cancel" button
-    And I wait for "Cancel" will be invisible
     And I choose the "时间轴SPL配置" from the "Settings"
     And I wait for "TimelineSPL" will be visible
     And I will see the input element "TimelineSPL" value will be ""
@@ -42,11 +41,11 @@ Feature: 全链路_5时间轴SPL配置
 
   Examples:
     | level   | color    |
-    | 4       | #1785ff  |
-    | 3       | #CB3B2F  |
-    | 2       | #ECA222  |
+    | 3       | #1785ff  |
+    | 2       | #CB3B2F  |
+    | 1       | #ECA222  |
 
-   @fulllink_test
+   @fulllinkSmoke
     Examples:
     | level    | color   |
-    | 1        | #3034B3 |
+    | 0        | #3034B3 |

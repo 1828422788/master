@@ -1,7 +1,6 @@
-@dashboard10 @dashboardChart @dashboard
+@dashboard6_04 @dashboardChart
 Feature: 仪表盘_6_04_字符云图
 
-  @dashboard
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -15,7 +14,7 @@ Feature: 仪表盘_6_04_字符云图
       | name    |
       | 仪表盘字符云图 |
 
-  @dashboard
+
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -37,7 +36,7 @@ Feature: 仪表盘_6_04_字符云图
       | spl                                                          | name    |
       | tag:sample04061424_display \| stats count() by apache.clientip, apache.resp_len \| limit 10 | 仪表盘字符云图 |
 
-  @dashboard
+
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -55,7 +54,7 @@ Feature: 仪表盘_6_04_字符云图
       | name |
       | 字符云图 |
 
-  @dashboard
+
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -79,7 +78,7 @@ Feature: 仪表盘_6_04_字符云图
       | name    |
       | 仪表盘字符云图 |
 
-  @dashboard
+
   Scenario Outline: 修改为字符云图 RZY-3754,RZY-312
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -118,7 +117,7 @@ Feature: 仪表盘_6_04_字符云图
       | name    | image     |
       | 仪表盘字符云图 | Wordcloud |
 
-  @dashboard
+
   Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3754
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -126,7 +125,7 @@ Feature: 仪表盘_6_04_字符云图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I will see the dashboard highEditor text will contain "<json>"
 
@@ -134,7 +133,7 @@ Feature: 仪表盘_6_04_字符云图
       | name    | json                                                                                                                                                                                                                                                                                                                                                                           |
       | 仪表盘字符云图 | \n  "chart": {\n    "chartType": "wordcloud",\n    "field": "count()",\n    "category": "apache.clientip"\n  } |
 
-  @dashboard
+
   Scenario: 修改field为空 RZY-1362
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -143,7 +142,7 @@ Feature: 仪表盘_6_04_字符云图
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "仪表盘字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘字符云图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip, apache.resp_len | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "wordcloud","field": "","category": "apache.clientip"}}" to json editor
     And I wait for "500" millsecond
@@ -152,7 +151,7 @@ Feature: 仪表盘_6_04_字符云图
     And I will see the element "ErrorMessage" contains "chart -> field 字段值不能为空"
 #    Then I wait for element "ErrorMessage" change text to "chart -> field 字段值不能为空"
 
-  @dashboard
+
   Scenario: 修改field为不存在 RZY-3755
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -161,7 +160,7 @@ Feature: 仪表盘_6_04_字符云图
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "仪表盘字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘字符云图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip, apache.resp_len | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "wordcloud","field": "qwertycount()","category": "apache.clientip"}}" to json editor
     And I wait for "500" millsecond
@@ -175,7 +174,7 @@ Feature: 仪表盘_6_04_字符云图
     And I wait for "2000" millsecond
     Then I wait for "NoData" will be visible
 
-  @dashboard
+
   Scenario: 修改field为'apache.clientip' RZY-3755
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -184,7 +183,7 @@ Feature: 仪表盘_6_04_字符云图
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "仪表盘字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{"title": "仪表盘字符云图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip, apache.resp_len | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "wordcloud","field": "apache.clientip","category": ""}}" to json editor
     And I wait for "500" millsecond
@@ -198,7 +197,7 @@ Feature: 仪表盘_6_04_字符云图
     And I wait for "2000" millsecond
     Then I wait for "NoData" will be visible
 
-  @dashboard
+
   Scenario: 修改category为'apache.resp_len' RZY-3756
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -208,7 +207,7 @@ Feature: 仪表盘_6_04_字符云图
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
     Then I wait for "NoData" will be visible
-    When the chart title is "仪表盘字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "仪表盘字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{"title": "仪表盘字符云图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip, apache.resp_len | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "wordcloud","field": "count()","category": "apache.resp_len"}}" to json editor
     And I wait for "500" millsecond
@@ -223,7 +222,7 @@ Feature: 仪表盘_6_04_字符云图
     Then I will see the "NoData" is not exist
 #    Then I wait for "NoData" will be visible
 
-  @dashboard
+
   Scenario: 修改category为'qwerty123' RZY-3756
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -232,7 +231,7 @@ Feature: 仪表盘_6_04_字符云图
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    When the chart title is "仪表盘字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "仪表盘字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{"title": "仪表盘字符云图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip, apache.resp_len | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "wordcloud","field": "count()","category": "qwerty123"}}" to json editor
     And I wait for "500" millsecond

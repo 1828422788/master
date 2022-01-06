@@ -35,7 +35,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    Given I wait for loading complete
     And I wait for "AddEventButton" will be visible
+    Given I wait for loading complete
     When I click the "AddEventButton" button
     And I click the "AddEvent" button
     And I set the parameter "EventName" with value "测试事件操作"
@@ -64,6 +66,7 @@ Feature: 仪表盘1事件列表
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
+    Given I wait for loading complete
     And I wait for "HoverElement" will be visible
     And I click the "EventOperate" button
     And I click the "Event" button
@@ -90,6 +93,7 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    Given I wait for loading complete
     And I wait for "HoverElement" will be visible
     And I click the "EventOperate" button
     And I click the "Event" button
@@ -106,6 +110,7 @@ Feature: 仪表盘1事件列表
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
+    Given I wait for loading complete
     And I wait for "HoverElement" will be visible
     And I click the "HoverElement" button
     And I click the "IconRight" button
@@ -128,6 +133,7 @@ Feature: 仪表盘1事件列表
     And I wait for "Message" will be visible
     Then I will see the message "提交事件操作成功"
 
+
   @dashboard1j
   Scenario: 验证事件操作显示于字段 RZY-3628,RZY-3290
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -139,7 +145,8 @@ Feature: 仪表盘1事件列表
     And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible
     And I click the "EventOperate" button
-    And I wait for "1000" millsecond
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
     Then I will see the "Event" doesn't exist
 
   @dashboard1k
@@ -150,7 +157,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    Given I wait for loading complete
     And I wait for "Progress" will be invisible
+    Given I wait for loading complete
     And I wait for "HoverElement" will be visible
     And I click the "HoverElement" button
     And I click the "IconRight" button
@@ -181,7 +190,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    Given I wait for loading complete
     And I wait for "Progress" will be invisible
+    Given I wait for loading complete
     And I wait for "HoverElement" will be visible
     And I click the "HoverElement" button
     And I click the "IconRight" button
@@ -204,7 +215,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    Given I wait for loading complete
     And I wait for "Progress" will be invisible
+    Given I wait for loading complete
     And I wait for "HoverElement" will be visible
     And I click the "HoverElement" button
     And I click the "EventOperate" button
@@ -224,8 +237,10 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    Given I wait for loading complete
 #    And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible
+    Given I wait for loading complete
 #    And I click the "HoverElement" button
     And I click the "EventOperate" button
     And I click the "CreateConfig" button
@@ -255,7 +270,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    Given I wait for loading complete
     And I wait for "Progress" will be invisible
+    Given I wait for loading complete
     And I wait for "HoverElement" will be visible
 #    And I click the "HoverElement" button
     And I click the "EventOperate" button
@@ -270,16 +287,18 @@ Feature: 仪表盘1事件列表
     And I click the "Done" button
     Then I will see the element "SuccessAdd" name is "新建成功"
 
+
   @dashboard1q
   Scenario: 通用配置 RZY-3619
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
+    Given I wait for loading complete
     And I click the detail which name is "仪表盘事件操作"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    Given I wait for loading complete
     And I wait for "Progress" will be invisible
-    When the chart title is "测试事件操作" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "测试事件操作" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I set the parameter "ChartTitle" with value "通用配置"
@@ -298,10 +317,10 @@ Feature: 仪表盘1事件列表
     Then I will see the "dashboard.DetailPage" page
     And I set the parameter "ChartDesc" with value "测试描述"
     And I click the "Ensure" button
-    And I wait for "Ensure" will be invisible
-    And I wait for "500" millsecond
-#    And I click the "CustomTitle" button
-#    And I wait for "1500" millsecond
+    And I wait for "1000" millsecond
+    And I click the "CustomTitle" button
+    And I wait for "2000" millsecond
+    Given I wait for loading complete
     And I move the mouse pointer to the "Describe"
 #    And I click the "Describe" button
     And I wait for "500" millsecond
@@ -317,7 +336,7 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
 #    Then I will see the "TextLayer" result will contain "<json>"
     Then I will see the "TextLayer" result will be "<json>"
@@ -327,7 +346,6 @@ Feature: 仪表盘1事件列表
       | 仪表盘事件操作 | {\n  "title": "通用配置",\n  "description": "测试描述",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 6,\n  "search": {\n    "query": "'apache.geo.city': 成都市",\n    "startTime": "now/d",\n    "endTime": "now"\n  }\n} |
 
 
-  @dashboard
   Scenario: 开启钻取配置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -349,7 +367,7 @@ Feature: 仪表盘1事件列表
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -375,7 +393,7 @@ Feature: 仪表盘1事件列表
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
@@ -409,7 +427,7 @@ Feature: 仪表盘1事件列表
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I choose the "跳转到自定义URL" from the "DrillAction"
     And I set the parameter "Url" with value "<url>"
@@ -454,7 +472,7 @@ Feature: 仪表盘1事件列表
     And I wait for "SuccessMessage" will be visible
 #    Then I will see the success message "添加输入项成功"
 
-
+  @rzy3802
   Scenario: 跳转到标签页 RZY-3802,RZY-3624
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -463,7 +481,7 @@ Feature: 仪表盘1事件列表
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible
     And I choose the "跳转到标签页" from the "DrillAction"
@@ -480,8 +498,6 @@ Feature: 仪表盘1事件列表
     And I wait for "1000" millsecond
     And I click the "GlobalTimeRange" button
     And I wait for "1000" millsecond
-#    And I choose the "globalTimeRange" from the "InputGroup"
-#    And I hide the element "ParamDropdown"
     And I click the "ParamValue" button
     And I click the "StartEnd" button
     And I click the "Ensure" button
@@ -533,7 +549,7 @@ Feature: 仪表盘1事件列表
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible
     And I choose the "管理本页过滤项/输入项数值" from the "DrillAction"
@@ -569,40 +585,3 @@ Feature: 仪表盘1事件列表
     And I click the "Ensure" button
     Then I will see the success message "添加中，请稍后"
 
-
-  @cleanDashboard1
-  Scenario: 删除知识库
-    Given open the "knowledge.ListPage" page for uri "/knowledge/"
-    Given the data name is "apache" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
-    When I click the "Ensure" button
-    And I will see the success message "删除知识成功"
-
-  @cleanDashboard1
-  Scenario: 删除字段提取
-    Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "{'column':'1','name':'仪表盘配置字段提取'}" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    Then I will see the success message "删除成功"
-
-  @cleanDashboard1
-  Scenario: 删除事件操作
-    Given open the "event.ListPage" page for uri "/event/action/"
-    When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "删除" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    Then I will see the success message "删除事件操作成功"
-
-  @cleanDashboard1
-  Scenario Outline: 删除仪表盘
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    When the data name is "<name>" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    And I wait for "500" millsecond
-    Then I will see the success message "删除仪表盘成功"
-
-    Examples:
-      | name    |
-      | 仪表盘事件操作 |

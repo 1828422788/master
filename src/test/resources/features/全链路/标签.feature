@@ -1,4 +1,4 @@
-@fulllink @tagFulllink
+@fulllink @tagFulllink @fulllinkSmoke
 Feature: 全链路_标签
 
   Background:
@@ -15,6 +15,9 @@ Feature: 全链路_标签
 
   Scenario: 添加标签
     When the data name is "Tag_Test" then i click the "标签" button in more menu
+    And I wait for "TagToInput" will be visible
+    And I click the "TagToInput" button
+    And I set the parameter "Tag" with value "auto_package"
     And I choose the "auto_package" from the "TagField" in config
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible

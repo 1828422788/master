@@ -227,7 +227,10 @@ Feature: 应用监控模块（RZY-2122）
     Then I will see the "app.CreatePage" page
     And I wait for loading invisible
     And I click the "OverallSituation" button
+    And I wait for "1500" millsecond
     And I click the "SaveButton" button
+    Then I wait for "1500" millsecond
+    And I will see the message "更新成功"
 
     Examples:
       | name     |

@@ -1,5 +1,5 @@
 @report @allReports @switchReport
-Feature: 报表禁用/启用
+Feature: 报表_6_禁用/启用
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"

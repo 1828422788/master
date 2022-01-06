@@ -3,7 +3,7 @@ Feature: 编辑DbOutput
   Background:
     And I zoom the browse to full screen
 
-  @editdbo @dleval
+  @editdbo @autoui02
   Scenario Outline: 编辑数据库输出-1
     Given open the "dbConnectionPre.DbOutputPage" page for uri "/dbsettings/"
     And I wait for "1000" millsecond

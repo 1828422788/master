@@ -18,9 +18,6 @@ Feature: 仪表盘01新建（RZY-208至RZY-210）
     And I click the "DashBoardName" button
     And I wait for "2000" millsecond
     And I click the "DataUser" button
-#    And I wait for "3000" millsecond
-#    And I set the parameter "AppOwningInput" with value "app之api全部用例"
-#    And I choose the "app之api全部用例" from the "BelongedApp"
     And I choose the "<datauser>" from the "LastDropdownList"
     And I click the "Ensure" button
     Given I wait for loading complete

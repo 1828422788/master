@@ -1,5 +1,5 @@
 @reportCreateCharts @allReports
-Feature: 报表新建_编辑_地图
+Feature: 报表_2_5地图
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"

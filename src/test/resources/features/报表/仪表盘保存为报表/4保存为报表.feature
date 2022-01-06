@@ -15,6 +15,7 @@ Feature:4保存为报表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
 
     And I click the Element with text "<chart>"

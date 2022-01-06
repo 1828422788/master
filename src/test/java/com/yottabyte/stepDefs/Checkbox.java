@@ -357,7 +357,7 @@ public class Checkbox {
     @When("^I \"([^\"]*)\" the checkbox which name is \"([^\"]*)\" in the list$")
     public void clickCheckboxWithGivenNameInTheList(String status, List<String> nameList) {
         for (String name : nameList) {
-            String xpath = "(//a[contains(text(),'" + name + "')])[1]";
+            String xpath = "(//*[contains(text(),'" + name + "')])[1]";
             WebElement label = webDriver.findElement(By.xpath(xpath));
             WebElement span = label.findElement(By.xpath("./ancestor::td/preceding-sibling::td//span"));
             String attribute = span.getAttribute("class");

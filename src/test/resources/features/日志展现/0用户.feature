@@ -1,7 +1,7 @@
 @createEssentialData @baseUser @setup1
-Feature: 新建用户和字段提取
+Feature: 创建用户和上传log
 
-  Scenario: new_user_logdisplay
+  Scenario: 新建用户
     Given open the "users.ListPage" page for uri "/account/users/"
     And I click the "CreateUser" button
     And I will see the "users.CreatePage" page
@@ -13,7 +13,7 @@ Feature: 新建用户和字段提取
     And I click the "CreateButton" button
     Then I wait for "SuccessMessage" will be visible
 
-  Scenario: change_password
+  Scenario: 更改密码
     Given I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -26,7 +26,7 @@ Feature: 新建用户和字段提取
     And I set the parameter "RepeatPassword" with value "All#123456"
     And I click the "Update" button
 
-  Scenario Outline: upload_logs
+  Scenario Outline: 上传log
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "<appname>"
     And I set the parameter "Tag" with value "<tag>"

@@ -45,9 +45,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='保存']/ancestor::button)[last()]")
     private WebElement saveMember;
 
-    @FindBy(className = "ant-message-success")
-    private WebElement successOfMessage;
-
     @FindBy(partialLinkText = "添加管理员")
     private WebElement addAdmin;
 

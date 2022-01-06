@@ -12,7 +12,7 @@ Feature: 索引-yotta默认索引信息编辑（RZY-1477至1480）
     And I click the "Next" button
     And I set the parameter "DivideTime" with value "<divideTime>"
     And I choose the "<divideTimeDropDown>" from the "DivideTimeDropDown"
-    And I set the parameter "DivideNumber" with value "1"
+#    And I set the parameter "DivideNumber" with value "1"
     And I click the "Next" button
     And I wait for "1000" millsecond
     And I click the "Next" button

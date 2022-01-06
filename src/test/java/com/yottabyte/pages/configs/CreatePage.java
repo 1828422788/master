@@ -98,7 +98,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "yotta-select-selection-icon")
     private WebElement deleteAppicon;
 
-    @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']")
+    @FindBy(xpath = "//span[@aria-label='CloseCircle']")
     private WebElement deleteApp;
 
     @FindBy(xpath = "//div[@yotta-test='config-collapse-button']")

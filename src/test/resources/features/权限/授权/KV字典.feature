@@ -101,11 +101,11 @@ Feature: 权限-KV字典
     Then I will see the "app.CreatePage" page
     And I click the "AddKVStore" button
     And I set the parameter "KVName" with value "AutoAuthKV"
-    And I set the parameter "KVFieldInput" with value "apachecity"
+    And I set the parameter "KVFieldInput1" with value "apachecity"
     And I click the "AddKVField" button
-    And I set the parameter "KVFieldInput" with value "count"
+    And I set the parameter "KVFieldInput2" with value "count"
     And I click the "AddKVField" button
-    And I set the parameter "KVFieldInput" with value "appname"
+    And I set the parameter "KVFieldInput3" with value "appname"
     And I click the "CreateKVStore" button
     And I click the "SaveButton" button under some element
 
@@ -230,8 +230,6 @@ Feature: 权限-KV字典
     Given I login user "AutoTest" with password "All#123456"
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    #When the data name is "KVAuth" then i click the "更多" button
-    #Then I click the "Open" button
     And I click the detail which name is "KVAuth"
     Then I will see the "splSearch.SearchPage" page
     Given I set the parameter "SearchInput" with value "* | stats count() by apache.geo.city | lookup appname AutoAuthKV on apache.geo.city=apachecity"

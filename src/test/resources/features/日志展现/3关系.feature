@@ -1,5 +1,5 @@
 @all @logDisplay @logDisplayConnection
-Feature: 日志展现_关系
+Feature: 日志展现_3关系
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"

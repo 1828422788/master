@@ -2,6 +2,7 @@ package com.yottabyte.utils;
 
 import com.alibaba.fastjson.JSONArray;
 import com.yottabyte.hooks.LoginBeforeAllTests;
+import org.openqa.selenium.NoSuchElementException;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -25,7 +26,7 @@ public class GetElementFromPage {
      * @param <T>
      * @return
      */
-    public static <T> T getWebElementWithName(String name, Object... paras) {
+    public static <T> T getWebElementWithName(String name, Object... paras){
         if (JsonStringPaser.isJson(name)) {
             Map<String, Object> map = JsonStringPaser.json2Stirng(name);
             Object[] parameters = new Object[0];
@@ -58,6 +59,7 @@ public class GetElementFromPage {
                     method = null;
                 } catch (IllegalAccessException | InvocationTargetException e) {
                     e.printStackTrace();
+                    throw new NoSuchElementException("Cannot locate an element: " + method );
                 }
                 if (method == null) {
                     try {
@@ -67,6 +69,7 @@ public class GetElementFromPage {
                         object = method.invoke(page);
                     } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
                         e.printStackTrace();
+                        throw new NoSuchElementException("The element is not declared on the page: " + name);
                     }
                 }
 

@@ -30,12 +30,11 @@ Feature: 入库优先级新建（RZY-1485）
     When I set the parameter "AppName" with value "<appName>"
     And I choose the "<priority>" from the "Priority"
     And I click the "SaveButton" button
-#    Then I will see the <message>
-
+    And I will see the element "Helpmessage" name is "<Helpmessage>"
     Examples: 保存失败
-      | appName  | tag | priority | message                                       |
-      |          |     |          | error message "不能为空"                  |
-      | test     | *   |          | error message "请输入正确的tag"                     |
+      | appName  | tag | priority | Helpmessage               |
+      |          |     |          | appname不能为空            |
+      | test     | *   |          | 请输入正确的tag            |
 
   Scenario Outline: 入库优先级新建_重复新建
     And I set the parameter "Tag" with value "<tag>"
@@ -43,7 +42,7 @@ Feature: 入库优先级新建（RZY-1485）
     And I choose the "<priority>" from the "Priority"
     And I click the "SaveButton" button
     Then I will see the <message>
-    And I click the "EnsureButton" button
+    And I click the "Ensure" button
 
     Examples: 保存失败
       | appName  | tag | priority | message    |

@@ -130,7 +130,7 @@ Feature: 应用安装（RZY-1988）
     Then I will see the "app.InstallPage" page
     When I upload a file with name "/src/test/resources/testdata/alertPlugins/hengshuiyinhang_socket.py"
     And I wait for "ErrorMessage" will be visible
-    Then I will see the error message "上传失败"
+    Then I will see the error message "API: 上传失败: 解压资源包出现异常！"
 
   Scenario: 上传APP包失败（上传内容校验）
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -139,7 +139,7 @@ Feature: 应用安装（RZY-1988）
     Then I will see the "app.InstallPage" page
     When I upload a file with name "/src/test/resources/testdata/resourceGroups/success.tar"
     And I wait for "ErrorMessage" will be visible
-    Then I will see the error message "上传失败"
+    Then I will see the error message "API: 上传失败: 读取资源包异常！"
 
 
 

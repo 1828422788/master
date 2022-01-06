@@ -9,6 +9,7 @@ Feature: 数据集-f构建树形结构，后置-[g在搜索页,j在趋势图中�
   Scenario Outline: 新建3个数据集进行测试
 #    Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
+#    Given I will see the "dataset.DetailPage" page
     And I set the parameter "Name" with value "<name>"
     And I set the parameter "Alias" with value "<alias>"
     And I click the "<typeButton>" button
@@ -19,14 +20,18 @@ Feature: 数据集-f构建树形结构，后置-[g在搜索页,j在趋势图中�
 
     Examples: 新建成功
       | name     | alias  | spl | typeButton |
-      | 父子无tree  | 无tree  | *   | 无          |
+      | 父子无tree  | 无tree  | *   | editWu       |
       | 父子汇聚tree | 汇聚tree | *   | HuiJu      |
       | 父子继承tree | 继承tree | *   | inherit    |
 
   @datasetf2 @tc4085
   Scenario: RZY-4085:父子行为-无
-#    Given open the "dataset.ListPage" page for uri "/dataset/"
-#    And I wait for "2000" millsecond
+    Given I wait for loading complete
+    When I set the parameter "SearchNameInput" with value "父子无tree"
+    And I click the "Search" button
+    And I wait for "2000" millsecond
+    Given I wait for loading complete
+
     When the data name is "{'column':'0','name':'父子无tree'}" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading complete
@@ -61,7 +66,12 @@ Feature: 数据集-f构建树形结构，后置-[g在搜索页,j在趋势图中�
 
   @datasetf3
   Scenario: RZY-4083:父子行为-汇聚
-#选择汇聚
+  #选择汇聚
+    Given I wait for loading complete
+    When I set the parameter "SearchNameInput" with value "父子汇聚tree"
+    And I click the "Search" button
+    And I wait for "2000" millsecond
+    Given I wait for loading complete
     When the data name is "{'column':'0','name':'父子汇聚tree'}" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading complete
@@ -92,9 +102,12 @@ Feature: 数据集-f构建树形结构，后置-[g在搜索页,j在趋势图中�
 
   @fatherson
   Scenario: RZY-4084:父子行为-继承
-#选择继承
-#    Given open the "dataset.ListPage" page for uri "/dataset/"
-#    And I wait for "2000" millsecond
+  #选择继承
+    Given I wait for loading complete
+    When I set the parameter "SearchNameInput" with value "父子继承tree"
+    And I click the "Search" button
+    And I wait for "2000" millsecond
+    Given I wait for loading complete
     When the data name is "{'column':'0','name':'父子继承tree'}" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading complete

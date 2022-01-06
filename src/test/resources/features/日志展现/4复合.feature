@@ -1,5 +1,5 @@
 @all @logDisplay @logDisplayCompound
-Feature: 日志展现_复合
+Feature: 日志展现_4复合
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"

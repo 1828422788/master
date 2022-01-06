@@ -121,7 +121,6 @@ Feature:监控预览
 
     Examples:
       | name                                                     |
-      | api01_字段统计_最大数status_扩展chart键值_邮件                        |
       | api3_all_事件计数_设备切分ip_扩展chart_all抑制45                     |
       | api3_all_连续统计_status<404_低_邮件                            |
       | api3_all_连续统计_status=200_邮件_抑制59                         |

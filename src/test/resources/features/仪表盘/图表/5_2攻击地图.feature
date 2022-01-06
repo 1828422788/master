@@ -1,7 +1,7 @@
-@dashboard13 @dashboardChart
+@dashboard5_2 @dashboardChart
 Feature: 仪表盘_5_2_攻击地图
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -15,7 +15,7 @@ Feature: 仪表盘_5_2_攻击地图
       | name    |
       | 仪表盘攻击地图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -37,7 +37,7 @@ Feature: 仪表盘_5_2_攻击地图
       | spl                                                                                                                                                                                                                                                                                    | name    |
       | tag:sample04061424_chart \| parse field=apache.request_query \"^gw_address=(?<gw_address>\\\d+\\\.\\\d+\\\.\\\d+\\\.\\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 | 仪表盘攻击地图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -54,7 +54,7 @@ Feature: 仪表盘_5_2_攻击地图
       | name |
       | 攻击地图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -78,7 +78,7 @@ Feature: 仪表盘_5_2_攻击地图
       | name    |
       | 仪表盘攻击地图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 修改为攻击地图 RZY-314,RZY-3761
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -128,7 +128,7 @@ Feature: 仪表盘_5_2_攻击地图
       | name    | targetName |
       | 仪表盘攻击地图 | Attackmap  |
 
-  @dashboard
+
   Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3761
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -136,7 +136,7 @@ Feature: 仪表盘_5_2_攻击地图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I will see the "TextLayer" result will contain "<json>"
 #    Then I will see the "TextLayer" result will be "<json>"

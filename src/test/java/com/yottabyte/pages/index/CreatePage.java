@@ -22,16 +22,14 @@ public class CreatePage extends PageTemplate {
         String xpath = "//label[contains(text(),'" + name + "')]/parent::div/following-sibling::div//span[@class='yotta-select-selection-icon']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         element.click();
-        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu css-ncm03v'])[last()]"));
-    }
-
-    public WebElement getSinkswitch() {
-        return sinkswitch;
+        return webDriver.findElement(By.xpath("//div[contains(@class,'yotta-select-menu')]"));
     }
 
     @FindBy(xpath = "//input[@yotta-test='indexsetting-index_sink-switch']/ancestor::span")
     private WebElement sinkswitch;
-
+    public WebElement getSinkswitch() {
+        return sinkswitch;
+    }
 
     @FindBy(xpath = "//button[@yotta-test='step-next-button']")
     private WebElement Next;
@@ -100,7 +98,7 @@ public class CreatePage extends PageTemplate {
         String xpath = "//div[@yotta-test='indexsetting-quota_unit-select']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         element.click();
-        return webDriver.findElement(By.xpath("//div[@class='yotta-select-menu css-ncm03v']"));
+        return webDriver.findElement(By.xpath("//div[contains(@class,'yotta-select-menu')]"));
     }
 
     public WebElement getSavedTimeDropDown() {
@@ -168,7 +166,7 @@ public class CreatePage extends PageTemplate {
         return getButton("新建");
     }
 
-    @FindBy(xpath = "//div[@class='_1ePOYFmBdVT4o-CHDZn9rC']")
+    @FindBy(xpath = "//div[text()='接下来您可以：']/preceding-sibling::div")
     private WebElement message;
 
     public WebElement getMessage() {
@@ -177,9 +175,25 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//div[@class='yotta-form-field-help-text']")
     private WebElement helpMessage;
-        public WebElement getHelpMessage(){
+    public WebElement getHelpMessage(){
             return helpMessage;
         }
+
+    @FindBy(xpath = "//span[text()='压缩模式']/preceding-sibling::span")
+    private WebElement CompactModel;
+    public WebElement getCompactModel(){
+            return CompactModel;
+    }
+    @FindBy(xpath = "//span[text()='数值模式']/preceding-sibling::span")
+    private WebElement NumbertModel;
+    public WebElement getNumbertModel(){
+        return NumbertModel;
+    }
+    @FindBy(xpath = "//label[text()='高级配置']/../following-sibling::div//button")
+    private WebElement AdvanceSetting;
+    public WebElement getAdvanceSetting(){
+        return AdvanceSetting;
+    }
     public WebElement getErrorMessage() {
         return super.getErrorMessage();
     }

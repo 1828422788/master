@@ -1,4 +1,4 @@
-@all @timedTask @complementTimedTask
+@timedTask @complementTimedTask
 Feature:定时任务补采
 
   Scenario Outline: create_schedule
@@ -21,9 +21,13 @@ Feature:定时任务补采
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
+    @timedTaskSmoke
     Examples:
       |    name              |
       | Test_Complement      |
+
+    Examples:
+      |    name              |
       | Test_Complement_2    |
 
   Scenario: create_complement_overwrite
@@ -48,6 +52,7 @@ Feature:定时任务补采
 #    And I will see the data "{'column':'0','name':'Test_Complement_2'}" values "{'column':'6','name':'准备执行'}"
     And I will see the data "{'column':'0','name':'Test_Complement_2'}" values "{'column':'5','name':'是'}"
 
+  @timedTaskSmoke
   Scenario: create_complement
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I click the "Complement" button under some element

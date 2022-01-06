@@ -1,6 +1,7 @@
-@all @timedTask @timedTaskMulti
+@timedTask @timedTaskMulti
 Feature: 定时任务批量操作
 
+  @timedTaskSmoke
   Scenario Outline: create_schedule
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -42,6 +43,9 @@ Feature: 定时任务批量操作
     And I click the "SelectBatchOperation" button under some element
     And I click the "AddResourceTags" button
     And I wait for "Ensure" will be visible
+    And I wait for "TagToInput" will be visible
+    And I click the "TagToInput" button
+    And I set the parameter "Tag" with value "auto_package"
     And I choose the "auto_package" from the "TagField"
     And I wait for "1500" millsecond
     And I click the "Ensure" button
@@ -118,7 +122,7 @@ Feature: 定时任务批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "禁用成功"
 
-
+  @timedTaskSmoke
   Scenario: multi_delete
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible

@@ -2,25 +2,23 @@
 Feature: 资源分组导入
 
   Background:
-    Given open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"
+    Given open the "resourceGroups.ListPage" page for uri "/resource/"
 
   @smoke @resourceGroupsSmoke
   Scenario Outline: 导入资源包的正常流程测试
     Given I click the "UploadButton" button
     When I upload a file with name "<InputFileName>"
     And I choose the "<role>" from the "Role"
-    And I choose the "source" from the "Source" with property
+  #  And I choose the "source" from the "Source" with property
     And I click the "NextButton" button
     And I wait for "1000" millsecond
-    And I click the "NextButton" button
-    And I wait for "1000" millsecond
-    And I click the "NextButton" button
     And I click the "FinishButton" button
     Then I will see the search result contains "{'column':'0','name':'<groupNameInput>'}"
 
     Examples:
       | InputFileName                                           | role  | groupNameInput |
-      | /src/test/resources/testdata/resourceGroups/success.tar | admin | hunter_roles_m |
+     # | /src/test/resources/testdata/resourceGroups/success.tar | __admin__ | hunter_roles_m |
+      | /src/test/resources/testdata/app/alertadd.tar | __admin__ | hunter_roles_m |
 
   @smoke @resourceGroupsSmoke
   Scenario Outline: 重复导入资源包测试

@@ -1,5 +1,5 @@
 @all @logDisplay @logDisplayMap
-Feature: 日志展现_地图
+Feature: 日志展现_5地图
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -55,6 +55,7 @@ Feature: 日志展现_地图
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
+    And I wait for "<chartType>Element" will be visible
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
@@ -121,7 +122,7 @@ Feature: 日志展现_地图
     Examples:
       |chartType| divideField         |  region |caseNum  |   spl   |
       |Regionmap| apache.geo.province |  China  | 2793    | tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
-      |Regionmap| apache.geo.city     | Jiangsu | 2794    | tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |Regionmap| apache.geo.city     | Jiangsu | 2794    | tag:sample04061424_chart \| stats count() by apache.geo.city, apache.geo.province |
 
 
   Scenario Outline: regionMap_click(RZY-2792)
@@ -173,6 +174,7 @@ Feature: 日志展现_地图
 
     And I click the "Type" button
     And I wait for "Chart" will be visible
+    And I wait for "5000" millsecond
     And I will see the "<chartType>Element" is display
     And I wait for "3000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图_<caseNum>_<chartType>"
@@ -191,6 +193,7 @@ Feature: 日志展现_地图
     And I click the "Type" button
     And I click the "Map" button
     And I click the "<chartType>" button
+    And I click the "Type" button
     And I click the "Settings" button
     And I click the "General" button
     And I set the parameter "Transparency" with value "0.5" using step buttons
@@ -204,7 +207,7 @@ Feature: 日志展现_地图
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-    And I wait for "2000" millsecond
+    And I wait for "5000" millsecond
     And I will see the "<chartType>Element" is display
     And I wait for "3000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图_<caseNum>_<chartType>"
@@ -214,7 +217,8 @@ Feature: 日志展现_地图
       |chartType   | caseNum  |   spl   |
       |Geostatsmap |  2796    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:vendors_test \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
 
-  Scenario Outline: statMap_param
+    @statsmaptest
+  Scenario Outline: statMap_param1
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -222,6 +226,7 @@ Feature: 日志展现_地图
     And I click the "Type" button
     And I click the "Map" button
     And I click the "<chartType>" button
+    And I click the "Type" button
     And I click the "Settings" button
     And I click the "Tile" button
     And I set the parameter "ZoomLevel" with value "4"
@@ -233,9 +238,13 @@ Feature: 日志展现_地图
     And I click the "Settings" button
     And I wait for "3000" millsecond
     And I wait for "Chart" will be visible
+    And I wait for "5000" millsecond
+    And I will see the "<chartType>Element" is display
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display | geostats latfield=apache.geo.latitude longfield=apache.geo.longitude count() avg(apache.resp_len) min(apache.resp_len)"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
+    And I wait for "5000" millsecond
     And I will see the "<chartType>Element" is display
     And I wait for "3000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图_<caseNum>_<chartType>"
@@ -245,7 +254,7 @@ Feature: 日志展现_地图
       |chartType   | caseNum  |   spl   |
       |Geostatsmap |  param   | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424* \| geostats latfield=apache.geo.latitude longfield=apache.geo.longitude count() avg(apache.resp_len) min(apache.resp_len)|
 
-  Scenario Outline: statMap_param
+  Scenario Outline: statMap_param2
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -253,6 +262,7 @@ Feature: 日志展现_地图
     And I click the "Type" button
     And I click the "Map" button
     And I click the "<chartType>" button
+    And I click the "Type" button
     And I click the "Settings" button
     And I click the "Tile" button
     And I set the parameter "ZoomLevel" with value "4"
@@ -264,6 +274,7 @@ Feature: 日志展现_地图
     And I click the "Settings" button
     And I wait for "3000" millsecond
     And I wait for "MapSettings" will be visible
+    And I wait for "5000" millsecond
     And I will see the "<chartType>Element" is display
     And I click the "MapSettings" button
     And I click the "DeleteMin" button
@@ -333,7 +344,7 @@ Feature: 日志展现_地图
     Examples:
       |chartType| divideField         |  region |caseNum      |   spl   |
       |Regionmap| apache.geo.province |  China  | 2793_white  | tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
-      |Regionmap| apache.geo.city     | Jiangsu | 2794_white  | tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |Regionmap| apache.geo.city     | Jiangsu | 2794_white  | tag:sample04061424_chart \| stats count() by apache.geo.city, apache.geo.province |
 
   Scenario Outline: regionMap_click(RZY-2792_white)
     When I set the parameter "SearchInput" with value "<spl>"

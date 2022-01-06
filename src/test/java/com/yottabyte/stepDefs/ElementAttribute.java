@@ -11,11 +11,28 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.List;
+
 /**
  * 修改元素属性
  */
 public class ElementAttribute {
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
+
+    /**
+     * 隐藏元素
+     *
+     * @param elementName 元素名称
+     */
+    @And("^I hide the element by the selector \"([^\"]*)\"$")
+    public void hideElementBySelector(String elementName) {
+        String xpath = "//div[contains(@class,'" + elementName + "')]";
+//        String xpath = "//div[contains(@class,'yotta-select-menu')]";
+        List<WebElement> list = webDriver.findElements(By.xpath(xpath));
+        WebElement lastDropdownList = list.get(list.size() - 1);
+        ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", lastDropdownList);
+
+    }
 
     /**
      * 隐藏元素

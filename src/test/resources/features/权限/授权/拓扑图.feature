@@ -61,6 +61,7 @@ Feature: 权限-拓扑图
 
   Scenario Outline: 取消读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -164,7 +165,9 @@ Feature: 权限-拓扑图
     Then I click the "Label" button
     And I wait for "TagToInput" will be visible
     And I click the "TagToInput" button
+    And I wait for "1000" millsecond
     And I set the parameter "Tag" with value "AutoTest"
+    And I wait for "1000" millsecond
     And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And I wait for loading invisible
@@ -177,13 +180,16 @@ Feature: 权限-拓扑图
     And I click the detail which name is "<name>"
     Then I will see the "topology.DetailPage" page
     And I wait for "2000" millsecond
-    Then I click the "Setting" button
+    And I click the "Setting" button under some element
     And I click the "EditTopologySwitch" button
-    And I set the parameter "NodeName" with value "node1"
-    #And I set the parameter "NodeGroup" with value "测试组"
+    And I click the "Setting" button under some element
+    And I wait for "1000" millsecond
+    And I set the parameter "IconNodeName" with value "node1"
     And I click the "AddNodeButton" button
     Then I click the "Save" button
+    Then I will see the message "保存成功"
     And I refresh the website
+    And I accept alert window
     And open the "topology.ListPage" page for uri "/topology/"
     Then I logout current user
 
@@ -236,14 +242,16 @@ Feature: 权限-拓扑图
     And I wait for "2000" millsecond
     Then I click the "Setting" button
     And I click the "EditTopologySwitch" button
-    And I set the parameter "NodeName" with value "node2"
+    And I set the parameter "IconNodeName" with value "node2"
     #  And I set the parameter "NodeGroup" with value "测试组2"
     And I click the "AddNodeButton" button
     Then I click the "Save" button
+    Then I will see the message "保存成功"
+    And I refresh the website
+    And I accept alert window
     And open the "topology.ListPage" page for uri "/topology/"
     And I wait for loading invisible
-    When the data name is "<name>" then i click the "更多" button
-    And I click the "Delete" button
+    When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
@@ -425,7 +433,7 @@ Feature: 权限-拓扑图
     And I wait for "2000" millsecond
     Then I click the "Setting" button
     And I click the "EditTopologySwitch" button
-    And I set the parameter "NodeName" with value "node1"
+    And I set the parameter "IconNodeName" with value "node1"
     #And I set the parameter "NodeGroup" with value "测试组"
     And I click the "AddNodeButton" button
     And I click the "Save" button
@@ -526,16 +534,17 @@ Feature: 权限-拓扑图
     And I wait for "2000" millsecond
     Then I click the "Setting" button
     And I click the "EditTopologySwitch" button
-    And I set the parameter "NodeName" with value "node1"
+    And I set the parameter "IconNodeName" with value "node1"
     #And I set the parameter "NodeGroup" with value "测试组"
     And I click the "AddNodeButton" button
+    And I wait for "1000" millsecond
     And I click the "Save" button
-    Then I will see the element "Alert" value is "保存成功"
+    Then I will see the message "保存成功"
     And I refresh the website
+    And I accept alert window
     And open the "topology.ListPage" page for uri "/topology/"
     And I wait for "2000" millsecond
-    When the data name is "AutoRename" then i click the "更多" button
-    And I click the "Delete" button
+    When the data name is "AutoRename" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
@@ -721,7 +730,7 @@ Feature: 权限-拓扑图
     And I wait for "2000" millsecond
     Then I click the "Setting" button
     And I click the "EditTopologySwitch" button
-    And I set the parameter "NodeName" with value "node1"
+    And I set the parameter "IconNodeName" with value "node1"
     #And I set the parameter "NodeGroup" with value "测试组"
     And I click the "AddNodeButton" button
     And I click the "Save" button
@@ -771,7 +780,7 @@ Feature: 权限-拓扑图
     And I wait for "2000" millsecond
     Then I click the "Setting" button
     And I click the "EditTopologySwitch" button
-    And I set the parameter "NodeName" with value "node1"
+    And I set the parameter "IconNodeName" with value "node1"
     #And I set the parameter "NodeGroup" with value "测试组"
     And I click the "AddNodeButton" button
     Then I click the "Save" button

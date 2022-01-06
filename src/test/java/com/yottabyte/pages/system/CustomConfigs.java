@@ -1,9 +1,12 @@
 package com.yottabyte.pages.system;
 
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.ClickEvent;
+import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * @author sunxj
@@ -42,9 +45,28 @@ public class CustomConfigs extends PageTemplate {
         return MailServerSet;
     }
 
+    @FindBy(xpath = "//a[contains(text(),'搜索配置')]")
+    private WebElement searchSetHead;
+
+    public WebElement getSearchSetHead() {
+        return searchSetHead;
+    }
+
+    @FindBy(xpath = "//div[@id='searchConfig']//span[contains(text(),'自定义高亮字段配置项')]/preceding-sibling::div[contains(@class,'yotta-tag-input')]")
+    private WebElement highLightWordDiv;
+    public WebElement getHighLightWordDiv() {
+        return highLightWordDiv;
+    }
+
+    @FindBy(xpath = "//div[@id='searchConfig']//input[@class='yotta-tag-input-input']")
+    private WebElement highLightWordInput;
+    public WebElement getHighLightWordInput() {
+        return highLightWordInput;
+    }
 
     @FindBy(xpath = "//a[contains(text(),'交易日功能')]")
     private WebElement trandateFeature;
+
     public WebElement getTrandateFeature() {
         return trandateFeature;
     }
@@ -131,8 +153,38 @@ public class CustomConfigs extends PageTemplate {
     //@FindBy(xpath = "//div[text()='交易日功能']/following::div/span[@class='ant-upload']/input")
     @FindBy(xpath = "//input[@yotta-test='system-tranaction_date_upload-file_upload']")
     private WebElement uploadTranDate;
+
     public WebElement getUploadTranDate() {
         return uploadTranDate;
     }
 
+    @FindBy(xpath = "//span[text()='报表统一样式']/ancestor::section[1]//input[@type='file']")
+    private WebElement unifiedStyleReport;
+
+    public WebElement getUnifiedStyleReport() {
+        return unifiedStyleReport;
+    }
+
+    @FindBy(xpath = "//span[text()='报表统一样式']/ancestor::section[1]//*[text()='删除']")
+    private WebElement deleteUnifiedStyle;
+
+    public WebElement getDeleteUnifiedStyle() {
+        return deleteUnifiedStyle;
+    }
+
+    @FindBy(xpath = "//span[text()='报表统一样式']/ancestor::section[1]//span[contains(@class,'upload-tip') and text()='上传完成']")
+    private WebElement styleUploadSuccess;
+
+    public WebElement getStyleUploadSuccess() {
+        return styleUploadSuccess;
+    }
+
+    @FindBy(xpath = "(//span[text()='报表文件类型']/ancestor::section[1]//div[contains(@class,'yotta-select-selection')])[1]")
+    private WebElement reportType;
+
+    public WebElement getReportType() {
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(reportType));
+        ClickEvent.clickUnderneathButton(reportType);
+        return getLastDropdownList();
+    }
 }

@@ -5,7 +5,8 @@ Feature: Agent编辑数据库数据类型数据源
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
     And I wait for loading invisible
     And I zoom the browse to full screen
-    When I click the detail which column is "0" in agent page
+#    When I click the detail which column is "0" in agent page
+    When I click the detail which name is "253" in agent page
     And switch to another window
     And I close all tabs except main tab
     And I wait for loading invisible
@@ -13,6 +14,7 @@ Feature: Agent编辑数据库数据类型数据源
 
   Scenario: 新建mysql数据库类型数据源
     And I click the "Create" button
+    And I wait for "2000" millsecond
     And I click the "DatabaseType" button
     And I click the "Next" button
     And I wait for "CreateLink" will be visible

@@ -33,9 +33,6 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']")
     private WebElement tagField;
 
-    @FindBy(xpath = "//div[contains(@class,'spinner')]")
-    private WebElement loading;
-
     @FindBy(xpath = "//div[@yotta-test='trend-new_trend_mode_single-dom']")
     private WebElement singleDataset;
 
@@ -44,9 +41,6 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(xpath = "//div[@yotta-test='trend-new_trend_mode_merge-dom']")
     private WebElement unionDataset;
-
-    @FindBy(xpath = "//*[contains(text(),'暂无数据')]")
-    private WebElement noData;
 
     @FindBy(xpath = "(//tr)[last()]/td[4]")
     private WebElement tagOfTheLastItem;
@@ -95,14 +89,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getTagOfTheLastItem() {
         return tagOfTheLastItem;
-    }
-
-    public WebElement getNoData() {
-        return noData;
-    }
-
-    public WebElement getLoading() {
-        return loading;
     }
 
     public WebElement getCreate() {

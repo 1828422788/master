@@ -16,7 +16,7 @@ public class CreatePage extends PageTemplate {
 
     public CreatePage(WebDriver driver) {
         super(driver);
-        driver.manage().window().setSize(new Dimension(1200, 900));
+        driver.manage().window().setSize(new Dimension(1600, 900));
     }
 
     @FindBy(className = "yotta-message-content")
@@ -25,7 +25,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")
     private WebElement message;
 
-    @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']/ancestor::div[1]/following-sibling::div[@class='yotta-dialog-content']//p")
+    @FindBy(xpath = "//span[@aria-label='CloseCircle']/ancestor::div[1]/following-sibling::div/p")
     private WebElement errorMessage;
 
     @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div//input")
@@ -40,7 +40,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "yotta-accordion-header")
     private WebElement topoTitle;
 
-    @FindBy(xpath = "//div[@yotta-test='report-email-select']//div[@class='yotta-select-selection']")
+    @FindBy(xpath = "//div[@yotta-test='report-email-select']//div[contains(@class,'yotta-select-selection')]")
     private WebElement emailInput;
 
     @FindBy(xpath = "//div[@yotta-test='report-email-select']//input")
@@ -79,11 +79,14 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='最近十次执行时间']/ancestor::div[1]/following-sibling::div")
     private WebElement parseResult;
 
-    @FindBy(xpath = "//div[@yotta-test='report-year_day-select' or @yotta-test='report-month-select' or @yotta-test='report-week-select']//div[@class='yotta-select-selection']")
+    @FindBy(xpath = "//div[@yotta-test='report-year_day-select' or @yotta-test='report-month-select' or @yotta-test='report-week-select']//div[contains(@class,'yotta-select-selection')]")
     private WebElement day;
 
     @FindBy(xpath = "//span[text()='crontab']")
     private WebElement crontabButton;
+
+    @FindBy(xpath = "//span[text()='定时']")
+    private WebElement fixedTime;
 
     @FindBy(xpath = "(//i[@class='el-collapse-item__header__arrow el-icon-arrow-right'])[last()]")
     private WebElement arrow;
@@ -212,7 +215,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='标签']/ancestor::div/following-sibling::div//label[4]")
     private WebElement forthLabel;
 
-    @FindBy(xpath = "(//p[text()='+ 添加'])[last()] | (//*[name()='svg' and @data-icon='AddCircleOutlined']/ancestor::span[1]) | (//button[@yotta-test='chartgui-tab_list_add-button'])")
+    @FindBy(xpath = "(//p[text()='+ 添加'])[last()] | (//*[name()='svg' and @data-icon='AddCircle']/ancestor::span[1]) | (//button[@yotta-test='chartgui-tab_list_add-button'])")
     private WebElement addField;
 
     @FindBy(xpath = "(//input[@value='china'])[last()]")
@@ -224,7 +227,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//input[@value='world'])[last()]")
     private WebElement selectWorld;
 
-    @FindBy(xpath = "//label[text()='报表类型']/following-sibling::div//div[@class='ant-select-selection-selected-value']")
+    @FindBy(xpath = "//label[text()='报表类型']/parent::div//following-sibling::div//*[contains(@class,'yotta-select-selection-value')]")
     private WebElement defaultReportType;
 
     @FindBy(xpath = "(//div[@class = 'yotta-slider-knob'])[last()]")
@@ -236,13 +239,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='选择趋势图']")
     private WebElement chartListInput;
 
-    @FindBy(xpath = "//span[text()='定时']//ancestor::div[1]/following-sibling::span[@aria-label='QuestionCircleOutlined']")
+    @FindBy(xpath = "//span[text()='定时']//ancestor::div[1]/following-sibling::span[@aria-label='QuestionCircle']")
     private WebElement executionTip;
 
     @FindBy(xpath = "//div[@class='yotta-tooltip-content']")
     private WebElement tipElement;
 
-    @FindBy(xpath = "//div[@class='_3w5kb67yheTrRvK5dl9mNd']")
+    @FindBy(className = "yotta-empty-description")
     private WebElement resultMessage;
 
     @FindBy(xpath = "((//div[contains(@class,'help-text')])[1]) | (//div[@class='SPuuh0MNLAnweio5-PDK8'])")
@@ -278,8 +281,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='基本设置']")
     private WebElement topOfThePage;
 
-    @FindBy(xpath = "(//li[contains(@yotta-test,'report-item')]/span[contains(text(),'报表测试_数据集')]//span[@aria-label='VisibilityOutlined'])[last()]")
+    @FindBy(xpath = "(//li[contains(@yotta-test,'report-item')]/span[contains(text(),'报表测试_数据集')]//span[@aria-label='Visibility'])[last()]")
     private WebElement viewDatasetTrendInfo;
+
+    public WebElement getTemplatesList() {
+        return templates;
+    }
 
     public WebElement getViewDatasetTrendInfo() {
         return viewDatasetTrendInfo;
@@ -661,6 +668,10 @@ public class CreatePage extends PageTemplate {
         return getYottaInput("report-crontab-input");
     }
 
+    public WebElement getFixedTime() {
+        return fixedTime;
+    }
+
     public WebElement getParseResult() {
         return parseResult;
     }
@@ -771,6 +782,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSingle() {
         return getYottaDiv("chart_selector-change_type_single-dom");
+    }
+
+    public WebElement getRing() {
+        return getYottaDiv("chart_selector-change_type_ringscale-dom");
     }
 
     public WebElement getLiquidfill() {
@@ -1085,7 +1100,7 @@ public class CreatePage extends PageTemplate {
         return getDropdownElement("图表方向");
     }
 
-    @FindBy(xpath = "(//span[text()='标签方向'])[last()]/ancestor::div[1]/following-sibling::div//div[@class='yotta-select-selection']")
+    @FindBy(xpath = "(//span[text()='标签方向'])[last()]/ancestor::div[1]/following-sibling::div//div[contains(@class,'yotta-select-selection')]")
     private WebElement labelOrientation;
 
     public WebElement getLabelOrientation() {
@@ -1304,7 +1319,7 @@ public class CreatePage extends PageTemplate {
     }
 
     private WebElement getDropdownElement(String name) {
-        WebElement element = webDriver.findElement(By.xpath("(//span[contains(text(),'" + name + "')])[last()]/ancestor::div[1]/following-sibling::div//div[@class='yotta-select-selection']"));
+        WebElement element = webDriver.findElement(By.xpath("(//span[contains(text(),'" + name + "')])[last()]/ancestor::div[1]/following-sibling::div//div[contains(@class,'yotta-select-selection')]"));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
         return this.getLastDropdownList();
@@ -1321,5 +1336,54 @@ public class CreatePage extends PageTemplate {
             e.printStackTrace();
         }
         return getYottaTab(name);
+    }
+
+    //使用模板
+
+    @FindBy(xpath = "(//div[contains(text(),'报表模板')]/parent::div//div[contains(@class,'yotta-select-selection')])[1]")
+    private WebElement templates;
+    public WebElement getTemplates() {
+        templates.click();
+        return this.getLastDropdownList();
+    }
+
+    @FindBy(xpath = "//span[text()='使用模板']")
+    private WebElement useTemplate;
+    public WebElement getUseTemplate() {
+        return useTemplate;
+    }
+
+    @FindBy(xpath = "//span[text()='自定义富文本']")
+    private WebElement richTextEditing;
+    public WebElement getRichTextEditing() {
+        return richTextEditing;
+    }
+
+    @FindBy(xpath = "//*[text()='选择']")
+    private WebElement selectTemplate;
+    public WebElement getSelectTemplate() {
+        return selectTemplate;
+    }
+
+    @FindBy(xpath = "//input[@placeholder='请输入']")
+    private WebElement searchTemplate;
+    public WebElement getSearchTemplate() {
+        return searchTemplate;
+    }
+
+    @FindBy(xpath = "//*[text()='模板文件']/parent::div//input")
+    private WebElement templateFileName;
+    public WebElement getTemplateFileName() {
+        return templateFileName;
+    }
+
+    public WebElement getUploadTemplate() {
+        return getTabElement("本地上传");
+    }
+
+    @FindBy(xpath = "//span[contains(@class,'upload-tip') and text()='上传中'] ")
+    private WebElement uploadingProgress;
+    public WebElement getUploadingProgress() {
+        return uploadingProgress;
     }
 }

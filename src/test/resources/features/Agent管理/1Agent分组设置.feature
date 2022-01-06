@@ -29,6 +29,8 @@ Feature: Agent分组设置
     And I click the "CreateAgentGroupButton" button
     And I set the parameter "Name" with value "sunxctest"
     And I click the "Save" button
+    And I wait for "Addfailmsg" will be visible
+
 
   Scenario: Agent分组未填写名称新建失败
     Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
@@ -51,19 +53,15 @@ Feature: Agent分组设置
       | message              |
       | 成功加入分组 [ sunxctest ] |
 
-  Scenario Outline: Agent从分组设置页面跳转
-    And I will see the "agent.ListPage" page
-    And I click the "OpenGroupButton" button
-    And I click the "More" button
-    And I click the "Jump" button
-    And switch to another window
-    And I close all tabs except main tab
-    And I wait for loading invisible
-    Then I will see the agent search result contains "0"
-
-    Examples:
-      | message              |
-      | 成功加入分组 [ sunxctest ] |
+#  Scenario: Agent从分组设置页面跳转
+#    And I will see the "agent.ListPage" page
+#    And I click the "OpenGroupButton" button
+##    And I click the "More" button
+##    And I click the "Jump" button
+##    And switch to another window
+##    And I close all tabs except main tab
+##    And I wait for loading invisible
+#    Then I will see the agent search result contains "0"
 
   Scenario Outline: Agent移出分组
     And I will see the "agent.ListPage" page
@@ -86,10 +84,10 @@ Feature: Agent分组设置
     And I click the "MultiGruopButton" button
     And I click the "GroupButton" button
     Then I will see the element "GroupMemo" name is "<message>"
-#    And I click the "FinishGroupButton" button
-#    And I click the "OpenGroupButton" button
-#    And I wait for loading invisible
-#    Then I will see the agent search result contains "0"
+    And I click the "FinishGroupButton" button
+    And I click the "OpenGroupButton" button
+    And I wait for loading invisible
+    Then I will see the agent search result contains "0"
 
     Examples:
       | message              |

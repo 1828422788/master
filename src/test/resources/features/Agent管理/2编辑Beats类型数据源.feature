@@ -29,7 +29,7 @@ Feature: Agent编辑Beats类型数据源
     And I wait for element "getBeatsSwitchStatus" change text to "已禁用"
 
 
-  Scenario: Beats数据源启用
+  Scenario: 修改beats数据源启用
     Given the data name "autoBeatstest" in agent table "BeatsTable" then i click the "open" switch
     Then I wait for "getBeatsSwitchStatus" will be visible
     And I wait for element "getBeatsSwitchStatus" change text to "已启用"

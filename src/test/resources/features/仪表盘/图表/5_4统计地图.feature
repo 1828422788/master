@@ -1,7 +1,7 @@
-@dashboard29 @dashboardChart
+@dashboard5_4 @dashboardChart
 Feature: 仪表盘_5_4_统计地图
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario: 上传日志
     Given open the "localUpload.ListPage" page for uri "/sources/input/os/"
     When I set the parameter "AppName" with value "geostats"
@@ -12,7 +12,7 @@ Feature: 仪表盘_5_4_统计地图
     And I will see the element "VerifyText" contains "上传完成"
     And I wait for "5000" millsecond
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -26,7 +26,7 @@ Feature: 仪表盘_5_4_统计地图
       | name    |
       | 仪表盘统计地图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -43,7 +43,7 @@ Feature: 仪表盘_5_4_统计地图
       | name |
       | 统计地图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -67,7 +67,7 @@ Feature: 仪表盘_5_4_统计地图
       | spl                                                                                                                                                                                                                                                                                  | name    |
       | appname:geostats \| parse \"^(?<raw>.*)$\" \| eval array=split(raw, \",\") \| eval lon=todouble(mvindex(array, 3)) \| eval lat=todouble(mvindex(array, 4)) \| eval cnt=tolong(mvindex(array, 2)) \| eval group=mvindex(array, 7) \| geostats latfield=lat longfield=lon count() by group | 仪表盘统计地图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -91,7 +91,7 @@ Feature: 仪表盘_5_4_统计地图
       | name    |
       | 仪表盘统计地图 |
 
-  @dashboard @dashboardSmoke
+  @dashboardSmoke
   Scenario Outline: 修改为统计地图 RZY-3400
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

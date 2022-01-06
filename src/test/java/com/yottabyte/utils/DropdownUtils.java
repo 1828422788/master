@@ -67,7 +67,7 @@ public class DropdownUtils {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        return getV40LastDropdownList();
     }
 
     public WebElement getLastDropdownListOnSendPolicyPage() {
@@ -105,11 +105,12 @@ public class DropdownUtils {
 
     public WebElement getDropdownList(String test) {
         String xpath;
-        xpath = "(//div[@yotta-test='" + test + "']/div[@class='yotta-select-selection'])[last()]";
+        xpath = "(//div[@yotta-test='" + test + "']//div[contains(@class,'yotta-select-selection')])[last()]";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+//        return getLastDropdownList();
+        return getV40LastDropdownList();
     }
 
     public WebElement getLastDropdownList() {
@@ -146,6 +147,31 @@ public class DropdownUtils {
         List<WebElement> list = webDriver.findElements(By.cssSelector(str_selector));
 
         WebElement lastDropdownList = list.get(list.size() - 1);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+        }
+        return lastDropdownList;
+    }
+
+    public WebElement getDataSetResourceGroupList() {
+        String str_selector = "[class='yotta-select-menu css-1eyjtz']";
+        List<WebElement> list = webDriver.findElements(By.cssSelector(str_selector));
+
+        WebElement lastDropdownList = list.get(list.size() - 1);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+        }
+        return lastDropdownList;
+    }
+
+    public WebElement getV40LastDropdownList() {
+//        String str_selector = "[class='yotta-select-menu css-ym0mnb']";
+//        List<WebElement> list = webDriver.findElements(By.cssSelector(str_selector));
+        String xpath = "//div[contains(@class,'yotta-select-menu')]";
+        List<WebElement> list = webDriver.findElements(By.xpath(xpath));
+
+        WebElement lastDropdownList = list.get(list.size() - 1);
+        System.out.println(lastDropdownList);
         if (lastDropdownList.getAttribute("style").contains("display: none;")) {
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
         }
@@ -250,7 +276,7 @@ public class DropdownUtils {
     public WebElement getIncidentPageMoreMenuList() {
         List<WebElement> list = webDriver.findElements(By.className("yotta-dropdown-menu"));
         WebElement lastMenuList = list.get(list.size() - 1);
-        System.out.println("getIncidentPageMoreMenuList list.size()==============================================="+list.size());
+        System.out.println("getIncidentPageMoreMenuList list.size()===============================================" + list.size());
         if (lastMenuList.getAttribute("style").contains("display: none;")) {
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastMenuList);
         }
@@ -260,7 +286,7 @@ public class DropdownUtils {
     public WebElement getIncidentPageMoreMenuSubList() {
         List<WebElement> list = webDriver.findElements(By.className("yotta-submenu"));
         WebElement lastMenuList = list.get(list.size() - 1);
-        System.out.println("getIncidentPageMoreMenuSubList list.size()==============================================="+list.size());
+        System.out.println("getIncidentPageMoreMenuSubList list.size()===============================================" + list.size());
         if (lastMenuList.getAttribute("style").contains("display: none;")) {
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastMenuList);
         }
@@ -288,5 +314,17 @@ public class DropdownUtils {
         }
         return lastMenuList;
     }
+
+    public WebElement getRemoteIndexPageList1() {
+        String xpath = "//span[@class='yotta-select-option-label'][text()='collectmodefalse']/parent::div/parent::div";
+        List<WebElement> list = webDriver.findElements(By.xpath(xpath));
+        WebElement lastDropdownList = list.get(0);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+        }
+        return lastDropdownList;
+
+    }
+
 
 }

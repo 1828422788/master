@@ -56,7 +56,7 @@ public class StatisticPage extends PageTemplate {
         return getIncidentStatusMenuList();
     }
 
-    @FindBy(xpath = "//span[@aria-label='RightOutlined']")
+    @FindBy(xpath = "//span[@aria-label='PlusRight']")
     private WebElement ariaLabelRight;
     public WebElement getAriaLabelRight(){
         return ariaLabelRight;

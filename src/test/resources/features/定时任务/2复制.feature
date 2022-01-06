@@ -1,4 +1,4 @@
-@all @timedTask @copyTimedTask
+@timedTask @copyTimedTask @timedTaskSmoke
 Feature: 定时任务复制
 
   Scenario Outline: create_new
@@ -28,8 +28,11 @@ Feature: 定时任务复制
     And I set the parameter "StartTimeInput" with value "23:58:10"
     And I click the "StartTimeInput" button
     And I click the Circle "BasicSettings" button
-    And I choose the "auto_package" from the "TaskGroup"
-    And I click the Circle "BasicSettings" button
+    And I will see the "timedTask.ListPage" page
+    And I click the "TagToInput" button
+    And I set the parameter "Tag" with value "auto_package"
+    And I choose the "auto_package" from the "TagField"
+    Then I will see the "timedTask.EditPage" page
     And I set the parameter "Name" with value "<taskName>"
     And I click the "Submit" button
     And I wait for "SuccessMessage" will be visible
@@ -73,7 +76,8 @@ Feature: 定时任务复制
 
   Scenario: global_tag_app
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    When I choose the "auto_package" from the "ResourceDropdown"
+    When I set the parameter "GlobalTagInput" with value "auto_package"
+    When I choose the "auto_package" from the "TagDropdown"
     And I click the "HideElement" button
     And I wait for "Loading" will be invisible
     And I choose the "test_app" from the "AppDropdown"

@@ -78,10 +78,8 @@ Feature: 测试运行-邮件
       |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_抑制间隔翻倍10-90min	|
       |	api00_连续统计_status<=502_扩展chat_键值_all_合并	|
       |	api00_连续统计_status<=502_扩展chat_键值_all_合并_交易日	|
-      |	api01_字段统计_最大数status_扩展chart键值_邮件	|
 
   @testrun1
-
   Scenario Outline:  Scenario Outline:
     Given I wait for loading complete
     Given open the "alert.ListPage" page for uri "/alerts/"
@@ -122,7 +120,6 @@ Feature: 测试运行-邮件
 
     Examples:
       | name                                                     |
-      |	api01_字段统计_最大数status_扩展chart键值_邮件	|
 #      |	api3_all_事件计数_设备切分ip_扩展chart_all抑制45	|
       |	api3_all_连续统计_status<404_低_邮件	|
       |	api3_all_连续统计_status=200_邮件_抑制59	|

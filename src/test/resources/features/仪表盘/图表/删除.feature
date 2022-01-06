@@ -1,9 +1,12 @@
 @cleanDashboard @cleanDashboardChart
 Feature: 仪表盘删除
 
-  @cleanDashboard
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "<name>"
+    Given I wait for loading complete
+    And I wait for "3000" millsecond
     When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
@@ -42,7 +45,6 @@ Feature: 仪表盘删除
       | 仪表盘网络节点图   |
 
 
-  @cleanDashboard
   Scenario Outline: 删除仪表盘所建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "删除" button in more menu
@@ -81,4 +83,12 @@ Feature: 仪表盘删除
       | 仪表盘矩阵热力图   |
       | 仪表盘调用链       |
       | 仪表盘网络节点图   |
+
+  Scenario: 删除创建的下载任务
+    Given open the "ListPageFactory" page for uri "/download/"
+    And I wait for loading invisible
+    And the data name contains "汉字Abc" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    Then I will see the success message "删除成功"
 

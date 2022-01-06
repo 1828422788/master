@@ -189,17 +189,10 @@ public class CompareResult {
      * @param targetImage 目标文件路径名称
      */
     @And("^I compare source image \"([^\"]*)\" with target image \"([^\"]*)\"$")
-    public void compareImage(String sourceImage, String targetImage) {
-        try {
-            String sourceFingerPrint = ImageComparison.toPhash(ImageIO.read(new File(sourceImage + ".png")));
-            String targetFingerPrint = ImageComparison.toPhash(ImageIO.read(new File(targetImage + ".png")));
-            int difference = ImageComparison.hammingDistance(sourceFingerPrint, targetFingerPrint);
-            if (difference > 5) {
-                EmbeddingFile.embedImage(targetImage + ".png");
-                Assert.fail();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void compareImage(String sourceImage, String targetImage) throws IOException {
+        if (!ImageComparison.imageComparison(sourceImage,targetImage)) {
+            EmbeddingFile.embedImage(targetImage + ".png");
+            Assert.fail();
         }
     }
 
@@ -916,7 +909,7 @@ public class CompareResult {
      * @param targetReportFile 目标文件路径名称
      */
     @And("^I compare source report file \"([^\"]*)\" with target report file \"([^\"]*)\"$")
-    public void compareReportFile(String sourceReportFile, String targetReportFile) {
+    public void compareReportFile(String sourceReportFile, String targetReportFile) throws IOException {
         String curPath = ".";
 
         FileInputStream fis1 = null;
@@ -1011,16 +1004,14 @@ public class CompareResult {
                     }
                     percentage = ((double) count * 100) / size1; // calculates matching percentage
                     if (percentage < 97) {
-                        System.out.printf("文件内容不一样: %.2f \n", percentage);
                         EmbeddingFile.embedImage(path1 + ".png");
                         EmbeddingFile.embedImage(path2 + ".png");
-                        Assert.fail();
+                        Assert.fail(String.format("文件内容不一样，百分比:%.2f \n", percentage));
                     } else {
                         System.out.printf("文件内容一样: %.2f \n", percentage);
                     }
                 } else {
-                    System.out.println("文件内容不一样");
-                    Assert.fail();
+                    Assert.fail("文件内容不一样");
                 }
 
                 //Closing the document
@@ -1028,12 +1019,9 @@ public class CompareResult {
                 document2.close();
             }
 
-        } catch (FileNotFoundException e) {
+        } catch ( IOException  e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
+            throw new IOException("File not found: " + sourceReportFile);
         } finally {//关闭文件流，防止内存泄漏
             if (fis1 != null) {
                 try {

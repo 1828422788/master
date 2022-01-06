@@ -1,4 +1,4 @@
-@all @timedTask @editTimedTask
+@timedTask @editTimedTask
 Feature: 定时任务_基本配置
 
   Scenario: create_schedule
@@ -118,8 +118,11 @@ Feature: 定时任务_基本配置
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Name" with value "Schedule_Test"
     And I set the parameter "Describe" with value "testing schedule"
-    And I choose the "auto_package" from the "TaskGroup"
-    And I click the Circle "BasicSettings" button
+    And I will see the "timedTask.ListPage" page
+    And I click the "TagToInput" button
+    And I set the parameter "Tag" with value "auto_package"
+    And I choose the "auto_package" from the "TagField"
+    Then I will see the "timedTask.EditPage" page
     And I set the value "tag:*| stats count() by appname | limit 10" to the textarea "SearchTextarea"
     And I choose the "test_app" from the "AppDropdown"
     And I will see the input element "Period" value will be "5"
@@ -182,9 +185,7 @@ Feature: 定时任务_基本配置
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "OpenSavedSearchList" button
     And I wait for "2000" millsecond
-    And "更多" the data "schedule_test" in tiny saved search
-    And I wait for "Delete" will be visible
-    And I click the "Delete" button
+    And "删除" the data "schedule_test" in tiny saved search
     And I wait for "Cancel" will be visible
     And I will see the element "ConfirmMessage" contains "确认删除 schedule_test?"
     And I click the "EnsureButton" button

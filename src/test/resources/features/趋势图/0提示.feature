@@ -148,8 +148,8 @@ Feature: 趋势图_提示
     And I "checked" the checkbox which name is "apache.clientip" in trend page
     And I wait for "CheckBox" will be visible
     And I click the "NextButton" button
-    And I will see the "trend.DragAndDropDash" page
-    And I will see the "Dimensions" is display
+    And I will see the "trend.DragAndDropPage" page
+    And I wait for "Dimensions" will be visible
     
     And I will see the "trend.CreatePage" page
     And I click the "BackButton" button

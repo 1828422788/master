@@ -56,10 +56,11 @@ Feature: 仪表盘标签操作
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowDashboards" button
     And I wait for "LastTag" will be visible
-    And I open the context menu of the "LastTag" element
+    And I open the context menu of the "LastDashboard" element
     And I wait for "2000" millsecond
-    And I click the "CreatNewTag" button
+    And I click the "CreateNewTag" button
     And I set the parameter "TagName" with value "第二个标签"
     And I click the "EnsureCreateTagButton" button
     And I wait for loading complete

@@ -26,6 +26,8 @@ Feature: Agent添加数据源
     And I set the parameter "Tag" with value "autohekafiletest"
     And I wait for "Charset" will be visible
     And I set the parameter "Charset" with value "<charsetKind>"
+    And I wait for "2000" millsecond
+    And I set the parameter "Charset" with value "<charsetKind1>"
 #    When I choose the "<charsetKind>" from the "CharsetKind"
     And I click the "Next" button
     And I click the "Finish" button
@@ -41,10 +43,10 @@ Feature: Agent添加数据源
 #    Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
     Examples:
-      | charsetKind |
-      | utf-8       |
-      | gbk         |
-      | utf-16      |
+      | charsetKind | charsetKind1 |
+      | gbk         | gbk          |
+      | utf-8       | utf-8        |
+      | utf-16      | utf-16       |
 
 
   Scenario: 到搜索页中进行验证
@@ -55,7 +57,8 @@ Feature: Agent添加数据源
     And I click the "SearchButton" button
     And I wait for "5000" millsecond
     And I wait for "SearchStatus" will be visible
-    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "EventsTitle" change text to "事件列表"
+#    And I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario Outline: Agent添加数据源-单一数据源采集-全拼大写Appname
     And I click the "Create" button
@@ -90,9 +93,8 @@ Feature: Agent添加数据源
     And I wait for "ChangeMemo" will be visible
 
     Examples:
-      | filepath                         | listdetails| appname       | tag   | deletename|
-      | /data/rizhiyi/logs               | ntp\.log   | TEST          | heka  | TEST      |
-      | /data/rizhiyi/logs/kafka         | kafka\.log | AutoKafkaTest | AutoKafkaTest | AutoKafkaTest  |
+      | filepath                         | listdetails| appname       | tag           | deletename    |
+      | /data/rizhiyi/logs               | ntp\.log   | TEST          | heka          | TEST          |
 
   Scenario: Agent添加Syslog数据源
     And I click the "Create" button

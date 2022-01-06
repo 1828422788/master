@@ -1,7 +1,7 @@
-@dashboard11 @dashboardChart
+@dashboard6_05 @dashboardChart
 Feature: 仪表盘_6_05_循序图
 
-  @dashboard
+
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -15,7 +15,7 @@ Feature: 仪表盘_6_05_循序图
       | name   |
       | 仪表盘循序图 |
 
-  @dashboard
+
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -39,7 +39,7 @@ Feature: 仪表盘_6_05_循序图
       | spl                                                                                                        | name   |
       | tag:sample04061424_chart \|sort by +apache.clientip\| stats count() by hostname,apache.clientip \|limit 5  | 仪表盘循序图 |
 
-  @dashboard
+
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -56,7 +56,7 @@ Feature: 仪表盘_6_05_循序图
       | name |
       | 循序图  |
 
-  @dashboard
+
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -80,7 +80,7 @@ Feature: 仪表盘_6_05_循序图
       | name   |
       | 仪表盘循序图 |
 
-  @dashboard
+
   Scenario Outline: 修改为循序图 RZY-3757,RZY-315
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -130,7 +130,7 @@ Feature: 仪表盘_6_05_循序图
       | name   | image    |
       | 仪表盘循序图 | Sequence |
 
-  @dashboard
+
   Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3757 RZY-1366
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -138,7 +138,7 @@ Feature: 仪表盘_6_05_循序图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
 #    Then I will see the "TextLayer" result will be "<json>"
     Then I will see the dashboard highEditor text will contain "<json>"
@@ -147,7 +147,7 @@ Feature: 仪表盘_6_05_循序图
       | name   | json                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
       | 仪表盘循序图 | \n  "chart": {\n    "chartType": "sequence",\n    "field": "hostname",\n    "fromField": "apache.clientip",\n    "toField": "hostname",\n    "labelField": "apache.clientip",\n    "category": "apache.clientip"\n  }\n} |
 
-  @dashboard
+
   Scenario Outline: 两个字段为同一个值 RZY-1365:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -155,7 +155,7 @@ Feature: 仪表盘_6_05_循序图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
+    When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "<json>" to json editor
     And I wait for "500" millsecond

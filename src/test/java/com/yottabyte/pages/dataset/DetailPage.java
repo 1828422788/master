@@ -112,7 +112,7 @@ public class DetailPage extends PageTemplate {
         return afterFatherChild;
     }
 
-    @FindBy(xpath = "//span[text()='无']")
+    @FindBy(xpath = "//span[text()='无'][@class='yotta-radio-label']")
     private WebElement editWu; //修改父子行为为无
 
     public WebElement getEditWu() {
@@ -159,7 +159,8 @@ public class DetailPage extends PageTemplate {
     }
 
 //    @FindBy(xpath = "//p[@class='ZCeC8SpdlkeuifyWkLOfA']/i")
-    @FindBy(xpath = "//span[@class='yotta-icon yotta-icon-CheckOutlined']")
+//    @FindBy(xpath = "//span[@class='yotta-icon yotta-icon-CheckOutlined']")
+    @FindBy(xpath = "//input[@yotta-test='dataset-name_right-input']/following-sibling::span/span[@yotta-test='dataset-check_color-icon']")
     private WebElement duiHao; //修改后的对号
 
     public WebElement getDuiHao() {
@@ -204,10 +205,7 @@ public class DetailPage extends PageTemplate {
 //    @FindBy(id = "queryText")
     @FindBy(xpath = "//textarea[@yotta-test='dataset-query_filter-textarea']")
     private WebElement modifyNodeSentence;
-
     public WebElement getModifyNodeSentence() {
-        modifyNodeSentence.clear();
-        modifyNodeSentence.sendKeys("appname:apache");
         return modifyNodeSentence;
     }
 
@@ -352,7 +350,6 @@ A（root）
         return sentenceInput;
     }
 //构建树结束
-
 
     //v3.2
     //字段列表

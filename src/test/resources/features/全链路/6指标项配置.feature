@@ -55,7 +55,7 @@ Feature: 全链路_6指标项配置
     And I will see the input element "Medium_Min" value will be "1"
     And I will see the input element "Medium_Max" value will be "2"
 
-  @fulllink @fulllink_test
+  @fulllink @fulllinkSmoke
   Scenario: 指标项配置
     And I choose the "链路指标项配置" from the "Settings"
     And I wait for "High_Min" will be visible
@@ -84,7 +84,7 @@ Feature: 全链路_6指标项配置
     And I will see the element "ElementDetails" contains "3"
     And I wait for "HighAlarm" will be visible
 
-  @fulllink
+  @fulllink @fulllinkSmoke
   Scenario: 修改指标项配置2_钻取1
     And I choose the "链路指标项配置" from the "Settings"
     And I wait for "High_Min" will be visible

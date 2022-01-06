@@ -1,4 +1,4 @@
-@dleval
+@autoui02
 Feature: 新建数据库输出
 
   Background:

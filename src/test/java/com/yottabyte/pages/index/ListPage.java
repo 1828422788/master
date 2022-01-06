@@ -78,9 +78,20 @@ public class ListPage extends ListPageFactory {
     public WebElement getLook() {
         return look;
     }
+    @FindBy(xpath = "//div[@class='yotta-message-manager']//span[@class='yotta-message-content']")
+    private WebElement helpmessage;
+    public WebElement getHelpmessage(){
+        return helpmessage;
+    }
 
     public WebElement getMessage() {
         return super.getMessage();
+    }
+
+    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
+    private WebElement SearchInput;
+    public WebElement getSearchInput(){
+        return SearchInput;
     }
 
     public WebElement getDeleteMessage() { return deleteMessage; }

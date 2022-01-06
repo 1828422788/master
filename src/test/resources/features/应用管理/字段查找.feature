@@ -3,6 +3,7 @@ Feature: 应用字段查找
 
   Scenario: 添加模糊字段查找
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "AppFieldConfig" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I click the "FieldConfig" button

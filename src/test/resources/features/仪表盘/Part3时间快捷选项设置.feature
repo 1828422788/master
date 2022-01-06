@@ -1,6 +1,7 @@
 @dashboardpart3 @dashboard16
 Feature: 系统设置-时间快捷选项设置
 
+  @dashboard16pre0
   Scenario Outline: 输入关键字搜索相关配置
     Given open the "system.TimeShortcutsConfig" page for uri "/system/shortcuts/"
     And I wait for loading invisible
@@ -17,6 +18,7 @@ Feature: 系统设置-时间快捷选项设置
       | 10秒窗口                                             |
       | 前一个交易日                                          |
 
+  @dashboard16pre1
   Scenario: 返回到系统设置
     Given open the "system.TimeShortcutsConfig" page for uri "/system/shortcuts/"
     And I wait for loading invisible
@@ -24,6 +26,7 @@ Feature: 系统设置-时间快捷选项设置
     And I wait for "3000" millsecond
     Then the page's title will be "系统配置"
 
+  @dashboard16pre2
   Scenario: 编辑所有时间
     Given open the "system.TimeShortcutsConfig" page for uri "/system/shortcuts/"
     And I wait for loading invisible
@@ -33,6 +36,7 @@ Feature: 系统设置-时间快捷选项设置
     And I click the "WholeTimeCancel" button
     Then I will see the text "WholeTime" is not existed in page
 
+  @dashboard16a1
   Scenario: 新增时间快捷选项-相对
     Given open the "system.TimeShortcutsConfig" page for uri "/system/shortcuts/"
     And I wait for loading invisible
@@ -121,6 +125,7 @@ Feature: 系统设置-时间快捷选项设置
     Then I will see the error message "请先完成编辑或新增操作"
 #    Then I wait for "CreateConflictWarn" will be visible
 
+  @cleardashboard16
   Scenario Outline: 删除已添加自定义快捷选项
     Given open the "system.TimeShortcutsConfig" page for uri "/system/shortcuts/"
     And I wait for loading invisible

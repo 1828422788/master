@@ -46,6 +46,20 @@ public class VerifyButtonIsExist {
     }
 
     /**
+     * 判断文本在页面中存在
+     *
+     * @param text
+     */
+    @Then("^I will see the div text \"([^\"]*)\" exist in page$")
+    public void divTextExistInPage(String text) {
+        try {
+            webDriver.findElement(By.xpath("//td/div[@yotta-test='search-reduce_detail-dom'][text()='" + text + "']"));
+            Assert.assertTrue(true);
+        } catch (Exception e) {
+            Assert.assertTrue(false);
+        }
+    }
+    /**
      * 判断文本在页面中不存在
      *
      * @param text

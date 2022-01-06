@@ -1,4 +1,4 @@
-@newmacro @autoui01
+@newmacro @autoui02
 Feature: 新建宏
 
   Background:

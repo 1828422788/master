@@ -101,22 +101,30 @@ public class LogInAndOut {
             loginPage.getPassword().sendKeys(password);
             loginPage.getLoginButton().click();
             Thread.sleep(2000);
-            webDriver.navigate().to(baseURL + "/account/users/3/");
+            webDriver.navigate().to(baseURL + "/account/users/4/");
             times++;
             if (times > 10) {
                 return;
             }
         }
         // 验证是否登录到正确用户下
-        this.validateUser(username, password);
+        this.validateUserWithoutPermission(username, password);
+    }
+
+    public void validateUserWithoutPermission(String username, String password) throws InterruptedException {
+        WebElement loginUserName = webDriver.findElement(By.xpath("//div[text()='AutoTest']"));
+        if (!loginUserName.getText().equals(username)) {
+            userLogin(username, password);
+        }
     }
 
     public void validateUser(String username, String password) throws InterruptedException {
         WaitElement waitElement = new WaitElement();
-        WebElement userIcon = webDriver.findElement(By.xpath("//span[contains(@class,'yotta-icon-UserFilled')]"));
+        WebElement userIcon = webDriver.findElement(By.xpath("//span[contains(@class,'yotta-icon yotta-icon-User')]"));
         waitElement.elementVisible(userIcon);
         userIcon.click();
-        WebElement loginUserName = webDriver.findElement(By.xpath("//div[@class='yotta-avatar yotta-avatar-square css-1itn9ek']/following-sibling::div//p"));
+        WebElement loginUserName = webDriver.findElement(By.xpath("//div[contains(@class,'yotta-avatar yotta-avatar-rounded')]/following-sibling::div//p"));
+       // WebElement loginUserName = webDriver.findElement(By.xpath("//div[contains(@class,'css-1itn9ek')]/following-sibling::div//p"));
         if (!loginUserName.getText().equals(username)) {
             userLogin(username, password);
         }

@@ -122,6 +122,8 @@ Feature: 报表_删除
       |   Single_icon        |
       |   Single_font        |
       |   Single_range_backgr|
+      |   Ring_1             |
+      |   Ring_2             |
       |   Liquidfill         |
       |   Wordcloud          |
       |   Radar              |
@@ -178,6 +180,8 @@ Feature: 报表_删除
 #      |   Single_icon        |
 #      |   Single_font        |
       |   Single_range_backgr|
+      |   Ring_1             |
+      |   Ring_2             |
       |   Liquidfill         |
       |   Wordcloud          |
       |   Radar              |
@@ -234,6 +238,8 @@ Feature: 报表_删除
       |   Single_icon        |
       |   Single_font        |
       |   Single_range_backgr|
+      |   Ring_1             |
+      |   Ring_2             |
       |   Liquidfill         |
       |   Wordcloud          |
       |   Radar              |

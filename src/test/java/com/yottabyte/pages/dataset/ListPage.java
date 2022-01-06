@@ -56,6 +56,13 @@ public class ListPage extends ListPageFactory {
         return alias;
     }
 
+    @FindBy(xpath = "//span[text()='无'][@class='yotta-radio-label']")
+    private WebElement editWu; //修改父子行为为无
+
+    public WebElement getEditWu() {
+        return editWu;
+    }
+
     //    @FindBy(id = "EditDatabase_queryfilter")
     @FindBy(xpath = "//input[@yotta-test='dataset-queryfilter-input']")
     private WebElement spl;
@@ -105,7 +112,7 @@ public class ListPage extends ListPageFactory {
     public WebElement getResourceDropdown() {
 //        this.groupDropdownIcon("请选择标签").click();
         resourceDropdown.click();
-        return super.getLastDropdownList();
+        return super.getV40LastDropdownList();
     }
 
     @FindBy(xpath = "//label[text()='约束语句']/ancestor::div//following-sibling::div//div[text()='请输入约束语句']")
@@ -162,10 +169,10 @@ public class ListPage extends ListPageFactory {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        return getV40LastDropdownList();
     }
 
-    @FindBy(xpath = "//span[@aria-label='CloseCircleFilled']")
+    @FindBy(xpath = "//span[@aria-label='CloseCircle']")
     private WebElement deleteApp;
 
     @FindBy(xpath = "//*[@yotta-test='dataset-apps-select']/div")
@@ -283,7 +290,7 @@ public class ListPage extends ListPageFactory {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
+        return getV40LastDropdownList();
     }
 
     public WebElement getResourceGroupList() {
@@ -291,7 +298,8 @@ public class ListPage extends ListPageFactory {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownResourceGroupList();
+//        return getDataSetResourceGroupList();
+        return getV40LastDropdownList();
     }
 
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//input")

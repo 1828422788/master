@@ -1,4 +1,4 @@
-@all @timedTask @timedTaskLookUp
+@timedTask @timedTaskLookUp @timedTaskSmoke
 Feature: 定时任务查看
 
   Scenario Outline: view

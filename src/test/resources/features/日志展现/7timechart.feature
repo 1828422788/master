@@ -1,5 +1,5 @@
 @all @logDisplay @logDisplayTimechart
-Feature: 日志展现_timechart
+Feature: 日志展现_7timechart
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -32,15 +32,21 @@ Feature: 日志展现_timechart
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Settings" button
+    And I wait for "1000" millsecond
     And I click the "Xaxis" button
+    And I wait for "2000" millsecond
     And I click the "ThirdLabel" button
+    And I wait for "1000" millsecond
     And I click the "AscendingOrder" button
     And I click the "Yaxis" button
+    And I wait for "2000" millsecond
     And I set the parameter "Unit" with value "个"
+    And I wait for "1000" millsecond
     And I click the "Smooth" button
     And I click the "ConnectEmptyData" button
     And I set the parameter "Min" with value "<minVal>"
     And I set the parameter "Max" with value "<maxVal>"
+    And I wait for "1000" millsecond
     And I click the "Example" button
     And I click the "FirstPosition" button
 
@@ -70,13 +76,18 @@ Feature: 日志展现_timechart
     And I will see the "trend.CreatePage" page
     And I click the "Settings" button
     And I click the "Xaxis" button
+    And I wait for "1000" millsecond
     And I click the "ThirdLabel" button
+    And I wait for "1000" millsecond
     And I click the "AscendingOrder" button
     And I click the "Yaxis" button
+    And I wait for "2000" millsecond
     And I set the parameter "Unit" with value "个"
+    And I wait for "1000" millsecond
     And I set the parameter "Min" with value "<minVal>"
     And I set the parameter "Max" with value "<maxVal>"
     And I click the "Example" button
+    And I wait for "1000" millsecond
     And I click the "FirstPosition" button
     And I click the "Exhibition" button
     And I click the "AddColor" button
@@ -103,10 +114,13 @@ Feature: 日志展现_timechart
     And I will see the "trend.CreatePage" page
     And I click the "Settings" button
     And I click the "Xaxis" button
+    And I wait for "2000" millsecond
     And I click the "ThirdLabel" button
     And I click the "AscendingOrder" button
     And I click the "Yaxis" button
+    And I wait for "2000" millsecond
     And I set the parameter "Unit" with value "个"
+    And I wait for "1000" millsecond
     And I click the "<button>" button
     And I click the "Exhibition" button
     And I click the "AddColor" button

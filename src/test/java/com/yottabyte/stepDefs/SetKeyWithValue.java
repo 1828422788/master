@@ -418,7 +418,7 @@ public class SetKeyWithValue {
         robot.keyRelease(KeyEvent.VK_BACK_SPACE);
     }
 
-    @And("^I set the parameter \"([^\"]*)\" with value \"([^割]*)\" using step buttons$")
+    @And("^I set the parameter \"([^\"]*)\" with value \"([^\"]*)\" using step buttons$")
     public void iSetTheParameterWithValueByStep(String elementName, String value) {
         if (elementName != null && elementName.trim().length() != 0) {
             float new_value = Float.parseFloat(value);
@@ -427,6 +427,8 @@ public class SetKeyWithValue {
             WebElement stepUp = element.findElement(By.xpath(".//following-sibling::span/span[contains(@class,'increase')]"));
             WebElement stepDown = element.findElement(By.xpath(".//following-sibling::span/span[contains(@class,'decrease')]"));
             stepUp.click();
+            if (Float.parseFloat(element.getAttribute("value")) - element_value == 0)
+                stepDown.click();
             float step = Float.parseFloat(element.getAttribute("value")) - element_value;
             stepDown.click();
             int times = (int) ((new_value - element_value) / step);
@@ -442,6 +444,37 @@ public class SetKeyWithValue {
                 element_value = Float.parseFloat(element.getAttribute("value"));
             }
         }
+    }
+
+    /**
+     * 为指定变量elementName赋值 elementName需要与page中的getElement方法名一致，可以省略get
+     *
+     * @param elementName 元素名称
+     * @param value       输入的值
+     */
+    @And("^I simply set the parameter \"([^\"]*)\" with value \"([^割]*)\"$")
+    public void iSetTheParameterWithValu1(String elementName, String value) {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        element.sendKeys(Keys.CONTROL + "a");
+        element.sendKeys(Keys.BACK_SPACE);
+        element.clear();
+        element.sendKeys(value);
+    }
+
+    /**
+     * 为指定变量elementName赋值后，输入回车
+     *
+     * @param elementName 元素名称
+     * @param value       输入的值
+     */
+    @And("^I set the parameter \"([^\"]*)\" with value \"([^割]*)\" with enter$")
+    public void iSetTheParameterWithValuWithEnter(String elementName, String value) {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        element.sendKeys(Keys.CONTROL + "a");
+        element.sendKeys(Keys.BACK_SPACE);
+        element.clear();
+        element.sendKeys(value);
+        element.sendKeys(Keys.ENTER);
     }
 
 }

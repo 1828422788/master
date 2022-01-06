@@ -74,6 +74,7 @@ Feature: 权限-报表
     And I wait for "2000" millsecond
     Given open the "report.ListPage" page for uri "/reports/"
     And I click the "Create" button
+    And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "AutoTestCreate"
     And I choose the "PDF" from the "ReportType"
@@ -145,7 +146,8 @@ Feature: 权限-报表
     And I set the parameter "Name" with value "AutoCreate"
     And I click the "NextButton" button
     And I wait for "1000" millsecond
-    Then I will see the element "Complete" attribute is "disabled"
+    And I click the "Complete" button
+    Then I will see the error message "API: 没有相关资源权限"
     Then I logout current user
 
     Examples:
@@ -177,14 +179,15 @@ Feature: 权限-报表
     And I wait for loading invisible
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "<function>" button
     When the data name is "{'column':'1','name':'<name>'}" then I "close" the switch
-#    Then I will see the message "禁用成功"
+    Then I will see the message "禁用成功"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "更多" button
     And I click the "Label" button
     And I wait for "TagToInput" will be visible
     And I click the "TagToInput" button
     And I set the parameter "Tag" with value "测试标签"
     And I click the "Ensure" button
-    Then I will see the message "修改成功"
+    #Then I will see the message "修改成功"
+    Then I will see the success message "修改成功"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
     And I wait for "1000" millsecond

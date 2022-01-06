@@ -1,7 +1,7 @@
-@all @timedTask
+@timedTask
 Feature: 定时任务新建
 
-  @startTomorrowTask
+  @startTomorrowTask @timedTaskSmoke
   Scenario: test_schedule_time
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -86,6 +86,7 @@ Feature: 定时任务新建
    | ThisMonth  | thisMonth | 17        |            | 本月        |
    | LastMonth  | lastMonth | 17        |            | 上月        |
 
+  @timedTaskSmoke
   Scenario Outline: date_interval
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -153,7 +154,10 @@ Feature: 定时任务新建
       | crontab_9_930     |  0 0-30/10 9 * * ?    |
       | crontab_mon_fri   | 0 0/15 9 ? * MON-FRI  |
       | crontab_5h        | 0 0 */5 * * ?         |
-      | crontab_57min     | 0 */57 * * * ?        |
+
+    @timedTaskSmoke
+    Examples:
+      | taskName          |   crontab             |
       | crontab_7min      | 0 */7 * * * ?         |
 
   Scenario Outline:  crontab_message_error
@@ -183,6 +187,7 @@ Feature: 定时任务新建
       | test     | test    | crontab格式错误！                   | Message          |
       | test     | 0*      | crontab格式错误！                   | Message          |
 
+  @timedTaskSmoke
   Scenario: schedule_message_error_realtime
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -253,7 +258,6 @@ Feature: 定时任务新建
 
     Examples:
       | time                                      | taskName          |
-      | 2020-06-01 08:00:00 ~ 2020-06-09 08:00:00 | interval_date     |
       | -1M/M ~ now/M                             | lastMonth         |
       | now/M ~ now                               | thisMonth         |
       | -1w/w ~ now/w                             | lastWeek          |
@@ -263,6 +267,11 @@ Feature: 定时任务新建
       | -7d ~ now                                 | recent7d          |
       | -2d ~ now                                 | recent2d          |
       | -1d ~ now                                 | recent1d          |
+
+    @timedTaskSmoke
+    Examples:
+      | time                                      | taskName          |
+      | 2020-06-01 08:00:00 ~ 2020-06-09 08:00:00 | interval_date     |
 
 
 

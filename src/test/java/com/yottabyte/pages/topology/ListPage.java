@@ -19,7 +19,7 @@ public class ListPage extends ListPageFactory {
         super(driver);
     }
 
-    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//div[@class='yotta-select-selection-content']")
+    @FindBy(xpath = "//input[@class='yotta-select-selection-search']")
     private WebElement tag;
 
     @FindBy(xpath = "//span[text()='请输入标签名称']")
@@ -40,9 +40,6 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//span[@class='yotta-select-selection-placeholder']")
     private WebElement tagToInput;
 
-    @FindBy(className = "eZlMl5cMATsyDvx0oXyIl")
-    private WebElement clickUpload;
-
     @FindBy(xpath = "//*[@yotta-test='topology-list_app-select']/div")
     private WebElement belongApp;
 
@@ -50,6 +47,7 @@ public class ListPage extends ListPageFactory {
     private WebElement resourceTag;
 
     @FindBy(className = "yotta-message-content")
+   // @FindBy(className = "yotta-dialog-contenttext")
     private WebElement message;
 
     @FindBy(xpath = "//button[@yotta-test='topology-list_confirm-upload-imng-button']/span")
@@ -87,18 +85,28 @@ public class ListPage extends ListPageFactory {
         return tagInput;
     }
 
-    public WebElement getClickUpload() { return clickUpload; }
+    public WebElement getClickUpload() { return this.getYottaButton("topology-list_upload-img-item-input"); }
 
     public WebElement getNameInput() {
         return getInputElement("名称");
     }
 
     public WebElement getPictureGallary() {
-        return this.getButton("图片库");
+        return this.getYottaButton("topology-list_img-lib-button");
     }
 
+    @FindBy(xpath = "//span[@aria-label='UploadAlternative']")
+    private WebElement upload;
+
+    @FindBy(xpath = "//span[@class='ddea1def741c815a328e60677e364a3b']")
+    private WebElement manager;
+
     public WebElement getUpload() {
-        return this.getButton("上传");
+        return upload;
+    }
+
+    public WebElement getManager() {
+        return manager;
     }
 
     public WebElement getMessage() { return message; }
@@ -107,8 +115,12 @@ public class ListPage extends ListPageFactory {
         return webDriver.findElement(By.xpath("//div[text()='名称：']/following::input"));
     }
 
+    public WebElement getYottaButton(String name){
+        return webDriver.findElement(By.xpath("//*[@yotta-test='" + name + "']"));
+    }
+
     public WebElement getPictureChoose(String name) {
-        return webDriver.findElement(By.xpath("//span[text()='" + name + "']//ancestor::label//input"));
+        return webDriver.findElement(By.xpath("//span[text()='" + name + "']"));
     }
 
     public WebElement getPictureToDelete() { return this.getPictureChoose("delete"); }
@@ -116,6 +128,10 @@ public class ListPage extends ListPageFactory {
     public WebElement getResourceTag() {
         resourceTag.click();
         return super.getLastDropdownList();
+    }
+
+    public WebElement getPictureName() {
+        return webDriver.findElement(By.xpath("//div[text()='smallRobbot']"));
     }
 
     public WebElement getBelongApp() {

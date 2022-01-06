@@ -133,7 +133,7 @@ Feature: 应用知识
     And I will see the element "Title" name is "KnowledgeApp"
     Then I will see the "knowledge.ListPage" page
     When the data name is "知识app" then i click the "标签" button in more menu
-    And I wait for "AutoTag" will be visible
+    And I wait for "LabelInput" will be visible
     And I click the Element with text "请选择或输入"
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "AutoTag"
@@ -184,7 +184,10 @@ Feature: 应用知识
     Then I will see the "app.CreatePage" page
     And I wait for loading invisible
     And I click the "OverallSituation" button
+    And I wait for "1500" millsecond
     And I click the "SaveButton" button
+    Then I wait for "1500" millsecond
+    And I will see the message "更新成功"
 
     Examples:
       | name         |

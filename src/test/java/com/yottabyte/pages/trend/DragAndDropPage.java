@@ -18,7 +18,7 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(id = "spl-chart")
     private WebElement chart;
 
-    @FindBy(xpath = "//span[@aria-label='InfoCircleFilled']/ancestor::div/following-sibling::div/p")
+    @FindBy(xpath = "//div[@yotta-test='dialog-content-dom']")
     private WebElement prompt;
 
     @FindBy(className = "yotta-popover-wrap")
@@ -27,20 +27,17 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(className = "yotta-modal-close-icon")
     private WebElement closeSPL;
 
-    @FindBy(xpath = "(//div[contains(@yotta-test,'dimensions')]//span[@aria-label='ControllSquareFilled'])[1]")
+    @FindBy(xpath = "(//div[contains(@yotta-test,'dimensions')]//span[@aria-label='Controller'])[1]")
     private WebElement elementInDimensions;
 
-    @FindBy(xpath = "(//div[contains(@yotta-test,'values-icon')]//span[@aria-label='ControllSquareFilled'])[1]")
+    @FindBy(xpath = "(//div[contains(@yotta-test,'values-icon')]//span[@aria-label='Controller'])[1]")
     private WebElement elementInValues;
 
-    @FindBy(xpath = "(//div[contains(@yotta-test,'values-icon')]//span[@aria-label='ControllSquareFilled'])[2]")
+    @FindBy(xpath = "(//div[contains(@yotta-test,'values-icon')]//span[@aria-label='Controller'])[2]")
     private WebElement secondElementInValues;
 
-    @FindBy(xpath = "(//div[contains(@yotta-test,'values2')]//span[@aria-label='ControllSquareFilled'])[1]")
+    @FindBy(xpath = "(//div[contains(@yotta-test,'values2')]//span[@aria-label='Controller'])[1]")
     private WebElement elementInValues2;
-
-    @FindBy(xpath = "(//div[contains(@yotta-test,'compareFields')]//span[@aria-label='ControllSquareFilled'])[1]")
-    private WebElement elementInCompare;
 
     @FindBy(xpath = "//i[@title='同环比']")
     private WebElement compareButton;
@@ -88,10 +85,10 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(xpath = "//span[text() = '启用数值2']/preceding-sibling::span")
     private WebElement addValueField;
 
-    @FindBy(xpath = "//span[text()='数值']/following-sibling::span[@aria-label='EditOutlined']")
+    @FindBy(xpath = "//span[text()='数值']/following-sibling::span[@aria-label='Edit']")
     private WebElement editFirstField;
 
-    @FindBy(xpath = "//span[text()='数值2']/following-sibling::span[@aria-label='EditOutlined']")
+    @FindBy(xpath = "//span[text()='数值2']/following-sibling::span[@aria-label='Edit']")
     private WebElement editSecondField;
 
     @FindBy(xpath = "//span[@class='_3TjVnCiCABbodAnOm8kMEf']")
@@ -390,10 +387,6 @@ public class DragAndDropPage extends CreatePage {
         return elementInValues2;
     }
 
-    public WebElement getElementInCompare() {
-        return elementInCompare;
-    }
-
     public WebElement getCompareButton() {
         return compareButton;
     }
@@ -493,6 +486,10 @@ public class DragAndDropPage extends CreatePage {
 
     public WebElement getFontSize() {
         return getYottaInput("trend-BI_param_singleChartFontSize-number_input");
+    }
+
+    public WebElement getUnitFontSize() {
+        return getYottaInput("trend-BI_param_singleUnitFontSize-number_input");
     }
 
     public WebElement getDataset_1() {

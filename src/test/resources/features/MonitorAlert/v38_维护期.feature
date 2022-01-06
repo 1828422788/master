@@ -154,12 +154,13 @@ Feature: 监控维护期
       | reason                         | alert_name                     |
       | 维护期_字段统计_分组事件数status_邮件_每月1-30 | 维护期_字段统计_分组事件数status_邮件_每月1-30 |
 
-  @smoke @alertSmoke
+  @maintain51
   Scenario Outline: 搜索维护期
     And I set the parameter "ReasonNameSearchInput" with value "<reasonName>"
     And I click the "ReasonNameSearchIcon" button
-    And I wait for loading invisible
- #   Then I will see the search result "{'column':'0','name':'<reasonName>'}"
+    Given I wait for loading complete
+    And I wait for "2000" millsecond
+    Then I will see the search result "{'column':'0','name':'<reasonName>'}"
 
     Examples:
       | reasonName                       |

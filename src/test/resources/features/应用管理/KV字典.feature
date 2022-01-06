@@ -58,11 +58,11 @@ Feature: 应用KV字典
     Then I will see the "app.CreatePage" page
     And I click the "AddKVStore" button
     And I set the parameter "KVName" with value "AutoTestForKVStore"
-    And I set the parameter "KVFieldInput" with value "apachecity"
+    And I set the parameter "KVFieldInput1" with value "apachecity"
     And I click the "AddKVField" button
-    And I set the parameter "KVFieldInput" with value "count"
+    And I set the parameter "KVFieldInput2" with value "count"
     And I click the "AddKVField" button
-    And I set the parameter "KVFieldInput" with value "appname"
+    And I set the parameter "KVFieldInput3" with value "appname"
     And I click the "CreateKVStore" button
     And I click the "SaveButton" button under some element
 
@@ -73,7 +73,8 @@ Feature: 应用KV字典
     Then I will see the "app.CreatePage" page
     And I click the "AddKVStore" button
     And I set the parameter "KVName" with value "<name>"
-    And I set the parameter "KVFieldInput" with value "<input>"
+    And I wait for "1000" millsecond
+    And I set the parameter "KVFieldInput1" with value "<input>"
     And I click the "CreateKVStore" button
     Then I will see the element "MessageContent" name is "<message>"
     Then I wait for "5000" millsecond

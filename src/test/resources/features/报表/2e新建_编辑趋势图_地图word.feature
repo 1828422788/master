@@ -1,5 +1,5 @@
 @reportCreateCharts @allReports @reportChartsWORD
-Feature: 报表新建_编辑_地图word
+Feature: 报表_2_5地图word
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"

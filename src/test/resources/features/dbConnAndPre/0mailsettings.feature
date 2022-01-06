@@ -1,4 +1,4 @@
-@setting @autoui01
+@setting @autoui02
 Feature: 配置发送邮箱
 
   Background:

@@ -45,16 +45,13 @@ public class SendPolicyPage extends PageTemplate {
     }
 
     public WebElement getReceiveGroupMemberList() {
-        String xpath = "//label[contains(text(),'发送给谁')]/parent::div/following-sibling::div//span[text()='请选择用户或用户分组']/ancestor::div[@class='yotta-select-selection']";
+        String xpath = "//label[contains(text(),'发送给谁')]/following::span[text()='请选择用户或用户分组']/parent::div";
         return super.getLastDropdownListOnSendPolicyPage(xpath);
-//        WebElement element = webDriver.findElement(By.xpath(xpath));
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-//        ClickEvent.clickUnderneathButton(element);
 //        return getLastDropdownList();
     }
 
     public WebElement getReceiveGroupNonMemberList() {
-        String xpath = "//label[contains(text(),'不发送给谁')]/parent::div/following-sibling::div//span[text()='请选择用户']/ancestor::div[@class='yotta-select-selection']";
+        String xpath = "//label[contains(text(),'不发送给谁')]/parent::div/following-sibling::div//span[text()='请选择用户']/ancestor::div[contains(@class,'yotta-select-selection')]";
         return super.getLastDropdownListOnSendPolicyPage(xpath);
     }
 
@@ -182,17 +179,17 @@ public class SendPolicyPage extends PageTemplate {
     }
 
     public WebElement getTunnelPriorityLevelList() {
-        String xpath = "//span[contains(text(),'优先级')]/following-sibling::div//span[text()='请选择']/ancestor::div[@class='yotta-select-selection']";
+        String xpath = "//span[contains(text(),'优先级')]/following-sibling::div//span[text()='请选择']/parent::div";
         return super.getLastDropdownListOnSendPolicyPage(xpath);
     }
 
     public WebElement getMailReceiverList() {
-        String xpath = "//label[contains(text(),'接收者')]/parent::div/following-sibling::div//span[text()='请选择']/ancestor::div[@class='yotta-select-selection']";
-//        return super.getLastDropdownListOnSendPolicyPage(xpath);
+//        String xpath = "//label[contains(text(),'接收者')]/parent::div/following-sibling::div//span[text()='请选择']/ancestor::div[@class='yotta-select-selection']";
+        String xpath = "//div[@yotta-test='incident-email_account_group-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return super.getLastSendPluginDropdownList();
+        return super.getV40LastDropdownList();
     }
 
     public WebElement getRelatedSendPluginList() {
@@ -231,6 +228,12 @@ public class SendPolicyPage extends PageTemplate {
 
     public WebElement getRetButton() {
         return retButton;
+    }
+
+    @FindBy(xpath = "//div[contains(text(),'发送策略')]/parent::div")
+    private WebElement sendPolicyItem;
+    public WebElement getSendPolicyItem() {
+        return sendPolicyItem;
     }
 
 }

@@ -26,6 +26,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "yotta-select-selection-value")
     private WebElement chartYeQian;
 
+    @FindBy(xpath = "//input[@yotta-test='dashboard-new_dashboard_name-input']")
+    private WebElement dashboardName;
+
     @FindBy(xpath = "//span[text()='30']")
     private WebElement thirtyOnePage;
 
@@ -38,14 +41,14 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//*[@yotta-test='dashboard-new_dashboard_app-select']/div")
     private WebElement belongedApp;
 
-    @FindBy(xpath = "//span[text()='资源标签：']/following-sibling::span//span[@class='yotta-select-selection-placeholder']")
-    private WebElement resourceInput;
+    @FindBy(xpath = "//div[contains(@yotta-test,'resource_tag')]//span[@aria-label]")
+    private WebElement resourceInput; //资源标签
 
-    @FindBy(xpath = "//span[text()='资源标签：']/following-sibling::span//input[@class='yotta-select-selection-search']")
+    @FindBy(xpath = "//div[contains(@yotta-test,'resource_tag')]//input[@class='yotta-select-selection-search']")
     private WebElement resourceTagInput;
 
-    @FindBy(xpath = "//span[text()='数据用户：']/following-sibling::div//span[@class='yotta-select-selection-value']")
-    private WebElement dataUser;
+    @FindBy(xpath = "//div[@yotta-test='dashboard-new_dashboard_user-select']//span[@class='yotta-select-selection-value']")
+    private WebElement dataUser; //数据用户
 
     @FindBy(xpath = "//label[text()='标签']/parent::div/following-sibling::div//*[contains(@class, 'yotta-tag-close')]")
     private WebElement removeDashboardTagIcon;
@@ -82,6 +85,13 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//div[@class='yotta-select-selection-content']")
     private WebElement tagToInput;
+
+    @FindBy(xpath = "//div[contains(@class,'yotta-modal-body')]")
+    private WebElement message;
+
+    public WebElement getMessage() {
+        return message;
+    }
 
     public WebElement getTagToInput() {
         return tagToInput;
@@ -129,7 +139,7 @@ public class ListPage extends ListPageFactory {
     public WebElement getDataUser() { return dataUser; }
 
     public WebElement getDashBoardName() {
-        return this.getInput("名称：");
+        return dashboardName;
     }
 
     public WebElement getResourceInput() {
@@ -138,10 +148,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getResourceTagInput() {
         return resourceTagInput;
-    }
-
-    public WebElement getAppOwningInput() {
-        return this.getInput("所属应用：");
     }
 
     public WebElement getRemoveDashboardTagIcon() {
@@ -195,16 +201,6 @@ public class ListPage extends ListPageFactory {
     private WebElement noResourceTag;
 
     public WebElement getNoResourceTag() { return noResourceTag; }
-
-    @FindBy(xpath = "//span[text()='设为默认']")
-    private WebElement setDefault;
-
-    public WebElement getSetDefault() { return setDefault; }
-
-    @FindBy(xpath = "//span[text()='取消默认']")
-    private WebElement notDefault;
-
-    public WebElement getNotDefault() { return notDefault; }
 
     @FindBy(xpath = "//*[@yotta-test='resource_tag-change_resource_tag-select']//span[@class='yotta-select-selection-placeholder']")
     private WebElement resourceTagChange;

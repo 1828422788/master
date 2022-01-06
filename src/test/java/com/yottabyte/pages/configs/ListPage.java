@@ -43,10 +43,9 @@ public class ListPage extends ListPageFactory {
         return tagInputDiv;
     }
 
-    //    @FindBy(xpath = "//label[text()='标签']/parent::div/following-sibling::div/span//div/input")
+    //@FindBy(xpath = "//label[text()='标签']/parent::div/following-sibling::div/span//div/input")
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//input")
     private WebElement tagInput;
-
 
     //div[@yotta-test='resource_tag-change_resource_tag-select']//span[@class='yotta-select-selection-placeholder']
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//div[@class='yotta-select-selection-content']")
@@ -130,11 +129,11 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getResourceGroupList() {
-//        String xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div";
-//        WebElement element = webDriver.findElement(By.xpath(xpath));
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-//        ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownResourceGroupList();
+        String xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getV40LastDropdownList();
     }
 
     public WebElement getEnsureButton() {
@@ -162,5 +161,28 @@ public class ListPage extends ListPageFactory {
     public WebElement getSearchResultIsEmpty() {
         return searchResultIsEmpty;
     }
+
+    @FindBy(xpath = "//div[@yotta-test='table-filter_tag-select']//span[text()='请选择标签']")
+    private WebElement filterTagDiv;
+    public WebElement getFilterTagDiv(){
+        return filterTagDiv;
+    }
+
+    //@FindBy(xpath = "//label[text()='标签']/parent::div/following-sibling::div/span//div/input")
+    @FindBy(xpath = "//div[@yotta-test='table-filter_tag-select']//input")
+    private WebElement filterTagInput;
+    public WebElement getFilterTagInput(){
+        return filterTagInput;
+    }
+
+    public WebElement getFilterTagSelect()
+    {
+        String xpath = "//div[@yotta-test='table-filter_tag-select']/div";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getV40LastDropdownList();
+    }
+
 
 }

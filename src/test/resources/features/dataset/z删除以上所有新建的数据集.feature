@@ -1,4 +1,4 @@
-@dataset @ddataset
+@clearwin3 @ddataset
 Feature: 数据集-z删除所有
 
   Background:

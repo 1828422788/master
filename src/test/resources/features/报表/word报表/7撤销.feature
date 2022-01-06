@@ -1,5 +1,5 @@
 @reportTextEditor @report
-Feature:报表_富文本编辑_撤销
+Feature:报表_富文本编辑_7_撤销
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"

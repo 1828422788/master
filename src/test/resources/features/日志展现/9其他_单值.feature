@@ -1,5 +1,5 @@
 @all @logDisplay @logDisplayOther
-Feature: 日志展现_其他_单值
+Feature: 日志展现_9其他_单值
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"

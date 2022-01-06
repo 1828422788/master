@@ -20,3 +20,7 @@ Feature: 索引信息删除（RZY-1476）
       | index_data  |
       | index_freez  |
       | index_sink     |
+      | indexnumber1   |
+      | indexnumber    |
+      | indexcompact   |
+      | indexcompact1  |

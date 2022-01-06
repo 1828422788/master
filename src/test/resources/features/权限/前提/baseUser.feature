@@ -9,12 +9,13 @@ Feature: 基础用户创建
     When I set the parameter "UserGroupName" with value "<groupProperty>"
     When I set the parameter "UserGroupDes" with value "<UserGroupDes>"
     And I click the "CreateButton" button
-    Then I wait for "SuccessOfMessage" will be visible
+    Then I wait for "SuccessMessage" will be visible
+    And I will see the element "SuccessMessage" contains "创建成功"
 
     Examples:
-      | groupProperty | UserGroupDes |
-      | AutoTestGroup | des1         |
-      | 验证授权用户分组      | des1         |
+      | groupProperty    | UserGroupDes |
+      | AutoTestGroup    | des1         |
+      | 验证授权用户分组 | des1         |
 
   Scenario Outline: 添加基本用户
     Given open the "users.ListPage" page for uri "/account/users/"

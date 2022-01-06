@@ -74,7 +74,7 @@ Feature: 全链路_2解析规则配置
       | fieldName   | timestamp    | start    | end    | separator   | layernum    |
       | node        | timestamp    | from     | to     | _           | 3           |
 
-  @fulllink_test
+  @fulllinkSmoke
   Scenario Outline: 解析规则配置_确定
     And I choose the "链路解析规则配置" from the "Settings"
     And I wait for "FieldName" will be visible

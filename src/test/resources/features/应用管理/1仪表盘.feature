@@ -138,6 +138,7 @@ Feature: 应用仪表盘
     And I will see the element "Title" name is "DashboardApp"
     Then I will see the "dashboard.ListPage" page
     When I set the parameter "SearchInput" with value "AutoApp"
+    And I wait for "1500" millsecond
     And I click the "Search" button
     And I wait for loading invisible
     Then I will see the search result "AutoApp"
@@ -214,6 +215,7 @@ Feature: 应用仪表盘
     And I will see the element "Title" name is "DashboardApp"
     And I click the "Dashboard" button
     Then I will see the "dashboard.ListPage" page
+    And I wait for "1500" millsecond
     Given the data name is "仪表盘验证无app" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     Then I click the "Ensure" button

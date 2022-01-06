@@ -59,7 +59,7 @@ Feature: 删除合并策略
 
   @delcru @incidentdel
   Scenario Outline: 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则1
-    Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/policy/list/"
+    Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/settings/"
 
     When I set the parameter "CruPolicyNameListSearchInput" with value "<CruxeePolicyName>"
     And I click the "DelCruPolicyNameButton" button

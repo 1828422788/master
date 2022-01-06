@@ -1,5 +1,5 @@
 @reportDownloadTextEditor @report
-Feature: 报表_富文本编辑下载
+Feature: 报表_富文本编辑_9_下载
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
@@ -60,7 +60,7 @@ Feature: 报表_富文本编辑下载
     And I wait for "4000" millsecond
     And I download the latest report to local
     And I wait for "2000" millsecond
-    Then I compare source report file "expect/<name>.pdf" with target report file "<name>.pdf"
+    Then I compare source report file "expect/报表/<name>.pdf" with target report file "<name>.pdf"
 
     Examples:
       |          name                 |

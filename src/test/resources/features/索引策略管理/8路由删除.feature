@@ -12,11 +12,10 @@ Feature: 路由删除（RZY-1482）
     Examples:
       | num | name                 |
       | 3   | AutoCreateForSxcTest |
-      | 3   | AutoUpCase |
+      | 3   | AutoUpCase           |
       | 3   | AutoRule             |
       | 3   | AutoTag              |
       | 3   | AutoAppName          |
+      | 3   | AutoTestForsxc       |
       | 1   | sunxcsize |
-      | 1   | sunxctime |
-      | 1   | AutoTest             |
-
+      | 3   | AutoTest  |

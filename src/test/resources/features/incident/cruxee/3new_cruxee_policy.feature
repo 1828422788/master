@@ -1,16 +1,14 @@
-@cruxee @autoui01
-Feature: 事件管理-合并策略-5个
+@cruxee @autoui02 @newcru
+Feature: 事件管理-合并策略-6个
 
-  @newcru1 @newcru
+  @newcru1
   Scenario Outline: 合并2组_高_字段统计_分组条件name_归并告警数量18条
-    Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/policy/list/"
+    Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/settings/"
     When I click the "CreateCruxeePolicy" button
     And I set the parameter "CruxeePolicyName" with value "<CruxeePolicyName>"
     And I set the parameter "CruxeePolicyDes" with value "UI自动测试"
 
     When I click the "AddAppCondition" button
-#    And I choose the "name" from the "AppConditionFieldslist" in config
-#    And I choose the "like" from the "AppConditionOperatorsList" in config
     And I choose the "name" from the "AppConditionFieldslist"
     And I wait for "2000" millsecond
     And I choose the "like" from the "AppConditionOperatorsList"
@@ -23,6 +21,7 @@ Feature: 事件管理-合并策略-5个
     Given I wait for loading complete
     And I choose the "归并的告警数量" from the "StopConditionNameslist"
     Given I wait for loading complete
+    And I wait for "2000" millsecond
 
     And I set the parameter "StopConditionCruCountInput" with value "18"
 
@@ -38,9 +37,9 @@ Feature: 事件管理-合并策略-5个
       | CruxeePolicyName               | SendPolicyName |
       | 合并2组_高_字段统计_分组条件name_归并告警数量18条 | 邮件_all_20分钟    |
 
-  @newcru2 @newcru
+  @newcru2
   Scenario Outline: 合并2组_高_事件_分组条件alertid_name包含停止或连续6小时
-    Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/policy/list/"
+    Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/settings/"
     When I click the "CreateCruxeePolicy" button
     And I set the parameter "CruxeePolicyName" with value "<CruxeePolicyName>"
     And I set the parameter "CruxeePolicyDes" with value "UI自动测试"
@@ -88,16 +87,14 @@ Feature: 事件管理-合并策略-5个
       | CruxeePolicyName                     | SendPolicyName |
       | 合并2组_高_事件_分组条件alertid_name包含停止或连续6小时 | 邮件_all_20分钟    |
 
-  @newcru3 @newcru
+  @newcru3
   Scenario Outline: 合并1组_低_连续统计_无分组_未收到新告警的时间1小时
-    Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/policy/list/"
+    Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/settings/"
     When I click the "CreateCruxeePolicy" button
     And I set the parameter "CruxeePolicyName" with value "<CruxeePolicyName>"
     And I set the parameter "CruxeePolicyDes" with value "UI自动测试"
 
     When I click the "AddAppCondition" button
-#    And I choose the "name" from the "AppConditionFieldslist" in config
-#    And I choose the "like" from the "AppConditionOperatorsList" in config
     And I choose the "name" from the "AppConditionFieldslist"
     And I wait for "2000" millsecond
     And I choose the "like" from the "AppConditionOperatorsList"
@@ -106,15 +103,12 @@ Feature: 事件管理-合并策略-5个
 
     When I click the "AddStopCondition" button
     And I set the parameter "StopConditionContinuousAlertInput" with value "6"
-#    And I choose the "小时" from the "StopConditionContinuousAlertInputUnitList" in config
     And I choose the "小时" from the "StopConditionContinuousAlertInputUnitList"
     And I wait for "2000" millsecond
 
-#    And I choose the "未收到新告警的时间" from the "StopConditionSecondNameslist" in config
     And I choose the "未收到新告警的时间" from the "StopConditionSecondNameslist"
     And I wait for "2000" millsecond
     And I set the parameter "StopConditionNoAlertTimeInput" with value "360"
-#    And I choose the "分钟" from the "StopConditionNoAlertTimeInputUnitList" in config
     And I choose the "分钟" from the "StopConditionNoAlertTimeInputUnitList"
     And I wait for "2000" millsecond
 
@@ -130,16 +124,14 @@ Feature: 事件管理-合并策略-5个
       | CruxeePolicyName             | SendPolicyName |
       | 合并1组_低_连续统计_无分组_未收到新告警的时间1小时 | 邮件_all_20分钟    |
 
-  @newcru4 @newcru
+  @newcru4
   Scenario Outline: 合并2组_高中_SPL统计_分组条件priority_最后一条告警字段priority低或5小时
-    Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/policy/list/"
+    Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/settings/"
     And I click the "CreateCruxeePolicy" button
     And I set the parameter "CruxeePolicyName" with value "<CruxeePolicyName>"
     And I set the parameter "CruxeePolicyDes" with value "UI自动测试"
 
     When I click the "AddAppCondition" button
-#    And I choose the "name" from the "AppConditionFieldslist" in config
-#    And I choose the "like" from the "AppConditionOperatorsList" in config
     And I choose the "name" from the "AppConditionFieldslist" in config
     And I wait for "2000" millsecond
     And I choose the "like" from the "AppConditionOperatorsList" in config
@@ -147,7 +139,6 @@ Feature: 事件管理-合并策略-5个
     And I set the parameter "AppConditionInput" with value "spl统计"
 
     When I click the "AddGroupCondition" button
-#    And I choose the "priority" from the "GroupConditionFieldslist" in config
     And I choose the "priority" from the "GroupConditionFieldslist" in config
 
     When I click the "AddStopCondition" button
@@ -180,9 +171,9 @@ Feature: 事件管理-合并策略-5个
       | CruxeePolicyName                                 | SendPolicyName |
       | 合并2组_高中_SPL统计_分组条件priority_最后一条告警字段priority低或5小时 | 邮件_all_20分钟    |
 
-  @newcru5 @newcru
+  @newcru5
   Scenario Outline: 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则
-    Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/policy/list/"
+    Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/settings/"
     When I click the "CreateCruxeePolicy" button
     And I set the parameter "CruxeePolicyName" with value "<CruxeePolicyName>"
     And I set the parameter "CruxeePolicyDes" with value "UI自动测试"
@@ -211,13 +202,13 @@ Feature: 事件管理-合并策略-5个
     When I click the "AffirmButton" button
 
     Examples:
-      | CruxeePolicyName | SendP合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则olicyName |
-      |                  | 邮件_all_20分钟                                           |
+      | CruxeePolicyName                        | SendPolicyName |
+      | 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则 | 邮件_all_20分钟    |
 
 
-  @newcru6 @newcru
+  @newcru6
   Scenario Outline: 按name合并_连续不断发送1小时
-    Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/policy/list/"
+    Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/settings/"
     When I click the "CreateCruxeePolicy" button
     And I set the parameter "CruxeePolicyName" with value "<CruxeePolicyName>"
     And I set the parameter "CruxeePolicyDes" with value "UI自动测试"
@@ -228,7 +219,7 @@ Feature: 事件管理-合并策略-5个
     And I wait for "2000" millsecond
     And I choose the "like" from the "AppConditionOperatorsList" in config
     And I wait for "2000" millsecond
-    And I set the parameter "AppConditionInput" with value "api00_incident界面用例"
+    And I set the parameter "AppConditionInput" with value "<AppConditionInputParam>"
 
     #添加分组条件--按name相等
     When I click the "AddGroupCondition" button
@@ -237,13 +228,13 @@ Feature: 事件管理-合并策略-5个
 
     #添加停止条件--(告警连续不断发送超过1小时，未收到新告警时间15秒)
     When I click the "AddStopCondition" button
-    And I set the parameter "StopConditionContinuousAlertInput" with value "1"
-    And I choose the "小时" from the "StopConditionContinuousAlertInputUnitList"
+    And I set the parameter "StopConditionContinuousAlertInput" with value "<StopConditionContinuousAlertInputParam>"
+    And I choose the "分钟" from the "StopConditionContinuousAlertInputUnitList"
     And I wait for "2000" millsecond
 
     And I choose the "未收到新告警的时间" from the "StopConditionSecondNameslist"
     And I wait for "2000" millsecond
-    And I set the parameter "StopConditionNoAlertTimeInput" with value "15"
+    And I set the parameter "StopConditionNoAlertTimeInput" with value "120"
     And I choose the "秒" from the "StopConditionNoAlertTimeInputUnitList"
     And I wait for "2000" millsecond
 
@@ -255,5 +246,6 @@ Feature: 事件管理-合并策略-5个
     When I click the "AffirmButton" button
 
     Examples:
-      | CruxeePolicyName | SendPolicyName |
-      | 事件样例name分组       | 邮件_all_20分钟    |
+      | CruxeePolicyName | AppConditionInputParam | SendPolicyName | StopConditionContinuousAlertInputParam |
+      | 事件样例name分组       | api00_incident界面用例     | 邮件_all_20分钟    | 2       |
+      | api00_all_事件数分组  | api00_all_事件数          | 邮件_all_20分钟    | 10       |

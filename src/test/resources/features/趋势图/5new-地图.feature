@@ -158,7 +158,7 @@ Feature: 趋势图新建_地图
     Examples:
       |chartType| divideField         |  region |caseNum  |   spl   |
       |Regionmap| apache.geo.province |  China  | 2546    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
-      |Regionmap| apache.geo.city     | Jiangsu | 2547    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |Regionmap| apache.geo.city     | Jiangsu | 2547    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city, apache.geo.province |
 
 
   Scenario Outline: regionmap_world_white
@@ -248,7 +248,7 @@ Feature: 趋势图新建_地图
     Examples:
       |chartType| divideField         |  region |caseNum     |   spl   |
       |Regionmap| apache.geo.province |  China  | 2546_white |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
-      |Regionmap| apache.geo.city     | Jiangsu | 2547_white |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |Regionmap| apache.geo.city     | Jiangsu | 2547_white |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city, apache.geo.province |
 
 
   Scenario Outline: heatmap_facet

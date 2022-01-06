@@ -1,5 +1,5 @@
 @reportCreateCharts @allReports
-Feature: 报表新建_编辑_关系
+Feature: 报表_2_3关系
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"

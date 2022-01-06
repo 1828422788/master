@@ -76,7 +76,8 @@ public class SearchPage extends ListPageFactory {
     private WebElement openSavedSearchButton;
 
     public WebElement getSavedSearchList() {
-        String xpath = "//div[@yotta-test='search-search_option-dom']/span/span[@aria-label='PlusDownOutlined']";
+//        String xpath = "//div[@yotta-test='search-search_option-dom']/span/span[@aria-label='PlusDown']";
+        String xpath = "//span[text()='已存搜索']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
@@ -89,6 +90,13 @@ public class SearchPage extends ListPageFactory {
     public WebElement getNewSavedSearch() {
         openSavedSearchButton.click();
         return newSavedSearch;
+    }
+
+    @FindBy(xpath = "//span[@class='events-title']")
+    private WebElement EventsTitle;
+
+    public WebElement getEventsTitle() {
+        return EventsTitle;
     }
 
     @FindBy(xpath = "//div[@class='yotta-tabs-tab-btn']")
@@ -113,7 +121,7 @@ public class SearchPage extends ListPageFactory {
         return chosenSavedSearch;
     }
 
-//    @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")
+    //    @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")
     @FindBy(xpath = "//input[@yotta-test='search-new_savedsearch_name-input']")
     private WebElement savedSearchName;
 
@@ -651,7 +659,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//li[@yotta-test='event_list-event_action-menu_item']/span[text()='AutoTest']")
     private WebElement eventOperatorAutoTest;
 
-  //  @FindBy(xpath = "//span[@class='event-action-field-dropdown']")
+    //  @FindBy(xpath = "//span[@class='event-action-field-dropdown']")
     @FindBy(xpath = "//span[text()='raw_message']")
     private WebElement rawMessage;
 
@@ -1109,7 +1117,7 @@ public class SearchPage extends ListPageFactory {
         return timePanel;
     }
 
-    @FindBy(xpath = "//div[@class='yotta-tabs-content']//span[contains(text(),'搜索无数据')]")
+    @FindBy(xpath = "//div[@class='yotta-tabs-content']//div[contains(text(),'搜索无数据')]")
     private WebElement noDataInfo;
 
     public WebElement getNoDataInfo() {
@@ -1134,7 +1142,8 @@ public class SearchPage extends ListPageFactory {
     }
 
     public WebElement getDocumentTypeList() {
-        String xpath = "//label[contains(text(),'文件类型')]/parent::div/following-sibling::div//div[@class='yotta-select-selection']";
+//      String xpath = "//label[contains(text(),'文件类型')]/parent::div/following-sibling::div//div[@class='yotta-select-selection']";
+        String xpath = "//label[contains(text(),'文件类型')]/parent::div/following::div[@yotta-test='search-download_type-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
@@ -1142,8 +1151,8 @@ public class SearchPage extends ListPageFactory {
     }
 
     public WebElement getDocumentEncodeList() {
-//        String xpath = "//label[contains(text(),'文件编码')]/parent::div/following-sibling::div//div[@class='yotta-select-selection']";
-        String xpath = "//label[contains(text(),'文件编码')]/following::div//div[@class='yotta-select-selection']";
+//      String xpath = "//label[contains(text(),'文件编码')]/parent::div/following-sibling::div//div[@class='yotta-select-selection']";
+        String xpath = "//label[contains(text(),'文件编码')]/following::div[@yotta-test='search-download_code-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
@@ -1155,6 +1164,13 @@ public class SearchPage extends ListPageFactory {
 
     public WebElement getCreateDownloadTask() {
         return createDownloadTask;
+    }
+
+    @FindBy(xpath = "//div[@class='yotta-tabs-nav-list']/div[1]//div[@role='tab']")
+    private WebElement EventNumbers;
+
+    public WebElement getEventNumbers() {
+        return EventNumbers;
     }
 
     public WebElement getAcceptCreateDownloadTask() {
@@ -1202,7 +1218,7 @@ public class SearchPage extends ListPageFactory {
         return ensureList.get(4);
     }
 
-   // @FindBy(xpath = "//label[text()='名称']/ancestor::div[1]/following-sibling::div//input")
+    // @FindBy(xpath = "//label[text()='名称']/ancestor::div[1]/following-sibling::div//input")
     @FindBy(xpath = "//input[@yotta-test='schedule-name-input']")
     private WebElement taskName;
 
@@ -1865,6 +1881,7 @@ public class SearchPage extends ListPageFactory {
     //保存为趋势图成功之后提示弹窗中的确定按钮
     @FindBy(xpath = "//div[@class='minaCXZ5tceRilaw8FVvn']/button")
     private WebElement trendEnsureAfterEnsure;
+
     public WebElement getTrendEnsureAfterEnsure() {
         return super.getButton("确定");
     }
@@ -1921,7 +1938,7 @@ public class SearchPage extends ListPageFactory {
         return splEventRetNum;
     }
 
-    @FindBy(xpath = "//span[contains(@class,'DragFilled')]")
+    @FindBy(xpath = "//span[@yotta-test='search-dataset_resize_handler-dom']")
     private WebElement searchPageSvg;
 
     public WebElement getSearchPageSvg() {
@@ -2191,28 +2208,39 @@ public class SearchPage extends ListPageFactory {
         return modeSearch;
     }
 
-    @FindBy(xpath = "//td[text()='90']")
+    @FindBy(xpath = "//td/div[@yotta-test='search-reduce_detail-dom'][text()='90']")
     private WebElement count90;
 
     public WebElement getCount90() {
         return count90;
     }
 
-    @FindBy(xpath = "//span[text()='归并设置']")
+    @FindBy(xpath = "//td/div[@yotta-test='search-reduce_detail-dom']")
+    private WebElement countBtn;
+
+    public WebElement getCountBtn() {
+        return countBtn;
+    }
+
+    //@FindBy(xpath = "//span[text()='归并设置']")
+    @FindBy(xpath = "//button[@yotta-test='search-reduce_config-button']")
+
     private WebElement mergeSetting;
 
     public WebElement getMergeSetting() {
         return mergeSetting;
     }
 
-    @FindBy(xpath = "//span[text()='归并']")
+    //@FindBy(xpath = "//span[text()='归并']")
+    @FindBy(xpath = "//button[@yotta-test='search-reduce_converge-button']")
     private WebElement mergeBtn;
 
     public WebElement getMergeBtn() {
         return mergeBtn;
     }
 
-    @FindBy(xpath = "//span[text()='后退']")
+    //@FindBy(xpath = "//span[text()='后退']")
+    @FindBy(xpath = "//button[@yotta-test='search-reduce_back-button']")
     private WebElement backoffBtn;
 
     public WebElement getBackoffBtn() {
@@ -2226,7 +2254,8 @@ public class SearchPage extends ListPageFactory {
         return segmentationIcon;
     }
 
-    @FindBy(xpath = "//span[text()='层级']")
+//    @FindBy(xpath = "//span[text()='层级']")
+    @FindBy(xpath = "//div[text()='层级']")
     private WebElement hierarchy;
 
     public WebElement getHierarchy() {
@@ -2302,4 +2331,34 @@ public class SearchPage extends ListPageFactory {
     public WebElement getDelete() {
         return delete;
     }
+
+    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
+    private WebElement savedSearchInput;
+
+    public WebElement getSavedSearchInput() {
+        return savedSearchInput;
+    }
+
+    public WebElement getResourceGroupList() {
+        String xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getV40LastDropdownList();
+    }
+
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div")
+    private WebElement resourceTagDiv;
+
+    public WebElement getResourceTagDiv() {
+        return resourceTagDiv;
+    }
+
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//input")
+    private WebElement resourceTagInput;
+
+    public WebElement getResourceTagInput() {
+        return resourceTagInput;
+    }
+
 }

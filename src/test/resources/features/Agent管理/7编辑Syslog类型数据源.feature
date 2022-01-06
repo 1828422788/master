@@ -105,8 +105,7 @@ Feature: Agent编辑Syslog类型数据源
     And I set the parameter "SyslogEditappname" with value "<appnamekind>"
     And I wait for loading invisible
     And I click the "Ensure" button
-    Then I will see the element "PreviewMessage1" name is "请以字母或数字下划线为元素"
-
+    Then I will see the element "PreviewMessage2" name is "请以字母或数字下划线为元素"
 
     Examples:
       | appnamekind |
@@ -121,7 +120,6 @@ Feature: Agent编辑Syslog类型数据源
     And I wait for "ChangeMemo" will be visible
 #    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
-
     Examples:
       | tagkind |
       |   changesyslogtag    |
@@ -133,8 +131,7 @@ Feature: Agent编辑Syslog类型数据源
     And I set the parameter "SyslogEdittag" with value "<tagkind>"
     And I wait for loading invisible
     And I click the "Ensure" button
-    Then I will see the element value in json "{'PreviewMessage1':'请以字母、数字、中文或下划线为元素,tags 之间可用 "," 分隔。'}"
-
+    Then I will see the element value in json "{'PreviewMessage3':'请以字母、数字、中文或下划线为元素,tags 之间可用 "," 分隔。'}"
 
     Examples:
       | tagkind |

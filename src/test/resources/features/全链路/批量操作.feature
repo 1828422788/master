@@ -27,8 +27,10 @@ Feature: 全链路_批量操作
     And I click the "SelectBatchOperation" button under some element
     And I click the "AddResourceTags" button
     And I wait for "Ensure" will be visible
+    And I wait for "TagToInput" will be visible
+    And I click the "TagToInput" button
+    And I set the parameter "Tag" with value "auto_package"
     And I choose the "auto_package" from the "TagField" in config
-    And I click the "TagPanel" button
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"

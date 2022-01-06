@@ -1,5 +1,5 @@
 @report @allReports @tagReport
-Feature: 报表标签
+Feature: 报表_5_标签
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
@@ -38,14 +38,15 @@ Feature: 报表标签
     Then I will see the message "修改成功"
     And I click the "Ensure" button
     And I refresh the website
-
+    Then I will see the "report.ListPage" page
     And I wait for "Loading" will be invisible
     And the data name is "{'column':'1','name':'Test_Tag'}" then I "expand" the item
     And I will see the element "TagOfTheLastItem" contains "auto_package"
     And I will see the element "AppOfTheLastItem" contains "test_app"
 
   Scenario: global_tag_app
-    When I choose the "auto_package" from the "ResourceDropdown"
+    When I set the parameter "GlobalTagInput" with value "auto_package"
+    And I choose the "auto_package" from the "TagDropdown"
     And I click the "HideElement" button
     And I wait for "Loading" will be invisible
     And I choose the "test_app" from the "AppDropdown"

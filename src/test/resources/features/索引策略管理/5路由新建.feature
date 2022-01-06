@@ -5,7 +5,7 @@ Feature: 路由新建（RZY-1481）
     Given open the "index.ListPage" page for uri "/indexmatchrules/"
 
   @second
-  Scenario Outline: RZY-1481:新建-路由规则
+  Scenario Outline: RZY-1481:新建-路由规则-iisidx索引
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
     And I wait for loading invisible
@@ -31,7 +31,7 @@ Feature: 路由新建（RZY-1481）
       | iis     |     |      | 保存失败 |
 
   @second @indexSettingSmoke
-  Scenario: RZY-2437:新建路由配置-路由规则_sample
+  Scenario: RZY-2437:新建路由配置-路由规则_sample_yotta索引
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
     And I set the parameter "Desc" with value "AutoCreateForSxcTest"
@@ -39,3 +39,40 @@ Feature: 路由新建（RZY-1481）
     And I set the parameter "AppName" with value "sunxctest"
     And I click the "CreateButton" button
     And I will see the success message "保存成功"
+
+  @second @indexSettingSmoke
+  Scenario Outline: 上传日志
+    When open the "localUpload.ListPage" page for uri "/sources/input/os/"
+    And I set the parameter "AppName" with value "<appname>"
+    And I set the parameter "Tag" with value "<tag>"
+    And I upload a file with name "/src/test/resources/testdata/log/apache_10.txt"
+    And I click the "UploadButton" button
+    And I wait for element "VerifyText" change text to "上传完成"
+
+    Examples:
+    |  appname       |   tag          |
+    |  sunxctest     |   sunxctest    |
+    |  iis           |   iis          |
+
+
+
+  @second @indexSettingSmoke
+  Scenario Outline: 验证索引数据搜索结果
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "1000" millsecond
+    And I click the "DateEditor" button
+    And I click the "WholeTime" button
+    And I wait for "1000" millsecond
+    And I click the "SearchButton" button
+    And I wait for element "EventsTitle" change text to "事件列表"
+    And I wait for "2000" millsecond
+    And I wait for element "EventNumbers" change text to "事件(10)"
+
+    Examples:
+      | spl                                              |
+      | appname:sunxctest                                |
+      | index=iisidx * AND appname:iis                    |
+      | index=sunxctime * AND appname:sunxctime           |
+
+

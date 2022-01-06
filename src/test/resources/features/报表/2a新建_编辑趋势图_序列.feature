@@ -1,5 +1,5 @@
 @reportCreateCharts @allReports
-Feature: 报表新建_编辑_序列
+Feature: 报表_2_1序列
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"

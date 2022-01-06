@@ -10,37 +10,37 @@ Feature: 应用路由管理
     And I will see the element "Title" name is "AutoTestAppWithAllResources"
     Then I will see the "index.ListPage" page
 
-  Scenario: 新建topic配置
-    When I click the "Topic" button
-    And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "AutoTestAppWithAllResources"
-    Then I will see the "index.TopicSetting" page
-    When I click the "CreateButton" button
-    And I set the parameter "Name" with value "AutoApp"
-    And I click the "EnsureButton" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "创建成功"
+#  Scenario: 新建topic配置
+#    When I click the "Topic" button
+#    And I will see the "app.AppPage" page
+#    And I will see the element "Title" name is "AutoTestAppWithAllResources"
+#    Then I will see the "index.TopicSetting" page
+#    When I click the "CreateButton" button
+#    And I set the parameter "Name" with value "AutoApp"
+#    And I click the "EnsureButton" button
+#    And I wait for "SuccessMessage" will be visible
+#    Then I will see the success message "创建成功"
 
-  Scenario: 编辑topic
-    When I click the "Topic" button
-    And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "AutoTestAppWithAllResources"
-    Then I will see the "index.TopicSetting" page
-    When the data name is "AutoApp" then i click the "编辑" button
-    And I set the parameter "Describe" with value "app测试"
-    And I click the "EnsureButton" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "更新成功"
+#  Scenario: 编辑topic
+#    When I click the "Topic" button
+#    And I will see the "app.AppPage" page
+#    And I will see the element "Title" name is "AutoTestAppWithAllResources"
+#    Then I will see the "index.TopicSetting" page
+#    When the data name is "AutoApp" then i click the "编辑" button
+#    And I set the parameter "Describe" with value "app测试"
+#    And I click the "EnsureButton" button
+#    And I wait for "SuccessMessage" will be visible
+#    Then I will see the success message "更新成功"
 
-  Scenario: 删除topic
-    When I click the "Topic" button
-    And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "AutoTestAppWithAllResources"
-    Then I will see the "index.TopicSetting" page
-    When the data name is "AutoApp" then i click the "删除" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    Then I wait for element "SuccessMessage" change text to "删除成功"
+#  Scenario: 删除topic
+#    When I click the "Topic" button
+#    And I will see the "app.AppPage" page
+#    And I will see the element "Title" name is "AutoTestAppWithAllResources"
+#    Then I will see the "index.TopicSetting" page
+#    When the data name is "AutoApp" then i click the "删除" button
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button
+#    Then I wait for element "SuccessMessage" change text to "删除成功"
 
   Scenario: 路由新建
     When I click the "AddButton" button
@@ -70,7 +70,7 @@ Feature: 应用路由管理
     Then I wait for element "SuccessMessage" change text to "删除成功"
 
   Scenario: 验证返回列表页不跳出app
-    When I click the "Topic" button
+    When I click the "AddButton" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AutoTestAppWithAllResources"
     Then I will see the "index.TopicSetting" page

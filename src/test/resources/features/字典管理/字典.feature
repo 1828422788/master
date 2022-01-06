@@ -26,12 +26,13 @@ Feature: 字典管理
       | dictionaryNameWithOutCsv | dictionaryName    | totalItem | editOnlineArea                                                                                         |
       | wymtestcreate            | wymtestcreate.csv | 共 1 条     | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
 
-
   @tc4136_1 @dict2
-  Scenario Outline: RZY-4136新建字典
+  Scenario Outline: RZY-4136_1验证新建字典
     Given I wait for loading complete
-#    Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
+    And I wait for "2000" millsecond
+    Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
     Given I wait for loading complete
+    And I wait for "2000" millsecond
     Then I will see the "TotalItem" result will be "<totalItem>"
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
@@ -186,8 +187,7 @@ Feature: 字典管理
     Then I will see the "dictionary.CreatePage" page
     Given I wait for loading complete
 #    Then I click the "EditOnline" button
-#    Then I will see the element "EditOnlineArea" value is "<editOnlineArea>"
-    And I will see the last line "bubble.test^archiver.process.fds" is display
+    Then I will see the element "EditOnlineArea" value is "<editOnlineArea>"
     And I click the "Next" button
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
 
