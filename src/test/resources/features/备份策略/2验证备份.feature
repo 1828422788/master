@@ -4,7 +4,6 @@ Feature: 验证备份数据
   Background:
     Given open the "backup.ListPage" page for uri "/backup/"
 
-  @backupSmoke
   Scenario Outline: 上传要备份的数据
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "<name>"
