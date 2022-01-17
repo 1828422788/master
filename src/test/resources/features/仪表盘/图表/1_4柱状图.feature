@@ -1,7 +1,6 @@
 @dashboard1_4 @dashboardChart
 Feature: 仪表盘_1_4_柱状图
 
-  @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -15,7 +14,6 @@ Feature: 仪表盘_1_4_柱状图
       | name   |
       | 仪表盘柱状图 |
 
-  @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -37,7 +35,6 @@ Feature: 仪表盘_1_4_柱状图
       | spl                                                              | name   |
       | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len | 仪表盘柱状图 |
 
-  @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -54,7 +51,6 @@ Feature: 仪表盘_1_4_柱状图
       | name |
       | 柱状图  |
 
-  @dashboardSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -78,7 +74,6 @@ Feature: 仪表盘_1_4_柱状图
       | name   |
       | 仪表盘柱状图 |
 
-  @dashboardSmoke
   Scenario Outline: 修改为柱状图 RZY-303
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -199,7 +194,7 @@ Feature: 仪表盘_1_4_柱状图
     And I wait for "3000" millsecond
     And I click the Circle "Zhutiao2" button
     And switch to another window
-#    And I close all tabs except main tab
+    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.clientip:36.46.208.22"
     And I wait for "2000" millsecond
@@ -229,7 +224,7 @@ Feature: 仪表盘_1_4_柱状图
     And I wait for "3000" millsecond
     And I click the Circle "Zhutiao" button
     And switch to another window
-#    And I close all tabs except main tab
+    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_display | stats count() by appname"
     And I wait for "2000" millsecond

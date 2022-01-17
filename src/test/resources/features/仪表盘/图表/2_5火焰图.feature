@@ -1,7 +1,6 @@
 @dashboard2_5 @dashboardChart
 Feature: 仪表盘_2_5_火焰图
 
-  @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -15,7 +14,6 @@ Feature: 仪表盘_2_5_火焰图
       | name    |
       | 仪表盘火焰图 |
 
-  @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -32,7 +30,6 @@ Feature: 仪表盘_2_5_火焰图
       | name |
       | 火焰图 |
 
-  @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -56,7 +53,6 @@ Feature: 仪表盘_2_5_火焰图
       |   spl                                                                                                                                                                                                                                                                                  | name    |
       | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND (apache.status:200) AND NOT (apache.geo.city:黔东南苗族侗族自治州) AND NOT (apache.geo.city:南京市)   \| stats count() as cnt by apache.method, apache.status, apache.geo.province, apache.geo.city \| sort by apache.method, apache.status, apache.geo.province, apache.geo.city | 仪表盘火焰图 |
 
-  @dashboardSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -80,7 +76,6 @@ Feature: 仪表盘_2_5_火焰图
       | name    |
       | 仪表盘火焰图 |
 
-  @dashboardSmoke
   Scenario Outline: 修改为火焰图 RZY-4901
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -121,7 +116,6 @@ Feature: 仪表盘_2_5_火焰图
       | name    |
       | 仪表盘火焰图 |
 
-  @dashboardSmoke
   Scenario Outline: 火焰图操作 RZY-4902
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

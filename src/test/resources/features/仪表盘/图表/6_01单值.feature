@@ -1,7 +1,7 @@
 @dashboard6_01 @dashboardChart
 Feature: 仪表盘_6_01_单值
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -15,7 +15,7 @@ Feature: 仪表盘_6_01_单值
       | name  |
       | 仪表盘单值 |
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -37,7 +37,7 @@ Feature: 仪表盘_6_01_单值
       | spl                                                                                                | name  |
       | tag:sample04061424_display \| stats avg(apache.status) as a_\|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\") | 仪表盘单值 |
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -54,7 +54,7 @@ Feature: 仪表盘_6_01_单值
       | name |
       | 单值   |
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -78,7 +78,7 @@ Feature: 仪表盘_6_01_单值
       | name   |
       | 仪表盘单值 |
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario: 修改为单值 RZY-342
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -113,7 +113,7 @@ Feature: 仪表盘_6_01_单值
     And I click the "TrendTitle" button under some element
     And I wait for "3000" millsecond
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3737
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -131,7 +131,7 @@ Feature: 仪表盘_6_01_单值
       | name    | json                                                                                                                                                                                                                                                                                                                                                                                           |
       | 仪表盘单值 |   "chart": {\n    "chartType": "single",\n    "field": "a_",\n    "fontSize": "50",\n    "unitFontSize": "36",\n    "precision": "3",\n    "useThousandSeparators": true,\n    "unit": "个",\n    "unitPosition": "after",\n    "displayField": "icon",\n    "subtitle": "",\n    "useSparkline": false,\n    "sparklineXAxisField": "",\n    "singleFieldDisplayType": "default",\n    "singleChartIcon": "none",\n    "displayMode": "default",\n    "color": "#5C9DF5",\n    "colorFillingMode": "font",\n    "liveRefreshMode": false\n |
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario: 单值图的千分隔符
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -161,7 +161,7 @@ Feature: 仪表盘_6_01_单值
     Then I will see the "DashboardSingleValue" result will contain ","
 #    Then I will see the "TextLayer" result will be "<json>"
 
-  @dashboardSmoke
+
   Scenario Outline: 验证单值图的fontSize RZY-1345,RZY-1346,RZY-1347,RZY-1348,RZY-1349
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -178,15 +178,19 @@ Feature: 仪表盘_6_01_单值
     And I will see the element "<status>" contains "<message>"
 #    Then I wait for element "<status>" change text to "<message>"
 
+    @dashboardChartSmoke
     Examples:
       | fontSize | status         | message                                       |
       | 0        | ErrorMessage   | chart -> fontSize -> 展示字体值的有效范围为 14 ～ 1000 px |
-      | 13       | ErrorMessage   | chart -> fontSize -> 展示字体值的有效范围为 14 ～ 1000 px |
-      | 1001     | ErrorMessage   | chart -> fontSize -> 展示字体值的有效范围为 14 ～ 1000 px |
       | 1000     | SuccessMessage | 校验通过                                          |
       | 14       | SuccessMessage | 校验通过                                          |
 
-  @dashboardSmoke
+    Examples:
+      | fontSize | status         | message                                       |
+      | 13       | ErrorMessage   | chart -> fontSize -> 展示字体值的有效范围为 14 ～ 1000 px |
+      | 1001     | ErrorMessage   | chart -> fontSize -> 展示字体值的有效范围为 14 ～ 1000 px |
+
+  @dashboardChartSmoke
   Scenario Outline: 验证单值图的color RZY-1350,RZY-1351
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -209,7 +213,6 @@ Feature: 仪表盘_6_01_单值
       |       | ErrorMessage   | chart -> color 字段值不能为空 |
       | 1     | SuccessMessage | 校验通过                  |
 
-  @dashboardSmoke
   Scenario Outline: 验证单值图的展示字段
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -231,7 +234,7 @@ Feature: 仪表盘_6_01_单值
       | status       | message                       |
       | ErrorMessage | chart -> comparsionTime 字段为必填项 |
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: 单值图按趋势展示
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -252,7 +255,7 @@ Feature: 仪表盘_6_01_单值
       | message                              |
       | chart -> useThousandSeparators 字段为必填项 |
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: 单值图按区间展示
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -276,7 +279,7 @@ Feature: 仪表盘_6_01_单值
 
     ###########
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario: 恢复至初始 RZY-296,RZY-3391
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -293,7 +296,7 @@ Feature: 仪表盘_6_01_单值
     And I wait for "Progress" will be invisible
     Then I wait for "Table" will be visible
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario: 时间范围选择 RZY-3392
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -308,7 +311,6 @@ Feature: 仪表盘_6_01_单值
     And I wait for loading invisible
     Then I wait for element "TimeRangeDanzhi" change text to "最近7天"
 
-  @dashboardSmoke
   Scenario Outline: RZY-3694修改表格chartType
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -332,7 +334,7 @@ Feature: 仪表盘_6_01_单值
       | pie          | chart -> field 字段为必填项          |
       | hello        | chart -> chartType 字段值不支持hello |
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: 图标-按字段 RZY-3741
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -361,7 +363,6 @@ Feature: 仪表盘_6_01_单值
       | singleChartIcon |   image            |
       |   field         |   单值_图标-按字段    |
 
-  @dashboardSmoke
   Scenario Outline: 图标-按名称 RZY-3742
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -390,7 +391,6 @@ Feature: 仪表盘_6_01_单值
       | singleChartIcon |   image            |
       |   fixed         |   单值_图标-按名称    |
 
-  @dashboardSmoke
   Scenario Outline: 图标-无 RZY-3743
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -419,7 +419,7 @@ Feature: 仪表盘_6_01_单值
       | singleChartIcon |   image            |
       |   none          |   单值_图标-无       |
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: 默认只改为trending RZY-3745
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -441,7 +441,7 @@ Feature: 仪表盘_6_01_单值
       | displayMode |  ErrorMessage                      |
       |   trending  |  chart -> comparsionTime 字段为必填项 |
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: 默认-color RZY-3745
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -471,7 +471,6 @@ Feature: 仪表盘_6_01_单值
       | color   |  image           |
       | #FFEB3B |  单值_默认_color  |
 
-  @dashboardSmoke
   Scenario Outline: 默认-colorFillingMode-background RZY-3745
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -500,7 +499,6 @@ Feature: 仪表盘_6_01_单值
       | colorFillingMode |   image                    |
       |   background     |  单值_默认_colorFillingMode  |
 
-  @dashboardSmoke
   Scenario Outline: 默认-liveRefreshMode-true RZY-3745
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -533,7 +531,6 @@ Feature: 仪表盘_6_01_单值
       | liveRefreshMode |
       |   true          |
 
-  @dashboardSmoke
   Scenario: 按趋势 RZY-3746
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -562,7 +559,6 @@ Feature: 仪表盘_6_01_单值
     Then I will see the element "TimeForRatio" value is "一周前"
     Then I will see the checkbox in auth which name is "百分比" and status is "checked"
 
-  @dashboardSmoke
   Scenario Outline: 按趋势只改为ranging RZY-3746
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -584,7 +580,6 @@ Feature: 仪表盘_6_01_单值
       | displayMode |  ErrorMessage                       |
       |   ranging  |  chart -> colorFillingMode 字段为必填项 |
 
-  @dashboardSmoke
   Scenario Outline: 按趋势-comparsionTime&comparsionMode RZY-3746
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -618,7 +613,6 @@ Feature: 仪表盘_6_01_单值
       | comparsionTime |  comparsionMode   |
       |       -1d      |     absolute      |
 
-  @dashboardSmoke
   Scenario: 按区间 RZY-3747
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -647,7 +641,6 @@ Feature: 仪表盘_6_01_单值
     Then take part of "SingleValueExhibition" with name "actual/单值_按区间_展示"
 #    And I compare source image "actual/单值_按区间_展示" with target image "expect/单值_按区间_展示"
 
-  @dashboardSmoke
   Scenario Outline: 按区间-from-to RZY-3747
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -671,7 +664,7 @@ Feature: 仪表盘_6_01_单值
       |   ranging    | 10000  | 1  |  chart -> colorRanges -> 颜色范围区间结束值需要大于开始值 |
       |   ranging    |        |    |  chart -> from 字段值不能为空                  |
 
-  @dashboardSmoke
+  
   Scenario: 单值 RZY-310
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

@@ -1,10 +1,11 @@
 @topology @all
-Feature: 拓扑图新建（RZY-346至348）
+Feature: 拓扑图新建
 
   Background:
     Given open the "topology.ListPage" page for uri "/topology/"
 
-  Scenario Outline: 成功新建拓扑图（RZY-346）
+  @topologySmoke
+  Scenario Outline: 成功新建拓扑图
     When I click the "Create" button
     And I set the parameter "NameInput" with value "<name>"
     And I click the "TagInput" button
@@ -15,6 +16,7 @@ Feature: 拓扑图新建（RZY-346至348）
       | name        | Type             |
       | 拓扑图AutoTest | test |
 
+  @topologySmoke
   Scenario Outline: 新建拓扑图（不包含标签）
     When I click the "Create" button
     And I set the parameter "NameInput" with value "<name>"

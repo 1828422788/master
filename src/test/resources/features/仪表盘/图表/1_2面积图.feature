@@ -1,7 +1,6 @@
 @dashboard1_2 @dashboardChart
 Feature: 仪表盘_1_2_面积图
 
-  @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -15,7 +14,6 @@ Feature: 仪表盘_1_2_面积图
       | name   |
       | 仪表盘面积图 |
 
-  @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -39,7 +37,6 @@ Feature: 仪表盘_1_2_面积图
       | spl                                                                                                                    | name   |
       | tag:sample04061424_display \| bucket timestamp span=30m as ts \| stats count() as cnt by apache.status,ts \| sort by cnt \| limit 20 | 仪表盘面积图 |
 
-  @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -56,7 +53,6 @@ Feature: 仪表盘_1_2_面积图
       | name |
       | 面积图  |
 
-  @dashboardSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -80,7 +76,6 @@ Feature: 仪表盘_1_2_面积图
       | name   |
       | 仪表盘面积图 |
 
-  @dashboardSmoke
   Scenario Outline: 修改为面积图 RZY-302
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

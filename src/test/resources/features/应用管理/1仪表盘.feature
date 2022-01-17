@@ -1,6 +1,7 @@
-@app @appSmoke
+@app
 Feature: 应用仪表盘
 
+  @appSmoke
   Scenario Outline: 新建单个资源app
     Given open the "app.ListPage" page for uri "/app/list/"
     And I click the "CreateButton" button
@@ -29,6 +30,7 @@ Feature: 应用仪表盘
       | name         | menuName | url         | color   |
       | DashboardApp | 仪表盘      | /dashboard/ | #C6B8FF |
 
+  @appSmoke
   Scenario Outline: 安装资源成功
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for "CreateButton" will be visible
@@ -70,6 +72,7 @@ Feature: 应用仪表盘
       | name         |
       | DashboardApp |
 
+  @appSmoke
   Scenario: 新建仪表盘
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
@@ -112,6 +115,7 @@ Feature: 应用仪表盘
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
+  @appSmoke
   Scenario: 在app外新建无应用的仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -133,7 +137,6 @@ Feature: 应用仪表盘
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
     When  I click the detail which name is "DashboardApp"
-    #When the data name is "DashboardApp" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "DashboardApp"
     Then I will see the "dashboard.ListPage" page
@@ -195,7 +198,8 @@ Feature: 应用仪表盘
       | 仪表盘验证App |
       | 仪表盘重命名   |
 
-  Scenario Outline: 修改app资源范围---bug
+  @appSmoke
+  Scenario Outline: 修改app资源范围
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "<name>" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
@@ -207,7 +211,8 @@ Feature: 应用仪表盘
       | name         |
       | DashboardApp |
 
-  Scenario: 验证资源范围修改成功并删除app外资源---bug
+  @appSmoke
+  Scenario: 验证资源范围修改成功并删除app外资源
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
     When  I click the detail which name is "DashboardApp"

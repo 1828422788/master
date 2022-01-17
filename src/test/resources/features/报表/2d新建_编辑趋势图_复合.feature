@@ -7,9 +7,9 @@ Feature: 报表_2_4复合
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
-    And I set the parameters "Hour" and "Minute" as "5" minutes later from now
+    And I set the parameters "Hour" and "Minute" as "4" minutes later from now
 
-  Scenario Outline: new_report_trend_rangeline
+  Scenario Outline: 区间图
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -55,7 +55,7 @@ Feature: 报表_2_4复合
       |  reportType |   typeChart    |  name      |
       |  EXCEL      | Rangeline      | Rangeline  |
 
-  Scenario Outline: new_report_trend_multiaxis
+  Scenario Outline: 多y轴图1
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -127,7 +127,7 @@ Feature: 报表_2_4复合
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
-    @report @reportChartsPDF
+    @report @reportChartsPDF @reportSmoke
     Examples:
       |  reportType |   typeChart    |  name      |
       |  PDF        | Multiaxis      | Multiaxis  |
@@ -137,7 +137,7 @@ Feature: 报表_2_4复合
       |  reportType |   typeChart    |  name      |
       |  EXCEL      | Multiaxis      | Multiaxis  |
 
-  Scenario Outline: new_report_trend_multiaxis_2
+  Scenario Outline: 多y轴图2
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element

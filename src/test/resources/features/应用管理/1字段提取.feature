@@ -1,6 +1,7 @@
-@app @appSmoke
+@app
 Feature: 应用字段提取（RZY-2129）
 
+  @appSmoke
   Scenario Outline: 新建单个资源app
     Given open the "app.ListPage" page for uri "/app/list/"
     And I click the "CreateButton" button
@@ -33,6 +34,7 @@ Feature: 应用字段提取（RZY-2129）
       | name       | menuName | url       | color   |
       | ConfigsApp | 字段提取     | /configs/ | #0542F9 |
 
+  @appSmoke
   Scenario Outline: 安装资源成功
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for "CreateButton" will be visible
@@ -73,6 +75,7 @@ Feature: 应用字段提取（RZY-2129）
       | name       |
       | ConfigsApp |
 
+  @appSmoke
   Scenario: 新建字段提取
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible

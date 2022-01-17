@@ -1,6 +1,7 @@
-@app @appSmoke
+@app
 Feature: 应用报表（RZY-2127）
 
+  @appSmoke
   Scenario Outline: 新建单个资源app
     Given open the "app.ListPage" page for uri "/app/list/"
     And I click the "CreateButton" button
@@ -29,6 +30,7 @@ Feature: 应用报表（RZY-2127）
       | name      | menuName | url       | color   |
       | ReportApp | 报表       | /reports/ | #84460B |
 
+  @appSmoke
   Scenario Outline: 安装资源成功
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for "CreateButton" will be visible

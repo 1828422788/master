@@ -1,4 +1,4 @@
-@dashboard
+@dashboard @dashboardSmoke
 Feature: 仪表盘06设为/取消默认（RZY-211）
 
   Background:

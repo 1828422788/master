@@ -2,7 +2,7 @@
 Feature: 定时任务新建
 
   @startTomorrowTask @timedTaskSmoke
-  Scenario: test_schedule_time
+  Scenario: 明天开始的定时任务
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart  | stats count()"
@@ -47,7 +47,7 @@ Feature: 定时任务新建
     And I wait for "Loading" will be invisible
     Then I will see the data "{'column':'1','name':'Test_StartTomorrow'}" values "{'column':'3','name':'-'}"
 
-  Scenario Outline: sample(RZY-396,397,403,404,2695,2696,2698)
+  Scenario Outline: 新建定时任务(RZY-396,397,403,404,2695,2696,2698)
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt>1000000,1,0)"
@@ -87,7 +87,7 @@ Feature: 定时任务新建
    | LastMonth  | lastMonth | 17        |            | 上月        |
 
   @timedTaskSmoke
-  Scenario Outline: date_interval
+  Scenario Outline: 新建定时任务_自定义时间范围
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>1000000,1,0)"
@@ -126,7 +126,7 @@ Feature: 定时任务新建
       | taskName      | start_d     | end_d       | periodNum |
       | interval_date | 2020-06-01  | 2020-06-09  | 5         |
 
-  Scenario Outline: sample_crontab(RZY-2699,2700,2702,2703,2704,2705)
+  Scenario Outline: 新建定时任务_crontab(RZY-2699,2700,2702,2703,2704,2705)
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts"
@@ -160,7 +160,7 @@ Feature: 定时任务新建
       | taskName          |   crontab             |
       | crontab_7min      | 0 */7 * * * ?         |
 
-  Scenario Outline:  crontab_message_error
+  Scenario Outline:  crontab_检查提示
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "tag:* \| stats count() by tag"
@@ -188,7 +188,7 @@ Feature: 定时任务新建
       | test     | 0*      | crontab格式错误！                   | Message          |
 
   @timedTaskSmoke
-  Scenario: schedule_message_error_realtime
+  Scenario: 实时窗口
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "* | stats count()"
@@ -199,7 +199,7 @@ Feature: 定时任务新建
     Then I click the "SaveAsOther" button
     And I will see the "TimedTask" doesn't exist
 
-  Scenario Outline: schedule_message_error
+  Scenario Outline: 检查提示1
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "tag:* \| stats count() by tag"
@@ -228,7 +228,7 @@ Feature: 定时任务新建
       | test | test   | 定时模式下, 时间间隔应该为正整数  |
       | test | 1      | 请输入正确的时间格式：HH:mm:ss    |
 
-  Scenario: schedule_name_space
+  Scenario: 检查提示2
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "tag:* \| stats count() by tag"
@@ -247,7 +247,7 @@ Feature: 定时任务新建
     And I wait for "TipText" will be visible
     And I will see the element "TipText" contains "名称 不能为空"
 
-  Scenario Outline: sample_timeperiod(RZY-396,397,403,404,2695,2696,2698)
+  Scenario Outline: 定时任务_检查时间范围(RZY-396,397,403,404,2695,2696,2698)
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
     And I set the parameter "SearchInput" with value "<taskName>"

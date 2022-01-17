@@ -8,7 +8,7 @@ Feature: 趋势图_拖拽_timechart
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
 
-  Scenario Outline: drag_and_drop_timechart
+  Scenario Outline: timechart
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
     And I click the "DateEditor" button under some element
     And I click the "Today" button
@@ -98,4 +98,8 @@ Feature: 趋势图_拖拽_timechart
       |  Line      | 1h    |  20m     | 24   | 环比          | 环比      |Smooth           |  个  | 0.5 | 80  | Orange | starttime="now/d" endtime="now" tag:sample04061424_chart \| timechart span=1h minspan=20m bins=24 count(apache.clientip)\| eval hour=formatdate(_time, "dd-hh")\| eval _compare="当前" \| append [[ starttime="now/d-1d" endtime="now-1d" tag:sample04061424_chart \| timechart span=1h minspan=20m bins=24 count(apache.clientip)\| eval hour=formatdate(_time, "dd-hh")\| eval _compare="环比" ]] |
       |  Area      | 20m   |          |      | 上周同比值    | 同比一周  |ConnectEmptyData | pcs. |     | 28  | Yellow | starttime="now/d" endtime="now" tag:sample04061424_chart \| timechart span=20m count(apache.clientip)\| eval minute=formatdate(_time, "hh:mm")\| eval _compare="当前" \| append [[ starttime="now/d-1w" endtime="now-1w" tag:sample04061424_chart \| timechart span=20m count(apache.clientip)\| eval minute=formatdate(_time, "hh:mm")\| eval _compare="同比一周" ]] |
       |  Scatter   | 40m   |          |      | 上月同比值    | 当前      |                 |      |     |     | Red    | starttime="now/d" endtime="now" tag:sample04061424_chart \| timechart span=40m count(apache.clientip)\| eval minute=formatdate(_time, "hh:mm")\| eval _compare="当前" \| append [[ starttime="now/d-1M" endtime="now-1M" tag:sample04061424_chart \| timechart span=40m count(apache.clientip)\| eval minute=formatdate(_time, "hh:mm")\| eval _compare="同比一月" ]] |
+
+    @trendSmoke
+    Examples:
+      |  chartType | span  |  minspan | bins | comparePeriod | period    |button           | unit | min | max | color  | SPLcheck |
       |  Column    | 1h    |  1h      | 24   | 去年同比值    | 当前      |                 | r.   | 1   |     | Orange | starttime="now/d" endtime="now" tag:sample04061424_chart \| timechart span=1h minspan=1h bins=24 count(apache.clientip)\| eval hour=formatdate(_time, "dd-hh")\| eval _compare="当前" \| append [[ starttime="now/d-1y" endtime="now-1y" tag:sample04061424_chart \| timechart span=1h minspan=1h bins=24 count(apache.clientip)\| eval hour=formatdate(_time, "dd-hh")\| eval _compare="同比一年" ]] |

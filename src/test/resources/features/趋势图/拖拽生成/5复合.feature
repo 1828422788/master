@@ -22,7 +22,8 @@ Feature:趋势图_拖拽_复合
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
 
-  Scenario Outline: drag_and_drop_multiaxis_1
+  @trendSmoke
+  Scenario Outline: 多y轴图
     And I drag the element "Clientip" to the "Dimensions"
     And I drag the element "Resplen" to the "Values"
     And I wait for "<chartType>" will be visible

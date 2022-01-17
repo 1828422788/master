@@ -7,10 +7,10 @@ Feature:报表_富文本编辑_5_目录
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
-    And I set the parameters "Hour" and "Minute" as "5" minutes later from now
+    And I set the parameters "Hour" and "Minute" as "3" minutes later from now
     And I choose the "WORD" from the "ReportType"
 
-  Scenario: content
+  Scenario: 添加目录
     When I set the parameter "Name" with value "Content"
     And I click the "NextButton" button under some element
     And I will see the "report.CreatePageWORD" page

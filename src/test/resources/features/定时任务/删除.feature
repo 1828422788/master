@@ -1,6 +1,6 @@
 Feature: 定时任务删除
 
-  Scenario Outline: delete
+  Scenario Outline: 删除定时任务
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I set the parameter "SearchInput" with value "<name>"
     And I wait for "Loading" will be invisible
@@ -65,7 +65,7 @@ Feature: 定时任务删除
       |  3328_LineChart     |
 
   @cleanTimedTask
-  Scenario Outline: delete_complement
+  Scenario Outline: 删除补采任务
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I set the parameter "SearchInput" with value "<name>"
     And I wait for "2000" millsecond

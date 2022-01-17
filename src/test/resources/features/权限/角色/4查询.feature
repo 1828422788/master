@@ -1,4 +1,4 @@
-@role @roleSmoke
+@role
 Feature: 角色查询（RZY-523）
 
   Background:

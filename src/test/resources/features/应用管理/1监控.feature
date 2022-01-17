@@ -1,6 +1,7 @@
-@all @smoke @app @appSmoke
+@all @smoke @app
 Feature: 应用监控模块（RZY-2122）
 
+  @appSmoke
   Scenario Outline: 新建单个资源app
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
@@ -30,6 +31,7 @@ Feature: 应用监控模块（RZY-2122）
       | name     | menuName | url      | color   |
       | AlertApp | 监控       | /alerts/ | #B8FFEE |
 
+  @appSmoke
   Scenario Outline: 安装资源成功
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for "CreateButton" will be visible
@@ -69,6 +71,7 @@ Feature: 应用监控模块（RZY-2122）
       | name     |
       | AlertApp |
 
+  @appSmoke
   Scenario: 新建监控
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
@@ -90,6 +93,7 @@ Feature: 应用监控模块（RZY-2122）
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
 
+  @appSmoke
   Scenario: 编辑监控
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible

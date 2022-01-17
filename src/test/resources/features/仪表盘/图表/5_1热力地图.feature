@@ -1,7 +1,6 @@
 @dashboard5_1 @dashboardChart
 Feature: 仪表盘_5_1_热力地图
 
-  @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -15,7 +14,6 @@ Feature: 仪表盘_5_1_热力地图
       | name    |
       | 仪表盘热力地图 |
 
-  @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -37,7 +35,6 @@ Feature: 仪表盘_5_1_热力地图
       | spl                                       | name    |
       | appname:apache \| stats count() by apache.geo.city | 仪表盘热力地图 |
 
-  @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -54,7 +51,6 @@ Feature: 仪表盘_5_1_热力地图
       | name |
       | 热力地图 |
 
-  @dashboardSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -78,7 +74,6 @@ Feature: 仪表盘_5_1_热力地图
       | name    |
       | 仪表盘热力地图 |
 
-  @dashboardSmoke
   Scenario Outline: 修改为热力地图 RZY-313
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -110,7 +105,6 @@ Feature: 仪表盘_5_1_热力地图
       | name    | targetName |
       | 仪表盘热力地图 | Heatmap    |
 
-
   Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3758
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -127,7 +121,7 @@ Feature: 仪表盘_5_1_热力地图
       | 仪表盘热力地图 | {\n  "title": "仪表盘热力地图",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "appname:apache \| stats count() by apache.geo.city",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "heatmap",\n    "field": "count()",\n    "category": "apache.geo.city"\n  }\n} |
 
 
-
+  
   Scenario: 修改field为空 RZY-3759
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

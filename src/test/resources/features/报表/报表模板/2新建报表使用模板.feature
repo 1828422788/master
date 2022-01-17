@@ -19,6 +19,7 @@ Feature: 报表模板_2使用模板
     And I wait for "ErrorMessage" will be visible
     Then I will see the error message "至少选择一个趋势图"
 
+  @reportSmoke
   Scenario: 新建报表使用模板_添加有数据集的趋势图
     And I click the "NewReportUsingTemplate" button under some element
     Then I will see the "report.CreatePage" page

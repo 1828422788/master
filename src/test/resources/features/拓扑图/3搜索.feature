@@ -1,4 +1,4 @@
-@topology @all @smoke @topologySmoke
+@topology @all @smoke
 Feature: 拓扑图搜索（RZY-354至355）
 
   Background:

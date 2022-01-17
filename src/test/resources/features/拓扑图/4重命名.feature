@@ -13,7 +13,6 @@ Feature: 拓扑图重命名（RZY-352）
     And I wait for loading invisible
     Then I will see the search result contains "<newName>"
 
-  @smoke @topologySmoke
     Examples: 重命名成功
       | newName |
       | 拓扑图没有标签 |

@@ -1,7 +1,7 @@
 @timedTask @complementTimedTask
 Feature:定时任务补采
 
-  Scenario Outline: create_schedule
+  Scenario Outline: 新建定时任务
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "* | stats count() by tag"
@@ -30,7 +30,7 @@ Feature:定时任务补采
       |    name              |
       | Test_Complement_2    |
 
-  Scenario: create_complement_overwrite
+  Scenario: 创建补采任务_覆盖已存在定时任务结果
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I click the "Complement" button under some element
     And I will see the "timedTask.ListPage" page
@@ -53,7 +53,7 @@ Feature:定时任务补采
     And I will see the data "{'column':'0','name':'Test_Complement_2'}" values "{'column':'5','name':'是'}"
 
   @timedTaskSmoke
-  Scenario: create_complement
+  Scenario: 创建补采任务
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I click the "Complement" button under some element
     And I will see the "timedTask.ListPage" page
@@ -87,7 +87,7 @@ Feature:定时任务补采
     Then I will see the success message "恢复成功"
 
 
-  Scenario: create_complement_checkfields_name
+  Scenario: 创建补采任务_检查提示1
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I click the "Complement" button under some element
     And I will see the "timedTask.ListPage" page
@@ -98,7 +98,7 @@ Feature:定时任务补采
     And I wait for "Notice" will be visible
     Then I will see the element "Notice" contains "请选择定时任务"
 
-  Scenario: create_complement_checkfields_name2
+  Scenario: 创建补采任务_检查提示2
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I click the "Complement" button under some element
     And I will see the "timedTask.ListPage" page
@@ -120,7 +120,7 @@ Feature:定时任务补采
 #    And I wait for "Notice" will be visible
 #    Then I will see the element "Notice" contains "请选择定时任务"
 
-  Scenario: create_complement_checkfields_interval
+  Scenario: 创建补采任务_检查提示3
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I click the "Complement" button under some element
     And I will see the "timedTask.ListPage" page
@@ -132,7 +132,7 @@ Feature:定时任务补采
     And I wait for "Notice" will be visible
     Then I will see the element "Notice" contains "请选择时间范围"
 
-  Scenario: create_complement_checkfields_interval2
+  Scenario: 创建补采任务_检查提示4
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I click the "Complement" button under some element
     And I will see the "timedTask.ListPage" page

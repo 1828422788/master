@@ -4,7 +4,7 @@ Feature: 事件操作编辑
   Background:
     Given open the "event.ListPage" page for uri "/event/action/"
 
-  Scenario Outline: 链接类型（RZY-1377）
+  Scenario Outline: 应用字段_链接_外部url_当前窗口
     And the data name is "{'column':'1','name':'AutoTest'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     When I set the parameter "Alias" with value "<alias>"
@@ -51,7 +51,7 @@ Feature: 事件操作编辑
       | alias | field   | action | inputName | url                                   | openUrl |
       |       | logtype |    链接    | Url       | https://www.baidu.com/s?wd=${logtype} | 当前窗口    |
 
-  Scenario Outline: 搜索类型（RZY-1378）--bug
+  Scenario Outline: 搜索_搜索语句_新窗口
     And the data name is "{'column':'1','name':'AutoTest'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     And I set the parameter "Field" with value "<field>"
@@ -79,7 +79,7 @@ Feature: 事件操作编辑
       | field   | action | inputName | url                  |
       | logtype | 搜索     | Spl       | logtype:${logtype} |
 
-  Scenario Outline: 美化格式（RZY-1379，RZY-1388）
+  Scenario Outline: 美化格式_JSON/XML
     And the data name is "{'column':'1','name':'AutoTest'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     When I set the parameter "Field" with value "<name>"
@@ -107,7 +107,7 @@ Feature: 事件操作编辑
       | raw_message                      | JSON          |
       | raw_message,tag,hostname,logtype | XML           |
 
-  Scenario: RZY-1376:显示于-两者
+  Scenario: 应用字段_显示于两者
     When the data name is "{'column':'1','name':'查看上下文sample'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     When I set the parameter "Field" with value "raw_message"

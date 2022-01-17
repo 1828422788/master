@@ -72,7 +72,7 @@ Feature: 趋势图_拖拽_维度
       |  Rose      | Red    | 展示全部   | PieElement          |
       |  Bar       | Yellow | 只展示名称 | BarElement          |
 
-  Scenario Outline: drag_and_drop_flame
+  Scenario Outline: 火焰图
     And I "checked" the checkbox which name is "apache.method" in trend page
     And I "checked" the checkbox which name is "apache.status" in trend page
     And I wait for "CheckBox" will be visible
@@ -128,9 +128,13 @@ Feature: 趋势图_拖拽_维度
     And I wait for "1500" millsecond
     And I will see the "<element1>" doesn't exist
 
+    @trendSmoke
     Examples:
       | chartType | drill    | element    | element1    |
       | Flame     | DrillIn  | BackToChart| FlameElement|
+
+    Examples:
+      | chartType | drill    | element    | element1    |
       | Flame     | DrillOut | DrillOut   | BackToChart |
 
   Scenario Outline: drag_and_drop_sunburst

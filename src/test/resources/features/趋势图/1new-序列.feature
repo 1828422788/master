@@ -7,7 +7,8 @@ Feature: 趋势图新建_序列
     Then I will see the "trend.CreatePage" page
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  Scenario Outline: order(RZY-2477,2005,2491,2499)
+
+  Scenario Outline: 序列（曲线图，面积图，散点图，柱状图）(RZY-2477,2005,2491,2499)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by apache.clientip,cnt | limit 8 "
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
@@ -47,10 +48,14 @@ Feature: 趋势图新建_序列
     Then I will see the "trend.CreatePage" page
     And I wait for "<chartType>Element" will be visible
 
+    @trendSmoke
     Examples:
     |   chartType   |caseNum  |
     |    LineChart  |  2477   |
     |   AreaChart   |  2005   |
+
+    Examples:
+    |   chartType   |caseNum  |
     |  ScatterChart |  2491   |
     |  ColumnChart  |  2499   |
 

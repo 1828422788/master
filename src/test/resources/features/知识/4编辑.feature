@@ -5,6 +5,7 @@ Feature: 知识编辑（RZY-879）
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And I wait for loading invisible
 
+  @knowledgeSmoke
   Scenario Outline: 编辑知识
     Given the data name is "<NameValue>" then i click the "编辑" button
     Then I will see the "knowledge.CreatePage" page
@@ -24,6 +25,7 @@ Feature: 知识编辑（RZY-879）
     Then I will see the text "修改事件代码" exist in page
 #    When the data name is "知识名" then i will see "修改事件代码" button
 
+  @knowledgeSmoke
   Scenario Outline: 编辑知识上传附件
     Given the data name is "知识名" then i click the "编辑" button
     Then I will see the "knowledge.CreatePage" page

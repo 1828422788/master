@@ -1,7 +1,7 @@
 @timedTask @editTimedTask
 Feature: 定时任务_基本配置
 
-  Scenario: create_schedule
+  Scenario: 新建定时任务
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart  | stats count() by tag"
@@ -30,7 +30,7 @@ Feature: 定时任务_基本配置
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
-  Scenario: create_saved_search
+  Scenario: 新建已存搜索
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count()"
@@ -45,7 +45,7 @@ Feature: 定时任务_基本配置
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
 
-  Scenario: create_saved_search_empty
+  Scenario: 新建已存搜索时检查提示
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count()"
@@ -60,7 +60,7 @@ Feature: 定时任务_基本配置
     And I wait for "TipText" will be visible
     And I will see the element "TipText" contains "名称格式有误，仅支持中文、数字、字母、中划线、下划线以及括号的组合"
 
-  Scenario Outline: check_details_period
+  Scenario Outline: 在编辑页上检查提示
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible
     When the data name is "{'column':'1','name':'Test_Schedule'}" then i click the "编辑" button
@@ -90,7 +90,7 @@ Feature: 定时任务_基本配置
     | Test_Schedule |  10         | tag:*\| stats count() by appname \| limit 10  |  0     | TipText      | 定时模式下, 时间间隔不能为零或空                                        |
     | Test_Schedule |  10         | tag:*\| stats count() by appname \| limit 10  |  a     | TipText      | 定时模式下, 时间间隔应该为正整数                                        |
 
-  Scenario Outline: check_details_crontab
+  Scenario Outline: 在编辑页上检查提示_crontab
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible
     When the data name is "{'column':'1','name':'Test_Schedule'}" then i click the "编辑" button
@@ -109,7 +109,7 @@ Feature: 定时任务_基本配置
       | 0 */57 * * ? | 解析时间表达式失败，原因：crontab格式错误！ | ErrorMessage | Parse      |
 
 
-  Scenario: modify_schedule
+  Scenario: 修改定时任务
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible
     When the data name is "{'column':'1','name':'Test_Schedule'}" then i click the "编辑" button
@@ -138,7 +138,7 @@ Feature: 定时任务_基本配置
     And I will see the success message "保存成功"
     And I click the "EnsureButton" button under some element
 
-  Scenario: change_spl
+  Scenario: 改spl
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible
     When the data name is "{'column':'1','name':'Schedule_Test'}" then i click the "编辑" button
@@ -159,7 +159,7 @@ Feature: 定时任务_基本配置
     And I click the "EnsureButton" button under some element
     Then I will see the "timedTask.ListPage" page
 
-  Scenario: verify_changes
+  Scenario: 验证
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible
     And the data name is "{'column':'1','name':'Schedule_Test'}" then I "expand" the item
@@ -172,7 +172,7 @@ Feature: 定时任务_基本配置
     And I will see the element "Description" contains "testing schedule"
     And I will see the element "ExecutionPeriod" contains "0 */57 * * * ?"
 
-  Scenario: delete_schedule
+  Scenario: 删除定时任务
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible
     When the data name is "{'column':'1','name':'Schedule_Test'}" then i click the "删除" button in more menu
@@ -180,7 +180,7 @@ Feature: 定时任务_基本配置
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
 
-  Scenario: delete_saved_search
+  Scenario: 删除已存搜索
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "OpenSavedSearchList" button

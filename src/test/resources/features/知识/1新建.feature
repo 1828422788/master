@@ -1,4 +1,4 @@
-@knowledge @knowledge1
+@knowledge @knowledge1 @knowledgeSmoke
 Feature: 知识新建（RZY-868）
 
   Scenario Outline: 新建知识

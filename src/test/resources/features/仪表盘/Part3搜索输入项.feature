@@ -243,7 +243,7 @@ Feature: 搜索页输入项
     And I click the "AcceptCreateDownloadTask" button
     And I wait for "500" millsecond
     Then I wait for "InputItem" will be visible
-    And I choose the "苏州市" from the "FilterDropdown"
+    And I choose the "南京市" from the "FilterDropdown"
     And I click the "SearchButton" button
     Then I will see the "AlertMessage" doesn't exist
     And I wait for "2000" millsecond

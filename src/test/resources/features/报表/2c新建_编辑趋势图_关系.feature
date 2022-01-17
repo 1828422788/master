@@ -7,9 +7,9 @@ Feature: 报表_2_3关系
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
-    And I set the parameters "Hour" and "Minute" as "5" minutes later from now
+    And I set the parameters "Hour" and "Minute" as "3" minutes later from now
 
-  Scenario Outline: new_report_trend_connection
+  Scenario Outline: 关系（和弦图，桑基图）
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -60,7 +60,7 @@ Feature: 报表_2_3关系
       |  EXCEL      |  Chord         |  Chord     | apache.status     | apache.method        |   cnt        |  Red     | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| stats count() as cnt by apache.status,apache.method \| sort by cnt, apache.status|
       |  EXCEL      |  Sankey        |  Sankey    | apache.clientip   | apache.resp_len      |   count()    | Yellow   | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart  AND NOT apache.clientip:221.226.97.92 AND NOT apache.clientip:117.136.79.162 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 2 |
 
-  Scenario Outline: new_report_trend_Force
+  Scenario Outline: 力图
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -111,7 +111,7 @@ Feature: 报表_2_3关系
       |  reportType |   typeChart    |  name      |       source      |   target             |   weight     |  color   |
       |  EXCEL      |  Force         |  Force     | apache.clientip   | apache.request_path  |  count()     | Green    |
 
-  Scenario Outline: new_report_trend_Sankey_Mult
+  Scenario Outline: 桑基图_多级
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -152,7 +152,7 @@ Feature: 报表_2_3关系
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
-    @report @reportChartsPDF
+    @report @reportChartsPDF @reportSmoke
     Examples:
       |  reportType |   typeChart    |  name        |  color   |
       |  PDF        |  Sankey        |  Sankey_Mult | Red      |

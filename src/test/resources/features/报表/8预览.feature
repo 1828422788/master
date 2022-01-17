@@ -3,6 +3,7 @@ Feature: 报表_8_预览
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
+    And I wait for "Loading" will be invisible
 
   Scenario Outline: create_report_pdf_excel
     And I click the "NewReportButton" button under some element
@@ -20,7 +21,7 @@ Feature: 报表_8_预览
     And I click the "ChartListButton" button
     Then I will see the element "LastTrendTitle" contains "报表测试"
     And I will see the "Preview" doesn't exist
-    When I click the "FinishButton" button under some element
+    When I click the "Complete" button under some element
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 

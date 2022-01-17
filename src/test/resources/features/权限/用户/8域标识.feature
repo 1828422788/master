@@ -1,4 +1,4 @@
-@users @smoke @all @usersSmoke
+@users @all
 Feature: 用户域标识
 
   Scenario:

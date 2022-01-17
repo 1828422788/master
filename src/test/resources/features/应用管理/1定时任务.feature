@@ -1,6 +1,7 @@
-@app @appSmoke @timetask
+@app @timetask
 Feature: 应用定时任务(RZY-2123)
 
+  @appSmoke
   Scenario: 新建定时任务
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
@@ -36,7 +37,7 @@ Feature: 应用定时任务(RZY-2123)
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
-
+  @appSmoke
   Scenario: 编辑定时任务
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible

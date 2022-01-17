@@ -2,7 +2,7 @@
 Feature: 定时任务批量操作
 
   @timedTaskSmoke
-  Scenario Outline: create_schedule
+  Scenario Outline: 新建定时任务
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart  | stats count()"
@@ -32,7 +32,7 @@ Feature: 定时任务批量操作
     |  test_multi_2   |
     |  test_multi_3   |
 
-  Scenario: multi_tag
+  Scenario: 添加资源标签
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible
     When I set the parameter "SearchInput" with value "test_multi_"
@@ -54,7 +54,7 @@ Feature: 定时任务批量操作
     And I wait for "SuccessMessage" will be invisible
     And I click the "CompleteBatchControl" button under some element
 
-  Scenario: verify_tag
+  Scenario: 验证标签
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible
     And I wait for "BatchControl" will be visible
@@ -70,7 +70,7 @@ Feature: 定时任务批量操作
     And I will see the element "TagOfTheLastItem" contains "auto_package"
     And the data name is "{'column':'1','name':'test_multi_3'}" then I "close" the item
 
-  Scenario: disable
+  Scenario: 停止
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible
     When I set the parameter "SearchInput" with value "test_multi_"
@@ -88,7 +88,7 @@ Feature: 定时任务批量操作
     And I wait for "Loading" will be invisible
     And I click the "CompleteBatchControl" button under some element
     
-  Scenario: multi_switch
+  Scenario: 启动
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible
     When I set the parameter "SearchInput" with value "test_multi_"
@@ -106,7 +106,7 @@ Feature: 定时任务批量操作
     And I wait for "Loading" will be invisible
     And I click the "CompleteBatchControl" button under some element
 
-  Scenario: verify_switch
+  Scenario: 验证
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible
     And I wait for "BatchControl" will be visible
@@ -123,7 +123,7 @@ Feature: 定时任务批量操作
     Then I will see the success message "禁用成功"
 
   @timedTaskSmoke
-  Scenario: multi_delete
+  Scenario: 删除
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible
     When I set the parameter "SearchInput" with value "test_multi_"
@@ -150,7 +150,7 @@ Feature: 定时任务批量操作
     And I wait for "Loading" will be invisible
     And I click the "CompleteBatchControl" button under some element
 
-  Scenario: verify_delete
+  Scenario: 验证删除
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible
     And I wait for "BatchControl" will be visible
@@ -158,7 +158,7 @@ Feature: 定时任务批量操作
     And I wait for "2000" millsecond
     Then I wait for "NoData" will be visible
 
-  Scenario Outline: prompt
+  Scenario Outline: 提示
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible
     And I wait for "BatchControl" will be visible

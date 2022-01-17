@@ -5,7 +5,7 @@ Feature: 趋势图_选择数据集
     Given open the "trend.ListPage" page for uri "/trend/"
     When I click the "NewTrendFromDataset" button
 
-  Scenario Outline:  single_dataset_1
+  Scenario Outline:  单个数据集
     When I click the "SingleDataset" button
     And I click the "Ensure" button
     Then I will see the "trend.DragAndDropPage" page
@@ -73,13 +73,16 @@ Feature: 趋势图_选择数据集
     And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
+  @trendSmoke
   Examples:
     | chart    |  operator   |  datasetspl                                                             |spl    |
     | Line     |  不等于     |  tag:sample04061424_chart \| where(apache.clientip!="221.226.97.92")    |tag:sample04061424_chart \| where(apache.clientip!="221.226.97.92") \| timechart span=30m count(apache.clientip) by apache.method |
+
+  Examples:
+    | chart    |  operator   |  datasetspl                                                             |spl    |
     | Area     |    等于     |  tag:sample04061424_chart \| where(apache.clientip=="221.226.97.92")    |tag:sample04061424_chart \| where(apache.clientip=="221.226.97.92") \| timechart span=30m count(apache.clientip) by apache.method |
 
-
-  Scenario Outline:  single_dataset_3
+  Scenario Outline:  单个数据集3
     When I click the "SingleDataset" button
     And I click the "Ensure" button
     Then I will see the "trend.DragAndDropPage" page
@@ -143,7 +146,7 @@ Feature: 趋势图_选择数据集
       | Column   |  任一      |  小于  |  大于  |tag:sample04061424_chart \| where(apache.resp_len<70 \|\| apache.resp_len>1500) |tag:sample04061424_chart \| where(apache.resp_len<70 \|\| apache.resp_len>1500) \| stats count(apache.clientip) by apache.clientip,apache.status |
 
 
-  Scenario Outline:  single_dataset_3_expression
+  Scenario Outline:  单个数据集3_expression
     When I click the "SingleDataset" button
     And I click the "Ensure" button
     Then I will see the "trend.DragAndDropPage" page
@@ -197,8 +200,8 @@ Feature: 趋势图_选择数据集
       | chart    |  datasetspl                                                                                                               |spl    |
       | Column   |  tag:sample04061424_chart \| where((apache.resp_len<70 \|\| apache.resp_len>1500) && apache.clientip!="221.226.97.92" && apache.clientip!="183.14.126.216")    |tag:sample04061424_chart \| where((apache.resp_len<70 \|\| apache.resp_len>1500) && apache.clientip!="221.226.97.92" && apache.clientip!="183.14.126.216") \| stats count(apache.clientip) by apache.clientip,apache.status |
 
-
-  Scenario Outline:  union_dataset_12
+  @trendSmoke
+  Scenario Outline:  追加合并
     When I click the "UnionDataset" button
     And I click the "Ensure" button
     Then I will see the "trend.DragAndDropPage" page

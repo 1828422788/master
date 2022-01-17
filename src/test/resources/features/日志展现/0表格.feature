@@ -9,7 +9,7 @@ Feature: 日志展现_0表格
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  Scenario Outline: table_default
+  Scenario Outline: 表格_默认
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 13  | eval ip_count = ip_count/11*1000"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -37,8 +37,8 @@ Feature: 日志展现_0表格
       | caseNum  |
       |  826     |
 
-
-  Scenario Outline: table_gradient_default
+  @logDisplaySmoke
+  Scenario Outline: 梯度1
     Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
@@ -65,7 +65,7 @@ Feature: 日志展现_0表格
       | caseNum      |
       | 827_default  |
 
-  Scenario Outline: table_gradient
+  Scenario Outline: 梯度2
     Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
@@ -91,7 +91,8 @@ Feature: 日志展现_0表格
       |  Continuity  |  827     | background-color: rgb(225, 245, 254)  |
       |  Discrete    |  828     | background-color: rgb(229, 28, 35)    |
 
-  Scenario Outline: table_interval
+  @logDisplaySmoke
+  Scenario Outline: 范围
     Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
@@ -139,7 +140,7 @@ Feature: 日志展现_0表格
       |  829     |
 
 
-  Scenario Outline: table_interval_delete
+  Scenario Outline: 范围_删除
     Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
@@ -180,7 +181,7 @@ Feature: 日志展现_0表格
       |  DeleteLastInterval   |  829_del_green   | background-color: rgb(255, 255, 0);|
 
 
-  Scenario Outline: table_value_color
+  Scenario Outline: 值
     Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
@@ -202,7 +203,7 @@ Feature: 日志展现_0表格
       |  AutoColor    |  830_auto     | Cell       | background-color: rgb(3, 169, 244); |
 
 
-  Scenario Outline: table_value_customcolor_number
+  Scenario Outline: 值_自定义
     Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
@@ -246,7 +247,8 @@ Feature: 日志展现_0表格
       | caseNum     |
       | 830_custom  |
 
-  Scenario Outline: table_value_customcolor_string
+  @logDisplaySmoke
+  Scenario Outline: 值_自定义2
     Then I will see the "trend.CreatePage" page
     When I click the "PencilFirst" button
     And I wait for "ColorPanel" will be visible
@@ -272,7 +274,7 @@ Feature: 日志展现_0表格
       | caseNum         |
       | 830_custom_str  |
 
-  Scenario Outline: table_thousand
+  Scenario Outline: 使用千分隔符
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 13  | eval ip_count = ip_count/11*1000"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -301,7 +303,7 @@ Feature: 日志展现_0表格
       | caseNum           |
       | ThousandSeparator |
 
-  Scenario Outline: table_prompt
+  Scenario Outline: 提示
     Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I will see the element "SelectedValueColorType" contains "无"

@@ -83,6 +83,7 @@ Feature: 报表模板_3从空白开始
     And I wait for "ResultMessage" will be visible
     Then I will see the element "ResultMessage" contains "新建成功"
 
+  @reportSmoke
   Scenario: 新报表使用模板，上传模板
     And I click the "NewReportButton" button under some element
     Then I will see the "report.CreatePage" page

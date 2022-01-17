@@ -7,7 +7,7 @@ Feature: 趋势图新建_其他
     Then I will see the "trend.CreatePage" page
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  Scenario Outline: others
+  Scenario Outline: 单值，雷达图，漏斗图
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button under some element
@@ -54,8 +54,7 @@ Feature: 趋势图新建_其他
       | Radar     | 2633    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city                                   |
       | Funnel    | 2654    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt by apache.clientip \| sort by cnt, apache.clientip \|limit 5 |
 
-
-  Scenario Outline: others2
+  Scenario Outline: 字符云图
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button under some element
@@ -555,7 +554,8 @@ Feature: 趋势图新建_其他
       |  chartType    | caseNum          |
       |   Single      | Sparkline_分面   |
 
-  Scenario Outline: ring_onefield
+  @trendSmoke
+  Scenario Outline: 环形比例图
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button under some element
@@ -764,8 +764,8 @@ Feature: 趋势图新建_其他
       | chartType | caseNum            | rows | columns | spl                                                                                                                                                                                   |
       | Ring      | table_1r_3c_colors | 1    | 3       | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count, apache.clientip \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
-
-  Scenario Outline: liquidfill
+  @trendSmoke
+  Scenario Outline: 水球图
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button under some element
@@ -954,7 +954,7 @@ Feature: 趋势图新建_其他
       | chartType | countValue | color1     | caseNum | spl                                                                      |
       | Funnel    | cnt        | LightGreen | 2858    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt by apache.geo.city \| sort by cnt, +apache.geo.city |
 
-  Scenario Outline: matrixheatmap
+  Scenario Outline: 矩阵热力图
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button under some element
@@ -1004,12 +1004,13 @@ Feature: 趋势图新建_其他
     Then I will see the "trend.CreatePage" page
     And I wait for "<chartType>Element" will be visible
 
+
     Examples:
-      | chartType     | xValue          | yValue        | segNum | caseNum | spl                                                                        |
+      | chartType     | xValue          | yValue        | segNum | caseNum | spl                               |
       | Matrixheatmap | count()         | apache.status | 10     | 2660    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
       | Matrixheatmap | apache.geo.city | count()       | 5      | 2661    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
 
-  Scenario Outline: chain
+  Scenario Outline: 调用链
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button under some element
@@ -1071,13 +1072,17 @@ Feature: 趋势图新建_其他
     Then I will see the "trend.CreatePage" page
     And I wait for "ChainTableElement" will be visible
 
+    @trendSmoke
     Examples:
-      | chartType | color | precision | column             | function     | parentIDvalue       | childIDvalue  | starttime                | duration            | infoValue                            | caseNum | spl                                                                                                                                                                                                                                                       |
+      | chartType | color | precision | column             | function     | parentIDvalue       | childIDvalue  | starttime                | duration            | infoValue                            | caseNum | spl                                   |
       | Chain     | Green | 1         | dapper.msg.duration| dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:gf_dapper_* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
+
+    Examples:
+      | chartType | color | precision | column             | function     | parentIDvalue       | childIDvalue  | starttime                | duration            | infoValue                            | caseNum | spl                                   |
       | Chain     | Red   | 2         | timestamp          | dapper.class | dapper.msg.parentId | dapper.msg.id |                timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:gf_dapper_* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
 
-
-  Scenario Outline: sequence
+  @trendSmoke
+  Scenario Outline: 循序图
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button under some element
@@ -1169,7 +1174,7 @@ Feature: 趋势图新建_其他
     And I wait for "Header" will be visible
 
 
-  Scenario Outline: chain_tree
+  Scenario Outline: 调用链_tree
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button under some element
@@ -1236,7 +1241,8 @@ Feature: 趋势图新建_其他
       | Chain     | Green | 1         | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831_tree | starttime=\"now/d\" endtime=\"now/d+24h\" tag:gf_dapper_* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
       | Chain     | Red   | 2         | dapper.class | dapper.msg.parentId | dapper.msg.id |                timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982_tree | starttime=\"now/d\" endtime=\"now/d+24h\" tag:gf_dapper_* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
 
-  Scenario Outline: network
+  @trendSmoke
+  Scenario Outline: 网络节点图
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.method, apache.geo.province, apache.geo.city | sort by +apache.geo.province, cnt, apache.go.city | limit 10"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"

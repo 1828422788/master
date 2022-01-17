@@ -1,7 +1,6 @@
 @dashboard2_2 @dashboardChart
 Feature: 仪表盘_2_2_玫瑰图
 
-  @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -15,7 +14,6 @@ Feature: 仪表盘_2_2_玫瑰图
       | name   |
       | 仪表盘玫瑰图 |
 
-  @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -37,7 +35,6 @@ Feature: 仪表盘_2_2_玫瑰图
       | spl                                                                          | name   |
       | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | 仪表盘玫瑰图 |
 
-  @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -54,7 +51,6 @@ Feature: 仪表盘_2_2_玫瑰图
       | name |
       | 玫瑰图  |
 
-  @dashboardSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -78,7 +74,6 @@ Feature: 仪表盘_2_2_玫瑰图
       | name   |
       | 仪表盘玫瑰图 |
 
-  @dashboardSmoke
   Scenario Outline: 修改为玫瑰图 RZY-300
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -109,7 +104,6 @@ Feature: 仪表盘_2_2_玫瑰图
       | name   | targetName |
       | 仪表盘玫瑰图 | Rose       |
 
-  @dashboardSmoke
   Scenario Outline: 不展示标签
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -138,7 +132,7 @@ Feature: 仪表盘_2_2_玫瑰图
       | name   | targetName |
       | 仪表盘玫瑰图 | Rose       |
 
-  @dashboardSmoke
+  
   Scenario Outline: 展示全部标签
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

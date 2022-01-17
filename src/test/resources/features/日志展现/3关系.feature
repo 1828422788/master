@@ -6,7 +6,8 @@ Feature: 日志展现_3关系
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I drag the element "SearchPageSvg" to the "left" side
 
-  Scenario Outline: connection(RZY-834,2783)
+  @logDisplaySmoke
+  Scenario Outline: 和弦图_桑基图(RZY-834,2783)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -33,7 +34,8 @@ Feature: 日志展现_3关系
       |    Chord      |    834     |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path  |
       |    Sankey     |    2783    |  tag:sample04061424_chart AND  apache.clientip:183.14.126.214  OR ( apache.clientip:1.207.60.51 AND apache.resp_len:87) \| stats count() by apache.clientip,apache.resp_len,apache.method \| sort by apache.resp_len |
 
-  Scenario Outline: connection(RZY-2784)
+  @logDisplaySmoke
+  Scenario Outline: 力图(RZY-2784)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -59,7 +61,7 @@ Feature: 日志展现_3关系
       |   chartType   |   caseNum  |   spl   |
       |    Force      |    2784    |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path \|limit 10      |
 
-  Scenario Outline: Force(RZY-4223)
+  Scenario Outline: 力图_斥力因子(RZY-4223)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -89,7 +91,7 @@ Feature: 日志展现_3关系
       |    Force      |    20    |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path \|limit 10      |
 
 
-  Scenario Outline: multistage(RZY-4224)
+  Scenario Outline: 桑基图_多级(RZY-4224)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -122,7 +124,7 @@ Feature: 日志展现_3关系
       |   chartType   |  button    |   spl   |
       |    Sankey     | Multistage |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:t_with \|transaction json.sid keepevicted=true with states a,b,c in json.module results by flow \| stats count() by fromstate,tostate \| limit 3      |
 
-  Scenario Outline: connection_facet1_2
+  Scenario Outline: 分面1
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -152,7 +154,7 @@ Feature: 日志展现_3关系
       |    Chord      |  tag:sample04061424_chart AND NOT apache.geo.city:黔东南苗族侗族自治州 \| stats count() as cnt by apache.geo.city, apache.status, apache.method \| limit 10 \| sort by apache.method, cnt, +apache.status, apache.geo.city|
       |    Sankey     |  tag:sample04061424_chart AND  apache.clientip:183.14.126.214  OR ( apache.clientip:1.207.60.51 AND (apache.resp_len:87 OR apache.resp_len:1935)) \| stats count() by apache.clientip,apache.resp_len,apache.method \| sort by apache.resp_len |
 
-  Scenario Outline: connection_facet3
+  Scenario Outline: 分面2
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"

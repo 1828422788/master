@@ -13,7 +13,6 @@ Feature: 拓扑图详情页
       | name            |
       | auto_topology样例 |
 
-  @all @smoke @topologySmoke
   Scenario Outline: 添加文本、下拉输入项成功（RZY-1239、RZY-1240）
     And I click the detail which name is "auto_topology样例"
     Then I will see the "topology.DetailPage" page

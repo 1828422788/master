@@ -5,6 +5,7 @@ Feature: 拓扑图分组验证
     Given open the "topology.ListPage" page for uri "/topology/"
     And I wait for loading invisible
 
+  @topologySmoke
   Scenario Outline: 新建拓扑图
     When I click the "Create" button
     And I set the parameter "NameInput" with value "<name>"
@@ -47,4 +48,8 @@ Feature: 拓扑图分组验证
       | 矩形  |   矩形高可见度加粗虚线分组 | rgba(169, 172, 177, 1) |  1 | 加粗  |
       | 矩形  |   矩形低可见度标准实线分组 | rgba(169, 172, 177, 1) |  0 | 标准  |
       | 圆形  |   圆形高可见度加粗虚线分组 | rgba(231, 236, 245, 1) |  1 | 加粗  |
+
+    @topologySmoke
+    Examples:
+      | nodetype  |   name  |  color |  visibility  | lineWidth |
       | 圆形  |   圆形低可见度标准实线分组 | rgba(231, 236, 245, 1) |  0 | 标准  |

@@ -1,7 +1,6 @@
 @dashboard5_3 @dashboardChart
 Feature: 仪表盘_5_3_区划地图
 
-  @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -15,7 +14,6 @@ Feature: 仪表盘_5_3_区划地图
       | name    |
       | 仪表盘区划地图 |
 
-  @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -37,7 +35,6 @@ Feature: 仪表盘_5_3_区划地图
       | spl                                                                                            | name    |
       | tag:sample04061424 \| stats count() by apache.geo.country,apache.geo.province,apache.geo.city | 仪表盘区划地图 |
 
-  @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -54,7 +51,6 @@ Feature: 仪表盘_5_3_区划地图
       | name |
       | 区划地图 |
 
-  @dashboardSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -78,7 +74,6 @@ Feature: 仪表盘_5_3_区划地图
       | name    |
       | 仪表盘区划地图 |
 
-  @dashboardSmoke
   Scenario Outline: 修改为区划地图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -112,7 +107,6 @@ Feature: 仪表盘_5_3_区划地图
       | name    | targetName |
       | 仪表盘区划地图 | Regionmap  |
 
-  @dashboardSmoke
   Scenario: 区划地图下钻 RZY-3399,RZY-321
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -140,7 +134,6 @@ Feature: 仪表盘_5_3_区划地图
 #    And I click the "Neimenggu" button
     And I wait for "TongliaoshiText" will be visible
 
-  @dashboardSmoke
   Scenario Outline: 地图下钻 RZY-3769
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

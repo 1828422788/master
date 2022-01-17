@@ -6,7 +6,8 @@ Feature: 日志展现_5地图
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I drag the element "SearchPageSvg" to the "left" side
 
-  Scenario Outline:heatmap(RZY-1229)
+  @logDisplaySmoke
+  Scenario Outline:热力地图(RZY-1229)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -31,7 +32,7 @@ Feature: 日志展现_5地图
       |   Heatmap     |    1229    |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city |
 
 
-  Scenario Outline: attackMap(RZY-2302)
+  Scenario Outline: 攻击地图(RZY-2302)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| parse field=apache.request_query \"\^gw_address=(\?<gw_address>\\d+\\.\\d+\\.\\d+\\.\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317"
     And I click the "SearchButton" button under some element
     And I will see the "trend.CreatePage" page
@@ -40,15 +41,15 @@ Feature: 日志展现_5地图
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Source" button
-    And I choose the "<source>" from the "FieldValue" in config
-    And I choose the "<sourceLon>" from the "FieldLongitude" in config
-    And I choose the "<sourceLat>" from the "FieldLatitude" in config
+    And I choose the "apache.clientip" from the "FieldValue" in config
+    And I choose the "client_lon" from the "FieldLongitude" in config
+    And I choose the "client_lat" from the "FieldLatitude" in config
     And I click the "Target" button
-    And I choose the "<target>" from the "FieldValue" in config
-    And I choose the "<targetLon>" from the "FieldLongitude" in config
-    And I choose the "<targetLat>" from the "FieldLatitude" in config
+    And I choose the "gw_address" from the "FieldValue" in config
+    And I choose the "gw_lon" from the "FieldLongitude" in config
+    And I choose the "gw_lat" from the "FieldLatitude" in config
     And I click the "Weight" button
-    And I choose the "<weight>" from the "FieldValue" in config
+    And I choose the "cnt" from the "FieldValue" in config
     And I click the "Region" button
     And I click the "Select<regionBut>" button
     And I click the "Generate" button
@@ -66,11 +67,15 @@ Feature: 日志展现_5地图
     Then I compare source image "actual/高级搜索视图/5地图_<caseNum>_<regionBut>_<chartType>" with target image "expect/高级搜索视图/5地图_<caseNum>_<regionBut>_<chartType>"
 
     Examples:
-      |chartType|      source     |  sourceLon | sourceLat  | target     | targetLon | targetLat |  weight | regionBut |caseNum  |
-      |Attackmap| apache.clientip | client_lon | client_lat | gw_address | gw_lon    |  gw_lat   |   cnt   |   World   | 2302    |
-      |Attackmap| apache.clientip | client_lon | client_lat | gw_address | gw_lon    |  gw_lat   |   cnt   |   China   | 2302    |
+      |chartType| regionBut |caseNum  |
+      |Attackmap|   World   | 2302    |
 
-  Scenario Outline: regionmap(RZY-2790)
+    @logDisplaySmoke
+    Examples:
+      |chartType| regionBut |caseNum  |
+      |Attackmap|   China   | 2302    |
+
+  Scenario Outline: 区划地图(RZY-2790)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -94,7 +99,7 @@ Feature: 日志展现_5地图
       |chartType|caseNum  |   spl   |
       |Regionmap| 2790    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
 
-  Scenario Outline: regionMap(RZY-2793,2794)
+  Scenario Outline: 区划地图(RZY-2793,2794)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -124,8 +129,8 @@ Feature: 日志展现_5地图
       |Regionmap| apache.geo.province |  China  | 2793    | tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
       |Regionmap| apache.geo.city     | Jiangsu | 2794    | tag:sample04061424_chart \| stats count() by apache.geo.city, apache.geo.province |
 
-
-  Scenario Outline: regionMap_click(RZY-2792)
+  @logDisplaySmoke
+  Scenario Outline: 区划地图_下钻(RZY-2792)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -163,7 +168,7 @@ Feature: 日志展现_5地图
       |chartType|  region | provinceDrilldown   | cityDrilldown   |caseNum  |   spl   |
       |Regionmap|  World  | apache.geo.province | apache.geo.city | 2792    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
 
-  Scenario Outline: statMap(RZY-2795,2797)
+  Scenario Outline: 统计地图(RZY-2795,2797)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -185,7 +190,8 @@ Feature: 日志展现_5地图
       |Geostatsmap | 2795    |  tag:vendors_test \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
       |Geostatsmap | 2797    |  tag:vendors_test \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince |
 
-  Scenario Outline: statMap(RZY-2796)
+  @logDisplaySmoke
+  Scenario Outline: 统计地图(RZY-2796)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -218,7 +224,7 @@ Feature: 日志展现_5地图
       |Geostatsmap |  2796    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:vendors_test \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
 
     @statsmaptest
-  Scenario Outline: statMap_param1
+  Scenario Outline: 统计地图_param1
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -254,7 +260,7 @@ Feature: 日志展现_5地图
       |chartType   | caseNum  |   spl   |
       |Geostatsmap |  param   | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424* \| geostats latfield=apache.geo.latitude longfield=apache.geo.longitude count() avg(apache.resp_len) min(apache.resp_len)|
 
-  Scenario Outline: statMap_param2
+  Scenario Outline: 统计地图_param2
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -287,7 +293,7 @@ Feature: 日志展现_5地图
       |chartType   | caseNum  |   spl   |
       |Geostatsmap | heatmap  | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424* \| geostats latfield=apache.geo.latitude longfield=apache.geo.longitude count() avg(apache.resp_len) min(apache.resp_len)|
 
-  Scenario Outline: regionmap(RZY-2790white)
+  Scenario Outline: 区划地图_白色(RZY-2790)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -313,7 +319,7 @@ Feature: 日志展现_5地图
       |chartType|caseNum        |   spl   |
       |Regionmap| 2790_white    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
 
-  Scenario Outline: regionMap(RZY-2793,2794white)
+  Scenario Outline: 区划地图_白色(RZY-2793,2794)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -346,7 +352,7 @@ Feature: 日志展现_5地图
       |Regionmap| apache.geo.province |  China  | 2793_white  | tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
       |Regionmap| apache.geo.city     | Jiangsu | 2794_white  | tag:sample04061424_chart \| stats count() by apache.geo.city, apache.geo.province |
 
-  Scenario Outline: regionMap_click(RZY-2792_white)
+  Scenario Outline: 区划地图_白色_下钻(RZY-2792)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -391,7 +397,7 @@ Feature: 日志展现_5地图
       |Regionmap| apache.geo.country  |  World  | 2792    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
 
 
-  Scenario Outline:heatmap_facet
+  Scenario Outline:热力地图_分面
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -418,7 +424,7 @@ Feature: 日志展现_5地图
       |   Heatmap     |    分面    |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city, apache.status |
 
 
-  Scenario Outline:regionmap_facet
+  Scenario Outline:区划地图_分面
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"

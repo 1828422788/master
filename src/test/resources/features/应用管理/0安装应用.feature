@@ -1,6 +1,7 @@
 @app @app-install
 Feature: 应用安装（RZY-1988）
 
+  @smoke @appSmoke
   Scenario: 新建数据集
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I click the "Create" button
@@ -9,6 +10,7 @@ Feature: 应用安装（RZY-1988）
     And I set the parameter "Spl" with value "*"
     And I click the "Save" button
 
+  @smoke @appSmoke
   Scenario Outline: 安装资源成功
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for "CreateButton" will be visible

@@ -5,7 +5,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
 
-  @dashboard37pre0
+  @dashboard37pre0 @dbdrilldownSmoke
   Scenario Outline: 新建仪表盘
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
@@ -41,16 +41,20 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "Complete" button under some element
     And I wait for "SuccessCreate" will be visible
 
+    @dbdrilldownSmoke
     Examples:
       | name            | spl                                                       |
       | 钻取变量字符云图   | tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 \| stats count() by apache.clientip \| limit 3     |
+
+    Examples:
+      | name            | spl                                                       |
       | 钻取变量区划地图   | tag:sample04061424 \| stats count() by apache.geo.country,apache.geo.province,apache.geo.city |
       | 钻取变量饼图      | tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 \| stats count() by apache.clientip \| limit 10     |
       | 钻取变量表格      | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10     |
       | 钻取变量单值      | tag:sample04061424_display \| stats avg(apache.status) \|eval icon=if('avg(apache.status)'>300,'thumbs-down','thumbs-up')    |
       | 钻取变量单值value | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10     |
 
-  @dashboard37pre3
+  @dashboard37pre3 @dbdrilldownSmoke
   Scenario Outline: 新建标签页
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
@@ -65,7 +69,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | name   |
       | 测试钻取变量 |
 
-  @dashboard37a1
+  @dashboard37a1 @dbdrilldownSmoke
   Scenario: 添加图表
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -82,7 +86,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "Ensure" button
 #    Then I wait for element "SuccessMessage" change text to "添加成功"
 
-  @dashboard37a2
+  @dashboard37a2 @dbdrilldownSmoke
   Scenario: 开启钻取配置
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -93,7 +97,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    And I click the "OpenDrilldown" button
     And I wait for "500" millsecond
 
-  @dashboard37a3
+  @dashboard37a3 @dbdrilldownSmoke
   Scenario Outline: 修改为字符云图
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
@@ -131,7 +135,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | name    | image     |
       | 测试钻取变量 | Wordcloud |
 
-  @dashboard37a4
+  @dashboard37a4 @dbdrilldownSmoke
   Scenario: 钻取变量字符云图click.name RZY-3265
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -160,7 +164,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    Then I will see the input element "TimeRange" value will contains "今天"
     Then I will see the "TimeRange" result will be "今天"
 
-  @dashboard37a5
+  @dashboard37a5 @dbdrilldownSmoke
   Scenario: 钻取变量字符云图click.value RZY-3266
     And I click the detail which name is "测试钻取变量"
     And switch to window "仪表盘"
@@ -183,7 +187,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "3000" millsecond
     And I click the Circle "IpZifu" button
     And switch to another window
-#    And I close all tabs except main tab
+    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.clientip:64.20.177.254"
     And I wait for "2000" millsecond
@@ -214,6 +218,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "3000" millsecond
     And I click the Circle "IpZifu" button
     And switch to another window
+    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by appname"
     And I wait for "2000" millsecond
@@ -1124,7 +1129,6 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "3000" millsecond
     And I click the "TableRow22" button
     And switch to another window
-#    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by apache.clientip"
     And switch to another window
@@ -1134,6 +1138,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    And I wait for "TableRowResplen" will be visible
     And I click the "TableRowResplen" button
     And switch to another window
+    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by apache.resp_len"
 
@@ -1159,6 +1164,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "3000" millsecond
     And I click the "TableRow22" button
     And switch to another window
+    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.clientip:36.46.208.22"
 

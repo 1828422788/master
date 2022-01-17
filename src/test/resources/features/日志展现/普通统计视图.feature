@@ -5,7 +5,7 @@ Feature: 日志展现_普通统计视图
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I drag the element "SearchPageSvg" to the "left" side
 
-  Scenario Outline: count(RZY-807,808,809,810)
+  Scenario Outline: 事件计数(RZY-807,808,809,810)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -44,7 +44,7 @@ Feature: 日志展现_普通统计视图
       | 柱状图  | apache.referer_domain | 809_事件计数_柱状图 | SaveAsTrend | NameInput | Ensure  |
 
 
-  Scenario Outline: count_independent(RZY-2718)
+  Scenario Outline: 事件计数_独立(RZY-2718)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -69,7 +69,7 @@ Feature: 日志展现_普通统计视图
     And I click the "<ok>" button
     Then I compare source image "actual/普通统计视图/<caseNum>" with target image "expect/普通统计视图/<caseNum>"
 
-    @logDisplay @logDisplayGeneral
+    @logDisplay @logDisplayGeneral @logDisplaySmoke
     Examples:
       | chart  | value1          | value2  |     caseNum             | save        | input     | ok      |
       | 曲线图 | apache.clientip | appname |2718_事件计数_独立数统计 |             |           |         |
@@ -80,7 +80,7 @@ Feature: 日志展现_普通统计视图
       | 曲线图 | apache.clientip | appname |2718_事件计数_独立数统计 | SaveAsTrend | NameInput | Ensure  |
 
 
-  Scenario Outline: timeslice(RZY-812,813,2721,2722,2723,2724)
+  Scenario Outline: 时间分段(RZY-812,813,2721,2722,2723,2724)
     When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "CustomTimeTab" button
@@ -121,10 +121,14 @@ Feature: 日志展现_普通统计视图
     And I click the "<ok>" button
     Then I compare source image "actual/普通统计视图/<caseNum>" with target image "expect/普通统计视图/<caseNum>"
 
-    @logDisplay @logDisplayGeneral
+    @logDisplay @logDisplayGeneral @logDisplaySmoke
     Examples:
       | statisticType | caseNum              | tooltip            | save        | input     | ok      |
       |计数           | 812_时间分段_计数    | count : 254        |             |           |         |
+
+    @logDisplay @logDisplayGeneral
+    Examples:
+      | statisticType | caseNum              | tooltip            | save        | input     | ok      |
       |独立数         | 813_时间分段_独立数  | count : 5          |             |           |         |
       |总计           | 2721_时间分段_总计   | count : 1795176    |             |           |         |
       |平均值         | 2722_时间分段_平均值 | count : 7067.62204 |             |           |         |
@@ -142,7 +146,7 @@ Feature: 日志展现_普通统计视图
       |最小值         | 2724_时间分段_最小值 | count : 61         | SaveAsTrend | NameInput | Ensure  |
 
 
-  Scenario Outline: dataslice(RZY-814,3137)
+  Scenario Outline: 数值分段(RZY-814,3137)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for "1500" millsecond
@@ -177,10 +181,14 @@ Feature: 日志展现_普通统计视图
     And I click the "<ok>" button
 #    Then I compare source image "actual/普通统计视图/<caseNum>" with target image "expect/普通统计视图/<caseNum>"
 
-    @logDisplay @logDisplayGeneral
+    @logDisplay @logDisplayGeneral @logDisplaySmoke
     Examples:
       | fieldValue          |start1| end1|start2|end2  |start3|end3 | caseNum            |tooltip1| tooltip2| save        | input     | ok      |
       | apache.resp_len     |1     | 100 |100   |500   |500   |10000| 814_数值分段_整数  |220     | 1 - 100 |             |           |         |
+
+    @logDisplay @logDisplayGeneral
+    Examples:
+      | fieldValue          |start1| end1|start2|end2  |start3|end3 | caseNum            |tooltip1| tooltip2| save        | input     | ok      |
       | apache.geo.latitude |0     |22.5 |22.5  |32.05 |32.05 |39.90| 3137_数值分段_实数 |1       | 22.5    |             |           |         |
 
     @saveAsTrendStatistics
@@ -189,7 +197,7 @@ Feature: 日志展现_普通统计视图
       | apache.resp_len     |1     | 100 |100   |500   |500   |10000| 814_数值分段_整数  |220     | 1 - 100 | SaveAsTrend | NameInput | Ensure  |
       | apache.geo.latitude |0     |22.5 |22.5  |32.05 |32.05 |39.90| 3137_数值分段_实数 |1       | 22.5    | SaveAsTrend | NameInput | Ensure  |
 
-  Scenario Outline: timehistogram(RZY-815)
+  Scenario Outline: 时间直方图(RZY-815)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -223,10 +231,14 @@ Feature: 日志展现_普通统计视图
     And I click the "<ok>" button
     Then I compare source image "actual/普通统计视图/<caseNum>" with target image "expect/普通统计视图/<caseNum>"
 
-    @logDisplay @logDisplayGeneral
+    @logDisplay @logDisplayGeneral @logDisplaySmoke
     Examples:
       | timeSpan | time  | caseNum              | save        | input     | ok      |
       | 1        |       | 815_时间直方图_1h    |             |           |         |
+
+    @logDisplay @logDisplayGeneral
+    Examples:
+      | timeSpan | time  | caseNum              | save        | input     | ok      |
       | 3600     | 秒    | 815_时间直方图_3600s |             |           |         |
       | 60       | 分钟  | 815_时间直方图_60m   |             |           |         |
 
@@ -238,7 +250,7 @@ Feature: 日志展现_普通统计视图
       | 60       | 分钟  | 815_时间直方图_60m   | SaveAsTrend | NameInput | Ensure  |
 
 
-  Scenario Outline: timehistogram(RZY-2725)
+  Scenario Outline: 时间直方图(RZY-2725)
     When I set the parameter "SearchInput" with value "tag:display_may"
     And I click the "DateEditor" button
     And I click the "CustomTimeTab" button
@@ -288,7 +300,7 @@ Feature: 日志展现_普通统计视图
       | 7        | 天   | 2725_时间直方图_7d | SaveAsTrend | NameInput | Ensure  |
       | 1        | 周   | 2725_时间直方图_1w | SaveAsTrend | NameInput | Ensure  |
 
-  Scenario Outline: datehistogram(RZY-816)
+  Scenario Outline: 数值直方图(RZY-816)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -316,10 +328,14 @@ Feature: 日志展现_普通统计视图
     And I click the "<ok>" button
     Then I compare source image "actual/普通统计视图/816_数值直方图_<number>" with target image "expect/普通统计视图/816_数值直方图_<number>"
 
-    @logDisplay @logDisplayGeneral
+    @logDisplay @logDisplayGeneral @logDisplaySmoke
     Examples:
       | number | tooltip1    | tooltip2 | save        | input     | ok      |
       | 500    | count : 220 | 0 - 500  |             |           |         |
+
+    @logDisplay @logDisplayGeneral
+    Examples:
+      | number | tooltip1    | tooltip2 | save        | input     | ok      |
       | 5000   | count : 244 | 0 - 5000 |             |           |         |
 
     @saveAsTrendStatistics
@@ -328,7 +344,7 @@ Feature: 日志展现_普通统计视图
       | 500    | count : 220 | 0 - 500  | SaveAsTrend | NameInput | Ensure  |
       | 5000   | count : 244 | 0 - 5000 | SaveAsTrend | NameInput | Ensure  |
 
-  Scenario Outline: classifyfieldvalue(RZY-817)
+  Scenario Outline: 字段值分类(RZY-817)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -350,10 +366,14 @@ Feature: 日志展现_普通统计视图
     When I set the parameter "<input>" with value "817_字段值分类_<charttype>_<value1>"
     And I click the "<ok>" button
 
-    @logDisplay @logDisplayGeneral
+    @logDisplay @logDisplayGeneral @logDisplaySmoke
     Examples:
       | charttype|value1 | save        | input     | ok      |
       | 饼图     |  5    |             |           |         |
+
+    @logDisplay @logDisplayGeneral
+    Examples:
+      | charttype|value1 | save        | input     | ok      |
       | 饼图     |  20   |             |           |         |
       | 条形图   |  10   |             |           |         |
       | 条形图   |  50   |             |           |         |
@@ -366,7 +386,7 @@ Feature: 日志展现_普通统计视图
       | 条形图   |  10   | SaveAsTrend | NameInput | Ensure  |
       | 条形图   |  50   | SaveAsTrend | NameInput | Ensure  |
 
-  Scenario Outline: fieldnumber1(RZY-2727)
+  Scenario Outline: 字段值分类1(RZY-2727)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -408,7 +428,7 @@ Feature: 日志展现_普通统计视图
       |  最大值  | 散点图 |   60    | 分钟 | SaveAsTrend | NameInput | Ensure  |
       |  最小值  | 柱状图 |  3600   | 秒   | SaveAsTrend | NameInput | Ensure  |
 
-  Scenario Outline: fieldnumber2(RZY-2727)
+  Scenario Outline: 字段值分类2(RZY-2727)
     When I set the parameter "SearchInput" with value "tag:display_may"
     And I click the "DateEditor" button
     And I click the "CustomTimeTab" button
@@ -454,7 +474,7 @@ Feature: 日志展现_普通统计视图
       |  总计     |  曲线图   |   7     | 天   | SaveAsTrend | NameInput | Ensure  |
       |  平均值   |  面积图   |   1     | 周   | SaveAsTrend | NameInput | Ensure  |
 
-  Scenario Outline: fieldnumber3
+  Scenario Outline: 字段值分类3
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -492,7 +512,7 @@ Feature: 日志展现_普通统计视图
       | chart     | timeSpan| save        | input     | ok      |
       |  柱状图   |   1     | SaveAsTrend | NameInput | Ensure  |
 
-  Scenario Outline: totalpercent(RZY-819,2730)
+  Scenario Outline: 累计百分比(RZY-819,2730)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -517,10 +537,14 @@ Feature: 日志展现_普通统计视图
     And I click the "<ok>" button
     Then I compare source image "actual/普通统计视图/<screenName>" with target image "expect/普通统计视图/<screenName>"
 
-    @logDisplay @logDisplayGeneral
+    @logDisplay @logDisplayGeneral @logDisplaySmoke
     Examples:
       | percent1 | percent2 | screenName           | save        | input     | ok      |
       |   80     |    75    | 819_累计百分比_80_75 |             |           |         |
+
+    @logDisplay @logDisplayGeneral
+    Examples:
+      | percent1 | percent2 | screenName           | save        | input     | ok      |
       |  30.30   |    25    | 2730_累计百分比_实数 |             |           |         |
 
     @saveAsTrendStatistics
@@ -529,7 +553,7 @@ Feature: 日志展现_普通统计视图
       |   80     |    75    | 819_累计百分比_80_75 | SaveAsTrend | NameInput | Ensure  |
       |  30.30   |    25    | 2730_累计百分比_实数 | SaveAsTrend | NameInput | Ensure  |
 
-  Scenario Outline: percentdegree(RZY-821, 3136)
+  Scenario Outline: 百分位等级(RZY-821, 3136)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -551,10 +575,14 @@ Feature: 日志展现_普通统计视图
     And I click the "<ok>" button
     Then I compare source image "actual/普通统计视图/<screenName>" with target image "expect/普通统计视图/<screenName>"
 
-    @logDisplay @logDisplayGeneral
+    @logDisplay @logDisplayGeneral @logDisplaySmoke
     Examples:
       |  value1  | screenName              | save        | input     | ok      |
       |     100  |  821_百分位等级_100     |             |           |         |
+
+    @logDisplay @logDisplayGeneral
+    Examples:
+      |  value1  | screenName              | save        | input     | ok      |
       |  1262.50 |  3136_百分位等级_1262-50|             |           |         |
 
     @saveAsTrendStatistics
@@ -563,7 +591,7 @@ Feature: 日志展现_普通统计视图
       |     100  |  821_百分位等级_100     | SaveAsTrend | NameInput | Ensure  |
       |  1262.50 |  3136_百分位等级_1262-50| SaveAsTrend | NameInput | Ensure  |
 
-  Scenario Outline: multilevelstats_step1(RZY-822)
+  Scenario Outline: 多级统计_step1(RZY-822)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -596,7 +624,7 @@ Feature: 日志展现_普通统计视图
       | save        | input     | ok      |
       | SaveAsTrend | NameInput | Ensure  |
 
-  Scenario Outline: multilevelstats_step2(RZY-822)
+  Scenario Outline: 多级统计_step2(RZY-822)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -628,7 +656,7 @@ Feature: 日志展现_普通统计视图
     When I set the parameter "<input>" with value "822_多级统计_step2"
     And I click the "<ok>" button
 
-    @logDisplay @logDisplayGeneral
+    @logDisplay @logDisplayGeneral  @logDisplaySmoke
     Examples:
       | save        | input     | ok      |
       |             |           |         |
@@ -638,7 +666,7 @@ Feature: 日志展现_普通统计视图
       | save        | input     | ok      |
       | SaveAsTrend | NameInput | Ensure  |
 
-  Scenario Outline: multilevelstats_step3(RZY-822)
+  Scenario Outline: 多级统计_step3(RZY-822)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -688,7 +716,7 @@ Feature: 日志展现_普通统计视图
       | save        | input     | ok      |
       | SaveAsTrend | NameInput | Ensure  |
 
-  Scenario Outline:geogrdistr(RZY-825)
+  Scenario Outline:地理分布(RZY-825)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -734,7 +762,7 @@ Feature: 日志展现_普通统计视图
     And I click the "<ok>" button
     Then I compare source image "actual/普通统计视图/825_地理分布_sichuan" with target image "expect/普通统计视图/825_地理分布_sichuan"
 
-    @logDisplay @logDisplayGeneral
+    @logDisplay @logDisplayGeneral  @logDisplaySmoke
     Examples:
       | save        | input     | ok      |
       |             |           |         |
@@ -745,7 +773,7 @@ Feature: 日志展现_普通统计视图
       | SaveAsTrend | NameInput | Ensure  |
 
   @logDisplay @logDisplayGeneral
-  Scenario Outline: check_field
+  Scenario Outline: 检查提示1
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -772,7 +800,7 @@ Feature: 日志展现_普通统计视图
     | GeographicalDistribution| Generate     | 请选择统计字段         |
 
   @logDisplay @logDisplayGeneral
-  Scenario Outline: check_field2
+  Scenario Outline: 检查提示2
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -794,7 +822,7 @@ Feature: 日志展现_普通统计视图
       | PercentDegree           | 请输入目标值。         | FieldValue    |
 
   @logDisplay @logDisplayGeneral
-  Scenario Outline: check_field3
+  Scenario Outline: 检查提示3
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -813,7 +841,7 @@ Feature: 日志展现_普通统计视图
       | 0             |
 
   @logDisplay @logDisplayGeneral
-  Scenario Outline: check_field4
+  Scenario Outline: 检查提示4
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -836,7 +864,7 @@ Feature: 日志展现_普通统计视图
       | PercentDegree           | GoalValue      | 请填写合理的数值！            |               |
 
   @logDisplay @logDisplayGeneral
-  Scenario Outline: check_field5
+  Scenario Outline: 检查提示5
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -861,7 +889,7 @@ Feature: 日志展现_普通统计视图
     |            | 请正确填写分组字段值! |                | SelfRadio  |
 
   @logDisplay @logDisplayGeneral
-  Scenario: check_field6
+  Scenario: 检查提示6
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -881,7 +909,7 @@ Feature: 日志展现_普通统计视图
     And I will see the message "添加百分比"
 
   @logDisplay @logDisplayGeneral
-  Scenario: check_field7
+  Scenario: 检查提示7
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"

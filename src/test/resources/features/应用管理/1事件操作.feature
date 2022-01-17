@@ -1,4 +1,4 @@
-@app @appSmoke
+@app
 Feature: 应用事件操作（RZY-2141）
 
   Scenario Outline: 新建app
@@ -29,6 +29,7 @@ Feature: 应用事件操作（RZY-2141）
       | name     | menuName | url            | color   |
       | EventApp | 事件操作     | /event/action/ | #68E632 |
 
+  @appSmoke
   Scenario Outline: 安装资源成功
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for "CreateButton" will be visible
@@ -58,6 +59,7 @@ Feature: 应用事件操作（RZY-2141）
       | appName  |
       | EventApp |
 
+  @appSmoke
   Scenario: 新建事件操作
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
@@ -80,6 +82,7 @@ Feature: 应用事件操作（RZY-2141）
     And I wait for "Message" will be visible
     Then I will see the message "提交事件操作成功"
 
+  @appSmoke
   Scenario: 编辑事件操作
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible

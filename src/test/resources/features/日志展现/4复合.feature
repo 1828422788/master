@@ -6,7 +6,8 @@ Feature: 日志展现_4复合
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I drag the element "SearchPageSvg" to the "left" side
 
-  Scenario Outline: compound(RZY-835)
+  @logDisplaySmoke
+  Scenario Outline: 区间图(RZY-835)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -44,7 +45,8 @@ Feature: 日志展现_4复合
       | xValue | actualValue|  predictedValue| upperValue | lowerValue |   chartType   |   caseNum  |   spl   |
       |   ts   |   cnt      |   _predict_cnt |    upper95 |    lower95 |    Rangeline  |    835     | starttime=\"now/d\" endtime=\"now/d+24h\" tag: sample04061424_chart \| bucket timestamp span=1h as ts \| stats count\(\) as cnt by ts \| esma cnt timefield=ts  |
 
-  Scenario Outline: multiaxis(RZY-2786)
+  @logDisplaySmoke
+  Scenario Outline: 多y轴图(RZY-2786)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -117,7 +119,7 @@ Feature: 日志展现_4复合
       |   chartType   | caseNum  |   spl   |
       |   Multiaxis   |   2786   | starttime=\"now/d\" endtime=\"now/d+24h\" tag: sample04061424_display \| stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status \| limit 10|
 
-  Scenario Outline: multiaxis(RZY-4842)
+  Scenario Outline: 多y轴图(RZY-4842)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"

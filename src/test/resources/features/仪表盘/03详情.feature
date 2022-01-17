@@ -1,7 +1,7 @@
 @dashboard @dashboard03
 Feature: 仪表盘03详情页
 
-  @dashboard03pre
+  @dashboard03pre @dashboardSmoke
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -23,7 +23,7 @@ Feature: 仪表盘03详情页
       | name            | spl                                   |
       | 验证仪表盘全局时间 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
 
-  @dashboard03a
+  @dashboard03a @dashboardSmoke
   Scenario: 新建第一个tag(RZY-3388)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -38,7 +38,7 @@ Feature: 仪表盘03详情页
     And I wait for "2000" millsecond
     And I back to before
 
-  @dashboard03b
+  @dashboard03b @dashboardSmoke
   Scenario: 新建待删除tag(RZY-3390)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -59,7 +59,7 @@ Feature: 仪表盘03详情页
     And I wait for "3000" millsecond
     And I back to before
 
-  @dashboard03c
+  @dashboard03c @dashboardSmoke
   Scenario: 编辑tag(RZY-4488)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -83,7 +83,7 @@ Feature: 仪表盘03详情页
 #    And I wait for "500" millsecond
     Then I will see the success message "标签名称修改成功"
 
-  @dashboard03d
+  @dashboard03d @dashboardSmoke
   Scenario: 删除tag(RZY-4489)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -102,7 +102,7 @@ Feature: 仪表盘03详情页
     And I wait for "500" millsecond
     Then I will see the success message "标签页删除成功"
 
-  @dashboard03e @dashboardSmoke
+  @dashboard03e
   Scenario: 夜间模式(RZY-237)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -169,7 +169,7 @@ Feature: 仪表盘03详情页
     Then I will see the "LiList" is "yotta-menu-item-disabled"
     And I hide the element "EventList"
 
-  @dashboard03i
+  @dashboard03i @dashboardSmoke
   Scenario: 新建标签页，验证搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -225,7 +225,7 @@ Feature: 仪表盘03详情页
     And I wait for loading invisible
     Then I will see the url contains "null"
 
-  @dashboard03l
+  @dashboard03l @dashboardSmoke
   Scenario: 添加趋势图至仪表盘(RZY-3389)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -246,7 +246,7 @@ Feature: 仪表盘03详情页
     And I wait for "SuccessMessage" will be visible
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
-  @dashboard03m
+  @dashboard03m @dashboardSmoke
   Scenario: 复制标签页(RZY-4484)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -285,7 +285,7 @@ Feature: 仪表盘03详情页
     And I wait for "7500" millsecond
     And I wait for "TrendTitle" will be visible
 
-  @dashboard03o
+  @dashboard03o @dashboardSmoke
   Scenario: 新建全局时间选择器(RZY-225,RZY-4566)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -350,7 +350,7 @@ Feature: 仪表盘03详情页
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "enable"
 
-  @dashboard03r
+  @dashboard03r @dashboardSmoke
   Scenario: 存为报表(RZY-235)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

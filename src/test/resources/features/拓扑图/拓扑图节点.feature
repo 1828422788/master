@@ -5,6 +5,7 @@ Feature: 拓扑图节点验证
     Given open the "topology.ListPage" page for uri "/topology/"
     And I wait for loading invisible
 
+  @topologySmoke
   Scenario Outline: 新建拓扑图
     When I click the "Create" button
     And I set the parameter "NameInput" with value "<name>"
@@ -45,10 +46,14 @@ Feature: 拓扑图节点验证
       | nodetype  |   name  |  color |  visibility  | lineWidth | LineType  |
       |      |                         |                       |    |      |           |
       | 矩形  |   矩形高可见度加粗虚线节点 | rgba(18, 109, 245, 1) |  1 | 加粗  | 虚线      |
-      | 矩形  |   矩形低可见度标准实线节点 | rgba(18, 109, 245, 1) |  0 | 标准  | 实线      |
+      | 矩形  |   矩形低可见度标准实线节点 | rgba(18, 109, 245, 1) |  0 | 标准  | 直线      |
       | 圆形  |   圆形高可见度加粗虚线节点 | rgba(250, 15, 113, 1) |  1 | 加粗  | 虚线      |
-      | 圆形  |   圆形低可见度标准实线节点 | rgba(250, 15, 113, 1) |  0 | 标准  | 实线      |
+      | 圆形  |   圆形低可见度标准实线节点 | rgba(250, 15, 113, 1) |  0 | 标准  | 直线      |
       | 椭圆  |   椭圆高可见度加粗虚线节点 | rgba(15, 250, 135, 1) |  1 | 加粗  | 虚线      |
-      | 椭圆  |   椭圆低可见度标准实线节点 | rgba(15, 250, 135, 1) |  0 | 标准  | 实线      |
+      | 椭圆  |   椭圆低可见度标准实线节点 | rgba(15, 250, 135, 1) |  0 | 标准  | 直线      |
       | 菱形  |   菱形高可见度加粗虚线节点 | rgba(199, 195, 19, 1) |  1 | 加粗  | 虚线      |
-      | 菱形  |   菱形低可见度标准实线节点 | rgba(199, 195, 19, 1) |  0 | 标准  | 实线      |
+
+    @topologySmoke
+    Examples:
+      | nodetype  |   name  |  color |  visibility  | lineWidth | LineType  |
+      | 菱形  |   菱形低可见度标准实线节点 | rgba(199, 195, 19, 1) |  0 | 标准  | 直线     |

@@ -1,7 +1,7 @@
 @timedTask @copyTimedTask @timedTaskSmoke
 Feature: 定时任务复制
 
-  Scenario Outline: create_new
+  Scenario Outline: 新建定时任务
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I drag the element "SearchPageSvg" to the "right" side
@@ -43,7 +43,7 @@ Feature: 定时任务复制
       | OneDay     | copytask     | 5        |   分钟     |
 
 
-  Scenario: copy_schedule
+  Scenario: 复制
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible
     And the data name is "{'column':'1','name':'copytask'}" then I "expand" the item
@@ -74,7 +74,7 @@ Feature: 定时任务复制
     And I will see the element "TagOfTheLastItem" contains "auto_package"
     And I will see the element "AppOfTheLastItem" contains "test_app"
 
-  Scenario: global_tag_app
+  Scenario: 检查应用和标签
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When I set the parameter "GlobalTagInput" with value "auto_package"
     When I choose the "auto_package" from the "TagDropdown"
@@ -94,7 +94,7 @@ Feature: 定时任务复制
     And I will see the element "TagOfTheLastItem" contains "auto_package"
     And I will see the element "AppOfTheLastItem" contains "test_app"
 
-  Scenario: copy_schedule_detailpage
+  Scenario: 检查新定时任务的细节
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible
     When the data name is "{'column':'1','name':'copytask(副本)'}" then i click the "copytask(副本)" button
@@ -105,7 +105,7 @@ Feature: 定时任务复制
     And I will see the element "Description" contains "testing"
     And I will see the element "ExecutionPeriod" contains "5 分钟"
 
-  Scenario: copy_schedule_editpage
+  Scenario: 检查新定时任务的编辑页
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible
     When the data name is "{'column':'1','name':'copytask(副本)'}" then i click the "编辑" button
@@ -127,7 +127,7 @@ Feature: 定时任务复制
     And I wait for "ParseResult" will be visible
     And I click the "EnsureButton" button
 
-  Scenario Outline: delete_copiedTask
+  Scenario Outline: 删除
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu

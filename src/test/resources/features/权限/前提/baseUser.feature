@@ -33,7 +33,7 @@ Feature: 基础用户创建
       | name     | email                     | group         |
       | AutoTest | autoFullName@yottabyte.cn | AutoTestGroup |
       | 验证授权用户   | testAuthGroup@autotest.cn | 验证授权用户分组      |
-      | wym      | 123@rizhiyi.com           | 脱敏用户          |
+      | wym      | 123@rizhiyi.com           | 验证授权用户分组          |
 
   Scenario Outline: 修改密码（首次登录需修改）
     Given I logout current user

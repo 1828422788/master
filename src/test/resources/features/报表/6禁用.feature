@@ -4,7 +4,7 @@ Feature: 报表_6_禁用/启用
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
 
-  Scenario: create_report
+  Scenario: 新建报表
     And I click the "NewReportButton" button under some element
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
@@ -18,11 +18,11 @@ Feature: 报表_6_禁用/启用
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "LastTrendTitle" contains "报表测试"
-    When I click the "FinishButton" button under some element
+    When I click the "Complete" button under some element
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
-  Scenario Outline: switch_off_on
+  Scenario Outline: 禁用/启用
     And I wait for "Loading" will be invisible
     And the data name is "{'column':'1','name':'Test_Switch'}" then I "<action>" the switch
     And I wait for "100" millsecond
@@ -34,7 +34,7 @@ Feature: 报表_6_禁用/启用
       |   close    | 禁用成功   |
       |   open     | 开启成功   |
 
-  Scenario: delete_report
+  Scenario: 删除报表
     And I wait for "Loading" will be invisible
     And the data name is "{'column':'1','name':'Test_Switch'}" then i click the "删除" button in more menu
     Then I will see the message "此操作将删除 [Test_Switch], 是否继续？"

@@ -8,7 +8,8 @@ Feature: 报表_1a_基本设置
     And I wait for "2000" millsecond
     And I wait for element "SelectedUser" change text to username
 
-  Scenario Outline: new_report_type
+  @reportSmoke
+  Scenario Outline: 报表类型
     When I set the parameter "Name" with value "test_report_<type>"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "<type>" from the "ReportType"
@@ -18,9 +19,10 @@ Feature: 报表_1a_基本设置
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "LastTrendTitle" contains "报表测试"
-    When I click the "FinishButton" button under some element
+    When I click the "Complete" button under some element
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
+    And I wait for "45000" millsecond
 
     Examples:
       |   type    |
@@ -28,7 +30,7 @@ Feature: 报表_1a_基本设置
       |   URL     |
       |   EXCEL   |
 
-  Scenario Outline: new_report_error_message
+  Scenario Outline: 检查提示
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
@@ -44,13 +46,14 @@ Feature: 报表_1a_基本设置
     | test_report |   15    |          | 请输入分钟                                     |
     | test_report |   15    |  67      | 分钟输入错误，时间可输入范围为0~59              |
 
-  Scenario: new_report_empty_name
+  Scenario: 名称为空
     When I set the parameter "Name" with value " "
     And I click the "NextButton" button under some element
     And I wait for "TipText" will be visible
     And I will see the element "TipText" contains "名称不能为空"
 
-  Scenario Outline: new_report_success_day
+  @reportSmoke
+  Scenario Outline: 执行计划1
     When I set the parameter "Name" with value "test_report_<period>"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "PDF" from the "ReportType"
@@ -65,7 +68,7 @@ Feature: 报表_1a_基本设置
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "LastTrendTitle" contains "报表测试"
-    When I click the "FinishButton" button under some element
+    When I click the "Complete" button under some element
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
     And I click the "ReturnButton" button
@@ -77,7 +80,8 @@ Feature: 报表_1a_基本设置
       |    period    |  hour   |   minute  |
       |    每天      |  16     |  10        |
 
-  Scenario Outline: new_report_success_period
+  @reportSmoke
+  Scenario Outline: 执行计划2
     When I set the parameter "Name" with value "test_report_<period>"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "PDF" from the "ReportType"
@@ -91,7 +95,7 @@ Feature: 报表_1a_基本设置
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "LastTrendTitle" contains "报表测试"
-    When I click the "FinishButton" button under some element
+    When I click the "Complete" button under some element
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
     And I click the "ReturnButton" button
@@ -104,8 +108,8 @@ Feature: 报表_1a_基本设置
     |    每周      |  三      |  16     |  10        |
     |    每月      |  25日    |  16     |  10        |
 
-
-  Scenario Outline: new_report_success_year
+  @reportSmoke
+  Scenario Outline: 执行计划3
     When I set the parameter "Name" with value "test_report_<period>"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "PDF" from the "ReportType"
@@ -123,7 +127,7 @@ Feature: 报表_1a_基本设置
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "LastTrendTitle" contains "报表测试"
-    When I click the "FinishButton" button under some element
+    When I click the "Complete" button under some element
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
     And I click the "ReturnButton" button
@@ -135,7 +139,7 @@ Feature: 报表_1a_基本设置
       |    period    |  month  |  day  |  hour   |   minute  |
       |    每年      |  3月    | 1日   |  16     |  10       |
 
-  Scenario Outline: new_report_error_message_crontab
+  Scenario Outline: 提示_crontab
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Crontab" with value "<crontab>"
     And I click the "NextButton" button under some element
@@ -148,7 +152,8 @@ Feature: 报表_1a_基本设置
       | test_report  |   test   | 非法crontab表达式, 请检查后重试                 |
 
 
-  Scenario: new_report_success_crontab
+  @reportSmoke
+  Scenario: 执行计划_crontab
     When I set the parameter "Name" with value "test_report_crontab"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "PDF" from the "ReportType"
@@ -167,7 +172,7 @@ Feature: 报表_1a_基本设置
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "LastTrendTitle" contains "报表测试"
-    When I click the "FinishButton" button under some element
+    When I click the "Complete" button under some element
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
     And I click the "ReturnButton" button
@@ -175,7 +180,7 @@ Feature: 报表_1a_基本设置
     And I wait for "Loading" will be invisible
     And I will see the data "{'column':'1','name':'test_report_crontab'}" values "{'column':'4','name':'0 0/15 9 ? * MON-FRI'}"
     
-  Scenario Outline: new_report_fields
+  Scenario Outline: 检查tooltip
     When I set the parameter "Name" with value "test_report"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "test_app" from the "App" in config
@@ -189,7 +194,7 @@ Feature: 报表_1a_基本设置
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I click the "NextButton" button under some element
-    Then I wait for "FinishButton" will be visible
+    Then I wait for "Complete" will be visible
 
     Examples:
     |   tipText      |

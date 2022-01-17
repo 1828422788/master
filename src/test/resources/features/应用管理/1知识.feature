@@ -1,6 +1,7 @@
-@all @smoke @app @appSmoke
+@all @smoke @app
 Feature: 应用知识
 
+  @appSmoke
   Scenario Outline: 新建单个资源app
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
@@ -30,6 +31,7 @@ Feature: 应用知识
       | name         | menuName | url         | color   |
       | KnowledgeApp | 知识       | /knowledge/ | #FF6C5C |
 
+  @appSmoke
   Scenario Outline: 安装资源成功
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for "CreateButton" will be visible
@@ -69,6 +71,7 @@ Feature: 应用知识
       | name         |
       | KnowledgeApp |
 
+  @appSmoke
   Scenario: 新增知识并验证是否跳转到外部
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
@@ -88,6 +91,7 @@ Feature: 应用知识
     And I click the "Done" button
     Then I will see the element "SuccessAdd" name is "新建成功"
 
+  @appSmoke
   Scenario: 知识编辑
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible

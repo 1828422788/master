@@ -1,7 +1,6 @@
 @dashboard6_02 @dashboardChart
 Feature: 仪表盘_6_02_环形比例图
 
-  @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -15,7 +14,6 @@ Feature: 仪表盘_6_02_环形比例图
       | name     |
       | 仪表盘环形比例图 |
 
-  @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -38,7 +36,6 @@ Feature: 仪表盘_6_02_环形比例图
       | spl                                                          | name     |
       | appname:huawei \| stats count() as num \| eval p = num/28000 | 仪表盘环形比例图 |
 
-  @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -55,7 +52,6 @@ Feature: 仪表盘_6_02_环形比例图
       | name  |
       | 环形比例图 |
 
-  @dashboardSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -79,7 +75,6 @@ Feature: 仪表盘_6_02_环形比例图
       | name     |
       | 仪表盘环形比例图 |
 
-  @dashboardSmoke
   Scenario: 修改为环形比例图 RZY-4388
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -119,7 +114,6 @@ Feature: 仪表盘_6_02_环形比例图
     And I click the "TrendTitle" button
     And I wait for "3000" millsecond
 
-  @dashboardSmoke
   Scenario: 修改展示
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

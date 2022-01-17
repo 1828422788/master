@@ -1,7 +1,7 @@
 @dashboard9 @dashboardpart3
 Feature: 仪表盘多选菜单数组操作
 
-
+  @dashboardpart3Smoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -14,7 +14,7 @@ Feature: 仪表盘多选菜单数组操作
       | name  |
       | 仪表盘多选菜单数组操作 |
 
-
+  @dashboardpart3Smoke
   Scenario Outline: 新建多选数组操作标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -31,7 +31,7 @@ Feature: 仪表盘多选菜单数组操作
       | name  |
       | 仪表盘多选菜单数组操作 |
 
-
+  @dashboardpart3Smoke
   Scenario Outline: 创建仪表盘多选菜单数组趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -57,7 +57,7 @@ Feature: 仪表盘多选菜单数组操作
       | name                | spl                                   |
       | 仪表盘多选菜单数组     | tag:sample04061424_chart \|stats count() by 'apache.geo.city'  |
 
-
+  @dashboardpart3Smoke
   Scenario: 添加下拉多选输入项与趋势图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -85,7 +85,7 @@ Feature: 仪表盘多选菜单数组操作
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
-
+  @dashboardpart3Smoke
   Scenario: 开启钻取配置 (RZY-4479)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -98,7 +98,7 @@ Feature: 仪表盘多选菜单数组操作
 #    And I click the "OpenDrilldown" button
     And I wait for "500" millsecond
 
-
+  @dashboardpart3Smoke
   Scenario: 多选菜单数组操作-Push RZY-4794
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -129,7 +129,7 @@ Feature: 仪表盘多选菜单数组操作
     Then I wait for "ChengdushiList" will be visible
     Then I wait for "NanjingshiList" will be visible
 
-
+  @dashboardpart3Smoke
   Scenario: 多选菜单数组操作-Pop RZY-4795
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

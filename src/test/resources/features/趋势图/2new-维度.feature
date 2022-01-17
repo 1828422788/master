@@ -7,7 +7,8 @@ Feature: 趋势图新建_维度
     Then I will see the "trend.CreatePage" page
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  Scenario Outline: dimension_default(RZY-2503,2858,2676,2850)
+  @trendSmoke
+  Scenario Outline: 维度（饼状图，玫瑰图，条形图，旭日图）(RZY-2503,2858,2676,2850)
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
@@ -240,8 +241,8 @@ Feature: 趋势图新建_维度
       |   chartType   |  color   |  spl   |
       |      Sun      | DarkBlue |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND NOT apache.geo.province:贵州 AND NOT apache.status:304 AND NOT apache.status:499 \| stats count() by apache.status,apache.geo.province, apache.geo.city|
 
-
-  Scenario Outline: dimension_flame
+  @trendSmoke
+  Scenario Outline: 火焰图
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND (apache.status:200) AND NOT (apache.geo.city:黔东南苗族侗族自治州) AND NOT (apache.geo.city:南京市)   | stats count() as cnt by apache.method, apache.status, apache.geo.province, apache.geo.city | sort by apache.method, apache.status, apache.geo.province, apache.geo.city"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element

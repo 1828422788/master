@@ -19,10 +19,10 @@ Feature: 报表_4_批量操作
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "LastTrendTitle" contains "报表测试"
-    When I click the "FinishButton" button under some element
+    When I click the "Complete" button under some element
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
-    And I wait for "25000" millsecond
+    And I wait for "35000" millsecond
 
   Examples:
     |   name               |

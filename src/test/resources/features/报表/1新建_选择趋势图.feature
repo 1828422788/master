@@ -7,7 +7,8 @@ Feature: 报表_1_选择趋势图
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
 
-  Scenario: trend_dataset
+  @reportSmoke
+  Scenario: 创建趋势图_数据集
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
@@ -35,7 +36,8 @@ Feature: 报表_1_选择趋势图
     And I click the "Complete" button under some element
     Then I wait for "SuccessCreate" will be visible
 
-  Scenario Outline: new_report_trend_dataset
+  @reportSmoke
+  Scenario Outline: 创建报表_数据集
     When I set the parameter "Name" with value "test_dataset"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I choose the "PDF" from the "ReportType"
@@ -62,7 +64,7 @@ Feature: 报表_1_选择趋势图
     And I set the value "starttime="now/d" endtime="now/d+24h" * | stats count()" to the textarea "TrendSplField"
     Then I click the "EnsureButton" button
 
-    When I click the "FinishButton" button under some element
+    When I click the "Complete" button under some element
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -70,7 +72,8 @@ Feature: 报表_1_选择趋势图
     |  tipText     |
     |   名称：报表测试_数据集\n描述：AutoCreate\n搜索内容：* \| stats count()\n数据集：(tag:sample04061424_chart) OR (tag:sample04061424_display)\n统计类型：single\n时间范围：now/d,now  |
 
-  Scenario: new_report_10_trends
+  @reportSmoke
+  Scenario: 创建报表_趋势图限制
     When I set the parameter "Name" with value "test_10trends"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I choose the "PDF" from the "ReportType"
@@ -197,7 +200,7 @@ Feature: 报表_1_选择趋势图
     When I click the "<button>" button
     Then I will see the element "FirstTrendTitle" contains "<trendFirst>"
     And I will see the element "LastTrendTitle" contains "<trendLast>"
-    When I click the "FinishButton" button under some element
+    When I click the "Complete" button under some element
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -210,7 +213,7 @@ Feature: 报表_1_选择趋势图
 #      | LastTrendUp          |  报表测试_1   | 报表测试_2  | test_upLast         |
 #      | FirstTrendDown       |  报表测试_2   | 报表测试_3  | test_downFirst      |
 
-  Scenario: new_report_modifyTrend_cancel
+  Scenario: 修改趋势图_取消
     When I set the parameter "Name" with value "test_modify_cancel"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I choose the "PDF" from the "ReportType"
@@ -241,7 +244,7 @@ Feature: 报表_1_选择趋势图
     And I will see the element "TrendData" contains ""
     And I will see the element "TrendChart" contains "table"
 
-  Scenario Outline: new_report_modifyTrend_prompt
+  Scenario Outline: 修改趋势图_提示
     When I set the parameter "Name" with value "test_prompt"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I choose the "PDF" from the "ReportType"
@@ -264,14 +267,15 @@ Feature: 报表_1_选择趋势图
     |      | * \| stats count()     | 名称不能为空    |
     | test |                        | 搜索内容不能为空|
 
-  Scenario Outline: new_report_type_without_trend
+  @reportSmoke
+  Scenario Outline: 创建报表_缺少趋势图
     When I set the parameter "Name" with value "test_no_trends_<type>"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "<type>" from the "ReportType"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I click the "NextButton" button under some element
-    Then I wait for "FinishButton" will be visible
-    When I click the "FinishButton" button under some element
+    Then I wait for "Complete" will be visible
+    When I click the "Complete" button under some element
     And I wait for "ErrorMessage" will be visible
     Then I will see the error message "至少选择一个趋势图"
 

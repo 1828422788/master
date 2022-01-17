@@ -1,7 +1,7 @@
 @dashboard1_1 @dashboardChart
 Feature: 仪表盘_1_1_曲线图
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -15,7 +15,7 @@ Feature: 仪表盘_1_1_曲线图
       | name   |
       | 仪表盘曲线图 |
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -37,7 +37,7 @@ Feature: 仪表盘_1_1_曲线图
       | spl                                                              | name   |
       | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len | 仪表盘曲线图 |
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -54,7 +54,7 @@ Feature: 仪表盘_1_1_曲线图
       | name |
       | 曲线图  |
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -80,7 +80,7 @@ Feature: 仪表盘_1_1_曲线图
       | name   |
       | 仪表盘曲线图 |
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: 修改为曲线图 RZY-301
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -190,7 +190,6 @@ Feature: 仪表盘_1_1_曲线图
     And I will see the element "ErrorMessage" contains "chart -> chartType 字段值不支持"
 #    Then I wait for element "ErrorMessage" change text to "chart -> chartType 字段值不支持"
 
-  @dashboardSmoke
   Scenario Outline: chartType字段-置为序列图其他类型 RZY-1282,RZY-1283,RZY-1284
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -240,7 +239,7 @@ Feature: 仪表盘_1_1_曲线图
     And I will see the element "ErrorMessage" contains "chart -> field 字段值不能为空"
 #    Then I wait for element "ErrorMessage" change text to "chart -> field 字段值不能为空"
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: field byFields RZY-1286,RZY-1287,RZY-1299
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -271,7 +270,7 @@ Feature: 仪表盘_1_1_曲线图
       | apache.resp_len    | apache.clientip | 序列图_xAxis_Field_existed   |
       | apache.clientippppp| apache.resp_len | 序列图_xAxis_Field_error     |
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: labelRotate-right-horizontal-vertical RZY-1291,RZY-1292,RZY-1293
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -301,7 +300,7 @@ Feature: 仪表盘_1_1_曲线图
       | 仪表盘曲线图 |      right     |  rotate(45)   |
       | 仪表盘曲线图 |    vertical    |  rotate(-90)  |
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: sortOrder-asc-desc-default RZY-1295,RZY-1296,RZY-1297
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -381,7 +380,6 @@ Feature: 仪表盘_1_1_曲线图
       | name       |   field   |    image                 |
       | 仪表盘曲线图 |    cou    |  序列图_Yfield_error      |
 
-  @dashboardSmoke
   Scenario: smooth为false RZY-1300
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -407,7 +405,6 @@ Feature: 仪表盘_1_1_曲线图
     Then take part of "SequenceChart" with name "actual/多Y轴图_smooth_false"
 #    And I compare source image "actual/多Y轴图_smooth_false" with target image "expect/多Y轴图_smooth_false"
 
-  @dashboardSmoke
   Scenario Outline: range-min/max RZY-1303,RZY-1305,RZY-1306,RZY-1307
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -438,9 +435,12 @@ Feature: 仪表盘_1_1_曲线图
       |           |          |  序列图_range_bothNull   |
       |           |   20     |  序列图_range_minNull    |
       |     1     |          |  序列图_range_maxNull    |
+
+    @dashboardChartSmoke
+    Examples:
+      |   min     |   max    |    image                |
       |     1     |    8     |  序列图_range_manLTmax   |
 
-  @dashboardSmoke
   Scenario Outline: range-min大于max RZY-1308
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -462,7 +462,7 @@ Feature: 仪表盘_1_1_曲线图
       |   min     |   max    |    errorMessage                                                     |
       |     20    |    5     |  chart -> yAxis -> range -> 显示范围上限值(max)需大于显示范围下限值(min)   |
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: legend RZY-1312,RZY-1313
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -493,7 +493,7 @@ Feature: 仪表盘_1_1_曲线图
       |  bottom    |    bottom   |
       |  right     |      top    |
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: legend为none RZY-1311
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

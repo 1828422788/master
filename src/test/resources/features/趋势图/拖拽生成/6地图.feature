@@ -22,7 +22,8 @@ Feature: 趋势图_拖拽_地图
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
 
-  Scenario Outline: drag_and_drop_heatmap
+  @trendSmoke
+  Scenario Outline: 热力地图
     And I drag the element "GeoCity" to the "Values"
     And I drag the element "GeoCity" to the "Dimensions"
     And I wait for "<chartType>" will be visible
@@ -63,7 +64,7 @@ Feature: 趋势图_拖拽_地图
       |  chartType |
       |  Heatmap   |
 
-  Scenario Outline: drag_and_drop_regionmap
+  Scenario Outline: 区划地图
     And I drag the element "<field>" to the "Values"
     And I drag the element "<field>" to the "Dimensions"
     And I wait for "<chartType>" will be visible
@@ -110,6 +111,10 @@ Feature: 趋势图_拖拽_地图
     Examples:
       |  chartType   | field       |  region     |  switch    |  element                | spl     |
       |  Regionmap   | GeoCountry  |  World      | UseBubbles | RegionmapLightElement   | tag:sample04061424_chart \| stats count(apache.geo.country) by apache.geo.country   |
+
+    @trendSmoke
+    Examples:
+      |  chartType   | field       |  region     |  switch    |  element                | spl     |
       |  Regionmap   | GeoProvince |  China      | ShowLabels | RegionmapDarkElement    | tag:sample04061424_chart \| stats count(apache.geo.province) by apache.geo.province |
 
   Scenario Outline: drag_and_drop_regionmap_drill

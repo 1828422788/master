@@ -1,6 +1,7 @@
-@app @appSmoke
+@app
 Feature: 应用搜索宏（RZY-2126）
 
+  @appSmoke
   Scenario Outline: 新建单个资源app
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
@@ -30,6 +31,7 @@ Feature: 应用搜索宏（RZY-2126）
       | name     | menuName | url     | color   |
       | MacroApp | 搜索宏      | /macro/ | #5CFFA0 |
 
+  @appSmoke
   Scenario Outline: 安装资源成功
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
@@ -71,6 +73,7 @@ Feature: 应用搜索宏（RZY-2126）
       | name     |
       | MacroApp |
 
+  @appSmoke
   Scenario: 新建搜索宏
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible

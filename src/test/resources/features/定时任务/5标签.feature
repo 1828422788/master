@@ -1,7 +1,7 @@
 @timedTask @tagTimedTask
 Feature: 定时任务标签
 
-  Scenario: create_schedule
+  Scenario: 新建定时任务
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart  | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5"
@@ -26,7 +26,7 @@ Feature: 定时任务标签
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
-  Scenario: tag_schedule
+  Scenario: 添加标签
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible
     And the data name is "{'column':'1','name':'Tag_Schedule'}" then I "expand" the item
@@ -44,7 +44,7 @@ Feature: 定时任务标签
     And the data name is "{'column':'1','name':'Tag_Schedule'}" then I "expand" the item
     And I will see the element "TagOfTheLastItem" contains "auto_package"
 
-  Scenario: verify_tag
+  Scenario: 验证标签
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible
     When the data name is "{'column':'1','name':'Tag_Schedule'}" then i click the "编辑" button
@@ -57,7 +57,7 @@ Feature: 定时任务标签
     And I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-  Scenario: delete_schedule
+  Scenario: 删除定时任务
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for "Loading" will be invisible
     When the data name is "{'column':'1','name':'Tag_Schedule'}" then i click the "删除" button in more menu

@@ -7,9 +7,9 @@ Feature: 报表_2_6其他
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
-    And I set the parameters "Hour" and "Minute" as "5" minutes later from now
+    And I set the parameters "Hour" and "Minute" as "3" minutes later from now
 
-  Scenario Outline: new_report_trend_single
+  Scenario Outline: 单值1
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -50,7 +50,7 @@ Feature: 报表_2_6其他
       |  reportType |   typeChart    |  name      |  color  |
       |  EXCEL      | Single         | Single     |  Green  |
 
-  Scenario Outline: new_report_trend_icon
+  Scenario Outline: 单值2
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I set the parameters "Hour" and "Minute" as "3" minutes later from now
     And I choose the "<reportType>" from the "ReportType"
@@ -97,7 +97,7 @@ Feature: 报表_2_6其他
 #      |  reportType |   typeChart    |  name         |  color  |  iconValue |
 #      |  EXCEL      |    Single      | Single_icon   |  Red    | icon       |
 
-  Scenario Outline: new_report_trend_font
+  Scenario Outline: 单值3
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I set the parameters "Hour" and "Minute" as "6" minutes later from now
     And I choose the "<reportType>" from the "ReportType"
@@ -143,7 +143,7 @@ Feature: 报表_2_6其他
 #      |  reportType |   typeChart    |  name         |  color  |  fontValue        |
 #      |  EXCEL      |   Single       | Single_font   |  Orange | font-awesome-flag |
 
-  Scenario Outline: new_report_trend_range_background
+  Scenario Outline: 单值4_背景
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -196,7 +196,7 @@ Feature: 报表_2_6其他
       |  EXCEL      |   Single       | Single_range_backgr   |  Yellow  | Orange  |
 
 
-  Scenario Outline: new_report_trend_ring_1
+  Scenario Outline: 环形比例图1
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -227,7 +227,7 @@ Feature: 报表_2_6其他
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
-    @report @reportChartsPDF
+    @report @reportChartsPDF @reportSmoke
     Examples:
       |  reportType |   typeChart    |  name    |  color   |
       |  PDF        |   Ring         | Ring_1   |  Orange  |
@@ -238,7 +238,7 @@ Feature: 报表_2_6其他
       |  EXCEL      |   Ring         | Ring_1   |  Orange  |
 
 
-  Scenario Outline: new_report_trend_ring_2
+  Scenario Outline: 环形比例图2
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -291,7 +291,7 @@ Feature: 报表_2_6其他
       |  EXCEL      |   Ring         | Ring_2   |
 
 
-  Scenario Outline: new_report_trend_liquidfill
+  Scenario Outline: 水球图
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -322,7 +322,7 @@ Feature: 报表_2_6其他
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
-    @report @reportChartsPDF
+    @report @reportChartsPDF @reportSmoke
     Examples:
       |  reportType |   typeChart    |  name        |  color  |
       |  PDF        |   Liquidfill   | Liquidfill   |  Green  |
@@ -332,7 +332,7 @@ Feature: 报表_2_6其他
       |  reportType |   typeChart    |  name        |  color  |
       |  EXCEL      |   Liquidfill   | Liquidfill   |  Green  |
 
-  Scenario Outline: new_report_trend_wordcloud
+  Scenario Outline: 字符云图
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -375,7 +375,7 @@ Feature: 报表_2_6其他
       |  reportType |   typeChart    |  name        |  color  |
       |  EXCEL      |   Wordcloud    | Wordcloud    |  Green  |
 
-  Scenario Outline: new_report_trend_radar
+  Scenario Outline: 雷达图
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -423,7 +423,7 @@ Feature: 报表_2_6其他
       |  reportType | typeChart   |  name     |   color  |
       |  EXCEL      | Radar       | Radar     | DarkBlue |
 
-  Scenario Outline: new_report_trend_funnel
+  Scenario Outline: 漏斗图
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -470,7 +470,7 @@ Feature: 报表_2_6其他
       |  EXCEL      | Funnel      | Funnel    | LightGreen | FirstPosition    |
 
 
-  Scenario Outline: new_report_trend_matrixheatmap
+  Scenario Outline: 矩阵热力图
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -512,7 +512,7 @@ Feature: 报表_2_6其他
       |  reportType | typeChart   |  name       |
       |  EXCEL      |Matrixheatmap|Matrixheatmap|
 
-  Scenario Outline: new_report_trend_table
+  Scenario Outline: 统计表
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element

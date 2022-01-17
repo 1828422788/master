@@ -5,7 +5,7 @@ Feature: 事件操作新建（RZY-1387）
     Given open the "event.ListPage" page for uri "/event/action/"
 
   @smoke @eventSmoke
-  Scenario Outline: 保存成功
+  Scenario Outline: 链接_完整url_显示于两者_新窗口打开
     When I click the "Create" button
     Then I will see the "event.CreatePage" page
     And I set the parameter "Name" with value "<name>"
@@ -27,7 +27,7 @@ Feature: 事件操作新建（RZY-1387）
       | AutoTest |       | 两者      | 链接     | http://192.168.1.134/search/?query=${apache.clientip}&time_range=-30m,now&order=desc&size=20&page=1&sourcegroup=all&_t=1530688101882&title=tyf | 新窗口     | 提交事件操作成功 |
 
   @second @eventSmoke
-  Scenario Outline: 保存成功
+  Scenario Outline: 链接_url路由部分
     When I click the "Create" button
     Then I will see the "event.CreatePage" page
     And I set the parameter "Name" with value "<name>"

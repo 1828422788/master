@@ -1,4 +1,4 @@
-@authtest
+@authtest @authsmoke
 Feature: 权限-collect指令
 
   Scenario: 取消可使用collect指令

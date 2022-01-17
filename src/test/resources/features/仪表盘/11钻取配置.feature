@@ -3,7 +3,7 @@ Feature: 仪表盘钻取配置
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for "2000" millsecond
+    And I wait for "Loading" will be invisible
 
   @dbdrilldownpre0
   Scenario Outline: 新建仪表盘
@@ -13,12 +13,16 @@ Feature: 仪表盘钻取配置
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
+    @dbdrilldownSmoke
     Examples:
       | name   |
       | 测试钻取配置 |
+
+    Examples:
+      | name   |
       | 钻取跳转   |
 
-  @dbdrilldownpre1
+  @dbdrilldownpre1 @dbdrilldownSmoke
   Scenario: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -72,9 +76,13 @@ Feature: 仪表盘钻取配置
     And I wait for loading complete
     And I back to before
 
+    @dbdrilldownSmoke
     Examples:
       | name   |
       | 测试钻取配置 |
+
+    Examples:
+      | name   |
       | 钻取跳转   |
 
   @dbdrilldownjump1
@@ -134,7 +142,7 @@ Feature: 仪表盘钻取配置
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "配置成功"
 
-  @drilldownconfig11
+  @drilldownconfig11 @dbdrilldownSmoke
   Scenario: 添加图表
     And I set the parameter "SearchInput" with value "测试钻取配置"
     And I wait for "2000" millsecond
@@ -154,7 +162,7 @@ Feature: 仪表盘钻取配置
     And I wait for "SuccessMessage" will be visible
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
-  @drilldownconfig12
+  @drilldownconfig12 @dbdrilldownSmoke
   Scenario: 开启钻取配置(RZY-4479)
     And I set the parameter "SearchInput" with value "测试钻取配置"
     And I wait for "2000" millsecond
@@ -168,7 +176,7 @@ Feature: 仪表盘钻取配置
     And I wait for "500" millsecond
 
 
-  @rzy318  @drilldownconfig13
+  @rzy318  @drilldownconfig13 @dbdrilldownSmoke
   Scenario: 在当前页面跳转到搜索页-自动 RZY-318
     And I set the parameter "SearchInput" with value "测试钻取配置"
     And I wait for "2000" millsecond
@@ -210,6 +218,7 @@ Feature: 仪表盘钻取配置
     And I wait for "500" millsecond
     And I click the "Jiangsu" button
     And switch to another window
+    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 'apache.geo.province':江苏"
 
@@ -243,7 +252,7 @@ Feature: 仪表盘钻取配置
 #    Then I will see the input element "TimeRange" value will contains "今天"
     Then I will see the "TimeRange" result will be "今天"
 
-
+  @dbdrilldownSmoke
   Scenario: 在新标签页跳转到搜索页-自定义 RZY-3439
     And I set the parameter "SearchInput" with value "测试钻取配置"
     And I wait for "2000" millsecond
@@ -267,6 +276,7 @@ Feature: 仪表盘钻取配置
     And I wait for "500" millsecond
     And I click the "Jiangsu" button
     And switch to another window
+    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10"
     And I wait for "1000" millsecond
@@ -299,8 +309,11 @@ Feature: 仪表盘钻取配置
     Examples:
       | url                    | title     |
       | https://www.baidu.com/ | 百度一下，你就知道 |
-      | /alerts/               | 监控        |
 
+    @dbdrilldownSmoke
+    Examples:
+      | url                    | title     |
+      | /alerts/               | 监控        |
 
   Scenario Outline: 在新标签跳转到自定义URL RZY-319
     And I set the parameter "SearchInput" with value "测试钻取配置"
@@ -322,6 +335,7 @@ Feature: 仪表盘钻取配置
     And I wait for "Jiangsu" will be visible
     And I click the "Jiangsu" button
     And switch to another window
+    And I close all tabs except main tab
     Then the page's title will be "<title>"
 
     Examples:

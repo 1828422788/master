@@ -150,7 +150,7 @@ Feature: 趋势图_拖拽_其他
       |  chartType | size | minVal1 | maxVal1 | minVal2| maxVal2| color2 |
       |  Single    | 80   | 1       | 123     | 123    | 126    | Purple |
 
-  Scenario Outline: drag_and_drop_single4
+  Scenario Outline: 单值4
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -226,6 +226,10 @@ Feature: 趋势图_拖拽_其他
     Examples:
       |  chartType | size | position  | tab          | button        | field      | text               | color  | content     | style             |
       |  Single    | 36   | After     | Icon         | AccordingName | IconName   | font-awesome-flag  | Green  | 个          | rgb(50, 194, 125) |
+
+    @trendSmoke
+    Examples:
+      |  chartType | size | position  | tab          | button        | field      | text               | color  | content     | style             |
       |  Single    | 80   | Before    | SecondTitle  |               | TitleName  |  二级title         | Purple | 4,448.09    | rgb(161, 20, 249) |
 
   Scenario Outline: drag_and_drop_single5
@@ -283,7 +287,8 @@ Feature: 趋势图_拖拽_其他
       |  chartType | size | color  | style             |
       |  Single    | 80   | Green  | rgb(50, 194, 125) |
 
-  Scenario Outline: drag_and_drop_ring
+  @trendSmoke
+  Scenario Outline: 环形比例图
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | eval value1 = apache.resp_len/5000 | eval value2 = apache.resp_len/10000"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -441,7 +446,8 @@ Feature: 趋势图_拖拽_其他
       |  chartType | color  |
       |  Ring      | Orange  |
 
-  Scenario Outline: drag_and_drop_wordcloud
+  @trendSmoke
+  Scenario Outline: 字符云图
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -497,7 +503,8 @@ Feature: 趋势图_拖拽_其他
       |  chartType |  color  |
       |  Wordcloud |  Purple |
 
-  Scenario Outline: drag_and_drop_funnel
+  @trendSmoke
+  Scenario Outline: 漏斗图
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -555,7 +562,8 @@ Feature: 趋势图_拖拽_其他
       |  chartType |  color  |  button        |   tab     |
       |  Funnel    |  Orange | RightPosition  | Example   |
 
-  Scenario Outline: drag_and_drop_radar
+  @trendSmoke
+  Scenario Outline: 雷达图
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -717,7 +725,8 @@ Feature: 趋势图_拖拽_其他
       |  chartType |  color    |  button        | compareWith1 | compareWith2 |
       |  Radar     |  DarkBlue | RightPosition  | 环比         | 上周同比值   |
 
-  Scenario Outline: drag_and_drop_matrixheatmap
+  @trendSmoke
+  Scenario Outline: 矩阵热力图
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"

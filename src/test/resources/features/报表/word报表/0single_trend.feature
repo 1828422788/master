@@ -1,7 +1,7 @@
-@reportTextEditor @report
+@reportTextEditor @report @reportSmoke
 Feature: 报表_0_单值趋势图
 
-  Scenario: report_single_trend
+  Scenario: 创建单值趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page

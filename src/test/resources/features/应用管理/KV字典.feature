@@ -1,6 +1,7 @@
-@all @smoke @app @appSmoke
+@all @smoke @app
 Feature: 应用KV字典
 
+  @appSmoke
   Scenario Outline: 新建KV字典应用
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
@@ -32,6 +33,7 @@ Feature: 应用KV字典
       | name  |
       | KVApp |
 
+  @appSmoke
   Scenario Outline: 安装资源成功
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for "CreateButton" will be visible
@@ -51,6 +53,7 @@ Feature: 应用KV字典
       | appName |
       | KVApp   |
 
+  @appSmoke
   Scenario: 添加KV字典
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
@@ -90,6 +93,7 @@ Feature: 应用KV字典
       | test | te te | 字段名称仅支持字母、数字、下划线 |
       | test | 测试    | 字段名称仅支持字母、数字、下划线 |
 
+  @appSmoke
   Scenario: 存储kvstore----bugRZY-7554
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
@@ -104,6 +108,7 @@ Feature: 应用KV字典
     And I wait for "3000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
+  @appSmoke
   Scenario: 验证是否成功---bugRZY-7554
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible

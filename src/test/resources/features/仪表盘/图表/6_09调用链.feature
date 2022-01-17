@@ -1,7 +1,7 @@
 @dashboard6_09 @dashboardChart
 Feature: 仪表盘_6_09_调用链
 
-  @dashboardSmoke
+  
   Scenario: 上传日志
     Given open the "localUpload.ListPage" page for uri "/sources/input/os/"
     When I set the parameter "AppName" with value "zipkin"
@@ -12,7 +12,7 @@ Feature: 仪表盘_6_09_调用链
     And I will see the element "VerifyText" contains "上传完成"
     And I wait for "5000" millsecond
 
-  @dashboardSmoke
+  
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -26,7 +26,6 @@ Feature: 仪表盘_6_09_调用链
       | name   |
       | 仪表盘调用链 |
 
-  @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -43,7 +42,6 @@ Feature: 仪表盘_6_09_调用链
       | name |
       | 调用链  |
 
-  @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -66,7 +64,6 @@ Feature: 仪表盘_6_09_调用链
       | spl                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | name   |
       | appname:zipkin \| parse \"^(?<datetime>\\\d{4}\/\\\d\\\d\/\\\d\\\d \\\d\\\d:\\\d\\\d:\\\d\\\d.\\\d{3})\\\s\\\[(?<threadname>\\\S+)\\\]\\\s(?<level>\\\S+)\\\s+(?<functionname>\\\S+)\\\s\\\S+\\\s\\\S+\\\s(?<jsonstring>.*)\" \| jpath input=jsonstring output=traceid path=\"traceId\" \| jpath input=jsonstring output=spanid path=\"id\" \| jpath input=jsonstring output=parentid path=\"parentId\" \| jpath input=jsonstring output=binnaryannotations path=\"binaryAnnotations[*].value\" \| jpath input=jsonstring output=duration path=\"duration\" \| jpath input=jsonstring output=modulename path=\"name\" \| where mvindex(duration, 0)>0 && mvindex(traceid,0)==\"511f8756ce1d0b8a\" \| jpath input=jsonstring output=timestamp path=\"timestamp\" \| table spanid, parentid, duration, timestamp, binnaryannotations, modulename | 仪表盘调用链 |
 
-  @dashboardSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -90,7 +87,6 @@ Feature: 仪表盘_6_09_调用链
       | name       |
       | 仪表盘调用链 |
 
-  @dashboardSmoke
   Scenario Outline: 修改为调用链 RZY-RZY-3404
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -140,7 +136,6 @@ Feature: 仪表盘_6_09_调用链
       | name    |
       | 仪表盘调用链 |
 
-  @dashboardSmoke
   Scenario Outline: trace表格展示优化 RZY-4855
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -168,7 +163,6 @@ Feature: 仪表盘_6_09_调用链
       | name       |   image             |
       | 仪表盘调用链 | 调用链_trace表格优化   |
 
-  @dashboardSmoke
   Scenario: 调用链table折叠 RZY-4858
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -183,7 +177,6 @@ Feature: 仪表盘_6_09_调用链
     And I click the Circle "FoldIcon" button
     Then I wait for "CallChainTextChildNode" will be visible
 
-  @dashboardSmoke
   Scenario Outline: 展示修改为-tree RZY-RZY-4837
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -215,7 +208,6 @@ Feature: 仪表盘_6_09_调用链
       | name    |
       | 仪表盘调用链 |
 
-  @dashboardSmoke
   Scenario Outline: 再次添加相同图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -239,7 +231,6 @@ Feature: 仪表盘_6_09_调用链
       | name       |
       | 仪表盘调用链 |
 
-  @dashboardSmoke
   Scenario Outline: 修改为调用链，显示为tree验证显示正常
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

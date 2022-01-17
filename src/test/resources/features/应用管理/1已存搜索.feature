@@ -1,6 +1,7 @@
-@all @smoke @app @appSmoke
+@all @smoke @app
 Feature: 应用已存搜索（RZY-2125）
 
+  @appSmoke
   Scenario Outline: 新建单个资源app
     Given open the "app.ListPage" page for uri "/app/list/"
     And I click the "CreateButton" button
@@ -29,6 +30,7 @@ Feature: 应用已存搜索（RZY-2125）
       | name             | menuName | url             | color   |
       | SavedsearchesApp | 已存搜索     | /savedsearches/ | #FFE6E4 |
 
+  @appSmoke
   Scenario Outline: 安装资源成功
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for "CreateButton" will be visible
@@ -69,6 +71,7 @@ Feature: 应用已存搜索（RZY-2125）
       | name             |
       | SavedsearchesApp |
 
+  @appSmoke
   Scenario: 新建已存搜索
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
@@ -105,6 +108,7 @@ Feature: 应用已存搜索（RZY-2125）
     And I wait for "2000" millsecond
     Then I will see the search result "{'column':'1','name':'验证无App','contains':'no'}"
 
+  @appSmoke
   Scenario: 已存搜索加载
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible

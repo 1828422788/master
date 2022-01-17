@@ -7,9 +7,9 @@ Feature: 报表_2_5地图
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
-    And I set the parameters "Hour" and "Minute" as "5" minutes later from now
+    And I set the parameters "Hour" and "Minute" as "3" minutes later from now
 
-  Scenario Outline: new_report_trend_heatmap
+  Scenario Outline: 热力地图
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -38,7 +38,7 @@ Feature: 报表_2_5地图
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
-    @report @reportChartsPDF
+    @report @reportChartsPDF @reportSmoke
     Examples:
       |  reportType |   typeChart    |  name      |
       |  PDF        | Heatmap        | Heatmap    |
@@ -48,7 +48,7 @@ Feature: 报表_2_5地图
       |  reportType |   typeChart    |  name      |
       |  EXCEL      | Heatmap        | Heatmap    |
 
-  Scenario Outline: new_report_trend_attackmap
+  Scenario Outline: 攻击地图
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -98,7 +98,7 @@ Feature: 报表_2_5地图
       |  EXCEL      |   World          | Attackmap_World     | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 \|eval clientlon= -0.127758 \| eval clientlat=51.507 |
       |  EXCEL      |   China          | Attackmap_China     | starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart \| parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 \|eval clientlon= 114.109467 \| eval clientlat=22.39642   |
 
-  Scenario Outline: new_report_trend_regionmap
+  Scenario Outline: 区划地图
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element

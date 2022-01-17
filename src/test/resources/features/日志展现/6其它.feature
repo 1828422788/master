@@ -6,7 +6,8 @@ Feature: 日志展现_6其它
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I drag the element "SearchPageSvg" to the "left" side
 
-  Scenario Outline: others(RZY-2804)
+  @logDisplaySmoke
+  Scenario Outline: 字符云图(RZY-2804)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -32,7 +33,7 @@ Feature: 日志展现_6其它
       |   Wordcloud   | 2804    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city |
 
 
-  Scenario Outline: wordcloud_facet
+  Scenario Outline: 字符云图_分面
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -60,7 +61,7 @@ Feature: 日志展现_6其它
       |  chartType    |caseNum  |   spl   |
       |   Wordcloud   | 分面    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city, apache.method \| limit 7 |
 
-  Scenario Outline: liquidfill
+  Scenario Outline: 水球图
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -93,7 +94,8 @@ Feature: 日志展现_6其它
       | chartType  | caseNum | spl                                                                       |
       | Liquidfill | percent | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt\| eval cnt_perc=cnt/1000 |
 
-  Scenario Outline: liquidfill_facet
+  @logDisplaySmoke
+  Scenario Outline: 水球图_分面
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -124,7 +126,8 @@ Feature: 日志展现_6其它
       | chartType  | caseNum | spl                                                                       |
       | Liquidfill | 分面    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip, apache.method \| sort by apache.clientip \| limit 2 \| eval cnt = ip_count/10 \| sort by cnt|
 
-  Scenario Outline: others(RZY-2807,2449)
+  @logDisplaySmoke
+  Scenario Outline: 雷达图_漏斗图(RZY-2807,2449)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -151,7 +154,7 @@ Feature: 日志展现_6其它
       |   Funnel      | 2449    |  tag:sample04061424_chart \| stats count() as cnt by apache.clientip \| sort by cnt, apache.clientip \|limit 5 |
 
 
-  Scenario Outline: radar(RZY-2808)
+  Scenario Outline: 雷达图(RZY-2808)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -185,7 +188,7 @@ Feature: 日志展现_6其它
       |   Radar       | apache.geo.city| DarkBlue | 2808    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
 
 
-  Scenario Outline: funnel(RZY-2809)
+  Scenario Outline: 漏斗图(RZY-2809)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -219,7 +222,7 @@ Feature: 日志展现_6其它
       |  chartType    | countValue |  divValue      |  color1   |caseNum  |   spl   |
       |   Funnel      |  cnt       | apache.geo.city|LightGreen |2809    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt by apache.geo.city \| sort by cnt, +apache.geo.city |
 
-  Scenario Outline: matrixheatmap(RZY-2810,2811)
+  Scenario Outline: 矩阵热力图(RZY-2810,2811)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -248,12 +251,16 @@ Feature: 日志展现_6其它
     And take part of "Chart" with name "actual/高级搜索视图/6其它_<caseNum>_<chartType>"
     Then I compare source image "actual/高级搜索视图/6其它_<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它_<caseNum>_<chartType>"
 
+    @logDisplaySmoke
     Examples:
       |  chartType     |  xValue         |  yValue       | segNum |caseNum  |   spl   |
       |  Matrixheatmap |  count()        | apache.status |  10    |2810    | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
+
+    Examples:
+      |  chartType     |  xValue         |  yValue       | segNum |caseNum  |   spl   |
       |  Matrixheatmap | apache.geo.city |    count()    |  5     |2811    | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
 
-  Scenario Outline: chain(RZY-2812,2814)
+  Scenario Outline: 调用链(RZY-2812,2814)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -293,12 +300,17 @@ Feature: 日志展现_6其它
     And take part of "Chart" with name "actual/高级搜索视图/6其它_<caseNum>_<chartType>"
     Then I compare source image "actual/高级搜索视图/6其它_<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它_<caseNum>_<chartType>"
 
+    @logDisplaySmoke
     Examples:
       |  chartType | color  | precision |  column           |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum |   spl   |
       |  Chain     | Green  | 1         |dapper.msg.duration|dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812    | tag:gf_dapper_test AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
+
+    Examples:
+      |  chartType | color  | precision |  column           |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum |   spl   |
       |  Chain     | Red    | 2         |timestamp          |dapper.class | dapper.msg.parentId  | dapper.msg.id |               timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814    | tag:gf_dapper_test AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
 
-  Scenario Outline: sequence(RZY-2805)
+  @logDisplaySmoke
+  Scenario Outline: 循序图(RZY-2805)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -335,7 +347,7 @@ Feature: 日志展现_6其它
       |  Sequence  | hostname  | apache.clientip | hostname  |  apache.clientip  | count()|  2805   |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by hostname,apache.clientip \|limit 4|
 
 
-  Scenario Outline: chain_tree(RZY-2812,2814)
+  Scenario Outline: 调用链_tree(RZY-2812,2814)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -377,7 +389,7 @@ Feature: 日志展现_6其它
       |  Chain     | Red    | 2         |dapper.class | dapper.msg.parentId  | dapper.msg.id |               timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814_tree | tag:gf_dapper_test AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
 
 
-  Scenario Outline: network
+  Scenario Outline: 网络节点图1
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.method, apache.geo.province, apache.geo.city | sort by +apache.geo.province, cnt, apache.go.city | limit 10"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -401,7 +413,7 @@ Feature: 日志展现_6其它
       |  NetworkNode  |                  |
       |  NetworkNode  | ClickPOST        |
 
-  Scenario Outline: network
+  Scenario Outline: 网络节点图2
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.method, apache.geo.province, apache.geo.city | sort by +apache.geo.province, cnt, apache.go.city | limit 10"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -433,8 +445,8 @@ Feature: 日志展现_6其它
       |  chartType    | color      | repValue  |
       |  NetworkNode  | Red        | 20        |
 
-
-  Scenario Outline: network
+  @logDisplaySmoke
+  Scenario Outline: 网络节点图3
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.method, apache.geo.province, apache.geo.city | sort by +apache.geo.province, cnt, apache.go.city | limit 10"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"

@@ -1,6 +1,7 @@
-@app @appSmoke
+@app
 Feature: 应用趋势图
 
+  @appSmoke
   Scenario Outline: 新建单个资源app
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
@@ -37,6 +38,7 @@ Feature: 应用趋势图
       | name     | menuName | url     | color   |
       | TrendApp | 趋势图      | /trend/ | #E4FFE6 |
 
+  @appSmoke
   Scenario Outline: 安装资源成功
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for "CreateButton" will be visible
@@ -76,7 +78,8 @@ Feature: 应用趋势图
       | name     |
       | TrendApp |
 
-  Scenario Outline: 新建趋势图并存为报表--有bug
+  @appSmoke
+  Scenario Outline: 新建趋势图并存为报表
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
     When I click the detail which name is "TrendApp"

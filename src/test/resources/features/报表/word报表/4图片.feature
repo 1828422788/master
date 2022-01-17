@@ -7,10 +7,11 @@ Feature:报表_富文本编辑_4_图片
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
-    And I set the parameters "Hour" and "Minute" as "5" minutes later from now
+    And I set the parameters "Hour" and "Minute" as "3" minutes later from now
     And I choose the "WORD" from the "ReportType"
 
-  Scenario: image
+  @reportSmoke
+  Scenario: 添加图片
     When I set the parameter "Name" with value "Image"
     And I click the "NextButton" button under some element
     And I will see the "report.CreatePageWORD" page

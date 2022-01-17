@@ -7,7 +7,7 @@ Feature: 趋势图新建_统计地图
     Then I will see the "trend.CreatePage" page
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  Scenario Outline: statistical_map
+  Scenario Outline: 统计地图
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "2000" millsecond
     And I click the "SearchButton" button under some element
@@ -48,9 +48,13 @@ Feature: 趋势图新建_统计地图
     Then I will see the "trend.CreatePage" page
     And I will see the "<chartType>Element" is display
 
+    @trendSmoke
     Examples:
       |chartType   |caseNum  |   spl   |
       |Geostatsmap | 2098    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:vendors_test \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
+
+    Examples:
+      |chartType   |caseNum  |   spl   |
       |Geostatsmap | 2797    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:vendors_test \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince|
 
   Scenario Outline: statistical_map_parameters

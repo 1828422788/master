@@ -1,7 +1,7 @@
 @trend @reportTrend
 Feature: 趋势图新建_报表
 
-  Scenario Outline: create_report
+  Scenario Outline: 创建报表
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
@@ -59,6 +59,10 @@ Feature: 趋势图新建_报表
     Examples:
       |   type  |  trend_name    | added_trend      |   page    |
       | PDF     |  Trend_Test_1  | LastTrendTitle   |           |
+
+    @trendSmoke
+    Examples:
+      |   type  |  trend_name    | added_trend      |   page    |
       | WORD    |  Trend_Test_2  | LastAddedTrend   |   WORD    |
 
 

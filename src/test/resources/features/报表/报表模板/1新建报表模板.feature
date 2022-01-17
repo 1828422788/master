@@ -46,6 +46,7 @@ Feature: 报表模板_1新建
     Then I will see the text "请添加趋势图" exist in page
     And I will see the "ResultMessage" doesn't exist
 
+  @reportSmoke
   Scenario: 添加趋势图
     When I set the parameter "TemplateName" with value "template"
     And I upload a file with name "/src/test/resources/testdata/reportTemplate/template.docx"

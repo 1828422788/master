@@ -103,6 +103,32 @@ Feature: 报表_9_下载
       | Force                |
       | Wordcloud            |
 
+  @reportSmoke
+  Scenario Outline: 下载PDF
+    When I set the parameter "SearchInput" with value "<name>_PDF"
+    And I wait for "Loading" will be invisible
+    And I wait for "40000" millsecond
+    And the data name is "{'column':'1','name':'<name>_PDF'}" then i click the "<name>_PDF" button
+    And I wait for element "SelectedReport" change text to "<name>_PDF"
+    Then I will see the element "LastGeneratedReport" contains ".pdf"
+    And I click the "Download" button
+    And I wait for "4000" millsecond
+    And I download the latest report to local
+    And I wait for "2000" millsecond
+    Then I compare source report file "expect/报表/<name>_PDF.pdf" with target report file "<name>_PDF.pdf"
+
+    Examples:
+      |          name        |
+      |   LineChart          |
+      |   AreaChart          |
+      |   Sun                |
+      |   Flame              |
+      |   Sankey_Mult        |
+      |   Multiaxis          |
+      |   Heatmap            |
+      |   Ring_1             |
+      |   Liquidfill         |
+
   @reportDownloadEXCEL
   Scenario Outline: download_excel
     When I set the parameter "SearchInput" with value "<name>_EXCEL"

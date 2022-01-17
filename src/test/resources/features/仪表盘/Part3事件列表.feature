@@ -1,7 +1,7 @@
 @dashboardpart3 @dashboard1
 Feature: 仪表盘1事件列表
 
-  @dashboard1a
+  @dashboard1a @dashboardpart3Smoke
   Scenario: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When I click the "Create" button
@@ -10,7 +10,7 @@ Feature: 仪表盘1事件列表
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
-  @dashboard1b
+  @dashboard1b @dashboardpart3Smoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -27,7 +27,7 @@ Feature: 仪表盘1事件列表
       | name    |
       | 仪表盘事件操作 |
 
-  @dashboard1c
+  @dashboard1c @dashboardpart3Smoke
   Scenario: 添加事件列表 RZY-3389,RZY-339
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -46,7 +46,7 @@ Feature: 仪表盘1事件列表
     And I click the "Today" button
     And I click the "Ensure" button
 
-  @dashboard1d
+  @dashboard1d @dashboardpart3Smoke
   Scenario: 添加事件操作
     Given open the "event.ListPage" page for uri "/event/action/"
     When I click the "Create" button
@@ -57,7 +57,7 @@ Feature: 仪表盘1事件列表
     And I wait for "Message" will be visible
     Then I will see the message "提交事件操作成功"
 
-  @dashboard1e
+  @dashboard1e @dashboardpart3Smoke
   Scenario: 验证事件操作 RZY-338
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -74,7 +74,7 @@ Feature: 仪表盘1事件列表
     And I close all tabs except main tab
     Then the page's title will be "趋势图列表"
 
-  @dashboard1f
+  @dashboard1f @dashboardpart3Smoke
   Scenario: 修改事件操作 RZY-3291,RZY-3289
     Given open the "event.ListPage" page for uri "/event/action/"
     When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button
@@ -85,7 +85,7 @@ Feature: 仪表盘1事件列表
     And I wait for "Message" will be visible
     Then I will see the message "提交事件操作成功"
 
-  @dashboard1g
+  @dashboard1g @dashboardpart3Smoke
   Scenario: 验证事件操作显示于两者 RZY-3291,RZY-3288
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -101,7 +101,7 @@ Feature: 仪表盘1事件列表
     And I close all tabs except main tab
     Then the page's title will be "趋势图列表"
 
-  @dashboard1h
+  @dashboard1h @dashboardpart3Smoke
   Scenario: 验证事件操作显示于两者
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -122,7 +122,7 @@ Feature: 仪表盘1事件列表
     And I close all tabs except main tab
     Then the page's title will be "趋势图列表"
 
-  @dashboard1i
+  @dashboard1i @dashboardpart3Smoke
   Scenario: 修改事件操作显示于字段 RZY-3628,RZY-3290
     Given open the "event.ListPage" page for uri "/event/action/"
     When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button
@@ -134,7 +134,7 @@ Feature: 仪表盘1事件列表
     Then I will see the message "提交事件操作成功"
 
 
-  @dashboard1j
+  @dashboard1j @dashboardpart3Smoke
   Scenario: 验证事件操作显示于字段 RZY-3628,RZY-3290
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -149,7 +149,7 @@ Feature: 仪表盘1事件列表
     And I wait for "2000" millsecond
     Then I will see the "Event" doesn't exist
 
-  @dashboard1k
+  @dashboard1k @dashboardpart3Smoke
   Scenario: 验证事件操作显示于字段 RZY-3628,RZY-3290
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -169,7 +169,7 @@ Feature: 仪表盘1事件列表
     And I close all tabs except main tab
     Then the page's title will be "趋势图列表"
 
-  @dashboard1l
+  @dashboard1l @dashboardpart3Smoke
   Scenario: 修改事件操作动作类型为搜索
     Given open the "event.ListPage" page for uri "/event/action/"
     When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button
@@ -306,7 +306,6 @@ Feature: 仪表盘1事件列表
     And I set the parameter "Spl" with value "'apache.geo.city': 成都市"
     And I click the "OpenInSearch" button
     And switch to another window
-#    And I close all tabs except main tab
     Then I will see the "splSearch.SearchPage" page
     Then I will see the element "SearchInput" name is "'apache.geo.city': 成都市"
     And I wait for "2000" millsecond
@@ -381,6 +380,7 @@ Feature: 仪表盘1事件列表
     And I click the "IconRight" button
     And I click the "ChengDuShi" button
     And switch to another window
+    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.geo.city:成都市 AND 'apache.geo.city':成都市"
 
@@ -441,6 +441,7 @@ Feature: 仪表盘1事件列表
     And I wait for "ChengDuShi" will be visible
     And I click the "ChengDuShi" button
     And switch to another window
+    And I close all tabs except main tab
     Then the page's title will be "<title>"
 
     Examples:

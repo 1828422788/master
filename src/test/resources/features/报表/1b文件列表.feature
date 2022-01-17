@@ -5,7 +5,8 @@ Feature: 报表_1b_文件列表
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
 
-  Scenario: check_table
+  @reportSmoke
+  Scenario: 已生成报表
     When I set the parameter "SearchInput" with value "test_report_PDF"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'test_report_PDF'}" then i click the "test_report_PDF" button
@@ -20,9 +21,9 @@ Feature: 报表_1b_文件列表
     And I will see the element "Message" contains "此操作将删除「"
     And I will see the element "Message" contains ".pdf」, 是否继续?"
     Then I click the "Cancel" button
-  
-  
-  Scenario Outline: check_type
+
+  @reportSmoke
+  Scenario Outline: 检查已生成报表文件
     When I set the parameter "SearchInput" with value "<name>"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>'}" then i click the "<name>" button
@@ -34,7 +35,8 @@ Feature: 报表_1b_文件列表
       |  test_report_URL      |  .pdf      |
       |  test_report_EXCEL    |  .xlsx     |
 
-  Scenario Outline: check_type_dropdown
+  @reportSmoke
+  Scenario Outline: 已生成报表_选择报表
     When I set the parameter "SearchInput" with value "<name_1>"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name_1>'}" then i click the "<name_1>" button
@@ -50,7 +52,7 @@ Feature: 报表_1b_文件列表
       |    name_1          |  format_1  | name_2            | format_2   |
       |  test_report_PDF   |  .pdf      | test_report_EXCEL | .xlsx      |
 
-  Scenario: report_list_button
+  Scenario: 已生成报表2
     When I click the "ReportListButton" button under some element
     Then I wait for "SelectedReport" will be visible
     And I wait for element "SelectedReport" change text to "全部报表文件"

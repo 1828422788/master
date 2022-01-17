@@ -1,4 +1,4 @@
-@report
+@report @reportSmoke
 Feature: 报表_0_趋势图
 
   Background:
@@ -7,7 +7,7 @@ Feature: 报表_0_趋势图
     Then I will see the "trend.CreatePage" page
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  Scenario: report_trend
+  Scenario: 创建趋势图
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count()"
     And I click the "DateEditor" button
     And I click the "Today" button

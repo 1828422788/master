@@ -14,6 +14,7 @@ Feature: 用户分组创建（RZY-545）
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "<message>"
 
+    @smoke @usersSmoke
     Examples:
       | UserGroupName     | UserGroupDes | message |
       | AutoTestForDelete | des1         | 创建成功    |

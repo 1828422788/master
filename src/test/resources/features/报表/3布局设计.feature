@@ -19,7 +19,7 @@ Feature: 报表_3_布局设计
 
     And I click the "Layout<layout>" button
     And I will see the "Badge1" is display
-    When I click the "FinishButton" button under some element
+    When I click the "Complete" button under some element
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 

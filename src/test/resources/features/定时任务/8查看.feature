@@ -1,7 +1,7 @@
 @timedTask @timedTaskLookUp @timedTaskSmoke
 Feature: 定时任务查看
 
-  Scenario Outline: view
+  Scenario Outline: 查看定时任务
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I set the parameter "SearchInput" with value "<name>"
     And I wait for "Loading" will be invisible

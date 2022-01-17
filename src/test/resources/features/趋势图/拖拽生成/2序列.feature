@@ -142,7 +142,8 @@ Feature: 趋势图_拖拽_序列
       |  Area      |  DescendingOrder | Smooth           | pcs. |     | 25  | Yellow |
       |  Column    |  AscendingOrder  |                  | r.   | 1   |     | Orange |
 
-  Scenario Outline: drag_and_drop_order_scatter
+  @trendSmoke
+  Scenario Outline: 散点图
     And I drag the element "Clientip" to the "Dimensions"
     And I drag the element "Clientip" to the "Values"
     And I wait for "<chartType>" will be visible

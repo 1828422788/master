@@ -7,8 +7,7 @@ Feature: 趋势图新建_关系
     Then I will see the "trend.CreatePage" page
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-
-  Scenario Outline: connection(RZY-2505,2507)
+  Scenario Outline: 和弦图_桑基图(RZY-2505,2507)
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
@@ -56,7 +55,8 @@ Feature: 趋势图新建_关系
       |    Chord      |    2505    |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() by apache.clientip,apache.request_path  |
       |    Sankey     |    2507    |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND  apache.clientip:183.14.126.214  OR ( apache.clientip:1.207.60.51 AND apache.resp_len:87) \| stats count() by apache.clientip,apache.resp_len,apache.method \| sort by apache.resp_len |
 
-  Scenario Outline: connection(RZY-2511)
+  @trendSmoke
+  Scenario Outline: 力图(RZY-2511)
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element

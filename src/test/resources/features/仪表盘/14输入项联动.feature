@@ -1,4 +1,4 @@
-@dashboard34 @dashboardinput
+@dashboard34 @dashboardinput @dashboardinputSmoke
 Feature: 仪表盘输入项联动
   
   Background:

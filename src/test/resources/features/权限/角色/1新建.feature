@@ -12,6 +12,7 @@ Feature: 角色新建（RZY-517至521）
     And I click the "CreateButton" button
     Then I wait for "SuccessMessage" will be visible
 
+    @roleSmoke
     Examples:
       | RoleName     | RoleDes |
       | AutoTestEdit | 测试编辑功能  |

@@ -9,7 +9,7 @@ Feature: 报表_2_2维度
     And I set the parameter "Describe" with value "AutoCreate"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
 
-  Scenario Outline: new_report_trend_Dimension
+  Scenario Outline: 维度（饼状图，玫瑰图，条形图）
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -60,7 +60,7 @@ Feature: 报表_2_2维度
       |  EXCEL      |  Bar           |  Bar       |  不展示        |   Yellow  |
 
 
-  Scenario Outline: new_report_trend_Dimension_Sun
+  Scenario Outline: 旭日图
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -99,7 +99,7 @@ Feature: 报表_2_2维度
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
-    @report @reportChartsPDF
+    @report @reportChartsPDF @reportSmoke
     Examples:
       |  reportType |   typeChart    |  name      |   color     |
       |  PDF        |  Sun           |  Sun       |   DarkBlue  |
@@ -109,7 +109,7 @@ Feature: 报表_2_2维度
       |  reportType |   typeChart    |  name      |   color    |
       |  EXCEL      |  Sun           |  Sun       |   DarkBlue |
 
-  Scenario Outline: new_report_trend_bar_label
+  Scenario Outline: 条形图_标签1
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -158,7 +158,7 @@ Feature: 报表_2_2维度
       |  EXCEL      |  Bar           |  Bar1       |  只展示名称    |  柱状外右侧    | Red      |
       |  EXCEL      |  Bar           |  Bar2       |  全部展示      |  柱状内靠左侧  | Green    |
 
-  Scenario Outline: new_report_trend_bar_label_orientation
+  Scenario Outline: 条形图_标签2
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -210,7 +210,7 @@ Feature: 报表_2_2维度
       |  EXCEL      |  Bar           |  Bar3       |  全部展示     | 横向         | 纵向         | Red    |
       |  EXCEL      |  Bar           |  Bar4       |  只展示名称   | 纵向         | 横向         | Orange |
 
-  Scenario Outline: new_report_trend_sunburst
+  Scenario Outline: sunburst
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -250,7 +250,7 @@ Feature: 报表_2_2维度
       |  reportType | typeChart   | color     |  name     | SPL   |
       |  EXCEL      | Sun         | DarkBlue  |Sunburst   | \| makeresults count=10 \| eval app="test_1" \| eval tag="T_1" \| append [[ \| makeresults count=10 \| eval app="test_2" \| eval tag="T_2"]] \| chart rendertype="sunburst" count() over tag by app|
 
-  Scenario Outline: new_report_trend_pie
+  Scenario Outline: 饼状图_内环占外环比
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -301,7 +301,7 @@ Feature: 报表_2_2维度
       |  EXCEL      | Pie       | Red    |  Pie_1 | 2            | 0.9   |
       |  EXCEL      | Pie       | Green  |  Pie_2 | 3            | 0     |
 
-  Scenario Outline: new_report_trend_flame
+  Scenario Outline: 火焰图
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -339,7 +339,7 @@ Feature: 报表_2_2维度
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
-    @report @reportChartsPDF
+    @report @reportChartsPDF @reportSmoke
     Examples:
       |  reportType | typeChart | name   |
       |  PDF        | Flame     | Flame  |

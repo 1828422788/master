@@ -9,7 +9,7 @@ Feature: 报表_2_1序列
     And I set the parameter "Describe" with value "AutoCreate"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
 
-  Scenario Outline: new_report_trend_Order_button
+  Scenario Outline: 序列（曲线图，面积图）
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -55,7 +55,7 @@ Feature: 报表_2_1序列
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
-    @report @reportChartsPDF
+    @report @reportChartsPDF @reportSmoke
     Examples:
       |  reportType | typeChart | label        | order           |  unit  |  button        | min |   max  | legendPosition |  name    |
       |  PDF        | LineChart | FirstLabel   |                 |   个   |  Smooth        |  1  |   25   | FirstPosition  |LineChart |
@@ -68,7 +68,7 @@ Feature: 报表_2_1序列
       |  EXCEL      | AreaChart | SecondLabel  | AscendingOrder  |  pcs.  |ConnectEmptyData|     |   20   | SecondPosition |AreaChart |
 
 
-  Scenario Outline: new_report_trend_Order_Pile
+  Scenario Outline: 序列（柱状图，面积图）_堆叠
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -127,7 +127,7 @@ Feature: 报表_2_1序列
       |  EXCEL      |   AreaChart | ThirdLabel | DescendingOrder| pcs. | 2   | 25  | ThirdPosition  |AreaChart_Pile   |
       |  EXCEL      | ColumnChart | ThirdLabel | DescendingOrder| 个   | 0   | 20  | ThirdPosition  |ColumnChart_Pile |
 
-  Scenario Outline: new_report_trend_Order_bubbles
+  Scenario Outline: 散点图
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element
@@ -183,7 +183,7 @@ Feature: 报表_2_1序列
       |  reportType | typeChart    | label       | unit | legendPosition |  name        |
       |  EXCEL      | ScatterChart | SecondLabel | 个   | FirstPosition  |ScatterChart  |
 
-  Scenario Outline: new_report_trend_timechart
+  Scenario Outline: timechart
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button under some element

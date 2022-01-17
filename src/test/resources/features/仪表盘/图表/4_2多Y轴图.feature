@@ -1,7 +1,6 @@
 @dashboard4_2 @dashboardChart
 Feature: 仪表盘_4_2_多Y轴图
 
-  @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -15,7 +14,6 @@ Feature: 仪表盘_4_2_多Y轴图
       | name    |
       | 仪表盘多Y轴图 |
 
-  @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -37,7 +35,6 @@ Feature: 仪表盘_4_2_多Y轴图
       | spl                                                                                                                                                                             | name    |
       | tag:sample04061424_display \| stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status \| limit 10 | 仪表盘多Y轴图 |
 
-  @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -54,7 +51,6 @@ Feature: 仪表盘_4_2_多Y轴图
       | name |
       | 多Y轴图 |
 
-  @dashboardSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -78,7 +74,6 @@ Feature: 仪表盘_4_2_多Y轴图
       | name    |
       | 仪表盘多Y轴图 |
 
-  @dashboardSmoke
   Scenario Outline: 修改为多Y轴图 RZY-309
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -145,7 +140,6 @@ Feature: 仪表盘_4_2_多Y轴图
       | 仪表盘多Y轴图 |  "chart": {\n    "chartType": "multiaxis",\n    "xAxis": {\n      "field": "apache.resp_len",\n      "labelRotate": "left",\n      "sortOrder": "default"\n    },\n    "yAxis": [\n      {\n        "fields": [\n          {\n            "color": "#2A76E4",\n            "connectNull": false,\n            "name": "count(apache.resp_len)",\n            "smooth": false,\n            "type": "line"\n          }\n        ],\n        "range": {\n          "max": "",\n          "min": ""\n        },\n        "unit": ""\n      },\n      {\n        "fields": [\n          {\n            "color": "#5C9DF5",\n            "connectNull": false,\n            "name": "max(apache.resp_len)",\n            "opacity": 0.6,\n            "smooth": false,\n            "type": "column"\n          }\n        ],\n        "range": {\n          "max": "",\n          "min": 2\n        },\n        "unit": "柱"\n      }\n    ],\n    "precision": "",\n    "showAllXAxisLabels": false,\n    "labelInterval": "",\n    "customLabel": "",\n    "byFields": [\n      "apache.status"\n    ],\n    "legend": {\n      "placement": "bottom"\n    }\n  } |
 
 
-  @dashboardSmoke
   Scenario Outline: 同一个Y轴多个字段 RZY-4856,RZY-1332
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -182,7 +176,6 @@ Feature: 仪表盘_4_2_多Y轴图
       | name        | image                   |
       | 仪表盘多Y轴图 | 多Y轴图_multiFieldInAxis |
 
-  @dashboardSmoke
   Scenario: 验证边界值范围生效 RZY-4857
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -195,7 +188,6 @@ Feature: 仪表盘_4_2_多Y轴图
     Then I wait for "MultiYminValue" will be visible
     Then I wait for "MultiYmaxValue" will be visible
 
-  @dashboardSmoke
   Scenario Outline: labelRotate-left-right-horizontal-vertical RZY-1325,RZY-1326,RZY-1327,RZY-1328
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -226,7 +218,6 @@ Feature: 仪表盘_4_2_多Y轴图
       | 仪表盘多Y轴图 |   horizontal   |  rotate(0)    |
       | 仪表盘多Y轴图 |    vertical    |  rotate(-90)  |
 
-  @dashboardSmoke
   Scenario Outline: sortOrder-default-desc-asc RZY-1329,RZY-1330,RZY-1331
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -257,7 +248,6 @@ Feature: 仪表盘_4_2_多Y轴图
       | 仪表盘多Y轴图 |      desc     |  多Y轴图_sortOrder_desc |
       | 仪表盘多Y轴图 |       asc     |  多Y轴图_sortOrder_asc |
 
-  @dashboardSmoke
   Scenario: 设置对象个数为空 RZY-1333
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -275,7 +265,6 @@ Feature: 仪表盘_4_2_多Y轴图
     And I will see the element "ErrorMessage" contains "chart -> yAxis 字段值不能为空"
 #    Then I wait for element "ErrorMessage" change text to "chart -> yAxis 字段值不能为空"
 
-  @dashboardSmoke
   Scenario Outline: 设置对象个数为1个，修改type RZY-1332,RZY-1334,RZY-3727,RZY-3728,RZY-3729
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -307,7 +296,6 @@ Feature: 仪表盘_4_2_多Y轴图
       | column  | 多Y轴图_column  |
       | line    | 多Y轴图_line    |
 
-  @dashboardSmoke
   Scenario: 将field字段值改为min(apache.resp_len) RZY-1335,RZY-1336,RZY-1340
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -332,7 +320,6 @@ Feature: 仪表盘_4_2_多Y轴图
     Then take part of "MultiYaxisArea" with name "actual/多Y轴图_修改Yfield"
 #    And I compare source image "actual/多Y轴图_修改Yfield" with target image "expect/多Y轴图_修改Yfield"
 
-  @dashboardSmoke
   Scenario Outline: range RZY-1337,RZY-3730,RZY-3732
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -363,7 +350,6 @@ Feature: 仪表盘_4_2_多Y轴图
       |    ""   |     350        |   多Y轴图_min空        |
       | 50      |      ""        |   多Y轴图_max空        |
 
-  @dashboardSmoke
   Scenario Outline: rang-min大于max RZY-1338
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -385,7 +371,6 @@ Feature: 仪表盘_4_2_多Y轴图
       | min     |   max          |   ErrorMessage               |
       |  200    |     100        |   chart -> yAxis -> range -> 显示范围上限值(max)需大于显示范围下限值(min)    |
 
-  @dashboardSmoke
   Scenario: smooth为true RZY-1339,RZY-3733
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -410,7 +395,6 @@ Feature: 仪表盘_4_2_多Y轴图
     Then take part of "MultiYaxisArea" with name "actual/多Y轴图_smooth_true"
 #    And I compare source image "actual/多Y轴图_smooth_true" with target image "expect/多Y轴图_smooth_true"
 
-  @dashboardSmoke
   Scenario Outline: byFields设为max(apache.resp_len) RZY-1341
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -439,7 +423,6 @@ Feature: 仪表盘_4_2_多Y轴图
       |   byFields               |     image                |
       |  max(apache.resp_len)    |   多Y轴图_byFields_max(apache.resp_len)   |
 
-  @dashboardSmoke
   Scenario Outline: legend RZY-1344
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -469,7 +452,6 @@ Feature: 仪表盘_4_2_多Y轴图
       | legend     |     image                |
       |  right     |   多Y轴图_legend_right    |
 
-  @dashboardSmoke
   Scenario Outline: legend RZY-1342
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -498,7 +480,6 @@ Feature: 仪表盘_4_2_多Y轴图
       | legend     |     style         |
       |  bottom    |   height: 40px    |
 
-  @dashboardSmoke
   Scenario Outline: legend为none RZY-1343
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

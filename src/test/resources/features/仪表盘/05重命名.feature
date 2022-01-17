@@ -1,4 +1,4 @@
-@dashboard @dashboardSmoke @dashboard05
+@dashboard @dashboard05
 Feature: 仪表盘05重命名
 
   Background:

@@ -5,6 +5,7 @@ Feature: 仪表盘01新建（RZY-208至RZY-210）
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
 
+  @dashboardSmoke
   Scenario Outline: 新建(RZY-208，RZY-4472，RZY-4473,RZY-4782)
     When I click the "Create" button
     And I set the parameter "DashBoardName" with value "<name>"
@@ -34,6 +35,7 @@ Feature: 仪表盘01新建（RZY-208至RZY-210）
     Then I will see the text "FirstAutoTest" exist in page
 #    Then I will see the data "FirstAutoTest" values "{'column':'4','name':'app之api全部用例'}"
 
+  @dashboardSmoke
   Scenario Outline: 仪表盘授权-数据用户浏览者
     Given the data name is "<name>" then i click the "更多" button
     And I wait for "1000" millsecond
@@ -46,6 +48,7 @@ Feature: 仪表盘01新建（RZY-208至RZY-210）
       | name          | datauser   |
       | UIautotest    | ：浏览者     |
 
+  @dashboardSmoke
   Scenario Outline: 仪表盘授权-数据用户创建者
     Given the data name is "<name>" then i click the "更多" button
     And I wait for "1000" millsecond

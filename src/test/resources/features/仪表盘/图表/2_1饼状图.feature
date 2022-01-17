@@ -1,7 +1,7 @@
 @dashboard2_1 @dashboardChart
 Feature: 仪表盘_2_1_饼状图
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
@@ -15,7 +15,7 @@ Feature: 仪表盘_2_1_饼状图
       | name   |
       | 仪表盘饼状图 |
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -37,7 +37,7 @@ Feature: 仪表盘_2_1_饼状图
       | spl                                                                          | name   |
       | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | 仪表盘饼状图 |
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -54,7 +54,7 @@ Feature: 仪表盘_2_1_饼状图
       | name |
       | 饼状图  |
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -78,7 +78,7 @@ Feature: 仪表盘_2_1_饼状图
       | name   |
       | 仪表盘饼状图 |
 
-  @dashboardSmoke
+  @dashboardChartSmoke
   Scenario Outline: 修改为饼状图 RZY-298
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -153,7 +153,7 @@ Feature: 仪表盘_2_1_饼状图
     And I wait for "3000" millsecond
     Then I will see the "PieData" is not exist
 
-  @dashboardSmoke
+ 
   Scenario Outline: chartType字段 RZY-1317,RZY-1318,RZY-1319,RZY-3692
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -184,9 +184,12 @@ Feature: 仪表盘_2_1_饼状图
       | rose      | 维度图_chartType_rose  |
       | bar      | 维度图_chartType_bar   |
       | sunburst  | 维度图_chartType_sunburst  |
+    
+    @dashboardChartSmoke
+    Examples:
+      | chartType |   image                |
       | pie     | 维度图_chartType_pie   |
 
-  @dashboardSmoke
   Scenario Outline: field byFields RZY-3696
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

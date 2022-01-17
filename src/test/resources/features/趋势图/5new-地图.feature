@@ -7,7 +7,7 @@ Feature: 趋势图新建_地图
     Then I will see the "trend.CreatePage" page
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  Scenario Outline: map
+  Scenario Outline: 热力地图，区划地图
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
@@ -53,8 +53,7 @@ Feature: 趋势图新建_地图
       |   Heatmap     | Heatmap       |  2539    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city |
       |   Regionmap   | RegionmapDark |  2545    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
 
-
-  Scenario Outline: attackmap
+  Scenario Outline: 攻击地图
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| parse field=apache.request_query \"\^gw_address=(\?<gw_address>\\d+\\.\\d+\\.\\d+\\.\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 <spl>"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
@@ -111,9 +110,12 @@ Feature: 趋势图新建_地图
     Then I will see the "trend.CreatePage" page
     And I wait for "<chartType>Element" will be visible
 
+    @trendSmoke
     Examples:
       |chartType| regionBut |caseNum  | spl   |
       |Attackmap|   World   | 2542    | \|eval clientlon= -0.127758 \| eval clientlat=51.507|
+    Examples:
+      |chartType| regionBut |caseNum  | spl   |
       |Attackmap|   China   | 2543    | \|eval clientlon= 114.109467 \| eval clientlat=22.396427|
 
   Scenario Outline: regionmap

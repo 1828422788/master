@@ -6,7 +6,8 @@ Feature: 日志展现_1序列
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I drag the element "SearchPageSvg" to the "left" side
 
-  Scenario Outline: order(RZY-2770,2771,2769,2768)
+  @logDisplaySmoke
+  Scenario Outline: 序列（曲线图，面积图，散点图，柱状图）(RZY-2770,2771,2769,2768)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by apache.clientip,cnt | limit 8"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -33,7 +34,7 @@ Feature: 日志展现_1序列
       |  ScatterChart |     2766   |
       |  ColumnChart  |     2768   |
 
-  Scenario Outline: line(RZY-832)
+  Scenario Outline: 曲线图(RZY-832)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by apache.clientip,cnt | limit 8"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -67,7 +68,7 @@ Feature: 日志展现_1序列
       |   LineChart   |   个       | Smooth            | 832       |
       |   LineChart   |   个       | ConnectEmptyData  | 832       |
 
-  Scenario Outline: pile(RZY-2767,2773)
+  Scenario Outline: 堆叠(RZY-2767,2773)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by apache.clientip,cnt | limit 8 "
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -98,7 +99,7 @@ Feature: 日志展现_1序列
       |   AreaChart   |    Pile       | Red    | 2767      |
       |  ColumnChart  |    Pile       | Yellow | 2773      |
 
-  Scenario Outline: scatter_bubble (RZY-4204)
+  Scenario Outline: 散点图 (RZY-4204)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by apache.clientip,cnt | limit 8"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -128,7 +129,7 @@ Feature: 日志展现_1序列
       |  ScatterChart |    cnt       | bubbles   |
 
 
-  Scenario Outline: order_facet
+  Scenario Outline: 序列_分面
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method, apache.status | sort by cnt, apache.clientip"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -165,7 +166,7 @@ Feature: 日志展现_1序列
       |  ScatterChart |
       |  ColumnChart  |
 
-  Scenario Outline: order_label_orientation
+  Scenario Outline: 序列_标签
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip | sort by cnt"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -191,7 +192,7 @@ Feature: 日志展现_1序列
       |  ScatterChart | ThirdLabel | rotate(45) |
       |  ColumnChart  | ForthLabel | rotate(-90)|
 
-  Scenario Outline: order_label_order
+  Scenario Outline: 序列_排序
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() by apache.geo.city | limit 5"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"

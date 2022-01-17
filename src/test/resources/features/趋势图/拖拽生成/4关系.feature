@@ -23,7 +23,8 @@ Feature: 趋势图_拖拽_关系
     And I drag the element "GeoProvince" to the "Dimensions"
     And I wait for "2000" millsecond
 
-  Scenario Outline: drag_and_drop_connection
+  @trendSmoke
+  Scenario Outline: 和弦图_桑基图
     And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
     And I wait for "2000" millsecond
@@ -70,7 +71,8 @@ Feature: 趋势图_拖拽_关系
       |  Chord     | Red     |       |
       |  Sankey    | Orange  | 多级  |
 
-  Scenario Outline: drag_and_drop_force
+  @trendSmoke
+  Scenario Outline: 力图
     And I wait for "<chartType>" will be visible
     And I click the "<chartType>" button
     And I wait for "2000" millsecond

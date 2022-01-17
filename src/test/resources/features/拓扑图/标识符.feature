@@ -177,7 +177,6 @@ Feature: 拓扑图标识符
     And I accept alert window
     And open the "topology.ListPage" page for uri "/topology/"
 
-  @all @smoke @topologySmoke
     Examples:
       | title  | token | inputType | dynamicFields   | searchInput                     |
       | 测试动态字段 | tag4  | 动态菜单      | apache.resp_len | tag:* \| top 10 apache.resp_len |

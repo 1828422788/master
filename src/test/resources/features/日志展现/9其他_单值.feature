@@ -6,7 +6,8 @@ Feature: 日志展现_9其他_单值
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I drag the element "SearchPageSvg" to the "left" side
 
-  Scenario Outline: others(RZY-2303)
+  @logDisplaySmoke
+  Scenario Outline: 单值(RZY-2303)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -28,7 +29,7 @@ Feature: 日志展现_9其他_单值
       |   Single      | 2303    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") |
 
 
-  Scenario Outline: icon(RZY-2799)
+  Scenario Outline: 单值_icon(RZY-2799)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -69,7 +70,7 @@ Feature: 日志展现_9其他_单值
       |   Single      |    icon      |   2799    |  tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") |
       |   Single      |    cnt       |   2799    |  tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") |
 
-  Scenario Outline: background(RZY-2800)
+  Scenario Outline: 单值_背景(RZY-2800)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -102,7 +103,7 @@ Feature: 日志展现_9其他_单值
       |  chartType    |  caseNum  |   spl   |
       |   Single      |   2800    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") |
 
-  Scenario Outline: trend(RZY-1369)
+  Scenario Outline: 单值_趋势(RZY-1369)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -134,7 +135,7 @@ Feature: 日志展现_9其他_单值
       |   Single      |   1369    | 一天前        |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") |
 
 
-  Scenario Outline: backgr(RZY-1370)
+  Scenario Outline: 单值_背景(RZY-1370)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -179,7 +180,7 @@ Feature: 日志展现_9其他_单值
       |   Single      |   1370    | 0       |  100     |   Green  |  100    |   1000   |    Red   |  Font         | tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") |
       |   Single      |   1370    | 0       |  100     |   Green  |  100    |   1000   |    Red   |  Background   | tag:sample04061424_chart \| stats count() as cnt \| eval cnt = 99 \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") |
 
-  Scenario Outline: simple_number_view(RZY-4193,4194,4195,4196,4197)
+  Scenario Outline: 单值_单位(RZY-4193,4194,4195,4196,4197)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" "
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -220,7 +221,8 @@ Feature: 日志展现_9其他_单值
       |   Single      |   1       |  UnitPositionBefore | ThousandSeparator |prec1_1000on__before     | color: rgb(251, 173, 8)  | 1,906.6   |
       |   Single      |   2       |  UnitPositionAfter  | Background        |prec2_1000off_back_after | color: rgb(255, 255, 255)| 个        |
 
-  Scenario Outline: sparkline
+  @logDisplaySmoke
+  Scenario Outline: 单值_sparkline
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() by ts | eval time=formatdate(ts,\"hh-mm\") | limit 5 "
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -265,7 +267,7 @@ Feature: 日志展现_9其他_单值
       |   Single      | Background   | Sparkline   |
 
 
-  Scenario Outline: sparkline_facet
+  Scenario Outline: 单值_sparkline_分面
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() as cnt by ts, apache.method | eval time=formatdate(ts,\"hh-mm\") | eval cnt_2 = cnt*3"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -319,7 +321,7 @@ Feature: 日志展现_9其他_单值
       |  chartType    | caseNum          |
       |   Single      | Sparkline_分面   |
 
-  Scenario Outline: data_value
+  Scenario Outline: 单值_展示字段
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() by ts | eval time=formatdate(ts,\"hh-mm\") | limit 5 "
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"

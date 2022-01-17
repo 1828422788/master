@@ -7,10 +7,11 @@ Feature:报表_富文本编辑_1_趋势图
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
-    And I set the parameters "Hour" and "Minute" as "5" minutes later from now
+    And I set the parameters "Hour" and "Minute" as "3" minutes later from now
     And I choose the "WORD" from the "ReportType"
 
-  Scenario Outline: empty_report
+  @reportSmoke
+  Scenario Outline: 缺少趋势图
     When I set the parameter "Name" with value "empty_word_report"
     And I click the "NextButton" button under some element
     And I will see the "report.CreatePageWORD" page
@@ -45,7 +46,7 @@ Feature:报表_富文本编辑_1_趋势图
       | 报表测试     | ChartListInput        |TrendElement         |
       | 单值报表测试 | SingleChartListInput  |SingleTrendElement   |
 
-  Scenario Outline: trend_delete_parts
+  Scenario Outline: 删除趋势图的部分
     When I set the parameter "Name" with value "delete_parts"
     And I click the "NextButton" button under some element
     And I will see the "report.CreatePageWORD" page
@@ -96,7 +97,7 @@ Feature:报表_富文本编辑_1_趋势图
       | 报表测试     | ChartListInput        |TrendElement         |
       | 单值报表测试 | SingleChartListInput  |SingleTrendElement   |
 
-    Scenario: single_trend
+    Scenario: 单值趋势图
       When I set the parameter "Name" with value "SingleTrend"
       And I click the "NextButton" button under some element
       And I will see the "report.CreatePageWORD" page
@@ -116,7 +117,7 @@ Feature:报表_富文本编辑_1_趋势图
       And I will see the element "ResultMessage" contains "新建成功"
 
 
-  Scenario: single_trend_table
+  Scenario: 单值趋势图_表格
     When I set the parameter "Name" with value "SingleTrend_Table"
     And I click the "NextButton" button under some element
     And I will see the "report.CreatePageWORD" page
