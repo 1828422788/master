@@ -24,14 +24,14 @@ Feature: 定时任务_结果处理方式
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
-    Examples:
-      |    name     |   caseNum    |
-      |  oracle     |  3301        |
-      |  mysql      |  3357        |
-
     @timedTaskSmoke
     Examples:
       |    name     |   caseNum    |
+      |  oracle     |  3301        |
+
+    Examples:
+      |    name     |   caseNum    |
+      |  mysql      |  3357        |
       |  sql_server |  3358        |
 
   @timedTask

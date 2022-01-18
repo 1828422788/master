@@ -31,7 +31,7 @@ Feature: 定时任务删除
     |  crontab_mon_fri   |
     |  crontab_5h        |
     |  crontab_57min     |
-    |  crontab_7min      |
+    |  crontab_3min      |
     |  Test_StartTomorrow|
 
     @cleanSaveAsTimedTask
