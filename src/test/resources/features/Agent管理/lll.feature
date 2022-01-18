@@ -1,4 +1,4 @@
-@agent3 @agent_group2 @test_agent_group @agentSmoke
+@agent3 @agent_group2 @test_agent_group @agentSmoke3
 
 Feature: Agent分组采集
 

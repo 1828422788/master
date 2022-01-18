@@ -1,4 +1,4 @@
-@agent3 @agent_multi @agentSmoke
+@agent3 @agent_multi @agentSmoke3
 
 Feature: Agent批量操作
 

@@ -1,4 +1,4 @@
- @agent_syslog @agent2 @agentSmoke
+ @agent_syslog @agent2 @agentSmoke2
 Feature: Agent编辑Syslog类型数据源
 
   Background:

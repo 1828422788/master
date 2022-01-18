@@ -1,4 +1,4 @@
-@agent_backup @agent2 @agentSmoke
+@agent_backup @agent2 @agentSmoke2
 Feature: Agent备份功能
 
   Background:

@@ -1,4 +1,4 @@
-@agent2 @testinput_out @agentSmoke
+@agent2 @testinput_out @agentSmoke2
 Feature: Agent具体配置高级配置及清理缓存操作
 
   Background:

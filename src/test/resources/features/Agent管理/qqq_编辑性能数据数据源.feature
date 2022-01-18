@@ -1,4 +1,4 @@
-@agent3 @agent_fuction @agentSmoke
+@agent3 @agent_fuction @agentSmoke3
 Feature: Agent编辑文件性能类型数据源
 
   Background:
