@@ -6,8 +6,8 @@ Feature: Agent备份功能
 #    And I zoom the screen up to the maximum
     And I zoom the browse to full screen
     And I wait for loading invisible
-#    When I click the detail which column is "0" in agent page
-    When I click the detail which name is "253" in agent page
+    When I click the detail which column is "0" in agent page
+#    When I click the detail which name is "253" in agent page
     And switch to another window
     And I close all tabs except main tab
     And I wait for loading invisible
