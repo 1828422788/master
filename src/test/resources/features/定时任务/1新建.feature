@@ -158,7 +158,7 @@ Feature: 定时任务新建
     @timedTaskSmoke
     Examples:
       | taskName          |   crontab             |
-      | crontab_7min      | 0 */7 * * * ?         |
+      | crontab_3min      | 0 */3 * * * ?         |
 
   Scenario Outline:  crontab_检查提示
     Given open the "splSearch.SearchPage" page for uri "/search/"

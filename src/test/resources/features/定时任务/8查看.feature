@@ -20,4 +20,4 @@ Feature: 定时任务查看
 
     Examples:
     | name            |
-    | crontab_7min    |
+    | crontab_3min    |
