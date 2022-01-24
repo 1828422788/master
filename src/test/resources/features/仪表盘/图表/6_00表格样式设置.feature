@@ -68,6 +68,9 @@ Feature: 仪表盘_6_00_表格样式设置
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
@@ -95,6 +98,9 @@ Feature: 仪表盘_6_00_表格样式设置
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "Table" will be visible
     And I choose the "列样式设置" from the "TableEditor2"
     And I choose the "值" from the "ChartEditorColor"
@@ -115,6 +121,9 @@ Feature: 仪表盘_6_00_表格样式设置
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "Table" will be visible
     And I choose the "列样式设置" from the "TableEditor2"
     And I choose the "值" from the "ChartEditorColor"
@@ -136,6 +145,9 @@ Feature: 仪表盘_6_00_表格样式设置
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "Table" will be visible
     And I choose the "列样式设置" from the "TableEditor2"
     And I choose the "值" from the "ChartEditorColor"
@@ -160,6 +172,9 @@ Feature: 仪表盘_6_00_表格样式设置
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "Table" will be visible
     And I choose the "列样式设置" from the "TableEditor2"
     And I choose the "范围" from the "ChartEditorColor"
@@ -186,6 +201,9 @@ Feature: 仪表盘_6_00_表格样式设置
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "Table" will be visible
     And I choose the "列样式设置" from the "TableEditor2"
     And I choose the "梯度" from the "ChartEditorColor"
@@ -209,6 +227,9 @@ Feature: 仪表盘_6_00_表格样式设置
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "Table" will be visible
     And I choose the "列样式设置" from the "TableEditor2"
     And I wait for "ChartFontColor" will be visible
@@ -229,6 +250,9 @@ Feature: 仪表盘_6_00_表格样式设置
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "Table" will be visible
     And I choose the "列样式设置" from the "TableEditor2"
     And I wait for "1000" millsecond
@@ -247,6 +271,9 @@ Feature: 仪表盘_6_00_表格样式设置
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "Table" will be visible
     And I choose the "列样式设置" from the "TableEditor2"
     And I wait for "1000" millsecond
@@ -265,6 +292,9 @@ Feature: 仪表盘_6_00_表格样式设置
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "Table" will be visible
     And I choose the "列样式设置" from the "TableEditor2"
     And I wait for "1000" millsecond
@@ -283,6 +313,9 @@ Feature: 仪表盘_6_00_表格样式设置
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "Table" will be visible
     And I choose the "列样式设置" from the "TableEditor2"
     And I wait for "1000" millsecond
@@ -307,6 +340,9 @@ Feature: 仪表盘_6_00_表格样式设置
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "Table" will be visible
     And I choose the "列样式设置" from the "TableEditor2"
     And I wait for "1000" millsecond
@@ -325,6 +361,9 @@ Feature: 仪表盘_6_00_表格样式设置
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "Table" will be visible
     And I choose the "列样式设置" from the "TableEditor2"
     And I wait for "1000" millsecond
@@ -343,6 +382,9 @@ Feature: 仪表盘_6_00_表格样式设置
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "Table" will be visible
     And I choose the "列样式设置" from the "TableEditor2"
     And I wait for "1000" millsecond
@@ -361,7 +403,9 @@ Feature: 仪表盘_6_00_表格样式设置
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "500" millsecond
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I move the mouse pointer to the "DownloadTableIcon"
     And I click the "DownloadTableIcon" button
     And I wait for "1000" millsecond
@@ -385,7 +429,9 @@ Feature: 仪表盘_6_00_表格样式设置
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "500" millsecond
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I move the mouse pointer to the "DownloadTableIcon"
     And I click the "DownloadTableIcon" button
     And I wait for "1000" millsecond
@@ -403,6 +449,9 @@ Feature: 仪表盘_6_00_表格样式设置
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "Table" will be visible
     And I will see the element "FirstColumnFirstValue" contains "<value1>"
     And I will see the element "SecondColumnFirstValue" contains "<value2>"
@@ -427,6 +476,9 @@ Feature: 仪表盘_6_00_表格样式设置
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "Table" will be visible
     And I choose the "隐藏" from the "TableEditor2"
     And I will see the "TableEditor2" doesn't exist
@@ -444,6 +496,9 @@ Feature: 仪表盘_6_00_表格样式设置
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "Table" will be visible
     And I click the "HiddenColumns" button
     And I click the Element with text "显示"
@@ -462,6 +517,9 @@ Feature: 仪表盘_6_00_表格样式设置
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "Table" will be visible
     And I choose the "隐藏" from the "TableEditor1"
     And I will see the "TableEditor2" doesn't exist

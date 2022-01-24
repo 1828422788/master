@@ -75,6 +75,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
@@ -93,8 +96,8 @@ Feature: 仪表盘钻取配置-钻取变量
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
     And I switch the dashboard "OpenDrilldown" button to "enable"
-#    And I click the "OpenDrilldown" button
     And I wait for "500" millsecond
 
   @dashboard37a3 @dbdrilldownSmoke
@@ -103,6 +106,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "Progress" will be invisible
     And I click the "ChartType" button
     And I wait for "1000" millsecond
@@ -141,7 +147,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -170,7 +178,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -200,7 +210,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -231,7 +243,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -262,7 +276,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -293,7 +309,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -325,6 +343,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "Progress" will be invisible
     And I click the "Delete" button
     And I wait for "500" millsecond
@@ -352,7 +373,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "ChartType" button
     And I wait for "1000" millsecond
     Then I will see the "trend.CreatePageDash" page
@@ -395,7 +418,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -424,7 +449,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -455,7 +482,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -484,7 +513,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -512,7 +543,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -541,7 +574,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -572,7 +607,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "Delete" button
     And I wait for "500" millsecond
     And I click the "Ensure" button
@@ -599,7 +636,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "ChartType" button
     And I wait for "1000" millsecond
     Then I will see the "trend.CreatePageDash" page
@@ -631,7 +670,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -657,7 +698,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
@@ -684,7 +727,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -710,7 +755,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -737,7 +784,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -764,7 +813,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -795,7 +846,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "Delete" button
     And I wait for "500" millsecond
     And I click the "Ensure" button
@@ -822,7 +875,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "ChartType" button
     And I wait for "1000" millsecond
     Then I will see the "trend.CreatePageDash" page
@@ -857,7 +912,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -902,7 +959,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -944,7 +1003,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "Delete" button
     And I wait for "500" millsecond
     And I click the "Ensure" button
@@ -971,7 +1032,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "ChartType" button
     And I wait for "1000" millsecond
     Then I will see the "trend.CreatePageDash" page
@@ -1004,7 +1067,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量单值value" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -1060,7 +1125,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "Delete" button
     And I wait for "500" millsecond
     And I click the "Ensure" button
@@ -1087,7 +1154,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -1113,7 +1182,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -1148,7 +1219,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -1174,7 +1247,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -1200,7 +1275,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -1226,7 +1303,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible

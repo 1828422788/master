@@ -11,7 +11,7 @@ Feature: 全链路_1创建
     And I set the parameter "Name" with value "  "
     And I click the "Ensure" button
     Then I wait for "SuccessMessage" will be visible
-    And I will see the element "SuccessMessage" contains "名称不能为空！"
+    And I will see the element "SuccessMessage" contains "名称不能为空"
 
   Scenario: 创建全链路_名称为空
     When I click the "Create" button
@@ -19,7 +19,7 @@ Feature: 全链路_1创建
     And I set the parameter "Name" with value ""
     And I click the "Ensure" button
     Then I wait for "SuccessMessage" will be visible
-    And I will see the element "SuccessMessage" contains "名称不能为空！"
+    And I will see the element "SuccessMessage" contains "名称不能为空"
 
   Scenario: 创建全链路_取消
     When I click the "Create" button

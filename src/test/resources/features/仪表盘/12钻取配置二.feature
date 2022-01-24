@@ -67,6 +67,9 @@ Feature: 仪表盘钻取配置二
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
@@ -88,7 +91,7 @@ Feature: 仪表盘钻取配置二
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
-    And I wait for "1500" millsecond
+    And I switch the dashboard "OpenEdit" button to "enable"
     And I switch the dashboard "OpenDrilldown" button to "enable"
 #    And I click the "OpenDrilldown" button
     And I wait for "500" millsecond
@@ -101,6 +104,9 @@ Feature: 仪表盘钻取配置二
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取配置1" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for loading invisible
@@ -114,6 +120,9 @@ Feature: 仪表盘钻取配置二
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "钻取配置1" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for loading invisible

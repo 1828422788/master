@@ -59,6 +59,9 @@ Feature: 仪表盘_6_02_环形比例图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
@@ -82,8 +85,9 @@ Feature: 仪表盘_6_02_环形比例图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
-    And I wait for "500" millsecond
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "ChartType" button
     And I wait for "1000" millsecond
     Then I will see the "trend.CreatePageDash" page
@@ -121,7 +125,9 @@ Feature: 仪表盘_6_02_环形比例图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "ChartType" button
     Then I will see the "trend.CreatePageDash" page
     And I click the "Setting" button under some element

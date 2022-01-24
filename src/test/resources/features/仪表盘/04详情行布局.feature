@@ -105,6 +105,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
     And I wait for "AddChart" will be visible
@@ -136,6 +139,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "1000" millsecond
     And I move the mouse pointer to the "EditRowIcon"
     And I click the "EditRowIcon" button
@@ -155,6 +161,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
@@ -187,6 +196,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
     And I click the "AddInput" button
@@ -206,6 +218,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
     And I click the "AddInput" button
@@ -228,6 +243,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
     And I click the "AddEvent" button
@@ -257,6 +275,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "1000" millsecond
     And I move the mouse pointer to the "DeleteRowIcon"
     And I click the "DeleteRowIcon" button
@@ -275,6 +296,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "1000" millsecond
     And I click the "DeleteTrend1" button
     And I click the "Ensure" button
@@ -292,6 +316,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "1000" millsecond
 
     And I move the mouse pointer to the "DeleteNoNameRowIcon"
@@ -312,6 +339,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "1000" millsecond
 
     And I wait for "AddEventButton" will be visible
@@ -353,6 +383,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
     And I click the "AddInput" button
@@ -387,6 +420,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -435,7 +471,8 @@ Feature: 仪表盘04详情行布局
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
-    And I wait for "500" millsecond
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
 #    And I switch the dashboard "OpenShowCondition" button to "disable"
 #    And I wait for "1500" millsecond
 ##    And I will see the success message "展示条件已关闭"
@@ -488,7 +525,8 @@ Feature: 仪表盘04详情行布局
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
-    And I wait for "500" millsecond
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
 #    And I switch the dashboard "OpenShowCondition" button to "disable"
 #    And I wait for "1500" millsecond
 ##    And I will see the success message "展示条件已关闭"
@@ -543,9 +581,10 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I set the parameter "FilterValue" with value "a1111b"
     And I click the "SettingIcon" button
-    And I wait for "500" millsecond
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I set the parameter "FilterValue" with value "a1111b"
 #    And I switch the dashboard "OpenShowCondition" button to "disable"
 #    And I wait for "1500" millsecond
 ##    And I will see the success message "展示条件已关闭"
@@ -599,9 +638,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-
     And I click the "SettingIcon" button
-    And I wait for "500" millsecond
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
 #    And I switch the dashboard "OpenShowCondition" button to "disable"
 #    And I wait for "1500" millsecond
 ##   And I will see the success message "展示条件已关闭"
@@ -658,6 +697,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "1000" millsecond
     And I click the "FilterName" button
     And I click the "FilterSetting" button
@@ -691,6 +733,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -742,7 +787,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    Given I wait for loading complete
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -795,11 +842,8 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    Given I wait for loading complete
-    And I wait for "1500" millsecond
     And I click the "SettingIcon" button
-    Given I wait for loading complete
-    And I wait for "3000" millsecond
+    And I switch the dashboard "OpenEdit" button to "enable"
     And I switch the dashboard "OpenShowCondition" button to "disable"
     Given I wait for loading complete
     And I wait for "2000" millsecond
@@ -817,6 +861,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button under some element
     And I wait for loading invisible
@@ -861,6 +908,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     Then I wait for "FilterName" will be visible
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
@@ -892,6 +942,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "1000" millsecond
     And I click the "FilterName" button
     And I click the "FilterSetting" button
@@ -927,6 +980,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -968,6 +1024,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "1000" millsecond
     And I click the "FilterName" button
     And I click the "FilterSetting" button
@@ -1002,6 +1061,9 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button under some element
     And I wait for loading invisible

@@ -39,6 +39,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
     And I click the "AddEvent" button
@@ -56,6 +59,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When I click the "AddEventButton" button
     And I click the "AddFilter" button
     And I set the parameter "FilterTitle" with value "<title>"
@@ -89,8 +95,8 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I click the "settingIcon" button
-    And I wait for "FilterAutoRefresh" will be visible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
     And I choose the "<city>" from the "FilterDropdown"
     And I click the "Update" button
@@ -114,8 +120,8 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I click the "settingIcon" button
-    And I wait for "FilterAutoRefresh" will be visible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
     And I wait for "1000" millsecond
     And I click the "TrendTitle" button
@@ -141,6 +147,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for loading invisible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
@@ -155,6 +164,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "FilterDropdown" will be visible
     And I wait for "1000" millsecond
     And I choose the "<city>" from the "FilterDropdown"
@@ -178,6 +190,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for loading invisible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
@@ -195,6 +210,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "FilterName" button
     And I click the "DeleteTag" button
     And I wait for "Ensure" will be visible
@@ -207,6 +225,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When I click the "AddEventButton" button
     And I click the "AddFilter" button
     And I set the parameter "FilterTitle" with value "filter"
@@ -237,6 +258,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible
     And I click the "HoverElement" button
@@ -251,7 +275,8 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I click the "settingIcon" button
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
     And I set the parameter "FilterDropdownInput" with value "<cityNo>"
@@ -272,6 +297,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "FilterDropdown" will be visible
     And I choose the "<city>" from the "FilterDropdown"
     And I wait for "1000" millsecond
@@ -295,6 +323,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for loading invisible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
@@ -323,6 +354,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for loading invisible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
@@ -338,6 +372,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "1000" millsecond
     And I set the parameter "FilterDropdownInput" with value "<city>"
     And I click the Element with text "<city>"
@@ -360,6 +397,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for loading invisible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
@@ -383,6 +423,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "FilterName" button
     And I click the "DeleteTag" button
     And I wait for "Ensure" will be visible
@@ -395,6 +438,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When I click the "AddEventButton" button
     And I click the "AddFilter" button
     And I set the parameter "FilterTitle" with value "filter"
@@ -414,6 +460,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible
     And I click the "HoverElement" button
@@ -428,6 +477,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for loading invisible
     And I wait for "FilterInput" will be visible
     And I set the parameter "FilterInput" with value "<city>"
@@ -456,6 +508,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for loading invisible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
@@ -469,6 +524,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I set the parameter "FilterInput" with value "<city>"
     And I let element "FilterInput" lose focus
     And I wait for "Progress" will be invisible
@@ -489,6 +547,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "FilterName" button
     And I click the "DeleteTag" button
     And I wait for "Ensure" will be visible
@@ -535,7 +596,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "500" millsecond
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "测试过滤项" then I click the button which classname is "yotta-icon yotta-icon-Delete" in dashboard
     And I click the "Ensure" button
 
@@ -547,7 +610,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for loading invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "FilterName" button
     And I click the "FilterSetting" button
     Then I will see the "ListForBang" doesn't exist
@@ -562,6 +627,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
     And I click the "AddChart" button
@@ -592,7 +660,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for loading invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "FilterName" button
     And I click the "FilterSetting" button
     Then I wait for "ListForBang" will be visible
@@ -609,7 +679,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "500" millsecond
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "测试仪表盘eval" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "测试仪表盘eval","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "appname:apache|stats count() by 'apache.status'","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "eval","name": "filter","value": "${click.value2}-204"}]}}" to json editor
@@ -630,6 +702,9 @@ Feature: 仪表盘过滤项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When I click the "AddEventButton" button
     And I click the "AddFilter" button
     And I set the parameter "FilterTitle" with value "<title>"

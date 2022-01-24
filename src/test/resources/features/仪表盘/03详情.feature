@@ -124,7 +124,7 @@ Feature: 仪表盘03详情页
 #    And I compare source image "<string>" with target image "<string>"
 
   @dashboard03f
-  Scenario: 关闭编辑(RZY-228)
+  Scenario: 启用编辑(RZY-228)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "FirstAutoTest"
@@ -134,12 +134,12 @@ Feature: 仪表盘03详情页
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
-    Then I will see the element "EditLayout" attribute "class" is "yotta-menu-item css"
-    Then I will see the element "ManualRefresh" attribute "class" is "yotta-menu-item css"
-    Then I will see the element "AutoRefresh" attribute "class" is "yotta-menu-item css"
-    And I switch the dashboard "OpenEdit" button to "disable"
+    Then I will see the element "EditLayout" attribute "class" is "yotta-menu-item-disabled"
+    Then I will see the element "ManualRefresh" attribute "class" is "yotta-menu-item-disabled"
+    Then I will see the element "AutoRefresh" attribute "class" is "yotta-menu-item-disabled"
+    And I switch the dashboard "OpenEdit" button to "enable"
     And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "编辑功能已禁用"
+    Then I will see the success message "编辑功能已启用"
 
   @dashboard03g
   Scenario: 验证关闭编辑(RZY-229)
@@ -236,6 +236,9 @@ Feature: 仪表盘03详情页
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
     And I click the "AddChart" button
@@ -274,8 +277,8 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "SettingIcon" will be visible
     And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SuperEdit" button
     And I click the "Check" button
     And I wait for "SuccessMessage" will be visible
@@ -295,6 +298,9 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "AddEventButton" button
     And I click the "addInput" button
     And I set the parameter "inputSettingTitle" with value "全局时间"
@@ -316,7 +322,8 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I click the "settingIcon" button
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "enable"
     And I click the "DateEditor" button under some element
@@ -334,7 +341,8 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I click the "settingIcon" button
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
     And I wait for "Update" will be visible

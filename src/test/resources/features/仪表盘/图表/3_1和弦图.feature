@@ -58,6 +58,9 @@ Feature: 仪表盘_3_1_和弦图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
@@ -81,7 +84,9 @@ Feature: 仪表盘_3_1_和弦图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "ChartType" button
     And I wait for "1000" millsecond
     Then I will see the "trend.CreatePageDash" page
@@ -121,6 +126,9 @@ Feature: 仪表盘_3_1_和弦图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I will see the "TextLayer" result will contain "<json>"
@@ -137,7 +145,9 @@ Feature: 仪表盘_3_1_和弦图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘和弦图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘和弦图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method | rename apache.clientip as apache.x_forward_group| rename apache.method as apache.resp_len_group| limit 20",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "<chartType>",    "fromField": "apache.x_forward",    "toField": "apache.resp_len",    "weightField": "count()",    "repulsionField": 8,    "precision": ""  }}" to json editor
@@ -167,7 +177,9 @@ Feature: 仪表盘_3_1_和弦图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘和弦图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘和弦图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method | rename apache.clientip as apache.x_forward_group| rename apache.method as apache.resp_len_group| limit 20",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "sankey",    "fromField": "apache.resp_len",    "toField": "apache.x_forward",    "weightField": "count()",    "repulsionField": 8,    "precision": ""  }}" to json editor
@@ -191,7 +203,9 @@ Feature: 仪表盘_3_1_和弦图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘和弦图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘和弦图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method | rename apache.clientip as apache.x_forward_group| rename apache.method as apache.resp_len_group| limit 20",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "chord",    "fromField": "apache.x_forward",    "toField": "apache.resp_len",    "weightField": "qwertcount()",    "repulsionField": 8,    "precision": ""  }}" to json editor

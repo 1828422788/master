@@ -97,6 +97,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
     And I click the "AddChart" button
@@ -131,6 +134,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When I click the "AddEventButton" button
     And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "<filtername>"
@@ -153,6 +159,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
     And I click the "AddChart" button
@@ -172,6 +181,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I set value with element "TableList"
 #   When the chart title is "仪表盘所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     When the chart title is "仪表盘所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
@@ -191,6 +203,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "FirstFilterElement" will be visible
     And I move the mouse pointer to the "FirstFilter"
     And I click the "FilterSetting" button
@@ -229,6 +244,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "Delete" will be visible
     And I click the "Delete" button
     And I click the "Ensure" button
@@ -244,6 +262,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "FilterName" button
     And I click the "DeleteTag" button
     And I wait for "Ensure" will be visible
@@ -261,6 +282,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When I click the "AddEventButton" button
     And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "time"
@@ -284,6 +308,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I will see the element "DateEditor" value is "今天"
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
@@ -306,6 +333,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I set value with element "TableList"
     When the chart title is "仪表盘所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
@@ -325,6 +355,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I set value with element "TableList"
     And I click the "FilterTime" button
     And I click the "EditTime" button
@@ -371,6 +404,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When I click the "AddEventButton" button
     And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "<filter>"
@@ -393,6 +429,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
@@ -428,6 +467,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When I click the "AddEventButton" button
     And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "filter"
@@ -448,6 +490,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -473,6 +518,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "FilterInput" will be visible
     And I click the "settingIcon" button
     And I wait for "FilterAutoRefresh" will be visible
@@ -493,6 +541,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     Then I wait for "FilterName" will be visible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
@@ -527,8 +578,8 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-
-    And I click the "settingIcon" button
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
 
@@ -550,6 +601,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When I click the "AddEventButton" button
     And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "filter"
@@ -576,7 +630,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
@@ -596,7 +652,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -626,6 +684,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     Then I wait for "FilterName" will be visible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
@@ -642,6 +703,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -670,6 +734,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     Then I wait for "FilterName" will be visible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
@@ -688,6 +755,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I choose the "北京市,济南市,南京市" from the "FilterDropdown"
     And I click the "Update" button
     And I wait for "Progress" will be invisible
@@ -711,6 +781,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     Then I wait for "FilterName" will be visible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
@@ -728,6 +801,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -765,9 +841,8 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-
-    And I click the "settingIcon" button
-    And I wait for "FilterAutoRefresh" will be visible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
 
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
@@ -788,6 +863,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When I click the "AddEventButton" button
     And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "filter"
@@ -819,6 +897,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
 
 #    And I wait for "Progress" will be invisible
     And I choose the "济南市,南京市" from the "FilterDropdown"
@@ -853,6 +934,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -871,6 +955,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When I click the "AddEventButton" button
     And I click the "AddInput" button
     And I wait for loading invisible
@@ -898,7 +985,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
@@ -918,9 +1007,8 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-
-    And I click the "settingIcon" button
-    And I wait for "FilterAutoRefresh" will be visible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
 
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
@@ -951,6 +1039,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "FilterName" button
     And I click the "FilterSetting" button
     And I wait for loading invisible
@@ -986,6 +1077,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     Then I wait for "FilterName" will be visible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
@@ -1033,6 +1127,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When I click the "AddEventButton" button
     And I click the "AddInput" button
     And I wait for loading invisible
@@ -1063,9 +1160,8 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-
-    And I click the "settingIcon" button
-    And I wait for "FilterAutoRefresh" will be visible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
 
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
@@ -1096,6 +1192,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     Then I wait for "FilterName" will be visible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
@@ -1124,6 +1223,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I wait for "1000" millsecond
@@ -1168,6 +1270,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I wait for "1000" millsecond
@@ -1193,6 +1298,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I wait for "1000" millsecond
@@ -1222,6 +1330,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I wait for "1000" millsecond
@@ -1248,6 +1359,9 @@ Feature: 仪表盘输入项
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When I click the "AddEventButton" button
     And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "<title>"

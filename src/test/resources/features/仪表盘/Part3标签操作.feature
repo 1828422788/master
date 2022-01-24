@@ -75,7 +75,7 @@ Feature: 仪表盘标签操作
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
-    And I wait for "1000" millsecond
+    And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SuperEdit" button
     Then I set the parameter "{  "name": "验证高级编辑",  "editable": false,  "showFilters": false,  "theme": "day",  "showTitle": true,  "activeDrilldown": false,  "refresh": {    "on": false,    "time": 3,    "unit": "m"  },  "filters": []}" to json editor
     And I wait for "500" millsecond

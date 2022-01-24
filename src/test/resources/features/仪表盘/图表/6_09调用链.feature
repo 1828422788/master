@@ -71,6 +71,9 @@ Feature: 仪表盘_6_09_调用链
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
@@ -94,7 +97,9 @@ Feature: 仪表盘_6_09_调用链
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "ChartType" button
     And I wait for "1000" millsecond
     Then I will see the "trend.CreatePageDash" page
@@ -143,7 +148,9 @@ Feature: 仪表盘_6_09_调用链
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘调用链" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
 #    And I click the "SettingChart" button
     And I click the "Configs" button
@@ -170,8 +177,9 @@ Feature: 仪表盘_6_09_调用链
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
-    And I wait for "2000" millsecond
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the Circle "FoldIcon" button
     Then I will see the "CallChainTextChildNode" doesn't exist
     And I click the Circle "FoldIcon" button
@@ -184,7 +192,9 @@ Feature: 仪表盘_6_09_调用链
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "ChartType" button
     Then I will see the "trend.CreatePageDash" page
     And I wait for "Other" will be visible
@@ -215,6 +225,9 @@ Feature: 仪表盘_6_09_调用链
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
@@ -238,7 +251,9 @@ Feature: 仪表盘_6_09_调用链
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "SecondChartType" button
     Then I will see the "trend.CreatePageDash" page
     And I wait for "Other" will be visible

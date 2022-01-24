@@ -58,6 +58,9 @@ Feature: 仪表盘_4_2_多Y轴图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
@@ -81,7 +84,9 @@ Feature: 仪表盘_4_2_多Y轴图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "ChartType" button
     And I wait for "1000" millsecond
     Then I will see the "trend.CreatePageDash" page
@@ -130,6 +135,9 @@ Feature: 仪表盘_4_2_多Y轴图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I will see the dashboard highEditor text will contain "<json>"
@@ -147,7 +155,9 @@ Feature: 仪表盘_4_2_多Y轴图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "SettingChart" button
     Then I will see the "trend.CreatePageDash" page
     And I wait for "2000" millsecond
@@ -183,8 +193,6 @@ Feature: 仪表盘_4_2_多Y轴图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
-    And I wait for "2000" millsecond
     Then I wait for "MultiYminValue" will be visible
     Then I wait for "MultiYmaxValue" will be visible
 
@@ -195,7 +203,9 @@ Feature: 仪表盘_4_2_多Y轴图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "<labelRotate>",      "sortOrder": "default"    },    "yAxis": [      {        "fields": [          {            "color": "#2A76E4",            "connectNull": false,            "name": "count(apache.resp_len)",            "smooth": false,            "type": "line"          }        ],        "range": {},        "unit": ""      },      {        "fields": [          {            "color": "#5C9DF5",            "connectNull": false,            "name": "max(apache.resp_len)",            "opacity": 0.6,            "smooth": false,            "type": "column"          },          {            "color": "#5C9DF5",            "connectNull": false,            "name": "avg(apache.resp_len)",            "opacity": 0.6,            "smooth": false,            "type": "area"          }        ],        "range": {          "max": 200000,          "min": 2        },        "unit": "柱"      }    ],    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "byFields": [      "apache.status"    ],    "legend": {      "placement": "bottom"    }  }}" to json editor
@@ -225,7 +235,9 @@ Feature: 仪表盘_4_2_多Y轴图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "<sortOrder>"    },    "yAxis": [      {        "fields": [          {            "color": "#2A76E4",            "connectNull": false,            "name": "count(apache.resp_len)",            "smooth": false,            "type": "line"          }        ],        "range": {          "max": "",          "min": ""        },        "unit": ""      },      {        "fields": [          {            "color": "#5C9DF5",            "connectNull": false,            "name": "max(apache.resp_len)",            "opacity": 0.6,            "smooth": false,            "type": "column"          },          {            "color": "#5C9DF5",            "connectNull": false,            "name": "avg(apache.resp_len)",            "opacity": 0.6,            "smooth": false,            "type": "area"          }        ],        "range": {          "max": 200000,          "min": 2        },        "unit": "柱"      }    ],    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "byFields": [      "apache.status"    ],    "legend": {      "placement": "bottom"    }  }}" to json editor
@@ -255,7 +267,9 @@ Feature: 仪表盘_4_2_多Y轴图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘多Y轴图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "yAxis": [    ],    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "byFields": [      "apache.status"    ],    "legend": {      "placement": "bottom"    }  }}" to json editor
@@ -272,7 +286,9 @@ Feature: 仪表盘_4_2_多Y轴图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘多Y轴图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "yAxis": [      {        "fields": [          {            "color": "#2A76E4",            "connectNull": false,            "name": "count(apache.resp_len)",            "smooth": false,            "type": "<type>"          }        ],        "range": {},        "unit": ""      }    ],    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "byFields": [      "apache.status"    ],    "legend": {      "placement": "bottom"    }  }}" to json editor
@@ -303,7 +319,9 @@ Feature: 仪表盘_4_2_多Y轴图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘多Y轴图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "yAxis": [      {        "fields": [          {            "color": "#2A76E4",            "connectNull": false,            "name": "min(apache.resp_len)",            "smooth": false,            "type": "line"          }        ],        "range": {},        "unit": ""      }    ],    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "byFields": [      "apache.status"    ],    "legend": {      "placement": "bottom"    }  }}" to json editor
@@ -327,7 +345,9 @@ Feature: 仪表盘_4_2_多Y轴图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘多Y轴图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "yAxis": [      {        "fields": [          {            "color": "#2A76E4",            "connectNull": false,            "name": "count(apache.resp_len)",            "smooth": false,            "type": "line"          }        ],        "range": {          "min": <min>,          "max": <max>        },        "unit": ""      }    ],    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "byFields": [      "apache.status"    ],    "legend": {      "placement": "bottom"    }  }}" to json editor
@@ -357,7 +377,9 @@ Feature: 仪表盘_4_2_多Y轴图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘多Y轴图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "yAxis": [      {        "fields": [          {            "color": "#2A76E4",            "connectNull": false,            "name": "count(apache.resp_len)",            "smooth": false,            "type": "line"          }        ],        "range": {          "min": <min>,          "max": <max>        },        "unit": ""      }    ],    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "byFields": [      "apache.status"    ],    "legend": {      "placement": "bottom"    }  }}" to json editor
@@ -378,7 +400,9 @@ Feature: 仪表盘_4_2_多Y轴图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘多Y轴图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "yAxis": [      {        "fields": [          {            "color": "#2A76E4",            "connectNull": false,            "name": "count(apache.resp_len)",            "smooth": true,            "type": "line"          }        ],        "range": {},        "unit": ""      }    ],    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "byFields": [      "apache.status"    ],    "legend": {      "placement": "bottom"    }  }}" to json editor
@@ -402,7 +426,9 @@ Feature: 仪表盘_4_2_多Y轴图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘多Y轴图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "yAxis": [      {        "fields": [          {            "color": "#2A76E4",            "connectNull": false,            "name": "count(apache.resp_len)",            "smooth": true,            "type": "line"          }        ],        "range": {},        "unit": ""      }    ],    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "byFields": [      "<byFields>"    ],    "legend": {      "placement": "bottom"    }  }}" to json editor
@@ -430,7 +456,9 @@ Feature: 仪表盘_4_2_多Y轴图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘多Y轴图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "yAxis": [      {        "fields": [          {            "color": "#2A76E4",            "connectNull": false,            "name": "count(apache.resp_len)",            "smooth": true,            "type": "line"          }        ],        "range": {},        "unit": ""      }    ],    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "byFields": [      "apache.status"    ],    "legend": {      "placement": "<legend>"    }  }}" to json editor
@@ -459,7 +487,9 @@ Feature: 仪表盘_4_2_多Y轴图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘多Y轴图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "yAxis": [      {        "fields": [          {            "color": "#2A76E4",            "connectNull": false,            "name": "count(apache.resp_len)",            "smooth": true,            "type": "line"          }        ],        "range": {},        "unit": ""      }    ],    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "byFields": [      "apache.status"    ],    "legend": {      "placement": "<legend>"    }  }}" to json editor
@@ -487,7 +517,9 @@ Feature: 仪表盘_4_2_多Y轴图
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "仪表盘多Y轴图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "yAxis": [      {        "fields": [          {            "color": "#2A76E4",            "connectNull": false,            "name": "count(apache.resp_len)",            "smooth": true,            "type": "line"          }        ],        "range": {},        "unit": ""      }    ],    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "byFields": [      "apache.status"    ],    "legend": {      "placement": "<legend>"    }  }}" to json editor

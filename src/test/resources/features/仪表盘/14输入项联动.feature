@@ -34,6 +34,9 @@ Feature: 仪表盘输入项联动
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When I click the "AddEventButton" button
     And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "<name>"
@@ -61,6 +64,9 @@ Feature: 仪表盘输入项联动
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When I click the "AddEventButton" button
     And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "f2"
@@ -82,6 +88,9 @@ Feature: 仪表盘输入项联动
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
     And I click the "AddEvent" button
@@ -99,8 +108,8 @@ Feature: 仪表盘输入项联动
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I click the "settingIcon" button
-    And I wait for "FilterAutoRefresh" will be visible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
     And I click the "LastFilterSpan" button
     And I set the parameter "LastFilterInput" with value "192.168.1.183"
@@ -123,6 +132,9 @@ Feature: 仪表盘输入项联动
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When I click the "AddEventButton" button
     And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "filter"
@@ -136,7 +148,9 @@ Feature: 仪表盘输入项联动
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "500" millsecond
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "测试输入项联动" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for "Spl" will be visible
@@ -151,6 +165,9 @@ Feature: 仪表盘输入项联动
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I set the parameter "FilterInput" with value "a+b"
     And I click the "Update" button
     And I wait for "500" millsecond

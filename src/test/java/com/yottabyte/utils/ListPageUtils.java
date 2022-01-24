@@ -40,6 +40,13 @@ public class ListPageUtils {
     public WebElement getRowWithName(String name) {
         String url = webDriver.getCurrentUrl();
         WebElement table = pagingInfo.getTableList().get(0);
+        if (url.contains("dashboard")) {
+            // "我的收藏"tab(第一个) or "全部"tab(第二个)， get corresponding table
+            WebElement tab = webDriver.findElement(By.xpath("//div[contains(@class,'yotta-tabs-nav-list')]/div[2]"));//全部
+            if (tab.getAttribute("class").contains("active")){
+                table = pagingInfo.getTableList().get(1);
+            }
+        }
         if (url.contains("agent")) {
             return this.getRowWithoutPaging(name, table);
         } else {

@@ -35,7 +35,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    Given I wait for loading complete
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "AddEventButton" will be visible
     Given I wait for loading complete
     When I click the "AddEventButton" button
@@ -65,8 +67,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
-    Given I wait for loading complete
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "HoverElement" will be visible
     And I click the "EventOperate" button
     And I click the "Event" button
@@ -93,6 +96,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     Given I wait for loading complete
     And I wait for "HoverElement" will be visible
     And I click the "EventOperate" button
@@ -109,7 +115,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     Given I wait for loading complete
     And I wait for "HoverElement" will be visible
     And I click the "HoverElement" button
@@ -142,7 +150,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "HoverElement" will be visible
     And I click the "EventOperate" button
     Given I wait for loading complete
@@ -157,8 +167,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    Given I wait for loading complete
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     Given I wait for loading complete
     And I wait for "HoverElement" will be visible
     And I click the "HoverElement" button
@@ -190,8 +201,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    Given I wait for loading complete
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     Given I wait for loading complete
     And I wait for "HoverElement" will be visible
     And I click the "HoverElement" button
@@ -215,8 +227,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    Given I wait for loading complete
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     Given I wait for loading complete
     And I wait for "HoverElement" will be visible
     And I click the "HoverElement" button
@@ -237,8 +250,10 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     Given I wait for loading complete
-#    And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible
     Given I wait for loading complete
 #    And I click the "HoverElement" button
@@ -270,6 +285,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     Given I wait for loading complete
     And I wait for "Progress" will be invisible
     Given I wait for loading complete
@@ -296,8 +314,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    Given I wait for loading complete
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "测试事件操作" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -335,6 +354,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
 #    Then I will see the "TextLayer" result will contain "<json>"
@@ -365,7 +387,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -392,7 +416,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -426,7 +452,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I choose the "跳转到自定义URL" from the "DrillAction"
@@ -456,6 +484,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I click the "AddEventButton" button
     And I click the "addInput" button
     And I set the parameter "inputSettingTitle" with value "全局时间"
@@ -481,7 +512,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible
@@ -523,7 +556,8 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I click the "settingIcon" button
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "TimeName" button
@@ -549,7 +583,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible
@@ -578,6 +614,9 @@ Feature: 仪表盘1事件列表
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
     And I click the "AddEvent" button
