@@ -123,6 +123,7 @@ Feature: 仪表盘_5_3_区划地图
     And I switch the dashboard "OpenEdit" button to "enable"
     And I switch the dashboard "OpenDrilldown" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I wait for "500" millsecond
     When the chart title is "仪表盘区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
@@ -150,6 +151,7 @@ Feature: 仪表盘_5_3_区划地图
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I will see the "TextLayer" result will contain "<json>"

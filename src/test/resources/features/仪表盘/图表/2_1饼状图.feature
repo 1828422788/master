@@ -127,6 +127,7 @@ Feature: 仪表盘_2_1_饼状图
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I wait for "300" millsecond
@@ -147,6 +148,7 @@ Feature: 仪表盘_2_1_饼状图
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘饼状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I wait for "300" millsecond
@@ -173,6 +175,7 @@ Feature: 仪表盘_2_1_饼状图
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘饼状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I wait for "300" millsecond
@@ -211,6 +214,7 @@ Feature: 仪表盘_2_1_饼状图
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘饼状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I wait for "300" millsecond

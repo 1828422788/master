@@ -184,6 +184,7 @@ Feature: 仪表盘输入项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I set value with element "TableList"
 #   When the chart title is "仪表盘所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblemOutlined" in dashboard
     When the chart title is "仪表盘所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
@@ -336,6 +337,7 @@ Feature: 仪表盘输入项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I set value with element "TableList"
     When the chart title is "仪表盘所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
@@ -432,6 +434,7 @@ Feature: 仪表盘输入项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
@@ -493,6 +496,7 @@ Feature: 仪表盘输入项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -633,6 +637,7 @@ Feature: 仪表盘输入项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
@@ -655,6 +660,7 @@ Feature: 仪表盘输入项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -706,6 +712,7 @@ Feature: 仪表盘输入项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -804,6 +811,7 @@ Feature: 仪表盘输入项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -844,6 +852,7 @@ Feature: 仪表盘输入项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
+    And I wait for "SuccessMessage" will be invisible
 
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
@@ -937,6 +946,7 @@ Feature: 仪表盘输入项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -988,6 +998,7 @@ Feature: 仪表盘输入项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
@@ -1010,7 +1021,7 @@ Feature: 仪表盘输入项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
-
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -1163,6 +1174,7 @@ Feature: 仪表盘输入项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
+    And I wait for "SuccessMessage" will be invisible
 
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
@@ -1226,6 +1238,7 @@ Feature: 仪表盘输入项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I wait for "1000" millsecond
@@ -1273,6 +1286,7 @@ Feature: 仪表盘输入项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I wait for "1000" millsecond
@@ -1301,6 +1315,7 @@ Feature: 仪表盘输入项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I wait for "1000" millsecond
@@ -1333,6 +1348,7 @@ Feature: 仪表盘输入项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I wait for "1000" millsecond

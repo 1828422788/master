@@ -151,6 +151,7 @@ Feature: 仪表盘_6_09_调用链
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘调用链" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
 #    And I click the "SettingChart" button
     And I click the "Configs" button

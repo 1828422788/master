@@ -682,6 +682,7 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "测试仪表盘eval" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "测试仪表盘eval","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "appname:apache|stats count() by 'apache.status'","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "eval","name": "filter","value": "${click.value2}-204"}]}}" to json editor

@@ -148,6 +148,7 @@ Feature: 仪表盘2关联搜索
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "<json>" to json editor
@@ -173,6 +174,7 @@ Feature: 仪表盘2关联搜索
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘workflow" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible

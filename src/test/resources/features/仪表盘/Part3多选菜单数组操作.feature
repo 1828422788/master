@@ -112,6 +112,7 @@ Feature: 仪表盘多选菜单数组操作
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible
@@ -145,6 +146,7 @@ Feature: 仪表盘多选菜单数组操作
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I click the "ChengDuShi" button
     And I click the "Nanjingshi" button
     And I wait for "1000" millsecond
@@ -179,6 +181,7 @@ Feature: 仪表盘多选菜单数组操作
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible

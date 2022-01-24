@@ -37,6 +37,8 @@ Feature: 仪表盘标签操作
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I wait for "SuccessMessage" will be invisible
     And I click the "MoveoutTag" button
     And I wait for loading invisible
     And I "checked" the checkbox which name is "接收标签页"

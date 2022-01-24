@@ -317,6 +317,7 @@ Feature: 仪表盘1事件列表
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "测试事件操作" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -357,6 +358,7 @@ Feature: 仪表盘1事件列表
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
 #    Then I will see the "TextLayer" result will contain "<json>"
@@ -390,6 +392,7 @@ Feature: 仪表盘1事件列表
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -419,6 +422,7 @@ Feature: 仪表盘1事件列表
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -455,6 +459,7 @@ Feature: 仪表盘1事件列表
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I choose the "跳转到自定义URL" from the "DrillAction"
@@ -515,6 +520,7 @@ Feature: 仪表盘1事件列表
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible
@@ -586,6 +592,7 @@ Feature: 仪表盘1事件列表
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "DrillAction" will be visible

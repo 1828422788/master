@@ -150,6 +150,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -181,6 +182,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -213,6 +215,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -246,6 +249,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -279,6 +283,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -312,6 +317,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量字符云图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -421,6 +427,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -452,6 +459,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -485,6 +493,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -516,6 +525,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -546,6 +556,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -577,6 +588,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量区划地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -673,6 +685,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -701,6 +714,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
@@ -730,6 +744,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -758,6 +773,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -787,6 +803,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -816,6 +833,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量饼图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -915,6 +933,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -962,6 +981,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -1070,6 +1090,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量单值value" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -1157,6 +1178,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -1185,6 +1207,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -1222,6 +1245,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -1250,6 +1274,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -1278,6 +1303,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -1306,6 +1332,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取变量表格" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible

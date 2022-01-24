@@ -151,6 +151,7 @@ Feature: 仪表盘输入项联动
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "测试输入项联动" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for "Spl" will be visible
@@ -168,6 +169,7 @@ Feature: 仪表盘输入项联动
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I set the parameter "FilterInput" with value "a+b"
     And I click the "Update" button
     And I wait for "500" millsecond

@@ -423,6 +423,7 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -473,6 +474,7 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
 #    And I switch the dashboard "OpenShowCondition" button to "disable"
 #    And I wait for "1500" millsecond
 ##    And I will see the success message "展示条件已关闭"
@@ -527,6 +529,7 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
 #    And I switch the dashboard "OpenShowCondition" button to "disable"
 #    And I wait for "1500" millsecond
 ##    And I will see the success message "展示条件已关闭"
@@ -584,6 +587,7 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I set the parameter "FilterValue" with value "a1111b"
 #    And I switch the dashboard "OpenShowCondition" button to "disable"
 #    And I wait for "1500" millsecond
@@ -641,6 +645,7 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
 #    And I switch the dashboard "OpenShowCondition" button to "disable"
 #    And I wait for "1500" millsecond
 ##   And I will see the success message "展示条件已关闭"
@@ -736,6 +741,7 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -790,6 +796,7 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -864,6 +871,7 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button under some element
     And I wait for loading invisible
@@ -911,6 +919,7 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     Then I wait for "FilterName" will be visible
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
@@ -983,6 +992,7 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -1064,6 +1074,7 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button under some element
     And I wait for loading invisible
