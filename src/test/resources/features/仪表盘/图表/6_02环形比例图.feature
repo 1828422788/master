@@ -134,6 +134,7 @@ Feature: 仪表盘_6_02_环形比例图
     And I wait for "1000" millsecond
     And I click the "Exhibition" button under some element
     And I click the "AccordingArea" button under some element
+    And I click the "AddRange" button
     And I wait for "MinRange" will be visible
     And I set the parameter "MinRange" with value "0.0002"
     And I wait for "MaxRange" will be visible

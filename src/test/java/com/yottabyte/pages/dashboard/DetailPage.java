@@ -394,7 +394,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//table/tbody/tr[1]/td[2]/div")
     private WebElement tableRowResplen;
 
-    @FindBy(xpath = "//div[text()='钻取变量单值']/following-sibling::div[last()]/div/div[last()]/div/span")
+    @FindBy(xpath = "//div[text()='钻取变量单值']/following-sibling::div[last()]/div/div[last()]//span")
     private WebElement singleValue;
 
     @FindBy(xpath = "//div[text()='仪表盘单值' and @yotta-test='dashboard-chart_title-dom']/following-sibling::div[last()]//span[1]")

@@ -601,7 +601,7 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "(//div[@class='img iconfont icon-shanchuxuanting_icon'])[last()]")
     private WebElement delete;
 
-    @FindBy(xpath = "//div[contains(text(),'添加颜色区间')]")
+    @FindBy(xpath = "//*[contains(text(),'添加颜色区间')]")
     private WebElement addRange;
 
     @FindBy(className = "el-switch__label--right")

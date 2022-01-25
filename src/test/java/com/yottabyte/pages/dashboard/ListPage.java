@@ -23,7 +23,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "yotta-message-content")
     private WebElement errorMessage;
 
-    @FindBy(className = "yotta-select-selection-value")
+    @FindBy(xpath = "(//*[contains(@class,'yotta-select-selection-value')])[last()]")
     private WebElement chartYeQian;
 
     @FindBy(xpath = "//input[@yotta-test='dashboard-new_dashboard_name-input']")

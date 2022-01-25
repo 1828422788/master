@@ -668,6 +668,10 @@ Feature: 仪表盘输入项
     And I click the "Ensure" button
     And I refresh the website
     And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
@@ -720,6 +724,10 @@ Feature: 仪表盘输入项
     And I click the "Ensure" button
     And I refresh the website
     And I wait for "Progress" will be invisible
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
