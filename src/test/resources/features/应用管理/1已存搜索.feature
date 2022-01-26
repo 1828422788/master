@@ -166,6 +166,7 @@ Feature: 应用已存搜索（RZY-2125）
     And I wait for loading invisible
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
+    Then I will see the "Updatemessage" is display
 
     Examples:
       | name             |
@@ -178,8 +179,10 @@ Feature: 应用已存搜索（RZY-2125）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "SavedsearchesApp"
     Then I will see the "splSearch.SavedSearchPage" page
-#    When the data name is "{'column':'1','name':'AutoApp'}" then i click the "加载" button
     And I wait for "2000" millsecond
+    And I set the parameter "SearchInput" with value "<name>"
+    Given I wait for loading complete
+    And I wait for "1000" millsecond
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
@@ -189,4 +192,4 @@ Feature: 应用已存搜索（RZY-2125）
     Examples:
       | name    |
       | 验证无App  |
-      | AutoApp |
+#      | AutoApp |

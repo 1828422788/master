@@ -46,7 +46,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-message-box__wrapper")
     private WebElement fadeOut;
 
-  //  @FindBy(className = "ant-select-arrow-icon")
     @FindBy(className ="yotta-select-selection-content")
     private WebElement dropdownArrow;
 
@@ -251,6 +250,11 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//div[@class='yotta-modal-footer yotta-modal-footer-with-divider']//span[text()='保存']")
     private WebElement fieldSavedButton;
+
+    @FindBy(xpath = "//p[@class='yotta-dialog-contenttext']")
+    private WebElement updatemessage;
+
+    public WebElement getUpdatemessage() { return updatemessage; }
 
     public WebElement getFieldSavedButton() { return fieldSavedButton; }
 

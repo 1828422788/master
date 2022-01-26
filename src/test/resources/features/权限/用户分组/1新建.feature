@@ -21,7 +21,7 @@ Feature: 用户分组创建（RZY-545）
 
     Examples: 创建失败（重名校验）
       | UserGroupName     | UserGroupDes | message                                         |
-      | AutoTestForDelete | des          | AUTH: 创建失败, account_group_name: AutoTestForDelete 已存在 |
+      | AutoTestForDelete | des          | 创建失败, account_group_name: AutoTestForDelete 已存在 |
 
   Scenario: 用户分组创建失败（为空校验）
     And I click the "Create" button

@@ -62,10 +62,9 @@ Feature: 应用仪表盘
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
     When  I click the detail which name is "<name>"
-    #When the data name is "<name>" then i click the "打开" button in more menu
     And I will see the "app.AppPage" page
     And I wait for loading invisible
-    And I wait for "EmptyText" will be visible
+#    And I wait for "EmptyText" will be visible
     And I will see the element "Title" name is "<name>"
 
     Examples:

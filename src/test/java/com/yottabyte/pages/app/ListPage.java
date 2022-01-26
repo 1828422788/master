@@ -17,7 +17,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//input[@placeholder='请输入']")
     private WebElement getSearchInput;
 
-    @FindBy(className = "el-table__empty-text")
+    @FindBy(className = "yotta-empty-description")
     private WebElement emptyText;
 
     @FindBy(xpath = "//span[text()='名称']/following-sibling::span")

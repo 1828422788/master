@@ -21,4 +21,4 @@ Feature: 角色编辑（RZY-522）
 
     Examples: 编辑失败
       | OldName      | RoleName     | RoleDes | Result                                            |
-      | AutoTestEdit | AutoTestCopy |         | error message "AUTH: 更新失败, role_name: AutoTestCopy 已存在" |
+      | AutoTestEdit | AutoTestCopy |         | error message "更新失败, role_name: AutoTestCopy 已存在" |
