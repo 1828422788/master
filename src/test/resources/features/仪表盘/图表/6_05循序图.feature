@@ -153,7 +153,7 @@ Feature: 仪表盘_6_05_循序图
 
     Examples:
       | name   | json                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-      | 仪表盘循序图 | \n  "chart": {\n    "chartType": "sequence",\n    "field": "hostname",\n    "fromField": "apache.clientip",\n    "toField": "hostname",\n    "labelField": "apache.clientip",\n    "category": "apache.clientip"\n  }\n} |
+      | 仪表盘循序图 | "chart": {\n    "chartType": "sequence",\n    "field": "hostname",\n    "fromField": "apache.clientip",\n    "toField": "hostname",\n    "labelField": "apache.clientip",\n    "byFields": [\n      "apache.clientip"\n    ]\n  } |
 
 
   Scenario Outline: 两个字段为同一个值 RZY-1365:

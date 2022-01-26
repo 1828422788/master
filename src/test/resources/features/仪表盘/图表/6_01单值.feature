@@ -133,13 +133,11 @@ Feature: 仪表盘_6_01_单值
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
-#    Then I will see the "TextLayer" result will contain "<json>"
-#    Then I will see the "TextLayer" result will be "<json>"
     Then I will see the dashboard highEditor text will contain "<json>"
 
     Examples:
       | name    | json                                                                                                                                                                                                                                                                                                                                                                                           |
-      | 仪表盘单值 |   "chart": {\n    "chartType": "single",\n    "field": "a_",\n    "fontSize": "50",\n    "unitFontSize": "36",\n    "precision": "3",\n    "useThousandSeparators": true,\n    "unit": "个",\n    "unitPosition": "after",\n    "displayField": "icon",\n    "subtitle": "",\n    "useSparkline": false,\n    "sparklineXAxisField": "",\n    "singleFieldDisplayType": "default",\n    "singleChartIcon": "none",\n    "displayMode": "default",\n    "color": "#5C9DF5",\n    "colorFillingMode": "font",\n    "liveRefreshMode": false\n |
+      | 仪表盘单值 |   "chart": {\n    "chartType": "single",\n    "field": "a_",\n    "fontSize": 50,\n    "unitFontSize": 36,\n    "precision": "3",\n    "useThousandSeparators": true,\n    "unit": "个",\n    "unitPosition": "after",\n    "displayField": "icon",\n    "subtitle": "",\n    "useSparkline": false,\n    "sparklineXAxisField": "",\n    "singleFieldDisplayType": "default",\n    "singleChartIcon": "none",\n    "displayMode": "default",\n    "color": "#5C9DF5",\n    "colorFillingMode": "font",\n    "liveRefreshMode": false\n  }|
 
   @dashboardChartSmoke
   Scenario: 单值图的千分隔符
@@ -189,7 +187,7 @@ Feature: 仪表盘_6_01_单值
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "single","field": "a_","fontSize": "<fontSize>","useThousandSeparators": false,"unit": "个","unitPosition": "after","displayField": "icon","subtitle": "","useSparkline": false,"singleChartIcon": "none","sparklineXAxisField": "","displayMode": "default","color": "#5C9DF5","colorFillingMode": "font","liveRefreshMode": false}}" to json editor
+    And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12, "h": 5,"search": { "query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": <fontSize>,    "unitFontSize": 36,    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "singleChartIcon": "none",    "sparklineXAxisField": "",    "displayMode": "default",    "color": "#5C9DF5",    "colorFillingMode": "font",    "liveRefreshMode": false  }}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     And I wait for "<status>" will be visible
@@ -222,13 +220,11 @@ Feature: 仪表盘_6_01_单值
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
-#    And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "single","field": "a_","fontSize": "100","singleChartIcon": "none","displayMode": "default","color": "<color>","colorFillingMode": "font","liveRefreshMode": false}}" to json editor
-    And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "single","field": "a_","fontSize": "100","useThousandSeparators": false,"unit": "个","unitPosition": "after","displayField": "icon","subtitle": "","useSparkline": false,"singleChartIcon": "none","sparklineXAxisField": "","displayMode": "default","color": "<color>","colorFillingMode": "font","liveRefreshMode": false}}" to json editor
+    And I set the parameter "{ "title": "仪表盘单值", "description": "", "x": 0, "y": 0, "w": 12, "h": 5, "search": { "query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")", "startTime": "now/d", "endTime": "now" }, "chart": { "chartType": "single", "field": "a_", "fontSize": 100, "unitFontSize": 36, "useThousandSeparators": false, "unit": "个", "unitPosition": "after", "displayField": "icon", "subtitle": "", "useSparkline": false, "singleChartIcon": "none", "sparklineXAxisField": "", "displayMode": "default", "color": "<color>", "colorFillingMode": "font", "liveRefreshMode": false } }" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     And I wait for "<status>" will be visible
     And I will see the element "<status>" contains "<message>"
-#    Then I wait for element "<status>" change text to "<message>"
 
     Examples:
       | color | status         | message               |
@@ -248,13 +244,11 @@ Feature: 仪表盘_6_01_单值
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
-#    And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "single","field": "a_","fontSize": "100","singleChartIcon": "none","displayMode": "trending","color": "#5C9DF5","colorFillingMode": "font","liveRefreshMode": false}}" to json editor
-    And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "single","field": "a_","fontSize": "100","useThousandSeparators": false,"unit": "个","unitPosition": "after","displayField": "icon","subtitle": "","useSparkline": false,"singleChartIcon": "none","sparklineXAxisField": "","displayMode": "trending","color": "#5C9DF5","colorFillingMode": "font","liveRefreshMode": false}}" to json editor
+    And I set the parameter "{ "title": "仪表盘单值", "description": "", "x": 0, "y": 0, "w": 12, "h": 5, "search": { "query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")", "startTime": "now/d", "endTime": "now" }, "chart": { "chartType": "single", "field": "a_", "fontSize": 100, "unitFontSize":36, "useThousandSeparators": false, "unit": "个", "unitPosition": "after", "displayField": "icon", "subtitle": "", "useSparkline": false, "singleChartIcon": "none", "sparklineXAxisField": "", "displayMode": "trending", "color": "#5C9DF5", "colorFillingMode": "font", "liveRefreshMode": false } }" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     And I wait for "<status>" will be visible
     And I will see the element "<status>" contains "<message>"
-#    Then I wait for element "<status>" change text to "<message>"
 
     Examples:
       | status       | message                       |
@@ -274,7 +268,7 @@ Feature: 仪表盘_6_01_单值
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "single","field": "a_","fontSize": "24","singleChartIcon": "none","displayMode": "default","comparsionTime": "-7d","comparsionMode": "percent","color": "#5C9DF5","colorFillingMode": "font","liveRefreshMode": false}}" to json editor
+    And I set the parameter "{ "title": "仪表盘单值", "description": "", "x": 0, "y": 0, "w": 12, "h": 5, "search": { "query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")", "startTime": "now/d", "endTime": "now" }, "chart": { "chartType": "single", "field": "a_", "fontSize": 100, "unitFontSize": 36, "unit": "个", "unitPosition": "after", "displayField": "icon", "subtitle": "", "useSparkline": false, "singleChartIcon": "none", "sparklineXAxisField": "", "displayMode": "default", "color": "#5C9DF5", "colorFillingMode": "font", "liveRefreshMode": false } }" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     And I wait for "ErrorMessage" will be visible
@@ -299,7 +293,7 @@ Feature: 仪表盘_6_01_单值
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "single","field": "a_","fontSize": "24","precision": "1","useThousandSeparators": false,"unit": "ge","unitPosition": "after","displayField": "chart","subtitle": "","useSparkline": false,"sparklineXAxisField": "","singleChartIcon": "fixed","fixedSetting": "","displayMode": "<mode>","colorFillingMode": "font","colorRanges": [{"from":"100","to":"<to>","color":"#259B24"}]}}" to json editor
+    And I set the parameter "{ "title": "仪表盘单值", "description": "", "x": 0, "y": 0, "w": 12, "h": 5, "search": { "query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")", "startTime": "now/d", "endTime": "now" }, "chart": { "chartType": "single", "field": "a_", "fontSize": 100, "unitFontSize": 36, "unit": "个", "unitPosition": "after", "displayField": "icon", "subtitle": "", "useSparkline": false, "singleChartIcon": "none", "sparklineXAxisField": "", "useThousandSeparators":false, "displayMode": "<mode>", "colorFillingMode": "font", "colorRanges": [ { "from": "100", "to": "<to>", "color": "#259B24" } ] } }" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     And I wait for "ErrorMessage" will be visible
@@ -391,7 +385,7 @@ Feature: 仪表盘_6_01_单值
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "<singleChartIcon>",    "iconField": "icon",    "displayMode": "default",    "color": "#5C9DF5",    "colorFillingMode": "font",    "liveRefreshMode": false  }}" to json editor
+    And I set the parameter "{ "title": "仪表盘单值", "description": "", "x": 0, "y": 0, "w": 12, "h": 5, "search": { "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")", "startTime": "now/d", "endTime": "now" }, "chart": { "chartType": "single", "field": "a_", "fontSize": 30, "unitFontSize": 36, "precision": "3", "useThousandSeparators": false, "unit": "个", "unitPosition": "after", "displayField": "icon", "subtitle": "", "useSparkline": false, "sparklineXAxisField": "", "singleFieldDisplayType": "default", "singleChartIcon": "<singleChartIcon>", "iconField": "icon", "displayMode": "default", "color": "#5C9DF5", "colorFillingMode": "font", "liveRefreshMode": false } }" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     And I wait for "SuccessMessage" will be visible
@@ -422,7 +416,7 @@ Feature: 仪表盘_6_01_单值
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "<singleChartIcon>",    "fixedSetting": "search",    "displayMode": "default",    "color": "#5C9DF5",    "colorFillingMode": "font",    "liveRefreshMode": false  }}" to json editor
+    And I set the parameter "{ "title": "仪表盘单值", "description": "", "x": 0, "y": 0, "w": 12, "h": 5, "search": { "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")", "startTime": "now/d", "endTime": "now" }, "chart": { "chartType": "single", "field": "a_", "fontSize": 30, "unitFontSize": 36, "precision": "3", "useThousandSeparators": false, "unit": "个", "unitPosition": "after", "displayField": "icon", "subtitle": "", "useSparkline": false, "sparklineXAxisField": "", "singleFieldDisplayType": "default", "singleChartIcon": "<singleChartIcon>", "iconField": "icon", "displayMode": "default", "color": "#5C9DF5", "colorFillingMode": "font", "liveRefreshMode": false } }" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     And I wait for "SuccessMessage" will be visible
@@ -453,7 +447,7 @@ Feature: 仪表盘_6_01_单值
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "<singleChartIcon>",    "displayMode": "default",    "color": "#5C9DF5",    "colorFillingMode": "font",    "liveRefreshMode": false  }}" to json editor
+    And I set the parameter "{ "title": "仪表盘单值", "description": "", "x": 0, "y": 0, "w": 12, "h": 5, "search": { "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")", "startTime": "now/d", "endTime": "now" }, "chart": { "chartType": "single", "field": "a_", "fontSize": 30, "unitFontSize": 36, "precision": "3", "useThousandSeparators": false, "unit": "个", "unitPosition": "after", "displayField": "icon", "subtitle": "", "useSparkline": false, "sparklineXAxisField": "", "singleFieldDisplayType": "default", "singleChartIcon": "<singleChartIcon>", "iconField": "icon", "displayMode": "default", "color": "#5C9DF5", "colorFillingMode": "font", "liveRefreshMode": false } }" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     And I wait for "SuccessMessage" will be visible
@@ -485,12 +479,11 @@ Feature: 仪表盘_6_01_单值
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "<displayMode>",    "color": "#5C9DF5",    "colorFillingMode": "font",    "liveRefreshMode": false  }}" to json editor
+    And I set the parameter "{ "title": "仪表盘单值", "description": "", "x": 0, "y": 0, "w": 12, "h": 5, "search": { "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")", "startTime": "now/d", "endTime": "now" }, "chart": { "chartType": "single", "field": "a_", "fontSize": 30, "unitFontSize": 36, "precision": "3", "useThousandSeparators": false, "unit": "个", "unitPosition": "after", "displayField": "icon", "subtitle": "", "useSparkline": false, "sparklineXAxisField": "", "singleFieldDisplayType": "default", "singleChartIcon": "fixed", "iconField": "icon", "displayMode": "<displayMode>", "color": "#5C9DF5", "colorFillingMode": "font", "liveRefreshMode": false } }" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     And I wait for "ErrorMessage" will be visible
     And I will see the element "ErrorMessage" contains "<ErrorMessage>"
-#    Then I wait for element "ErrorMessage" change text to "<ErrorMessage>"
 
     Examples:
       | displayMode |  ErrorMessage                      |
@@ -511,7 +504,7 @@ Feature: 仪表盘_6_01_单值
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I wait for "500" millsecond
-    And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "default",    "color": "<color>",    "colorFillingMode": "font",    "liveRefreshMode": false  }}" to json editor
+    And I set the parameter "{ "title": "仪表盘单值", "description": "", "x": 0, "y": 0, "w": 12, "h": 5, "search": { "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")", "startTime": "now/d", "endTime": "now" }, "chart": { "chartType": "single", "field": "a_", "fontSize": 30, "unitFontSize": 36, "precision": "3", "useThousandSeparators": false, "unit": "个", "unitPosition": "after", "displayField": "icon", "subtitle": "", "useSparkline": false, "sparklineXAxisField": "", "singleFieldDisplayType": "default", "singleChartIcon": "none", "displayMode": "default", "color": "<color>", "colorFillingMode": "font", "liveRefreshMode": false } }" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     And I wait for "SuccessMessage" will be visible
@@ -542,7 +535,7 @@ Feature: 仪表盘_6_01_单值
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "default",    "color": "#FFEB3B",    "colorFillingMode": "<colorFillingMode>",    "liveRefreshMode": false  }}" to json editor
+    And I set the parameter "{ "title": "仪表盘单值", "description": "", "x": 0, "y": 0, "w": 12, "h": 5, "search": { "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")", "startTime": "now/d", "endTime": "now" }, "chart": { "chartType": "single", "field": "a_", "fontSize": 30, "unitFontSize": 36, "precision": "3", "useThousandSeparators": false, "unit": "个", "unitPosition": "after", "displayField": "icon", "subtitle": "", "useSparkline": false, "sparklineXAxisField": "", "singleFieldDisplayType": "default", "singleChartIcon": "none", "displayMode": "default", "color": "#FFEB3B", "colorFillingMode": "<colorFillingMode>", "liveRefreshMode": false } }" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     And I wait for "SuccessMessage" will be visible
@@ -573,7 +566,7 @@ Feature: 仪表盘_6_01_单值
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "default",    "color": "#FFEB3B",    "colorFillingMode": "font",    "liveRefreshMode": <liveRefreshMode>  }}" to json editor
+    And I set the parameter "{ "title": "仪表盘单值", "description": "", "x": 0, "y": 0, "w": 12, "h": 5, "search": { "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")", "startTime": "now/d", "endTime": "now" }, "chart": { "chartType": "single", "field": "a_", "fontSize": 30, "unitFontSize": 36, "precision": "3", "useThousandSeparators": false, "unit": "个", "unitPosition": "after", "displayField": "icon", "subtitle": "", "useSparkline": false, "sparklineXAxisField": "", "singleFieldDisplayType": "default", "singleChartIcon": "none", "displayMode": "default", "color": "#FFEB3B", "colorFillingMode": "background", "liveRefreshMode": <liveRefreshMode> } }" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     And I wait for "SuccessMessage" will be visible
@@ -608,7 +601,7 @@ Feature: 仪表盘_6_01_单值
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "trending",    "comparsionTime": "-7d",    "comparsionMode": "percent"  }}" to json editor
+    And I set the parameter "{ "title": "仪表盘单值", "description": "", "x": 0, "y": 0, "w": 12, "h": 5, "search": { "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")", "startTime": "now/d", "endTime": "now" }, "chart": { "chartType": "single", "field": "a_", "fontSize": 30, "unitFontSize": 36, "precision": "3", "useThousandSeparators": false, "unit": "个", "unitPosition": "after", "displayField": "icon", "subtitle": "", "useSparkline": false, "sparklineXAxisField": "", "singleFieldDisplayType": "default", "singleChartIcon": "none", "displayMode": "trending", "comparsionTime": "-7d", "comparsionMode": "percent" } }" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     And I wait for "SuccessMessage" will be visible
@@ -639,7 +632,7 @@ Feature: 仪表盘_6_01_单值
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "<displayMode>",    "comparsionTime": "-7d",    "comparsionMode": "percent"  }}" to json editor
+    And I set the parameter "{ "title": "仪表盘单值", "description": "", "x": 0, "y": 0, "w": 12, "h": 5, "search": { "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")", "startTime": "now/d", "endTime": "now" }, "chart": { "chartType": "single", "field": "a_", "fontSize": 30, "unitFontSize":36, "precision": "3", "useThousandSeparators": false, "unit": "个", "unitPosition": "after", "displayField": "icon", "subtitle": "", "useSparkline": false, "sparklineXAxisField": "", "singleFieldDisplayType": "default", "singleChartIcon": "none", "displayMode": "<displayMode>", "comparsionTime": "-7d", "comparsionMode": "percent" } }" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     And I wait for "ErrorMessage" will be visible
@@ -663,7 +656,7 @@ Feature: 仪表盘_6_01_单值
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "trending",    "comparsionTime": "<comparsionTime>",    "comparsionMode": "<comparsionMode>"  }}" to json editor
+    And I set the parameter "{ "title": "仪表盘单值", "description": "", "x": 0, "y": 0, "w": 12, "h": 5, "search": { "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")", "startTime": "now/d", "endTime": "now" }, "chart": { "chartType": "single", "field": "a_", "fontSize": 30, "unitFontSize":36, "precision": "3", "useThousandSeparators": false, "unit": "个", "unitPosition": "after", "displayField": "icon", "subtitle": "", "useSparkline": false, "sparklineXAxisField": "", "singleFieldDisplayType": "default", "singleChartIcon": "none", "displayMode": "trending", "comparsionTime": "<comparsionTime>", "comparsionMode": "<comparsionMode>" } }" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     And I wait for "SuccessMessage" will be visible
@@ -699,7 +692,7 @@ Feature: 仪表盘_6_01_单值
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "ranging",    "colorFillingMode": "font",    "colorRanges": [      {        "from": "100",        "to": "300",        "color": "#5C9DF5"      }    ]  }}" to json editor
+    And I set the parameter "{ "title": "仪表盘单值", "description": "", "x": 0, "y": 0, "w": 12, "h": 5, "search": { "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")", "startTime": "now/d", "endTime": "now" }, "chart": { "chartType": "single", "field": "a_", "fontSize": 30, "unitFontSize": 36, "precision": "3", "useThousandSeparators": false, "unit": "个", "unitPosition": "after", "displayField": "icon", "subtitle": "", "useSparkline": false, "sparklineXAxisField": "", "singleFieldDisplayType": "default", "singleChartIcon": "none", "displayMode": "ranging", "colorFillingMode": "font", "colorRanges": [ { "from": "100", "to": "300", "color": "#5C9DF5" } ] } }" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     And I wait for "SuccessMessage" will be visible
@@ -730,7 +723,7 @@ Feature: 仪表盘_6_01_单值
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘单值" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{  "title": "仪表盘单值",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "single",    "field": "a_",    "fontSize": "30",    "precision": "3",    "useThousandSeparators": false,    "unit": "个",    "unitPosition": "after",    "displayField": "icon",    "subtitle": "",    "useSparkline": false,    "sparklineXAxisField": "",    "singleFieldDisplayType": "default",    "singleChartIcon": "none",    "displayMode": "<displayMode>",    "colorFillingMode": "font",    "colorRanges": [      {        "color": "#259B24",        "from": "<from>",        "to": "<to>"      }    ]  }}" to json editor
+    And I set the parameter "{ "title": "仪表盘单值", "description": "", "x": 0, "y": 0, "w": 12, "h": 5, "search": { "query": "tag:sample04061424_display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")", "startTime": "now/d", "endTime": "now" }, "chart": { "chartType": "single", "field": "a_", "fontSize": 30, "unitFontSize":36, "precision": "3", "useThousandSeparators": false, "unit": "个", "unitPosition": "after", "displayField": "icon", "subtitle": "", "useSparkline": false, "sparklineXAxisField": "", "singleFieldDisplayType": "default", "singleChartIcon": "none", "displayMode": "<displayMode>", "colorFillingMode": "font", "colorRanges": [ { "color": "#259B24", "from": "<from>", "to": "<to>" } ] } }" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     And I wait for "ErrorMessage" will be visible

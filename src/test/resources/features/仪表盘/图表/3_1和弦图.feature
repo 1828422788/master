@@ -133,11 +133,10 @@ Feature: 仪表盘_3_1_和弦图
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I will see the "TextLayer" result will contain "<json>"
-#    Then I will see the "TextLayer" result will be "<json>"
 
     Examples:
       | name    | json                                                                                                                                                                                                                                                                                                                                                                           |
-      | 仪表盘和弦图 |  \n  "chart": {\n    "chartType": "chord",\n    "fromField": "apache.x_forward",\n    "toField": "apache.resp_len",\n    "weightField": "count()",\n    "repulsionField": 8,\n    "precision": ""\n  } |
+      | 仪表盘和弦图 |  "chart": {\n    "chartType": "chord",\n    "fromField": "apache.x_forward",\n    "toField": "apache.resp_len",\n    "weightField": "count()",\n    "repulsionField": 50,\n    "precision": ""\n  } |
 
   Scenario Outline: chartType字段 RZY-1321,RZY-1322,RZY-1323
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -164,7 +163,6 @@ Feature: 仪表盘_3_1_和弦图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "ChordChart" with name "actual/<image>"
-    # And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | chartType |   image                |
@@ -197,7 +195,6 @@ Feature: 仪表盘_3_1_和弦图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "ChordChart" with name "actual/和弦图_fromField_toField"
-    # And I compare source image "actual/和弦图_fromField_toField" with target image "expect/和弦图_fromField_toField"
 
   Scenario: weightField字段修改为不存在的值 RZY-3701
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -224,4 +221,3 @@ Feature: 仪表盘_3_1_和弦图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "ChordChart" with name "actual/和弦图_weightField"
-#    And I compare source image "actual/和弦图_weightField" with target image "expect/和弦图_weightField"

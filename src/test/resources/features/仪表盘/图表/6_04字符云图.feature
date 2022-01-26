@@ -140,7 +140,7 @@ Feature: 仪表盘_6_04_字符云图
 
     Examples:
       | name    | json                                                                                                                                                                                                                                                                                                                                                                           |
-      | 仪表盘字符云图 | \n  "chart": {\n    "chartType": "wordcloud",\n    "field": "count()",\n    "category": "apache.clientip"\n  } |
+      | 仪表盘字符云图 | "chart": {\n    "chartType": "wordcloud",\n    "field": "count()",\n    "byFields": [\n      "apache.clientip"\n    ]\n  } |
 
 
   Scenario: 修改field为空 RZY-1362

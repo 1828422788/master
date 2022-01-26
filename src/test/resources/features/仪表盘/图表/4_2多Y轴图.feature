@@ -154,7 +154,7 @@ Feature: 仪表盘_4_2_多Y轴图
 
     Examples:
       | name    | json                                                                                                                                                                                                                                                                                                                                                                           |
-      | 仪表盘多Y轴图 |  "chart": {\n    "chartType": "multiaxis",\n    "xAxis": {\n      "field": "apache.resp_len",\n      "labelRotate": "left",\n      "sortOrder": "default"\n    },\n    "yAxis": [\n      {\n        "fields": [\n          {\n            "color": "#2A76E4",\n            "connectNull": false,\n            "name": "count(apache.resp_len)",\n            "smooth": false,\n            "type": "line"\n          }\n        ],\n        "range": {\n          "max": "",\n          "min": ""\n        },\n        "unit": ""\n      },\n      {\n        "fields": [\n          {\n            "color": "#5C9DF5",\n            "connectNull": false,\n            "name": "max(apache.resp_len)",\n            "opacity": 0.6,\n            "smooth": false,\n            "type": "column"\n          }\n        ],\n        "range": {\n          "max": "",\n          "min": 2\n        },\n        "unit": "柱"\n      }\n    ],\n    "precision": "",\n    "showAllXAxisLabels": false,\n    "labelInterval": "",\n    "customLabel": "",\n    "byFields": [\n      "apache.status"\n    ],\n    "legend": {\n      "placement": "bottom"\n    }\n  } |
+      | 仪表盘多Y轴图 |  "chart": {\n    "chartType": "multiaxis",\n    "xAxis": {\n      "field": "apache.resp_len",\n      "labelRotate": "left",\n      "sortOrder": "default"\n    },\n    "yAxis": [\n      {\n        "unit": "",\n        "range": {\n          "min": "",\n          "max": ""\n        },\n        "fields": [\n          {\n            "name": "count(apache.resp_len)",\n            "type": "line",\n            "color": "#5C9DF5",\n            "smooth": false,\n            "connectNull": false\n          }\n        ]\n      },\n      {\n        "unit": "柱",\n        "range": {\n          "min": 2,\n          "max": ""\n        },\n        "fields": [\n          {\n            "name": "max(apache.resp_len)",\n            "type": "column",\n            "opacity": 0.6,\n            "color": "#5C9DF5",\n            "smooth": false,\n            "connectNull": false\n          }\n        ]\n      }\n    ],\n    "precision": "",\n    "showAllXAxisLabels": false,\n    "labelInterval": "",\n    "customLabel": "",\n    "byFields": [\n      "apache.status"\n    ],\n    "legend": {\n      "placement": "bottom"\n    }\n  }|
 
 
   Scenario Outline: 同一个Y轴多个字段 RZY-4856,RZY-1332
@@ -200,7 +200,7 @@ Feature: 仪表盘_4_2_多Y轴图
   Scenario: 验证边界值范围生效 RZY-4857
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "SearchInput" with value "仪表盘多Y轴图"
     And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘多Y轴图"
     And switch to window "仪表盘"

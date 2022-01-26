@@ -122,14 +122,13 @@ Feature: 仪表盘_5_1_热力地图
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
-    Then I will see the "TextLayer" result will be "<json>"
+    Then I will see the dashboard highEditor text will contain "<json>"
 
     Examples:
-      | name        | json                                                                                                                                                                                                                                                                                                                                                                           |
-      | 仪表盘热力地图 | {\n  "title": "仪表盘热力地图",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "appname:apache \| stats count() by apache.geo.city",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "heatmap",\n    "field": "count()",\n    "category": "apache.geo.city"\n  }\n} |
+      | name        | json                                      |
+      | 仪表盘热力地图 |   "chart": {\n    "chartType": "heatmap",\n    "field": "count()",\n    "byFields": [\n      "apache.geo.city"\n    ]\n  }   |
 
 
-  
   Scenario: 修改field为空 RZY-3759
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

@@ -168,19 +168,16 @@ Feature: 仪表盘_1_4_柱状图
     And I click the "Custom" button
     And I set the parameter "Spl" with value "tag:sample04061424_display | stats count() by ${click.name}"
     And I click the "DateEditor" button
-#    And I click the "Shortcut" button
     And I click the "Today" button
     And I "unchecked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond
     And I click the Circle "Zhutiao" button
-#    And I click the "Zhutiao" button
     Then I wait for title change text to "搜索"
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_display | stats count() by apache.clientip"
     And I wait for "2000" millsecond
     Then I will see the "TimeRange" result will be "今天"
-#    Then I will see the input element "TimeRange" value will contains "今天"
 
 
   Scenario: 序列图支持的钻取变量click.value RZY-3257
@@ -212,7 +209,6 @@ Feature: 仪表盘_1_4_柱状图
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "apache.clientip:36.46.208.22"
     And I wait for "2000" millsecond
-#    Then I will see the input element "TimeRange" value will contains "今天"
     Then I will see the "TimeRange" result will be "今天"
 
 
@@ -245,7 +241,6 @@ Feature: 仪表盘_1_4_柱状图
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_display | stats count() by appname"
     And I wait for "2000" millsecond
-#    Then I will see the input element "TimeRange" value will contains "今天"
     Then I will see the "TimeRange" result will be "今天"
 
 
@@ -277,7 +272,6 @@ Feature: 仪表盘_1_4_柱状图
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will contain "tag:sample04061424_display | stats count() as cn by apache.resp_len,apache.clientip | where cn=="
-#    Then I will see the "SearchInput" result will be "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==6"
 
 
   Scenario Outline: 序列图支持的钻取变量start end RZY-3262,RZY-3263
@@ -309,7 +303,6 @@ Feature: 仪表盘_1_4_柱状图
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will contain "<SearchInput1>"
     Then I will see the "SearchInput" result will contain "<SearchInput2>"
-#    Then I will see the input element "TimeRange" value will contains "所有时间"
     Then I will see the "TimeRange" result will be "所有时间"
 
     Examples:
@@ -336,10 +329,8 @@ Feature: 仪表盘_1_4_柱状图
     And I wait for "1000" millsecond
     And I click the "TargetTag" button
     And I click the "TagPageFirst" button
-#    And I choose the "仪表盘事件操作" from the "DashboardMenu"
     And I wait for "1000" millsecond
     And I click the "TagTestSearch" button
-#    And I choose the "事件操作" from the "DashboardMenu"
     And I wait for "500" millsecond
     And I click the "TargetParam" button
     And I wait for "1000" millsecond

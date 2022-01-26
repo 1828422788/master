@@ -355,10 +355,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[contains(@class,'yotta-select-menu')]//span[text()='成都市']")
     private WebElement chengdushiList;
 
-    @FindBy(xpath = "(//*[name()='rect'])[3]")
+    @FindBy(xpath = "(//*[name()='rect'and @height=22])")
     private WebElement zhutiao;
 
-    @FindBy(xpath = "//*[name()='rect' and @height>22 and @clip-path]")
+    @FindBy(xpath = "//*[name()='rect' and @height>22 and @clip-path and @fill='#A114F9']")
     private WebElement zhutiao2;
 
     @FindBy(xpath = "(//*[name()='text'])[text()='64.20.177.254']")
@@ -562,7 +562,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[contains(text(),'仪表盘workflow')]/following-sibling::div//table")
     private List<WebElement> workflowList;
 
-    @FindBy(xpath = "//div[@class='yotta-modal-body']/div/p[contains(text(),'下载任务出错')]")
+    @FindBy(xpath = "//div[@class='yotta-modal-body']/div/p[contains(text(),'下载错误: Duplicate file name:')]")
     private WebElement duplicateName;
 
     @FindBy(xpath = "//span[text()='在搜索中打开']")
