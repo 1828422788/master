@@ -834,6 +834,7 @@ Feature:3修改图表
     And I click the "Exhibition" button
     And I click the "AccordingArea" button
     And I wait for "2000" millsecond
+    And I click the "AddRange" button
     And I set the parameter "MinRange" with value "1"
     And I set the parameter "MaxRange" with value "100"
     And I click the "AddColor" button
