@@ -30,7 +30,7 @@ Feature: 权限-下载管理
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    Then I wait for element "SearchErrorStatus" change text to "权限错误: 没有运行'download'命令的权限"
+    Then I wait for element "SearchErrorStatus" change text to "0: 无权限的操作 :[download]"
     Then I logout current user
 
   Scenario Outline: 勾选下载管理

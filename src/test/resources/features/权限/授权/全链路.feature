@@ -335,7 +335,7 @@ Feature: 权限-全链路
 
     Examples:
       | name       |function|
-      | 权限AutoTest |删除\n授权    |
+      | 权限AutoTest |授权\n删除    |
 
  # Scenario: 验证有效期限
  #   Given I login user "AutoTest" with password "All#123456"
@@ -453,7 +453,7 @@ Feature: 权限-全链路
 
     Examples:
       | name |function|
-      | 权限测试 |删除\n授权    |
+      | 权限测试 |授权\n删除   |
 
   Scenario: 新建二次授权
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
