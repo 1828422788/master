@@ -1,8 +1,10 @@
 package com.yottabyte.pages.trend;
 
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.DropdownUtils;
 import com.yottabyte.utils.GetTime;
+import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -540,12 +542,6 @@ public class CreatePageDash extends PageTemplate {
 
     @FindBy(xpath = "(//span[text()='内蒙古'])[last()]")
     private WebElement neimeng;
-
-    @FindBy(xpath = "(//span[text()='省级下钻'][last()])/ancestor::div/following-sibling::div[1]")
-    private WebElement province;
-
-    @FindBy(xpath = "(//span[text()='市级下钻'][last()])/ancestor::div/following-sibling::div[1]")
-    private WebElement city;
 
     @FindBy(className = "el-radio-group")
     private WebElement radioGroup;
@@ -1390,16 +1386,6 @@ public class CreatePageDash extends PageTemplate {
 
     public WebElement getNeimeng() {
         return neimeng;
-    }
-
-    public WebElement getProvince() {
-        province.click();
-        return super.getLastDropdownList();
-    }
-
-    public WebElement getCity() {
-        city.click();
-        return super.getLastDropdownList();
     }
 
     public WebElement getSelectChina() {
@@ -2477,5 +2463,23 @@ public class CreatePageDash extends PageTemplate {
         return closeDivideItem;
     }
 
+    public WebElement getCity() {
+        return getDropdownElement("市级下钻");
+    }
 
+    public WebElement getProvince() {
+        return getDropdownElement("省级下钻");
+    }
+
+    private WebElement getDropdownElement(String name) {
+        try{
+            Thread.sleep(700);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        WebElement element = webDriver.findElement(By.xpath("(//span[contains(text(),'" + name + "')])[last()]/ancestor::div[1]/following-sibling::div//div[contains(@class,'yotta-select-selection')]"));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return this.getLastDropdownList();
+    }
 }

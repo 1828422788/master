@@ -95,10 +95,10 @@ Feature: 仪表盘_5_3_区划地图
     And I click the "<targetName>" button
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
-#    And I choose the "count()" from the "DataValue"
-    And I click the "Divide" button
+    And I click the "GoingDown" button
+    And I choose the "apache.geo.province" from the "Province" in config
+    And I choose the "apache.geo.city" from the "City" in config
     And I wait for "1000" millsecond
-#    And I choose the "apache.geo.country" from the "DataValueDivide"
     Then I click the "Generate" button
     And I wait for "3000" millsecond
     And I click the "Setting" button under some element
