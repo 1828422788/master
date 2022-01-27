@@ -208,7 +208,7 @@ public class ListPageUtils {
     }
 
     public WebElement getRowWithoutTotalPage(String name) {
-        String nextPageXpath = "//li[@class=' ant-pagination-next']";
+        String nextPageXpath = "//span[@class='yotta-icon yotta-icon-PlusRight']";
         String trListXpath = "//tr";
         return this.clickNextPage(trListXpath, nextPageXpath, name);
     }
