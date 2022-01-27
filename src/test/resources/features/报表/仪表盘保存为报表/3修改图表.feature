@@ -18,6 +18,10 @@ Feature:3修改图表
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
     And I click the "LastChartType" button under some element
     Then I will see the "trend.CreatePage" page
@@ -70,6 +74,10 @@ Feature:3修改图表
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
     And I wait for "2000" millsecond
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I click the "LastChartType" button under some element
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
@@ -114,6 +122,10 @@ Feature:3修改图表
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
     And I wait for "2000" millsecond
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I click the "LastChartType" button under some element
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
@@ -153,6 +165,10 @@ Feature:3修改图表
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
     And I wait for "2000" millsecond
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I click the "LastChartType" button under some element
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
@@ -191,6 +207,10 @@ Feature:3修改图表
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
     And I wait for "2000" millsecond
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I click the "LastChartType" button under some element
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
@@ -229,6 +249,10 @@ Feature:3修改图表
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
     And I wait for "2000" millsecond
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I click the "LastChartType" button under some element
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
@@ -269,6 +293,10 @@ Feature:3修改图表
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
     And I wait for "2000" millsecond
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I click the "LastChartType" button under some element
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
@@ -305,6 +333,10 @@ Feature:3修改图表
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
     And I wait for "2000" millsecond
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I click the "LastChartType" button under some element
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
@@ -345,6 +377,10 @@ Feature:3修改图表
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
     And I wait for "2000" millsecond
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I click the "LastChartType" button under some element
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
@@ -384,6 +420,10 @@ Feature:3修改图表
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
     And I wait for "2000" millsecond
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I click the "LastChartType" button under some element
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
@@ -449,6 +489,10 @@ Feature:3修改图表
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
     And I click the "LastChartType" button under some element
     Then I will see the "trend.CreatePage" page
@@ -520,6 +564,10 @@ Feature:3修改图表
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
     And I click the "LastChartType" button under some element
     Then I will see the "trend.CreatePage" page
@@ -559,6 +607,10 @@ Feature:3修改图表
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
     And I click the "LastChartType" button under some element
     Then I will see the "trend.CreatePage" page
@@ -587,6 +639,10 @@ Feature:3修改图表
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
     And I click the "LastChartType" button under some element
     Then I will see the "trend.CreatePage" page
@@ -631,6 +687,10 @@ Feature:3修改图表
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
     And I click the "LastChartType" button under some element
     Then I will see the "trend.CreatePage" page
@@ -670,6 +730,10 @@ Feature:3修改图表
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
     And I click the "LastChartType" button under some element
     Then I will see the "trend.CreatePage" page
@@ -710,6 +774,10 @@ Feature:3修改图表
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
     And I click the "LastChartType" button under some element
     Then I will see the "trend.CreatePage" page
@@ -750,6 +818,10 @@ Feature:3修改图表
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
     And I click the "LastChartType" button under some element
     Then I will see the "trend.CreatePage" page
@@ -796,6 +868,10 @@ Feature:3修改图表
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
     And I click the "LastChartType" button under some element
     Then I will see the "trend.CreatePage" page
@@ -831,6 +907,10 @@ Feature:3修改图表
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
     And I click the "LastChartType" button under some element
     Then I will see the "trend.CreatePage" page
@@ -865,6 +945,10 @@ Feature:3修改图表
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
     And I click the "LastChartType" button under some element
     Then I will see the "trend.CreatePage" page
@@ -906,6 +990,10 @@ Feature:3修改图表
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
     And I click the "LastChartType" button under some element
     Then I will see the "trend.CreatePage" page

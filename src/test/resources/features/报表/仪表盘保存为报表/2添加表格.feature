@@ -19,6 +19,10 @@ Feature:2添加表格
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
     And I wait for "2000" millsecond
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     Then I click the "AddEventButton" button
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible

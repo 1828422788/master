@@ -47,13 +47,18 @@ Feature: 仪表盘输入项
       | 测试输入项2 |
       | 测试输入项3 |
       | 测试输入项4 |
-      | 测试输入项6 |
-      | 测试输入项7 |
 
     @dashboardinputSmoke
     Examples:
       | name   |
       | 测试输入项5 |
+
+    Examples:
+      | name   |
+      | 测试输入项6 |
+      | 测试输入项7 |
+
+
 
   @dbinputpre2 @dbinputpre
   Scenario Outline: 新建标签页

@@ -99,6 +99,9 @@ Feature:趋势图添加到仪表盘保存为报表
     And I set the parameter "SearchTagInput" with value "<tag>"
     And I wait for "500" millsecond
     And I click the Element with text "<tag>"
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "SettingIcon" button
     And I wait for "2000" millsecond
     Then I click the "AddEventButton" button
     And I click the "AddChart" button
