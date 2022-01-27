@@ -337,7 +337,7 @@ Feature: 权限-字典
 
     Examples:
       | name     |function|
-      | 权限测试.csv |删除\n授权    |
+      | 权限测试.csv |授权\n删除    |
 
 
   Scenario: 验证读取+转授
@@ -491,7 +491,7 @@ Feature: 权限-字典
 
     Examples:
       | name                   |function|
-      | AutoTestUserCreate.csv |删除\n授权    |
+      | AutoTestUserCreate.csv |授权\n删除    |
 
   Scenario: 再次创建字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
