@@ -94,11 +94,6 @@ Feature: 仪表盘_5_3_区划地图
     And I click the "Map" button
     And I click the "<targetName>" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
-    And I click the "GoingDown" button
-    And I choose the "apache.geo.province" from the "Province" in config
-    And I choose the "apache.geo.city" from the "City" in config
-    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "3000" millsecond
     And I click the "Setting" button under some element
@@ -134,14 +129,7 @@ Feature: 仪表盘_5_3_区划地图
     And I choose the "apache.geo.city" from the "CityDrillAction"
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be invisible
-
-  Scenario: 区划地图下钻 RZY-3399
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘区划地图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
+#    And I wait for "15000" millsecond
     And I wait for "ChinaPoint" will be visible
     And I click the Circle "ChinaPoint" button
     And I wait for "NeimengguText" will be visible
