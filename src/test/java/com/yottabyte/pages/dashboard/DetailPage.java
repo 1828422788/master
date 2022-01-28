@@ -358,7 +358,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//*[name()='rect'and @height=22])")
     private WebElement zhutiao;
 
-    @FindBy(xpath = "//*[name()='rect' and @height>22 and @clip-path and (@fill='#A114F9' or @fill='#F80050')]")
+    @FindBy(xpath = "(//*[name()='rect' and @height>22 and @clip-path and (@fill='#A114F9' or @fill='#F80050')])[last()]")
     private WebElement zhutiao2;
 
     @FindBy(xpath = "(//*[name()='text'])[text()='64.20.177.254']")

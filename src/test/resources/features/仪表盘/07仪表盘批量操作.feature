@@ -40,6 +40,8 @@ Feature: 仪表盘07批量操作
     Then I will see the message contains "请至少选择一个资源进行操作"
 
   Scenario: 批量操作-添加资源标签
+    And I set the parameter "SearchInput" with value "Test_Batch_Control_Resource"
+    And I wait for "Loading" will be invisible
     When I click the "BatchControl" button
     And I click the "ListItemOne" button
     And I wait for "1000" millsecond
@@ -61,6 +63,8 @@ Feature: 仪表盘07批量操作
     Then I will see the text "资源标签..............auto_package, AutoTestTag" exist in page
 #
   Scenario: 批量操作-删除资源
+    And I set the parameter "SearchInput" with value "Test_Batch_Control_Resource"
+    And I wait for "Loading" will be invisible
     When I click the "BatchControl" button
     And I click the "ListItemOne" button
     And I wait for "1000" millsecond
