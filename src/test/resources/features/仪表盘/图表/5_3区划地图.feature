@@ -112,7 +112,7 @@ Feature: 仪表盘_5_3_区划地图
       | name    | targetName |
       | 仪表盘区划地图 | Regionmap  |
 
-  Scenario: 区划地图下钻 RZY-3399,RZY-321
+  Scenario: 区划地图下钻配置 RZY-3399
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘区划地图"
@@ -134,6 +134,14 @@ Feature: 仪表盘_5_3_区划地图
     And I choose the "apache.geo.city" from the "CityDrillAction"
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be invisible
+
+  Scenario: 区划地图下钻 RZY-3399
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘区划地图"
+    And switch to window "仪表盘"
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
     And I wait for "ChinaPoint" will be visible
     And I click the Circle "ChinaPoint" button
     And I wait for "NeimengguText" will be visible
