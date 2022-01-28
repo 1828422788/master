@@ -133,12 +133,11 @@ Feature: 仪表盘_5_3_区划地图
     And I wait for "1000" millsecond
     And I choose the "apache.geo.city" from the "CityDrillAction"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be invisible
     And I wait for "ChinaPoint" will be visible
     And I click the Circle "ChinaPoint" button
-#    And I click the "ChinaPoint" button
     And I wait for "NeimengguText" will be visible
     And I click the Circle "Neimenggu" button
-#    And I click the "Neimenggu" button
     And I wait for "TongliaoshiText" will be visible
 
   Scenario Outline: 地图下钻 RZY-3769

@@ -95,9 +95,9 @@ Feature: 日志展现_4复合
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-    And I click the "SearchButton" button under some element
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I wait for "Chart" will be visible
+#    And I click the "SearchButton" button under some element
+#    And I wait for element "SearchStatus" change text to "搜索完成!"
+#    And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
     And I will see the element "FieldAxis_1" contains "max(apache.resp_len)"
     And I will see the element "MinAxis_1" contains "1 面"
