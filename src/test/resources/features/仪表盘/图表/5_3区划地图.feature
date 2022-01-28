@@ -93,10 +93,7 @@ Feature: 仪表盘_5_3_区划地图
     And I wait for "Map" will be visible
     And I click the "Map" button
     And I click the "<targetName>" button
-    And I wait for "1000" millsecond
-    Then I click the "Generate" button
     And I wait for "3000" millsecond
-    And I click the "Setting" button under some element
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I move the mouse pointer to the "TrendTitle"
