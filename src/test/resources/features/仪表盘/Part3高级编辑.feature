@@ -478,6 +478,7 @@ Feature: 仪表盘高级编辑
     And I wait for "500" millsecond
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be invisible
     And I click the "Jiangsu" button
     Then I wait for title change text to "搜索"
     And I will see the "splSearch.SearchPage" page

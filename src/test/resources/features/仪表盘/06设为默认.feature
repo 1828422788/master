@@ -1,4 +1,5 @@
-@dashboard @dashboardSmoke
+#@dashboard @dashboardSmoke
+@dashboardDefault
 Feature: 仪表盘06设为/取消默认（RZY-211）
 
   Background:
@@ -18,11 +19,12 @@ Feature: 仪表盘06设为/取消默认（RZY-211）
     And I wait for "SuccessMessage" will be invisible
     And I will see the text "默认" exist in page
     And I refresh the website
-    And I wait for loading invisible
+    And I wait for "Loading" will be invisible
     And switch to window "仪表盘"
     Then I will see the "dashboard.DetailPage" page
     And I close all tabs except main tab
     And I wait for loading invisible
+    And I wait for "ShowDashboards" will be visible
     And I click the "ShowDashboards" button
     And I wait for "ReturnToList" will be visible
     And I click the "ReturnToList" button under some element
