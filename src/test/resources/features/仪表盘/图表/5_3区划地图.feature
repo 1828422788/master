@@ -95,6 +95,7 @@ Feature: 仪表盘_5_3_区划地图
     And I click the "<targetName>" button
     And I wait for "3000" millsecond
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ChartType" button
     And I wait for "2000" millsecond
     And I move the mouse pointer to the "TrendTitle"
     And I click the "TrendTitle" button
