@@ -66,10 +66,9 @@ public class IncidentPage extends PageTemplate {
     public WebElement getStatusList() {
         String xpath = "//div[@yotta-test='incident-status-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-//        ClickEvent.clickUnderneathButton(element);
-//        return getV40LastDropdownList();
-        return element;
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getV40LastDropdownList();
     }
 
     //待分配
