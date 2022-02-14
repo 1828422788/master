@@ -14,7 +14,7 @@ Feature: 索引信息过滤
     Examples: 新建成功
       | clusterName |
       | 134         |
-      | beaver      |
+      | 116         |
 
   Scenario Outline: 过滤远端索引
     Given open the "remoteIndex.ListPage" page for uri "/remoteindex/"

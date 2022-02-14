@@ -20,6 +20,8 @@ Feature: 新建远端索引
   Examples: 新建成功
       | clusterName | domainName | ipPort              |
       | beaver134   | ops        | 192.168.1.134:50060 |
+      | beaver116   | ops        | 192.168.40.116:50060 |
+
 
   Scenario Outline: 新建远端集群失败--IP端口错误
     Given open the "remoteIndex.ListPage" page for uri "/remoteindex/"
@@ -78,7 +80,7 @@ Feature: 新建远端索引
   Examples: 新建成功
       | clusterName | remoteIndexName  | describeTextarea |
       | beaver134   | yotta            | 测试远端索引    |
-      | beaver134   | testnyt          | 测试远端索引    |
+      | beaver116   | yotta            | 测试远端索引    |
 
 
 
