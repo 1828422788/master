@@ -10,14 +10,13 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页，前置-数据
     And I wait for loading invisible
     Given I set the parameter "SearchInput" with value "<spl>"
     #选择父子行为为无的数据集
+    When the dataset is "无tree" then I "expand" the item
     When I click the "fatherChildNull" button
     When I click the "DateEditor" button
-    #And I click the "RecentSevenDay" button
     When I click the "Today" button
     When I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for loading invisible
-#    And I drag the element "SearchPageSvg" to the "right" side
 
     When I click the "SaveAsOther" button
     When I click the "TimedTask" button
@@ -29,21 +28,13 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页，前置-数据
 
     And I set the parameter "Name" with value "<taskName>"
     And I set the parameter "Describe" with value "<describe>"
-
-#    When I click the "Crontab" button
-#    And I wait for loading invisible
-#    And I wait for "CrontabInput" will be visible
     And I set the parameter "CrontabInput" with value "<crontab>"
 
 ##    此处再次输入名称的原因是：之前输入的名称可能会消失，出现提示输入名称的情况，为了保险起见，再次输入名称
-#    And I set the parameter "TaskName" with value "<taskName>"
-
-#    When I click the "EnsureButton" button
     And I click the "Submit" button
 
     And I wait for "1500" millsecond
     And I wait for "SuccessMessage" will be visible
-#    Then I will see the success message "创建成功"
     Then I will see the success message "保存成功"
 
     Examples:
@@ -173,6 +164,7 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页，前置-数据
 #    And I drag the element "SearchPageSvg" to the "left" side
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为继承的数据集
+    When the dataset is "继承tree" then I "expand" the item
     When I click the "jiCheng" button
     When I click the "DateEditor" button
     #And I click the "RecentSevenDay" button

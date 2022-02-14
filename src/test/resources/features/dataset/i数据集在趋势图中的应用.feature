@@ -9,6 +9,7 @@ Feature: 数据集-j在趋势图中的应用
     Given I set the parameter "SearchInput" with value "<spl>"
     And I drag the element "SearchPageSvg" to the fixed side
     #选择父子行为为无的数据集
+    When the dataset is "无tree" then I "expand" the item
     And I click the "fatherChildNull" button
     And I click the "DateEditor" button
     And I click the "RecentSevenDay" button
@@ -99,6 +100,7 @@ Feature: 数据集-j在趋势图中的应用
     Given I set the parameter "SearchInput" with value "<spl>"
     And I drag the element "SearchPageSvg" to the fixed side
         #选择父子行为为继承的数据集
+    When the dataset is "继承tree" then I "expand" the item
     And I click the "jiCheng" button
     And I click the "DateEditor" button
     And I click the "RecentSevenDay" button

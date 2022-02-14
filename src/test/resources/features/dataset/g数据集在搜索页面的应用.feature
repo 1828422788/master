@@ -4,9 +4,10 @@ Feature: 数据集-g在搜索页，前置-数据集-f构建树形结构
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-#    And I drag the element "SearchPageSvg" to the "left" side
+    And I drag the element "SearchPageSvg" to the fixed side
 
   Scenario: RZY-4085:父子行为-无
+    When the dataset is "无tree" then I "expand" the item
     When I click the "fatherChildNull" button
     When I click the "DateEditor" button
     #And I click the "RecentSevenDay" button
@@ -42,6 +43,7 @@ Feature: 数据集-g在搜索页，前置-数据集-f构建树形结构
 
   @s4084
   Scenario: 在搜索界面验证：RZY-4084:父子行为-继承
+    When the dataset is "继承tree" then I "expand" the item
     When I click the "jiCheng" button
     When I click the "DateEditor" button
     #And I click the "RecentSevenDay" button

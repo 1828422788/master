@@ -506,6 +506,22 @@ public class ClickButtonWithGivenName {
         }
     }
 
+    /**
+     * 点击对应行的“+/-”按钮
+     *
+     * @param name   名称
+     * @param action 操作 expand(+)/close(-)
+     */
+    @When("^the dataset is \"([^\"]*)\" then I \"([^\"]*)\" the item$")
+    public void operateExpandDataset(String name, String action) {
+        WebElement element = webDriver.findElement(By.xpath("//span[text()='" + name + "']//ancestor::div[contains(@class,'content')]//span[contains(@class,'expansion')]//span[@role='img']"));
+        String current_label = element.getAttribute("aria-label");
+        String status = current_label.equals("Add") ? "close" : "expand";
+        if (!action.equals(status)) {
+            ClickEvent.clickUnderneathButton(element);
+        }
+    }
+
 // 3.6 版本
 //    /**
 //     * 关闭或开启禁用开关
