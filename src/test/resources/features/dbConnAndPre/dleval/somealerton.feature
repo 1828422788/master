@@ -1,5 +1,5 @@
 @autoui02
-Feature: 新建数据库输出
+Feature:
 
   Background:
     And I zoom the browse to full screen
