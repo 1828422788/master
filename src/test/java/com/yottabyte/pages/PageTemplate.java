@@ -5,7 +5,6 @@ import com.yottabyte.constants.WebDriverConst;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.DropdownUtils;
-import com.yottabyte.utils.ElementExist;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -15,7 +14,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.LoadableComponent;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -278,7 +276,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     }
 
     public WebElement getYottaButton(String test) {
-        String xpath = "//button[@yotta-test='" + test +"']";
+        String xpath = "(//button[@yotta-test='"+ test +"'])[last()]";
         return webDriver.findElement(By.xpath(xpath));
     }
 

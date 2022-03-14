@@ -37,7 +37,7 @@ public class SplSearch {
         Map<String, Object> map = JsonStringPaser.json2Stirng(json);
 
         for (String key : map.keySet()) {
-            WebElement tr = webDriver.findElement(By.xpath("((//span[text()='" + key + "'])[last()]/ancestor::pre)[last()]"));
+            WebElement tr = webDriver.findElement(By.xpath("//span[text()='"+key+"']/following-sibling::span[last()]//span[@yotta-test='event_list-field_value-dom'][last()]"));
             String actualValue = tr.getText();
             Assert.assertEquals(map.get(key), actualValue);
         }

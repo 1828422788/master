@@ -254,6 +254,21 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//p[@class='yotta-dialog-contenttext']")
     private WebElement updatemessage;
 
+    @FindBy(xpath = "//td[text()='AutoAlias']/following-sibling::td[2]")
+    private WebElement AliasGlobal;
+
+    @FindBy(xpath = "//td[text()='NewLookup']/following-sibling::td[3]")
+    private WebElement LookupGlobal;
+
+    @FindBy(xpath = "//input[@value='AutoTest']/ancestor::div[@class='yotta-form-field']/following-sibling::div[2]/span")
+    private WebElement AutoTestGlobal;
+
+    @FindBy(xpath = "//input[@value='AutoExtract']/ancestor::div[@class='yotta-form-field']/following-sibling::div[2]/span")
+    private WebElement AutoExtractGlobal;
+
+    @FindBy(xpath = "//input[@value='autoeval']/ancestor::div[@class='yotta-form-field']/following-sibling::div[3]/span")
+    private WebElement AutoEvalGlobal;
+
     public WebElement getUpdatemessage() { return updatemessage; }
 
     public WebElement getFieldSavedButton() { return fieldSavedButton; }
@@ -288,6 +303,10 @@ public class CreatePage extends PageTemplate {
     public WebElement getFieldConvertRule() {
         fieldConvertRule.click();
         return super.getLastDropdownList();
+    }
+
+    public WebElement getLookupGlobal() {
+        return LookupGlobal;
     }
 
     public WebElement getLastNameInput() {
@@ -604,6 +623,9 @@ public class CreatePage extends PageTemplate {
         return currentApp;
     }
 
+    public WebElement getAliasGlobal() {
+        return AliasGlobal;
+    }
     public WebElement getDialogWrapper() {
         return dialogWrapper;
     }
@@ -648,5 +670,17 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getLogoMessage() {
         return logoMessage;
+    }
+
+    public WebElement getAutoTestGlobal(){
+        return AutoTestGlobal;
+    }
+
+    public WebElement getAutoExtractGlobal() {
+        return AutoExtractGlobal;
+    }
+
+    public WebElement getAutoEvalGlobal() {
+        return AutoEvalGlobal;
     }
 }

@@ -242,13 +242,6 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//tbody/tr")
     private List<WebElement> trList;
 
-    @FindBy(xpath = "//div[text()='统计']/span")
-    private WebElement countNum;
-
-    public WebElement getCountNum() {
-        return countNum;
-    }
-
     public List<WebElement> getTrList() {
         return trList;
     }
@@ -376,6 +369,9 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//div[@class='yw-search-tabbar']//div[text()='统计']")
     private WebElement statisticalTab;
+
+    @FindBy(xpath = "//div[@role='tab' and contains(text(),'统计')]")
+    private WebElement statsNum;
 
     @FindBy(xpath = "//div[@class='yw-search-tabbar']//div[text()='事件']")
     private WebElement eventTab;
@@ -1028,6 +1024,10 @@ public class SearchPage extends ListPageFactory {
         return eventOperatorAutoTest;
     }
 
+    public WebElement getStatsNum() {
+        return statsNum;
+    }
+
     public WebElement getSearchTabBar() {
         return searchTabBar;
     }
@@ -1127,6 +1127,11 @@ public class SearchPage extends ListPageFactory {
     public WebElement getMaxLineDropdown() {
         maxLineDropdown.click();
         return dropdownList.get(dropdownList.size() - 1);
+    }
+    @FindBy(xpath = "//a[text()='search']")
+    private WebElement Search;
+    public WebElement getSearch(){
+        return Search;
     }
 
     @FindBy(xpath = "//label[contains(text(),'文件名称')]/parent::div/following-sibling::div//input[@placeholder='请输入']")
