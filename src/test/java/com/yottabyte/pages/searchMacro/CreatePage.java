@@ -59,7 +59,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getGroup() {
-        return super.getDropdownList("分组");
+        return dropdownUtils.getDropdownListByLabel("分组");
     }
 
     public WebElement getSave() {

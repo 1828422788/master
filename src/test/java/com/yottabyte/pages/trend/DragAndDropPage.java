@@ -397,7 +397,7 @@ public class DragAndDropPage extends CreatePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return getYottaDropdownList("trend-BI_YoY-select");
+        return dropdownUtils.getYottaDropdownList("trend-BI_YoY-select");
     }
 
     //--------------------------------------------------------------------------------------
@@ -542,12 +542,12 @@ public class DragAndDropPage extends CreatePage {
 
     public WebElement getColumnField() throws InterruptedException {
         Thread.sleep(1000);
-        return getYottaDropdownList("trend-dataset_filter_condtion_field-select");
+        return dropdownUtils.getYottaDropdownList("trend-dataset_filter_condtion_field-select");
     }
 
     public WebElement getOperator() throws InterruptedException {
         Thread.sleep(1000);
-        return getYottaDropdownList("trend-dataset_filter_condtion_sign-select");
+        return dropdownUtils.getYottaDropdownList("trend-dataset_filter_condtion_sign-select");
     }
 
     public WebElement getValue() {
@@ -559,7 +559,7 @@ public class DragAndDropPage extends CreatePage {
     }
 
     public WebElement getCondition() {
-        return getYottaDropdownList("trend-dataset_filter_condition_type-select");
+        return dropdownUtils.getYottaDropdownList("trend-dataset_filter_condition_type-select");
     }
 
     public WebElement getApply() {
@@ -628,7 +628,7 @@ public class DragAndDropPage extends CreatePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return getYottaDropdownList("trend-BI_method-select");
+        return dropdownUtils.getYottaDropdownList("trend-BI_method-select");
     }
 
     public WebElement getTypeChartField() {
@@ -637,7 +637,7 @@ public class DragAndDropPage extends CreatePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return getYottaDropdownList("trend-BI_field_chart_type-select");
+        return dropdownUtils.getYottaDropdownList("trend-BI_field_chart_type-select");
     }
 
     public WebElement getSmooth() {
@@ -693,7 +693,7 @@ public class DragAndDropPage extends CreatePage {
     }
 
     public WebElement getPrecision() {
-        return getYottaDropdownList("trend-BI_param_dataPrecision-select");
+        return dropdownUtils.getYottaDropdownList("trend-BI_param_dataPrecision-select");
     }
 
     public WebElement getAddColorSingleChart() {
@@ -706,7 +706,7 @@ public class DragAndDropPage extends CreatePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return getYottaDropdownList("trend-BI_param_labelFormatter-select");
+        return dropdownUtils.getYottaDropdownList("trend-BI_param_labelFormatter-select");
     }
 
     public WebElement getContrastTime() {
@@ -715,7 +715,7 @@ public class DragAndDropPage extends CreatePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return getYottaDropdownList("trend-BI_param_compareTime-select");
+        return dropdownUtils.getYottaDropdownList("trend-BI_param_compareTime-select");
     }
 
     public WebElement getAreaTransparency() {

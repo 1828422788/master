@@ -18,7 +18,7 @@ import org.openqa.selenium.support.ui.LoadableComponent;
 public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     public static ConfigManager config = new ConfigManager();
     public WebDriver webDriver;
-    private DropdownUtils utils = new DropdownUtils();
+    public DropdownUtils dropdownUtils = new DropdownUtils();
 
     @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
     private WebElement searchInput;
@@ -119,15 +119,14 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
 
     public WebElement getApp() {
         app.click();
-        return utils.getLastDropdownList();
+        return dropdownUtils.getLastDropdownList();
     }
 
 
     public WebElement getAuthDropdown() {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(authDropdown));
         authDropdown.click();
-       // return getLastDropdownList();
-        return getLastDropdownListEditApp();
+        return dropdownUtils.getMenuList();
     }
 
     public WebElement getRemoveTagIcon() {
@@ -209,10 +208,6 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
         return webDriver.findElement(By.xpath("//*[text()='" + text + "']/ancestor::div[2]"));
     }
 
-    private WebElement lastDropdownMenu() {
-        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu table-header-dropdown'])[last()]"));
-    }
-
     public WebElement getInputElement(String text) {
         String xpath = "//label[text()='" + text + "']/ancestor::div/following-sibling::div//input";
         return webDriver.findElement(By.xpath(xpath));
@@ -227,40 +222,8 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
         return successMessage;
     }
 
-    public WebElement getLastDropdownListEditCommand() {
-        return utils.getLastDropdownListEditCommand();
-    }
-
     public WebElement getLastDropdownList() {
-        return utils.getLastDropdownList();
-    }
-
-    public WebElement getLastDropdownResourceGroupList() {
-        return utils.getLastDropdownResourceGroupList();
-    }
-
-    public WebElement getV40LastDropdownList() {
-        return utils.getV40LastDropdownList();
-    }
-
-    public WebElement getDataSetResourceGroupList() {
-        return utils.getDataSetResourceGroupList();
-    }
-
-    public WebElement getIncidentStatusMenuList() {
-        return utils.getIncidentStatusMenuList();
-    }
-
-    public WebElement getLastDropdownList37() {
-        return utils.getLastDropdownList37();
-    }
-
-    public WebElement getRemoteIndexPageList1() {
-        return utils.getRemoteIndexPageList1();
-    }
-
-    public WebElement getLastDropdownListEditApp() {
-        return utils.getLastDropdownListEditApp();
+        return dropdownUtils.getLastDropdownList();
     }
 
     public WebElement getPlaceholderInput(String placeholder) {

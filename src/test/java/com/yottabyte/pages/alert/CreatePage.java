@@ -421,7 +421,7 @@ public class CreatePage extends PageTemplate {
     // 执行计划-定时-单位
     public WebElement getAlertPlanTimeUnits1() {
         String xpath = "//label[text()='执行计划']/following::div[text()='请选择']/parent::div[@class='ant-select-selection__rendered']";
-        return getDropdownListbyPath(xpath);
+        return dropdownUtils.getDropdownListbyPath(xpath);
     }
 
     public List<WebElement> getAlertPlanTimeUnits() {
@@ -957,7 +957,7 @@ public class CreatePage extends PageTemplate {
 //      String xpath = "//label[contains(text(),'接收者')]/following::div[@yotta-test='alert-alert_methods_email_account_group-select']";
 //        String xpath = "//label[contains(text(),'接收者')]/following::div[@yotta-test='alert-alert_methods_email_account_group-select']//span[@aria-label='PlusDownOutlined']";
         String xpath = "//label[contains(text(),'接收者')]/following::div[@yotta-test='alert-alert_methods_email_account_group-select']/div";
-        return getDropdownListbyPath(xpath);
+        return dropdownUtils.getDropdownListbyPath(xpath);
     }
 
 //    @FindBy(xpath = "//label[contains(text(),'接收者')]/following::label[contains(text(),'发送条件')]/following::div[@yotta-test='alert-alert_methods_levels-select']//span[@aria-label='PlusDownOutlined']")
@@ -965,7 +965,7 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSendConditionList() {
         String xpath = "//label[contains(text(),'接收者')]/following::label[contains(text(),'发送条件')]/following::div[@yotta-test='alert-alert_methods_levels-select']//span[@aria-label='PlusDownOutlined']";
-        return getDropdownListbyPath(xpath);
+        return dropdownUtils.getDropdownListbyPath(xpath);
 //          return sendConditionList;
     }
 
@@ -1066,7 +1066,7 @@ public class CreatePage extends PageTemplate {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getAlertNoteTypeDropdownList();
+        return dropdownUtils.getMenuList();
     }
 
     @FindBy(xpath = "//*[@yotta-test='alert-app-select']/div")

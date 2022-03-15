@@ -150,7 +150,7 @@ public class ResListPage extends PageTemplate {
     }
 
     public WebElement getApp() {
-        return super.getDropdownList("应用");
+        return dropdownUtils.getDropdownListByLabel("应用");
     }
 
     public WebElement getSearchDropdown() {
@@ -178,10 +178,6 @@ public class ResListPage extends PageTemplate {
         return ensureButton;
     }
 
-    public WebElement getGroupDropdownList() {
-        return super.getGroupDropdownList();
-    }
-
     public WebElement getEnsureDownloadButton() {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingElement));
         return super.getButton("确认导出");
@@ -200,7 +196,7 @@ public class ResListPage extends PageTemplate {
     }
 
     public WebElement getRole() {
-        return super.getDropdownList("分配角色");
+        return dropdownUtils.getDropdownListByLabel("分配角色");
     }
 
     public WebElement getNextButton() {
@@ -445,6 +441,6 @@ public class ResListPage extends PageTemplate {
     }
 
     public WebElement getSource() {
-        return super.getDropdownList("日志来源");
+        return dropdownUtils.getDropdownListByLabel("日志来源");
     }
 }

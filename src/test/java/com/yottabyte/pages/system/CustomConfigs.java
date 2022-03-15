@@ -131,7 +131,7 @@ public class CustomConfigs extends PageTemplate {
     }
 
     public WebElement getBlacklist() {
-        return super.getDropdownList("黑名单地址");
+        return dropdownUtils.getDropdownListByLabel("黑名单地址");
     }
 
     public WebElement getMessage() {
@@ -143,7 +143,7 @@ public class CustomConfigs extends PageTemplate {
     }
 
     public WebElement getHomePage() {
-        return super.getDropdownList("首页");
+        return dropdownUtils.getDropdownListByLabel("首页");
     }
 
     public WebElement getWholeTime() {

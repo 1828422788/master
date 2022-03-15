@@ -73,12 +73,7 @@ public class dbSettingPage extends PageTemplate {
 
     public WebElement getNewDbConnTypeList() {
         String xpath = "//label[contains(text(),'连接类型')]/following::div[@yotta-test='dbsettings-db_type-select']/div";
-        return getDropdownListbyPath(xpath);
-//
-//        WebElement element = webDriver.findElement(By.xpath(xpath));
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-//        ClickEvent.clickUnderneathButton(element);
-//        return getLastDropdownList();
+        return dropdownUtils.getDropdownListbyPath(xpath);
     }
 
     @FindBy(xpath = "//label[contains(text(),'主机')]/following::input[@placeholder='请输入主机']")

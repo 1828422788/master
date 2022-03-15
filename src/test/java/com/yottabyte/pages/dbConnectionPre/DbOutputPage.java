@@ -78,13 +78,8 @@ public class DbOutputPage extends PageTemplate {
     }
 
     public WebElement getDbOutputDirList() {
-//        String xpath = "//div[contains(text(),'目录')]/following-sibling::div/div[@class='yotta-select-selection']";
         String xpath = "//div[@yotta-test='dbsettings-database-select']/div";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-        ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
-//        return super.getLastDropdownListOnSendPolicyPage(xpath)
+        return dropdownUtils.getDropdownListbyPath(xpath);
     }
 
 //    @FindBy(xpath = "//div[text()='表']/following-sibling::span/input[@placeholder='请输入']")
@@ -120,17 +115,17 @@ public class DbOutputPage extends PageTemplate {
 
     public WebElement getDbOutputSearchField1List() {
         String xpath = "//div[@yotta-test='dbsettings-search_field_1-select']/div";
-        return getDropdownListbyPath(xpath);
+        return dropdownUtils.getDropdownListbyPath(xpath);
     }
 
     public WebElement getDbOutputSearchField2List() {
         String xpath = "//div[@yotta-test='dbsettings-search_field_2-select']/div";
-        return getDropdownListbyPath(xpath);
+        return dropdownUtils.getDropdownListbyPath(xpath);
     }
 
     public WebElement getDbOutputSearchField3List() {
         String xpath = "//div[@yotta-test='dbsettings-search_field_3-select']/div";
-        return getDropdownListbyPath(xpath);
+        return dropdownUtils.getDropdownListbyPath(xpath);
     }
 
     public WebElement getDbOutputDbField0List() {
@@ -144,17 +139,17 @@ public class DbOutputPage extends PageTemplate {
 
     public WebElement getDbOutputDbField1List() {
         String xpath = "//div[@yotta-test='dbsettings-db_field_1-select']/div";
-        return getDropdownListbyPath(xpath);
+        return dropdownUtils.getDropdownListbyPath(xpath);
     }
 
     public WebElement getDbOutputDbField2List() {
         String xpath = "//div[@yotta-test='dbsettings-db_field_2-select']/div";
-        return getDropdownListbyPath(xpath);
+        return dropdownUtils.getDropdownListbyPath(xpath);
     }
 
     public WebElement getDbOutputDbField3List() {
         String xpath = "//div[@yotta-test='dbsettings-db_field_3-select']/div";
-        return getDropdownListbyPath(xpath);
+        return dropdownUtils.getDropdownListbyPath(xpath);
     }
 
 
@@ -193,7 +188,7 @@ public class DbOutputPage extends PageTemplate {
 
     public WebElement getDbOutputKeyList() {
         String xpath = "//div[@yotta-test='dbsettings-update_key-select']/div";
-        return getDropdownListbyPath(xpath);
+        return dropdownUtils.getDropdownListbyPath(xpath);
     }
 
     @FindBy(xpath = "//a[text()='删除']")

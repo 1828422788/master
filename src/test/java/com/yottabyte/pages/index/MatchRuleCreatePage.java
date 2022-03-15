@@ -38,31 +38,12 @@ public class MatchRuleCreatePage extends PageTemplate {
         return rule;
     }
 
-    public WebElement getDropdownList(String name) {
-        String xpath = "//label[contains(text(),'" + name + "')]/parent::div/following-sibling::div//span[@class='yotta-select-selection-icon']";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        element.click();
-        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu css-ncm03v'])[last()]"));
-    }
-
     public WebElement getIndexName() {
-//        return getDropdownList("索引名");
-        String xpath = "//div[@yotta-test='indexsetting-index-select']/div";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        element.click();
-        return super.getV40LastDropdownList();
-
-//        return webDriver.findElement(By.xpath("//div[contains(@class,'yotta-select-menu')]"));
+        return dropdownUtils.getYottaDropdownList("indexsetting-index-select");
     }
 
     public WebElement getTopicName() {
-//        return getDropdownList("主题名");
-        String xpath = "//div[@yotta-test='indexsetting-topic-select']/div";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        element.click();
-//        return super.getLastDropdownList();
-        return super.getV40LastDropdownList();
-
+        return dropdownUtils.getYottaDropdownList("indexsetting-topic-select");
     }
 
     @FindBy(xpath = "(//input[@yotta-test='indexsetting-description-input'])")

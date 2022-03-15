@@ -45,7 +45,7 @@ public class StatisticPage extends PageTemplate {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getIncidentStatusMenuList();
+        return super.getLastDropdownList();
     }
 
     public WebElement getOwnerList(){
@@ -53,7 +53,7 @@ public class StatisticPage extends PageTemplate {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getIncidentStatusMenuList();
+        return super.getLastDropdownList();
     }
 
     @FindBy(xpath = "//span[@aria-label='PlusRight']")
@@ -81,7 +81,7 @@ public class StatisticPage extends PageTemplate {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getIncidentStatusMenuList();
+        return super.getLastDropdownList();
     }
 
     public WebElement getNo3page()

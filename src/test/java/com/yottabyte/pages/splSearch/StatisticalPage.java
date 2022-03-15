@@ -247,7 +247,7 @@ public class StatisticalPage extends PageTemplate {
     }
 
     public WebElement getSelfRadioField() {
-        return getYottaDropdownList("search-ValuesStatistics_top-select"); //自选
+        return dropdownUtils.getYottaDropdownList("search-ValuesStatistics_top-select"); //自选
     }
 
     public WebElement getTimeBucketDropdownButton() {
@@ -378,11 +378,11 @@ public class StatisticalPage extends PageTemplate {
 
     public WebElement getYAxis() throws InterruptedException {
         Thread.sleep(1000);
-        return getYottaDropdownList("search-ValuesStatistics_y-select"); //Y轴
+        return dropdownUtils.getYottaDropdownList("search-ValuesStatistics_y-select"); //Y轴
     }
 
     public WebElement getGroupField() throws InterruptedException {
         Thread.sleep(1000);
-        return getYottaDropdownList("search-ValuesStatistics_by-select"); //分组字段
+        return dropdownUtils.getYottaDropdownList("search-ValuesStatistics_by-select"); //分组字段
     }
 }

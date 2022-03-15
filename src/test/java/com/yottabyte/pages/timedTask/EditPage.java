@@ -183,7 +183,7 @@ public class EditPage extends PageTemplate {
     }
 
     public WebElement getAppDropdown() {
-        return getYottaDropdownList("schedule-app-select");
+        return dropdownUtils.getYottaDropdownList("schedule-app-select");
     }
 
     public WebElement getSelectedApp() {
@@ -195,7 +195,7 @@ public class EditPage extends PageTemplate {
     }
 
     public WebElement getUnit() {
-        return getYottaDropdownList("schedule-frequency_unit-select");
+        return dropdownUtils.getYottaDropdownList("schedule-frequency_unit-select");
     }
 
     public WebElement getTextarea() {
@@ -228,7 +228,7 @@ public class EditPage extends PageTemplate {
     }
 
     public WebElement getDbType() {
-        return getYottaDropdownList("schedule-jdbc_database_type-select");
+        return dropdownUtils.getYottaDropdownList("schedule-jdbc_database_type-select");
     }
 
     public WebElement getAddJDBC() {
@@ -313,7 +313,7 @@ public class EditPage extends PageTemplate {
     }
 
     public WebElement getTaskGroup() {
-        return getYottaDropdownList("resource_tag-change_resource_tag-select");
+        return dropdownUtils.getYottaDropdownList("resource_tag-change_resource_tag-select");
     }
 
     public WebElement getPeriod() {

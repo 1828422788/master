@@ -135,7 +135,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getTagList(){
-        return super.getDropdownList("资源标签");
+        return dropdownUtils.getDropdownListByLabel("资源标签");
     }
 
     public WebElement getGroupInput() {

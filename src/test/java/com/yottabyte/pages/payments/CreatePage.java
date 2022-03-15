@@ -29,7 +29,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getAppName() {
-        return super.getDropdownList("Appname");
+        return dropdownUtils.getDropdownListByLabel("Appname");
     }
 
     public WebElement getCreateButton() {

@@ -160,14 +160,6 @@ public class CreatePage extends PageTemplate {
         return deleteAppicon;
     }
 
-    public WebElement getApp() {
-        return super.getDropdownList("应用");
-    }
-
-    public WebElement getGroup() {
-        return super.getDropdownList("分组");
-    }
-
     public WebElement getReturn() {
         return super.getYottaButtonByText("返回");
     }
@@ -177,11 +169,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getTimeZone() {
-        return super.getYottaDropdownList("config-timezone-select");
+        return dropdownUtils.getYottaDropdownList("config-timezone-select");
     }
 
     public WebElement getLanguage() {
-        return super.getDropdownList("config-locale-select");
+        return dropdownUtils.getYottaDropdownList("config-locale-select");
     }
 
     public WebElement getIntRadio() {
@@ -197,7 +189,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getRuleName() {
-        return super.getYottaDropdownList("config-custom_rule_type-select");
+        return dropdownUtils.getYottaDropdownList("config-custom_rule_type-select");
     }
 
     public WebElement getStruct() {
@@ -221,15 +213,15 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getDictionary() {
-        return super.getYottaDropdownList("config-dict-select");
+        return dropdownUtils.getYottaDropdownList("config-dict-select");
     }
 
     public WebElement getBaseField() {
-        return super.getYottaDropdownList("config-dict_basic_field-select");
+        return dropdownUtils.getYottaDropdownList("config-dict_basic_field-select");
     }
 
     public WebElement getExtendField() {
-        return super.getYottaDropdownList("config-dict_extend_field-select");
+        return dropdownUtils.getYottaDropdownList("config-dict_extend_field-select");
     }
 
     public WebElement getMaxMatchLength() {
@@ -281,11 +273,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getParseRule() {
-        return super.getYottaDropdownList("config-rule_type-select");
+        return dropdownUtils.getYottaDropdownList("config-rule_type-select");
     }
 
     public WebElement getSourceField() {
-        return super.getYottaDropdownList("config-source-select");
+        return dropdownUtils.getYottaDropdownList("config-source-select");
     }
 
     public WebElement getFormatRule() {
@@ -325,7 +317,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getDecimal() {
-        return super.getYottaDropdownList("config-radix-select");
+        return dropdownUtils.getYottaDropdownList("config-radix-select");
     }
 
     public WebElement getSeparate() {
@@ -452,7 +444,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getParseField() {
-        return super.getYottaDropdownList("config-log_field-select");
+        return dropdownUtils.getYottaDropdownList("config-log_field-select");
     }
 
     public List<WebElement> getFieldTitle() {

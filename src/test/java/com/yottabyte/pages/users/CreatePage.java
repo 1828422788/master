@@ -87,11 +87,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getRole() {
-        return getDropdownList("角色");
+        return dropdownUtils.getDropdownListByLabel("角色");
     }
 
     public WebElement getManageRole() {
-        return getDropdownList("可管理角色");
+        return dropdownUtils.getDropdownListByLabel("可管理角色");
     }
 
     public WebElement getCreateButton() {
@@ -108,11 +108,5 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getErrorMessage() {
         return message;
-    }
-
-    public WebElement getDropdownList(String name) {
-        String xpath = "//label[text()='" + name + "']/ancestor::div[1]/following-sibling::div//div[@yotta-test]";
-        webDriver.findElement(By.xpath(xpath)).click();
-        return this.getLastDropdownList();
     }
 }

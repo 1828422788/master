@@ -279,11 +279,11 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getDictionaryTagList(){
-        return dropdownUtils.getDropdownList("字典标签");
+        return dropdownUtils.getDropdownListByLabel("字典标签");
     }
 
     public WebElement getTagList() {
-        return dropdownUtils.getDropdownList("标签");
+        return dropdownUtils.getDropdownListByLabel("标签");
     }
 
     @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")

@@ -46,13 +46,12 @@ public class SendPolicyPage extends PageTemplate {
 
     public WebElement getReceiveGroupMemberList() {
         String xpath = "//label[contains(text(),'发送给谁')]/following::span[text()='请选择用户或用户分组']/parent::div";
-        return super.getLastDropdownListOnSendPolicyPage(xpath);
-//        return getLastDropdownList();
+        return dropdownUtils.getDropdownListbyPath(xpath);
     }
 
     public WebElement getReceiveGroupNonMemberList() {
         String xpath = "//label[contains(text(),'不发送给谁')]/parent::div/following-sibling::div//span[text()='请选择用户']/ancestor::div[contains(@class,'yotta-select-selection')]";
-        return super.getLastDropdownListOnSendPolicyPage(xpath);
+        return dropdownUtils.getDropdownListbyPath(xpath);
     }
 
     public WebElement getReceiveGroupMemberLabel() {
@@ -180,7 +179,7 @@ public class SendPolicyPage extends PageTemplate {
 
     public WebElement getTunnelPriorityLevelList() {
         String xpath = "//span[contains(text(),'优先级')]/following-sibling::div//span[text()='请选择']/parent::div";
-        return super.getLastDropdownListOnSendPolicyPage(xpath);
+        return dropdownUtils.getDropdownListbyPath(xpath);
     }
 
     public WebElement getMailReceiverList() {
@@ -189,7 +188,7 @@ public class SendPolicyPage extends PageTemplate {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return super.getV40LastDropdownList();
+        return super.getLastDropdownList();
     }
 
     public WebElement getRelatedSendPluginList() {
@@ -197,7 +196,7 @@ public class SendPolicyPage extends PageTemplate {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return super.getLastSendPluginDropdownList();
+        return super.getLastDropdownList();
     }
 
     public WebElement getNewButtonPolicy() {

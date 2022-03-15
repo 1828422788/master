@@ -149,7 +149,7 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getApp() {
-        return super.getDropdownList("应用");
+        return dropdownUtils.getDropdownListByLabel("应用");
     }
 
     public WebElement getSearchDropdown() {
@@ -177,10 +177,6 @@ public class ListPage extends PageTemplate {
         return ensureButton;
     }
 
-    public WebElement getGroupDropdownList() {
-        return super.getGroupDropdownList();
-    }
-
     public WebElement getEnsureDownloadButton() {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingElement));
         return super.getButton("确认导出");
@@ -199,7 +195,7 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getRole() {
-        return super.getDropdownList("resource-assign_role-select");
+        return dropdownUtils.getYottaDropdownList("resource-assign_role-select");
     }
 
     public WebElement getNextButton() {
@@ -445,6 +441,6 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getSource() {
-        return super.getDropdownList("日志来源");
+        return dropdownUtils.getDropdownListByLabel("日志来源");
     }
 }

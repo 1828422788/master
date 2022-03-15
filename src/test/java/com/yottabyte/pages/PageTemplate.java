@@ -24,7 +24,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     public WebDriver webDriver;
     public static ConfigManager config = new ConfigManager();
     public String parentPageName;
-    private DropdownUtils dropdownUtils = new DropdownUtils();
+    public DropdownUtils dropdownUtils = new DropdownUtils();
 
     public WebElement getUsername() {
         return null;
@@ -156,14 +156,6 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return webDriver.findElement(By.xpath(xpath));
     }
 
-    public WebElement getDropdownList(String text) {
-        return dropdownUtils.getDropdownList(text);
-    }
-
-    public WebElement getDropdownListbyPath(String path) {
-        return dropdownUtils.getDropdownListbyPath(path);
-    }
-
     public WebElement getButton(String text) {
         String xpath = "//span[text()='" + text + "']";
         return webDriver.findElement(By.xpath(xpath));
@@ -185,69 +177,8 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return dropdownUtils.getLastDropdownList();
     }
 
-    public WebElement getV40LastDropdownList() {
-        return dropdownUtils.getV40LastDropdownList();
-    }
-
-    public WebElement getIncidentStatusMenuList() {
-        return dropdownUtils.getIncidentStatusMenuList();
-    }
-
-    //编辑应用下拉菜单
-    public WebElement getLastDropdownListEditApp() {
-        return dropdownUtils.getLastDropdownListEditApp();
-    }
-    public WebElement getGroupDropdownList() {
-        return dropdownUtils.getGroupDropdownList();
-    }
-
     public WebElement findInputByPlaceholder(String placeholder) {
         return webDriver.findElement(By.xpath("//input[@placeholder='" + placeholder + "']"));
-    }
-
-    public WebElement getTagInput(String text) {
-        return webDriver.findElement(By.xpath("//div[text()='" + text + "']/following-sibling::div//input"));
-    }
-
-    public WebElement getDropdownListByCruxeePageXpath(String text) {
-        return dropdownUtils.getDropdownListByCruxeePageXpath(text);
-    }
-
-    public WebElement getLastDropdownListOnSendPolicyPage(String xpath) {
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-        ClickEvent.clickUnderneathButton(element);
-        return dropdownUtils.getV40LastDropdownList();
-    }
-
-    public WebElement getLastSendPluginDropdownList() {
-        return dropdownUtils.getLastSendPluginDropdownList();
-    }
-
-    public WebElement getAlertNoteTypeDropdownList() {
-        return dropdownUtils.getAlertNoteTypeDropdownList();
-    }
-    public WebElement getMaintainBeginTimeDropdownList() {
-        return dropdownUtils.getMaintainBeginTimeDropdownList();
-    }
-    public WebElement getMaintainEndTimeDropdownList() {
-        return dropdownUtils.getMaintainEndTimeDropdownList();
-    }
-
-    public WebElement getMaintainWeekEndTimeDropdownList() {
-        return dropdownUtils.getMaintainWeekEndTimeDropdownList();
-    }
-
-    public WebElement getYottaDropdownList(String text) {
-        return dropdownUtils.getDropdownList(text);
-    }
-
-    public WebElement getYottaLastDropdownList() {
-        return dropdownUtils.getLastDropdownList();
-    }
-
-    public WebElement getYottaMenuList() {
-        return dropdownUtils.getMenuList();
     }
 
     public WebElement getYottaInput(String test) {

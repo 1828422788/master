@@ -125,7 +125,7 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getTagGroup() {
-        return dropdownUtils.getDropdownList("resource_tag-change_resource_tag-select");
+        return dropdownUtils.getYottaDropdownList("resource_tag-change_resource_tag-select");
     }
 
     public WebElement getResourceGroupList() {
@@ -133,7 +133,7 @@ public class ListPage extends ListPageFactory {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getV40LastDropdownList();
+        return super.getLastDropdownList();
     }
 
     public WebElement getEnsureButton() {
@@ -142,10 +142,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getMessage() {
         return message;
-    }
-
-    public WebElement getGroupList() {
-        return dropdownUtils.getGroupDropdownList();
     }
 
     public WebElement getSearchInput() { return super.getSearchInput(); }
@@ -175,13 +171,12 @@ public class ListPage extends ListPageFactory {
         return filterTagInput;
     }
 
-    public WebElement getFilterTagSelect()
-    {
+    public WebElement getFilterTagSelect(){
         String xpath = "//div[@yotta-test='table-filter_tag-select']/div";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getV40LastDropdownList();
+        return super.getLastDropdownList();
     }
 
 

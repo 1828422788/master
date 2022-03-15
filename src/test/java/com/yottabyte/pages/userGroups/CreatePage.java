@@ -88,7 +88,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getUserGroupOwner() {
-        return super.getDropdownList("拥有者");
+        return dropdownUtils.getDropdownListByLabel("拥有者");
     }
 
     public WebElement getUserGroupRole() {

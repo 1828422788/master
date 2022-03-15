@@ -453,11 +453,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getApp() {
-        return getYottaDropdownList("report-app-select"); //所属应用
+        return dropdownUtils.getYottaDropdownList("report-app-select"); //所属应用
     }
 
     public WebElement getTag() {
-        return getYottaDropdownList("resource_tag-change_resource_tag-select"); //资源标签
+        return dropdownUtils.getYottaDropdownList("resource_tag-change_resource_tag-select"); //资源标签
     }
 
     public WebElement getBadge1() {
@@ -533,7 +533,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getReportType() {
-        return getYottaDropdownList("report-type-select");  //报表类型
+        return dropdownUtils.getYottaDropdownList("report-type-select");  //报表类型
     }
 
     public WebElement getEmailInput() {
@@ -558,7 +558,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getPeriod() {
-        return getYottaDropdownList("report-unit-select");
+        return dropdownUtils.getYottaDropdownList("report-unit-select");
     }
 
     public WebElement getDay() {
@@ -567,7 +567,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getMonth() {
-        return getYottaDropdownList("report-year_month-select");
+        return dropdownUtils.getYottaDropdownList("report-year_month-select");
     }
 
     public WebElement getHour() {

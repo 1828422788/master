@@ -68,7 +68,7 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getMacroResTagList() {
         String xpath = "//label[contains(text(),'资源标签')]/following::div[@yotta-test='resource_tag-change_resource_tag-select']/div";
-        return getDropdownListbyPath(xpath);
+        return dropdownUtils.getDropdownListbyPath(xpath);
     }
 
     @FindBy(xpath = "//label[contains(text(),'资源标签')]/following::div[@yotta-test='resource_tag-change_resource_tag-select']//input")
@@ -104,7 +104,7 @@ public class CreatePage extends PageTemplate {
 
 
     public WebElement getGroup() {
-        return super.getDropdownList("分组");
+        return dropdownUtils.getDropdownListByLabel("分组");
     }
 
     public WebElement getSave() {

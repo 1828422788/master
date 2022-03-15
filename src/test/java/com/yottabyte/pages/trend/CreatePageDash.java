@@ -1846,7 +1846,7 @@ public class CreatePageDash extends PageTemplate {
     }
 
     public WebElement getGroupDropdown() {
-        return getDropdownList("分组");
+        return dropdownUtils.getDropdownListByLabel("分组");
     }
 
     public WebElement getNextButton() {

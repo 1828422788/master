@@ -32,7 +32,7 @@ public class ListPage extends ListPageFactory {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownResourceGroupList();
+        return super.getLastDropdownList();
     }
 
     public WebElement getProgramparam() {
@@ -65,12 +65,12 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getProcessName() {
         processName.click();
-        return super.getLastDropdownListEditCommand();
+        return super.getLastDropdownList();
     }
 
     public WebElement getCommandType() {
         commandType.click();
-        return super.getLastDropdownListEditCommand();
+        return super.getLastDropdownList();
     }
 
     public WebElement getCreate() {

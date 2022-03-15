@@ -112,7 +112,7 @@ public class ListPage extends ListPageFactory {
     public WebElement getResourceDropdown() {
 //        this.groupDropdownIcon("请选择标签").click();
         resourceDropdown.click();
-        return super.getV40LastDropdownList();
+        return super.getLastDropdownList();
     }
 
     @FindBy(xpath = "//label[text()='约束语句']/ancestor::div//following-sibling::div//div[text()='请输入约束语句']")
@@ -169,7 +169,7 @@ public class ListPage extends ListPageFactory {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getV40LastDropdownList();
+        return super.getLastDropdownList();
     }
 
     @FindBy(xpath = "//span[@aria-label='CloseCircle']")
@@ -290,7 +290,7 @@ public class ListPage extends ListPageFactory {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getV40LastDropdownList();
+        return super.getLastDropdownList();
     }
 
     public WebElement getResourceGroupList() {
@@ -298,8 +298,7 @@ public class ListPage extends ListPageFactory {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-//        return getDataSetResourceGroupList();
-        return getV40LastDropdownList();
+        return super.getLastDropdownList();
     }
 
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//input")
@@ -314,7 +313,7 @@ public class ListPage extends ListPageFactory {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownListEditApp();
+        return dropdownUtils.getMenuList();
     }
 
     @FindBy(xpath = "(//tr[contains(@class,'expansion')]//div[contains(text(),'资源标签......')])[last()]")

@@ -161,11 +161,11 @@ public class StructurePage extends PageTemplate {
     }
 
     public WebElement getFatherSource() {
-        return super.getDropdownList("父层级");
+        return dropdownUtils.getDropdownListByLabel("父层级");
     }
 
     public WebElement getSourceGroup() {
-        return super.getDropdownList("来源分组");
+        return dropdownUtils.getDropdownListByLabel("来源分组");
     }
 
     public WebElement getHostname() {

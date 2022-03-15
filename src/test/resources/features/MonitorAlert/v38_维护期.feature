@@ -104,7 +104,7 @@ Feature: 监控维护期
     And I click the "BeginTimeLabel" button
     And I wait for "1000" millsecond
     And I set the parameter "MaintainEndTimeInput" with value "23:00"
-    And I choose2 the "23" from the "MaintainWeekEndTimeList"
+    And I choose2 the "23" from the "MaintainEndTimeList"
     And I wait for "2000" millsecond
     And I hide the time picker popover
     And I wait for "1000" millsecond
@@ -142,7 +142,7 @@ Feature: 监控维护期
     And I choose the "28日" from the "EndWeeklyDayList"
     And I wait for "1000" millsecond
     And I set the parameter "MaintainEndTimeInput" with value "23:00"
-    And I choose2 the "23" from the "MaintainWeekEndTimeList"
+    And I choose2 the "23" from the "MaintainEndTimeList"
     And I wait for "2000" millsecond
     And I hide the time picker popover
     And I wait for "1000" millsecond

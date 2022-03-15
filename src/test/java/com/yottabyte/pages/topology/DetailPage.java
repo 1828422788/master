@@ -262,18 +262,20 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='编辑拓扑图']/parent::div/label")
     private WebElement editTopologySwitch;
 
-    public WebElement getLineWidth() { return getYottaDropdownList("topology_gui-lineWidth-select-with-prepend"); }
+    public WebElement getLineWidth() { 
+        return dropdownUtils.getYottaDropdownList("topology_gui-lineWidth-select-with-prepend"); 
+    }
 
     public WebElement getLineType() {
-        return getYottaDropdownList("topology_gui-lineDash-select-with-prepend");
+        return dropdownUtils.getYottaDropdownList("topology_gui-lineDash-select-with-prepend");
     }
 
     public WebElement getNodeType() {
-        return getYottaDropdownList("topology_gui-type-select");
+        return dropdownUtils.getYottaDropdownList("topology_gui-type-select");
     }
 
     public WebElement getGroupType() {
-        return getYottaDropdownList("topology_gui-type-select");
+        return dropdownUtils.getYottaDropdownList("topology_gui-type-select");
     }
 
     public WebElement getEditTopologySwitch() {

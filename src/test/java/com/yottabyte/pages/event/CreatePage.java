@@ -83,15 +83,15 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getDisplay() {
-        return getDropdownList("显示于");
+        return dropdownUtils.getDropdownListByLabel("显示于");
     }
 
     public WebElement getAction() {
-        return getDropdownList("动作类型");
+        return dropdownUtils.getDropdownListByLabel("动作类型");
     }
 
     public WebElement getOpenUrl() {
-        return getDropdownList("打开链接于");
+        return dropdownUtils.getDropdownListByLabel("打开链接于");
     }
 
     public WebElement getEnsureButton() {
@@ -99,7 +99,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getDisplayMethod() {
-        return getDropdownList("展示方式");
+        return dropdownUtils.getDropdownListByLabel("展示方式");
     }
 
     public WebElement getCreateButton() {
@@ -116,12 +116,5 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getInputElement(String name) {
         return webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::div/input"));
-    }
-
-    public WebElement getDropdownList(String name) {
-     //   String xpath = "//label[text()='" + name + "']/ancestor::div/following-sibling::div/div']";
-        String xpath = "//label[text()='" + name + "']/ancestor::div[@class='yotta-col yotta-col-8 yotta-form-item-label yotta-form-item-label-required yotta-form-item-label-hasColon']/following-sibling::div//span";
-        webDriver.findElement(By.xpath(xpath)).click();
-        return super.getLastDropdownList();
     }
 }

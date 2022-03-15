@@ -4,10 +4,13 @@ import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.List;
 
 /**
  * @author sunxj
@@ -130,6 +133,15 @@ public class MaintenancePage extends PageTemplate {
         return maintainBeginTimeInput;
     }
 
+    public WebElement getMaintainBeginTimeDropdownList() {
+        List<WebElement> list = webDriver.findElements(By.className("yotta-time-table-column-list"));
+        WebElement lastDropdownList = list.get(0);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+        }
+        return lastDropdownList;
+    }
+
     public WebElement getMaintainBeginTimeList() {
         String xpath = "//div[@yotta-test='alert-fixed_start_time-time_picker']/span/span";
         WebElement element = webDriver.findElement(By.xpath(xpath));
@@ -149,24 +161,22 @@ public class MaintenancePage extends PageTemplate {
     public WebElement getMaintainEndTimeInput() {
         return maintainEndTimeInput;
     }
+    
+    public WebElement getMaintainEndTimeDropdownList() {
+        List<WebElement> list = webDriver.findElements(By.className("yotta-time-table-column-list"));
+        WebElement lastDropdownList = list.get(2);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+        }
+        return lastDropdownList;
+    }
 
     public WebElement getMaintainEndTimeList() {
         String xpath = "//div[@yotta-test='alert-fixed_end_time-time_picker']/span/span";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-//        for (int j=0;j<22;j++){
-//            downOutlinedButton.click();
-//        }
         return getMaintainEndTimeDropdownList();
-    }
-
-    public WebElement getMaintainWeekEndTimeList() {
-        String xpath = "//div[@yotta-test='alert-fixed_end_time-time_picker']/span/span";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-        ClickEvent.clickUnderneathButton(element);
-        return getMaintainWeekEndTimeDropdownList();
     }
 
     @FindBy(xpath = "//main[@yotta-test='navigation-main-dom']")
@@ -354,7 +364,7 @@ public class MaintenancePage extends PageTemplate {
     }
 
     public WebElement getGroup() {
-        return super.getDropdownList("影响涉及范围");
+        return dropdownUtils.getDropdownListByLabel("影响涉及范围");
     }
 
     public WebElement getErrorMessage() {

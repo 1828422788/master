@@ -81,7 +81,7 @@ public class SearchPage extends ListPageFactory {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList37();
+        return dropdownUtils.getMenuList();
     }
 
     @FindBy(xpath = "//li/span[text()='新建']")
@@ -723,7 +723,7 @@ public class SearchPage extends ListPageFactory {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList37();
+        return dropdownUtils.getMenuList();
     }
 
     @FindBy(xpath = "//li[text()='趋势图']")
@@ -745,11 +745,6 @@ public class SearchPage extends ListPageFactory {
     public WebElement getDownloadButton() {
         saveAsOther.click();
         return downloadButton;
-//        String xpath = "//span[text()='保存为']";  //yotta-dropdown-menu
-//        WebElement element = webDriver.findElement(By.xpath(xpath));
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-//        ClickEvent.clickUnderneathButton(element);
-//        return getLastDropdownList37();
     }
 
     // @FindBy(xpath = "(//span[text()='确 定']/ancestor::button)[last()]")
@@ -2349,7 +2344,7 @@ public class SearchPage extends ListPageFactory {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getV40LastDropdownList();
+        return getLastDropdownList();
     }
 
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div")

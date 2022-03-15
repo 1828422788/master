@@ -425,7 +425,7 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getKVDropdownList() {
         kvDropdownList.click();
-        return super.getLastDropdownListEditApp();
+        return dropdownUtils.getMenuList();
     }
 
     public WebElement getKvDropdown() {

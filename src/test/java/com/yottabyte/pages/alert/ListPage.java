@@ -438,7 +438,7 @@ public class ListPage extends ListPageFactory {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getV40LastDropdownList();
+        return super.getLastDropdownList();
     }
 
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//span[text()='请选择或输入']")

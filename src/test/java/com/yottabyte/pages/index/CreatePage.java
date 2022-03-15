@@ -18,13 +18,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='保存时间']/ancestor::div[1]/following-sibling::div[1]//span[@class='yotta-select-selection-icon']")
     private WebElement savedTimeDropDown;
 
-    public WebElement getDropdownList(String name) {
-        String xpath = "//label[contains(text(),'" + name + "')]/parent::div/following-sibling::div//span[@class='yotta-select-selection-icon']";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        element.click();
-        return webDriver.findElement(By.xpath("//div[contains(@class,'yotta-select-menu')]"));
-    }
-
     @FindBy(xpath = "//input[@yotta-test='indexsetting-index_sink-switch']/ancestor::span")
     private WebElement sinkswitch;
     public WebElement getSinkswitch() {
@@ -50,7 +43,7 @@ public class CreatePage extends PageTemplate {
 
 
     public WebElement getDivideTimeDropDown() {
-        return getDropdownList("切分时间");
+        return dropdownUtils.getDropdownListByLabel("切分时间");
     }
 
     public WebElement getSavedSizeButton() {
@@ -91,7 +84,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getColdTimeDropDown() {
-        return getDropdownList("冷却时间");
+        return dropdownUtils.getDropdownListByLabel("冷却时间");
     }
 
     public WebElement getSavedSizeDropDown() {
@@ -102,11 +95,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSavedTimeDropDown() {
-        return getDropdownList("保存时间");
+        return dropdownUtils.getDropdownListByLabel("保存时间");
     }
 
     public WebElement getIndexDataDropDown() {
-        return getDropdownList("索引数据");
+        return dropdownUtils.getDropdownListByLabel("索引数据");
     }
 
     public WebElement getSavedButton() {

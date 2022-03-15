@@ -140,14 +140,7 @@ public class InstallPage extends PageTemplate {
     }
 
     public WebElement getResource() {
-        return super.getDropdownList("日志来源");
-    }
-
-    public WebElement getDropdownList(String text) {
-        String xpath = "//label[contains(text(),'" + text + "')]/following-sibling::div//i";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        element.click();
-        return getLastDropdownList();
+        return dropdownUtils.getDropdownListByLabel("日志来源");
     }
 
     public WebElement getLastDropdownList() {

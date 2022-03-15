@@ -109,13 +109,7 @@ public class UserGroupCreatePage extends PageTemplate {
     }
 
     public WebElement getRole() {
-        return getDropdownList("角色");
-    }
-
-    public WebElement getDropdownList(String name) {
-        String xpath = "//label[text()='" + name + "']/ancestor::div[1]/following-sibling::div//span/div[1]";
-        webDriver.findElement(By.xpath(xpath)).click();
-        return this.getLastDropdownList();
+        return dropdownUtils.getDropdownListByLabel("角色");
     }
 
     @FindBy(xpath = "//button[@yotta-test='usergroup-add_administrators-button']")
@@ -164,7 +158,7 @@ public class UserGroupCreatePage extends PageTemplate {
     }
 
     public WebElement getUserGroupOwner() {
-        return super.getDropdownList("拥有者");
+        return dropdownUtils.getDropdownListByLabel("拥有者");
     }
 
     public WebElement getUserGroupRole() {

@@ -248,7 +248,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getDefaultValue() {
-        return getYottaDropdownList("fulllink_param-select-value-select");
+        return dropdownUtils.getYottaDropdownList("fulllink_param-select-value-select");
     }
 
     public WebElement getSPL() {

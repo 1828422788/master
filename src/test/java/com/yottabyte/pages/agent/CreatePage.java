@@ -282,13 +282,6 @@ public class CreatePage extends PageTemplate {
     public WebElement getJmxInput() {
         return webDriver.findElement(By.xpath("//span[text()='JmxInput']"));
     }
-
-    public WebElement getDropdownList(String text) {
-        String xpath = "//span[contains(text(),'" + text + "')]";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        element.click();
-        return webDriver.findElement(By.xpath("(//ul[@class='ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical'])[last()]"));
-    }
     public WebElement getCsvConfing() {
         return CsvConfing;
     }

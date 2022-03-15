@@ -68,7 +68,7 @@ public class IncidentPage extends PageTemplate {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getV40LastDropdownList();
+        return super.getLastDropdownList();
     }
 
     //待分配
@@ -105,7 +105,7 @@ public class IncidentPage extends PageTemplate {
         return element;
 //        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
 //        ClickEvent.clickUnderneathButton(element);
-//        return getV40LastDropdownList();
+//        return super.getLastDropdownList();
     }
 
     @FindBy(xpath = "//span[@aria-label='PlusRight']")
@@ -130,13 +130,12 @@ public class IncidentPage extends PageTemplate {
     }
 
     public WebElement getEveryPageList() {
-//        String xpath = "//div[contains(text(),'每页')][@class='yotta-pagination-elements']/div/div";
         String xpath = "//div[contains(text(),'每页')][@class='yotta-pagination-elements']//span[@aria-label='PlusDown']";
 
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return getV40LastDropdownList();
+        return super.getLastDropdownList();
     }
 
     public WebElement getNo3page() {

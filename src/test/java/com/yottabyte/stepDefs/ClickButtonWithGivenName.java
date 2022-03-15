@@ -740,7 +740,7 @@ public class ClickButtonWithGivenName {
             WebElement tr = listPageUtils.getRow(dataName);
             WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-            WebElement lastMenuList = dropdownUtils.getIncidentMenuList();
+            WebElement lastMenuList = dropdownUtils.getMenuList();
             List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
             if (buttonName != null && buttonName.trim().length() != 0) {
                 for (WebElement e : elements) {
@@ -757,7 +757,7 @@ public class ClickButtonWithGivenName {
             WebElement tr = listPageUtils.getRow(dataName);
             WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-            WebElement lastMenuList = dropdownUtils.getIncidentMenuList();
+            WebElement lastMenuList = dropdownUtils.getMenuList();
             List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
             if (buttonName != null && buttonName.trim().length() != 0) {
                 for (WebElement e : elements) {
@@ -781,7 +781,7 @@ public class ClickButtonWithGivenName {
         try {
             WebElement button = webDriver.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-            WebElement lastMenuList = dropdownUtils.getIncidentPageMoreMenuList();
+            WebElement lastMenuList = dropdownUtils.getMenuList();
             List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
             if (buttonName != null && buttonName.trim().length() != 0) {
                 for (WebElement e : elements) {
@@ -796,7 +796,7 @@ public class ClickButtonWithGivenName {
         } catch (org.openqa.selenium.StaleElementReferenceException exception) {
             WebElement button = webDriver.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-            WebElement lastMenuList = dropdownUtils.getIncidentPageMoreMenuList();
+            WebElement lastMenuList = dropdownUtils.getMenuList();
             List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
             if (buttonName != null && buttonName.trim().length() != 0) {
                 for (WebElement e : elements) {
@@ -822,7 +822,7 @@ public class ClickButtonWithGivenName {
             try {
                 WebElement button = webDriver.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
                 ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-                WebElement lastMenuList = dropdownUtils.getIncidentPageMoreMenuList();
+                WebElement lastMenuList = dropdownUtils.getMenuList();
                 List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
                 if (buttonName != null && buttonName.trim().length() != 0) {
                     for (WebElement e : elements) {
@@ -834,7 +834,7 @@ public class ClickButtonWithGivenName {
                     }
                 }
 
-                WebElement lastSubMenuList = dropdownUtils.getIncidentPageMoreMenuSubList();
+                WebElement lastSubMenuList = dropdownUtils.getSubMenu();
                 List<WebElement> subElements = lastSubMenuList.findElements(By.tagName("span"));
                 if (subDataName != null && subDataName.trim().length() != 0) {
                     for (WebElement subE : subElements) {
@@ -849,7 +849,7 @@ public class ClickButtonWithGivenName {
             } catch (org.openqa.selenium.StaleElementReferenceException exception) {
                 WebElement button = webDriver.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
                 ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-                WebElement lastMenuList = dropdownUtils.getIncidentPageMoreMenuList();
+                WebElement lastMenuList = dropdownUtils.getMenuList();
                 List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
                 if (buttonName != null && buttonName.trim().length() != 0) {
                     for (WebElement e : elements) {
@@ -861,7 +861,7 @@ public class ClickButtonWithGivenName {
                     }
                 }
 
-                WebElement lastSubMenuList = dropdownUtils.getIncidentPageMoreMenuSubList();
+                WebElement lastSubMenuList = dropdownUtils.getSubMenu();
                 List<WebElement> subElements = lastSubMenuList.findElements(By.tagName("span"));
                 if (subDataName != null && subDataName.trim().length() != 0) {
                     for (WebElement subE : subElements) {
@@ -892,7 +892,7 @@ public class ClickButtonWithGivenName {
                 sleep(2000);
                 WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
                 ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-                WebElement lastMenuList = dropdownUtils.getIncidentPageMoreMenuList();
+                WebElement lastMenuList = dropdownUtils.getMenuList();
                 List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
                 if (buttonName != null && buttonName.trim().length() != 0) {
                     for (WebElement e : elements) {
@@ -905,7 +905,7 @@ public class ClickButtonWithGivenName {
                 }
 
                 sleep(2000);
-                WebElement lastSubMenuList = dropdownUtils.getIncidentPageMoreMenuSubList();
+                WebElement lastSubMenuList = dropdownUtils.getSubMenu();
                 List<WebElement> subElements = lastSubMenuList.findElements(By.tagName("span"));
                 if (subDataName != null && subDataName.trim().length() != 0) {
                     for (WebElement subE : subElements) {
@@ -920,7 +920,7 @@ public class ClickButtonWithGivenName {
             } catch (StaleElementReferenceException | InterruptedException exception) {
                 WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
                 ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-                WebElement lastMenuList = dropdownUtils.getIncidentPageMoreMenuList();
+                WebElement lastMenuList = dropdownUtils.getMenuList();
                 List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
                 if (buttonName != null && buttonName.trim().length() != 0) {
                     for (WebElement e : elements) {
@@ -932,7 +932,7 @@ public class ClickButtonWithGivenName {
                     }
                 }
 
-                WebElement lastSubMenuList = dropdownUtils.getIncidentPageMoreMenuSubList();
+                WebElement lastSubMenuList = dropdownUtils.getSubMenu();
                 List<WebElement> subElements = lastSubMenuList.findElements(By.tagName("span"));
                 if (subDataName != null && subDataName.trim().length() != 0) {
                     for (WebElement subE : subElements) {

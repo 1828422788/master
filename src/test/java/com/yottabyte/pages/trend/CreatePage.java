@@ -32,8 +32,6 @@ public class CreatePage extends PageTemplate {
         driver.manage().window().setSize(new Dimension(1200,900));
     }
 
-    private DropdownUtils dropdownUtils = new DropdownUtils();
-
     @FindBy(xpath = "//div[@id='spl-chart']")
     private WebElement statisticalChart;
 
@@ -1670,7 +1668,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getGroupDropdown() {
-        return getDropdownList("分组");
+        return dropdownUtils.getDropdownListByLabel("分组");
     }
 
     public WebElement getToday() {
@@ -1826,7 +1824,7 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getColorType() throws InterruptedException {
         Thread.sleep(1000);
-        return getYottaDropdownList("table_chart-table_color-select"); //表格颜色
+        return dropdownUtils.getYottaDropdownList("table_chart-table_color-select"); //表格颜色
     }
 
     public WebElement getSelectedValueColorType() {
@@ -1915,7 +1913,7 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getFontStyle() throws InterruptedException {
         Thread.sleep(1000);
-        return getYottaDropdownList("table_chart-font_style-select"); //字体样式
+        return dropdownUtils.getYottaDropdownList("table_chart-font_style-select"); //字体样式
     }
 
     public WebElement getColumnWidth() {
@@ -1924,7 +1922,7 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getAlignment() throws InterruptedException {
         Thread.sleep(1000);
-        return getYottaDropdownList("table_chart-alignment-select"); //对齐方式
+        return dropdownUtils.getYottaDropdownList("table_chart-alignment-select"); //对齐方式
     }
 
     public WebElement getSelectedAlignment() {
@@ -1936,7 +1934,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getPrecisionTable() {
-        return getYottaDropdownList("table_chart-precision-select");
+        return dropdownUtils.getYottaDropdownList("table_chart-precision-select");
     }
 
     public WebElement getTagInput() {

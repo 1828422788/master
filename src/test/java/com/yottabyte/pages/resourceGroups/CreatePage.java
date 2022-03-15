@@ -37,7 +37,7 @@ public class CreatePage extends PageTemplate {
     private WebElement OKButton;
 
     public WebElement getApp() {
-        return super.getDropdownList("所属应用");
+        return dropdownUtils.getDropdownListByLabel("所属应用");
     }
 
     public WebElement getResourceGroupName() {
@@ -45,7 +45,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getResourceGroupType() {
-        return super.getDropdownList("分组类型");
+        return dropdownUtils.getDropdownListByLabel("分组类型");
     }
 
     public WebElement getResourceGroupDes() {
@@ -53,7 +53,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getResourceGroupOwner() {
-        return super.getDropdownList("分配角色");
+        return dropdownUtils.getDropdownListByLabel("分配角色");
     }
 
     public WebElement getAddResourceMemberButton() {
