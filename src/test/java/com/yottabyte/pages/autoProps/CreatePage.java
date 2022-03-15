@@ -204,7 +204,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getAppName(){
-        return super.getDropdownListbyPath("//div[@class='yotta-modal-body']/form/div/div[2]");
+        return dropdownUtils.getDropdownListbyPath("//div[@class='yotta-modal-body']/form/div/div[2]");
     }
 
     public WebElement getEnsureDelete(){
@@ -220,7 +220,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getConvertRule(){
-        return super.getDropdownListbyPath("//div[@yotta-test='application-field_transform_rule-select']//div[contains(@class,'yotta-select-selection-content')]");
+        return dropdownUtils.getDropdownListbyPath("//div[@yotta-test='application-field_transform_rule-select']//div[contains(@class,'yotta-select-selection-content')]");
     }
 
     public WebElement getTransformName(){ return super.getYottaInput("application-field_transform_name-input");}
@@ -317,7 +317,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getFieldConvertRule(){
-        return super.getDropdownListbyPath("//div[@yotta-test='application-field_extract_report_array_transforms-select']//div[contains(@class,'yotta-select-selection-content')]");
+        return dropdownUtils.getDropdownListbyPath("//div[@yotta-test='application-field_extract_report_array_transforms-select']//div[contains(@class,'yotta-select-selection-content')]");
     }
 
     public WebElement getAutoTransformInNum_ch(){
@@ -365,7 +365,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getKVMode(){
-        return super.getDropdownListbyPath("//div[contains(@class,'yotta-select-selection yotta-select')]");
+        return dropdownUtils.getDropdownListbyPath("//div[contains(@class,'yotta-select-selection yotta-select')]");
     }
 
     public WebElement getAutoTestDelete(){

@@ -26,7 +26,7 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getAppName(){
-        return super.getDropdownListbyPath("//label[text()='影响应用']//ancestor::div[2]//div[contains(@class,'yotta-select-selection-content')]");
+        return dropdownUtils.getDropdownListbyPath("//label[text()='影响应用']//ancestor::div[2]//div[contains(@class,'yotta-select-selection-content')]");
     }
 
 }
