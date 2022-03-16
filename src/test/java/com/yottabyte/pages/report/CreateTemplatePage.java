@@ -54,18 +54,12 @@ public class CreateTemplatePage extends PageTemplate {
     @FindBy(xpath = "//li[contains(@yotta-test,'report-item')]")
     private WebElement li;
 
-    @FindBy(xpath = "//div[@yotta-test='report-trend_selector-dropdown']//*[text()='添加']")
+    @FindBy(xpath = "//div[@yotta-test='report-container-collapse']//*[text()='添加']")
     private WebElement trendList;  //添加趋势图
     public WebElement getTrendList() {
         ClickEvent.clickUnderneathButton(trendList);
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
-        String className = "yotta-dropdown-menu";
-        List<WebElement> list = webDriver.findElements(By.className(className));
-        WebElement lastDropdownList = list.get(list.size() - 1);
-        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
-        }
-        return lastDropdownList;
+        return dropdownUtils.getMenuList();
     }
 
     public WebElement getTrendListButton() {

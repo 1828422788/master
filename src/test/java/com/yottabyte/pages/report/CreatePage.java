@@ -40,19 +40,8 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "yotta-accordion-header")
     private WebElement topoTitle;
 
-    @FindBy(xpath = "//div[@yotta-test='report-email-select']//div[contains(@class,'yotta-select-selection')]")
-    private WebElement emailInput;
-
-    @FindBy(xpath = "//div[@yotta-test='report-email-select']//input")
-    private WebElement emailField;
-
     public WebElement getComplete() {
         return getYottaButton("step-done-button");
-    }
-
-    public WebElement getEmailField() {
-        emailInput.click();
-        return emailField;
     }
 
     @FindBy(xpath = "(//div[@class='el-scrollbar'])[last()]")
@@ -61,26 +50,11 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@yotta-test='report-email_subject-input']/following-sibling::div")
     private WebElement subjectNote;
 
-    @FindBy(xpath = "//div[@yotta-test='report-trend_selector-dropdown']//span[text()]")
-    private WebElement chartList;  //添加趋势图
-
     @FindBy(xpath = "//div[@yotta-test='report-preview-dropdown']//span[text()]")
     private WebElement preview;  //预览
 
-    @FindBy(xpath = "//div[@yotta-test='report-trend_selector-dropdown' and contains(@class,'disabled')]//span[text()]")
-    private WebElement disabledChartList;
-
-    @FindBy(xpath = "//input[@yotta-test = 'report-filter-input']")
-    private WebElement trendSearchInput;
-
-    @FindBy(className = "yotta-dropdown-menu")
-    private WebElement chartDropdownList;
-
     @FindBy(xpath = "//span[text()='最近十次执行时间']/ancestor::div[1]/following-sibling::div")
     private WebElement parseResult;
-
-    @FindBy(xpath = "//div[@yotta-test='report-year_day-select' or @yotta-test='report-month-select' or @yotta-test='report-week-select']//div[contains(@class,'yotta-select-selection')]")
-    private WebElement day;
 
     @FindBy(xpath = "//span[text()='crontab']")
     private WebElement crontabButton;
@@ -236,13 +210,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//a[@aria-label='选择趋势图']/span")
     private WebElement chartListWord;
 
-    @FindBy(xpath = "//input[@placeholder='选择趋势图']")
+    @FindBy(xpath = "//input[@placeholder='请输入']")
     private WebElement chartListInput;
 
     @FindBy(xpath = "//span[text()='定时']//ancestor::div[1]/following-sibling::span[@aria-label='QuestionCircle']")
     private WebElement executionTip;
 
-    @FindBy(xpath = "//div[@class='yotta-tooltip-content']")
+    @FindBy(xpath = "(//div[@role='tooltip'])[last()]")
     private WebElement tipElement;
 
     @FindBy(className = "yotta-empty-description")
@@ -537,8 +511,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getEmailInput() {
-        emailInput.click();
-        return this.getLastDropdownList();
+        return dropdownUtils.getYottaDropdownList("report-email-select");
     }
 
     public WebElement getEmail() {
@@ -562,8 +535,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getDay() {
-        day.click();
-        return this.getLastDropdownList();
+        return dropdownUtils.getDropdownListbyPath("//div[@yotta-test='report-year_day-select' or @yotta-test='report-month-select' or @yotta-test='report-week-select']//div[contains(@class,'yotta-select-selection')]");
     }
 
     public WebElement getMonth() {
@@ -625,7 +597,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getChartListButton() {
-        return chartList;
+        return super.getYottaButtonByText("添加趋势图");
     }
 
     public WebElement getLi() {
@@ -633,34 +605,18 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getChartList() {
-        ClickEvent.clickUnderneathButton(chartList);
+        ClickEvent.clickUnderneathButton(getChartListButton());
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
-        String className = "yotta-dropdown-menu";
-        List<WebElement> list = webDriver.findElements(By.className(className));
-        WebElement lastDropdownList = list.get(list.size() - 1);
-        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
-        }
-        return lastDropdownList;
+        return dropdownUtils.getMenuList();
     }
 
     public WebElement getPreview() {
         ClickEvent.clickUnderneathButton(preview);
-        String className = "yotta-dropdown-menu";
-        List<WebElement> list = webDriver.findElements(By.className(className));
-        WebElement lastDropdownList = list.get(list.size() - 1);
-        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
-        }
-        return lastDropdownList;
-    }
-
-    public WebElement getDisabledChartList() {
-        return disabledChartList;
+        return dropdownUtils.getMenuList();
     }
 
     public WebElement getTrendSearchInput() {
-        return trendSearchInput;
+        return super.getYottaInput("report-filter-input");
     }
 
     public WebElement getCrontab() {
@@ -1110,7 +1066,7 @@ public class CreatePage extends PageTemplate {
             e.printStackTrace();
         }
         ClickEvent.clickUnderneathButton(labelOrientation);
-        return this.getLastDropdownList();
+        return dropdownUtils.getLastDropdownList();
     }
 
     public WebElement getValueLabelOrientation() {
@@ -1319,10 +1275,7 @@ public class CreatePage extends PageTemplate {
     }
 
     private WebElement getDropdownElement(String name) {
-        WebElement element = webDriver.findElement(By.xpath("(//span[contains(text(),'" + name + "')])[last()]/ancestor::div[1]/following-sibling::div//div[contains(@class,'yotta-select-selection')]"));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-        ClickEvent.clickUnderneathButton(element);
-        return this.getLastDropdownList();
+        return dropdownUtils.getDropdownListbyPath("(//span[contains(text(),'" + name + "')])[last()]/ancestor::div[1]/following-sibling::div//div[contains(@class,'yotta-select-selection')]");
     }
 
     private WebElement getElementWithText(String name) {
@@ -1344,7 +1297,7 @@ public class CreatePage extends PageTemplate {
     private WebElement templates;
     public WebElement getTemplates() {
         templates.click();
-        return this.getLastDropdownList();
+        return dropdownUtils.getLastDropdownList();
     }
 
     @FindBy(xpath = "//span[text()='使用模板']")

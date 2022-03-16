@@ -82,7 +82,6 @@ Feature: 报表_7_趋势图个数限制
     Then I will see the element "LastTrendTitle" contains "报表测试_5"
     And I wait for "AlertMessage" will be visible
     And I will see the element "AlertMessage" contains "每个报表最多保存5个趋势图"
-    And I wait for "DisabledChartList" will be visible
 
 
   Scenario: change_limit_default

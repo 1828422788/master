@@ -161,7 +161,6 @@ Feature: 报表_1_选择趋势图
     Then I will see the element "LastTrendTitle" contains "报表测试_10"
     And I wait for "AlertMessage" will be visible
     And I will see the element "AlertMessage" contains "每个报表最多保存10个趋势图"
-    And I wait for "DisabledChartList" will be visible
 
   Scenario Outline: new_report_moveTrends
     When I set the parameter "Name" with value "<caseNum>"

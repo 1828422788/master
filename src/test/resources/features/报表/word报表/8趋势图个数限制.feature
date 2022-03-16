@@ -46,7 +46,7 @@ Feature: 报表_富文本编辑_8_限制
     And I select all text in row "2" and column "1" of the table in word report
     And I set the parameter "ChartListInput" with value "报表测试"
     And I click the button with text "报表测试"
-    And I will see the message "最多添加3个趋势图" in alert window
+    And I will see the message "每个报表最多保存3个趋势图" in alert window
     And I accept alert window
 
 

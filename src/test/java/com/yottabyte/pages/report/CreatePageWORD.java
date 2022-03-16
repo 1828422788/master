@@ -29,7 +29,7 @@ public class CreatePageWORD extends PageTemplate {
     @FindBy(xpath = "//a[@aria-label='选择趋势图']/span")
     private WebElement chartListWord;
 
-    @FindBy(xpath = "//input[@placeholder='选择趋势图']")
+    @FindBy(xpath = "//input[@placeholder='请输入']")
     private WebElement chartListInput;
 
     @FindBy(xpath = "//label[@name='operate_edit']")
