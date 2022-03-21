@@ -1,7 +1,6 @@
 @app
 Feature: 应用数据集
 
-  @appSmoke
   Scenario Outline: 新建数据集应用
     Given open the "app.ListPage" page for uri "/app/list/"
     And I click the "CreateButton" button
@@ -28,7 +27,6 @@ Feature: 应用数据集
       | name       | menuName | url       |
       | DatasetApp | 数据集      | /dataset/ |
 
-  @appSmoke
   Scenario Outline: 安装资源成功
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for "CreateButton" will be visible
@@ -56,7 +54,6 @@ Feature: 应用数据集
       | appName    |
       | DatasetApp |
 
-  @appSmoke
   Scenario: 新建数据集
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible

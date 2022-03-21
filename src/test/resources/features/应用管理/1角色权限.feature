@@ -1,4 +1,4 @@
-@app @appSmoke
+@app
 Feature: 应用角色权限（RZY-2144）
 
   Background:
