@@ -22,8 +22,7 @@ Feature: 仪表盘通用配置
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "chart"
     And I click the "Ensure" button
-    And I wait for loading complete
-    And I back to before
+    Then I wait for "SettingIcon" will be visible
 
   Scenario: 添加事件列表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

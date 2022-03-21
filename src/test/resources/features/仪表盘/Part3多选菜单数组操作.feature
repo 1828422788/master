@@ -24,8 +24,7 @@ Feature: 仪表盘多选菜单数组操作
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "多选数组操作"
     And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "创建标签成功"
+    Then I wait for "SettingIcon" will be visible
 
     Examples:
       | name  |

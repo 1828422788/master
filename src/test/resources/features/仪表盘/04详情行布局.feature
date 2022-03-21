@@ -74,8 +74,7 @@ Feature: 仪表盘04详情行布局
     And I set the parameter "TagName" with value "rowLayout"
     And I click the "RowLayout" button
     And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "创建标签成功"
+    Then I wait for "SettingIcon" will be visible
 
     @dashboardSmoke
     Examples:

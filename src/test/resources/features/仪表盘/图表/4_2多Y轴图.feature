@@ -46,8 +46,7 @@ Feature: 仪表盘_4_2_多Y轴图
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "<name>"
     And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "创建标签成功"
+    Then I wait for "SettingIcon" will be visible
     Examples:
       | name |
       | 多Y轴图 |

@@ -26,8 +26,7 @@ Feature: 仪表盘标签操作
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "第一个标签"
     And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "创建标签成功"
+    Then I wait for "SettingIcon" will be visible
 
 
   Scenario: 移出标签页(RZY-230)
