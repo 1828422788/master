@@ -73,8 +73,8 @@ Feature: 仪表盘钻取配置
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "chart"
     And I click the "Ensure" button
-    And I wait for loading complete
-    And I back to before
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "创建标签成功"
 
     @dbdrilldownSmoke
     Examples:

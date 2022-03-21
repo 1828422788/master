@@ -25,10 +25,9 @@ Feature: 仪表盘标签操作
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "第一个标签"
-    And I click the "EnsureCreateTagButton" button
-    And I wait for loading complete
-    And I wait for "3000" millsecond
-    And I back to before
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "创建标签成功"
 
 
   Scenario: 移出标签页(RZY-230)
@@ -64,7 +63,7 @@ Feature: 仪表盘标签操作
     And I wait for "2000" millsecond
     And I click the "CreateNewTag" button
     And I set the parameter "TagName" with value "第二个标签"
-    And I click the "EnsureCreateTagButton" button
+    And I click the "Ensure" button
     And I wait for loading complete
     Then I will see the element "LastTag" value is "第二个标签"
 

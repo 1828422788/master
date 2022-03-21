@@ -29,7 +29,7 @@ Feature:所有趋势图添加到仪表盘
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "<tag>"
-    And I click the "EnsureCreateTagButton" button
+    And I click the "Ensure" button
     And I wait for "2000" millsecond
     And I back to before
 
@@ -56,7 +56,7 @@ Feature:所有趋势图添加到仪表盘
     And I wait for "CreateNewTag" will be visible
     And I click the "CreateNewTag" button
     When I set the parameter "TagName" with value "<tag>"
-    And I click the "EnsureCreateTagButton" button
+    And I click the "Ensure" button
     And I wait for "3000" millsecond
 
     Examples:

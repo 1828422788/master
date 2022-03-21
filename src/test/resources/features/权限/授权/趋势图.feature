@@ -566,7 +566,7 @@ Feature: 权限-趋势图
     And I click the detail which name is "趋势图仪表盘相关"
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "test"
-    And I click the "EnsureCreateTagButton" button
+    And I click the "Ensure" button
     And I wait for loading complete
     And I back to before
 

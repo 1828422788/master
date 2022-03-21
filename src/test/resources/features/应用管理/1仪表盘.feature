@@ -95,7 +95,7 @@ Feature: 应用仪表盘
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     #When I set the parameter "TagName" with value "test"
-    #And I click the "EnsureCreateTagButton" button
+    #And I click the "Ensure" button
     #And I wait for loading invisible
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "DashboardApp"

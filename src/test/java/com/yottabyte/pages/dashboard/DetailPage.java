@@ -2084,10 +2084,6 @@ public class DetailPage extends PageTemplate {
         return line1;
     }
 
-    public WebElement getEnsureCreateTagButton() {
-        return super.getButton("确定");
-    }
-
     public WebElement getListForBang() {
         return listForBang;
     }

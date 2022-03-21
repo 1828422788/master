@@ -46,9 +46,9 @@ Feature: 仪表盘_6_08_矩阵热力图
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "<name>"
-    And I click the "EnsureCreateTagButton" button
-    And I wait for "2000" millsecond
-    And I back to before
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "创建标签成功"
 
     Examples:
       | name  |

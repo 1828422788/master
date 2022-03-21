@@ -73,9 +73,9 @@ Feature: 仪表盘04详情行布局
     And I wait for "2000" millsecond
     And I set the parameter "TagName" with value "rowLayout"
     And I click the "RowLayout" button
-    And I click the "EnsureCreateTagButton" button
-    And I wait for "5000" millsecond
-    And I back to before
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "创建标签成功"
 
     @dashboardSmoke
     Examples:

@@ -26,10 +26,9 @@ Feature: 仪表盘_6_00_表格样式设置
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "<name>"
-    And I click the "EnsureCreateTagButton" button
-    And I wait for loading complete
-    And I wait for "5000" millsecond
-    And I back to before
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "创建标签成功"
 
     Examples:
       | name |
@@ -410,12 +409,12 @@ Feature: 仪表盘_6_00_表格样式设置
     And I click the "DownloadTableIcon" button
     And I wait for "1000" millsecond
     And I set the parameter "DownloadFileName" with value " "
-    And I click the "EnsureCreateTagButton" button
+    And I click the "Ensure" button
     Then I will see the error message "请填写有效文件名"
     And I wait for "3000" millsecond
     And I set the parameter "DownloadFileName" with value "汉字Abc！@#¥123"
     And I wait for "3000" millsecond
-    And I click the "EnsureCreateTagButton" button
+    And I click the "Ensure" button
     Then I will see the success message "成功提交下载任务"
     And I wait for "10000" millsecond
 
@@ -436,7 +435,7 @@ Feature: 仪表盘_6_00_表格样式设置
     And I click the "DownloadTableIcon" button
     And I wait for "1000" millsecond
     And I set the parameter "DownloadFileName" with value "汉字Abc！@#¥123"
-    And I click the "EnsureCreateTagButton" button
+    And I click the "Ensure" button
     Then I wait for "DuplicateName" will be visible
 
   Scenario Outline: 编辑图表列位置-左移-右移

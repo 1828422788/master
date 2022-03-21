@@ -19,9 +19,9 @@ Feature: 仪表盘1事件列表
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "事件操作"
-    And I click the "EnsureCreateTagButton" button
-    And I wait for loading complete
-    And I back to before
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "创建标签成功"
 
     Examples:
       | name    |
