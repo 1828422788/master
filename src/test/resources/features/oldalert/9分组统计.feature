@@ -1,4 +1,4 @@
-@alertss @alertSmoke @second
+#@alertss @alertSmoke @second
 Feature: 监控分组统计
 
   Background:

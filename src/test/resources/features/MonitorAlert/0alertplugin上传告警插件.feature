@@ -1,4 +1,4 @@
-@autoui01 @uplugins
+@bvtalert @uplugins @alertSmoke
 Feature: 监控上传告警插件
 
   Background:

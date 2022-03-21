@@ -2,7 +2,7 @@
 Feature: 设置监控执行计划
 
   @editalerts
-  Scenario Outline:
+  Scenario Outline:修改crontab
     Given open the "alert.ListPage" page for uri "/alerts/"
     Given I wait for loading complete
     When I set the parameter "AlertListSearchInput" with value "<name>"
@@ -25,6 +25,11 @@ Feature: 设置监控执行计划
 
     When I click the "SaveButton" button
 
+    @alertSmoke
+    Examples:
+      | name |
+      |	api3_all_连续统计_status<404_低_邮件	|
+
     Examples:
       | name |
       |	api00_all_事件数_扩展chart_all_sample_合并	|
@@ -40,7 +45,6 @@ Feature: 设置监控执行计划
       |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_抑制连续触发3次	|
       |	api00_连续统计_status<=502_扩展chat_键值_all_合并	|
       |	api00_连续统计_status<=502_扩展chat_键值_all_合并_交易日	|
-      |	api3_all_连续统计_status<404_低_邮件	|
 #      |	api3_all_连续统计_status>=200_邮件_合并	|
       |	api3_nods_事件数_ping主机	|
       |	api3_spl统计stats_dc_邮件	|

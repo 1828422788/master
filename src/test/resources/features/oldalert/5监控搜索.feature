@@ -1,4 +1,4 @@
-@alertss @all @smoke @alertSmoke
+#@alertss @all @smoke @alertSmoke
 Feature: 监控搜索（RZY-458）
 
   Background:

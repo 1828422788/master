@@ -6,7 +6,7 @@ Feature: 监控删除
     When the data name is "<name>" then i click the "删除" button
     And I click the "EnsureDeleteButton" button
 
-  @alertSmoke
+  # @alertSmoke
     Examples:
       | name                                   |
       | RZY-434:字段统计监控步骤1(副本)                  |
@@ -30,7 +30,7 @@ Feature: 监控删除
     And I click the "EnsureDelete" button
     Then I will see the success message "删除成功"
 
-  @clean @alertSmoke
+  # @clean @alertSmoke
   Scenario Outline: 删除关联知识
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     When the data name is "<name>" then i click the "删除" button

@@ -1,4 +1,4 @@
-@alertss @alertSmoke @second
+#@alertss @alertSmoke @second
 Feature: 监控在搜索中打开
 
   Background:
