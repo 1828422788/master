@@ -1,4 +1,4 @@
-@knowledge @knowledge1 @knowledgeSmoke
+@knowledge @knowledge1
 Feature: 知识新建（RZY-868）
 
   Scenario Outline: 新建知识
@@ -22,6 +22,12 @@ Feature: 知识新建（RZY-868）
       | 事件描述     |          | 事件代码+描述        |           |
       | 事件描述     | 解决方案     | 没有名称           |           |
       | 事件描述     | 解决方案     | 全部             | 知识名       |
+
+    @knowledgeSmoke
+    Examples: 保存成功
+      | Describe | Solution | EventCodeValue | NameValue |
+      | 事件描述     | 解决方案     | 全部             | 知识名       |
+
 
   Scenario: 新建知识失败
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
@@ -81,14 +87,17 @@ Feature: 知识新建（RZY-868）
     And I wait for "Code" will be visible
     And I wait for element "Code" change text to "<code>"
     And I will see the element value in json "{'Code':'<code>'}"
-    #And I will see the element "Desc" name is "<desc> "
     And I will see the element "Desc" value contains "<desc> "
    # And I will see the element "Solution" name is "<solution> "
     And I will see the element "Solution" value contains "<solution> "
 
+    @knowledgeSmoke
     Examples:
       | name | code | desc | solution |
       | 知识名  | 全部   | 事件描述 | 解决方案     |
+
+    Examples:
+      | name | code | desc | solution |
       | 没有名称 | 没有名称 | 事件描述 | 解决方案     |
 
   Scenario Outline: 验证知识新建

@@ -1,4 +1,4 @@
-@knowledge @knowledgeSmoke @knowledge3
+@knowledge @knowledge3
 Feature: 知识搜索（RZY-884）
 
   Background:

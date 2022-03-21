@@ -1,4 +1,4 @@
-@knowledge @knowledgeSmoke @delknowledge
+@knowledge @delknowledge
 Feature: 知识删除（RZY-881）
 
   Background:
@@ -13,12 +13,16 @@ Feature: 知识删除（RZY-881）
 #    And I refresh the website
 #    Then I will see the search result "{'column':'0','name':'<Name>','contains':'no'}"
 
+    @knowledgeSmoke
+    Examples:
+      | Name                |
+      | 知识名                 |
+
     Examples:
       | Name                |
       | 名称1, 名称2            |
       | 测试多个code            |
       | AutoTestCreateByURL |
-      | 知识名                 |
       | 没有名称                |
       | 事件代码+描述             |
       | 仅有事件代码              |
