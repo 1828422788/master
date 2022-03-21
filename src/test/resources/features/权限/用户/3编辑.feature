@@ -1,4 +1,4 @@
-@users
+@users @smoke @usersSmoke
 Feature: 用户编辑（RZY-1554）
 
   Background:
@@ -14,12 +14,10 @@ Feature: 用户编辑（RZY-1554）
     And I set the parameter "Telephone" with value "<Telephone>"
     And I let element "Telephone" lose focus
 
-    @smoke @usersSmoke
     Examples:
       | UserName        | FullName | Email                            | Telephone   |
       | AutoTestForEdit | FullName | AutoTestForUserEdit@yottabyte.cn | 13111111111 |
 
-  @smoke @usersSmoke
   Scenario: 验证用户信息编辑成功
     When I click the detail which name is "{'column':'1','name':'AutoTestForEdit'}"
     And I will see the "users.DetailPage" page

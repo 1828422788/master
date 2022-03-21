@@ -1,4 +1,4 @@
-@smoke @userGroups @all @userGroupsSmoke
+@smoke @userGroups @all
 Feature: 用户分组删除（RZY-1180）
 
   Scenario: 删除用户分组

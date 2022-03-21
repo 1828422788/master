@@ -1,4 +1,4 @@
-@all @smoke @users @usersSmoke
+@all @smoke @users
 Feature: 用户禁用（RZY-1165）
 
   Background:

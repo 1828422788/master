@@ -1,4 +1,4 @@
-@all @users @usersSmoke
+@all @users
 Feature: 用户登陆（RZY-1152、RZY-1153）
 #
 #  @logout

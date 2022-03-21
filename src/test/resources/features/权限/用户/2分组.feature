@@ -1,4 +1,4 @@
-@users @usersSmoke @all
+@users @all
 Feature: 用户分组（RZY-1167）
 
   Scenario: 新建用户分组

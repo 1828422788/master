@@ -1,4 +1,4 @@
-@all @smoke @users @usersSmoke
+@all @smoke @users
 Feature: 用户删除
 
   Scenario Outline: 删除用户成功
