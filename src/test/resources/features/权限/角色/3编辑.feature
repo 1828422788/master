@@ -13,7 +13,6 @@ Feature: 角色编辑（RZY-522）
     And I click the "Save" button
     Then I will see the <Result>
 
-  @roleSmoke
     Examples: 编辑成功
       | OldName      | RoleName     | RoleDes | Result                 |
       | AutoTestEdit | AutoTest     |         | success message "更新成功" |

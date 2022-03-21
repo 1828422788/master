@@ -1,4 +1,4 @@
-@role @roleSmoke
+@role
 Feature: 角色复制
 
   Background:

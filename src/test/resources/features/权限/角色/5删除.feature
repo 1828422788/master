@@ -1,4 +1,4 @@
-@role @roleSmoke
+@role
 Feature: 角色删除（RZY-524）
 
   Background:
