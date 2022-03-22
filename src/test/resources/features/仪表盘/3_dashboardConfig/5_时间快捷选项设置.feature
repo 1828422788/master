@@ -1,4 +1,4 @@
-@dashboardpart3 @dashboard16
+@dashboardConfig @dashboard16
 Feature: 系统设置-时间快捷选项设置
 
   @dashboard16pre0
@@ -10,7 +10,7 @@ Feature: 系统设置-时间快捷选项设置
     And I will see the text "<keyWord>" exist in page
     And I will see the "WholeTimeText" doesn't exist
 
-    @dashboardpart3Smoke
+    @dashboardConfigSmoke
     Examples:
       | keyWord                                           |
       | 今天                                             |
@@ -70,7 +70,7 @@ Feature: 系统设置-时间快捷选项设置
     And I click the "WholeTimeSave" button
     Then I will see the text "上一个月" exist in page
 
-  @dashboardpart3Smoke
+  @dashboardConfigSmoke
   Scenario: 新增时间快捷选项-最近
     Given open the "system.TimeShortcutsConfig" page for uri "/system/shortcuts/"
     And I wait for loading invisible
@@ -145,7 +145,7 @@ Feature: 系统设置-时间快捷选项设置
       | 35分钟窗口   |    DeleteActual    |
       | 前25个交易日 |    DeleteOther    |
 
-    @dashboardpart3Smoke
+    @dashboardConfigSmoke
     Examples:
       | name       |    delete    |
       | 最近10天    |    DeleteRecent    |

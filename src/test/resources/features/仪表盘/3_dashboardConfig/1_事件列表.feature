@@ -1,7 +1,7 @@
-@dashboardpart3 @dashboard1
+@dashboardConfig @dashboard1
 Feature: 仪表盘1事件列表
 
-  @dashboard1a @dashboardpart3Smoke
+  @dashboard1a @dashboardConfigSmoke
   Scenario: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When I click the "Create" button
@@ -10,7 +10,7 @@ Feature: 仪表盘1事件列表
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
-  @dashboard1b @dashboardpart3Smoke
+  @dashboard1b @dashboardConfigSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -26,7 +26,7 @@ Feature: 仪表盘1事件列表
       | name    |
       | 仪表盘事件操作 |
 
-  @dashboard1c @dashboardpart3Smoke
+  @dashboard1c @dashboardConfigSmoke
   Scenario: 添加事件列表 RZY-3389,RZY-339
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -47,7 +47,7 @@ Feature: 仪表盘1事件列表
     And I click the "Today" button
     And I click the "Ensure" button
 
-  @dashboard1d @dashboardpart3Smoke
+  @dashboard1d @dashboardConfigSmoke
   Scenario: 添加事件操作
     Given open the "event.ListPage" page for uri "/event/action/"
     When I click the "Create" button
@@ -58,7 +58,7 @@ Feature: 仪表盘1事件列表
     And I wait for "Message" will be visible
     Then I will see the message "提交事件操作成功"
 
-  @dashboard1e @dashboardpart3Smoke
+  @dashboard1e @dashboardConfigSmoke
   Scenario: 验证事件操作 RZY-338
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -76,7 +76,7 @@ Feature: 仪表盘1事件列表
     And I close all tabs except main tab
     Then the page's title will be "趋势图列表"
 
-  @dashboard1f @dashboardpart3Smoke
+  @dashboard1f @dashboardConfigSmoke
   Scenario: 修改事件操作 RZY-3291,RZY-3289
     Given open the "event.ListPage" page for uri "/event/action/"
     When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button
@@ -87,7 +87,7 @@ Feature: 仪表盘1事件列表
     And I wait for "Message" will be visible
     Then I will see the message "提交事件操作成功"
 
-  @dashboard1g @dashboardpart3Smoke
+  @dashboard1g @dashboardConfigSmoke
   Scenario: 验证事件操作显示于两者 RZY-3291,RZY-3288
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -106,7 +106,7 @@ Feature: 仪表盘1事件列表
     And I close all tabs except main tab
     Then the page's title will be "趋势图列表"
 
-  @dashboard1h @dashboardpart3Smoke
+  @dashboard1h @dashboardConfigSmoke
   Scenario: 验证事件操作显示于两者
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -129,7 +129,7 @@ Feature: 仪表盘1事件列表
     And I close all tabs except main tab
     Then the page's title will be "趋势图列表"
 
-  @dashboard1i @dashboardpart3Smoke
+  @dashboard1i @dashboardConfigSmoke
   Scenario: 修改事件操作显示于字段 RZY-3628,RZY-3290
     Given open the "event.ListPage" page for uri "/event/action/"
     When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button
@@ -141,7 +141,7 @@ Feature: 仪表盘1事件列表
     Then I will see the message "提交事件操作成功"
 
 
-  @dashboard1j @dashboardpart3Smoke
+  @dashboard1j @dashboardConfigSmoke
   Scenario: 验证事件操作显示于字段 RZY-3628,RZY-3290
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -158,7 +158,7 @@ Feature: 仪表盘1事件列表
     And I wait for "2000" millsecond
     Then I will see the "Event" doesn't exist
 
-  @dashboard1k @dashboardpart3Smoke
+  @dashboard1k @dashboardConfigSmoke
   Scenario: 验证事件操作显示于字段 RZY-3628,RZY-3290
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -179,7 +179,7 @@ Feature: 仪表盘1事件列表
     And I close all tabs except main tab
     Then the page's title will be "趋势图列表"
 
-  @dashboard1l @dashboardpart3Smoke
+  @dashboard1l @dashboardConfigSmoke
   Scenario: 修改事件操作动作类型为搜索
     Given open the "event.ListPage" page for uri "/event/action/"
     When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button

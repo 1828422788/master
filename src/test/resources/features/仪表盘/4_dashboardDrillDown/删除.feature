@@ -1,5 +1,5 @@
 @clearDashboardDrillDown
-Feature: 仪表盘删除
+Feature: 仪表盘钻取配置删除
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

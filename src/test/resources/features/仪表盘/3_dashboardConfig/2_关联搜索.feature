@@ -1,4 +1,4 @@
-@dashboard2 @dashboardpart3
+@dashboard2 @dashboardConfig
 Feature: 仪表盘2关联搜索
 
   @dashboard2a

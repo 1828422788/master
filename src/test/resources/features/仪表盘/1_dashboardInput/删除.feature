@@ -1,5 +1,5 @@
-@cleardashboardinput
-Feature: 仪表盘删除
+@clearDashboardInput
+Feature: 仪表盘输入项删除
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

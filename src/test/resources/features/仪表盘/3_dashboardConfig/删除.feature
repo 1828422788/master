@@ -1,5 +1,5 @@
-@cleardashboardpart3
-Feature: 仪表盘删除
+@clearDashboardConfig
+Feature: 仪表盘配置删除
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
