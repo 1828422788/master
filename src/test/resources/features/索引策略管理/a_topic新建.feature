@@ -1,9 +1,9 @@
-@indexSetting @indexSettingSmoke
+@indexSetting
 Feature: topic新建（RZY-2430）
 
   Background:
     Given open the "index.TopicSetting" page for uri "/topicsettings/"
-
+  @indexSettingSmoke
   Scenario Outline:新建topic成功
     When I click the "CreateButton" button
     And I set the parameter "Name" with value "<name>"
