@@ -4,7 +4,7 @@ Feature: 监控最新状态
   Background:
     Given open the "alert.ListPage" page for uri "/alerts/"
 
-  @alertSmoke @third
+  #@alertSmoke @third
   Scenario Outline: 按告警时间搜索，并验证搜索结果和搜索内容是否一致（RZY-465）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -20,7 +20,7 @@ Feature: 监控最新状态
       | TwoDays   | 5   | 2d         |
       | SevenDays | 5   | 7d         |
 
-  @alertSmoke @third
+  #@alertSmoke @third
   Scenario Outline: 按等级搜索（RZY-463）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -59,7 +59,7 @@ Feature: 监控最新状态
       | MarkDropdown | Deal     |
       | MarkDropdown | Ignore   |
 
-  @alertSmoke @testAlert
+  #@alertSmoke @testAlert
   Scenario Outline: 处理意见（RZY-469）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -79,7 +79,7 @@ Feature: 监控最新状态
       | dropdownMenu             | handlingSuggestion | mark | message | switchDropdown           |
       | {'StatusDropdown':'待处理'} | AutoTestHandling   | Deal | 处理成功    | {'StatusDropdown':'已处理'} |
 
-  @alertSmoke @third
+  #@alertSmoke @third
   Scenario Outline: 处理意见关联知识（RZY-3004）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -110,13 +110,13 @@ Feature: 监控最新状态
       | name              |
       | KnowledgeForAlert |
 
-  @alertSmoke
+  #@alertSmoke
   Scenario: 验证知识详情页是否包含告警信息
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And I click the detail which name is "KnowledgeForAlert"
     Then I will see the element "DetailAlert" name contains "关联的告警历史"
 
-  @alertSmoke
+  #@alertSmoke
   Scenario: RZY-3007:监控-最新状态页面-告警记录-处理意见-知识库-删除
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -128,13 +128,13 @@ Feature: 监控最新状态
     And I click the "Check" button
     And I will see the success message "保存成功"
 
-  @alertSmoke
+ # @alertSmoke
   Scenario: 验证知识中监控详情是否删除
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And I click the detail which name is "KnowledgeForAlert"
     Then I will see the "DetailAlert" doesn't exist
 
-  @alertSmoke @third
+  #@alertSmoke @third
   Scenario: 修改处理意见并校验空格（RZY-469）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -145,7 +145,7 @@ Feature: 监控最新状态
     And I click the "Check" button
     And I will see the success message "有未填写处理意见"
 
-  @alertSmoke @third
+  #@alertSmoke @third
   Scenario Outline: 修改处理意见（RZY-469）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -162,7 +162,7 @@ Feature: 监控最新状态
       | dropdownMenu             | handlingSuggestion |
       | {'StatusDropdown':'已处理'} | already done       |
 
-  @alertSmoke @third
+  #@alertSmoke @third
   Scenario Outline: 按分组和状态搜索，并验证搜索结果和搜索内容是否一致（RZY-462、RZY-464）
     Given I click the "LatestStatus" button
     And I will see the "alert.MonitorPage" page
@@ -221,14 +221,14 @@ Feature: 监控最新状态
 #      | Handled   | search result "{'column':'6','name':'已处理'}" |
 #      | HighAlert | alert grade is "red"                        |
 
-  @alertSmoke @third
+  #@alertSmoke @third
   Scenario: 返回到监控页（RZY-482）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
     When I click the "ReturnToAlertPage" button
     Then the page's title will be "监控"
 
-  @alertSmoke @third
+  #@alertSmoke @third
   Scenario Outline: 处理低级告警
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page

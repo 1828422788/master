@@ -19,9 +19,8 @@ Feature: 仪表盘1事件列表
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "事件操作"
-    And I click the "EnsureCreateTagButton" button
-    And I wait for loading complete
-    And I back to before
+    And I click the "Ensure" button
+    Then I wait for "SettingIcon" will be visible
 
     Examples:
       | name    |

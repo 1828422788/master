@@ -63,8 +63,8 @@ Feature: 仪表盘2关联搜索
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "关联搜索"
-    And I click the "EnsureCreateTagButton" button
-    And I wait for loading complete
+    And I click the "Ensure" button
+    Then I wait for "SettingIcon" will be visible
 
     Examples:
       | name    |

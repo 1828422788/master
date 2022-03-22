@@ -2,7 +2,7 @@
 Feature: 监控高级配置
 
 #   有bug，待修复后添加验证
-  @alertSmoke @third
+  #@alertSmoke @third
   Scenario Outline: RZY-2974、444、2983、2987、3025
     Given open the "alert.ListPage" page for uri "/alerts/"
     Given I click the "CreateAlert" button
@@ -36,7 +36,7 @@ Feature: 监控高级配置
       | *\|timechart span=1h rendertype="line" count()                                                                                                                                             | GraphEnable |
       | \| makeresults count=10 \| eval app="test" \| eval tag="t" \| append [[ \| makeresults count=10 \| eval app="rcl" \| eval tag="r"]] \| chart rendertype="sunburst" count() over tag by app | GraphEnable |
 
-  @alertSmoke @third
+  #@alertSmoke @third
   Scenario: 新建已存搜索
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait element "SearchStatus" change text to "搜索完成!"
@@ -50,7 +50,7 @@ Feature: 监控高级配置
     And I click the "EnsureCreateSavedSearch" button
     Then I will see the success message "创建成功"
 
-  @alertSmoke @third
+  #@alertSmoke @third
   Scenario: RZY-440:新建监控-高级配置-已存搜索-加载
     Given open the "alert.ListPage" page for uri "/alerts/"
     Given I click the "CreateAlert" button

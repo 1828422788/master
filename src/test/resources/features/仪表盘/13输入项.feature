@@ -72,10 +72,8 @@ Feature: 仪表盘输入项
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "过滤项"
-    And I click the "EnsureCreateTagButton" button
-    And I wait for "2000" millsecond
-    And I wait for loading complete
-    And I back to before
+    And I click the "Ensure" button
+    Then I wait for "SettingIcon" will be visible
 
     Examples:
       | name   |

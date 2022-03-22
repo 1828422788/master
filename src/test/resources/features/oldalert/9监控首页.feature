@@ -1,4 +1,4 @@
-@alertss @alertSmoke
+#@alertss @alertSmoke
 Feature: 监控首页UI改版测试
 
   Background:

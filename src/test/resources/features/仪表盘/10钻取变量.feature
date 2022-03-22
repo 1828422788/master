@@ -62,8 +62,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "chart"
     And I click the "Ensure" button
-    And I wait for "2000" millsecond
-    And I back to before
+    Then I wait for "SettingIcon" will be visible
 
     Examples:
       | name   |

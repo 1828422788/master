@@ -24,8 +24,7 @@ Feature: 仪表盘过滤项
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "过滤项"
     And I click the "Ensure" button
-    And I wait for loading complete
-    And I back to before
+    Then I wait for "SettingIcon" will be visible
 
     Examples:
       | name  |

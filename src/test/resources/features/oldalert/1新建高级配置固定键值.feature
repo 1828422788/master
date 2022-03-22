@@ -1,4 +1,4 @@
-@alertSmoke @third
+#@alertSmoke @third
 Feature: 监控高级配置固定键值
 
   Background:

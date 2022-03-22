@@ -34,9 +34,8 @@ Feature: 仪表盘03详情页
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "first"
-    And I click the "EnsureCreateTagButton" button
-    And I wait for "2000" millsecond
-    And I back to before
+    And I click the "Ensure" button
+    Then I wait for "SettingIcon" will be visible
 
   @dashboard03b @dashboardSmoke
   Scenario: 新建待删除tag(RZY-3390)
@@ -55,9 +54,9 @@ Feature: 仪表盘03详情页
     And I wait for "CreateNewTag" will be visible
     And I click the "CreateNewTag" button
     When I set the parameter "TagName" with value "forDelete"
-    And I click the "EnsureCreateTagButton" button
-    And I wait for "3000" millsecond
-    And I back to before
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "创建标签成功"
 
   @dashboard03c @dashboardSmoke
   Scenario: 编辑tag(RZY-4488)
@@ -99,7 +98,7 @@ Feature: 仪表盘03详情页
     And I wait for "500" millsecond
     And I click the "DeleteNewTag" button
     And I click the "Ensure" button
-    And I wait for "500" millsecond
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "标签页删除成功"
 
   @dashboard03e
@@ -186,7 +185,7 @@ Feature: 仪表盘03详情页
     And I wait for "CreateNewTag" will be visible
     And I click the "CreateNewTag" button
     When I set the parameter "TagName" with value "testSearch"
-    And I click the "EnsureCreateTagButton" button
+    And I click the "Ensure" button
     And I wait for "3000" millsecond
     And I back to before
 

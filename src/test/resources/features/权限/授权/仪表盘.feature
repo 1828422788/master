@@ -155,7 +155,7 @@ Feature: 权限-仪表盘
     Then I will see the "dashboard.DetailPage" page
     And I wait for "TagName" will be visible
     When I set the parameter "TagName" with value "test"
-    And I click the "EnsureCreateTagButton" button
+    And I click the "Ensure" button
     And I wait for loading invisible
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -255,7 +255,7 @@ Feature: 权限-仪表盘
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
     When I set the parameter "TagName" with value "test"
-    And I click the "EnsureCreateTagButton" button
+    And I click the "Ensure" button
     And I wait for loading invisible
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "1000" millsecond
@@ -421,7 +421,7 @@ Feature: 权限-仪表盘
     And I click the detail which name is "<name>重命名"
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "test"
-    And I click the "EnsureCreateTagButton" button
+    And I click the "Ensure" button
     And I wait for loading invisible
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -571,7 +571,7 @@ Feature: 权限-仪表盘
     And I click the detail which name is "<name>重命名"
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "test"
-    And I click the "EnsureCreateTagButton" button
+    And I click the "Ensure" button
     And I wait for loading invisible
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -678,7 +678,7 @@ Feature: 权限-仪表盘
     And I click the detail which name is "<name>重命名"
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "test"
-    And I click the "EnsureCreateTagButton" button
+    And I click the "Ensure" button
     And I wait for loading invisible
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

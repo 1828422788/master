@@ -4,7 +4,7 @@ Feature: 监控维护期
   Background:
     Given open the "alert.MaintenancePage" page for uri "/alerts/maintenance/"
 
-  @alertSmoke @second
+  #@alertSmoke @second
   Scenario Outline: RZY-2998:监控-维护期-执行计划-定时-每天9:00
     Given I click the "Create" button
     When I set the parameter "Reason" with value "<reason>"
@@ -20,7 +20,7 @@ Feature: 监控维护期
       | reason                         | group         |
       | RZY-2998:监控-维护期-执行计划-定时-每天9:00 | default_Alert |
 
-  @smoke @alertSmoke
+  #@smoke @alertSmoke
   Scenario Outline: 编辑维护期（修改影响涉及范围并检查）
     Given the data name is "<name>" then i click the "编辑" button
     And I click the "Single" button
@@ -67,7 +67,7 @@ Feature: 监控维护期
       | reason | group         | message                 |
       | test   | default_Alert | 保存失败: 默认系统错误\n错误码: FE_1 |
 
-  @smoke @alertSmoke
+  #@smoke @alertSmoke
   Scenario Outline: 搜索维护期
     Given I set the parameter "SearchReason" with value "<reason>"
     And I click the "SearchIcon" button
@@ -84,13 +84,13 @@ Feature: 监控维护期
     When choose from "{'DropdownMenu':'default_Alert'}"
     Then I will see the search result "{'column':'0','name':'正在维护'}"
 
-  @third @alertSmoke
+  #@third @alertSmoke
   Scenario: 删除维护期
     When the data name is "RZY-2998:监控-维护期-执行计划-定时-每天9:00" then i click the "删除" button
     And I click the "EnsureDelete" button
     Then I will see the success message "删除成功"
 
-  @smoke @alertSmoke
+  #@smoke @alertSmoke
   Scenario: 返回监控首页
     When I click the "ReturnToAlertPage" button
     Then the page's title will be "监控"

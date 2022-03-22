@@ -74,9 +74,13 @@ Feature: 监控维护期
     Examples:
       | reason                           | alert_name                       |
       | 维护期_字段统计_分组事件数status_邮件_单次今天9点开始 | 维护期_字段统计_分组事件数status_邮件_单次今天9点开始 |
+
+    @alertSmoke
+    Examples:
+      | reason                           | alert_name                       |
       | 维护期_字段统计_分组事件数status_邮件_永久       | 维护期_字段统计_分组事件数status_邮件_永久       |
 
-  @maintain3
+  @maintain3 @alertSmoke
   Scenario Outline:每周一至周六
     Given I click the "CreateButton" button
     When I set the parameter "MaintainReason" with value "<reason>"
@@ -178,12 +182,16 @@ Feature: 监控维护期
     And I wait for "MaintainFlag" will be visible
 #    Then I click the "MaintainFlag" button
 
+    @alertSmoke
+    Examples:
+      | alert_name                       |
+      | 维护期_字段统计_分组事件数status_邮件_每周一至周六   |
+      | 维护期_字段统计_分组事件数status_邮件_永久       |
+
     Examples:
       | alert_name                       |
       | 维护期_字段统计_分组事件数status_邮件_每月1-30   |
-      | 维护期_字段统计_分组事件数status_邮件_每周一至周六   |
       | 维护期_字段统计_分组事件数status_邮件_每天0-23点  |
-      | 维护期_字段统计_分组事件数status_邮件_永久       |
       | 维护期_字段统计_分组事件数status_邮件_单次今天9点开始 |
 
   @maintaindel

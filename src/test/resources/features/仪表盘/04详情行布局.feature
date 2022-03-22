@@ -73,9 +73,8 @@ Feature: 仪表盘04详情行布局
     And I wait for "2000" millsecond
     And I set the parameter "TagName" with value "rowLayout"
     And I click the "RowLayout" button
-    And I click the "EnsureCreateTagButton" button
-    And I wait for "5000" millsecond
-    And I back to before
+    And I click the "Ensure" button
+    Then I wait for "SettingIcon" will be visible
 
     @dashboardSmoke
     Examples:
