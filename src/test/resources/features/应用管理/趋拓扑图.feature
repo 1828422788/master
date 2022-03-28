@@ -1,7 +1,6 @@
 @app
 Feature: 应用拓扑图（RZY-2142）
 
-  @appSmoke
   Scenario Outline: 新建单个资源app
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
@@ -31,7 +30,6 @@ Feature: 应用拓扑图（RZY-2142）
       | name        | menuName | url        | color   |
       | TopologyApp | 拓扑图      | /topology/ | #06030B |
 
-  @appSmoke
   Scenario Outline: 安装资源成功
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for "CreateButton" will be visible
@@ -72,7 +70,6 @@ Feature: 应用拓扑图（RZY-2142）
       | name        |
       | TopologyApp |
 
-  @appSmoke
   Scenario: 新建拓扑图
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
