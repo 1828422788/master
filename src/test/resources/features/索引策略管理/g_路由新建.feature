@@ -1,10 +1,10 @@
-@indexSetting @indexSettingSmoke
+@indexSetting
 Feature: 路由新建（RZY-1481）
 
   Background:
     Given open the "index.ListPage" page for uri "/indexmatchrules/"
 
-  @second
+
   Scenario Outline: RZY-1481:新建-路由规则-iisidx索引
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
@@ -17,9 +17,13 @@ Feature: 路由新建（RZY-1481）
     And I click the "CreateButton" button
     And I will see the success message "<message>"
 
+    @indexSettingSmoke
     Examples:
       | appName | tag | rule              | message | desc        |
       | iis     |     |                   | 保存成功    | AutoAppName |
+
+    Examples:
+      | appName | tag | rule              | message | desc        |
       |         | iis |                   | 保存成功    | AutoTag     |
       |         |     | \d+\s\w+\s\d+.\d+ | 保存成功    | AutoRule    |
       | IIS     |     |                   | 保存成功    | AutoUpCase  |
@@ -29,7 +33,7 @@ Feature: 路由新建（RZY-1481）
       |         |     |      | appname, tag 和 匹配规则 至少需要填写一项 |
       | iis     |     |      | 保存失败 |
 
-  @second
+  @indexSettingSmoke
   Scenario: RZY-2437:新建路由配置-路由规则_sample_yotta索引
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
@@ -39,7 +43,7 @@ Feature: 路由新建（RZY-1481）
     And I click the "CreateButton" button
     And I will see the success message "保存成功"
 
-  @second
+  @indexSettingSmoke @testupload
   Scenario Outline: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "<appname>"
@@ -53,25 +57,19 @@ Feature: 路由新建（RZY-1481）
     |  sunxctest     |   sunxctest    |
     |  iis           |   iis          |
 
-
-
-  @second
+  @indexSettingSmoke
   Scenario Outline: 验证索引数据搜索结果
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "<spl>"
-    And I wait for "1000" millsecond
     And I click the "DateEditor" button
     And I click the "WholeTime" button
-    And I wait for "1000" millsecond
     And I click the "SearchButton" button
     And I wait for element "EventsTitle" change text to "事件列表"
-    And I wait for "2000" millsecond
     And I wait for element "EventNumbers" change text to "事件(10)"
 
     Examples:
       | spl                                              |
       | appname:sunxctest                                |
       | index=iisidx * AND appname:iis                    |
-      | index=sunxctime * AND appname:sunxctime           |
 
 

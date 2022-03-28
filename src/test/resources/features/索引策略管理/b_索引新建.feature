@@ -1,11 +1,11 @@
-@indexSetting @indexSettingSmoke
+@indexSetting
 Feature: 索引信息新建
 
   Background:
     Given open the "index.ListPage" page for uri "/indexsettings/"
     And I wait for loading invisible
 
-  @second
+  @indexSettingSmoke
   Scenario Outline: RZY-1474:自定义模式新建
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
@@ -26,20 +26,17 @@ Feature: 索引信息新建
     Given open the "index.ListPage" page for uri "/indexmatchrules/"
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
-    And I wait for "2000" millsecond
-#    When I choose the "<name>" from the "IndexName"
     And I set the parameter "Desc" with value "AutoTest"
     And I set the parameter "Tag" with value "AutoTest"
     And I set the parameter "AppName" with value "AutoTest"
     And I click the "CreateButton" button
-    And I wait for "2000" millsecond
     And I will see the element "Message" name is "保存成功"
 
     Examples: 新建成功
       | name       | desc     | savedTime | divideTime | savedSize | savedSizeDropDown | divideNumber |
       | indexerror | AutoTest | 2         | 1          | 100       | MB                | 2            |
 
-  @second
+  @indexSettingSmoke
   Scenario: RZY-1474:新建索引
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
@@ -49,15 +46,12 @@ Feature: 索引信息新建
     And I set the parameter "SavedTime" with value "2"
     And I set the parameter "DivideTime" with value "1"
     And I set the parameter "DivideNumber" with value "1"
-#    And I set the parameter "SavedSize" with value "100"
-#    And I choose the "MB" from the "SavedSizeDropDown"
     And I click the "Next" button
     And I wait for "1000" millsecond
     And I click the "Next" button
     And I click the "Finish" button
     And I will see the element "Message" name is "索引配置完成!"
 
-  @second  @rzy1478
   Scenario Outline: RZY-1478:新建索引（保存时间）
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
@@ -82,13 +76,10 @@ Feature: 索引信息新建
     Given open the "index.ListPage" page for uri "/indexmatchrules/"
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
-     And I wait for "2000" millsecond
     When I choose the "<name>" from the "IndexName"
     And I wait for "Desc" will be visible
     And I set the parameter "Desc" with value "<desc>"
-#    And I set the parameter "Tag" with value "sunxctime"
     And I set the parameter "AppName" with value "sunxctime"
-    And I wait for "3000" millsecond
     And I click the "CreateButton" button
     And I wait for "1000" millsecond
     And I will see the success message "保存成功"
@@ -106,7 +97,6 @@ Feature: 索引信息新建
     And I wait for "1000" millsecond
     And I wait for element "VerifyText" change text to "上传完成"
 
-  @second
   Scenario Outline: RZY-1479:新建索引（保存大小）
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
@@ -127,27 +117,24 @@ Feature: 索引信息新建
     Given open the "index.ListPage" page for uri "/indexmatchrules/"
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
-    And I wait for "1000" millsecond
     When I choose the "<name>" from the "IndexName"
     And I set the parameter "Desc" with value "<desc>"
     And I set the parameter "Tag" with value "<name>"
     And I set the parameter "AppName" with value "<name>"
     And I click the "CreateButton" button
-    And I wait for "1000" millsecond
     And I will see the success message "保存成功"
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "<name>"
     And I set the parameter "Tag" with value "<name>"
     And I upload a file with name "/src/test/resources/testdata/log/h3c.txt"
     And I click the "UploadButton" button
-    And I wait for "1000" millsecond
     And I wait for element "VerifyText" change text to "上传完成"
 
     Examples: 新建成功
       | name      | desc               | savedTime | divideTime |
       | sunxcsize | AutoTestForsxcSize | 2         | 1          |
 
-  @second
+  @indexSettingSmoke
   Scenario: RZY-1481:新建索引-用于路由测试
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
@@ -163,7 +150,6 @@ Feature: 索引信息新建
     And I click the "Finish" button
     And I will see the element "Message" name is "索引配置完成!"
 
-  @second
   Scenario Outline: 验证sunxctime搜索结果
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "<spl>"
@@ -171,16 +157,13 @@ Feature: 索引信息新建
     And I click the "DateEditor" button
     And I click the "WholeTime" button
     And I click the "SearchButton" button
-    And I wait for "2000" millsecond
     And I wait for element "EventsTitle" change text to "事件列表"
-    And I wait for "2000" millsecond
     And I wait for element "EventNumbers" change text to "事件(10)"
 
     Examples:
       | spl                                          |
       | index=sunxctime * appname:sunxctime          |
 
-  @second
   Scenario Outline: 新建失败
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
@@ -222,7 +205,6 @@ Feature: 索引信息新建
       | test |      | 2         | 1          | 0         | 保存大小应为正整数                                |
       | test |      | 2         | 1          | -1        | 保存大小应为正整数                                |
 
-  @second
   Scenario: 新建索引(索引数据和副本存留)
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
@@ -235,16 +217,13 @@ Feature: 索引信息新建
     And I set the parameter "SavedSize" with value "2"
     And I choose the "TB" from the "SavedSizeDropDown"
     And I set the parameter "DivideNumber" with value "1"
-    And I wait for "2000" millsecond
     And I choose the "1份" from the "IndexDataDropDown"
-    And I wait for "3000" millsecond
     And I click the "Next" button
     And I wait for "1000" millsecond
     And I click the "Next" button
     And I click the "Finish" button
     And I will see the element "Message" name is "索引配置完成!"
 
-  @second
   Scenario: 新建索引(索引冻结)
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
@@ -264,13 +243,11 @@ Feature: 索引信息新建
     And I set the parameter "SinkHDD" with value "40"
     And I wait for "SinkNAS" will be visible
     And I set the parameter "SinkNAS" with value "50"
-    And I wait for "3000" millsecond
     And I click the "Next" button
     And I wait for "1000" millsecond
     And I click the "Finish" button
     And I will see the element "Message" name is "索引配置完成!"
 
-  @second
   Scenario Outline: 新建索引(索引冻结新建失败)
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
@@ -285,10 +262,8 @@ Feature: 索引信息新建
     And I switch the "IndexFrezee" button to "checked"
     And I set the parameter "Freeze" with value "<Freezetime>"
     And I choose the "TB" from the "SavedSizeDropDown"
-    And I wait for "2000" millsecond
     And I click the "Next" button
     And I will see the element "HelpMessage" name is "<HelpMessage>"
-    And I wait for "2000" millsecond
 
     Examples:
     |Freezetime| HelpMessage          |
@@ -300,8 +275,6 @@ Feature: 索引信息新建
     |    0.1   | 索引冻结时间应为正整数 |
     |    0     | 索引冻结时间应为正整数 |
 
-
-  @second
   Scenario: 新建索引(索引下沉)
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
@@ -311,18 +284,15 @@ Feature: 索引信息新建
     And I set the parameter "SavedTime" with value "20"
     And I set the parameter "DivideTime" with value "8"
     And I set the parameter "DivideNumber" with value "2"
-    And I wait for "2000" millsecond
     And I click the "Next" button
     And I switch the "Sinkswitch" button to "checked"
     And I set the parameter "SinkNAS" with value "50"
     And I set the parameter "SinkHDD" with value "40"
-    And I wait for "3000" millsecond
     And I click the "Next" button
     And I wait for "1000" millsecond
     And I click the "Finish" button
     And I will see the element "Message" name is "索引配置完成!"
 
-  @second
   Scenario Outline: 新建索引(索引下沉失败)
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
@@ -332,7 +302,6 @@ Feature: 索引信息新建
     And I set the parameter "SavedTime" with value "130"
     And I set the parameter "DivideTime" with value "8"
     And I set the parameter "DivideNumber" with value "2"
-    And I wait for "2000" millsecond
     And I click the "Next" button
     And I switch the "Sinkswitch" button to "checked"
     And I set the parameter "SinkHDD" with value "<SinkHDDTime>"
@@ -349,8 +318,6 @@ Feature: 索引信息新建
       |     -2   |             |  索引下沉到HDD时间应为正整数            |
       |    2     |      0.1    |  索引下沉到NAS时间应为正整数            |
 
-
-  @second
   Scenario Outline: 新建索引(开启索引冻结)失败
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
@@ -373,7 +340,6 @@ Feature: 索引信息新建
       | test |      | 120       | 10         | 0      | 索引冻结时间应为正整数 |
       | test |      | 120       | 10         | 10.8   | 索引冻结时间应为正整数 |
 
-  @second
   Scenario Outline: 新建索引(开启索引下沉)失败
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
@@ -396,8 +362,7 @@ Feature: 索引信息新建
       | test |      | 120       | 10         |     | 1.1 | 索引下沉到NAS时间应为正整数          |
       | test |      | 120       | 10         |     | -1  | 索引下沉到NAS时间应为正整数          |
 
-
-  @second
+  @indexSettingSmoke
   Scenario Outline: 压缩模式新建
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
@@ -421,7 +386,6 @@ Feature: 索引信息新建
       | name       | desc     | savedTime | divideTime | savedSize | savedSizeDropDown | divideNumber |
       | indexcompact | AutoTest | 2         | 1          | 100       | MB                | 2            |
 
-  @second
   Scenario Outline: 压缩模式新建高级配置成功
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
@@ -436,15 +400,11 @@ Feature: 索引信息新建
     And I set the parameter "SavedSize" with value "<savedSize>"
     And I set the parameter "DivideNumber" with value "<divideNumber>"
     And I click the "Next" button
-    And I wait for "2000" millsecond
     And I click the "AdvanceSetting" button
-    And I wait for "1000" millsecond
     And I switch the "Sinkswitch" button to "checked"
     And I set the parameter "SinkNAS" with value "50"
     And I set the parameter "SinkHDD" with value "40"
-    And I wait for "1000" millsecond
     And I click the "Next" button
-    And I wait for "1000" millsecond
     And I click the "Finish" button
     And I will see the element "Message" name is "索引配置完成!"
 
@@ -452,7 +412,6 @@ Feature: 索引信息新建
       | name       | desc     | savedTime | divideTime | savedSize | savedSizeDropDown | divideNumber |
       | indexcompact1 | AutoTest | 2         | 1          | 100       | MB                | 2          |
 
-  @second
   Scenario Outline: 压缩模式新建高级配置失败
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
@@ -467,7 +426,6 @@ Feature: 索引信息新建
     And I choose the "MB" from the "SavedSizeDropDown"
     And I set the parameter "DivideNumber" with value "2"
     And I click the "Next" button
-    And I wait for "2000" millsecond
     And I click the "AdvanceSetting" button
     And I wait for "1000" millsecond
     And I switch the "Sinkswitch" button to "checked"
@@ -486,7 +444,7 @@ Feature: 索引信息新建
       |     -2   |             |  索引下沉到HDD时间应为正整数            |
       |    0.1   |             |  索引下沉到HDD时间应为正整数            |
 
-  @second
+  @indexSettingSmoke
   Scenario Outline: 数值模式新建
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
@@ -510,7 +468,6 @@ Feature: 索引信息新建
       | name       | desc     | savedTime | divideTime | savedSize | savedSizeDropDown | divideNumber |
       | indexnumber | AutoTest | 2         | 1          | 100       | MB                | 2           |
 
-  @second
   Scenario Outline:数值模式新建高级配置成功
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
@@ -525,15 +482,12 @@ Feature: 索引信息新建
     And I set the parameter "SavedSize" with value "<savedSize>"
     And I set the parameter "DivideNumber" with value "<divideNumber>"
     And I click the "Next" button
-    And I wait for "2000" millsecond
     And I click the "AdvanceSetting" button
     And I wait for "1000" millsecond
     And I switch the "Sinkswitch" button to "checked"
     And I set the parameter "SinkNAS" with value "50"
     And I set the parameter "SinkHDD" with value "40"
-    And I wait for "1000" millsecond
     And I click the "Next" button
-    And I wait for "1000" millsecond
     And I click the "Finish" button
     And I will see the element "Message" name is "索引配置完成!"
 
@@ -541,7 +495,6 @@ Feature: 索引信息新建
       | name       | desc     | savedTime | divideTime | savedSize | savedSizeDropDown | divideNumber |
       | indexnumber1 | AutoTest | 2         | 1          | 100       | MB                | 2          |
 
-  @second
   Scenario Outline: 数值模式新建高级配置失败
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
@@ -556,9 +509,7 @@ Feature: 索引信息新建
     And I choose the "MB" from the "SavedSizeDropDown"
     And I set the parameter "DivideNumber" with value "2"
     And I click the "Next" button
-    And I wait for "2000" millsecond
     And I click the "AdvanceSetting" button
-    And I wait for "1000" millsecond
     And I switch the "Sinkswitch" button to "checked"
     And I set the parameter "SinkHDD" with value "<SinkHDDTime>"
     And I set the parameter "SinkNAS" with value "<SinkNASTime>"

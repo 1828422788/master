@@ -1,4 +1,4 @@
-@indexSetting @indexSettingSmoke
+@indexSetting
 Feature: topic编辑（RZY-2428）
 
   Background:
@@ -10,7 +10,7 @@ Feature: topic编辑（RZY-2428）
     And I click the "EnsureButton" button
     Then I will see the <message>
 
-  @second
+    @indexSettingSmoke
     Examples:
       | describe      | message                |
       | 测试topic编辑功能 | success message "更新成功" |

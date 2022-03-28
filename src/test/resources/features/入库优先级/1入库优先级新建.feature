@@ -25,7 +25,6 @@ Feature: 入库优先级新建（RZY-1485）
       | ln_high_priority        | top_info_s,heka| 高       | success message "保存成功" |
       | Autotest                |  autotest*     |          |    success message "保存成功"  |
 
-  @indexSettingSmoke
   Scenario Outline: 入库优先级新建失败
     And I set the parameter "Tag" with value "<tag>"
     When I set the parameter "AppName" with value "<appName>"

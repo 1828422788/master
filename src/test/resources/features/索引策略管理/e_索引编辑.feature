@@ -1,4 +1,4 @@
-@indexSetting  @third
+@indexSetting
 Feature: 索引信息编辑（RZY-1477至1480）
 
   Background:
@@ -25,7 +25,7 @@ Feature: 索引信息编辑（RZY-1477至1480）
       | 1          | 小时                 |
 
   Scenario Outline:修改保存时间
-    Given the data name is "{'column':'1','name':'sunxctime'}" then i click the "编辑" button
+    Given the data name is "{'column':'1','name':'iisidx'}" then i click the "编辑" button
     Then I will see the "index.CreatePage" page
     And I click the "Next" button
     And I set the parameter "SavedTime" with value "<savedTime>"
@@ -36,12 +36,15 @@ Feature: 索引信息编辑（RZY-1477至1480）
     And I click the "Finish" button
     And I will see the element "Message" name is "索引配置完成!"
 
+    @indexSettingSmoke
     Examples:
       | savedTime | savedTimeDropDown |
       | 2         | 月                 |
+
+    Examples:
+      | savedTime | savedTimeDropDown |
       | 2         | 年                 |
       | 2         | 天                 |
-
 
   Scenario Outline:修改备注
     Given the data name is "{'column':'1','name':'sunxctime'}" then i click the "编辑" button
@@ -59,14 +62,12 @@ Feature: 索引信息编辑（RZY-1477至1480）
       | AutoTestForsxc2      |
       | AutoTestForsxc中文test |
 
-
   Scenario Outline:修改保存大小
     Given the data name is "{'column':'1','name':'index_data'}" then i click the "编辑" button
     Then I will see the "index.CreatePage" page
     And I click the "Next" button
     And I set the parameter "SavedSize" with value "<savedSize>"
     And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
-    And I wait for "2000" millsecond
     And I click the "Next" button
     And I wait for "1000" millsecond
     And I click the "Next" button
@@ -81,38 +82,33 @@ Feature: 索引信息编辑（RZY-1477至1480）
       | 100       | KB                |
       | 100       | MB                |
 
-  @indexSettingSmoke
+
   Scenario:修改索引冻结
     Given the data name is "{'column':'1','name':'index_freez'}" then i click the "编辑" button
     Then I will see the "index.CreatePage" page
     And I click the "Next" button
     And I set the parameter "Freeze" with value "60"
-    And I wait for "2000" millsecond
     And I click the "Next" button
     And I wait for "1000" millsecond
     And I click the "Next" button
     And I click the "Finish" button
     And I will see the element "Message" name is "索引配置完成!"
 
-  @indexSettingSmoke
   Scenario:关闭冻结索引
     Given the data name is "{'column':'1','name':'index_freez'}" then i click the "编辑" button
     Then I will see the "index.CreatePage" page
     And I click the "Next" button
     And I switch the "IndexFrezee" button to "unchecked"
-    And I wait for "2000" millsecond
     And I click the "Next" button
     And I wait for "1000" millsecond
     And I click the "Next" button
     And I click the "Finish" button
     And I will see the element "Message" name is "索引配置完成!"
 
-  @indexSettingSmoke
   Scenario:修改索引下沉hdd
     Given the data name is "{'column':'1','name':'index_sink'}" then i click the "编辑" button
     Then I will see the "index.CreatePage" page
     And I click the "Next" button
-    And I wait for "2000" millsecond
     And I click the "Next" button
     And I set the parameter "SinkHDD" with value "50"
     And I wait for "1000" millsecond
@@ -124,7 +120,6 @@ Feature: 索引信息编辑（RZY-1477至1480）
     Given the data name is "{'column':'1','name':'index_sink'}" then i click the "编辑" button
     Then I will see the "index.CreatePage" page
     And I click the "Next" button
-    And I wait for "2000" millsecond
     And I click the "Next" button
     And I set the parameter "SinkNAS" with value "40"
     And I wait for "1000" millsecond
@@ -132,7 +127,6 @@ Feature: 索引信息编辑（RZY-1477至1480）
     And I click the "Finish" button
     And I will see the element "Message" name is "索引配置完成!"
 
-  @indexSettingSmoke
   Scenario:修改索引数据、副本存留
     Given the data name is "{'column':'1','name':'index_data'}" then i click the "编辑" button
     Then I will see the "index.CreatePage" page
@@ -151,7 +145,6 @@ Feature: 索引信息编辑（RZY-1477至1480）
     Given the data name is "{'column':'1','name':'index_sink'}" then i click the "编辑" button
     Then I will see the "index.CreatePage" page
     And I click the "Next" button
-    And I wait for "2000" millsecond
     And I click the "Next" button
     And I switch the "IndexSink" button to "unchecked"
     And I wait for "1000" millsecond

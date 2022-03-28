@@ -1,4 +1,4 @@
-@clean @cleanSecond @cleanIndex @indexSettingSmoke @indexSetting
+@indexSetting
 Feature: 索引信息删除（RZY-1476）
 
   Background:
@@ -16,7 +16,6 @@ Feature: 索引信息删除（RZY-1476）
       | error      |
       | sunxctime  |
       | sunxcsize  |
-      | iisidx     |
       | index_data  |
       | index_freez  |
       | index_sink     |
@@ -24,3 +23,8 @@ Feature: 索引信息删除（RZY-1476）
       | indexnumber    |
       | indexcompact   |
       | indexcompact1  |
+
+    @indexSettingSmoke
+    Examples:
+      | name       |
+      | iisidx     |

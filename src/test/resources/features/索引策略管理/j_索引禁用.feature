@@ -18,21 +18,16 @@ Feature: 索引信息禁用（RZY-1475）
   Scenario: 验证索引是否成功禁用
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "index=indexerror * AND appname:testda"
-    And I wait for "2000" millsecond
     And I click the "DateEditor" button
     And I click the "WholeTime" button
-    And I wait for "1000" millsecond
     And I click the "SearchButton" button
     And I wait for element "EventsTitle" change text to "事件列表"
-    And I wait for "2000" millsecond
     And I wait for element "EventNumbers" change text to "事件(0)"
-    And I wait for "2000" millsecond
     And I set the parameter "SearchInput" with value "appname:testda"
     And I click the "DateEditor" button
     And I click the "WholeTime" button
     And I click the "SearchButton" button
     And I wait for element "EventsTitle" change text to "事件列表"
-    And I wait for "2000" millsecond
     And I wait for element "EventNumbers" change text to "事件(10)"
 
   Scenario: 启用索引
@@ -52,21 +47,16 @@ Feature: 索引信息禁用（RZY-1475）
   Scenario: 验证索引是否成功启用
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "index=indexerror * AND appname:testda"
-    And I wait for "1000" millsecond
     And I click the "DateEditor" button
     And I click the "WholeTime" button
-    And I wait for "1000" millsecond
     And I click the "SearchButton" button
     And I wait for element "EventsTitle" change text to "事件列表"
-    And I wait for "2000" millsecond
     And I wait for element "EventNumbers" change text to "事件(10)"
-    And I wait for "2000" millsecond
     And I set the parameter "SearchInput" with value "appname:testda"
     And I click the "DateEditor" button
     And I click the "WholeTime" button
     And I click the "SearchButton" button
     And I wait for element "EventsTitle" change text to "事件列表"
-    And I wait for "2000" millsecond
     And I wait for element "EventNumbers" change text to "事件(10)"
 
 

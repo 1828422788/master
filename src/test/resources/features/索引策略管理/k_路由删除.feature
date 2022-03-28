@@ -1,4 +1,4 @@
-@clean @cleanSecond @cleanIndex @indexSettingSmoke @indexSetting
+ @indexSetting
 Feature: 路由删除（RZY-1482）
 
   Background:
@@ -11,11 +11,17 @@ Feature: 路由删除（RZY-1482）
 
     Examples:
       | num | name                 |
-      | 3   | AutoCreateForSxcTest |
       | 3   | AutoUpCase           |
       | 3   | AutoRule             |
       | 3   | AutoTag              |
-      | 3   | AutoAppName          |
       | 3   | AutoTestForsxc       |
-      | 1   | sunxcsize |
-      | 3   | AutoTest  |
+      | 1   | sunxcsize            |
+      | 3   | AutoTest             |
+
+    @indexSettingSmoke
+    Examples:
+      | num | name                 |
+      | 3   | AutoCreateForSxcTest |
+      | 3   | AutoAppName          |
+
+
