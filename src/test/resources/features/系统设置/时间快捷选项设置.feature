@@ -1,7 +1,6 @@
-@dashboardpart3 @dashboard16
+@setting
 Feature: 系统设置-时间快捷选项设置
 
-  @dashboard16pre0
   Scenario Outline: 输入关键字搜索相关配置
     Given open the "system.TimeShortcutsConfig" page for uri "/system/shortcuts/"
     And I wait for loading invisible
@@ -10,7 +9,7 @@ Feature: 系统设置-时间快捷选项设置
     And I will see the text "<keyWord>" exist in page
     And I will see the "WholeTimeText" doesn't exist
 
-    @dashboardpart3Smoke
+    @settingSmoke
     Examples:
       | keyWord                                           |
       | 今天                                             |
@@ -22,7 +21,6 @@ Feature: 系统设置-时间快捷选项设置
       | 10秒窗口                                             |
       | 前一个交易日                                          |
 
-  @dashboard16pre1
   Scenario: 返回到系统设置
     Given open the "system.TimeShortcutsConfig" page for uri "/system/shortcuts/"
     And I wait for loading invisible
@@ -30,7 +28,6 @@ Feature: 系统设置-时间快捷选项设置
     And I wait for "3000" millsecond
     Then the page's title will be "系统配置"
 
-  @dashboard16pre2
   Scenario: 编辑所有时间
     Given open the "system.TimeShortcutsConfig" page for uri "/system/shortcuts/"
     And I wait for loading invisible
@@ -40,7 +37,6 @@ Feature: 系统设置-时间快捷选项设置
     And I click the "WholeTimeCancel" button
     Then I will see the text "WholeTime" is not existed in page
 
-  @dashboard16a1
   Scenario: 新增时间快捷选项-相对
     Given open the "system.TimeShortcutsConfig" page for uri "/system/shortcuts/"
     And I wait for loading invisible
@@ -70,7 +66,7 @@ Feature: 系统设置-时间快捷选项设置
     And I click the "WholeTimeSave" button
     Then I will see the text "上一个月" exist in page
 
-  @dashboardpart3Smoke
+  @settingSmoke
   Scenario: 新增时间快捷选项-最近
     Given open the "system.TimeShortcutsConfig" page for uri "/system/shortcuts/"
     And I wait for loading invisible
@@ -130,7 +126,6 @@ Feature: 系统设置-时间快捷选项设置
     Then I will see the error message "请先完成编辑或新增操作"
 #    Then I wait for "CreateConflictWarn" will be visible
 
-  @cleardashboard16
   Scenario Outline: 删除已添加自定义快捷选项
     Given open the "system.TimeShortcutsConfig" page for uri "/system/shortcuts/"
     And I wait for loading invisible
@@ -145,7 +140,7 @@ Feature: 系统设置-时间快捷选项设置
       | 35分钟窗口   |    DeleteActual    |
       | 前25个交易日 |    DeleteOther    |
 
-    @dashboardpart3Smoke
+    @settingSmoke
     Examples:
       | name       |    delete    |
       | 最近10天    |    DeleteRecent    |

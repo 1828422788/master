@@ -1,4 +1,4 @@
-@cleardashboardpart0
+@cleardashboard
 Feature: 仪表盘删除
 
   Background:

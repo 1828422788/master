@@ -251,4 +251,9 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return webDriver.findElement(By.xpath(xpath));
     }
 
+    @FindBy(className = "yotta-empty-description")
+    private WebElement resultMessage;
+
+    public WebElement getResultMessage(){return resultMessage;}
+
 }

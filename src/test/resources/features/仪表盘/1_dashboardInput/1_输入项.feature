@@ -1,7 +1,7 @@
-@dashboardinput @dashboard0429 @dashboard33
+@dashboardInput @dashboard0429 @dashboard33
 Feature: 仪表盘输入项
 
-  @dbinputpre0 @dbinputpre @dashboardinputSmoke
+  @dbinputpre0 @dbinputpre @dashboardInputSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -48,7 +48,7 @@ Feature: 仪表盘输入项
       | 测试输入项3 |
       | 测试输入项4 |
 
-    @dashboardinputSmoke
+    @dashboardInputSmoke
     Examples:
       | name   |
       | 测试输入项5 |
@@ -85,7 +85,7 @@ Feature: 仪表盘输入项
       | 测试输入项6 |
       | 测试输入项7 |
 
-    @dashboardinputSmoke
+    @dashboardInputSmoke
     Examples:
       | name   |
       | 测试输入项5 |
@@ -122,7 +122,7 @@ Feature: 仪表盘输入项
       | 测试输入项6 |
       | 测试输入项7 |
 
-    @dashboardinputSmoke
+    @dashboardInputSmoke
     Examples:
       | name   |
       | 测试输入项5 |
@@ -850,7 +850,7 @@ Feature: 仪表盘输入项
 #    And I click the "DeleteTag" button
 #    And I click the "Ensure" button under some element
 
-  @dbinput5 @dbinput51 @dashboardinputSmoke
+  @dbinput5 @dbinput51 @dashboardInputSmoke
   Scenario: 修改通用配置搜索语句
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -873,7 +873,7 @@ Feature: 仪表盘输入项
     And I wait for "500" millsecond
     Then I will see the success message "配置成功"
 
-  @dbinput5 @dbinput52 @dashboardinputSmoke
+  @dbinput5 @dbinput52 @dashboardInputSmoke
   Scenario: 增加标识值前后缀 RZY-3430
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -907,7 +907,7 @@ Feature: 仪表盘输入项
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
-  @dbinput5 @dbinput53 @dashboardinputSmoke
+  @dbinput5 @dbinput53 @dashboardInputSmoke
   Scenario: 验证标识符前后缀 RZY-3430
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

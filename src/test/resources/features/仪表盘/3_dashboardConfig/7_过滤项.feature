@@ -1,7 +1,7 @@
-@dashboard0330 @dashboard35 @dashboardpart3
+@dashboard0330 @dashboard35 @dashboardConfig
 Feature: 仪表盘过滤项
 
-  @dashboardpart3Smoke
+  @dashboardConfigSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -14,7 +14,7 @@ Feature: 仪表盘过滤项
       | name  |
       | 测试过滤项 |
 
-  @dashboardpart3Smoke
+  @dashboardConfigSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -30,7 +30,7 @@ Feature: 仪表盘过滤项
       | name  |
       | 测试过滤项 |
 
-  @dashboardpart3Smoke
+  @dashboardConfigSmoke
   Scenario: 添加事件操作
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -50,7 +50,7 @@ Feature: 仪表盘过滤项
     And I click the "Today" button
     And I click the "Ensure" button
 
-  @dashboardpart3Smoke
+  @dashboardConfigSmoke
   Scenario Outline: 添加下拉菜单类型的过滤项（RZY-253,RZY-1869,RZY-266）
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -86,7 +86,7 @@ Feature: 仪表盘过滤项
       | title  | token  | field           | inputType | choiceValue |
       | filter | filter | apache.geo.city | 下拉菜单      | 南京市         |
 
-  @dashboardpart3Smoke
+  @dashboardConfigSmoke
   Scenario Outline: 验证下拉过滤项(RZY-226，RZY-254)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -111,7 +111,7 @@ Feature: 仪表盘过滤项
       | 苏州市  |
       | 成都市  |
 
-  @dashboardpart3Smoke
+  @dashboardConfigSmoke
   Scenario Outline: 验证下拉过滤字段校验(RZY-254)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -138,7 +138,7 @@ Feature: 仪表盘过滤项
       | cityNo |
       | 测试市  |
 
-  @dashboardpart3Smoke
+  @dashboardConfigSmoke
   Scenario: 修改为过滤项发生变化自动搜索(RZY-255,RZY-256,RZY-257)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

@@ -1,4 +1,4 @@
-@dashboardpart3 @dashboard36
+@dashboardConfig @dashboard36
 Feature: 仪表盘通用配置
 
   Scenario Outline: 新建仪表盘

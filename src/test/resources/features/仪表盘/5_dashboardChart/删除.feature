@@ -1,5 +1,5 @@
 @cleanDashboard @cleanDashboardChart
-Feature: 仪表盘删除
+Feature: 仪表盘图表删除
 
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
