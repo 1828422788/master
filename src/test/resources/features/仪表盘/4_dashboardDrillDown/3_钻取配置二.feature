@@ -18,17 +18,17 @@ Feature: 仪表盘钻取配置二
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
-#    And I click the "Create" button
-    Then I will see the "trend.CreatePageDash" page
+    Then I will see the "trend.CreatePage" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
-#    And I click the "FenPianQuYang" button
-#    And I alter the input element "FenPianQuYang" value to "0"
+    And I click the "SearchConfig" button
+    And I wait for "FenPianQuYang" will be visible
+    And I set the parameter "FenPianQuYang" with value ""
+    And I click the "CloseWindow" button
     And I click the "SearchButton" button
-    Given I wait for loading complete
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I wait for "2000" millsecond
     And I click the "NextButton" button
     Given I wait for loading complete
     And I wait for "Header" will be visible

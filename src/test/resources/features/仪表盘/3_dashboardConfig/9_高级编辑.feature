@@ -327,10 +327,6 @@ Feature: 仪表盘高级编辑
     And I wait for "500" millsecond
     And I click the "Operate" button
     And I choose the "美化JSON" from the "ChartDropdown"
-    And I wait for "2500" millsecond
-#    Then I will see the "ChartHighEdit" result will contain "<json>"
-    Then take part of "HighJsonEditor" with name "actual/高级编辑_美化JSON"
-#    And I compare source image "actual/高级编辑_美化JSON" with target image "expect/高级编辑_美化JSON"
 
   Scenario: 夜间模式_切换主题
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -381,7 +377,6 @@ Feature: 仪表盘高级编辑
     And I choose the "切换主题" from the "ChartDropdown"
     And I wait for "2000" millsecond
     And I will see the "HighJsonEditor" is "ace_dark"
-    Then take part of "HighJsonEditor" with name "actual/<image>"
 
     Examples:
       | name          |   image        |
@@ -422,6 +417,7 @@ Feature: 仪表盘高级编辑
     And I wait for "500" millsecond
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be invisible
     And I click the "Jiangsu" button
     And switch to another window
     Then I wait for title change text to "搜索"
@@ -450,6 +446,7 @@ Feature: 仪表盘高级编辑
     And I wait for "500" millsecond
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be invisible
     And I click the "Jiangsu" button
     Then I wait for title change text to "搜索"
     And I close all tabs except main tab

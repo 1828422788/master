@@ -16,7 +16,7 @@ Feature: 仪表盘07批量操作
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
-    And I wait for loading invisible
+    And I wait for "SuccessMessage" will be invisible
     And I click the dashboard icon which name is "Test_Batch_Control_Resource_1"
     Then I will see the text "资源标签..............AutoTestTag" exist in page
 
@@ -26,7 +26,7 @@ Feature: 仪表盘07批量操作
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
-    And I wait for loading invisible
+    And I wait for "SuccessMessage" will be invisible
     And I click the dashboard icon which name is "Test_Batch_Control_Resource_2"
     Then I will see the text "资源标签..............无" exist in page
 
@@ -56,7 +56,7 @@ Feature: 仪表盘07批量操作
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
-    And I wait for loading invisible
+    And I wait for "SuccessMessage" will be invisible
     And I click the dashboard icon which name is "Test_Batch_Control_Resource_2"
     Then I will see the text "资源标签..............auto_package" exist in page
     And I click the dashboard icon which name is "Test_Batch_Control_Resource_1"
