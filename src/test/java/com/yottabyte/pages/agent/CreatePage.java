@@ -46,16 +46,16 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='最后修改时间']/parent::div/following-sibling::div//input")
     private WebElement LastChangeTime;
 
-    @FindBy(xpath = "//span[text()='来源路径']/following-sibling::span")
+    @FindBy(xpath = "//span[text()='来源路径: ']/following-sibling::span")
     private WebElement SourceRoot;
 
     public WebElement getCheckAppname() {
-        return getCheckpageElement("appname");
+        return getCheckpageElement("appname: ");
     }
 
 
     public WebElement getCheckTag() {
-        return getCheckpageElement("tag");
+        return getCheckpageElement("tag: ");
     }
 
     public WebElement getPreview() {
@@ -118,19 +118,19 @@ public class CreatePage extends PageTemplate {
 
 
     public WebElement getCheckScriptFile() {
-        return getCheckpageElement("脚本文件");
+        return getCheckpageElement("脚本文件: ");
     }
 
     public WebElement getCheckParam(){
-        return getCheckpageElement("参数");
+        return getCheckpageElement("参数: ");
     }
 
     public WebElement getCheckChangeRowRule(){
-        return getCheckpageElement("换行规则");
+        return getCheckpageElement("换行规则: ");
     }
 
     public WebElement getCheckInternal(){
-        return getCheckpageElement("间隔");
+        return getCheckpageElement("间隔: ");
     }
     public WebElement getCheckMap() {
         return getCheckpageElement("映射");
@@ -454,7 +454,7 @@ public class CreatePage extends PageTemplate {
         return MysqlDatabase;
     }
 
-    @FindBy(xpath = "//span[text()='连续监视']/following-sibling::span")
+    @FindBy(xpath = "//span[text()='连续监视: ']/following-sibling::span")
     private WebElement Monitoring;
 
     @FindBy(xpath = "//div[@class='yotta-modal-body']//div[@class='yotta-spinner-overlay']/div/div/div[2]/div[1]/span")
@@ -558,7 +558,7 @@ public class CreatePage extends PageTemplate {
         return InputKind;
     }
 
-    @FindBy(xpath = "//span[text()='输入类型']/following-sibling::span")
+    @FindBy(xpath = "//span[text()='输入类型: ']/following-sibling::span")
     private WebElement InputKind;
 
     public WebElement getAgentTitle() {

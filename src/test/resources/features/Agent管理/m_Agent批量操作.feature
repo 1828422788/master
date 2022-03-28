@@ -1,4 +1,4 @@
-@agent3 @agent_multi @agentSmoke3
+@agentConfig @agent_multi
 
 Feature: Agent批量操作
 
@@ -40,7 +40,5 @@ Feature: Agent批量操作
     And I wait for "2000" millsecond
     And I will see the message "您选中的 Agents 将停止采集数据，是否继续？"
     And I click the "CancelButton" button
-#    And I wait for "30000" millsecond
-#    Then I will see the element "" name contain
 
 

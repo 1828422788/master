@@ -1,4 +1,4 @@
-@agent_database @agent2 @agentSmoke2
+@agent_database @agentCollect
 Feature: Agent编辑数据库数据类型数据源
 
   Background:
@@ -6,12 +6,12 @@ Feature: Agent编辑数据库数据类型数据源
     And I wait for loading invisible
     And I zoom the browse to full screen
     When I click the detail which column is "0" in agent page
-#    When I click the detail which name is "253" in agent page
     And switch to another window
     And I close all tabs except main tab
     And I wait for loading invisible
     And I will see the "agent.CreatePage" page
 
+  @agentCollectSmoke
   Scenario: 新建mysql数据库类型数据源
     And I click the "Create" button
     And I wait for "2000" millsecond
@@ -40,27 +40,25 @@ Feature: Agent编辑数据库数据类型数据源
     And I click the "Finish" button
     And I will see the element "Addsuccessmsg" name is "添加成功"
 
-
+  @agentCollectSmoke
   Scenario: mysql数据库类型数据源禁用
     Given the data name "autotestmysql" in agent table "DatabaseTypeTable" then i click the "close" switch
     Then I wait for loading invisible
     And I wait for element "DatabaseTypeSwitchStatus" change text to "已禁用"
 
-
+  @agentCollectSmoke
   Scenario: mysql数据库类型数据源启用
     Given the data name "autotestmysql" in agent table "DatabaseTypeTable" then i click the "open" switch
     And I wait for "DatabaseTypeSwitchStatus" will be visible
     And I wait for element "DatabaseTypeSwitchStatus" change text to "已启用"
 
-
+  @agentCollectSmoke
   Scenario:编辑Sql语句
     Given the data name "autotestmysql" in table "DatabaseTypeTable" then i click the "编辑" button
     And I wait for loading invisible
     And I set the parameter "EditSql" with value "Select * from AgentGroup"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
-
 
   Scenario:编辑采集频率
     Given the data name "autotestmysql" in table "DatabaseTypeTable" then i click the "编辑" button
@@ -68,8 +66,6 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "EidtFrequency" with value "0 * * * * 1"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
-
 
   Scenario:编辑增量字段
     Given the data name "autotestmysql" in table "DatabaseTypeTable" then i click the "编辑" button
@@ -77,8 +73,6 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "IncreaseData" with value "id"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
-
 
   Scenario:编辑增量操作符
     Given the data name "autotestmysql" in table "DatabaseTypeTable" then i click the "编辑" button
@@ -86,7 +80,6 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "IncreaseSymbol" with value ">="
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
   Scenario:编辑每轮采集记录条数
     Given the data name "autotestmysql" in table "DatabaseTypeTable" then i click the "编辑" button
@@ -94,7 +87,6 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "RecordNumber" with value "1"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
   Scenario Outline: 数据库数据源修改appname成功
     Given the data name "autotestmysql" in table "DatabaseTypeTable" then i click the "编辑" button
@@ -102,7 +94,6 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "Appname" with value "<appnamekind>"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
     Examples:
       | appnamekind |
@@ -128,7 +119,6 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
     Examples:
       | tagkind |
@@ -148,14 +138,13 @@ Feature: Agent编辑数据库数据类型数据源
       |   s，s    |
       |   #￥%…&*   |
 
+  @agentCollectSmoke
   Scenario: 数据库数据源删除
     Given the data name "autotestmysql" in table "DatabaseTypeTable" then i click the "更多" button
     And I click the "Delete" button
     And I wait for loading invisible
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
-
 
   Scenario: 编辑mysql数据库类型数据库链接
     And I click the "Create" button
@@ -167,8 +156,6 @@ Feature: Agent编辑数据库数据类型数据源
     And I wait for "Password" will be visible
     And I set the parameter "Password" with value "rizhiyi&2014"
     And I click the "Save" button
-#    And I wait for "ChangeMemo" will be visible
-#    Then I will see the element "ChangeMemo" name is "修改成功"
 
   Scenario: 编辑mysql数据库类型数据库名
     And I click the "Create" button
@@ -180,8 +167,6 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "Password" with value "rizhiyi&2014"
     And I set the parameter "DataBaseName" with value "rizhiyi_yottaweb"
     And I click the "Save" button
-#    And I wait for "ChangeMemo" will be visible
-#    Then I will see the element "ChangeMemo" name is "修改成功"
 
   Scenario: 编辑mysql数据库类型端口
     And I click the "Create" button
@@ -195,8 +180,6 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "DataBaseName" with value "mysql"
     And I wait for loading invisible
     And I click the "Save" button
-#    And I wait for "ChangeMemo" will be visible
-#    Then I will see the element "ChangeMemo" name is "修改成功"
 
   Scenario: 编辑mysql数据库类型最大连接数
     And I click the "Create" button
@@ -209,8 +192,6 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "MaxLink" with value "5"
     And I wait for loading invisible
     And I click the "Save" button
-#    And I wait for "ChangeMemo" will be visible
-#    Then I will see the element "ChangeMemo" name is "修改成功"
 
   Scenario: 复制mysql数据库类型
     And I click the "Create" button
@@ -223,8 +204,6 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "LinkName" with value "autotestmysql139"
     And I wait for loading invisible
     And I click the "Save" button
-#    And I wait for "ChangeMemo" will be visible
-#    Then I will see the element "ChangeMemo" name is "保存成功"
 
   Scenario: 删除mysql数据库类型
     And I click the "Create" button
@@ -242,4 +221,3 @@ Feature: Agent编辑数据库数据类型数据源
     And I wait for loading invisible
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element "ChangeMemo" name is "删除连接成功。"#

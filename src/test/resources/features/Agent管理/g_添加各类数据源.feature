@@ -1,5 +1,5 @@
-@agent2 @agent_addfile
-Feature: Agent添加数据源
+@agent_addfile @agentCollect
+Feature: Agent添加各类数据源
 
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
@@ -28,7 +28,6 @@ Feature: Agent添加数据源
     And I set the parameter "Charset" with value "<charsetKind>"
     And I wait for "2000" millsecond
     And I set the parameter "Charset" with value "<charsetKind1>"
-#    When I choose the "<charsetKind>" from the "CharsetKind"
     And I click the "Next" button
     And I click the "Finish" button
     And I wait for "Addsuccessmsg" will be visible
@@ -40,7 +39,6 @@ Feature: Agent添加数据源
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
     Examples:
       | charsetKind | charsetKind1 |
@@ -48,7 +46,7 @@ Feature: Agent添加数据源
       | utf-8       | utf-8        |
       | utf-16      | utf-16       |
 
-
+  @agentCollectSmoke
   Scenario: 到搜索页中进行验证
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "appname:autohekafiletest"
@@ -58,7 +56,6 @@ Feature: Agent添加数据源
     And I wait for "5000" millsecond
     And I wait for "SearchStatus" will be visible
     And I wait for element "EventsTitle" change text to "事件列表"
-#    And I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario Outline: Agent添加数据源-单一数据源采集-全拼大写Appname
     And I click the "Create" button
@@ -102,16 +99,11 @@ Feature: Agent添加数据源
     And I click the "Next" button
     And I set the parameter "Listenaddress" with value "192.168.1.139:514"
     And I click the "Next" button
-#    And I wait for "Next" will be visible
-#    And I click the "Next" button
-#    And I will see the element "MemoMessage" name is "请至少添加一个映射。"
-#    And I click the "Ensure" button
     And I click the "AddNewMap" button
     And I set the parameter "Syslogip" with value "192.168.1.139"
     And I set the parameter "Syslogappname" with value "autohekaSyslog"
     And I set the parameter "Syslogtag" with value "autohekaSyslog"
     And I click the "Next" button
-#    And I will see the element "CheckListenaddress" name is "192.168.1.139:514"
     And I click the "Finish" button
     And I wait for loading invisible
     And I will see the element "Addsuccessmsg" name is "添加成功"
@@ -121,7 +113,6 @@ Feature: Agent添加数据源
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
   Scenario Outline: Agent添加数据源-脚本采集
     And I click the "Create" button
@@ -137,7 +128,6 @@ Feature: Agent添加数据源
     And I set the parameter "Appname" with value "autohekascripttest"
     And I set the parameter "Tag" with value "autohekascripttest"
     And I choose the "<charsetKind>" from the "CharsetKind"
-#    And I set the parameter "CharsetKind" with value "<charsetKind>"
     And I click the "Next" button
     And I click the "Finish" button
     And I wait for loading invisible
@@ -149,7 +139,6 @@ Feature: Agent添加数据源
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
     Examples:
       | charsetKind |

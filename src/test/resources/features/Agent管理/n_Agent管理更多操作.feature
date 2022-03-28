@@ -1,4 +1,4 @@
-@agent3 @agent_more
+@agentConfig @agent_more
 
 Feature: Agent更多操作
 

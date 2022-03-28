@@ -1,4 +1,4 @@
-@agent @agentSmoke
+@agentCollectSmoke @agentCollect
 Feature: Agent添加数据源校验
 
   Background:

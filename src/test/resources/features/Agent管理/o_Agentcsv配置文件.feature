@@ -1,4 +1,4 @@
-@agent @agent_csv @agentSmoke
+@agentConfig @agent_csv
 Feature: AgentCSV配置文件
 
   Background:
@@ -18,7 +18,6 @@ Feature: AgentCSV配置文件
     And I click the "Create" button
     And I click the "Create" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element "CsvChangeMemo" name is "当前编辑操作还未确认，请确认后再进行下一步操作"
 
   Scenario: Csv文件添加配置JmxInput失败2
     And I move the mouse pointer to the "CsvConfing"
@@ -27,15 +26,14 @@ Feature: AgentCSV配置文件
     And I click the "Create" button
     And I click the "Csvcertain" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element "CsvChangeMemo" name is "当前编辑的行不可全部为空"
 
   Scenario: 从JmxInput配置页面返回Agent具体配置
     And I move the mouse pointer to the "CsvConfing"
     When I click the "JmxInput" button
     And I click the "Backup" button
     And I wait for loading invisible
-#    Then I will see the element "AgentTitle" contains "Agent详情"
 
+  @agentConfigSmoke
   Scenario: Csv文件添加配置JmxInput
     And I move the mouse pointer to the "CsvConfing"
     When I click the "JmxInput" button
@@ -52,6 +50,7 @@ Feature: AgentCSV配置文件
     And I click the "Csvcertain" button
     And I click the "CsvSave" button
 
+  @agentConfigSmoke
   Scenario: Csv文件编辑JmxInput
     And I move the mouse pointer to the "CsvConfing"
     When I click the "JmxInput" button
@@ -67,6 +66,7 @@ Feature: AgentCSV配置文件
     And I click the "Csvcertain" button
     And I click the "CsvSave" button
 
+  @agentConfigSmoke
   Scenario: Csv文件删除JmxInput
     And I move the mouse pointer to the "CsvConfing"
     When I click the "JmxInput" button
@@ -83,7 +83,6 @@ Feature: AgentCSV配置文件
     And I click the "Create" button
     And I click the "Csvcertain" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element "CsvChangeMemo" name is "当前编辑操作还未确认，请确认后再进行下一步操作"
 
   Scenario: Csv文件添加配置HostConnectInput失败2
     And I move the mouse pointer to the "CsvConfing"
@@ -92,15 +91,14 @@ Feature: AgentCSV配置文件
     And I click the "Create" button
     And I click the "Csvcertain" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element "CsvChangeMemo" name is "当前编辑的行不可全部为空"
 
   Scenario: 从HostConnectInput配置页面返回Agent具体配置
     And I move the mouse pointer to the "CsvConfing"
     When I click the "HostConnectInput" button
     And I click the "Backup" button
     And I wait for loading invisible
-#    Then I will see the element "AgentTitle" contains "Agent详情"
 
+  @agentConfigSmoke
   Scenario: Csv文件添加配置HostConnectInput
     And I move the mouse pointer to the "CsvConfing"
     When I click the "HostConnectInput" button
@@ -114,6 +112,7 @@ Feature: AgentCSV配置文件
     And I click the "Csvcertain" button
     And I click the "CsvSave" button
 
+  @agentConfigSmoke
   Scenario: Csv文件编辑HostConnectInput
     And I move the mouse pointer to the "CsvConfing"
     When I click the "HostConnectInput" button
@@ -126,6 +125,7 @@ Feature: AgentCSV配置文件
     And I click the "Csvcertain" button
     And I click the "CsvSave" button
 
+  @agentConfigSmoke
   Scenario: Csv文件删除HostConnectInput
     And I move the mouse pointer to the "CsvConfing"
     When I click the "HostConnectInput" button

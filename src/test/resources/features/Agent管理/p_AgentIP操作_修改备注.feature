@@ -1,5 +1,5 @@
-@agent
-Feature: Agent管理ip操作
+@agent @agentConfig
+Feature: Agent管理ip_修改备注信息
 
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
@@ -14,10 +14,7 @@ Feature: Agent管理ip操作
     And I click the "MemoButton" button
     And I set the parameter "Memo" with value "<memory>"
     And I click the "MemoEnsure" button
-#    And  I wait for loading invisible
-#    Then I will see the search result contains "{'column':'2','name':'<memory>'}"
 
-#  @indexSettingSmoke
     Examples: 备注成功
       | memory  |
       | 中文中文    |
@@ -32,8 +29,6 @@ Feature: Agent管理ip操作
     And I click the "MemoButton" button
     And I set the parameter "Memo" with value "<memory>"
     And  I wait for loading invisible
-#    Then I will see the element "MemoError" name is "<errormessage>"
-
 
     Examples: 备注失败
       | memory                                                                                                                                                                                                                       | errormessage      |

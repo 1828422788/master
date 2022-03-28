@@ -1,4 +1,4 @@
-@agent3
+@agent3 @agentConfig
 Feature: AgentIP过滤
 
   Background:

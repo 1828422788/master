@@ -1,4 +1,4 @@
-@agent_beats @agent @agentSmoke
+@agent_beats @agentCollect
 Feature: Agent编辑Beats类型数据源
 
   Background:
@@ -11,6 +11,7 @@ Feature: Agent编辑Beats类型数据源
     And I wait for loading invisible
     And I will see the "agent.CreatePage" page
 
+  @agentCollectSmoke
   Scenario: 新增Beats类型数据源
     And I click the "Create" button
     And I click the "BeatsType" button
@@ -23,12 +24,13 @@ Feature: Agent编辑Beats类型数据源
     And I wait for loading invisible
     And I will see the element "Addsuccessmsg" name is "添加成功"
 
+  @agentCollectSmoke
   Scenario: 修改beats数据源禁用
     Given the data name "autoBeatstest" in agent table "BeatsTable" then i click the "close" switch
     Then I wait for "getBeatsSwitchStatus" will be visible
     And I wait for element "getBeatsSwitchStatus" change text to "已禁用"
 
-
+  @agentCollectSmoke
   Scenario: 修改beats数据源启用
     Given the data name "autoBeatstest" in agent table "BeatsTable" then i click the "open" switch
     Then I wait for "getBeatsSwitchStatus" will be visible
@@ -40,14 +42,12 @@ Feature: Agent编辑Beats类型数据源
     And I set the parameter "Appname" with value "<appnamekind>"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
     Examples:
       | appnamekind         |
       | changebeatsappname  |
       | changebeatsappname2 |
       | change_beatsappname |
-
 
   Scenario Outline: Beats数据源修改appname失败
     Given the data name in beats table "BeatsTable" then i click the "编辑" button
@@ -68,8 +68,6 @@ Feature: Agent编辑Beats类型数据源
     And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
-
 
     Examples:
       | tagkind                         |
@@ -89,12 +87,11 @@ Feature: Agent编辑Beats类型数据源
       | s，s     |
       | #￥%…&*  |
 
-
+  @agentCollectSmoke
   Scenario: Beats数据源删除
     Given the data name in beats table "BeatsTable" then i click the "更多" button
     And I click the "Delete" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 

@@ -1,4 +1,4 @@
-@agent3 @agent_group2 @test_agent_group @agentSmoke3
+@agentGroup @test_agent_group
 
 Feature: Agent分组采集
 
@@ -6,12 +6,12 @@ Feature: Agent分组采集
     Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
     And I zoom the browse to full screen
 
+  @agentGroupSmoke
   Scenario Outline: 新建Agent分组设置并添加ip
     And I wait for loading complete
     And I click the "CreateAgentGroupButton" button
     And I set the parameter "Name" with value "<name>"
     When I set the parameter "Description" with value "<description>"
-#    And I choose the "<role>" from the "Role"
     And I wait for loading invisible
     And I click the "Save" button
     And I wait for "Addsuccessmsg" will be visible
@@ -27,14 +27,13 @@ Feature: Agent分组采集
     And I click the "FinishGroupButton" button
     And I click the "OpenGroupButton" button
     And I wait for loading invisible
-#    And I wait for loading complete
     And I wait for "2000" millsecond
     Then I will see the agent search result contains "1"
-#  @indexSettingSmoke
     Examples: 成功
       | name      | description | role      | message              |
       | sunxctest | English     | __admin__ | 成功加入分组 [ sunxctest ] |
 
+  @agentGroupSmoke
   Scenario: Agent分组采集数据
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
@@ -49,15 +48,13 @@ Feature: Agent分组采集
     And I click the "Next" button
     And I set the parameter "Appname" with value "autohekafiletest"
     And I set the parameter "Tag" with value "autohekafiletest"
-#    When I choose the "<charsetKind>" from the "CharsetKind"
     And I click the "Next" button
-#    And I will see the element "InputKind" name is "文件监视"
-#    And I will see the element "SourceRoot" name is "/data/rizhiyi/logs/heka"
-#    And I will see the element "Monitoring" name is "是"
-#    And I will see the element "CheckAppname" name is "autohekafiletest"
+    And I will see the element "InputKind" name is "文件监视"
+    And I will see the element "SourceRoot" name is "/data/rizhiyi/logs/heka"
+    And I will see the element "Monitoring" name is "是"
+    And I will see the element "CheckAppname" name is "autohekafiletest"
     And I click the "Finish" button
     And I wait for "Addsuccessmsg" will be visible
-#    And I will see the element "Addsuccessmsg" name is "添加成功"
 
   Scenario: 分组采集数据源禁用
     And I click the "OpenGroupButton" button
@@ -78,6 +75,7 @@ Feature: Agent分组采集
     And I wait for "3000" millsecond
     And I wait for element "DataSourceSwitchStatus1" change text to "已启用"
 
+  @agentGroupSmoke
   Scenario: 分组采集数据修改日志内容白名单
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
@@ -87,8 +85,6 @@ Feature: Agent分组采集
     And I set the parameter "ContextWhiteList" with value "error"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
-
 
   Scenario: 分组采集数据修改日志内容黑名单
     And I click the "OpenGroupButton" button
@@ -99,7 +95,6 @@ Feature: Agent分组采集
     And I set the parameter "ContextBlackList" with value "false"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
   Scenario Outline: 分组采集数据修改最后修改时间
     And I click the "OpenGroupButton" button
@@ -111,7 +106,6 @@ Feature: Agent分组采集
     When I choose the "<timekind>" from the "TimeKind"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
     Examples:
@@ -125,12 +119,9 @@ Feature: Agent分组采集
     And I click the "Addgroupinput" button
     And I will see the "agent.CreatePage" page
     And I click the "EditAutoFile" button
-#    And I wait for "CharacterKind" will be visible
     When I choose the "<characterkind>" from the "CharacterKind"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
-
 
     Examples:
       | characterkind |
@@ -146,8 +137,6 @@ Feature: Agent分组采集
     And I set the parameter "Tag" with value "Changeautohekafiletag"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
-
 
   Scenario: 分组采集数据修改appname
     And I click the "OpenGroupButton" button
@@ -158,17 +147,14 @@ Feature: Agent分组采集
     And I set the parameter "Appname" with value "Changeautohekafileappname"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
     And I wait for loading invisible
     Given the data name "Changeautohekafileappname" in table "AppNameTable" then i click the "编辑" button
-#    And I click the "EditAutoFile1" button
     And I wait for loading invisible
     And I set the parameter "Appname" with value "autohekafiletest"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
-
+  @agentGroupSmoke
   Scenario: 分组采集数据数据源删除
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
@@ -178,16 +164,13 @@ Feature: Agent分组采集
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-#    Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
+  @agentGroupSmoke
   Scenario Outline: 删除Agent分组
     And I click the "<name>" button
     And I click the "More" button
-#    And I click the "Delete" button
     And I click the "Ensure" button
     And I wait for "Addsuccessmsg" will be visible
-#    Then I will see the element "Addsuccessmsg" name is "删除 Agent 分组成功"
-
 
     Examples:
       | name       |
