@@ -164,9 +164,7 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I click the "AddEventButton" button
-    Then I will see the "LiList" is "yotta-menu-item-disabled"
-    And I hide the element "EventList"
+    And I will see the "AddEventButton" doesn't exist
 
   @dashboard03i @dashboardSmoke
   Scenario: 新建标签页，验证搜索
