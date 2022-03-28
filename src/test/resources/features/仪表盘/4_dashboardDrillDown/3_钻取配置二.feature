@@ -109,7 +109,7 @@ Feature: 仪表盘钻取配置二
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取配置1" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
-    And I wait for loading invisible
+    And I wait for "Ensure" will be visible
     Then I will see the element "DrillActionText" value is "无钻取动作"
 
 
@@ -126,7 +126,7 @@ Feature: 仪表盘钻取配置二
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "钻取配置1" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
-    And I wait for loading invisible
+    And I wait for "Ensure" will be visible
     And I choose the "跳转到自定义URL" from the "DrillAction"
     And I wait for "1500" millsecond
     And I set the parameter "Url" with value "<url>"

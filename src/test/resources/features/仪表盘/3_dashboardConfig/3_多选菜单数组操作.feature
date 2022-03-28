@@ -114,7 +114,7 @@ Feature: 仪表盘多选菜单数组操作
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "DrillAction" will be visible
+    And I wait for "Ensure" will be visible
     And I choose the "管理本页过滤项/输入项数值" from the "DrillAction"
     And I wait for "1000" millsecond
     And I click the "NewCreat" button
@@ -151,7 +151,7 @@ Feature: 仪表盘多选菜单数组操作
     And I wait for "1000" millsecond
     When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "DrillAction" will be visible
+    And I wait for "Ensure" will be visible
     And I choose the "管理本页过滤项/输入项数值" from the "DrillAction"
     And I wait for "1000" millsecond
 #    And I click the "NewCreat" button
@@ -183,7 +183,7 @@ Feature: 仪表盘多选菜单数组操作
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "DrillAction" will be visible
+    And I wait for "Ensure" will be visible
     And I choose the "管理本页过滤项/输入项数值" from the "DrillAction"
     And I wait for "1000" millsecond
     And I choose the "Unshift" from the "OptionItems"
@@ -222,7 +222,7 @@ Feature: 仪表盘多选菜单数组操作
     And I wait for "1000" millsecond
     When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "1000" millsecond
+    And I wait for "Ensure" will be visible
     And I choose the "管理本页过滤项/输入项数值" from the "DrillAction"
     And I wait for "1000" millsecond
 #    And I click the "NewCreat" button

@@ -394,7 +394,7 @@ Feature: 仪表盘1事件列表
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "1500" millsecond
+    And I wait for "Ensure" will be visible
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I wait for "1000" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
@@ -424,7 +424,7 @@ Feature: 仪表盘1事件列表
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "1500" millsecond
+    And I wait for "Ensure" will be visible
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "* | stats count() by appname"
@@ -461,6 +461,7 @@ Feature: 仪表盘1事件列表
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
+    And I wait for "Ensure" will be visible
     And I choose the "跳转到自定义URL" from the "DrillAction"
     And I set the parameter "Url" with value "<url>"
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
@@ -522,7 +523,7 @@ Feature: 仪表盘1事件列表
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "DrillAction" will be visible
+    And I wait for "Ensure" will be visible
     And I choose the "跳转到标签页" from the "DrillAction"
     And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
@@ -594,7 +595,7 @@ Feature: 仪表盘1事件列表
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
-    And I wait for "DrillAction" will be visible
+    And I wait for "Ensure" will be visible
     And I choose the "管理本页过滤项/输入项数值" from the "DrillAction"
     And I wait for "1000" millsecond
     And I click the "NewCreat" button
