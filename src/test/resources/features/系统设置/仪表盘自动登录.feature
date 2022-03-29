@@ -1,4 +1,4 @@
-@setting @settingSmoke
+@setting
 Feature: 系统设置仪表盘自动登录
 
   Background:

@@ -143,7 +143,7 @@ public class CustomConfigs extends PageTemplate {
     }
 
     public WebElement getHomePage() {
-        return dropdownUtils.getDropdownListByLabel("首页");
+        return getYottaCheckbox("system-default_home_page-input");
     }
 
     public WebElement getWholeTime() {
@@ -171,6 +171,8 @@ public class CustomConfigs extends PageTemplate {
     public WebElement getDeleteUnifiedStyle() {
         return deleteUnifiedStyle;
     }
+
+    public WebElement getHiddenRole() { return getYottaCheckbox("system-internal_role-switch"); }
 
     @FindBy(xpath = "//span[text()='报表统一样式']/ancestor::section[1]//span[contains(@class,'upload-tip') and text()='上传完成']")
     private WebElement styleUploadSuccess;

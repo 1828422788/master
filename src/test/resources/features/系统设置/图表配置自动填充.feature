@@ -1,4 +1,4 @@
-@setting @settingSmoke
+@setting
 Feature: 系统设置图标配置自动填充（RZY-1820）
 
   Background:
