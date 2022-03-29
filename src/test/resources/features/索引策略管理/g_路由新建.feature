@@ -4,7 +4,6 @@ Feature: 路由新建（RZY-1481）
   Background:
     Given open the "index.ListPage" page for uri "/indexmatchrules/"
 
-
   Scenario Outline: RZY-1481:新建-路由规则-iisidx索引
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
@@ -16,12 +15,6 @@ Feature: 路由新建（RZY-1481）
     And I set the parameter "AppName" with value "<appName>"
     And I click the "CreateButton" button
     And I will see the success message "<message>"
-
-    @indexSettingSmoke
-    Examples:
-      | appName | tag | rule              | message | desc        |
-      | iis     |     |                   | 保存成功    | AutoAppName |
-
     Examples:
       | appName | tag | rule              | message | desc        |
       |         | iis |                   | 保存成功    | AutoTag     |
@@ -32,6 +25,11 @@ Feature: 路由新建（RZY-1481）
       | appName | tag | rule | message                      |
       |         |     |      | appname, tag 和 匹配规则 至少需要填写一项 |
       | iis     |     |      | 保存失败 |
+
+    @indexSettingSmoke
+    Examples:
+      | appName | tag | rule              | message | desc        |
+      | iis     |     |                   | 保存成功    | AutoAppName |
 
   @indexSettingSmoke
   Scenario: RZY-2437:新建路由配置-路由规则_sample_yotta索引
@@ -62,8 +60,9 @@ Feature: 路由新建（RZY-1481）
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
-    And I click the "WholeTime" button
+    And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for element "EventsTitle" change text to "事件列表"
     And I wait for element "EventNumbers" change text to "事件(10)"
 

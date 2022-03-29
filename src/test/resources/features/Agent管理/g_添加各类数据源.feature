@@ -55,6 +55,7 @@ Feature: Agent添加各类数据源
     And I click the "SearchButton" button
     And I wait for "5000" millsecond
     And I wait for "SearchStatus" will be visible
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for element "EventsTitle" change text to "事件列表"
 
   Scenario Outline: Agent添加数据源-单一数据源采集-全拼大写Appname
@@ -75,6 +76,7 @@ Feature: Agent添加各类数据源
     And I click the "SearchThis" button
     And I wait for loading invisible
     And I will see the "agent.ListPage" page
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for element "EventsTitle" change text to "事件列表"
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
     And I wait for loading invisible

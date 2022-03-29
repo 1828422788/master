@@ -12,19 +12,21 @@ Feature: 索引信息删除（RZY-1476）
 
     Examples:
       | name       |
-      | indexerror |
-      | error      |
       | sunxctime  |
       | sunxcsize  |
       | index_data  |
       | index_freez  |
       | index_sink     |
       | indexnumber1   |
-      | indexnumber    |
-      | indexcompact   |
       | indexcompact1  |
 
     @indexSettingSmoke
     Examples:
       | name       |
+      | error      |
+      | indexerror |
       | iisidx     |
+      | indexcompact   |
+      | indexnumber    |
+
+

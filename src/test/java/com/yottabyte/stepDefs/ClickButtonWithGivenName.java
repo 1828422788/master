@@ -178,6 +178,13 @@ public class ClickButtonWithGivenName {
         String json = "{'column':'" + columnNum + "','name':'" + ip + "'}";
         return json;
     }
+    private String getAgentIpwithdb(String columnNum) {
+        Agent agent = new Agent();
+        String ip = agent.getIpWithdb();
+        Assert.assertNotNull("无正在运行的agent！", ip);
+        String json = "{'column':'" + columnNum + "','name':'" + ip + "'}";
+        return json;
+    }
 
     /**
      * 在给定的table中查找某一元素并点击相应按钮
@@ -339,6 +346,17 @@ public class ClickButtonWithGivenName {
         int num = Integer.parseInt(columnNum) + 1;
         tr.findElement(By.xpath("(./td)[" + num + "]//span[contains(text(),'192')]")).click();
     }
+
+    @Given("^I click the detail withdb which column is \"([^\"]*)\" in agent page$")
+    public void clickDetailWithdbNameInAgentPage(String columnNum) {
+        String json = this.getAgentIpwithdb(columnNum);
+        WebElement table = webDriver.findElement(By.xpath("(//tbody)"));
+        Map<String, Object> map = JsonStringPaser.json2Stirng(json);
+        WebElement tr = listPageUtils.getRowWithoutPaging(map.get("name").toString(), table);
+        int num = Integer.parseInt(columnNum) + 1;
+        tr.findElement(By.xpath("(./td)[" + num + "]//span[contains(text(),'192')]")).click();
+    }
+
     @Given("^I click the detail which name is \"([^\"]*)\" in agent page")
     public void clickNameInAgentPage(String dataname){
         WebElement tr=webDriver.findElement(By.xpath("//span[text()='192.168.1."+dataname+"']"));
@@ -499,22 +517,6 @@ public class ClickButtonWithGivenName {
     public void operateExpand(String name, String action) {
         WebElement tr = listPageUtils.getRow(name);
         WebElement element = tr.findElement(By.xpath(".//span[contains(@class,'expansion')]//span[@role='img']"));
-        String current_label = element.getAttribute("aria-label");
-        String status = current_label.equals("Add") ? "close" : "expand";
-        if (!action.equals(status)) {
-            ClickEvent.clickUnderneathButton(element);
-        }
-    }
-
-    /**
-     * 点击对应行的“+/-”按钮
-     *
-     * @param name   名称
-     * @param action 操作 expand(+)/close(-)
-     */
-    @When("^the dataset is \"([^\"]*)\" then I \"([^\"]*)\" the item$")
-    public void operateExpandDataset(String name, String action) {
-        WebElement element = webDriver.findElement(By.xpath("//span[text()='" + name + "']//ancestor::div[contains(@class,'content')]//span[contains(@class,'expansion')]//span[@role='img']"));
         String current_label = element.getAttribute("aria-label");
         String status = current_label.equals("Add") ? "close" : "expand";
         if (!action.equals(status)) {
@@ -740,7 +742,7 @@ public class ClickButtonWithGivenName {
             WebElement tr = listPageUtils.getRow(dataName);
             WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-            WebElement lastMenuList = dropdownUtils.getMenuList();
+            WebElement lastMenuList = dropdownUtils.getIncidentMenuList();
             List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
             if (buttonName != null && buttonName.trim().length() != 0) {
                 for (WebElement e : elements) {
@@ -757,7 +759,7 @@ public class ClickButtonWithGivenName {
             WebElement tr = listPageUtils.getRow(dataName);
             WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-            WebElement lastMenuList = dropdownUtils.getMenuList();
+            WebElement lastMenuList = dropdownUtils.getIncidentMenuList();
             List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
             if (buttonName != null && buttonName.trim().length() != 0) {
                 for (WebElement e : elements) {
@@ -781,7 +783,7 @@ public class ClickButtonWithGivenName {
         try {
             WebElement button = webDriver.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-            WebElement lastMenuList = dropdownUtils.getMenuList();
+            WebElement lastMenuList = dropdownUtils.getIncidentPageMoreMenuList();
             List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
             if (buttonName != null && buttonName.trim().length() != 0) {
                 for (WebElement e : elements) {
@@ -796,7 +798,7 @@ public class ClickButtonWithGivenName {
         } catch (org.openqa.selenium.StaleElementReferenceException exception) {
             WebElement button = webDriver.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-            WebElement lastMenuList = dropdownUtils.getMenuList();
+            WebElement lastMenuList = dropdownUtils.getIncidentPageMoreMenuList();
             List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
             if (buttonName != null && buttonName.trim().length() != 0) {
                 for (WebElement e : elements) {
@@ -822,7 +824,7 @@ public class ClickButtonWithGivenName {
             try {
                 WebElement button = webDriver.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
                 ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-                WebElement lastMenuList = dropdownUtils.getMenuList();
+                WebElement lastMenuList = dropdownUtils.getIncidentPageMoreMenuList();
                 List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
                 if (buttonName != null && buttonName.trim().length() != 0) {
                     for (WebElement e : elements) {
@@ -834,7 +836,7 @@ public class ClickButtonWithGivenName {
                     }
                 }
 
-                WebElement lastSubMenuList = dropdownUtils.getSubMenu();
+                WebElement lastSubMenuList = dropdownUtils.getIncidentPageMoreMenuSubList();
                 List<WebElement> subElements = lastSubMenuList.findElements(By.tagName("span"));
                 if (subDataName != null && subDataName.trim().length() != 0) {
                     for (WebElement subE : subElements) {
@@ -849,7 +851,7 @@ public class ClickButtonWithGivenName {
             } catch (org.openqa.selenium.StaleElementReferenceException exception) {
                 WebElement button = webDriver.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
                 ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-                WebElement lastMenuList = dropdownUtils.getMenuList();
+                WebElement lastMenuList = dropdownUtils.getIncidentPageMoreMenuList();
                 List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
                 if (buttonName != null && buttonName.trim().length() != 0) {
                     for (WebElement e : elements) {
@@ -861,7 +863,7 @@ public class ClickButtonWithGivenName {
                     }
                 }
 
-                WebElement lastSubMenuList = dropdownUtils.getSubMenu();
+                WebElement lastSubMenuList = dropdownUtils.getIncidentPageMoreMenuSubList();
                 List<WebElement> subElements = lastSubMenuList.findElements(By.tagName("span"));
                 if (subDataName != null && subDataName.trim().length() != 0) {
                     for (WebElement subE : subElements) {
@@ -892,7 +894,7 @@ public class ClickButtonWithGivenName {
                 sleep(2000);
                 WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
                 ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-                WebElement lastMenuList = dropdownUtils.getMenuList();
+                WebElement lastMenuList = dropdownUtils.getIncidentPageMoreMenuList();
                 List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
                 if (buttonName != null && buttonName.trim().length() != 0) {
                     for (WebElement e : elements) {
@@ -905,7 +907,7 @@ public class ClickButtonWithGivenName {
                 }
 
                 sleep(2000);
-                WebElement lastSubMenuList = dropdownUtils.getSubMenu();
+                WebElement lastSubMenuList = dropdownUtils.getIncidentPageMoreMenuSubList();
                 List<WebElement> subElements = lastSubMenuList.findElements(By.tagName("span"));
                 if (subDataName != null && subDataName.trim().length() != 0) {
                     for (WebElement subE : subElements) {
@@ -920,7 +922,7 @@ public class ClickButtonWithGivenName {
             } catch (StaleElementReferenceException | InterruptedException exception) {
                 WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
                 ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-                WebElement lastMenuList = dropdownUtils.getMenuList();
+                WebElement lastMenuList = dropdownUtils.getIncidentPageMoreMenuList();
                 List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
                 if (buttonName != null && buttonName.trim().length() != 0) {
                     for (WebElement e : elements) {
@@ -932,7 +934,7 @@ public class ClickButtonWithGivenName {
                     }
                 }
 
-                WebElement lastSubMenuList = dropdownUtils.getSubMenu();
+                WebElement lastSubMenuList = dropdownUtils.getIncidentPageMoreMenuSubList();
                 List<WebElement> subElements = lastSubMenuList.findElements(By.tagName("span"));
                 if (subDataName != null && subDataName.trim().length() != 0) {
                     for (WebElement subE : subElements) {

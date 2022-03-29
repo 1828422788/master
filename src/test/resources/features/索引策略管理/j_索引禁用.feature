@@ -19,14 +19,16 @@ Feature: 索引信息禁用（RZY-1475）
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "index=indexerror * AND appname:testda"
     And I click the "DateEditor" button
-    And I click the "WholeTime" button
+    And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for element "EventsTitle" change text to "事件列表"
     And I wait for element "EventNumbers" change text to "事件(0)"
     And I set the parameter "SearchInput" with value "appname:testda"
     And I click the "DateEditor" button
-    And I click the "WholeTime" button
+    And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for element "EventsTitle" change text to "事件列表"
     And I wait for element "EventNumbers" change text to "事件(10)"
 
@@ -48,15 +50,18 @@ Feature: 索引信息禁用（RZY-1475）
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "index=indexerror * AND appname:testda"
     And I click the "DateEditor" button
-    And I click the "WholeTime" button
+    And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for element "EventsTitle" change text to "事件列表"
     And I wait for element "EventNumbers" change text to "事件(10)"
     And I set the parameter "SearchInput" with value "appname:testda"
     And I click the "DateEditor" button
-    And I click the "WholeTime" button
+    And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for element "EventsTitle" change text to "事件列表"
+    And I wait for "3000" millsecond
     And I wait for element "EventNumbers" change text to "事件(10)"
 
 
