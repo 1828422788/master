@@ -624,7 +624,7 @@ public class ClickButtonWithGivenName {
      */
     @When("^the data name is \"([^\"]*)\" then I click the \"([^\"]*)\" button without total page$")
     public void clickButtonWithoutTotalPage(String name, String buttonName) {
-        WebElement tr = listPageUtils.getRowWithoutTotalPage(name);
+        WebElement tr = listPageUtils.getOneRowFromTable(name, null);
         WebElement button = tr.findElement(By.xpath(".//span[text()='" + buttonName + "']/ancestor::button"));
         button.click();
     }
@@ -724,7 +724,7 @@ public class ClickButtonWithGivenName {
 
     @When("^the data name is \"([^\"]*)\" then I click the \"([^\"]*)\" button in auth table$")
     public void theDataNameIsThenIClickTheButtonInAuthTable(String name, String buttonName) {
-        WebElement tr = listPageUtils.getRowWithoutTotalPage(name);
+        WebElement tr = listPageUtils.getOneRowFromTable(name, null);
         WebElement button = tr.findElement(By.xpath(".//span[text()='" + buttonName + "']"));
         button.click();
     }

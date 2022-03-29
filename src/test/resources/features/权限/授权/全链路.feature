@@ -158,8 +158,6 @@ Feature: 权限-全链路
     And I set the parameter "Name" with value "权限测试重命名"
     And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
-    #And the data name is "权限测试重命名" then i click the "更多" button
-    #And I click the "Auth" button
     And the data name is "权限测试重命名" then i click the "授权" button in more menu
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
@@ -211,8 +209,6 @@ Feature: 权限-全链路
     And I wait for "TagToInput" will be visible
     And I click the "TagToInput" button
     And I wait for "Tag" will be visible
-    #And I set the parameter "Tag" with value "test"
-    #And I choose the "test" from the "TagDropdown"
     And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And I wait for loading invisible
@@ -226,29 +222,6 @@ Feature: 权限-全链路
     Examples:
       | name    |function|
       | 权限测试重命名 |编辑\n更多    |
-
- # Scenario Outline: 授权有效期限
- #   Given open the "roles.ListPage" page for uri "/account/roles/"
- #   And I wait for loading invisible
- #   And the data name is "__user_AutoTest__" then i click the "授权" button
- #   And I will see the "roles.AuthorizationPage" page
- #   And I wait for "Loading" will be invisible
- #   And I click the "ResourceAuth" button
- #   And I wait for "Loading" will be invisible
- #   Then I click the "{'TabButton':'全链路'}" button
- #   And I wait for loading invisible
- #   And I "checked" the checkbox which name is "<name>" in auth table
- #   When the data name is "<name>" then I click the "无限期" button in auth table
- #   And I click the "Customize" button
- #   And I click the "DateEditor" button
- #   And I set the time input "TimeInput" to "1" minutes later
- #   And I click the "EnsureTime" button
- #   And I click the "SaveButton" button
- #   And I will see the success message "更新成功"
-
- #   Examples:
- #     | name       |
- #     | 权限测试Rename |
 
   Scenario: 新建全链路
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
@@ -267,7 +240,6 @@ Feature: 权限-全链路
     And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'全链路'}" button
-    And I wait for "Loading" will be invisible
     When I "checked" function "读取,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
@@ -337,16 +309,6 @@ Feature: 权限-全链路
       | name       |function|
       | 权限AutoTest |授权\n删除    |
 
- # Scenario: 验证有效期限
- #   Given I login user "AutoTest" with password "All#123456"
- #   Given open the "fulllink.ListPage" page for uri "/fulllink/"
- #   And I wait for loading invisible
- #   Then I will see the search result "{'column':'0','name':'权限测试Rename','contains':'no'}"
- #   Given I login user "验证授权用户" with password "All#123456"
- #   Given open the "fulllink.ListPage" page for uri "/fulllink/"
- #   And I wait for loading invisible
- #   Then I will see the search result contains "{'column':'0','name':'权限测试Rename'}"
-
   Scenario Outline: 授权读取+编辑+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And I wait for loading invisible
@@ -372,17 +334,13 @@ Feature: 权限-全链路
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
     And I wait for loading invisible
     Then the data name is "<name>" then i will see "<function>" button
-    When the data name is "<name>" then i click the "更多" button
-    And I click the "Label" button
+    When the data name is "<name>" then i click the "标签" button in more menu
     And I wait for "TagToInput" will be visible
     And I click the "TagToInput" button
     And I wait for "Tag" will be visible
-   # And I set the parameter "Tag" with value "test"
-   # And I choose the "test" from the "TagDropdown"
     And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
-    And the data name is "<name>" then i click the "更多" button
-    And I click the "Auth" button
+    And the data name is "<name>" then i click the "授权" button in more menu
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
@@ -393,8 +351,7 @@ Feature: 权限-全链路
     And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And I wait for "SuccessMessage" will be invisible
-    And the data name is "权限测试重命名" then i click the "更多" button
-    And I click the "Delete" button
+    And the data name is "权限测试重命名" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
@@ -453,7 +410,7 @@ Feature: 权限-全链路
 
     Examples:
       | name |function|
-      | 权限测试 |授权\n删除   |
+      | 权限测试 |授权\n删除    |
 
   Scenario: 新建二次授权
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
@@ -574,7 +531,7 @@ Feature: 权限-全链路
 
     Examples:
       | authRole | authName | function | name      |
-      | 用户分组     | 验证授权用户分组 | 读取,编辑,删除 | 二次授权测试重命名 |
+      | 用户分组     | 验证授权用户分组 | 编辑\n更多 | 二次授权测试重命名 |
 
   Scenario Outline: 验证二次授权读取+编辑+删除
     Given I login user "验证授权用户" with password "All#123456"
@@ -586,8 +543,6 @@ Feature: 权限-全链路
     And I wait for "TagToInput" will be visible
     And I click the "TagToInput" button
     And I wait for "Tag" will be visible
-   # And I set the parameter "Tag" with value "test"
-   # And I choose the "test" from the "TagDropdown"
     And I click the "Ensure" button under some element
     Then I will see the success message "修改成功"
     And the data name is "<name>" then i click the "更多" button

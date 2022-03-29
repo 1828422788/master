@@ -288,7 +288,7 @@ public class Checkbox {
     }
 
     private void clickAuthButton(String status, List<String> functions, String name, String preXpath, String sufXpath) {
-        WebElement tr = listPageUtils.getRowWithoutTotalPage(name);
+        WebElement tr = listPageUtils.getOneRowFromTable(name, null);
         for (String function : functions) {
             WebElement functionButton = tr.findElement(By.xpath(preXpath + function + sufXpath));
             String functionClass = functionButton.getAttribute("class");
@@ -306,7 +306,7 @@ public class Checkbox {
      */
     @And("^I \"([^\"]*)\" the checkbox which name is \"([^\"]*)\" in auth table$")
     public void checkboxInAuth(String status, String name) {
-        WebElement tr = listPageUtils.getTableRow(name, null);
+        WebElement tr = listPageUtils.getOneRowFromTable(name, null);
         WebElement button = tr.findElement(By.xpath(".//label"));
         String functionClass = button.getAttribute("class");
         if (functionClass.contains("checked") && "unchecked".equals(status) || !functionClass.contains("checked") && "checked".equals(status)) {

@@ -1,9 +1,11 @@
 package com.yottabyte.utils;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
+import com.yottabyte.pages.PageTemplate;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 
 import java.util.List;
 import java.util.Map;
@@ -241,27 +243,39 @@ public class ListPageUtils {
      * @param table 若有多个table，需指定查找哪个table下的数据
      * @return tr
      */
-    public WebElement getTableRow(String name, WebElement table) {
+    public WebElement getOneRowFromTable(String name, WebElement table) {
 
-        List<WebElement> trList = this.getTableRowList(table);
-        for (WebElement tr : trList) {
-            if (tr.getText().contains(name)) {
-                return tr;
-            }
-        }
-        WebElement nextPage = webDriver.findElement(By.xpath("//div/span[@class='yotta-pagination-page'][last()]"));
-        String buttonAttribute = nextPage.getAttribute("class");
-        while (!buttonAttribute.contains("disabled")) {
-            nextPage.click();
-            WaitForElement.waitUntilLoadingDisappear();
-            trList = this.getTableRowList(table);
+        while (true) {
+            List<WebElement> trList = this.getTableRowList(table);
+            // 定义显示等待的条件，trlist size 期望大于1
+            ExpectedCondition expectedCondition = new ExpectedCondition<Boolean>() {
+                @Override
+                public Boolean apply(WebDriver driver) {
+                    Boolean flag = (trList.size()>=1);
+                    return flag;
+                }
+            };
+            // 执行显示等待，如果30秒内，条件不成立，报错。
+            WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+
+            //检查trList中是否有tr包含期望的name，找到返回tr
             for (WebElement tr : trList) {
                 if (tr.getText().contains(name)) {
                     return tr;
                 }
             }
+
+            // 如果没有找到，则尝试翻页，
+            WebElement nextPage = PageTemplate.getNextPageButton();
+            String buttonAttribute = nextPage.getAttribute("class");
+            if (!buttonAttribute.contains("disabled")){
+                nextPage.click();
+                WaitForElement.waitUntilLoadingDisappear();
+            }else{
+                //如果翻页按钮disable，则说明没有找到tr，返回null
+                return null;
+            }
         }
-        return null;
     }
 
     private List<WebElement> getTableRowList(WebElement table) {

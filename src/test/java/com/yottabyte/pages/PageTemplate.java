@@ -5,6 +5,7 @@ import com.yottabyte.constants.WebDriverConst;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.DropdownUtils;
+import com.yottabyte.utils.ElementExist;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -14,6 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.LoadableComponent;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -21,7 +23,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class PageTemplate extends LoadableComponent<PageTemplate> {
 
-    public WebDriver webDriver;
+    public static WebDriver webDriver;
     public static ConfigManager config = new ConfigManager();
     public String parentPageName;
     public DropdownUtils dropdownUtils = new DropdownUtils();
@@ -251,9 +253,9 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return webDriver.findElement(By.xpath(xpath));
     }
 
-    @FindBy(className = "yotta-empty-description")
-    private WebElement resultMessage;
-
-    public WebElement getResultMessage(){return resultMessage;}
+    public static WebElement getNextPageButton() {
+        String xpath = "//div[@class='yotta-pagination-pages yotta-pagination-elements']/span[last()]";
+        return webDriver.findElement(By.xpath(xpath));
+    }
 
 }
