@@ -49,7 +49,7 @@ Feature: 报表_1_选择趋势图
     And I set the parameter "TrendSearchInput" with value "报表测试_数据集"
     And I move the mouse pointer to the "ViewDatasetTrendInfo"
     And I wait for "TipElement" will be visible
-    And I will see the element "TipElement" contains "<tipText>"
+    And I wait for element "TipElement" change text to "<tipText>"
     And I wait for "1000" millsecond
     And I click the "ChartListButton" button
     And I wait for "2000" millsecond
@@ -266,7 +266,6 @@ Feature: 报表_1_选择趋势图
     |      | * \| stats count()     | 名称不能为空    |
     | test |                        | 搜索内容不能为空|
 
-  @reportSmoke
   Scenario Outline: 创建报表_缺少趋势图
     When I set the parameter "Name" with value "test_no_trends_<type>"
     And I set the parameter "Describe" with value "AutoCreate"

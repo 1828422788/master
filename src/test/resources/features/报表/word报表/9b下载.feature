@@ -84,5 +84,4 @@ Feature: 报表_富文本编辑_9_下载
         | FontSize             |
         | Table3x2_Color       |
         | Image                |
-        | Content              |
         | DividingLine         |

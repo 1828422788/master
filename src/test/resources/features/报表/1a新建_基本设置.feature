@@ -22,7 +22,6 @@ Feature: 报表_1a_基本设置
     When I click the "Complete" button under some element
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
-    And I wait for "45000" millsecond
 
     Examples:
       |   type    |
@@ -52,8 +51,7 @@ Feature: 报表_1a_基本设置
     And I wait for "TipText" will be visible
     And I will see the element "TipText" contains "名称不能为空"
 
-  @reportSmoke
-  Scenario Outline: 执行计划1
+  Scenario Outline: 执行计划_每天
     When I set the parameter "Name" with value "test_report_<period>"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "PDF" from the "ReportType"
@@ -80,8 +78,7 @@ Feature: 报表_1a_基本设置
       |    period    |  hour   |   minute  |
       |    每天      |  16     |  10        |
 
-  @reportSmoke
-  Scenario Outline: 执行计划2
+  Scenario Outline: 执行计划-2个（每周，每月）
     When I set the parameter "Name" with value "test_report_<period>"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "PDF" from the "ReportType"
@@ -109,7 +106,7 @@ Feature: 报表_1a_基本设置
     |    每月      |  25日    |  16     |  10        |
 
   @reportSmoke
-  Scenario Outline: 执行计划3
+  Scenario Outline: 执行计划_每年
     When I set the parameter "Name" with value "test_report_<period>"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "PDF" from the "ReportType"

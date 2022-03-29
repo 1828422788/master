@@ -10,7 +10,6 @@ Feature:报表_富文本编辑_1_趋势图
     And I set the parameters "Hour" and "Minute" as "3" minutes later from now
     And I choose the "WORD" from the "ReportType"
 
-  @reportSmoke
   Scenario Outline: 缺少趋势图
     When I set the parameter "Name" with value "empty_word_report"
     And I click the "NextButton" button under some element
