@@ -8,8 +8,9 @@ Feature: 拓扑图新建
   Scenario Outline: 成功新建拓扑图
     When I click the "Create" button
     And I set the parameter "NameInput" with value "<name>"
-    And I click the "TagInput" button
+    Then I set the parameter "TagInput" with value "<Type>"
     And I choose the "<Type>" from the "TagDropdown"
+    Then I wait for "1000" millsecond
     And I click the "Ensure" button
 
     Examples:

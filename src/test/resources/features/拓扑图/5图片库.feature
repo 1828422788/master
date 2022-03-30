@@ -17,11 +17,16 @@ Feature: 图片库
     Then I click the "ConfirmOfPicture" button
     And I wait for "2000" millsecond
 
+    @topologySmoke
     Examples:
       | source |
       | /src/test/resources/testdata/image/smallRobbot.png |
+
+    Examples:
+      | source |
       | /src/test/resources/testdata/image/delete.png  |
 
+  @topologySmoke
   Scenario: 验证上传成功
     Given open the "topology.ListPage" page for uri "/topology/"
     And I wait for loading invisible

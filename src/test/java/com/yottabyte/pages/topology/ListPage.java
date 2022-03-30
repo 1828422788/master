@@ -22,24 +22,14 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//input[@class='yotta-select-selection-search']")
     private WebElement tag;
 
-    @FindBy(xpath = "//span[text()='请输入标签名称']")
-    private WebElement tagInput;
-
     @FindBy(className = "yotta-message-content")
     private WebElement errorMessage;
 
-    @FindBy(xpath = "//li[@yotta-test='topology-list_tag-button']/span")
-    private WebElement label;
-
-    @FindBy(xpath = "//li[@yotta-test='topology-list_authorize-button']/span[text()='授权']")
-    private WebElement auth;
-
-    @FindBy(xpath = "//li[@yotta-test='topology-list_rename-button']/span")
-    private WebElement rename;
-
-    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//span[@class='yotta-select-selection-placeholder']")
-    private WebElement tagToInput;
-
+    @FindBy(xpath = "//span[@class='yotta-icon yotta-icon-Close yotta-tag-close']")
+    private WebElement deleteTag;
+    public WebElement getDeleteTag() {
+        return deleteTag;
+    }
     @FindBy(xpath = "//*[@yotta-test='topology-list_app-select']/div")
     private WebElement belongApp;
 
@@ -47,7 +37,6 @@ public class ListPage extends ListPageFactory {
     private WebElement resourceTag;
 
     @FindBy(className = "yotta-message-content")
-   // @FindBy(className = "yotta-dialog-contenttext")
     private WebElement message;
 
     @FindBy(xpath = "//button[@yotta-test='topology-list_confirm-upload-imng-button']/span")
@@ -60,15 +49,12 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getConfirmOfPicture() { return confirmOfPicture; }
 
-    public WebElement getTagToInput() {
-        return tagToInput;
+    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//input")
+    private WebElement tagInput;
+    public WebElement getTagInput() {
+        webDriver.findElement(By.xpath("//div[@yotta-test='resource_tag-change_resource_tag-select']")).click();
+        return tagInput;
     }
-
-    public WebElement getAuth() { return auth; }
-
-    public WebElement getRename() { return rename; }
-
-    public WebElement getLabel() { return label; }
 
     public WebElement getDelete() { return getButton("删除"); }
 
@@ -79,10 +65,6 @@ public class ListPage extends ListPageFactory {
     @Override
     public WebElement getTag() {
         return tag;
-    }
-
-    public WebElement getTagInput() {
-        return tagInput;
     }
 
     public WebElement getClickUpload() { return this.getYottaButton("topology-list_upload-img-item-input"); }
