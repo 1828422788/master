@@ -1,6 +1,7 @@
 @app @timetask
 Feature: 应用定时任务(RZY-2123)
 
+  @appSmoke
   Scenario: 新建定时任务
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible

@@ -123,7 +123,7 @@ Feature: 应用趋势图
     And I wait for "1500" millsecond
     And I click the "NextButton" button
     And I wait for "1500" millsecond
-    And I choose the "TrendApp" from the "ChartList"
+    And I choose the "<name>" from the "ChartList"
     And I wait for "TopoTitle" will be visible
     And I click the "Save" button
 #    And I wait for "TrendTitle" will be visible
