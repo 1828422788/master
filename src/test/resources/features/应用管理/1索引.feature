@@ -1,4 +1,4 @@
-@app @appSmoke
+@app
 Feature: 应用索引配置(RZY-2183)
 
   Background:
@@ -7,6 +7,7 @@ Feature: 应用索引配置(RZY-2183)
     When  I click the detail which name is "AutoTestAppWithAllResources"
     Then I will see the "app.AppPage" page
 
+  @appSmoke
   Scenario: 索引新建
     When I click the "Index" button
     And I will see the "app.AppPage" page

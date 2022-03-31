@@ -1,4 +1,4 @@
-@app @appSmoke
+@app
 Feature: 应用限额管理（RZY-2182）
 
   Background:

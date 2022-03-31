@@ -1,7 +1,6 @@
 @app
 Feature: 应用仪表盘
 
-  @appSmoke
   Scenario Outline: 新建单个资源app
     Given open the "app.ListPage" page for uri "/app/list/"
     And I click the "CreateButton" button
