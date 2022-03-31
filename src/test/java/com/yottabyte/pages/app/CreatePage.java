@@ -1,9 +1,7 @@
 package com.yottabyte.pages.app;
 
 import com.yottabyte.pages.PageTemplate;
-import com.yottabyte.stepDefs.ClickSomeButton;
 import com.yottabyte.utils.ClickEvent;
-import com.yottabyte.utils.ElementExist;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -425,7 +423,7 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getKVDropdownList() {
         kvDropdownList.click();
-        return dropdownUtils.getMenuList();
+        return dropdownUtils.getParentElementOfMenuList();
     }
 
     public WebElement getKvDropdown() {

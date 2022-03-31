@@ -49,8 +49,8 @@ public class DropdownUtils {
         return lastDropdownList;
     }
 
-    public WebElement getMenuList() {
-        List<WebElement> list = webDriver.findElements(By.className("yotta-menu"));
+    public WebElement getParentElementOfMenuList() {
+        List<WebElement> list = webDriver.findElements(By.xpath("//ul[contains(@class,'yotta-menu')]"));
         WebElement lastMenuList = list.get(list.size() - 1);
         if (lastMenuList.getAttribute("style").contains("display: none;")) {
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastMenuList);

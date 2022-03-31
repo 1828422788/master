@@ -2,18 +2,12 @@ package com.yottabyte.pages.dataset;
 
 import com.yottabyte.pages.ListPageFactory;
 import com.yottabyte.utils.ClickEvent;
-import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.WaitForElement;
-import cucumber.api.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import javax.xml.xpath.XPath;
-
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -313,7 +307,7 @@ public class ListPage extends ListPageFactory {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return dropdownUtils.getMenuList();
+        return dropdownUtils.getParentElementOfMenuList();
     }
 
     @FindBy(xpath = "(//tr[contains(@class,'expansion')]//div[contains(text(),'资源标签......')])[last()]")

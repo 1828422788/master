@@ -1066,7 +1066,7 @@ public class CreatePage extends PageTemplate {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return dropdownUtils.getMenuList();
+        return dropdownUtils.getParentElementOfMenuList();
     }
 
     @FindBy(xpath = "//*[@yotta-test='alert-app-select']/div")

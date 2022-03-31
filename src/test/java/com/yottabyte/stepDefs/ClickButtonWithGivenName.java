@@ -9,6 +9,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 import java.util.Map;
@@ -60,7 +62,7 @@ public class ClickButtonWithGivenName {
             WebElement tr = listPageUtils.getRow(dataName);
             WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='operation-more-button']"));
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-            WebElement lastMenuList = dropdownUtils.getMenuList();
+            WebElement lastMenuList = dropdownUtils.getParentElementOfMenuList();
             List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
             if (buttonName != null && buttonName.trim().length() != 0) {
                 for (WebElement e : elements) {
@@ -77,7 +79,7 @@ public class ClickButtonWithGivenName {
             WebElement tr = listPageUtils.getRow(dataName);
             WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='operation-more-button']"));
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-            WebElement lastMenuList = dropdownUtils.getMenuList();
+            WebElement lastMenuList = dropdownUtils.getParentElementOfMenuList();
             List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
             if (buttonName != null && buttonName.trim().length() != 0) {
                 for (WebElement e : elements) {
@@ -524,6 +526,22 @@ public class ClickButtonWithGivenName {
         }
     }
 
+    /**
+     * 点击对应行的“+/-”按钮
+     *
+     * @param name   名称
+     * @param action 操作 expand(+)/close(-)
+     */
+    @When("^the dataset is \"([^\"]*)\" then I \"([^\"]*)\" the item$")
+    public void operateExpandDataset(String name, String action) {
+        WebElement element = webDriver.findElement(By.xpath("//span[text()='" + name + "']//ancestor::div[contains(@class,'content')]//span[contains(@class,'expansion')]//span[@role='img']"));
+        String current_label = element.getAttribute("aria-label");
+        String status = current_label.equals("Add") ? "close" : "expand";
+        if (!action.equals(status)) {
+            ClickEvent.clickUnderneathButton(element);
+        }
+    }
+
 // 3.6 版本
 //    /**
 //     * 关闭或开启禁用开关
@@ -742,7 +760,7 @@ public class ClickButtonWithGivenName {
             WebElement tr = listPageUtils.getRow(dataName);
             WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-            WebElement lastMenuList = dropdownUtils.getMenuList();
+            WebElement lastMenuList = dropdownUtils.getParentElementOfMenuList();
             List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
             if (buttonName != null && buttonName.trim().length() != 0) {
                 for (WebElement e : elements) {
@@ -759,7 +777,7 @@ public class ClickButtonWithGivenName {
             WebElement tr = listPageUtils.getRow(dataName);
             WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-            WebElement lastMenuList = dropdownUtils.getMenuList();
+            WebElement lastMenuList = dropdownUtils.getParentElementOfMenuList();
             List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
             if (buttonName != null && buttonName.trim().length() != 0) {
                 for (WebElement e : elements) {
@@ -783,7 +801,7 @@ public class ClickButtonWithGivenName {
         try {
             WebElement button = webDriver.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-            WebElement lastMenuList = dropdownUtils.getMenuList();
+            WebElement lastMenuList = dropdownUtils.getParentElementOfMenuList();
             List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
             if (buttonName != null && buttonName.trim().length() != 0) {
                 for (WebElement e : elements) {
@@ -798,7 +816,7 @@ public class ClickButtonWithGivenName {
         } catch (org.openqa.selenium.StaleElementReferenceException exception) {
             WebElement button = webDriver.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-            WebElement lastMenuList = dropdownUtils.getMenuList();
+            WebElement lastMenuList = dropdownUtils.getParentElementOfMenuList();
             List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
             if (buttonName != null && buttonName.trim().length() != 0) {
                 for (WebElement e : elements) {
@@ -824,7 +842,7 @@ public class ClickButtonWithGivenName {
             try {
                 WebElement button = webDriver.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
                 ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-                WebElement lastMenuList = dropdownUtils.getMenuList();
+                WebElement lastMenuList = dropdownUtils.getParentElementOfMenuList();
                 List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
                 if (buttonName != null && buttonName.trim().length() != 0) {
                     for (WebElement e : elements) {
@@ -851,7 +869,7 @@ public class ClickButtonWithGivenName {
             } catch (org.openqa.selenium.StaleElementReferenceException exception) {
                 WebElement button = webDriver.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
                 ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-                WebElement lastMenuList = dropdownUtils.getMenuList();
+                WebElement lastMenuList = dropdownUtils.getParentElementOfMenuList();
                 List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
                 if (buttonName != null && buttonName.trim().length() != 0) {
                     for (WebElement e : elements) {
@@ -894,7 +912,7 @@ public class ClickButtonWithGivenName {
                 sleep(2000);
                 WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
                 ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-                WebElement lastMenuList = dropdownUtils.getMenuList();
+                WebElement lastMenuList = dropdownUtils.getParentElementOfMenuList();
                 List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
                 if (buttonName != null && buttonName.trim().length() != 0) {
                     for (WebElement e : elements) {
@@ -922,7 +940,7 @@ public class ClickButtonWithGivenName {
             } catch (StaleElementReferenceException | InterruptedException exception) {
                 WebElement button = tr.findElement(By.xpath(".//button[@yotta-test='incident-more-button']"));
                 ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button);
-                WebElement lastMenuList = dropdownUtils.getMenuList();
+                WebElement lastMenuList = dropdownUtils.getParentElementOfMenuList();
                 List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
                 if (buttonName != null && buttonName.trim().length() != 0) {
                     for (WebElement e : elements) {
@@ -991,4 +1009,67 @@ public class ClickButtonWithGivenName {
         Assert.assertTrue(status.equals(selected));
     }
 
+    /**
+     * 在加速任务管理页中，点击加速任务ID
+     *
+     * @param trendName   趋势图名称
+     *
+     */
+    @When("^I open the acceleration task which contains the \"([^\"]*)\" trend$")
+    public void openAccelerationTask(String trendName) {
+        WebElement table = webDriver.findElement(By.xpath("(//tbody)"));
+        for (WebElement tr : table.findElements(By.xpath("./tr"))) {
+            WebElement trendNum = tr.findElement(By.xpath("./td//span[@class='yotta-dropdown-trigger']"));
+            //点击【趋势图个数】
+            ClickEvent.clickUnderneathButton(trendNum);
+            WebElement trendList = dropdownUtils.getParentElementOfMenuList();
+            // 等待 [加载中] 不见了
+            if (trendList.findElement(By.xpath(".//span")).getText().contains("加载中")){
+                WebDriverWait wait = new WebDriverWait(webDriver, 5);
+                wait.until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(trendList.findElement(By.xpath(".//span")),"加载中")));
+            }
+            List<WebElement> values = trendList.findElements(By.xpath(".//li"));
+            // 点击【访问次数】（这样可以把第二列中的趋势图列表关闭，就不会与下一个打开的趋势图列表冲突）
+            tr.findElement(By.xpath("./td[4]//span")).click();
+            for (WebElement value : values) {
+                if (value.getText().contains(trendName)) {
+                    //点击【任务ID】
+                    ClickEvent.clickUnderneathButton(tr.findElement(By.xpath("./td[1]//button")));
+                    return;
+                }
+            }
+        }
+    }
+
+    /**
+     * 在加速任务管理页中，寻找对应名称的操作按钮并点击
+     *
+     * @param trendName   趋势图名称
+     *
+     */
+    @When("^the acceleration task contains the \"([^\"]*)\" trend then i click the \"([^\"]*)\" button$")
+    public void openAccelerationTask(String trendName, String buttonName) {
+        WebElement table = webDriver.findElement(By.xpath("(//tbody)"));
+        for (WebElement tr : table.findElements(By.xpath("./tr"))) {
+            WebElement trendNum = tr.findElement(By.xpath("./td//span[@class='yotta-dropdown-trigger']"));
+            //点击【趋势图个数】
+            ClickEvent.clickUnderneathButton(trendNum);
+            WebElement trendList = dropdownUtils.getParentElementOfMenuList();
+            // 等待 [加载中] 不见了
+            if (trendList.findElement(By.xpath(".//span")).getText().contains("加载中")){
+                WebDriverWait wait = new WebDriverWait(webDriver, 5);
+                wait.until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(trendList.findElement(By.xpath(".//span")),"加载中")));
+            }
+            List<WebElement> values = trendList.findElements(By.xpath(".//li"));
+            // 点击【访问次数】（这样可以把第二列中的趋势图列表关闭，就不会与下一个打开的趋势图列表冲突）
+            tr.findElement(By.xpath("./td[4]//span")).click();
+            for (WebElement value : values) {
+                if (value.getText().contains(trendName)) {
+                    //点击【操作按钮】
+                    this.click(buttonName, tr);
+                    return;
+                }
+            }
+        }
+    }
 }

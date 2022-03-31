@@ -7,8 +7,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.util.List;
-
 
 public class CreateTemplatePage extends PageTemplate {
 
@@ -59,7 +57,7 @@ public class CreateTemplatePage extends PageTemplate {
     public WebElement getTrendList() {
         ClickEvent.clickUnderneathButton(trendList);
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
-        return dropdownUtils.getMenuList();
+        return dropdownUtils.getParentElementOfMenuList();
     }
 
     public WebElement getTrendListButton() {

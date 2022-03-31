@@ -4,12 +4,13 @@ import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.GetTime;
 import com.yottabyte.utils.WaitForElement;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.List;
 
 
 public class CreatePage extends PageTemplate {
@@ -604,15 +605,22 @@ public class CreatePage extends PageTemplate {
         return li;
     }
 
-    public WebElement getChartList() {
+    public WebElement getChartList() { //复制
         ClickEvent.clickUnderneathButton(getChartListButton());
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
-        return dropdownUtils.getMenuList();
+        return dropdownUtils.getParentElementOfMenuList();
+    }
+
+    public WebElement getChartListReference() { //引用
+        ClickEvent.clickUnderneathButton(getChartListButton());
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
+        ClickEvent.clickUnderneathButton(webDriver.findElement(By.xpath("//input[@value='reference']/ancestor::label")));
+        return dropdownUtils.getParentElementOfMenuList();
     }
 
     public WebElement getPreview() {
         ClickEvent.clickUnderneathButton(preview);
-        return dropdownUtils.getMenuList();
+        return dropdownUtils.getParentElementOfMenuList();
     }
 
     public WebElement getTrendSearchInput() {
