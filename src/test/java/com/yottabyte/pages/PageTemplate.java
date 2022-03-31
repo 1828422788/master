@@ -52,9 +52,6 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     @FindBy(xpath = "//span[text()='AutoTestRoleWithAllResource']/ancestor::li")
     private WebElement disabledLi;
 
-    @FindBy(className = "ant-input")
-    private WebElement searchInput;
-
     @FindBy(className = "ant-input-search-icon")
     private WebElement searchIcon;
 
@@ -114,7 +111,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     }
 
     public WebElement getSearchInput() {
-        return searchInput;
+        return getYottaInput("table-filter_text-input");
     }
 
     public WebElement getDisabledLi() {

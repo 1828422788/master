@@ -36,6 +36,10 @@ public class PluginPage extends PageTemplate {
         return super.getButton("上传");
     }
 
+    public WebElement getDownload() {
+        return super.getButton("下载");
+    }
+
     public WebElement getErrorMessage() {
         return super.getErrorMessage();
     }
@@ -61,5 +65,7 @@ public class PluginPage extends PageTemplate {
     public WebElement getVerifyTextNameDup() {
         return verifyTextNameDup;
     }
+
+    public WebElement getSearchInput(){return super.getYottaInput("table-filter_text-input");}
 
 }
