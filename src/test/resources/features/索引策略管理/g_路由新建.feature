@@ -21,15 +21,16 @@ Feature: 路由新建（RZY-1481）
       |         |     | \d+\s\w+\s\d+.\d+ | 保存成功    | AutoRule    |
       | IIS     |     |                   | 保存成功    | AutoUpCase  |
 
+    @indexSettingSmoke
+    Examples:
+      | appName | tag | rule              | message | desc        |
+      | iis     |     |                   | 保存成功    | AutoAppName |
+
     Examples:
       | appName | tag | rule | message                      |
       |         |     |      | appname, tag 和 匹配规则 至少需要填写一项 |
       | iis     |     |      | 保存失败 |
 
-    @indexSettingSmoke
-    Examples:
-      | appName | tag | rule              | message | desc        |
-      | iis     |     |                   | 保存成功    | AutoAppName |
 
   @indexSettingSmoke
   Scenario: RZY-2437:新建路由配置-路由规则_sample_yotta索引

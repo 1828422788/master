@@ -109,6 +109,7 @@ Feature: 索引信息编辑（RZY-1477至1480）
     Given the data name is "{'column':'1','name':'index_sink'}" then i click the "编辑" button
     Then I will see the "index.CreatePage" page
     And I click the "Next" button
+    And I wait for "1000" millsecond
     And I click the "Next" button
     And I set the parameter "SinkHDD" with value "50"
     And I wait for "1000" millsecond
@@ -120,6 +121,7 @@ Feature: 索引信息编辑（RZY-1477至1480）
     Given the data name is "{'column':'1','name':'index_sink'}" then i click the "编辑" button
     Then I will see the "index.CreatePage" page
     And I click the "Next" button
+    And I wait for "1000" millsecond
     And I click the "Next" button
     And I set the parameter "SinkNAS" with value "40"
     And I wait for "1000" millsecond
@@ -145,6 +147,7 @@ Feature: 索引信息编辑（RZY-1477至1480）
     Given the data name is "{'column':'1','name':'index_sink'}" then i click the "编辑" button
     Then I will see the "index.CreatePage" page
     And I click the "Next" button
+    And I wait for "1000" millsecond
     And I click the "Next" button
     And I switch the "IndexSink" button to "unchecked"
     And I wait for "1000" millsecond
