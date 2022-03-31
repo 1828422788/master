@@ -1,15 +1,16 @@
-@backup @third @backupSmoke
+@backup
 Feature: 备份策略新增（RZY-1500）
 
   Background:
     Given open the "backup.ListPage" page for uri "/backup/"
 
+  @backupSmoke
   Scenario Outline: 新增成功_appname
     Given I set the parameter "AppNameInput" with value "<appName>"
     When I click the "AddButton" button
     And I will see the element "HelpMessage" name is "<HelpMessage>"
     And I refresh the website
-#    Then I will see the search result without paging contains "{'column':'0','name':'<appName>'}"
+    And I wait for "1000" millsecond
     Then I will see the search result contains "{'column':'0','name':'<appName>'}"
 
     Examples: 添加成功
@@ -25,13 +26,11 @@ Feature: 备份策略新增（RZY-1500）
     Given I set the parameter "AppNameInput" with value "<appName>"
     When I click the "AddButton" button
     And I will see the element "HelpMessage" name is "<HelpMessage>"
-#    And I refresh the website
-#    Then I will see the search result without paging contains "{'column':'0','name':'<appName>'}"
     Examples: 添加失败
       | appName         | HelpMessage             |
-      |                 | 无效appname        |
-      | 中文             | 无效appname        |
-      | _na&*(&me       | 无效appname        |
-      | *               | 无效appname       |
+      |                 | 无效appname               |
+      | 中文            | 无效appname                |
+      | _na&*(&me       | 无效appname               |
+      | *               | 无效appname               |
 
 
