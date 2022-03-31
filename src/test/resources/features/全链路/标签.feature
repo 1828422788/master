@@ -1,4 +1,4 @@
-@fulllink @tagFulllink @fulllinkSmoke
+@fulllink @tagFulllink
 Feature: 全链路_标签
 
   Background:
