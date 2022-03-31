@@ -1,5 +1,5 @@
-@backup @third @backupSmoke
-Feature: 验证备份数据
+@backup  @backupSmoke
+Feature: 备份数据验证
 
   Background:
     Given open the "backup.ListPage" page for uri "/backup/"
@@ -51,7 +51,6 @@ Feature: 验证备份数据
     And I set the parameter "Desc" with value "为测试非yotta索引恢复情况"
     And I set the parameter "Tag" with value "testnyt"
     And I set the parameter "AppName" with value "testnyt"
-    And I wait for "3000" millsecond
     And I click the "CreateButton" button
     And I wait for "1000" millsecond
     And I will see the success message "保存成功"
@@ -66,62 +65,40 @@ Feature: 验证备份数据
     And I wait for element "VerifyText" change text to "上传完成"
 
   Scenario: 验证数据列表
-    And I wait for "2000" millsecond
     And I click the "DataList" button
-    And I will see the element "DataListNum" name is "数据列表(4)"
-    And I wait for "2000" millsecond
-#    Then I will see the search result contains "{'column':'0','name':'<name>'}"
-#    Then I will see the search result contains "{'column':'3','name':'可恢复'}"
-#    Examples:
-#      | name          |
-#      | testln        |
-#      | testbackup    |
+    And I wait for element "DataListNum" change text to "数据列表(4)"
+
 
   Scenario: 恢复数据列表
     When I click the "DataList" button
-    And I wait for "2000" millsecond
-    And I will see the element "DataListNum" name is "数据列表(4)"
+    And I wait for element "DataListNum" change text to "数据列表(4)"
     And I click the "Restore" button
     And I wait for "Dialog" will be visible
     And I click the "LogEnsure" button
-#    Then I will see the search result contains "{'column':'0','name':'<appName>'}"
-#    And I wait for "2000" millsecond
-#    Then I will see the search result contains "{'column':'3','name':'<stats>'}"
-#页面一直刷新
-#    Examples:
-#      | appName          | stats       |
-#      | testln        | 不可恢复      |
-#      | testbackup    | 可恢复     |
 
   Scenario: 验证备份恢复数据
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "index:ops-yotta-*-restored"
-    And I wait for "1000" millsecond
     And I click the "DateEditor" button
-    And I click the "WholeTime" button
-    And I wait for "1000" millsecond
+    And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for element "EventsTitle" change text to "事件列表"
-    And I wait for "2000" millsecond
     And I wait for element "EventNumbers" change text to "事件(10)"
 
   Scenario: 验证非yotta索引的数据
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "index=testnyt * AND appname:testnyt"
-    And I wait for "1000" millsecond
     And I click the "DateEditor" button
-    And I click the "WholeTime" button
-    And I wait for "1000" millsecond
+    And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "4000" millsecond
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for element "EventsTitle" change text to "事件列表"
-    And I wait for "2000" millsecond
     And I wait for element "EventNumbers" change text to "事件(10)"
 
   Scenario: 恢复非yotta数据
     When I click the "DataList" button
-    And I wait for "2000" millsecond
-    And I will see the element "DataListNum" name is "数据列表(4)"
+    And I wait for element "DataListNum" change text to "数据列表(4)"
     And I click the "Restore1" button
     And I wait for "Dialog" will be visible
     And I click the "LogEnsure" button
@@ -131,9 +108,8 @@ Feature: 验证备份数据
     And I set the parameter "SearchInput" with value "index:ops-yotta-*-restored"
     And I wait for "1000" millsecond
     And I click the "DateEditor" button
-    And I click the "WholeTime" button
-    And I wait for "1000" millsecond
+    And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for element "EventsTitle" change text to "事件列表"
-    And I wait for "2000" millsecond
     And I wait for element "EventNumbers" change text to "事件(20)"
