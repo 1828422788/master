@@ -3,12 +3,11 @@ Feature: 仪表盘删除
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
 
   Scenario Outline: 删除仪表盘(RZY-214)
-    And I wait for loading invisible
     And I set the parameter "SearchInput" with value "<name>"
-    Given I wait for loading complete
-    And I wait for "3000" millsecond
+    And I wait for loading invisible
     When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button

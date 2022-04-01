@@ -18,9 +18,6 @@ Feature: 仪表盘_6_00_表格样式设置
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘<name>"
-    And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -59,9 +56,6 @@ Feature: 仪表盘_6_00_表格样式设置
   Scenario Outline: 添加图表 RZY-4845
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘表格样式设置"
-    And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘表格样式设置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -89,9 +83,6 @@ Feature: 仪表盘_6_00_表格样式设置
   Scenario: 编辑图表样式-颜色-值-默认 RZY-4846
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘表格样式设置"
-    And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘表格样式设置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -112,9 +103,6 @@ Feature: 仪表盘_6_00_表格样式设置
   Scenario: 编辑图表样式-颜色-值-随机 RZY-4847
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘表格样式设置"
-    And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘表格样式设置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -136,9 +124,6 @@ Feature: 仪表盘_6_00_表格样式设置
   Scenario: 编辑图表样式-颜色-值-自定义 RZY-4848
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘表格样式设置"
-    And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘表格样式设置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -163,9 +148,6 @@ Feature: 仪表盘_6_00_表格样式设置
   Scenario: 编辑图表样式-颜色-范围 RZY-4849
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘表格样式设置"
-    And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘表格样式设置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -192,9 +174,6 @@ Feature: 仪表盘_6_00_表格样式设置
   Scenario: 编辑图表样式-颜色-梯度 RZY-4850
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘表格样式设置"
-    And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘表格样式设置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -218,9 +197,6 @@ Feature: 仪表盘_6_00_表格样式设置
   Scenario: 编辑图表样式-字体颜色-#fa3a76 RZY-4852
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘表格样式设置"
-    And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘表格样式设置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -241,9 +217,6 @@ Feature: 仪表盘_6_00_表格样式设置
   Scenario: 编辑图表样式-字体样式-粗体 RZY-4851
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘表格样式设置"
-    And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘表格样式设置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -262,9 +235,6 @@ Feature: 仪表盘_6_00_表格样式设置
   Scenario: 编辑图表样式-字体样式-斜体 RZY-4851
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘表格样式设置"
-    And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘表格样式设置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -283,9 +253,6 @@ Feature: 仪表盘_6_00_表格样式设置
   Scenario: 编辑图表样式-字体样式-下划线 RZY-4851
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘表格样式设置"
-    And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘表格样式设置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -304,9 +271,6 @@ Feature: 仪表盘_6_00_表格样式设置
   Scenario Outline: 编辑图表样式-列宽度 RZY-4853
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘表格样式设置"
-    And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘表格样式设置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -331,9 +295,6 @@ Feature: 仪表盘_6_00_表格样式设置
   Scenario: 编辑图表样式-对齐方式-居中 RZY-4854
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘表格样式设置"
-    And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘表格样式设置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -352,9 +313,6 @@ Feature: 仪表盘_6_00_表格样式设置
   Scenario: 编辑图表样式-对齐方式-居右 RZY-4854
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘表格样式设置"
-    And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘表格样式设置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -373,9 +331,6 @@ Feature: 仪表盘_6_00_表格样式设置
   Scenario: 编辑图表样式-对齐方式-居左 RZY-4854
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘表格样式设置"
-    And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘表格样式设置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -394,9 +349,6 @@ Feature: 仪表盘_6_00_表格样式设置
   Scenario: 文件名称校验 RZY-4878
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘表格样式设置"
-    And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘表格样式设置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -420,9 +372,6 @@ Feature: 仪表盘_6_00_表格样式设置
   Scenario: 再次添加同名下载任务 RZY-4879
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘表格样式设置"
-    And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘表格样式设置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -440,9 +389,6 @@ Feature: 仪表盘_6_00_表格样式设置
   Scenario Outline: 编辑图表列位置-左移-右移
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘表格样式设置"
-    And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘表格样式设置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -467,9 +413,6 @@ Feature: 仪表盘_6_00_表格样式设置
   Scenario: 编辑图表列位置-隐藏
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘表格样式设置"
-    And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘表格样式设置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -487,9 +430,6 @@ Feature: 仪表盘_6_00_表格样式设置
   Scenario: 编辑图表列位置-隐藏-显示
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘表格样式设置"
-    And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘表格样式设置"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -508,9 +448,6 @@ Feature: 仪表盘_6_00_表格样式设置
   Scenario: 编辑图表列位置-隐藏-显示全部
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘表格样式设置"
-    And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘表格样式设置"
     And switch to window "仪表盘"
     And I close all tabs except main tab

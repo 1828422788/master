@@ -3,6 +3,7 @@ Feature: 仪表盘05重命名
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
 
   Scenario Outline: 重命名（RZY-213）
     Given the data name is "<name>" then i click the "编辑" button

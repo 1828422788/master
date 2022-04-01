@@ -3,8 +3,9 @@ Feature: 趋势图删除
 
   Scenario Outline: delete_dd
     Given open the "trend.ListPage" page for uri "/trend/"
+    And I wait for loading invisible
     When I set the parameter "SearchInput" with value "拖拽_<name>"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And the data name is "{'column':'0','name':'拖拽_<name>'}" then i click the "删除" button
     Then I will see the message "确认删除 [拖拽_<name>] ?"
     When I click the "EnsureButton" button

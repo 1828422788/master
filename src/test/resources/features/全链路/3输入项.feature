@@ -3,7 +3,7 @@ Feature: 全链路_3输入项
 
   Background:
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "AutoTest" then i click the "编辑" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "3000" millsecond

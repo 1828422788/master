@@ -3,7 +3,7 @@ Feature:仪表盘09校验
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
 
   Scenario Outline: 新建失败校验(RZY-209)
     When I click the "Create" button

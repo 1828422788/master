@@ -3,7 +3,7 @@ Feature: 全链路_标签
 
   Background:
     Given open the "fulllink.ListPage" page for uri "/fulllink/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
 
   Scenario: 创建全链路
     When I click the "Create" button

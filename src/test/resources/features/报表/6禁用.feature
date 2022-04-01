@@ -3,6 +3,7 @@ Feature: 报表_6_禁用/启用
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
+    And I wait for loading invisible
 
   Scenario: 新建报表
     And I click the "NewReportButton" button under some element
@@ -23,7 +24,6 @@ Feature: 报表_6_禁用/启用
     And I will see the element "ResultMessage" contains "新建成功"
 
   Scenario Outline: 禁用/启用
-    And I wait for "Loading" will be invisible
     And the data name is "{'column':'1','name':'Test_Switch'}" then I "<action>" the switch
     And I wait for "100" millsecond
     And I wait for "SuccessMessage" will be visible
@@ -35,7 +35,6 @@ Feature: 报表_6_禁用/启用
       |   open     | 开启成功   |
 
   Scenario: 删除报表
-    And I wait for "Loading" will be invisible
     And the data name is "{'column':'1','name':'Test_Switch'}" then i click the "删除" button in more menu
     Then I will see the message "此操作将删除 [Test_Switch], 是否继续？"
     When I click the "Ensure" button

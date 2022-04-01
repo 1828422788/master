@@ -4,11 +4,12 @@ Feature: 报表_检查文件
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
+    And I wait for loading invisible
 
   @checkFilesPDF @checkFiles
   Scenario Outline: check_type_pdf
     When I set the parameter "SearchInput" with value "<name>_PDF"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>_PDF'}" then i click the "<name>_PDF" button
     Then I will see the element "LastGeneratedReport" contains ".pdf"
 
@@ -118,7 +119,7 @@ Feature: 报表_检查文件
   @checkFilesWORD
   Scenario Outline: check_type_word
     When I set the parameter "SearchInput" with value "<name>_WORD"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>_WORD'}" then i click the "<name>_WORD" button
     Then I will see the element "LastGeneratedReport" contains ".docx"
 

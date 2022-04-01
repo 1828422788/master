@@ -3,7 +3,7 @@ Feature:趋势图添加到仪表盘保存为报表
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
 
   @addTrendToDashboard
   Scenario Outline: create_dashboards
@@ -46,7 +46,7 @@ Feature:趋势图添加到仪表盘保存为报表
   @addTrendToDashboard
   Scenario Outline:  add_tabs
     And I set the parameter "SearchInput" with value "趋势图_<folder>"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "趋势图_<folder>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -87,7 +87,7 @@ Feature:趋势图添加到仪表盘保存为报表
   @addTrendToDashboard
   Scenario Outline:  add_trends
     And I set the parameter "SearchInput" with value "趋势图_<folder>"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "趋势图_<folder>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -186,9 +186,9 @@ Feature:趋势图添加到仪表盘保存为报表
   @trendDashboardSaveAsReport
   Scenario Outline: 存为报表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I set the parameter "SearchInput" with value "趋势图_<dashboard_name>"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "趋势图_<dashboard_name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -246,8 +246,9 @@ Feature:趋势图添加到仪表盘保存为报表
   @downloadTrendDashboardSaveAsReport
   Scenario Outline: 下载PDF报表
     Given open the "report.ListPage" page for uri "/reports/"
+    And I wait for loading invisible
     When I set the parameter "SearchInput" with value "趋势图_仪表盘保存为报表_<chart>"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And the data name is "{'column':'1','name':'趋势图_仪表盘保存为报表_<chart>'}" then i click the "趋势图_仪表盘保存为报表_<chart>" button
     And I wait for element "SelectedReport" change text to "趋势图_仪表盘保存为报表_<chart>"
     Then I will see the element "LastGeneratedReport" contains ".pdf"

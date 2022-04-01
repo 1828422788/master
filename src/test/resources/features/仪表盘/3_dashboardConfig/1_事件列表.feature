@@ -79,6 +79,7 @@ Feature: 仪表盘1事件列表
   @dashboard1f @dashboardConfigSmoke
   Scenario: 修改事件操作 RZY-3291,RZY-3289
     Given open the "event.ListPage" page for uri "/event/action/"
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     And I set the parameter "Field" with value "appname"
@@ -132,6 +133,7 @@ Feature: 仪表盘1事件列表
   @dashboard1i @dashboardConfigSmoke
   Scenario: 修改事件操作显示于字段 RZY-3628,RZY-3290
     Given open the "event.ListPage" page for uri "/event/action/"
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     And I set the parameter "Field" with value "appname"
@@ -182,6 +184,7 @@ Feature: 仪表盘1事件列表
   @dashboard1l @dashboardConfigSmoke
   Scenario: 修改事件操作动作类型为搜索
     Given open the "event.ListPage" page for uri "/event/action/"
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     And I wait for "3000" millsecond
@@ -308,7 +311,7 @@ Feature: 仪表盘1事件列表
   @dashboard1q
   Scenario: 通用配置 RZY-3619
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    Given I wait for loading complete
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
     And switch to window "仪表盘"
     And I close all tabs except main tab

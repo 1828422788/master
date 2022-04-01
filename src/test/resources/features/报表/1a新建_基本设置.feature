@@ -5,7 +5,6 @@ Feature: 报表_1a_基本设置
     Given open the "report.ListPage" page for uri "/reports/"
     And I click the "NewReportButton" button under some element
     Then I will see the "report.CreatePage" page
-    And I wait for "2000" millsecond
     And I wait for element "SelectedUser" change text to username
 
   @reportSmoke

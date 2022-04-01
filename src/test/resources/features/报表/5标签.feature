@@ -3,6 +3,7 @@ Feature: 报表_5_标签
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
+    And I wait for loading invisible
 
   Scenario: create_report
     And I click the "NewReportButton" button under some element
@@ -25,7 +26,6 @@ Feature: 报表_5_标签
     And I will see the element "ResultMessage" contains "新建成功"
 
   Scenario: tag_report
-    And I wait for "Loading" will be invisible
     And the data name is "{'column':'1','name':'Test_Tag'}" then I "expand" the item
     And I will see the element "TagOfTheLastItem" contains "无"
     And I will see the element "AppOfTheLastItem" contains "test_app"
@@ -60,7 +60,6 @@ Feature: 报表_5_标签
     And I will see the element "AppOfTheLastItem" contains "test_app"
 
   Scenario: verify_tag
-    And I wait for "Loading" will be invisible
     When the data name is "{'column':'1','name':'Test_Tag'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
@@ -74,7 +73,6 @@ Feature: 报表_5_标签
     And I will see the element "ResultMessage" contains "更新成功"
 
   Scenario: delete_report
-    And I wait for "Loading" will be invisible
     When the data name is "{'column':'1','name':'Test_Tag'}" then i click the "删除" button in more menu
     Then I will see the message "此操作将删除 [Test_Tag], 是否继续？"
     When I click the "Ensure" button

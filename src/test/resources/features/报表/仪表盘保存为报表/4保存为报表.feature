@@ -3,14 +3,12 @@ Feature:4保存为报表
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
 
   @dashboardSaveAsReport_create
   Scenario Outline: 存为报表
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for "Loading" will be invisible
     And I set the parameter "SearchInput" with value "仪表盘_<dashboard_name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<dashboard_name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -66,8 +64,9 @@ Feature:4保存为报表
     @save_dashboard_report
   Scenario Outline: 下载PDF报表
     Given open the "report.ListPage" page for uri "/reports/"
+      And I wait for loading invisible
     When I set the parameter "SearchInput" with value "仪表盘保存为报表_<chart>"
-    And I wait for "2000" millsecond
+      And I wait for loading invisible
     And the data name is "{'column':'1','name':'仪表盘保存为报表_<chart>'}" then i click the "仪表盘保存为报表_<chart>" button
     And I wait for element "SelectedReport" change text to "仪表盘保存为报表_<chart>"
     Then I will see the element "LastGeneratedReport" contains ".pdf"

@@ -2,9 +2,9 @@ Feature: 定时任务删除
 
   Scenario Outline: 删除定时任务
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for loading invisible
     And I set the parameter "SearchInput" with value "<name>"
-    And I wait for "Loading" will be invisible
-    And I wait for "1000" millsecond
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
     And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible

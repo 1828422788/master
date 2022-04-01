@@ -37,7 +37,7 @@ Feature: 定时任务_结果处理方式
   @timedTask
   Scenario Outline: 添加jdbc_检查提示
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'oracle_3301'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "2000" millsecond
@@ -80,7 +80,7 @@ Feature: 定时任务_结果处理方式
 
   Scenario Outline: 添加jdbc
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>_<caseNum>'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "2000" millsecond

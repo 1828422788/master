@@ -3,7 +3,7 @@ Feature: 报表模板_3从空白开始
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
 
   Scenario:  检查提示
     And I click the "NewReportButton" button under some element
@@ -38,7 +38,7 @@ Feature: 报表模板_3从空白开始
 
   Scenario: 新报表模板
     And I click the "TemplateManager" button under some element
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I will see the "report.CreateTemplatePage" page
     And I click the "NewTemplate" button
     And I wait for "TemplateName" will be visible

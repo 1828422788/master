@@ -32,9 +32,10 @@ Feature:定时任务补采
 
   Scenario: 创建补采任务_覆盖已存在定时任务结果
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for loading invisible
     And I click the "Complement" button under some element
     And I will see the "timedTask.ListPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the "CreateComplement" button under some element
     Then I wait for "ComplementPanel" will be visible
     And I wait for "1000" millsecond
@@ -55,9 +56,10 @@ Feature:定时任务补采
   @timedTaskSmoke
   Scenario: 创建补采任务
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for loading invisible
     And I click the "Complement" button under some element
     And I will see the "timedTask.ListPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the "CreateComplement" button under some element
     Then I wait for "ComplementPanel" will be visible
     When I choose the "Test_Complement" from the "SelectName"
@@ -89,9 +91,10 @@ Feature:定时任务补采
 
   Scenario: 创建补采任务_检查提示1
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for loading invisible
     And I click the "Complement" button under some element
     And I will see the "timedTask.ListPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the "CreateComplement" button under some element
     Then I wait for "ComplementPanel" will be visible
     When I click the "Ensure" button
@@ -100,9 +103,10 @@ Feature:定时任务补采
 
   Scenario: 创建补采任务_检查提示2
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for loading invisible
     And I click the "Complement" button under some element
     And I will see the "timedTask.ListPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the "CreateComplement" button under some element
     Then I wait for "ComplementPanel" will be visible
     When I choose the "Test_Complement" from the "SelectName"
@@ -122,9 +126,10 @@ Feature:定时任务补采
 
   Scenario: 创建补采任务_检查提示3
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for loading invisible
     And I click the "Complement" button under some element
     And I will see the "timedTask.ListPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the "CreateComplement" button under some element
     Then I wait for "ComplementPanel" will be visible
     When I choose the "Test_Complement" from the "SelectName"
@@ -134,9 +139,10 @@ Feature:定时任务补采
 
   Scenario: 创建补采任务_检查提示4
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for loading invisible
     And I click the "Complement" button under some element
     And I will see the "timedTask.ListPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the "CreateComplement" button under some element
     Then I wait for "ComplementPanel" will be visible
     When I choose the "Test_Complement" from the "SelectName"

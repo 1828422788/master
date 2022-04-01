@@ -64,7 +64,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "<dashboardName>"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "<dashboardName>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -99,7 +99,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -133,7 +133,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -155,7 +155,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -190,7 +190,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -212,7 +212,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -237,7 +237,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -269,7 +269,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -290,7 +290,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -310,7 +310,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -333,7 +333,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "<dashboardName>"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "<dashboardName>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -377,7 +377,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "<dashboardName>"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "<dashboardName>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -413,8 +413,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局1"
-    Given I wait for loading complete
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局1"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -464,8 +463,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局2"
-    Given I wait for loading complete
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局2"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -520,7 +518,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局3"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局3"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -578,7 +576,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局4"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局4"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -636,7 +634,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局5"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局5"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -696,7 +694,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "<dashboardName>"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "<dashboardName>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -732,7 +730,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局51"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局51"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -787,7 +785,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局52"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局52"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -842,8 +840,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局52"
-    Given I wait for loading complete
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局52"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -861,8 +858,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局53"
-    Given I wait for loading complete
-    And I wait for "1000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局53"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -910,7 +906,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局53"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局53"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -945,7 +941,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局6"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局6"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -983,7 +979,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局7"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1028,7 +1024,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局7"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1065,7 +1061,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘行布局7"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1131,8 +1127,7 @@ Feature: 仪表盘04详情行布局
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "<name>"
-    Given I wait for loading complete
-    And I wait for "3000" millsecond
+    And I wait for loading invisible
     When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button

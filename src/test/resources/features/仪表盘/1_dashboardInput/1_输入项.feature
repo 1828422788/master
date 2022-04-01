@@ -63,10 +63,9 @@ Feature: 仪表盘输入项
   @dbinputpre2 @dbinputpre
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    Given I wait for loading complete
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I set the parameter "SearchInput" with value "<name>"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -95,7 +94,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "<name>"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -132,7 +131,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -157,7 +156,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -179,7 +178,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -202,7 +201,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -230,7 +229,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -243,7 +242,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -261,7 +260,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -278,10 +277,9 @@ Feature: 仪表盘输入项
   @dbinput1 @dbinput11
   Scenario: 添加时间范围输入项(RZY-4573,RZY-227)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for "2000" millsecond
-    Given I wait for loading complete
+    And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项1"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项1"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -307,7 +305,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项1"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项1"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -332,7 +330,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项1"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项1"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -355,7 +353,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项1"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项1"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -404,7 +402,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项2"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项2"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -429,7 +427,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "<name>"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -468,7 +466,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项3"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项3"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -491,7 +489,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项3"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项3"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -520,7 +518,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项3"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项3"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -543,7 +541,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项3"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项3"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -580,7 +578,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项4"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项4"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -603,7 +601,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项4"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项4"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -632,7 +630,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项4"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项4"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -655,7 +653,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项4"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项4"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -692,7 +690,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项4"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项4"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -711,7 +709,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项4"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项4"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -747,7 +745,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项4"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项4"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -768,7 +766,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项4"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项4"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -794,7 +792,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项4"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项4"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -814,7 +812,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项4"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项4"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -855,7 +853,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项5"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项5"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -878,7 +876,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项5"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项5"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -912,7 +910,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项5"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项5"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -949,7 +947,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项6"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项6"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -971,7 +969,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项6"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项6"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1001,7 +999,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项6"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项6"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1024,7 +1022,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项6"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项6"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1056,7 +1054,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项6"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项6"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1094,7 +1092,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项6"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项6"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1140,11 +1138,9 @@ Feature: 仪表盘输入项
   @dbinput7 @dbinput71
   Scenario: 增加动态菜单多选及标识值前后缀 RZY-288，RZY-3432
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    Given I wait for loading complete
+    And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项7"
-    Given I wait for loading complete
-    And I wait for "2000" millsecond
-    Then take a screenshot with name "actual/测试输入项7"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1175,9 +1171,9 @@ Feature: 仪表盘输入项
   @dbinput7 @dbinput72
   Scenario: 验证多选 RZY-3432
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    Given I wait for loading complete
+    And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项7"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1210,7 +1206,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项7"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1241,7 +1237,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项7"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1274,7 +1270,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项7"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1289,7 +1285,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项7"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1318,7 +1314,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项7"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1351,7 +1347,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项7"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项7"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -1381,7 +1377,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "测试输入项7"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项7"
     And switch to window "仪表盘"
     And I close all tabs except main tab

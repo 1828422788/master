@@ -28,7 +28,7 @@ Feature: 仪表盘03详情页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "FirstAutoTest"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -42,7 +42,7 @@ Feature: 仪表盘03详情页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "FirstAutoTest"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -63,7 +63,7 @@ Feature: 仪表盘03详情页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "FirstAutoTest"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -87,7 +87,7 @@ Feature: 仪表盘03详情页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "FirstAutoTest"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -106,7 +106,7 @@ Feature: 仪表盘03详情页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "FirstAutoTest"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -127,7 +127,7 @@ Feature: 仪表盘03详情页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "FirstAutoTest"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -145,7 +145,7 @@ Feature: 仪表盘03详情页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "FirstAutoTest"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -159,7 +159,7 @@ Feature: 仪表盘03详情页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "FirstAutoTest"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -171,7 +171,7 @@ Feature: 仪表盘03详情页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "FirstAutoTest"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -192,7 +192,7 @@ Feature: 仪表盘03详情页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "FirstAutoTest"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -209,7 +209,7 @@ Feature: 仪表盘03详情页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "FirstAutoTest"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -227,7 +227,7 @@ Feature: 仪表盘03详情页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "FirstAutoTest"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -251,7 +251,7 @@ Feature: 仪表盘03详情页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "FirstAutoTest"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -269,7 +269,7 @@ Feature: 仪表盘03详情页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "FirstAutoTest"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -290,7 +290,7 @@ Feature: 仪表盘03详情页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "FirstAutoTest"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -314,7 +314,7 @@ Feature: 仪表盘03详情页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "FirstAutoTest"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -333,7 +333,7 @@ Feature: 仪表盘03详情页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "FirstAutoTest"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -360,7 +360,7 @@ Feature: 仪表盘03详情页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "FirstAutoTest"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -405,8 +405,7 @@ Feature: 仪表盘03详情页
     Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "<name>"
-    Given I wait for loading complete
-    And I wait for "3000" millsecond
+    And I wait for loading invisible
     When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
@@ -422,7 +421,6 @@ Feature: 仪表盘03详情页
     When open the "report.ListPage" page for uri "/reports/"
     And I set the parameter "SearchInput" with value "<name>"
     And I wait for loading invisible
-#    And the data name is "{'column':'2','name':'<name>'}" then i click the "更多" button
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
     And I wait for "EnsureButton" will be visible
     When I click the "EnsureButton" button

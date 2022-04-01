@@ -4,13 +4,14 @@ Feature: 报表_1b_文件列表
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
+    And I wait for loading invisible
 
   @reportSmoke
   Scenario: 已生成报表
     When I set the parameter "SearchInput" with value "test_report_PDF"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'test_report_PDF'}" then i click the "test_report_PDF" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I will see the element "FirstColumnTitle" contains "文件名称"
     And I will see the element "SecondColumnTitle" contains "创建者"
     And I will see the element "ThirdColumnTitle" contains "生成时间"

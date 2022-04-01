@@ -4,7 +4,7 @@ Feature: 仪表盘_1_1_曲线图
   @dashboardChartSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
@@ -56,9 +56,9 @@ Feature: 仪表盘_1_1_曲线图
   @dashboardChartSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I set the parameter "SearchInput" with value "<name>"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab

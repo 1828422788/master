@@ -2,8 +2,9 @@ Feature: 展示趋势图
 
   Scenario Outline: compare_view
     Given open the "trend.ListPage" page for uri "/trend/"
+    And I wait for loading invisible
     When I set the parameter "SearchInput" with value "<name>"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And the data name is "{'column':'0','name':'<name>'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
     And I close all tabs except main tab

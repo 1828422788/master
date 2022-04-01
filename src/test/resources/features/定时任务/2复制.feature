@@ -45,7 +45,7 @@ Feature: 定时任务复制
 
   Scenario: 复制
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And the data name is "{'column':'1','name':'copytask'}" then I "expand" the item
     And I will see the element "TagOfTheLastItem" contains "auto_package"
     And I will see the element "AppOfTheLastItem" contains "test_app"
@@ -61,7 +61,7 @@ Feature: 定时任务复制
     And I click the "EnsureButton" button under some element
     Then I will see the "timedTask.ListPage" page
 
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'copytask'}" then i click the "复制" button in more menu
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "复制成功"
@@ -76,6 +76,7 @@ Feature: 定时任务复制
 
   Scenario: 检查应用和标签
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for loading invisible
     When I set the parameter "GlobalTagInput" with value "auto_package"
     When I choose the "auto_package" from the "TagDropdown"
     And I click the "HideElement" button
@@ -96,7 +97,7 @@ Feature: 定时任务复制
 
   Scenario: 检查新定时任务的细节
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'copytask(副本)'}" then i click the "copytask(副本)" button
     Then I will see the "timedTask.DetailPage" page
 #    And I will see the element "DetailDataSet" contains "(*)"
@@ -107,7 +108,7 @@ Feature: 定时任务复制
 
   Scenario: 检查新定时任务的编辑页
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'copytask(副本)'}" then i click the "编辑" button
     Then I will see the "timedTask.EditPage" page
     And I wait for "5000" millsecond
@@ -129,7 +130,7 @@ Feature: 定时任务复制
 
   Scenario Outline: 删除
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
     And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible
