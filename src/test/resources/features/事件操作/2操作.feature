@@ -1,4 +1,4 @@
-@event @eventSmoke
+@event
 Feature: 事件操作
 
   Background:
@@ -21,14 +21,13 @@ Feature: 事件操作
     And I wait for "SearchButton" will be visible
     Then I will see the input element "SearchInput" value will be "<spl>"
 
-  @first
     Examples:
       | searchSpl          | field    | buttonName       | spl                                                 |
-      | tag:sample04061424 | Clientip | AddToSearch      | tag:sample04061424 AND 'hostname':192.168.1.44     |
       | tag:sample04061424 | Clientip | RemoveFromSearch | tag:sample04061424 AND NOT 'hostname':192.168.1.44 |
-
-  @second
-    Examples:
-      | searchSpl                                      | field    | buttonName       | spl                                                                                   |
       | tag:sample04061424  | Tag      | AddToSearch      | tag:sample04061424 AND 'tag':sample04061424  |
       | tag:sample04061424  | Tag  | RemoveFromSearch | tag:sample04061424 AND NOT 'tag':sample04061424 |
+
+    @eventSmoke
+    Examples:
+      | searchSpl           | field    | buttonName       | spl                                          |
+      | tag:sample04061424 | Clientip | AddToSearch      | tag:sample04061424 AND 'hostname':192.168.1.44     |

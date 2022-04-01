@@ -41,11 +41,6 @@ Feature: 事件操作新建（RZY-1387）
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    #And I click the "RightIcon" button
-    #And I click the "EventOperate" button
-    #And I click the "ContextSample" button
-    #And switch to another window
-    #And I close all tabs except main tab
     Then I click the "Expand" button
     Then I click the "Context" button
     And I wait for "2000" millsecond

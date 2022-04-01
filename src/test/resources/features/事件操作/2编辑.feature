@@ -1,9 +1,10 @@
-@event @eventSmoke
+@event
 Feature: 事件操作编辑
 
   Background:
     Given open the "event.ListPage" page for uri "/event/action/"
 
+  @eventSmoke
   Scenario Outline: 应用字段_链接_外部url_当前窗口
     And the data name is "{'column':'1','name':'AutoTest'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
@@ -36,16 +37,11 @@ Feature: 事件操作编辑
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "2000" millsecond
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "RightIcon" button
     And I wait for "EventOperate" will be visible
     And I click the "EventOperate" button
-    And I wait for "1500" millsecond
     And I click the "EventOperatorAutoTest" button
-   # And the page's title will contains "_百度搜索"
-    And I wait for "3000" millsecond
-   # And the page's title will contains "百度搜索"
-   # And I will see the url contains "baidu.com"
 
     Examples:
       | alias | field   | action | inputName | url                                   | openUrl |
@@ -63,14 +59,14 @@ Feature: 事件操作编辑
     And open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Given I set the parameter "SearchInput" with value "logtype:apache"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "2000" millsecond
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "RightIcon" button
     And I wait for "EventOperate" will be visible
     And I click the "EventOperate" button
-    And I wait for "1500" millsecond
     And I click the "EventOperatorAutoTest" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the input element "SearchInput" value will be "logtype:apache"
@@ -79,6 +75,7 @@ Feature: 事件操作编辑
       | field   | action | inputName | url                  |
       | logtype | 搜索     | Spl       | logtype:${logtype} |
 
+  @eventSmoke
   Scenario Outline: 美化格式_JSON/XML
     And the data name is "{'column':'1','name':'AutoTest'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
@@ -92,12 +89,13 @@ Feature: 事件操作编辑
     And open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Given I set the parameter "SearchInput" with value "logtype:apache"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "2000" millsecond
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "RightIcon" button
-    And I wait for "2000" millsecond
+    And I wait for "RawMessage" will be visible
     And I click the "RawMessage" button
     And I wait for "1500" millsecond
     And I click the "EventOperatorAutoTest" button
@@ -127,5 +125,4 @@ Feature: 事件操作编辑
     And I click the "EventOperate" button
     Then I wait for "ContextSample" will be visible
     And I click the "RawMessage" button
-   # Then I wait for "ContextSample" will be visible
 
