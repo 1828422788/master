@@ -3,8 +3,9 @@ Feature: 定时任务查看
 
   Scenario Outline: 查看定时任务
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for loading invisible
     And I set the parameter "SearchInput" with value "<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "<name>" button
     Then I will see the "timedTask.DetailPage" page
     And I wait for "LookUpButton" will be visible

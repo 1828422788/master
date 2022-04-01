@@ -30,7 +30,7 @@ Feature: 报表_7_趋势图个数限制
 
   Scenario: new_report_5_trends
     Given open the "report.ListPage" page for uri "/reports/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I click the "NewReportButton" button under some element
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username

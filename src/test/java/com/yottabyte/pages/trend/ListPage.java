@@ -140,4 +140,34 @@ public class ListPage extends ListPageFactory {
         return ensureButton;
     }
 
+
+    //加速
+    @FindBy(xpath = "//label[text()='加速功能']/ancestor::div/following-sibling::div//label")
+    WebElement accelerationSwitch;
+    public WebElement getAccelerationSwitch() {
+        return accelerationSwitch;
+    }
+
+    @FindBy(name = "timerange")
+    WebElement timeRange;
+    public WebElement getTimeRange() {
+        timeRange.click();
+        return dropdownUtils.getLastDropdownList();
+    }
+
+    @FindBy(xpath = "//span[@aria-label='QuestionCircle']")
+    WebElement infoIcon;
+    public WebElement getInfoIcon() {
+        return infoIcon;
+    }
+
+    @FindBy(xpath = "//*[@role='tooltip']")
+    WebElement tooltip;
+    public WebElement getTooltip() {
+        return tooltip;
+    }
+
+    public WebElement getAccelerationManagement() {
+        return super.getButton("加速任务管理");
+    }
 }

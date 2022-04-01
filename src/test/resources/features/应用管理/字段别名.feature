@@ -153,9 +153,9 @@ Feature: 应用字段别名
     Then I will see the "app.CreatePage" page
     And I click the "FieldConfig" button
     And I wait for "AddFieldAlias" will be visible
-    When the data name is "AutoTest" then i click the "编辑" button
-    And I click the "DeleteAlias" button
-    And I click the "fieldSavedButton" button under some element
+    When the data name is "AutoTest" then i click the "删除" button in more menu
+    Then I click the "Ensure" button
+    Then I will see the element "MessageContent" value is "删除成功"
 
   Scenario: 验证删除成功
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -167,7 +167,7 @@ Feature: 应用字段别名
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I will see the element "CountNum" value is "(0)"
+    And I wait for element "StatsNum" change text to "统计(0)"
 
   Scenario: 添加多个字段别名
     Given open the "app.ListPage" page for uri "/app/list/"

@@ -3,11 +3,11 @@ Feature: 报表模板_4删除
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
 
   Scenario: 新建模板
     And I click the "TemplateManager" button under some element
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I will see the "report.CreateTemplatePage" page
     And I click the "NewTemplate" button
     And I wait for "TemplateName" will be visible
@@ -25,7 +25,7 @@ Feature: 报表模板_4删除
 
   Scenario: 删除模板，检查提示
     When I click the "TemplateManager" button under some element
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I set the parameter "SearchInput" with value "test_template"
     And I wait for "2000" millsecond
     And the data name is "{'column':'0','name':'test_template'}" then i click the "删除" button
@@ -58,7 +58,7 @@ Feature: 报表模板_4删除
 
   Scenario: 删除模板
     When I click the "TemplateManager" button under some element
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I set the parameter "SearchInput" with value "test_template"
     And I wait for "2000" millsecond
     And the data name is "{'column':'0','name':'test_template'}" then i click the "删除" button
@@ -71,7 +71,7 @@ Feature: 报表模板_4删除
 
   Scenario: 检查tooltip
     When I set the parameter "SearchInput" with value "报表_使用模板"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I wait for "Tooltip" will be visible
     When I move the mouse pointer to the "Tooltip"
     And I wait for "TooltipElement" will be visible

@@ -3,7 +3,7 @@ Feature: 报表模板_2使用模板
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
 
   Scenario: 缺少模板
     And I click the "NewReportUsingTemplate" button under some element

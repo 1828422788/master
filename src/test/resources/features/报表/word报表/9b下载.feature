@@ -2,11 +2,12 @@ Feature: 报表_富文本编辑_9_下载
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
+    And I wait for loading invisible
 
   @reportDownloadTextEditor @report
   Scenario Outline: download_texteditor_word
     When I set the parameter "SearchInput" with value "<name>"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>'}" then i click the "<name>" button
     And I wait for element "SelectedReport" change text to "<name>"
     Then I will see the element "LastGeneratedReport" contains ".docx"
@@ -53,7 +54,7 @@ Feature: 报表_富文本编辑_9_下载
   @reportDownloadTextEditor @report
   Scenario Outline: download_texteditor_pdf
     When I set the parameter "SearchInput" with value "<name>"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>'}" then i click the "<name>" button
     And I wait for element "SelectedReport" change text to "<name>"
     Then I will see the element "LastGeneratedReport" contains ".pdf"
@@ -71,7 +72,7 @@ Feature: 报表_富文本编辑_9_下载
     @reportSmoke
     Scenario Outline: 下载WORD报表
       When I set the parameter "SearchInput" with value "<name>"
-      And I wait for "60000" millsecond
+      And I wait for loading invisible
       And the data name is "{'column':'1','name':'<name>'}" then i click the "<name>" button
       And I wait for element "SelectedReport" change text to "<name>"
       Then I will see the element "LastGeneratedReport" contains ".docx"

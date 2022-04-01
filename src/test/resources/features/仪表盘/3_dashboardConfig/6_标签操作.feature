@@ -3,7 +3,7 @@ Feature: 仪表盘标签操作
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
 
 
   Scenario Outline: 新建仪表盘

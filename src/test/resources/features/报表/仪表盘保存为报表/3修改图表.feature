@@ -3,11 +3,11 @@ Feature:3修改图表
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
 
   Scenario Outline: 修改图表_序列
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -62,7 +62,7 @@ Feature:3修改图表
 
   Scenario Outline: 修改图表_气泡
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -110,7 +110,7 @@ Feature:3修改图表
 
   Scenario Outline: 修改图表_维度
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -153,7 +153,7 @@ Feature:3修改图表
 
   Scenario Outline: 修改图表_维度_pie
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -195,7 +195,7 @@ Feature:3修改图表
 
   Scenario Outline: 修改图表_维度_bar
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -237,7 +237,7 @@ Feature:3修改图表
 
   Scenario Outline: 修改图表_维度_bar_orientation
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -281,7 +281,7 @@ Feature:3修改图表
 
   Scenario Outline: 修改图表_维度_火焰图
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -321,7 +321,7 @@ Feature:3修改图表
 
   Scenario Outline: 修改图表_关系
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -365,7 +365,7 @@ Feature:3修改图表
 
   Scenario Outline: 修改图表_区间图
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -408,7 +408,7 @@ Feature:3修改图表
 
   Scenario Outline: 修改图表_多y轴图
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -478,7 +478,7 @@ Feature:3修改图表
 
   Scenario Outline: 修改图表_多y轴图2
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -553,7 +553,7 @@ Feature:3修改图表
 
   Scenario Outline: 修改图表_区划地图
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -596,7 +596,7 @@ Feature:3修改图表
 
   Scenario Outline: 修改图表_地图
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -628,7 +628,7 @@ Feature:3修改图表
 
   Scenario Outline: 修改图表_攻击地图
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -676,7 +676,7 @@ Feature:3修改图表
 
   Scenario Outline: 修改图表_其他
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -719,7 +719,7 @@ Feature:3修改图表
 
   Scenario Outline: 修改图表_其他_single_icon
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -763,7 +763,7 @@ Feature:3修改图表
 
   Scenario Outline: 修改图表_其他_single_font
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -807,7 +807,7 @@ Feature:3修改图表
 
   Scenario Outline: 修改图表_其他_single_backgr
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -858,7 +858,7 @@ Feature:3修改图表
 
   Scenario Outline: 修改图表_其他_环形比例图1
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -897,7 +897,7 @@ Feature:3修改图表
 
   Scenario Outline: 修改图表_其他_环形比例图2
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -935,7 +935,7 @@ Feature:3修改图表
 
   Scenario Outline: 修改图表_其他_radar
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab
@@ -980,7 +980,7 @@ Feature:3修改图表
 
   Scenario Outline: 修改图表_其他_matrixheatmap
     And I set the parameter "SearchInput" with value "仪表盘_<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
     And I close all tabs except main tab

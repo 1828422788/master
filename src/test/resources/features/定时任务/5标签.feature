@@ -28,7 +28,7 @@ Feature: 定时任务标签
 
   Scenario: 添加标签
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And the data name is "{'column':'1','name':'Tag_Schedule'}" then I "expand" the item
     And I will see the element "TagOfTheLastItem" contains "无"
     And I will see the element "AppOfTheLastItem" contains "无"
@@ -46,7 +46,7 @@ Feature: 定时任务标签
 
   Scenario: 验证标签
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'Tag_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "2000" millsecond
@@ -59,7 +59,7 @@ Feature: 定时任务标签
 
   Scenario: 删除定时任务
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'Tag_Schedule'}" then i click the "删除" button in more menu
     And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible

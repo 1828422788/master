@@ -3,7 +3,7 @@ Feature: 报表_8_预览
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
 
   Scenario Outline: create_report_pdf_excel
     And I click the "NewReportButton" button under some element
@@ -58,7 +58,7 @@ Feature: 报表_8_预览
 
   Scenario Outline: preview_运行测试
     When I set the parameter "SearchInput" with value "Test_Preview_<type>"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And the data name is "{'column':'1','name':'Test_Preview_<type>'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
@@ -106,7 +106,7 @@ Feature: 报表_8_预览
 
   Scenario Outline: preview_下载到本地预览
     When I set the parameter "SearchInput" with value "Test_Preview_<type>"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And the data name is "{'column':'1','name':'Test_Preview_<type>'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
@@ -152,7 +152,7 @@ Feature: 报表_8_预览
       | WORD  | .docx|
 
   Scenario Outline: delete_reports
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And the data name is "{'column':'1','name':'Test_Preview_<type>'}" then i click the "删除" button in more menu
     Then I will see the message "此操作将删除 [Test_Preview_<type>], 是否继续？"
     When I click the "Ensure" button

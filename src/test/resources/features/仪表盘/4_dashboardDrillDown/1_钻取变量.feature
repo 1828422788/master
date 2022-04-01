@@ -3,7 +3,7 @@ Feature: 仪表盘钻取配置-钻取变量
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
 
   @dashboard37pre0 @dbdrilldownSmoke
   Scenario Outline: 新建仪表盘

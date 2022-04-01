@@ -68,7 +68,7 @@ Feature: 趋势图新建_报表
 
   Scenario Outline: delete_trend_report
     When open the "trend.ListPage" page for uri "/trend/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And  the data name is "{'column':'0','name':'<trend_name>'}" then i click the "删除" button in more menu
     Then I will see the message "确认删除 [<trend_name>] ?"
     When I click the "Ensure" button

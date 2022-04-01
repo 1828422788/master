@@ -3,8 +3,9 @@ Feature: 报表_删除
 
   Scenario Outline: delete_report
     When open the "report.ListPage" page for uri "/reports/"
+    And I wait for loading invisible
     And I set the parameter "SearchInput" with value "<name>"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I wait for "Message" will be visible
     Then I will see the message "此操作将删除 [<name>], 是否继续？"
@@ -75,8 +76,9 @@ Feature: 报表_删除
   @cleanReport @cleanReportPDF @cleanReportCharts @cleanAllReports
   Scenario Outline: delete_report_charts_pdf
     When open the "report.ListPage" page for uri "/reports/"
+    And I wait for loading invisible
     And I set the parameter "SearchInput" with value "<name>_PDF"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>_PDF'}" then i click the "删除" button
     Then I will see the message "此操作将删除 [<name>_PDF], 是否继续？"
     When I click the "EnsureButton" button
@@ -134,8 +136,9 @@ Feature: 报表_删除
   @cleanReportEXCEL @cleanReportCharts @cleanAllReports
   Scenario Outline: delete_report_charts_excel
     When open the "report.ListPage" page for uri "/reports/"
+    And I wait for loading invisible
     And I set the parameter "SearchInput" with value "<name>_EXCEL"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>_EXCEL'}" then i click the "删除" button
     Then I will see the message "此操作将删除 [<name>_EXCEL], 是否继续？"
     When I click the "EnsureButton" button
@@ -192,8 +195,9 @@ Feature: 报表_删除
   @cleanReportWORD @cleanReportCharts @cleanAllReports
   Scenario Outline: delete_report_charts_word
     When open the "report.ListPage" page for uri "/reports/"
+    And I wait for loading invisible
     And I set the parameter "SearchInput" with value "<name>_WORD"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>_WORD'}" then i click the "删除" button
     Then I will see the message "此操作将删除 [<name>_WORD], 是否继续？"
     When I click the "EnsureButton" button

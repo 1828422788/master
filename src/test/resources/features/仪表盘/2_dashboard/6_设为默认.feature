@@ -5,9 +5,8 @@ Feature: 仪表盘06设为/取消默认（RZY-211）
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "2000" millsecond
     And I set the parameter "SearchInput" with value "FirstAutoTest"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
 
   Scenario:设为默认（RZY-211，RZY-239）
     Given the data name is "FirstAutoTest" then i click the "设为默认" button in more menu

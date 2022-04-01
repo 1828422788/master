@@ -62,7 +62,7 @@ Feature: 定时任务_基本配置
 
   Scenario Outline: 在编辑页上检查提示
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'Test_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "2000" millsecond
@@ -92,7 +92,7 @@ Feature: 定时任务_基本配置
 
   Scenario Outline: 在编辑页上检查提示_crontab
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'Test_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "2000" millsecond
@@ -111,7 +111,7 @@ Feature: 定时任务_基本配置
 
   Scenario: 修改定时任务
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'Test_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "2000" millsecond
@@ -140,7 +140,7 @@ Feature: 定时任务_基本配置
 
   Scenario: 改spl
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'Schedule_Test'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "2000" millsecond
@@ -161,7 +161,7 @@ Feature: 定时任务_基本配置
 
   Scenario: 验证
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And the data name is "{'column':'1','name':'Schedule_Test'}" then I "expand" the item
     And I will see the element "TagOfTheLastItem" contains "auto_package"
     And I will see the element "AppOfTheLastItem" contains "test_app"
@@ -174,7 +174,7 @@ Feature: 定时任务_基本配置
 
   Scenario: 删除定时任务
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'Schedule_Test'}" then i click the "删除" button in more menu
     And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible

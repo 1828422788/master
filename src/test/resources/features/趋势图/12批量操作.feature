@@ -3,7 +3,7 @@ Feature: 趋势图批量操作
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I wait for "BatchControl" will be visible
 
   Scenario Outline: create_trend
@@ -30,7 +30,7 @@ Feature: 趋势图批量操作
 
   Scenario: multi_tag
     When I set the parameter "SearchInput" with value "test_multi_"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the "BatchControl" button under some element
     And I click the "SelectAll" button
     And I click the "SelectBatchOperation" button under some element
@@ -47,14 +47,14 @@ Feature: 趋势图批量操作
 
   Scenario: verify_tag
     When I set the parameter "SearchInput" with value "test_multi_"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     Then I will see the data "test_multi_1" values "{'column':'4','name':'auto_package'}"
     Then I will see the data "test_multi_2" values "{'column':'4','name':'auto_package'}"
     Then I will see the data "test_multi_3" values "{'column':'4','name':'auto_package'}"
 
   Scenario: multi_delete
     When I set the parameter "SearchInput" with value "test_multi_"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the "BatchControl" button under some element
     And I click the "SelectAll" button
     And I click the "SelectBatchOperation" button under some element
@@ -82,11 +82,10 @@ Feature: 趋势图批量操作
 
   Scenario: verify_delete
     When I set the parameter "SearchInput" with value "test_multi_"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     Then I wait for "NoData" will be visible
 
   Scenario Outline: prompt
-    And I wait for "2000" millsecond
     And I click the "BatchControl" button under some element
     And I click the "SelectBatchOperation" button under some element
     And I click the "<button>" button

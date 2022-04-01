@@ -3,15 +3,11 @@ package com.yottabyte.pages.splSearch;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.DateEditorPage;
 import com.yottabyte.pages.ListPageFactory;
-import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.*;
 import com.yottabyte.webDriver.SharedDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -81,7 +77,7 @@ public class SearchPage extends ListPageFactory {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return dropdownUtils.getMenuList();
+        return dropdownUtils.getParentElementOfMenuList();
     }
 
     @FindBy(xpath = "//li/span[text()='新建']")
@@ -723,7 +719,7 @@ public class SearchPage extends ListPageFactory {
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
-        return dropdownUtils.getMenuList();
+        return dropdownUtils.getParentElementOfMenuList();
     }
 
     @FindBy(xpath = "//li[text()='趋势图']")

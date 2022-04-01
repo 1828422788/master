@@ -1,12 +1,13 @@
 package com.yottabyte.pages.dashboard;
 
 import com.yottabyte.pages.PageTemplate;
-import com.yottabyte.utils.*;
+import com.yottabyte.utils.ClickEvent;
+import com.yottabyte.utils.ConstructPageFactoryWithName;
+import com.yottabyte.utils.GetTime;
+import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -2373,5 +2374,17 @@ public class DetailPage extends PageTemplate {
     private WebElement lastFilterInput;
     public WebElement getLastFilterInput() {
         return lastFilterInput;
+    }
+
+    @FindBy(xpath = "//input[@value='reference']/ancestor::label")
+    private WebElement reference;
+    public WebElement getReference() {
+        return reference;
+    }
+
+    @FindBy(xpath = "//input[@value='clone']/ancestor::label")
+    private WebElement clone;
+    public WebElement getClone() {
+        return clone;
     }
 }

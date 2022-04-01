@@ -1493,6 +1493,10 @@ public class CreatePage extends PageTemplate {
         return getDatasetWithName("dataset_2");
     }
 
+    public WebElement getDatasetChart() {
+        return getDatasetWithName("数据集-1");
+    }
+
     public WebElement getAllResources() {
         return getDatasetWithName("all_");
     }
@@ -1580,7 +1584,11 @@ public class CreatePage extends PageTemplate {
 //--Buttons
 
     public WebElement getReport() {
-        return getButton("另存为报表");
+        return getYottaButtonByText("另存为报表");
+    }
+
+    public WebElement getAccelerate() {
+        return getYottaButtonByText("趋势图加速");
     }
 
     public WebElement getAddRange() {

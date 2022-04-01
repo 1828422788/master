@@ -34,9 +34,9 @@ Feature: 定时任务批量操作
 
   Scenario: 添加资源标签
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I set the parameter "SearchInput" with value "test_multi_"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I wait for "BatchControl" will be visible
     And I click the "BatchControl" button under some element
     And I click the "SelectAll" button
@@ -56,7 +56,7 @@ Feature: 定时任务批量操作
 
   Scenario: 验证标签
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I wait for "BatchControl" will be visible
     And the data name is "{'column':'1','name':'test_multi_1'}" then I "expand" the item
     And I will see the element "TagOfTheLastItem" contains "auto_package"
@@ -72,9 +72,9 @@ Feature: 定时任务批量操作
 
   Scenario: 停止
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I set the parameter "SearchInput" with value "test_multi_"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I wait for "BatchControl" will be visible
     And I click the "BatchControl" button under some element
     And I click the "SelectAll" button
@@ -90,9 +90,9 @@ Feature: 定时任务批量操作
     
   Scenario: 启动
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I set the parameter "SearchInput" with value "test_multi_"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I wait for "BatchControl" will be visible
     And I click the "BatchControl" button under some element
     And I click the "SelectAll" button
@@ -108,7 +108,7 @@ Feature: 定时任务批量操作
 
   Scenario: 验证
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I wait for "BatchControl" will be visible
     When the data name is "{'column':'1','name':'test_multi_1'}" then I "close" the switch
     And I wait for "SuccessMessage" will be visible
@@ -125,9 +125,9 @@ Feature: 定时任务批量操作
   @timedTaskSmoke
   Scenario: 删除
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I set the parameter "SearchInput" with value "test_multi_"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I wait for "BatchControl" will be visible
     And I click the "BatchControl" button under some element
     And I click the "SelectAll" button
@@ -152,7 +152,7 @@ Feature: 定时任务批量操作
 
   Scenario: 验证删除
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I wait for "BatchControl" will be visible
     When I set the parameter "SearchInput" with value "test_multi_"
     And I wait for "2000" millsecond
@@ -160,7 +160,7 @@ Feature: 定时任务批量操作
 
   Scenario Outline: 提示
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I wait for "BatchControl" will be visible
     And I click the "BatchControl" button under some element
     And I click the "SelectBatchOperation" button under some element

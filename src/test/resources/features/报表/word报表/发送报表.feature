@@ -3,11 +3,12 @@ Feature: 报表_发送
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
+    And I wait for loading invisible
 
   @reportSendEditorWORD
   Scenario Outline: send_word
     When I set the parameter "SearchInput" with value "<name>"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
