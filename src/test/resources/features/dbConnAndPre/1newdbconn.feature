@@ -69,8 +69,9 @@ Feature: 新建数据库连接配置
     And I wait for "500" millsecond
 
     When I set the parameter "DbConnNameSearchInput" with value "<newDbConnName>"
+    And I wait for "2000" millsecond
     And I click the "EditDbConnNameButton" button
-    Given I wait for loading complete
+    And I wait for "2000" millsecond
 
     And I set the parameter "NewDbRetLines" with value "<newDbRetLines>"
 

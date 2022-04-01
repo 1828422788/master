@@ -64,6 +64,9 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     @FindBy(className = "yotta-message-content")
     private WebElement successMessage;
 
+    @FindBy(xpath="//div[@class='yotta-empty-description']/div/div")
+    private WebElement resultMessage;
+
     @FindBy(xpath = "//span[@class='ant-badge']/i")
     private WebElement userIcon;
 
@@ -124,6 +127,10 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
 
     public WebElement getSuccessMessage() {
         return successMessage;
+    }
+
+    public WebElement getResultMessage() {
+        return resultMessage;
     }
 
     @Override

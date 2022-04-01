@@ -11,43 +11,33 @@ Feature: 新建数据库查找
 
     And I click the "NewDbLookup" button
     Given I wait for loading complete
-
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-
     When I set the parameter "SearchInput" with value "<splQuery>"
-
     When I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "500" millsecond
     And I click the "NextStepButton" button
     And I wait for "500" millsecond
     And I choose the "<DbLookupConnList>" from the "DbLookupConnList"
     And I wait for "500" millsecond
     And I choose the "<DbLookupDirList>" from the "DbLookupDirList"
-
     And I click the "LookupDbTableLink" button
     And I click the "NextStepButton" button
-    And I wait for loading complete
-
+    And I wait for "500" millsecond
     And I click the "AddFieldMap" button
-    And I wait for loading complete
     And I wait for "500" millsecond
     And I choose the "apache.x_forward" from the "DbLookupSearchFieldR1C1List"
     And I wait for "500" millsecond
-#    And I choose1 the "domain_id (LONGLONG)" from the "DbLookupSearchFieldR1C2List"
     And I choose the "domain_id (LONGLONG)" from the "DbLookupSearchFieldR1C2List"
     And I wait for "500" millsecond
     And I click the "AddLookupField" button
     And I wait for "500" millsecond
-#    And I choose the "file_name (VAR_STRING)" from the "DbLookupLookupFieldR1C1List" in config
     And I choose the "file_name (VAR_STRING)" from the "DbLookupLookupFieldR1C1List"
     And I wait for "500" millsecond
-
     And I click the "NextStepButton" button
-
     And I wait for "500" millsecond
     When I set the parameter "DbLookupName" with value "<dbLookupName>"
     And I click the "DoneButton" button
-
+    And I wait for "500" millsecond
     And I will see the element "ResultMessage" contains "新建成功"
 
 
