@@ -255,4 +255,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return webDriver.findElement(By.xpath(xpath));
     }
 
+    public WebElement getDownListByText(String text) {
+        return dropdownUtils.getDownListByText(text);
+    }
 }
