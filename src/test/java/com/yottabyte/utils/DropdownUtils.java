@@ -66,4 +66,9 @@ public class DropdownUtils {
         }
         return lastMenuList;
     }
+
+    public WebElement getDownListByText(String text) {
+        String xpath = "//span[text()='" + text + "']";
+        return this.getDropdownListbyPath(xpath);
+    }
 }

@@ -207,6 +207,18 @@ public class SendPolicyPage extends PageTemplate {
         return super.getButton("保 存");
     }
 
+    public WebElement getPluginButton() {
+        return super.getButton("通道插件");
+    }
+
+    public WebElement getUpLoadPluginButton() {
+        return super.getButton("上传插件");
+    }
+
+    public WebElement getChoisePluginTypeList() {
+        return super.getDownListByText("请选择插件类型");
+    }
+
 
     @FindBy(xpath = "//span[contains(text(),'返回列表')]/parent::button")
     private WebElement OKButton;

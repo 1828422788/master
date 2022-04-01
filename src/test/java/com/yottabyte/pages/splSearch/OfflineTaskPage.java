@@ -17,10 +17,7 @@ import java.util.List;
 public class OfflineTaskPage extends PageTemplate {
     public OfflineTaskPage(WebDriver driver) {
         super(driver);
-//        isLoaded();
         driver.manage().window().fullscreen();
-//        driver.manage().window().maximize();
-//        driver.manage().window().setSize(new Dimension(1, 1));
     }
 
     @FindBy(className = "el-table_1_column_1")
@@ -49,17 +46,6 @@ public class OfflineTaskPage extends PageTemplate {
     public WebElement getSearch() {
         return super.getSearchIcon();
     }
-
-//    @Override
-//    protected void isLoaded() throws Error {
-//        WebDriverWait wait = new WebDriverWait(webDriver, 10, 1000);
-//        wait.until(new ExpectedCondition<Boolean>() {
-//            @Override
-//            public Boolean apply(WebDriver driver) {
-//                return driver.findElements(By.className("el-table_1_column_1")).size() > 1;
-//            }
-//        });
-//    }
 
     @FindBy(xpath = "//a[contains(text(),'删除')]")
     private WebElement delDownLoadButton;

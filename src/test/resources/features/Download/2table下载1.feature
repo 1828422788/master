@@ -3,38 +3,24 @@ Feature: download_table下载part1
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  Scenario Outline: 下载table用例结果
+  Scenario Outline: 搜索table结果数据下载-part1
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then take a screenshot with name "spldownload/<name>"
 
-    And I wait for "2000" millsecond
     When I wait for "SaveAsOther" will be visible
     And I choose the "下载" from the "SaveAsList"
-    And I wait for "1000" millsecond
-
     And I set the parameter "DownloadName" with value "<name>"
     And I set the parameter "MaxLineNum" with value "<maxLineNum>"
-#    Then I choose the "<unit>" from the "MaxLineDropdown"
-    And I choose the "CSV" from the "DocumentTypeList"
-    And I wait for "2000" millsecond
-    And I choose the "UTF-8" from the "DocumentEncodeList"
-    And I wait for "2000" millsecond
     When I click the "CreateDownloadTask" button
-#    And I wait for "2000" millsecond
-#    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
 
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     When I set the parameter "DbListPageSearchInput" with value "<name>.csv"
-    And I wait for "2000" millsecond
-#    Given the data name is "<name>.csv" then i click the "下载" button
     And I click the "ListDownloadButton" button
 
     Examples: 新建成功
