@@ -3,37 +3,26 @@ Feature: download_collect验证
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
 
   @collect2
-  Scenario Outline: 下载table用例结果
+  Scenario Outline: table命令搜索结果下载
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then take a screenshot with name "downloadpng/<name>"
 
-    And I wait for "2000" millsecond
     And I wait for "saveAsOther" will be visible
     And I choose the "下载" from the "SaveAsList"
     And I set the parameter "DownloadName" with value "<name>"
     And I set the parameter "MaxLineNum" with value "100"
-#    Then I choose the "<unit>" from the "MaxLineDropdown"
-    And I choose the "CSV" from the "DocumentTypeList"
-    And I wait for "2000" millsecond
-    And I choose the "UTF-8" from the "DocumentEncodeList"
-    And I wait for "2000" millsecond
     When I click the "CreateDownloadTask" button
-#    And I wait for "2000" millsecond
-#    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
+    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
 
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     And I set the parameter "DbListPageSearchInput" with value "<name>.csv"
-    And I wait for "2000" millsecond
-#    Given the data name is "<name>.csv" then i click the "下载" button
     And I click the "ListDownloadButton" button
 
     Examples:
@@ -45,16 +34,15 @@ Feature: download_collect验证
       | collect_mulparam_step2                 | index=collectmulti tag:newtagcollect \| table tag, apache.resp_len, apache.status, apache.x_forward \| sort by apache.x_forward |
 
   @collect2
-  Scenario Outline:
+  Scenario Outline:搜索结果为"搜索无数据"
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "2000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then take a screenshot with name "downloadpng/<name>"
 
-    And I wait for "2000" millsecond
+    And I wait for "1000" millsecond
     Then I will see the "NoDataInfo" result will be "搜索无数据"
 
     Examples:
@@ -62,16 +50,15 @@ Feature: download_collect验证
       | collect_testmode_true_step2 | index=collectmodetrue tag:testmodetrue |
 
   @collect3
-  Scenario Outline:
+  Scenario Outline:delete命令搜索结果下载
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "2000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then take a screenshot with name "downloadpng/<name>"
 
-    And I wait for "2000" millsecond
+    And I wait for "1000" millsecond
 
     Examples:
       | name                                   | splQuery                           |
