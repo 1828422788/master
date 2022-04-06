@@ -70,7 +70,7 @@ public class LogInAndOut {
             loginPage.getPassword().sendKeys(password);
             loginPage.getLoginButton().click();
             Thread.sleep(2000);
-            webDriver.navigate().to(baseURL + "/dashboard/");
+            webDriver.navigate().to(baseURL);
             times++;
             if (times > 10) {
                 return;
@@ -124,7 +124,6 @@ public class LogInAndOut {
         waitElement.elementVisible(userIcon);
         userIcon.click();
         WebElement loginUserName = webDriver.findElement(By.xpath("//div[contains(@class,'yotta-avatar yotta-avatar-rounded')]/following-sibling::div//p"));
-       // WebElement loginUserName = webDriver.findElement(By.xpath("//div[contains(@class,'css-1itn9ek')]/following-sibling::div//p"));
         if (!loginUserName.getText().equals(username)) {
             userLogin(username, password);
         }
