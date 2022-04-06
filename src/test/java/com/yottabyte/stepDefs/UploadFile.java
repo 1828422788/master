@@ -4,7 +4,7 @@ import com.jcraft.jsch.SftpException;
 import com.yottabyte.config.ConfigManager;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
-import com.yottabyte.utils.GetLogger;
+import com.yottabyte.utils.OsUtils;
 import com.yottabyte.utils.SFTPUtil;
 import com.yottabyte.webDriver.SharedDriver;
 import cucumber.api.java.en.And;
@@ -34,35 +34,34 @@ public class UploadFile {
     @And("^I upload a file with name \"([^\"]*)\"$")
     public void iUploadAFileWithName(String fileNameWithPath) {
         WebElement uploadInput = webDriver.findElement(By.xpath("//input[@type='file']"));
-        if (fileNameWithPath.contains("target"))
+        if (fileNameWithPath.contains("target")){
             uploadFileWithDifferentPath(uploadInput, fileNameWithPath);
-        else
+        }else {
             uploadFile(uploadInput, fileNameWithPath);
+        }
     }
 
     /**
-     * 使用sftp将文件上传到打开selenium server的远端
+     * 将文件上传到打开selenium server的远端,使用共享文件的方式
      *
      * @param fileNameWithPath
      */
-    private void uploadFileToSeleniumServer(String fileNameWithPath) {
+    private void copyFileToSeleniumServer(String ip, String fileNameWithPath) {
+        String targetDir = "/data/seleniumServerDir/"+ip;
         File tmpFile = new File(fileNameWithPath);
+        String fileNameWithPathtmp=fileNameWithPath.substring(1);
         String fileName = tmpFile.getName();
-        String path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
-        SFTPUtil sftpUtil = new SFTPUtil(config.get("ftp_user"), config.get("ftp_password"), config.get("selenium_server_host"), 22);
-        sftpUtil.login();
-        File file = new File(System.getProperty("user.dir") + fileNameWithPath);
-        InputStream is = null;
-        try {
-            is = new FileInputStream(file.getCanonicalFile());
-            sftpUtil.upload("/", path, fileName, is);
-        } catch (FileNotFoundException | SftpException e) {
-            e.printStackTrace();
-            GetLogger.getLogger().error(e.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
+        String path;
+        path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
+        File file = new File(targetDir+path);
+        if (!file.exists() && !file.isDirectory()) {
+            file.mkdirs();
+            System.out.println("创建文件夹");
+        } else {
+            System.out.println("文件夹已存在");
         }
-        sftpUtil.logout();
+        String cmd="/bin/cp -rf " + fileNameWithPathtmp +" "+targetDir+path;
+        OsUtils.executeShell(cmd);
     }
 
     /**
@@ -92,10 +91,11 @@ public class UploadFile {
     @And("^I upload a file \"([^\"]*)\" with name \"([^\"]*)\"$")
     public void uploadFileWithName(String inputName, String fileNameWithPath) {
         WebElement fileInput = GetElementFromPage.getWebElementWithName(inputName);
-        if (fileNameWithPath.contains("target"))
+        if (fileNameWithPath.contains("target")) {
             uploadFileWithDifferentPath(fileInput, fileNameWithPath);
-        else
+        }else {
             uploadFile(fileInput, fileNameWithPath);
+        }
     }
 
     private void uploadFile(WebElement uploadInput, String fileNameWithPath) {
@@ -109,7 +109,7 @@ public class UploadFile {
                 File directory = new File("");
                 if ("Remote".equalsIgnoreCase(type) && !userAgent.contains("Mac OS X")) {
                     courseFile = new ConfigManager().get("ftp_base_path");  // c:\\ftp
-                    uploadFileToSeleniumServer(fileNameWithPath);
+                    copyFileToSeleniumServer(config.get("selenium_server_host"),fileNameWithPath);
                     File tmpFile = new File(fileNameWithPath);
                     String fileName = tmpFile.getName();
                     String path = tmpFile.getPath().split("resources")[1].replace("/", "\\").split(fileName)[0];
@@ -170,7 +170,6 @@ public class UploadFile {
             }
         }
     }
-
 
     /**
      * 删除文件
