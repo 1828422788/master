@@ -174,10 +174,6 @@ public class ListPage extends PageTemplate {
         return super.getDisabledLi();
     }
 
-    public WebElement getSearch() {
-        return super.getSearchIcon();
-    }
-
     public WebElement getAuthorize() {
         return super.getButton("临时授权");
     }

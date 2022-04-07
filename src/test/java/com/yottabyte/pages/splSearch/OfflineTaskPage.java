@@ -43,10 +43,6 @@ public class OfflineTaskPage extends PageTemplate {
         return super.getSuccessMessage();
     }
 
-    public WebElement getSearch() {
-        return super.getSearchIcon();
-    }
-
     @FindBy(xpath = "//a[contains(text(),'删除')]")
     private WebElement delDownLoadButton;
 

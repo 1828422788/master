@@ -43,9 +43,6 @@ public class ImportResPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='app']")
     private WebElement resultAppDataset;
 
-    @FindBy(className = "ant-input-search-icon")
-    private WebElement searchIcon;
-
     @FindBy(xpath = "//span[text()='没有相关的功能权限']")
     private WebElement noAuth;
 
@@ -107,11 +104,6 @@ public class ImportResPage extends PageTemplate {
 
     public WebElement getResultDataset() {
         return resultDataset;
-    }
-
-    @Override
-    public WebElement getSearchIcon() {
-        return searchIcon;
     }
 
     public WebElement getSearchInput() {

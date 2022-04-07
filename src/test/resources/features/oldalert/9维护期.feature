@@ -70,7 +70,6 @@ Feature: 监控维护期
   #@smoke @alertSmoke
   Scenario Outline: 搜索维护期
     Given I set the parameter "SearchReason" with value "<reason>"
-    And I click the "SearchIcon" button
     And I wait for "1000" millsecond
     Then I will see the search result "{'column':'0','name':'<reason>'}"
 
