@@ -237,8 +237,7 @@ public class Checkbox {
         for (String name : nameList) {
             String xpath = "//span[text()='" + name + "']/ancestor::td//label";
             WebElement label = webDriver.findElement(By.xpath(xpath));
-            WebElement span = label.findElement(By.xpath(".//span"));
-            String attribute = span.getAttribute("class");
+            String attribute = label.getAttribute("class");
             if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
                 label.click();
             }

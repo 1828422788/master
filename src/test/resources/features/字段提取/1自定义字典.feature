@@ -6,14 +6,11 @@ Feature: 字段提取自定义字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
     When I click the "UploadButton" button
-    Then I wait for "PopUpWindow" will be visible
+    Then I set the parameter "Name" with value "win_sys_sourcename"
     And I upload a file with name "/src/test/resources/testdata/dictionary/win_sys_sourcename.csv"
     And I wait for "FileName" will be visible
-    Then I set the parameter "Name" with value "win_sys_sourcename"
     And I click the "EnsureUpload" button
-    Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
-    Then I wait for "70000" millsecond
     #chsopen
 
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -96,14 +93,11 @@ Feature: 字段提取自定义字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
     When I click the "UploadButton" button
-    Then I wait for "PopUpWindow" will be visible
+    Then I set the parameter "Name" with value "win_sys_sourcename1"
     And I upload a file with name "/src/test/resources/testdata/dictionary/win_sys_sourcename.csv"
     And I wait for "FileName" will be visible
-    Then I set the parameter "Name" with value "win_sys_sourcename1"
     And I click the "EnsureUpload" button
-    Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
-    Then I wait for "70000" millsecond
     #chsopen
 
     Given open the "configs.ListPage" page for uri "/configs/"

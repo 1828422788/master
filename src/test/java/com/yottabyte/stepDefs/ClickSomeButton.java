@@ -265,4 +265,17 @@ public class ClickSomeButton {
         }
     }
 
+    /**
+     * 双点击元素
+     *
+     * @param elementName 元素名称
+     */
+    @And("^I double click the \"([^\"]*)\" element$")
+    public void doubleClickElement(String elementName) {
+        if (elementName != null && elementName.trim().length() != 0) {
+            WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+            Actions action = new Actions(webDriver);
+            action.doubleClick(element).perform();
+        }
+    }
 }

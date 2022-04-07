@@ -76,12 +76,6 @@ public class CreateTemplatePage extends PageTemplate {
         return deleteTrend;
     }
 
-    @FindBy(className = "yotta-empty-description")
-    private WebElement resultMessage;
-    public WebElement getResultMessage() {
-        return resultMessage;
-    }
-
     @FindBy(xpath = "//div[contains(@class,'file-upload')]")
     private WebElement uploadedFile;
     public WebElement getUploadedFile() {

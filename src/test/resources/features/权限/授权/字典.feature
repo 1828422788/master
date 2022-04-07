@@ -137,7 +137,7 @@ Feature: 权限-字典
     #And I set the parameter "GroupInput" with value "字典分组AutoTest"
     #And I choose the "字典分组AutoTest" from the "Group"
     And I click the "Done" button
-    And I wait for "Message" will be visible
+    And I will see the element "ResultMessage" contains "添加成功"
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
     And the data name is "<name>" then i click the "更多" button
@@ -227,7 +227,7 @@ Feature: 权限-字典
     And I set the parameter "GroupInput" with value "字典分组AutoTest"
     And I choose the "字典分组AutoTest" from the "Group"
     And I click the "Done" button
-    And I wait for "Message" will be visible
+    And I will see the element "ResultMessage" contains "添加成功"
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "更多" button
@@ -429,7 +429,7 @@ Feature: 权限-字典
     And I set the parameter "GroupInput" with value "字典分组AutoTest"
     And I choose the "字典分组AutoTest" from the "Group"
     And I click the "Done" button
-    And I wait for "Message" will be visible
+    And I will see the element "ResultMessage" contains "添加成功"
     Then I logout current user
 
     Examples:
@@ -574,7 +574,7 @@ Feature: 权限-字典
    # And I set the parameter "GroupInput" with value "字典分组AutoTest"
    # And I choose the "字典分组AutoTest" from the "Group"
     And I click the "Done" button
-    And I wait for "Message" will be visible
+    And I will see the element "ResultMessage" contains "添加成功"
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
     When the data name is "AutoTestUserCreate.csv" then i click the "更多" button
@@ -754,7 +754,7 @@ Feature: 权限-字典
     And I set the parameter "GroupInput" with value "字典分组AutoTest"
     And I choose the "字典分组AutoTest" from the "Group"
     And I click the "Done" button
-    And I wait for "Message" will be visible
+    And I will see the element "ResultMessage" contains "添加成功"
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "更多" button
@@ -805,7 +805,7 @@ Feature: 权限-字典
     #And I set the parameter "GroupInput" with value "字典分组AutoTest"
     #And I choose the "字典分组AutoTest" from the "Group"
     And I click the "Done" button
-    And I wait for "Message" will be visible
+    And I will see the element "ResultMessage" contains "添加成功"
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "更多" button

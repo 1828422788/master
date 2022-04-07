@@ -1,13 +1,10 @@
 package com.yottabyte.pages.dictionary;
 
 import com.yottabyte.pages.ListPageFactory;
-import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.DropdownUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import java.security.cert.X509Certificate;
 
 
 public class ListPage extends ListPageFactory {
@@ -16,12 +13,6 @@ public class ListPage extends ListPageFactory {
     }
 
     DropdownUtils dropdownUtils = new DropdownUtils();
-
-    @FindBy(className = "yotta-modal-title")
-    private WebElement popUpWindow;
-
-    @FindBy(xpath = "//span[text()='取消']/ancestor::button")
-    private WebElement cancel;
 
     @FindBy(className = "yotta-file-upload-text")
     private WebElement fileName;
@@ -35,23 +26,14 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//p[@class='ant-empty-description']")
     private WebElement message;
 
-    @FindBy(className = "el-table__empty-text")
-    private WebElement emptyText;
-
-    @FindBy(xpath = "//button[@yotta-test='dictionary-upload_confirm-button']")
-    private WebElement ensureUpload;
-
-    @FindBy(xpath = "//div[@class='ant-modal-body']//button")
-    private WebElement ensureDelete;
-
     @FindBy(xpath = "//div[@class='yotta-pagination-elements'][1]")
     private WebElement totalItem;
 
-    @FindBy(className = "_2dAJUXRHMFMdem7AELR7it")
-    private WebElement UserFilter;
+    @FindBy(xpath = "//input[@yotta-test='role_authorization-filter-input']")
+    private WebElement userFilter;
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//button")
-    private WebElement ensureButton2;
+    @FindBy(xpath = "//span[@yotta-test='role_authorization-filter-icon']")
+    private WebElement filterIcon;
 
     @FindBy(xpath = "//span[text()='无限期']")
     private WebElement indefinitely;
@@ -62,34 +44,20 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='无限期']/preceding-sibling::span")
     private WebElement unCustomize;
 
-    @FindBy(xpath = "//div[@aria-selected='true']")
+    @FindBy(xpath = "//td[contains(text(),'今天')]")
     private WebElement dateNow;
 
     @FindBy(xpath = "//div[@aria-selected='true']/ancestor::td/following-sibling::td[1]")
     private WebElement dateNext;
 
-    @FindBy(xpath = "//input[@placeholder='请选择日期时间']/ancestor::div[1]")
+    @FindBy(xpath = "//input[@placeholder='请选择日期']/ancestor::div[1]")
     private WebElement timeSelector;
 
     @FindBy(xpath = "//a[text()='选择时间']")
     private WebElement searchTime;
 
-    @FindBy(xpath = "//div[@class='ant-calendar-time-picker-combobox']/div[1]/ul/li[24]")
-    private WebElement hour23;
-
-    @FindBy(xpath = "//div[@class='ant-calendar-time-picker-combobox']/div[2]/ul/li[60]")
-    private WebElement minute59;
-
-    @FindBy(xpath = "//div[@class='ant-calendar-time-picker-combobox']/div[3]/ul/li[60]")
-    private WebElement second59;
-
-    @FindBy(xpath = "//a[text()='选择时间']/following-sibling::a[text()='确 定']")
-    private WebElement dateSelectConfirm;
-
-    @FindBy(xpath = "//a[text()='选择日期']/following-sibling::a[text()='确 定']")
-    private WebElement timeSelectConfirm;
-
-    @FindBy(xpath = "//div[@class='ant-spin-container']/table/tbody/tr[1]/td[3]")
+    //在“授权”弹出窗口中，首先用搜索框找用户，然后验证“有限期”列
+    @FindBy(xpath = "(//table/tbody/tr[1]/td[3])[last()]")
     private WebElement deadLine;
 
     @FindBy(xpath = "//div[text()='请输入标签名称']/following-sibling::ul/li/div[1]/input")
@@ -97,18 +65,6 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(xpath = "//button[@yotta-test='dictionary-upload-button']/span")
     private WebElement uploadButton;
-
-    @FindBy(xpath = "//li[@yotta-test='dictionary-download-button']/span")
-    private  WebElement download;
-
-    @FindBy(xpath = "//li[@yotta-test='dictionary-tags-button']/span")
-    private  WebElement label;
-
-    @FindBy(xpath = "//li[@yotta-test='dictionary-authorize-button']/span")
-    private  WebElement auth;
-
-    @FindBy(xpath = "//li[@yotta-test='dictionary-delete-button']/span")
-    private  WebElement delete;
 
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']/div/div")
     private WebElement tagbutton;
@@ -118,18 +74,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getName() {
         return name;
-    }
-
-    public WebElement getEnsureDelete() {
-        return ensureDelete;
-    }
-
-    public WebElement getEnsureUpload() {
-        return ensureUpload;
-    }
-
-    public WebElement getEmptyText() {
-        return emptyText;
     }
 
     public WebElement getSuccessMessage() {
@@ -158,52 +102,21 @@ public class ListPage extends ListPageFactory {
         return super.getLastDropdownList();
     }
 
-    public WebElement getAuthCancelButton() {
-        return super.getButton("取消");
-    }
-
     public WebElement getUpdate() {
         return super.getContainsTextButton("更新");
-    }
-
-    public WebElement getDownload() {
-        return download;
-    }
-
-    public WebElement getLabel() {
-        return label;
-    }
-
-    public WebElement getAuth() {
-        return auth;
-    }
-
-    public WebElement getDelete() {
-        return delete;
     }
 
     public WebElement getTotalItem() {
         return totalItem;
     }
 
-    public WebElement getClearIconOld() {
-        return super.getClearIcon("old");
-    }
-
-    public WebElement getClearIconNew() {
-        return super.getClearIcon("new");
-    }
-
-    public WebElement getClearIconSecond() {
-        return super.getClearIcon("second");
+    public WebElement getFilterIcon() {
+        return filterIcon;
     }
 
     public WebElement getUserFilter() {
-        return UserFilter;
-    }
-
-    public WebElement getEnsureButton2() {
-        return ensureButton2;
+        filterIcon.click();
+        return userFilter;
     }
 
     @Override
@@ -231,10 +144,6 @@ public class ListPage extends ListPageFactory {
         return timeSelector;
     }
 
-    public WebElement getDateSelectConfirm() {
-        return dateSelectConfirm;
-    }
-
     public WebElement getDeadLine() {
         return deadLine;
     }
@@ -243,84 +152,30 @@ public class ListPage extends ListPageFactory {
         return searchTime;
     }
 
-    public WebElement getHour23() {
-        return hour23;
-    }
-
-    public WebElement getMinute59() {
-        return minute59;
-    }
-
-    public WebElement getSecond59() {
-        return second59;
-    }
-
-    public WebElement getTimeSelectConfirm() {
-        return timeSelectConfirm;
-    }
-
     public WebElement getUnCustomize() {
         return unCustomize;
     }
 
-    public WebElement getPopUpWindow() {
-        return popUpWindow;
-    }
-
-    public WebElement getCancel() {
-        return cancel;
-    }
-
-    @FindBy(xpath = "//div[@yotta-test='dialog-container-modal']//h4[text()='提示']")
-    private WebElement tip;
-
-    public WebElement getTip() {
-        return tip;
-    }
-
-    public WebElement getDictionaryTagList(){
-        return dropdownUtils.getDropdownListByLabel("字典标签");
-    }
-
     public WebElement getTagList() {
-        return dropdownUtils.getDropdownListByLabel("标签");
-    }
-
-    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
-    private WebElement dictionaryFilter;
-    public WebElement getDictionaryFilter() {
-        return dictionaryFilter;
-    }
-
-    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
-    private WebElement searchNameInput; //名称
-
-    public WebElement getSearchNameInput() {
-        return searchNameInput;
-    }
-
-    @FindBy(xpath = "//button[@yotta-test='operation-more-button']")
-    private WebElement moreButton; //名称
-
-    public WebElement getMoreButton() {
-        return moreButton;
-    }
-
-    @FindBy(xpath = "//li[@yotta-test='dictionary-delete-button']")
-    private WebElement delButton; //名称
-
-    public WebElement getDelButton() {
-        return delButton;
-    }
-
-    public WebElement getEnsureButton() {
-        return super.getButton("确定");
+        return dropdownUtils.getYottaDropdownList("resource_tag-change_resource_tag-select");
     }
 
     @FindBy(xpath = "//button[@yotta-test='dialog-confirm-button']")
     private WebElement confirmButton; //名称
     public WebElement getConfirmButton() {
         return confirmButton;
+    }
+
+    @FindBy(xpath = "//button[@yotta-test='dictionary-upload_confirm-button']")
+    private WebElement uploadConfirm;
+    public WebElement getUploadConfirm() {
+        return uploadConfirm;
+    }
+
+    @FindBy(xpath = "(//*[@aria-label='Close'])[last()]")
+    private WebElement deleteIcon;
+    public WebElement getDeleteIcon() {
+        return deleteIcon;
     }
 
 }

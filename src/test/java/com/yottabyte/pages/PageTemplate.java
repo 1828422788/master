@@ -3,19 +3,14 @@ package com.yottabyte.pages;
 import com.yottabyte.config.ConfigManager;
 import com.yottabyte.constants.WebDriverConst;
 import com.yottabyte.hooks.LoginBeforeAllTests;
-import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.DropdownUtils;
-import com.yottabyte.utils.ElementExist;
-import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.LoadableComponent;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -52,9 +47,6 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     @FindBy(xpath = "//span[text()='AutoTestRoleWithAllResource']/ancestor::li")
     private WebElement disabledLi;
 
-    @FindBy(className = "ant-input-search-icon")
-    private WebElement searchIcon;
-
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//*[@class='ant-select-selection__clear']")
     private WebElement deleteApp;
 
@@ -64,28 +56,14 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     @FindBy(className = "yotta-message-content")
     private WebElement successMessage;
 
-    @FindBy(xpath="//div[@class='yotta-empty-description']/div/div")
+    @FindBy(className = "yotta-empty-description")
     private WebElement resultMessage;
-
-    @FindBy(xpath = "//span[@class='ant-badge']/i")
-    private WebElement userIcon;
-
-    @FindBy(xpath = "//div[@class='ant-popover-inner-content']//p")
-    private WebElement loginUserName;
 
     @FindBy(xpath = "//div[contains(@class,'spinner')]")
     private WebElement loading;
 
     public WebElement getLoading() {
         return loading;
-    }
-
-    public WebElement getUserIcon() {
-        return userIcon;
-    }
-
-    public WebElement getLoginUserName() {
-        return loginUserName;
     }
 
     public WebElement getMessage() {
@@ -107,10 +85,6 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
 
     public WebElement getDeleteApp() {
         return deleteApp;
-    }
-
-    public WebElement getSearchIcon() {
-        return searchIcon;
     }
 
     public WebElement getSearchInput() {

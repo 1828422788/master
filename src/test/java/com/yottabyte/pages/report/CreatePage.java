@@ -220,9 +220,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[@role='tooltip'])[last()]")
     private WebElement tipElement;
 
-    @FindBy(className = "yotta-empty-description")
-    private WebElement resultMessage;
-
     @FindBy(xpath = "((//div[contains(@class,'help-text')])[1]) | (//div[@class='SPuuh0MNLAnweio5-PDK8'])")
     private WebElement tipText;
 
@@ -310,10 +307,6 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getTipText() {
         return tipText;
-    }
-
-    public WebElement getResultMessage() {
-        return resultMessage;
     }
 
     public WebElement getTipElement() {

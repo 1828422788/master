@@ -79,13 +79,10 @@ Feature: 新建collect使用索引
   Scenario Outline: 新建flinkalert字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When I click the "UploadButton" button
-    Then I wait for "PopUpWindow" will be visible
+    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
     And I upload a file with name "/src/test/resources/testdata/dictionary/<dictionaryNameWithOutCsv>.csv"
 #    And I wait for "FileName" will be visible
-    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
     And I click the "EnsureUpload" button
-    Given I wait for loading complete
-    Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
 

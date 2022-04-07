@@ -281,9 +281,6 @@ public class CreatePageWORD extends PageTemplate {
     @FindBy(xpath = "//i[@class = 'jodit_resizer-bottomright']")
     private WebElement bottomRightCorner;
 
-    @FindBy(className = "yotta-empty-description")
-    private WebElement resultMessage;
-
     @FindBy(xpath = "//span[@aria-label='CloseCircle']/ancestor::div[1]/following-sibling::div/p")
     private WebElement errorMessage;
 
@@ -300,10 +297,6 @@ public class CreatePageWORD extends PageTemplate {
 
     public WebElement getErrorMessage() {
         return errorMessage;
-    }
-
-    public WebElement getResultMessage() {
-        return resultMessage;
     }
 
     public WebElement getTrendNameField() {
