@@ -1,12 +1,11 @@
-@all @smoke @configs @configsSmoke @configs28
+@config @configs28
 Feature: 字段提取列表页
 
   Background:
     Given open the "configs.ListPage" page for uri "/configs/"
-    Given I wait for loading complete
-    And I wait for "1000" millsecond
+    And I wait for loading invisible
 
-  @configs28a
+
   Scenario Outline: 按名称过滤
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
@@ -14,13 +13,10 @@ Feature: 字段提取列表页
     And I click the "AddRule" button
     Then I wait for "500" millsecond
     And I choose the "JSON解析" from the "ParseRule" in config
-    Given I wait for loading complete
     And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "500" millsecond
     And I click the "EnsureAddParseRule" button
-    And I wait for "ParseButton" will be visible
-    Then I wait for "500" millsecond
     And I click the "NextButton" button under some element
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Logtype" with value "other"
@@ -38,7 +34,7 @@ Feature: 字段提取列表页
       | name     | appName    |
       | wym按名称过滤 | filtByName |
 
-  @configs28b
+
   Scenario Outline: 选择标签并按照标签过滤1
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
@@ -46,13 +42,10 @@ Feature: 字段提取列表页
     And I click the "AddRule" button
     Then I wait for "500" millsecond
     And I choose the "JSON解析" from the "ParseRule" in config
-    Given I wait for loading complete
     And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "500" millsecond
     And I click the "EnsureAddParseRule" button
-    And I wait for "ParseButton" will be visible
-    Then I wait for "500" millsecond
     And I click the "NextButton" button under some element
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Logtype" with value "other"
@@ -64,51 +57,37 @@ Feature: 字段提取列表页
       | name     | appName   |
       | wym按标签过滤 | filtByTag |
 
-  @configs28c
+
   Scenario Outline: 选择标签并按照标签过滤2
     Given open the "configs.ListPage" page for uri "/configs/"
-    Given I wait for loading complete
+    And I wait for loading invisible
     When I set the parameter "SearchInput" with value "<name>"
-    Given I wait for loading complete
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     Then I will see the search result "{'column':'1','name':'<name>'}"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button in more menu
     When I click the "TagInputDiv" button
-    Given I wait for loading complete
-    And I wait for "1000" millsecond
     Then I set the parameter "TagInput" with value "configtag"
-    Given I wait for loading complete
-    And I wait for "1000" millsecond
     And I choose the "configtag" from the "ResourceGroupList"
     And I click the "Ensure" button
-    Given I wait for loading complete
+    And I wait for loading invisible
     Then I refresh the website
-    Given I wait for loading complete
-    And I wait for "1000" millsecond
+    And I wait for loading invisible
 
     When I click the "FilterTagDiv" button
-    Given I wait for loading complete
-    And I wait for "1000" millsecond
     Then I set the parameter "FilterTagInput" with value "configtag"
-    Given I wait for loading complete
-    And I wait for "1000" millsecond
     And I choose the "configtag" from the "FilterTagSelect"
-    #And I choose the "configtag" from the "ResourceDropdown" in config
-    Given I wait for loading complete
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     Then I will see the search result contains "{'column':'1','name':'<name>'}"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button in more menu
-#    And I choose the "configtag" from the "ResourceGroupList" in config
     And I cancel selection "configtag"
     And I click the "Ensure" button
-    Given I wait for loading complete
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I will see the "SearchResultIsEmpty" result will be "暂无数据"
 
     Examples:
-      | name     | appName   |
-      | wym按标签过滤 | filtByTag |
+      | name     |
+      | wym按标签过滤 |
 
-  @configs28d
+
   Scenario: 验证运行统计是否自动关闭
     Then I will see the "SwitchButton" is "yotta-switch-input"

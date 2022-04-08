@@ -1,4 +1,4 @@
-@all @smoke @configs @configsSmoke @configs2
+@configs @configs2
 Feature: 字段提取禁用/启用
 
   Background:
@@ -36,16 +36,6 @@ Feature: 字段提取禁用/启用
     And I wait for loading invisible
     Then I will see the element "{'column':'1','name':'<name>'}" is "close"
 
-
     Examples:
-      | name  | appName |
+      | name       | appName |
       | 禁用和启用 | wym_disable |
-
-
-#  Scenario: RZY-1874:开启运行统计
-#    Then I wait for "1000" millsecond
-#    When I click the "SwitchButton" button
-#    And I refresh the website
-#    And I wait for loading invisible
-#    Then I wait for "1000" millsecond
-#    Then I will see the "SwitchButton" is "ant-switch-disabled"

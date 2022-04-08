@@ -232,16 +232,10 @@ public class ClickButtonWithGivenName {
      */
     private void click(String buttonName, WebElement tr) {
         String xpath;
-        if (webDriver.getCurrentUrl().contains("/app/list/") || webDriver.getCurrentUrl().contains("/app/siem/assets/") || webDriver.getCurrentUrl().contains("/reports/template/") ||(webDriver.getCurrentUrl().contains("/reports/") && !("编辑".equals(buttonName)))) {
-            // xpath = ".//span[contains(text(),'" + buttonName + "')][not(@class)]";
-            xpath = ".//span[text()='" + buttonName + "']";
-        } else if ("详情".equals(buttonName)) {
-            xpath = ".//span[contains(text(),'" + buttonName + "')]";
-        } else if (webDriver.getCurrentUrl().contains("/sources/input/agent/") ||webDriver.getCurrentUrl().contains("/agent/agentgroup/") || webDriver.getCurrentUrl().contains("/agent/groupcollect/")) {
+        if ("详情".equals(buttonName) || webDriver.getCurrentUrl().contains("/sources/input/agent/") ||webDriver.getCurrentUrl().contains("/agent/agentgroup/") || webDriver.getCurrentUrl().contains("/agent/groupcollect/")) {
             xpath = ".//a[text()='" + buttonName + "']";
         } else {
             xpath = ".//span[text()='" + buttonName + "']";
-//            xpath = ".//a[text()='" + buttonName + "']";
         }
         List<WebElement> button = tr.findElements(By.xpath(xpath));
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button.get(0));

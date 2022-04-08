@@ -67,32 +67,40 @@ public class ListPage extends ListPageFactory {
         return modalContent;
     }
 
+    @FindBy(xpath = "//input[@yotta-test='queryscope-name-input']")
+    private WebElement name;
     public WebElement getName() {
-        return super.getPlaceholderInput("请输入名称");
+        return name;
     }
 
+    @FindBy(xpath = "//input[@yotta-test='queryscope-description-input']")
+    private WebElement describe;
     public WebElement getDescribe() {
-        return super.getPlaceholderInput("请输入描述");
+        return describe;
     }
 
-    public WebElement getSourceTag() {
-        return super.getPlaceholderInput("请输入标签名称");
-    }
-
+    @FindBy(xpath = "//input[@yotta-test='queryscope-hostname-input']")
+    private WebElement hostname;
     public WebElement getHostname() {
-        return super.getPlaceholderInput("请输入 Hostname");
+        return hostname;
     }
 
+    @FindBy(xpath = "//input[@yotta-test='queryscope-tag-input']")
+    private WebElement tag;
     public WebElement getTag() {
-        return super.getPlaceholderInput("请输入 tag");
+        return tag;
     }
 
+    @FindBy(xpath = "//input[@yotta-test='queryscope-appname-input']")
+    private WebElement appname;
     public WebElement getAppname() {
-        return super.getPlaceholderInput("请输入 appname");
+        return appname;
     }
 
+    @FindBy(xpath = "//input[@yotta-test='queryscope-filters-input']")
+    private WebElement filter;
     public WebElement getFilter() {
-        return super.getPlaceholderInput("请输入过滤条件");
+        return filter;
     }
 
     public WebElement getMessage() {

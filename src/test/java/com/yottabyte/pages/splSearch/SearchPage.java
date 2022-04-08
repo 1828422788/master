@@ -29,7 +29,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//*[@class='ant-select-selection__clear']")
     private WebElement deleteApp;
 
-    @FindBy(xpath = "//div[@class='_1RUvRKI62LgS00VRtmcaq']/div[1]")
+    @FindBy(xpath = "(//div[@class='event-item'])[1]")
     private WebElement result;
 
     @FindBy(xpath = "//label[text()='资源标签']/ancestor::div[1]/following-sibling::div/div")
@@ -604,8 +604,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//td[@data-col-name]/span")
     private List<WebElement> columnList;
 
-    // @FindBy(className = "_2dbwZ_u3soDYQC50Ls5yOo")
-    @FindBy(xpath = "//div[@class='event-item'][1]/span")
+    @FindBy(xpath = "(//*[@yotta-test='event_list-expand-icon'])[1]")
     private WebElement rightIcon;
 
     @FindBy(xpath = "//span[text()='x']/ancestor::td/following-sibling::td/span")

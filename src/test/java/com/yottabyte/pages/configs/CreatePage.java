@@ -546,61 +546,8 @@ public class CreatePage extends PageTemplate {
         return firstOptionInList;
     }
 
-    public WebElement getRedirectList() throws InterruptedException {
-        String xpath;
-        xpath = "(//div[@yotta-test='config-rule-select']/div)";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-        ClickEvent.clickUnderneathButton(element);
-
-        String str_scrollbar = "yotta-virtual-list-scrollbar";
-        WebElement ScrollbarE = webDriver.findElement(By.className(str_scrollbar));
-        if (ScrollbarE.getAttribute("style").contains("display: none;")) {
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", ScrollbarE);
-        }
-
-        WaitForElement.waitForElementWithExpectedCondition(
-                LoginBeforeAllTests.getWebDriver(), ExpectedConditions.elementToBeClickable(ScrollbarE));
-//      ScrollbarE.click();
-
-        for (int i = 1; i < 5; i++) {
-            System.out.println(i + "i-------------------------------------------------------------------------------------------------------------");
-            System.out.println("-----arguments[0].scrollIntoView(false)-----------------------------------------------------------------------------------------------------");
-//            ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView(false);", ScrollbarE);
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollTo(0,document.body.scrollHeight)", ScrollbarE);
-
-        }
-
-        for (int i = 1; i < 5; i++) {
-            System.out.println(i + "i-------------------------------------------------------------------------------------------------------------");
-            if (ScrollbarE.getAttribute("style").contains("display: none;")) {
-                ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", ScrollbarE);
-            }
-
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", ScrollbarE);
-
-            WaitForElement.waitForElementWithExpectedCondition(
-                    LoginBeforeAllTests.getWebDriver(), ExpectedConditions.elementToBeClickable(ScrollbarE));
-            System.out.println("------sleep------------------------------------------------------------------------------------------------------");
-            Thread.sleep(10000);
-
-            int sourceX = ScrollbarE.getLocation().getX();
-            int sourceY = ScrollbarE.getLocation().getY();
-            System.out.println("sourceX===" + sourceX);
-            System.out.println("sourceY===" + sourceY);
-            System.out.println("------ScrollbarE, sourceX, sourceY------------------------------------------------------------------------------");
-            new Actions(webDriver).dragAndDropBy(ScrollbarE, 0, 20).build().perform();
-        }
-
-
-        String str_selector = "[class='yotta-select-menu css-ncm03v']";
-        List<WebElement> list = webDriver.findElements(By.cssSelector(str_selector));
-        WebElement lastDropdownList = list.get(list.size() - 1);
-        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
-
-        }
-        return lastDropdownList;
+    public WebElement getRedirectList(){
+        return dropdownUtils.getYottaDropdownList("config-rule-select");
     }
 
 }

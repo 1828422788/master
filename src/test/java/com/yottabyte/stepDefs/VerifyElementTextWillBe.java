@@ -2,10 +2,13 @@ package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
+import com.yottabyte.utils.JsonStringPaser;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -158,5 +161,20 @@ public class VerifyElementTextWillBe {
         WebElement element = GetElementFromPage.getWebElementWithName("ErrorMessage");
         String realResult = element.getText();
         assertTrue("实际值：" + realResult, realResult.contains(errorMessage));
+    }
+
+    /**
+     * 验证字段提取页的解析结果
+     *
+     * @param json {'字段名称'：'字段值'}
+     */
+    @Then("^I will see the field extraction result \"([^割]*)\"$")
+    public void iWillSeeTheFieldExtractionResult(String json) {
+        Map<String, Object> map = JsonStringPaser.json2Stirng(json);
+        for (String key : map.keySet()) {
+            WebElement tr = webDriver.findElement(By.xpath("(//span[text()='" + key + ":']/following-sibling::*)[last()]"));
+            String actualValue = tr.getText();
+            Assert.assertEquals(map.get(key), actualValue);
+        }
     }
 }

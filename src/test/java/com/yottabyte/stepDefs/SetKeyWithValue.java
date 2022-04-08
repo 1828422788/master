@@ -231,7 +231,7 @@ public class SetKeyWithValue {
     @And("^I set the parameter \"([^割]*)\" to json editor in field parsing$")
     public void iSetTheParameterToJsonEditorNotClick(String value) {
         WebElement element = webDriver.findElement(By.xpath("(//*[@class='ace_text-input'])[last()]"));
-        if (System.getProperty("os.name").startsWith("Linux"))
+        if (System.getProperty("os.name").startsWith("Linux") || System.getProperty("os.name").startsWith("Windows"))
             element.sendKeys(Keys.CONTROL, "a");
         else
             element.sendKeys(Keys.COMMAND, "a");

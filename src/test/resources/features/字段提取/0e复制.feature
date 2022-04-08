@@ -1,4 +1,4 @@
-@all @configs5 @configs @configsSmoke
+@configs5 @configs
 Feature: 字段提取复制、编辑
 
   Scenario Outline:

@@ -225,10 +225,6 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
         return dropdownUtils.getLastDropdownList();
     }
 
-    public WebElement getPlaceholderInput(String placeholder) {
-        return webDriver.findElement(By.xpath("(//input[@placeholder='" + placeholder + "'])[last()]"));
-    }
-
     public WebElement getClearIcon(String text) {
         String xpath = "//div[contains(text(),'" + text + "')]/following-sibling::span/i[@aria-label='图标: close']";
         return webDriver.findElement(By.xpath(xpath));

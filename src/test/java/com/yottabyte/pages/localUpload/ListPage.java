@@ -36,6 +36,10 @@ public class ListPage extends PageTemplate {
         return super.getButton("上传");
     }
 
+    public WebElement getConfirm() {
+        return super.getButton("去验证");
+    }
+
     public WebElement getInputElement(String name) {
         return webDriver.findElement(By.xpath("//label[contains(text(),'" + name + "')]/parent::div/following-sibling::div//input"));
     }

@@ -30,14 +30,13 @@ public class SplSearch {
     /**
      * 验证搜索页列表字段值
      *
-     * @param json {'字段名称'：'字段名称+字段值'}
+     * @param json {'字段名称'：'字段值'}
      */
     @Then("^I will see the spl search result \"([^割]*)\"$")
     public void iWillSeeTheSplSearchResult(String json) {
         Map<String, Object> map = JsonStringPaser.json2Stirng(json);
-
         for (String key : map.keySet()) {
-            WebElement tr = webDriver.findElement(By.xpath("//span[text()='"+key+"']/following-sibling::span[last()]//span[@yotta-test='event_list-field_value-dom'][last()]"));
+            WebElement tr = webDriver.findElement(By.xpath("(//span[text()='" + key + ":']/following-sibling::span[@class='fields-values'])[last()]"));
             String actualValue = tr.getText();
             Assert.assertEquals(map.get(key), actualValue);
         }
