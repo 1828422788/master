@@ -2,39 +2,6 @@
 Feature: 字段提取脱敏配置
 
 
-  Scenario: 新建搜索权限
-    Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
-    Then I wait for loading invisible
-    And I click the "Create" button
-    And I set the parameter "Name" with value "wymAutoTest搜索权限"
-    And I set the parameter "Tag" with value "*"
-    And I click the "Ensure" button
-    Then I will see the success message "操作成功"
-    Then I refresh the website
-    Then I wait for loading invisible
-    When the data name is "{'column':'0','name':'wymAutoTest搜索权限'}" then i click the "授权" button in more menu
-    Then I wait for loading invisible
-    And I "check" the checkbox which name is "wym" in tiny table
-    And I click the "Ensure" button
-    Then I will see the message "保存成功"
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "__user_wym__"
-    And I wait for loading invisible
-    When the data name is "__user_wym__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I wait for loading invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "可查看敏感内容"
-    Then I click the "SaveButton" button
-    Then I click the "{'TabButton':'索引'}" button
-    And I wait for loading invisible
-    And I "checked" the checkbox which name is "yotta" in auth table
-    Then I click the "SaveButton" button
-    And I wait for "SuccessMessage" will be invisible
-
   Scenario Outline: RZY-2827: 新建脱敏配置规则
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
@@ -109,6 +76,40 @@ Feature: 字段提取脱敏配置
       | replacer.log | replacer |
 
 
+  Scenario: 新建搜索权限
+    Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
+    Then I wait for loading invisible
+    And I click the "Create" button
+    And I set the parameter "Name" with value "wymAutoTest搜索权限"
+    And I set the parameter "Tag" with value "*"
+    And I click the "Ensure" button
+    Then I will see the success message "操作成功"
+    Then I refresh the website
+    Then I wait for loading invisible
+    When the data name is "{'column':'0','name':'wymAutoTest搜索权限'}" then i click the "授权" button in more menu
+    Then I wait for loading invisible
+    And I "check" the checkbox which name is "wym" in tiny table
+    And I click the "Ensure" button
+    Then I will see the message "保存成功"
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "__user_wym__"
+    And I wait for loading invisible
+    When the data name is "__user_wym__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I wait for loading invisible
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "可查看敏感内容"
+    Then I click the "SaveButton" button
+    Then I click the "{'TabButton':'索引'}" button
+    And I wait for loading invisible
+    And I "checked" the checkbox which name is "yotta" in auth table
+    Then I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be invisible
+
+
   Scenario Outline: 搜索页，验证结果
     Given I login user "wym" with password "All#123456"
     And open the "splSearch.SearchPage" page for uri "/search/"
@@ -120,7 +121,6 @@ Feature: 字段提取脱敏配置
     Then I move the mouse pointer to the "Result"
     And I click the "RightIcon" button
     Then I will see the spl search result "<searchResult>"
-    And I wait for "5000" millsecond
     And I logout current user
 
     Examples:
@@ -147,5 +147,6 @@ Feature: 字段提取脱敏配置
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
     And I wait for loading invisible
     When the data name is "{'column':'0','name':'wymAutoTest搜索权限'}" then i click the "删除" button in more menu
+    And I wait for loading invisible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"

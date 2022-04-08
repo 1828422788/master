@@ -1,29 +1,6 @@
 @configs7 @configs
 Feature: 字段提取Hex转换
 
-  @configsSmoke
-  Scenario Outline: RZY-2825: hex转换
-    Given open the "configs.ListPage" page for uri "/configs/"
-    Then I wait for loading invisible
-    And I click the "Create" button
-    Then I will see the "configs.CreatePage" page
-    When I set the parameter "LogSample" with value "e5a4a7e9bb91e5b1b1"
-    And I click the "AddRule" button
-    And I choose the "hex转换" from the "ParseRule" in config
-    And I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
-    Then I wait for "1000" millsecond
-    And I set the parameter "Code" with value "utf-8"
-    And I click the "EnsureAddParseRule" button
-    And I click the "ParseButton" button
-    And I wait for "CheckSuccess" will be visible
-    Then I will see the element value in json "{'Result':'<result>'}"
-
-    Examples:
-      | result                    |
-      | Object\nraw_message:"大黑山" |
-
-
   Scenario Outline: RZY-2826:高级模式下start_offset的使用
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
@@ -71,11 +48,32 @@ Feature: 字段提取Hex转换
     Then I move the mouse pointer to the "Result"
     And I click the "RightIcon" button
     Then I will see the spl search result "<searchResult>"
-    And I wait for "5000" millsecond
 
     Examples:
       | appName       | log    | searchResult                      |
       | wym_test_hex | hex.log | {'raw_message':'import sys\nimpor'} |
+
+  @configsSmoke
+  Scenario Outline: RZY-2825: hex转换
+    Given open the "configs.ListPage" page for uri "/configs/"
+    Then I wait for loading invisible
+    And I click the "Create" button
+    Then I will see the "configs.CreatePage" page
+    When I set the parameter "LogSample" with value "e5a4a7e9bb91e5b1b1"
+    And I click the "AddRule" button
+    And I choose the "hex转换" from the "ParseRule" in config
+    And I wait for "1000" millsecond
+    And I choose the "raw_message" from the "SourceField" in config
+    Then I wait for "1000" millsecond
+    And I set the parameter "Code" with value "utf-8"
+    And I click the "EnsureAddParseRule" button
+    And I click the "ParseButton" button
+    And I wait for "CheckSuccess" will be visible
+    Then I will see the element value in json "{'Result':'<result>'}"
+
+    Examples:
+      | result                    |
+      | Object\nraw_message:"大黑山" |
 
 
   Scenario Outline: hex详情验证

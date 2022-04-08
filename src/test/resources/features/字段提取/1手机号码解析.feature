@@ -35,7 +35,7 @@ Feature: 字段提取手机号码解析
       | RZY2803解析到顶层字段| Checkbox | {'city':'"大连市"','country':'"中国"','isp':'"中国移动"','latitude':'38.94381','longitude':'121.57652','province':'"辽宁"','raw_message':'"18840824121"'}                         | wym_test_tel |
 
 
-  Scenario Outline: RZY-2802、2803
+  Scenario Outline: RZY-2802、2803 上传日志，验证结果
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "<appName>"
     And I set the parameter "Tag" with value "<appName>"

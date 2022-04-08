@@ -78,11 +78,22 @@ Feature: 字段提取自定义字典
     Then I move the mouse pointer to the "Result"
     And I click the "RightIcon" button
     Then I will see the spl search result "<searchResult>"
-    And I wait for "5000" millsecond
 
     Examples:
       | appName             | log            | searchResult                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
       | wym_test_dictionary | dictionary.log | {'json.Category':'','json.ComputerName':'WIN-999OGBVAHMI','json.EventCode':'7036','json.EventIdentifier':'1073748860','json.EventType':'3','json.Logfile':'System','json.Message':'Application Experience 服务处于 正在运行 状态。','json.RecordNumber':'108343','json.SourceName':'Service Control Manager','json.TimeGenerated':'2015-01-04T20:45:09+08:00','json.level':'2','json.source':'sys'} |
+
+
+  Scenario: 删除字典
+    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+    And I wait for loading invisible
+    Then I set the parameter "SearchInput" with value "win_sys_sourcename.csv"
+    And I wait for loading invisible
+    When the data name is "{'column':'0','name':'win_sys_sourcename.csv'}" then i click the "删除" button in more menu
+    Then I will see the success message "确认删除 [win_sys_sourcename.csv] ?"
+    When I click the "Ensure" button
+    And I wait for loading invisible
+    Then I will see the success message "删除成功"
 
 
   Scenario Outline: 自定义字典详情页验证
@@ -98,15 +109,3 @@ Feature: 字段提取自定义字典
     Examples:
       | name                          | rule1      | rule2    |
       | RZY2819配置自定义字典解析规则 | 自定义字典 | JSON解析 |
-
-
-  Scenario: 删除字典
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
-    And I wait for loading invisible
-    Then I set the parameter "SearchInput" with value "win_sys_sourcename.csv"
-    And I wait for loading invisible
-    When the data name is "{'column':'0','name':'win_sys_sourcename.csv'}" then i click the "删除" button in more menu
-    Then I will see the success message "确认删除 [win_sys_sourcename.csv] ?"
-    When I click the "Ensure" button
-    And I wait for loading invisible
-    Then I will see the success message "删除成功"

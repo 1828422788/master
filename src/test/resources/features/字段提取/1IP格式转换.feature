@@ -2,7 +2,7 @@
 Feature: 字段提取IP格式转换
 
 
-  Scenario Outline: RZY-1555:IP格式转换搜索页验证
+  Scenario Outline: RZY-1555:IP格式转换
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
     And I click the "Create" button
@@ -60,7 +60,7 @@ Feature: 字段提取IP格式转换
     Then I move the mouse pointer to the "Result"
     And I click the "RightIcon" button
     Then I will see the spl search result "<searchResult>"
-    And I wait for "5000" millsecond
+    And I wait for "10000" millsecond
 
     Examples:
       | appName     | log    | searchResult                |

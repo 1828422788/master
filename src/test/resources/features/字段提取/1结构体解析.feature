@@ -2,29 +2,6 @@
 Feature: 字段提取结构体解析
 
 
-  Scenario Outline: RZY-2863:非严格解析
-    Given open the "configs.ListPage" page for uri "/configs/"
-    Then I wait for loading invisible
-    And I click the "Create" button
-    Then I will see the "configs.CreatePage" page
-    When I set the parameter "LogSample" with value "aaa 111"
-    And I click the "AddRule" button
-    And I choose the "结构体解析" from the "ParseRule" in config
-    And I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
-    Then I wait for "1000" millsecond
-    And I set the value "<struct>" to the textarea "Struct"
-    And I click the "EnsureAddParseRule" button
-    And I wait for loading invisible
-    And I click the "ParseButton" button
-    And I wait for "CheckSuccess" will be visible
-    Then I will see the field extraction result "<result>"
-
-    Examples:
-      | struct         | result                                                |
-      | name:3,val:3:i | {'name':'"aaa"','val':'11','raw_message':'"aaa 111"'} |
-
-
   Scenario Outline: RZY-2862:严格解析
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
@@ -79,6 +56,30 @@ Feature: 字段提取结构体解析
     Examples:
       | appName        | log            | searchResult                           |
       | wym_test_codec | 结构体解析.log | {"other.name":"aaa","other.val":"111"} |
+
+
+  @configsSmoke
+  Scenario Outline: RZY-2863:非严格解析
+    Given open the "configs.ListPage" page for uri "/configs/"
+    Then I wait for loading invisible
+    And I click the "Create" button
+    Then I will see the "configs.CreatePage" page
+    When I set the parameter "LogSample" with value "aaa 111"
+    And I click the "AddRule" button
+    And I choose the "结构体解析" from the "ParseRule" in config
+    And I wait for "1000" millsecond
+    And I choose the "raw_message" from the "SourceField" in config
+    Then I wait for "1000" millsecond
+    And I set the value "<struct>" to the textarea "Struct"
+    And I click the "EnsureAddParseRule" button
+    And I wait for loading invisible
+    And I click the "ParseButton" button
+    And I wait for "CheckSuccess" will be visible
+    Then I will see the field extraction result "<result>"
+
+    Examples:
+      | struct         | result                                                |
+      | name:3,val:3:i | {'name':'"aaa"','val':'11','raw_message':'"aaa 111"'} |
 
 
   Scenario Outline: 详情验证

@@ -27,7 +27,7 @@ Feature: 字段提取内容替换
       | Object\nraw_message:"123456" |
 
 
-  Scenario Outline: RZY-1556:内容替换搜索页验证
+  Scenario Outline: RZY-1556:内容替换
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
     And I click the "Create" button
@@ -76,25 +76,10 @@ Feature: 字段提取内容替换
     Then I move the mouse pointer to the "Result"
     And I click the "RightIcon" button
     Then I will see the spl search result "<searchResult>"
-    And I wait for "5000" millsecond
 
     Examples:
       | appName                 | log                | searchResult                |
       | wym_test_replaceContent | replaceContent.log  | {'raw_message':'123456qwe'} |
-
-
-  Scenario Outline: RZY-1556:内容替换详情验证
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
-    Then I wait for loading invisible
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
-    And I wait for loading invisible
-    Then I will see the config element "<rule1>" value is "<rule1> 1 1 0 0 0"
-
-    Examples:
-      | name            | rule1 |
-      | RZY1556内容替换 | 内容替换  |
 
 
   Scenario Outline: RZY-1559:tag替换搜索页验证
@@ -147,11 +132,25 @@ Feature: 字段提取内容替换
     Then I move the mouse pointer to the "Result"
     And I click the "RightIcon" button
     Then I will see the spl search result "<searchResult>"
-    And I wait for "5000" millsecond
+    And I wait for "10000" millsecond
 
     Examples:
       | tag                 | log        | searchResult                                |
       | wym_test_replaceTag | rename.log | {"tag":"wym_test_replaceTagnewinfo"} |
+
+
+  Scenario Outline: RZY-1556:内容替换详情验证
+    Given open the "configs.ListPage" page for uri "/configs/"
+    And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "<name>"
+    Then I wait for loading invisible
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
+    And I wait for loading invisible
+    Then I will see the config element "<rule1>" value is "<rule1> 1 1 0 0 0"
+
+    Examples:
+      | name            | rule1 |
+      | RZY1556内容替换 | 内容替换  |
 
 
   Scenario Outline: tag替换详情验证
