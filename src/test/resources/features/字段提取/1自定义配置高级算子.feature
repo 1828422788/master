@@ -50,6 +50,7 @@ Feature: 字段提取自定义配置高级算子
     Then I move the mouse pointer to the "Result"
     And I click the "RightIcon" button
     Then I will see the spl search result "<searchResult>"
+    And I wait for "5000" millsecond
 
     Examples:
       | appName          | log         | searchResult                                                           |
@@ -114,6 +115,7 @@ Feature: 字段提取自定义配置高级算子
     Then I move the mouse pointer to the "Result"
     And I click the "RightIcon" button
     Then I will see the spl search result "<searchResult>"
+    And I wait for "5000" millsecond
 
     Examples:
       | log        | appName         | searchResult                                                |
@@ -179,6 +181,7 @@ Feature: 字段提取自定义配置高级算子
     Then I move the mouse pointer to the "Result"
     And I click the "RightIcon" button
     Then I will see the spl search result "<searchResult>"
+    And I wait for "5000" millsecond
 
     Examples:
       | appName         | log        | searchResult                  |
@@ -245,6 +248,7 @@ Feature: 字段提取自定义配置高级算子
     Then I move the mouse pointer to the "Result"
     And I click the "RightIcon" button
     Then I will see the spl search result "<searchResult>"
+    And I wait for "5000" millsecond
 
     Examples:
       | appName          | log         | searchResult                                          |

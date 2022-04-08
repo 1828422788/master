@@ -189,6 +189,7 @@ Feature: 字段提取关联日志样例
     And I upload a file with name "/src/test/resources/testdata/log/<log>"
     And I click the "UploadButton" button
     And I wait for element "VerifyText" change text to "上传完成"
+    And I wait for "5000" millsecond
 
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
@@ -221,6 +222,7 @@ Feature: 字段提取关联日志样例
     And I upload a file with name "/src/test/resources/testdata/log/<log>"
     And I click the "UploadButton" button
     And I wait for element "VerifyText" change text to "上传完成"
+    And I wait for "5000" millsecond
 
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
@@ -252,6 +254,7 @@ Feature: 字段提取关联日志样例
     And I upload a file with name "/src/test/resources/testdata/log/<log>"
     And I click the "UploadButton" button
     And I wait for element "VerifyText" change text to "上传完成"
+    And I wait for "5000" millsecond
 
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
@@ -288,6 +291,7 @@ Feature: 字段提取关联日志样例
     And I upload a file with name "/src/test/resources/testdata/log/<log>"
     And I click the "UploadButton" button
     And I wait for element "VerifyText" change text to "上传完成"
+    And I wait for "5000" millsecond
 
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
@@ -325,6 +329,7 @@ Feature: 字段提取关联日志样例
     And I upload a file with name "/src/test/resources/testdata/log/<log>"
     And I click the "UploadButton" button
     And I wait for element "VerifyText" change text to "上传完成"
+    And I wait for "5000" millsecond
 
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible

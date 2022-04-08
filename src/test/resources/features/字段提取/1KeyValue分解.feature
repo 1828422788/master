@@ -79,6 +79,7 @@ Feature: 字段提取KeyValue分解
     Then I move the mouse pointer to the "Result"
     And I click the "RightIcon" button
     Then I will see the spl search result "<searchResult>"
+    And I wait for "5000" millsecond
 
     Examples:
       | searchResult                                                                                                                                                                                                         |  appName           |
