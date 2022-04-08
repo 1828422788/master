@@ -59,8 +59,10 @@ public class SharedDriver extends EventFiringWebDriver {
         ConfigManager config = new ConfigManager();
         DesiredCapabilities browser = null;
         try {
+            System.out.println("===================开始尝试初始化远程的webdirver");
             if ("chrome".equalsIgnoreCase(config.get("browser"))) {
                 System.out.println("测试浏览器类型：" + config.get("browser"));
+                //初始化chrome的基本信息
                 browser = ChromeDes();
             } else {
                 judgingBrowserType(config, browser);
@@ -74,15 +76,18 @@ public class SharedDriver extends EventFiringWebDriver {
             ServerHOst = config.get("selenium_server_host");
             GetLogger.getLogger().info("ServerHOst: {}", ServerHOst);
             URL url = new URL("http://" + ServerHOst + ":4444/wd/hub");
+            System.out.println("chsfinduml=====================[oyk] Remore selenium serverURL" + url);
             REAL_DRIVER = new RemoteWebDriver(url, browser);
+            System.out.println("初始化remoteWebDriver 成功");
             REAL_DRIVER = new EventFiringWebDriver(REAL_DRIVER).register(eventListener);
 //            REAL_DRIVER.manage().window().fullscreen();
             WebDriverType = "Remote";
         } catch (MalformedURLException exceptions) {
 
         } catch (UnreachableBrowserException e) {
-            System.out.println("Can not find remote server. Start local service");
+            System.out.println("初始化远程的selenium server 失败. Start 初始化 local service");
             if ("chrome".equalsIgnoreCase(config.get("browser"))) {
+                //初始化本地chrome的基本信息
                 browser = LocalChromeDes();
             } else {
                 judgingBrowserType(config, browser);

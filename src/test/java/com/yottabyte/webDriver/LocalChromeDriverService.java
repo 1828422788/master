@@ -26,7 +26,7 @@ public class LocalChromeDriverService {
                     .usingAnyFreePort()
                     .build();
             service.start();
-            System.out.println("Selenium service start at: " + service.getUrl());
+            System.out.println("启动本地Selenium service 成功: " + service.getUrl());
         } catch (IOException e) {
             e.printStackTrace();
         }
