@@ -1,31 +1,6 @@
 @configs14 @configs
 Feature: 字段提取内容替换
 
-  @configsSmoke
-  Scenario Outline: RZY-1557:不勾选 只替换第一个
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for loading invisible
-    And I click the "Create" button
-    Then I will see the "configs.CreatePage" page
-    When I set the parameter "LogSample" with value "123abc456qwe"
-    And I click the "AddRule" button
-    And I choose the "内容替换" from the "ParseRule" in config
-    And I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
-    Then I wait for "1000" millsecond
-    And I set the value "(\d+)[a-z]+" to the textarea "Regex"
-    And I set the value "$1" to the textarea "ReplaceContent"
-    And I click the "ReplaceFirst" button
-    And I click the "EnsureAddParseRule" button
-    And I wait for loading invisible
-    And I click the "ParseButton" button
-    And I wait for "CheckSuccess" will be visible
-    Then I will see the element value in json "{'Result':'<result>'}"
-
-    Examples:
-      | result                       |
-      | Object\nraw_message:"123456" |
-
 
   Scenario Outline: RZY-1556:内容替换
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -132,12 +107,36 @@ Feature: 字段提取内容替换
     Then I move the mouse pointer to the "Result"
     And I click the "RightIcon" button
     Then I will see the spl search result "<searchResult>"
-    And I wait for "10000" millsecond
 
     Examples:
       | tag                 | log        | searchResult                                |
       | wym_test_replaceTag | rename.log | {"tag":"wym_test_replaceTagnewinfo"} |
 
+
+  @configsSmoke
+  Scenario Outline: RZY-1557:不勾选 只替换第一个
+    Given open the "configs.ListPage" page for uri "/configs/"
+    And I wait for loading invisible
+    And I click the "Create" button
+    Then I will see the "configs.CreatePage" page
+    When I set the parameter "LogSample" with value "123abc456qwe"
+    And I click the "AddRule" button
+    And I choose the "内容替换" from the "ParseRule" in config
+    And I wait for "1000" millsecond
+    And I choose the "raw_message" from the "SourceField" in config
+    Then I wait for "1000" millsecond
+    And I set the value "(\d+)[a-z]+" to the textarea "Regex"
+    And I set the value "$1" to the textarea "ReplaceContent"
+    And I click the "ReplaceFirst" button
+    And I click the "EnsureAddParseRule" button
+    And I wait for loading invisible
+    And I click the "ParseButton" button
+    And I wait for "CheckSuccess" will be visible
+    Then I will see the element value in json "{'Result':'<result>'}"
+
+    Examples:
+      | result                       |
+      | Object\nraw_message:"123456" |
 
   Scenario Outline: RZY-1556:内容替换详情验证
     Given open the "configs.ListPage" page for uri "/configs/"

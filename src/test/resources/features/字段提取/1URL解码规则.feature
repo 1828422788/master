@@ -63,7 +63,7 @@ Feature: 字段提取URL解码规则
     Then I move the mouse pointer to the "Result"
     And I click the "RightIcon" button
     Then I will see the spl search result "<searchResult>"
-    And I wait for "10000" millsecond
+    And I wait for "20000" millsecond
 
     Examples:
       | appName      | log     | searchResult                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
