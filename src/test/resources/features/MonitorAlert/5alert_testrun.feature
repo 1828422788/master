@@ -55,16 +55,12 @@ Feature: 测试运行-邮件
     Given I wait for loading complete
     When I click the "AffirmButton" button
 
-    @alertSmoke
     Examples:
       | name                    |
       |	api00_spl统计_按行发送1_sample_444444	|
       |	api00_spl统计_按行发送2_抑制翻倍_cnt_10-59min_分组单字段_22020002 |
       |	api00_基线_status_在区间内_all_合并	|
       |	api00_字段统计_切分ip_最大数status_扩展chart键值_all_抑制间隔翻倍10-90min	|
-
-    Examples:
-      | name                    |
       |	api00_spl统计ip_cnt_高_扩展chart_all_合并	|
       |	api00_spl统计ip_cnt_高_扩展chart_all_宏	|
       |	api00_all_事件数_扩展chart_all_sample_合并	|
@@ -122,15 +118,12 @@ Feature: 测试运行-邮件
     Given I wait for loading complete
     When I click the "AffirmButton" button
 
-    @alertSmoke
+
     Examples:
       | name                    |
       |	api3_all_连续统计_status=200_邮件_抑制59	|
       |	api3_基线_len_24hour小于100_邮件_抑制10-30m	|
       |	api3_字段统计_最小数resplen_邮件_不告警	|
-
-    Examples:
-      | name                                                     |
 #      |	api3_all_事件计数_设备切分ip_扩展chart_all抑制45	|
       |	api3_all_连续统计_status<404_低_邮件	|
 #      |	api3_all_连续统计_status>=200_邮件_合并	|
