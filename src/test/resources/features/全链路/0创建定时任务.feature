@@ -20,7 +20,7 @@ Feature: 全链路_0定时任务
     And I choose the "天" from the "Unit"
     And I set the parameter "Number" with value "200"
     And I will see the element "DatePicker" contains "今天"
-    And I set the time parameter "StartTimeInput" as "2" minutes later from now
+    And I set the time parameter "StartTimeInput" as "1" minutes later from now
     And I click the Circle "BasicSettings" button
     And I click the "Submit" button
     And I wait for "SuccessMessage" will be visible
