@@ -38,7 +38,7 @@ Feature: 事件操作新建（RZY-1387）
     And open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "RecentTwoDays" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I click the "Expand" button

@@ -35,7 +35,7 @@ Feature: 事件操作编辑
     And open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "RecentTwoDays" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "RightIcon" button
@@ -61,7 +61,7 @@ Feature: 事件操作编辑
     Given I set the parameter "SearchInput" with value "logtype:apache"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "RecentTwoDays" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "RightIcon" button
@@ -91,7 +91,7 @@ Feature: 事件操作编辑
     Given I set the parameter "SearchInput" with value "logtype:apache"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "RecentTwoDays" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "RightIcon" button
@@ -117,7 +117,7 @@ Feature: 事件操作编辑
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Given I set the parameter "SearchInput" with value "logtype:apache"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "RecentTwoDays" button
     And I click the "SearchButton" button
     And I wait for "1500" millsecond
     And I click the "RightIcon" button
