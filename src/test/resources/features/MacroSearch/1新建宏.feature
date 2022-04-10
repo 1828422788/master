@@ -1,20 +1,15 @@
 @newmacro @autoui02
-Feature: 新建宏
+Feature: 新建搜索宏
 
   Background:
     Given open the "macroSearch.ListPage" page for uri "/macro/"
-    And I wait for "2000" millsecond
 
-  @newmacro1
+  @newmacro1 @searchMacro @searchMacroSmoke
   Scenario Outline: 创建宏，使用基于eval的定义，1个
-#    Given open the "macroSearch.ListPage" page for uri "/macro/"
-    And I wait for "2000" millsecond
     When I click the "CreateMacroButton" button
     Then I will see the "macroSearch.CreatePage" page
     And I wait for "2000" millsecond
     When I set the parameter "MacroName" with value "<name>"
-#    And I choose the "1pre_package" from the "MacroResTag"
-#    And I choose the "无数集app之api全部测试用例" from the "BelongToApps"
     And I set the parameter "Definition" with value "<definition>"
     And I click the "MacroEvalCheckbox" button
     And I set the parameter "MacroParam" with value "<macroParam>"
@@ -22,7 +17,7 @@ Feature: 新建宏
     And I set the parameter "ValidateFalseInfo" with value "<validateFalseInfo>"
     And I wait for "2000" millsecond
     And I click the "SaveMacroButton" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
     Examples:
       | name           | definition         | macroParam | validateExpression | validateFalseInfo |
