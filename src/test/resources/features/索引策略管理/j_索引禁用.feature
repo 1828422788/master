@@ -22,7 +22,6 @@ Feature: 索引信息禁用（RZY-1475）
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I wait for element "EventsTitle" change text to "事件列表"
     And I wait for element "EventNumbers" change text to "事件(0)"
     And I set the parameter "SearchInput" with value "appname:testda"
     And I click the "DateEditor" button
