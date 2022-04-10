@@ -11,7 +11,7 @@ Feature: 事件操作启用禁用
     And I wait for element "SearchStatus" change text to "搜索完成"
     When I set the parameter "SearchInput" with value "*"
     And I click the "DateEditor" button
-    And I click the "RecentTwoDays" button
+    And I click the "TwoDays" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "RightIcon" button
@@ -24,7 +24,7 @@ Feature: 事件操作启用禁用
     And I wait for element "SearchStatus" change text to "搜索完成"
     When I set the parameter "SearchInput" with value "*"
     And I click the "DateEditor" button
-    And I click the "RecentTwoDays" button
+    And I click the "TwoDays" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "RightIcon" button
