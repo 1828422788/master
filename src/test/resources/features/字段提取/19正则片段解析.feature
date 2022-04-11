@@ -1,4 +1,4 @@
-@configs19 @configs
+@configs @configs19
 Feature: 字段提取正则片段解析
 
 
@@ -37,7 +37,6 @@ Feature: 字段提取正则片段解析
     And I set the parameter "Tag" with value "<appName>"
     And I upload a file with name "/src/test/resources/testdata/log/<log>"
     And I click the "UploadButton" button
-    Then I wait for loading invisible
     And I will see the element "VerifyText" contains "上传完成"
     And I click the "Confirm" button
     And I wait for loading invisible

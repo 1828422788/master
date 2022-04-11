@@ -1,4 +1,4 @@
-@configs1 @configs
+@configs @configs01
 Feature: 字段提取CSV解析
 
   @configsSmoke

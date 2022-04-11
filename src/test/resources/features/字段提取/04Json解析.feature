@@ -1,4 +1,4 @@
-@configs4 @configs
+@configs @configs04
 Feature: 字段提取Json、xml解析
 
   Scenario Outline: RZY-3076、3079：无extract_limit，manager配置为10

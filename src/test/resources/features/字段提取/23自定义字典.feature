@@ -1,4 +1,4 @@
-@configs23 @configs
+@configs @configs23
 Feature: 字段提取自定义字典
 
 
@@ -9,7 +9,7 @@ Feature: 字段提取自定义字典
     Then I set the parameter "Name" with value "win_sys_sourcename"
     And I upload a file with name "/src/test/resources/testdata/dictionary/win_sys_sourcename.csv"
     And I wait for "FileName" will be visible
-    And I click the "EnsureUpload" button
+    And I click the "UploadConfirm" button
     Then I will see the success message "创建字典成功"
 
 
@@ -68,7 +68,6 @@ Feature: 字段提取自定义字典
     And I set the parameter "Tag" with value "<appName>"
     And I upload a file with name "/src/test/resources/testdata/log/<log>"
     And I click the "UploadButton" button
-    Then I wait for loading invisible
     And I will see the element "VerifyText" contains "上传完成"
     And I click the "Confirm" button
     And I wait for loading invisible
@@ -94,18 +93,3 @@ Feature: 字段提取自定义字典
     When I click the "Ensure" button
     And I wait for loading invisible
     Then I will see the success message "删除成功"
-
-
-  Scenario Outline: 自定义字典详情页验证
-    Given open the "configs.ListPage" page for uri "/configs/"
-    Then I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
-    Then I wait for loading invisible
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
-    And I wait for loading invisible
-    Then I will see the config element "<rule1>" value is "<rule1> 1 1 0 0 0"
-    Then I will see the config element "<rule2>" value is "<rule2> 1 1 0 0 0"
-
-    Examples:
-      | name                          | rule1      | rule2    |
-      | RZY2819配置自定义字典解析规则 | 自定义字典 | JSON解析 |

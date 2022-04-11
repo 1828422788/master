@@ -1,4 +1,4 @@
-@configs @configs2
+@configs @configs02
 Feature: 字段提取禁用/启用
 
   Background:

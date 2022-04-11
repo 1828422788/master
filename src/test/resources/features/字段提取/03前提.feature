@@ -1,4 +1,4 @@
-@configs3 @configs
+@configs @configs03
 Feature: 字段提取前提条件
 
   Scenario: 确认log_parser.json_parse_extract_limit和xml_parse_extract_limit为5000,log_parser.switch_delete_timestamp为false

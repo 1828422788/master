@@ -1,4 +1,4 @@
-@configs29 @configs
+@configs @configs28
 Feature: 字段提取关联日志样例
 
 
@@ -146,13 +146,13 @@ Feature: 字段提取关联日志样例
     Then I click the "ReadSavedLog" button
     Then I click the "UseCheckLog" button
     And I wait for "1000" millsecond
-    Then I will see the element "Status" contains "成功"
+    And I wait for element "Status" change text to "成功"
     Then I click the "Field" button
     Then I choose the "date" from the "ParseField" in config
     And I will see the element "FieldTitle" value contains "字段值,出现次数"
     And I will see the element "FieldValue" value contains "20180821,1"
     Then I click the "GoBack" button
-    Then I will see the element "Status" contains "成功"
+    And I wait for element "Status" change text to "成功"
 
     Examples:
       | name        | result                                                                                                    |
@@ -207,8 +207,7 @@ Feature: 字段提取关联日志样例
     And I click the "SearchButton" button
     Then I wait for loading invisible
     Then I click the "UseCheckLog" button
-
-    Then I will see the element "Status" contains "成功"
+    And I wait for element "Status" change text to "成功"
 
     Examples:
       | appName               | rule   | log           |
@@ -240,7 +239,7 @@ Feature: 字段提取关联日志样例
     And I click the "SearchButton" button
     Then I wait for loading invisible
     Then I click the "UseCheckLog" button
-    Then I will see the element "Status" contains "失败"
+    And I wait for element "Status" change text to "失败"
 
     Examples:
       | appName            | rule   | log     |

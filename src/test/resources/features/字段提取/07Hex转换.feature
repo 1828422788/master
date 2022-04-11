@@ -1,5 +1,28 @@
-@configs7 @configs
+@configs @configs07
 Feature: 字段提取Hex转换
+
+
+  @configsSmoke
+  Scenario Outline: RZY-2825: hex转换
+    Given open the "configs.ListPage" page for uri "/configs/"
+    Then I wait for loading invisible
+    And I click the "Create" button
+    Then I will see the "configs.CreatePage" page
+    When I set the parameter "LogSample" with value "e5a4a7e9bb91e5b1b1"
+    And I click the "AddRule" button
+    And I choose the "hex转换" from the "ParseRule" in config
+    And I wait for "1000" millsecond
+    And I choose the "raw_message" from the "SourceField" in config
+    Then I wait for "1000" millsecond
+    And I set the parameter "Code" with value "utf-8"
+    And I click the "EnsureAddParseRule" button
+    And I click the "ParseButton" button
+    And I wait for "CheckSuccess" will be visible
+    Then I will see the element value in json "{'Result':'<result>'}"
+
+    Examples:
+      | result                    |
+      | Object\nraw_message:"大黑山" |
 
   Scenario Outline: RZY-2826:高级模式下start_offset的使用
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -38,7 +61,6 @@ Feature: 字段提取Hex转换
     And I set the parameter "Tag" with value "<appName>"
     And I upload a file with name "/src/test/resources/testdata/log/<log>"
     And I click the "UploadButton" button
-    Then I wait for loading invisible
     And I will see the element "VerifyText" contains "上传完成"
     And I click the "Confirm" button
     And I wait for loading invisible
@@ -52,39 +74,3 @@ Feature: 字段提取Hex转换
     Examples:
       | appName       | log    | searchResult                      |
       | wym_test_hex | hex.log | {'raw_message':'import sys\nimpor'} |
-
-  @configsSmoke
-  Scenario Outline: RZY-2825: hex转换
-    Given open the "configs.ListPage" page for uri "/configs/"
-    Then I wait for loading invisible
-    And I click the "Create" button
-    Then I will see the "configs.CreatePage" page
-    When I set the parameter "LogSample" with value "e5a4a7e9bb91e5b1b1"
-    And I click the "AddRule" button
-    And I choose the "hex转换" from the "ParseRule" in config
-    And I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
-    Then I wait for "1000" millsecond
-    And I set the parameter "Code" with value "utf-8"
-    And I click the "EnsureAddParseRule" button
-    And I click the "ParseButton" button
-    And I wait for "CheckSuccess" will be visible
-    Then I will see the element value in json "{'Result':'<result>'}"
-
-    Examples:
-      | result                    |
-      | Object\nraw_message:"大黑山" |
-
-
-  Scenario Outline: hex详情验证
-    Given open the "configs.ListPage" page for uri "/configs/"
-    Then I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
-    Then I wait for loading invisible
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
-    And I wait for loading invisible
-    Then I will see the config element "<rule1>" value is "<rule1> 1 1 0 0 0"
-
-    Examples:
-      | name                               | rule1  |
-      | RZY2826高级模式下start_offset的使用 | hex转换 |

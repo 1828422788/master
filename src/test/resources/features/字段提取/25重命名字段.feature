@@ -1,4 +1,4 @@
-@configs25 @configs
+@configs @configs25
 Feature: 字段提取重命名字段
 
 
@@ -49,7 +49,6 @@ Feature: 字段提取重命名字段
     And I set the parameter "Tag" with value "<appName>"
     And I upload a file with name "/src/test/resources/testdata/log/<log>"
     And I click the "UploadButton" button
-    Then I wait for loading invisible
     And I will see the element "VerifyText" contains "上传完成"
     And I click the "Confirm" button
     And I wait for loading invisible
@@ -59,23 +58,7 @@ Feature: 字段提取重命名字段
     Then I move the mouse pointer to the "Result"
     And I click the "RightIcon" button
     Then I will see the spl search result "<searchResult>"
-    And I wait for "20000" millsecond
 
     Examples:
       | appName         | log        | searchResult                      |
       | wym_test_rename | rename.log | {'other.a.e.c':'g','other.c':'d'} |
-
-
-  Scenario Outline: 重命名字段支持通配符详情页验证
-    Given open the "configs.ListPage" page for uri "/configs/"
-    Then I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
-    Then I wait for loading invisible
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
-    And I wait for loading invisible
-    Then I will see the config element "<rule1>" value is "<rule1> 1 1 0 0 0"
-    Then I will see the config element "<rule2>" value is "<rule2> 1 1 0 0 0"
-
-    Examples:
-      | name              | rule1    | rule2      |
-      | RZY2865支持通配符 | JSON解析 | 字段重命名 |

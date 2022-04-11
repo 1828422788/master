@@ -1,4 +1,4 @@
-@configs10 @configs
+@configs @configs10
 Feature: 字段提取KeyValue正则匹配
 
 
@@ -110,7 +110,6 @@ Feature: 字段提取KeyValue正则匹配
     And I set the parameter "Tag" with value "<appName>"
     And I upload a file with name "/src/test/resources/testdata/log/<log>"
     And I click the "UploadButton" button
-    Then I wait for loading invisible
     And I will see the element "VerifyText" contains "上传完成"
     And I click the "Confirm" button
     And I wait for loading invisible
@@ -124,32 +123,3 @@ Feature: 字段提取KeyValue正则匹配
     Examples:
       | log          | appName           | searchResult                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
       | KV_group.log | wym_test_KV_group | {'test.Cell.CellName':'CA_ABS','test.Cell.ChildCount':'4','test.Cell.ChildCountLimit':'5000','test.Cell.ClientIp':'9','test.Cell.MessageLimit':'12288','test.Cell.MinuteCountLimit':'2000','test.Cell.Oid':'CA_ABS','test.Cell.OutOfService':'false','test.Cell.OverLoad':'false','test.Cell.ParentOid':'CA_ABS','test.InvokeProcessor.AverageTaskTime':'7','test.InvokeProcessor.AverageTasksPerSecond':'0','test.InvokeProcessor.CompletedTasks':'22321','test.InvokeProcessor.ComputeAverageInterval':'10000','test.InvokeProcessor.RunningTasks':'0'} |
-
-
-  Scenario Outline: KeyValue正则匹配详情验证
-    Given open the "configs.ListPage" page for uri "/configs/"
-    Then I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
-    Then I wait for loading invisible
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
-    And I wait for loading invisible
-    Then I will see the config element "<rule1>" value is "<rule1> 1 1 0 0 0"
-    Then I will see the config element "<rule2>" value is "<rule2> 1 1 0 0 0"
-
-    Examples:
-      | name                    | rule1        | rule2 |
-      | RZY1535KeyValue正则匹配 | KeyValue正则匹配 | 正则解析  |
-
-
-  Scenario Outline: group_regex详情验证
-    Given open the "configs.ListPage" page for uri "/configs/"
-    Then I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
-    Then I wait for loading invisible
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
-    And I wait for loading invisible
-    Then I will see the config element "<rule1>" value is "<rule1> 1 1 0 0 0"
-
-    Examples:
-      | name               | rule1        |
-      | RZY2798group_regex | KeyValue正则匹配 |

@@ -1,4 +1,4 @@
-@configs16 @configs
+@configs @configs16
 Feature: 字段提取手机号码解析
 
 
@@ -41,7 +41,6 @@ Feature: 字段提取手机号码解析
     And I set the parameter "Tag" with value "<appName>"
     And I upload a file with name "/src/test/resources/testdata/log/<log>"
     And I click the "UploadButton" button
-    Then I wait for loading invisible
     And I will see the element "VerifyText" contains "上传完成"
     And I click the "Confirm" button
     And I wait for loading invisible
@@ -57,18 +56,3 @@ Feature: 字段提取手机号码解析
       | log     | appName      | searchResult                                                                                                                                                                                                      |
       | tel.log | wym_test_n   | {'other.geo.city':'鞍山市','other.geo.country':'中国','other.geo.isp':'中国移动','other.geo.latitude':'41.115009','other.geo.longitude':'122.976822','other.geo.phone':'15998008888','other.geo.province':'辽宁'} |
       | tel.log | wym_test_tel | {'other.city':'鞍山市','other.country':'中国','other.isp':'中国移动','other.latitude':'41.115009','other.longitude':'122.976822','other.province':'辽宁'}                                                         |
-
-
-  Scenario Outline: 详情验证
-    Given open the "configs.ListPage" page for uri "/configs/"
-    Then I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
-    Then I wait for loading invisible
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
-    And I wait for loading invisible
-    Then I will see the config element "<rule1>" value is "<rule1> 1 1 0 0 0"
-
-    Examples:
-      | rule1        | name                  |
-      | 手机号码解析 | RZY2802手机号码解析   |
-      | 手机号码解析 | RZY2803解析到顶层字段 |

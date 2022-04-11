@@ -1,4 +1,4 @@
-@config @configs28
+@configs @configs29
 Feature: 字段提取列表页
 
   Background:

@@ -1,4 +1,4 @@
-@configs27 @configs
+@configs @configs27
 Feature: 字段提取格式化处理
 
 
@@ -146,7 +146,6 @@ Feature: 字段提取格式化处理
     And I set the parameter "Tag" with value "<appName>"
     And I upload a file with name "/src/test/resources/testdata/log/<log>"
     And I click the "UploadButton" button
-    Then I wait for loading invisible
     And I will see the element "VerifyText" contains "上传完成"
     And I click the "Confirm" button
     And I wait for loading invisible
@@ -159,4 +158,4 @@ Feature: 字段提取格式化处理
 
     Examples:
       | appName         | log         | searchResult                                                         |
-      | wym_test_format | website.log | {'other.clientip':'192.168.1.139',"other.date":"20180821",'other.time':'17:03:49','other.timestampstamp':'20180821 17:03:49'} |
+      | wym_test_format | website.log | {'other.clientip':'192.168.1.139','other.time':'17:03:49'} |

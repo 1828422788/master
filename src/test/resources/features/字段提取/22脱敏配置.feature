@@ -1,4 +1,4 @@
-@configs22 @configs
+@configs @configs22
 Feature: 字段提取脱敏配置
 
 
@@ -126,21 +126,6 @@ Feature: 字段提取脱敏配置
     Examples:
       | appName  | searchResult|
       | replacer | {'replace.phone':'qweqwe159****8361qwe 159****8361','raw_message':'qweqwe159****8361qwe 159****8361'}|
-
-
-  Scenario Outline: 脱敏详情页验证
-    Given open the "configs.ListPage" page for uri "/configs/"
-    Then I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
-    Then I wait for loading invisible
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
-    And I wait for loading invisible
-    Then I will see the config element "<rule1>" value is "<rule1> 1 1 0 0 0"
-    Then I will see the config element "<rule2>" value is "<rule2> 1 1 0 0 0"
-
-    Examples:
-      | name | rule1     | rule2     |
-      | 脱敏 | 脱敏配置  | 正则解析  |
 
 
   Scenario: 删除搜索权限

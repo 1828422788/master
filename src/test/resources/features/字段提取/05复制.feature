@@ -1,4 +1,4 @@
-@configs5 @configs
+@configs @configs05
 Feature: 字段提取复制、编辑
 
   Scenario Outline:

@@ -1,4 +1,4 @@
-@configs26 @configs
+@configs @configs26
 Feature: 字段提取重定向解析
 
 
@@ -58,7 +58,6 @@ Feature: 字段提取重定向解析
     And I set the parameter "Tag" with value "<appName>"
     And I upload a file with name "/src/test/resources/testdata/log/<log>"
     And I click the "UploadButton" button
-    Then I wait for loading invisible
     And I will see the element "VerifyText" contains "上传完成"
     And I click the "Confirm" button
     And I wait for loading invisible

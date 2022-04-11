@@ -1,4 +1,4 @@
-@configs15 @configs
+@configs @configs15
 Feature: 字段提取固定电话解析
 
 

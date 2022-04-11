@@ -1,5 +1,31 @@
-@configs14 @configs
+@configs @configs14
 Feature: 字段提取内容替换
+
+
+  @configsSmoke
+  Scenario Outline: RZY-1557:不勾选 只替换第一个
+    Given open the "configs.ListPage" page for uri "/configs/"
+    And I wait for loading invisible
+    And I click the "Create" button
+    Then I will see the "configs.CreatePage" page
+    When I set the parameter "LogSample" with value "123abc456qwe"
+    And I click the "AddRule" button
+    And I choose the "内容替换" from the "ParseRule" in config
+    And I wait for "1000" millsecond
+    And I choose the "raw_message" from the "SourceField" in config
+    Then I wait for "1000" millsecond
+    And I set the value "(\d+)[a-z]+" to the textarea "Regex"
+    And I set the value "$1" to the textarea "ReplaceContent"
+    And I click the "ReplaceFirst" button
+    And I click the "EnsureAddParseRule" button
+    And I wait for loading invisible
+    And I click the "ParseButton" button
+    And I wait for "CheckSuccess" will be visible
+    Then I will see the element value in json "{'Result':'<result>'}"
+
+    Examples:
+      | result                       |
+      | Object\nraw_message:"123456" |
 
 
   Scenario Outline: RZY-1556:内容替换
@@ -97,7 +123,6 @@ Feature: 字段提取内容替换
     And I set the parameter "Tag" with value "<tag>"
     And I upload a file with name "/src/test/resources/testdata/log/<log>"
     And I click the "UploadButton" button
-    Then I wait for loading invisible
     And I will see the element "VerifyText" contains "上传完成"
     And I click the "Confirm" button
     And I wait for loading invisible
@@ -111,57 +136,3 @@ Feature: 字段提取内容替换
     Examples:
       | tag                 | log        | searchResult                                |
       | wym_test_replaceTag | rename.log | {"tag":"wym_test_replaceTagnewinfo"} |
-
-
-  @configsSmoke
-  Scenario Outline: RZY-1557:不勾选 只替换第一个
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for loading invisible
-    And I click the "Create" button
-    Then I will see the "configs.CreatePage" page
-    When I set the parameter "LogSample" with value "123abc456qwe"
-    And I click the "AddRule" button
-    And I choose the "内容替换" from the "ParseRule" in config
-    And I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
-    Then I wait for "1000" millsecond
-    And I set the value "(\d+)[a-z]+" to the textarea "Regex"
-    And I set the value "$1" to the textarea "ReplaceContent"
-    And I click the "ReplaceFirst" button
-    And I click the "EnsureAddParseRule" button
-    And I wait for loading invisible
-    And I click the "ParseButton" button
-    And I wait for "CheckSuccess" will be visible
-    Then I will see the element value in json "{'Result':'<result>'}"
-
-    Examples:
-      | result                       |
-      | Object\nraw_message:"123456" |
-
-  Scenario Outline: RZY-1556:内容替换详情验证
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
-    Then I wait for loading invisible
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
-    And I wait for loading invisible
-    Then I will see the config element "<rule1>" value is "<rule1> 1 1 0 0 0"
-
-    Examples:
-      | name            | rule1 |
-      | RZY1556内容替换 | 内容替换  |
-
-
-  Scenario Outline: tag替换详情验证
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
-    Then I wait for loading invisible
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
-    And I wait for loading invisible
-    Then I will see the config element "<rule1>" value is "<rule1> 1 1 0 0 0"
-    Then I will see the config element "<rule2>" value is "<rule2> 1 1 0 0 0"
-
-    Examples:
-      | name           | rule1    | rule2   |
-      | RZY1559tag替换 | JSON解析 | 内容替换  |
