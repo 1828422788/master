@@ -6,7 +6,6 @@ Feature: 日志展现_2维度
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I drag the element "SearchPageSvg" to the "left" side
 
-  @logDisplaySmoke
   Scenario Outline: 维度（饼状图，玫瑰图，条形图，旭日图，火焰图）(RZY-833,2776,2778,2782)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button under some element
@@ -28,11 +27,15 @@ Feature: 日志展现_2维度
     And take part of "Chart" with name "actual/高级搜索视图/2维度_<caseNum>_<chartType>"
     Then I compare source image "actual/高级搜索视图/2维度_<caseNum>_<chartType>" with target image "expect/高级搜索视图/2维度_<caseNum>_<chartType>"
 
+    @logDisplaySmoke
     Examples:
       |   chartType   | element     |   caseNum  |  spl   |
-      |      Pie      | PieElement  |     833    | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Rose     | PieElement  |     2776   | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Bar      | BarElement  |     2778   | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Pie      | PieElement  |     833    | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count,apache.clientip \| limit 5 |
+      |      Rose     | PieElement  |     2776   | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count,apache.clientip \| limit 5 |
+
+    Examples:
+      |   chartType   | element     |   caseNum  |  spl   |
+      |      Bar      | BarElement  |     2778   | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count,apache.clientip \| limit 5 |
       |      Sun      | SunElement  |     2782   | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.province, apache.geo.city|
       |      Flame    | FlameElement|     4606   | tag:sample04061424_chart AND (apache.status:200) AND NOT (apache.geo.city:黔东南苗族侗族自治州) AND NOT (apache.geo.city:南京市)   \| stats count() as cnt by apache.method, apache.status, apache.geo.province, apache.geo.city \| sort by apache.method, apache.status, apache.geo.province, apache.geo.city|
 
@@ -102,7 +105,6 @@ Feature: 日志展现_2维度
       |      Bar      |  全部展示   | full       |
       |      Bar      | 只展示名称  | name       |
 
-
   Scenario Outline: 条形图_标签(RZY-4213,4214,4215,4216,4217,4218,4219,4220,4221,4222)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5"
     And I click the "SearchButton" button under some element
@@ -143,7 +145,6 @@ Feature: 日志展现_2维度
       |      Bar      | Yellow  |全部展示  |柱状内靠左侧 | in_left   |
       |      Bar      | Yellow  |全部展示  |柱状内靠右侧 | in_right  |
 
-
   Scenario Outline: 维度_分面
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 "
     And I click the "SearchButton" button under some element
@@ -177,7 +178,6 @@ Feature: 日志展现_2维度
       |      Pie      | Red     | 只展示名称   |
       |      Rose     | Green   | 只展示名称   |
       |      Bar      | Orange  | 全部展示     |
-
 
   Scenario Outline: 旭日图_分面
     When I set the parameter "SearchInput" with value "<spl>"
@@ -245,7 +245,6 @@ Feature: 日志展现_2维度
       |   chartType   |  option        | element      |
       |      Flame    | DrillIn        | BackToChart  |
       |      Flame    | DrillOut       | Chart        |
-
 
   Scenario Outline: 火焰图_分面
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND (apache.status:200) AND NOT (apache.geo.city:黔东南苗族侗族自治州) AND NOT (apache.geo.city:南京市)   | stats count() as cnt by apache.method, apache.status, apache.geo.province, apache.geo.city | sort by apache.method, apache.status, apache.geo.province, apache.geo.city"

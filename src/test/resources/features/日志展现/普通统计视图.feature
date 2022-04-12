@@ -43,7 +43,6 @@ Feature: 日志展现_普通统计视图
       | 散点图  | apache.x_forward      | 810_事件计数_散点图 | SaveAsTrend | NameInput | Ensure  |
       | 柱状图  | apache.referer_domain | 809_事件计数_柱状图 | SaveAsTrend | NameInput | Ensure  |
 
-
   Scenario Outline: 事件计数_独立(RZY-2718)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button under some element
@@ -78,7 +77,6 @@ Feature: 日志展现_普通统计视图
     Examples:
       | chart  | value1          | value2  |     caseNum             | save        | input     | ok      |
       | 曲线图 | apache.clientip | appname |2718_事件计数_独立数统计 | SaveAsTrend | NameInput | Ensure  |
-
 
   Scenario Outline: 时间分段(RZY-812,813,2721,2722,2723,2724)
     When I set the parameter "SearchInput" with value "tag:sample04061424_display"
@@ -144,7 +142,6 @@ Feature: 日志展现_普通统计视图
       |平均值         | 2722_时间分段_平均值 | count : 7067.62204 | SaveAsTrend | NameInput | Ensure  |
       |最大值         | 2723_时间分段_最大值 | count : 173837     | SaveAsTrend | NameInput | Ensure  |
       |最小值         | 2724_时间分段_最小值 | count : 61         | SaveAsTrend | NameInput | Ensure  |
-
 
   Scenario Outline: 数值分段(RZY-814,3137)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
@@ -249,7 +246,6 @@ Feature: 日志展现_普通统计视图
       | 3600     | 秒    | 815_时间直方图_3600s | SaveAsTrend | NameInput | Ensure  |
       | 60       | 分钟  | 815_时间直方图_60m   | SaveAsTrend | NameInput | Ensure  |
 
-
   Scenario Outline: 时间直方图(RZY-2725)
     When I set the parameter "SearchInput" with value "tag:display_may"
     And I click the "DateEditor" button
@@ -328,12 +324,12 @@ Feature: 日志展现_普通统计视图
     And I click the "<ok>" button
     Then I compare source image "actual/普通统计视图/816_数值直方图_<number>" with target image "expect/普通统计视图/816_数值直方图_<number>"
 
-    @logDisplay @logDisplayGeneral @logDisplaySmoke
+    @logDisplay @logDisplayGeneral
     Examples:
       | number | tooltip1    | tooltip2 | save        | input     | ok      |
       | 500    | count : 220 | 0 - 500  |             |           |         |
 
-    @logDisplay @logDisplayGeneral
+    @logDisplay @logDisplayGeneral @logDisplaySmoke
     Examples:
       | number | tooltip1    | tooltip2 | save        | input     | ok      |
       | 5000   | count : 244 | 0 - 5000 |             |           |         |

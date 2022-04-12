@@ -95,7 +95,6 @@ Feature: 日志展现_8其他_环形比例图
       |   Ring        | table_3r_2c  |  3      |   2       | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count, apache.clientip \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
       |   Ring        | table_1r_4c  |  1      |   4       | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count, apache.clientip \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
-
   Scenario Outline:  环形比例图_颜色(RZY-4202)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element

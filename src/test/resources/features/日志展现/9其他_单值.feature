@@ -221,7 +221,6 @@ Feature: 日志展现_9其他_单值
       |   Single      |   1       |  UnitPositionBefore | ThousandSeparator |prec1_1000on__before     | color: rgb(251, 173, 8)  | 1,906.6   |
       |   Single      |   2       |  UnitPositionAfter  | Background        |prec2_1000off_back_after | color: rgb(255, 255, 255)| 个        |
 
-  @logDisplaySmoke
   Scenario Outline: 单值_sparkline
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() by ts | eval time=formatdate(ts,\"hh-mm\") | limit 5 "
     And I click the "SearchButton" button under some element
@@ -265,7 +264,6 @@ Feature: 日志展现_9其他_单值
     Examples:
       |  chartType    | colorFill    | caseNum     |
       |   Single      | Background   | Sparkline   |
-
 
   Scenario Outline: 单值_sparkline_分面
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() as cnt by ts, apache.method | eval time=formatdate(ts,\"hh-mm\") | eval cnt_2 = cnt*3"

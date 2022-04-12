@@ -5,12 +5,12 @@ Feature: 日志展现_0表格
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I drag the element "SearchPageSvg" to the "left" side
-    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 13"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count,apache.clientip | limit 13"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario Outline: 表格_默认
-    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 13  | eval ip_count = ip_count/11*1000"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count,apache.clientip | limit 13  | eval ip_count = ip_count/11*1000"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the "trend.CreatePage" page
@@ -139,7 +139,6 @@ Feature: 日志展现_0表格
       | caseNum  |
       |  829     |
 
-
   Scenario Outline: 范围_删除
     Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
@@ -180,7 +179,6 @@ Feature: 日志展现_0表格
       |  DeleteSecondInterval |  829_del_yellow  | background-color: rgb(0, 255, 0);  |
       |  DeleteLastInterval   |  829_del_green   | background-color: rgb(255, 255, 0);|
 
-
   Scenario Outline: 值
     Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
@@ -201,7 +199,6 @@ Feature: 日志展现_0表格
       |   button      | caseNum       |   element  | style    |
       |  DefaultColor | defaultColor  | Cell2      | background-color: rgb(230, 247, 255); width: 25 |
       |  AutoColor    |  830_auto     | Cell       | background-color: rgb(3, 169, 244); |
-
 
   Scenario Outline: 值_自定义
     Then I will see the "trend.CreatePage" page
@@ -275,7 +272,7 @@ Feature: 日志展现_0表格
       | 830_custom_str  |
 
   Scenario Outline: 使用千分隔符
-    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 13  | eval ip_count = ip_count/11*1000"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count,apache.clientip | limit 13  | eval ip_count = ip_count/11*1000"
     And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the "trend.CreatePage" page
@@ -291,7 +288,7 @@ Feature: 日志展现_0表格
     And I choose the "3" from the "PrecisionTable" in config
     And I click the "EnsureButton" button
     And I wait for "2000" millsecond
-    And I will see the element "Cell" contains "3,545.455"
+    And I will see the element "Cell" contains "363.636"
     And I will see the element "Cell" style contains "background-color: rgb(3, 169, 244);"
 
     And I wait for "Chart" will be visible
