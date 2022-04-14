@@ -2387,4 +2387,30 @@ public class DetailPage extends PageTemplate {
     public WebElement getClone() {
         return clone;
     }
+
+    @FindBy(xpath = "//*[@yotta-test='dashboard-collect-icon']")
+    private WebElement addToCollection;
+    public WebElement getAddToCollection() {
+        return addToCollection;
+    }
+
+    @FindBy(xpath = "//*[@yotta-test='dashboard-cancel_collect-icon']")
+    private WebElement cancelCollection;
+    public WebElement getCancelCollection() {
+        return cancelCollection;
+    }
+
+    @FindBy(xpath = "//div[@yotta-test='dashboard-dashboard_index-tree']")
+    private WebElement dashboardList;
+    public WebElement getDashboardList() {
+        return dashboardList;
+    }
+
+    public WebElement getContextMenu() {
+        return dropdownUtils.getParentElementOfMenuList();
+    }
+
+    public WebElement getDashboardName(String name) {
+        return webDriver.findElement(By.xpath("//*[@yotta-test='dashboard-nav_dashboard-dom' and text()='" + name + "']"));
+    }
 }

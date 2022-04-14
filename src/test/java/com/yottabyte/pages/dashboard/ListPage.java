@@ -217,4 +217,28 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getSearchNameInput() { return searchNameInput; }
 
+    @FindBy(xpath = "//div[@role='tab' and contains(text(),'我的收藏')]")
+    private WebElement myCollection;
+
+    public WebElement getMyCollection() {
+        return myCollection;
+    }
+
+    public WebElement getFirstDashboardName() {
+        return getDasboardNameInTheRow(1);
+    }
+
+    public WebElement getSecondDashboardName() {
+        return getDasboardNameInTheRow(2);
+    }
+
+    public WebElement getThirdDashboardName() {
+        return getDasboardNameInTheRow(3);
+    }
+
+    private WebElement getDasboardNameInTheRow(int row){
+        return webDriver.findElement(By.xpath("//tr[" + row + "]//td[1]"));
+    }
+
+
 }

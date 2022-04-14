@@ -94,6 +94,31 @@ public class ClickButtonWithGivenName {
     }
 
     /**
+     * 在操作列点击操作按钮，寻找对应名称的按钮并点击
+     *
+     * @param dataName   字符串：第一列所要匹配的名称，json：{'column':'start from 0','name':''}
+     * @param operationName 操作按钮名称
+     * @param buttonName 按钮名称
+     */
+    @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button and select \"([^\"]*)\" from menu$")
+    public void clickButtonInOperationColumnMoreAndSelectFromMenu(String dataName, String operationName, String buttonName) {
+        WebElement tr = listPageUtils.getRow(dataName);
+        WebElement button = tr.findElement(By.xpath(".//div[@yotta-test]//*[text()='" + operationName + "']"));
+        ClickEvent.clickUnderneathButton(button);
+        WebElement lastMenuList = dropdownUtils.getParentElementOfMenuList();
+        List<WebElement> elements = lastMenuList.findElements(By.tagName("span"));
+        if (buttonName != null && buttonName.trim().length() != 0) {
+            for (WebElement e : elements) {
+                ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+                if (buttonName.equals(e.getText())) {
+                    e.click();
+                    break;
+                }
+            }
+        }
+    }
+
+    /**
      * 寻找包含对应名称的操作按钮并点击
      *
      * @param dataName   字符串：第一列所要匹配的名称，json：{'column':'start from 0','name':''}
