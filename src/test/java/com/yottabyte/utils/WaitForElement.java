@@ -53,7 +53,7 @@ public class WaitForElement {
             waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOfElementLocated(By.className("yotta-spinner-spin")));
             } catch (Exception e) {
             }
-        webDriver.manage().timeouts().implicitlyWait(WebDriverConst.WAIT_FOR_ELEMENT_TIMEOUT, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(WebDriverConst.WAIT_FOR_ELEMENT_TIMEOUT, TimeUnit.MILLISECONDS);
     }
 
     public static void waitElementInvisible(WebElement element) {
