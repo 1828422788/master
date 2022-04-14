@@ -138,14 +138,8 @@ public class EventListener extends AbstractWebDriverEventListener {
                     return (Boolean) ((JavascriptExecutor) driverObject).executeScript("return document.readyState === 'complete'");
                 }
             }));
-            wait.until(
-                    ExpectedConditions.presenceOfAllElementsLocatedBy(lastFindBy)
-            );
-//            selenium.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); //reset implicitlyWait
         } catch (NoSuchElementException exception) {
-//            throw exception;
         } catch (TimeoutException e){
-//            throw e;
         }
     }
     public void beforeNavigateBack(WebDriver selenium){}

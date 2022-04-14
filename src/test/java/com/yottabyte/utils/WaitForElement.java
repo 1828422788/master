@@ -48,15 +48,12 @@ public class WaitForElement {
     }
 
     public static void waitUntilLoadingDisappear() {
-        if (ElementExist.isElementExist(webDriver, By.className("yotta-spinner-spin"))) {
+        webDriver.manage().timeouts().implicitlyWait(WebDriverConst.WAIT_FOR_ELEMENT_POLLING_DURING, TimeUnit.MILLISECONDS);
             try {
-                WebElement loadingMask = webDriver.findElement(By.className("yotta-spinner-spin"));
-                WaitForElement.waitElementInvisible(loadingMask);
+            waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOfElementLocated(By.className("yotta-spinner-spin")));
             } catch (Exception e) {
-
             }
-//            WaitElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
-        }
+        webDriver.manage().timeouts().implicitlyWait(WebDriverConst.WAIT_FOR_ELEMENT_TIMEOUT, TimeUnit.SECONDS);
     }
 
     public static void waitElementInvisible(WebElement element) {
