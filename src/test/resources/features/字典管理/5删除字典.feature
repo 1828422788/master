@@ -9,8 +9,7 @@ Feature: 字典_删除
     When the data name is "{'column':'0','name':'<dictionaryName>.csv'}" then i click the "删除" button in more menu
     Then I will see the success message "确认删除 [<dictionaryName>.csv] ?"
     When I click the "Ensure" button
-    And I wait for loading invisible
-    Then I will see the success message "删除成功"
+    Then I wait for element "SuccessMessage" change text to "删除成功"
 
     Examples:
       | dictionaryName        |
