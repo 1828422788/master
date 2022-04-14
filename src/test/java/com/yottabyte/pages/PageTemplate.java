@@ -35,6 +35,8 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return null;
     }
 
+    public WebElement findElementByXpath(String Xpath){return webDriver.findElement(By.xpath(Xpath));}
+
     public PageTemplate(WebDriver driver) {
         this.webDriver = driver;
         PageFactory.initElements(driver, this);
@@ -140,6 +142,22 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         String xpath = "//span[text()='" + text + "']";
         return webDriver.findElement(By.xpath(xpath));
     }
+
+    public List<WebElement> getButtonsByText(String text) {
+        String xpath = "//span[text()='" + text + "']";
+        return webDriver.findElements(By.xpath(xpath));
+    }
+
+    public WebElement getButtonByClassName(String className) {
+        String xpath = "//span[@class='" + className + "']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getInputByName(String name) {
+        String xpath = "//input[@name='" + name + "']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
     public WebElement getClearIcon(String text){
         String xpath = "//div[contains(text(),'"+ text + "')]/following-sibling::span/i[@aria-label='图标: close']";
         return webDriver.findElement(By.xpath(xpath));
