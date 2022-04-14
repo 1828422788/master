@@ -25,18 +25,7 @@ public class ClickSomeButton {
     @When("^I click the \"([^\"]*)\" button$")
     public void clickButton(String buttonName) {
         if (buttonName != null && buttonName.trim().length() != 0) {
-            String parameters = "";
-            WebElement button;
-            if (JsonStringPaser.isJson(buttonName)) {
-                Map<String, Object> map = JsonStringPaser.json2Stirng(buttonName);
-                for (Map.Entry<String, Object> entry : map.entrySet()) {
-                    buttonName = entry.getKey();
-                    parameters = (String) entry.getValue();
-                }
-                button = GetElementFromPage.getWebElementWithName(buttonName, parameters);
-            } else {
-                button = GetElementFromPage.getWebElementWithName(buttonName);
-            }
+            WebElement button = findButton(buttonName);
             //将该模块与浏览器顶部对齐，防止元素在页面的不可见区域
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", button);
             ClickEvent.clickUnderneathButton(button);
@@ -178,18 +167,7 @@ public class ClickSomeButton {
     @When("^I click the element \"([^\"]*)\" in word report$")
     public void clickTheButtonWordReport(String buttonName) {
         if (buttonName != null && buttonName.trim().length() != 0) {
-            String parameters = "";
-            WebElement button;
-            if (JsonStringPaser.isJson(buttonName)) {
-                Map<String, Object> map = JsonStringPaser.json2Stirng(buttonName);
-                for (Map.Entry<String, Object> entry : map.entrySet()) {
-                    buttonName = entry.getKey();
-                    parameters = (String) entry.getValue();
-                }
-                button = GetElementFromPage.getWebElementWithName(buttonName, parameters);
-            } else {
-                button = GetElementFromPage.getWebElementWithName(buttonName);
-            }
+            WebElement button = findButton(buttonName);
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", button);
             button.click();
         } else {
@@ -218,18 +196,7 @@ public class ClickSomeButton {
     @When("^I click the Circle \"([^\"]*)\" button$")
     public void clickCircleElement(String buttonName) {
         if (buttonName != null && buttonName.trim().length() != 0) {
-            String parameters = "";
-            WebElement button;
-            if (JsonStringPaser.isJson(buttonName)) {
-                Map<String, Object> map = JsonStringPaser.json2Stirng(buttonName);
-                for (Map.Entry<String, Object> entry : map.entrySet()) {
-                    buttonName = entry.getKey();
-                    parameters = (String) entry.getValue();
-                }
-                button = GetElementFromPage.getWebElementWithName(buttonName, parameters);
-            } else {
-                button = GetElementFromPage.getWebElementWithName(buttonName);
-            }
+            WebElement button = findButton(buttonName);
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", button);
             button.click();
         } else {
@@ -245,18 +212,7 @@ public class ClickSomeButton {
     @When("^I open the context menu of the \"([^\"]*)\" element$")
     public void contextMenuElement(String buttonName) {
         if (buttonName != null && buttonName.trim().length() != 0) {
-            String parameters = "";
-            WebElement button;
-            if (JsonStringPaser.isJson(buttonName)) {
-                Map<String, Object> map = JsonStringPaser.json2Stirng(buttonName);
-                for (Map.Entry<String, Object> entry : map.entrySet()) {
-                    buttonName = entry.getKey();
-                    parameters = (String) entry.getValue();
-                }
-                button = GetElementFromPage.getWebElementWithName(buttonName, parameters);
-            } else {
-                button = GetElementFromPage.getWebElementWithName(buttonName);
-            }
+            WebElement button = findButton(buttonName);
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", button);
             Actions a = new Actions(webDriver);
             a.moveToElement(button).contextClick().build().perform();
@@ -273,9 +229,33 @@ public class ClickSomeButton {
     @And("^I double click the \"([^\"]*)\" element$")
     public void doubleClickElement(String elementName) {
         if (elementName != null && elementName.trim().length() != 0) {
-            WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+            WebElement element = findButton(elementName);
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", element);
             Actions action = new Actions(webDriver);
             action.doubleClick(element).perform();
+        } else {
+            System.out.println("skip this step!");
         }
+    }
+
+    /**
+     * 找寻指定元素
+     *
+     * @param buttonName 字符串：按钮的名称，或者json：{'buttonName':'parameters'}
+     */
+    private WebElement findButton(String buttonName){
+        String parameters = "";
+        WebElement button;
+        if (JsonStringPaser.isJson(buttonName)) {
+            Map<String, Object> map = JsonStringPaser.json2Stirng(buttonName);
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
+                buttonName = entry.getKey();
+                parameters = (String) entry.getValue();
+            }
+            button = GetElementFromPage.getWebElementWithName(buttonName, parameters);
+        } else {
+            button = GetElementFromPage.getWebElementWithName(buttonName);
+        }
+        return button;
     }
 }
