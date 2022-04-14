@@ -98,9 +98,11 @@ Feature: 日志展现_2维度
       |      Pie      |  不展示     | nolabel    |
       |      Pie      |  全部展示   | full       |
       |      Pie      | 只展示名称  | name       |
+      |      Pie      | 右侧展示    | right      |
       |      Rose     |  不展示     | nolabel    |
       |      Rose     |  全部展示   | full       |
       |      Rose     | 只展示名称  | name       |
+      |      Rose     | 右侧展示    | right      |
       |      Bar      |  不展示     | nolabel    |
       |      Bar      |  全部展示   | full       |
       |      Bar      | 只展示名称  | name       |
