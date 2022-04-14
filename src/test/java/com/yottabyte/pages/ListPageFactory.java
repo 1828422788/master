@@ -273,6 +273,12 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
         return globalTagInput;
     }
 
+    @FindBy(xpath = "//div[@class='yotta-form-field-help-text']")
+    private WebElement helpmessage;
+    public WebElement getHelpmessage(){
+        return helpmessage;
+    }
+
     @Override
     protected void load() {
 
