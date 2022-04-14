@@ -15,14 +15,14 @@ Feature: 报表_富文本编辑_统一样式
   @reportSmoke
   Scenario: 新建报表
     Given open the "report.ListPage" page for uri "/reports/"
-    And I click the "NewReportButton" button under some element
+    And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     When I set the parameter "Name" with value "with_unifiedStyle"
     And I will see the element "DefaultReportType" contains "WORD"
     And I will see the text "检测到报表统一样式已启用，自定义报表生成时均会采用系统配置中的统一样式。" exist in page
     And I set the parameters "Hour" and "Minute" as "10" minutes later from now
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
@@ -88,7 +88,7 @@ Feature: 报表_富文本编辑_统一样式
     And I click the element "Content" in word report
     And I wait for "2000" millsecond
     And I will see the "ContentMenu" is display
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -100,14 +100,14 @@ Feature: 报表_富文本编辑_统一样式
     And the data name is "{'column':'1','name':'with_unifiedStyle'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
     And I wait for "5000" millsecond
     And I choose the "下载到本地预览" from the "Preview"
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "正在生成测试报表，请稍后查看报表历史页"
     And I wait for "40000" millsecond
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "更新成功"
 
@@ -128,10 +128,10 @@ Feature: 报表_富文本编辑_统一样式
     Then I will see the "report.CreatePage" page
     When I set the parameter "Name" with value "without_unifiedStyle"
     And I wait for element "SelectedUser" change text to username
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
     And I wait for "5000" millsecond
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "更新成功"
 

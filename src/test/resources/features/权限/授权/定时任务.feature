@@ -175,7 +175,7 @@ Feature: 权限-定时任务
     And I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "TagDropdown"
     And I wait for "Ensure" will be visible
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -231,7 +231,7 @@ Feature: 权限-定时任务
     Then I click the "TagToInput" button
     And I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>'}" then i click the "更多" button
@@ -530,7 +530,7 @@ Feature: 权限-定时任务
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "更新成功"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "更多" button
     And I click the "Auth" button
@@ -592,7 +592,7 @@ Feature: 权限-定时任务
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "1000" millsecond
     Then I will see the success message "更新成功"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "更多" button
@@ -694,7 +694,7 @@ Feature: 权限-定时任务
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "1000" millsecond
     Then I will see the success message "更新成功"
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -744,7 +744,7 @@ Feature: 权限-定时任务
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "1000" millsecond
     Then I will see the success message "更新成功"
     Given open the "timedTask.ListPage" page for uri "/schedule/"

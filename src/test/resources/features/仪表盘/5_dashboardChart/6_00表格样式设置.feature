@@ -210,7 +210,7 @@ Feature: 仪表盘_6_00_表格样式设置
     And I click the "ChartFontColor" button
     And I wait for "ChartFontColorValue" will be visible
     And I set the parameter "ChartFontColorValue" with value "FA3A76FF"
-    And I click the "ChartEditorEnsure" button under some element
+    And I click the "ChartEditorEnsure" button
     Then I will see the element "ValueOfNanjingTdText" style contains "color: rgb(250, 58, 118)"
 
   @dashboardChartSmoke

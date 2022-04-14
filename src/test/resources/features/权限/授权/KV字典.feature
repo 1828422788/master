@@ -42,17 +42,17 @@ Feature: 权限-KV字典
     And I wait for "SearchLoading" will be invisible
     And I "check" the checkbox which name is "KVAuthTopo" in tiny table
     And I click the "SaveMenuButton" button
-    And I click the "AddMenuButton" button under some element
+    And I click the "AddMenuButton" button
     And I set the parameter "MenuName" with value "搜索"
     And I set the parameter "Url" with value "/search/"
     And I click the "SaveMenuButton" button
-    And I click the "AddMenuButton" button under some element
+    And I click the "AddMenuButton" button
     And I set the parameter "MenuName" with value "仪表盘"
     And I set the parameter "Url" with value "/dashboard/"
     And I click the "SaveMenuButton" button
     And I choose the "搜索" from the "DefaultPage"
     And I click the "CurrentApp" button
-    And I click the "CreateButton" button under some element
+    And I click the "CreateButton" button
     And I will see the "app.ListPage" page
     Then I wait for "CreateButton" will be visible
 
@@ -69,7 +69,7 @@ Feature: 权限-KV字典
     When I upload a file "Upload" with name "/target/download-files/<appName>.tar"
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "__admin__" from the "Role"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "1000" millsecond
     And I click the "DoneButton" button
     And I wait for "ImportSuccess" will be visible
@@ -107,7 +107,7 @@ Feature: 权限-KV字典
     And I click the "AddKVField" button
     And I set the parameter "KVFieldInput3" with value "appname"
     And I click the "CreateKVStore" button
-    And I click the "SaveButton" button under some element
+    And I click the "SaveButton" button
 
   Scenario: 授权读取权限
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -165,7 +165,7 @@ Feature: 权限-KV字典
     And I click the "KVTag" button
     And I wait for "1000" millsecond
     And I set the parameter "KVTagInput" with value "test"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the element "MessageContent" value is "修改成功"
     And I logout current user
 

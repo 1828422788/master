@@ -32,7 +32,7 @@
       And I click the "Chart" button
   #    ==============================百分比柱状图
       And I wait for "PercentageBar" will be visible
-      And I click the "PercentageBar" button under some element
+      And I click the "PercentageBar" button
 
 #    ==============================选择样式
       And I wait for "Style" will be visible
@@ -168,7 +168,7 @@
 
  #    ==============================百分比柱状图
       And I wait for "PercentageBar" will be visible
-      And I click the "PercentageBar" button under some element
+      And I click the "PercentageBar" button
 
 #    ==============================选择样式
       And I wait for "Style" will be visible

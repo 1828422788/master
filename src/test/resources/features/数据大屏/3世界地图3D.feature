@@ -32,7 +32,7 @@ Feature: 数据大屏-d世界地图3D
 
 #    =============================世界地图3D
     And I wait for "World3D" will be visible
-    And I click the "World3D" button under some element
+    And I click the "World3D" button
 #    ==============================选择样式
     And I wait for "Style" will be visible
     And I click the "Style" button

@@ -9,7 +9,7 @@ Feature: 日志展现_3关系
   @logDisplaySmoke
   Scenario Outline: 和弦图_桑基图(RZY-834,2783)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -18,7 +18,7 @@ Feature: 日志展现_3关系
 
     And I click the "Type" button
     And I wait for "Chart" will be visible
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
@@ -37,7 +37,7 @@ Feature: 日志展现_3关系
   @logDisplaySmoke
   Scenario Outline: 力图(RZY-2784)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -46,7 +46,7 @@ Feature: 日志展现_3关系
 
     And I click the "Type" button
     And I wait for "Chart" will be visible
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
@@ -63,7 +63,7 @@ Feature: 日志展现_3关系
 
   Scenario Outline: 力图_斥力因子(RZY-4223)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -93,7 +93,7 @@ Feature: 日志展现_3关系
 
   Scenario Outline: 桑基图_多级(RZY-4224)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -126,7 +126,7 @@ Feature: 日志展现_3关系
 
   Scenario Outline: 分面1
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -156,7 +156,7 @@ Feature: 日志展现_3关系
 
   Scenario Outline: 分面2
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button

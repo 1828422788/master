@@ -32,7 +32,7 @@ Feature: 数据大屏-b键值表格
 
 #    ==============================键值表格
     And I wait for "KeyValueTable" will be visible
-    And I click the "KeyValueTable" button under some element
+    And I click the "KeyValueTable" button
 #    ==============================选择样式
     And I wait for "Style" will be visible
     And I click the "Style" button
@@ -125,7 +125,7 @@ Feature: 数据大屏-b键值表格
 
 #    ==============================键值表格
     And I wait for "KeyValueTable" will be visible
-    And I click the "KeyValueTable" button under some element
+    And I click the "KeyValueTable" button
 #    ==============================选择样式
     And I wait for "Style" will be visible
     And I click the "Style" button

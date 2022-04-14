@@ -20,9 +20,9 @@ Feature: 拓扑图节点验证
     When I click the detail which name is "新建节点验证"
     Then I will see the "topology.DetailPage" page
     And I wait for loading invisible
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I click the "EditTopologySwitch" button
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     Then I choose the "<nodetype>" from the "NodeType"
     And I wait for "1000" millsecond
     And I set the parameter "IconNodeName" with value "<name>"

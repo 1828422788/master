@@ -7,10 +7,10 @@ Feature: 趋势图新建_报表
     Then I will see the "trend.CreatePage" page
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "2000" millsecond
 
     And I wait for "Type" will be visible
@@ -27,7 +27,7 @@ Feature: 趋势图新建_报表
     And I wait for "NameInput" will be visible
     When I set the parameter "NameInput" with value "<trend_name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
     When I click the "Report" button
 

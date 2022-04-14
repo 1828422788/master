@@ -9,14 +9,14 @@ Feature: 保存为趋势图_序列
   Scenario Outline: order(RZY-2477,2005,2491,2499)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip "
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Order" button under some element
-    And I click the "<chartType>" button under some element
+    And I click the "Type" button
+    And I click the "Order" button
+    And I click the "<chartType>" button
 
     And I click the "Type" button
     And I wait for "2000" millsecond
@@ -42,14 +42,14 @@ Feature: 保存为趋势图_序列
   Scenario Outline: order
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip "
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Order" button under some element
-    And I click the "<chartType>" button under some element
+    And I click the "Type" button
+    And I click the "Order" button
+    And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "ShowAllLabels" button
     And I click the "Group" button
@@ -81,14 +81,14 @@ Feature: 保存为趋势图_序列
   Scenario Outline: order_bubble
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Order" button under some element
-    And I click the "<chartType>" button under some element
+    And I click the "Type" button
+    And I click the "Order" button
+    And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "ShowAllLabels" button
     And I click the "Bubble" button
@@ -119,14 +119,14 @@ Feature: 保存为趋势图_序列
   Scenario Outline: order_switch
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Order" button under some element
-    And I click the "<chartType>" button under some element
+    And I click the "Type" button
+    And I click the "Order" button
+    And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "ShowAllLabels" button
     And I click the "Yaxis" button
@@ -161,14 +161,14 @@ Feature: 保存为趋势图_序列
   Scenario Outline: order_limit
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Order" button under some element
-    And I click the "<chartType>" button under some element
+    And I click the "Type" button
+    And I click the "Order" button
+    And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "ShowAllLabels" button
     And I click the "Yaxis" button
@@ -200,14 +200,14 @@ Feature: 保存为趋势图_序列
   Scenario Outline: order_facet
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method, apache.status  \| sort by cnt, apache.clientip "
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Order" button under some element
-    And I click the "<chartType>" button under some element
+    And I click the "Type" button
+    And I click the "Order" button
+    And I click the "<chartType>" button
 
     And I click the "Settings" button
     And I click the "Facet" button

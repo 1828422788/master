@@ -34,7 +34,7 @@ Feature: 权限-应用列表页
     And I "check" the checkbox which name is "app权限应用所需资源" in tiny table
     And I click the "SaveMenuButton" button
     And I wait for "1000" millsecond
-    And I click the "AddMenuButton" button under some element
+    And I click the "AddMenuButton" button
     And I wait for "MenuName" will be visible
     And I set the parameter "MenuName" with value "<menuName>"
     And I set the parameter "Url" with value "<url>"
@@ -96,7 +96,7 @@ Feature: 权限-应用列表页
     And I wait for "2000" millsecond
     And I choose the "__user_AutoTest__" from the "Role"
     And I wait for "1500" millsecond
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "1500" millsecond
     And I click the "DoneButton" button
     And I wait for "1500" millsecond
@@ -128,7 +128,7 @@ Feature: 权限-应用列表页
     #Then I click the "Ensure" button
     And I wait for "2000" millsecond
     And I choose the "__user_AutoTest__" from the "Role"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "2000" millsecond
     And I click the "DoneButton" button
     And I wait for "ImportSuccess" will be visible
@@ -145,7 +145,7 @@ Feature: 权限-应用列表页
     And I wait for "SearchLoading" will be invisible
     And I "check" the checkbox which name is "app权限应用所需资源" in tiny table
     And I click the "SaveMenuButton" button
-    And I click the "AddMenuButton" button under some element
+    And I click the "AddMenuButton" button
     And I set the parameter "MenuName" with value "监控"
     And I set the parameter "Url" with value "/alerts/"
     And I click the "SaveMenuButton" button
@@ -177,7 +177,7 @@ Feature: 权限-应用列表页
     When I upload a file with name "/target/download-files/AutoTestForAuth.tar"
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "__user_AutoTest__" from the "Role"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "2000" millsecond
     And I click the "DoneButton" button
     And I wait for "ImportSuccess" will be visible
@@ -267,11 +267,11 @@ Feature: 权限-应用列表页
     When the data name is "<name>" then i click the "编辑" button
     And I wait for loading invisible
     Then I will see the "app.CreatePage" page
-    And I click the "AddMenuButton" button under some element
+    And I click the "AddMenuButton" button
     And I set the parameter "MenuName" with value "下载"
     And I set the parameter "Url" with value "/download/"
     And I click the "SaveMenuButton" button
-    And I click the "SaveButton" button under some element
+    And I click the "SaveButton" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 

@@ -19,7 +19,7 @@ Feature: 字段别名
     And I set the parameter "AliasName" with value "AutoAlias"
     And I set the parameter "OriginalField" with value "apache.resp_len"
     And I set the parameter "FieldAlias" with value "resp_len"
-    And I click the "Save" button under some element
+    And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "AliasMapping" change text to "apache.resp_len AS resp_len"
@@ -49,7 +49,7 @@ Feature: 字段别名
     And I set the parameter "AliasName" with value "<aliasname>"
     And I set the parameter "OriginalField" with value "<original>"
     And I set the parameter "FieldAlias" with value "<alias>"
-    And I click the "Save" button under some element
+    And I click the "Save" button
     And I will see the element "WarningInfo" name is "<warning>"
 
     Examples:
@@ -74,7 +74,7 @@ Feature: 字段别名
     And I set the parameter "AliasName" with value "AutoNewName"
     And I set the parameter "OriginalField" with value "appname"
     And I set the parameter "FieldAlias" with value "name"
-    And I click the "Save" button under some element
+    And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
 
@@ -102,7 +102,7 @@ Feature: 字段别名
     When the data name is "AutoAlias" then i click the "编辑" button
     And I set the parameter "OriginalField" with value "apache.geo.country"
     And I set the parameter "FieldAlias" with value "COUNTRY"
-    And I click the "Save" button under some element
+    And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "AliasMapping" change text to "apache.geo.country AS COUNTRY"
@@ -118,7 +118,7 @@ Feature: 字段别名
     And I click the "AddAliasMap" button
     And I set the parameter "OriginalField" with value "<OriginalField>"
     And I set the parameter "FieldAlias" with value "<FieldAlias>"
-    And I click the "Save" button under some element
+    And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "AliasMapping" change text to "<aliasMapping>"
@@ -151,7 +151,7 @@ Feature: 字段别名
     And I wait for "AddAlias" will be visible
     When the data name is "AutoAlias" then i click the "编辑" button
     And I click the "AliasMappingDelete" button
-    And I click the "Save" button under some element
+    And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "AliasMapping" change text to "apache.geo.country AS COUNTRY, apache.resp_len AS ART, apache.status AS STATUS"
@@ -187,7 +187,7 @@ Feature: 字段别名
     When the data name is "AutoAlias" then i click the "编辑" button
     Then I wait for "GlobalShared" will be visible
     And I click the "GlobalShared" button
-    And I click the "Save" button under some element
+    And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "AliasGlobal" change text to "是"
@@ -258,7 +258,7 @@ Feature: 字段别名
     When the data name is "AutoAlias" then i click the "编辑" button
     Then I wait for "GlobalShared" will be visible
     And I click the "GlobalShared" button
-    And I click the "Save" button under some element
+    And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "AliasGlobal" change text to "否"

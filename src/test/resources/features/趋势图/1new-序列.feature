@@ -11,15 +11,15 @@ Feature: 趋势图新建_序列
   Scenario Outline: 序列（曲线图，面积图，散点图，柱状图）(RZY-2477,2005,2491,2499)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by apache.clientip,cnt | limit 8 "
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Order" button under some element
-    And I click the "<chartType>" button under some element
+    And I click the "Type" button
+    And I click the "Order" button
+    And I click the "<chartType>" button
 
     And I click the "Type" button
     And I wait for "2000" millsecond
@@ -28,13 +28,13 @@ Feature: 趋势图新建_序列
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
-    And I click the "ReturnButton" button under some element
+    And I click the "ReturnButton" button
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
@@ -62,18 +62,18 @@ Feature: 趋势图新建_序列
   Scenario Outline: order
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by apache.clientip,cnt | limit 8 "
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Order" button under some element
-    And I click the "<chartType>" button under some element
+    And I click the "Type" button
+    And I click the "Order" button
+    And I click the "<chartType>" button
     And I click the "Type" button
 
-    And I click the "Settings" button under some element
+    And I click the "Settings" button
     And I click the "ShowAllLabels" button
     And I click the "Group" button
     And I wait for "1000" millsecond
@@ -91,11 +91,11 @@ Feature: 趋势图新建_序列
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<buttonChoice>"
     And I compare source image "actual/<chartType>_<buttonChoice>" with target image "expect/<chartType>_<buttonChoice>"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<buttonChoice>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -106,17 +106,17 @@ Feature: 趋势图新建_序列
   Scenario Outline: order_bubble
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by cnt, apache.clientip"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Order" button under some element
-    And I click the "<chartType>" button under some element
     And I click the "Type" button
-    And I click the "Settings" button under some element
+    And I click the "Order" button
+    And I click the "<chartType>" button
+    And I click the "Type" button
+    And I click the "Settings" button
     And I click the "ShowAllLabels" button
     And I click the "Bubble" button
     And I click the "AccordingField" button
@@ -135,11 +135,11 @@ Feature: 趋势图新建_序列
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -149,18 +149,18 @@ Feature: 趋势图新建_序列
   Scenario Outline: order_switch
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by apache.clientip,cnt | limit 8"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Order" button under some element
-    And I click the "<chartType>" button under some element
+    And I click the "Type" button
+    And I click the "Order" button
+    And I click the "<chartType>" button
     And I click the "Type" button
 
-    And I click the "Settings" button under some element
+    And I click the "Settings" button
     And I click the "ShowAllLabels" button
     And I click the "Yaxis" button
     And I wait for "1000" millsecond
@@ -180,11 +180,11 @@ Feature: 趋势图新建_序列
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>_<buttonChoice>"
     And I compare source image "actual/<chartType>_<caseNum>_<buttonChoice>" with target image "expect/<chartType>_<caseNum>_<buttonChoice>"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>_<buttonChoice>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -198,17 +198,17 @@ Feature: 趋势图新建_序列
   Scenario Outline: order_limit
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by apache.clientip,cnt | limit 8"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Order" button under some element
-    And I click the "<chartType>" button under some element
     And I click the "Type" button
-    And I click the "Settings" button under some element
+    And I click the "Order" button
+    And I click the "<chartType>" button
+    And I click the "Type" button
+    And I click the "Settings" button
     And I click the "ShowAllLabels" button
     And I click the "Yaxis" button
     And I wait for "1000" millsecond
@@ -226,11 +226,11 @@ Feature: 趋势图新建_序列
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>_limit"
     And I compare source image "actual/<chartType>_<caseNum>_limit" with target image "expect/<chartType>_<caseNum>_limit"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>_limit"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -242,18 +242,18 @@ Feature: 趋势图新建_序列
   Scenario Outline: order_facet
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method, apache.status  \| sort by cnt, apache.clientip "
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Order" button under some element
-    And I click the "<chartType>" button under some element
+    And I click the "Type" button
+    And I click the "Order" button
+    And I click the "<chartType>" button
     And I click the "Type" button
 
-    And I click the "Settings" button under some element
+    And I click the "Settings" button
     And I click the "Facet" button
     And I choose the "apache.method" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "1"
@@ -269,11 +269,11 @@ Feature: 趋势图新建_序列
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_分面"
     And I compare source image "actual/<chartType>_分面" with target image "expect/<chartType>_分面"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_分面"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:

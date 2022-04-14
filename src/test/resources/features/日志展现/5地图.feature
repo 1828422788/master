@@ -9,7 +9,7 @@ Feature: 日志展现_5地图
   @logDisplaySmoke
   Scenario Outline:热力地图(RZY-1229)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -18,7 +18,7 @@ Feature: 日志展现_5地图
 
     And I click the "Type" button
     And I wait for "Chart" will be visible
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
@@ -34,7 +34,7 @@ Feature: 日志展现_5地图
 
   Scenario Outline: 攻击地图(RZY-2302)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| parse field=apache.request_query \"\^gw_address=(\?<gw_address>\\d+\\.\\d+\\.\\d+\\.\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
     And I click the "Map" button
@@ -57,7 +57,7 @@ Feature: 日志展现_5地图
     And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
@@ -77,7 +77,7 @@ Feature: 日志展现_5地图
 
   Scenario Outline: 区划地图(RZY-2790)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -86,7 +86,7 @@ Feature: 日志展现_5地图
 
     And I click the "Type" button
     And I wait for "Chart" will be visible
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
@@ -101,7 +101,7 @@ Feature: 日志展现_5地图
 
   Scenario Outline: 区划地图(RZY-2793,2794)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -132,7 +132,7 @@ Feature: 日志展现_5地图
   @logDisplaySmoke
   Scenario Outline: 区划地图_下钻(RZY-2792)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -170,7 +170,7 @@ Feature: 日志展现_5地图
 
   Scenario Outline: 统计地图(RZY-2795,2797)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -193,7 +193,7 @@ Feature: 日志展现_5地图
   @logDisplaySmoke
   Scenario Outline: 统计地图(RZY-2796)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -226,7 +226,7 @@ Feature: 日志展现_5地图
     @statsmaptest
   Scenario Outline: 统计地图_param1
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -247,7 +247,7 @@ Feature: 日志展现_5地图
     And I wait for "5000" millsecond
     And I will see the "<chartType>Element" is display
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display | geostats latfield=apache.geo.latitude longfield=apache.geo.longitude count() avg(apache.resp_len) min(apache.resp_len)"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I wait for "5000" millsecond
@@ -262,7 +262,7 @@ Feature: 日志展现_5地图
 
   Scenario Outline: 统计地图_param2
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -295,7 +295,7 @@ Feature: 日志展现_5地图
 
   Scenario Outline: 区划地图_白色(RZY-2790)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -321,7 +321,7 @@ Feature: 日志展现_5地图
 
   Scenario Outline: 区划地图_白色(RZY-2793,2794)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -354,7 +354,7 @@ Feature: 日志展现_5地图
 
   Scenario Outline: 区划地图_白色_下钻(RZY-2792)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -399,7 +399,7 @@ Feature: 日志展现_5地图
 
   Scenario Outline:热力地图_分面
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -426,7 +426,7 @@ Feature: 日志展现_5地图
 
   Scenario Outline:区划地图_分面
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button

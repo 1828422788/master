@@ -93,7 +93,7 @@ Feature: 仪表盘_3_3_力图
     And I click the "Relation" button
     And I click the "<targetName>" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I choose the "apache.x_forward" from the "DataValue"
     And I click the "Target" button
     And I choose the "apache.resp_len" from the "DataValue"
@@ -103,7 +103,7 @@ Feature: 仪表盘_3_3_力图
     And I set the parameter "Repulsion" with value "12"
     Then I click the "Generate" button
     And I wait for "3000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I move the mouse pointer to the "TrendTitle"

@@ -12,7 +12,7 @@ Feature: 告警搜索界面
     And I set the parameter "SearchInput" with value "name:<alertname>"
     When I click the "DateEditor" button
     When I click the "Today" button
-    When I click the "SearchButton" button under some element
+    When I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the element "NameCell21" contains "<alertname>"
     Then I will see the element "NameCell22" contains "<alertname>"
@@ -35,7 +35,7 @@ Feature: 告警搜索界面
     And I set the parameter "SearchInput" with value "name:<alertname>"
     When I click the "DateEditor" button
     When I click the "Today" button
-    When I click the "SearchButton" button under some element
+    When I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the element "NameCell21" contains "<alertname>"
     And I will see the "CustomButton" is display

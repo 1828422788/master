@@ -11,7 +11,7 @@ Feature: 报表_3_布局设计
     When I set the parameter "Name" with value "report_Layout_<layout>"
     And I set the parameters "Hour" and "Minute" as "3" minutes later from now
     And I choose the "PDF" from the "ReportType"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "2000" millsecond
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
@@ -19,7 +19,7 @@ Feature: 报表_3_布局设计
 
     And I click the "Layout<layout>" button
     And I will see the "Badge1" is display
-    When I click the "Complete" button under some element
+    When I click the "Complete" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -35,7 +35,7 @@ Feature: 报表_3_布局设计
     When I set the parameter "Name" with value "report_Layout_<layout>"
     And I set the parameters "Hour" and "Minute" as "3" minutes later from now
     And I choose the "PDF" from the "ReportType"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "2000" millsecond
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
@@ -68,7 +68,7 @@ Feature: 报表_3_布局设计
     And I will see the "Badge2" is display
     And I will see the "Badge3" is display
     And I will see the "Badge4" is not exist
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 

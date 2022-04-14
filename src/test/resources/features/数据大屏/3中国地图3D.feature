@@ -31,7 +31,7 @@ Feature: 数据大屏-e中国地图3D
 
 #    ==============================中国地图3D
     And I wait for "ChinaMap3D" will be visible
-    And I click the "ChinaMap3D" button under some element
+    And I click the "ChinaMap3D" button
 #    ==============================选择样式
     And I wait for "Style" will be visible
     And I click the "Style" button

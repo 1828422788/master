@@ -94,7 +94,7 @@ Feature: 仪表盘_4_1_区间图
     And I click the "Compound" button
     And I click the "<targetName>" button
     And I wait for "3000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I choose the "ts" from the "DataValue"
     And I click the "Yaxis" button
     And I choose the "count" from the "Actual"
@@ -107,10 +107,10 @@ Feature: 仪表盘_4_1_区间图
     And I wait for "2000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
-    And I click the "TrendTitle" button under some element
+    And I click the "TrendTitle" button
     And I wait for "3000" millsecond
 
     Examples:

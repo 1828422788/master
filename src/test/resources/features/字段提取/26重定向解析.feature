@@ -17,7 +17,7 @@ Feature: 字段提取重定向解析
     And I set the parameter "Key" with value "key"
     And I set the parameter "Value" with value "value"
     And I click the "EnsureAddParseRule" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "RZY2867redirect副规则"
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "redirect_fu"
@@ -38,7 +38,7 @@ Feature: 字段提取重定向解析
     And I choose the "RZY2867redirect副规则" from the "RedirectList"
     Then I wait for "2000" millsecond
     And I click the "EnsureAddParseRule" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "RZY2868redirect主规则"
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "<appName>"

@@ -3,7 +3,7 @@ Feature: 报表_1a_基本设置
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
-    And I click the "NewReportButton" button under some element
+    And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
 
@@ -13,12 +13,12 @@ Feature: 报表_1a_基本设置
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "<type>" from the "ReportType"
     And I set the parameters "Hour" and "Minute" as "3" minutes later from now
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "LastTrendTitle" contains "报表测试"
-    When I click the "Complete" button under some element
+    When I click the "Complete" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -32,7 +32,7 @@ Feature: 报表_1a_基本设置
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "TipText" will be visible
     And I will see the element "TipText" contains "<message_text>"
 
@@ -46,7 +46,7 @@ Feature: 报表_1a_基本设置
 
   Scenario: 名称为空
     When I set the parameter "Name" with value " "
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "TipText" will be visible
     And I will see the element "TipText" contains "名称不能为空"
 
@@ -60,12 +60,12 @@ Feature: 报表_1a_基本设置
     And I choose the "<period>" from the "Period"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "LastTrendTitle" contains "报表测试"
-    When I click the "Complete" button under some element
+    When I click the "Complete" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
     And I click the "ReturnButton" button
@@ -86,12 +86,12 @@ Feature: 报表_1a_基本设置
     And I choose the "<day>" from the "Day"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "LastTrendTitle" contains "报表测试"
-    When I click the "Complete" button under some element
+    When I click the "Complete" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
     And I click the "ReturnButton" button
@@ -118,12 +118,12 @@ Feature: 报表_1a_基本设置
     And I choose the "<day>" from the "Day"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "LastTrendTitle" contains "报表测试"
-    When I click the "Complete" button under some element
+    When I click the "Complete" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
     And I click the "ReturnButton" button
@@ -138,7 +138,7 @@ Feature: 报表_1a_基本设置
   Scenario Outline: 提示_crontab
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Crontab" with value "<crontab>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "TipText" will be visible
     And I will see the element "TipText" contains "<message_text>"
 
@@ -163,12 +163,12 @@ Feature: 报表_1a_基本设置
     And I will see the element "ParseResult" contains "09:30:00"
     And I will see the element "ParseResult" contains "09:45:00"
     And I click the "EnsureButton" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "LastTrendTitle" contains "报表测试"
-    When I click the "Complete" button under some element
+    When I click the "Complete" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
     And I click the "ReturnButton" button
@@ -189,7 +189,7 @@ Feature: 报表_1a_基本设置
     And I will see the element "TipElement" contains "<tipText>"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "Complete" will be visible
 
     Examples:

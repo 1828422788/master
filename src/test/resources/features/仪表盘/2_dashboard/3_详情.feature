@@ -323,7 +323,7 @@ Feature: 仪表盘03详情页
     And I switch the dashboard "OpenEdit" button to "enable"
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "enable"
-    And I click the "DateEditor" button under some element
+    And I click the "DateEditor" button
     And I click the "Yesterday" button
     And I wait for "Progress" will be invisible
     Then I will see the "DropdownLink" result will be "昨天"
@@ -343,7 +343,7 @@ Feature: 仪表盘03详情页
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
     And I wait for "Update" will be visible
-    And I click the "DateEditor" button under some element
+    And I click the "DateEditor" button
     And I click the "Today" button
     And I will see the "DropdownLink" result will be "最近10分钟"
     And I click the "Update" button
@@ -397,7 +397,7 @@ Feature: 仪表盘03详情页
 #    And I click the "TimeName" button
 #    And I click the "deleteTimeTag" button
 #    And I wait for "Ensure" will be visible
-#    And I click the "Ensure" button under some element
+#    And I click the "Ensure" button
 #    Then I wait for "TimeName" will be invisible
 
   @cleanDashboard03 @cleanDashboard031

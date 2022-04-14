@@ -8,11 +8,11 @@ Feature: 事件管理界面
     And I wait for "2000" millsecond
 
     And I set the parameter "SearchInput" with value "<alertref>"
-    When I click the "SearchButton" button under some element
+    When I click the "SearchButton" button
     When I wait for "1000" millsecond
     Then I will see the input box "SearchInput" contains "<alertref>"
 
-    When I click the "ClearButton" button under some element
+    When I click the "ClearButton" button
     When I wait for "500" millsecond
     Then I will see the input box "SearchInput" contains ""
 
@@ -29,7 +29,7 @@ Feature: 事件管理界面
     And I will see the "MainDom" is display
     And I choose the "待分配" from the "StatusList"
     And I set the parameter "SearchInput" with value "alertcef.name:<alertname>"
-    When I click the "SearchButton" button under some element
+    When I click the "SearchButton" button
     And I wait for "2000" millsecond
     Then I will see the element "NameCell12" contains "name:<alertname>"
     Then I will see the element "NameCell13" contains "<alertref>"

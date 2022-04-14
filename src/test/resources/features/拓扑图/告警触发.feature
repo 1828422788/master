@@ -18,9 +18,9 @@ Feature: 拓扑图告警触发
     When I click the detail which name is "告警触发"
     Then I will see the "topology.DetailPage" page
     And I wait for loading invisible
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I click the "EditTopologySwitch" button
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     Then I choose the "圆形" from the "NodeType"
     And I wait for "1000" millsecond
     And I set the parameter "IconNodeName" with value "矩形节点"

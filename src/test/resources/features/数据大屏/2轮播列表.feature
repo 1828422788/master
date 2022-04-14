@@ -32,7 +32,7 @@ Feature: 数据大屏-a轮播列表
 
 #    ==============================轮播列表
     And I wait for "listOfTurns" will be visible
-    And I click the "listOfTurns" button under some element
+    And I click the "listOfTurns" button
 
  #    ==============================选择样式
     And I wait for "Style" will be visible
@@ -141,7 +141,7 @@ Feature: 数据大屏-a轮播列表
 
 #    ==============================轮播列表
     And I wait for "listOfTurns" will be visible
-    And I click the "listOfTurns" button under some element
+    And I click the "listOfTurns" button
 #    ==============================选择样式
     And I wait for "Style" will be visible
     And I click the "Style" button

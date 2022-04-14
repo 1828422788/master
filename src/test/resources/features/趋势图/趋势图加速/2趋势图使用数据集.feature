@@ -26,12 +26,12 @@ Feature: 趋势图加速_2趋势图使用数据集
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "3000" millsecond
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "NameInput" with value "趋势图_数据集"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
     And I wait for "1500" millsecond
     When I will see the "Accelerate" is clickable

@@ -32,7 +32,7 @@ Feature: 数据大屏-c单值百分比图
 
 #    ==============================单值百分比图
     And I wait for "percent3dChart" will be visible
-    And I click the "percent3dChart" button under some element
+    And I click the "percent3dChart" button
 #    ==============================选择样式
     And I wait for "Style" will be visible
     And I click the "Style" button
@@ -120,7 +120,7 @@ Feature: 数据大屏-c单值百分比图
 
 #    ==============================单值百分比图
     And I wait for "percent3dChart" will be visible
-    And I click the "percent3dChart" button under some element
+    And I click the "percent3dChart" button
 #    ==============================选择样式
     And I wait for "Style" will be visible
     And I click the "Style" button

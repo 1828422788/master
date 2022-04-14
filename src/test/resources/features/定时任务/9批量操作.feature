@@ -6,9 +6,9 @@ Feature: 定时任务批量操作
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart  | stats count()"
-    And I click the "DateEditor" button under some element
+    And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -38,9 +38,9 @@ Feature: 定时任务批量操作
     When I set the parameter "SearchInput" with value "test_multi_"
     And I wait for loading invisible
     And I wait for "BatchControl" will be visible
-    And I click the "BatchControl" button under some element
+    And I click the "BatchControl" button
     And I click the "SelectAll" button
-    And I click the "SelectBatchOperation" button under some element
+    And I click the "SelectBatchOperation" button
     And I click the "AddResourceTags" button
     And I wait for "Ensure" will be visible
     And I wait for "TagToInput" will be visible
@@ -52,7 +52,7 @@ Feature: 定时任务批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I wait for "SuccessMessage" will be invisible
-    And I click the "CompleteBatchControl" button under some element
+    And I click the "CompleteBatchControl" button
 
   Scenario: 验证标签
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -76,9 +76,9 @@ Feature: 定时任务批量操作
     When I set the parameter "SearchInput" with value "test_multi_"
     And I wait for loading invisible
     And I wait for "BatchControl" will be visible
-    And I click the "BatchControl" button under some element
+    And I click the "BatchControl" button
     And I click the "SelectAll" button
-    And I click the "SelectBatchOperation" button under some element
+    And I click the "SelectBatchOperation" button
     And I click the "DisableResources" button
     And I wait for "Ensure" will be visible
     And I will see the message "确定停止 3 个资源"
@@ -86,7 +86,7 @@ Feature: 定时任务批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I wait for "Loading" will be invisible
-    And I click the "CompleteBatchControl" button under some element
+    And I click the "CompleteBatchControl" button
     
   Scenario: 启动
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -94,9 +94,9 @@ Feature: 定时任务批量操作
     When I set the parameter "SearchInput" with value "test_multi_"
     And I wait for loading invisible
     And I wait for "BatchControl" will be visible
-    And I click the "BatchControl" button under some element
+    And I click the "BatchControl" button
     And I click the "SelectAll" button
-    And I click the "SelectBatchOperation" button under some element
+    And I click the "SelectBatchOperation" button
     And I click the "EnableResources" button
     And I wait for "Ensure" will be visible
     And I will see the message "确定启用 3 个资源"
@@ -104,7 +104,7 @@ Feature: 定时任务批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I wait for "Loading" will be invisible
-    And I click the "CompleteBatchControl" button under some element
+    And I click the "CompleteBatchControl" button
 
   Scenario: 验证
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -129,18 +129,18 @@ Feature: 定时任务批量操作
     When I set the parameter "SearchInput" with value "test_multi_"
     And I wait for loading invisible
     And I wait for "BatchControl" will be visible
-    And I click the "BatchControl" button under some element
+    And I click the "BatchControl" button
     And I click the "SelectAll" button
-    And I click the "SelectBatchOperation" button under some element
+    And I click the "SelectBatchOperation" button
     And I click the "DeleteResources" button
     And I wait for "Ensure" will be visible
     Then I will see the message "您选中的 3 个资源将被删除，是否继续？"
     And I click the "Cancel" button
     When the data name is "{'column':'2','name':'test_multi_3'}" then i click the "删除" button in more menu
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
-    And I click the "SelectBatchOperation" button under some element
+    And I click the "SelectBatchOperation" button
     And I click the "DeleteResources" button
     And I wait for "Ensure" will be visible
     Then I will see the message "您选中的 2 个资源将被删除，是否继续？"
@@ -148,7 +148,7 @@ Feature: 定时任务批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
     And I wait for "Loading" will be invisible
-    And I click the "CompleteBatchControl" button under some element
+    And I click the "CompleteBatchControl" button
 
   Scenario: 验证删除
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -162,8 +162,8 @@ Feature: 定时任务批量操作
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
     And I wait for "BatchControl" will be visible
-    And I click the "BatchControl" button under some element
-    And I click the "SelectBatchOperation" button under some element
+    And I click the "BatchControl" button
+    And I click the "SelectBatchOperation" button
     And I click the "<button>" button
     And I wait for "Ensure" will be visible
     Then I will see the message "请至少选择一个资源进行操作"

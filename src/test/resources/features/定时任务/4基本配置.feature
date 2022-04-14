@@ -5,9 +5,9 @@ Feature: 定时任务_基本配置
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart  | stats count() by tag"
-    And I click the "DateEditor" button under some element
+    And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -36,12 +36,12 @@ Feature: 定时任务_基本配置
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count()"
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "NewSavedSearch" button
     And I wait for "SavedSearchName" will be visible
     And I set the parameter "SavedSearchName" with value "schedule_test"
-    And I click the "EnsureCreateSavedSearch" button under some element
+    And I click the "EnsureCreateSavedSearch" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
 
@@ -51,12 +51,12 @@ Feature: 定时任务_基本配置
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count()"
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "NewSavedSearch" button
     And I wait for "SavedSearchName" will be visible
     And I set the parameter "SavedSearchName" with value " "
-    And I click the "EnsureCreateSavedSearch" button under some element
+    And I click the "EnsureCreateSavedSearch" button
     And I wait for "TipText" will be visible
     And I will see the element "TipText" contains "名称格式有误，仅支持中文、数字、字母、中划线、下划线以及括号的组合"
 
@@ -77,7 +77,7 @@ Feature: 定时任务_基本配置
     And I set the parameter "Number" with value "<number>"
     And I set the value "<spl>" to the textarea "SearchTextarea"
     And I set the parameter "Period" with value "<period>"
-    And I click the "SaveButton" button under some element
+    And I click the "SaveButton" button
     And I wait for "<element>" will be visible
     And I will see the element "<element>" contains "<result>"
 
@@ -98,7 +98,7 @@ Feature: 定时任务_基本配置
     And I wait for "2000" millsecond
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "CrontabInput" with value "<crontab>"
-    And I click the "<button>" button under some element
+    And I click the "<button>" button
     And I wait for "<element>" will be visible
     And I will see the element "<element>" contains "<result>"
 
@@ -133,10 +133,10 @@ Feature: 定时任务_基本配置
     And I will see the element "ParseResult" contains ":57:00"
     And I will see the element "ParseResult" contains ":00:00"
     And I click the "EnsureButton" button
-    And I click the "SaveButton" button under some element
+    And I click the "SaveButton" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "保存成功"
-    And I click the "EnsureButton" button under some element
+    And I click the "EnsureButton" button
 
   Scenario: 改spl
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -153,10 +153,10 @@ Feature: 定时任务_基本配置
     And I will see the input element "CrontabInput" value will be "0 */57 * * * ?"
     And I choose the "schedule_test" from the "SavedSearch"
     And I will see the input element "SearchTextarea" value will be "tag:sample04061424_chart | stats count()"
-    And I click the "SaveButton" button under some element
+    And I click the "SaveButton" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "保存成功"
-    And I click the "EnsureButton" button under some element
+    And I click the "EnsureButton" button
     Then I will see the "timedTask.ListPage" page
 
   Scenario: 验证
@@ -176,7 +176,7 @@ Feature: 定时任务_基本配置
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'Schedule_Test'}" then i click the "删除" button in more menu
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
 

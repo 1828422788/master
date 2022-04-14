@@ -5,9 +5,9 @@ Feature: 趋势图_提示
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "* | stats count()"
-    And I click the "DateEditor" button under some element
+    And I click the "DateEditor" button
     And I click the "<timePeriod>" button
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for "SaveAsOther" will be visible
     Then I click the "SaveAsOther" button
     Then I click the "Trend" button
@@ -27,9 +27,9 @@ Feature: 趋势图_提示
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I drag the element "SearchPageSvg" to the "right" side
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count()"
-    And I click the "DateEditor" button under some element
+    And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "SaveAsOther" will be visible
     Then I click the "SaveAsOther" button
@@ -105,10 +105,10 @@ Feature: 趋势图_提示
     And I will see the element "SearchInput" contains "*"
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     Then I wait for "CheckBox" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "EnsureButton" will be visible
     And I will see the element "Prompt" contains "请选择字段"
 
@@ -120,15 +120,15 @@ Feature: 趋势图_提示
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count()"
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "2000" millsecond
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "NameInput" will be visible
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     And I wait for "TipText" will be visible
     And I will see the element "TipText" contains "名称格式有误，仅支持中文、数字、字母、中划线、下划线以及括号的组合。"
 
@@ -140,7 +140,7 @@ Feature: 趋势图_提示
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "CheckBox" will be visible
     When I "checked" the checkbox which name is "timestamp" in trend page
@@ -158,10 +158,10 @@ Feature: 趋势图_提示
     And I will see the input element "SearchInput" value will be "tag:sample04061424_chart"
     And I will see the element "DateEditor" contains "今天"
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.clientip"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "2000" millsecond
     And I wait for "Header" will be visible
     And I will see the "Type" is display

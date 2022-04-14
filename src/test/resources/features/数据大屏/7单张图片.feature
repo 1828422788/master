@@ -31,7 +31,7 @@ Feature: 数据大屏-k单张图片
 
 #    ==============================单张图片
     And I wait for "Picture" will be visible
-    And I click the "Picture" button under some element
+    And I click the "Picture" button
 #    ==============================选择样式
     And I wait for "Style" will be visible
     And I click the "Style" button

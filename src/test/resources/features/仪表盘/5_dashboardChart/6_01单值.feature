@@ -97,7 +97,7 @@ Feature: 仪表盘_6_01_单值
     And I wait for "2000" millsecond
     And I click the "Other" button
     And I click the "Single" button
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     And I choose the "a_" from the "DataField"
     And I wait for "1000" millsecond
     And I choose the "icon" from the "DisplayField"
@@ -112,10 +112,10 @@ Feature: 仪表盘_6_01_单值
     And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
-    And I click the "TrendTitle" button under some element
+    And I click the "TrendTitle" button
     And I wait for "3000" millsecond
 
   @dashboardChartSmoke
@@ -167,7 +167,7 @@ Feature: 仪表盘_6_01_单值
 #    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
-    And I click the "TrendTitle" button under some element
+    And I click the "TrendTitle" button
     And I wait for "3000" millsecond
     Then I will see the "DashboardSingleValue" result will contain ","
 #    Then I will see the "TextLayer" result will be "<json>"

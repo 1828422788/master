@@ -33,7 +33,7 @@ Feature: 数据大屏-e基本折线图
 
  #    ==============================基本折线图
     And I wait for "Line" will be visible
-    And I click the "Line" button under some element
+    And I click the "Line" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible
@@ -149,7 +149,7 @@ Feature: 数据大屏-e基本折线图
 
  #    ==============================基本折线图
     And I wait for "Line" will be visible
-    And I click the "Line" button under some element
+    And I click the "Line" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible

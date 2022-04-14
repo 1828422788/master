@@ -62,7 +62,7 @@ Feature: 字段提取格式化处理
     And I wait for "CheckSuccess4" will be visible
     And I wait for "2000" millsecond
     Then I will see the field extraction result "<result>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "rzyuitest字段提取格式化处理1"
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "testrule"
@@ -126,7 +126,7 @@ Feature: 字段提取格式化处理
     And I wait for "CheckSuccess4" will be visible
     Then I will see the field extraction result "<result>"
     And I click the "Collapse" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "RZY1550格式化处理"
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "wym_test_format"

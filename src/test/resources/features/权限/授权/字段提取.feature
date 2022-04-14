@@ -61,7 +61,7 @@ Feature: 权限-字段提取
     And I set the parameter "FieldList" with value "1,2,3,4,5"
     And I click the "EnsureAddParseRule" button
     And I wait for "1000" millsecond
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I click the "SwitchButton" button
     When I set the parameter "Name" with value "AutoTestUserCreate"
     And I set the parameter "Logtype" with value "other"
@@ -129,7 +129,7 @@ Feature: 权限-字段提取
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I will see the element "Done" attribute is "disabled"
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
@@ -179,7 +179,7 @@ Feature: 权限-字段提取
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "AutoTestUserRename"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
@@ -190,7 +190,7 @@ Feature: 权限-字段提取
     And I click the "TagToInput" button
     And I set the parameter "TagInput" with value "自动化测试标签"
     #And I choose the "自动化测试标签" from the "Group"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "修改成功"
     And the data name is "{'column':'1','name':'AutoTestUserRename'}" then i click the "更多" button
@@ -242,7 +242,7 @@ Feature: 权限-字段提取
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "副本"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
@@ -253,7 +253,7 @@ Feature: 权限-字段提取
     And I click the "TagToInput" button
     And I set the parameter "TagInput" with value "自动化测试标签"
     #And I choose the "自动化测试标签" from the "Group"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "修改成功"
     And I wait for loading invisible
@@ -310,7 +310,7 @@ Feature: 权限-字段提取
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I will see the element "Done" attribute is "disabled"
     Then I logout current user
 
@@ -443,7 +443,7 @@ Feature: 权限-字段提取
     And I wait for "TagToInput" will be visible
     And I click the "TagToInput" button
     And I set the parameter "TagInput" with value "自动化测试标签"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "修改成功"
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -467,7 +467,7 @@ Feature: 权限-字段提取
     And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "Auto副本"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
@@ -559,7 +559,7 @@ Feature: 权限-字段提取
     And I set the parameter "Separate" with value ","
     And I set the parameter "FieldList" with value "1,2,3,4,5"
     And I click the "EnsureAddParseRule" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I click the "SwitchButton" button
     When I set the parameter "Name" with value "副本(副本)"
     And I set the parameter "Logtype" with value "other"
@@ -610,7 +610,7 @@ Feature: 权限-字段提取
     And I wait for "TagToInput" will be visible
     And I click the "TagToInput" button
     And I set the parameter "TagInput" with value "自动化测试标签"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "修改成功"
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -629,7 +629,7 @@ Feature: 权限-字段提取
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "副本"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
@@ -663,7 +663,7 @@ Feature: 权限-字段提取
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "测试有效期限"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
@@ -686,7 +686,7 @@ Feature: 权限-字段提取
     And I set the parameter "Separate" with value ","
     And I set the parameter "FieldList" with value "1,2,3,4,5"
     And I click the "EnsureAddParseRule" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I click the "SwitchButton" button
     When I set the parameter "Name" with value "测试Auth相关"
     And I set the parameter "Logtype" with value "other"
@@ -747,12 +747,12 @@ Feature: 权限-字段提取
     And I click the "TagToInput" button
     And I set the parameter "TagInput" with value "自动化测试标签"
    # And I choose the "自动化测试标签" from the "Group"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "测试AuthRename"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
@@ -786,7 +786,7 @@ Feature: 权限-字段提取
     And I click the "TagToInput" button
     And I set the parameter "TagInput" with value "自动化测试标签"
    # And I choose the "自动化测试标签" from the "Group"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "更多" button
     And I click the "Auth" button
@@ -797,7 +797,7 @@ Feature: 权限-字段提取
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "副本"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible

@@ -8,16 +8,16 @@ Feature:趋势图_拖拽_复合
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
-    And I click the "DateEditor" button under some element
+    And I click the "DateEditor" button
     And I click the "Today" button
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "CheckBox" will be visible
     When I "checked" the checkbox which name is "apache.clientip" in trend page
     When I "checked" the checkbox which name is "apache.resp_len" in trend page
     And I "checked" the checkbox which name is "apache.method" in trend page
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
@@ -95,14 +95,14 @@ Feature:趋势图_拖拽_复合
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_柱面"
     And I compare source image "actual/拖拽_<chartType>_柱面" with target image "expect/拖拽_<chartType>_柱面"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_柱面"
     And I set the parameter "DescribeInput" with value "<chart_1><color_1>_<chart_2><color_2>"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
-    And I click the "ReturnButton" button under some element
+    And I click the "ReturnButton" button
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
@@ -191,14 +191,14 @@ Feature:趋势图_拖拽_复合
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_曲散"
     And I compare source image "actual/拖拽_<chartType>_曲散" with target image "expect/拖拽_<chartType>_曲散"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_曲散"
     And I set the parameter "DescribeInput" with value "<chart_1><color_1>_<chart_2><color_2>"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
-    And I click the "ReturnButton" button under some element
+    And I click the "ReturnButton" button
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
@@ -296,12 +296,12 @@ Feature:趋势图_拖拽_复合
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_对比"
     And I compare source image "actual/拖拽_<chartType>_对比" with target image "expect/拖拽_<chartType>_对比"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_对比"
     And I set the parameter "DescribeInput" with value "<chart_1>_<chart_2>_<color>"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:

@@ -3,8 +3,8 @@ Feature: manager agent相关
 
   Background:
     Given I will see the "manager.ListPage" page
-    And I click the "Tools" button under some element
-    And I click the "CommandTool" button under some element
+    And I click the "Tools" button
+    And I click the "CommandTool" button
     Then I click the "Manager" button
 
   Scenario: RZY-2837:命令行工具_manager_重启Agent

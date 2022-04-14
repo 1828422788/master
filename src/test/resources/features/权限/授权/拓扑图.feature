@@ -168,7 +168,7 @@ Feature: 权限-拓扑图
     And I wait for "1000" millsecond
     And I set the parameter "Tag" with value "AutoTest"
     And I wait for "1000" millsecond
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "更多" button
@@ -180,9 +180,9 @@ Feature: 权限-拓扑图
     And I click the detail which name is "<name>"
     Then I will see the "topology.DetailPage" page
     And I wait for "2000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I click the "EditTopologySwitch" button
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I wait for "1000" millsecond
     And I set the parameter "IconNodeName" with value "node1"
     And I click the "AddNodeButton" button
@@ -228,7 +228,7 @@ Feature: 权限-拓扑图
     And I click the "TagToInput" button
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "更多" button
@@ -406,7 +406,7 @@ Feature: 权限-拓扑图
     And I click the "TagToInput" button
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "更多" button
@@ -507,7 +507,7 @@ Feature: 权限-拓扑图
     And I click the "TagToInput" button
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "更多" button
@@ -716,7 +716,7 @@ Feature: 权限-拓扑图
     And I click the "TagToInput" button
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "更多" button
@@ -766,7 +766,7 @@ Feature: 权限-拓扑图
     And I click the "TagToInput" button
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "更多" button

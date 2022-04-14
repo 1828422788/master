@@ -93,12 +93,12 @@ Feature: 仪表盘_2_2_玫瑰图
     And I click the "Dimension" button
     And I click the "<targetName>" button
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     And I choose the "count()" from the "DataValue"
     And I click the "Divide" button
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I click the "TrendTitle" button
@@ -121,13 +121,13 @@ Feature: 仪表盘_2_2_玫瑰图
     And I click the "ChartType" button
     Then I will see the "trend.CreatePageDash" page
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     And I click the "Exhibition" button
     And I choose the "不展示" from the "ShowLabel"
     And I wait for "500" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I click the "TrendTitle" button
@@ -152,7 +152,7 @@ Feature: 仪表盘_2_2_玫瑰图
     And I click the "ChartType" button
     Then I will see the "trend.CreatePageDash" page
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     And I click the "Exhibition" button
     And I choose the "全部展示" from the "ShowLabel"
     And I wait for "1000" millsecond
@@ -160,7 +160,7 @@ Feature: 仪表盘_2_2_玫瑰图
     And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I click the "TrendTitle" button

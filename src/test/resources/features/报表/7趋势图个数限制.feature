@@ -31,13 +31,13 @@ Feature: 报表_7_趋势图个数限制
   Scenario: new_report_5_trends
     Given open the "report.ListPage" page for uri "/reports/"
     And I wait for loading invisible
-    And I click the "NewReportButton" button under some element
+    And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     When I set the parameter "Name" with value "test_5trends"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I choose the "PDF" from the "ReportType"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "2000" millsecond
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"

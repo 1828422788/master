@@ -196,7 +196,7 @@ Feature: 应用定时任务(RZY-2123)
     Then I will see the "app.CreatePage" page
     And I wait for loading invisible
     And I click the "OverallSituation" button
-    And I click the "SaveButton" button under some element
+    And I click the "SaveButton" button
 
     Examples:
       | name                        |
@@ -212,7 +212,7 @@ Feature: 应用定时任务(RZY-2123)
     And I wait for "2000" millsecond
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
 

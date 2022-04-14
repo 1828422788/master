@@ -6,7 +6,7 @@ Feature: 报表_8_预览
     And I wait for loading invisible
 
   Scenario Outline: create_report_pdf_excel
-    And I click the "NewReportButton" button under some element
+    And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     When I set the parameter "Name" with value "Test_Preview_<type>"
@@ -15,13 +15,13 @@ Feature: 报表_8_预览
     And I set the parameter "Hour" with value "00"
     And I set the parameter "Minute" with value "00"
     And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "LastTrendTitle" contains "报表测试"
     And I will see the "Preview" doesn't exist
-    When I click the "Complete" button under some element
+    When I click the "Complete" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -31,7 +31,7 @@ Feature: 报表_8_预览
     | EXCEL   |
 
   Scenario Outline: create_report_word
-    And I click the "NewReportButton" button under some element
+    And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     When I set the parameter "Name" with value "Test_Preview_<type>"
@@ -40,7 +40,7 @@ Feature: 报表_8_预览
     And I set the parameter "Hour" with value "00"
     And I set the parameter "Minute" with value "00"
     And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
     And I set the parameter "ChartListInput" with value "报表测试"
@@ -48,7 +48,7 @@ Feature: 报表_8_预览
     And I wait for "2000" millsecond
     Then I will see the "report.CreatePageWORD" page
     And I will see the "Preview" doesn't exist
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -63,7 +63,7 @@ Feature: 报表_8_预览
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Subject" with value "运行测试_报表名称：<%report_name%>，发送时间：<%report_time%>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I will see the "report.CreatePage<page>" page
     And I wait for "5000" millsecond
     And I choose the "运行测试" from the "Preview"
@@ -71,7 +71,7 @@ Feature: 报表_8_预览
     And I will see the element "SuccessMessage" contains "正在生成测试报表，请稍后查看接收邮箱"
     And I wait for "<sec>" millsecond
     And I wait for "SuccessMessage" will be invisible
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "更新成功"
 
@@ -111,7 +111,7 @@ Feature: 报表_8_预览
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Subject" with value "下载到本地预览_报表名称：<%report_name%>，发送时间：<%report_time%>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I will see the "report.CreatePage<page>" page
     And I wait for "5000" millsecond
     And I choose the "下载到本地预览" from the "Preview"
@@ -119,7 +119,7 @@ Feature: 报表_8_预览
     And I will see the element "SuccessMessage" contains "正在生成测试报表，请稍后查看报表历史页"
     And I wait for "<sec>" millsecond
     And I wait for "SuccessMessage" will be invisible
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "更新成功"
 

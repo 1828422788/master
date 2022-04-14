@@ -10,10 +10,10 @@ Feature: 趋势图新建_关系
   Scenario Outline: 和弦图_桑基图(RZY-2505,2507)
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
     And I wait for "2000" millsecond
@@ -30,13 +30,13 @@ Feature: 趋势图新建_关系
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
-    And I click the "ReturnButton" button under some element
+    And I click the "ReturnButton" button
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
@@ -59,10 +59,10 @@ Feature: 趋势图新建_关系
   Scenario Outline: 力图(RZY-2511)
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
     And I wait for "2000" millsecond
@@ -79,13 +79,13 @@ Feature: 趋势图新建_关系
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
 #    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
-    And I click the "ReturnButton" button under some element
+    And I click the "ReturnButton" button
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
@@ -106,10 +106,10 @@ Feature: 趋势图新建_关系
   Scenario Outline: connection_force_repulsion
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
     And I wait for "2000" millsecond
@@ -136,11 +136,11 @@ Feature: 趋势图新建_关系
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_repulsion"
 #    And I compare source image "actual/<chartType>_repulsion" with target image "expect/<chartType>_repulsion"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_repulsion"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -150,10 +150,10 @@ Feature: 趋势图新建_关系
   Scenario Outline: connection_sankey_multistage
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
     And I wait for "2000" millsecond
@@ -180,11 +180,11 @@ Feature: 趋势图新建_关系
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<button>"
     And I compare source image "actual/<chartType>_<button>" with target image "expect/<chartType>_<button>"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<button>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -194,10 +194,10 @@ Feature: 趋势图新建_关系
   Scenario Outline: connection_facet
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
     And I wait for "2000" millsecond
@@ -222,11 +222,11 @@ Feature: 趋势图新建_关系
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_分面"
     And I compare source image "actual/<chartType>_分面" with target image "expect/<chartType>_分面"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_分面"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -237,10 +237,10 @@ Feature: 趋势图新建_关系
   Scenario Outline: connection_facet_force
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
     And I wait for "2000" millsecond
@@ -265,11 +265,11 @@ Feature: 趋势图新建_关系
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_分面"
 #    And I compare source image "actual/<chartType>_分面" with target image "expect/<chartType>_分面"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_分面"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:

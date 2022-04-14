@@ -60,7 +60,7 @@ Feature: 仪表盘钻取配置
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "测试标签钻取"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     And I wait for "SuccessCreate" will be visible
 
   @dbdrilldown3

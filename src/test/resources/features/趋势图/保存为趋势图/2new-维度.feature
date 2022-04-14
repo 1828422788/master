@@ -9,14 +9,14 @@ Feature: 保存为趋势图_维度
   Scenario Outline: dimension_default(RZY-2503,2858,2676,2850)
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Dimension" button under some element
-    And I click the "<chartType>" button under some element
+    And I click the "Type" button
+    And I click the "Dimension" button
+    And I click the "<chartType>" button
 
     And I click the "Type" button
     And I wait for "2000" millsecond
@@ -41,14 +41,14 @@ Feature: 保存为趋势图_维度
   Scenario Outline: dimension_labels_bar
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5"
     And I wait for "2000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Dimension" button under some element
-    And I click the "<chartType>" button under some element
+    And I click the "Type" button
+    And I click the "Dimension" button
+    And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Exhibition" button
     And I click the "AddColor" button
@@ -89,14 +89,14 @@ Feature: 保存为趋势图_维度
   Scenario Outline: dimension_labels_options
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Dimension" button under some element
-    And I click the "<chartType>" button under some element
+    And I click the "Type" button
+    And I click the "Dimension" button
+    And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Exhibition" button
     And I click the "AddColor" button
@@ -132,14 +132,14 @@ Feature: 保存为趋势图_维度
 
   Scenario Outline: dimension_facet
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Dimension" button under some element
-    And I click the "<chartType>" button under some element
+    And I click the "Type" button
+    And I click the "Dimension" button
+    And I click the "<chartType>" button
 
     And I click the "Settings" button
     And I click the "Facet" button
@@ -177,14 +177,14 @@ Feature: 保存为趋势图_维度
 
   Scenario Outline: dimension_facet_sun
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Dimension" button under some element
-    And I click the "<chartType>" button under some element
+    And I click the "Type" button
+    And I click the "Dimension" button
+    And I click the "<chartType>" button
 
     And I click the "Settings" button
     And I click the "Divide" button
@@ -221,14 +221,14 @@ Feature: 保存为趋势图_维度
   Scenario Outline: dimension_flame
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND (apache.status:200) AND NOT (apache.geo.city:黔东南苗族侗族自治州) AND NOT (apache.geo.city:南京市)   | stats count() as cnt by apache.method, apache.status, apache.geo.province, apache.geo.city | sort by apache.method, apache.status, apache.geo.province, apache.geo.city"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Dimension" button under some element
-    And I click the "<chartType>" button under some element
+    And I click the "Type" button
+    And I click the "Dimension" button
+    And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Exhibition" button
     And I choose the "<option>" from the "DrillDownMode" in config
@@ -260,14 +260,14 @@ Feature: 保存为趋势图_维度
   Scenario Outline: dimension_flame_facet
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND (apache.status:200) AND NOT (apache.geo.city:黔东南苗族侗族自治州) AND NOT (apache.geo.city:南京市)   | stats count() as cnt by apache.method, apache.status, apache.geo.province, apache.geo.city | sort by apache.method, apache.status, apache.geo.province, apache.geo.city"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Dimension" button under some element
-    And I click the "<chartType>" button under some element
+    And I click the "Type" button
+    And I click the "Dimension" button
+    And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Facet" button
     And I click the "AddField" button

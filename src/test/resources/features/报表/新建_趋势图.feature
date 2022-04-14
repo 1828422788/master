@@ -13,7 +13,7 @@ Feature: 趋势图保存为报表
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "PDF" from the "ReportType"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
     When I choose the "<chart1>" from the "ChartList"
     And I click the "ChartListButton" button
@@ -32,7 +32,7 @@ Feature: 趋势图保存为报表
 #    Then I will see the element "ChosenTrendLast" contains "<chart5>"
     And I click the "Layout1" button
     And I will see the "Badge1" is display
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 

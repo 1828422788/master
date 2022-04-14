@@ -271,7 +271,7 @@ Feature: 仪表盘输入项
     And I click the "FilterName" button
     And I click the "DeleteTag" button
     And I wait for "Ensure" will be visible
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I wait for "FilterName" will be invisible
 
   @dbinput1 @dbinput11
@@ -394,7 +394,7 @@ Feature: 仪表盘输入项
 #    And I click the "FilterTime" button
 #    And I click the "DeleteTime" button
 #    And I wait for "Ensure" will be visible
-#    And I click the "Ensure" button under some element
+#    And I click the "Ensure" button
 #    Then I wait for "FilterTime" will be invisible
 
   @dbinput2 @dbinput21
@@ -458,7 +458,7 @@ Feature: 仪表盘输入项
 #    And I click the "FilterName" button
 #    And I click the "DeleteTag" button
 #    And I wait for "Ensure" will be visible
-#    And I click the "Ensure" button under some element
+#    And I click the "Ensure" button
 #    Then I wait for "FilterName" will be invisible
 
   @dbinput3 @dbinput31
@@ -570,7 +570,7 @@ Feature: 仪表盘输入项
 #    And I click the "FilterName" button
 #    And I click the "DeleteTag" button
 #    And I wait for "Ensure" will be visible
-#    And I click the "Ensure" button under some element
+#    And I click the "Ensure" button
 #    Then I wait for "FilterName" will be invisible
 
   @dbinput4 @dbinput41
@@ -846,7 +846,7 @@ Feature: 仪表盘输入项
 #    Then I will see the "dashboard.DetailPage" page
 #    And I click the "FilterName" button
 #    And I click the "DeleteTag" button
-#    And I click the "Ensure" button under some element
+#    And I click the "Ensure" button
 
   @dbinput5 @dbinput51 @dashboardInputSmoke
   Scenario: 修改通用配置搜索语句
@@ -867,7 +867,7 @@ Feature: 仪表盘输入项
     And I click the "Configs" button
     And I wait for loading invisible
     And I set the parameter "Spl" with value "${filter} apache.geo.city:成都市) AND tag : sample04061424_chart | stats count() by apache.geo.city"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "500" millsecond
     Then I will see the success message "配置成功"
 
@@ -940,7 +940,7 @@ Feature: 仪表盘输入项
 #    Then I will see the "dashboard.DetailPage" page
 #    And I click the "FilterName" button
 #    And I click the "DeleteTag" button
-#    And I click the "Ensure" button under some element
+#    And I click the "Ensure" button
 
   @dbinput6 @dbinput61
   Scenario: 验证下拉菜单默认输入项 RZY-280
@@ -960,7 +960,7 @@ Feature: 仪表盘输入项
     And I click the "Configs" button
     And I wait for loading invisible
     And I set the parameter "Spl" with value "tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 | stats count() by apache.status | where apache.status > ${filter}"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "1000" millsecond
     Then I will see the success message "配置成功"
 
@@ -988,7 +988,7 @@ Feature: 仪表盘输入项
     And I set the parameter "Spl" with value "tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 | stats count() by apache.status "
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchFilterButton" button under some element
+    And I click the "SearchFilterButton" button
     And I wait for loading invisible
     And I choose the "404" from the "DefaultDropdownList"
     Then I click the "Ensure" button
@@ -1067,19 +1067,19 @@ Feature: 仪表盘输入项
     And I wait for loading invisible
     And I set the parameter "DynamicField" with value ""
     And I wait for "500" millsecond
-    And I click the "SearchFilterButton" button under some element
+    And I click the "SearchFilterButton" button
     And I wait for "500" millsecond
     Then I wait for "EmptyNotice" will be visible
     And I set the parameter "DynamicField" with value "hhhhhhhhhhhhh"
     And I wait for "500" millsecond
-    And I click the "SearchFilterButton" button under some element
+    And I click the "SearchFilterButton" button
     And I wait for loading invisible
     Then I will see the error message "缺少选中的字段"
     And I wait for "2500" millsecond
     And I set the parameter "DynamicField" with value "avg_len"
     And I set the parameter "Spl" with value "hello goodbey"
     And I wait for "500" millsecond
-    And I click the "SearchFilterButton" button under some element
+    And I click the "SearchFilterButton" button
     And I wait for loading invisible
     Then I will see the error message "搜索语句须为stats类型"
     And I wait for "1500" millsecond
@@ -1133,7 +1133,7 @@ Feature: 仪表盘输入项
 #    And I move the mouse pointer to the "FilterName"
 #    And I click the "FilterName" button
 #    And I click the "DeleteTag" button
-#    And I click the "Ensure" button under some element
+#    And I click the "Ensure" button
 
   @dbinput7 @dbinput71
   Scenario: 增加动态菜单多选及标识值前后缀 RZY-288，RZY-3432
@@ -1159,7 +1159,7 @@ Feature: 仪表盘输入项
     And I set the parameter "Spl" with value "apache.geo.city:* | stats count() by apache.geo.city"
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchFilterButton" button under some element
+    And I click the "SearchFilterButton" button
     Given I wait for loading complete
     And I choose the "北京市" from the "DefaultDropdownList"
     And I set the parameter "PrefixValue" with value "apache.geo.city:"

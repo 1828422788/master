@@ -47,7 +47,7 @@ Feature: 字段提取内容替换
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "Collapse" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "RZY1556内容替换"
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "<appName>"
@@ -103,7 +103,7 @@ Feature: 字段提取内容替换
     And I set the value "$1,newinfo" to the textarea "ReplaceContent"
     And I click the "EnsureAddParseRule" button
     And I wait for loading invisible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "RZY1559tag替换"
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "<tag>"

@@ -21,7 +21,7 @@ Feature: 字段查找
     And I click the "AddOutputField" button
     And I set the parameter "OutputField" with value "info1"
     And I set the parameter "EventOutPutField" with value "info1"
-    And I click the "SavedButton" button under some element
+    And I click the "SavedButton" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "LookupMapping" change text to "lookup appname AS appname OUTPUT info1 AS info1"
@@ -60,7 +60,7 @@ Feature: 字段查找
     And I click the "AddOutputField" button
     And I set the parameter "OutputField" with value "info1"
     And I set the parameter "EventOutPutField" with value "info1"
-    And I click the "SavedButton" button under some element
+    And I click the "SavedButton" button
     And I will see the element "WarningInfo" name is "<warning>"
 
     Examples:
@@ -83,7 +83,7 @@ Feature: 字段查找
     And I set the parameter "CsvPath" with value "/data/tmp/autofind.csv"
     And I set the parameter "SearchInputField" with value "method"
     And I set the parameter "EventInputField" with value "apache.method"
-    And I click the "SavedButton" button under some element
+    And I click the "SavedButton" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "FindMapping" change text to "lookup method AS apache.method OUTPUT"
@@ -103,7 +103,7 @@ Feature: 字段查找
     And I click the "AddOutputField" button
     And I set the parameter "OutputField" with value "Prompt"
     And I set the parameter "EventOutPutField" with value "Prompt"
-    And I click the "SavedButton" button under some element
+    And I click the "SavedButton" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "NewLookupMapping" change text to "lookup appname AS appname OUTPUT Prompt AS Prompt"
@@ -135,7 +135,7 @@ Feature: 字段查找
     And I click the "AddInputField" button
     And I set the parameter "SearchInputField" with value "info2"
     And I set the parameter "EventInputField" with value "info2"
-    And I click the "SavedButton" button under some element
+    And I click the "SavedButton" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "LookupMapping" change text to "lookup appname AS appname status AS apache.status info2 AS info2 OUTPUT info1 AS info1"
@@ -160,7 +160,7 @@ Feature: 字段查找
     When the data name is "AutoLookup" then i click the "编辑" button
     And I click the "LookupInputMappingDelete" button
 
-    And I click the "SavedButton" button under some element
+    And I click the "SavedButton" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "LookupMapping" change text to "lookup appname AS appname status AS apache.status OUTPUT info1 AS info1"
@@ -193,7 +193,7 @@ Feature: 字段查找
     When the data name is "AutoLookup" then i click the "编辑" button
     And I set the parameter "EventOutPutField" with value "INFO"
 
-    And I click the "SavedButton" button under some element
+    And I click the "SavedButton" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "LookupMapping" change text to "lookup appname AS appname status AS apache.status OUTPUT info1 AS INFO"
@@ -210,7 +210,7 @@ Feature: 字段查找
     And I set the parameter "OutputField" with value "info2"
     And I set the parameter "EventOutPutField" with value "info2"
 
-    And I click the "SavedButton" button under some element
+    And I click the "SavedButton" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "LookupMapping" change text to "lookup appname AS appname status AS apache.status OUTPUT info1 AS INFO info2 AS info2"
@@ -241,7 +241,7 @@ Feature: 字段查找
     When the data name is "AutoLookup" then i click the "编辑" button
     And I click the "LookupInputMappingDelete" button
 
-    And I click the "SavedButton" button under some element
+    And I click the "SavedButton" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "LookupMapping" change text to "lookup appname AS appname status AS apache.status OUTPUT info1 AS INFO"
@@ -281,7 +281,7 @@ Feature: 字段查找
     And I wait for "AddLookup" will be visible
     When the data name is "NewLookup" then i click the "编辑" button
     And I click the "CaseSensitive" button
-    And I click the "SavedButton" button under some element
+    And I click the "SavedButton" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "NewLookupMapping" change text to "lookup appname AS appname OUTPUT Prompt AS Prompt"
@@ -318,7 +318,7 @@ Feature: 字段查找
     When the data name is "NewLookup" then i click the "编辑" button
     Then I wait for "GlobalShared" will be visible
     And I click the "GlobalShared" button
-    And I click the "SavedButton" button under some element
+    And I click the "SavedButton" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "LookupGlobal" change text to "是"
@@ -397,7 +397,7 @@ Feature: 字段查找
     When the data name is "NewLookup" then i click the "编辑" button
     Then I wait for "GlobalShared" will be visible
     And I click the "GlobalShared" button
-    And I click the "SavedButton" button under some element
+    And I click the "SavedButton" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "LookupGlobal" change text to "否"

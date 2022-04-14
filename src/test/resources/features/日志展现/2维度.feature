@@ -8,7 +8,7 @@ Feature: 日志展现_2维度
 
   Scenario Outline: 维度（饼状图，玫瑰图，条形图，旭日图，火焰图）(RZY-833,2776,2778,2782)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -17,7 +17,7 @@ Feature: 日志展现_2维度
 
     And I click the "Type" button
     And I wait for "Chart" will be visible
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
@@ -41,7 +41,7 @@ Feature: 日志展现_2维度
 
   Scenario Outline: 旭日图(RZY-2781)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() by apache.status,apache.geo.province, apache.geo.city"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -72,7 +72,7 @@ Feature: 日志展现_2维度
 
   Scenario Outline: 标签(RZY-4205,4208,4211,4206,4209,4212,4207,4210)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -109,7 +109,7 @@ Feature: 日志展现_2维度
 
   Scenario Outline: 条形图_标签(RZY-4213,4214,4215,4216,4217,4218,4219,4220,4221,4222)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -149,7 +149,7 @@ Feature: 日志展现_2维度
 
   Scenario Outline: 维度_分面
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 "
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -183,14 +183,14 @@ Feature: 日志展现_2维度
 
   Scenario Outline: 旭日图_分面
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
     And I click the "Dimension" button
     And I click the "<chartType>" button
 
-    And I click the "Settings" button under some element
+    And I click the "Settings" button
     And I click the "Divide" button
     And I click the "DeleteFirst" button
     And I click the "Facet" button
@@ -217,13 +217,13 @@ Feature: 日志展现_2维度
 
   Scenario Outline: 火焰图
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND (apache.status:200) AND NOT (apache.geo.city:黔东南苗族侗族自治州) AND NOT (apache.geo.city:南京市)   | stats count() as cnt by apache.method, apache.status, apache.geo.province, apache.geo.city | sort by apache.method, apache.status, apache.geo.province, apache.geo.city"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
     And I click the "Dimension" button
     And I click the "<chartType>" button
-    And I click the "Settings" button under some element
+    And I click the "Settings" button
     And I click the "Divide" button
     And I click the "DeleteFirst" button
     And I click the "DeleteFirst" button
@@ -250,13 +250,13 @@ Feature: 日志展现_2维度
 
   Scenario Outline: 火焰图_分面
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND (apache.status:200) AND NOT (apache.geo.city:黔东南苗族侗族自治州) AND NOT (apache.geo.city:南京市)   | stats count() as cnt by apache.method, apache.status, apache.geo.province, apache.geo.city | sort by apache.method, apache.status, apache.geo.province, apache.geo.city"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
     And I click the "Dimension" button
     And I click the "<chartType>" button
-    And I click the "Settings" button under some element
+    And I click the "Settings" button
     And I click the "Divide" button
     And I click the "DeleteFirst" button
     And I click the "DeleteFirst" button
@@ -287,7 +287,7 @@ Feature: 日志展现_2维度
 
   Scenario Outline: 条形图_标签位置
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.clientip | limit 5 | eval cnt = cnt/7"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -327,14 +327,14 @@ Feature: 日志展现_2维度
 
   Scenario Outline: 饼状图_内环占外环比
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
     And I click the "Dimension" button
-    And I click the "<chartType>" button under some element
+    And I click the "<chartType>" button
     And I click the "Type" button
-    And I click the "Settings" button under some element
+    And I click the "Settings" button
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button

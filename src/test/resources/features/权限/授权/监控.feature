@@ -178,7 +178,7 @@ Feature: 权限-监控
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     When the data name is "{'column':'1','name':'<name>'}" then i click the "更多" button
     And I click the "Auth" button
     And I wait for loading invisible
@@ -237,7 +237,7 @@ Feature: 权限-监控
     And I wait for "Tag" will be visible
  #   And I set the parameter "Tag" with value "test"
  #   And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "更多" button
     And I click the "Auth" button
@@ -425,7 +425,7 @@ Feature: 权限-监控
     And I wait for "Tag" will be visible
     #And I set the parameter "Tag" with value "test"
     #And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "更多" button
     And I click the "Auth" button
@@ -573,7 +573,7 @@ Feature: 权限-监控
     And I wait for "Tag" will be visible
     #And I set the parameter "Tag" with value "test"
     #And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "alert.CreatePage" page
@@ -695,7 +695,7 @@ Feature: 权限-监控
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "更多" button
     And I click the "Auth" button
@@ -744,7 +744,7 @@ Feature: 权限-监控
     #And I wait for "Tag" will be visible
     #And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "更多" button
     And I click the "Auth" button

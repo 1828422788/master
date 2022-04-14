@@ -26,7 +26,7 @@ Feature: 仪表盘06设为/取消默认（RZY-211）
     And I wait for "ShowDashboards" will be visible
     And I click the "ShowDashboards" button
     And I wait for "ReturnToList" will be visible
-    And I click the "ReturnToList" button under some element
+    And I click the "ReturnToList" button
     And I wait for loading invisible
     And switch to window "仪表盘列表"
     And I close all tabs except main tab

@@ -10,7 +10,7 @@ Feature: 事件管理界面_查看合并策略功能
 
     And I choose the "待分配" from the "StatusList"
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
-    When I click the "SearchButton" button under some element
+    When I click the "SearchButton" button
     And I wait for "2000" millsecond
     When in incident page i click the "查看合并策略" button in more menu
     And switch to window "合并策略"

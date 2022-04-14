@@ -33,7 +33,7 @@ Feature: 数据大屏-j水球图
 
 #    ==============================水球图
     And I wait for "Liquidfill" will be visible
-    And I click the "Liquidfill" button under some element
+    And I click the "Liquidfill" button
 #    ==============================选择样式
     And I wait for "Style" will be visible
     And I click the "Style" button
@@ -119,7 +119,7 @@ Feature: 数据大屏-j水球图
 
 #    ==============================水球图
     And I wait for "Liquidfill" will be visible
-    And I click the "Liquidfill" button under some element
+    And I click the "Liquidfill" button
 #    ==============================选择样式
     And I wait for "Style" will be visible
     And I click the "Style" button

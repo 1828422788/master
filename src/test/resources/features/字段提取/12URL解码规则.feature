@@ -33,7 +33,7 @@ Feature: 字段提取URL解码规则
     And I wait for "2000" millsecond
     Then I will see the field extraction result "<result1>"
     And I click the "Collapse" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "RZY1539添加URL解析"
     And I set the parameter "Logtype" with value "apache"
     And I set the parameter "AppName" with value "<appName>"

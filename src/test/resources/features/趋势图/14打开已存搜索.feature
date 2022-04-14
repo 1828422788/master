@@ -7,7 +7,7 @@ Feature: 趋势图_已存搜索
     When I set the parameter "SearchInput" with value "* | stats count()"
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "NewSavedSearch" button
     And I wait for "SavedSearchName" will be visible
@@ -21,7 +21,7 @@ Feature: 趋势图_已存搜索
     When I set the parameter "SearchInput" with value "* | stats count()"
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "NewSavedSearch" button
     And I wait for "SavedSearchName" will be visible
@@ -29,7 +29,7 @@ Feature: 趋势图_已存搜索
     And I choose the "test_app" from the "AppComboBox"
     And I wait for "2000" millsecond
     And I choose the "auto_package" from the "GroupComboBox"
-    And I click the "EnsureButton" button under some element
+    And I click the "EnsureButton" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
     And I click the "EnsureButton" button
@@ -49,17 +49,17 @@ Feature: 趋势图_已存搜索
     And I click the "SavedSearch" button
     And I wait for "Loading" will be invisible
     And "加载" the data "trend_test" in tiny saved search
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
     And I will see the input element "SearchInput" value will be "* | stats count()"
     And I will see the element "DateEditor" contains "今天"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "3000" millsecond
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "NameInput" with value "trend_SavedSearch"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
   Scenario: delete_trend

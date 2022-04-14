@@ -3,7 +3,7 @@ Feature:报表_富文本编辑_2_本文
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
-    And I click the "NewReportButton" button under some element
+    And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
@@ -13,7 +13,7 @@ Feature:报表_富文本编辑_2_本文
   @reportSmoke
   Scenario Outline: 本文（字号，颜色）
     When I set the parameter "Name" with value "<name>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
@@ -45,7 +45,7 @@ Feature:报表_富文本编辑_2_本文
     And I will see the element "HeaderTextStyle" style contains "color: rgb(106, 168, 79);"
     And I will see the element "FooterTextStyle" style contains "color: rgb(106, 168, 79);"
     And I wait for "2000" millsecond
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -56,7 +56,7 @@ Feature:报表_富文本编辑_2_本文
 
   Scenario Outline: text_style
     When I set the parameter "Name" with value "<name>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
@@ -85,7 +85,7 @@ Feature:报表_富文本编辑_2_本文
     And I will see the element "HeaderTextStyle" style contains "<colorstyle>"
     And I will see the element "FooterTextStyle" style contains "<colorstyle>"
     And I wait for "2000" millsecond
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -97,7 +97,7 @@ Feature:报表_富文本编辑_2_本文
 
   Scenario Outline: text_alignment
     When I set the parameter "Name" with value "<button>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
@@ -131,7 +131,7 @@ Feature:报表_富文本编辑_2_本文
     And I set the parameter "ChartListInput" with value "报表测试"
     And I click the button with text "报表测试"
     And I wait for "2000" millsecond
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 

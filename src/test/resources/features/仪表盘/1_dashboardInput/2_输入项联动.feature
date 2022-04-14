@@ -77,7 +77,7 @@ Feature: 仪表盘输入项联动
     And I set the parameter "Spl" with value "logtype:${f1} | stats count() by hostname"
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchFilterButton" button under some element
+    And I click the "SearchFilterButton" button
     And I wait for loading invisible
     Then I click the "Ensure" button
 

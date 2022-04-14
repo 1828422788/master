@@ -10,15 +10,15 @@ Feature: 趋势图标签
     And I will see the "trend.CreatePage" page
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() by apache.status,apache.geo.city"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "2000" millsecond
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "NameInput" with value "Tag_Test"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
   Scenario: tag_trend
@@ -39,14 +39,14 @@ Feature: 趋势图标签
     And I will see the "trend.CreatePage" page
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "2000" millsecond
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I will see the input element "NameInput" value will be "Tag_Test"
     And I will see the input element "DescribeInput" value will be "AutoCreate"
     And I will see the element "SelectedTag" contains "auto_package"
     And I click the "DeleteTag" button
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessUpdate" will be visible
     When open the "trend.ListPage" page for uri "/trend/"
     And I wait for "AppOfTheLastItem" will be visible

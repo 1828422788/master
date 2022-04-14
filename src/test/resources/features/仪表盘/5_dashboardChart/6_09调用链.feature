@@ -105,7 +105,7 @@ Feature: 仪表盘_6_09_调用链
     And I click the "Other" button
     And I click the "Chain" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I wait for "500" millsecond
     And I choose the "modulename" from the "function"
     And I wait for "1000" millsecond
@@ -126,7 +126,7 @@ Feature: 仪表盘_6_09_调用链
     And I click the "Red" button
     And I click the "Generate" button
     And I wait for "3000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
 #    Then I hide the element "SettingContent"
 #    And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
@@ -200,13 +200,13 @@ Feature: 仪表盘_6_09_调用链
     And I click the "Other" button
     And I click the "Chain" button
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     And I click the "Exhibition" button
     And I choose the "tree" from the "TracingType"
     And I wait for "500" millsecond
     And I click the "Generate" button
     And I wait for "3000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I move the mouse pointer to the "TrendTitle"
@@ -259,7 +259,7 @@ Feature: 仪表盘_6_09_调用链
     And I click the "Other" button
     And I click the "Chain" button
     And I wait for "1000" millsecond
-    And I click the "SecondSetting" button under some element
+    And I click the "SecondSetting" button
     And I wait for "500" millsecond
     And I choose the "modulename" from the "function"
     And I wait for "1000" millsecond
@@ -282,7 +282,7 @@ Feature: 仪表盘_6_09_调用链
     And I wait for "500" millsecond
     And I click the "Generate" button
     And I wait for "3000" millsecond
-    And I click the "SecondSetting" button under some element
+    And I click the "SecondSetting" button
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I move the mouse pointer to the "TrendTitle"

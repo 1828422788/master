@@ -15,7 +15,7 @@ Feature: 应用字段查找
     And I set the parameter "CsvPath" with value "/data/rizhiyi/app_csv/hostname.csv"
     And I set the parameter "SearchInputField" with value "hostname"
     And I choose the "WILDCARD" from the "MatchType"
-    And I click the "SaveButton" button under some element
+    And I click the "SaveButton" button
 
   Scenario: 验证模糊字段查找
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -41,7 +41,7 @@ Feature: 应用字段查找
     And I click the "AddOutputField" button
     And I set the parameter "OutputField" with value "f1"
     And I set the parameter "EventField" with value "AutoTestName"
-    And I click the "SaveButton" button under some element
+    And I click the "SaveButton" button
 
   Scenario: 验证查找输出字段
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -62,7 +62,7 @@ Feature: 应用字段查找
     And I wait for "FieldSearch" will be visible
     And I click the "FieldSearch" button
     When the data name is "AutoTestSearch" then i click the "删除" button
-    And I click the "SaveButton" button under some element
+    And I click the "SaveButton" button
 
   Scenario: 验证字段删除成功
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -90,7 +90,7 @@ Feature: 应用字段查找
     And I set the parameter "CsvPath" with value "/data/rizhiyi/app_csv/hostname.csv"
     And I set the parameter "SearchInputField" with value "hostname"
     And I choose the "CIDR" from the "MatchType"
-    And I click the "SaveButton" button under some element
+    And I click the "SaveButton" button
 
   Scenario: 验证字段CIDR查找
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -113,7 +113,7 @@ Feature: 应用字段查找
     And I wait for "FieldSearch" will be visible
     And I click the "FieldSearch" button
     When the data name is "AutoTestSearch" then i click the "删除" button
-    And I click the "SaveButton" button under some element
+    And I click the "SaveButton" button
 
   Scenario: 验证CIDR删除成功
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -140,7 +140,7 @@ Feature: 应用字段查找
     And I set the parameter "FieldSearchName" with value "AutoTestSearch"
     And I set the parameter "CsvPath" with value "/data/rizhiyi/app_csv/hostname.csv"
     And I set the parameter "SearchInputField" with value "appname"
-    And I click the "SaveButton" button under some element
+    And I click the "SaveButton" button
 
   Scenario: 验证字段精确查找
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -166,7 +166,7 @@ Feature: 应用字段查找
     And I click the "AddOutputField" button
     And I set the parameter "OutputField" with value "f1"
     And I set the parameter "EventField" with value "f1Name"
-    And I click the "SaveButton" button under some element
+    And I click the "SaveButton" button
 
   Scenario: 验证精确查找输出字段
     Given open the "app.ListPage" page for uri "/app/list/"

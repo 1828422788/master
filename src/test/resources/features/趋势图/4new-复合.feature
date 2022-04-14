@@ -11,10 +11,10 @@ Feature: 趋势图新建_复合
   Scenario Outline: 区间图(rzy-2516)
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
     And I wait for "2000" millsecond
@@ -42,13 +42,13 @@ Feature: 趋势图新建_复合
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
-    And I click the "ReturnButton" button under some element
+    And I click the "ReturnButton" button
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
@@ -71,10 +71,10 @@ Feature: 趋势图新建_复合
   Scenario Outline: 多y轴图
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag: sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
     And I wait for "2000" millsecond
@@ -130,13 +130,13 @@ Feature: 趋势图新建_复合
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
-    And I click the "ReturnButton" button under some element
+    And I click the "ReturnButton" button
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
@@ -160,10 +160,10 @@ Feature: 趋势图新建_复合
   Scenario Outline: compound_multiaxis_2
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag: sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
     And I wait for "2000" millsecond
@@ -225,11 +225,11 @@ Feature: 趋势图新建_复合
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:

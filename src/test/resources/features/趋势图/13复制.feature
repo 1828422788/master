@@ -20,10 +20,10 @@ Feature: 趋势图复制(RZY-1889)
     And I wait for "FenPianQuYang" will be visible
     And I set the parameter "FenPianQuYang" with value "150"
     And I click the "CloseWindow" button
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "2000" millsecond
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -43,7 +43,7 @@ Feature: 趋势图复制(RZY-1889)
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "Copy_Test"
     And I choose the "test_app" from the "AppField"
@@ -51,7 +51,7 @@ Feature: 趋势图复制(RZY-1889)
     And I set the parameter "TagInput" with value "auto_package"
     And I click the "SelectAddedTag" button
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
   @trendSmoke
@@ -94,17 +94,17 @@ Feature: 趋势图复制(RZY-1889)
     And I will see the input element "FenPianQuYang" value will be "5000"
     And I click the "CloseWindow" button
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I will see the input element "NameInput" value will be "Copy_Test_副本"
     And I will see the input element "DescribeInput" value will be "AutoCreate"
     And I will see the element "SelectedApp" contains "test_app"
     And I will see the element "SelectedTag" contains "auto_package"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessUpdate" will be visible
 
   @trendSmoke

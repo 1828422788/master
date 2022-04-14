@@ -32,7 +32,7 @@ Feature: 数据大屏-q区间范围柱状图
 
     #区间范围柱状图
     And I wait for "IntervalRangeBar" will be visible
-    And I click the "IntervalRangeBar" button under some element
+    And I click the "IntervalRangeBar" button
 
     #    选择样式
     And I wait for "Style" will be visible
@@ -149,7 +149,7 @@ Feature: 数据大屏-q区间范围柱状图
 
 #    ==============================双轴折线图
     And I wait for "IntervalRangeBar" will be visible
-    And I click the "IntervalRangeBar" button under some element
+    And I click the "IntervalRangeBar" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible

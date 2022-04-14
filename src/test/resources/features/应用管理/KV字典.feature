@@ -13,18 +13,18 @@ Feature: 应用KV字典
     And I wait for "SearchLoading" will be invisible
     And I "check" the checkbox which name is "app所选资源" in tiny table
     And I click the "SaveMenuButton" button
-    And I click the "AddMenuButton" button under some element
+    And I click the "AddMenuButton" button
     And I set the parameter "MenuName" with value "搜索"
     And I set the parameter "Url" with value "/search/"
     And I click the "SaveMenuButton" button
     And I wait for "AddMenuButton" will be visible
-    And I click the "AddMenuButton" button under some element
+    And I click the "AddMenuButton" button
     And I set the parameter "MenuName" with value "仪表盘"
     And I set the parameter "Url" with value "/dashboard/"
     And I click the "SaveMenuButton" button
     And I choose the "搜索" from the "DefaultPage"
     And I click the "CurrentApp" button
-    And I click the "CreateButton" button under some element
+    And I click the "CreateButton" button
     And I will see the "app.ListPage" page
     Then I wait for "CreateButton" will be visible
 
@@ -41,9 +41,9 @@ Feature: 应用KV字典
     When I upload a file "Upload" with name "/target/download-files/<appName>.tar"
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "__admin__" from the "Role"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "1500" millsecond
-    And I click the "Done" button under some element
+    And I click the "Done" button
     And I wait for "ImportSuccess" will be visible
     And I will see the element "ImportSuccess" name is "添加成功"
 
@@ -64,7 +64,7 @@ Feature: 应用KV字典
     And I click the "AddKVField" button
     And I set the parameter "KVFieldInput3" with value "appname"
     And I click the "CreateKVStore" button
-    And I click the "SaveButton" button under some element
+    And I click the "SaveButton" button
 
   Scenario Outline: 添加KV字典失败校验
     Given open the "app.ListPage" page for uri "/app/list/"

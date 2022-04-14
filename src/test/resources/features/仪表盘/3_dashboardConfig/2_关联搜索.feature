@@ -12,7 +12,7 @@ Feature: 仪表盘2关联搜索
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Regex" with value "<regex>"
     And I click the "EnsureAddParseRule" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I click the "SwitchButton" button
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Logtype" with value "<logtype>"
@@ -156,7 +156,7 @@ Feature: 仪表盘2关联搜索
     And I click the "Check" button
     And I wait for "1000" millsecond
 #    Then I will see the success message "校验通过"
-    Then I click the "Ensure" button under some element
+    Then I click the "Ensure" button
 
     Examples:
       | name       | json                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
@@ -226,7 +226,7 @@ Feature: 仪表盘2关联搜索
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I wait for "Entry" will be visible
-    And I click the "Entry" button under some element
+    And I click the "Entry" button
     And I wait for "ReturnList" will be visible
     And I compare with list "ReturnList"
 
@@ -247,7 +247,7 @@ Feature: 仪表盘2关联搜索
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
-    And I click the "Entry" button under some element
+    And I click the "Entry" button
     Given I wait for loading complete
     And I wait for "2000" millsecond
     And I wait for "WorkflowList" will be visible

@@ -98,14 +98,14 @@ Feature: 仪表盘_6_10_网络节点图
     And I click the "Other" button
     And I click the "<targetName>" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I click the "Exhibition" button
     And I set the parameter "Repulsion" with value "30"
     And I click the "AddColor" button
     And I click the "Red" button
     And I click the "Generate" button
     And I wait for "3000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I move the mouse pointer to the "TrendTitle"

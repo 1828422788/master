@@ -10,7 +10,7 @@ Feature: 事件管理界面--按钮功能
 
     And I choose5 the status "待分配" on the path "incident-active-option" from the "StatusList"
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
-    When I click the "SearchButton" button under some element
+    When I click the "SearchButton" button
     And I wait for "2000" millsecond
     When in incident page i click 10 times the "标记为" and "工作中" button in more menu
 
@@ -34,7 +34,7 @@ Feature: 事件管理界面--按钮功能
     And I choose the item "admin" on the path "span" from the "OwnerList"
 
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
-    When I click the "SearchButton" button under some element
+    When I click the "SearchButton" button
     And I wait for "2000" millsecond
     Then I will see the element "NameCell13" contains "<alertref>"
 #    Then I will see the "TotalItem" result will be "<totalItem>"
@@ -59,7 +59,7 @@ Feature: 事件管理界面--按钮功能
 #    And I choose the "待分配" from the "StatusList"
     And I choose5 the status "待分配" on the path "incident-active-option" from the "StatusList"
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
-    When I click the "SearchButton" button under some element
+    When I click the "SearchButton" button
     And I wait for "2000" millsecond
     When in incident page i click 10 times the "负责人" and "ctest" button in more menu
 
@@ -84,7 +84,7 @@ Feature: 事件管理界面--按钮功能
     And I choose the item "ctest" on the path "span" from the "OwnerList"
 
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
-    When I click the "SearchButton" button under some element
+    When I click the "SearchButton" button
     And I wait for "2000" millsecond
     Then I will see the element "NameCell13" contains "<alertref>"
 #    And I choose the "30" from the "EveryPageList"
@@ -113,7 +113,7 @@ Feature: 事件管理界面--按钮功能
     And I choose the item "ctest" on the path "span" from the "OwnerList"
 
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
-    When I click the "SearchButton" button under some element
+    When I click the "SearchButton" button
     And I wait for "2000" millsecond
     Then I will see the message "事件列表(20)" on page
 
@@ -132,7 +132,7 @@ Feature: 事件管理界面--按钮功能
     And I choose5 the status "待分配" on the path "incident-active-option" from the "StatusList"
 
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
-    When I click the "SearchButton" button under some element
+    When I click the "SearchButton" button
     And I wait for "2000" millsecond
 
     When in incident page i click the "操作" and "ping主机" button in more menu

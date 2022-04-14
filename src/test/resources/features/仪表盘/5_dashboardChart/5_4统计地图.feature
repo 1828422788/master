@@ -105,11 +105,11 @@ Feature: 仪表盘_5_4_统计地图
     And I wait for "Map" will be visible
     And I click the "Map" button
     And I click the "Geostatsmap" button
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     And I wait for "500" millsecond
     And I click the "Generate" button
     And I wait for "3000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I move the mouse pointer to the "TrendTitle"

@@ -6,7 +6,7 @@ Feature: 报表_5_标签
     And I wait for loading invisible
 
   Scenario: create_report
-    And I click the "NewReportButton" button under some element
+    And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     When I set the parameter "Name" with value "Test_Tag"
@@ -16,12 +16,12 @@ Feature: 报表_5_标签
     And I choose the "test_app" from the "App"
     And I set the parameter "Hour" with value "15"
     And I set the parameter "Minute" with value "50"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "LastTrendTitle" contains "报表测试"
-    When I click the "Complete" button under some element
+    When I click the "Complete" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -66,9 +66,9 @@ Feature: 报表_5_标签
     And I will see the input element "Name" value will be "Test_Tag"
     And I will see the input element "Describe" value will be "AutoCreate"
     And I will see the element "ChosenTag" contains "auto_package"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I will see the element "LastTrendTitle" contains "报表测试"
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "更新成功"
 

@@ -162,7 +162,7 @@ Feature: 权限-知识
     And I click the "LabelInput" button
     And I set the parameter "Tag" with value "testTag"
  #   And I choose the "testTag" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And I wait for "2000" millsecond
     And the data name is "<name>" then i click the "更多" button
@@ -219,7 +219,7 @@ Feature: 权限-知识
     And I click the "LabelInput" button
     And I set the parameter "Tag" with value "testTag"
  #   And I choose the "testTag" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And I wait for "2000" millsecond
     And the data name is "<name>" then i click the "更多" button
@@ -431,7 +431,7 @@ Feature: 权限-知识
     And I wait for "LabelInput" will be visible
     And I click the "LabelInput" button
     And I set the parameter "Tag" with value "testTag"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     And the data name is "<name>" then i click the "编辑" button
@@ -527,7 +527,7 @@ Feature: 权限-知识
     And I wait for "LabelInput" will be visible
     And I click the "LabelInput" button
     And I set the parameter "Tag" with value "testTag"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     And the data name is "<name>" then i click the "编辑" button
@@ -657,7 +657,7 @@ Feature: 权限-知识
     And I wait for "2000" millsecond
     And I click the "LabelInput" button
     And I set the parameter "Tag" with value "testTag"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And I wait for "2000" millsecond
     And the data name is "<name>" then i click the "更多" button
@@ -705,7 +705,7 @@ Feature: 权限-知识
     And I wait for "2000" millsecond
     And I click the "LabelInput" button
     And I set the parameter "Tag" with value "testTag"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And the data name is "<name>" then i click the "更多" button
     And I click the "Auth" button

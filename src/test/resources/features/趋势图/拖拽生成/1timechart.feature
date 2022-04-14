@@ -10,17 +10,17 @@ Feature: 趋势图_拖拽_timechart
 
   Scenario Outline: timechart
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
-    And I click the "DateEditor" button under some element
+    And I click the "DateEditor" button
     And I click the "Today" button
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "CheckBox" will be visible
     When I "checked" the checkbox which name is "timestamp" in trend page
     And I wait for "CheckBox" will be visible
     And I "checked" the checkbox which name is "apache.clientip" in trend page
     And I wait for "CheckBox" will be visible
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
@@ -71,14 +71,14 @@ Feature: 趋势图_拖拽_timechart
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_timechart"
 #    And I compare source image "actual/拖拽_<chartType>_timechart" with target image "expect/拖拽_<chartType>_timechart"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_timechart"
     And I set the parameter "DescribeInput" with value "<comparePeriod>_<button>_<unit>_<min>_<max>_<color>"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
-    And I click the "ReturnButton" button under some element
+    And I click the "ReturnButton" button
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible

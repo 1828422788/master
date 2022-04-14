@@ -13,11 +13,11 @@ Feature: 应用编辑
     And I set the parameter "MenuName" with value "新建"
     And I set the parameter "Url" with value "/event/action/new/"
     And I click the "SaveMenuButton" button
-    And I click the "AddMenuButton" button under some element
+    And I click the "AddMenuButton" button
     And I set the parameter "MenuName" with value "百度"
     And I set the parameter "Url" with value "https://www.baidu.com/"
     And I click the "SaveMenuButton" button
-    And I click the "AddMenuButton" button under some element
+    And I click the "AddMenuButton" button
     And I set the parameter "MenuName" with value "知识"
     And I set the parameter "Url" with value "/knowledge/"
     And I click the "SaveMenuButton" button

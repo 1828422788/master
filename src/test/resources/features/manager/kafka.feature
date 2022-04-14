@@ -3,8 +3,8 @@ Feature: manager 命令行工具
 
   Background:
     Given I will see the "manager.ListPage" page
-    And I click the "Tools" button under some element
-    Then I click the "CommandTool" button under some element
+    And I click the "Tools" button
+    Then I click the "CommandTool" button
 
   Scenario: RZY-2834:命令行工具_kafka_创建topic
     When I click the "CreateTopic" button

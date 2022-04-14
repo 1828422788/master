@@ -67,7 +67,7 @@ Feature: 字段提取CSV解析
     And I wait for "CheckSuccess3" will be visible
     Then I will see the element value in json "{'Result':'<result2>'}"
     And I click the "Collapse" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "RZY3417多值字段"
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "wym_test_csv"

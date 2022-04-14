@@ -32,7 +32,7 @@ Feature: 数据大屏-x瀑布图
     And I click the "Chart" button
   #    ==============================瀑布图
     And I wait for "Bar" will be visible
-    And I click the "Bar" button under some element
+    And I click the "Bar" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible
@@ -134,7 +134,7 @@ Feature: 数据大屏-x瀑布图
 
  #    ==============================基本柱状图
     And I wait for "Bar" will be visible
-    And I click the "Bar" button under some element
+    And I click the "Bar" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible

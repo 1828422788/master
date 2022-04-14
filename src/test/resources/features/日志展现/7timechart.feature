@@ -8,7 +8,7 @@ Feature: 日志展现_7timechart
 
   Scenario Outline: timechart（RZY-3092,3247,3094,3248,3096,3249,3098,3250)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I wait for "Chart" will be visible
@@ -29,7 +29,7 @@ Feature: 日志展现_7timechart
   @logDisplaySmoke
   Scenario Outline: timechart（RZY-3093,3095)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Settings" button
@@ -72,7 +72,7 @@ Feature: 日志展现_7timechart
 
   Scenario Outline: timechart(RZY-3097,3099)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Settings" button
@@ -110,7 +110,7 @@ Feature: 日志展现_7timechart
 
   Scenario Outline: timechart_pile
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Settings" button
@@ -133,7 +133,7 @@ Feature: 日志展现_7timechart
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I wait for "<element>Element" will be visible

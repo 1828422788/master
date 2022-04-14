@@ -9,7 +9,7 @@ Feature: 保存为趋势图_timechart
   Scenario Outline: timechart1
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I wait for "Chart" will be visible
@@ -36,7 +36,7 @@ Feature: 保存为趋势图_timechart
   Scenario Outline: timechart2
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -82,7 +82,7 @@ Feature: 保存为趋势图_timechart
   Scenario Outline: timechart3
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -123,7 +123,7 @@ Feature: 保存为趋势图_timechart
   Scenario Outline: timechart_pile
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -162,7 +162,7 @@ Feature: 保存为趋势图_timechart
   Scenario Outline: sparkline
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I wait for "2000" millsecond

@@ -5,9 +5,9 @@ Feature: 全链路_7时间轴
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button under some element
+    And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -107,10 +107,10 @@ Feature: 全链路_7时间轴
     And I click the "DataConfig" button
     When I will see the "splSearch.SearchPage" page
     When I set the parameter "SearchInput" with value "index=schedule schedule_name:FullLink_Autotest_TimeAxis | table start_timestamp, tstamp, method, city, node, from, to, _totalCount | rename _totalCount as \"_COUNT\""
-    And I click the "DateEditor" button under some element
+    And I click the "DateEditor" button
     And I click the "Today" button
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "Table" will be visible
     And I wait for "SuccessMessage" will be invisible

@@ -6,7 +6,7 @@ Feature: 报表_6_禁用/启用
     And I wait for loading invisible
 
   Scenario: 新建报表
-    And I click the "NewReportButton" button under some element
+    And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     When I set the parameter "Name" with value "Test_Switch"
@@ -14,12 +14,12 @@ Feature: 报表_6_禁用/启用
     And I choose the "PDF" from the "ReportType"
     And I set the parameter "Hour" with value "15"
     And I set the parameter "Minute" with value "50"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "LastTrendTitle" contains "报表测试"
-    When I click the "Complete" button under some element
+    When I click the "Complete" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 

@@ -30,15 +30,15 @@ Feature: 仪表盘钻取配置-钻取变量
     Given I wait for loading complete
     And I wait for "Header" will be visible
     And I wait for "2000" millsecond
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Given I wait for loading complete
     And I wait for "Header" will be visible
     And I wait for "2000" millsecond
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Given I wait for loading complete
     When I set the parameter "NameInput" with value "<name>"
     And I wait for "1000" millsecond
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     And I wait for "SuccessCreate" will be visible
 
     @dbdrilldownSmoke
@@ -117,7 +117,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "<image>" button
 #    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     And I wait for "1000" millsecond
     And I choose the "count()" from the "DataValue"
     And I wait for "1000" millsecond
@@ -128,11 +128,11 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
 #    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
-    And I click the "TrendTitle" button under some element
+    And I click the "TrendTitle" button
     And I wait for "3000" millsecond
 
 
@@ -390,7 +390,7 @@ Feature: 仪表盘钻取配置-钻取变量
 #    And I wait for "Progress" will be invisible
 #    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     And I wait for "1000" millsecond
     And I choose the "count()" from the "DataValue"
     And I wait for "1000" millsecond
@@ -406,11 +406,11 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1500" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
 #    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
-    And I click the "TrendTitle" button under some element
+    And I click the "TrendTitle" button
     And I wait for "3000" millsecond
 
     Examples:
@@ -654,21 +654,21 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "1000" millsecond
     Then I will see the "trend.CreatePageDash" page
     And I wait for "Dimension" will be visible
-    And I click the "Dimension" button under some element
+    And I click the "Dimension" button
     And I click the "<targetName>" button
 #    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     And I choose the "count()" from the "DataValue"
     And I wait for "1000" millsecond
     And I click the "Divide" button
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
 #    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
-    And I click the "TrendTitle" button under some element
+    And I click the "TrendTitle" button
     And I wait for "3000" millsecond
 
     Examples:
@@ -899,11 +899,11 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "1000" millsecond
     Then I will see the "trend.CreatePageDash" page
     And I wait for "Other" will be visible
-    And I click the "Other" button under some element
+    And I click the "Other" button
     And I click the "<targetName>" button
 #    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     And I choose the "avg(apache.status)" from the "DataField"
     And I wait for "1000" millsecond
     And I click the "Icon" button
@@ -912,11 +912,11 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
 #    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
-    And I click the "TrendTitle" button under some element
+    And I click the "TrendTitle" button
     And I wait for "3000" millsecond
 
     Examples:
@@ -989,7 +989,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "WholeTime" button
 #    Then I will see the "dashboard.DetailPage" page
     And I click the "Ensure" button
-#    And I click the "Setting" button under some element
+#    And I click the "Setting" button
 #    And I click the "Value" button
 #    And I choose the "avg(apache.status)" from the "DataField"
 #    Then I click the "Generate" button
@@ -1058,22 +1058,22 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "1000" millsecond
     Then I will see the "trend.CreatePageDash" page
     And I wait for "Other" will be visible
-    And I click the "Other" button under some element
+    And I click the "Other" button
     And I click the "<targetName>" button
 #    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     And I choose the "count()" from the "DataField"
     And I wait for "1000" millsecond
     And I choose the "apache.clientip" from the "DisplayField"
     And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
 #    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
-    And I click the "TrendTitle" button under some element
+    And I click the "TrendTitle" button
     And I wait for "3000" millsecond
 
     Examples:

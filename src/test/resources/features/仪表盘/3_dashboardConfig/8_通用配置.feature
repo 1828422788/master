@@ -82,7 +82,7 @@ Feature: 仪表盘通用配置
     And I will see the error message "查询语句错误"
     And I set the parameter "Spl" with value "tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 | stats count() by apache.geo.city"
     And I wait for "500" millsecond
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     When the chart title is "测试通用配置" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for "OpenInSearch" will be visible

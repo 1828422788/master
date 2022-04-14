@@ -33,7 +33,7 @@ Feature: 数据大屏-a力图
 
 #    ==============================力图
     And I wait for "Force" will be visible
-    And I click the "Force" button under some element
+    And I click the "Force" button
     And I wait for "2000" millsecond
 #    ==============================选择样式
     And I wait for "Style" will be visible
@@ -123,7 +123,7 @@ Feature: 数据大屏-a力图
 
 #    ==============================力图
     And I wait for "Force" will be visible
-    And I click the "Force" button under some element
+    And I click the "Force" button
 #    ==============================选择样式
     And I wait for "Style" will be visible
     And I click the "Style" button

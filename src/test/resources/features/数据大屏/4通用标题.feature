@@ -33,7 +33,7 @@ Feature: 数据大屏-g通用标题
 
 #    ==============================标题
     And I wait for "TitleImg" will be visible
-    And I click the "TitleImg" button under some element
+    And I click the "TitleImg" button
 #    ==============================选择样式
     And I wait for "Style" will be visible
     And I click the "Style" button

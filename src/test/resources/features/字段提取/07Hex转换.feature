@@ -32,7 +32,7 @@ Feature: 字段提取Hex转换
     When I set the parameter "LogSample" with value "00000000: 696d 706f 7274 2073 7973 0a69 6d70 6f72"
     And I click the "AddRule" button
     And I choose the "hex转换" from the "ParseRule" in config
-    And I click the "ChangeToJson" button under some element
+    And I click the "ChangeToJson" button
     And I set the parameter "{"source": "raw_message","codec_type": "GBK","start_offset":10,"column_bytes":16}" to json editor in field parsing
     And I click the "EnsureAddParseRule" button
     And I wait for loading invisible
@@ -40,7 +40,7 @@ Feature: 字段提取Hex转换
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "Collapse" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I switch the "SwitchButton" button to "enable"
     When I set the parameter "Name" with value "RZY2826高级模式下start_offset的使用"
     And I set the parameter "Logtype" with value "other"

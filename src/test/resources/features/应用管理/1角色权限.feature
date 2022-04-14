@@ -45,7 +45,7 @@ Feature: 应用角色权限（RZY-2144）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AuthApp"
     And I will see the "roles.AuthorizationPage" page
-    And I click the "SaveButton" button under some element
+    And I click the "SaveButton" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AuthApp"
 

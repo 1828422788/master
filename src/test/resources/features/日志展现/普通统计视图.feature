@@ -7,7 +7,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: 事件计数(RZY-807,808,809,810)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I wait for "1000" millsecond
@@ -45,7 +45,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: 事件计数_独立(RZY-2718)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I wait for "1000" millsecond
@@ -88,7 +88,7 @@ Feature: 日志展现_普通统计视图
     And I set the parameter "EndTimeField" with value "08:00:00.000"
     And I click the "ApplyCustomTime" button
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -103,7 +103,7 @@ Feature: 日志展现_普通统计视图
     And I wait for "2000" millsecond
     Then I choose the "<statisticType>" from the "StatisticType" in config
     And I wait for "2000" millsecond
-    And I click the "Generate" button under some element
+    And I click the "Generate" button
     And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
@@ -145,7 +145,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: 数值分段(RZY-814,3137)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for "1500" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -196,7 +196,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: 时间直方图(RZY-815)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -256,7 +256,7 @@ Feature: 日志展现_普通统计视图
     And I set the parameter "EndTimeField" with value "08:00:00.000"
     And I click the "ApplyCustomTime" button
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -298,7 +298,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: 数值直方图(RZY-816)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -342,7 +342,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: 字段值分类(RZY-817)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -384,7 +384,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: 字段值分类1(RZY-2727)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -434,7 +434,7 @@ Feature: 日志展现_普通统计视图
     And I set the parameter "EndTimeField" with value "08:00:00.000"
     And I click the "ApplyCustomTime" button
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -472,7 +472,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: 字段值分类3
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -510,7 +510,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: 累计百分比(RZY-819,2730)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -551,7 +551,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: 百分位等级(RZY-821, 3136)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -589,7 +589,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: 多级统计_step1(RZY-822)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -622,7 +622,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: 多级统计_step2(RZY-822)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -664,7 +664,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: 多级统计_step3(RZY-822)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -714,7 +714,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline:地理分布(RZY-825)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -771,7 +771,7 @@ Feature: 日志展现_普通统计视图
   @logDisplay @logDisplayGeneral
   Scenario Outline: 检查提示1
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -798,7 +798,7 @@ Feature: 日志展现_普通统计视图
   @logDisplay @logDisplayGeneral
   Scenario Outline: 检查提示2
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -820,7 +820,7 @@ Feature: 日志展现_普通统计视图
   @logDisplay @logDisplayGeneral
   Scenario Outline: 检查提示3
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -839,7 +839,7 @@ Feature: 日志展现_普通统计视图
   @logDisplay @logDisplayGeneral
   Scenario Outline: 检查提示4
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -862,7 +862,7 @@ Feature: 日志展现_普通统计视图
   @logDisplay @logDisplayGeneral
   Scenario Outline: 检查提示5
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -887,7 +887,7 @@ Feature: 日志展现_普通统计视图
   @logDisplay @logDisplayGeneral
   Scenario: 检查提示6
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -907,7 +907,7 @@ Feature: 日志展现_普通统计视图
   @logDisplay @logDisplayGeneral
   Scenario: 检查提示7
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page

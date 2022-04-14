@@ -6,7 +6,7 @@ Feature: 报表模板_4删除
     And I wait for loading invisible
 
   Scenario: 新建模板
-    And I click the "TemplateManager" button under some element
+    And I click the "TemplateManager" button
     And I wait for loading invisible
     Then I will see the "report.CreateTemplatePage" page
     And I click the "NewTemplate" button
@@ -24,7 +24,7 @@ Feature: 报表模板_4删除
     Then I will see the element "ResultMessage" contains "新建成功"
 
   Scenario: 删除模板，检查提示
-    When I click the "TemplateManager" button under some element
+    When I click the "TemplateManager" button
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "test_template"
     And I wait for "2000" millsecond
@@ -33,18 +33,18 @@ Feature: 报表模板_4删除
     And I click the "Cancel" button
 
   Scenario: 新建报表使用模板
-    And I click the "newReportUsingTemplate" button under some element
+    And I click the "newReportUsingTemplate" button
     Then I will see the "report.CreatePage" page
     And I wait for "2000" millsecond
     And I wait for element "SelectedUser" change text to username
     When I set the parameter "Name" with value "报表_使用模板"
     And I wait for "2000" millsecond
     And I set the parameter "Crontab" with value "0 0/1 * * * ?"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "TemplatesList" will be visible
     When I choose the "test_template" from the "Templates"
     Then I will see the element "LastTrendTitle" contains "报表测试"
-    When I click the "Complete" button under some element
+    When I click the "Complete" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
     And I wait for "100000" millsecond
@@ -57,7 +57,7 @@ Feature: 报表模板_4删除
     Then I will see the element "FirstGeneratedReport" contains ".docx"
 
   Scenario: 删除模板
-    When I click the "TemplateManager" button under some element
+    When I click the "TemplateManager" button
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "test_template"
     And I wait for "2000" millsecond
@@ -97,13 +97,13 @@ Feature: 报表模板_4删除
     And I wait for "2000" millsecond
     And I click the "FixedTime" button
     And I set the parameters "Hour" and "Minute" as "2" minutes later from now
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "TemplatesList" will be visible   
     When I click the "Complete" button
     Then I will see the text "请添加趋势图" exist in page
     When I choose the "template" from the "Templates"
     Then I will see the element "LastTrendTitle" contains "报表测试"
-    When I click the "Complete" button under some element
+    When I click the "Complete" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "更新成功"
     And I wait for "120000" millsecond

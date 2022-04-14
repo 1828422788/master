@@ -57,7 +57,7 @@ Feature: 字段提取时间戳识别
     And I wait for "CheckSuccess2" will be visible
     Then I will see the field extraction result "<result1>"
     And I click the "Collapse" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "RZY2823时间戳前缀"
     And I set the parameter "Logtype" with value "apache"
     And I set the parameter "AppName" with value "<appName>"

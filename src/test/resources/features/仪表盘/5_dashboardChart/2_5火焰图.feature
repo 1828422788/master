@@ -94,7 +94,7 @@ Feature: 仪表盘_2_5_火焰图
     And I wait for "Dimension" will be visible
     And I click the "Dimension" button
     And I click the "Flame" button
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     And I click the "Divide" button
     And I wait for "500" millsecond
     And I click the "DeleteFirst" button
@@ -109,7 +109,7 @@ Feature: 仪表盘_2_5_火焰图
     And I wait for "500" millsecond
     And I click the "Generate" button
     And I wait for "3000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I move the mouse pointer to the "TrendTitle"

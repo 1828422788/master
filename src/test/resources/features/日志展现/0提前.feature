@@ -21,7 +21,7 @@ Feature: 创建用户和上传log
     And I set the parameter "Password" with value "All!123456"
     And I click the "LoginButton" button
     And I wait for "Modify" will be visible
-    And I click the "Modify" button under some element
+    And I click the "Modify" button
     And I set the parameter "NewPassword" with value "All#123456"
     And I set the parameter "RepeatPassword" with value "All#123456"
     And I click the "Update" button

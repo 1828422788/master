@@ -43,10 +43,10 @@ Feature: 权限-仪表盘
     And I login user "AutoTest" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I click the "Create" button under some element
+    And I click the "Create" button
     And I wait for "DashBoardName" will be visible
     And I set the parameter "DashBoardName" with value "仪表盘验证权限1"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
     Then I logout current user
@@ -140,7 +140,7 @@ Feature: 权限-仪表盘
     And I click the "multiAddTag" button
     And I set the parameter "multiInputTag" with value "AutoTestTag"
   ##  And I choose the "AutoTestTag" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
     And I wait for "SuccessMessage" will be invisible
@@ -239,7 +239,7 @@ Feature: 权限-仪表盘
     And I click the "multiAddTag" button
     And I set the parameter "multiInputTag" with value "AutoTestTag"
     ##And I choose the "AutoTestTag" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "1000" millsecond
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
@@ -395,7 +395,7 @@ Feature: 权限-仪表盘
     And I click the "multiAddTag" button
     And I set the parameter "multiInputTag" with value "AutoTestTag"
     ##And I choose the "AutoTestTag" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
     And I wait for "SuccessMessage" will be invisible
@@ -544,7 +544,7 @@ Feature: 权限-仪表盘
     And I click the "multiAddTag" button
     And I set the parameter "multiInputTag" with value "AutoTestTag"
     And I choose the "AutoTestTag" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
     And I wait for "SuccessMessage" will be invisible
@@ -590,7 +590,7 @@ Feature: 权限-仪表盘
 
   Scenario: 新建仪表盘以测试二次授权
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the "Create" button under some element
+    And I click the "Create" button
     And I set the parameter "DashBoardName" with value "测试二次授权"
     And I click the "Ensure" button
     Then I will see the success message "新建仪表盘成功"
@@ -650,7 +650,7 @@ Feature: 权限-仪表盘
     #######And I choose the "<authRole>" from the "AuthDropdown"
     And I wait for loading invisible
     When I "check" the function "<function>" which name is "验证授权用户" in tiny table
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "Message" will be visible
     Then I will see the message "保存成功"
     Given I login user "验证授权用户" with password "All#123456"
@@ -664,7 +664,7 @@ Feature: 权限-仪表盘
     And I click the "multiAddTag" button
     And I set the parameter "multiInputTag" with value "AutoTestTag"
     And I choose the "AutoTestTag" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
     And I wait for "SuccessMessage" will be invisible
@@ -700,7 +700,7 @@ Feature: 权限-仪表盘
     Given the data name is "<name>" then i click the "授权" button in more menu
     And I wait for loading invisible
     When I "check" the function "<function>" which name is "<authName>" in tiny table
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "Message" will be visible
     Then I will see the message "保存成功"
     Given I login user "验证授权用户" with password "All#123456"
@@ -719,7 +719,7 @@ Feature: 权限-仪表盘
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
     And I wait for "SuccessMessage" will be invisible

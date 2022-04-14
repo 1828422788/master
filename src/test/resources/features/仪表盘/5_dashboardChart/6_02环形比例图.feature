@@ -4,7 +4,7 @@ Feature: 仪表盘_6_02_环形比例图
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I click the "Create" button under some element
+    And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
@@ -92,11 +92,11 @@ Feature: 仪表盘_6_02_环形比例图
     Then I will see the "trend.CreatePageDash" page
     And I wait for "2000" millsecond
     And I wait for "Other" will be visible
-    And I click the "Other" button under some element
+    And I click the "Other" button
     And I click the "Ring" button
 #    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     And I choose the "p" from the "DataValue"
     And I click the "Compare" button
 #    And I click the "AddField" button
@@ -111,7 +111,7 @@ Feature: 仪表盘_6_02_环形比例图
     And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I click the "TrendTitle" button
@@ -129,10 +129,10 @@ Feature: 仪表盘_6_02_环形比例图
     And I click the "SettingIcon" button
     And I click the "ChartType" button
     Then I will see the "trend.CreatePageDash" page
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I wait for "1000" millsecond
-    And I click the "Exhibition" button under some element
-    And I click the "AccordingArea" button under some element
+    And I click the "Exhibition" button
+    And I click the "AccordingArea" button
     And I click the "AddRange" button
     And I wait for "MinRange" will be visible
     And I set the parameter "MinRange" with value "0.0002"
@@ -146,7 +146,7 @@ Feature: 仪表盘_6_02_环形比例图
     And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I click the "TrendTitle" button

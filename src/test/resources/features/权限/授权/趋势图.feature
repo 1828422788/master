@@ -552,7 +552,7 @@ Feature: 权限-趋势图
     And I login user "AutoTest" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I click the "Create" button under some element
+    And I click the "Create" button
     And I wait for "DashBoardName" will be visible
     And I set the parameter "DashBoardName" with value "趋势图仪表盘相关"
     And I click the "Ensure" button

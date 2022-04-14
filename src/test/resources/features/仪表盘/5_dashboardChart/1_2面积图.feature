@@ -93,10 +93,10 @@ Feature: 仪表盘_1_2_面积图
     And I wait for "1000" millsecond
     Then I will see the "trend.CreatePageDash" page
     And I wait for "Order" will be visible
-    And I click the "Order" button under some element
+    And I click the "Order" button
     And I click the "<targetName>" button
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     And I choose the "ts" from the "DataValue"
     And I wait for "1000" millsecond
     And I click the "DescendingOrder" button
@@ -130,7 +130,7 @@ Feature: 仪表盘_1_2_面积图
     And I click the "Orange" button
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I click the "TrendTitle" button

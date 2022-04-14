@@ -29,7 +29,7 @@ Feature: 字段提取重命名字段
     And I wait for "CheckSuccess2" will be visible
     Then I will see the field extraction result "<result>"
     And I click the "Collapse" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "RZY2865支持通配符"
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "<appName>"

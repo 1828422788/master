@@ -5,9 +5,9 @@ Feature:定时任务补采
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "* | stats count() by tag"
-    And I click the "DateEditor" button under some element
+    And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -33,10 +33,10 @@ Feature:定时任务补采
   Scenario: 创建补采任务_覆盖已存在定时任务结果
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
-    And I click the "Complement" button under some element
+    And I click the "Complement" button
     And I will see the "timedTask.ListPage" page
     And I wait for loading invisible
-    When I click the "CreateComplement" button under some element
+    When I click the "CreateComplement" button
     Then I wait for "ComplementPanel" will be visible
     And I wait for "1000" millsecond
     When I choose the "Test_Complement_2" from the "SelectName"
@@ -57,10 +57,10 @@ Feature:定时任务补采
   Scenario: 创建补采任务
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
-    And I click the "Complement" button under some element
+    And I click the "Complement" button
     And I will see the "timedTask.ListPage" page
     And I wait for loading invisible
-    When I click the "CreateComplement" button under some element
+    When I click the "CreateComplement" button
     Then I wait for "ComplementPanel" will be visible
     When I choose the "Test_Complement" from the "SelectName"
     And I click the "DatePicker" button
@@ -92,10 +92,10 @@ Feature:定时任务补采
   Scenario: 创建补采任务_检查提示1
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
-    And I click the "Complement" button under some element
+    And I click the "Complement" button
     And I will see the "timedTask.ListPage" page
     And I wait for loading invisible
-    When I click the "CreateComplement" button under some element
+    When I click the "CreateComplement" button
     Then I wait for "ComplementPanel" will be visible
     When I click the "Ensure" button
     And I wait for "Notice" will be visible
@@ -104,10 +104,10 @@ Feature:定时任务补采
   Scenario: 创建补采任务_检查提示2
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
-    And I click the "Complement" button under some element
+    And I click the "Complement" button
     And I will see the "timedTask.ListPage" page
     And I wait for loading invisible
-    When I click the "CreateComplement" button under some element
+    When I click the "CreateComplement" button
     Then I wait for "ComplementPanel" will be visible
     When I choose the "Test_Complement" from the "SelectName"
     And I click the "DatePicker" button
@@ -127,10 +127,10 @@ Feature:定时任务补采
   Scenario: 创建补采任务_检查提示3
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
-    And I click the "Complement" button under some element
+    And I click the "Complement" button
     And I will see the "timedTask.ListPage" page
     And I wait for loading invisible
-    When I click the "CreateComplement" button under some element
+    When I click the "CreateComplement" button
     Then I wait for "ComplementPanel" will be visible
     When I choose the "Test_Complement" from the "SelectName"
     And I click the "Ensure" button
@@ -140,10 +140,10 @@ Feature:定时任务补采
   Scenario: 创建补采任务_检查提示4
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
-    And I click the "Complement" button under some element
+    And I click the "Complement" button
     And I will see the "timedTask.ListPage" page
     And I wait for loading invisible
-    When I click the "CreateComplement" button under some element
+    When I click the "CreateComplement" button
     Then I wait for "ComplementPanel" will be visible
     When I choose the "Test_Complement" from the "SelectName"
     And I click the "DatePicker" button

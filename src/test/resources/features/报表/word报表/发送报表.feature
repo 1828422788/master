@@ -15,9 +15,9 @@ Feature: 报表_发送
     And I set the parameters "Hour" and "Minute" as "3" minutes later from now
     And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "5000" millsecond
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 

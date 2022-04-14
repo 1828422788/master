@@ -9,7 +9,7 @@ Feature: 日志展现_6其它
   @logDisplaySmoke
   Scenario Outline: 字符云图(RZY-2804)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -19,7 +19,7 @@ Feature: 日志展现_6其它
     And I click the "Type" button
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
@@ -35,7 +35,7 @@ Feature: 日志展现_6其它
 
   Scenario Outline: 字符云图_分面
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -63,7 +63,7 @@ Feature: 日志展现_6其它
 
   Scenario Outline: 水球图
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -81,7 +81,7 @@ Feature: 日志展现_6其它
     And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
@@ -97,7 +97,7 @@ Feature: 日志展现_6其它
   @logDisplaySmoke
   Scenario Outline: 水球图_分面
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -129,7 +129,7 @@ Feature: 日志展现_6其它
   @logDisplaySmoke
   Scenario Outline: 雷达图_漏斗图(RZY-2807,2449)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -140,7 +140,7 @@ Feature: 日志展现_6其它
     And I click the "Type" button
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
@@ -155,7 +155,7 @@ Feature: 日志展现_6其它
 
   Scenario Outline: 雷达图(RZY-2808)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -189,7 +189,7 @@ Feature: 日志展现_6其它
 
   Scenario Outline: 漏斗图(RZY-2809)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -223,7 +223,7 @@ Feature: 日志展现_6其它
 
   Scenario Outline: 矩阵热力图(RZY-2810,2811)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -241,7 +241,7 @@ Feature: 日志展现_6其它
     And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
@@ -261,7 +261,7 @@ Feature: 日志展现_6其它
 
   Scenario Outline: 调用链(RZY-2812,2814)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -290,7 +290,7 @@ Feature: 日志展现_6其它
     And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I wait for "ChainTableElement" will be visible
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
@@ -311,7 +311,7 @@ Feature: 日志展现_6其它
   @logDisplaySmoke
   Scenario Outline: 循序图(RZY-2805)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -333,7 +333,7 @@ Feature: 日志展现_6其它
     And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
@@ -348,7 +348,7 @@ Feature: 日志展现_6其它
 
   Scenario Outline: 调用链_tree(RZY-2812,2814)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -389,7 +389,7 @@ Feature: 日志展现_6其它
 
   Scenario Outline: 网络节点图1
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.method, apache.geo.province, apache.geo.city | sort by +apache.geo.province, cnt, apache.go.city | limit 10"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -413,7 +413,7 @@ Feature: 日志展现_6其它
 
   Scenario Outline: 网络节点图2
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.method, apache.geo.province, apache.geo.city | sort by +apache.geo.province, cnt, apache.go.city | limit 10"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -431,7 +431,7 @@ Feature: 日志展现_6其它
     And I wait for "Chart" will be visible
 
     And I wait for "<chartType>Element" will be visible
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
@@ -446,7 +446,7 @@ Feature: 日志展现_6其它
   @logDisplaySmoke
   Scenario Outline: 网络节点图3
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.method, apache.geo.province, apache.geo.city | sort by +apache.geo.province, cnt, apache.go.city | limit 10"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button

@@ -89,7 +89,7 @@ Feature: 数据大屏-h全屏
     And I click the "PictureOne" button
     And I wait for "6000" millsecond
     And I wait for "Interactive" will be visible
-    And I click the "Interactive" button under some element
+    And I click the "Interactive" button
     And I wait for "500" millsecond
     And I choose the "全屏" from the "ShareGalaxeeDropDown"
     And I hide the element "ShareGalaxeeDropDown"

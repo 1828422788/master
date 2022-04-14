@@ -56,7 +56,7 @@ Feature: 字段提取关联日志样例
     Then I set the parameter "EventListSource" with value "/var/log/20180821/website"
     Then I click the "Save" button
     Then I click the "ClearIcon" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "wym_test_savelog"
@@ -132,7 +132,7 @@ Feature: 字段提取关联日志样例
     Then I set the parameter "EventListSource" with value "/var/log/20180821/website"
     Then I click the "Save" button
     Then I click the "ClearIcon" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Logtype" with value "other"
     And I click the "Done" button
@@ -351,7 +351,7 @@ Feature: 字段提取关联日志样例
     Then I wait for "1000" millsecond
     Then I will see the element "RawLog" contains "<raw>"
     Then I click the "ClearIcon" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Logtype" with value "other"
     And I click the "Done" button

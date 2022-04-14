@@ -95,17 +95,17 @@ Feature: 仪表盘_2_1_饼状图
     And I wait for "1000" millsecond
     Then I will see the "trend.CreatePageDash" page
     And I wait for "Dimension" will be visible
-    And I click the "Dimension" button under some element
+    And I click the "Dimension" button
     And I click the "<targetName>" button
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     And I choose the "count()" from the "DataValue"
     And I wait for "1000" millsecond
     And I click the "Divide" button
     And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I click the "TrendTitle" button

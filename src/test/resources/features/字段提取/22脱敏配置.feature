@@ -48,7 +48,7 @@ Feature: 字段提取脱敏配置
     And I wait for "CheckSuccess3" will be visible
     And I will see the field extraction result "<result1>"
     And I click the "Collapse" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "脱敏"
     And I set the parameter "Logtype" with value "replace"
     And I set the parameter "AppName" with value "<appName>"

@@ -9,7 +9,7 @@ Feature: 保存为趋势图_其他
   Scenario Outline: others
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -44,7 +44,7 @@ Feature: 保存为趋势图_其他
   Scenario Outline: others2
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -77,7 +77,7 @@ Feature: 保存为趋势图_其他
   Scenario Outline: others_wordcloud_facet
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -118,7 +118,7 @@ Feature: 保存为趋势图_其他
   Scenario Outline: single_icon
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") "
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -158,7 +158,7 @@ Feature: 保存为趋势图_其他
   Scenario Outline: single_font
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\"  tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\")"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -197,7 +197,7 @@ Feature: 保存为趋势图_其他
   Scenario Outline: single_background
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -235,7 +235,7 @@ Feature: 保存为趋势图_其他
   Scenario Outline: single_trend
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -272,7 +272,7 @@ Feature: 保存为趋势图_其他
   Scenario Outline: single_range
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -319,7 +319,7 @@ Feature: 保存为趋势图_其他
   Scenario Outline: single_1000separator
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -363,7 +363,7 @@ Feature: 保存为趋势图_其他
 
   Scenario Outline: sparkline
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() by ts | eval time=formatdate(ts,\"hh-mm\") | limit 5 "
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -404,7 +404,7 @@ Feature: 保存为趋势图_其他
 
   Scenario Outline: data_value_display
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() by ts | eval time=formatdate(ts,\"hh-mm\") | limit 5 "
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -452,7 +452,7 @@ Feature: 保存为趋势图_其他
 
   Scenario Outline: sparkline_facet
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() as cnt by ts, apache.method | eval time=formatdate(ts,\"hh-mm\") | eval cnt_2 = cnt*3"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -507,7 +507,7 @@ Feature: 保存为趋势图_其他
   Scenario Outline: ring_onefield
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -544,7 +544,7 @@ Feature: 保存为趋势图_其他
   Scenario Outline: ring_twofields
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -581,7 +581,7 @@ Feature: 保存为趋势图_其他
   Scenario Outline: ring_table
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -625,7 +625,7 @@ Feature: 保存为趋势图_其他
   Scenario Outline: ring_colors
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -688,7 +688,7 @@ Feature: 保存为趋势图_其他
   Scenario Outline: liquidfill
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -725,7 +725,7 @@ Feature: 保存为趋势图_其他
 
   Scenario Outline: liquidfill_facet
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -768,7 +768,7 @@ Feature: 保存为趋势图_其他
   Scenario Outline: radar
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -809,7 +809,7 @@ Feature: 保存为趋势图_其他
   Scenario Outline: funnel
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -852,7 +852,7 @@ Feature: 保存为趋势图_其他
   Scenario Outline: matrixheatmap
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -891,7 +891,7 @@ Feature: 保存为趋势图_其他
   Scenario Outline: chain
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -943,7 +943,7 @@ Feature: 保存为趋势图_其他
   Scenario Outline: sequence
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -986,7 +986,7 @@ Feature: 保存为趋势图_其他
   Scenario: table
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() by apache.status,apache.geo.city | limit 5"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I wait for "2000" millsecond
@@ -1006,7 +1006,7 @@ Feature: 保存为趋势图_其他
   Scenario Outline: chain_tree
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -1054,7 +1054,7 @@ Feature: 保存为趋势图_其他
 
   Scenario Outline: network
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.method, apache.geo.province, apache.geo.city | sort by +apache.geo.province, cnt, apache.go.city | limit 10"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -1108,7 +1108,7 @@ Feature: 保存为趋势图_其他
   Scenario Outline: sunburst
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 

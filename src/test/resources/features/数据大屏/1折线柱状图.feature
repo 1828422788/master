@@ -32,7 +32,7 @@ Feature: 数据大屏-s折线柱状图
 
     #折线柱状图
     And I wait for "BrokenLineBar" will be visible
-    And I click the "BrokenLineBar" button under some element
+    And I click the "BrokenLineBar" button
 
     #    选择样式
     And I wait for "Style" will be visible
@@ -127,7 +127,7 @@ Feature: 数据大屏-s折线柱状图
 
 #    ==============================折线柱状图
     And I wait for "BrokenLineBar" will be visible
-    And I click the "BrokenLineBar" button under some element
+    And I click the "BrokenLineBar" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible

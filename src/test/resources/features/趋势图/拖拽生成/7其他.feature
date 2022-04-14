@@ -6,18 +6,18 @@ Feature: 趋势图_拖拽_其他
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I click the "DateEditor" button under some element
+    And I click the "DateEditor" button
     And I click the "Today" button
     And I wait for "1000" millsecond
 
 
   Scenario Outline: drag_and_drop_single1
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "CheckBox" will be visible
     And I "checked" the checkbox which name is "apache.clientip" in trend page
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
@@ -43,12 +43,12 @@ Feature: 趋势图_拖拽_其他
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_<button>"
     And I compare source image "actual/拖拽_<chartType>_<button>" with target image "expect/拖拽_<chartType>_<button>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_<button>"
     And I set the parameter "DescribeInput" with value "<color>_<size>_<button>"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -57,11 +57,11 @@ Feature: 趋势图_拖拽_其他
 
   Scenario Outline: drag_and_drop_single2
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "CheckBox" will be visible
     And I "checked" the checkbox which name is "apache.clientip" in trend page
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
@@ -85,12 +85,12 @@ Feature: 趋势图_拖拽_其他
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_trend"
     And I compare source image "actual/拖拽_<chartType>_trend" with target image "expect/拖拽_<chartType>_trend"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_trend"
     And I set the parameter "DescribeInput" with value "<size>_<timeValue>"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -99,11 +99,11 @@ Feature: 趋势图_拖拽_其他
 
   Scenario Outline: drag_and_drop_single3
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "CheckBox" will be visible
     And I "checked" the checkbox which name is "apache.clientip" in trend page
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
@@ -138,12 +138,12 @@ Feature: 趋势图_拖拽_其他
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_area"
     And I compare source image "actual/拖拽_<chartType>_area" with target image "expect/拖拽_<chartType>_area"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_area"
     And I set the parameter "DescribeInput" with value "<size>_<minVal2>_<maxVal2>_<color2>"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -152,11 +152,11 @@ Feature: 趋势图_拖拽_其他
 
   Scenario Outline: 单值4
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "CheckBox" will be visible
     And I "checked" the checkbox which name is "apache.resp_len" in trend page
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
@@ -200,14 +200,14 @@ Feature: 趋势图_拖拽_其他
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_<tab>"
     And I compare source image "actual/拖拽_<chartType>_<tab>" with target image "expect/拖拽_<chartType>_<tab>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_<tab>"
     And I set the parameter "DescribeInput" with value "<size>_prec.2_<position>个_<text>_<color>"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
-    And I click the "ReturnButton" button under some element
+    And I click the "ReturnButton" button
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
@@ -234,12 +234,12 @@ Feature: 趋势图_拖拽_其他
 
   Scenario Outline: drag_and_drop_single5
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | eval icon_value = \"quidditch\""
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "CheckBox" will be visible
     And I "checked" the checkbox which name is "apache.resp_len" in trend page
     And I "checked" the checkbox which name is "icon_value" in trend page
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
@@ -275,12 +275,12 @@ Feature: 趋势图_拖拽_其他
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_IconField"
     And I compare source image "actual/拖拽_<chartType>_IconField" with target image "expect/拖拽_<chartType>_IconField"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_IconField"
     And I set the parameter "DescribeInput" with value "<size>_quidditch_<color>"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -290,12 +290,12 @@ Feature: 趋势图_拖拽_其他
   @trendSmoke
   Scenario Outline: 环形比例图
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | eval value1 = apache.resp_len/5000 | eval value2 = apache.resp_len/10000"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "CheckBox" will be visible
     And I "checked" the checkbox which name is "value1" in trend page
     And I "checked" the checkbox which name is "value2" in trend page
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
@@ -338,14 +338,14 @@ Feature: 趋势图_拖拽_其他
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_1"
     And I compare source image "actual/拖拽_<chartType>_1" with target image "expect/拖拽_<chartType>_1"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_1"
     And I set the parameter "DescribeInput" with value "<color>"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
-    And I click the "ReturnButton" button under some element
+    And I click the "ReturnButton" button
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
@@ -371,12 +371,12 @@ Feature: 趋势图_拖拽_其他
 
   Scenario Outline: drag_and_drop_ring_interval
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | eval value1 = apache.resp_len/5000 | eval value2 = apache.resp_len/10000"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "CheckBox" will be visible
     And I "checked" the checkbox which name is "value1" in trend page
     And I "checked" the checkbox which name is "value2" in trend page
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
@@ -434,12 +434,12 @@ Feature: 趋势图_拖拽_其他
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_2"
     And I compare source image "actual/拖拽_<chartType>_2" with target image "expect/拖拽_<chartType>_2"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_2"
     And I set the parameter "DescribeInput" with value "<color>"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -449,11 +449,11 @@ Feature: 趋势图_拖拽_其他
   @trendSmoke
   Scenario Outline: 字符云图
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "CheckBox" will be visible
     And I "checked" the checkbox which name is "apache.geo.city" in trend page
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
@@ -478,14 +478,14 @@ Feature: 趋势图_拖拽_其他
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>"
 #    And I compare source image "actual/拖拽_<chartType>" with target image "expect/拖拽_<chartType>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>"
     And I set the parameter "DescribeInput" with value "<color>"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
-    And I click the "ReturnButton" button under some element
+    And I click the "ReturnButton" button
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
@@ -506,11 +506,11 @@ Feature: 趋势图_拖拽_其他
   @trendSmoke
   Scenario Outline: 漏斗图
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "CheckBox" will be visible
     And I "checked" the checkbox which name is "apache.geo.city" in trend page
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
@@ -537,14 +537,14 @@ Feature: 趋势图_拖拽_其他
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>"
     And I compare source image "actual/拖拽_<chartType>" with target image "expect/拖拽_<chartType>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>"
     And I set the parameter "DescribeInput" with value "<color>_<button>"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
-    And I click the "ReturnButton" button under some element
+    And I click the "ReturnButton" button
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
@@ -565,11 +565,11 @@ Feature: 趋势图_拖拽_其他
   @trendSmoke
   Scenario Outline: 雷达图
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "CheckBox" will be visible
     And I "checked" the checkbox which name is "apache.geo.city" in trend page
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
@@ -596,14 +596,14 @@ Feature: 趋势图_拖拽_其他
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>"
     And I compare source image "actual/拖拽_<chartType>" with target image "expect/拖拽_<chartType>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>"
     And I set the parameter "DescribeInput" with value "<color>"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
-    And I click the "ReturnButton" button under some element
+    And I click the "ReturnButton" button
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
@@ -623,11 +623,11 @@ Feature: 趋势图_拖拽_其他
 
   Scenario Outline: drag_and_drop_radar_unify_metric
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "CheckBox" will be visible
     And I "checked" the checkbox which name is "apache.geo.city" in trend page
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
@@ -658,12 +658,12 @@ Feature: 趋势图_拖拽_其他
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_Switch"
     And I compare source image "actual/拖拽_<chartType>_Switch" with target image "expect/拖拽_<chartType>_Switch"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_Switch"
     And I set the parameter "DescribeInput" with value "<color>_<button>_Switch"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -672,11 +672,11 @@ Feature: 趋势图_拖拽_其他
 
   Scenario Outline: drag_and_drop_radar_compare
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "CheckBox" will be visible
     And I "checked" the checkbox which name is "apache.geo.city" in trend page
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
@@ -713,12 +713,12 @@ Feature: 趋势图_拖拽_其他
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_对比"
 #    And I compare source image "actual/拖拽_<chartType>_对比" with target image "expect/拖拽_<chartType>_对比"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_对比"
     And I set the parameter "DescribeInput" with value "<color>_<button>_<compareWith1>_<compareWith2>"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -728,11 +728,11 @@ Feature: 趋势图_拖拽_其他
   @trendSmoke
   Scenario Outline: 矩阵热力图
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "CheckBox" will be visible
     And I "checked" the checkbox which name is "apache.geo.city" in trend page
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
@@ -760,14 +760,14 @@ Feature: 趋势图_拖拽_其他
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>"
     And I compare source image "actual/拖拽_<chartType>" with target image "expect/拖拽_<chartType>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>"
     And I set the parameter "DescribeInput" with value "<chartType>_<segments>"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
-    And I click the "ReturnButton" button under some element
+    And I click the "ReturnButton" button
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
@@ -787,11 +787,11 @@ Feature: 趋势图_拖拽_其他
 
   Scenario Outline: drag_and_drop_order_table
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "CheckBox" will be visible
     And I "checked" the checkbox which name is "apache.clientip" in trend page
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
@@ -809,12 +809,12 @@ Feature: 趋势图_拖拽_其他
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_2"
 #    And I compare source image "actual/拖拽_<chartType>_2" with target image "expect/拖拽_<chartType>_2"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_2"
     And I set the parameter "DescribeInput" with value "Table"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -823,11 +823,11 @@ Feature: 趋势图_拖拽_其他
 
   Scenario Outline: drag_and_drop_order_table_compare
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "CheckBox" will be visible
     And I "checked" the checkbox which name is "apache.clientip" in trend page
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
@@ -852,14 +852,14 @@ Feature: 趋势图_拖拽_其他
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>_对比_2"
 #    And I compare source image "actual/拖拽_<chartType>_对比_2" with target image "expect/拖拽_<chartType>_对比_2"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_对比_2"
     And I set the parameter "DescribeInput" with value "Table_上周同比值"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
-    And I click the "ReturnButton" button under some element
+    And I click the "ReturnButton" button
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible

@@ -10,7 +10,7 @@ Feature: 趋势图_选择数据集
     And I click the "Ensure" button
     Then I will see the "trend.DragAndDropPage" page
     When I click the "Dataset_1" button
-    And I click the "DateEditor" button under some element
+    And I click the "DateEditor" button
     And I click the "Today" button
     And I wait for "2000" millsecond
     And I wait for "TableBody" will be visible
@@ -28,7 +28,7 @@ Feature: 趋势图_选择数据集
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
     And I wait for "TableBody" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     Then I wait for "Dimensions" will be visible
     And I drag the element "Timestamp" to the "Dimensions"
@@ -52,7 +52,7 @@ Feature: 趋势图_选择数据集
     And I will see the element "SPL" contains "<spl>"
     When I click the "CloseSPL" button
     And I wait for "1000" millsecond
-    And I click the "DateEditor" button under some element
+    And I click the "DateEditor" button
     And I click the "CustomTimeTab" button
     And I set the parameter "StartDateField" with yesterday date
     And I set the parameter "StartTimeField" with value "00:00:00.000"
@@ -65,12 +65,12 @@ Feature: 趋势图_选择数据集
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/数据集_<chart>_单"
     And I compare source image "actual/数据集_<chart>_单" with target image "expect/数据集_<chart>_单"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "数据集_<chart>_单"
     And I set the parameter "DescribeInput" with value "<chart>_<operator>"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
   @trendSmoke
@@ -87,7 +87,7 @@ Feature: 趋势图_选择数据集
     And I click the "Ensure" button
     Then I will see the "trend.DragAndDropPage" page
     When I click the "Dataset_3" button
-    And I click the "DateEditor" button under some element
+    And I click the "DateEditor" button
     And I click the "Today" button
     And I wait for "2000" millsecond
     And I wait for "TableBody" will be visible
@@ -110,7 +110,7 @@ Feature: 趋势图_选择数据集
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
     And I wait for "TableBody" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Dimensions" will be visible
     And I drag the element "Clientip" to the "Dimensions"
@@ -132,12 +132,12 @@ Feature: 趋势图_选择数据集
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/数据集_<chart>_<condition>_单"
     And I compare source image "actual/数据集_<chart>_<condition>_单" with target image "expect/数据集_<chart>_<condition>_单"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "数据集_<chart>_<condition>_单"
     And I set the parameter "DescribeInput" with value "<chart>_<condition>_<oper1>_<oper2>"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -151,7 +151,7 @@ Feature: 趋势图_选择数据集
     And I click the "Ensure" button
     Then I will see the "trend.DragAndDropPage" page
     When I click the "Dataset_3" button
-    And I click the "DateEditor" button under some element
+    And I click the "DateEditor" button
     And I click the "Today" button
     And I wait for "2000" millsecond
     And I wait for "TableBody" will be visible
@@ -166,7 +166,7 @@ Feature: 趋势图_选择数据集
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
     And I wait for "TableBody" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Dimensions" will be visible
     And I drag the element "Clientip" to the "Dimensions"
@@ -188,12 +188,12 @@ Feature: 趋势图_选择数据集
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/数据集_<chart>_表达式_单"
 #    And I compare source image "actual/数据集_<chart>_表达式_单" with target image "expect/数据集_<chart>_表达式_单"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "数据集_<chart>_表达式_单"
     And I set the parameter "DescribeInput" with value "<chart>_Expression"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -207,7 +207,7 @@ Feature: 趋势图_选择数据集
     Then I will see the "trend.DragAndDropPage" page
     When I drag the element "Dataset_1" to the "DropDataset"
     And I drag the element "Dataset_2" to the "DropDataset"
-    And I click the "DateEditor" button under some element
+    And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "Overview" button
     And I wait for "2000" millsecond
@@ -217,7 +217,7 @@ Feature: 趋势图_选择数据集
     And I will see the element "SPL" contains "tag:sample04061424_chart | append [[ tag:sample04061424_display ]]"
     When I click the "CloseSPL" button
     And I wait for "5000" millsecond
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Dimensions" will be visible
     And I drag the element "Timestamp" to the "Dimensions"
@@ -250,7 +250,7 @@ Feature: 趋势图_选择数据集
     Then I will see the element "SPL" contains "tag:sample04061424_chart | append [[ tag:sample04061424_display ]] | timechart span=30m count(apache.clientip) by apache.method"
     When I click the "CloseSPL" button
     And I wait for "1000" millsecond
-    And I click the "DateEditor" button under some element
+    And I click the "DateEditor" button
     And I click the "CustomTimeTab" button
     And I set the parameter "StartDateField" with yesterday date
     And I set the parameter "StartTimeField" with value "00:00:00.000"
@@ -263,12 +263,12 @@ Feature: 趋势图_选择数据集
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/数据集_<chart>_追加"
     And I compare source image "actual/数据集_<chart>_追加" with target image "expect/数据集_<chart>_追加"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "数据集_<chart>_追加"
     And I set the parameter "DescribeInput" with value "<chart>_union_<color>"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:

@@ -22,9 +22,9 @@ Feature: 全链路_批量操作
   Scenario: 添加资源标签
     When I set the parameter "SearchInput" with value "test_multi_"
     And I wait for "2000" millsecond
-    And I click the "BatchControl" button under some element
+    And I click the "BatchControl" button
     And I click the "SelectAll" button
-    And I click the "SelectBatchOperation" button under some element
+    And I click the "SelectBatchOperation" button
     And I click the "AddResourceTags" button
     And I wait for "Ensure" will be visible
     And I wait for "TagToInput" will be visible
@@ -35,7 +35,7 @@ Feature: 全链路_批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I wait for loading complete
-    And I click the "CompleteBatchControl" button under some element
+    And I click the "CompleteBatchControl" button
 
   Scenario: 验证标签
     When I set the parameter "SearchInput" with value "test_multi_"
@@ -47,9 +47,9 @@ Feature: 全链路_批量操作
   Scenario: 批量删除
     When I set the parameter "SearchInput" with value "test_multi_"
     And I wait for "2000" millsecond
-    And I click the "BatchControl" button under some element
+    And I click the "BatchControl" button
     And I click the "SelectAll" button
-    And I click the "SelectBatchOperation" button under some element
+    And I click the "SelectBatchOperation" button
     And I click the "DeleteResources" button
     And I wait for "Ensure" will be visible
     And I wait for "Cancel" will be visible
@@ -62,7 +62,7 @@ Feature: 全链路_批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
     And I wait for "SuccessMessage" will be invisible
-    And I click the "SelectBatchOperation" button under some element
+    And I click the "SelectBatchOperation" button
     And I click the "DeleteResources" button
     And I wait for "Ensure" will be visible
     Then I will see the message "您选中的 2 个资源将被删除，是否继续？"
@@ -70,7 +70,7 @@ Feature: 全链路_批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
     And I wait for loading complete
-    And I click the "CompleteBatchControl" button under some element
+    And I click the "CompleteBatchControl" button
 
   Scenario: 验证删除
     When I set the parameter "SearchInput" with value "test_multi_"
@@ -79,8 +79,8 @@ Feature: 全链路_批量操作
 
   Scenario Outline: 提示
     And I wait for "2000" millsecond
-    And I click the "BatchControl" button under some element
-    And I click the "SelectBatchOperation" button under some element
+    And I click the "BatchControl" button
+    And I click the "SelectBatchOperation" button
     And I click the "<button>" button
     And I wait for "Ensure" will be visible
     Then I will see the message "请至少选择一个资源进行操作"

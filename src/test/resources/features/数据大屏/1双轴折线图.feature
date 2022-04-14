@@ -33,7 +33,7 @@ Feature: 数据大屏-d双轴折线图
 
     #双轴折线图
     And I wait for "Line2y" will be visible
-    And I click the "Line2y" button under some element
+    And I click the "Line2y" button
 
     #    选择样式
     And I wait for "Style" will be visible
@@ -126,7 +126,7 @@ Feature: 数据大屏-d双轴折线图
 
 #    ==============================双轴折线图
     And I wait for "Line2y" will be visible
-    And I click the "Line2y" button under some element
+    And I click the "Line2y" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible

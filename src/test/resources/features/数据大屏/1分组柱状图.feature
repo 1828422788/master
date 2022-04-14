@@ -32,7 +32,7 @@ Feature: 数据大屏-o分组柱状图
     And I click the "Chart" button
   #    ==============================分组柱状图
     And I wait for "GroupBar" will be visible
-    And I click the "GroupBar" button under some element
+    And I click the "GroupBar" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible
@@ -152,7 +152,7 @@ Feature: 数据大屏-o分组柱状图
 
  #    ==============================分组柱状图
     And I wait for "GroupBar" will be visible
-    And I click the "GroupBar" button under some element
+    And I click the "GroupBar" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible

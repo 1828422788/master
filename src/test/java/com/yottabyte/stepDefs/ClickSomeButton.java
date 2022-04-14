@@ -92,19 +92,6 @@ public class ClickSomeButton {
     }
 
     /**
-     * 点击在覆层下面的元素，被一层div遮住导致无法点击时，可用此方法
-     * 
-     * @param elementName 元素名称
-     */
-    @And("^I click the \"([^\"]*)\" button under some element$")
-    public void clickUnderneathButton(String elementName) {
-        if (elementName != null && elementName.trim().length() != 0) {
-            WebElement element = GetElementFromPage.getWebElementWithName(elementName);
-            ClickEvent.clickUnderneathButton(element);
-        }
-    }
-
-    /**
      * 在搜索页中选择日志来源
      *
      * @param name
@@ -176,20 +163,7 @@ public class ClickSomeButton {
     }
 
     /**
-     * 点击仪表盘某个记录前的icon
-     *
-     * @param name 仪表盘记录名称
-     */
-    @When("^I click the dashboard icon which name is \"([^\"]*)\"$")
-    public void clickTheIconWhichname(String name) {
-        String xpath = "//span[text()='" + name + "']/parent::a/preceding-sibling::div/span";
-        WebElement button = webDriver.findElement(By.xpath(xpath));
-        if (ElementExist.isElementExist(webDriver, button))
-            button.click();
-    }
-
-    /**
-     * 点击仪表盘某个记录前的icon
+     * 点击某个icon(可以点击地图上的<svg>元素，<g>元素等等)
      *
      * @param buttonName 仪表盘记录名称
      */

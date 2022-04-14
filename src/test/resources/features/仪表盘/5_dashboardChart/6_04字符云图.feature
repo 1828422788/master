@@ -99,7 +99,7 @@ Feature: 仪表盘_6_04_字符云图
     And I click the "<image>" button
 #    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I wait for "1000" millsecond
     And I choose the "count()" from the "DataValue"
     And I click the "Divide" button
@@ -110,7 +110,7 @@ Feature: 仪表盘_6_04_字符云图
     And I click the "Orange" button
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
 #    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button

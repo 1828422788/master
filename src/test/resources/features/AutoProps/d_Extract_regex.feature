@@ -84,7 +84,7 @@ Feature: 字段萃取_正则解析
     And I click the "Extract" button
     And I wait for "AddExtract_regex" will be visible
     And I click the "AutoExtractGlobalShared" button
-    And I click the "Save" button under some element
+    And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
 
@@ -164,7 +164,7 @@ Feature: 字段萃取_正则解析
     And I click the "Extract" button
     And I wait for "AddExtract_regex" will be visible
     And I click the "AutoExtractGlobalShared" button
-    And I click the "Save" button under some element
+    And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
 

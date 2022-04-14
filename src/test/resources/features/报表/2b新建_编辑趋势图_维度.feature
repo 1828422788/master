@@ -3,7 +3,7 @@ Feature: 报表_2_2维度
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
-    And I click the "NewReportButton" button under some element
+    And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
@@ -12,7 +12,7 @@ Feature: 报表_2_2维度
   Scenario Outline: 维度（饼状图，玫瑰图，条形图）
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
@@ -41,7 +41,7 @@ Feature: 报表_2_2维度
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -63,7 +63,7 @@ Feature: 报表_2_2维度
   Scenario Outline: 旭日图
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
@@ -95,7 +95,7 @@ Feature: 报表_2_2维度
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -112,7 +112,7 @@ Feature: 报表_2_2维度
   Scenario Outline: 条形图_标签1
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
@@ -142,7 +142,7 @@ Feature: 报表_2_2维度
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -161,7 +161,7 @@ Feature: 报表_2_2维度
   Scenario Outline: 条形图_标签2
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
@@ -194,7 +194,7 @@ Feature: 报表_2_2维度
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -213,7 +213,7 @@ Feature: 报表_2_2维度
   Scenario Outline: sunburst
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
@@ -236,7 +236,7 @@ Feature: 报表_2_2维度
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -253,7 +253,7 @@ Feature: 报表_2_2维度
   Scenario Outline: 饼状图_内环占外环比
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
@@ -285,7 +285,7 @@ Feature: 报表_2_2维度
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -304,7 +304,7 @@ Feature: 报表_2_2维度
   Scenario Outline: 火焰图
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
     And I click the "ChartListButton" button
@@ -335,7 +335,7 @@ Feature: 报表_2_2维度
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 

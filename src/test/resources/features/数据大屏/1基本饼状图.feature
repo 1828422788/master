@@ -32,7 +32,7 @@ Feature: 数据大屏-h基本饼状图
 
 #    ==============================散点图
     And I wait for "Pie" will be visible
-    And I click the "Pie" button under some element
+    And I click the "Pie" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible
@@ -157,7 +157,7 @@ Feature: 数据大屏-h基本饼状图
 
 #    ==============================饼状图
     And I wait for "Pie" will be visible
-    And I click the "Pie" button under some element
+    And I click the "Pie" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible

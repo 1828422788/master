@@ -54,7 +54,7 @@ Feature: 报表_1b_文件列表
       |  test_report_PDF   |  .pdf      | test_report_EXCEL | .xlsx      |
 
   Scenario: 已生成报表2
-    When I click the "ReportListButton" button under some element
+    When I click the "ReportListButton" button
     Then I wait for "SelectedReport" will be visible
     And I wait for element "SelectedReport" change text to "全部报表文件"
     And I wait for "5000" millsecond

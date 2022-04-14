@@ -3,7 +3,7 @@ Feature:报表_富文本编辑_7_撤销
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
-    And I click the "NewReportButton" button under some element
+    And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
@@ -12,7 +12,7 @@ Feature:报表_富文本编辑_7_撤销
 
   Scenario Outline: text_undo
     When I set the parameter "Name" with value "Default_<name>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond

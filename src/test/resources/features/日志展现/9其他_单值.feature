@@ -9,7 +9,7 @@ Feature: 日志展现_9其他_单值
   @logDisplaySmoke
   Scenario Outline: 单值(RZY-2303)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -31,7 +31,7 @@ Feature: 日志展现_9其他_单值
 
   Scenario Outline: 单值_icon(RZY-2799)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -54,7 +54,7 @@ Feature: 日志展现_9其他_单值
     And I will see the element "<chartType>Element" style contains "font-size: 100px"
     And I will see the element "<chartType>Element" style contains "color: rgb(92, 157, 245)"
     And I will see the element "<chartType>Element" contains "124"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
@@ -72,7 +72,7 @@ Feature: 日志展现_9其他_单值
 
   Scenario Outline: 单值_背景(RZY-2800)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -105,7 +105,7 @@ Feature: 日志展现_9其他_单值
 
   Scenario Outline: 单值_趋势(RZY-1369)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -137,7 +137,7 @@ Feature: 日志展现_9其他_单值
 
   Scenario Outline: 单值_背景(RZY-1370)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -182,7 +182,7 @@ Feature: 日志展现_9其他_单值
 
   Scenario Outline: 单值_单位(RZY-4193,4194,4195,4196,4197)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" "
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -223,7 +223,7 @@ Feature: 日志展现_9其他_单值
 
   Scenario Outline: 单值_sparkline
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() by ts | eval time=formatdate(ts,\"hh-mm\") | limit 5 "
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -250,7 +250,7 @@ Feature: 日志展现_9其他_单值
     And I will see the element "<chartType>Element" style contains "font-size: 60px"
     And I will see the element "<chartType>Element" style contains "color: rgb(255, 255, 255)"
     And I will see the element "<chartType>Element" contains "5"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I wait for "<chartType>Element" will be visible
@@ -267,7 +267,7 @@ Feature: 日志展现_9其他_单值
 
   Scenario Outline: 单值_sparkline_分面
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() as cnt by ts, apache.method | eval time=formatdate(ts,\"hh-mm\") | eval cnt_2 = cnt*3"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -321,7 +321,7 @@ Feature: 日志展现_9其他_单值
 
   Scenario Outline: 单值_展示字段
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() by ts | eval time=formatdate(ts,\"hh-mm\") | limit 5 "
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button

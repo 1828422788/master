@@ -81,7 +81,7 @@ Feature: 权限-下载管理
     And I wait for "1500" millsecond
     And I set the parameter "DownloadName" with value "AutoTestAuth"
     And I choose the "CSV" from the "FileType"
-    And I click the "EnsureButton" button under some element
+    And I click the "EnsureButton" button
     Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
 
   Scenario: 验证下载管理

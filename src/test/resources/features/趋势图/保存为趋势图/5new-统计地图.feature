@@ -9,7 +9,7 @@ Feature: 保存为趋势图_统计地图
   Scenario Outline: statistical_map
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "2000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -41,7 +41,7 @@ Feature: 保存为趋势图_统计地图
   Scenario Outline: statistical_map_parameters
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "2000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 
@@ -83,7 +83,7 @@ Feature: 保存为趋势图_统计地图
   Scenario Outline: statistical_map_online
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424* | geostats latfield=apache.geo.latitude longfield=apache.geo.longitude count() avg(apache.resp_len) min(apache.resp_len)"
     And I wait for "2000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
 

@@ -6,9 +6,9 @@ Feature: 定时任务_结果处理方式
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | top 5 apache.resp_len"
-    And I click the "DateEditor" button under some element
+    And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -43,10 +43,10 @@ Feature: 定时任务_结果处理方式
     And I wait for "2000" millsecond
     And I wait for element "SelectedUser" change text to username
     And I wait for "ResultHandling" will be visible
-    When I click the "ResultHandling" button under some element
+    When I click the "ResultHandling" button
     And I wait for "AddJDBC" will be visible
-    And I click the "AddJDBC" button under some element
-    And I click the "Jdbc" button under some element
+    And I click the "AddJDBC" button
+    And I click the "Jdbc" button
     And I wait for "2000" millsecond
     And I wait for "ConnectName" will be visible
     And I will see the input element "ConnectName" value will be ""
@@ -59,7 +59,7 @@ Feature: 定时任务_结果处理方式
     Then I choose the "<dbType>" from the "DbType"
     Then I set the parameter "DbName" with value "<dbName>"
     Then I set the parameter "TableName" with value "<tableName>"
-    Then I click the "Verify" button under some element
+    Then I click the "Verify" button
     And I wait for "TipText" will be visible
     And I will see the element "TipText" contains "<result>"
 
@@ -106,7 +106,7 @@ Feature: 定时任务_结果处理方式
     When I set the parameter "Count" with value "count"
     And I set the parameter "Percent" with value "percent"
     And I set the parameter "Resplen" with value "apache.resp_len"
-    And I click the "Save" button under some element
+    And I click the "Save" button
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
 

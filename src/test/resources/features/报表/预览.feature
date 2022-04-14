@@ -12,14 +12,14 @@ Feature: 报表_预览_all
     And the data name is "{'column':'1','name':'<name>_PDF'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "5000" millsecond
     Then I will see the element "LastTrendTitle" contains "<name>"
     And I choose the "下载到本地预览" from the "Preview"
     And I wait for "10000" millsecond
     And I wait for "SuccessMessage" will be invisible
 #    And I wait for element "SuccessMessage" change text to "下载到本地预览成功，请查看并下载完报表历史也最新文件"
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "更新成功"
 
@@ -78,7 +78,7 @@ Feature: 报表_预览_all
     And the data name is "{'column':'1','name':'<name>_WORD'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "5000" millsecond
     Then I will see the "report.CreatePageWORD" page
     And I choose the "下载到本地预览" from the "Preview"
@@ -86,7 +86,7 @@ Feature: 报表_预览_all
     And I wait for "35000" millsecond
     And I wait for "SuccessMessage" will be invisible
 #    And I wait for element "SuccessMessage" change text to "下载到本地预览成功，请查看并下载完报表历史也最新文件"
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "更新成功"
 
@@ -145,14 +145,14 @@ Feature: 报表_预览_all
     And the data name is "{'column':'1','name':'<name>_EXCEL'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "5000" millsecond
     Then I will see the element "LastTrendTitle" contains "<name>"
     And I choose the "下载到本地预览" from the "Preview"
     And I wait for "10000" millsecond
     And I wait for "SuccessMessage" will be invisible
 #    And I wait for element "SuccessMessage" change text to "下载到本地预览成功，请查看并下载完报表历史也最新文件"
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "更新成功"
 

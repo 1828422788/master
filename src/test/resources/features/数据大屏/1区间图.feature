@@ -32,7 +32,7 @@ Feature: 数据大屏-b区间图
     And I click the "Chart" button
 #    选择区间图
     And I wait for "Range" will be visible
-    And I click the "Range" button under some element
+    And I click the "Range" button
 #    选择样式
     And I wait for "Style" will be visible
     And I click the "Style" button
@@ -164,7 +164,7 @@ Feature: 数据大屏-b区间图
 
 #    ==============================区间图
     And I wait for "Range" will be visible
-    And I click the "Range" button under some element
+    And I click the "Range" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible

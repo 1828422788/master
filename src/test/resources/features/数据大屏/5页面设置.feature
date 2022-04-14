@@ -32,13 +32,13 @@ Feature: 数据大屏-图层及右键
     And I click the "Chart" button
   #    ==============================柱状图
     And I wait for "Bar" will be visible
-    And I click the "Bar" button under some element
+    And I click the "Bar" button
     #    ==============================饼图
     And I wait for "Pie" will be visible
-    And I click the "Pie" button under some element
+    And I click the "Pie" button
      #    ==============================基本折线图
     And I wait for "Line" will be visible
-    And I click the "Line" button under some element
+    And I click the "Line" button
     
     And I wait for "2000" millsecond
     And I click the "Coverage" button

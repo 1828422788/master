@@ -12,7 +12,7 @@ Feature: 事件管理界面_测试分页功能
 
     And I choose the "待分配" from the "StatusList"
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
-    When I click the "SearchButton" button under some element
+    When I click the "SearchButton" button
     And I wait for "2000" millsecond
     Then I will see the element "NameCell13" contains "<alertref>"
 
@@ -38,7 +38,7 @@ Feature: 事件管理界面_测试分页功能
 
     And I choose the "待分配" from the "StatusList"
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
-    When I click the "SearchButton" button under some element
+    When I click the "SearchButton" button
     And I wait for "2000" millsecond
     Then I will see the element "NameCell13" contains "<alertref>"
 
@@ -62,7 +62,7 @@ Feature: 事件管理界面_测试分页功能
 
     And I choose the "待分配" from the "StatusList"
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
-    When I click the "SearchButton" button under some element
+    When I click the "SearchButton" button
     And I wait for "2000" millsecond
     Then I will see the element "NameCell13" contains "<alertref>"
 

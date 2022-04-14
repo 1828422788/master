@@ -32,7 +32,7 @@ Feature: 数据大屏-n雷达图
 
 #    ==============================雷达图
     And I wait for "RadarChart" will be visible
-    And I click the "RadarChart" button under some element
+    And I click the "RadarChart" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible
@@ -158,7 +158,7 @@ Feature: 数据大屏-n雷达图
 
 #    ==============================雷达图
     And I wait for "RadarChart" will be visible
-    And I click the "RadarChart" button under some element
+    And I click the "RadarChart" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible

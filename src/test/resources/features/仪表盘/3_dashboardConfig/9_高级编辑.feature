@@ -253,7 +253,7 @@ Feature: 仪表盘高级编辑
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
     And I wait for "2000" millsecond
-#    And I click the "CustomTitle" button under some element
+#    And I click the "CustomTitle" button
     And I move the mouse pointer to the "Describe"
 #    And I click the "Describe" button
     And I wait for "500" millsecond
@@ -590,18 +590,18 @@ Feature: 仪表盘高级编辑
     And I wait for "1000" millsecond
     Then I will see the "trend.CreatePageDash" page
     And I wait for "Dimension" will be visible
-    And I click the "Dimension" button under some element
+    And I click the "Dimension" button
     And I click the "<targetName>" button
 #    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I choose the "count()" from the "DataValue"
     And I click the "Divide" button
 #    And I click the "AddField" button
     And I choose the "apache.geo.city" from the "DataValue"
     Then I click the "Generate" button
     And I wait for "1500" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
 #    Then I hide the element "SettingContent"
 #    And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page

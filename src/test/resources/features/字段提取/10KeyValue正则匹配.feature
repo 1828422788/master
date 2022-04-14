@@ -34,7 +34,7 @@ Feature: 字段提取KeyValue正则匹配
     And I wait for "CheckSuccess2" will be visible
     And I will see the field extraction result "<result1>"
     And I click the "Collapse" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "RZY1535KeyValue正则匹配"
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "<appName>"
@@ -90,7 +90,7 @@ Feature: 字段提取KeyValue正则匹配
     And I wait for "CheckSuccess" will be visible
     And I will see the field extraction result "<result>"
     And I click the "Collapse" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "RZY2798group_regex"
     And I set the parameter "Logtype" with value "test"
     And I set the parameter "AppName" with value "<appName>"

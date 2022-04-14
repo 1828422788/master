@@ -439,7 +439,7 @@ Feature: 权限-已存搜索
     #3.7版本无删除权限时没有删除按钮
   # Given open the "splSearch.SearchPage" page for uri "/search/"
   #  And I wait for loading invisible
-  #  And I click the "OpenSavedSearchButton" button under some element
+  #  And I click the "OpenSavedSearchButton" button
   #  And "删除" the data "AutoTestCreate" in tiny saved search
   #  And I click the "DeleteSavedSearch" button
   #  Then I will see the success message "删除失败: 没有相关资源权限"
@@ -502,7 +502,7 @@ Feature: 权限-已存搜索
     ###3.7版本无删除权限时没有删除按钮
     #Given open the "splSearch.SearchPage" page for uri "/search/"
     #And I wait for loading invisible
-    #And I click the "OpenSavedSearchButton" button under some element
+    #And I click the "OpenSavedSearchButton" button
     #And "删除" the data "AutoTestCreate" in tiny saved search
     #And I click the "DeleteSavedSearch" button
     #Then I will see the success message "删除失败: 没有相关资源权限"
@@ -629,7 +629,7 @@ Feature: 权限-已存搜索
     And I wait for loading invisible
     And I click the "OpenSavedSearchList" button
     And I wait for loading invisible
-  #  And I click the "OpenSavedSearchButton" button under some element
+  #  And I click the "OpenSavedSearchButton" button
     And "删除" the data "<name>" in tiny saved search
     And I click the "DeleteSavedSearch" button
     Then I will see the message "删除成功"

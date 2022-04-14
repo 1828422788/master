@@ -11,15 +11,15 @@ Feature: 趋势图批量操作
     And I will see the "trend.CreatePage" page
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() by apache.status,apache.geo.city"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "3000" millsecond
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "2000" millsecond
     When I set the parameter "NameInput" with value "<name>"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
   Examples:
@@ -31,9 +31,9 @@ Feature: 趋势图批量操作
   Scenario: multi_tag
     When I set the parameter "SearchInput" with value "test_multi_"
     And I wait for loading invisible
-    And I click the "BatchControl" button under some element
+    And I click the "BatchControl" button
     And I click the "SelectAll" button
-    And I click the "SelectBatchOperation" button under some element
+    And I click the "SelectBatchOperation" button
     And I click the "AddResourceTags" button
     And I wait for "Ensure" will be visible
     And I click the "TagToInput" button
@@ -43,7 +43,7 @@ Feature: 趋势图批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I wait for loading complete
-    And I click the "CompleteBatchControl" button under some element
+    And I click the "CompleteBatchControl" button
 
   Scenario: verify_tag
     When I set the parameter "SearchInput" with value "test_multi_"
@@ -55,9 +55,9 @@ Feature: 趋势图批量操作
   Scenario: multi_delete
     When I set the parameter "SearchInput" with value "test_multi_"
     And I wait for loading invisible
-    And I click the "BatchControl" button under some element
+    And I click the "BatchControl" button
     And I click the "SelectAll" button
-    And I click the "SelectBatchOperation" button under some element
+    And I click the "SelectBatchOperation" button
     And I click the "DeleteResources" button
     And I wait for "Ensure" will be visible
     And I wait for "Cancel" will be visible
@@ -70,7 +70,7 @@ Feature: 趋势图批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
     And I wait for "SuccessMessage" will be invisible
-    And I click the "SelectBatchOperation" button under some element
+    And I click the "SelectBatchOperation" button
     And I click the "DeleteResources" button
     And I wait for "Ensure" will be visible
     Then I will see the message "您选中的 2 个资源将被删除，是否继续？"
@@ -78,7 +78,7 @@ Feature: 趋势图批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
     And I wait for loading complete
-    And I click the "CompleteBatchControl" button under some element
+    And I click the "CompleteBatchControl" button
 
   Scenario: verify_delete
     When I set the parameter "SearchInput" with value "test_multi_"
@@ -86,8 +86,8 @@ Feature: 趋势图批量操作
     Then I wait for "NoData" will be visible
 
   Scenario Outline: prompt
-    And I click the "BatchControl" button under some element
-    And I click the "SelectBatchOperation" button under some element
+    And I click the "BatchControl" button
+    And I click the "SelectBatchOperation" button
     And I click the "<button>" button
     And I wait for "Ensure" will be visible
     Then I will see the message "请至少选择一个资源进行操作"

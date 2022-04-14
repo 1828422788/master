@@ -13,17 +13,17 @@ Feature: 应用字段别名
     And I wait for "SearchLoading" will be invisible
     And I "check" the checkbox which name is "app所选资源" in tiny table
     And I click the "SaveMenuButton" button
-    And I click the "AddMenuButton" button under some element
+    And I click the "AddMenuButton" button
     And I set the parameter "MenuName" with value "搜索"
     And I set the parameter "Url" with value "/search/"
     And I click the "SaveMenuButton" button
-    And I click the "AddMenuButton" button under some element
+    And I click the "AddMenuButton" button
     And I set the parameter "MenuName" with value "仪表盘"
     And I set the parameter "Url" with value "/dashboard/"
     And I click the "SaveMenuButton" button
     And I choose the "搜索" from the "DefaultPage"
-    And I click the "CurrentApp" button under some element
-    And I click the "CreateButton" button under some element
+    And I click the "CurrentApp" button
+    And I click the "CreateButton" button
     And I will see the "app.ListPage" page
     Then I wait for "CreateButton" will be visible
 
@@ -40,9 +40,9 @@ Feature: 应用字段别名
     When I upload a file "Upload" with name "/target/download-files/<appName>.tar"
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "__admin__" from the "Role"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "1500" millsecond
-    And I click the "Done" button under some element
+    And I click the "Done" button
     And I wait for "ImportSuccess" will be visible
     And I will see the element "ImportSuccess" name is "添加成功"
 
@@ -61,7 +61,7 @@ Feature: 应用字段别名
     And I set the parameter "FieldAliasModalName" with value "AutoTest"
     And I set the parameter "OriginalField" with value "appname"
     And I set the parameter "FieldAlias" with value "app"
-    And I click the "FieldSavedButton" button under some element
+    And I click the "FieldSavedButton" button
 
   Scenario Outline: 字段别名失败校验
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -74,7 +74,7 @@ Feature: 应用字段别名
     And I set the parameter "FieldAliasModalName" with value "<name>"
     And I set the parameter "OriginalField" with value "<original>"
     And I set the parameter "FieldAlias" with value "<alias>"
-    And I click the "FieldSavedButton" button under some element
+    And I click the "FieldSavedButton" button
     Then I will see the element "WarningInfo" value is "<warning>"
     And I wait for "5000" millsecond
 
@@ -123,7 +123,7 @@ Feature: 应用字段别名
     And I wait for "2000" millsecond
     And I set the parameter "FieldAlias" with value "province"
     And I wait for "1000" millsecond
-    And I click the "FieldSavedButton" button under some element
+    And I click the "FieldSavedButton" button
 
   Scenario: 验证多个字段别名映射
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -180,7 +180,7 @@ Feature: 应用字段别名
     And I set the parameter "FieldAliasModalName" with value "test"
     And I set the parameter "OriginalField" with value "appname"
     And I set the parameter "FieldAlias" with value "app"
-    And I click the "SaveButton" button under some element
+    And I click the "SaveButton" button
 
   Scenario: 验证多个字段别名
     Given open the "splSearch.SearchPage" page for uri "/search/"

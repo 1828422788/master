@@ -16,7 +16,7 @@ Feature: 应用趋势图
     And I "check" the checkbox which name is "app所选资源" in tiny table
     And I click the "SaveMenuButton" button
     And I wait for "1500" millsecond
-    And I click the "AddMenuButton" button under some element
+    And I click the "AddMenuButton" button
     And I wait for "MenuName" will be visible
     And I set the parameter "MenuName" with value "<menuName>"
     And I set the parameter "Url" with value "<url>"
@@ -29,7 +29,7 @@ Feature: 应用趋势图
     And I click the "ColorPicker" button
     And I set the parameter "ColorValue" with value "<color>"
     And I wait for "1500" millsecond
-    And I click the "CreateButton" button under some element
+    And I click the "CreateButton" button
     And I will see the "app.ListPage" page
     Then I wait for "CreateButton" will be visible
 
@@ -54,9 +54,9 @@ Feature: 应用趋势图
     And I drag the scroll bar to the element "ResultDataset"
     And I click the "ResultDataset" button
     And I click the "Ensure" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "1500" millsecond
-    And I click the "Done" button under some element
+    And I click the "Done" button
     And I wait for "ImportSuccess" will be visible
     And I will see the element "ImportSuccess" name is "添加成功"
 

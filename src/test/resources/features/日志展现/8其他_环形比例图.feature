@@ -9,7 +9,7 @@ Feature: 日志展现_8其他_环形比例图
   @logDisplaySmoke
   Scenario Outline:  环形比例图(RZY-4198,4199)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -26,7 +26,7 @@ Feature: 日志展现_8其他_环形比例图
     And I click the "Settings" button
     And I wait for "<chartType>Element_1" will be visible
     And I will see the element "<chartType>Element_1" contains "78%"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "<chartType>Element_1" will be visible
     And I will see the element "<chartType>Element_1" contains "78%"
@@ -40,7 +40,7 @@ Feature: 日志展现_8其他_环形比例图
 
   Scenario Outline:  环形比例图(RZY-4200)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -66,7 +66,7 @@ Feature: 日志展现_8其他_环形比例图
 
   Scenario Outline:  环形比例图_分面(RZY-4201)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -97,7 +97,7 @@ Feature: 日志展现_8其他_环形比例图
 
   Scenario Outline:  环形比例图_颜色(RZY-4202)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -139,7 +139,7 @@ Feature: 日志展现_8其他_环形比例图
     And I wait for "<chartType>Element_1" will be visible
     And I will see the element "<chartType>Element_1" contains "78%"
     And I will see the element "<chartType>Element_2" contains "20%"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "<chartType>Element_1" will be visible
     And I will see the element "<chartType>Element_1" contains "78%"
@@ -154,7 +154,7 @@ Feature: 日志展现_8其他_环形比例图
 
   Scenario Outline:  环形比例图_数据精度(RZY-4203)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count, apache.clientip \|eval count_perc=ip_count/51 \| eval count2_perc=ip_count/204 \| limit 5 "
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button

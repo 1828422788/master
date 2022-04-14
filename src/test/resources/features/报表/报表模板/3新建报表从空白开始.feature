@@ -6,7 +6,7 @@ Feature: 报表模板_3从空白开始
     And I wait for loading invisible
 
   Scenario:  检查提示
-    And I click the "NewReportButton" button under some element
+    And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
     And I wait for "2000" millsecond
     And I wait for element "SelectedUser" change text to username
@@ -19,7 +19,7 @@ Feature: 报表模板_3从空白开始
     Then I will see the element "TipText" contains "请选择或上传模板文件"
 
   Scenario:  修改编辑方式
-    And I click the "NewReportButton" button under some element
+    And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
     And I wait for "2000" millsecond
     And I wait for element "SelectedUser" change text to username
@@ -37,7 +37,7 @@ Feature: 报表模板_3从空白开始
     And I wait for "TextArea" will be visible
 
   Scenario: 新报表模板
-    And I click the "TemplateManager" button under some element
+    And I click the "TemplateManager" button
     And I wait for loading invisible
     Then I will see the "report.CreateTemplatePage" page
     And I click the "NewTemplate" button
@@ -56,7 +56,7 @@ Feature: 报表模板_3从空白开始
 
 
   Scenario: 新报表使用模板，选择模板
-    And I click the "NewReportButton" button under some element
+    And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
     And I wait for "2000" millsecond
     And I wait for element "SelectedUser" change text to username
@@ -85,7 +85,7 @@ Feature: 报表模板_3从空白开始
 
   @reportSmoke
   Scenario: 新报表使用模板，上传模板
-    And I click the "NewReportButton" button under some element
+    And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
     And I wait for "2000" millsecond
     And I wait for element "SelectedUser" change text to username
@@ -117,7 +117,7 @@ Feature: 报表模板_3从空白开始
     And I wait for element "SelectedUser" change text to username
     And I set the parameters "Hour" and "Minute" as "3" minutes later from now
     Then I will see the input element "TemplateFileName" value will be "template2.docx"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "LastTrendTitle" will be visible
     Then I will see the element "LastTrendTitle" contains "报表测试"
     And I choose the "下载到本地预览" from the "Preview"
@@ -147,7 +147,7 @@ Feature: 报表模板_3从空白开始
     And I wait for "1000" millsecond
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "更新成功"
 

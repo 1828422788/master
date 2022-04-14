@@ -32,7 +32,7 @@ Feature: 数据大屏-k玫瑰图
 
 #    ==============================玫瑰图
     And I wait for "Rose" will be visible
-    And I click the "Rose" button under some element
+    And I click the "Rose" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible
@@ -161,7 +161,7 @@ Feature: 数据大屏-k玫瑰图
 
 #    ==============================玫瑰图
     And I wait for "Rose" will be visible
-    And I click the "Rose" button under some element
+    And I click the "Rose" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible

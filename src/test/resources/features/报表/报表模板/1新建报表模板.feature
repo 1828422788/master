@@ -4,7 +4,7 @@ Feature: 报表模板_1新建
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
     And I wait for loading invisible
-    And I click the "TemplateManager" button under some element
+    And I click the "TemplateManager" button
     And I wait for loading invisible
     Then I will see the "report.CreateTemplatePage" page
     And I click the "NewTemplate" button

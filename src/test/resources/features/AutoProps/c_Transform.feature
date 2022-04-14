@@ -19,7 +19,7 @@ Feature: 字段转换
     And I set the parameter "SourceField" with value "apache.request_query"
     And I set the parameter "Separator" with value "="
     And I set the parameter "FieldList" with value "ADDRESS"
-    And I click the "SavedButton" button under some element
+    And I click the "SavedButton" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "AutoTransformRule" change text to "分隔符"
@@ -39,7 +39,7 @@ Feature: 字段转换
     And I set the parameter "RegexSourceField" with value "<Sourcefield>"
     And I set the parameter "CanonicalParse" with value "<Canonicalparse>"
     And I set the parameter "TransformFormat" with value "<Transformformat>"
-    And I click the "SavedButton" button under some element
+    And I click the "SavedButton" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "<TransformationRule>" change text to "正则解析"
@@ -67,7 +67,7 @@ Feature: 字段转换
     And I set the parameter "RegexSourceField" with value "raw_message"
     And I set the parameter "CanonicalParse" with value "(\d+)"
     And I set the parameter "TransformFormat" with value "test::$1"
-    And I click the "SavedButton" button under some element
+    And I click the "SavedButton" button
     And I will see the element "WarningInfo" name is "<warning>"
 
     Examples:
@@ -138,7 +138,7 @@ Feature: 字段转换
     And I set the parameter "SourceField" with value "raw_message"
     And I set the parameter "Separator" with value " :"
     And I set the parameter "FieldList" with value ""
-    And I click the "SavedButton" button under some element
+    And I click the "SavedButton" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "AutoTransformRule" change text to "分隔符"
@@ -178,7 +178,7 @@ Feature: 字段转换
     When the data name is "AutoTransform" then i click the "编辑" button
     And I wait for "MultiValueText" will be visible
     And I click the "MultiValueSwitch" button
-    And I click the "SavedButton" button under some element
+    And I click the "SavedButton" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "AutoTransformRule" change text to "分隔符"
@@ -210,7 +210,7 @@ Feature: 字段转换
     When the data name is "AutoTransform" then i click the "编辑" button
     Then I wait for "ClearFieldText" will be visible
     And I click the "ClearFieldSwitch" button
-    And I click the "SavedButton" button under some element
+    And I click the "SavedButton" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "AutoTransformRule" change text to "分隔符"
@@ -239,7 +239,7 @@ Feature: 字段转换
     And I click the "Extract" button
     And I wait for "AddExtract_ts" will be visible
     And I click the "AutoTransformGlobalShared" button
-    And I click the "Save" button under some element
+    And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
 
@@ -332,7 +332,7 @@ Feature: 字段转换
     And I click the "MultiValueSwitch" button
     Then I wait for "ClearFieldText" will be visible
     And I click the "ClearFieldSwitch" button
-    And I click the "SavedButton" button under some element
+    And I click the "SavedButton" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     And I wait for element "AutoTransformRule" change text to "分隔符"
@@ -346,7 +346,7 @@ Feature: 字段转换
     And I click the "Extract" button
     And I wait for "AddExtract_ts" will be visible
     And I click the "AutoTransformGlobalShared" button
-    And I click the "Save" button under some element
+    And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
 

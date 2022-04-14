@@ -11,15 +11,15 @@ Feature: 趋势图新建_维度
   Scenario Outline: 维度（饼状图，玫瑰图，条形图，旭日图）(RZY-2503,2858,2676,2850)
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Dimension" button under some element
-    And I click the "<chartType>" button under some element
+    And I click the "Type" button
+    And I click the "Dimension" button
+    And I click the "<chartType>" button
 
     And I click the "Type" button
     And I wait for "2000" millsecond
@@ -28,13 +28,13 @@ Feature: 趋势图新建_维度
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
-    And I click the "ReturnButton" button under some element
+    And I click the "ReturnButton" button
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
@@ -58,17 +58,17 @@ Feature: 趋势图新建_维度
   Scenario Outline: dimension_labels_bar
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5"
     And I wait for "2000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Dimension" button under some element
-    And I click the "<chartType>" button under some element
     And I click the "Type" button
-    And I click the "Settings" button under some element
+    And I click the "Dimension" button
+    And I click the "<chartType>" button
+    And I click the "Type" button
+    And I click the "Settings" button
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
@@ -84,11 +84,11 @@ Feature: 趋势图新建_维度
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<typeInfo>_<option>"
     And I compare source image "actual/<chartType>_<typeInfo>_<option>" with target image "expect/<chartType>_<typeInfo>_<option>"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<typeInfo>_<option>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -108,17 +108,17 @@ Feature: 趋势图新建_维度
   Scenario Outline: dimension_labels_options
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Dimension" button under some element
-    And I click the "<chartType>" button under some element
     And I click the "Type" button
-    And I click the "Settings" button under some element
+    And I click the "Dimension" button
+    And I click the "<chartType>" button
+    And I click the "Type" button
+    And I click the "Settings" button
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
@@ -133,11 +133,11 @@ Feature: 趋势图新建_维度
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<typeInfo>"
     And I compare source image "actual/<chartType>_<typeInfo>" with target image "expect/<chartType>_<typeInfo>"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<typeInfo>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -153,18 +153,18 @@ Feature: 趋势图新建_维度
 
   Scenario Outline: dimension_facet
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Dimension" button under some element
-    And I click the "<chartType>" button under some element
+    And I click the "Type" button
+    And I click the "Dimension" button
+    And I click the "<chartType>" button
     And I click the "Type" button
 
-    And I click the "Settings" button under some element
+    And I click the "Settings" button
     And I click the "Facet" button
     And I choose the "apache.method" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "1"
@@ -183,11 +183,11 @@ Feature: 趋势图新建_维度
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<typeInfo>_分面"
     And I compare source image "actual/<chartType>_<typeInfo>_分面" with target image "expect/<chartType>_<typeInfo>_分面"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<typeInfo>_分面"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -199,18 +199,18 @@ Feature: 趋势图新建_维度
 
   Scenario Outline: dimension_facet_sun
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Dimension" button under some element
-    And I click the "<chartType>" button under some element
+    And I click the "Type" button
+    And I click the "Dimension" button
+    And I click the "<chartType>" button
     And I click the "Type" button
 
-    And I click the "Settings" button under some element
+    And I click the "Settings" button
     And I click the "Divide" button
     And I click the "DeleteFirst" button
     And I click the "Facet" button
@@ -230,11 +230,11 @@ Feature: 趋势图新建_维度
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_分面"
 #    And I compare source image "actual/<chartType>_分面" with target image "expect/<chartType>_分面"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_分面"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -245,17 +245,17 @@ Feature: 趋势图新建_维度
   Scenario Outline: 火焰图
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND (apache.status:200) AND NOT (apache.geo.city:黔东南苗族侗族自治州) AND NOT (apache.geo.city:南京市)   | stats count() as cnt by apache.method, apache.status, apache.geo.province, apache.geo.city | sort by apache.method, apache.status, apache.geo.province, apache.geo.city"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Dimension" button under some element
-    And I click the "<chartType>" button under some element
     And I click the "Type" button
-    And I click the "Settings" button under some element
+    And I click the "Dimension" button
+    And I click the "<chartType>" button
+    And I click the "Type" button
+    And I click the "Settings" button
     And I click the "Divide" button
     And I click the "DeleteFirst" button
     And I click the "DeleteFirst" button
@@ -275,13 +275,13 @@ Feature: 趋势图新建_维度
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<option>"
     And I compare source image "actual/<chartType>_<option>" with target image "expect/<chartType>_<option>"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<option>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
-    And I click the "ReturnButton" button under some element
+    And I click the "ReturnButton" button
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
@@ -305,17 +305,17 @@ Feature: 趋势图新建_维度
   Scenario Outline: dimension_flame_facet
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND (apache.status:200) AND NOT (apache.geo.city:黔东南苗族侗族自治州) AND NOT (apache.geo.city:南京市)   | stats count() as cnt by apache.method, apache.status, apache.geo.province, apache.geo.city | sort by apache.method, apache.status, apache.geo.province, apache.geo.city"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Dimension" button under some element
-    And I click the "<chartType>" button under some element
     And I click the "Type" button
-    And I click the "Settings" button under some element
+    And I click the "Dimension" button
+    And I click the "<chartType>" button
+    And I click the "Type" button
+    And I click the "Settings" button
     And I click the "Divide" button
     And I wait for "1000" millsecond
     And I click the "DeleteFirst" button
@@ -340,11 +340,11 @@ Feature: 趋势图新建_维度
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<option>_分面"
     And I compare source image "actual/<chartType>_<option>_分面" with target image "expect/<chartType>_<option>_分面"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<option>_分面"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -354,17 +354,17 @@ Feature: 趋势图新建_维度
   Scenario Outline: dimension_pie_ratio
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
-    And I click the "Type" button under some element
-    And I click the "Dimension" button under some element
-    And I click the "<chartType>" button under some element
     And I click the "Type" button
-    And I click the "Settings" button under some element
+    And I click the "Dimension" button
+    And I click the "<chartType>" button
+    And I click the "Type" button
+    And I click the "Settings" button
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
@@ -381,11 +381,11 @@ Feature: 趋势图新建_维度
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<segments_num>_<ratio>"
     And I compare source image "actual/<chartType>_<segments_num>_<ratio>" with target image "expect/<chartType>_<segments_num>_<ratio>"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<segments_num>"
     And I set the parameter "DescribeInput" with value "AutoCreate_<ratio>"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:

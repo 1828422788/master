@@ -95,7 +95,7 @@ Feature: 仪表盘_5_2_攻击地图
     And I click the "<targetName>" button
 #    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     And I choose the "apache.clientip" from the "DataValue"
     And I wait for "1000" millsecond
     And I choose the "client_lon" from the "Longitude"
@@ -114,10 +114,10 @@ Feature: 仪表盘_5_2_攻击地图
     And I wait for "1500" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
-    And I click the "TrendTitle" button under some element
+    And I click the "TrendTitle" button
     And I wait for "3000" millsecond
 #    And take part of "FullScreen" with name "dashboard/<name>"
 #    Then I compare source image "dashboard/<name>" with target image "dashboard/<targetName>"

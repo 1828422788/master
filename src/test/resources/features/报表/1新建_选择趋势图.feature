@@ -24,16 +24,16 @@ Feature: 报表_1_选择趋势图
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "Header" will be visible
     And I click the "Type" button
     And I click the "Other" button
     And I click the "Single" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "NameInput" with value "报表测试_数据集"
     And I choose the "test_app" from the "AppField" in config
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
   @reportSmoke
@@ -41,7 +41,7 @@ Feature: 报表_1_选择趋势图
     When I set the parameter "Name" with value "test_dataset"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I choose the "PDF" from the "ReportType"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "2000" millsecond
     Then I wait for "ChartListButton" will be visible
     And I click the "ChartListButton" button
@@ -64,7 +64,7 @@ Feature: 报表_1_选择趋势图
     And I set the value "starttime="now/d" endtime="now/d+24h" * | stats count()" to the textarea "TrendSplField"
     Then I click the "EnsureButton" button
 
-    When I click the "Complete" button under some element
+    When I click the "Complete" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -77,7 +77,7 @@ Feature: 报表_1_选择趋势图
     When I set the parameter "Name" with value "test_10trends"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I choose the "PDF" from the "ReportType"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "2000" millsecond
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
@@ -166,7 +166,7 @@ Feature: 报表_1_选择趋势图
     When I set the parameter "Name" with value "<caseNum>"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I choose the "PDF" from the "ReportType"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "2000" millsecond
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
@@ -199,7 +199,7 @@ Feature: 报表_1_选择趋势图
     When I click the "<button>" button
     Then I will see the element "FirstTrendTitle" contains "<trendFirst>"
     And I will see the element "LastTrendTitle" contains "<trendLast>"
-    When I click the "Complete" button under some element
+    When I click the "Complete" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -216,7 +216,7 @@ Feature: 报表_1_选择趋势图
     When I set the parameter "Name" with value "test_modify_cancel"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I choose the "PDF" from the "ReportType"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "2000" millsecond
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
@@ -247,7 +247,7 @@ Feature: 报表_1_选择趋势图
     When I set the parameter "Name" with value "test_prompt"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I choose the "PDF" from the "ReportType"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "2000" millsecond
     Then I wait for "ChartListButton" will be visible
     When I choose the "报表测试" from the "ChartList"
@@ -271,9 +271,9 @@ Feature: 报表_1_选择趋势图
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "<type>" from the "ReportType"
     And I set the parameters "Hour" and "Minute" as "5" minutes later from now
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "Complete" will be visible
-    When I click the "Complete" button under some element
+    When I click the "Complete" button
     And I wait for "ErrorMessage" will be visible
     Then I will see the error message "至少选择一个趋势图"
 

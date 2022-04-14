@@ -44,7 +44,7 @@ Feature: 字段提取正则解析
     And I wait for "CheckSuccess" will be visible
     And I will see the field extraction result "<result>"
     And I click the "Collapse" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "RZY2889apache解析优化"
     And I set the parameter "Logtype" with value "apache"
     And I set the parameter "AppName" with value "<tag>"

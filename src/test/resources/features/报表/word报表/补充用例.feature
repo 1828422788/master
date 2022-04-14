@@ -2,7 +2,7 @@
 Feature:
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
-    And I click the "NewReportButton" button under some element
+    And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
@@ -11,7 +11,7 @@ Feature:
 
   Scenario Outline: table_all_colors
     When I set the parameter "Name" with value "Table8x10_<button>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
@@ -435,7 +435,7 @@ Feature:
     And I set the parameter "ChartListInput" with value "报表测试"
     And I click the button with text "报表测试"
     And I wait for "2000" millsecond
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 

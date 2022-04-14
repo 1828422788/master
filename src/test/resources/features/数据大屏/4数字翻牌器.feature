@@ -31,7 +31,7 @@ Feature: 数据大屏-f数字翻牌器
 
 #    ==============================数字翻牌器
     And I wait for "FlipNumber" will be visible
-    And I click the "FlipNumber" button under some element
+    And I click the "FlipNumber" button
 #    ==============================选择样式
     And I wait for "Style" will be visible
     And I click the "Style" button
@@ -101,7 +101,7 @@ Feature: 数据大屏-f数字翻牌器
 
 #    ==============================数字翻牌器
     And I wait for "FlipNumber" will be visible
-    And I click the "FlipNumber" button under some element
+    And I click the "FlipNumber" button
 #    ==============================选择样式
     And I wait for "Style" will be visible
     And I click the "Style" button

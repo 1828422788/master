@@ -144,7 +144,7 @@ Feature: 权限-数据集
     And I click the "TagToInput" button
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "更多" button
@@ -196,7 +196,7 @@ Feature: 权限-数据集
     And I click the "TagToInput" button
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I wait for "SuccessMessage" will be visible
     And I wait for loading invisible
     When the data name is "<name>" then i click the "更多" button
@@ -359,7 +359,7 @@ Feature: 权限-数据集
     And I click the "TagToInput" button
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "更多" button
@@ -443,7 +443,7 @@ Feature: 权限-数据集
     And I click the "TagToInput" button
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     And I wait for loading invisible
     When the data name is "<name>" then i click the "更多" button
@@ -550,7 +550,7 @@ Feature: 权限-数据集
     And I click the "TagToInput" button
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "更多" button
@@ -595,7 +595,7 @@ Feature: 权限-数据集
     And I click the "TagToInput" button
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "更多" button

@@ -9,7 +9,7 @@ Feature: 日志展现_4复合
   @logDisplaySmoke
   Scenario Outline: 区间图(RZY-835)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -29,7 +29,7 @@ Feature: 日志展现_4复合
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
@@ -48,7 +48,7 @@ Feature: 日志展现_4复合
   @logDisplaySmoke
   Scenario Outline: 多y轴图(RZY-2786)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -95,7 +95,7 @@ Feature: 日志展现_4复合
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-#    And I click the "SearchButton" button under some element
+#    And I click the "SearchButton" button
 #    And I wait for element "SearchStatus" change text to "搜索完成!"
 #    And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
@@ -121,7 +121,7 @@ Feature: 日志展现_4复合
 
   Scenario Outline: 多y轴图(RZY-4842)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button

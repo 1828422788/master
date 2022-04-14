@@ -10,10 +10,10 @@ Feature: 趋势图新建_统计地图
   Scenario Outline: 统计地图
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "2000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
     And I wait for "2000" millsecond
@@ -28,13 +28,13 @@ Feature: 趋势图新建_统计地图
     And I wait for "3000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
 #    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
-    And I click the "ReturnButton" button under some element
+    And I click the "ReturnButton" button
 
     When I will see the "trend.ListPage" page
     And I wait for "AppOfTheLastItem" will be visible
@@ -60,10 +60,10 @@ Feature: 趋势图新建_统计地图
   Scenario Outline: statistical_map_parameters
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "2000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
     And I wait for "2000" millsecond
@@ -89,11 +89,11 @@ Feature: 趋势图新建_统计地图
     And I wait for "3000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
 #    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -104,10 +104,10 @@ Feature: 趋势图新建_统计地图
   Scenario Outline: statistical_map_online
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424* | geostats latfield=apache.geo.latitude longfield=apache.geo.longitude count() avg(apache.resp_len) min(apache.resp_len)"
     And I wait for "2000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
 
     And I wait for "Type" will be visible
     And I wait for "2000" millsecond
@@ -136,11 +136,11 @@ Feature: 趋势图新建_统计地图
     And I wait for "20000" millsecond
     And take part of "StatisticalChart" with name "actual/online/<chartType>_<mapName>"
 #    And I compare source image "actual/online/<chartType>_<mapName>" with target image "expect/online/<chartType>_<mapName>"
-    Then I click the "NextButton" button under some element
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<mapName>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:

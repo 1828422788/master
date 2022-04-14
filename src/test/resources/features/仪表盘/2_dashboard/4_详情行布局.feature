@@ -18,7 +18,7 @@ Feature: 仪表盘04详情行布局
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "<name>"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     And I wait for "SuccessCreate" will be visible
 
     @dashboardSmoke
@@ -261,7 +261,7 @@ Feature: 仪表盘04详情行布局
     And I click the "JoinRow" button
     And I click the "Line1" button
 #    And I wait for "1000" millsecond
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I wait for "RowEventName" will be visible
 
   @dashboard04i @dashboardSmoke
@@ -647,7 +647,7 @@ Feature: 仪表盘04详情行布局
 #    And I wait for "1500" millsecond
 ##   And I will see the success message "展示条件已关闭"
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
-    And I click the "Configs" button under some element
+    And I click the "Configs" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -868,7 +868,7 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
-    And I click the "Configs" button under some element
+    And I click the "Configs" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -1043,7 +1043,7 @@ Feature: 仪表盘04详情行布局
     And I set the parameter "Spl" with value "*|stats count() by 'apache.geo.city'"
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchFilterButton" button under some element
+    And I click the "SearchFilterButton" button
     And I wait for loading invisible
     And I wait for "1500" millsecond
     And I choose the "成都市" from the "DefaultDropdownList"
@@ -1071,7 +1071,7 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
-    And I click the "Configs" button under some element
+    And I click the "Configs" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"

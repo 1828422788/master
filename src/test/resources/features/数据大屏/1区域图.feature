@@ -33,7 +33,7 @@ Feature: 数据大屏-P区域图
 
  #    ==============================区域图
     And I wait for "Area" will be visible
-    And I click the "Area" button under some element
+    And I click the "Area" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible
@@ -177,7 +177,7 @@ Feature: 数据大屏-P区域图
 
  #    ==============================区域图
     And I wait for "Area" will be visible
-    And I click the "Area" button under some element
+    And I click the "Area" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible

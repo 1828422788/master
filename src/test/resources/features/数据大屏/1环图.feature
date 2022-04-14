@@ -32,7 +32,7 @@ Feature: 数据大屏-l环图
 
 #    ==============================环图
     And I wait for "Percent" will be visible
-    And I click the "Percent" button under some element
+    And I click the "Percent" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible
@@ -162,7 +162,7 @@ Feature: 数据大屏-l环图
 
 #    ==============================环图
     And I wait for "Percent" will be visible
-    And I click the "Percent" button under some element
+    And I click the "Percent" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible

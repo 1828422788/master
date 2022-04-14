@@ -32,7 +32,7 @@ Feature: 应用权限
     And I drag the scroll bar to the element "ResultDataset"
     And I click the "ResultDataset" button
     And I click the "Ensure" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I click the "NextButton" button
     And I wait for "ImportSuccess" will be visible
     And I will see the element "ImportSuccess" name is "导入成功"
@@ -92,41 +92,41 @@ Feature: 应用权限
     And I click the "Event" button
     Then the page's title will be "403 Permission Denied"
     And I back to before
-    And I click the "Source" button under some element
+    And I click the "Source" button
     Then the page's title will be "403 Permission Denied"
     And I back to before
-    And I click the "Agent" button under some element
+    And I click the "Agent" button
     Then the page's title will be "403 Permission Denied"
     And I back to before
-    And I click the "Indexsetting" button under some element
+    And I click the "Indexsetting" button
     Then the page's title will be "403 Permission Denied"
     And I back to before
-    And I click the "Ingestpriority" button under some element
+    And I click the "Ingestpriority" button
     Then the page's title will be "403 Permission Denied"
     And I back to before
-    And I click the "Upload" button under some element
+    And I click the "Upload" button
     Then the page's title will be "403 Permission Denied"
     And I back to before
-    And I click the "Backup" button under some element
+    And I click the "Backup" button
     Then the page's title will be "403 Permission Denied"
     And I back to before
-    And I click the "Download" button under some element
+    And I click the "Download" button
     Then the page's title will be "403 Permission Denied"
     And I back to before
-    And I click the "OfflineTask" button under some element
+    And I click the "OfflineTask" button
     Then the page's title will be "403 Permission Denied"
     And I back to before
-    And I click the "Knowledge" button under some element
+    And I click the "Knowledge" button
     Then the page's title will be "403 Permission Denied"
     And I back to before
-    And I click the "Role" button under some element
+    And I click the "Role" button
     Then the page's title will be "403 Permission Denied"
     And I back to before
-    And I click the "UserGroup" button under some element
+    And I click the "UserGroup" button
     Then the page's title will be "403 Permission Denied"
     And I back to before
-    And I click the "Payment" button under some element
+    And I click the "Payment" button
     Then the page's title will be "403 Permission Denied"
     And I back to before
-    And I click the "User" button under some element
+    And I click the "User" button
     Then the page's title will be "403 Permission Denied"

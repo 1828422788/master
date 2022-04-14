@@ -18,7 +18,7 @@ Feature: 全链路_4数据项配置
     When I will see the "splSearch.SearchPage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I wait for "<sec>" millsecond
     And I will see the "fulllink.CreatePage" page
     And I wait for "Message" will be visible
@@ -38,7 +38,7 @@ Feature: 全链路_4数据项配置
     And I click the "DateEditor" button
     And I click the "Today" button
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "Table" will be visible
     And I click the "Cancel" button
@@ -52,10 +52,10 @@ Feature: 全链路_4数据项配置
     And I click the "DataConfig" button
     When I will see the "splSearch.SearchPage" page
     When I set the parameter "SearchInput" with value "index=schedule schedule_name:FullLink_Autotest method:${method} | table start_timestamp, method, city, node, from, to, _totalCount | rename _totalCount as \"_TEST\""
-    And I click the "DateEditor" button under some element
+    And I click the "DateEditor" button
     And I click the "Today" button
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "Table" will be visible
     And I wait for "SuccessMessage" will be invisible
@@ -75,10 +75,10 @@ Feature: 全链路_4数据项配置
     And I click the "DataConfig" button
     When I will see the "splSearch.SearchPage" page
     When I set the parameter "SearchInput" with value "index=schedule schedule_name:FullLink_Autotest method:${method} | table start_timestamp, method, city, node, from, to, _totalCount | rename _totalCount as \"_COUNT\""
-    And I click the "DateEditor" button under some element
+    And I click the "DateEditor" button
     And I click the "Today" button
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button under some element
+    And I click the "SearchButton" button
     And I will see the "fulllink.CreatePage" page
     And I wait for "Table" will be visible
     And I wait for "SuccessMessage" will be invisible

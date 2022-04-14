@@ -48,7 +48,7 @@ Feature: 字段提取自定义字典
     And I wait for "CheckSuccess2" will be visible
     Then I will see the field extraction result "<result>"
     And I click the "Collapse" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "RZY2819配置自定义字典解析规则"
     And I set the parameter "Logtype" with value "json"
     And I set the parameter "AppName" with value "<appName>"

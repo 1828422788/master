@@ -93,7 +93,7 @@ Feature: 仪表盘_3_2_桑基图
     And I click the "Relation" button
     And I click the "<targetName>" button
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     And I choose the "apache.x_forward" from the "DataValue"
     And I click the "Target" button
     And I choose the "apache.resp_len" from the "DataValue"
@@ -105,7 +105,7 @@ Feature: 仪表盘_3_2_桑基图
     And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I click the "TrendTitle" button

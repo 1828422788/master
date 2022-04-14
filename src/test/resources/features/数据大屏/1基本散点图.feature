@@ -33,7 +33,7 @@ Feature: 数据大屏-f基本散点图
     And I click the "Chart" button
   #    ==============================散点图
     And I wait for "Scatter" will be visible
-    And I click the "Scatter" button under some element
+    And I click the "Scatter" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible
@@ -165,7 +165,7 @@ Feature: 数据大屏-f基本散点图
 
 #    ==============================散点图
     And I wait for "Scatter" will be visible
-    And I click the "Scatter" button under some element
+    And I click the "Scatter" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible

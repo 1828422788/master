@@ -31,7 +31,7 @@ Feature: 数据大屏-u气泡图
     And I click the "Chart" button
   #    ==============================气泡图
     And I wait for "Bubble" will be visible
-    And I click the "Bubble" button under some element
+    And I click the "Bubble" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible
@@ -151,7 +151,7 @@ Feature: 数据大屏-u气泡图
 
 #    ==============================气泡图
     And I wait for "Bubble" will be visible
-    And I click the "Bubble" button under some element
+    And I click the "Bubble" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible

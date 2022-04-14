@@ -23,13 +23,13 @@ Feature:3修改图表
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
-    And I click the "LastChartType" button under some element
+    And I click the "LastChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I click the "<label>" button
     And I click the "<order>" button
     And I wait for "1000" millsecond
@@ -78,13 +78,13 @@ Feature:3修改图表
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
-    And I click the "LastChartType" button under some element
+    And I click the "LastChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I click the "<label>" button
     And I wait for "1000" millsecond
     And I click the "Yaxis" button
@@ -126,13 +126,13 @@ Feature:3修改图表
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
-    And I click the "LastChartType" button under some element
+    And I click the "LastChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
@@ -169,13 +169,13 @@ Feature:3修改图表
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
-    And I click the "LastChartType" button under some element
+    And I click the "LastChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
@@ -211,13 +211,13 @@ Feature:3修改图表
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
-    And I click the "LastChartType" button under some element
+    And I click the "LastChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
@@ -253,13 +253,13 @@ Feature:3修改图表
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
-    And I click the "LastChartType" button under some element
+    And I click the "LastChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
@@ -297,13 +297,13 @@ Feature:3修改图表
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
-    And I click the "LastChartType" button under some element
+    And I click the "LastChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I click the "Divide" button
     And I click the "DeleteFirst" button
     And I click the "DeleteFirst" button
@@ -337,13 +337,13 @@ Feature:3修改图表
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
-    And I click the "LastChartType" button under some element
+    And I click the "LastChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
@@ -381,13 +381,13 @@ Feature:3修改图表
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
-    And I click the "LastChartType" button under some element
+    And I click the "LastChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I click the "Xaxis" button
     And I choose the "<xValue>" from the "FieldValue" in config
     And I click the "Yaxis" button
@@ -424,13 +424,13 @@ Feature:3修改图表
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
-    And I click the "LastChartType" button under some element
+    And I click the "LastChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I click the "Xaxis" button
     And I choose the "apache.resp_len" from the "FieldValue" in config
     And I click the "FirstLabel" button
@@ -494,13 +494,13 @@ Feature:3修改图表
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
-    And I click the "LastChartType" button under some element
+    And I click the "LastChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
     And I click the "<tag>" button
     And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I click the "Xaxis" button
     And I choose the "apache.resp_len" from the "FieldValue" in config
     And I click the "FirstLabel" button
@@ -569,7 +569,7 @@ Feature:3修改图表
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
-    And I click the "LastChartType" button under some element
+    And I click the "LastChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
@@ -612,7 +612,7 @@ Feature:3修改图表
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
-    And I click the "LastChartType" button under some element
+    And I click the "LastChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
@@ -644,7 +644,7 @@ Feature:3修改图表
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
-    And I click the "LastChartType" button under some element
+    And I click the "LastChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
@@ -692,7 +692,7 @@ Feature:3修改图表
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
-    And I click the "LastChartType" button under some element
+    And I click the "LastChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
@@ -735,7 +735,7 @@ Feature:3修改图表
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
-    And I click the "LastChartType" button under some element
+    And I click the "LastChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
@@ -779,7 +779,7 @@ Feature:3修改图表
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
-    And I click the "LastChartType" button under some element
+    And I click the "LastChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
@@ -823,7 +823,7 @@ Feature:3修改图表
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
-    And I click the "LastChartType" button under some element
+    And I click the "LastChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
@@ -874,7 +874,7 @@ Feature:3修改图表
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
-    And I click the "LastChartType" button under some element
+    And I click the "LastChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
@@ -913,7 +913,7 @@ Feature:3修改图表
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
-    And I click the "LastChartType" button under some element
+    And I click the "LastChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
@@ -951,7 +951,7 @@ Feature:3修改图表
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
-    And I click the "LastChartType" button under some element
+    And I click the "LastChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button
@@ -996,7 +996,7 @@ Feature:3修改图表
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
-    And I click the "LastChartType" button under some element
+    And I click the "LastChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "<folder>" will be visible
     And I click the "<folder>" button

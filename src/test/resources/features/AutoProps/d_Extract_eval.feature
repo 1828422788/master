@@ -87,7 +87,7 @@ Feature: 字段萃取_eval
     And I click the "Extract" button
     And I wait for "AddExtract_eval" will be visible
     And I click the "AutoEvalGlobalShared" button
-    And I click the "Save" button under some element
+    And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
 
@@ -168,7 +168,7 @@ Feature: 字段萃取_eval
     And I click the "Extract" button
     And I wait for "AddExtract_eval" will be visible
     And I click the "AutoEvalGlobalShared" button
-    And I click the "Save" button under some element
+    And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
 

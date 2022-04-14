@@ -19,9 +19,9 @@ Feature: 拓扑图分组验证
     When I click the detail which name is "新建分组验证"
     Then I will see the "topology.DetailPage" page
     And I wait for loading invisible
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I click the "EditTopologySwitch" button
-    And I click the "Setting" button under some element
+    And I click the "Setting" button
     And I wait for "1000" millsecond
     And I click the "Group" button
     Then I choose the "<nodetype>" from the "NodeType"

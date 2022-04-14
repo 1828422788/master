@@ -32,7 +32,7 @@ Feature: 数据大屏-w水平层叠状柱图
     And I click the "Chart" button
   #    ==============================水平层叠柱状图
     And I wait for "HorizontalCascadeHistogram" will be visible
-    And I click the "HorizontalCascadeHistogram" button under some element
+    And I click the "HorizontalCascadeHistogram" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible
@@ -168,7 +168,7 @@ Feature: 数据大屏-w水平层叠状柱图
 
  #    ==============================水平层叠柱状图
     And I wait for "HorizontalCascadeHistogram" will be visible
-    And I click the "HorizontalCascadeHistogram" button under some element
+    And I click the "HorizontalCascadeHistogram" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible

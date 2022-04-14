@@ -31,7 +31,7 @@ Feature: 数据大屏-v水平分组柱状图
     And I click the "Chart" button
   #    ==============================水平分组柱状图
     And I wait for "HorizontalGroupBar" will be visible
-    And I click the "HorizontalGroupBar" button under some element
+    And I click the "HorizontalGroupBar" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible
@@ -151,7 +151,7 @@ Feature: 数据大屏-v水平分组柱状图
 
  #    ==============================水平分组柱状图
     And I wait for "HorizontalGroupBar" will be visible
-    And I click the "HorizontalGroupBar" button under some element
+    And I click the "HorizontalGroupBar" button
 
 #    ==============================选择样式
     And I wait for "Style" will be visible

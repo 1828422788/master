@@ -17,7 +17,7 @@ Feature: 字段提取禁用/启用
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     Then I wait for "500" millsecond
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "<appName>"

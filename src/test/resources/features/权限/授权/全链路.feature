@@ -51,7 +51,7 @@ Feature: 权限-全链路
     And I wait for loading invisible
     And I click the "Create" button
     And I set the parameter "Name" with value "权限测试"
-    And I click the "Ensure" button under some element 
+    And I click the "Ensure" button 
     Then I will see the success message "创建成功"
     Then I logout current user
 
@@ -150,13 +150,13 @@ Feature: 权限-全链路
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "更多" button
     And I click the "Rename" button
     And I set the parameter "Name" with value "权限测试重命名"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And the data name is "权限测试重命名" then i click the "授权" button in more menu
     And I wait for loading invisible
@@ -209,7 +209,7 @@ Feature: 权限-全链路
     And I wait for "TagToInput" will be visible
     And I click the "TagToInput" button
     And I wait for "Tag" will be visible
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "更多" button
@@ -338,7 +338,7 @@ Feature: 权限-全链路
     And I wait for "TagToInput" will be visible
     And I click the "TagToInput" button
     And I wait for "Tag" will be visible
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And the data name is "<name>" then i click the "授权" button in more menu
     And I wait for loading invisible
@@ -497,7 +497,7 @@ Feature: 权限-全链路
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "更多" button
@@ -543,7 +543,7 @@ Feature: 权限-全链路
     And I wait for "TagToInput" will be visible
     And I click the "TagToInput" button
     And I wait for "Tag" will be visible
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     And the data name is "<name>" then i click the "更多" button
     And I click the "Auth" button

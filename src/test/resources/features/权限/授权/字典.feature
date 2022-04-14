@@ -145,7 +145,7 @@ Feature: 权限-字典
     Then I click the "TagButton" button
    # And I set the parameter "Tag" with value "test"
    # And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
@@ -235,7 +235,7 @@ Feature: 权限-字典
     Then I click the "TagButton" button
    # And I set the parameter "Tag" with value "test"
    # And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "修改成功"
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
@@ -406,7 +406,7 @@ Feature: 权限-字典
     Then I click the "TagButton" button
    # And I set the parameter "Tag" with value "test"
    # And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
@@ -550,7 +550,7 @@ Feature: 权限-字典
     Then I click the "TagButton" button
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
@@ -762,7 +762,7 @@ Feature: 权限-字典
     Then I click the "TagButton" button
     #And I set the parameter "Tag" with value "test"
     #And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
@@ -813,7 +813,7 @@ Feature: 权限-字典
     Then I click the "TagButton" button
     #And I set the parameter "Tag" with value "test"
     #And I choose the "test" from the "TagDropdown"
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I will see the success message "修改成功"
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible

@@ -7,15 +7,15 @@ Feature: 趋势图_上一步
     When the data name is "<name>" then i click the "编辑" button
     And I will see the "trend.CreatePage" page
     And I wait for "Header" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "1000" millsecond
     And I wait for "<element>" will be visible
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "NameInput" will be visible
-    And I click the "BackButton" button under some element
+    And I click the "BackButton" button
     And I wait for "<element>" will be visible
     And I wait for "3000" millsecond
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I will see the input element "NameInput" value will be "<name>"
 
     @trendBackOrder @trendBack

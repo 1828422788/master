@@ -3,7 +3,7 @@ Feature:报表_富文本编辑_3_表格
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
-    And I click the "NewReportButton" button under some element
+    And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
@@ -13,7 +13,7 @@ Feature:报表_富文本编辑_3_表格
   @reportSmoke
   Scenario: 表格（颜色）
     When I set the parameter "Name" with value "Table3x2_Color"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
@@ -57,13 +57,13 @@ Feature:报表_富文本编辑_3_表格
     And I set the parameter "ChartListInput" with value "报表测试"
     And I click the button with text "报表测试"
     And I wait for "2000" millsecond
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
   Scenario: table_alignment
     When I set the parameter "Name" with value "Table4x2_Alignment"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
@@ -106,14 +106,14 @@ Feature:报表_富文本编辑_3_表格
     And I set the parameter "ChartListInput" with value "报表测试"
     And I click the button with text "报表测试"
     And I wait for "2000" millsecond
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
 
   Scenario Outline: table_delete
     When I set the parameter "Name" with value "Table3x3_<button>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
@@ -148,7 +148,7 @@ Feature:报表_富文本编辑_3_表格
     And I set the parameter "ChartListInput" with value "报表测试"
     And I click the button with text "报表测试"
     And I wait for "2000" millsecond
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -161,7 +161,7 @@ Feature:报表_富文本编辑_3_表格
 
   Scenario Outline: table_add
     When I set the parameter "Name" with value "Table3x3_<button2>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
@@ -210,7 +210,7 @@ Feature:报表_富文本编辑_3_表格
     And I click the button with title "#FF0000"
     And I will see the "TableElement" is display
 
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -223,7 +223,7 @@ Feature:报表_富文本编辑_3_表格
 
   Scenario Outline: table_vertical_alignment
     When I set the parameter "Name" with value "Table3x2_<button1>"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
@@ -268,7 +268,7 @@ Feature:报表_富文本编辑_3_表格
     And I will see the element "Cell22" style contains "<style1>"
     And I will see the element "Cell22" style contains "<style2>"
 
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -280,7 +280,7 @@ Feature:报表_富文本编辑_3_表格
 
   Scenario: table_resize
     When I set the parameter "Name" with value "Table3x3_Resize"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "5000" millsecond
@@ -315,7 +315,7 @@ Feature:报表_富文本编辑_3_表格
     # check that width has changed
     And I will see the element "TableElement" style contains "width: 2"
 
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 

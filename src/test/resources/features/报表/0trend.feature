@@ -14,12 +14,12 @@ Feature: 报表_0_趋势图
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible 
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I wait for "3000" millsecond
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "NameInput" with value "报表测试"
     And I set the parameter "TagInput" with value "auto_package"
     And I click the "SelectAddedTag" button
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "Complete" button under some element
+    And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible

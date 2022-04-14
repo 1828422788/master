@@ -215,7 +215,7 @@ Feature: 仪表盘过滤项
     And I click the "FilterName" button
     And I click the "DeleteTag" button
     And I wait for "Ensure" will be visible
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
 
   Scenario: 添加动态菜单(RZY-258,RZY-263,RZY-264)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -239,7 +239,7 @@ Feature: 仪表盘过滤项
     And I wait for "1000" millsecond
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "SearchFilterButton" button under some element
+    And I click the "SearchFilterButton" button
     And I wait for loading invisible
     And I choose the "成都市" from the "DefaultDropdownList"
     And I wait for "1000" millsecond
@@ -330,19 +330,19 @@ Feature: 仪表盘过滤项
     And I click the "FilterSetting" button
     And I set the parameter "DynamicField" with value ""
     And I wait for "500" millsecond
-    And I click the "SearchFilterButton" button under some element
+    And I click the "SearchFilterButton" button
     And I wait for "500" millsecond
     Then I wait for "EmptyNotice" will be visible
     And I set the parameter "DynamicField" with value "hhhhhhhhhhhhh"
     And I wait for "500" millsecond
-    And I click the "SearchFilterButton" button under some element
+    And I click the "SearchFilterButton" button
     And I wait for loading invisible
     Then I will see the error message "缺少选中的字段"
     And I wait for "2500" millsecond
     And I set the parameter "DynamicField" with value "apache.geo.city"
     And I set the parameter "Spl" with value "hello goodbey"
     And I wait for "500" millsecond
-    And I click the "SearchFilterButton" button under some element
+    And I click the "SearchFilterButton" button
     And I wait for loading invisible
     Then I will see the error message "搜索语句须为stats类型"
 
@@ -428,7 +428,7 @@ Feature: 仪表盘过滤项
     And I click the "FilterName" button
     And I click the "DeleteTag" button
     And I wait for "Ensure" will be visible
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
 
   Scenario: 添加文本过滤项(RZY-248)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -552,7 +552,7 @@ Feature: 仪表盘过滤项
     And I click the "FilterName" button
     And I click the "DeleteTag" button
     And I wait for "Ensure" will be visible
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     When I click the "AddEventButton" button
     And I click the "AddFilter" button
     And I set the parameter "FilterTitle" with value "filter"

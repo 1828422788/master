@@ -273,7 +273,7 @@ Feature: 仪表盘1事件列表
 #    And I choose the "raw_message" from the "SourceField"
     And I wait for "500" millsecond
     And I click the "EnsureAddParseRule" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     When I set the parameter "Name" with value "仪表盘配置字段提取"
     And I set the parameter "Logtype" with value "other"
     And I click the "Done" button
@@ -572,7 +572,7 @@ Feature: 仪表盘1事件列表
     And I click the "TimeName" button
     And I click the "DeleteTag" button
     And I wait for "Ensure" will be visible
-    And I click the "Ensure" button under some element
+    And I click the "Ensure" button
     Then I wait for "TimeName" will be invisible
     When I click the "AddEventButton" button
     And I click the "AddFilter" button

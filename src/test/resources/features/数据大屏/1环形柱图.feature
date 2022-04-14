@@ -32,7 +32,7 @@ Feature: 数据大屏-m环形柱图
 
 #    ==============================环形柱图
     And I wait for "circularCylinderChart" will be visible
-    And I click the "circularCylinderChart" button under some element
+    And I click the "circularCylinderChart" button
 #    ==============================选择样式
     And I wait for "Style" will be visible
     And I click the "Style" button
@@ -121,7 +121,7 @@ Feature: 数据大屏-m环形柱图
 
 #    ==============================环形柱图
     And I wait for "circularCylinderChart" will be visible
-    And I click the "circularCylinderChart" button under some element
+    And I click the "circularCylinderChart" button
 #    ==============================选择样式
     And I wait for "Style" will be visible
     And I click the "Style" button

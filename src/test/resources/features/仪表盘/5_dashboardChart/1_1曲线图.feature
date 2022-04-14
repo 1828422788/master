@@ -103,7 +103,7 @@ Feature: 仪表盘_1_1_曲线图
     And I click the "<targetName>" button
 #    And I hide the element "Content"
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     And I choose the "apache.clientip" from the "DataValue"
     And I wait for "1000" millsecond
     And I click the "Right" button
@@ -131,12 +131,12 @@ Feature: 仪表盘_1_1_曲线图
     And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
 #    Then I hide the element "SettingContent"
 #    And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
-    And I click the "TrendTitle" button under some element
+    And I click the "TrendTitle" button
     And I wait for "3000" millsecond
 
     Examples:

@@ -3,7 +3,7 @@ Feature: 报表_2_2维度word
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
-    And I click the "NewReportButton" button under some element
+    And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
@@ -12,7 +12,7 @@ Feature: 报表_2_2维度word
   Scenario Outline: new_report_trend_Dimension
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
     And I set the parameter "ChartListInput" with value "报表测试"
@@ -41,7 +41,7 @@ Feature: 报表_2_2维度word
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -56,7 +56,7 @@ Feature: 报表_2_2维度word
   Scenario Outline: new_report_trend_Dimension_Sun
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
     And I set the parameter "ChartListInput" with value "报表测试"
@@ -88,7 +88,7 @@ Feature: 报表_2_2维度word
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -100,7 +100,7 @@ Feature: 报表_2_2维度word
   Scenario Outline: new_report_trend_bar_label
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
     And I set the parameter "ChartListInput" with value "报表测试"
@@ -130,7 +130,7 @@ Feature: 报表_2_2维度word
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -142,7 +142,7 @@ Feature: 报表_2_2维度word
   Scenario Outline: new_report_trend_bar_orientation
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
     And I set the parameter "ChartListInput" with value "报表测试"
@@ -175,7 +175,7 @@ Feature: 报表_2_2维度word
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -187,7 +187,7 @@ Feature: 报表_2_2维度word
   Scenario Outline: new_report_trend_sunburst
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
     And I set the parameter "ChartListInput" with value "报表测试"
@@ -210,7 +210,7 @@ Feature: 报表_2_2维度word
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -221,7 +221,7 @@ Feature: 报表_2_2维度word
   Scenario Outline: new_report_trend_pie
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
     And I set the parameter "ChartListInput" with value "报表测试"
@@ -253,7 +253,7 @@ Feature: 报表_2_2维度word
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 
@@ -265,7 +265,7 @@ Feature: 报表_2_2维度word
   Scenario Outline: new_report_trend_flame
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
     And I set the parameter "ChartListInput" with value "报表测试"
@@ -296,7 +296,7 @@ Feature: 报表_2_2维度word
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
-    When I click the "FinishButton" button under some element
+    When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
 

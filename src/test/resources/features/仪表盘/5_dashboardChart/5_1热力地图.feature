@@ -90,16 +90,16 @@ Feature: 仪表盘_5_1_热力地图
     And I wait for "1000" millsecond
     Then I will see the "trend.CreatePageDash" page
     And I wait for "Map" will be visible
-    And I click the "Map" button under some element
+    And I click the "Map" button
     And I click the "<targetName>" button
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     And I choose the "count()" from the "DataValue"
     And I click the "Divide" button
 #    And I choose the "apache.geo.city" from the "DataValue"
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    And I click the "SettingChart" button under some element
+    And I click the "SettingChart" button
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
     And I click the "TrendTitle" button

@@ -14,7 +14,7 @@ Feature: 事件操作应用条件
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Regex" with value "(?<a>.*)(?<num>\d{3})"
     And I click the "EnsureAddParseRule" button
-    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
     And I click the "SwitchButton" button
     When I set the parameter "Name" with value "EventTest"
     And I set the parameter "Logtype" with value "other"
