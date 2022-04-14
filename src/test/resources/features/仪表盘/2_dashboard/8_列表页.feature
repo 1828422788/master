@@ -52,7 +52,8 @@ Feature: 仪表盘08列表页
   Scenario: 验证批量添加标签成功 RZY-4839
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I wait for "3500" millsecond
+    And I set the parameter "SearchInput" with value "仪表盘批量"
+    And I wait for loading invisible
     And I click the dashboard icon which name is "仪表盘批量3"
     Then I will see the text "资源标签..............auto_package" exist in page
     And I click the dashboard icon which name is "仪表盘批量3"
