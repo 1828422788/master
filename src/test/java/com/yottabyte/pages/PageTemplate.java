@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.LoadableComponent;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
