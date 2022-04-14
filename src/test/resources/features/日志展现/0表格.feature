@@ -288,7 +288,7 @@ Feature: 日志展现_0表格
     And I choose the "3" from the "PrecisionTable" in config
     And I click the "EnsureButton" button
     And I wait for "2000" millsecond
-    And I will see the element "Cell" contains "363.636"
+    And I will see the element "Cell" contains "3,545.455"
     And I will see the element "Cell" style contains "background-color: rgb(3, 169, 244);"
 
     And I wait for "Chart" will be visible
