@@ -21,6 +21,7 @@ Feature: 字典_授权
     And I click the "FilterIcon" button
     And I wait for loading invisible
     Then I "checked" the label before "<user> (-)" in the dictionary
+    Then I check the label "checked" status before "<user> (-)" in the dictionary
     Then I click the "Cancel" button
     Then the data name is "{'column':'0','name':'<dictionaryName>.csv'}" then i click the "授权" button in more menu
     And I wait for loading invisible
@@ -49,6 +50,7 @@ Feature: 字典_授权
     And I click the "FilterIcon" button
     And I wait for loading invisible
     Then I "checked" the label before "<user> (-)" in the dictionary
+    Then I check the label "checked" status before "<user> (-)" in the dictionary
     Then I click the "Ensure" button
     Then I will see the success message "保存成功"
     Then I click the "Ensure" button
@@ -80,6 +82,7 @@ Feature: 字典_授权
     And I click the "FilterIcon" button
     And I wait for loading invisible
     Then I "checked" the label before "<user> (-)" in the dictionary
+    Then I check the label "checked" status before "<user> (-)" in the dictionary
     Then I click the "Ensure" button
     Then I will see the success message "保存成功"
     Then I click the "Ensure" button
@@ -89,6 +92,7 @@ Feature: 字典_授权
     And I click the "FilterIcon" button
     Then I wait for loading invisible
     Then I "unchecked" the label before "<user> (-)" in the dictionary
+    Then I check the label "unchecked" status before "<user> (-)" in the dictionary
     Then I click the "Cancel" button
     Then the data name is "{'column':'0','name':'<dictionaryName>.csv'}" then i click the "授权" button in more menu
     And I wait for loading invisible
@@ -117,6 +121,7 @@ Feature: 字典_授权
     And I click the "FilterIcon" button
     And I wait for loading invisible
     Then I "checked" the label before "<user> (-)" in the dictionary
+    Then I check the label "checked" status before "<user> (-)" in the dictionary
     Then I click the "Ensure" button
     Then I will see the success message "保存成功"
     Then I click the "Ensure" button
@@ -127,6 +132,7 @@ Feature: 字典_授权
     And I click the "FilterIcon" button
     Then I wait for loading invisible
     Then I "unchecked" the label before "<user> (-)" in the dictionary
+    Then I check the label "unchecked" status before "<user> (-)" in the dictionary
     Then I click the "Ensure" button
     Then I will see the success message "保存成功"
     Then I click the "Ensure" button
@@ -157,6 +163,7 @@ Feature: 字典_授权
     And I click the "FilterIcon" button
     And I wait for loading invisible
     Then I "checked" the label before "<user> (-)" in the dictionary
+    Then I check the label "checked" status before "<user> (-)" in the dictionary
     Then I click the "Indefinitely" button
     Then I click the "Customize" button
     And I click the "TimeSelector" button
