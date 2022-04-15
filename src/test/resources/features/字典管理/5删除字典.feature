@@ -18,6 +18,6 @@ Feature: 字典_删除
       | test_左方插入列       |
       | test_右方插入列       |
       | test_移除该行         |
-      | test_移除该列         |
+      | test_清空该列         |
       | test_剪切             |
       | test_重置             |
