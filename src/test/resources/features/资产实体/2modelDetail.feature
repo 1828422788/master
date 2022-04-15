@@ -9,7 +9,7 @@ Feature: 模型详情
     And I wait for loading invisible
 
   Scenario:变更资产分组图标
-    And I choose the "编辑" from the "OperateList"
+    And I click the Element with text "编辑模型"
     And I click the Element with text "替换"
     And I click the Element with text "网络"
     And I click the "ConfirmButtonInChoseIcon" button
@@ -57,7 +57,7 @@ Feature: 模型详情
 
   Scenario:删除模型关联
     And I click the "ModelContactButton" button
-    And I move the mouse pointer to the text "Router"
+    And I move the mouse pointer to the text "连接"
     And I click the "ModelContactDeleteButton" button
     And I click the Element with text "保存"
     Then I will see the success message "保存成功"
@@ -72,7 +72,7 @@ Feature: 模型详情
   Scenario:编辑字段分组
     And I click the "FieldGroupButton" button
     And I move the mouse pointer to the text "测试新建字段分组"
-    And I move the mouse pointer to the text "编辑"
+    And I click the Element with text "编辑"
     And I click the Element with text "重命名"
     And I set the parameter "Input" with value "测试新建字段分组Edited"
     And I click the Element with text "确定"
@@ -88,7 +88,7 @@ Feature: 模型详情
     And I will see the text "测试新建字段分组Edited" is not existed in page
 
   Scenario:删除模型
-    And I choose the "删除" from the "OperateList"
+    And I click the Element with text "删除模型"
     And I wait table element "Message" change text to "删除模型会将模型中数据以及资产实体全部删除，请谨慎操作。"
     And I click the Element with text "确定"
     Then I will see the text "Router" is not existed in page
