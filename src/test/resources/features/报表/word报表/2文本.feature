@@ -15,27 +15,19 @@ Feature:报表_富文本编辑_2_本文
     When I set the parameter "Name" with value "<name>"
     And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
-    Then I wait for "ChartListButtonWord" will be visible
-    And I wait for "5000" millsecond
-
     And I wait for "TextArea" will be visible
     And I set the parameter "TextArea" with value "<text> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis aliquet nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. textclick"
     And I click the element "Header" in word report
-    And I wait for "2000" millsecond
     And I set the parameter "HeaderText" with value "<text> header" in word report
     And I click the element "Footer" in word report
-    And I wait for "2000" millsecond
     And I set the parameter "FooterText" with value "<text> footer" in word report
-    And I wait for "2000" millsecond
 
     And I select all text in "TextArea" element
-    And I wait for "2000" millsecond
     And I click the element "Color" in word report
     And I click the button with title "#6AA84F"
 
     And I click the element "TextAreaLocator" in word report
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
+    And I choose the "报表测试" from the "ChartList"
     And I select all text in "TextArea" element
     And I click the element "<button>" in word report
     And I will see the element "TextAreaLocator" style contains "font-size: 48px;"
@@ -44,7 +36,6 @@ Feature:报表_富文本编辑_2_本文
     And I will see the element "TextAreaLocator" style contains "color: rgb(106, 168, 79);"
     And I will see the element "HeaderTextStyle" style contains "color: rgb(106, 168, 79);"
     And I will see the element "FooterTextStyle" style contains "color: rgb(106, 168, 79);"
-    And I wait for "2000" millsecond
     When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
@@ -58,25 +49,18 @@ Feature:报表_富文本编辑_2_本文
     When I set the parameter "Name" with value "<name>"
     And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
-    Then I wait for "ChartListButtonWord" will be visible
-    And I wait for "5000" millsecond
 
     And I wait for "TextArea" will be visible
     And I set the parameter "TextArea" with value "<text> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis aliquet nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempor nisi urna, sed pulvinar sem molestie in. Fusce scelerisque eleifend accumsan. Phasellus laoreet ligula id orci congue rhoncus non rutrum quam. Donec hendrerit faucibus consequat. Etiam tellus tortor, ultrices et tellus eget, sollicitudin scelerisque risus. Integer mattis velit et nunc sollicitudin, non tempus lorem hendrerit. textclick"
     And I click the element "Header" in word report
-    And I wait for "2000" millsecond
     And I set the parameter "HeaderText" with value "<text> header" in word report
     And I click the element "Footer" in word report
-    And I wait for "2000" millsecond
     And I set the parameter "FooterText" with value "<text> footer" in word report
-    And I wait for "2000" millsecond
 
     And I click the element "TextArea" in word report
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
+    And I choose the "报表测试" from the "ChartList"
 
     And I select all text in "TextArea" element
-    And I wait for "2000" millsecond
     And I click the element "Color" in word report
     And I click the button with title "<color>"
     And I click the element "<button>" in word report
@@ -84,7 +68,6 @@ Feature:报表_富文本编辑_2_本文
 
     And I will see the element "HeaderTextStyle" style contains "<colorstyle>"
     And I will see the element "FooterTextStyle" style contains "<colorstyle>"
-    And I wait for "2000" millsecond
     When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
@@ -99,26 +82,19 @@ Feature:报表_富文本编辑_2_本文
     When I set the parameter "Name" with value "<button>"
     And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
-    Then I wait for "ChartListButtonWord" will be visible
-    And I wait for "5000" millsecond
 
     And I wait for "TextArea" will be visible
     And I set the parameter "TextArea" with value "<text> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis aliquet nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempor nisi urna, sed pulvinar sem molestie in. Fusce scelerisque eleifend accumsan. Phasellus laoreet ligula id orci congue rhoncus non rutrum quam. Donec hendrerit faucibus consequat. Etiam tellus tortor, ultrices et tellus eget, sollicitudin scelerisque risus. Integer mattis velit et nunc sollicitudin, non tempus lorem hendrerit. textclick"
     And I click the element "Header" in word report
-    And I wait for "2000" millsecond
     And I set the parameter "HeaderText" with value "<text> header" in word report
     And I click the element "Footer" in word report
-    And I wait for "2000" millsecond
     And I set the parameter "FooterText" with value "<text> footer" in word report
-    And I wait for "2000" millsecond
 
     And I select all text in "TextArea" element
-    And I wait for "2000" millsecond
     And I click the element "Color" in word report
     And I click the button with title "<color>"
     And I click the element "Alignment" in word report
     And I click the element "Alignment" in word report
-    And I wait for "2000" millsecond
     And I click the element "<button>" in word report
     And I will see the element "TextAlignment" style contains "<alignment>"
     And I will see the element "HeaderText" style contains "<alignment>"
@@ -128,9 +104,7 @@ Feature:报表_富文本编辑_2_本文
     And I will see the element "FooterTextStyle" style contains "<colorstyle>"
 
     And I click the element "TextAreaLocator" in word report
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
-    And I wait for "2000" millsecond
+    And I choose the "报表测试" from the "ChartList"
     When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
@@ -141,5 +115,3 @@ Feature:报表_富文本编辑_2_本文
     | LeftAlignment   | LEFT ALIGNMENT 右对齐:      | text-align: left;   | #6D9EEB   | color: rgb(109, 158, 235);|
     | CenterAlignment | CENTER ALIGNMENT 居中:      | text-align: center; | #CC4125   | color: rgb(204, 65, 37); |
     | JustifyAlignment| JUSTIFY ALIGNMENT 对齐文本: | text-align: justify;| #783F04   | color: rgb(120, 63, 4);    |
-
-

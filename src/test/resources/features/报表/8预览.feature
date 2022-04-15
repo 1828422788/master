@@ -41,11 +41,7 @@ Feature: 报表_8_预览
     And I set the parameter "Minute" with value "00"
     And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I click the "NextButton" button
-    Then I wait for "ChartListButtonWord" will be visible
-    And I wait for "4000" millsecond
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
-    And I wait for "2000" millsecond
+    And I choose the "报表测试" from the "ChartList"
     Then I will see the "report.CreatePageWORD" page
     And I will see the "Preview" doesn't exist
     When I click the "FinishButton" button

@@ -33,7 +33,6 @@ Feature: 报表模板_3从空白开始
     When I click the "RichTextEditing" button
     And I click the "NextButton" button
     Then I will see the "report.CreatePageWORD" page
-    Then I wait for "ChartListButtonWord" will be visible
     And I wait for "TextArea" will be visible
 
   Scenario: 新报表模板

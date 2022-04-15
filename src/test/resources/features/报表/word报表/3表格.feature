@@ -15,8 +15,6 @@ Feature:报表_富文本编辑_3_表格
     When I set the parameter "Name" with value "Table3x2_Color"
     And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
-    Then I wait for "ChartListButtonWord" will be visible
-    And I wait for "5000" millsecond
 
     And I set the parameter "TextArea" with value "textclick" and press enter in word report
     And I set the parameter "NewLine" with value "text" and press enter in word report
@@ -24,8 +22,7 @@ Feature:报表_富文本编辑_3_表格
     And I click the element "TextAreaLocator" in word report
     And I click the element "AddTable" in word report
     And I click the element "AddTable3x2" in word report
-    And I wait for "2000" millsecond
-    And I will see the "TableElement" is display
+    And I wait for "TableElement" will be visible
     And I set the table cell in row "1" and column "1" with value "Cell 1 1" in word report
     And I select all text in row "1" and column "1" of the table in word report
     And I click the element "Color" in word report
@@ -50,13 +47,10 @@ Feature:报表_富文本编辑_3_表格
     And I select all text in row "2" and column "3" of the table in word report
     And I click the element "Color" in word report
     And I click the button with title "#733554"
-    And I wait for "2000" millsecond
 
     And I select all text in "NewLine" element
     And I click the element "NewLine" in word report
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
-    And I wait for "2000" millsecond
+    And I choose the "报表测试" from the "ChartList"
     When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
@@ -65,8 +59,6 @@ Feature:报表_富文本编辑_3_表格
     When I set the parameter "Name" with value "Table4x2_Alignment"
     And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
-    Then I wait for "ChartListButtonWord" will be visible
-    And I wait for "5000" millsecond
 
     And I set the parameter "TextArea" with value "textclick" and press enter in word report
     And I set the parameter "NewLine" with value "text" and press enter in word report
@@ -75,8 +67,7 @@ Feature:报表_富文本编辑_3_表格
     And I click the element "AddTable" in word report
     And I click the element "NoBorders" in word report
     And I click the element "AddTable4x2" in word report
-    And I wait for "2000" millsecond
-    And I will see the "NoBorderTableElement" is display
+    And I wait for "NoBorderTableElement" will be visible
     And I set the table cell in row "1" and column "1" with value "Default: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras cursus tincidunt eros, sit amet posuere risus laoreet et." in word report
     And I select all text in row "1" and column "1" of the table in word report
     And I set the table cell in row "1" and column "2" with value "Left: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras cursus tincidunt eros, sit amet posuere risus laoreet et." in word report
@@ -99,13 +90,10 @@ Feature:报表_富文本编辑_3_表格
     And I set the table cell in row "2" and column "2" with value "Default: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras cursus tincidunt eros, sit amet posuere risus laoreet et." in word report
     And I set the table cell in row "2" and column "3" with value "Default: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras cursus tincidunt eros, sit amet posuere risus laoreet et." in word report
     And I set the table cell in row "2" and column "4" with value "Default: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras cursus tincidunt eros, sit amet posuere risus laoreet et." in word report
-    And I wait for "2000" millsecond
 
     And I select all text in "NewLine" element
     And I click the element "NewLine" in word report
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
-    And I wait for "2000" millsecond
+    And I choose the "报表测试" from the "ChartList"
     When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
@@ -115,8 +103,6 @@ Feature:报表_富文本编辑_3_表格
     When I set the parameter "Name" with value "Table3x3_<button>"
     And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
-    Then I wait for "ChartListButtonWord" will be visible
-    And I wait for "5000" millsecond
 
     And I set the parameter "TextArea" with value "<button> in Cell 2 2" and press enter in word report
     And I set the parameter "NewLine" with value "textclick" and press enter in word report
@@ -124,8 +110,7 @@ Feature:报表_富文本编辑_3_表格
     And I click the element "TextAreaLocator" in word report
     And I click the element "AddTable" in word report
     And I click the element "AddTable3x3" in word report
-    And I wait for "2000" millsecond
-    And I will see the "TableElement" is display
+    And I wait for "TableElement" will be visible
     And I set the table cell in row "1" and column "1" with value "Cell 1 1" in word report
     And I set the table cell in row "1" and column "2" with value "Cell 1 2" in word report
     And I set the table cell in row "1" and column "3" with value "Cell 1 3" in word report
@@ -145,9 +130,7 @@ Feature:报表_富文本编辑_3_表格
 
     And I select all text in "NewLine" element
     And I click the element "NewLine" in word report
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
-    And I wait for "2000" millsecond
+    And I choose the "报表测试" from the "ChartList"
     When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
@@ -163,21 +146,16 @@ Feature:报表_富文本编辑_3_表格
     When I set the parameter "Name" with value "Table3x3_<button2>"
     And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
-    Then I wait for "ChartListButtonWord" will be visible
-    And I wait for "5000" millsecond
 
     And I set the parameter "TextArea" with value "<button2> in Cell 2 2" and press enter in word report
     And I set the parameter "NewLine" with value "textclick" and press enter in word report
     And I set the parameter "NewLine" with value "text" in word report
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
-    And I wait for "2000" millsecond
+    And I choose the "报表测试" from the "ChartList"
     And I select all text in "TextAreaLocator" element
     And I click the element "TextAreaLocator" in word report
     And I click the element "AddTable" in word report
     And I click the element "AddTable3x3" in word report
-    And I wait for "2000" millsecond
-    And I will see the "TableElement" is display
+    And I wait for "TableElement" will be visible
     And I set the table cell in row "1" and column "1" with value "Cell 1 1" in word report
     And I set the table cell in row "1" and column "2" with value "Cell 1 2" in word report
     And I set the table cell in row "1" and column "3" with value "Cell 1 3" in word report
@@ -194,7 +172,6 @@ Feature:报表_富文本编辑_3_表格
     And I click the element "<button1>" in word report
     And I wait for "<button2>" will be visible
     And I click the element "<button2>" in word report
-    And I wait for "2000" millsecond
 
     And I set the table cell in row "<row1>" and column "<col1>" with value "ADD" in word report
     And I select all text in row "<row1>" and column "<col1>" of the table in word report
@@ -225,21 +202,16 @@ Feature:报表_富文本编辑_3_表格
     When I set the parameter "Name" with value "Table3x2_<button1>"
     And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
-    Then I wait for "ChartListButtonWord" will be visible
-    And I wait for "5000" millsecond
 
     And I set the parameter "TextArea" with value "<button1> <button2> in Cell 2 2" and press enter in word report
     And I set the parameter "NewLine" with value "textclick" and press enter in word report
     And I set the parameter "NewLine" with value "text" in word report
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
-    And I wait for "2000" millsecond
+    And I choose the "报表测试" from the "ChartList"
     And I select all text in "TextAreaLocator" element
     And I click the element "TextAreaLocator" in word report
     And I click the element "AddTable" in word report
     And I click the element "AddTable3x2" in word report
-    And I wait for "2000" millsecond
-    And I will see the "TableElement" is display
+    And I wait for "TableElement" will be visible
     And I set the table cell in row "1" and column "1" with value "Cell 1 1" in word report
     And I set the table cell in row "1" and column "2" with value "Cell 1 2" in word report
     And I set the table cell in row "1" and column "3" with value "Cell 1 3" in word report
@@ -253,17 +225,13 @@ Feature:报表_富文本编辑_3_表格
 
     And I wait for "VerticalAlignment" will be visible
     And I click the element "VerticalAlignment" in word report
-    And I wait for "2000" millsecond
     And I wait for "<button1>" will be visible
     And I click the element "<button1>" in word report
-    And I wait for "2000" millsecond
 
     And I wait for "Alignment" will be visible
     And I click the element "Alignment" in word report
-    And I wait for "2000" millsecond
     And I wait for "<button2>" will be visible
     And I click the element "<button2>" in word report
-    And I wait for "2000" millsecond
 
     And I will see the element "Cell22" style contains "<style1>"
     And I will see the element "Cell22" style contains "<style2>"
@@ -282,21 +250,16 @@ Feature:报表_富文本编辑_3_表格
     When I set the parameter "Name" with value "Table3x3_Resize"
     And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
-    Then I wait for "ChartListButtonWord" will be visible
-    And I wait for "5000" millsecond
 
     And I set the parameter "TextArea" with value "Resize Table" and press enter in word report
     And I set the parameter "NewLine" with value "textclick" and press enter in word report
     And I set the parameter "NewLine" with value "text" in word report
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
-    And I wait for "2000" millsecond
+    And I choose the "报表测试" from the "ChartList"
     And I select all text in "TextAreaLocator" element
     And I click the element "TextAreaLocator" in word report
     And I click the element "AddTable" in word report
     And I click the element "AddTable3x3" in word report
-    And I wait for "2000" millsecond
-    And I will see the "TableElement" is display
+    And I wait for "TableElement" will be visible
     And I will see the element "TableElement" style contains "width: 100%;"
     And I set the table cell in row "1" and column "1" with value "Cell 1 1" in word report
     And I set the table cell in row "1" and column "2" with value "Cell 1 2" in word report
@@ -318,5 +281,3 @@ Feature:报表_富文本编辑_3_表格
     When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
-
-

@@ -6,8 +6,6 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class CreatePageWORD extends PageTemplate {
@@ -27,10 +25,7 @@ public class CreatePageWORD extends PageTemplate {
     private WebElement EnsureButton;
 
     @FindBy(xpath = "//a[@aria-label='选择趋势图']/span")
-    private WebElement chartListWord;
-
-    @FindBy(xpath = "//input[@placeholder='请输入']")
-    private WebElement chartListInput;
+    private WebElement addTrendWord;
 
     @FindBy(xpath = "//label[@name='operate_edit']")
     private WebElement editButton;
@@ -287,12 +282,22 @@ public class CreatePageWORD extends PageTemplate {
     @FindBy(xpath = " //a[@aria-label='预览']")
     private WebElement preview;
 
-    @FindBy(xpath = "//ul[@class='jodit_toolbar']")
-    private WebElement previewDropdownList;
+    @FindBy(xpath = "(//ul[contains(@class,'toolbar')])[2]")
+    private WebElement dropdownList;
 
     public WebElement getPreview() {
         preview.click();
-        return previewDropdownList;
+        return dropdownList;
+    }
+
+    public WebElement getChartList() {
+        addTrendWord.click();
+        return dropdownList;
+    }
+
+    public WebElement getSingleChartList() {
+        singleTrendList.click();
+        return dropdownList;
     }
 
     public WebElement getErrorMessage() {
@@ -313,28 +318,6 @@ public class CreatePageWORD extends PageTemplate {
 
     public WebElement getEnsureButton() {
         return EnsureButton;
-    }
-
-    public WebElement getChartListButtonWord() {
-        return chartListWord;
-    }
-
-    public WebElement getChartListInput() {
-        chartListWord.click();
-        WebDriverWait wait = new WebDriverWait(webDriver,10);
-        wait.until(ExpectedConditions.elementToBeClickable(chartListInput));
-        return chartListInput;
-    }
-
-    public WebElement getSingleTrendList() {
-        return singleTrendList;
-    }
-
-    public WebElement getSingleChartListInput() {
-        singleTrendList.click();
-        WebDriverWait wait = new WebDriverWait(webDriver,10);
-        wait.until(ExpectedConditions.elementToBeClickable(chartListInput));
-        return chartListInput;
     }
 
     public WebElement getEditButton() {

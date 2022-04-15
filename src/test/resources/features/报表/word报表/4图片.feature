@@ -15,22 +15,16 @@ Feature:报表_富文本编辑_4_图片
     When I set the parameter "Name" with value "Image"
     And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
-    Then I wait for "ChartListButtonWord" will be visible
-    And I wait for "5000" millsecond
 
     When I upload a file "UploadImage" with name "/src/test/resources/testdata/image/smallRobbot.png"
-    And I wait for "2000" millsecond
-    And I will see the "ImageElement" is display
+    And I wait for "ImageElement" will be visible
     And I click the element "ImageElement" in word report
     And I wait for "DeleteElement" will be visible
     And I click the element "DeleteElement" in word report
     And I will see the "ImageElement" doesn't exist
     And I click the element "Undo" in word report
     And I will see the "ImageElement" is display
-
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
-    And I wait for "2000" millsecond
+    And I choose the "报表测试" from the "ChartList"
     When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
@@ -39,8 +33,6 @@ Feature:报表_富文本编辑_4_图片
     When I set the parameter "Name" with value "Image"
     And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
-    Then I wait for "ChartListButtonWord" will be visible
-    And I wait for "5000" millsecond
 
     When I upload a file "UploadImage" with name "/src/test/resources/testdata/image/pikachu.jpeg"
     And I wait for "EnsureButton" will be visible
@@ -50,31 +42,22 @@ Feature:报表_富文本编辑_4_图片
     When I set the parameter "Name" with value "Image_HF"
     And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
-    Then I wait for "ChartListButtonWord" will be visible
-    And I wait for "5000" millsecond
 
     And I click the element "Header" in word report
-    And I wait for "2000" millsecond
     And I set the parameter "HeaderText" with value "Text Header" in word report
     And I select all text in "HeaderText" element
     And I click the element "HeaderText" in word report
 
     When I upload a file "UploadImage" with name "/src/test/resources/testdata/image/smallRobbot.png"
-    And I wait for "2000" millsecond
     And I wait for "ImageElement" will be visible
-
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
-    And I wait for "2000" millsecond
+    And I choose the "报表测试" from the "ChartList"
 
     And I click the element "Footer" in word report
-    And I wait for "2000" millsecond
     And I set the parameter "FooterText" with value "Text Footer" in word report
     And I select all text in "FooterText" element
     And I click the element "FooterText" in word report
 
     When I upload a file "UploadImage" with name "/src/test/resources/testdata/image/smallRobbot.png"
-    And I wait for "2000" millsecond
     And I wait for "ImageElement" will be visible
 
     When I click the "FinishButton" button
@@ -85,27 +68,18 @@ Feature:报表_富文本编辑_4_图片
     When I set the parameter "Name" with value "Image_Table"
     And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
-    Then I wait for "ChartListButtonWord" will be visible
-    And I wait for "5000" millsecond
 
     And I click the element "AddTable" in word report
     And I click the element "AddTable3x2" in word report
-    And I wait for "2000" millsecond
-    And I will see the "TableElement" is display
+    And I wait for "TableElement" will be visible
     And I set the table cell in row "1" and column "1" with value "Cell 1 1" in word report
     And I select all text in row "1" and column "2" of the table in word report
 
     When I upload a file "UploadImage" with name "/src/test/resources/testdata/image/smallRobbot.png"
-    And I wait for "2000" millsecond
     And I wait for "ImageElement" will be visible
 
-
     And I select all text in row "1" and column "3" of the table in word report
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
-    And I wait for "2000" millsecond
+    And I choose the "报表测试" from the "ChartList"
     When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
-
-    

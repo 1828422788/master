@@ -13,11 +13,7 @@ Feature: 报表_2_1序列word
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButtonWord" will be visible
-    And I wait for "4000" millsecond
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
-    And I wait for "2000" millsecond
+    And I choose the "报表测试" from the "ChartListWord"
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -63,11 +59,7 @@ Feature: 报表_2_1序列word
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButtonWord" will be visible
-    And I wait for "4000" millsecond
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
-    And I wait for "2000" millsecond
+    And I choose the "报表测试" from the "ChartListWord"
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -117,11 +109,7 @@ Feature: 报表_2_1序列word
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButtonWord" will be visible
-    And I wait for "4000" millsecond
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
-    And I wait for "2000" millsecond
+    And I choose the "报表测试" from the "ChartListWord"
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -164,11 +152,7 @@ Feature: 报表_2_1序列word
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButtonWord" will be visible
-    And I wait for "4000" millsecond
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
-    And I wait for "2000" millsecond
+    And I choose the "报表测试" from the "ChartListWord"
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
