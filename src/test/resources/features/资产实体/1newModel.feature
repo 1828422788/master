@@ -44,7 +44,7 @@ Feature: 新建模型
     
   Scenario:重命名资产分组
     And I move the mouse pointer to the text "路由"
-    And I move the mouse pointer to the text "编辑"
+    And I click the Element with text "编辑"
     And I click the Element with text "重命名"
     And I set the parameter "Input" with value "路由1"
     And I click the Element with text "确定"

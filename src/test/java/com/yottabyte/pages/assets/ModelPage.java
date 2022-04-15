@@ -30,8 +30,6 @@ public class ModelPage extends PageTemplate{
         return dropdownUtils.getDropdownListbyPath("//div[@name='group_id']/div");
     }
 
-    public WebElement getOperateList(){return dropdownUtils.getParentElementOfMenuListByXpath("//span[contains(@class,'yotta-icon-Ellipsis')]"); }
-
     public WebElement getInputForName(){
         return getInputByName("name");
     }
@@ -54,6 +52,6 @@ public class ModelPage extends PageTemplate{
 
     public WebElement getSwitchSlider(){return super.getButtonByClassName("yotta-switch-slider");}
 
-    public WebElement getModelContactDeleteButton(){return super.findElementByXpath("//span[@aria-label='Delete']");}
+    public WebElement getModelContactDeleteButton(){return super.findElementByXpath("//span[@aria-label='Delete' and @tabindex='-1']");}
 
 }
