@@ -48,7 +48,7 @@ public class WaitForElement {
     }
 
     public static void waitUntilLoadingDisappear() {
-        webDriver.manage().timeouts().implicitlyWait(WebDriverConst.WAIT_FOR_ELEMENT_POLLING_DURING, TimeUnit.MILLISECONDS);
+        webDriver.manage().timeouts().implicitlyWait(WebDriverConst.WAIT_FOR_LOADING_INVISIBLE, TimeUnit.SECONDS);
             try {
             waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOfElementLocated(By.className("yotta-spinner-spin")));
             } catch (Exception e) {

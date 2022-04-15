@@ -16,4 +16,7 @@ public class WebDriverConst {
 
     // 等待页面加载完毕
     public static final int WAIT_FOR_DOM_READY_TIMEOUT = 30 * 1000;
+
+    //等待加载元素消失
+    public static final int WAIT_FOR_LOADING_INVISIBLE = 1;
 }
