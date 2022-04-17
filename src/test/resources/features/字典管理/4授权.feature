@@ -25,9 +25,6 @@ Feature: 字典_授权
     Then I click the "Cancel" button
     Then the data name is "{'column':'0','name':'<dictionaryName>.csv'}" then i click the "授权" button in more menu
     And I wait for loading invisible
-    Then I set the parameter "UserFilter" with value "<user>"
-    And I click the "FilterIcon" button
-    And I wait for loading invisible
     Then I check the label "unchecked" status before "<user> (-)" in the dictionary
 
     Examples:
@@ -56,9 +53,6 @@ Feature: 字典_授权
     Then I click the "Ensure" button
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>.csv'}" then i click the "授权" button in more menu
-    And I wait for loading invisible
-    Then I set the parameter "UserFilter" with value "<user>"
-    And I click the "FilterIcon" button
     And I wait for loading invisible
     Then I check the label "checked" status before "<user> (-)" in the dictionary
 
@@ -95,9 +89,6 @@ Feature: 字典_授权
     Then I check the label "unchecked" status before "<user> (-)" in the dictionary
     Then I click the "Cancel" button
     Then the data name is "{'column':'0','name':'<dictionaryName>.csv'}" then i click the "授权" button in more menu
-    And I wait for loading invisible
-    Then I set the parameter "UserFilter" with value "<user>"
-    And I click the "FilterIcon" button
     And I wait for loading invisible
     Then I check the label "checked" status before "<user> (-)" in the dictionary
 
@@ -138,9 +129,6 @@ Feature: 字典_授权
     Then I click the "Ensure" button
     Then the data name is "{'column':'0','name':'<dictionaryName>.csv'}" then i click the "授权" button in more menu
     And I wait for loading invisible
-    Then I set the parameter "UserFilter" with value "<user>"
-    And I click the "FilterIcon" button
-    Then I wait for loading invisible
     Then I check the label "unchecked" status before "<user> (-)" in the dictionary
 
     Examples:
