@@ -49,10 +49,13 @@ public class WaitForElement {
 
     public static void waitUntilLoadingDisappear() {
         webDriver.manage().timeouts().implicitlyWait(WebDriverConst.WAIT_FOR_LOADING_INVISIBLE, TimeUnit.SECONDS);
+        if (ElementExist.isElementExist(webDriver, By.className("yotta-spinner-spin"))) {
             try {
-            waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOfElementLocated(By.className("yotta-spinner-spin")));
+                WebElement loadingMask = webDriver.findElement(By.className("yotta-spinner-spin"));
+                WaitForElement.waitElementInvisible(loadingMask);
             } catch (Exception e) {
             }
+        }
         webDriver.manage().timeouts().implicitlyWait(WebDriverConst.WAIT_FOR_ELEMENT_TIMEOUT, TimeUnit.MILLISECONDS);
     }
 
