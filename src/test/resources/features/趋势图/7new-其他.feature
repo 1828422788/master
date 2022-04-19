@@ -50,7 +50,7 @@ Feature: 趋势图新建_其他
 
     Examples:
       | chartType | caseNum | spl                                                                                                          |
-      | Single    | 2549    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>300,\"thumbs-down\",\"thumbs-up\"\) |
+      | Single    | 2549    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>300,\"thumbs-down\",\"thumbs-up\") |
       | Radar     | 2633    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city                                   |
       | Funnel    | 2654    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt by apache.clientip \| sort by cnt, apache.clientip \|limit 5 |
 

@@ -14,7 +14,8 @@ Feature: 创建用户和上传log
     Then I wait for "SuccessMessage" will be visible
 
   Scenario: 更改密码
-    Given I logout current user
+    Given open the "users.ListPage" page for uri "/account/users/"
+    And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "logdisplay"
@@ -39,5 +40,3 @@ Feature: 创建用户和上传log
     Examples:
       |    tag         | log        | appname   |
       | display_may    | display_may| apache    |
-      | gf_dapper_test | gf_dapper  | dapper    |
-      | vendors_test   | geostats   | vendors   |

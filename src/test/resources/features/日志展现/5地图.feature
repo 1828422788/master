@@ -187,8 +187,8 @@ Feature: 日志展现_5地图
 
     Examples:
       |chartType   |caseNum  |   spl   |
-      |Geostatsmap | 2795    |  tag:vendors_test \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
-      |Geostatsmap | 2797    |  tag:vendors_test \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince |
+      |Geostatsmap | 2795    |  tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
+      |Geostatsmap | 2797    |  tag:vendors_461 \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince |
 
   @logDisplaySmoke
   Scenario Outline: 统计地图(RZY-2796)
@@ -221,7 +221,7 @@ Feature: 日志展现_5地图
 
     Examples:
       |chartType   | caseNum  |   spl   |
-      |Geostatsmap |  2796    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:vendors_test \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
+      |Geostatsmap |  2796    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
 
     @statsmaptest
   Scenario Outline: 统计地图_param1

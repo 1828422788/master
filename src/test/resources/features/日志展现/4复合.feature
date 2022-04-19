@@ -43,7 +43,7 @@ Feature: 日志展现_4复合
 
     Examples:
       | xValue | actualValue|  predictedValue| upperValue | lowerValue |   chartType   |   caseNum  |   spl   |
-      |   ts   |   cnt      |   _predict_cnt |    upper95 |    lower95 |    Rangeline  |    835     | starttime=\"now/d\" endtime=\"now/d+24h\" tag: sample04061424_chart \| bucket timestamp span=1h as ts \| stats count\(\) as cnt by ts \| esma cnt timefield=ts  |
+      |   ts   |   cnt      |   _predict_cnt |    upper95 |    lower95 |    Rangeline  |    835     | starttime=\"now/d\" endtime=\"now/d+24h\" tag: sample04061424_chart \| bucket timestamp span=1h as ts \| stats count() as cnt by ts \| esma cnt timefield=ts  |
 
   @logDisplaySmoke
   Scenario Outline: 多y轴图(RZY-2786)

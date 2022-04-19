@@ -45,7 +45,7 @@ Feature: 保存为趋势图_复合
 
     Examples:
       | xValue | actualValue|  predictedValue| upperValue | lowerValue |   chartType   |   caseNum  |   spl   |
-      |   ts   |   cnt      |   _predict_cnt |    upper95 |    lower95 |    Rangeline  |    2516    | starttime=\"now/d\" endtime=\"now/d+24h\" tag: sample04061424_chart \| bucket timestamp span=1h as ts \| stats count\(\) as cnt by ts \| esma cnt timefield=ts  |
+      |   ts   |   cnt      |   _predict_cnt |    upper95 |    lower95 |    Rangeline  |    2516    | starttime=\"now/d\" endtime=\"now/d+24h\" tag: sample04061424_chart \| bucket timestamp span=1h as ts \| stats count() as cnt by ts \| esma cnt timefield=ts  |
 
   Scenario Outline: compound_multiaxis_1
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag: sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10"
