@@ -22,30 +22,24 @@ Feature: 报表_富文本编辑_8_限制
     And I choose the "WORD" from the "ReportType"
     And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
-    Then I wait for "ChartListButtonWord" will be visible
-    And I wait for "5000" millsecond
 
     And I click the element "AddTable" in word report
     And I click the element "AddTable3x2" in word report
-    And I wait for "2000" millsecond
+    And I wait for "TableElement" will be visible
     And I select all text in row "1" and column "1" of the table in word report
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
-    And I wait for "2000" millsecond
+    And I choose the "报表测试" from the "ChartList"
+    And I wait for "1000" millsecond
     And I will see the element "LastAddedTrend" contains "报表测试"
     And I select all text in row "1" and column "2" of the table in word report
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
-    And I wait for "2000" millsecond
+    And I choose the "报表测试" from the "ChartList"
+    And I wait for "1000" millsecond
     And I will see the element "LastAddedTrend" contains "报表测试(1)"
     And I select all text in row "1" and column "3" of the table in word report
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
-    And I wait for "2000" millsecond
+    And I choose the "报表测试" from the "ChartList"
+    And I wait for "1000" millsecond
     And I will see the element "LastAddedTrend" contains "报表测试(2)"
     And I select all text in row "2" and column "1" of the table in word report
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
+    And I choose the "报表测试" from the "ChartList"
     And I will see the message "每个报表最多保存3个趋势图" in alert window
     And I accept alert window
 
@@ -60,4 +54,3 @@ Feature: 报表_富文本编辑_8_限制
     And I let element "TrendLimit" lose focus
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
-

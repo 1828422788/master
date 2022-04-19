@@ -13,8 +13,6 @@ Feature:
     When I set the parameter "Name" with value "Table8x10_<button>"
     And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
-    Then I wait for "ChartListButtonWord" will be visible
-    And I wait for "5000" millsecond
 
     And I click the element "AddTable" in word report
     And I click the element "AddTable8x10" in word report
@@ -431,10 +429,7 @@ Feature:
     And I select all text in "TextArea" element
 
     And I click the element "<button>" in word report
-
-    And I set the parameter "ChartListInput" with value "报表测试"
-    And I click the button with text "报表测试"
-    And I wait for "2000" millsecond
+    And I choose the "报表测试" from the "ChartList"
     When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"

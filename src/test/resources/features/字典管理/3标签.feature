@@ -75,8 +75,8 @@ Feature: 字典_标签
     When I click the "UploadButton" button
     Then I set the parameter "Name" with value "<dictionaryName>"
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
-    And I wait for "FileName" will be visible
-    And I choose the "<twoTag>" from the "TagList" in config
+    And I wait for "1000" millsecond
+    And I choose the "<twoTag>" from the "TagList"
     And I click the "UploadConfirm" button
     Then I will see the success message "创建字典成功"
     Then I click the "Ensure" button

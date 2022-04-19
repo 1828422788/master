@@ -50,7 +50,7 @@ Feature: 字典管理_更新内容
       | 右方插入列 | Cell_C1  | level     | Cell_C2  | high     | Cell_B1    | Cell_B2    |
 
 
-  Scenario Outline: 更新字典内容-2个（移除该行，移除该列）
+  Scenario Outline: 更新字典内容-1个（移除该行）
     When I click the "UploadButton" button
     Then I set the parameter "Name" with value "test_<button>"
     And I upload a file with name "/src/test/resources/testdata/dictionary/AutoTest.csv"
@@ -62,7 +62,7 @@ Feature: 字典管理_更新内容
     Then the data name is "{'column':'0','name':'test_<button>.csv'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     Given I wait for loading invisible
-    And I open the context menu of the "Cell_A1" element
+    And I open the context menu of the "<cell>" element
     And I click the Element with text "<button>"
     And I wait for loading invisible
     And I will see the element "<cell_1>" contains "<value_1>"
@@ -79,9 +79,50 @@ Feature: 字典管理_更新内容
     And I will see the element "<cell_2>" contains "<value_2>"
 
     Examples:
-      | button     | cell_1   | value_1   | cell_2   |  value_2 |
-      | 移除该行   | Cell_A1  | System    | Cell_B2  | middle   |
-      | 移除该列   | Cell_A1  | level     | Cell_A2  | high     |
+      | button     | cell   | cell_1   | value_1   | cell_2   |  value_2 |
+      | 移除该行   | Cell_1 | Cell_A1  | System    | Cell_B2  | middle   |
+
+
+  Scenario Outline: 更新字典内容-1个（清空该列）
+    When I click the "UploadButton" button
+    Then I set the parameter "Name" with value "test_<button>"
+    And I upload a file with name "/src/test/resources/testdata/dictionary/AutoTest.csv"
+    And I wait for "FileName" will be visible
+    And I click the "UploadConfirm" button
+    Then I will see the success message "创建字典成功"
+    And I click the "Ensure" button
+    Given I wait for loading invisible
+    Then the data name is "{'column':'0','name':'test_<button>.csv'}" then i click the "编辑" button
+    Then I will see the "dictionary.CreatePage" page
+    Given I wait for loading invisible
+    And I open the context menu of the "<cell>" element
+    And I click the Element with text "<button>"
+    And I wait for loading invisible
+    And I will see the text "logfile" is not existed in page
+    And I will see the text "System" is not existed in page
+    And I will see the text "sequrity" is not existed in page
+    And I wait for loading invisible
+    And I double click the "<cell_1>" element
+    And I set the value "Cell_A1" to the textarea "CellInput"
+    And I double click the "<cell_2>" element
+    And I set the value "Cell_A2" to the textarea "CellInput"
+    And I double click the "<cell_1>" element
+    And I click the "Next" button
+    Then I wait for element "Name" value change text to "test_<button>"
+    Then I click the "Done" button
+    And I will see the element "ResultMessage" contains "添加成功"
+    And I click the "Return" button
+    And I wait for loading invisible
+    Then the data name is "{'column':'0','name':'test_<button>.csv'}" then i click the "编辑" button
+    And I wait for loading invisible
+    And I will see the text "logfile" is not existed in page
+    And I will see the text "System" is not existed in page
+    And I will see the element "<cell_1>" contains "Cell_A1"
+    And I will see the element "<cell_2>" contains "Cell_A2"
+
+    Examples:
+      | button     | cell   | cell_1   | cell_2   |
+      | 清空该列   | Cell_A | Cell_A1  | Cell_A2  |
 
   Scenario: 更新字典内容-1个（剪切，撤销，恢复）
     When I click the "UploadButton" button

@@ -14,25 +14,19 @@ Feature:报表_富文本编辑_7_撤销
     When I set the parameter "Name" with value "Default_<name>"
     And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
-    Then I wait for "ChartListButtonWord" will be visible
-    And I wait for "5000" millsecond
 
     And I wait for "TextArea" will be visible
     And I set the parameter "TextArea" with value "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis aliquet nisl.  Cras tempor nisi urna, sed pulvinar sem molestie in. Fusce scelerisque eleifend accumsan. textclick"
-    And I wait for "2000" millsecond
 
     And I select all text in "TextArea" element
-    And I wait for "2000" millsecond
     And I click the element "<button1>" in word report
     And I click the element "<button1>" in word report
     And I click the element "<button2>" in word report
-    And I wait for "2000" millsecond
-    And I will see the "<text_area>" is display
+    And I wait for "<text_area>" will be visible
     And I click the element "Undo" in word report
-    And I wait for "2000" millsecond
-    And I will see the "<text_area>" doesn't exist
+    And I wait for "<text_area>" will be invisible
     And I click the element "Redo" in word report
-    And I will see the "<text_area>" is display
+    And I wait for "<text_area>" will be visible
 
 
     Examples:

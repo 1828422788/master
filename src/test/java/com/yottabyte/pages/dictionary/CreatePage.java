@@ -101,6 +101,14 @@ public class CreatePage extends PageTemplate {
         return getYottaButton("step-done-button");
     }
 
+    public WebElement getCell_A() {
+        return webDriver.findElement(By.xpath("(//thead//*[text()='A']//ancestor::th)[1]"));
+    }
+
+    public WebElement getCell_1() {
+        return webDriver.findElement(By.xpath("(//tbody//*[text()='1']//ancestor::th)[1]"));
+    }
+
     public WebElement getCell_A1() {
         return getCell(1,1);
     }
