@@ -7,7 +7,7 @@ Feature:报表_富文本编辑_4_图片
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
-    And I set the parameters "Hour" and "Minute" as "3" minutes later from now
+    And I set the parameters "Hour" and "Minute" as "2" minutes later from now
     And I choose the "WORD" from the "ReportType"
 
   @reportSmoke
