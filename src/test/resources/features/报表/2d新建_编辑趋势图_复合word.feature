@@ -62,9 +62,9 @@ Feature: 报表_2_4复合word
 
     When I click the "ParameterSetting" button
     And I click the "Xaxis" button
-    And I wait for "2000" millsecond
-    And I wait for "FieldValue" will be visible
+    And I wait for "1000" millsecond
     And I set the parameter "FieldValue" with value "apache.resp_len"
+    And I wait for "1000" millsecond
     And I click the "FirstLabel" button
     And I click the "AscendingOrder" button
     And I click the "Yaxis" button
@@ -133,9 +133,9 @@ Feature: 报表_2_4复合word
 
     When I click the "ParameterSetting" button
     And I click the "Xaxis" button
-    And I wait for "2000" millsecond
-    And I wait for "FieldValue" will be visible
+    And I wait for "1000" millsecond
     And I set the parameter "FieldValue" with value "apache.resp_len"
+    And I wait for "1000" millsecond
     And I click the "FirstLabel" button
     And I click the "AscendingOrder" button
     And I click the "Yaxis" button

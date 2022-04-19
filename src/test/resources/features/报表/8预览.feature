@@ -16,41 +16,18 @@ Feature: 报表_8_预览
     And I set the parameter "Minute" with value "00"
     And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I click the "NextButton" button
-    Then I wait for "ChartListButton" will be visible
-    When I choose the "报表测试" from the "ChartList"
-    And I click the "ChartListButton" button
-    Then I will see the element "LastTrendTitle" contains "报表测试"
+    When I choose the "报表测试" from the "<list>"
+    Then I will see the "<page>" page
     And I will see the "Preview" doesn't exist
-    When I click the "Complete" button
-    And I wait for "ResultMessage" will be visible
+    When I click the "<finish>" button
     And I will see the element "ResultMessage" contains "新建成功"
 
   Examples:
-    |  type   |
-    | PDF     |
-    | EXCEL   |
+    |  type   | list            | page                  | finish      |
+    | PDF     | ChartList       | report.CreatePage     | Complete    |
+    | EXCEL   | ChartList       | report.CreatePage     | Complete    |
+    | WORD    | ChartListWord   | report.CreatePageWORD | FinishButton|
 
-  Scenario Outline: create_report_word
-    And I click the "NewReportButton" button
-    Then I will see the "report.CreatePage" page
-    And I wait for element "SelectedUser" change text to username
-    When I set the parameter "Name" with value "Test_Preview_<type>"
-    And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "<type>" from the "ReportType"
-    And I set the parameter "Hour" with value "00"
-    And I set the parameter "Minute" with value "00"
-    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
-    And I click the "NextButton" button
-    And I choose the "报表测试" from the "ChartList"
-    Then I will see the "report.CreatePageWORD" page
-    And I will see the "Preview" doesn't exist
-    When I click the "FinishButton" button
-    And I wait for "ResultMessage" will be visible
-    And I will see the element "ResultMessage" contains "新建成功"
-
-  Examples:
-    |  type    |
-    | WORD     |
 
   Scenario Outline: preview_运行测试
     When I set the parameter "SearchInput" with value "Test_Preview_<type>"

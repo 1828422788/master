@@ -110,7 +110,8 @@ Feature: 报表_1a_基本设置
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "PDF" from the "ReportType"
     And I wait for "2000" millsecond
-    And I choose the "test_app" from the "App" in config
+    And I choose the "test_app" from the "App"
+    And I wait for "1000" millsecond
     And I choose the "<period>" from the "Period"
     And I wait for "1000" millsecond
     And I choose the "<month>" from the "Month"

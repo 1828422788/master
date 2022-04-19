@@ -28,7 +28,7 @@ Feature: 报表模板_4删除
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "test_template"
     And I wait for "2000" millsecond
-    And the data name is "{'column':'0','name':'test_template'}" then i click the "删除" button
+    And the data name is "{'column':'0','name':'test_template'}" then i click the "删除" button in more menu
     Then I will see the message "该模板已关联以下0个报表，删除后无法恢复，是否继续删除操作？"
     And I click the "Cancel" button
 
@@ -61,7 +61,7 @@ Feature: 报表模板_4删除
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "test_template"
     And I wait for "2000" millsecond
-    And the data name is "{'column':'0','name':'test_template'}" then i click the "删除" button
+    And the data name is "{'column':'0','name':'test_template'}" then i click the "删除" button in more menu
     Then I will see the element "Message" contains "该模板已关联以下1个报表，删除后无法恢复，是否继续删除操作？"
     And I will see the element "Message" contains "报表_使用模板"
     When I click the "Ensure" button
