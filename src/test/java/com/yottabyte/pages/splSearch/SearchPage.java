@@ -663,6 +663,9 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//div/div[2]/span//span[text()='hostname:']/parent::span//span[@yotta-test='event_list-field_value-dom']")
     private WebElement clientip;
 
+    @FindBy(xpath = "//div/div[2]/span//span[text()='appname:']/parent::span//span[@yotta-test='event_list-field_value-dom']")
+    private WebElement appname;
+
     @FindBy(xpath = "//div/div[2]/span//span[text()='tag:']/parent::span//span[@yotta-test='event_list-field_value-dom']")
     private WebElement tag;
 
@@ -1001,6 +1004,10 @@ public class SearchPage extends ListPageFactory {
     public WebElement getClientip() {
         return clientip;
     }
+
+    public WebElement getAppname() {
+        return appname;
+    	    }
 
     public WebElement getContextSample() {
         return contextSample;
