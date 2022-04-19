@@ -164,6 +164,7 @@ Feature: 字典_授权
     Then I set the parameter "UserFilter" with value "<user>"
     And I click the "FilterIcon" button
     And I wait for loading invisible
+    And I wait for "2000" millsecond
     Then I check the label "unchecked" status before "<user> (-)" in the dictionary
     Then I will see the element "DeadLine" contains "无限期"
 
