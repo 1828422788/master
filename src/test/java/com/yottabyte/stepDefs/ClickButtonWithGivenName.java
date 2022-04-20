@@ -1051,14 +1051,18 @@ public class ClickButtonWithGivenName {
             } catch (Exception e) {
             }
             List<WebElement> values = trendList.findElements(By.xpath(".//li"));
-            // 点击【访问次数】（这样可以把第二列中的趋势图列表关闭，就不会与下一个打开的趋势图列表冲突）
-            tr.findElement(By.xpath("./td[4]//span")).click();
             for (WebElement value : values) {
                 if (value.getText().contains(trendName)) {
                     //点击【任务ID】
                     ClickEvent.clickUnderneathButton(tr.findElement(By.xpath("./td[1]//button")));
                     return;
                 }
+            }
+            // 点击【访问次数】（这样可以把第二列中的趋势图列表关闭，就不会与下一个打开的趋势图列表冲突）
+            tr.findElement(By.xpath("./td[4]//span")).click();
+            try {
+                Thread.sleep(1200);
+            } catch (Exception e) {
             }
         }
     }
@@ -1086,14 +1090,18 @@ public class ClickButtonWithGivenName {
             } catch (Exception e) {
             }
             List<WebElement> values = trendList.findElements(By.xpath(".//li"));
-            // 点击【访问次数】（这样可以把第二列中的趋势图列表关闭，就不会与下一个打开的趋势图列表冲突）
-            tr.findElement(By.xpath("./td[4]//span")).click();
             for (WebElement value : values) {
                 if (value.getText().contains(trendName)) {
                     //点击【操作按钮】
                     this.click(buttonName, tr);
                     return;
                 }
+            }
+            // 点击【访问次数】（这样可以把第二列中的趋势图列表关闭，就不会与下一个打开的趋势图列表冲突）
+            tr.findElement(By.xpath("./td[4]//span")).click();
+            try {
+                Thread.sleep(1200);
+            } catch (Exception e) {
             }
         }
     }
