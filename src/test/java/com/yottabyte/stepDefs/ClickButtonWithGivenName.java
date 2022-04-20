@@ -1042,10 +1042,13 @@ public class ClickButtonWithGivenName {
             //点击【趋势图个数】
             ClickEvent.clickUnderneathButton(trendNum);
             WebElement trendList = dropdownUtils.getParentElementOfMenuList();
-            // 等待 [加载中] 不见了
-            if (trendList.findElement(By.xpath(".//span")).getText().contains("加载中")){
-                WebDriverWait wait = new WebDriverWait(webDriver, 5);
-                wait.until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(trendList.findElement(By.xpath(".//span")),"加载中")));
+            try {
+                // 等待 [加载中] 不见了
+                if (trendList.findElement(By.xpath(".//span")).getText().contains("加载中")){
+                    WebDriverWait wait = new WebDriverWait(webDriver, 2);
+                    wait.until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(trendList.findElement(By.xpath(".//span")), "加载中")));
+                }
+            } catch (Exception e) {
             }
             List<WebElement> values = trendList.findElements(By.xpath(".//li"));
             // 点击【访问次数】（这样可以把第二列中的趋势图列表关闭，就不会与下一个打开的趋势图列表冲突）
@@ -1074,10 +1077,13 @@ public class ClickButtonWithGivenName {
             //点击【趋势图个数】
             ClickEvent.clickUnderneathButton(trendNum);
             WebElement trendList = dropdownUtils.getParentElementOfMenuList();
-            // 等待 [加载中] 不见了
-            if (trendList.findElement(By.xpath(".//span")).getText().contains("加载中")){
-                WebDriverWait wait = new WebDriverWait(webDriver, 5);
-                wait.until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(trendList.findElement(By.xpath(".//span")),"加载中")));
+            try {
+                // 等待 [加载中] 不见了
+                if (trendList.findElement(By.xpath(".//span")).getText().contains("加载中")){
+                    WebDriverWait wait = new WebDriverWait(webDriver, 2);
+                    wait.until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(trendList.findElement(By.xpath(".//span")), "加载中")));
+                }
+            } catch (Exception e) {
             }
             List<WebElement> values = trendList.findElements(By.xpath(".//li"));
             // 点击【访问次数】（这样可以把第二列中的趋势图列表关闭，就不会与下一个打开的趋势图列表冲突）
