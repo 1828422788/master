@@ -6,8 +6,6 @@ Feature: 字段提取前提条件
     And curl update url "module=logriver&key=log_parser.xml_parse_extract_limit&value=5000"
     And curl update url "module=logriver&key=log_parser.switch_delete_timestamp&value=false"
     And curl restart url "modulename=logriver"
-#    And curl restart url "modulename=logparserserver"
-    Then I wait for "180000" millsecond
 
   Scenario Outline: 1542、1543
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -75,11 +73,3 @@ Feature: 字段提取前提条件
     Examples:
       | result                                                                                                                                        |
       | {'1':'"2"','raw_message':'"<root><test><a>1</a><a>2</a></test><test>3</test></root>"'} |
-
-
-  Scenario: 修改manager中logriver配置log_parser.json_parse_extract_limit为10
-    Given curl update url "module=logriver&key=log_parser.json_parse_extract_limit&value=10"
-    Given curl update url "module=logriver&key=log_parser.xml_parse_extract_limit&value=10"
-    And curl restart url "modulename=logriver"
-#    And curl restart url "modulename=logparserserver"
-    Then I wait for "180000" millsecond
