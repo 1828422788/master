@@ -48,7 +48,7 @@ Feature: 权限-数据集
     And I set the parameter "Name" with value "<name>"
     And I set the parameter "Alias" with value "<alias>"
     And I set the parameter "Spl" with value "*"
-    And I click the "Save" button
+    And I click the "Ensure" button
     And I wait for "1000" millsecond
     Then I logout current user
 
@@ -157,8 +157,8 @@ Feature: 权限-数据集
     And I will see the "dataset.DetailPage" page
     And I wait for loading invisible
     And I click the "EditEvent" button
-    And I set the parameter "EditName" with value "AutoAuthEdit"
-    And I click the "Save" button
+    And I set the parameter "Name" with value "AutoAuthEdit"
+    And I click the "Ensure" button
     Then I logout current user
 
     Examples:
@@ -209,8 +209,8 @@ Feature: 权限-数据集
     And I wait for loading invisible
     Then I will see the "dataset.DetailPage" page
     And I click the "EditEvent" button
-    And I set the parameter "EditName" with value "AutoAuth"
-    And I click the "Save" button
+    And I set the parameter "Name" with value "AutoAuth"
+    And I click the "Ensure" button
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
     When the data name is "AutoAuth" then i click the "更多" button
@@ -231,7 +231,7 @@ Feature: 权限-数据集
     And I set the parameter "Name" with value "AutoAuth"
     And I set the parameter "Alias" with value "auth"
     And I set the parameter "Spl" with value "*"
-    And I click the "Save" button
+    And I click the "Ensure" button
     Then I wait for "1000" millsecond
 
   Scenario Outline: 授权读取+删除
@@ -283,7 +283,7 @@ Feature: 权限-数据集
     And I set the parameter "Name" with value "AutoAuth"
     And I set the parameter "Alias" with value "auth"
     And I set the parameter "Spl" with value "*"
-    And I click the "Save" button
+    And I click the "Ensure" button
     Then I wait for "1000" millsecond
 
   Scenario Outline: 授权读取+授权
@@ -377,8 +377,8 @@ Feature: 权限-数据集
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
     And I click the "EditEvent" button
-    And I set the parameter "EditName" with value "AutoAuthEdit"
-    And I click the "Save" button
+    And I set the parameter "Name" with value "AutoAuthEdit"
+    And I click the "Ensure" button
     Then I logout current user
 
     Examples:
@@ -410,7 +410,7 @@ Feature: 权限-数据集
     And I set the parameter "Name" with value "AutoAuth"
     And I set the parameter "Alias" with value "AutoAuth"
     And I set the parameter "Spl" with value "*"
-    And I click the "Save" button
+    And I click the "Ensure" button
     Then I wait for "1000" millsecond
 
   Scenario Outline: 授权所有权限
@@ -461,8 +461,8 @@ Feature: 权限-数据集
     And I wait for loading invisible
     Then I will see the "dataset.DetailPage" page
     And I click the "EditEvent" button
-    And I set the parameter "EditName" with value "AutoAuthForEdit"
-    And I click the "Save" button
+    And I set the parameter "Name" with value "AutoAuthForEdit"
+    And I click the "Ensure" button
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
@@ -484,7 +484,7 @@ Feature: 权限-数据集
     And I set the parameter "Name" with value "测试二次授权"
     And I set the parameter "Alias" with value "testTwice"
     And I set the parameter "Spl" with value "*"
-    And I click the "Save" button
+    And I click the "Ensure" button
     Then I wait for "1000" millsecond
 
   Scenario: 给AutoTest用户授权
@@ -563,8 +563,8 @@ Feature: 权限-数据集
     And I wait for loading invisible
     And I will see the "dataset.DetailPage" page
     And I click the "EditEvent" button
-    And I set the parameter "EditName" with value "<name>Edit"
-    And I click the "Save" button
+    And I set the parameter "Name" with value "<name>Edit"
+    And I click the "Ensure" button
 
     Examples:
       | authRole | authName        | function | name   |userfunction|
@@ -608,8 +608,8 @@ Feature: 权限-数据集
     And I will see the "dataset.DetailPage" page
     And I wait for loading invisible
     And I click the "EditEvent" button
-    And I set the parameter "EditName" with value "测试二次授权EditAgain"
-    And I click the "Save" button
+    And I set the parameter "Name" with value "测试二次授权EditAgain"
+    And I click the "Ensure" button
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
     When the data name is "测试二次授权EditAgain" then i click the "更多" button

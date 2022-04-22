@@ -81,6 +81,10 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return getButton("返回");
     }
 
+    public WebElement getEnsure() {
+        return getButton("确定");
+    }
+
     public WebElement getApp() {
         app.click();
         return dropdownUtils.getLastDropdownList();

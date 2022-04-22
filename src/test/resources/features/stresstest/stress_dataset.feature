@@ -9,10 +9,8 @@ Feature: 数据集-a新建
   Scenario Outline: 测试页面加载速度
     Given open the "dataset.ListPage" page for uri "/dataset/"
     Given I wait for loading complete
-    When I set the parameter "SearchNameInput" with value "<dsname>"
-    And I click the "Search" button
-    And I wait for "2000" millsecond
-    Given I wait for loading complete
+    When I set the parameter "SearchName" with value "<dsname>"
+    And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'<dsname>'}" values "{'column':'2','name':'<alias>'}"
     And I will see the data "{'column':'0','name':'<dsname>'}" values "{'column':'3','name':'无'}"
     And I will see the data "{'column':'0','name':'<dsname>'}" values "{'column':'4','name':'app之api全部用例'}"

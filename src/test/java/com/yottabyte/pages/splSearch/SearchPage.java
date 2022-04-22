@@ -930,13 +930,6 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(tagName = "table")
     private WebElement tableList;
-    //数据集父子行为是继承的根节点的子节点
-    @FindBy(xpath = "//span[text()='继承1']")
-    private WebElement jiCheng;
-
-    public WebElement getJiCheng() {
-        return jiCheng;
-    }
 
     public WebElement getSearchContent() {
         return searchContent;
@@ -1779,27 +1772,12 @@ public class SearchPage extends ListPageFactory {
 
 //author_jnd about dataset
 
-    //数据集父子行为是无的根节点的子节点
-    @FindBy(xpath = "//span[text()='无1']")
-    private WebElement fatherChildNull;
     //页面上方趋势图超链接
     @FindBy(xpath = "//a[contains(text(),'趋势图')]")
     private WebElement upperTrend;
 
-    //数据集父子行为是汇聚的根节点
-    @FindBy(xpath = "//span[text()='汇聚tree']")
-    private WebElement huiJu;
-
     public WebElement getTableList() {
         return tableList;
-    }
-
-    public WebElement getFatherChildNull() {
-        return fatherChildNull;
-    }
-
-    public WebElement getHuiJu() {
-        return huiJu;
     }
 
     //有字段的数据集

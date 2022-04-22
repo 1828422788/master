@@ -8,7 +8,7 @@ Feature: 应用安装（RZY-1988）
     And I set the parameter "Name" with value "AutoTestApp"
     And I set the parameter "Alias" with value "AutoTestApp"
     And I set the parameter "Spl" with value "*"
-    And I click the "Save" button
+    And I click the "Ensure" button
 
   @smoke @appSmoke
   Scenario Outline: 安装资源成功

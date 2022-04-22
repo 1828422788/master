@@ -90,9 +90,6 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//input")
     private WebElement tag;
 
-    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']")
-    private WebElement tagField;
-
     @FindBy(xpath = "//div[contains(@class,'spinner')]")
     private WebElement loading;
 
@@ -108,8 +105,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     }
 
     public WebElement getTagField() {
-        tagField.click();
-        return this.getLastDropdownList();
+        return dropdownUtils.getYottaDropdownList("resource_tag-change_resource_tag-select");
     }
 
     public WebElement getSelectAll() {
@@ -274,9 +270,9 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     }
 
     @FindBy(xpath = "//div[@class='yotta-form-field-help-text']")
-    private WebElement helpmessage;
-    public WebElement getHelpmessage(){
-        return helpmessage;
+    private WebElement helpMessage;
+    public WebElement getHelpMessage(){
+        return helpMessage;
     }
 
     @Override
@@ -287,5 +283,19 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @Override
     protected void isLoaded() throws Error {
 
+    }
+
+    @FindBy(xpath = "//tr[contains(@class,'expansion')]//td[@class='yotta-table-cell']")
+    private WebElement expandedRow;
+    public WebElement getExpandedRow() {
+        return expandedRow;
+    }
+
+    public WebElement getTagFilter() {
+        return dropdownUtils.getYottaDropdownList("table-filter_tag-select");
+    }
+
+    public WebElement getAppFilter() {
+        return dropdownUtils.getYottaDropdownList("table-filter_app-select");
     }
 }

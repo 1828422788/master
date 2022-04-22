@@ -31,23 +31,22 @@ public class EditPage extends PageTemplate {
     }
 
     //数据集父子行为是无的根节点的子节点
-    @FindBy(xpath = "//span[text()='无1']")
+    @FindBy(xpath = "//span[text()='无1']//ancestor::span[contains(@class,'node-selector')]")
     private WebElement fatherChildNull1Task;
     public WebElement getFatherChildNull1Task(){
         return fatherChildNull1Task;
     }
 
     //数据集父子行为是汇聚的根节点
-    @FindBy(xpath = "//span[text()='汇聚tree']")
+    @FindBy(xpath = "//span[text()='汇聚tree']//ancestor::span[contains(@class,'node-selector')]")
     private WebElement huiJuTask;
     public WebElement getHuiJuTask() {
         return huiJuTask;
     }
 
     //数据集父子行为是继承的根节点的子节点
-    @FindBy(xpath = "//span[text()='继承1']")
+    @FindBy(xpath = "//span[text()='继承1']//ancestor::span[contains(@class,'node-selector')]")
     private WebElement jiCheng1Task;
-
     public WebElement getJiCheng1Task() {
         return jiCheng1Task;
     }

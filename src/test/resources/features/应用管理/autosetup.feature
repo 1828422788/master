@@ -12,7 +12,7 @@ Feature: 新建数据集all_、安装app
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
 #   #返回列表页验证
-    And I click the "BackList" button
+    And I click the "Return" button
 
     And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'all_'}" values "{'column':'2','name':'all_'}"

@@ -30,7 +30,7 @@ Feature: 入库优先级新建（RZY-1485）
     When I set the parameter "AppName" with value "<appName>"
     And I choose the "<priority>" from the "Priority"
     And I click the "SaveButton" button
-    And I wait for element "Helpmessage" change text to "<Helpmessage>"
+    And I wait for element "HelpMessage" change text to "<Helpmessage>"
 #    And I will see the element "Helpmessage" name is "<Helpmessage>"
     Examples: 保存失败
       | appName  | tag | priority | Helpmessage               |
