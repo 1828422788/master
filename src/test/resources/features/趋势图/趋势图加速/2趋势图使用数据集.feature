@@ -12,7 +12,7 @@ Feature: 趋势图加速_2趋势图使用数据集
 
   Scenario: 创建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -46,7 +46,7 @@ Feature: 趋势图加速_2趋势图使用数据集
   Scenario: 展示趋势图（chart）
     Given open the "trend.ListPage" page for uri "/trend/"
     When I set the parameter "SearchInput" with value "趋势图_数据集"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And the data name is "{'column':'0','name':'趋势图_数据集'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
     And I close all tabs except main tab
@@ -59,7 +59,7 @@ Feature: 趋势图加速_2趋势图使用数据集
 
   Scenario: 修改数据集
     Given open the "dataset.ListPage" page for uri "/dataset/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "数据集-1" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
     When I click the "EditEvent" button
@@ -69,7 +69,7 @@ Feature: 趋势图加速_2趋势图使用数据集
   Scenario: 展示趋势图（display）
     Given open the "trend.ListPage" page for uri "/trend/"
     When I set the parameter "SearchInput" with value "趋势图_数据集"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And the data name is "{'column':'0','name':'趋势图_数据集'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
     And I close all tabs except main tab
@@ -82,7 +82,7 @@ Feature: 趋势图加速_2趋势图使用数据集
 
   Scenario: 修改数据集
     Given open the "dataset.ListPage" page for uri "/dataset/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "数据集-1" then i click the "删除" button in more menu
     Then I will see the message "确定删除该数据集？"
     And I wait for "Ensure" will be visible
@@ -91,7 +91,7 @@ Feature: 趋势图加速_2趋势图使用数据集
   Scenario: 展示趋势图（没有数据集）
     Given open the "trend.ListPage" page for uri "/trend/"
     When I set the parameter "SearchInput" with value "趋势图_数据集"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And the data name is "{'column':'0','name':'趋势图_数据集'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
     And I close all tabs except main tab
@@ -105,7 +105,7 @@ Feature: 趋势图加速_2趋势图使用数据集
   Scenario: 删除趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When I set the parameter "SearchInput" with value "趋势图_数据集"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "{'column':'0','name':'趋势图_数据集'}" then i click the "删除" button in more menu
     Then I will see the message "确认删除 [趋势图_数据集] ?"
     When I click the "Ensure" button

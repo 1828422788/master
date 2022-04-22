@@ -45,7 +45,7 @@ Feature: 仪表盘07批量操作
 
   Scenario: 批量操作-添加资源标签
     And I set the parameter "SearchInput" with value "Test_Batch_Control_Resource"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the "BatchControl" button
     And I click the "ListItemOne" button
     And I wait for "1000" millsecond
@@ -68,7 +68,7 @@ Feature: 仪表盘07批量操作
 #
   Scenario: 批量操作-删除资源
     And I set the parameter "SearchInput" with value "Test_Batch_Control_Resource"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I click the "BatchControl" button
     And I click the "ListItemOne" button
     And I wait for "1000" millsecond

@@ -11,13 +11,6 @@ public class ListPage extends ListPageFactory {
         super(driver);
     }
 
-    @FindBy(className = "el-loading-mask")
-    private WebElement loading;
-
-    public WebElement getLoading() {
-        return loading;
-    }
-
     @FindBy(xpath = "//li[@yotta-test='usergroup-authorize-button']/span")
     private WebElement auth;
 

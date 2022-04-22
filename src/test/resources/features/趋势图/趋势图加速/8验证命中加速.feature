@@ -5,7 +5,7 @@ Feature: 趋势图加速_8验证命中加速
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "AccelerationManagement" button
     When I will see the "trend.AccelerationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I will see the text "<name>" exist in page
 
   Examples:

@@ -80,9 +80,9 @@ Feature: 权限-授权告警插件
  #   And the data name is "__user_AutoTest__" then i click the "授权" button
  #   And I will see the "roles.AuthorizationPage" page
  #   And I click the "ResourceAuth" button
- #   And I wait for "Loading" will be invisible
+ #   And I wait for loading invisible
  #   Then I click the "{'TabButton':'告警插件'}" button
- #   And I wait for "Loading" will be invisible
+ #   And I wait for loading invisible
  #   And I "checked" the checkbox which name is "sendsms" in auth table
  #   When the data name is "sendsms" then I click the "无限期" button in auth table
  #   And I click the "Customize" button
@@ -134,7 +134,7 @@ Feature: 权限-授权告警插件
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I click the "Resource" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "unchecked" the checkbox which name is "可查看告警插件"
     And I click the "SaveButton" button
 

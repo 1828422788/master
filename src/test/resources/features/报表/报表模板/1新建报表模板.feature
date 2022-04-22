@@ -60,7 +60,7 @@ Feature: 报表模板_1新建
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
     And I click the "Return" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I wait for "2000" millsecond
     Then I will see the data "{'column':'0','name':'template'}" values "{'column':'2','name':'template.docx'}"
     And I will see the data "{'column':'0','name':'template'}" values "{'column':'3','name':'1'}"
@@ -143,7 +143,7 @@ Feature: 报表模板_1新建
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
     And I click the "Return" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I wait for "2000" millsecond
     Then I will see the data "{'column':'0','name':'table'}" values "{'column':'2','name':'table.docx'}"
     And I will see the data "{'column':'0','name':'table'}" values "{'column':'3','name':'2'}"

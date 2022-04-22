@@ -6,7 +6,7 @@ Feature: 权限-搜索权限
     And I wait for loading invisible
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I click the "Resource" button
     When I "checked" the checkbox which name is "可查看仪表盘"
     And I wait for "1000" millsecond

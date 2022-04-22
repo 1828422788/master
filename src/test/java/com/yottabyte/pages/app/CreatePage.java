@@ -91,9 +91,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-button--text")
     private WebElement sourceConfig;
 
-    @FindBy(className = "el-loading-mask")
-    private WebElement loading;
-
     @FindBy(xpath = "//div[@class='yotta-dialog-content']//p")
     private WebElement message;
 
@@ -489,10 +486,6 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getNameMessage() {
         return nameMessage;
-    }
-
-    public WebElement getLoading() {
-        return loading;
     }
 
     public WebElement getSourceConfig() {

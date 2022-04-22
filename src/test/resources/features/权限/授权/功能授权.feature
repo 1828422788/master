@@ -5,9 +5,9 @@ Feature: 权限-功能（URL校验）
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "全选"
     And I click the "SaveButton" button
@@ -68,13 +68,13 @@ Feature: 权限-功能（URL校验）
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     #Then I click the "{'TabButton':'功能'}" button
     And I click the "Resource" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "System" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I "checked" the checkbox which name is "<function>"
    # When I "checked" the checkbox which name is "<function>,可查看仪表盘"
     And I click the "SaveButton" button

@@ -28,7 +28,7 @@ Feature: 角色复制
 #  Scenario: 验证权限一起被复制
 #    When the data name is "AutoTestCopy" then i click the "授权" button
 #    And I will see the "roles.AuthorizationPage" page
-#    And I wait for "Loading" will be invisible
+#    And I wait for loading invisible
 #    Then I click the "{'TabButton':'功能'}" button
-#    And I wait for "Loading" will be invisible
+#    And I wait for loading invisible
 #    Then I will see the checkbox in auth which name is "全选" and status is "checked"

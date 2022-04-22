@@ -75,12 +75,12 @@ Feature: 全链路_1创建
     When I set the parameter "GlobalTagInput" with value "auto_package"
     And I choose the "auto_package" from the "TagDropdown"
     And I click the "HideElement" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I will see the data "{'column':'0','name':'AutoTest_2'}" values "{'column':'4','name':'auto_package'}"
     Then I will see the data "{'column':'0','name':'AutoTest_1'}" values "{'column':'4','name':'auto_package'}"
     Then I will see the search result "{'column':'0','name':'AutoTest_3','contains':'no'}"
     And I choose the "test_app" from the "AppDropdown"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I will see the data "{'column':'0','name':'AutoTest_1'}" values "{'column':'4','name':'auto_package'}"
     Then I will see the data "{'column':'0','name':'AutoTest_1'}" values "{'column':'3','name':'test_app'}"
     Then I will see the search result "{'column':'0','name':'AutoTest_3','contains':'no'}"
@@ -90,14 +90,14 @@ Feature: 全链路_1创建
     And I wait for "2000" millsecond
     And I choose the "test_app" from the "AppDropdown"
     And I click the "HideElement" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I will see the data "{'column':'0','name':'AutoTest_3'}" values "{'column':'3','name':'test_app'}"
     Then I will see the data "{'column':'0','name':'AutoTest_1'}" values "{'column':'3','name':'test_app'}"
     Then I will see the search result "{'column':'0','name':'AutoTest_2','contains':'no'}"
     When I set the parameter "GlobalTagInput" with value "auto_package"
     And I choose the "auto_package" from the "TagDropdown"
     And I click the "HideElement" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I will see the data "{'column':'0','name':'AutoTest_1'}" values "{'column':'4','name':'auto_package'}"
     Then I will see the data "{'column':'0','name':'AutoTest_1'}" values "{'column':'3','name':'test_app'}"
     Then I will see the search result "{'column':'0','name':'AutoTest_3','contains':'no'}"

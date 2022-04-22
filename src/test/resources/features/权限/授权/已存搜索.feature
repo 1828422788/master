@@ -214,9 +214,9 @@ Feature: 权限-已存搜索
     #Given open the "roles.ListPage" page for uri "/account/roles/"
     #And the data name is "__user_AutoTest__" then i click the "授权" button
     #And I will see the "roles.AuthorizationPage" page
-    #And I wait for "Loading" will be invisible
+    #And I wait for loading invisible
     #Then I click the "{'TabButton':'已存搜索'}" button
-    #And I wait for "Loading" will be invisible
+    #And I wait for loading invisible
     #And I "checked" the checkbox which name is "<name>" in auth table
     #When the data name is "<name>" then I click the "无限期" button in auth table
     #And I click the "Customize" button
@@ -248,9 +248,9 @@ Feature: 权限-已存搜索
     And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'已存搜索'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I wait for "2000" millsecond
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
@@ -329,9 +329,9 @@ Feature: 权限-已存搜索
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'已存搜索'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I "checked" the checkbox which name is "AutoTest" in auth table
@@ -398,9 +398,9 @@ Feature: 权限-已存搜索
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'已存搜索'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -452,9 +452,9 @@ Feature: 权限-已存搜索
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'已存搜索'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -523,9 +523,9 @@ Feature: 权限-已存搜索
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'已存搜索'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -580,9 +580,9 @@ Feature: 权限-已存搜索
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'已存搜索'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"

@@ -90,18 +90,11 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//input")
     private WebElement tag;
 
-    @FindBy(xpath = "//div[contains(@class,'spinner')]")
-    private WebElement loading;
-
     @FindBy(xpath = "//*[contains(text(),'暂无数据')]")
     private WebElement noData;
 
     public WebElement getNoData() {
         return noData;
-    }
-
-    public WebElement getLoading() {
-        return loading;
     }
 
     public WebElement getTagField() {

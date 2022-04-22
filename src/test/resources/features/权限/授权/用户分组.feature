@@ -77,7 +77,7 @@ Feature: 权限-用户分组
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "申请加入" button
     When I click the detail which name is "{'column':'1','name':'<name>'}"
     Then I will see the "userGroups.CreatePage" page
@@ -110,14 +110,14 @@ Feature: 权限-用户分组
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "<function>" button
     When the data name is "{'column':'1','name':'<name>'}" then i click the "更多" button
     And I click the "Auth" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     And I will see the "userGroups.CreatePage" page
     And I wait for "2000" millsecond
@@ -179,13 +179,13 @@ Feature: 权限-用户分组
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "<function>" button
     When I click the detail which name is "{'column':'1','name':'<name>'}"
     Then I will see the "userGroups.CreatePage" page
     Then I will see the element "UserGroupName" attribute is "disabled"
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
@@ -201,7 +201,7 @@ Feature: 权限-用户分组
  #   Given I login user "AutoTest" with password "All#123456"
  #   And I wait for "2000" millsecond
  #   Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
- #   And I wait for "Loading" will be invisible
+ #   And I wait for loading invisible
  #   When I click the detail which name is "{'column':'1','name':'AutoTest用户修改'}"
  #   And I will see the "userGroups.CreatePage" page
  #   Then I will see the element "Save" attribute is "disabled"
@@ -229,7 +229,7 @@ Feature: 权限-用户分组
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "<function>" button
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     And I will see the "userGroups.CreatePage" page
@@ -239,7 +239,7 @@ Feature: 权限-用户分组
     And I set the parameter "Comment" with value "1"
     And I wait for "Message" will be visible
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'AutoTest测试1'}" then i click the "更多" button
     And I click the "Delete" button
     And I wait for "Ensure" will be visible

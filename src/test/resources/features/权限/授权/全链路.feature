@@ -172,11 +172,11 @@ Feature: 权限-全链路
     And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'全链路'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     When I "checked" function "读取,编辑,转授" from the auth table which name is "<name>"
@@ -236,9 +236,9 @@ Feature: 权限-全链路
     And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'全链路'}" button
     When I "checked" function "读取,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -274,11 +274,11 @@ Feature: 权限-全链路
     And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'全链路'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     When I "checked" function "读取,删除" from the auth table which name is "<name>"
@@ -314,11 +314,11 @@ Feature: 权限-全链路
     And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'全链路'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -374,11 +374,11 @@ Feature: 权限-全链路
     And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I click the "ResourceAuth" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'全链路'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -427,9 +427,9 @@ Feature: 权限-全链路
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
     And I click the "ResourceAuth" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'全链路'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "二次授权测试" in auth table
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"

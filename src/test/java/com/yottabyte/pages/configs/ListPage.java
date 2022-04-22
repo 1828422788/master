@@ -24,10 +24,6 @@ public class ListPage extends ListPageFactory {
 
     DropdownUtils dropdownUtils = new DropdownUtils();
 
-    @FindBy(className = "yotta-spinner-spin")
-//    @FindBy(className = "yotta-spinner-container")
-    private WebElement loading;
-
     @FindBy(className = "ant-modal-content")
     private WebElement content;
 
@@ -87,10 +83,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getDelete() {
         return delete;
-    }
-
-    public WebElement getLoading() {
-        return loading;
     }
 
     public WebElement getTagInput() {

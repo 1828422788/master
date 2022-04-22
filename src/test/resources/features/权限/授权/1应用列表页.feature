@@ -72,9 +72,9 @@ Feature: 权限-应用列表页
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I click the "App" button
     When I "checked" the checkbox which name is "可新建应用"
     And I click the "SaveButton" button
@@ -110,12 +110,12 @@ Feature: 权限-应用列表页
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
     Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I click the "App" button
     And I "unchecked" the checkbox which name is "可新建应用"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -162,9 +162,9 @@ Feature: 权限-应用列表页
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I click the "App" button
     When I "checked" the checkbox which name is "可新建应用"
     And I click the "SaveButton" button
@@ -188,9 +188,9 @@ Feature: 权限-应用列表页
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'应用'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "AutoTestForAuth" in auth table
     And I "unchecked" the checkbox which name is "AutoTestForAuth" in auth table
     And I click the "SaveButton" button
@@ -211,15 +211,15 @@ Feature: 权限-应用列表页
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I click the "App" button
     When I "unchecked" the checkbox which name is "可新建应用"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
     Then I click the "{'TabButton':'应用'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I "checked" function "读取" from the auth table which name is "<name>"
@@ -248,9 +248,9 @@ Feature: 权限-应用列表页
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'应用'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" function "删除,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -283,7 +283,7 @@ Feature: 权限-应用列表页
   #  Given open the "roles.ListPage" page for uri "/account/roles/"
   #  And the data name is "__user_AutoTest__" then i click the "授权" button
   #  And I will see the "roles.AuthorizationPage" page
-  #  And I wait for "Loading" will be invisible
+  #  And I wait for loading invisible
   #  Then I click the "{'TabButton':'应用'}" button
   #  And I wait for loading invisible
   #  And I "checked" the checkbox which name is "<name>" in auth table
@@ -307,15 +307,15 @@ Feature: 权限-应用列表页
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I click the "App" button
     When I "checked" the checkbox which name is "可新建应用"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
     Then I click the "{'TabButton':'应用'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I "checked" function "读取" from the auth table which name is "<name>"
@@ -360,9 +360,9 @@ Feature: 权限-应用列表页
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'应用'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I "checked" the checkbox which name is "<name>" in auth table
@@ -405,11 +405,11 @@ Feature: 权限-应用列表页
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I "checked" the checkbox which name is "可使用事件操作"
     And I wait for "2000" millsecond
     Then I click the "{'TabButton':'应用'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -449,9 +449,9 @@ Feature: 权限-应用列表页
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'应用'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     Given I login user "AutoTest" with password "All#123456"
@@ -525,24 +525,24 @@ Feature: 权限-应用列表页
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'应用'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And I wait for "2000" millsecond
     And the data name is "关联权限测试用户" then i click the "授权" button in more menu
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     Then I click the "{'TabButton':'应用'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
 
@@ -555,9 +555,9 @@ Feature: 权限-应用列表页
   #  Given open the "roles.ListPage" page for uri "/account/roles/"
   #  And the data name is "关联权限测试用户" then i click the "授权" button
   #  And I will see the "roles.AuthorizationPage" page
-  #  And I wait for "Loading" will be invisible
+  #  And I wait for loading invisible
   #  Then I click the "{'TabButton':'应用'}" button
-  #  And I wait for "Loading" will be invisible
+  #  And I wait for loading invisible
   #  And I "checked" function "读取,删除" from the auth table which name is "<name>"
   #  And I click the "SaveButton" button
   #  Given I login user "验证授权用户" with password "All#123456"

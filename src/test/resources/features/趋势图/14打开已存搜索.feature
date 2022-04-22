@@ -47,7 +47,7 @@ Feature: 趋势图_已存搜索
     And I will see the "trend.CreatePage" page
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SavedSearch" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And "加载" the data "trend_test" in tiny saved search
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"

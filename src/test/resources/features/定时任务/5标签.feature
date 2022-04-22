@@ -40,7 +40,7 @@ Feature: 定时任务标签
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And the data name is "{'column':'1','name':'Tag_Schedule'}" then I "expand" the item
     And I will see the element "TagOfTheLastItem" contains "auto_package"
 

@@ -75,7 +75,7 @@ Feature: 趋势图新建_报表
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
     When open the "report.ListPage" page for uri "/reports/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And the data name is "{'column':'1','name':'<report_name>'}" then i click the "删除" button in more menu
     Then I will see the message "此操作将删除 [<report_name>], 是否继续？"
     When I click the "Ensure" button

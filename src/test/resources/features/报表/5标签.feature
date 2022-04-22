@@ -39,7 +39,7 @@ Feature: 报表_5_标签
     And I click the "Ensure" button
     And I refresh the website
     Then I will see the "report.ListPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And the data name is "{'column':'1','name':'Test_Tag'}" then I "expand" the item
     And I will see the element "TagOfTheLastItem" contains "auto_package"
     And I will see the element "AppOfTheLastItem" contains "test_app"
@@ -48,9 +48,9 @@ Feature: 报表_5_标签
     When I set the parameter "GlobalTagInput" with value "auto_package"
     And I choose the "auto_package" from the "TagDropdown"
     And I click the "HideElement" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I choose the "test_app" from the "AppDropdown"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And the data name is "{'column':'1','name':'Test_Tag'}" then I "expand" the item
     And I will see the element "TagOfTheLastItem" contains "auto_package"
     And I will see the element "AppOfTheLastItem" contains "test_app"

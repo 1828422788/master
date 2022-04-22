@@ -62,13 +62,6 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     @FindBy(className = "yotta-empty-description")
     private WebElement resultMessage;
 
-    @FindBy(xpath = "//div[contains(@class,'spinner')]")
-    private WebElement loading;
-
-    public WebElement getLoading() {
-        return loading;
-    }
-
     public WebElement getMessage() {
         return message;
     }

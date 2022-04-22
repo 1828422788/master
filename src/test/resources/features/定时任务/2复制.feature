@@ -80,9 +80,9 @@ Feature: 定时任务复制
     When I set the parameter "GlobalTagInput" with value "auto_package"
     When I choose the "auto_package" from the "TagDropdown"
     And I click the "HideElement" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I choose the "test_app" from the "AppDropdown"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And the data name is "{'column':'1','name':'copytask'}" then I "expand" the item
     And I will see the element "TagOfTheLastItem" contains "auto_package"
     And I will see the element "AppOfTheLastItem" contains "test_app"

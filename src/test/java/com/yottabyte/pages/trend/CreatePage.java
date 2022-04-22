@@ -354,9 +354,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='max']/following-sibling::div")
     private WebElement rangeColor;
 
-    @FindBy(xpath = "((//*[@class='anticon-spin'])[2]) | (//span[contains(@class,'ant-spin-dot')])")
-    private WebElement loading;
-
     @FindBy(xpath = "(//span[text()='类型：'])[last()]/ancestor::div/following-sibling::div")
     private WebElement typeDropdown;
 
@@ -755,10 +752,6 @@ public class CreatePage extends PageTemplate {
     public WebElement getTypeDropdown() {
         typeDropdown.click();
         return getLastDropdownList();
-    }
-
-    public WebElement getLoading() {
-        return loading;
     }
 
     public WebElement getRangeColor() {

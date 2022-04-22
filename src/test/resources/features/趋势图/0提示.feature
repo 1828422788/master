@@ -100,13 +100,13 @@ Feature: 趋势图_提示
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I wait for "1000" millsecond
     And I will see the element "SearchInput" contains "*"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I wait for "CheckBox" will be visible
     And I click the "NextButton" button
     And I wait for "EnsureButton" will be visible

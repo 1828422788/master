@@ -18,9 +18,6 @@ public class AuthorizationPage extends PageTemplate {
 
     private WebElement webElement;
 
-    @FindBy(className = "ant-spin-spinning")
-    private WebElement loading;
-
     @FindBy(xpath = "//div[not(contains(@style,'display: none;'))][@class='assign-tab']")
     private WebElement tab;
 
@@ -172,10 +169,6 @@ public class AuthorizationPage extends PageTemplate {
 
     public WebElement getCustomize() {
         return customize;
-    }
-
-    public WebElement getLoading() {
-        return loading;
     }
 
     public WebElement getFunctionCheckbox() {

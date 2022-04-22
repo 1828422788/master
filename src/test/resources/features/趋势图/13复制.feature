@@ -68,9 +68,9 @@ Feature: 趋势图复制(RZY-1889)
     When I set the parameter "GlobalTagInput" with value "auto_package"
     And I choose the "auto_package" from the "TagDropdown"
     And I click the "HideElement" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I choose the "test_app" from the "AppDropdown"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I will see the data "{'column':'0','name':'Copy_Test_副本'}" values "{'column':'3','name':'test_app'}"
     Then I will see the data "{'column':'0','name':'Copy_Test_副本'}" values "{'column':'4','name':'auto_package'}"
     And I wait for "2000" millsecond

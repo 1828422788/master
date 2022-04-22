@@ -99,7 +99,7 @@ Feature: 字段提取脱敏配置
     And I will see the "roles.AuthorizationPage" page
     Then I wait for loading invisible
     Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "可查看敏感内容"
     Then I click the "SaveButton" button

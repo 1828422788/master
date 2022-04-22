@@ -697,9 +697,6 @@ public class CreatePageDash extends PageTemplate {
     @FindBy(xpath = "//*[@yotta-test='chartgui-color-dom']")
     private WebElement rangeColor;
 
-    @FindBy(xpath = "((//*[@class='anticon-spin'])[2]) | (//span[contains(@class,'ant-spin-dot')])")
-    private WebElement loading;
-
     @FindBy(xpath = "(//*[@yotta-test='chartgui-select-select']/div)[2]")
     private WebElement typeDropdown;
 
@@ -988,10 +985,6 @@ public class CreatePageDash extends PageTemplate {
     public WebElement getTypeDropdown() {
         typeDropdown.click();
         return getLastDropdownList();
-    }
-
-    public WebElement getLoading() {
-        return loading;
     }
 
     public WebElement getType() {

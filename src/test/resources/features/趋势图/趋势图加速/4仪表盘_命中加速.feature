@@ -3,7 +3,7 @@ Feature: 趋势图加速_4仪表盘引用趋势图
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
 
   Scenario Outline: 新建仪表盘
     When I click the "Create" button

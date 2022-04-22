@@ -95,7 +95,7 @@ Feature: 报表模板_2使用模板
 
   Scenario: 改变模板的内容
     When I click the "TemplateManager" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I set the parameter "SearchInput" with value "template_chart"
     And I wait for "2000" millsecond
     And the data name is "{'column':'0','name':'template_chart'}" then i click the "编辑" button

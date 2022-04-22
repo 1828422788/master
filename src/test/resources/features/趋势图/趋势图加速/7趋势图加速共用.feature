@@ -3,7 +3,7 @@ Feature: 趋势图加速_7趋势图加速共用
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
 
   Scenario Outline: 创建趋势图
     And I click the "NewTrendButton" button
@@ -42,7 +42,7 @@ Feature: 趋势图加速_7趋势图加速共用
   Scenario: 验证共用
     And I click the "AccelerationManagement" button
     Then I will see the "trend.AccelerationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I open the acceleration task which contains the "趋势图_sample_1" trend
     And I will see the text "趋势图_sample_1" exist in page
     And I will see the text "趋势图_sample_2" exist in page
@@ -52,7 +52,7 @@ Feature: 趋势图加速_7趋势图加速共用
   Scenario: 编辑加速任务
     Given open the "trend.ListPage" page for uri "/trend/"
     When I set the parameter "SearchInput" with value "趋势图_sample_2"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "{'column':'0','name':'趋势图_sample_2'}" then i click the "趋势图加速" button in more menu
     And I wait for "AccelerationSwitch" will be visible
     And I choose the "1 周" from the "TimeRange"
@@ -62,7 +62,7 @@ Feature: 趋势图加速_7趋势图加速共用
   Scenario: 编辑加速以后验证共用
     And I click the "AccelerationManagement" button
     Then I will see the "trend.AccelerationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I open the acceleration task which contains the "趋势图_sample_1" trend
     And I will see the text "趋势图_sample_1" exist in page
     And I will see the text "趋势图_sample_2" is not existed in page
@@ -72,7 +72,7 @@ Feature: 趋势图加速_7趋势图加速共用
   Scenario Outline: 删除趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When I set the parameter "SearchInput" with value "<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button in more menu
     Then I will see the message "确认删除 [<name>] ?"
     When I click the "Ensure" button

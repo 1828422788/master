@@ -44,7 +44,7 @@ Feature: 定时任务新建
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
     When open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I will see the data "{'column':'1','name':'Test_StartTomorrow'}" values "{'column':'3','name':'-'}"
 
   Scenario Outline: 新建定时任务(RZY-396,397,403,404,2695,2696,2698)

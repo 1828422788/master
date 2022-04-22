@@ -208,9 +208,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@yotta-test='alert-levels_value-input']")
     private WebElement triggerLevel;
 
-    @FindBy(className = "anticon-loading")
-    private WebElement loading;
-
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i")
     private WebElement app;
 
@@ -218,10 +215,6 @@ public class CreatePage extends PageTemplate {
     public WebElement getApp() {
         app.click();
         return super.getLastDropdownList();
-    }
-
-    public WebElement getLoading() {
-        return loading;
     }
 
     public WebElement getTriggerLevel() {

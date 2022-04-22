@@ -117,7 +117,7 @@ Feature: 报表_4_批量操作
     And I wait for "5000" millsecond
     And I wait for "LastGeneratedReport" will be visible
     And I will see the "report.ListPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I click the "BatchControl" button
     And I "checked" the checkbox which name is "test_multi_file_1" in the list
     And I "checked" the checkbox which name is "test_multi_file_2" in the list
@@ -136,7 +136,7 @@ Feature: 报表_4_批量操作
     And I wait for element "SelectedReport" change text to "全部报表文件"
     And I wait for "5000" millsecond
     And I wait for "LastGeneratedReport" will be visible
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     And I click the "BatchControl" button
     And I "checked" the checkbox which name is "test_multi_file_1" in the list
     And I "checked" the checkbox which name is "test_multi_file_2" in the list

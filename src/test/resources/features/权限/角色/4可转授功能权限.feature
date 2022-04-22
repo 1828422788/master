@@ -113,9 +113,9 @@ Feature: 角色可转授功能权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     When the data name is "AutoTestEdit" then i click the "授权" button in more menu
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I wait for loading invisible
     When I "unchecked" the checkbox which name is "可转授功能权限"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
