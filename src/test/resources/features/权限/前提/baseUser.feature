@@ -43,7 +43,7 @@ Feature: 基础用户创建
     And I set the parameter "Password" with value "All!123456"
     And I click the "LoginButton" button
     And I wait for "Modify" will be visible
-    And I click the "Modify" button
+    And I click the "Modify" button under some element
     And I set the parameter "NewPassword" with value "All#123456"
   #  And I hide the element "InnerContent"
     And I set the parameter "RepeatPassword" with value "All#123456"
@@ -71,6 +71,20 @@ Feature: 基础用户创建
     And I "check" the checkbox which name is "AutoTest" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
+
+  Scenario Outline:关闭隐藏内置角色
+    Given open the "system.CustomConfigs" page for uri "/system/"
+    And I wait for loading complete
+    And I close all tabs except main tab
+    Then I click the "HiddenRole" button
+    And I will see the message "更新成功"
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    Then the data name is "<name>" then i will see "<function>" button
+
+    Examples:
+      | name                   |function|
+      | __user_AutoTest__ |授权    |
+
 
   Scenario: 授权索引配置
     Given open the "roles.ListPage" page for uri "/account/roles/"
