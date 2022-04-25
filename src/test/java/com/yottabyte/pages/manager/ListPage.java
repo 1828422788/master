@@ -1,6 +1,6 @@
 package com.yottabyte.pages.manager;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 /**
  * @author sunxj
  */
-public class ListPage extends PageTemplate {
+public class ListPage extends EditorPage {
     @FindBy(xpath = "//span[text()='工具']/following-sibling::b")
     private WebElement tools;
 

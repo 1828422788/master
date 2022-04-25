@@ -1,6 +1,6 @@
 package com.yottabyte.pages.sourceGroup;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * @author sunxj
  */
-public class ListPage extends PageTemplate {
+public class ListPage extends EditorPage {
     public ListPage(WebDriver driver) {
         super(driver);
     }
@@ -110,7 +110,6 @@ public class ListPage extends PageTemplate {
         return firstCheckbox;
     }
 
-    @Override
     public WebElement getSearchInput() {
         return searchInput;
     }
@@ -168,10 +167,6 @@ public class ListPage extends PageTemplate {
 
     public WebElement getCreateButton() {
         return createButton;
-    }
-
-    public WebElement getDisabledLi() {
-        return super.getDisabledLi();
     }
 
     public WebElement getAuthorize() {

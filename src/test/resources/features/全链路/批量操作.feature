@@ -35,7 +35,7 @@ Feature: 全链路_批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I wait for loading complete
-    And I click the "CompleteBatchControl" button
+    And I click the "Complete" button
 
   Scenario: 验证标签
     When I set the parameter "SearchInput" with value "test_multi_"
@@ -70,7 +70,7 @@ Feature: 全链路_批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
     And I wait for loading complete
-    And I click the "CompleteBatchControl" button
+    And I click the "Complete" button
 
   Scenario: 验证删除
     When I set the parameter "SearchInput" with value "test_multi_"

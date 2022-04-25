@@ -1,6 +1,6 @@
 package com.yottabyte.pages.alert;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 /**
  * @author sunxj
  */
-public class WorkLoadPage extends PageTemplate {
+public class WorkLoadPage extends EditorPage {
     @FindBy(xpath = "//input[@placeholder='输入姓名']")
     private WebElement searchInput;
 
@@ -19,7 +19,6 @@ public class WorkLoadPage extends PageTemplate {
         return searchButton;
     }
 
-    @Override
     public WebElement getSearchInput() {
         return searchInput;
     }

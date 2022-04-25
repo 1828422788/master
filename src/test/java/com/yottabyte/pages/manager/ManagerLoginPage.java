@@ -1,6 +1,6 @@
 package com.yottabyte.pages.manager;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 /**
  * @author sunxj
  */
-public class ManagerLoginPage extends PageTemplate {
+public class ManagerLoginPage extends EditorPage {
     @FindBy(id = "LoginForm-UserName")
     private WebElement userName;
     @FindBy(id = "LoginForm-Password")

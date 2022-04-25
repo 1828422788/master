@@ -1,22 +1,19 @@
 package com.yottabyte.pages.agent;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.DropdownUtils;
 import com.yottabyte.utils.WaitForElement;
-import org.openqa.selenium.Beta;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.util.List;
-
 /**
  * @author sunxj,sunxc
  */
-public class CreatePage extends PageTemplate {
+public class CreatePage extends EditorPage {
     public CreatePage(WebDriver driver) {
         super(driver);
     }

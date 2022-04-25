@@ -2,22 +2,19 @@ package com.yottabyte.pages.topology;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.DateEditorPage;
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.utils.GetTime;
-import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
 /**
  * @author sunxj
  */
-public class DetailPage extends PageTemplate {
+public class DetailPage extends EditorPage {
     public DetailPage(WebDriver driver) {
         super(driver);
     }

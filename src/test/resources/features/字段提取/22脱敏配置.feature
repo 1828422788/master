@@ -5,7 +5,7 @@ Feature: 字段提取脱敏配置
   Scenario Outline: RZY-2827: 新建脱敏配置规则
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
-    And I click the "Create" button
+    And I click the "Create" button`
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "qweqwe15998418361qwe 15998418361"
     And I click the "AddRule" button

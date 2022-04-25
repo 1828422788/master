@@ -1,6 +1,6 @@
 package com.yottabyte.pages.app;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * @author sunxj
  */
-public class InstallPage extends PageTemplate {
+public class InstallPage extends EditorPage {
     public InstallPage(WebDriver driver) {
         super(driver);
     }
@@ -95,7 +95,7 @@ public class InstallPage extends PageTemplate {
     }
 
     public WebElement getSearchInput() {
-        return super.findInputByPlaceholder("请输入名称");
+        return super.getInputByPlaceholder("请输入名称");
     }
 
     public WebElement getAddDataset() {

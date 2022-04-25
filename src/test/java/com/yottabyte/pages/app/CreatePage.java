@@ -1,6 +1,6 @@
 package com.yottabyte.pages.app;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * @author sunxj
  */
-public class CreatePage extends PageTemplate {
+public class CreatePage extends EditorPage {
     public CreatePage(WebDriver driver) {
         super(driver);
     }

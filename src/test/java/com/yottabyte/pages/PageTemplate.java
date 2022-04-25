@@ -4,7 +4,11 @@ import com.yottabyte.config.ConfigManager;
 import com.yottabyte.constants.WebDriverConst;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.DropdownUtils;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -18,99 +22,22 @@ import java.util.concurrent.TimeUnit;
  * 页面元素模板，每一个页面都需要继承该模板
  */
 public class PageTemplate extends LoadableComponent<PageTemplate> {
-
     public static WebDriver webDriver;
     public static ConfigManager config = new ConfigManager();
     public String parentPageName;
     public DropdownUtils dropdownUtils = new DropdownUtils();
 
-    public WebElement getUsername() {
-        return null;
-    }
-
-    public WebElement getPassword() {
-        return null;
-    }
-
-    public WebElement getLoginButton() {
-        return null;
-    }
-
-    public WebElement findElementByXpath(String Xpath){return webDriver.findElement(By.xpath(Xpath));}
-
     public PageTemplate(WebDriver driver) {
         this.webDriver = driver;
+        driver.manage().window().fullscreen();
         PageFactory.initElements(driver, this);
-        parentPageName = LoginBeforeAllTests.getPageFactory() == null ? "" : LoginBeforeAllTests.getPageFactory().getClass().getSimpleName();
-    }
-
-    @FindBy(xpath = "//div[@class='yotta-modal-body']//p")
-    private WebElement message;
-
-    @FindBy(xpath = "//span[text()='AutoTestRoleWithAllResource']/ancestor::li")
-    private WebElement disabledLi;
-
-    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//*[@class='ant-select-selection__clear']")
-    private WebElement deleteApp;
-
-    @FindBy(xpath = "//div[text()='所属应用']/following-sibling::div//i")
-    private WebElement app;
-
-    @FindBy(className = "yotta-message-content")
-    private WebElement successMessage;
-
-    @FindBy(className = "yotta-empty-description")
-    private WebElement resultMessage;
-
-    public WebElement getMessage() {
-        return message;
-    }
-
-    public WebElement getSave() {
-        return getButton("保存");
-    }
-
-    public WebElement getReturn() {
-        return getButton("返回");
-    }
-
-    public WebElement getEnsure() {
-        return getButton("确定");
-    }
-
-    public WebElement getApp() {
-        app.click();
-        return dropdownUtils.getLastDropdownList();
-    }
-
-    public WebElement getDeleteApp() {
-        return deleteApp;
-    }
-
-    public WebElement getSearchInput() {
-        return getYottaInput("table-filter_text-input");
-    }
-
-    public WebElement getDisabledLi() {
-        return disabledLi;
-    }
-
-    public WebElement getErrorMessage() {
-        return message;
-    }
-
-    public WebElement getSuccessMessage() {
-        return successMessage;
-    }
-
-    public WebElement getResultMessage() {
-        return resultMessage;
     }
 
     @Override
     protected void load() {
         webDriver.get("http://" + config.get("rizhiyi_server_host") + "/auth/login/");
         LoginBeforeAllTests.login();
+        parentPageName = LoginBeforeAllTests.getPageFactory() == null ? "" : LoginBeforeAllTests.getPageFactory().getClass().getSimpleName();
     }
 
     @Override
@@ -131,13 +58,88 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         }
     }
 
-    public WebElement getInputElement(String text) {
-        String xpath = "//div[text()='" + text + "']//following-sibling::div//input";
+    public WebElement getUsername() {
+        return null;
+    }
+
+    public WebElement getPassword() {
+        return null;
+    }
+
+    public WebElement getLoginButton() {
+        return null;
+    }
+
+    public WebElement getEnsure() {
+        return this.getButton("确定");
+    }
+
+    public WebElement getCancel() {
+        return this.getButton("取消");
+    }
+
+    public WebElement getSave() {
+        return this.getButton("保存");
+    }
+
+    public WebElement getReturn() {
+        return getButton("返回");
+    }
+
+    public WebElement getComplete() {
+        return getButton("完成");
+    }
+
+    public WebElement getApply() {
+        return this.getButton("应用");
+    }
+
+    //TODO:删除这个方法，在其他page中直接用dropdownUtils.getLastDropdownList()
+    public WebElement getLastDropdownList() {
+        return dropdownUtils.getLastDropdownList();
+    }
+
+    @FindBy(xpath = "//div[@class='yotta-modal-body']//p")
+    private WebElement message;
+    public WebElement getMessage() {
+        return message;
+    }
+
+    @FindBy(className = "yotta-message-content")
+    private WebElement successMessage;
+    public WebElement getSuccessMessage() {
+        return successMessage;
+    }
+
+    public WebElement getErrorMessage() {
+        return message;
+    }
+
+    @FindBy(xpath = "//div[@class='yotta-form-field-help-text']")
+    private WebElement helpMessage;
+    public WebElement getHelpMessage(){
+        return helpMessage;
+    }
+
+    @FindBy(xpath = "//*[contains(text(),'暂无数据')]")
+    private WebElement noData;
+    public WebElement getNoData() {
+        return noData;
+    }
+
+    public WebElement findElementByXpath(String Xpath){return webDriver.findElement(By.xpath(Xpath));}
+
+    public WebElement getButton(String name) {
+        return webDriver.findElement(By.xpath("(//span[text()='" + name + "']//ancestor::button)[last()]"));
+    }
+
+    public WebElement getContainsTextButton(String text) {
+        String xpath = "//span[contains(text(),'" + text + "')]/ancestor::button";
         return webDriver.findElement(By.xpath(xpath));
     }
 
-    public WebElement getButton(String text) {
-        String xpath = "//span[text()='" + text + "']";
+    public WebElement getButtonByClassName(String className) {
+        String xpath = "//span[@class='" + className + "']";
         return webDriver.findElement(By.xpath(xpath));
     }
 
@@ -146,9 +148,8 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return webDriver.findElements(By.xpath(xpath));
     }
 
-    public WebElement getButtonByClassName(String className) {
-        String xpath = "//span[@class='" + className + "']";
-        return webDriver.findElement(By.xpath(xpath));
+    public WebElement getInputByPlaceholder(String placeholder) {
+        return webDriver.findElement(By.xpath("//input[@placeholder='" + placeholder + "']"));
     }
 
     public WebElement getInputByName(String name) {
@@ -156,29 +157,13 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return webDriver.findElement(By.xpath(xpath));
     }
 
-    public WebElement getClearIcon(String text){
-        String xpath = "//div[contains(text(),'"+ text + "')]/following-sibling::span/i[@aria-label='图标: close']";
-        return webDriver.findElement(By.xpath(xpath));
-    }
-    public WebElement getDeleteIcon(String text){
-        String xpath = "//span[@title='" + text + "']/following-sibling::span//i[@aria-label='图标: delete']";
-        return webDriver.findElement(By.xpath(xpath));
-    }
-    public WebElement getContainsTextButton(String text) {
-        String xpath = "//span[contains(text(),'" + text + "')]/ancestor::button";
-        return webDriver.findElement(By.xpath(xpath));
-    }
-
-    public WebElement getLastDropdownList() {
-        return dropdownUtils.getLastDropdownList();
-    }
-
-    public WebElement findInputByPlaceholder(String placeholder) {
-        return webDriver.findElement(By.xpath("//input[@placeholder='" + placeholder + "']"));
-    }
-
     public WebElement getYottaInput(String test) {
         String xpath = "(//input[@yotta-test='" + test +"'])[last()]";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getInputElement(String text) {
+        String xpath = "//div[text()='" + text + "']//following-sibling::div//input";
         return webDriver.findElement(By.xpath(xpath));
     }
 
@@ -188,11 +173,6 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     }
 
     public WebElement getYottaIcon(String test) {
-        String xpath = "//span[@yotta-test='" + test +"']";
-        return webDriver.findElement(By.xpath(xpath));
-    }
-
-    public WebElement getYottaSwitch(String test) {
         String xpath = "//span[@yotta-test='" + test +"']";
         return webDriver.findElement(By.xpath(xpath));
     }
@@ -228,31 +208,17 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     }
 
     public WebElement getYottaCheckbox(String test) {
-        String xpath = "//input[@yotta-test='" + test +"']";
+        String xpath = "//input[@yotta-test='" + test +"' and @type='checkbox']";
         return webDriver.findElement(By.xpath(xpath));
     }
 
     public WebElement getYottaRadio(String test) {
-        String xpath = "//input[@yotta-test='" + test +"']";
+        String xpath = "//input[@yotta-test='" + test +"' and @type='radio']";
         return webDriver.findElement(By.xpath(xpath));
     }
 
     public WebElement getYottaTab(String text) {
         String xpath = "//div[text()='" + text + "' and @role='tab']";
         return webDriver.findElement(By.xpath(xpath));
-    }
-
-    public WebElement getYottaPopover(String test) {
-        String xpath = "//div[@yotta-test='" + test +"']";
-        return webDriver.findElement(By.xpath(xpath));
-    }
-
-    public static WebElement getNextPageButton() {
-        String xpath = "//div[@class='yotta-pagination-pages yotta-pagination-elements']/span[last()]";
-        return webDriver.findElement(By.xpath(xpath));
-    }
-
-    public WebElement getDownListByText(String text) {
-        return dropdownUtils.getDownListByText(text);
     }
 }

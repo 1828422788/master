@@ -46,7 +46,7 @@ Feature: 报表_4_批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I wait for loading complete
-    And I click the "CompleteBatchControl" button
+    And I click the "Complete" button
 
   Scenario: verify_tag
     And the data name is "{'column':'1','name':'test_multi_1'}" then I "expand" the item
@@ -77,7 +77,7 @@ Feature: 报表_4_批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I wait for loading complete
-    And I click the "CompleteBatchControl" button
+    And I click the "Complete" button
 
   Scenario: multi_switch
     And I click the "BatchControl" button
@@ -91,7 +91,7 @@ Feature: 报表_4_批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I wait for "SuccessMessage" will be invisible
-    And I click the "CompleteBatchControl" button
+    And I click the "Complete" button
     And the data name is "{'column':'1','name':'test_multi_1'}" then I "open" the switch
     And I wait for "100" millsecond
     And I wait for "SuccessMessage" will be visible
@@ -128,7 +128,7 @@ Feature: 报表_4_批量操作
     When I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "下载成功"
-    And I click the "CompleteBatchControl" button
+    And I click the "Complete" button
 
   Scenario: multi_delete_files
     When I click the "ReportListButton" button
@@ -147,7 +147,7 @@ Feature: 报表_4_批量操作
     When I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
-    And I click the "CompleteBatchControl" button
+    And I click the "Complete" button
 
   Scenario Outline: verify_delete_files
     When I set the parameter "SearchInput" with value "<name>"
@@ -177,7 +177,7 @@ Feature: 报表_4_批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
     And I wait for loading complete
-    And I click the "CompleteBatchControl" button
+    And I click the "Complete" button
 
   Scenario: verify_delete
     When I set the parameter "SearchInput" with value "test_multi_"

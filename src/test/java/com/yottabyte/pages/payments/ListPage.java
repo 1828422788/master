@@ -1,6 +1,6 @@
 package com.yottabyte.pages.payments;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * @author sunxj
  */
-public class ListPage extends PageTemplate {
+public class ListPage extends EditorPage {
     public ListPage(WebDriver driver) {
         super(driver);
     }

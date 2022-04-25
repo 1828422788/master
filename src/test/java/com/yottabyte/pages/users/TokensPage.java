@@ -1,11 +1,11 @@
 package com.yottabyte.pages.users;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class TokensPage extends PageTemplate {
+public class TokensPage extends EditorPage {
 
     public TokensPage(WebDriver driver) {
         super(driver);

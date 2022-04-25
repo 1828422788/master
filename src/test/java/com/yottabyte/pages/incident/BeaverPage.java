@@ -1,15 +1,11 @@
 package com.yottabyte.pages.incident;
 
-import com.yottabyte.pages.PageTemplate;
-import com.yottabyte.utils.ClickEvent;
-import com.yottabyte.utils.WaitForElement;
-import org.openqa.selenium.By;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class BeaverPage extends PageTemplate {
+public class BeaverPage extends EditorPage {
 
     public BeaverPage(WebDriver driver) {
         super(driver);

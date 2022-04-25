@@ -43,39 +43,35 @@ public class GetElementFromPage {
                     name = name.split("get")[1];
                 }
                 if (Character.isLowerCase(name.charAt(0))) {
-                    System.out.println("\n Wanning: name is " + name + " , might be UpperCase in the first! \n");
+                    System.out.println("\n Warning: name is " + name + " , might be UpperCase in the first! \n");
                     name = "get" + name.substring(0, 1).toUpperCase() + name.substring(1);
                 } else {
                     name = "get" + name;
                 }
                 Object page = LoginBeforeAllTests.getPageFactory();
                 Method method = null;
-                try {
-                    page = LoginBeforeAllTests.getPageFactory();
-                    method = page.getClass().getDeclaredMethod(name);
-                    type = method.getAnnotatedReturnType().getType();
-                    object = page.getClass().getDeclaredMethod(name).invoke(page);
-                } catch (NoSuchMethodException e) {
-                    method = null;
-                } catch (IllegalAccessException | InvocationTargetException e) {
-                    e.printStackTrace();
-                    throw new NoSuchElementException("Cannot locate an element: " + method );
-                }
-                if (method == null) {
+                Class<?> pageClass = page.getClass();
+                while (!pageClass.getName().equals("java.lang.Object")) {
                     try {
-                        method = page.getClass().getSuperclass().getDeclaredMethod(name);
-//                        type = method.getAnnotatedReturnType().getType();
-//                        Object superInstance = page.getClass().getSuperclass().newInstance();
-                        object = method.invoke(page);
-                    } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+                        page = LoginBeforeAllTests.getPageFactory();
+                        method = pageClass.getDeclaredMethod(name);
+                        type = method.getAnnotatedReturnType().getType();
+                        object = pageClass.getDeclaredMethod(name).invoke(page);
+                        return (T) object;
+                    } catch (NoSuchMethodException e) {
+                        //如果method是找不到的，Superclass是最高层，这样throw异常，否则继续循环
+                        if (method == null && pageClass.getSuperclass().getName().equals("java.lang.Object")){
+                            throw new NoSuchElementException("Method " + name + "()  is not declared on the page " + page.getClass().getName());
+                        }
+                    } catch (IllegalAccessException | InvocationTargetException e) {
                         e.printStackTrace();
-                        throw new NoSuchElementException("The element is not declared on the page: " + name);
+                        throw new NoSuchElementException("Cannot locate the method " + name +"() on the page " + page.getClass().getName());
                     }
+                    //把pageClass为pageclass的父类
+                    pageClass = pageClass.getSuperclass();
                 }
-
             }
         }
-
         return (T) object;
     }
 

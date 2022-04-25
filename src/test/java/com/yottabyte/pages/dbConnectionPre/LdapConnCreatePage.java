@@ -1,11 +1,11 @@
 package com.yottabyte.pages.dbConnectionPre;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LdapConnCreatePage extends PageTemplate {
+public class LdapConnCreatePage extends EditorPage {
     public LdapConnCreatePage(WebDriver driver) {
         super(driver);
 //        driver.manage().window().fullscreen();

@@ -45,7 +45,6 @@ Feature: 应用事件操作（RZY-2141）
     And I wait for "500" millsecond
     And I set the parameter "SearchInput" with value "AutoTestApp"
     And I wait for "500" millsecond
-#    And I click the "SearchIcon" button
     And I drag the scroll bar to the element "ResultDataset"
     And I click the "ResultDataset" button
     And I click the "Ensure" button

@@ -52,7 +52,7 @@ Feature: 定时任务批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I wait for "SuccessMessage" will be invisible
-    And I click the "CompleteBatchControl" button
+    And I click the "Complete" button
 
   Scenario: 验证标签
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -86,7 +86,7 @@ Feature: 定时任务批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I wait for loading invisible
-    And I click the "CompleteBatchControl" button
+    And I click the "Complete" button
     
   Scenario: 启动
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -104,7 +104,7 @@ Feature: 定时任务批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I wait for loading invisible
-    And I click the "CompleteBatchControl" button
+    And I click the "Complete" button
 
   Scenario: 验证
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -148,7 +148,7 @@ Feature: 定时任务批量操作
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
     And I wait for loading invisible
-    And I click the "CompleteBatchControl" button
+    And I click the "Complete" button
 
   Scenario: 验证删除
     Given open the "timedTask.ListPage" page for uri "/schedule/"

@@ -1,24 +1,19 @@
 package com.yottabyte.pages.splSearch;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.utils.ClickEvent;
-import com.yottabyte.utils.ElementExist;
 import com.yottabyte.utils.WaitForElement;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.List;
 
 /**
  * @author sunxj
  * modified by Kate
  */
-public class StatisticalPage extends PageTemplate {
+public class StatisticalPage extends EditorPage {
     public StatisticalPage(WebDriver driver) {
         super(driver);
         driver.manage().window().setSize(new Dimension(1200,900));

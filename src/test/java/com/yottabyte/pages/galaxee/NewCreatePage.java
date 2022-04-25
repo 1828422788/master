@@ -1,8 +1,7 @@
 package com.yottabyte.pages.galaxee;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.utils.GetTime;
-import cucumber.api.java.en_lol.WEN;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +12,7 @@ import java.util.List;
 /**
  * @author lina
  */
-public class NewCreatePage extends PageTemplate {
+public class NewCreatePage extends EditorPage {
     public NewCreatePage(WebDriver driver) {
         super(driver);
 //        driver.manage().window().setPosition(new Point(0,0));

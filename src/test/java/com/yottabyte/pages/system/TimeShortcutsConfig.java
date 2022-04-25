@@ -1,6 +1,6 @@
 package com.yottabyte.pages.system;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 /**
  * @author sunxj
  */
-public class TimeShortcutsConfig extends PageTemplate {
+public class TimeShortcutsConfig extends EditorPage {
     public TimeShortcutsConfig(WebDriver driver) {
         super(driver);
         driver.manage().window().setSize(new Dimension(1920,1080));

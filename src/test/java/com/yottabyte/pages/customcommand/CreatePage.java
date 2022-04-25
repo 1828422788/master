@@ -1,14 +1,13 @@
 package com.yottabyte.pages.customcommand;
 
-import com.yottabyte.pages.PageTemplate;
-import org.apache.xpath.res.XPATHErrorResources;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class CreatePage extends PageTemplate {
+public class CreatePage extends EditorPage {
     public CreatePage(WebDriver driver) {
         super(driver);
         driver.manage().window().setSize(new Dimension(1200, 900));

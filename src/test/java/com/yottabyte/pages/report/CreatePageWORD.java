@@ -1,6 +1,6 @@
 package com.yottabyte.pages.report;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 
-public class CreatePageWORD extends PageTemplate {
+public class CreatePageWORD extends EditorPage {
 
     public CreatePageWORD(WebDriver driver) {
         super(driver);

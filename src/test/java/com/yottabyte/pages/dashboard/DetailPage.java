@@ -1,6 +1,6 @@
 package com.yottabyte.pages.dashboard;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.ConstructPageFactoryWithName;
 import com.yottabyte.utils.GetTime;
@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * @author sunxj
  */
-public class DetailPage extends PageTemplate {
+public class DetailPage extends EditorPage {
     public DetailPage(WebDriver driver) {
         super(driver);
         driver.manage().window().setSize(new Dimension(1920, 1080));
@@ -1712,11 +1712,11 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getStartColour() {
-        return super.findInputByPlaceholder("开始");
+        return super.getInputByPlaceholder("开始");
     }
 
     public WebElement getEndColour() {
-        return super.findInputByPlaceholder("结束");
+        return super.getInputByPlaceholder("结束");
     }
 
     public WebElement getAddColourRange() {

@@ -1,6 +1,6 @@
 package com.yottabyte.pages.macroSearch;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.stepDefs.WaitElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 /**
  * @author sunxj
  */
-public class CreatePage extends PageTemplate {
+public class CreatePage extends EditorPage {
     public CreatePage(WebDriver driver) {
         super(driver);
     }
@@ -86,7 +86,6 @@ public class CreatePage extends PageTemplate {
         return saveMacroButton;
     }
 
-    @Override
     public WebElement getApp() {
         app.click();
         return lastDropdown;

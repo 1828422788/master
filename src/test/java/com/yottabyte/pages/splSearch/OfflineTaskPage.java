@@ -1,20 +1,16 @@
 package com.yottabyte.pages.splSearch;
 
-import com.yottabyte.pages.PageTemplate;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
 /**
  * @author sunxj
  */
-public class OfflineTaskPage extends PageTemplate {
+public class OfflineTaskPage extends EditorPage {
     public OfflineTaskPage(WebDriver driver) {
         super(driver);
         driver.manage().window().fullscreen();

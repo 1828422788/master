@@ -42,7 +42,6 @@ Feature: 应用拓扑图（RZY-2142）
     And I choose the "__admin__" from the "Role"
     And I click the "AddDataset" button
     And I set the parameter "SearchInput" with value "AutoTestApp"
-#    And I click the "SearchIcon" button
     And I wait for "500" millsecond
     And I drag the scroll bar to the element "ResultDataset"
     And I click the "ResultDataset" button

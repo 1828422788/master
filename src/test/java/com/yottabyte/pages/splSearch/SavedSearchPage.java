@@ -1,7 +1,6 @@
 package com.yottabyte.pages.splSearch;
 
 import com.yottabyte.pages.ListPageFactory;
-import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -80,13 +79,5 @@ public class SavedSearchPage extends ListPageFactory {
         groupList.click();
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(dropdownMenu));
         return dropdownMenu;
-    }
-
-    public WebElement getSearchInput() {
-        return super.getSearchInput();
-    }
-
-    public WebElement getSearchIcon() {
-        return super.getSearchIcon();
     }
 }

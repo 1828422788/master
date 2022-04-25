@@ -45,8 +45,7 @@ Feature: 报表_5_标签
     And I will see the element "AppOfTheLastItem" contains "test_app"
 
   Scenario: global_tag_app
-    When I set the parameter "GlobalTagInput" with value "auto_package"
-    And I choose the "auto_package" from the "TagDropdown"
+    When I choose the "auto_package" from the "TagFilter"
     And I click the "HideElement" button
     And I wait for loading invisible
     And I choose the "test_app" from the "AppDropdown"

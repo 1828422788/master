@@ -2,7 +2,6 @@ package com.yottabyte.pages.incident;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.ListPageFactory;
-import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.GetTime;
 import com.yottabyte.utils.TakeScreenShot;
@@ -14,10 +13,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import com.yottabyte.pages.DateEditorPage;
-
-
-import java.util.List;
 
 /**
  * 合并策略界面元素定位

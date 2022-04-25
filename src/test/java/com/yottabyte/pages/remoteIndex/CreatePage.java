@@ -1,16 +1,14 @@
 package com.yottabyte.pages.remoteIndex;
 
-import com.yottabyte.pages.PageTemplate;
-import org.openqa.selenium.By;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.w3c.dom.html.HTMLInputElement;
 
 /**
  * @author li.na
  */
-public class CreatePage extends PageTemplate {
+public class CreatePage extends EditorPage {
     public CreatePage(WebDriver driver) {
         super(driver);
     }

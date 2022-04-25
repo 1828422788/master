@@ -1,7 +1,7 @@
 package com.yottabyte.utils;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -266,7 +266,7 @@ public class ListPageUtils {
             }
 
             // 如果没有找到，则尝试翻页，
-            WebElement nextPage = PageTemplate.getNextPageButton();
+            WebElement nextPage = EditorPage.getNextPageButton();
             String buttonAttribute = nextPage.getAttribute("class");
             if (!buttonAttribute.contains("disabled")){
                 nextPage.click();

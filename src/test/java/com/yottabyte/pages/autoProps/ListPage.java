@@ -4,11 +4,11 @@ package com.yottabyte.pages.autoProps;
  * @author L.N
  * @creat 2022-02-14-下午2:43
  */
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class ListPage extends PageTemplate {
+public class ListPage extends EditorPage {
     public ListPage(WebDriver driver) {
         super(driver);
     }

@@ -1,6 +1,6 @@
 package com.yottabyte.pages.fulllink;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -10,7 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class CreatePage extends PageTemplate {
+public class CreatePage extends EditorPage {
     public CreatePage(WebDriver driver) {
         super(driver);
         driver.manage().window().setSize(new Dimension(1920, 1080));

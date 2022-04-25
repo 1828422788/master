@@ -1,17 +1,15 @@
 package com.yottabyte.pages.trend;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.DropdownUtils;
 import com.yottabyte.utils.GetTime;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import org.openqa.selenium.Point;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -24,7 +22,7 @@ import java.util.List;
  * modified by Kate
  * can be used for creating trends, for editing charts on the search page
  */
-public class CreatePageDash extends PageTemplate {
+public class CreatePageDash extends EditorPage {
     public CreatePageDash(WebDriver driver) {
         super(driver);
         //webDriver.manage().window().setPosition(new Point(0, 0));

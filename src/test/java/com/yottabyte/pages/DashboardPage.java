@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * 仪表盘页面元素
  */
-public class DashboardPage extends PageTemplate {
+public class DashboardPage extends EditorPage {
 
     public DashboardPage(WebDriver driver) {
         super(driver);

@@ -1,17 +1,15 @@
 package com.yottabyte.pages.dbConnectionPre;
 
-import com.yottabyte.pages.PageTemplate;
-import com.yottabyte.utils.WaitForElement;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * @author sunxj
  */
-public class ImportResPage extends PageTemplate {
+public class ImportResPage extends EditorPage {
     public ImportResPage(WebDriver driver) {
         super(driver);
     }
@@ -107,7 +105,7 @@ public class ImportResPage extends PageTemplate {
     }
 
     public WebElement getSearchInput() {
-        return super.findInputByPlaceholder("请输入");
+        return super.getInputByPlaceholder("请输入");
     }
 
     public WebElement getAddDataset() {

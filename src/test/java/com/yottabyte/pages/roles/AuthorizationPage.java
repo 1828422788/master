@@ -1,7 +1,7 @@
 package com.yottabyte.pages.roles;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.stepDefs.Pagination;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class AuthorizationPage extends PageTemplate {
+public class AuthorizationPage extends EditorPage {
 
     public AuthorizationPage(WebDriver driver) {
         super(driver);

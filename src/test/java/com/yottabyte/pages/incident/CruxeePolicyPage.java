@@ -1,6 +1,6 @@
 package com.yottabyte.pages.incident;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
@@ -15,7 +15,7 @@ import java.util.List;
  * 合并策略界面元素定位
  */
 
-public class CruxeePolicyPage extends PageTemplate {
+public class CruxeePolicyPage extends EditorPage {
 
     public CruxeePolicyPage(WebDriver driver) {
         super(driver);

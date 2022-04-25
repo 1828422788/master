@@ -1,6 +1,6 @@
 package com.yottabyte.pages.alert;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * @author sunxj
  */
-public class MaintenancePage extends PageTemplate {
+public class MaintenancePage extends EditorPage {
     public MaintenancePage(WebDriver driver) {
         super(driver);
         driver.manage().window().fullscreen();

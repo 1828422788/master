@@ -1,6 +1,6 @@
 package com.yottabyte.pages.alert;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * @author sunxj
  */
-public class PluginPage extends PageTemplate {
+public class PluginPage extends EditorPage {
     public PluginPage(WebDriver driver) {
         super(driver);
         driver.manage().window().fullscreen();

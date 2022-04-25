@@ -1,18 +1,14 @@
 package com.yottabyte.pages.index;
 
-import com.yottabyte.pages.PageTemplate;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
-
 /**
  * @author sunxj
  */
-public class MatchRuleCreatePage extends PageTemplate {
+public class MatchRuleCreatePage extends EditorPage {
     public MatchRuleCreatePage(WebDriver driver) {
         super(driver);
     }

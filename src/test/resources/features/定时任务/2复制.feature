@@ -77,8 +77,7 @@ Feature: 定时任务复制
   Scenario: 检查应用和标签
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
-    When I set the parameter "GlobalTagInput" with value "auto_package"
-    When I choose the "auto_package" from the "TagDropdown"
+    When I choose the "auto_package" from the "TagFilter"
     And I click the "HideElement" button
     And I wait for loading invisible
     And I choose the "test_app" from the "AppDropdown"

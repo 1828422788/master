@@ -1,20 +1,13 @@
 package com.yottabyte.pages.incident;
 
-import com.yottabyte.pages.PageTemplate;
-import com.yottabyte.stepDefs.ClickSomeButton;
-import com.yottabyte.stepDefs.IChooseValueFromSelectList;
-import com.yottabyte.stepDefs.SetKeyWithValue;
-import com.yottabyte.utils.WaitForElement;
-import org.openqa.selenium.By;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
-public class UserGroupCreatePage extends PageTemplate {
+public class UserGroupCreatePage extends EditorPage {
 
     public UserGroupCreatePage(WebDriver driver) {
         super(driver);

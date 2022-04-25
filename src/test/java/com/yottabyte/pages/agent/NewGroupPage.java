@@ -1,21 +1,19 @@
 package com.yottabyte.pages.agent;
 
-import com.yottabyte.pages.ListPageFactory;
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.DropdownUtils;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.server.handler.interactions.touch.Up;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * @author sunxc
  */
-public class NewGroupPage extends PageTemplate {
+public class NewGroupPage extends EditorPage {
     public NewGroupPage(WebDriver driver) {super(driver);}
 
     @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::div//input")

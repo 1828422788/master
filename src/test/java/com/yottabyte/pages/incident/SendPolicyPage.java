@@ -1,20 +1,13 @@
 package com.yottabyte.pages.incident;
 
-import com.yottabyte.hooks.LoginBeforeAllTests;
-import com.yottabyte.pages.ListPageFactory;
-import com.yottabyte.pages.PageTemplate;
-import com.yottabyte.stepDefs.SetKeyWithValue;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.utils.ClickEvent;
-import com.yottabyte.utils.ElementExist;
-import com.yottabyte.utils.GetLogger;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.util.List;
-
-public class SendPolicyPage extends PageTemplate {
+public class SendPolicyPage extends EditorPage {
 
     public SendPolicyPage(WebDriver driver) {
         super(driver);
@@ -216,7 +209,7 @@ public class SendPolicyPage extends PageTemplate {
     }
 
     public WebElement getChoisePluginTypeList() {
-        return super.getDownListByText("请选择插件类型");
+        return dropdownUtils.getDownListByText("请选择插件类型");
     }
 
 

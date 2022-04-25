@@ -1,6 +1,6 @@
 package com.yottabyte.pages.alert;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.stepDefs.IChooseValueFromSelectList;
 import com.yottabyte.stepDefs.SetKeyWithValue;
 import com.yottabyte.stepDefs.WaitElement;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CreatePage extends PageTemplate {
+public class CreatePage extends EditorPage {
 
     public CreatePage(WebDriver driver) {
         super(driver);
@@ -211,7 +211,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i")
     private WebElement app;
 
-    @Override
     public WebElement getApp() {
         app.click();
         return super.getLastDropdownList();

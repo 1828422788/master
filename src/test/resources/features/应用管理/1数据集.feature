@@ -39,7 +39,6 @@ Feature: 应用数据集
     And I will see the element "VerifyText" name is "上传完成"
     And I click the "AddDataset" button
     And I set the parameter "SearchInput" with value "AutoTestApp"
-#    And I click the "SearchIcon" button
     And I wait for "500" millsecond
     And I drag the scroll bar to the element "ResultDataset"
     And I click the "ResultDataset" button

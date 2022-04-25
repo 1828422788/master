@@ -2,7 +2,7 @@ package com.yottabyte.hooks;
 
 import com.yottabyte.config.ConfigManager;
 import com.yottabyte.pages.LoginPage;
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.pages.manager.ManagerLoginPage;
 import com.yottabyte.pages.saas.SaasLoginPage;
 import com.yottabyte.stepDefs.LogInAndOut;
@@ -19,7 +19,6 @@ import java.lang.reflect.Constructor;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
-import java.util.NoSuchElementException;
 
 public class LoginBeforeAllTests {
     private static WebDriver webDriver;
@@ -61,7 +60,7 @@ public class LoginBeforeAllTests {
 
     public static void login() {
         System.out.println("chsfinduml==============================================[4]");
-        PageTemplate loginPage;
+        EditorPage loginPage;
         String username;
         String password;
         String cookieName;

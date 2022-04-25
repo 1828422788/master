@@ -54,7 +54,6 @@ Feature: 监控批量操作
     And I "checked" the checkbox in list which name is "Test_Batch_Control_Resource_1,Test_Batch_Control_Resource_2" in column "2"
     And I click the "SelectBatchOperation" button
     And I click the "EnableResources" button
-    And I wait for "Modal" will be visible
     And I click the "Ensure" button
     And I wait for "100" millsecond
     Then I will see the success message "更新成功"
@@ -67,7 +66,6 @@ Feature: 监控批量操作
     And I "checked" the checkbox in list which name is "Test_Batch_Control_Resource_1,Test_Batch_Control_Resource_2" in column "2"
     And I click the "SelectBatchOperation" button
     And I click the "AddResourceTags" button
-    And I wait for "Modal" will be visible
     And I set the parameter "Tag" with value "Multi_Add_Tag"
     And I choose the "Multi_Add_Tag" from the "TagDropdown"
     And I click the "Ensure" button
@@ -82,8 +80,7 @@ Feature: 监控批量操作
     And I "checked" the checkbox in list which name is "Test_Batch_Control_Resource_1,Test_Batch_Control_Resource_2" in column "2"
     And I click the "SelectBatchOperation" button
     And I click the "DeleteResources" button
-    And I wait for "Modal" will be visible
     And I click the "Ensure" button
     And I wait for "100" millsecond
     Then I will see the success message "删除成功"
-    And I click the "CompleteBatchControl" button
+    And I click the "Complete" button

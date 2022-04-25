@@ -1,27 +1,15 @@
 package com.yottabyte.pages.dataset;
 
-import com.yottabyte.pages.PageTemplate;
-import com.yottabyte.utils.ClickEvent;
-import com.yottabyte.utils.WaitForElement;
-import org.assertj.core.internal.cglib.asm.$ClassReader;
-import org.junit.Test;
-import org.openqa.selenium.By;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import javax.security.auth.x500.X500Principal;
-import javax.swing.*;
-import java.security.cert.X509Certificate;
 
 /**
  * @author jiangnd
  */
 
-public class DetailPage extends PageTemplate {
+public class DetailPage extends EditorPage {
 
     public DetailPage(WebDriver driver) {
         super(driver);

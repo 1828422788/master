@@ -1,10 +1,10 @@
 package com.yottabyte.pages.assets;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class ModelPage extends PageTemplate{
+public class ModelPage extends EditorPage {
 
     public ModelPage(WebDriver driver) {
         super(driver);
@@ -15,7 +15,7 @@ public class ModelPage extends PageTemplate{
     }
 
     public WebElement getInput(){
-        return super.findInputByPlaceholder("请输入");
+        return super.getInputByPlaceholder("请输入");
     }
 
     public WebElement getGroupList(){

@@ -1,6 +1,6 @@
 package com.yottabyte.pages.dbConnectionPre;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.GetTime;
 import com.yottabyte.utils.WaitForElement;
@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * @author sunxj
  */
-public class dbSettingPage extends PageTemplate {
+public class dbSettingPage extends EditorPage {
     public dbSettingPage(WebDriver driver) {
         super(driver);
         driver.manage().window().fullscreen();

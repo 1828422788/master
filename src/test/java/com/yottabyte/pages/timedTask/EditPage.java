@@ -1,14 +1,11 @@
 package com.yottabyte.pages.timedTask;
 
-import com.yottabyte.pages.PageTemplate;
-import org.openqa.selenium.By;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
-
-public class EditPage extends PageTemplate {
+public class EditPage extends EditorPage {
 
     public EditPage(WebDriver driver) {
         super(driver);

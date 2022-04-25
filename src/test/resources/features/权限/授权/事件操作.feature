@@ -18,7 +18,7 @@ Feature: 权限-事件操作
 
   Scenario: 无页面访问权限
     Given I login user "AutoTest" with password "All#123456"
-    And open the "PageTemplate" page for uri "/event/action/"
+    And open the "event.ListPage" page for uri "/event/action/"
     Then the page's title will be "403 Permission Denied"
 
   Scenario Outline: 勾选事件操作权限

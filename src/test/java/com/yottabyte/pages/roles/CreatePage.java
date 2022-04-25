@@ -1,9 +1,6 @@
 package com.yottabyte.pages.roles;
 
-import com.yottabyte.pages.PageTemplate;
-import com.yottabyte.stepDefs.ClickSomeButton;
-import com.yottabyte.stepDefs.ICheckValuesFromCheckBox;
-import com.yottabyte.stepDefs.SetKeyWithValue;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
-public class CreatePage extends PageTemplate {
+public class CreatePage extends EditorPage {
 
     public CreatePage(WebDriver driver) {
         super(driver);

@@ -2,7 +2,6 @@ package com.yottabyte.pages;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.ElementExist;
-import com.yottabyte.utils.GetLogger;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,7 +14,7 @@ import java.util.List;
 /**
  * 导航栏页面元素
  */
-public class PublicNavBarPage extends PageTemplate {
+public class PublicNavBarPage extends EditorPage {
 
     public PublicNavBarPage(WebDriver driver) {
         super(driver);

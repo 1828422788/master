@@ -25,7 +25,6 @@ Feature: 应用安装（RZY-1988）
     And I click the "AddDataset" button
     And I set the parameter "SearchInput" with value "AutoTestApp"
     And I wait for "500" millsecond
-#    And I click the "SearchIcon" button
     And I drag the scroll bar to the element "ResultDataset"
     And I click the "ResultDataset" button
     And I click the "Ensure" button
@@ -115,7 +114,6 @@ Feature: 应用安装（RZY-1988）
     And I click the "AddDataset" button
     And I set the parameter "SearchInput" with value "AutoTestApp"
     And I wait for "500" millsecond
-#    And I click the "SearchIcon" button
     And I drag the scroll bar to the element "ResultDataset"
     And I click the "ResultDataset" button
     And I click the "Ensure" button

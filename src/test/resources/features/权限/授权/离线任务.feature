@@ -39,7 +39,7 @@ Feature: 权限-离线任务
 
   Scenario: 无离线任务页面访问权限
     Given I login user "AutoTest" with password "All#123456"
-    And open the "PageTemplate" page for uri "/offlinetask/"
+    And open the "splSearch.OfflineTaskPage" page for uri "/offlinetask/"
     And I wait for loading invisible
     Then the page's title will be "403 Permission Denied"
     Then I logout current user

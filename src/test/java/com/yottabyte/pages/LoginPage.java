@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
  * 登陆页面的页面元素
  * Created by A on 2017/4/5.
  */
-public class LoginPage extends PageTemplate {
+public class LoginPage extends EditorPage {
     WebDriver webDriver;
 
     public LoginPage(WebDriver driver) {

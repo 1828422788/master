@@ -1,6 +1,6 @@
 package com.yottabyte.pages.saas;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.stepDefs.ClickSomeButton;
 import com.yottabyte.stepDefs.SetKeyWithValue;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
  * 登陆页面的页面元素
  * Created by A on 2017/4/5.
  */
-public class SaasLoginPage extends PageTemplate {
+public class SaasLoginPage extends EditorPage {
     WebDriver webDriver;
 
     public SaasLoginPage(WebDriver driver) {

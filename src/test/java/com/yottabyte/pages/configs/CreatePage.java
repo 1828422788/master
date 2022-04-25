@@ -1,23 +1,15 @@
 package com.yottabyte.pages.configs;
 
-import com.yottabyte.hooks.LoginBeforeAllTests;
-import com.yottabyte.pages.DateEditorPage;
-import com.yottabyte.pages.PageTemplate;
-import com.yottabyte.utils.ClickEvent;
-import com.yottabyte.utils.WaitForElement;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Sleeper;
 
 import java.util.List;
 
 
-public class CreatePage extends PageTemplate {
+public class CreatePage extends EditorPage {
     public CreatePage(WebDriver driver) {
         super(driver);
         driver.manage().window().fullscreen();
@@ -151,7 +143,6 @@ public class CreatePage extends PageTemplate {
         return configDone;
     }
 
-    @Override
     public WebElement getDeleteApp() {
         return deleteApp;
     }
@@ -472,10 +463,9 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getPopoverTip() {
-        return super.getYottaPopover("config-delete-popover");
+        return super.getYottaDiv("config-delete-popover");
     }
 
-    @Override
     public WebElement getSearchInput() {
         return searchInput;
     }

@@ -9,6 +9,7 @@ Feature: 仪表盘01新建（RZY-208至RZY-210）
   Scenario Outline: 新建(RZY-208，RZY-4472，RZY-4473,RZY-4782)
     When I click the "Create" button
     And I set the parameter "DashBoardName" with value "<name>"
+    And I choose the "test_app" from the "BelongedApp"
     And I click the "ResourceInput" button
     And I wait for "1000" millsecond
     And I set the parameter "ResourceTagInput" with value "AutoTest"

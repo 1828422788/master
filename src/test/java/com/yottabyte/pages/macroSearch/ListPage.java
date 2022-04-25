@@ -1,9 +1,6 @@
 package com.yottabyte.pages.macroSearch;
 
 import com.yottabyte.pages.ListPageFactory;
-import com.yottabyte.pages.PageTemplate;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

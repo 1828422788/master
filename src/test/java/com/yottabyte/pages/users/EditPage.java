@@ -1,6 +1,6 @@
 package com.yottabyte.pages.users;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
-public class EditPage extends PageTemplate {
+public class EditPage extends EditorPage {
     public EditPage(WebDriver driver) {
         super(driver);
     }

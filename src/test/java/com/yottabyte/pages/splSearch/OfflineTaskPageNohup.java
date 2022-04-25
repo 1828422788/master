@@ -1,7 +1,6 @@
 package com.yottabyte.pages.splSearch;
 
-import com.yottabyte.pages.PageTemplate;
-import org.openqa.selenium.Dimension;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,7 +10,7 @@ import java.util.List;
 /**
  * @author sunxj
  */
-public class OfflineTaskPageNohup extends PageTemplate {
+public class OfflineTaskPageNohup extends EditorPage {
     public OfflineTaskPageNohup(WebDriver driver) {
         super(driver);
         driver.manage().window().maximize();

@@ -1,6 +1,6 @@
 package com.yottabyte.pages.system;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * @author sunxj
  */
-public class CustomConfigs extends PageTemplate {
+public class CustomConfigs extends EditorPage {
     public CustomConfigs(WebDriver driver) {
         super(driver);
         driver.manage().window().fullscreen();

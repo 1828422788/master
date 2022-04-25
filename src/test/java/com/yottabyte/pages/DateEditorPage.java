@@ -4,7 +4,6 @@ import com.yottabyte.stepDefs.IChooseValueFromSelectList;
 import com.yottabyte.stepDefs.SetKeyWithValue;
 import com.yottabyte.utils.ConstructPageFactoryWithName;
 import com.yottabyte.utils.WaitForElement;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,7 +17,7 @@ import java.util.List;
  * 时间控件页面元素
  */
 
-public class DateEditorPage extends PageTemplate {
+public class DateEditorPage extends EditorPage {
 
     public DateEditorPage(WebDriver driver) {
         super(driver);

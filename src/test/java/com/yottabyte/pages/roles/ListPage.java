@@ -1,15 +1,8 @@
 package com.yottabyte.pages.roles;
 
 import com.yottabyte.pages.ListPageFactory;
-import com.yottabyte.pages.PageTemplate;
-import com.yottabyte.stepDefs.LoadingPage;
-import com.yottabyte.utils.ElementExist;
-import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 

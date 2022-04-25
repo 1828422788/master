@@ -1,13 +1,12 @@
 package com.yottabyte.pages.tenant;
 
-import com.yottabyte.pages.PageTemplate;
-import org.assertj.core.internal.cglib.asm.$ClassReader;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 
-public class ListPage extends PageTemplate {
+public class ListPage extends EditorPage {
     public ListPage(WebDriver driver) {
         super(driver);
     }

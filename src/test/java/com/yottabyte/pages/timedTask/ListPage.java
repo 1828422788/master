@@ -1,14 +1,11 @@
 package com.yottabyte.pages.timedTask;
 
 import com.yottabyte.pages.ListPageFactory;
-import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.util.List;
 
 public class ListPage extends ListPageFactory {
 
@@ -136,10 +133,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getNotice() {
         return notice;
-    }
-
-    public WebElement getSearchIcon() {
-        return super.getSearchIcon();
     }
 
     public WebElement getDatePicker() {

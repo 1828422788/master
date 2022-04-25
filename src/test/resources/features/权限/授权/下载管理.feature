@@ -20,7 +20,7 @@ Feature: 权限-下载管理
 
   Scenario: 验证无下载管理页面访问权限
     Given I login user "AutoTest" with password "All#123456"
-    And open the "PageTemplate" page for uri "/download/"
+    And open the "splSearch.OfflineTaskPage" page for uri "/download/"
     Then the page's title will be "403 Permission Denied"
 
   Scenario: 验证无法使用download指令

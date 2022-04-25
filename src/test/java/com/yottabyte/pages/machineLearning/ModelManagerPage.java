@@ -1,6 +1,6 @@
 package com.yottabyte.pages.machineLearning;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * @author sunxj
  */
-public class ModelManagerPage extends PageTemplate {
+public class ModelManagerPage extends EditorPage {
     public ModelManagerPage(WebDriver driver) {
         super(driver);
     }

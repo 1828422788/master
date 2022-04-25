@@ -1,6 +1,6 @@
 package com.yottabyte.pages.dbConnectionPre;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.utils.ElementExist;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.*;
@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ResListPage extends PageTemplate {
+public class ResListPage extends EditorPage {
 
     public ResListPage(WebDriver driver) {
         super(driver);

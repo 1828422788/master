@@ -1,6 +1,6 @@
 package com.yottabyte.pages.app;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @author sunxj
  */
-public class AppPage extends PageTemplate {
+public class AppPage extends EditorPage {
     public AppPage(WebDriver driver) {
         super(driver);
     }

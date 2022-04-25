@@ -1,10 +1,8 @@
 package com.yottabyte.pages.dbConnectionPre;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.EditorPage;
 import com.yottabyte.utils.ClickEvent;
-import com.yottabyte.utils.GetTime;
 import com.yottabyte.utils.WaitForElement;
-import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,7 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * @author sunxj
  */
-public class DbOutputPage extends PageTemplate {
+public class DbOutputPage extends EditorPage {
     public DbOutputPage(WebDriver driver) {
         super(driver);
         driver.manage().window().fullscreen();
