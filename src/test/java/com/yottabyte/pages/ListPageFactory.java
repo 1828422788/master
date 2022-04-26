@@ -1,5 +1,7 @@
 package com.yottabyte.pages;
 
+import com.yottabyte.stepDefs.ClickSomeButton;
+import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -36,7 +38,7 @@ public class ListPageFactory extends PageTemplate {
         return dropdownUtils.getYottaDropdownList("resource_tag-change_resource_tag-select");
     }
 
-    @FindBy(xpath = "//tr[contains(@class,'expansion')]//td[@class='yotta-table-cell']")
+    @FindBy(xpath = "(//tr[contains(@class,'expansion')]//td[@class='yotta-table-cell'])[last()]")
     private WebElement expandedRow;
     public WebElement getExpandedRow() {
         return expandedRow;
@@ -60,41 +62,8 @@ public class ListPageFactory extends PageTemplate {
         return this.getButton("批量操作");
     }
 
-    //TODO: 修改下面的元素成为DropdownList，也修改用例
-    @FindBy(xpath = "//span[contains(text(),'请选择')]/ancestor::span[contains(@class,'button')]")
-    private WebElement selectBatchOperation;
-    public WebElement getSelectBatchOperation() {
-        return selectBatchOperation;
-    }
-
-    @FindBy(xpath = "//span[contains(text(),'启动')]/ancestor::li")
-    private WebElement enableResources;
-    public WebElement getEnableResources() {
-        return enableResources;
-    }
-
-    @FindBy(xpath = "//span[contains(text(),'停止')]/ancestor::li")
-    private WebElement disableResources;
-    public WebElement getDisableResources() {
-        return disableResources;
-    }
-
-    @FindBy(xpath = "//span[contains(text(),'添加资源标签')]/ancestor::li")
-    private WebElement addResourceTags;
-    public WebElement getAddResourceTags() {
-        return addResourceTags;
-    }
-
-    @FindBy(xpath = "//span[contains(text(),'删除')]/ancestor::li")
-    private WebElement deleteResources;
-    public WebElement getDeleteResources() {
-        return deleteResources;
-    }
-
-    @FindBy(xpath = "//span[contains(text(),'下载')]/ancestor::li")
-    private WebElement downloadResources;
-    public WebElement getDownloadResources() {
-        return downloadResources;
+    public WebElement getBatchOperation() {
+        return dropdownUtils.getParentElementOfMenuListByXpath("//div[@yotta-test='batch_control-selection-dropdown']/span");
     }
 
     //TODO:删除下面的AppDropdown,ResourceDropdown,groupDropdownIcon，在用例中可以用TagFilter和AppFilter

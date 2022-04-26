@@ -62,21 +62,6 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='删除']/preceding-sibling::label")
     private WebElement empowerDelete;
 
-    @FindBy(xpath = "(//tbody[@class='yotta-table-body']/tr/td/div[@class='yotta-table-cell-action']//span[@class='yotta-checkbox-input'])[1]")
-    private WebElement listItemOne;
-
-    @FindBy(xpath = "(//tbody[@class='yotta-table-body']/tr/td/div[@class='yotta-table-cell-action']//span[@class='yotta-checkbox-input'])[2]")
-    private WebElement listItemTwo;
-
-    @FindBy(xpath = "(//tbody[@class='yotta-table-body']/tr/td/div[@class='yotta-table-cell-action']//span[@class='yotta-checkbox-input'])[3]")
-    private WebElement listItemThree;
-
-    @FindBy(xpath = "//span[text()='添加资源标签']")
-    private WebElement addResouceTag;
-
-    @FindBy(xpath = "//span[text()='删除']")
-    private WebElement multiDelete;
-
     @FindBy(xpath = "//span[text()='请选择或输入']")
     private WebElement multiAddTag;
 
@@ -159,24 +144,6 @@ public class ListPage extends ListPageFactory {
     public WebElement getEmpowerEdit() { return empowerEdit; }
 
     public WebElement getEmpowerDelete() { return empowerDelete; }
-
-    public WebElement getListItemOne() { return listItemOne; }
-
-    public WebElement getListItemTwo() { return listItemTwo; }
-
-    public WebElement getListItemThree() { return listItemThree; }
-
-    public WebElement getAddResouceTag() { return addResouceTag; }
-
-    public WebElement getMultiDelete() { return multiDelete; }
-
-    public WebElement getMultiOperate(){
-        return super.getButton("批量操作");
-    }
-
-    public WebElement getMultiChooseButton(){
-        return webDriver.findElement(By.xpath("//span[text()='请选择']"));
-    }
 
     public WebElement getInput(String name) {
         return webDriver.findElement(By.xpath("(//span[text()='" + name + "'])[last()]/following-sibling::input"));

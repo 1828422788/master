@@ -260,9 +260,7 @@ Feature: 权限-仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "1000" millsecond
     Then I will see the data "{'column':'0','name':'<name>重命名'}" values "{'column':'2','name':'test'}"
-    When the data name is "<name>重命名" then i click the "更多" button
-    And I click the "MultiDelete" button
-    And I wait for "Ensure" will be visible
+    When the data name is "<name>重命名" then i click the "删除" button in more menu
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
@@ -353,9 +351,7 @@ Feature: 权限-仪表盘
     And I click the detail which name is "<name>"
     Then I will see the "TagName" doesn't exist
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    When the data name is "<name>" then i click the "更多" button
-    And I click the "MultiDelete" button
-    And I wait for "Ensure" will be visible
+    When the data name is "<name>" then i click the "删除" button in more menu
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
@@ -492,9 +488,7 @@ Feature: 权限-仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I wait for "9000" millsecond
-    When the data name is "<name>" then i click the "更多" button
-    And I click the "MultiDelete" button
-    And I wait for "Ensure" will be visible
+    When the data name is "<name>" then i click the "删除" button in more menu
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
@@ -576,9 +570,7 @@ Feature: 权限-仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'<name>重命名'}" values "{'column':'2','name':'test'}"
-    When the data name is "<name>重命名" then i click the "更多" button
-    And I click the "MultiDelete" button
-    And I wait for "Ensure" will be visible
+    When the data name is "<name>重命名" then i click the "删除" button in more menu
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"

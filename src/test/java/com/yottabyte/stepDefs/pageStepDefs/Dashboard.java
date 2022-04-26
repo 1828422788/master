@@ -33,19 +33,6 @@ public class Dashboard {
     }
 
     /**
-     * 点击仪表盘某个记录前的icon
-     *
-     * @param name 仪表盘记录名称
-     */
-    @When("^I click the dashboard icon which name is \"([^\"]*)\"$")
-    public void clickTheIconWhichname(String name) {
-        String xpath = "//span[text()='" + name + "']/parent::a/preceding-sibling::div/span";
-        WebElement button = webDriver.findElement(By.xpath(xpath));
-        if (ElementExist.isElementExist(webDriver, button))
-            button.click();
-    }
-
-    /**
      * 关闭或开启仪表盘开关
      *
      * @param buttonName 元素名称

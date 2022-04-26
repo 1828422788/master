@@ -33,5 +33,5 @@ Feature: 仪表盘02搜索
     Then I will see the search result contains "UIautotest"
 
   Scenario: 验证资源标签删除成功
-    And I click the dashboard icon which name is "UIautotest"
+    And the data name is "UIautotest" then I "expand" the item
     Then I will see the text "资源标签..............无" exist in page

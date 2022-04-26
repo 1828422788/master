@@ -1,17 +1,6 @@
 @dashboard @dashboard07
 Feature: 仪表盘08列表页
 
-  Scenario:页签管理（RZY-215）
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the "ChartYeQian" button
-    And I wait for "1000" millsecond
-    Then I wait for "ThirtyOnePage" will be visible
-    Then I wait for "FiftyOnePage" will be visible
-    And I click the "FiftyOnePage" button
-    And I wait for "1000" millsecond
-    Then I wait for element "ChartYeQian" change text to "50"
-
   Scenario Outline:新建仪表盘-批量操作
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -26,26 +15,26 @@ Feature: 仪表盘08列表页
       | 仪表盘批量2 |
       | 仪表盘批量3 |
 
-  Scenario:批量添加标签 RZY-4838
+  Scenario:页签管理（RZY-215）
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I click the "MultiOperate" button
+    And I click the "ChartYeQian" button
     And I wait for "1000" millsecond
-    And I click the "ListItemOne" button
+    Then I wait for "ThirtyOnePage" will be visible
+    Then I wait for "FiftyOnePage" will be visible
+    And I click the "FiftyOnePage" button
     And I wait for "1000" millsecond
-    And I click the "ListItemTwo" button
-    And I wait for "1000" millsecond
-    And I click the "ListItemThree" button
-    And I click the "MultiChooseButton" button
-    And I wait for "500" millsecond
-    And I click the "AddResouceTag" button
-    And I click the "TagToInput" button
-    And I wait for "1000" millsecond
-    And I set the parameter "MultiInputTag" with value "auto_package"
-    And I wait for "500" millsecond
-    And I choose the "auto_package" from the "LastDropdownList"
+    Then I wait for element "ChartYeQian" change text to "50"
+
+  Scenario:批量添加标签 RZY-4838
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I set the parameter "SearchInput" with value "仪表盘批量"
+    And I wait for loading invisible
+    And I click the "BatchControl" button
+    And I click the "SelectAll" button
+    And I choose the "添加资源标签" from the "BatchOperation"
+    And I choose the "auto_package" from the "TagField"
     And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
 
@@ -54,43 +43,30 @@ Feature: 仪表盘08列表页
     And I wait for loading invisible
     And I set the parameter "SearchInput" with value "仪表盘批量"
     And I wait for loading invisible
-    And I click the dashboard icon which name is "仪表盘批量3"
-    Then I will see the text "资源标签..............auto_package" exist in page
-    And I click the dashboard icon which name is "仪表盘批量3"
-    And I click the dashboard icon which name is "仪表盘批量2"
-    Then I will see the text "资源标签..............auto_package" exist in page
-    And I click the dashboard icon which name is "仪表盘批量2"
-    And I click the dashboard icon which name is "仪表盘批量1"
-    Then I will see the text "资源标签..............auto_package" exist in page
+    And the data name is "仪表盘批量3" then I "expand" the item
+    And I will see the element "ExpandedRow" contains "资源标签..............auto_package"
+    And the data name is "仪表盘批量3" then I "close" the item
+    And the data name is "仪表盘批量2" then I "expand" the item
+    And I will see the element "ExpandedRow" contains "资源标签..............auto_package"
+    And the data name is "仪表盘批量2" then I "close" the item
+    And the data name is "仪表盘批量1" then I "expand" the item
+    And I will see the element "ExpandedRow" contains "资源标签..............auto_package"
+    And the data name is "仪表盘批量1" then I "close" the item
 
   Scenario:批量删除仪表盘 RZY-4840
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I click the "MultiOperate" button
-    And I wait for "1000" millsecond
-    And I click the "ListItemOne" button
-    And I wait for "1000" millsecond
-    And I click the "ListItemTwo" button
-    And I wait for "1000" millsecond
-    And I click the "ListItemThree" button
-    And I click the "MultiChooseButton" button
-    And I wait for "500" millsecond
-    And I click the "MultiDelete" button
+    When I click the "BatchControl" button
+    And I "checked" the checkbox which name is "仪表盘批量1" in the list
+    And I "checked" the checkbox which name is "仪表盘批量2" in the list
+    And I "checked" the checkbox which name is "仪表盘批量3" in the list
+    And I choose the "删除" from the "BatchOperation"
+    And I will see the message contains "您选中的 3 个资源将被删除，是否继续？"
     And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
 
-  Scenario Outline: 验证删除成功 RZY-4840
+  Scenario: 验证删除成功 RZY-4840
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I set the parameter "SearchInput" with value "仪表盘批量"
     And I wait for loading invisible
-    Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
-
-    Examples:
-      | name      |
-      | 仪表盘批量3 |
-      | 仪表盘批量2 |
-      | 仪表盘批量1 |
-
-
-
-
+    And I will see the text "暂无数据" exist in page

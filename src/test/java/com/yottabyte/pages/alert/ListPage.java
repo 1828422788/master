@@ -347,85 +347,6 @@ public class ListPage extends ListPageFactory {
         return maintainFlag;
     }
 
-    public WebElement getMultiOperate(){
-        return super.getButton("批量操作");
-    }
-
-    public WebElement getMultiChooseButton(){
-        return super.getButton("请选择");
-    }
-
-    @FindBy(xpath = "//span[text()='启动']")
-    private WebElement multiStart;
-    public WebElement getMultiStart() {
-        return multiStart;
-    }
-
-    @FindBy(xpath = "//span[text()='添加资源标签']")
-    private WebElement multiAddResourceTag;
-    public WebElement getMultiAddResourceTag() {
-        return multiAddResourceTag;
-    }
-
-    @FindBy(xpath = "//span[text()='删除']")
-    private WebElement multiDelete;
-    public WebElement getMultiDelete() {
-        return multiDelete;
-    }
-
-    @FindBy(xpath = "(//tbody[@class='ant-table-tbody']/tr/td[@class='ant-table-selection-column']//span)[1]")
-    private WebElement listItemOne;
-
-    @FindBy(xpath = "(//tbody[@class='ant-table-tbody']/tr/td[@class='ant-table-selection-column']//span)[4]")
-    private WebElement listItemTwo;
-
-    @FindBy(xpath = "(//tbody[@class='ant-table-tbody']/tr/td[@class='ant-table-selection-column']//span)[7]")
-    private WebElement listItemThree;
-
-    public WebElement getListItemOne() { return listItemOne; }
-
-    public WebElement getListItemTwo() { return listItemTwo; }
-
-    public WebElement getListItemThree() { return listItemThree; }
-
-    @FindBy(xpath = "(//button[contains(@class,'ant-switch')])[2]")
-    private WebElement switchTwo;
-
-    @FindBy(xpath = "(//button[contains(@class,'ant-switch')])[3]")
-    private WebElement switchThree;
-
-    @FindBy(xpath = "(//button[contains(@class,'ant-switch')])[10]")
-    private WebElement switchTen;
-
-    @FindBy(xpath = "(//button[contains(@class,'ant-switch')])[1]")
-    private WebElement switchOne;
-
-    public WebElement getSwitchOne() { return switchOne; }
-
-    public WebElement getSwitchTwo() { return switchTwo; }
-
-    public WebElement getSwitchThree() { return switchThree; }
-
-    public WebElement getSwitchTen() { return switchTen; }
-
-    @FindBy(xpath = "//thead[@class='ant-table-thead']/tr/th[@class='ant-table-selection-column']//span[@class='ant-checkbox']")
-    private WebElement listHeadCheckbox;
-
-    public WebElement getListHeadCheckbox() { return listHeadCheckbox; }
-
-    @FindBy(xpath = "//li/a[text()='2']")
-    private WebElement pageTwo;
-
-    public WebElement getPageTwo() { return pageTwo; }
-
-    @FindBy(xpath = "//div[text()='请输入标签名称']")
-    private WebElement multiAddTag;
-
-    public WebElement getMultiAddTag() {
-        multiAddTag.click();
-        return super.getLastDropdownList();
-    }
-
     @FindBy(xpath = "//span[text()='api00_all_事件计数_设备切分ip_扩展chart_all_交易日']/parent::button[@yotta-test='alert-name-button']")
     private WebElement alertNameButton;
 
@@ -441,30 +362,10 @@ public class ListPage extends ListPageFactory {
         return super.getLastDropdownList();
     }
 
-    @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//span[text()='请选择或输入']")
-    private WebElement tagInputDiv;
-    public WebElement getTagInputDiv(){
-        return tagInputDiv;
-    }
-
     @FindBy(xpath = "//div[@yotta-test='resource_tag-change_resource_tag-select']//input")
     private WebElement tagInput;
     public WebElement getTagInput(){
         return tagInput;
-    }
-
-    @FindBy(xpath = "(//tr[contains(@class,'expansion')]//div[contains(text(),'资源标签......')])[last()]")
-    private WebElement tagOfTheLastItem;
-
-    public WebElement getTagOfTheLastItem() {
-        return tagOfTheLastItem;
-    }
-
-    @FindBy(xpath = "//table[@yotta-test='alert-table-table']//span[text()='名称']/preceding::input[@type='checkbox']")
-    private WebElement allSelectCheckbox;
-
-    public WebElement getAllSelectCheckbox() {
-        return allSelectCheckbox;
     }
 
     @FindBy(xpath = "//*[@yotta-test='alert-other-dropdown']/span")

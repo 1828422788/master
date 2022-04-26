@@ -180,12 +180,4 @@ public class ListPage extends ListPageFactory {
         ClickEvent.clickUnderneathButton(element);
         return dropdownUtils.getParentElementOfMenuList();
     }
-
-    @FindBy(xpath = "//table[@yotta-test='dataset-list-table']//span[text()='名称']/preceding::input[@type='checkbox']")
-    private WebElement allSelectCheckbox;
-
-    public WebElement getAllSelectCheckbox() {
-        return allSelectCheckbox;
-    }
-
 }
