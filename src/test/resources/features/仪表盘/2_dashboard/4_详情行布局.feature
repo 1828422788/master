@@ -99,6 +99,8 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for element "SuccessMessage" change text to "编辑功能已启用"
+    And I wait for "SuccessMessage" will be invisible
     And I choose the "添加行" from the "AddItemMenu"
     And I wait for loading invisible
     And I set the parameter "NewRowName" with value "第一行"
@@ -106,6 +108,7 @@ Feature: 仪表盘04详情行布局
     And I click the "{'Checkbox':'行布局趋势图2'}" button
     And I click the "Ensure" button
     And I wait for element "SuccessMessage" change text to "添加成功"
+    And I wait for "SuccessMessage" will be invisible
     And I choose the "添加行" from the "AddItemMenu"
     And I wait for loading invisible
     And I click the "{'Checkbox':'行布局趋势图1'}" button
@@ -144,6 +147,8 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for element "SuccessMessage" change text to "编辑功能已启用"
+    And I wait for "SuccessMessage" will be invisible
     And I choose the "添加图表" from the "AddItemMenu"
     And I choose the "L1: 首行,L2:" from the "RowMenu"
     And I click the "Ensure" button
@@ -167,6 +172,8 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for element "SuccessMessage" change text to "编辑功能已启用"
+    And I wait for "SuccessMessage" will be invisible
     And I choose the "添加输入项" from the "AddItemMenu"
     And I wait for loading invisible
     And I set the parameter "FilterTitle" with value "filter"
@@ -188,6 +195,8 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for element "SuccessMessage" change text to "编辑功能已启用"
+    And I wait for "SuccessMessage" will be invisible
     And I choose the "添加输入项" from the "AddItemMenu"
     And I wait for loading invisible
     And I set the parameter "FilterTitle" with value "innerFilter"
@@ -209,6 +218,8 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for element "SuccessMessage" change text to "编辑功能已启用"
+    And I wait for "SuccessMessage" will be invisible
     And I choose the "添加事件列表" from the "AddItemMenu"
     And I set the parameter "EventName" with value "测试行事件"
     And I alter the input element "Spl" value to "appname:apache"
@@ -286,6 +297,8 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for element "SuccessMessage" change text to "编辑功能已启用"
+    And I wait for "SuccessMessage" will be invisible
     And I choose the "添加行" from the "AddItemMenu"
     And I set the parameter "NewRowName" with value "行布局"
     And I wait for loading invisible
@@ -319,6 +332,8 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for element "SuccessMessage" change text to "编辑功能已启用"
+    And I wait for "SuccessMessage" will be invisible
     And I choose the "添加输入项" from the "AddItemMenu"
     And I wait for loading invisible
     And I set the parameter "FilterTitle" with value "filter"
