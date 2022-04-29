@@ -12,6 +12,8 @@ Feature: 仪表盘05重命名
     Then I will see the success message "<message>"
     And I refresh the website
     And I wait for loading invisible
+    Given I set the parameter "TextFilter" with value "<newName>"
+    And I wait for loading invisible
     Then I will see the search result contains "<newName>"
 
     Examples: 重命名成功

@@ -210,8 +210,9 @@ Feature: 仪表盘03详情页
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "SettingIcon" will be visible
     And I click the "SettingIcon" button
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I wait for "SuccessMessage" will be invisible
     And I click the Element with text "复制标签页"
     And I wait for "SuccessMessage" will be invisible
     And I wait for "2000" millsecond
