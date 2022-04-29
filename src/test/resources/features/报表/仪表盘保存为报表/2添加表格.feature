@@ -6,7 +6,7 @@ Feature:2添加表格
     And I wait for loading invisible
 
   Scenario Outline:  add_trends
-    And I set the parameter "SearchInput" with value "仪表盘_<folder>"
+    And I set the parameter "TextFilter" with value "仪表盘_<folder>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<folder>"
     And switch to window "仪表盘"

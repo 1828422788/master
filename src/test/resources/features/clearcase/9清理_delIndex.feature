@@ -21,7 +21,7 @@ Feature: 新建collect使用索引
 
   @delapiindex
   Scenario Outline:
-    When I set the parameter "SearchInput" with value "<name>"
+    When I set the parameter "TextFilter" with value "<name>"
     And I wait for loading complete
     And I wait for "1000" millsecond
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu

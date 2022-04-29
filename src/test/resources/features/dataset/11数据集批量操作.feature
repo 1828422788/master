@@ -43,7 +43,7 @@ Feature: 数据集_11批量操作
     Then I will see the message "请至少选择一个资源进行操作"
 
   Scenario: 批量操作-添加资源标签
-    And I set the parameter "SearchInput" with value "Test_Batch_Control_Resource"
+    And I set the parameter "TextFilter" with value "Test_Batch_Control_Resource"
     And I wait for loading invisible
     When I click the "BatchControl" button
     And I click the "SelectAll" button
@@ -63,7 +63,7 @@ Feature: 数据集_11批量操作
 
   Scenario: 批量操作-删除资源
     When I click the "BatchControl" button
-    And I set the parameter "SearchInput" with value "Test_Batch_Control_Resource"
+    And I set the parameter "TextFilter" with value "Test_Batch_Control_Resource"
     And I wait for loading invisible
     And I click the "SelectAll" button
     And I choose the "删除" from the "BatchOperation"

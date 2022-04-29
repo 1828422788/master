@@ -6,7 +6,7 @@ Feature: 应用搜索
     And I wait for loading invisible
 
   Scenario Outline:
-    When I set the parameter "SearchInput" with value "<appName>"
+    When I set the parameter "TextFilter" with value "<appName>"
     And I wait for loading invisible
     Then I will see the search result "{'column':'0','name':'<appName>'}"
 

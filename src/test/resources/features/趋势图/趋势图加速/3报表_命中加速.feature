@@ -29,7 +29,7 @@ Feature: 趋势图加速_3报表引用趋势图
     
   Scenario: 报表预览
     Given open the "report.ListPage" page for uri "/reports/"
-    When I set the parameter "SearchInput" with value "报表引用趋势图_预览"
+    When I set the parameter "TextFilter" with value "报表引用趋势图_预览"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'报表引用趋势图_预览'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page

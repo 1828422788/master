@@ -143,7 +143,7 @@ Feature: 应用数据集
     Then I will see the element "Title" name is "DatasetApp"
     Then I will see the "dataset.ListPage" page
     And I wait for loading invisible
-    When I set the parameter "SearchInput" with value "<name>"
+    When I set the parameter "TextFilter" with value "<name>"
     And I wait for "2000" millsecond
     And I click the "Search" button
     And I wait for loading invisible

@@ -96,7 +96,7 @@ Feature: 字典_标签
       | wymtestcleartagatlistpage | -      | auto_package,pre_package |
 
   Scenario Outline: RZY-4158删除字典
-    Then I set the parameter "SearchInput" with value "<dictionaryName>.csv"
+    Then I set the parameter "TextFilter" with value "<dictionaryName>.csv"
     Given I wait for loading invisible
     When the data name is "{'column':'0','name':'<dictionaryName>.csv'}" then i click the "删除" button in more menu
     Then I will see the success message "确认删除 [<dictionaryName>.csv] ?"

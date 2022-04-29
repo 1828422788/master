@@ -42,7 +42,7 @@ Feature:所有趋势图添加到仪表盘
       | 其他 | Single       |
 
   Scenario Outline:  添加页签
-    And I set the parameter "SearchInput" with value "所有趋势图_<folder>"
+    And I set the parameter "TextFilter" with value "所有趋势图_<folder>"
     And I wait for "2000" millsecond
     When I click the detail which name is "所有趋势图_<folder>"
     And switch to window "仪表盘"
@@ -86,7 +86,7 @@ Feature:所有趋势图添加到仪表盘
       | 其他     | Table        |
 
   Scenario Outline:  添加趋势图
-    And I set the parameter "SearchInput" with value "所有趋势图_<folder>"
+    And I set the parameter "TextFilter" with value "所有趋势图_<folder>"
     And I wait for "2000" millsecond
     When I click the detail which name is "所有趋势图_<folder>"
     And switch to window "仪表盘"

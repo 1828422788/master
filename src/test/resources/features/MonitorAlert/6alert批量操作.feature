@@ -6,11 +6,11 @@ Feature: alert批量操作
     And I wait for loading invisible
 
   Scenario Outline:  alert批量操作-新建
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "复制" button in more menu
     And I wait for "SuccessMessage" will be invisible
-    And I set the parameter "SearchInput" with value "<name>(副本)"
+    And I set the parameter "TextFilter" with value "<name>(副本)"
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>(副本)'}" then i click the "编辑" button
     Then I will see the "alert.CreatePage" page
@@ -37,7 +37,7 @@ Feature: alert批量操作
       | 删除         |
 
   Scenario:  alert批量操作-启动
-    When I set the parameter "SearchInput" with value "test删除_事件计数_设备切分ip"
+    When I set the parameter "TextFilter" with value "test删除_事件计数_设备切分ip"
     And I wait for loading invisible
     When I click the "BatchControl" button
     When I click the "SelectAll" button
@@ -47,7 +47,7 @@ Feature: alert批量操作
     Then I will see the success message "更新成功"
 
   Scenario Outline:  alert批量操作-启动-验证
-    When I set the parameter "SearchInput" with value "<name>"
+    When I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     Then I will see the element "{'column':'1','name':'<name>'}" is "open"
 
@@ -57,7 +57,7 @@ Feature: alert批量操作
       | test删除_事件计数_设备切分ip2 |
 
   Scenario:  alert批量操作-添加资源标签
-    And I set the parameter "SearchInput" with value "test删除_事件计数_设备切分ip"
+    And I set the parameter "TextFilter" with value "test删除_事件计数_设备切分ip"
     And I wait for loading invisible
     When I click the "BatchControl" button
     When I click the "SelectAll" button
@@ -67,7 +67,7 @@ Feature: alert批量操作
     Then I will see the success message "更新成功"
 
   Scenario Outline:  alert批量操作-添加资源标签-验证
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>'}" then I "expand" the item
     And I will see the element "ExpandedRow" contains "autoui001"
@@ -79,7 +79,7 @@ Feature: alert批量操作
       | test删除_事件计数_设备切分ip2 |
 
   Scenario:  alert批量操作-删除
-    And I set the parameter "SearchInputName" with value "test删除_事件计数_设备切分ip"
+    And I set the parameter "TextFilter" with value "test删除_事件计数_设备切分ip"
     And I wait for loading invisible
     When I click the "BatchControl" button
     When I click the "SelectAll" button
@@ -90,7 +90,7 @@ Feature: alert批量操作
     And I click the "Complete" button
 
   Scenario Outline:  alert批量操作-删除-验证
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     Then I will see the text "<name>" is not existed in page
 

@@ -79,7 +79,7 @@ Feature: 报表_富文本编辑_统一样式
   @reportSmoke
   Scenario: 下载到本地预览
     Given open the "report.ListPage" page for uri "/reports/"
-    When I set the parameter "SearchInput" with value "with_unifiedStyle"
+    When I set the parameter "TextFilter" with value "with_unifiedStyle"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'with_unifiedStyle'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
@@ -97,14 +97,14 @@ Feature: 报表_富文本编辑_统一样式
   @reportSmoke
   Scenario: 检查生成报表成功
     Given open the "report.ListPage" page for uri "/reports/"
-    When I set the parameter "SearchInput" with value "with_unifiedStyle"
+    When I set the parameter "TextFilter" with value "with_unifiedStyle"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'with_unifiedStyle'}" then i click the "with_unifiedStyle" button
     Then I will see the element "LastGeneratedReport" contains ".docx"
 
   Scenario: 修改报表名称
     Given open the "report.ListPage" page for uri "/reports/"
-    When I set the parameter "SearchInput" with value "with_unifiedStyle"
+    When I set the parameter "TextFilter" with value "with_unifiedStyle"
     And I wait for "2000" millsecond
     And the data name is "{'column':'1','name':'with_unifiedStyle'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
@@ -129,7 +129,7 @@ Feature: 报表_富文本编辑_统一样式
 
   Scenario: 检查报表配置
     Given open the "report.ListPage" page for uri "/reports/"
-    When I set the parameter "SearchInput" with value "without_unifiedStyle"
+    When I set the parameter "TextFilter" with value "without_unifiedStyle"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'without_unifiedStyle'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page

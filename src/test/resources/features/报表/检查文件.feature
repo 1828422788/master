@@ -8,7 +8,7 @@ Feature: 报表_检查文件
 
   @checkFilesPDF @checkFiles
   Scenario Outline: check_type_pdf
-    When I set the parameter "SearchInput" with value "<name>_PDF"
+    When I set the parameter "TextFilter" with value "<name>_PDF"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>_PDF'}" then i click the "<name>_PDF" button
     Then I will see the element "LastGeneratedReport" contains ".pdf"
@@ -63,7 +63,7 @@ Feature: 报表_检查文件
 
   @checkFilesEXCEL
   Scenario Outline: check_type_excel
-    When I set the parameter "SearchInput" with value "<name>_EXCEL"
+    When I set the parameter "TextFilter" with value "<name>_EXCEL"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>_EXCEL'}" then i click the "<name>_EXCEL" button
     Then I will see the element "LastGeneratedReport" contains ".xlsx"
@@ -118,7 +118,7 @@ Feature: 报表_检查文件
 
   @checkFilesWORD
   Scenario Outline: check_type_word
-    When I set the parameter "SearchInput" with value "<name>_WORD"
+    When I set the parameter "TextFilter" with value "<name>_WORD"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>_WORD'}" then i click the "<name>_WORD" button
     Then I will see the element "LastGeneratedReport" contains ".docx"

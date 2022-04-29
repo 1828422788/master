@@ -14,9 +14,6 @@ public class ListPage extends ListPageFactory {
         super(driver);
     }
 
-    @FindBy(xpath = "//input[@placeholder='请输入']")
-    private WebElement getSearchInput;
-
     @FindBy(className = "yotta-empty-description")
     private WebElement emptyText;
 
@@ -58,9 +55,5 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getInstallButton() {
         return super.getButton("安装");
-    }
-
-    public WebElement getGetSearchInput() {
-        return getSearchInput;
     }
 }

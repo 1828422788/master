@@ -26,7 +26,7 @@ Feature: 报表模板_4删除
   Scenario: 删除模板，检查提示
     When I click the "TemplateManager" button
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "test_template"
+    And I set the parameter "TextFilter" with value "test_template"
     And I wait for "2000" millsecond
     And the data name is "{'column':'0','name':'test_template'}" then i click the "删除" button in more menu
     Then I will see the message "该模板已关联以下0个报表，删除后无法恢复，是否继续删除操作？"
@@ -50,7 +50,7 @@ Feature: 报表模板_4删除
     And I wait for "100000" millsecond
 
   Scenario: 检查生成报表成功
-    When I set the parameter "SearchInput" with value "报表_使用模板"
+    When I set the parameter "TextFilter" with value "报表_使用模板"
     And I wait for loading invisible
     And I wait for "50000" millsecond
     And the data name is "{'column':'1','name':'报表_使用模板'}" then i click the "报表_使用模板" button
@@ -59,7 +59,7 @@ Feature: 报表模板_4删除
   Scenario: 删除模板
     When I click the "TemplateManager" button
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "test_template"
+    And I set the parameter "TextFilter" with value "test_template"
     And I wait for "2000" millsecond
     And the data name is "{'column':'0','name':'test_template'}" then i click the "删除" button in more menu
     Then I will see the element "Message" contains "该模板已关联以下1个报表，删除后无法恢复，是否继续删除操作？"
@@ -70,7 +70,7 @@ Feature: 报表模板_4删除
     And I wait for "30000" millsecond
 
   Scenario: 检查tooltip
-    When I set the parameter "SearchInput" with value "报表_使用模板"
+    When I set the parameter "TextFilter" with value "报表_使用模板"
     And I wait for loading invisible
     Then I wait for "Tooltip" will be visible
     When I move the mouse pointer to the "Tooltip"
@@ -79,7 +79,7 @@ Feature: 报表模板_4删除
     And I wait for "30000" millsecond
 
   Scenario: 检查生成报表失败
-    When I set the parameter "SearchInput" with value "报表_使用模板"
+    When I set the parameter "TextFilter" with value "报表_使用模板"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'报表_使用模板'}" then i click the "报表_使用模板" button
     Then I will see the element "LastGeneratedReport" contains "_错误信息"
@@ -88,7 +88,7 @@ Feature: 报表模板_4删除
     And I will see the element "Message" contains "cannot get report template, template id:"
 
   Scenario: 添加模板
-    When I set the parameter "SearchInput" with value "报表_使用模板"
+    When I set the parameter "TextFilter" with value "报表_使用模板"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'报表_使用模板'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
@@ -109,7 +109,7 @@ Feature: 报表模板_4删除
     And I wait for "120000" millsecond
 
   Scenario: 检查生成报表成功2
-    When I set the parameter "SearchInput" with value "报表_使用模板"
+    When I set the parameter "TextFilter" with value "报表_使用模板"
     And I wait for loading invisible
     And I wait for "60000" millsecond
     And the data name is "{'column':'1','name':'报表_使用模板'}" then i click the "报表_使用模板" button

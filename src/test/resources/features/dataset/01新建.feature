@@ -18,7 +18,7 @@ Feature: 数据集_01新建
     And I click the "Return" button
     Then I will see the "dataset.ListPage" page
     And I wait for loading invisible
-    When I set the parameter "SearchInput" with value "<name>"
+    When I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'2','name':'jnd'}"
     And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'3','name':'无'}"
@@ -43,7 +43,7 @@ Feature: 数据集_01新建
       | auto_package | JNDTest |
 
   Scenario Outline: RZY-4076:按名称查询
-    When I set the parameter "SearchInput" with value "<name>"
+    When I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     Then I will see the search result "{'column':'0','name':'<name>'}"
     Then I will see the search result "{'column':'0','name':'all_','contains':'no'}"

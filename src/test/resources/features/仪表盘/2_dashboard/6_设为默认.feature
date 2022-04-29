@@ -5,7 +5,7 @@ Feature: 仪表盘06设为/取消默认（RZY-211）
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I set the parameter "TextFilter" with value "FirstAutoTest"
     And I wait for loading invisible
 
   Scenario:设为默认（RZY-211，RZY-239）

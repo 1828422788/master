@@ -2,7 +2,7 @@ Feature: 趋势图_上一步
 
   Scenario Outline: check_button_back
     Given open the "trend.ListPage" page for uri "/trend/"
-    When I set the parameter "SearchInput" with value "<name>"
+    When I set the parameter "TextFilter" with value "<name>"
     And I wait for "2000" millsecond
     When the data name is "<name>" then i click the "编辑" button
     And I will see the "trend.CreatePage" page

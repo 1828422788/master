@@ -5,7 +5,7 @@ Feature: 路由搜索
     Given open the "index.ListPage" page for uri "/indexmatchrules/"
 
   Scenario Outline:
-    When I set the parameter "SearchInput" with value "<searchName>"
+    When I set the parameter "TextFilter" with value "<searchName>"
     And I wait for loading invisible
     Then I will see the search result "{'column':'0','name':'<searchName>'}"
 

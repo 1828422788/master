@@ -45,7 +45,7 @@ Feature: 趋势图加速_2趋势图使用数据集
 
   Scenario: 展示趋势图（chart）
     Given open the "trend.ListPage" page for uri "/trend/"
-    When I set the parameter "SearchInput" with value "趋势图_数据集"
+    When I set the parameter "TextFilter" with value "趋势图_数据集"
     And I wait for loading invisible
     And the data name is "{'column':'0','name':'趋势图_数据集'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
@@ -68,7 +68,7 @@ Feature: 趋势图加速_2趋势图使用数据集
 
   Scenario: 展示趋势图（display）
     Given open the "trend.ListPage" page for uri "/trend/"
-    When I set the parameter "SearchInput" with value "趋势图_数据集"
+    When I set the parameter "TextFilter" with value "趋势图_数据集"
     And I wait for loading invisible
     And the data name is "{'column':'0','name':'趋势图_数据集'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
@@ -90,7 +90,7 @@ Feature: 趋势图加速_2趋势图使用数据集
 
   Scenario: 展示趋势图（没有数据集）
     Given open the "trend.ListPage" page for uri "/trend/"
-    When I set the parameter "SearchInput" with value "趋势图_数据集"
+    When I set the parameter "TextFilter" with value "趋势图_数据集"
     And I wait for loading invisible
     And the data name is "{'column':'0','name':'趋势图_数据集'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
@@ -104,7 +104,7 @@ Feature: 趋势图加速_2趋势图使用数据集
 
   Scenario: 删除趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
-    When I set the parameter "SearchInput" with value "趋势图_数据集"
+    When I set the parameter "TextFilter" with value "趋势图_数据集"
     And I wait for loading invisible
     When the data name is "{'column':'0','name':'趋势图_数据集'}" then i click the "删除" button in more menu
     Then I will see the message "确认删除 [趋势图_数据集] ?"

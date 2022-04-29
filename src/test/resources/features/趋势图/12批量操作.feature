@@ -28,7 +28,7 @@ Feature: 趋势图批量操作
     |  test_multi_3   |
 
   Scenario: 批量操作_添加资源标签
-    When I set the parameter "SearchInput" with value "test_multi_"
+    When I set the parameter "TextFilter" with value "test_multi_"
     And I wait for loading invisible
     And I click the "BatchControl" button
     And I click the "SelectAll" button
@@ -40,14 +40,14 @@ Feature: 趋势图批量操作
     And I click the "Complete" button
 
   Scenario: 验证标签
-    When I set the parameter "SearchInput" with value "test_multi_"
+    When I set the parameter "TextFilter" with value "test_multi_"
     And I wait for loading invisible
     Then I will see the data "test_multi_1" values "{'column':'4','name':'auto_package'}"
     Then I will see the data "test_multi_2" values "{'column':'4','name':'auto_package'}"
     Then I will see the data "test_multi_3" values "{'column':'4','name':'auto_package'}"
 
   Scenario: 批量操作_删除
-    When I set the parameter "SearchInput" with value "test_multi_"
+    When I set the parameter "TextFilter" with value "test_multi_"
     And I wait for loading invisible
     And I click the "BatchControl" button
     And I click the "SelectAll" button
@@ -69,7 +69,7 @@ Feature: 趋势图批量操作
     And I click the "Complete" button
 
   Scenario: 验证删除
-    When I set the parameter "SearchInput" with value "test_multi_"
+    When I set the parameter "TextFilter" with value "test_multi_"
     And I wait for loading invisible
     Then I wait for "NoData" will be visible
 

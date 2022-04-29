@@ -7,7 +7,7 @@ Feature:4保存为报表
 
   @dashboardSaveAsReport_create
   Scenario Outline: 存为报表
-    And I set the parameter "SearchInput" with value "仪表盘_<dashboard_name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<dashboard_name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<dashboard_name>"
     And switch to window "仪表盘"
@@ -65,7 +65,7 @@ Feature:4保存为报表
   Scenario Outline: 下载PDF报表
     Given open the "report.ListPage" page for uri "/reports/"
       And I wait for loading invisible
-    When I set the parameter "SearchInput" with value "仪表盘保存为报表_<chart>"
+    When I set the parameter "TextFilter" with value "仪表盘保存为报表_<chart>"
       And I wait for loading invisible
     And the data name is "{'column':'1','name':'仪表盘保存为报表_<chart>'}" then i click the "仪表盘保存为报表_<chart>" button
     And I wait for element "SelectedReport" change text to "仪表盘保存为报表_<chart>"

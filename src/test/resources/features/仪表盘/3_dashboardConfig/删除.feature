@@ -19,7 +19,7 @@ Feature: 仪表盘配置删除
   Scenario: 删除字段提取
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘配置字段提取"
+    And I set the parameter "TextFilter" with value "仪表盘配置字段提取"
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'仪表盘配置字段提取'}" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
@@ -41,7 +41,7 @@ Feature: 仪表盘配置删除
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
@@ -58,7 +58,7 @@ Feature: 仪表盘配置删除
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
@@ -74,7 +74,7 @@ Feature: 仪表盘配置删除
   Scenario Outline: 删除字段提取
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
@@ -96,7 +96,7 @@ Feature: 仪表盘配置删除
   Scenario Outline: 删除仪表盘所建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
@@ -115,7 +115,7 @@ Feature: 仪表盘配置删除
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
@@ -132,7 +132,7 @@ Feature: 仪表盘配置删除
   Scenario Outline: 删除仪表盘所建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible

@@ -6,7 +6,7 @@ Feature: 字段提取详情验证
     And I wait for loading invisible
 
   Scenario Outline:两个规则
-    Then I set the parameter "SearchInput" with value "<name>"
+    Then I set the parameter "TextFilter" with value "<name>"
     Then I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
     And I wait for loading invisible
@@ -37,7 +37,7 @@ Feature: 字段提取详情验证
       | RZY2865支持通配符             | JSON解析        | 字段重命名 |
 
   Scenario Outline:一个规则
-    Then I set the parameter "SearchInput" with value "<name>"
+    Then I set the parameter "TextFilter" with value "<name>"
     Then I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
     And I wait for loading invisible
@@ -62,7 +62,7 @@ Feature: 字段提取详情验证
       | RZY2862严格解析                    | 结构体解析       |
 
   Scenario Outline:RZY2868redirect主规则
-    Then I set the parameter "SearchInput" with value "<name>"
+    Then I set the parameter "TextFilter" with value "<name>"
     Then I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
     And I wait for loading invisible

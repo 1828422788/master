@@ -4,7 +4,7 @@ Feature: 展示趋势图
   Scenario Outline: compare_view
     Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
-    When I set the parameter "SearchInput" with value "拖拽_<name>"
+    When I set the parameter "TextFilter" with value "拖拽_<name>"
     And I wait for loading invisible
     And the data name is "{'column':'0','name':'拖拽_<name>'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"
@@ -72,7 +72,7 @@ Feature: 展示趋势图
   @dragAndDropViewDataset
   Scenario Outline: compare_view_dataset
     Given open the "trend.ListPage" page for uri "/trend/"
-    When I set the parameter "SearchInput" with value "数据集_<name>"
+    When I set the parameter "TextFilter" with value "数据集_<name>"
     And I wait for "3000" millsecond
     And the data name is "{'column':'0','name':'数据集_<name>'}" then i click the "展示趋势图" button in more menu
     And switch to window "查看趋势图"

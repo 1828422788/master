@@ -32,7 +32,7 @@ Feature: 应用用户分组（RZY-2146）
 
   Scenario: 搜索用户分组
     And I wait for loading invisible
-    When I set the parameter "SearchInput" with value "AutoApp"
+    When I set the parameter "TextFilter" with value "AutoApp"
     And I click the "SearchIcon" button
     And I wait for loading invisible
     Then I will see the search result "{'column':'1','name':'AutoAppRoleName'}"

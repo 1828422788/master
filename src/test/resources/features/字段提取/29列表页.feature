@@ -27,7 +27,7 @@ Feature: 字段提取列表页
     Then I wait for "ConfigDone" will be visible
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
-    When I set the parameter "SearchInput" with value "<name>"
+    When I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     Then I will see the search result "{'column':'1','name':'<name>'}"
     Examples:
@@ -61,7 +61,7 @@ Feature: 字段提取列表页
   Scenario Outline: 选择标签并按照标签过滤2
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
-    When I set the parameter "SearchInput" with value "<name>"
+    When I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     Then I will see the search result "{'column':'1','name':'<name>'}"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button in more menu

@@ -26,7 +26,7 @@ Feature: 趋势图加速_6删除加速任务
 
   @trendSmoke @accelerationSmoke
   Scenario: 趋势图加速
-    When I set the parameter "SearchInput" with value "趋势图-1"
+    When I set the parameter "TextFilter" with value "趋势图-1"
     And I wait for loading invisible
     When the data name is "{'column':'0','name':'趋势图-1'}" then i click the "趋势图加速" button in more menu
     And I switch the "AccelerationSwitch" button to "enable"
@@ -60,14 +60,14 @@ Feature: 趋势图加速_6删除加速任务
     Then I will see the success message "删除加速成功"
 
   Scenario: 删除趋势图
-    When I set the parameter "SearchInput" with value "趋势图-1"
+    When I set the parameter "TextFilter" with value "趋势图-1"
     And I wait for loading invisible
     When the data name is "{'column':'0','name':'趋势图-1'}" then i click the "趋势图加速" button in more menu
     And I wait for "AccelerationSwitch" will be visible
     And I will see the text "加速时间范围" is not existed in page
 
   Scenario: 删除趋势图
-    When I set the parameter "SearchInput" with value "趋势图-1"
+    When I set the parameter "TextFilter" with value "趋势图-1"
     And I wait for loading invisible
     When the data name is "{'column':'0','name':'趋势图-1'}" then i click the "删除" button in more menu
     Then I will see the message "确认删除 [趋势图-1] ?"

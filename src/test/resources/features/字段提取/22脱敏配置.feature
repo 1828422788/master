@@ -93,7 +93,7 @@ Feature: 字段提取脱敏配置
     Then I will see the message "保存成功"
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "__user_wym__"
+    And I set the parameter "TextFilter" with value "__user_wym__"
     And I wait for loading invisible
     When the data name is "__user_wym__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page

@@ -250,7 +250,7 @@ Feature: 定时任务新建
   Scenario Outline: 定时任务_检查时间范围(RZY-396,397,403,404,2695,2696,2698)
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<taskName>"
+    And I set the parameter "TextFilter" with value "<taskName>"
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<taskName>'}" then i click the "<taskName>" button
     Then I will see the "timedTask.DetailPage" page

@@ -8,7 +8,7 @@ Feature: 报表_1b_文件列表
 
   @reportSmoke
   Scenario: 已生成报表
-    When I set the parameter "SearchInput" with value "test_report_PDF"
+    When I set the parameter "TextFilter" with value "test_report_PDF"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'test_report_PDF'}" then i click the "test_report_PDF" button
     And I wait for loading invisible
@@ -25,7 +25,7 @@ Feature: 报表_1b_文件列表
 
   @reportSmoke
   Scenario Outline: 检查已生成报表文件
-    When I set the parameter "SearchInput" with value "<name>"
+    When I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>'}" then i click the "<name>" button
     Then I will see the element "LastGeneratedReport" contains "<format>"
@@ -38,7 +38,7 @@ Feature: 报表_1b_文件列表
 
   @reportSmoke
   Scenario Outline: 已生成报表_选择报表
-    When I set the parameter "SearchInput" with value "<name_1>"
+    When I set the parameter "TextFilter" with value "<name_1>"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name_1>'}" then i click the "<name_1>" button
     Then I will see the element "LastGeneratedReport" contains "<format_1>"

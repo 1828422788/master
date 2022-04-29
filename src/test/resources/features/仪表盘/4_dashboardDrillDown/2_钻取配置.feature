@@ -65,7 +65,7 @@ Feature: 仪表盘钻取配置
 
   @dbdrilldown3
   Scenario Outline: 新建标签页
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
@@ -86,7 +86,7 @@ Feature: 仪表盘钻取配置
 
   @dbdrilldownjump1
   Scenario: 仪表盘添加钻取趋势图
-    And I set the parameter "SearchInput" with value "钻取跳转"
+    And I set the parameter "TextFilter" with value "钻取跳转"
     And I wait for loading invisible
     And I click the detail which name is "钻取跳转"
     And switch to window "仪表盘"
@@ -109,7 +109,7 @@ Feature: 仪表盘钻取配置
 
   @dbdrilldownjump2
   Scenario Outline: 仪表盘添加输入项
-    And I set the parameter "SearchInput" with value "钻取跳转"
+    And I set the parameter "TextFilter" with value "钻取跳转"
     And I wait for loading invisible
     And I click the detail which name is "钻取跳转"
     And switch to window "仪表盘"
@@ -133,7 +133,7 @@ Feature: 仪表盘钻取配置
 
   @dbdrilldownjump3
   Scenario: 修改仪表盘配置
-    And I set the parameter "SearchInput" with value "钻取跳转"
+    And I set the parameter "TextFilter" with value "钻取跳转"
     And I wait for loading invisible
     And I click the detail which name is "钻取跳转"
     And switch to window "仪表盘"
@@ -153,7 +153,7 @@ Feature: 仪表盘钻取配置
 
   @drilldownconfig11 @dbdrilldownSmoke
   Scenario: 添加图表
-    And I set the parameter "SearchInput" with value "测试钻取配置"
+    And I set the parameter "TextFilter" with value "测试钻取配置"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     And switch to window "仪表盘"
@@ -176,7 +176,7 @@ Feature: 仪表盘钻取配置
 
   @drilldownconfig12 @dbdrilldownSmoke
   Scenario: 开启钻取配置(RZY-4479)
-    And I set the parameter "SearchInput" with value "测试钻取配置"
+    And I set the parameter "TextFilter" with value "测试钻取配置"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     And switch to window "仪表盘"
@@ -190,7 +190,7 @@ Feature: 仪表盘钻取配置
 
   @rzy318  @drilldownconfig13 @dbdrilldownSmoke
   Scenario: 在当前页面跳转到搜索页-自动 RZY-318
-    And I set the parameter "SearchInput" with value "测试钻取配置"
+    And I set the parameter "TextFilter" with value "测试钻取配置"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     And switch to window "仪表盘"
@@ -215,7 +215,7 @@ Feature: 仪表盘钻取配置
 
   @drilldownconfig14
   Scenario: 在新标签页跳转到搜索页-自动 RZY-318
-    And I set the parameter "SearchInput" with value "测试钻取配置"
+    And I set the parameter "TextFilter" with value "测试钻取配置"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     And switch to window "仪表盘"
@@ -242,7 +242,7 @@ Feature: 仪表盘钻取配置
 
 
   Scenario: 在当前页面跳转到搜索页-自定义 RZY-3439
-    And I set the parameter "SearchInput" with value "测试钻取配置"
+    And I set the parameter "TextFilter" with value "测试钻取配置"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     And switch to window "仪表盘"
@@ -275,7 +275,7 @@ Feature: 仪表盘钻取配置
 
   @dbdrilldownSmoke
   Scenario: 在新标签页跳转到搜索页-自定义 RZY-3439
-    And I set the parameter "SearchInput" with value "测试钻取配置"
+    And I set the parameter "TextFilter" with value "测试钻取配置"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     And switch to window "仪表盘"
@@ -309,7 +309,7 @@ Feature: 仪表盘钻取配置
 
 
   Scenario Outline: 在当前页面跳转到自定义URL RZY-319
-    And I set the parameter "SearchInput" with value "测试钻取配置"
+    And I set the parameter "TextFilter" with value "测试钻取配置"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     And switch to window "仪表盘"
@@ -342,7 +342,7 @@ Feature: 仪表盘钻取配置
       | /alerts/               | 监控        |
 
   Scenario Outline: 在新标签跳转到自定义URL RZY-319
-    And I set the parameter "SearchInput" with value "测试钻取配置"
+    And I set the parameter "TextFilter" with value "测试钻取配置"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     And switch to window "仪表盘"
@@ -374,7 +374,7 @@ Feature: 仪表盘钻取配置
 
 
   Scenario: 跳转到标签页(后三步待验证)
-    And I set the parameter "SearchInput" with value "测试钻取配置"
+    And I set the parameter "TextFilter" with value "测试钻取配置"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     And switch to window "仪表盘"
@@ -412,7 +412,7 @@ Feature: 仪表盘钻取配置
 
   @rzy1740
   Scenario: 单引号和双引号包裹 RZY-1740
-    And I set the parameter "SearchInput" with value "测试钻取配置"
+    And I set the parameter "TextFilter" with value "测试钻取配置"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     And switch to window "仪表盘"

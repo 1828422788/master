@@ -3,7 +3,7 @@ Feature: 删除冗余报表
 
   Scenario Outline: 删除冗余报表
     When open the "report.ListPage" page for uri "/reports/"
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for "2000" millsecond
     And the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     Then I will see the message "此操作将删除 [<name>], 是否继续？"

@@ -63,7 +63,7 @@ Feature: 仪表盘04详情行布局
   Scenario Outline: 新建一个行布局标签页(RZY-4628)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<dashboardName>"
+    And I set the parameter "TextFilter" with value "<dashboardName>"
     And I wait for loading invisible
     When I click the detail which name is "<dashboardName>"
     And switch to window "仪表盘"
@@ -98,7 +98,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 添加行(RZY-4629，RZY-3607)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局"
+    And I set the parameter "TextFilter" with value "仪表盘行布局"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
     And switch to window "仪表盘"
@@ -132,7 +132,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 编辑行(RZY-4630)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局"
+    And I set the parameter "TextFilter" with value "仪表盘行布局"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
     And switch to window "仪表盘"
@@ -154,7 +154,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 行布局添加图表(RZY-4631)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局"
+    And I set the parameter "TextFilter" with value "仪表盘行布局"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
     And switch to window "仪表盘"
@@ -189,7 +189,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 行布局添加全局输入项(RZY-4632)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局"
+    And I set the parameter "TextFilter" with value "仪表盘行布局"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
     And switch to window "仪表盘"
@@ -211,7 +211,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 行布局添加行内输入项(RZY-4633)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局"
+    And I set the parameter "TextFilter" with value "仪表盘行布局"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
     And switch to window "仪表盘"
@@ -236,7 +236,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 行布局添加事件列表(RZY-4634)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局"
+    And I set the parameter "TextFilter" with value "仪表盘行布局"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
     And switch to window "仪表盘"
@@ -268,7 +268,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 删除行(RZY-4635)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局"
+    And I set the parameter "TextFilter" with value "仪表盘行布局"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
     And switch to window "仪表盘"
@@ -289,7 +289,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 删除行内图表(RZY-4636)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局"
+    And I set the parameter "TextFilter" with value "仪表盘行布局"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
     And switch to window "仪表盘"
@@ -309,7 +309,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-文本输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局"
+    And I set the parameter "TextFilter" with value "仪表盘行布局"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局"
     And switch to window "仪表盘"
@@ -332,7 +332,7 @@ Feature: 仪表盘04详情行布局
   Scenario Outline: 展示条件-文本输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<dashboardName>"
+    And I set the parameter "TextFilter" with value "<dashboardName>"
     And I wait for loading invisible
     When I click the detail which name is "<dashboardName>"
     And switch to window "仪表盘"
@@ -376,7 +376,7 @@ Feature: 仪表盘04详情行布局
   Scenario Outline: 行布局添加全局输入项(RZY-4632)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<dashboardName>"
+    And I set the parameter "TextFilter" with value "<dashboardName>"
     And I wait for loading invisible
     When I click the detail which name is "<dashboardName>"
     And switch to window "仪表盘"
@@ -412,7 +412,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-文本输入输入项 RZY-4783,RZY-4784
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局1"
+    And I set the parameter "TextFilter" with value "仪表盘行布局1"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局1"
     And switch to window "仪表盘"
@@ -462,7 +462,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-文本输入输入项 RZY-4784,RZY-4793
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局2"
+    And I set the parameter "TextFilter" with value "仪表盘行布局2"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局2"
     And switch to window "仪表盘"
@@ -517,7 +517,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-文本输入输入项 RZY-4784
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局3"
+    And I set the parameter "TextFilter" with value "仪表盘行布局3"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局3"
     And switch to window "仪表盘"
@@ -575,7 +575,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-文本输入输入项 RZY-4784
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局4"
+    And I set the parameter "TextFilter" with value "仪表盘行布局4"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局4"
     And switch to window "仪表盘"
@@ -633,7 +633,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-文本输入输入项 RZY-4784
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局5"
+    And I set the parameter "TextFilter" with value "仪表盘行布局5"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局5"
     And switch to window "仪表盘"
@@ -693,7 +693,7 @@ Feature: 仪表盘04详情行布局
   Scenario Outline: 展示条件-时间范围输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<dashboardName>"
+    And I set the parameter "TextFilter" with value "<dashboardName>"
     And I wait for loading invisible
     When I click the detail which name is "<dashboardName>"
     And switch to window "仪表盘"
@@ -729,7 +729,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-时间范围输入项 RZY-4790
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局51"
+    And I set the parameter "TextFilter" with value "仪表盘行布局51"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局51"
     And switch to window "仪表盘"
@@ -784,7 +784,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-时间范围输入项 RZY-4790
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局52"
+    And I set the parameter "TextFilter" with value "仪表盘行布局52"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局52"
     And switch to window "仪表盘"
@@ -839,7 +839,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-时间范围输入项 RZY-4790
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局52"
+    And I set the parameter "TextFilter" with value "仪表盘行布局52"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局52"
     And switch to window "仪表盘"
@@ -857,7 +857,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-时间范围输入项 RZY-4790
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局53"
+    And I set the parameter "TextFilter" with value "仪表盘行布局53"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局53"
     And switch to window "仪表盘"
@@ -905,7 +905,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件缺失校验 RZY-4792
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局53"
+    And I set the parameter "TextFilter" with value "仪表盘行布局53"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局53"
     And switch to window "仪表盘"
@@ -940,7 +940,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-下拉菜单输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局6"
+    And I set the parameter "TextFilter" with value "仪表盘行布局6"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局6"
     And switch to window "仪表盘"
@@ -978,7 +978,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-下拉菜单输入项 RZY-4785
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局7"
+    And I set the parameter "TextFilter" with value "仪表盘行布局7"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局7"
     And switch to window "仪表盘"
@@ -1023,7 +1023,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-动态菜单输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局7"
+    And I set the parameter "TextFilter" with value "仪表盘行布局7"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局7"
     And switch to window "仪表盘"
@@ -1060,7 +1060,7 @@ Feature: 仪表盘04详情行布局
   Scenario: 展示条件-动态菜单输入项 RZY-4786
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘行布局7"
+    And I set the parameter "TextFilter" with value "仪表盘行布局7"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘行布局7"
     And switch to window "仪表盘"
@@ -1126,7 +1126,7 @@ Feature: 仪表盘04详情行布局
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible

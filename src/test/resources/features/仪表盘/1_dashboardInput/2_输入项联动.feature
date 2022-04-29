@@ -101,7 +101,7 @@ Feature: 仪表盘输入项联动
 
   @rzy3635
   Scenario: 验证 RZY-3635
-    And I set the parameter "SearchInput" with value "仪表盘输入项联动"
+    And I set the parameter "TextFilter" with value "仪表盘输入项联动"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘输入项联动"
     And switch to window "仪表盘"

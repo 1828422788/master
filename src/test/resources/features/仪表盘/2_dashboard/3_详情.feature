@@ -27,7 +27,7 @@ Feature: 仪表盘03详情页
   Scenario: 新建第一个tag(RZY-3388)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I set the parameter "TextFilter" with value "FirstAutoTest"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
@@ -41,7 +41,7 @@ Feature: 仪表盘03详情页
   Scenario: 新建待删除tag(RZY-3390)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I set the parameter "TextFilter" with value "FirstAutoTest"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
@@ -62,7 +62,7 @@ Feature: 仪表盘03详情页
   Scenario: 编辑tag(RZY-4488)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I set the parameter "TextFilter" with value "FirstAutoTest"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
@@ -86,7 +86,7 @@ Feature: 仪表盘03详情页
   Scenario: 删除tag(RZY-4489)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I set the parameter "TextFilter" with value "FirstAutoTest"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
@@ -105,7 +105,7 @@ Feature: 仪表盘03详情页
   Scenario: 夜间模式(RZY-237)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I set the parameter "TextFilter" with value "FirstAutoTest"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
@@ -126,7 +126,7 @@ Feature: 仪表盘03详情页
   Scenario: 启用编辑(RZY-228)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I set the parameter "TextFilter" with value "FirstAutoTest"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
@@ -144,7 +144,7 @@ Feature: 仪表盘03详情页
   Scenario: 验证关闭编辑(RZY-229)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I set the parameter "TextFilter" with value "FirstAutoTest"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
@@ -158,7 +158,7 @@ Feature: 仪表盘03详情页
   Scenario: 验证关闭编辑(RZY-229)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I set the parameter "TextFilter" with value "FirstAutoTest"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
@@ -170,7 +170,7 @@ Feature: 仪表盘03详情页
   Scenario: 新建标签页，验证搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I set the parameter "TextFilter" with value "FirstAutoTest"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
@@ -191,7 +191,7 @@ Feature: 仪表盘03详情页
   Scenario: 验证标签搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I set the parameter "TextFilter" with value "FirstAutoTest"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
@@ -208,7 +208,7 @@ Feature: 仪表盘03详情页
   Scenario: 仪表盘搜索，切换 RZY-240
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I set the parameter "TextFilter" with value "FirstAutoTest"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
@@ -226,7 +226,7 @@ Feature: 仪表盘03详情页
   Scenario: 添加趋势图至仪表盘(RZY-3389)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I set the parameter "TextFilter" with value "FirstAutoTest"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
@@ -250,7 +250,7 @@ Feature: 仪表盘03详情页
   Scenario: 复制标签页(RZY-4484)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I set the parameter "TextFilter" with value "FirstAutoTest"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
@@ -268,7 +268,7 @@ Feature: 仪表盘03详情页
   Scenario: 高级编辑
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I set the parameter "TextFilter" with value "FirstAutoTest"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
@@ -289,7 +289,7 @@ Feature: 仪表盘03详情页
   Scenario: 新建全局时间选择器(RZY-225,RZY-4566)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I set the parameter "TextFilter" with value "FirstAutoTest"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
@@ -313,7 +313,7 @@ Feature: 仪表盘03详情页
   Scenario: 验证全局时间生效及打开过滤输入项(RZY-4567,RZY-225,RZY-4638,RZY-3392)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I set the parameter "TextFilter" with value "FirstAutoTest"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
@@ -332,7 +332,7 @@ Feature: 仪表盘03详情页
   Scenario: 关闭过滤输入项自动更新(RZY-4637,)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I set the parameter "TextFilter" with value "FirstAutoTest"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
@@ -359,7 +359,7 @@ Feature: 仪表盘03详情页
   Scenario: 存为报表(RZY-235)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "FirstAutoTest"
+    And I set the parameter "TextFilter" with value "FirstAutoTest"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     And switch to window "仪表盘"
@@ -404,7 +404,7 @@ Feature: 仪表盘03详情页
   Scenario Outline: 删除验证仪表盘全局时间趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible
@@ -419,7 +419,7 @@ Feature: 仪表盘03详情页
   @cleanDashboard03 @cleanDashboard032
   Scenario Outline: 删除报表
     When open the "report.ListPage" page for uri "/reports/"
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
     And I wait for "EnsureButton" will be visible

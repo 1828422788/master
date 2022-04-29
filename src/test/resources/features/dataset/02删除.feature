@@ -16,7 +16,7 @@ Feature: 数据集_02删除
     And I click the "Return" button
 
   Scenario Outline: RZY-4079:删除数据集
-    When I set the parameter "SearchInput" with value "<name>"
+    When I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     When the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button in more menu
     Then I will see the message "确定删除该数据集？"

@@ -7,7 +7,7 @@ Feature: 已存搜索界面
     Given I wait for loading complete
 
     #加载
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     Given I wait for loading complete
     And I wait for "1000" millsecond
     Given I click the which saved name is "<name>" on saved page
@@ -45,7 +45,7 @@ Feature: 已存搜索界面
     Given I wait for loading complete
 
     #加载
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     Given I wait for loading complete
     And I wait for "1000" millsecond
 
@@ -67,7 +67,7 @@ Feature: 已存搜索界面
     #验证更新内容
     Given open the "splSearch.SavedSearchPage" page for uri "/savedsearches/"
     Given I wait for loading complete
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     Given I wait for loading complete
     And I wait for "1000" millsecond
 

@@ -6,7 +6,7 @@ Feature: 仪表盘02搜索
     And I wait for loading invisible
 
   Scenario Outline: 按照名称搜索（RZY-216）
-    Given I set the parameter "SearchInput" with value "<name>"
+    Given I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     Then I will see the search result "{'column':'1','name':'FirstAutoTest','contains':'no'}"
 

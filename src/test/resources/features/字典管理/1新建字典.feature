@@ -20,7 +20,7 @@ Feature: 字典管理
 
   @dictionarySmoke
   Scenario Outline: 下载字典
-    Then I set the parameter "SearchInput" with value "<dictionaryName>.csv"
+    Then I set the parameter "TextFilter" with value "<dictionaryName>.csv"
     Given I wait for loading invisible
     And I will see the element "TotalItem" contains "共 1 条"
     When the data name is "{'column':'0','name':'<dictionaryName>.csv'}" then i click the "下载" button in more menu
@@ -55,7 +55,7 @@ Feature: 字典管理
       | create_dict_2   |
 
   Scenario Outline: 上传文件step2
-    Then I set the parameter "SearchInput" with value "<dictionaryName>.csv"
+    Then I set the parameter "TextFilter" with value "<dictionaryName>.csv"
     Given I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>.csv'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
@@ -72,7 +72,7 @@ Feature: 字典管理
       | create_dict_1  |
 
   Scenario Outline: 修改名称
-    Then I set the parameter "SearchInput" with value "<dictionaryName>.csv"
+    Then I set the parameter "TextFilter" with value "<dictionaryName>.csv"
     Given I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>.csv'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
@@ -89,7 +89,7 @@ Feature: 字典管理
       | create_dict_1  |  create_dict_2 |
 
   Scenario Outline: 验证名称修改
-    Then I set the parameter "SearchInput" with value "<dictionaryName>.csv"
+    Then I set the parameter "TextFilter" with value "<dictionaryName>.csv"
     Given I wait for loading invisible
     And I will see the element "TotalItem" contains "共 1 条"
     When I click the "UploadButton" button
@@ -125,7 +125,7 @@ Feature: 字典管理
     When I click the "Return" button
     And I wait for loading invisible
     Then I will see the "dictionary.ListPage" page
-    Then I set the parameter "SearchInput" with value "<new_name>.csv"
+    Then I set the parameter "TextFilter" with value "<new_name>.csv"
     And I wait for loading invisible
     And I will see the element "TotalItem" contains "共 1 条"
 
@@ -136,7 +136,7 @@ Feature: 字典管理
   Scenario Outline: 删除字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
-    Then I set the parameter "SearchInput" with value "<dictionaryName>.csv"
+    Then I set the parameter "TextFilter" with value "<dictionaryName>.csv"
     And I wait for loading invisible
     When the data name is "{'column':'0','name':'<dictionaryName>.csv'}" then i click the "删除" button in more menu
     Then I will see the success message "确认删除 [<dictionaryName>.csv] ?"

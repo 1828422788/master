@@ -38,7 +38,7 @@ Feature: 仪表盘_4_2_多Y轴图
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘<name>"
+    And I set the parameter "TextFilter" with value "仪表盘<name>"
     And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘<name>"
     And switch to window "仪表盘"
@@ -54,7 +54,7 @@ Feature: 仪表盘_4_2_多Y轴图
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for "2000" millsecond
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
@@ -82,7 +82,7 @@ Feature: 仪表盘_4_2_多Y轴图
   Scenario Outline: 修改为多Y轴图 RZY-309
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for "2000" millsecond
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
@@ -135,7 +135,7 @@ Feature: 仪表盘_4_2_多Y轴图
   Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3725
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for "2000" millsecond
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
@@ -158,7 +158,7 @@ Feature: 仪表盘_4_2_多Y轴图
   Scenario Outline: 同一个Y轴多个字段 RZY-4856,RZY-1332
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for "2000" millsecond
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
@@ -198,7 +198,7 @@ Feature: 仪表盘_4_2_多Y轴图
   Scenario: 验证边界值范围生效 RZY-4857
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘多Y轴图"
+    And I set the parameter "TextFilter" with value "仪表盘多Y轴图"
     And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘多Y轴图"
     And switch to window "仪表盘"
@@ -210,7 +210,7 @@ Feature: 仪表盘_4_2_多Y轴图
   Scenario Outline: labelRotate-left-right-horizontal-vertical RZY-1325,RZY-1326,RZY-1327,RZY-1328
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for "2000" millsecond
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
@@ -245,7 +245,7 @@ Feature: 仪表盘_4_2_多Y轴图
   Scenario Outline: sortOrder-default-desc-asc RZY-1329,RZY-1330,RZY-1331
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for "2000" millsecond
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"
@@ -280,7 +280,7 @@ Feature: 仪表盘_4_2_多Y轴图
   Scenario: 设置对象个数为空 RZY-1333
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘多Y轴图"
+    And I set the parameter "TextFilter" with value "仪表盘多Y轴图"
     And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘多Y轴图"
     And switch to window "仪表盘"
@@ -302,7 +302,7 @@ Feature: 仪表盘_4_2_多Y轴图
   Scenario Outline: 设置对象个数为1个，修改type RZY-1332,RZY-1334,RZY-3727,RZY-3728,RZY-3729
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘多Y轴图"
+    And I set the parameter "TextFilter" with value "仪表盘多Y轴图"
     And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘多Y轴图"
     And switch to window "仪表盘"
@@ -338,7 +338,7 @@ Feature: 仪表盘_4_2_多Y轴图
   Scenario: 将field字段值改为min(apache.resp_len) RZY-1335,RZY-1336,RZY-1340
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘多Y轴图"
+    And I set the parameter "TextFilter" with value "仪表盘多Y轴图"
     And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘多Y轴图"
     And switch to window "仪表盘"
@@ -367,7 +367,7 @@ Feature: 仪表盘_4_2_多Y轴图
   Scenario Outline: range RZY-1337,RZY-3730,RZY-3732
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘多Y轴图"
+    And I set the parameter "TextFilter" with value "仪表盘多Y轴图"
     And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘多Y轴图"
     And switch to window "仪表盘"
@@ -402,7 +402,7 @@ Feature: 仪表盘_4_2_多Y轴图
   Scenario Outline: rang-min大于max RZY-1338
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘多Y轴图"
+    And I set the parameter "TextFilter" with value "仪表盘多Y轴图"
     And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘多Y轴图"
     And switch to window "仪表盘"
@@ -428,7 +428,7 @@ Feature: 仪表盘_4_2_多Y轴图
   Scenario: smooth为true RZY-1339,RZY-3733
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘多Y轴图"
+    And I set the parameter "TextFilter" with value "仪表盘多Y轴图"
     And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘多Y轴图"
     And switch to window "仪表盘"
@@ -457,7 +457,7 @@ Feature: 仪表盘_4_2_多Y轴图
   Scenario Outline: byFields设为max(apache.resp_len) RZY-1341
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘多Y轴图"
+    And I set the parameter "TextFilter" with value "仪表盘多Y轴图"
     And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘多Y轴图"
     And switch to window "仪表盘"
@@ -490,7 +490,7 @@ Feature: 仪表盘_4_2_多Y轴图
   Scenario Outline: legend RZY-1344
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘多Y轴图"
+    And I set the parameter "TextFilter" with value "仪表盘多Y轴图"
     And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘多Y轴图"
     And switch to window "仪表盘"
@@ -524,7 +524,7 @@ Feature: 仪表盘_4_2_多Y轴图
   Scenario Outline: legend RZY-1342
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘多Y轴图"
+    And I set the parameter "TextFilter" with value "仪表盘多Y轴图"
     And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘多Y轴图"
     And switch to window "仪表盘"
@@ -557,7 +557,7 @@ Feature: 仪表盘_4_2_多Y轴图
   Scenario Outline: legend为none RZY-1343
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "仪表盘多Y轴图"
+    And I set the parameter "TextFilter" with value "仪表盘多Y轴图"
     And I wait for "2000" millsecond
     And I click the detail which name is "仪表盘多Y轴图"
     And switch to window "仪表盘"

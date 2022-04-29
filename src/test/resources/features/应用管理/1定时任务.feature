@@ -123,7 +123,7 @@ Feature: 应用定时任务(RZY-2123)
     When I click the "TimedTask" button
     And I will see the "timedTask.ListPage" page
     And I wait for loading invisible
-    Given I set the parameter "SearchInput" with value "<name>"
+    Given I set the parameter "TextFilter" with value "<name>"
     And I wait for "2000" millsecond
     Then I will see the search result "{'column':'0','name':'<name>'}"
     And I will see the "app.AppPage" page

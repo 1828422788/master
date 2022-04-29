@@ -269,8 +269,8 @@ public class ListPage extends ListPageFactory {
     }
 
     void thereIsAnAlert(String alertName, List<String> alertGroup, List<String> alertSource, List<String> alertLevel) {
-        new SetKeyWithValue().clearElementValue(getSearchInput());
-        getSearchInput().sendKeys(alertName);
+        new SetKeyWithValue().clearElementValue(getTextFilter());
+        getTextFilter().sendKeys(alertName);
         if (ElementExist.isElementExist(webDriver, noSearchResultMessage)) {
             getCreateAlert().click();
             new CreatePage(webDriver).createAlert(alertName, alertGroup, alertSource, alertLevel);

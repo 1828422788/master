@@ -28,7 +28,7 @@ Feature: 仪表盘08列表页
 
   Scenario:批量添加标签 RZY-4838
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I set the parameter "SearchInput" with value "仪表盘批量"
+    And I set the parameter "TextFilter" with value "仪表盘批量"
     And I wait for loading invisible
     And I click the "BatchControl" button
     And I click the "SelectAll" button
@@ -41,7 +41,7 @@ Feature: 仪表盘08列表页
   Scenario: 验证批量添加标签成功 RZY-4839
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "仪表盘批量"
+    And I set the parameter "TextFilter" with value "仪表盘批量"
     And I wait for loading invisible
     And the data name is "仪表盘批量3" then I "expand" the item
     And I will see the element "ExpandedRow" contains "资源标签..............auto_package"
@@ -67,6 +67,6 @@ Feature: 仪表盘08列表页
 
   Scenario: 验证删除成功 RZY-4840
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I set the parameter "SearchInput" with value "仪表盘批量"
+    And I set the parameter "TextFilter" with value "仪表盘批量"
     And I wait for loading invisible
     And I will see the text "暂无数据" exist in page

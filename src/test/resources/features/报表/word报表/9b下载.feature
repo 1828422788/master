@@ -6,7 +6,7 @@ Feature: 报表_富文本编辑_9_下载
 
   @reportDownloadTextEditor @report
   Scenario Outline: download_texteditor_word
-    When I set the parameter "SearchInput" with value "<name>"
+    When I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>'}" then i click the "<name>" button
     And I wait for element "SelectedReport" change text to "<name>"
@@ -53,7 +53,7 @@ Feature: 报表_富文本编辑_9_下载
 
   @reportDownloadTextEditor @report
   Scenario Outline: download_texteditor_pdf
-    When I set the parameter "SearchInput" with value "<name>"
+    When I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>'}" then i click the "<name>" button
     And I wait for element "SelectedReport" change text to "<name>"
@@ -71,7 +71,7 @@ Feature: 报表_富文本编辑_9_下载
 
     @reportSmoke
     Scenario Outline: 下载WORD报表
-      When I set the parameter "SearchInput" with value "<name>"
+      When I set the parameter "TextFilter" with value "<name>"
       #等待word报表生成完成
       And I wait for "25000" millsecond
       And I wait for loading invisible

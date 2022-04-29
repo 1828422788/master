@@ -7,7 +7,7 @@ Feature: 报表_9_下载
 
   @reportLayout @report
   Scenario Outline: download_layout
-    When I set the parameter "SearchInput" with value "report_Layout_<layout>"
+    When I set the parameter "TextFilter" with value "report_Layout_<layout>"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'report_Layout_<layout>'}" then i click the "report_Layout_<layout>" button
     And I wait for element "SelectedReport" change text to "report_Layout_<layout>"
@@ -31,7 +31,7 @@ Feature: 报表_9_下载
 
   @reportDownloadPDF @report
   Scenario Outline: download_pdf
-    When I set the parameter "SearchInput" with value "<name>_PDF"
+    When I set the parameter "TextFilter" with value "<name>_PDF"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>_PDF'}" then i click the "<name>_PDF" button
     And I wait for element "SelectedReport" change text to "<name>_PDF"
@@ -89,7 +89,7 @@ Feature: 报表_9_下载
 
   @reportDownloadPDF @report
   Scenario Outline: download_pdf
-    When I set the parameter "SearchInput" with value "<name>_PDF"
+    When I set the parameter "TextFilter" with value "<name>_PDF"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>_PDF'}" then i click the "<name>_PDF" button
     And I wait for element "SelectedReport" change text to "<name>_PDF"
@@ -106,7 +106,7 @@ Feature: 报表_9_下载
 
   @reportSmoke
   Scenario Outline: 下载PDF
-    When I set the parameter "SearchInput" with value "<name>_PDF"
+    When I set the parameter "TextFilter" with value "<name>_PDF"
     And I wait for loading invisible
     And I wait for "40000" millsecond
     And the data name is "{'column':'1','name':'<name>_PDF'}" then i click the "<name>_PDF" button
@@ -132,7 +132,7 @@ Feature: 报表_9_下载
 
   @reportDownloadEXCEL
   Scenario Outline: download_excel
-    When I set the parameter "SearchInput" with value "<name>_EXCEL"
+    When I set the parameter "TextFilter" with value "<name>_EXCEL"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>_EXCEL'}" then i click the "<name>_EXCEL" button
     And I wait for element "SelectedReport" change text to "<name>_EXCEL"
@@ -193,7 +193,7 @@ Feature: 报表_9_下载
 
   @reportDownloadWORD
   Scenario Outline: download_word
-    When I set the parameter "SearchInput" with value "<name>_WORD"
+    When I set the parameter "TextFilter" with value "<name>_WORD"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>_WORD'}" then i click the "<name>_WORD" button
     And I wait for element "SelectedReport" change text to "<name>_WORD"

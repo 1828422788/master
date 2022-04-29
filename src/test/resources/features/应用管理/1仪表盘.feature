@@ -137,7 +137,7 @@ Feature: 应用仪表盘
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "DashboardApp"
     Then I will see the "dashboard.ListPage" page
-    When I set the parameter "SearchInput" with value "AutoApp"
+    When I set the parameter "TextFilter" with value "AutoApp"
     And I wait for "1500" millsecond
     And I click the "Search" button
     And I wait for loading invisible

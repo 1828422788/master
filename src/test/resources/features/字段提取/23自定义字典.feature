@@ -86,7 +86,7 @@ Feature: 字段提取自定义字典
   Scenario: 删除字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
-    Then I set the parameter "SearchInput" with value "win_sys_sourcename.csv"
+    Then I set the parameter "TextFilter" with value "win_sys_sourcename.csv"
     And I wait for loading invisible
     When the data name is "{'column':'0','name':'win_sys_sourcename.csv'}" then i click the "删除" button in more menu
     Then I will see the success message "确认删除 [win_sys_sourcename.csv] ?"

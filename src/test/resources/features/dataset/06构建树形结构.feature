@@ -21,7 +21,7 @@ Feature: 数据集_06构建树形结构
       | 父子继承tree | 继承tree | Inherit    |
 
   Scenario: RZY-4085:父子行为-无
-    When I set the parameter "SearchInput" with value "父子无tree"
+    When I set the parameter "TextFilter" with value "父子无tree"
     And I wait for loading invisible
     When the data name is "{'column':'0','name':'父子无tree'}" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
@@ -53,7 +53,7 @@ Feature: 数据集_06构建树形结构
     And I will see the success message "添加数据集节点成功"
 
   Scenario: RZY-4083:父子行为-汇聚
-    When I set the parameter "SearchInput" with value "父子汇聚tree"
+    When I set the parameter "TextFilter" with value "父子汇聚tree"
     And I wait for loading invisible
     When the data name is "{'column':'0','name':'父子汇聚tree'}" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
@@ -84,7 +84,7 @@ Feature: 数据集_06构建树形结构
     And I will see the success message "添加数据集节点成功"
 
   Scenario: RZY-4084:父子行为-继承
-    When I set the parameter "SearchInput" with value "父子继承tree"
+    When I set the parameter "TextFilter" with value "父子继承tree"
     And I wait for loading invisible
     When the data name is "{'column':'0','name':'父子继承tree'}" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
@@ -116,7 +116,7 @@ Feature: 数据集_06构建树形结构
     And I will see the success message "添加数据集节点成功"
 
   Scenario Outline: 验证：RZY-4083,RZY-4084,RZY-4085
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'<name>'}" values "{'column':'2','name':'<alias>'}"
     Then I will see the data "{'column':'0','name':'<name>'}" values "{'column':'3','name':'<behaviour>'}"

@@ -88,12 +88,6 @@ public class ListPage extends ListPageFactory {
         return super.getMessage();
     }
 
-    @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
-    private WebElement SearchInput;
-    public WebElement getSearchInput(){
-        return SearchInput;
-    }
-
     public WebElement getDeleteMessage() { return deleteMessage; }
 
     public WebElement getReturnList() {

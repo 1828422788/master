@@ -20,7 +20,6 @@ public class ListPage extends ListPageFactory {
         return super.getButton("新建");
     }
 
-    @Override
     public WebElement getSearchInput() {
         return searchInput;
     }

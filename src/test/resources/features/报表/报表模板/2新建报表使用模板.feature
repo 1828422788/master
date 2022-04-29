@@ -66,7 +66,7 @@ Feature: 报表模板_2使用模板
     And I will see the element "ResultMessage" contains "新建成功"
 
   Scenario: 下载到本地预览
-    When I set the parameter "SearchInput" with value "使用模板_图表_红色"
+    When I set the parameter "TextFilter" with value "使用模板_图表_红色"
     And I wait for "2000" millsecond
     And the data name is "{'column':'1','name':'使用模板_图表_红色'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
@@ -81,7 +81,7 @@ Feature: 报表模板_2使用模板
     And I will see the element "ResultMessage" contains "更新成功"
 
   Scenario: 改报表名称
-    When I set the parameter "SearchInput" with value "使用模板_图表_红色"
+    When I set the parameter "TextFilter" with value "使用模板_图表_红色"
     And I wait for "2000" millsecond
     And the data name is "{'column':'1','name':'使用模板_图表_红色'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
@@ -96,7 +96,7 @@ Feature: 报表模板_2使用模板
   Scenario: 改变模板的内容
     When I click the "TemplateManager" button
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "template_chart"
+    And I set the parameter "TextFilter" with value "template_chart"
     And I wait for "2000" millsecond
     And the data name is "{'column':'0','name':'template_chart'}" then i click the "编辑" button
     Then I will see the "report.CreateTemplatePage" page

@@ -29,7 +29,7 @@ Feature: 数据集_09在趋势图中的应用
   Scenario Outline: RZY-4127:趋势图-父子行为无
     Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<trendName>"
+    And I set the parameter "TextFilter" with value "<trendName>"
     And I wait for loading invisible
     When the data name is "<trendName>" then i click the "编辑" button
     Then I will see the "trend.CreatePage" page

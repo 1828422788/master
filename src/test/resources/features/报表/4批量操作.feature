@@ -56,7 +56,7 @@ Feature: 报表_4_批量操作
     And the data name is "{'column':'1','name':'test_multi_3'}" then I "close" the item
 
   Scenario: 批量操作_停止
-    When I set the parameter "SearchInput" with value "test_multi_"
+    When I set the parameter "TextFilter" with value "test_multi_"
     And I wait for loading invisible
     And I click the "BatchControl" button
     And I "checked" the checkbox which name is "test_multi_1" in the list
@@ -124,7 +124,7 @@ Feature: 报表_4_批量操作
     And I click the "Complete" button
 
   Scenario Outline: 验证删除文件
-    When I set the parameter "SearchInput" with value "<name>"
+    When I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>'}" then i click the "<name>" button
     And I wait for element "SelectedReport" change text to "<name>"
@@ -149,7 +149,7 @@ Feature: 报表_4_批量操作
     And I click the "Complete" button
 
   Scenario: 验证删除
-    When I set the parameter "SearchInput" with value "test_multi_"
+    When I set the parameter "TextFilter" with value "test_multi_"
     And I wait for loading invisible
     Then I wait for "NoData" will be visible
 

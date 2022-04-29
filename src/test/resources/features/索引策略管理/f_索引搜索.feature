@@ -6,7 +6,7 @@ Feature: 索引信息搜索
     And I wait for loading invisible
 
   Scenario Outline:
-    When I set the parameter "SearchInput" with value "<searchName>"
+    When I set the parameter "TextFilter" with value "<searchName>"
     And I wait for loading invisible
     Then I will see the search result without paging "{'column':'1','name':'<searchName>'}"
 

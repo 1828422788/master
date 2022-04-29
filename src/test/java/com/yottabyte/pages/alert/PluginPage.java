@@ -1,6 +1,7 @@
 package com.yottabyte.pages.alert;
 
 import com.yottabyte.pages.EditorPage;
+import com.yottabyte.pages.ListPageFactory;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * @author sunxj
  */
-public class PluginPage extends EditorPage {
+public class PluginPage extends ListPageFactory {
     public PluginPage(WebDriver driver) {
         super(driver);
         driver.manage().window().fullscreen();
@@ -65,7 +66,4 @@ public class PluginPage extends EditorPage {
     public WebElement getVerifyTextNameDup() {
         return verifyTextNameDup;
     }
-
-    public WebElement getSearchInput(){return super.getYottaInput("table-filter_text-input");}
-
 }

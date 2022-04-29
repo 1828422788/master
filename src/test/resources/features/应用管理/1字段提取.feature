@@ -253,7 +253,7 @@ Feature: 应用字段提取（RZY-2129）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "dictionary.ListPage" page
-    And I set the parameter "SearchInput" with value "字典管理"
+    And I set the parameter "TextFilter" with value "字典管理"
     And I wait for loading invisible
     Then I will see the search result "字典管理app.csv"
     Then I will see the search result "{'column':'0','name':'app对比测试.csv','contains':'no'}"

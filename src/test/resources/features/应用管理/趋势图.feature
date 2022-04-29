@@ -154,7 +154,7 @@ Feature: 应用趋势图
     And I wait for loading invisible
     When  I click the detail which name is "TrendApp"
     Then I will see the "trend.ListPage" page
-    When I set the parameter "SearchInput" with value "AutoApp_副本"
+    When I set the parameter "TextFilter" with value "AutoApp_副本"
     And I click the "Search" button
     And I wait for loading invisible
     Then I will see the search result "AutoApp_副本"

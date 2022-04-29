@@ -4,7 +4,7 @@ Feature: 字段提取删除
   Scenario Outline:
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     Then I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
     And I wait for "Ensure" will be visible

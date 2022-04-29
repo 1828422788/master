@@ -4,7 +4,7 @@ Feature: 趋势图删除
   Scenario Outline: delete_dd
     Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
-    When I set the parameter "SearchInput" with value "拖拽_<name>"
+    When I set the parameter "TextFilter" with value "拖拽_<name>"
     And I wait for loading invisible
     And the data name is "{'column':'0','name':'拖拽_<name>'}" then i click the "删除" button
     Then I will see the message "确认删除 [拖拽_<name>] ?"
@@ -47,7 +47,7 @@ Feature: 趋势图删除
     @cleanDragAndDropDataset
     Scenario Outline: delete_dataset
       Given open the "trend.ListPage" page for uri "/trend/"
-      When I set the parameter "SearchInput" with value "数据集_<name>"
+      When I set the parameter "TextFilter" with value "数据集_<name>"
       And I wait for "2000" millsecond
       And the data name is "{'column':'0','name':'数据集_<name>'}" then i click the "删除" button
       Then I will see the message "确认删除 [数据集_<name>] ?"

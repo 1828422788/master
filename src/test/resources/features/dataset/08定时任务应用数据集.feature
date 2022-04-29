@@ -33,7 +33,7 @@ Feature: 数据集_08在定时任务应用-编辑页面&详情页
   Scenario Outline: RZY-4126:定时任务-编辑页
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<taskName>"
+    And I set the parameter "TextFilter" with value "<taskName>"
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<taskName>'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
@@ -51,7 +51,7 @@ Feature: 数据集_08在定时任务应用-编辑页面&详情页
   Scenario Outline: RZY-4126,4129,4130:定时任务-详情页
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     Given I click the which name is "<name>"
     And I will see the "timedTask.DetailPage" page

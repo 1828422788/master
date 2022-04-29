@@ -4,7 +4,7 @@ Feature: 监控删除
   @dellagacytask
   Scenario Outline: 删除冗余定时任务
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     And I wait for "1000" millsecond
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button

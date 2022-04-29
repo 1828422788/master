@@ -23,7 +23,6 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//input[@placeholder='请输入']")
     private WebElement searchInput;
 
-    @Override
     public WebElement getSearchInput() {
         return searchInput;
     }

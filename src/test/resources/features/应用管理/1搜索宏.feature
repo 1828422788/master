@@ -142,7 +142,7 @@ Feature: 应用搜索宏（RZY-2126）
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "MacroApp"
     Then I will see the "searchMacro.ListPage" page
-    When I set the parameter "SearchInput" with value "AutoApp"
+    When I set the parameter "TextFilter" with value "AutoApp"
     And I wait for "2000" millsecond
     And I click the "Search" button
     And I wait for loading invisible

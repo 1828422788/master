@@ -3,7 +3,7 @@ Feature: 删除冗余趋势图
 
   Scenario Outline: 删除冗余趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
-    When I set the parameter "SearchInput" with value "<name>"
+    When I set the parameter "TextFilter" with value "<name>"
     And I wait for "2000" millsecond
     And the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
     Then I will see the message "确认删除 [<name>] ?"

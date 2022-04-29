@@ -6,7 +6,7 @@ Feature:3修改图表
     And I wait for loading invisible
 
   Scenario Outline: 修改图表_序列
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
@@ -61,7 +61,7 @@ Feature:3修改图表
     | 序列     | Order   | ColumnChart  | ColumnChart_Pile | ThirdLabel     | DescendingOrder|   个   |                | Pile |  0   |   20  | ThirdPosition    |
 
   Scenario Outline: 修改图表_气泡
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
@@ -109,7 +109,7 @@ Feature:3修改图表
       | 序列     | Order   | ScatterChart | ScatterChart     | SecondLabel    | 个   | FirstPosition  |
 
   Scenario Outline: 修改图表_维度
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
@@ -152,7 +152,7 @@ Feature:3修改图表
       | 维度     | Dimension | Sun          | Sun   |               | DarkBlue  |
 
   Scenario Outline: 修改图表_维度_pie
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
@@ -194,7 +194,7 @@ Feature:3修改图表
       | 维度     | Dimension | Pie   | Pie_2 | Green  | 3            | 0     |
 
   Scenario Outline: 修改图表_维度_bar
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
@@ -236,7 +236,7 @@ Feature:3修改图表
       | 维度     | Dimension | Bar          | Bar2  |  全部展示     |  柱状内靠左侧  |   Green   |
 
   Scenario Outline: 修改图表_维度_bar_orientation
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
@@ -280,7 +280,7 @@ Feature:3修改图表
       | 维度     | Dimension | Bar          | Bar4  |  只展示名称   | 纵向         | 横向         | Orange |
 
   Scenario Outline: 修改图表_维度_火焰图
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
@@ -320,7 +320,7 @@ Feature:3修改图表
       | 维度     | Dimension | Flame        | Flame |
 
   Scenario Outline: 修改图表_关系
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
@@ -364,7 +364,7 @@ Feature:3修改图表
       | 关系     | Connection| Force        | Force        | Green     | 20        |             | Repulsion|
 
   Scenario Outline: 修改图表_区间图
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
@@ -407,7 +407,7 @@ Feature:3修改图表
       | 复合     | Compound  | Rangeline    | Rangeline    |   ts   |   cnt      |   _predict_cnt |    upper95 |    lower95 |
 
   Scenario Outline: 修改图表_多y轴图
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
@@ -477,7 +477,7 @@ Feature:3修改图表
       | 复合     | Compound  | Multiaxis    | Multiaxis    |
 
   Scenario Outline: 修改图表_多y轴图2
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
@@ -552,7 +552,7 @@ Feature:3修改图表
       | 复合     | Compound  | Multiaxis    | Multiaxis_2  |
 
   Scenario Outline: 修改图表_区划地图
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
@@ -595,7 +595,7 @@ Feature:3修改图表
       | 地图     | Map       | Regionmap    | Regionmap_China  | China    | apache.geo.province |
 
   Scenario Outline: 修改图表_地图
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
@@ -627,7 +627,7 @@ Feature:3修改图表
       | 地图     | Map       | Heatmap      | Heatmap         |
 
   Scenario Outline: 修改图表_攻击地图
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
@@ -675,7 +675,7 @@ Feature:3修改图表
       | 地图     | Map       | Attackmap    | Attackmap_World  | World    |
 
   Scenario Outline: 修改图表_其他
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
@@ -718,7 +718,7 @@ Feature:3修改图表
 
 
   Scenario Outline: 修改图表_其他_single_icon
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
@@ -762,7 +762,7 @@ Feature:3修改图表
       | 其他 | Other  | Single | Single_icon | Red   |
 
   Scenario Outline: 修改图表_其他_single_font
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
@@ -806,7 +806,7 @@ Feature:3修改图表
       | 其他 | Other  | Single | Single_font | Orange|
 
   Scenario Outline: 修改图表_其他_single_backgr
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
@@ -857,7 +857,7 @@ Feature:3修改图表
       | 其他 | Other  | Single | Single_range_backgr |
 
   Scenario Outline: 修改图表_其他_环形比例图1
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
@@ -896,7 +896,7 @@ Feature:3修改图表
       | 其他 | Other  | Ring   | Ring_oneField |
 
   Scenario Outline: 修改图表_其他_环形比例图2
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
@@ -934,7 +934,7 @@ Feature:3修改图表
       | 其他 | Other  | Ring   | Ring_twoFields|
 
   Scenario Outline: 修改图表_其他_radar
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"
@@ -979,7 +979,7 @@ Feature:3修改图表
       | 其他 | Other  | Radar  | Radar |
 
   Scenario Outline: 修改图表_其他_matrixheatmap
-    And I set the parameter "SearchInput" with value "仪表盘_<name>"
+    And I set the parameter "TextFilter" with value "仪表盘_<name>"
     And I wait for loading invisible
     When I click the detail which name is "仪表盘_<name>"
     And switch to window "仪表盘"

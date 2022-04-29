@@ -113,7 +113,7 @@ Feature: 应用已存搜索（RZY-2125）
     Then I will see the "splSearch.SavedSearchPage" page
     And I wait for "1500" millsecond
    # And I click the detail which name is "AutoApp" in saved search
-    And I set the parameter "SearchInput" with value "AutoApp"
+    And I set the parameter "TextFilter" with value "AutoApp"
     Given I wait for loading complete
     And I wait for "1000" millsecond
     Given I click the which saved name is "AutoApp" on saved page
@@ -175,7 +175,7 @@ Feature: 应用已存搜索（RZY-2125）
     And I will see the element "Title" name is "SavedsearchesApp"
     Then I will see the "splSearch.SavedSearchPage" page
     And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     Given I wait for loading complete
     And I wait for "1000" millsecond
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu

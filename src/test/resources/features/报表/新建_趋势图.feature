@@ -98,7 +98,7 @@ Feature: 趋势图保存为报表
 
   @downloadReportTrend
   Scenario Outline: check_type_pdf
-    When I set the parameter "SearchInput" with value "<name>"
+    When I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>'}" then i click the "<name>" button
     And I wait for element "SelectedReport" change text to "<name>"

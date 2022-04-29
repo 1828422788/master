@@ -57,7 +57,7 @@ Feature: 仪表盘_1_1_曲线图
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
     And switch to window "仪表盘"

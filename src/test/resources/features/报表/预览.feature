@@ -7,7 +7,7 @@ Feature: 报表_预览_all
 
   @reportPreviewPDF
   Scenario Outline: preview_pdf
-    When I set the parameter "SearchInput" with value "<name>_PDF"
+    When I set the parameter "TextFilter" with value "<name>_PDF"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>_PDF'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
@@ -73,7 +73,7 @@ Feature: 报表_预览_all
 
   @reportPreviewWORD
   Scenario Outline: preview_word
-    When I set the parameter "SearchInput" with value "<name>_WORD"
+    When I set the parameter "TextFilter" with value "<name>_WORD"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>_WORD'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
@@ -140,7 +140,7 @@ Feature: 报表_预览_all
 
   @reportPreviewEXCEL
   Scenario Outline: preview_excel
-    When I set the parameter "SearchInput" with value "<name>_EXCEL"
+    When I set the parameter "TextFilter" with value "<name>_EXCEL"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>_EXCEL'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page

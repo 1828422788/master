@@ -12,7 +12,7 @@ Feature: 仪表盘07批量操作
     And I click the "Ensure" button
     Then I will see the success message "新建仪表盘成功"
     And I wait for "SuccessMessage" will be invisible
-    And I set the parameter "SearchInput" with value "Test_Batch_Control_Resource_1"
+    And I set the parameter "TextFilter" with value "Test_Batch_Control_Resource_1"
     And I wait for loading invisible
     And the data name is "Test_Batch_Control_Resource_1" then I "expand" the item
     And I will see the element "ExpandedRow" contains "资源标签..............AutoTest"
@@ -23,7 +23,7 @@ Feature: 仪表盘07批量操作
     And I click the "Ensure" button
     Then I will see the success message "新建仪表盘成功"
     And I wait for "SuccessMessage" will be invisible
-    And I set the parameter "SearchInput" with value "Test_Batch_Control_Resource_2"
+    And I set the parameter "TextFilter" with value "Test_Batch_Control_Resource_2"
     And I wait for loading invisible
     And the data name is "Test_Batch_Control_Resource_2" then I "expand" the item
     And I will see the element "ExpandedRow" contains "资源标签..............无"
@@ -34,7 +34,7 @@ Feature: 仪表盘07批量操作
     Then I will see the message contains "请至少选择一个资源进行操作"
 
   Scenario: 批量操作-添加资源标签
-    And I set the parameter "SearchInput" with value "Test_Batch_Control_Resource"
+    And I set the parameter "TextFilter" with value "Test_Batch_Control_Resource"
     And I wait for loading invisible
     When I click the "BatchControl" button
     And I click the "SelectAll" button
@@ -52,7 +52,7 @@ Feature: 仪表盘07批量操作
     And the data name is "Test_Batch_Control_Resource_1" then I "close" the item
 
   Scenario: 批量操作-删除资源
-    And I set the parameter "SearchInput" with value "Test_Batch_Control_Resource_"
+    And I set the parameter "TextFilter" with value "Test_Batch_Control_Resource_"
     And I wait for loading invisible
     When I click the "BatchControl" button
     And I click the "SelectAll" button

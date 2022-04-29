@@ -4,7 +4,7 @@ Feature: 已存搜索分组
     Given open the "splSearch.SavedSearchPage" page for uri "/savedsearches/"
 
   Scenario Outline:
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     Then I will see the search result "{'column':'1','name':'<name>'}"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "分组" button

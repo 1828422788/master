@@ -26,7 +26,7 @@ public class ListPageFactory extends PageTemplate {
         return dropdownUtils.getYottaDropdownList("table-filter_app-select");
     }
 
-    public WebElement getSearchInput() {
+    public WebElement getTextFilter() {
         return getYottaInput("table-filter_text-input");
     }
 

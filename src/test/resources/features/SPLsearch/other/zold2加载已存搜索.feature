@@ -13,7 +13,7 @@ Feature: 已存搜索加载（RZY-153）
 
   Scenario Outline: 在已存搜索列表加载
     Given open the "splSearch.SavedSearchPage" page for uri "/savedsearches/"
-    And I set the parameter "SearchInput" with value "<name>"
+    And I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     Then I will see the search result "{'column':'1','name':'<name>'}"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "加载" button

@@ -142,7 +142,7 @@ Feature: 应用拓扑图（RZY-2142）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "TopologyApp"
     Then I will see the "topology.ListPage" page
-    Given I set the parameter "SearchInput" with value "<name>"
+    Given I set the parameter "TextFilter" with value "<name>"
     And I wait for "2000" millsecond
     And I click the "Search" button
     And I wait for "2000" millsecond
