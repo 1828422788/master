@@ -63,7 +63,7 @@ public class ListPage extends ListPageFactory {
         return save;
     }
 
-    public WebElement getAppList() {
+    public WebElement getAppField() {
         return dropdownUtils.getYottaDropdownList("dataset-apps-select");
     }
 

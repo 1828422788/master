@@ -32,10 +32,6 @@ public class ListPageFactory extends PageTemplate {
         return this.getButton("新建");
     }
 
-    public WebElement getTagField() {
-        return dropdownUtils.getYottaDropdownList("resource_tag-change_resource_tag-select");
-    }
-
     @FindBy(xpath = "(//tr[contains(@class,'expansion')]//td[@class='yotta-table-cell'])[last()]")
     private WebElement expandedRow;
     public WebElement getExpandedRow() {

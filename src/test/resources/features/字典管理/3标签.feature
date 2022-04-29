@@ -16,7 +16,7 @@ Feature: 字典_标签
     Then I refresh the website
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>.csv'}" then i click the "标签" button in more menu
-    And I choose the "<newTag>" from the "TagList" in config
+    And I choose the "<newTag>" from the "TagField"
     Then I click the "Ensure" button
     And I will see the success message "修改成功"
     Then I click the "Ensure" button
@@ -32,7 +32,7 @@ Feature: 字典_标签
     Then I set the parameter "Name" with value "<dictionaryName>"
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
-    And I choose the "<oldTag>" from the "TagList" in config
+    And I choose the "<oldTag>" from the "TagField"
     And I click the "UploadConfirm" button
     Then I will see the success message "创建字典成功"
     Then I click the "Ensure" button
@@ -40,7 +40,7 @@ Feature: 字典_标签
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>.csv'}" then i click the "标签" button in more menu
     Then I click the "DeleteIcon" button
-    And I choose the "<newTag>" from the "TagList" in config
+    And I choose the "<newTag>" from the "TagField"
     Then I click the "Ensure" button
     And I will see the success message "修改成功"
     Then I click the "Ensure" button
@@ -57,7 +57,7 @@ Feature: 字典_标签
     Then I set the parameter "Name" with value "<dictionaryName>"
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
-    And I choose the "<tag>" from the "TagList" in config
+    And I choose the "<tag>" from the "TagField"
     And I click the "UploadConfirm" button
     Then I will see the success message "创建字典成功"
     Then I click the "Ensure" button
@@ -76,7 +76,7 @@ Feature: 字典_标签
     Then I set the parameter "Name" with value "<dictionaryName>"
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "1000" millsecond
-    And I choose the "<twoTag>" from the "TagList"
+    And I choose the "<twoTag>" from the "TagField"
     And I click the "UploadConfirm" button
     Then I will see the success message "创建字典成功"
     Then I click the "Ensure" button

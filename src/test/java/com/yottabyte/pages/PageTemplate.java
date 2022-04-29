@@ -94,6 +94,10 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return this.getButton("应用");
     }
 
+    public WebElement getTagField() {
+        return dropdownUtils.getYottaDropdownList("resource_tag-change_resource_tag-select");
+    }
+
     //TODO:删除这个方法，在其他page中直接用dropdownUtils.getLastDropdownList()
     public WebElement getLastDropdownList() {
         return dropdownUtils.getLastDropdownList();

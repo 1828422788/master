@@ -8,7 +8,7 @@ Feature: 数据集_01新建
   Scenario Outline: RZY-4082:新建数据集
     When I click the "Create" button
     And I set the parameter "Name" with value "<name>"
-    And I choose the "test_app" from the "AppList"
+    And I choose the "test_app" from the "AppField"
     And I set the parameter "Alias" with value "<alias>"
     And I set the parameter "Spl" with value "<spl>"
     And I choose the "auto_package" from the "TagField"

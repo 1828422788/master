@@ -39,9 +39,9 @@ Feature: 数据集_04编辑根事件
     When the data name is "edit" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
     When I click the "EditEvent" button
-    And I choose the "test_app" from the "AppList"
+    And I choose the "test_app" from the "AppField"
     And I set the parameter "Spl" with value "*"
-    And I choose the "auto_package" from the "TagList"
+    And I choose the "auto_package" from the "TagField"
     And I click the "Ensure" button
     When I click the "Return" button
     Then I will see the "dataset.ListPage" page

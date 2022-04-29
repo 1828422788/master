@@ -32,12 +32,8 @@ public class DetailPage extends EditorPage {
         return getYottaInput("dataset-queryfilter-input");
     }
 
-    public WebElement getAppList() {
+    public WebElement getAppField() {
         return dropdownUtils.getYottaDropdownList("dataset-apps-select");
-    }
-
-    public WebElement getTagList() {
-        return dropdownUtils.getYottaDropdownList("resource_tag-change_resource_tag-select");
     }
 
     @FindBy(className = "yotta-pageheader-title")
