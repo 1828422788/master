@@ -107,7 +107,7 @@ Feature: 应用仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
     And I set the parameter "DashBoardName" with value "仪表盘验证App"
-    And I choose the "DashboardApp" from the "BelongedApp"
+    And I choose the "DashboardApp" from the "AppField"
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
@@ -166,11 +166,7 @@ Feature: 应用仪表盘
     And I will see the element "Title" name is "DashboardApp"
     Then I will see the "dashboard.ListPage" page
     When the data name is "仪表盘重命名" then i click the "标签" button in more menu
-    And I click the "ResourceTagChange" button
-    And I wait for "1000" millsecond
-    And I set the parameter "ResourceTagChangeInput" with value "testTag"
-    And I wait for "1500" millsecond
-    And I choose the "testTag" from the "TagDropdown"
+    And I choose the new value "testTag" from the "TagField"
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"

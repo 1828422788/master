@@ -1,7 +1,5 @@
 package com.yottabyte.pages;
 
-import com.yottabyte.stepDefs.ClickSomeButton;
-import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

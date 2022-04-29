@@ -22,7 +22,6 @@ public class DetailPage extends EditorPage {
     public DetailPage(WebDriver driver) {
         super(driver);
         driver.manage().window().setSize(new Dimension(1920, 1080));
-//        driver.manage().window().fullscreen();
     }
 
     @FindBy(xpath = "(//span[@aria-label='Ellipsis'])[1]")
@@ -60,9 +59,6 @@ public class DetailPage extends EditorPage {
 
     @FindBy(xpath = "(//span[text()='通用配置'])[2]")
     private WebElement moreConfigs;
-
-    @FindBy(className = "yotta-message-content")
-    private WebElement successMessage;
 
     @FindBy(className = "yotta-message-content")
     private WebElement errorMessage;
@@ -251,9 +247,6 @@ public class DetailPage extends EditorPage {
     @FindBy(xpath = "(//span[contains(@style,'background: rgb(37, 155, 36);')])[last()]")
     private WebElement green;
 
-    @FindBy(className = "main")
-    private WebElement mainTitle;
-
     @FindBy(tagName = "table")
     private WebElement table;
 
@@ -262,9 +255,6 @@ public class DetailPage extends EditorPage {
 
     @FindBy(xpath = "//div[@id='fullscreenAll']//label")
     private WebElement dropdownLink;
-
-    @FindBy(xpath = "//div[@class='ant-modal-body']//i/ancestor::div")
-    private WebElement message;
 
     @FindBy(xpath = "//span[@yotta-test='dashboard-chart_description-icon']")
     private WebElement describe;
@@ -700,32 +690,14 @@ public class DetailPage extends EditorPage {
     @FindBy(xpath = "//label[text()='所有时间']/following-sibling::i[4]")
     private WebElement forthIcon;
 
-    @FindBy(xpath = "//div[@yotta-test='dashboard-nav_tab-dropdown']//span[text()='testSearch']")
-    private WebElement testSearch;
-
     @FindBy(xpath = "//*[@yotta-test='dashboard-dashboard_list-dropdown']/span")
     private WebElement dashboardIcon;
-
-    @FindBy(xpath = "//div[text()='UIautotest'and @yotta-test='dashboard-nav_dashboard-dom']")
-    private WebElement uiAutoTest;
-
-    @FindBy(xpath = "//li[text()='FirstAutoTest']")
-    private WebElement firstAutoTest;
 
     @FindBy(xpath = "//span[@aria-label='FolderOpen']/parent::span//following-sibling::span//*[@yotta-test='dashboard-nav_dashboard-dom']")
     private WebElement currentDashboard;
 
     @FindBy(xpath = "//button[@yotta-test='dashboard-back_to_list-button']")
     private WebElement returnToList;
-
-    @FindBy(xpath = "(//span[@class='yotta-select-selection-icon'])[last()]")
-    private WebElement joinRow;
-
-    @FindBy(xpath = "//span[text()='L2: ']")
-    private WebElement line2;
-
-    @FindBy(xpath = "//span[text()='L1: 首行']")
-    private WebElement line1;
 
     @FindBy(xpath = "//span[text()='appname:']")
     private WebElement hoverElement;
@@ -737,32 +709,22 @@ public class DetailPage extends EditorPage {
         return tagName;
     }
 
-    @FindBy(xpath = "//input[@yotta-test='dashboard-new_row_name-input']")
-    private WebElement newRowName;
     public WebElement getNewRowName() {
-        return newRowName;
+        return getYottaInput("dashboard-new_row_name-input");
     }
 
-    @FindBy(xpath = "//input[@yotta-test='dashboard-edit_row_name-input']")
-    private WebElement editRowName;
     public WebElement getEditRowName() {
-        return editRowName;
+        return getYottaInput("dashboard-edit_row_name-input");
     }
 
     @FindBy(xpath = "//span[contains(text(),'行布局')]/preceding-sibling::span")
     private WebElement rowLayout;
-
-    @FindBy(className = "ant-spin-dot")
-    private WebElement spinDot;
 
     @FindBy(xpath = "//span[text()='标识']/ancestor::div/following-sibling::div//input")
     private WebElement filterToken;
 
     @FindBy(id = "filter_textValue")
     private WebElement filterDefaultValue;
-
-    @FindBy(xpath = "//*[@yotta-test='dashboard-new_filter_row-select']/div")
-    private WebElement filterJoinRow;
 
     @FindBy(xpath = "//div[text()='快捷选项']")
     private WebElement shortcut;
@@ -1076,10 +1038,6 @@ public class DetailPage extends EditorPage {
         return shortcut;
     }
 
-    public WebElement getSpinDot() {
-        return spinDot;
-    }
-
     public WebElement getEventOperate() {
         return eventOperate;
     }
@@ -1092,16 +1050,8 @@ public class DetailPage extends EditorPage {
         return returnToList;
     }
 
-    public WebElement getUIAutoTest() {
-        return uiAutoTest;
-    }
-
     public WebElement getCeshishi() {
         return ceshishi;
-    }
-
-    public WebElement getFirstAutoTest() {
-        return firstAutoTest;
     }
 
     public WebElement getCurrentDashboard() {
@@ -1110,10 +1060,6 @@ public class DetailPage extends EditorPage {
 
     public WebElement getDashboardIcon() {
         return dashboardIcon;
-    }
-
-    public WebElement getTestSearch() {
-        return testSearch;
     }
 
     public WebElement getShowDashboards() {
@@ -1662,11 +1608,6 @@ public class DetailPage extends EditorPage {
     public WebElement getDescribe() {
         return describe;
     }
-
-    public WebElement getMessage() {
-        return message;
-    }
-
     public WebElement getSearch() {
         return super.getButton("搜 索");
     }
@@ -1689,10 +1630,6 @@ public class DetailPage extends EditorPage {
 
     public WebElement getRecover() {
         return recover;
-    }
-
-    public WebElement getMainTitle() {
-        return mainTitle;
     }
 
     public WebElement getGreen() {
@@ -2009,10 +1946,6 @@ public class DetailPage extends EditorPage {
         return getInput("默认值");
     }
 
-    public WebElement getFilterJoinRow() {
-        return filterJoinRow;
-    }
-
     public WebElement getPrefix() {
         return getInput("标识前缀");
     }
@@ -2041,10 +1974,6 @@ public class DetailPage extends EditorPage {
         return addEventButton;
     }
 
-    public WebElement getSuccessMessage() {
-        return successMessage;
-    }
-
     public WebElement getDeleteTag() {
         return deleteTag;
     }
@@ -2071,18 +2000,6 @@ public class DetailPage extends EditorPage {
 
     public WebElement getRowLayout() {
         return rowLayout;
-    }
-
-    public WebElement getJoinRow() {
-        return joinRow;
-    }
-
-    public WebElement getLine2() {
-        return line2;
-    }
-
-    public WebElement getLine1() {
-        return line1;
     }
 
     public WebElement getListForBang() {
@@ -2175,10 +2092,6 @@ public class DetailPage extends EditorPage {
 
     public WebElement getChartTitle() {
         return this.getInput("图表标题");
-    }
-
-    public WebElement getEnsure() {
-        return super.getButton("确定");
     }
 
     public WebElement getInputElement(String name) {
@@ -2412,5 +2325,21 @@ public class DetailPage extends EditorPage {
 
     public WebElement getDashboardName(String name) {
         return webDriver.findElement(By.xpath("//*[@yotta-test='dashboard-nav_dashboard-dom' and text()='" + name + "']"));
+    }
+
+    public WebElement getTabName(String name) {
+        return webDriver.findElement(By.xpath("//*[@yotta-test='dashboard-nav_tab-dom']//span[text()='" + name + "']"));
+    }
+
+    public WebElement getAddItemMenu() {
+        return dropdownUtils.getParentElementOfMenuListByXpath("//div[@yotta-test='dashboard-add_item-dropdown']/span");
+    }
+
+    public WebElement getFilterType() {
+        return dropdownUtils.getYottaDropdownList("dashboard-new_filter_type-select");
+    }
+
+    public WebElement getRowMenu() {
+        return dropdownUtils.getDropdownListbyPath("//div[@yotta-test='dashboard-add_chart_row-select' or @yotta-test='dashboard-new_filter_row-select' or @yotta-test='dashboard-add_events_row-select']//span");
     }
 }

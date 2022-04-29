@@ -1,4 +1,3 @@
-#@dashboard @dashboardSmoke
 @dashboardDefault
 Feature: 仪表盘06设为/取消默认（RZY-211）
 
@@ -13,7 +12,6 @@ Feature: 仪表盘06设为/取消默认（RZY-211）
     And I wait for "Ensure" will be visible
     And I will see the element "Message" contains "设置仪表盘 FirstAutoTest 作为默认显示"
     And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "设置默认仪表盘成功"
     And I wait for "SuccessMessage" will be invisible
     And I will see the text "默认" exist in page
@@ -23,9 +21,7 @@ Feature: 仪表盘06设为/取消默认（RZY-211）
     Then I will see the "dashboard.DetailPage" page
     And I close all tabs except main tab
     And I wait for loading invisible
-    And I wait for "ShowDashboards" will be visible
     And I click the "ShowDashboards" button
-    And I wait for "ReturnToList" will be visible
     And I click the "ReturnToList" button
     And I wait for loading invisible
     And switch to window "仪表盘列表"
@@ -35,8 +31,6 @@ Feature: 仪表盘06设为/取消默认（RZY-211）
     And I wait for "Ensure" will be visible
     And I will see the element "Message" contains "取消仪表盘 FirstAutoTest 作为默认显示"
     And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "取消默认仪表盘成功"
     And I wait for "SuccessMessage" will be invisible
     And I will see the text "默认" is not existed in page
-

@@ -1,4 +1,4 @@
-@dashboard @dashboard07
+@dashboard @dashboardList
 Feature: 仪表盘08列表页
 
   Scenario Outline:新建仪表盘-批量操作
@@ -18,13 +18,14 @@ Feature: 仪表盘08列表页
   Scenario:页签管理（RZY-215）
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I click the "ChartYeQian" button
-    And I wait for "1000" millsecond
-    Then I wait for "ThirtyOnePage" will be visible
-    Then I wait for "FiftyOnePage" will be visible
-    And I click the "FiftyOnePage" button
-    And I wait for "1000" millsecond
-    Then I wait for element "ChartYeQian" change text to "50"
+    And I click the "ItemsPerPage" button
+    And I click the Element with text "30"
+    And I wait for loading invisible
+    And I will see the element "ItemsPerPage" contains "30"
+    And I click the "ItemsPerPage" button
+    And I click the Element with text "50"
+    And I wait for loading invisible
+    And I will see the element "ItemsPerPage" contains "50"
 
   Scenario:批量添加标签 RZY-4838
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -36,7 +37,6 @@ Feature: 仪表盘08列表页
     And I choose the "auto_package" from the "TagField"
     And I click the "Ensure" button
     Then I will see the success message "更新成功"
-
 
   Scenario: 验证批量添加标签成功 RZY-4839
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

@@ -442,10 +442,10 @@ public class IChooseValueFromSelectList {
     }
 
     public void iCancelSelectionFromThe(List<String> values, WebElement parentElement) {
-        if (!parentElement.getTagName().equals("ul")) {
-            parentElement = parentElement.findElement(By.tagName("ul"));
+        if (!parentElement.getTagName().equals("div")) {
+            parentElement = parentElement.findElement(By.tagName("div"));
         }
-        List<WebElement> selectLists = parentElement.findElements(By.xpath("./li[contains(@class,'selected')]"));
+        List<WebElement> selectLists = parentElement.findElements(By.xpath("./div[contains(@class,'selected')]"));
         for (String value : values) {
             if (value != null && value.trim().length() != 0) {
                 for (WebElement e : selectLists) {
@@ -716,4 +716,18 @@ public class IChooseValueFromSelectList {
         element.click();
     }
 
+    /**
+     * 添加新选项到下拉框，选择这个新添加的选项
+     * 比如，添加新资源标签
+     *
+     * @param elementName 元素名称
+     * @param value       输入的值
+     */
+    @And("^I choose the new value \"([^割]*)\" from the \"([^\"]*)\"$")
+    public void iChooseTheNewValueFromThe(String value, String elementName) {
+        WebElement selectList = GetElementFromPage.getWebElementWithName(elementName);
+        WebElement inputElement = webDriver.findElement(By.xpath("//input[@class='yotta-select-selection-search']"));
+        inputElement.sendKeys(value);
+        selectList.findElement(By.xpath(".//*[contains(@class,'option') and text()='" + value + "']")).click();
+    }
 }

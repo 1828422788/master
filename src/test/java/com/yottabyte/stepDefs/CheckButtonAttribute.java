@@ -305,6 +305,19 @@ public class CheckButtonAttribute {
     }
 
     /**
+     * 验证元素不包括具体值
+     *
+     * @param elementName 元素名称
+     * @param text  文本值
+     */
+    @Then("^I will see the element \"([^\"]*)\" does not contain \"([^割]*)\"$")
+    public void iWillSeeTheElementDoesNotContain(String elementName, String text) {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        String actualText = element.getText();
+        Assert.assertFalse("实际值：" + actualText, actualText.contains(text));
+    }
+
+    /**
      * @param elementName 元素名称
      * @param expectText  期望值
      */

@@ -1,11 +1,9 @@
-@dashboard @dashboard04
+@dashboard @dashboardLayout
 Feature: 仪表盘04详情行布局
 
-  @dashboard04pre
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
-#    And I click the "Create" button
     Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
@@ -19,7 +17,7 @@ Feature: 仪表盘04详情行布局
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "<name>"
     And I click the "Complete" button
-    And I wait for "SuccessCreate" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
     @dashboardSmoke
     Examples:
@@ -31,8 +29,6 @@ Feature: 仪表盘04详情行布局
       | name    | spl                                                                                           |
       | 行布局趋势图3 | tag:sample04061424_chart \|stats count() by 'apache.geo.city'                                 |
 
-
-  @dashboard04a
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -58,8 +54,6 @@ Feature: 仪表盘04详情行布局
       | name     |
       | 仪表盘行布局 |
 
-
-  @dashboard04b
   Scenario Outline: 新建一个行布局标签页(RZY-4628)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -69,8 +63,6 @@ Feature: 仪表盘04详情行布局
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
-    Given I wait for loading complete
-    And I wait for "2000" millsecond
     And I set the parameter "TagName" with value "rowLayout"
     And I click the "RowLayout" button
     And I click the "Ensure" button
@@ -94,7 +86,7 @@ Feature: 仪表盘04详情行布局
       | 仪表盘行布局52      |
       | 仪表盘行布局53      |
 
-  @dashboard04c @dashboardSmoke
+  @dashboardSmoke
   Scenario: 添加行(RZY-4629，RZY-3607)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -107,28 +99,20 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "AddEventButton" will be visible
-    When I click the "AddEventButton" button
-    And I wait for "AddChart" will be visible
-    Then I will see the "AddChartItem" is "yotta-menu-item-disabled"
-    And I click the "AddRow" button
+    And I choose the "添加行" from the "AddItemMenu"
     And I wait for loading invisible
     And I set the parameter "NewRowName" with value "第一行"
     And I click the "{'Checkbox':'行布局趋势图1'}" button
     And I click the "{'Checkbox':'行布局趋势图2'}" button
     And I click the "Ensure" button
-    And I wait for "2000" millsecond
-    And I click the "AddEventButton" button
-#    And I will see the element "AddChart" attribute "aria-disabled" is "false"
-    And I click the "AddRow" button
+    And I wait for element "SuccessMessage" change text to "添加成功"
+    And I choose the "添加行" from the "AddItemMenu"
     And I wait for loading invisible
     And I click the "{'Checkbox':'行布局趋势图1'}" button
-    And I wait for "500" millsecond
     And I click the "Ensure" button
-    And I wait for "2000" millsecond
+    And I wait for element "SuccessMessage" change text to "添加成功"
 
-
-  @dashboard04d @dashboardSmoke
+  @dashboardSmoke
   Scenario: 编辑行(RZY-4630)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -141,16 +125,13 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "1000" millsecond
     And I move the mouse pointer to the "EditRowIcon"
     And I click the "EditRowIcon" button
     And I set the parameter "EditRowName" with value "首行"
     And I click the "Ensure" button
-    And I wait for "1000" millsecond
     Then I wait for "FirstRow" will be visible
 
-
-  @dashboard04e @dashboardSmoke
+  @dashboardSmoke
   Scenario: 行布局添加图表(RZY-4631)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -163,29 +144,17 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "AddEventButton" will be visible
-    When I click the "AddEventButton" button
-    And I wait for "500" millsecond
-    And I click the "AddChart" button
-    And I wait for "1000" millsecond
-    And I click the "JoinRow" button
-    And I wait for "500" millsecond
-#    And I set the parameter "JoinRow" with value "L2: "
-    And I click the "Line1" button
-    And I click the "Line2" button
+    And I choose the "添加图表" from the "AddItemMenu"
+    And I choose the "L1: 首行,L2:" from the "RowMenu"
     And I click the "Ensure" button
-    And I wait for "500" millsecond
     Then I will see the error message "请至少选择一个趋势图"
-#    And I wait for "3000" millsecond
-    And I click the "JoinRow" button
-    And I wait for "3000" millsecond
     And I set the parameter "SearchChartInput" with value "行布局"
-    And I wait for "1000" millsecond
+    And I wait for loading invisible
     And I click the "{'Checkbox':'行布局趋势图2'}" button
-    And I wait for "1000" millsecond
     And I click the "Ensure" button
+    And I wait for element "SuccessMessage" change text to "添加成功"
 
-  @dashboard04f @dashboardSmoke
+  @dashboardSmoke
   Scenario: 行布局添加全局输入项(RZY-4632)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -198,16 +167,15 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "AddEventButton" will be visible
-    When I click the "AddEventButton" button
-    And I click the "AddInput" button
+    And I choose the "添加输入项" from the "AddItemMenu"
+    And I wait for loading invisible
     And I set the parameter "FilterTitle" with value "filter"
     And I set the parameter "FilterToken" with value "filter"
     And I set the parameter "FilterDefaultValue" with value "apache.geo.city"
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
-  @dashboard04g @dashboardSmoke
+  @dashboardSmoke
   Scenario: 行布局添加行内输入项(RZY-4633)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -220,19 +188,15 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "AddEventButton" will be visible
-    When I click the "AddEventButton" button
-    And I click the "AddInput" button
+    And I choose the "添加输入项" from the "AddItemMenu"
+    And I wait for loading invisible
     And I set the parameter "FilterTitle" with value "innerFilter"
     And I set the parameter "FilterToken" with value "innerFilter"
-    And I click the "FilterJoinRow" button
-    And I wait for "500" millsecond
-    And I click the "Line1" button
+    And I choose the "L1: 首行" from the "RowMenu"
     And I click the "Ensure" button
-    And I wait for "500" millsecond
     Then I wait for "InnerInputFilter" will be visible
 
-  @dashboard04h @dashboardSmoke
+  @dashboardSmoke
   Scenario: 行布局添加事件列表(RZY-4634)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -245,26 +209,18 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "AddEventButton" will be visible
-    When I click the "AddEventButton" button
-    And I click the "AddEvent" button
+    And I choose the "添加事件列表" from the "AddItemMenu"
     And I set the parameter "EventName" with value "测试行事件"
-#    And I set the parameter "Spl" with value "appname:apache"
     And I alter the input element "Spl" value to "appname:apache"
     And I click the "DateEditor" button
-    And I wait for "1000" millsecond
     And I click the "Today" button
     And I click the "Ensure" button
-    And I wait for "500" millsecond
     Then I will see the error message "请选择要加入的行"
-    And I wait for "3000" millsecond
-    And I click the "JoinRow" button
-    And I click the "Line1" button
-#    And I wait for "1000" millsecond
+    And I choose the "L1: 首行" from the "RowMenu"
     And I click the "Ensure" button
     Then I wait for "RowEventName" will be visible
 
-  @dashboard04i @dashboardSmoke
+  @dashboardSmoke
   Scenario: 删除行(RZY-4635)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -277,15 +233,12 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "1000" millsecond
     And I move the mouse pointer to the "DeleteRowIcon"
     And I click the "DeleteRowIcon" button
-    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
-    And I wait for "500" millsecond
-    Then I will see the success message "删除行成功"
+    And I wait for element "SuccessMessage" change text to "删除行成功"
 
-  @dashboard04j @dashboardSmoke
+  @dashboardSmoke
   Scenario: 删除行内图表(RZY-4636)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -298,14 +251,12 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "1000" millsecond
     And I click the "DeleteTrend1" button
     And I click the "Ensure" button
-    And I wait for "500" millsecond
-    Then I will see the success message "删除成功"
+    And I wait for element "SuccessMessage" change text to "删除成功"
     Then I will see the "TrendOne" is not exist
 
-  @dashboard04k @dashboardSmoke
+  @dashboardSmoke
   Scenario: 展示条件-文本输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -318,17 +269,11 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "1000" millsecond
-
     And I move the mouse pointer to the "DeleteNoNameRowIcon"
     And I click the "DeleteNoNameRowIcon" button
-    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
-    And I wait for "500" millsecond
-    Then I will see the success message "删除行成功"
+    And I wait for element "SuccessMessage" change text to "删除行成功"
 
-
-  @dashboard04k1
   Scenario Outline: 展示条件-文本输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -341,23 +286,13 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "1000" millsecond
-
-    And I wait for "AddEventButton" will be visible
-    When I click the "AddEventButton" button
-#    Then I will see the "AddChart,AddEvent,AddInput" is "disabled"
-    And I wait for "AddChart" will be visible
-    Then I will see the "AddChartItem" is "yotta-menu-item-disabled"
-#    And I will see the element "AddChartItem" attribute "aria-disabled" is "true"
-    And I click the "AddRow" button
-    And I wait for "1500" millsecond
-#    And I set the parameter "TagName" with value "第一行"
+    And I choose the "添加行" from the "AddItemMenu"
     And I set the parameter "NewRowName" with value "行布局"
     And I wait for loading invisible
     And I click the "{'Checkbox':'行布局趋势图2'}" button
     And I click the "{'Checkbox':'行布局趋势图3'}" button
     And I click the "Ensure" button
-    And I wait for "1000" millsecond
+    And I wait for element "SuccessMessage" change text to "添加行成功"
 
     Examples:
       | dashboardName |
@@ -372,7 +307,6 @@ Feature: 仪表盘04详情行布局
       | 仪表盘行布局52      |
       | 仪表盘行布局53      |
 
-  @dashboard04k2
   Scenario Outline: 行布局添加全局输入项(RZY-4632)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -385,14 +319,12 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "AddEventButton" will be visible
-    When I click the "AddEventButton" button
-    And I click the "AddInput" button
+    And I choose the "添加输入项" from the "AddItemMenu"
+    And I wait for loading invisible
     And I set the parameter "FilterTitle" with value "filter"
     And I set the parameter "FilterToken" with value "filter"
     And I set the parameter "FilterDefaultValue" with value "apache.geo.city"
     Then I click the "Ensure" button
-    Given I wait for loading complete
     Then I wait for "FilterName" will be visible
 
     Examples:
@@ -408,7 +340,6 @@ Feature: 仪表盘04详情行布局
       | 仪表盘行布局52      |
       | 仪表盘行布局53      |
 
-  @dashboard04l
   Scenario: 展示条件-文本输入输入项 RZY-4783,RZY-4784
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -425,40 +356,29 @@ Feature: 仪表盘04详情行布局
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I wait for "500" millsecond
     And I choose the "为空" from the "ShowCondition"
-    And I wait for "500" millsecond
     And I click the "Ensure" button
-    And I wait for "500" millsecond
-    And I will see the success message "配置成功"
+    And I wait for element "SuccessMessage" change text to "配置成功"
     And I click the "MoreXuanTing2" button
-#    And I click the "MoreConfig" button
     And I click the "Configs" button
     And I wait for loading invisible
-    And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I wait for "500" millsecond
     And I choose the "不为空" from the "ShowCondition"
-    And I wait for "500" millsecond
     And I click the "Ensure" button
-    And I wait for "1500" millsecond
+    And I wait for element "SuccessMessage" change text to "配置成功"
     And I click the "SettingIcon" button
-    And I wait for "500" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be visible
-    And I will see the success message "展示条件已启用"
+    And I wait for element "SuccessMessage" change text to "展示条件已启用"
     Then I will see the "trendThree" doesn't exist
     Then I wait for "trendTwo" will be visible
     And I click the "SettingIcon" button
-    And I wait for "500" millsecond
     And I switch the dashboard "OpenShowCondition" button to "disable"
-    And I wait for "SuccessMessage" will be visible
-    And I will see the success message "展示条件已关闭"
+    And I wait for element "SuccessMessage" change text to "展示条件已关闭"
 
-  @dashboard04m
   Scenario: 展示条件-文本输入输入项 RZY-4784,RZY-4793
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -472,48 +392,31 @@ Feature: 仪表盘04详情行布局
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
-#    And I switch the dashboard "OpenShowCondition" button to "disable"
-#    And I wait for "1500" millsecond
-##    And I will see the success message "展示条件已关闭"
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I wait for "1000" millsecond
-#    And I click the "CleanShowFilterConfig" button
     And I choose the "filter" from the "ShowFilterConfig"
     And I wait for "500" millsecond
-#    And I click the "CleanShowConditio" button
     And I choose the "匹配正则" from the "ShowCondition"
-    And I wait for "ShowValue" will be visible
     And I set the parameter "ShowValue" with value "a1?b"
     And I click the "Ensure" button
-    And I wait for "500" millsecond
-    And I will see the success message "配置成功"
-    And I wait for "MoreXuanTing2" will be visible
+    And I wait for element "SuccessMessage" change text to "配置成功"
     And I click the "MoreXuanTing2" button
-#    And I click the "MoreConfig" button
     And I click the "Configs" button
     And I wait for loading invisible
-    And I wait for "1000" millsecond
-#    And I click the "CleanShowFilterConfig" button
     And I choose the "filter" from the "ShowFilterConfig"
     And I wait for "500" millsecond
-#    And I click the "CleanShowConditio" button
     And I choose the "包含" from the "ShowCondition"
-    And I wait for "500" millsecond
     And I set the parameter "ShowValue" with value "a"
     And I click the "Ensure" button
-    And I wait for "1000" millsecond
+    And I wait for element "SuccessMessage" change text to "配置成功"
     And I set the parameter "FilterValue" with value "a1111b"
     And I click the "SettingIcon" button
-    And I wait for "1000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
-    And I wait for "3000" millsecond
-#    And I will see the success message "展示条件已启用"
+    And I click the "SettingIcon" button
     Then I will see the "trendThree" doesn't exist
     Then I wait for "trendTwo" will be visible
 
-  @dashboard04n
   Scenario: 展示条件-文本输入输入项 RZY-4784
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -527,51 +430,31 @@ Feature: 仪表盘04详情行布局
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
-#    And I switch the dashboard "OpenShowCondition" button to "disable"
-#    And I wait for "1500" millsecond
-##    And I will see the success message "展示条件已关闭"
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I wait for "500" millsecond
     And I choose the "匹配正则" from the "ShowCondition"
-    And I wait for "ShowValue" will be visible
     And I set the parameter "ShowValue" with value "a1?b"
     And I click the "Ensure" button
-    Given I wait for loading complete
-#    And I wait for "500" millsecond
-    And I will see the success message "配置成功"
+    And I wait for element "SuccessMessage" change text to "配置成功"
     And I click the "MoreXuanTing2" button
-#    And I click the "MoreConfig" button
     And I click the "Configs" button
     And I wait for loading invisible
-    And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I wait for "500" millsecond
     And I choose the "包含" from the "ShowCondition"
     And I set the parameter "ShowValue" with value "a"
     And I click the "Ensure" button
-    And I wait for "1000" millsecond
+    And I wait for element "SuccessMessage" change text to "配置成功"
     And I set the parameter "FilterValue" with value "a1111b"
     And I click the "SettingIcon" button
-    And I wait for "3000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
-    And I wait for "500" millsecond
-#    And I will see the success message "展示条件已启用"
+    And I click the "SettingIcon" button
     Then I will see the "trendThree" doesn't exist
     Then I wait for "trendTwo" will be visible
 
-#    And I click the "trendTwo" button
-#    And I wait for "1500" millsecond
-#    And I click the "SettingIcon" button
-#    And I wait for "500" millsecond
-#    And I switch the dashboard "OpenShowCondition" button to "disable"
-#    And I wait for "500" millsecond
-##    And I will see the success message "展示条件已关闭"
-
-  @dashboard04n1
   Scenario: 展示条件-文本输入输入项 RZY-4784
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -586,50 +469,30 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
     And I set the parameter "FilterValue" with value "a1111b"
-#    And I switch the dashboard "OpenShowCondition" button to "disable"
-#    And I wait for "1500" millsecond
-##    And I will see the success message "展示条件已关闭"
-
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I wait for "500" millsecond
     And I choose the "等于" from the "ShowCondition"
-    And I wait for "ShowValue" will be visible
     And I set the parameter "ShowValue" with value "a1111b"
     And I click the "Ensure" button
-    And I wait for "500" millsecond
-    And I will see the success message "配置成功"
+    And I wait for element "SuccessMessage" change text to "配置成功"
     And I click the "MoreXuanTing2" button
-#    And I click the "MoreConfig" button
     And I click the "Configs" button
     And I wait for loading invisible
-    And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I wait for "500" millsecond
     And I choose the "不等于" from the "ShowCondition"
     And I set the parameter "ShowValue" with value "a1111b"
     And I click the "Ensure" button
-    And I wait for "1000" millsecond
+    And I wait for element "SuccessMessage" change text to "配置成功"
     And I click the "SettingIcon" button
-    And I wait for "3000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
-    Given I wait for loading complete
-    And I wait for "1000" millsecond
-#    And I will see the success message "展示条件已启用"
+    And I click the "SettingIcon" button
     Then I will see the "trendTwo" doesn't exist
     Then I wait for "trendThree" will be visible
-    And I click the "trendThree" button
-    And I wait for "1500" millsecond
-#    And I click the "SettingIcon" button
-#    And I wait for "500" millsecond
-#    And I switch the dashboard "OpenShowCondition" button to "disable"
-#    And I wait for "1500" millsecond
-##    And I will see the success message "展示条件已关闭"
 
-  @dashboard04n2
   Scenario: 展示条件-文本输入输入项 RZY-4784
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -643,41 +506,28 @@ Feature: 仪表盘04详情行布局
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
-#    And I switch the dashboard "OpenShowCondition" button to "disable"
-#    And I wait for "1500" millsecond
-##   And I will see the success message "展示条件已关闭"
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I wait for "500" millsecond
     And I choose the "大于" from the "ShowCondition"
-    And I wait for "ShowValue" will be visible
     And I set the parameter "ShowValue" with value "5"
     And I click the "Ensure" button
-    And I wait for "500" millsecond
-    And I will see the success message "配置成功"
+    And I wait for element "SuccessMessage" change text to "配置成功"
     And I click the "MoreXuanTing2" button
-#    And I click the "MoreConfig" button
     And I click the "Configs" button
     And I wait for loading invisible
-    And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I wait for "500" millsecond
     And I choose the "小于" from the "ShowCondition"
-    And I wait for "500" millsecond
     And I set the parameter "ShowValue" with value "9"
     And I click the "Ensure" button
-    And I wait for "1000" millsecond
+    And I wait for element "SuccessMessage" change text to "配置成功"
     And I set the parameter "FilterValue" with value "6"
     And I click the "SettingIcon" button
-    And I wait for "3000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
-    Given I wait for loading complete
-    And I wait for "1500" millsecond
-#    And I will see the success message "展示条件已启用"
-#    Then I will see the "trendThree" doesn't exist
+    And I click the "SettingIcon" button
     Then I wait for "trendTwo" will be visible
     Then I wait for "trendThree" will be visible
     And I click the "trendThree" button
@@ -689,7 +539,6 @@ Feature: 仪表盘04详情行布局
     Then I will see the "trendTwo" doesn't exist
     Then I wait for "trendThree" will be visible
 
-  @dashboard04o
   Scenario Outline: 展示条件-时间范围输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -702,22 +551,14 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "1000" millsecond
+    And I wait for "SuccessMessage" will be invisible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
-    And I wait for "500" millsecond
-    And I click the "inputSettingType" button
-    And I click the "timeRangee" button
-    And I wait for "DateEditor" will be visible
+    And I choose the "时间范围" from the "FilterType"
     And I click the "DateEditor" button
     And I click the "Today" button
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
-    And I click the "SettingIcon" button
-    And I wait for "500" millsecond
-#    And I switch the dashboard "OpenShowCondition" button to "disable"
-#    And I wait for "500" millsecond
-#    And I will see the success message "展示条件已关闭"
 
     Examples:
       | dashboardName |
@@ -725,7 +566,6 @@ Feature: 仪表盘04详情行布局
       | 仪表盘行布局52      |
       | 仪表盘行布局53      |
 
-  @dashboard04p1
   Scenario: 展示条件-时间范围输入项 RZY-4790
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -742,45 +582,27 @@ Feature: 仪表盘04详情行布局
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I wait for "500" millsecond
     And I choose the "不为空" from the "ShowCondition"
-    And I wait for "500" millsecond
     And I click the "Ensure" button
-    And I wait for "500" millsecond
-    And I will see the success message "配置成功"
+    And I wait for element "SuccessMessage" change text to "配置成功"
     And I click the "MoreXuanTing2" button
-#    And I click the "MoreConfig" button
     And I click the "Configs" button
     And I wait for loading invisible
-    And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I wait for "500" millsecond
     And I choose the "为空" from the "ShowCondition"
-    And I wait for "500" millsecond
     And I click the "Ensure" button
-    And I wait for "1000" millsecond
+    And I wait for element "SuccessMessage" change text to "配置成功"
     And I click the "SettingIcon" button
-    And I wait for "3000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "500" millsecond
-#    And I will see the success message "展示条件已启用"
     Then I will see the "trendTwo" doesn't exist
     Then I wait for "trendThree" will be visible
-    And I click the "trendThree" button
-    And I wait for "1500" millsecond
     And I click the "SettingIcon" button
-    And I wait for "2000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "disable"
-    And I click the "SettingIcon" button
-    Given I wait for loading complete
-    And I wait for "2000" millsecond
-#    And I will see the success message "展示条件已关闭"
-    And I click the "trendThree" button
 
-  @dashboard04p20
   Scenario: 展示条件-时间范围输入项 RZY-4790
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -797,45 +619,26 @@ Feature: 仪表盘04详情行布局
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I wait for "500" millsecond
     And I choose the "包含" from the "ShowCondition"
-    And I wait for "ShowValue" will be visible
     And I set the parameter "ShowValue" with value "-1h"
     And I click the "Ensure" button
-    And I wait for "500" millsecond
-    And I will see the success message "配置成功"
+    And I wait for element "SuccessMessage" change text to "配置成功"
     And I click the "MoreXuanTing2" button
     And I click the "Configs" button
     And I wait for loading invisible
-    And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I wait for "500" millsecond
     And I choose the "匹配正则" from the "ShowCondition"
-    And I wait for "500" millsecond
     And I set the parameter "ShowValue" with value "now/d,?now"
     And I click the "Ensure" button
-    And I wait for "1000" millsecond
+    And I wait for element "SuccessMessage" change text to "配置成功"
     And I click the "SettingIcon" button
-    And I wait for "3000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
-    And I wait for "500" millsecond
-#    And I will see the success message "展示条件已启用"
     Then I will see the "trendThree" doesn't exist
     Then I wait for "trendTwo" will be visible
-    And I click the "trendTwo" button
-    And I wait for "1500" millsecond
-#    And I click the "SettingIcon" button
-#    Given I wait for loading complete
-#    And I wait for "2000" millsecond
-#    And I switch the dashboard "OpenShowCondition" button to "disable"
-#    Given I wait for loading complete
-#    And I wait for "2000" millsecond
-##    And I will see the success message "展示条件已关闭"
-#    And I click the "trendThree" button
 
-  @dashboard04p21
   Scenario: 展示条件-时间范围输入项 RZY-4790
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -848,12 +651,9 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I switch the dashboard "OpenShowCondition" button to "disable"
-    Given I wait for loading complete
-    And I wait for "2000" millsecond
-#    And I will see the success message "展示条件已关闭"
-    And I click the "trendThree" button
+    And I click the "SettingIcon" button
+    And I wait for "TrendThree" will be visible
 
-  @dashboard04p3
   Scenario: 展示条件-时间范围输入项 RZY-4790
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -870,38 +670,26 @@ Feature: 仪表盘04详情行布局
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I wait for "500" millsecond
     And I choose the "等于" from the "ShowCondition"
-    And I wait for "ShowValue" will be visible
     And I set the parameter "ShowValue" with value "now/d,now"
     And I click the "Ensure" button
-    And I wait for "500" millsecond
-    And I will see the success message "配置成功"
+    And I wait for element "SuccessMessage" change text to "配置成功"
     And I click the "MoreXuanTing2" button
-#    And I click the "MoreConfig" button
     And I click the "Configs" button
     And I wait for loading invisible
-    And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I wait for "500" millsecond
     And I choose the "不等于" from the "ShowCondition"
-    And I wait for "500" millsecond
     And I set the parameter "ShowValue" with value "now/d,now"
     And I click the "Ensure" button
-    And I wait for "1000" millsecond
+    And I wait for element "SuccessMessage" change text to "配置成功"
     And I click the "SettingIcon" button
-    And I wait for "3000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
-    Given I wait for loading complete
-    And I wait for "2000" millsecond
-#    And I will see the success message "展示条件已启用"
     Then I wait for "trendThree" will be visible
     Then I will see the "trendTwo" doesn't exist
-#    Then I wait for "trendTwo" will be visible
 
-  @dashboard04q
   Scenario: 展示条件缺失校验 RZY-4792
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -918,25 +706,16 @@ Feature: 仪表盘04详情行布局
     Then I wait for "FilterName" will be visible
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
-    And I wait for "1000" millsecond
     And I click the "ShowFilterConfig" button
-#    And I move the mouse pointer to the "ShowFilterConfig"
-    And I wait for "500" millsecond
     And I click the "CleanShowFilterConfig" button
     And I click the "Ensure" button
-    And I wait for "500" millsecond
     Then I wait for "TipErrorShowCondition" will be visible
-    And I wait for "1000" millsecond
-#    And I move the mouse pointer to the "ShowCondition"
     And I click the "ShowCondition" button
-    And I wait for "1000" millsecond
     And I click the "CleanShowConditio" button
     And I set the parameter "ShowValue" with value ""
     And I click the "Ensure" button
-    And I wait for "500" millsecond
-    And I will see the success message "配置成功"
+    And I wait for element "SuccessMessage" change text to "配置成功"
 
-  @dashboard04r
   Scenario: 展示条件-下拉菜单输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -949,12 +728,9 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "1000" millsecond
     And I click the "FilterName" button
     And I click the "FilterSetting" button
-    And I wait for "500" millsecond
     And I choose the "下拉菜单" from the "InputType"
-    And I wait for "500" millsecond
     And I click the "SingleChoice" button
     And I set the parameter "ChoiceValue" with value "111"
     And I click the "AddChoiceValueButton" button
@@ -964,17 +740,12 @@ Feature: 仪表盘04详情行布局
     And I click the "AddChoiceValueButton" button
     And I set the parameter "ChoiceValue" with value "0"
     And I click the "AddChoiceValueButton" button
-    And I wait for "500" millsecond
     And I choose the "111" from the "DefaultDropdownList"
-    And I wait for "1500" millsecond
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
     And I click the "SettingIcon" button
-    And I wait for "500" millsecond
     And I switch the dashboard "OpenShowCondition" button to "disable"
-    And I wait for "1500" millsecond
 
-  @dashboard04s
   Scenario: 展示条件-下拉菜单输入项 RZY-4785
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -991,35 +762,25 @@ Feature: 仪表盘04详情行布局
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I wait for "500" millsecond
     And I choose the "不为空" from the "ShowCondition"
-    And I wait for "500" millsecond
     And I click the "Ensure" button
-    And I wait for "500" millsecond
-    And I will see the success message "配置成功"
+    And I wait for element "SuccessMessage" change text to "配置成功"
     And I click the "MoreXuanTing2" button
-#    And I click the "MoreConfig" button
     And I click the "Configs" button
     And I wait for loading invisible
-    And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I wait for "500" millsecond
     And I choose the "为空" from the "ShowCondition"
-    And I wait for "500" millsecond
     And I click the "Ensure" button
-    And I wait for "1000" millsecond
+    And I wait for element "SuccessMessage" change text to "配置成功"
     And I click the "SettingIcon" button
-    And I wait for "3000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
-    Given I wait for loading complete
-    And I wait for "1000" millsecond
+    And I click the "SettingIcon" button
     Then I will see the "trendTwo" doesn't exist
     Then I wait for "trendThree" will be visible
 
-
-  @dashboard04t
   Scenario: 展示条件-动态菜单输入项预置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -1032,12 +793,9 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "1000" millsecond
     And I click the "FilterName" button
     And I click the "FilterSetting" button
-    And I wait for "500" millsecond
     And I choose the "动态菜单" from the "InputType"
-    And I wait for "500" millsecond
     And I click the "SingleChoice" button
     And I set the parameter "DynamicField" with value "apache.geo.city"
     And I set the parameter "Spl" with value "*|stats count() by 'apache.geo.city'"
@@ -1045,18 +803,12 @@ Feature: 仪表盘04详情行布局
     And I click the "Today" button
     And I click the "SearchFilterButton" button
     And I wait for loading invisible
-    And I wait for "1500" millsecond
     And I choose the "成都市" from the "DefaultDropdownList"
-    And I wait for "1500" millsecond
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
-    And I wait for "1000" millsecond
     And I click the "SettingIcon" button
-    And I wait for "500" millsecond
     And I switch the dashboard "OpenShowCondition" button to "disable"
-    And I wait for "1500" millsecond
 
-  @dashboard04u
   Scenario: 展示条件-动态菜单输入项 RZY-4786
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -1073,78 +825,24 @@ Feature: 仪表盘04详情行布局
     When the chart title is "行布局趋势图3" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I wait for "500" millsecond
     And I choose the "包含" from the "ShowCondition"
     And I wait for "ShowValue" will be visible
     And I set the parameter "ShowValue" with value "市"
     And I click the "Ensure" button
-    And I wait for "500" millsecond
-    And I will see the success message "配置成功"
+    And I wait for element "SuccessMessage" change text to "配置成功"
     And I click the "MoreXuanTing2" button
-#    And I click the "MoreConfig" button
     And I click the "Configs" button
     And I wait for loading invisible
-    And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I wait for "500" millsecond
     And I choose the "匹配正则" from the "ShowCondition"
-    And I wait for "500" millsecond
     And I set the parameter "ShowValue" with value "aab?市"
     And I click the "Ensure" button
-    And I wait for "1000" millsecond
+    And I wait for element "SuccessMessage" change text to "配置成功"
     And I choose the "成都市" from the "FilterDropdown"
-    And I wait for "500" millsecond
     And I click the "SettingIcon" button
-    And I wait for "1500" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
-    Given I wait for loading complete
-    And I wait for "1000" millsecond
     Then I will see the "trendTwo" doesn't exist
     Then I wait for "trendThree" will be visible
-
-
-  @cleanDashboard041
-  Scenario Outline: 删除行布局所建趋势图
-    Given open the "trend.ListPage" page for uri "/trend/"
-    And I wait for loading invisible
-    When the data name is "<name>" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
-    And I will see the success message "删除成功"
-
-    Examples:
-      | name   |
-      | 行布局趋势图1 |
-      | 行布局趋势图2 |
-      | 行布局趋势图3 |
-
-
-  @cleanDashboard042
-  Scenario Outline: 删除仪表盘
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I set the parameter "TextFilter" with value "<name>"
-    And I wait for loading invisible
-    When the data name is "<name>" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "删除仪表盘成功"
-
-    Examples:
-      | name  |
-      | 仪表盘行布局 |
-      | 仪表盘行布局1 |
-      | 仪表盘行布局2|
-      | 仪表盘行布局3 |
-      | 仪表盘行布局4 |
-      | 仪表盘行布局5 |
-      | 仪表盘行布局6 |
-      | 仪表盘行布局7 |
-      | 仪表盘行布局51 |
-      | 仪表盘行布局52 |
-      | 仪表盘行布局53 |
-

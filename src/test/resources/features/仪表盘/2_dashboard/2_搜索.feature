@@ -1,4 +1,4 @@
-@dashboard @dashboard02
+@dashboard @dashboardFilter
 Feature: 仪表盘02搜索
 
   Background:
@@ -16,13 +16,12 @@ Feature: 仪表盘02搜索
 
   Scenario: 删除资源标签（RZY-4774）
     When the data name is "UIautotest" then i click the "标签" button in more menu
-    And I click the "RemoveDashboardTagIcon" button
+    And I cancel selection "auto_package" from the "TagField"
     And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
 
   Scenario: 按照资源分组搜索（RZY-4475）
-    When I choose the "AutoTest" from the "TagFilter"
+    When I choose the "auto_package" from the "TagFilter"
     And I wait for loading invisible
     Then I will see the search result "{'column':'1','name':'UIautotest','contains':'no'}"
 

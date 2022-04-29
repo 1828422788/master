@@ -9,7 +9,6 @@ Feature:仪表盘09校验
     When I click the "Create" button
     And I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
-    And I wait for "ErrorMessage" will be visible
     Then I will see the error message "<result>"
 
     Examples:
@@ -22,13 +21,10 @@ Feature:仪表盘09校验
     When I click the "Create" button
     And I set the parameter "DashBoardName" with value " test"
     And I click the "Ensure" button
-    And I wait for "ErrorMessage" will be visible
     Then I will see the error message "名称格式有误, 仅支持汉字，数字，字母，中划线及下划线"
 
   Scenario: RZY-209新建失败（后面有空格）
     When I click the "Create" button
     And I set the parameter "DashBoardName" with value "test "
     And I click the "Ensure" button
-    And I wait for "ErrorMessage" will be visible
     Then I will see the error message "名称格式有误, 仅支持汉字，数字，字母，中划线及下划线"
-

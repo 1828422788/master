@@ -134,12 +134,8 @@ Feature: 权限-仪表盘
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
-    When the data name is "<name>" then i click the "更多" button
-    And I click the "ResouceTag" button
-    And I wait for "multiAddTag" will be visible
-    And I click the "multiAddTag" button
-    And I set the parameter "multiInputTag" with value "AutoTestTag"
-  ##  And I choose the "AutoTestTag" from the "TagDropdown"
+    When the data name is "<name>" then i click the "标签" button in more menu
+    And I choose the new value "AutoTestTag" from the "TagField"
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
@@ -160,8 +156,7 @@ Feature: 权限-仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'<name>重命名'}" values "{'column':'2','name':'test'}"
-    When the data name is "<name>重命名" then i click the "更多" button
-    And I click the "GiveRight" button
+    When the data name is "<name>重命名" then i click the "授权" button in more menu
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
     Then I logout current user
@@ -228,17 +223,12 @@ Feature: 权限-仪表盘
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
-    When the data name is "<name>" then i click the "更多" button
-    And I click the "GiveRight" button
+    When the data name is "<name>" then i click the "授权" button in more menu
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    When the data name is "<name>" then i click the "更多" button
-    And I click the "ResouceTag" button
-    And I wait for "multiAddTag" will be visible
-    And I click the "multiAddTag" button
-    And I set the parameter "multiInputTag" with value "AutoTestTag"
-    ##And I choose the "AutoTestTag" from the "TagDropdown"
+    When the data name is "<name>" then i click the "标签" button in more menu
+    And I choose the new value "AutoTestTag" from the "TagField"
     And I click the "Ensure" button
     And I wait for "1000" millsecond
     And I wait for "SuccessMessage" will be visible
@@ -342,8 +332,7 @@ Feature: 权限-仪表盘
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
-    When the data name is "<name>" then i click the "更多" button
-    And I click the "GiveRight" button
+    When the data name is "<name>" then i click the "授权" button in more menu
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -385,12 +374,8 @@ Feature: 权限-仪表盘
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
-    When the data name is "<name>" then i click the "更多" button
-    And I click the "ResouceTag" button
-    And I wait for "multiAddTag" will be visible
-    And I click the "multiAddTag" button
-    And I set the parameter "multiInputTag" with value "AutoTestTag"
-    ##And I choose the "AutoTestTag" from the "TagDropdown"
+    When the data name is "<name>" then i click the "标签" button in more menu
+    And I choose the new value "AutoTestTag" from the "TagField"
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
@@ -403,8 +388,7 @@ Feature: 权限-仪表盘
     Then I will see the success message "更新仪表盘成功"
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When the data name is "<name>重命名" then i click the "更多" button
-    And I click the "GiveRight" button
+    When the data name is "<name>重命名" then i click the "授权" button in more menu
     And I wait for loading invisible
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
@@ -469,8 +453,7 @@ Feature: 权限-仪表盘
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then the data name is "<name>" then i will see "<function>" button
-    When the data name is "<name>" then i click the "更多" button
-    And I click the "GiveRight" button
+    When the data name is "<name>" then i click the "授权" button in more menu
     And I wait for loading invisible
     And I "uncheck" the checkbox which name is "验证授权用户" in tiny table
     And I "check" the checkbox which name is "验证授权用户" in tiny table
@@ -532,12 +515,8 @@ Feature: 权限-仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "<function>" button
-    When the data name is "<name>" then i click the "更多" button
-    And I click the "ResouceTag" button
-    And I wait for "multiAddTag" will be visible
-    And I click the "multiAddTag" button
-    And I set the parameter "multiInputTag" with value "AutoTestTag"
-    And I choose the "AutoTestTag" from the "TagDropdown"
+    When the data name is "<name>" then i click the "标签" button in more menu
+    And I choose the new value "AutoTestTag" from the "TagField"
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
@@ -550,8 +529,7 @@ Feature: 权限-仪表盘
     Then I will see the success message "更新仪表盘成功"
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When the data name is "<name>重命名" then i click the "更多" button
-    And I click the "GiveRight" button
+    When the data name is "<name>重命名" then i click the "授权" button in more menu
     And I wait for loading invisible
     And I "uncheck" the checkbox which name is "验证授权用户" in tiny table
     And I "check" the checkbox which name is "验证授权用户" in tiny table
@@ -589,8 +567,7 @@ Feature: 权限-仪表盘
 
   Scenario: 给用户授权所有权限
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    When the data name is "测试二次授权" then i click the "更多" button
-    And I click the "GiveRight" button
+    When the data name is "测试二次授权" then i click the "授权" button in more menu
     And I wait for loading invisible
     And I "check" the checkbox which name is "AutoTest" in tiny table
     And I click the "Ensure" button
@@ -602,8 +579,7 @@ Feature: 权限-仪表盘
     Given I login user "AutoTest" with password "All#123456"
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When the data name is "<name>" then i click the "更多" button
-    And I click the "GiveRight" button
+    When the data name is "<name>" then i click the "授权" button in more menu
     And I wait for loading invisible
     And I click the "AuthDropdown" button
     And I click the "用户" button
@@ -636,8 +612,7 @@ Feature: 权限-仪表盘
     Given I login user "AutoTest" with password "All#123456"
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    When the data name is "<name>" then i click the "更多" button
-    And I click the "GiveRight" button
+    When the data name is "<name>" then i click the "授权" button in more menu
     And I wait for loading invisible
     #######And I choose the "<authRole>" from the "AuthDropdown"
     And I wait for loading invisible
@@ -650,12 +625,8 @@ Feature: 权限-仪表盘
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "<userfunction>" button
 
-    When the data name is "<name>" then i click the "更多" button
-    And I click the "ResouceTag" button
-    And I wait for "multiAddTag" will be visible
-    And I click the "multiAddTag" button
-    And I set the parameter "multiInputTag" with value "AutoTestTag"
-    And I choose the "AutoTestTag" from the "TagDropdown"
+    When the data name is "<name>" then i click the "标签" button in more menu
+    And I choose the new value "AutoTestTag" from the "TagField"
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
@@ -675,8 +646,7 @@ Feature: 权限-仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'<name>重命名'}" values "{'column':'2','name':'test'}"
-    When the data name is "<name>重命名" then i click the "更多" button
-    And I click the "GiveRight" button
+    When the data name is "<name>重命名" then i click the "授权" button in more menu
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
     Then I logout current user
@@ -699,8 +669,7 @@ Feature: 权限-仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "<userfunction>" button
-    When the data name is "<name>" then i click the "更多" button
-    And I click the "GiveRight" button
+    When the data name is "<name>" then i click the "授权" button in more menu
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

@@ -1,4 +1,4 @@
-@dashboard @dashboard_multi @dashboard07
+@dashboard @dashboardBatchOperation
 Feature: 仪表盘07批量操作
 
   Background:
