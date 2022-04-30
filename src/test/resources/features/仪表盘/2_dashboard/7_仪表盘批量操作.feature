@@ -8,7 +8,7 @@ Feature: 仪表盘07批量操作
   Scenario: 批量操作-新建有标签资源
     When I click the "Create" button
     And I set the parameter "DashBoardName" with value "Test_Batch_Control_Resource_1"
-    And I choose the "AutoTest" from the "TagField"
+    And I choose the new value "AutoTest" from the "TagField"
     And I click the "Ensure" button
     Then I will see the success message "新建仪表盘成功"
     And I wait for "SuccessMessage" will be invisible
