@@ -9,9 +9,9 @@ Feature: 字段提取复制、编辑
     When I set the parameter "LogSample" with value "{"Name": "John Smith ", "Age": 23, "Employed": true, "Address": {"Street": "324 Chrome St", "City": "Portland, New York,Los Angeles ", "Country": "United States"}}"
     And I click the "AddRule" button
     Then I wait for "500" millsecond
-    And I choose the "JSON解析" from the "ParseRule" in config
+    And I choose the "JSON解析" from the "ParseRule"
     Then I wait for "500" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "raw_message" from the "SourceField"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     Then I wait for "500" millsecond

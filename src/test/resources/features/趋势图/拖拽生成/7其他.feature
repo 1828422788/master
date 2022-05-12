@@ -74,7 +74,7 @@ Feature: 趋势图_拖拽_其他
     And I click the "AccordingTrend" button
     And I set the parameter "FontSize" with value "<size>" using step buttons
     And I click the "Absolute" button
-    And I choose the "<timeValue>" from the "ContrastTime" in config
+    And I choose the "<timeValue>" from the "ContrastTime"
 
     And I click the "HideElement" button
     And I click the "CheckSPL" button
@@ -687,13 +687,13 @@ Feature: 趋势图_拖拽_其他
     And I wait for "2000" millsecond
     When I click the "ElementInValues" button
     And I wait for "Panel" will be visible
-    And I choose the "<compareWith1>" from the "CompareField" in config
+    And I choose the "<compareWith1>" from the "CompareField"
     And I click the "HideElement" button
     And I wait for "2000" millsecond
 
     When I click the "ElementInValues" button
     And I wait for "Panel" will be visible
-    And I choose the "<compareWith2>" from the "CompareField" in config
+    And I choose the "<compareWith2>" from the "CompareField"
     And I click the "HideElement" button
     And I wait for "2000" millsecond
     And I click the "Example" button
@@ -837,7 +837,7 @@ Feature: 趋势图_拖拽_其他
     And I wait for "2000" millsecond
     When I click the "ElementInValues" button
     And I wait for "Panel" will be visible
-    And I choose the "上周同比值" from the "CompareField" in config
+    And I choose the "上周同比值" from the "CompareField"
     And I click the "HideElement" button
     And I wait for "2000" millsecond
 

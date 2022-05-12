@@ -16,7 +16,7 @@ Feature: 日志展现_提示
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "<settingsTab>" button
-    And I choose the "cnt" from the "FieldValue" in config
+    And I choose the "cnt" from the "FieldValue"
     And I set the parameter "<parameter>" with value "<value>"
     And I click the "Generate" button
     And I wait for "Message" will be visible
@@ -124,10 +124,10 @@ Feature: 日志展现_提示
     And I click the "Xaxis" button
     And I choose the "<xaxis>" from the "FieldValue"
     And I click the "Yaxis" button
-    And I choose the "<actual>" from the "Actual" in config
-    And I choose the "<predict>" from the "Predict" in config
-    And I choose the "<outliner>" from the "Outlier" in config
-    And I choose the "<upper>" from the "TopLimit" in config
+    And I choose the "<actual>" from the "Actual"
+    And I choose the "<predict>" from the "Predict"
+    And I choose the "<outliner>" from the "Outlier"
+    And I choose the "<upper>" from the "TopLimit"
     And I click the "Generate" button
     And I wait for "Message" will be visible
     And I will see the message "<message>"
@@ -152,13 +152,13 @@ Feature: 日志展现_提示
     And I click the "Attackmap" button
     And I click the "Settings" button
     And I click the "Source" button
-    And I choose the "<source>" from the "FieldValue" in config
-    And I choose the "<sourceLon>" from the "FieldLongitude" in config
-    And I choose the "<sourceLat>" from the "FieldLatitude" in config
+    And I choose the "<source>" from the "FieldValue"
+    And I choose the "<sourceLon>" from the "FieldLongitude"
+    And I choose the "<sourceLat>" from the "FieldLatitude"
     And I click the "Target" button
-    And I choose the "<target>" from the "FieldValue" in config
-    And I choose the "<targetLon>" from the "FieldLongitude" in config
-    And I choose the "<targetLat>" from the "FieldLatitude" in config
+    And I choose the "<target>" from the "FieldValue"
+    And I choose the "<targetLon>" from the "FieldLongitude"
+    And I choose the "<targetLat>" from the "FieldLatitude"
     And I click the "Generate" button
     And I wait for "Message" will be visible
     And I will see the message "<message>"
@@ -182,11 +182,11 @@ Feature: 日志展现_提示
     And I click the "Other" button
     And I click the "Chain" button
     And I click the "Settings" button
-    And I choose the "<function>" from the "Function" in config
-    And I choose the "<parentIDvalue>" from the "ParentId" in config
-    And I choose the "<childIDvalue>" from the "ChildId" in config
+    And I choose the "<function>" from the "Function"
+    And I choose the "<parentIDvalue>" from the "ParentId"
+    And I choose the "<childIDvalue>" from the "ChildId"
     And I click the "Time" button
-    And I choose the "<starttime>" from the "StartTime" in config
+    And I choose the "<starttime>" from the "StartTime"
     And I click the "Generate" button
     And I wait for "Message" will be visible
     And I will see the message "<message>"
@@ -209,13 +209,13 @@ Feature: 日志展现_提示
     And I click the "Sequence" button
     And I click the "Settings" button
     And I click the "TimeSequence" button
-    And I choose the "<timeSeq>" from the "FieldValue" in config
+    And I choose the "<timeSeq>" from the "FieldValue"
     And I click the "Source" button
-    And I choose the "<source>" from the "FieldValue" in config
+    And I choose the "<source>" from the "FieldValue"
     And I click the "Target" button
-    And I choose the "<target>" from the "FieldValue" in config
+    And I choose the "<target>" from the "FieldValue"
     And I click the "Divide" button
-    And I choose the "<segmentation>" from the "FieldValue" in config
+    And I choose the "<segmentation>" from the "FieldValue"
     And I click the "Generate" button
     And I wait for "Message" will be visible
     And I will see the message "<message>"

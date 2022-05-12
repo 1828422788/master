@@ -41,15 +41,15 @@ Feature: 日志展现_5地图
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Source" button
-    And I choose the "apache.clientip" from the "FieldValue" in config
-    And I choose the "client_lon" from the "FieldLongitude" in config
-    And I choose the "client_lat" from the "FieldLatitude" in config
+    And I choose the "apache.clientip" from the "FieldValue"
+    And I choose the "client_lon" from the "FieldLongitude"
+    And I choose the "client_lat" from the "FieldLatitude"
     And I click the "Target" button
-    And I choose the "gw_address" from the "FieldValue" in config
-    And I choose the "gw_lon" from the "FieldLongitude" in config
-    And I choose the "gw_lat" from the "FieldLatitude" in config
+    And I choose the "gw_address" from the "FieldValue"
+    And I choose the "gw_lon" from the "FieldLongitude"
+    And I choose the "gw_lat" from the "FieldLatitude"
     And I click the "Weight" button
-    And I choose the "cnt" from the "FieldValue" in config
+    And I choose the "cnt" from the "FieldValue"
     And I click the "Region" button
     And I click the "Select<regionBut>" button
     And I click the "Generate" button
@@ -110,12 +110,12 @@ Feature: 日志展现_5地图
     And I click the "Settings" button
     And I click the "Divide" button
     And I click the "DeleteLast" button
-    And I choose the "<divideField>" from the "FieldValue" in config
+    And I choose the "<divideField>" from the "FieldValue"
     And I click the "Region" button
     And I click the "Select<region>" button
     And I click the "GoingDown" button
-    And I choose the "apache.geo.province" from the "Province" in config
-    And I choose the "apache.geo.city" from the "City" in config
+    And I choose the "apache.geo.province" from the "Province"
+    And I choose the "apache.geo.city" from the "City"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -142,8 +142,8 @@ Feature: 日志展现_5地图
     And I click the "Region" button
     And I click the "Select<region>" button
     And I click the "GoingDown" button
-    And I choose the "<provinceDrilldown>" from the "Province" in config
-    And I choose the "<cityDrilldown>" from the "City" in config
+    And I choose the "<provinceDrilldown>" from the "Province"
+    And I choose the "<cityDrilldown>" from the "City"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -237,8 +237,8 @@ Feature: 日志展现_5地图
     And I click the "Tile" button
     And I set the parameter "ZoomLevel" with value "4"
     And I click the "Value" button
-    And I choose the "min(apache.resp_len)" from the "DataCircleLayer" in config
-    And I choose the "count()" from the "HeatmapLayer" in config
+    And I choose the "min(apache.resp_len)" from the "DataCircleLayer"
+    And I choose the "count()" from the "HeatmapLayer"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -273,8 +273,8 @@ Feature: 日志展现_5地图
     And I click the "Tile" button
     And I set the parameter "ZoomLevel" with value "4"
     And I click the "Value" button
-    And I choose the "min(apache.resp_len)" from the "DataCircleLayer" in config
-    And I choose the "count()" from the "HeatmapLayer" in config
+    And I choose the "min(apache.resp_len)" from the "DataCircleLayer"
+    And I choose the "count()" from the "HeatmapLayer"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -330,15 +330,15 @@ Feature: 日志展现_5地图
     And I click the "Settings" button
     And I click the "Divide" button
     And I click the "DeleteLast" button
-    And I choose the "<divideField>" from the "FieldValue" in config
+    And I choose the "<divideField>" from the "FieldValue"
     And I click the "Region" button
     And I click the "Select<region>" button
     And I click the "Exhibition" button
     # Switch to white map
     And I click the "ShowBubbles" button
     And I click the "GoingDown" button
-    And I choose the "apache.geo.province" from the "Province" in config
-    And I choose the "apache.geo.city" from the "City" in config
+    And I choose the "apache.geo.province" from the "Province"
+    And I choose the "apache.geo.city" from the "City"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -363,15 +363,15 @@ Feature: 日志展现_5地图
     And I click the "Settings" button
     And I click the "Divide" button
     And I click the "DeleteLast" button
-    And I choose the "<divideField>" from the "FieldValue" in config
+    And I choose the "<divideField>" from the "FieldValue"
     And I click the "Region" button
     And I click the "Select<region>" button
     And I click the "Exhibition" button
     # Switch to white map
     And I click the "ShowBubbles" button
     And I click the "GoingDown" button
-    And I choose the "apache.geo.province" from the "Province" in config
-    And I choose the "apache.geo.city" from the "City" in config
+    And I choose the "apache.geo.province" from the "Province"
+    And I choose the "apache.geo.city" from the "City"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -408,7 +408,7 @@ Feature: 日志展现_5地图
 
     And I click the "Settings" button
     And I click the "Facet" button
-    And I choose the "apache.status" from the "FieldValue" in config
+    And I choose the "apache.status" from the "FieldValue"
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
     And I click the "Generate" button
@@ -435,12 +435,12 @@ Feature: 日志展现_5地图
 
     And I click the "Settings" button
     And I click the "Facet" button
-    And I choose the "apache.status" from the "FieldValue" in config
+    And I choose the "apache.status" from the "FieldValue"
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
     And I click the "Divide" button
     And I click the "DeleteLast" button
-    And I choose the "apache.geo.province" from the "FieldValue" in config
+    And I choose the "apache.geo.province" from the "FieldValue"
     And I click the "Region" button
     And I click the "SelectChina" button
     And I click the "Generate" button

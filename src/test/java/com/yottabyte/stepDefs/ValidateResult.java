@@ -282,7 +282,7 @@ public class ValidateResult {
 
         List<String> values = new ArrayList<>();
         values.add(dropdownValue);
-        new IChooseValueFromSelectList().iChooseTheFromThe(values, dropdownList);
+        new IChooseValueFromSelectList().iChooseTheValueFromTheList(values, dropdownList);
         this.waitUntilLoadingDisappear();
     }
 

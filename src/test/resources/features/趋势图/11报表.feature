@@ -37,12 +37,12 @@ Feature: 趋势图新建_报表
     And I wait for "3000" millsecond
     And I wait for element "SelectedUser" change text to username
     And I wait for "3000" millsecond
-    And I choose the "<type>" from the "ReportType" in config
+    And I choose the "<type>" from the "ReportType"
     When I set the parameter "Name" with value "Report_Test_<type>"
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "test_app" from the "App" in config
+    And I choose the "test_app" from the "App"
     And I wait for "2000" millsecond
-    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput" in config
+    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I will see the element "SubjectNote" contains "注: 可用变量: 报表名称：<%report_name%>，发送时间：<%report_time%>"
     And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
     And I set the parameter "Hour" with value "16"

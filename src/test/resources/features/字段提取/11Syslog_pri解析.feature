@@ -9,9 +9,9 @@ Feature: 字段提取Syslog_pri解析
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<30>Oct 9 22:33:20 hlfedora auditd[1787]: The audit daemon is exiting."
     And I click the "AddRule" button
-    And I choose the "正则解析" from the "ParseRule" in config
+    And I choose the "正则解析" from the "ParseRule"
     And I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "raw_message" from the "SourceField"
     Then I wait for "1000" millsecond
     And I set the value "<(?<pri>\d+)>.*" to the textarea "Regex"
     And I click the "EnsureAddParseRule" button
@@ -21,9 +21,9 @@ Feature: 字段提取Syslog_pri解析
     And I will see the field extraction result "<result>"
     And I click the "Collapse" button
     And I click the "AddRule" button
-    And I choose the "syslog_pri解析" from the "ParseRule" in config
+    And I choose the "syslog_pri解析" from the "ParseRule"
     And I wait for "1000" millsecond
-    And I choose the "pri" from the "SourceField" in config
+    And I choose the "pri" from the "SourceField"
     And I click the "EnsureAddParseRule" button
     And I wait for loading invisible
     And I click the "ParseButton" button

@@ -20,9 +20,9 @@ Feature: 字段提取自定义字典
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "{"Category":"","ComputerName":"WIN-999OGBVAHMI","EventCode":7036,"EventIdentifier":1073748860,"EventType":3,"Logfile":"System","Message":"Application Experience 服务处于 正在运行 状态。","RecordNumber":108343,"SourceName":"Service Control Manager","User":"","TimeGenerated":"2015-01-04T20:45:09+08:00"}"
     And I click the "AddRule" button
-    And I choose the "JSON解析" from the "ParseRule" in config
+    And I choose the "JSON解析" from the "ParseRule"
     And I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "raw_message" from the "SourceField"
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
     And I wait for loading invisible
@@ -31,15 +31,15 @@ Feature: 字段提取自定义字典
     Then I will see the field extraction result "<result1>"
     And I click the "Collapse" button
     And I click the "AddRule" button
-    And I choose the "自定义字典" from the "ParseRule" in config
+    And I choose the "自定义字典" from the "ParseRule"
     Then I wait for "1000" millsecond
-    And I choose the "SourceName" from the "SourceField" in config
+    And I choose the "SourceName" from the "SourceField"
     Then I wait for "1000" millsecond
-    And I choose the "win_sys_sourcename.csv" from the "Dictionary" in config
+    And I choose the "win_sys_sourcename.csv" from the "Dictionary"
     Then I wait for "1000" millsecond
-    And I choose the "sourcename" from the "BaseField" in config
+    And I choose the "sourcename" from the "BaseField"
     Then I wait for "1000" millsecond
-    And I choose the "level,source" from the "ExtendField" in config
+    And I choose the "level,source" from the "ExtendField"
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible

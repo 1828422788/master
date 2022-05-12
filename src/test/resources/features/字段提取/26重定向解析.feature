@@ -8,9 +8,9 @@ Feature: 字段提取重定向解析
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
-    And I choose the "JSON解析" from the "ParseRule" in config
+    And I choose the "JSON解析" from the "ParseRule"
     And I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "raw_message" from the "SourceField"
     Then I wait for "1000" millsecond
     And I click the "AddField" button
     Then I wait for "1000" millsecond
@@ -33,7 +33,7 @@ Feature: 字段提取重定向解析
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
-    And I choose the "重定向规则" from the "ParseRule" in config
+    And I choose the "重定向规则" from the "ParseRule"
     Then I wait for "2000" millsecond
     And I choose the "RZY2867redirect副规则" from the "RedirectList"
     Then I wait for "2000" millsecond

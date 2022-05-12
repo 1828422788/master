@@ -266,8 +266,8 @@ Feature: 仪表盘1事件列表
     Then I will see the "configs.CreatePage" page
     And I wait for loading invisible
     And I click the "AddRule" button
-    And I choose the "手机号码解析" from the "ParseRule" in config
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "手机号码解析" from the "ParseRule"
+    And I choose the "raw_message" from the "SourceField"
 #    And I choose the "手机号码解析" from the "ParseRule"
 #    And I wait for "500" millsecond
 #    And I choose the "raw_message" from the "SourceField"

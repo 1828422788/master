@@ -69,15 +69,15 @@ Feature: 趋势图新建_地图
     And I click the "Type" button
     And I click the "Settings" button
     And I click the "Source" button
-    And I choose the "clientlat" from the "FieldLatitude" in config
-    And I choose the "clientlon" from the "FieldLongitude" in config
-    And I choose the "apache.clientip" from the "FieldValue" in config
+    And I choose the "clientlat" from the "FieldLatitude"
+    And I choose the "clientlon" from the "FieldLongitude"
+    And I choose the "apache.clientip" from the "FieldValue"
     And I click the "Target" button
-    And I choose the "gw_lat" from the "FieldLatitude" in config
-    And I choose the "gw_lon" from the "FieldLongitude" in config
-    And I choose the "gw_address" from the "FieldValue" in config
+    And I choose the "gw_lat" from the "FieldLatitude"
+    And I choose the "gw_lon" from the "FieldLongitude"
+    And I choose the "gw_address" from the "FieldValue"
     And I click the "Weight" button
-    And I choose the "cnt" from the "FieldValue" in config
+    And I choose the "cnt" from the "FieldValue"
     And I click the "Region" button
     And I click the "Select<regionBut>" button
     And I wait for "1000" millsecond
@@ -135,12 +135,12 @@ Feature: 趋势图新建_地图
     And I click the "Settings" button
     And I click the "Divide" button
     And I click the "DeleteLast" button
-    And I choose the "<divideField>" from the "FieldValue" in config
+    And I choose the "<divideField>" from the "FieldValue"
     And I click the "Region" button
     And I click the "Select<region>" button
     And I click the "GoingDown" button
-    And I choose the "apache.geo.province" from the "Province" in config
-    And I choose the "apache.geo.city" from the "City" in config
+    And I choose the "apache.geo.province" from the "Province"
+    And I choose the "apache.geo.city" from the "City"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -219,18 +219,18 @@ Feature: 趋势图新建_地图
     And I click the "Type" button
     And I click the "Settings" button
     And I click the "Value" button
-    And I choose the "count()" from the "FieldValue" in config
+    And I choose the "count()" from the "FieldValue"
     And I click the "Divide" button
     And I click the "DeleteLast" button
-    And I choose the "<divideField>" from the "FieldValue" in config
+    And I choose the "<divideField>" from the "FieldValue"
     And I click the "Region" button
     And I click the "Select<region>" button
     And I click the "Exhibition" button
     # Switch to white map
     And I click the "ShowBubbles" button
     And I click the "GoingDown" button
-    And I choose the "apache.geo.province" from the "Province" in config
-    And I choose the "apache.geo.city" from the "City" in config
+    And I choose the "apache.geo.province" from the "Province"
+    And I choose the "apache.geo.city" from the "City"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -270,7 +270,7 @@ Feature: 趋势图新建_地图
 
     And I click the "Settings" button
     And I click the "Facet" button
-    And I choose the "apache.status" from the "FieldValue" in config
+    And I choose the "apache.status" from the "FieldValue"
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
     And I wait for "1000" millsecond
@@ -312,12 +312,12 @@ Feature: 趋势图新建_地图
 
     And I click the "Settings" button
     And I click the "Facet" button
-    And I choose the "apache.status" from the "FieldValue" in config
+    And I choose the "apache.status" from the "FieldValue"
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
     And I click the "Divide" button
     And I click the "DeleteLast" button
-    And I choose the "apache.geo.province" from the "FieldValue" in config
+    And I choose the "apache.geo.province" from the "FieldValue"
     And I click the "Region" button
     And I click the "SelectChina" button
     And I wait for "1000" millsecond

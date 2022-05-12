@@ -15,9 +15,9 @@ Feature: 字段提取前提条件
     When I set the parameter "LogSample" with value "{"Name": "John Smith ", "Age": 23, "Employed": true, "Address": {"Street": "324 Chrome St", "City": "Portland, New York,Los Angeles ", "Country": "United States"}}"
     And I click the "AddRule" button
     Then I wait for "1000" millsecond
-    And I choose the "JSON解析" from the "ParseRule" in config
+    And I choose the "JSON解析" from the "ParseRule"
     And I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "raw_message" from the "SourceField"
     Then I wait for "1000" millsecond
     And I set the parameter "<element>" with value "<path>"
     And I click the "EnsureAddParseRule" button
@@ -38,10 +38,10 @@ Feature: 字段提取前提条件
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button
-    And I choose the "<rule>" from the "ParseRule" in config
+    And I choose the "<rule>" from the "ParseRule"
     Given I wait for loading complete
     And I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "raw_message" from the "SourceField"
     Then I wait for "2000" millsecond
     And I click the "EnsureAddParseRule" button
     And I wait for loading invisible
@@ -61,9 +61,9 @@ Feature: 字段提取前提条件
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<root><test><a>1</a><a>2</a></test><test>3</test></root>"
     And I click the "AddRule" button
-    And I choose the "XML解析" from the "ParseRule" in config
+    And I choose the "XML解析" from the "ParseRule"
     And I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "raw_message" from the "SourceField"
     And I click the "EnsureAddParseRule" button
     And I wait for loading invisible
     And I click the "ParseButton" button

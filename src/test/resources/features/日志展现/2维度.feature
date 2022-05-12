@@ -82,7 +82,7 @@ Feature: 日志展现_2维度
     And I click the "Settings" button
     And I click the "Exhibition" button
     And I wait for "1000" millsecond
-    And I choose the "<option>" from the "ShowLabel" in config
+    And I choose the "<option>" from the "ShowLabel"
     And I wait for "1000" millsecond
     And I click the "Generate" button
 
@@ -121,8 +121,8 @@ Feature: 日志展现_2维度
     And I click the "AddColor" button
     And I click the "<color>" button
     And I wait for "1000" millsecond
-    And I choose the "<typeInfo>" from the "ShowLabel" in config
-    And I choose the "<option>" from the "LabelLocation" in config
+    And I choose the "<typeInfo>" from the "ShowLabel"
+    And I choose the "<option>" from the "LabelLocation"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -158,14 +158,14 @@ Feature: 日志展现_2维度
 
     And I click the "Settings" button
     And I click the "Facet" button
-    And I choose the "apache.method" from the "FieldValue" in config
+    And I choose the "apache.method" from the "FieldValue"
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
     And I wait for "1000" millsecond
-    And I choose the "<typeInfo>" from the "ShowLabel" in config
+    And I choose the "<typeInfo>" from the "ShowLabel"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -194,7 +194,7 @@ Feature: 日志展现_2维度
     And I click the "Divide" button
     And I click the "DeleteFirst" button
     And I click the "Facet" button
-    And I choose the "apache.status" from the "FieldValue" in config
+    And I choose the "apache.status" from the "FieldValue"
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
     And I click the "Exhibition" button
@@ -263,7 +263,7 @@ Feature: 日志展现_2维度
     And I click the "Exhibition" button
     And I click the "<option>" button
     And I click the "Facet" button
-    And I choose the "apache.method" from the "FieldValue" in config
+    And I choose the "apache.method" from the "FieldValue"
     And I set the parameter "RowNum" with value "2"
     And I set the parameter "ColumnNum" with value "1"
     And I click the "Generate" button
@@ -297,12 +297,12 @@ Feature: 日志展现_2维度
     And I click the "Settings" button
     And I click the "Exhibition" button
     And I wait for "1000" millsecond
-    And I choose the "<typeInfo>" from the "ShowLabel" in config
-    And I choose the "柱状外两侧" from the "LabelLocation" in config
-    And I choose the "纵向" from the "ChartOrientation" in config
-    And I choose the "<label_orient>" from the "LabelOrientation" in config
-    And I choose the "<value_orient>" from the "ValueLabelOrientation" in config
-    And I choose the "<precision>" from the "Precision" in config
+    And I choose the "<typeInfo>" from the "ShowLabel"
+    And I choose the "柱状外两侧" from the "LabelLocation"
+    And I choose the "纵向" from the "ChartOrientation"
+    And I choose the "<label_orient>" from the "LabelOrientation"
+    And I choose the "<value_orient>" from the "ValueLabelOrientation"
+    And I choose the "<precision>" from the "Precision"
     And I click the "Generate" button
 
     And I click the "Settings" button

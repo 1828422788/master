@@ -171,25 +171,15 @@ public class SendPolicyPage extends EditorPage {
     }
 
     public WebElement getTunnelPriorityLevelList() {
-        String xpath = "//span[contains(text(),'优先级')]/following-sibling::div//span[text()='请选择']/parent::div";
-        return dropdownUtils.getDropdownListbyPath(xpath);
+        return dropdownUtils.getYottaDropdownList("incident-level-select");
     }
 
     public WebElement getMailReceiverList() {
-//        String xpath = "//label[contains(text(),'接收者')]/parent::div/following-sibling::div//span[text()='请选择']/ancestor::div[@class='yotta-select-selection']";
-        String xpath = "//div[@yotta-test='incident-email_account_group-select']/div";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-        ClickEvent.clickUnderneathButton(element);
-        return super.getLastDropdownList();
+        return dropdownUtils.getYottaDropdownList("incident-email_account_group-select");
     }
 
     public WebElement getRelatedSendPluginList() {
-        String xpath = "//span[text()='插件']/following-sibling::div//div[@yotta-test='incident-plugin-select']/div";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-        ClickEvent.clickUnderneathButton(element);
-        return super.getLastDropdownList();
+        return dropdownUtils.getYottaDropdownList("incident-plugin-select");
     }
 
     public WebElement getNewButtonPolicy() {

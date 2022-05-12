@@ -42,7 +42,7 @@ Feature: 趋势图_拖拽_timechart
     And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
     And I wait for "2000" millsecond
-    And I choose the "<comparePeriod>" from the "CompareField" in config
+    And I choose the "<comparePeriod>" from the "CompareField"
     And I click the "HideElement" button
     And I click the "Yaxis" button
     And I wait for "Min" will be visible

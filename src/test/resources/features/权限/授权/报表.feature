@@ -82,7 +82,7 @@ Feature: 权限-报表
     And I set the parameter "Hour" with value "11"
     And I set the parameter "Minute" with value "11"
     And I click the "NextButton" button
-    And I choose the "ForAutoTest" from the "ChartList" in report
+    And I choose the "ForAutoTest" from the "ChartList"
     And I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "ResultMessage" will be visible

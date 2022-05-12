@@ -34,18 +34,12 @@ public class ListPage extends ListPageFactory {
         return getButton("确定");
     }
 
-    @FindBy(xpath = "//div[@yotta-test='remoteindex-add_index_cluster-select']/div" )
-    private WebElement remoteCusterList;
-    public WebElement getRemoteCusterList() {
-        return remoteCusterList;
+    public WebElement getRemoteClusterList() {
+        return dropdownUtils.getYottaDropdownList("remoteindex-add_index_cluster-select");
     }
 
     public WebElement getRemoteIndexList() {
-        String xpath = "//div[@yotta-test='remoteindex-add_index_index-select']/div";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-//        ClickEvent.clickUnderneathButton(element);
-        return element;
+        return dropdownUtils.getYottaDropdownList("remoteindex-add_index_index-select");
     }
 
     @FindBy(xpath = "//textarea[@yotta-test='remoteindex-add_index_description-textarea']")

@@ -31,7 +31,7 @@ Feature: 报表_1_选择趋势图
     And I click the "Single" button
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "报表测试_数据集"
-    And I choose the "test_app" from the "AppField" in config
+    And I choose the "test_app" from the "AppField"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible

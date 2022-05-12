@@ -10,9 +10,9 @@ Feature: 字段提取结构体解析
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "aaa 111"
     And I click the "AddRule" button
-    And I choose the "结构体解析" from the "ParseRule" in config
+    And I choose the "结构体解析" from the "ParseRule"
     And I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "raw_message" from the "SourceField"
     Then I wait for "1000" millsecond
     And I set the value "<struct>" to the textarea "Struct"
     And I click the "EnsureAddParseRule" button
@@ -33,9 +33,9 @@ Feature: 字段提取结构体解析
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "aaa 111"
     And I click the "AddRule" button
-    And I choose the "结构体解析" from the "ParseRule" in config
+    And I choose the "结构体解析" from the "ParseRule"
     And I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "raw_message" from the "SourceField"
     Then I wait for "1000" millsecond
     And I set the value "<struct>" to the textarea "Struct"
     And I click the "StrictMode" button

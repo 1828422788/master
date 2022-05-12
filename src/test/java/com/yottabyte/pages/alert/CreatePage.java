@@ -655,7 +655,7 @@ public class CreatePage extends EditorPage {
         SetKeyWithValue set = new SetKeyWithValue();
         IChooseValueFromSelectList choose = new IChooseValueFromSelectList();
         try {
-            choose.iChooseTheFromThe(new ArrayList<String>(Arrays.asList("rsyslog告警")), getAlertNoteTypes());
+            choose.iChooseTheValueFromTheList(new ArrayList<String>(Arrays.asList("rsyslog告警")), getAlertNoteTypes());
             List<String> titles = getAlertNoteTitle();
             for (int i = 0; i < titles.size(); i++) {
                 if ("rsyslog告警".equals(titles.get(i))) {
@@ -671,15 +671,15 @@ public class CreatePage extends EditorPage {
                             set.iSetTheParameterWithValue(rsysAddress, address);
                         }
                         if (protocol != null && protocol.size() != 0 && !protocol.contains("")) {
-                            choose.iChooseTheFromThe(protocol, getSelectors(rsysProtocol));
+                            choose.iChooseTheValueFromTheList(protocol, getSelectors(rsysProtocol));
                         }
                         if (level != null && level.size() != 0 && !level.contains("")) {
-                            choose.iChooseTheFromThe(level, getSelectors(rsysLevel));
+                            choose.iChooseTheValueFromTheList(level, getSelectors(rsysLevel));
                         }
                         if (facility != null && facility.trim().length() != 0) {
                             set.iSetTheParameterWithValue(rsysFacility, facility);
                         }
-                        choose.iCancelAllSelectionExcept(getSelectors(rsysCondition), condition);
+                        choose.iCancelAllSelectionFromTheListExceptValueLi(getSelectors(rsysCondition), condition);
                         if (content != null && content.trim().length() != 0) {
                             set.iSetTheParameterWithValue(rsysContent, content);
                         }
@@ -696,7 +696,7 @@ public class CreatePage extends EditorPage {
         SetKeyWithValue set = new SetKeyWithValue();
         IChooseValueFromSelectList choose = new IChooseValueFromSelectList();
         try {
-            choose.iChooseTheFromThe(new ArrayList<String>(Arrays.asList("邮件告警")), getAlertNoteTypes().findElements(By.tagName("li")));
+            choose.iChooseTheValueFromTheList(new ArrayList<String>(Arrays.asList("邮件告警")), getAlertNoteTypes());
             List<String> titles = getAlertNoteTitle();
             for (int i = 0; i < titles.size(); i++) {
                 if ("邮件告警".equals(titles.get(i))) {
@@ -716,9 +716,9 @@ public class CreatePage extends EditorPage {
                             List<WebElement> list = webDriver.findElements(By.className("el-select-dropdown__list"));
                             com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(list.get(list.size() - 1)));
                             WebElement e = list.get(list.size() - 1);
-                            choose.iChooseTheFromThe(emails, e.findElements(By.tagName("li")));
+                            choose.iChooseTheValueFromTheList(emails, e);
                         }
-                        choose.iCancelAllSelectionExcept(getSelectors(emailCondition), condition);
+                        choose.iCancelAllSelectionFromTheListExceptValueLi(getSelectors(emailCondition), condition);
                         if (content != null && content.trim().length() != 0) {
                             set.iSetTheParameterWithValue(emailContent, content);
                         }
@@ -735,7 +735,7 @@ public class CreatePage extends EditorPage {
         SetKeyWithValue set = new SetKeyWithValue();
         IChooseValueFromSelectList choose = new IChooseValueFromSelectList();
         try {
-            choose.iChooseTheFromThe(new ArrayList<String>(Arrays.asList("告警转发")), getAlertNoteTypes().findElements(By.tagName("li")));
+            choose.iChooseTheValueFromTheList(new ArrayList<String>(Arrays.asList("告警转发")), getAlertNoteTypes());
             List<String> titles = getAlertNoteTitle();
             for (int i = 0; i < titles.size(); i++) {
                 if ("告警转发".equals(titles.get(i))) {
@@ -746,7 +746,7 @@ public class CreatePage extends EditorPage {
                         if (address != null && address.trim().length() != 0) {
                             set.iSetTheParameterWithValue(forwardAddress, address);
                         }
-                        choose.iCancelAllSelectionExcept(getSelectors(forwardCondition), condition);
+                        choose.iCancelAllSelectionFromTheListExceptValueLi(getSelectors(forwardCondition), condition);
                     }
                 }
             }
@@ -760,7 +760,7 @@ public class CreatePage extends EditorPage {
         SetKeyWithValue set = new SetKeyWithValue();
         IChooseValueFromSelectList choose = new IChooseValueFromSelectList();
         try {
-            choose.iChooseTheFromThe(new ArrayList<String>(Arrays.asList("ping主机")), getAlertNoteTypes().findElements(By.tagName("li")));
+            choose.iChooseTheValueFromTheList(new ArrayList<String>(Arrays.asList("ping主机")), getAlertNoteTypes());
             List<String> titles = getAlertNoteTitle();
             for (int i = 0; i < titles.size(); i++) {
                 if ("ping主机".equals(titles.get(i))) {
@@ -771,7 +771,7 @@ public class CreatePage extends EditorPage {
                         if (address != null && address.trim().length() != 0) {
                             set.iSetTheParameterWithValue(hostAddress, address);
                         }
-                        choose.iCancelAllSelectionExcept(getSelectors(conditions), condition);
+                        choose.iCancelAllSelectionFromTheListExceptValueLi(getSelectors(conditions), condition);
                     }
                 }
             }
@@ -829,8 +829,8 @@ public class CreatePage extends EditorPage {
         SetKeyWithValue setKey = new SetKeyWithValue();
         IChooseValueFromSelectList choose = new IChooseValueFromSelectList();
         setKey.iSetTheParameterWithValue(getAlertName(), alertName);
-        choose.iChooseTheFromThe(alertGroup, getAlertGroups());
-        choose.iChooseTheFromThe(alertSource, getAlertSources());
+        choose.iChooseTheValueFromTheList(alertGroup, getAlertGroups());
+        choose.iChooseTheValueFromTheList(alertSource, getAlertSources());
         setKey.iSetTheParameterWithValue(getSearchContent(), "*");
         setKey.iSetTheParameterWithValue(getAlertTriggerInput(), "5");
         switch (alertLevel.size()) {

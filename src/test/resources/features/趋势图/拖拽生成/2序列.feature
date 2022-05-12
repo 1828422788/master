@@ -213,7 +213,7 @@ Feature: 趋势图_拖拽_序列
     When I click the "ElementInValues" button
     And I wait for "Panel" will be visible
     And I wait for "1000" millsecond
-    And I choose the "<comparePeriod>" from the "CompareField" in config
+    And I choose the "<comparePeriod>" from the "CompareField"
     And I click the "HideElement" button
     And I click the "Yaxis" button
     And I wait for "Min" will be visible
@@ -349,7 +349,7 @@ Feature: 趋势图_拖拽_序列
     And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
     And I wait for "Panel" will be visible
-    And I choose the "上周同比值" from the "CompareField" in config
+    And I choose the "上周同比值" from the "CompareField"
     And I click the "HideElement" button
     And I wait for "2000" millsecond
     And I wait for "Chart" will be visible

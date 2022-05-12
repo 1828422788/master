@@ -263,11 +263,11 @@ Feature:3修改图表
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
-    And I choose the "<typeInfo>" from the "ShowLabel" in config
-    And I choose the "柱状外两侧" from the "LabelLocation" in config
-    And I choose the "纵向" from the "ChartOrientation" in config
-    And I choose the "<label_orient>" from the "LabelOrientation" in config
-    And I choose the "<value_orient>" from the "ValueLabelOrientation" in config
+    And I choose the "<typeInfo>" from the "ShowLabel"
+    And I choose the "柱状外两侧" from the "LabelLocation"
+    And I choose the "纵向" from the "ChartOrientation"
+    And I choose the "<label_orient>" from the "LabelOrientation"
+    And I choose the "<value_orient>" from the "ValueLabelOrientation"
     And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
@@ -389,13 +389,13 @@ Feature:3修改图表
     And I wait for "1000" millsecond
     And I click the "Setting" button
     And I click the "Xaxis" button
-    And I choose the "<xValue>" from the "FieldValue" in config
+    And I choose the "<xValue>" from the "FieldValue"
     And I click the "Yaxis" button
-    And I choose the "<actualValue>" from the "Actual" in config
-    And I choose the "<predictedValue>" from the "Predict" in config
-    And I choose the "<upperValue>" from the "Outlier" in config
-    And I choose the "<upperValue>" from the "TopLimit" in config
-    And I choose the "<lowerValue>" from the "LowerLimit" in config
+    And I choose the "<actualValue>" from the "Actual"
+    And I choose the "<predictedValue>" from the "Predict"
+    And I choose the "<upperValue>" from the "Outlier"
+    And I choose the "<upperValue>" from the "TopLimit"
+    And I choose the "<lowerValue>" from the "LowerLimit"
     And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
@@ -432,7 +432,7 @@ Feature:3修改图表
     And I wait for "1000" millsecond
     And I click the "Setting" button
     And I click the "Xaxis" button
-    And I choose the "apache.resp_len" from the "FieldValue" in config
+    And I choose the "apache.resp_len" from the "FieldValue"
     And I click the "FirstLabel" button
     And I click the "AscendingOrder" button
 
@@ -440,8 +440,8 @@ Feature:3修改图表
     And I set the parameter "Min" with value "1"
     And I set the parameter "Max" with value "170000"
     And I set the parameter "Unit" with value "面"
-    And I choose the "max(apache.resp_len)" from the "FieldValue" in config
-    And I choose the "面积图" from the "TypeChartField" in config
+    And I choose the "max(apache.resp_len)" from the "FieldValue"
+    And I choose the "面积图" from the "TypeChartField"
     And I click the "Smooth" button
     And I click the "ConnectEmptyData" button
 
@@ -451,8 +451,8 @@ Feature:3修改图表
     And I set the parameter "Min" with value "2"
     And I set the parameter "Max" with value ""
     And I click the "AddConfigFields" button
-    And I choose the "min(apache.resp_len)" from the "FieldValue" in config
-    And I choose the "柱状图" from the "TypeChartField" in config
+    And I choose the "min(apache.resp_len)" from the "FieldValue"
+    And I choose the "柱状图" from the "TypeChartField"
 
     And I click the "AddField" button
     And I click the "Yaxis3" button
@@ -460,8 +460,8 @@ Feature:3修改图表
     And I set the parameter "Min" with value ""
     And I set the parameter "Max" with value "49000"
     And I click the "AddConfigFields" button
-    And I choose the "sum(apache.status)" from the "FieldValue" in config
-    And I choose the "散点图" from the "TypeChartField" in config
+    And I choose the "sum(apache.status)" from the "FieldValue"
+    And I choose the "散点图" from the "TypeChartField"
 
     And I click the "Exhibition" button
     And I click the "AddColor" button
@@ -502,7 +502,7 @@ Feature:3修改图表
     And I wait for "1000" millsecond
     And I click the "Setting" button
     And I click the "Xaxis" button
-    And I choose the "apache.resp_len" from the "FieldValue" in config
+    And I choose the "apache.resp_len" from the "FieldValue"
     And I click the "FirstLabel" button
     And I click the "AscendingOrder" button
     And I click the "Group" button
@@ -512,8 +512,8 @@ Feature:3修改图表
     And I set the parameter "Min" with value "1"
     And I set the parameter "Max" with value "170000"
     And I set the parameter "Unit" with value "面"
-    And I choose the "max(apache.resp_len)" from the "FieldValue" in config
-    And I choose the "面积图" from the "TypeChartField" in config
+    And I choose the "max(apache.resp_len)" from the "FieldValue"
+    And I choose the "面积图" from the "TypeChartField"
     And I drag the element "SliderHandle" by "-60" pixels
     And I click the "AddColor" button
     And I click the "Green" button
@@ -526,8 +526,8 @@ Feature:3修改图表
     And I set the parameter "Min" with value "2"
     And I set the parameter "Max" with value ""
     And I click the "AddConfigFields" button
-    And I choose the "min(apache.resp_len)" from the "FieldValue" in config
-    And I choose the "柱状图" from the "TypeChartField" in config
+    And I choose the "min(apache.resp_len)" from the "FieldValue"
+    And I choose the "柱状图" from the "TypeChartField"
     And I click the "AddColor" button
     And I click the "Red" button
 
@@ -537,8 +537,8 @@ Feature:3修改图表
     And I set the parameter "Min" with value ""
     And I set the parameter "Max" with value "49000"
     And I click the "AddConfigFields" button
-    And I choose the "sum(apache.status)" from the "FieldValue" in config
-    And I choose the "散点图" from the "TypeChartField" in config
+    And I choose the "sum(apache.status)" from the "FieldValue"
+    And I choose the "散点图" from the "TypeChartField"
     And I click the "AddColor" button
     And I click the "Orange" button
     And I wait for "1000" millsecond
@@ -577,10 +577,10 @@ Feature:3修改图表
     And I wait for "500" millsecond
     And I click the "Setting" button
     And I click the "Value" button
-    And I choose the "count()" from the "FieldValue" in config
+    And I choose the "count()" from the "FieldValue"
     And I click the "Divide" button
     And I click the "DeleteLast" button
-    And I choose the "<field>" from the "FieldValue" in config
+    And I choose the "<field>" from the "FieldValue"
     And I click the "Region" button
     And I click the "Select<region>" button
     And I wait for "1000" millsecond
@@ -652,15 +652,15 @@ Feature:3修改图表
     And I wait for "500" millsecond
     And I click the "Setting" button
     And I click the "Source" button
-    And I choose the "apache.clientip" from the "FieldValue" in config
-    And I choose the "clientlon" from the "FieldLongitude" in config
-    And I choose the "clientlat" from the "FieldLatitude" in config
+    And I choose the "apache.clientip" from the "FieldValue"
+    And I choose the "clientlon" from the "FieldLongitude"
+    And I choose the "clientlat" from the "FieldLatitude"
     And I click the "Target" button
-    And I choose the "gw_address" from the "FieldValue" in config
-    And I choose the "gw_lon" from the "FieldLongitude" in config
-    And I choose the "gw_lat" from the "FieldLatitude" in config
+    And I choose the "gw_address" from the "FieldValue"
+    And I choose the "gw_lon" from the "FieldLongitude"
+    And I choose the "gw_lat" from the "FieldLatitude"
     And I click the "Weight" button
-    And I choose the "cnt" from the "FieldValue" in config
+    And I choose the "cnt" from the "FieldValue"
     And I click the "Region" button
     And I click the "Select<region>" button
     And I wait for "1000" millsecond
@@ -881,7 +881,7 @@ Feature:3修改图表
     And I click the "<tag>" button
     And I wait for "500" millsecond
     And I click the "Setting" button
-    And I choose the "count_perc" from the "FieldValue" in config
+    And I choose the "count_perc" from the "FieldValue"
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Orange" button
@@ -920,9 +920,9 @@ Feature:3修改图表
     And I click the "<tag>" button
     And I wait for "500" millsecond
     And I click the "Setting" button
-    And I choose the "count_perc" from the "FieldValue" in config
+    And I choose the "count_perc" from the "FieldValue"
     And I click the "Compare" button
-    And I choose the "count2_perc" from the "FieldValue" in config
+    And I choose the "count2_perc" from the "FieldValue"
     And I wait for "1000" millsecond
     And I click the "Generate" button
     And I wait for "1000" millsecond
@@ -960,9 +960,9 @@ Feature:3修改图表
     And I click the "Setting" button
     And I click the "Divide" button
     And I click the "DeleteLast" button
-    And I choose the "apache.geo.city" from the "FieldValue" in config
+    And I choose the "apache.geo.city" from the "FieldValue"
     And I click the "Indicator" button
-    And I choose the "apache.geo.city" from the "FieldValue" in config
+    And I choose the "apache.geo.city" from the "FieldValue"
     And I wait for "1500" millsecond
     And I click the "UnifyMetric" button
     And I click the "Exhibition" button
@@ -1004,9 +1004,9 @@ Feature:3修改图表
     And I wait for "500" millsecond
     And I click the "Setting" button
     And I click the "Xaxis" button
-    And I choose the "count()" from the "FieldValue" in config
+    And I choose the "count()" from the "FieldValue"
     And I click the "Yaxis" button
-    And I choose the "apache.status" from the "FieldValue" in config
+    And I choose the "apache.status" from the "FieldValue"
     And I set the parameter "Segments" with value "10"
     And I wait for "1000" millsecond
     And I click the "Generate" button

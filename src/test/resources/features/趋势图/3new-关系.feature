@@ -208,7 +208,7 @@ Feature: 趋势图新建_关系
 
     And I click the "Settings" button
     And I click the "Facet" button
-    And I choose the "apache.method" from the "FieldValue" in config
+    And I choose the "apache.method" from the "FieldValue"
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
     And I click the "Generate" button
@@ -251,7 +251,7 @@ Feature: 趋势图新建_关系
 
     And I click the "Settings" button
     And I click the "Facet" button
-    And I choose the "apache.method" from the "FieldValue" in config
+    And I choose the "apache.method" from the "FieldValue"
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
     And I click the "Generate" button

@@ -124,9 +124,9 @@ Feature: 权限-字段提取
     When the data name is "{'column':'1','name':'<name>'}" then i click the "查看" button
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
-    And I choose the "JSON解析" from the "ParseRule" in config
+    And I choose the "JSON解析" from the "ParseRule"
     Then I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "raw_message" from the "SourceField"
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
     And I click the "NextButton" button
@@ -174,9 +174,9 @@ Feature: 权限-字段提取
     When the data name is "{'column':'1','name':'AutoTestUserCreate'}" then i click the "编辑" button
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
-    And I choose the "JSON解析" from the "ParseRule" in config
+    And I choose the "JSON解析" from the "ParseRule"
     Then I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "raw_message" from the "SourceField"
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
     And I click the "NextButton" button
@@ -237,9 +237,9 @@ Feature: 权限-字段提取
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
-    And I choose the "JSON解析" from the "ParseRule" in config
+    And I choose the "JSON解析" from the "ParseRule"
     Then I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "raw_message" from the "SourceField"
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
     And I click the "NextButton" button
@@ -305,9 +305,9 @@ Feature: 权限-字段提取
     When the data name is "{'column':'1','name':'<name>'}" then i click the "查看" button
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
-    And I choose the "JSON解析" from the "ParseRule" in config
+    And I choose the "JSON解析" from the "ParseRule"
     Then I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "raw_message" from the "SourceField"
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
     And I click the "NextButton" button
@@ -462,9 +462,9 @@ Feature: 权限-字段提取
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
-    And I choose the "JSON解析" from the "ParseRule" in config
+    And I choose the "JSON解析" from the "ParseRule"
     Then I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "raw_message" from the "SourceField"
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
     And I click the "NextButton" button

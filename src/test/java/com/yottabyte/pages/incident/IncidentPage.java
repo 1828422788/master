@@ -59,11 +59,7 @@ public class IncidentPage extends EditorPage {
     }
 
     public WebElement getStatusList() {
-        String xpath = "//div[@yotta-test='incident-status-select']/div";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-        ClickEvent.clickUnderneathButton(element);
-        return super.getLastDropdownList();
+        return dropdownUtils.getYottaDropdownList("incident-status-select");
     }
 
     //待分配
@@ -95,12 +91,7 @@ public class IncidentPage extends EditorPage {
     }
 
     public WebElement getOwnerList() {
-        String xpath = "//div[@yotta-test='incident-owner-select']/div";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        return element;
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-//        ClickEvent.clickUnderneathButton(element);
-//        return super.getLastDropdownList();
+        return dropdownUtils.getYottaDropdownList("incident-owner-select");
     }
 
     @FindBy(xpath = "//span[@aria-label='PlusRight']")
@@ -125,12 +116,7 @@ public class IncidentPage extends EditorPage {
     }
 
     public WebElement getEveryPageList() {
-        String xpath = "//div[contains(text(),'每页')][@class='yotta-pagination-elements']//span[@aria-label='PlusDown']";
-
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-        ClickEvent.clickUnderneathButton(element);
-        return super.getLastDropdownList();
+        return dropdownUtils.getDropdownListbyPath("(//div[@class='yotta-pagination-elements']//*[@class='yotta-select-selection-content'])[last()]");
     }
 
     public WebElement getNo3page() {

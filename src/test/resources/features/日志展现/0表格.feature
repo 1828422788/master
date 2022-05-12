@@ -16,14 +16,14 @@ Feature: 日志展现_0表格
     Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I will see the element "SelectedValueColorType" contains "无"
-    And I choose the "梯度" from the "ColorType" in config
+    And I choose the "梯度" from the "ColorType"
 
     And I set the parameter "FontColor" with value "de2626"
-    And I choose the "粗体" from the "FontStyle" in config
+    And I choose the "粗体" from the "FontStyle"
     And I set the parameter "ColumnWidth" with value "15"
-    And I choose the "居中" from the "Alignment" in config
+    And I choose the "居中" from the "Alignment"
     And I click the "ThousandSeparatorCheckbox" button
-    And I choose the "2" from the "PrecisionTable" in config
+    And I choose the "2" from the "PrecisionTable"
     And I click the "CancelButton" button
     And I wait for "2000" millsecond
     And I will see the element "Cell" contains "3545.4545"
@@ -43,12 +43,12 @@ Feature: 日志展现_0表格
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
     And I will see the input element "FontColor" value will be "4A4A4A"
-    And I choose the "梯度" from the "ColorType" in config
+    And I choose the "梯度" from the "ColorType"
 
     And I set the parameter "FontColor" with value "5522E0FF"
-    And I choose the "斜体" from the "FontStyle" in config
+    And I choose the "斜体" from the "FontStyle"
     And I set the parameter "ColumnWidth" with value "80"
-    And I choose the "居右" from the "Alignment" in config
+    And I choose the "居右" from the "Alignment"
 
     And I click the "EnsureButton" button
 
@@ -69,7 +69,7 @@ Feature: 日志展现_0表格
     Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
-    And I choose the "梯度" from the "ColorType" in config
+    And I choose the "梯度" from the "ColorType"
 
     And I click the "SelectColor" button
     And I wait for "1000" millsecond
@@ -96,7 +96,7 @@ Feature: 日志展现_0表格
     Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
-    And I choose the "范围" from the "ColorType" in config
+    And I choose the "范围" from the "ColorType"
 
     #RED
     And I set the parameter "ColorCode" with value "FF0000FF"
@@ -118,7 +118,7 @@ Feature: 日志展现_0表格
     And I click the "ChangeColor" button
 
     And I wait for "2000" millsecond
-    And I choose the "下划线" from the "FontStyle" in config
+    And I choose the "下划线" from the "FontStyle"
     And I set the parameter "ColumnWidth" with value "80"
     And I will see the element "SelectedAlignment" contains "居左"
     And I set the parameter "FontColor" with value "5522E0FF"
@@ -143,7 +143,7 @@ Feature: 日志展现_0表格
     Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
-    And I choose the "范围" from the "ColorType" in config
+    And I choose the "范围" from the "ColorType"
 
     #RED
     And I set the parameter "ColorCode" with value "FF0000FF"
@@ -183,7 +183,7 @@ Feature: 日志展现_0表格
     Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
-    And I choose the "值" from the "ColorType" in config
+    And I choose the "值" from the "ColorType"
 
     And I wait for "<button>" will be visible
     And I click the "<button>" button
@@ -204,7 +204,7 @@ Feature: 日志展现_0表格
     Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
-    And I choose the "值" from the "ColorType" in config
+    And I choose the "值" from the "ColorType"
     And I wait for "CustomColor" will be visible
     And I click the "CustomColor" button
     And I click the "AddValue" button
@@ -225,9 +225,9 @@ Feature: 日志展现_0表格
     And I click the Circle "ChangeColor" button
     And I click the "CustomColor" button
     And I click the "DeleteLastValue" button
-    And I choose the "粗体" from the "FontStyle" in config
+    And I choose the "粗体" from the "FontStyle"
     And I will see the element "SelectedAlignment" contains "居左"
-    And I choose the "居中" from the "Alignment" in config
+    And I choose the "居中" from the "Alignment"
     And I set the parameter "FontColor" with value "744E78FF"
 
     And I click the "EnsureButton" button
@@ -249,7 +249,7 @@ Feature: 日志展现_0表格
     Then I will see the "trend.CreatePage" page
     When I click the "PencilFirst" button
     And I wait for "ColorPanel" will be visible
-    And I choose the "值" from the "ColorType" in config
+    And I choose the "值" from the "ColorType"
     And I wait for "CustomColor" will be visible
     And I click the "CustomColor" button
     And I click the "AddValue" button
@@ -279,13 +279,13 @@ Feature: 日志展现_0表格
     When I click the "Pencil" button
     And I will see the element "SelectedValueColorType" contains "无"
 
-    And I choose the "值" from the "ColorType" in config
+    And I choose the "值" from the "ColorType"
 
     And I wait for "AutoColor" will be visible
     And I click the "AutoColor" button
 
     And I click the "ThousandSeparatorCheckbox" button
-    And I choose the "3" from the "PrecisionTable" in config
+    And I choose the "3" from the "PrecisionTable"
     And I click the "EnsureButton" button
     And I wait for "2000" millsecond
     And I will see the element "Cell" contains "3,545.455"
@@ -304,7 +304,7 @@ Feature: 日志展现_0表格
     Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
     And I will see the element "SelectedValueColorType" contains "无"
-    And I choose the "<colorType>" from the "ColorType" in config
+    And I choose the "<colorType>" from the "ColorType"
     And I click the "<button>" button
 
     And I set the parameter "<param>" with value "<value>"

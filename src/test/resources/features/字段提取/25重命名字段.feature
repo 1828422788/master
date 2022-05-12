@@ -9,9 +9,9 @@ Feature: 字段提取重命名字段
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button
-    And I choose the "JSON解析" from the "ParseRule" in config
+    And I choose the "JSON解析" from the "ParseRule"
     And I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "raw_message" from the "SourceField"
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
     And I wait for loading invisible
@@ -19,7 +19,7 @@ Feature: 字段提取重命名字段
     And I wait for "CheckSuccess" will be visible
     And I click the "Collapse" button
     And I click the "AddRule" button
-    And I choose the "字段重命名" from the "ParseRule" in config
+    And I choose the "字段重命名" from the "ParseRule"
     Then I wait for "1000" millsecond
     And I set the parameter "SourceFieldInput" with value "a.b.c"
     And I set the parameter "TargetFieldInput" with value "c"

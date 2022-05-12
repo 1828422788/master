@@ -16,8 +16,8 @@ Feature: 趋势图_选择数据集
     And I wait for "TableBody" will be visible
     And I click the "Add" button
     And I wait for "2000" millsecond
-    And I choose the "apache.clientip" from the "ColumnField" in config
-    And I choose the "<operator>" from the "Operator" in config
+    And I choose the "apache.clientip" from the "ColumnField"
+    And I choose the "<operator>" from the "Operator"
     And I set the parameter "Value" with value "221.226.97.92"
     And I click the "Apply" button
     And I wait for "Message" will be visible
@@ -93,13 +93,13 @@ Feature: 趋势图_选择数据集
     And I wait for "TableBody" will be visible
     And I click the "Add" button
     And I wait for "2000" millsecond
-    And I choose the "<condition>" from the "Condition" in config
-    And I choose the "apache.resp_len" from the "ColumnField" in config
-    And I choose the "<oper1>" from the "Operator" in config
+    And I choose the "<condition>" from the "Condition"
+    And I choose the "apache.resp_len" from the "ColumnField"
+    And I choose the "<oper1>" from the "Operator"
     And I set the parameter "Value" with value "70"
     And I click the "Add" button
-    And I choose the "apache.resp_len" from the "ColumnField" in config
-    And I choose the "<oper2>" from the "Operator" in config
+    And I choose the "apache.resp_len" from the "ColumnField"
+    And I choose the "<oper2>" from the "Operator"
     And I set the parameter "Value" with value "1500"
     And I click the "Apply" button
     And I wait for "Message" will be visible

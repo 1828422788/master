@@ -26,8 +26,8 @@ Feature: 新建远端索引
     Given open the "remoteIndex.ListPage" page for uri "/remoteindex/"
     And I click the "CreateButton" button
 
-    Then I choose66 the "<clusterName>" from the "RemoteCusterList"
-    Then I choose66 the "<remoteIndexName>" from the "RemoteIndexList"
+    Then I choose the "<clusterName>" from the "RemoteClusterList"
+    Then I choose the "<remoteIndexName>" from the "RemoteIndexList"
     And I set the parameter "DescribeTextarea" with value "<describeTextarea>"
 
     And I wait for "1000" millsecond

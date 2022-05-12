@@ -186,11 +186,11 @@ Feature: 报表_2_2维度
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
-    And I choose the "<typeInfo>" from the "ShowLabel" in config
-    And I choose the "柱状外两侧" from the "LabelLocation" in config
-    And I choose the "纵向" from the "ChartOrientation" in config
-    And I choose the "<label_orient>" from the "LabelOrientation" in config
-    And I choose the "<value_orient>" from the "ValueLabelOrientation" in config
+    And I choose the "<typeInfo>" from the "ShowLabel"
+    And I choose the "柱状外两侧" from the "LabelLocation"
+    And I choose the "纵向" from the "ChartOrientation"
+    And I choose the "<label_orient>" from the "LabelOrientation"
+    And I choose the "<value_orient>" from the "ValueLabelOrientation"
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 

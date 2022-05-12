@@ -8,7 +8,7 @@ Feature: 已存搜索加载
   @opensaved1
   Scenario Outline:
     And I wait for loading complete
-    Then I choose1 the "打开列表" from the "SavedSearchList"
+    Then I choose the "打开列表" from the "SavedSearchList"
     And I wait for loading complete
 
     And I set the parameter "SavedSearchInput" with value "<name>"

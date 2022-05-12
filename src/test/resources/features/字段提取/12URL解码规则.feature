@@ -10,9 +10,9 @@ Feature: 字段提取URL解码规则
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<logSample>"
     And I click the "AddRule" button
-    And I choose the "正则解析" from the "ParseRule" in config
+    And I choose the "正则解析" from the "ParseRule"
     And I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "raw_message" from the "SourceField"
     Then I wait for "1000" millsecond
     And I set the value "<regex>" to the textarea "Regex"
     And I click the "EnsureAddParseRule" button
@@ -22,9 +22,9 @@ Feature: 字段提取URL解码规则
     Then I will see the field extraction result "<result>"
     And I click the "Collapse" button
     And I click the "AddRule" button
-    And I choose the "<parseRule>" from the "ParseRule" in config
+    And I choose the "<parseRule>" from the "ParseRule"
     And I wait for "1000" millsecond
-    And I choose the "<sourceField>" from the "SourceField" in config
+    And I choose the "<sourceField>" from the "SourceField"
     And I set the parameter "<inputElement>" with value "<timeFormat>"
     And I click the "EnsureAddParseRule" button
     Then I wait for loading invisible

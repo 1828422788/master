@@ -258,7 +258,7 @@ public class DateEditorPage extends EditorPage {
             groupAppend.click();
             List<String> list = new ArrayList<>();
             list.add(timeUnit);
-            new IChooseValueFromSelectList().iChooseTheFromThe(list, dropdownList.get(dropdownList.size() - 1));
+            new IChooseValueFromSelectList().iChooseTheValueFromTheList(list, dropdownList.get(dropdownList.size() - 1));
         }
         applyButton.click();
     }

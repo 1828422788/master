@@ -50,12 +50,12 @@ Feature: 日志展现_普通统计视图
     And I click the "CountButton" button
     And I wait for "1000" millsecond
     And I will see the "splSearch.StatisticalPage" page
-    And I choose the "<value1>" from the "FieldValue" in config
+    And I choose the "<value1>" from the "FieldValue"
     And I wait for "2000" millsecond
-    And I choose the "<chart>" from the "PresentType" in config
+    And I choose the "<chart>" from the "PresentType"
     And I click the "AddButton" button
     And I click the "IndependentStats" button
-    And I choose the "<value2>" from the "FieldValue" in config
+    And I choose the "<value2>" from the "FieldValue"
     And I click the "AddButton" button
     And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
@@ -94,14 +94,14 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     Given I click the "TimeSlice" button
     And I wait for "1000" millsecond
-    Then I choose the "apache.resp_len" from the "FieldValue" in config
+    Then I choose the "apache.resp_len" from the "FieldValue"
     And I wait for "2000" millsecond
     And I set the parameter "StartDate" with yesterday date
     And I set the parameter "StartTime" with value "08:00:00"
     And I set the parameter "EndDate" with current date
     And I set the parameter "EndTime" with value "08:00:00"
     And I wait for "2000" millsecond
-    Then I choose the "<statisticType>" from the "StatisticType" in config
+    Then I choose the "<statisticType>" from the "StatisticType"
     And I wait for "2000" millsecond
     And I click the "Generate" button
     And I wait for "4000" millsecond
@@ -152,7 +152,7 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     Given I click the "DataSlice" button
     And I wait for "1000" millsecond
-    When I choose the "<fieldValue>" from the "FieldValue" in config
+    When I choose the "<fieldValue>" from the "FieldValue"
     And I set the parameter "StartDataValue" with value "<start1>"
     And I set the parameter "EndDataValue" with value "<end1>"
     And I click the "AddNum" button
@@ -203,7 +203,7 @@ Feature: 日志展现_普通统计视图
     Given I click the "TimeHistogram" button
     And I wait for "1000" millsecond
     When I set the parameter "TimeSpan" with value "<timeSpan>"
-    And I choose the "<time>" from the "Time" in config
+    And I choose the "<time>" from the "Time"
     And I click the "Generate" button
     And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
@@ -263,7 +263,7 @@ Feature: 日志展现_普通统计视图
     Given I click the "TimeHistogram" button
     And I wait for "1000" millsecond
     When I set the parameter "TimeSpan" with value "<timeSpan>"
-    And I choose the "<time>" from the "Time" in config
+    And I choose the "<time>" from the "Time"
     And I click the "Generate" button
     And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
@@ -304,7 +304,7 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     Given I click the "DataHistogram" button
     And I wait for "1000" millsecond
-    When I choose the "apache.resp_len" from the "FieldValue" in config
+    When I choose the "apache.resp_len" from the "FieldValue"
     And I wait for "1000" millsecond
     And I set the parameter "DataSpan" with value "<number>"
     And I click the "Generate" button
@@ -348,9 +348,9 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I click the "ClassifyFieldValue" button
     And I wait for "1000" millsecond
-    And I choose the "apache.clientip" from the "FieldValue" in config
-    And I choose the "<charttype>" from the "PresentType" in config
-    And I choose the "<value1>" from the "TopElement" in config
+    And I choose the "apache.clientip" from the "FieldValue"
+    And I choose the "<charttype>" from the "PresentType"
+    And I choose the "<value1>" from the "TopElement"
     And I click the "Generate" button
     And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
@@ -390,12 +390,12 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I click the "FieldNumber" button
     And I wait for "1000" millsecond
-    And I choose the "apache.resp_len" from the "YAxis" in config
-    And I choose the "apache.clientip" from the "GroupField" in config
-    Then I choose the "<statType>" from the "StatisticType" in config
-    And I choose the "<chart>" from the "PresentType" in config
+    And I choose the "apache.resp_len" from the "YAxis"
+    And I choose the "apache.clientip" from the "GroupField"
+    Then I choose the "<statType>" from the "StatisticType"
+    And I choose the "<chart>" from the "PresentType"
     When I set the parameter "TimeSpan" with value "<timeSpan>"
-    And I choose the "<time>" from the "Time" in config
+    And I choose the "<time>" from the "Time"
     And I click the "Generate" button
     And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
@@ -440,12 +440,12 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I click the "FieldNumber" button
     And I wait for "1000" millsecond
-    And I choose the "apache.status" from the "YAxis" in config
-    And I choose the "apache.clientip" from the "GroupField" in config
-    Then I choose the "<statType>" from the "StatisticType" in config
-    And I choose the "<chart>" from the "PresentType" in config
+    And I choose the "apache.status" from the "YAxis"
+    And I choose the "apache.clientip" from the "GroupField"
+    Then I choose the "<statType>" from the "StatisticType"
+    And I choose the "<chart>" from the "PresentType"
     When I set the parameter "TimeSpan" with value "<timeSpan>"
-    And I choose the "<time>" from the "Time" in config
+    And I choose the "<time>" from the "Time"
     And I click the "Generate" button
     And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
@@ -478,13 +478,13 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I click the "FieldNumber" button
     And I wait for "1000" millsecond
-    And I choose the "apache.resp_len" from the "YAxis" in config
-    And I choose the "apache.clientip" from the "GroupField" in config
-    And I choose the "<chart>" from the "PresentType" in config
+    And I choose the "apache.resp_len" from the "YAxis"
+    And I choose the "apache.clientip" from the "GroupField"
+    And I choose the "<chart>" from the "PresentType"
     When I set the parameter "TimeSpan" with value "<timeSpan>"
     And I click the "SelfRadio" button
     And I wait for "2000" millsecond
-    And I choose the "36.46.208.22" from the "SelfRadioField" in config
+    And I choose the "36.46.208.22" from the "SelfRadioField"
     And I click the "HideElement" button
     And I click the "Generate" button
     And I wait for "4000" millsecond
@@ -516,7 +516,7 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I click the "TotalPercent" button
     And I wait for "1000" millsecond
-    And I choose the "apache.resp_len" from the "FieldValue" in config
+    And I choose the "apache.resp_len" from the "FieldValue"
     And I click the "HideElement" button
     And I click the "ClosePercent<percent2>" button
     And I click the "AddPercent" button
@@ -557,7 +557,7 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I click the "PercentDegree" button
     And I wait for "1000" millsecond
-    And I choose the "apache.resp_len" from the "FieldValue" in config
+    And I choose the "apache.resp_len" from the "FieldValue"
     And I set the parameter "GoalValue" with value "<value1>"
     And I click the "Generate" button
     And I wait for "4000" millsecond
@@ -595,10 +595,10 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I click the "MultilevelStatistics" button
     And I wait for "1000" millsecond
-    And I choose the "apache.status" from the "FieldValue" in config
+    And I choose the "apache.status" from the "FieldValue"
     And I click the "Generate" button
     And I click the "StatisticsGram" button
-    And I choose the "饼图" from the "PresentType" in config
+    And I choose the "饼图" from the "PresentType"
     And I click the "Generate" button
     And I wait for "2000" millsecond
     And I wait for "MultiStatsChart" will be visible
@@ -628,19 +628,19 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I click the "MultilevelStatistics" button
     And I wait for "1000" millsecond
-    And I choose the "apache.status" from the "FieldValue" in config
+    And I choose the "apache.status" from the "FieldValue"
     And I click the "Generate" button
 
     # Click checkbox with 200
     When I click the "Field" button
     And I click the "NextStep" button
-    And I choose the "apache.clientip" from the "FieldValue" in config
-    And I choose the "计数" from the "StatisticType" in config
+    And I choose the "apache.clientip" from the "FieldValue"
+    And I choose the "计数" from the "StatisticType"
     And I click the "Generate" button
     And I wait for "1000" millsecond
     And I click the "StatisticsGram" button
     And I wait for "1000" millsecond
-    And I choose the "饼图" from the "PresentType" in config
+    And I choose the "饼图" from the "PresentType"
     And I click the "Generate" button
     And I wait for "2000" millsecond
     And I wait for "MultiStatsChart" will be visible
@@ -670,13 +670,13 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I click the "MultilevelStatistics" button
     And I wait for "1000" millsecond
-    And I choose the "apache.status" from the "FieldValue" in config
+    And I choose the "apache.status" from the "FieldValue"
     And I click the "Generate" button
 
     # Click checkbox with 200
     When I click the "Field" button
     And I click the "NextStep" button
-    And I choose the "apache.clientip" from the "FieldValue" in config
+    And I choose the "apache.clientip" from the "FieldValue"
     And I click the "Generate" button
     And I wait for "1000" millsecond
 
@@ -684,13 +684,13 @@ Feature: 日志展现_普通统计视图
     When I click the "WholeField" button
     And I wait for "1000" millsecond
     And I click the "NextStep" button
-    And I choose the "apache.resp_len" from the "FieldValue" in config
-    And I choose the "计数" from the "StatisticType" in config
+    And I choose the "apache.resp_len" from the "FieldValue"
+    And I choose the "计数" from the "StatisticType"
     And I click the "Generate" button
     And I wait for "2000" millsecond
     And I click the "StatisticsGram" button
     And I wait for "1000" millsecond
-    And I choose the "饼图" from the "PresentType" in config
+    And I choose the "饼图" from the "PresentType"
     And I click the "Generate" button
     And I wait for "2000" millsecond
     And I wait for "MultiStatsChart" will be visible
@@ -720,7 +720,7 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I click the "GeographicalDistribution" button
     And I wait for "1000" millsecond
-    And I choose the "apache.geo.country" from the "FieldValue" in config
+    And I choose the "apache.geo.country" from the "FieldValue"
     And I click the "Generate" button
     And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
@@ -804,7 +804,7 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I click the "<stat>" button
     And I wait for "1000" millsecond
-    Then I choose the "apache.resp_len" from the "<field>" in config
+    Then I choose the "apache.resp_len" from the "<field>"
     And I click the "Generate" button
     And I wait for "Message" will be visible
     And I will see the message "<message>"
@@ -845,7 +845,7 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I click the "<stat>" button
     And I wait for "1000" millsecond
-    Then I choose the "apache.resp_len" from the "FieldValue" in config
+    Then I choose the "apache.resp_len" from the "FieldValue"
     And I click the "<button>" button
     Then I set the parameter "<field>" with value "a"
     And I click the "Generate" button
@@ -868,8 +868,8 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I click the "FieldNumber" button
     And I wait for "1000" millsecond
-    And I choose the "apache.resp_len" from the "YAxis" in config
-    And I choose the "apache.clientip" from the "GroupField" in config
+    And I choose the "apache.resp_len" from the "YAxis"
+    And I choose the "apache.clientip" from the "GroupField"
     And I set the parameter "<field>" with value "<value>"
     And I click the "<button>" button
     When I click the "Generate" button
@@ -893,7 +893,7 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I click the "TotalPercent" button
     And I wait for "1000" millsecond
-    Then I choose the "apache.resp_len" from the "FieldValue" in config
+    Then I choose the "apache.resp_len" from the "FieldValue"
     And I click the "HideElement" button
     And I click the "ClosePercent25" button
     And I click the "ClosePercent50" button
@@ -913,7 +913,7 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I click the "MultilevelStatistics" button
     And I wait for "1000" millsecond
-    And I choose the "apache.status" from the "FieldValue" in config
+    And I choose the "apache.status" from the "FieldValue"
     And I click the "Generate" button
 
     And I click the "NextStep" button
@@ -921,7 +921,7 @@ Feature: 日志展现_普通统计视图
     And I wait for "Message" will be visible
     And I will see the message "请选择统计字段"
     And I click the "Ensure" button
-    And I choose the "apache.clientip" from the "FieldValue" in config
+    And I choose the "apache.clientip" from the "FieldValue"
     And I click the "Generate" button
     And I wait for "Message" will be visible
     And I will see the message "请选择step1的值!"

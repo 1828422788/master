@@ -20,12 +20,12 @@ Feature: 事件管理_发送策略_4个
     And I click the "checkboxNewEventSend" button
     And I click the "checkboxUpdatingSend" button
 
-    And I choose1 the "严重" from the "TunnelPriorityLevelList"
+    And I choose the "严重" from the "TunnelPriorityLevelList"
 #    And I wait for "3000" millsecond
 #    And I click the "PageBlank" button
-    And I choose1 the "邮件告警" from the "RelatedSendPluginList"
+    And I choose the "邮件告警" from the "RelatedSendPluginList"
     And I wait for "3000" millsecond
-    And I choose1 the "发送策略一级组<日志易用户体验组>" from the "MailReceiverList"
+    And I choose the "发送策略一级组<日志易用户体验组>" from the "MailReceiverList"
     And I wait for loading complete
     And I hide the element by the selector "yotta-select-menu"
     And I wait for "2000" millsecond

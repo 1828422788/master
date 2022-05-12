@@ -10,9 +10,9 @@ Feature: 字段提取内容替换
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "123abc456qwe"
     And I click the "AddRule" button
-    And I choose the "内容替换" from the "ParseRule" in config
+    And I choose the "内容替换" from the "ParseRule"
     And I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "raw_message" from the "SourceField"
     Then I wait for "1000" millsecond
     And I set the value "(\d+)[a-z]+" to the textarea "Regex"
     And I set the value "$1" to the textarea "ReplaceContent"
@@ -35,9 +35,9 @@ Feature: 字段提取内容替换
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "123abc456qwe"
     And I click the "AddRule" button
-    And I choose the "内容替换" from the "ParseRule" in config
+    And I choose the "内容替换" from the "ParseRule"
     And I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "raw_message" from the "SourceField"
     Then I wait for "1000" millsecond
     And I set the value "(\d+)[a-z]+" to the textarea "Regex"
     And I set the value "<replaceContent>" to the textarea "ReplaceContent"
@@ -89,16 +89,16 @@ Feature: 字段提取内容替换
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
-    And I choose the "JSON解析" from the "ParseRule" in config
+    And I choose the "JSON解析" from the "ParseRule"
     And I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "raw_message" from the "SourceField"
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
     And I wait for loading invisible
     And I click the "AddRule" button
-    And I choose the "内容替换" from the "ParseRule" in config
+    And I choose the "内容替换" from the "ParseRule"
     And I wait for "1000" millsecond
-    And I choose the "@tag" from the "SourceField" in config
+    And I choose the "@tag" from the "SourceField"
     And I set the value "(.*)" to the textarea "Regex"
     And I set the value "$1,newinfo" to the textarea "ReplaceContent"
     And I click the "EnsureAddParseRule" button

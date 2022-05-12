@@ -16,21 +16,21 @@ Feature: 事件管理-合并策略_编辑-1个
     And I click the "AddRuleButton" button
     And I wait for "1000" millsecond
 
-#    And I choose the "归并的告警数量" from the "AutoRulesList" in config
+#    And I choose the "归并的告警数量" from the "AutoRulesList"
     And I choose the "归并的告警数量" from the "AutoRulesList"
     When I set the parameter "CruAlertCountInput" with value "60"
     Given I wait for loading complete
 
-#    And I choose the "将任务分配给" from the "AutoHandleTaskTypeList" in config
+#    And I choose the "将任务分配给" from the "AutoHandleTaskTypeList"
     And I choose the "将任务分配给" from the "AutoHandleTaskTypeList"
     Given I wait for loading complete
-#    And I choose the "Derek" from the "TaskToUsersList" in config
+#    And I choose the "Derek" from the "TaskToUsersList"
     And I choose the "Derek" from the "TaskToUsersList"
     And I click the "AddSecondAutoHandleRuleButton" button
     Given I wait for loading complete
     And I wait for "2000" millsecond
     And I choose the "修改状态为" from the "SecondAutoHandleTaskTypeList"
-#    And I choose the "已解决" from the "TaskStatusList" in config
+#    And I choose the "已解决" from the "TaskStatusList"
     Given I wait for loading complete
     And I choose the "已解决" from the "TaskStatusList"
     Given I wait for loading complete

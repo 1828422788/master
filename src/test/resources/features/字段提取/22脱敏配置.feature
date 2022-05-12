@@ -9,9 +9,9 @@ Feature: 字段提取脱敏配置
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "qweqwe15998418361qwe 15998418361"
     And I click the "AddRule" button
-    And I choose the "正则解析" from the "ParseRule" in config
+    And I choose the "正则解析" from the "ParseRule"
     And I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "raw_message" from the "SourceField"
     Then I wait for "1000" millsecond
     And I set the value "(?<phone>.*)" to the textarea "Regex"
     And I click the "EnsureAddParseRule" button
@@ -21,9 +21,9 @@ Feature: 字段提取脱敏配置
     And I will see the field extraction result "<regexResult>"
     And I click the "Collapse" button
     And I click the "AddRule" button
-    And I choose the "脱敏配置" from the "ParseRule" in config
+    And I choose the "脱敏配置" from the "ParseRule"
     And I wait for "1000" millsecond
-    And I choose the "phone" from the "SourceField" in config
+    And I choose the "phone" from the "SourceField"
     Then I wait for "1000" millsecond
     And I set the value "(\d{3})(\d{4})(\d{4})" to the textarea "Regex"
     And I set the value "$1****$3" to the textarea "ReplaceContent"
@@ -36,9 +36,9 @@ Feature: 字段提取脱敏配置
     And I will see the field extraction result "<result>"
     And I click the "Collapse" button
     And I click the "AddRule" button
-    And I choose the "脱敏配置" from the "ParseRule" in config
+    And I choose the "脱敏配置" from the "ParseRule"
     And I wait for "1000" millsecond
-    And I choose the "phone" from the "SourceField" in config
+    And I choose the "phone" from the "SourceField"
     Then I wait for "1000" millsecond
     And I set the value "(\d{3})(\d{4})(\d{4})" to the textarea "Regex"
     And I set the value "$1****$3" to the textarea "ReplaceContent"

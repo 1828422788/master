@@ -12,9 +12,9 @@ Feature: 字段提取列表页
     When I set the parameter "LogSample" with value "{"Name": "John Smith ", "Age": 23, "Employed": true, "Address": {"Street": "324 Chrome St", "City": "Portland, New York,Los Angeles ", "Country": "United States"}}"
     And I click the "AddRule" button
     Then I wait for "500" millsecond
-    And I choose the "JSON解析" from the "ParseRule" in config
+    And I choose the "JSON解析" from the "ParseRule"
     And I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "raw_message" from the "SourceField"
     Then I wait for "500" millsecond
     And I click the "EnsureAddParseRule" button
     And I click the "NextButton" button
@@ -41,9 +41,9 @@ Feature: 字段提取列表页
     When I set the parameter "LogSample" with value "{"Name": "John Smith ", "Age": 23, "Employed": true, "Address": {"Street": "324 Chrome St", "City": "Portland, New York,Los Angeles ", "Country": "United States"}}"
     And I click the "AddRule" button
     Then I wait for "500" millsecond
-    And I choose the "JSON解析" from the "ParseRule" in config
+    And I choose the "JSON解析" from the "ParseRule"
     And I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField" in config
+    And I choose the "raw_message" from the "SourceField"
     Then I wait for "500" millsecond
     And I click the "EnsureAddParseRule" button
     And I click the "NextButton" button
@@ -65,21 +65,17 @@ Feature: 字段提取列表页
     And I wait for loading invisible
     Then I will see the search result "{'column':'1','name':'<name>'}"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button in more menu
-    When I click the "TagInputDiv" button
-    Then I set the parameter "TagInput" with value "configtag"
-    And I choose the "configtag" from the "ResourceGroupList"
+    And I choose the new value "configtag" from the "TagField"
     And I click the "Ensure" button
     And I wait for loading invisible
     Then I refresh the website
     And I wait for loading invisible
 
-    When I click the "FilterTagDiv" button
-    Then I set the parameter "FilterTagInput" with value "configtag"
-    And I choose the "configtag" from the "FilterTagSelect"
+    When I choose the "configtag" from the "TagFilter"
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'1','name':'<name>'}"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button in more menu
-    And I cancel selection "configtag"
+    And I cancel selection "configtag" from the "TagField"
     And I click the "Ensure" button
     And I wait for loading invisible
     And I will see the "SearchResultIsEmpty" result will be "暂无数据"

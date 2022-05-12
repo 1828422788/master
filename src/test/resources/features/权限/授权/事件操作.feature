@@ -41,11 +41,11 @@ Feature: 权限-事件操作
     Then I will see the "event.CreatePage" page
     And I set the parameter "Name" with value "<name>"
     And I set the parameter "Field" with value "<field>"
-    And I choose the "<display>" from the "Display" in page
+    And I choose the "<display>" from the "Display"
     And I wait for "1500" millsecond
-    And I choose the "<action>" from the "Action" in page
+    And I choose the "<action>" from the "Action"
     And I set the parameter "Url" with value "<url>"
-    And I choose the "<openUrl>" from the "OpenUrl" in page
+    And I choose the "<openUrl>" from the "OpenUrl"
     And I click the "CreateButton" button
     Then I will see the message "<message>"
     Given open the "event.ListPage" page for uri "/event/action/"
@@ -63,7 +63,7 @@ Feature: 权限-事件操作
     And the data name is "{'column':'1','name':'AutoAuthTest'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     And I set the parameter "Field" with value "<field>"
-    And I choose the "<action>" from the "Action" in page
+    And I choose the "<action>" from the "Action"
     And I set the parameter "<inputName>" with value "<url>"
     And I click the "Save" button
     And I wait for "Message" will be visible

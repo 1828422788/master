@@ -42,8 +42,8 @@ Feature:趋势图_拖拽_复合
     And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
     And I wait for "Panel" will be visible
-    And I choose the "<chart_1>" from the "TypeChartField" in config
-    And I choose the "平均值" from the "TypeFunction" in config
+    And I choose the "<chart_1>" from the "TypeChartField"
+    And I choose the "平均值" from the "TypeFunction"
     And I click the "EditColor" button
     And I wait for "<color_1>" will be visible
     And I click the "<color_1>" button
@@ -62,8 +62,8 @@ Feature:趋势图_拖拽_复合
     And I wait for "ElementInValues2" will be visible
     When I click the "ElementInValues2" button
     And I wait for "Panel" will be visible
-    And I choose the "<chart_2>" from the "TypeChartField" in config
-    And I choose the "去重" from the "TypeFunction" in config
+    And I choose the "<chart_2>" from the "TypeChartField"
+    And I choose the "去重" from the "TypeFunction"
     And I click the "Smooth" button
     And I click the "EditColor" button
     And I wait for "<color_2>" will be visible
@@ -140,8 +140,8 @@ Feature:趋势图_拖拽_复合
     And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
     And I wait for "Panel" will be visible
-    And I choose the "<chart_1>" from the "TypeChartField" in config
-    And I choose the "计数" from the "TypeFunction" in config
+    And I choose the "<chart_1>" from the "TypeChartField"
+    And I choose the "计数" from the "TypeFunction"
     And I click the "EditColor" button
     And I wait for "<color_1>" will be visible
     And I click the "<color_1>" button
@@ -160,8 +160,8 @@ Feature:趋势图_拖拽_复合
     And I wait for "ElementInValues2" will be visible
     When I click the "ElementInValues2" button
     And I wait for "Panel" will be visible
-    And I choose the "<chart_2>" from the "TypeChartField" in config
-    And I choose the "最大值" from the "TypeFunction" in config
+    And I choose the "<chart_2>" from the "TypeChartField"
+    And I choose the "最大值" from the "TypeFunction"
     And I click the "EditColor" button
     And I wait for "<color_2>" will be visible
     And I click the "<color_2>" button
@@ -245,8 +245,8 @@ Feature:趋势图_拖拽_复合
     And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
     And I wait for "Panel" will be visible
-    And I choose the "<chart_1>" from the "TypeChartField" in config
-    And I choose the "计数" from the "TypeFunction" in config
+    And I choose the "<chart_1>" from the "TypeChartField"
+    And I choose the "计数" from the "TypeFunction"
     And I will see the "EditColor" doesn't exist
     And I click the "ConnectEmptyData" button
     And I wait for "1000" millsecond
@@ -263,8 +263,8 @@ Feature:趋势图_拖拽_复合
     And I wait for "ElementInValues2" will be visible
     When I click the "ElementInValues2" button
     And I wait for "Panel" will be visible
-    And I choose the "<chart_2>" from the "TypeChartField" in config
-    And I choose the "平均值" from the "TypeFunction" in config
+    And I choose the "<chart_2>" from the "TypeChartField"
+    And I choose the "平均值" from the "TypeFunction"
     And I will see the "EditColor" doesn't exist
     And I set the parameter "AreaTransparency" with value "0.3" using step buttons
     And I click the "Smooth" button

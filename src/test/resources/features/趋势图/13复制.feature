@@ -32,7 +32,7 @@ Feature: 趋势图复制(RZY-1889)
     And I click the "Settings" button
     And I click the "Bubble" button
     And I click the "AccordingField" button
-    And I choose the "cnt" from the "BubbleSize" in config
+    And I choose the "cnt" from the "BubbleSize"
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Orange" button

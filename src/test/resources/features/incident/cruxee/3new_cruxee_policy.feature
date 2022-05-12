@@ -46,7 +46,7 @@ Feature: 事件管理-合并策略-6个
 
     When I click the "AddAppCondition" button
     Given I wait for loading complete
-#    And I choose the "name" from the "AppConditionFieldslist" in config
+#    And I choose the "name" from the "AppConditionFieldslist"
     And I choose the "name" from the "AppConditionFieldslist"
     And I wait for "2000" millsecond
     And I choose the "like" from the "AppConditionOperatorsList"
@@ -55,7 +55,7 @@ Feature: 事件管理-合并策略-6个
     When I click the "AddSecondAppCondition" button
     Given I wait for loading complete
     And I wait for "2000" millsecond
-#    And I choose the "alert_id" from the "AppConditionSecondFieldslist" in config
+#    And I choose the "alert_id" from the "AppConditionSecondFieldslist"
     And I choose the "alert_id" from the "AppConditionSecondFieldslist"
     And I wait for "2000" millsecond
     And I choose the ">" from the "AppConditionSecondOperatorsList"
@@ -132,22 +132,22 @@ Feature: 事件管理-合并策略-6个
     And I set the parameter "CruxeePolicyDes" with value "UI自动测试"
 
     When I click the "AddAppCondition" button
-    And I choose the "name" from the "AppConditionFieldslist" in config
+    And I choose the "name" from the "AppConditionFieldslist"
     And I wait for "2000" millsecond
-    And I choose the "like" from the "AppConditionOperatorsList" in config
+    And I choose the "like" from the "AppConditionOperatorsList"
     And I wait for "2000" millsecond
     And I set the parameter "AppConditionInput" with value "spl统计"
 
     When I click the "AddGroupCondition" button
-    And I choose the "priority" from the "GroupConditionFieldslist" in config
+    And I choose the "priority" from the "GroupConditionFieldslist"
 
     When I click the "AddStopCondition" button
     And I set the parameter "StopConditionContinuousAlertInput" with value "18000"
-#    And I choose the "秒" from the "StopConditionContinuousAlertInputUnitList" in config
-#    And I choose the "最后一条告警的字段" from the "StopConditionNameslist" in config
-#    And I choose the "priority" from the "StopConditionLastAlertFieldNamesList" in config
-#    And I choose the ">" from the "StopConditionLastAlertFieldOperatorsList" in config
-#    And I choose the "(10) 恢复" from the "StopConditionLastAlertPriorityList" in config
+#    And I choose the "秒" from the "StopConditionContinuousAlertInputUnitList"
+#    And I choose the "最后一条告警的字段" from the "StopConditionNameslist"
+#    And I choose the "priority" from the "StopConditionLastAlertFieldNamesList"
+#    And I choose the ">" from the "StopConditionLastAlertFieldOperatorsList"
+#    And I choose the "(10) 恢复" from the "StopConditionLastAlertPriorityList"
     And I choose the "秒" from the "StopConditionContinuousAlertInputUnitList"
     And I wait for "2000" millsecond
     And I choose the "最后一条告警的字段" from the "StopConditionNameslist"
@@ -179,18 +179,18 @@ Feature: 事件管理-合并策略-6个
     And I set the parameter "CruxeePolicyDes" with value "UI自动测试"
 
     When I click the "AddAppCondition" button
-    And I choose the "name" from the "AppConditionFieldslist" in config
+    And I choose the "name" from the "AppConditionFieldslist"
     And I wait for "2000" millsecond
-    And I choose the "like" from the "AppConditionOperatorsList" in config
+    And I choose the "like" from the "AppConditionOperatorsList"
     And I wait for "2000" millsecond
     And I set the parameter "AppConditionInput" with value "基线"
 
     When I click the "AddGroupCondition" button
-    And I choose the "event_type" from the "GroupConditionFieldslist" in config
+    And I choose the "event_type" from the "GroupConditionFieldslist"
     And I wait for "2000" millsecond
 
     And I set the parameter "StopConditionContinuousAlertInput" with value "300"
-    And I choose the "分钟" from the "StopConditionContinuousAlertInputUnitList" in config
+    And I choose the "分钟" from the "StopConditionContinuousAlertInputUnitList"
     And I wait for "2000" millsecond
 
     And I choose the "<SendPolicyName>" from the "SendPolicyNameslist"
@@ -215,15 +215,15 @@ Feature: 事件管理-合并策略-6个
 
     #添加应用条件--按name相等
     When I click the "AddAppCondition" button
-    And I choose the "name" from the "AppConditionFieldslist" in config
+    And I choose the "name" from the "AppConditionFieldslist"
     And I wait for "2000" millsecond
-    And I choose the "like" from the "AppConditionOperatorsList" in config
+    And I choose the "like" from the "AppConditionOperatorsList"
     And I wait for "2000" millsecond
     And I set the parameter "AppConditionInput" with value "<AppConditionInputParam>"
 
     #添加分组条件--按name相等
     When I click the "AddGroupCondition" button
-    And I choose the "name" from the "GroupConditionFieldslist" in config
+    And I choose the "name" from the "GroupConditionFieldslist"
     And I wait for "2000" millsecond
 
     #添加停止条件--(告警连续不断发送超过1小时，未收到新告警时间15秒)

@@ -55,7 +55,7 @@ Feature: 报表_1a_基本设置
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "PDF" from the "ReportType"
     And I wait for "2000" millsecond
-    And I choose the "test_app" from the "App" in config
+    And I choose the "test_app" from the "App"
     And I wait for "2000" millsecond
     And I choose the "<period>" from the "Period"
     And I set the parameter "Hour" with value "<hour>"
@@ -155,7 +155,7 @@ Feature: 报表_1a_基本设置
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "PDF" from the "ReportType"
     And I wait for "2000" millsecond
-    And I choose the "auto_package" from the "Tag" in config
+    And I choose the "auto_package" from the "Tag"
     And I set the parameter "Crontab" with value "0 0/15 9 ? * MON-FRI"
     And I click the "Parse" button
     And I wait for "EnsureButton" will be visible
@@ -180,7 +180,7 @@ Feature: 报表_1a_基本设置
   Scenario Outline: 检查tooltip
     When I set the parameter "Name" with value "test_report"
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "test_app" from the "App" in config
+    And I choose the "test_app" from the "App"
     And I wait for "2000" millsecond
     And I choose the "PDF" from the "ReportType"
     And I will see the element "SubjectNote" contains "注: 可用变量: 报表名称：<%report_name%>，发送时间：<%report_time%>"

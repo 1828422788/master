@@ -16,7 +16,7 @@ Feature: 日志展现_8其他_环形比例图
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "count_perc" from the "FieldValue" in config
+    And I choose the "count_perc" from the "FieldValue"
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Orange" button
@@ -47,9 +47,9 @@ Feature: 日志展现_8其他_环形比例图
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "count_perc" from the "FieldValue" in config
+    And I choose the "count_perc" from the "FieldValue"
     And I click the "Compare" button
-    And I choose the "count2_perc" from the "FieldValue" in config
+    And I choose the "count2_perc" from the "FieldValue"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -73,11 +73,11 @@ Feature: 日志展现_8其他_环形比例图
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "count_perc" from the "FieldValue" in config
+    And I choose the "count_perc" from the "FieldValue"
     And I click the "Compare" button
-    And I choose the "count2_perc" from the "FieldValue" in config
+    And I choose the "count2_perc" from the "FieldValue"
     And I click the "Facet" button
-    And I choose the "apache.clientip" from the "FieldValue" in config
+    And I choose the "apache.clientip" from the "FieldValue"
     And I set the parameter "RowNum" with value "<rows>"
     And I set the parameter "ColumnNum" with value "<columns>"
     And I click the "Generate" button
@@ -104,11 +104,11 @@ Feature: 日志展现_8其他_环形比例图
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "count_perc" from the "FieldValue" in config
+    And I choose the "count_perc" from the "FieldValue"
     And I click the "Compare" button
-    And I choose the "count2_perc" from the "FieldValue" in config
+    And I choose the "count2_perc" from the "FieldValue"
     And I click the "Facet" button
-    And I choose the "apache.clientip" from the "FieldValue" in config
+    And I choose the "apache.clientip" from the "FieldValue"
     And I set the parameter "RowNum" with value "<rows>"
     And I set the parameter "ColumnNum" with value "<columns>"
     And I click the "Exhibition" button
@@ -161,15 +161,15 @@ Feature: 日志展现_8其他_环形比例图
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "count_perc" from the "FieldValue" in config
+    And I choose the "count_perc" from the "FieldValue"
     And I click the "Compare" button
-    And I choose the "count2_perc" from the "FieldValue" in config
+    And I choose the "count2_perc" from the "FieldValue"
     And I click the "Facet" button
-    And I choose the "apache.clientip" from the "FieldValue" in config
+    And I choose the "apache.clientip" from the "FieldValue"
     And I set the parameter "RowNum" with value "2"
     And I set the parameter "ColumnNum" with value "3"
     And I click the "Exhibition" button
-    And I choose the "<num>" from the "Precision" in config
+    And I choose the "<num>" from the "Precision"
     And I click the "Generate" button
 
     And I click the "Settings" button

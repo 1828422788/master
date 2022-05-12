@@ -38,7 +38,7 @@ Feature: 全链路_3输入项
     And I set the parameter "Title" with value "productNoname"
     And I set the parameter "Token" with value "productNoname"
     And I wait for "2000" millsecond
-    And I choose the "下拉菜单" from the "ParameterType" in config
+    And I choose the "下拉菜单" from the "ParameterType"
     And I wait for "Value" will be visible
     And I set the parameter "Value" with value "<value>"
     And I set the parameter "Label" with value "<label>"
@@ -57,7 +57,7 @@ Feature: 全链路_3输入项
     And I set the parameter "Title" with value "productNoname"
     And I set the parameter "Token" with value "productNoname"
     And I wait for "2000" millsecond
-    And I choose the "下拉菜单" from the "ParameterType" in config
+    And I choose the "下拉菜单" from the "ParameterType"
     And I wait for "Value" will be visible
     And I set the parameter "Value" with value "value"
     And I click the "Add" button
@@ -72,7 +72,7 @@ Feature: 全链路_3输入项
     And I set the parameter "Title" with value "name"
     And I set the parameter "Token" with value "name"
     And I wait for "2000" millsecond
-    And I choose the "下拉菜单" from the "ParameterType" in config
+    And I choose the "下拉菜单" from the "ParameterType"
     And I wait for "Value" will be visible
     And I set the parameter "Value" with value "<value>"
     And I set the parameter "Label" with value "<label>"
@@ -109,7 +109,7 @@ Feature: 全链路_3输入项
     And I set the parameter "Title" with value "productNoname"
     And I set the parameter "Token" with value "productNoname"
     And I wait for "2000" millsecond
-    And I choose the "动态菜单" from the "ParameterType" in config
+    And I choose the "动态菜单" from the "ParameterType"
     And I wait for "SPL" will be visible
     And I set the value "<spl>" to the textarea "SPL"
     And I set the parameter "DynamicField" with value "<dyn_field>"
@@ -133,13 +133,13 @@ Feature: 全链路_3输入项
     And I set the parameter "Title" with value "method"
     And I set the parameter "Token" with value "method"
     And I wait for "2000" millsecond
-    And I choose the "下拉菜单" from the "ParameterType" in config
+    And I choose the "下拉菜单" from the "ParameterType"
     And I wait for "Value" will be visible
     And I set the parameter "Value" with value "POST"
     And I click the "Add" button
     And I set the parameter "Value" with value "GET"
     And I click the "Add" button
-    And I choose the "POST" from the "DefaultValue" in config
+    And I choose the "POST" from the "DefaultValue"
     And I wait for "2000" millsecond
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
@@ -158,7 +158,7 @@ Feature: 全链路_3输入项
     And I wait for "Token" will be visible
     And I set the parameter "Value" with value "*"
     And I click the "Add" button
-    And I choose the "*" from the "DefaultValue" in config
+    And I choose the "*" from the "DefaultValue"
     And I wait for "2000" millsecond
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible

@@ -44,7 +44,7 @@ Feature: 日志展现_6其它
 
     And I click the "Settings" button
     And I click the "Facet" button
-    And I choose the "apache.method" from the "FieldValue" in config
+    And I choose the "apache.method" from the "FieldValue"
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
     And I click the "Generate" button
@@ -70,12 +70,12 @@ Feature: 日志展现_6其它
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "cnt_perc" from the "FieldValue" in config
+    And I choose the "cnt_perc" from the "FieldValue"
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Orange" button
     And I wait for "1000" millsecond
-    And I choose the "1" from the "Precision" in config
+    And I choose the "1" from the "Precision"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -104,9 +104,9 @@ Feature: 日志展现_6其它
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "cnt" from the "FieldValue" in config
+    And I choose the "cnt" from the "FieldValue"
     And I click the "Facet" button
-    And I choose the "apache.method" from the "FieldValue" in config
+    And I choose the "apache.method" from the "FieldValue"
     And I set the parameter "RowNum" with value "1"
     And I set the parameter "ColumnNum" with value "2"
     And I click the "Exhibition" button
@@ -164,9 +164,9 @@ Feature: 日志展现_6其它
     And I click the "Settings" button
     And I click the "Divide" button
     And I click the "DeleteLast" button
-    And I choose the "<divField>" from the "FieldValue" in config
+    And I choose the "<divField>" from the "FieldValue"
     And I click the "Indicator" button
-    And I choose the "<divField>" from the "FieldValue" in config
+    And I choose the "<divField>" from the "FieldValue"
     And I wait for "1500" millsecond
     And I click the "UnifyMetric" button
     And I click the "Exhibition" button
@@ -198,9 +198,9 @@ Feature: 日志展现_6其它
     And I wait for "2000" millsecond
     And I click the "Settings" button
     And I click the "Value" button
-    And I choose the "<countValue>" from the "FieldValue" in config
+    And I choose the "<countValue>" from the "FieldValue"
     And I click the "Divide" button
-    And I choose the "<divValue>" from the "FieldValue" in config
+    And I choose the "<divValue>" from the "FieldValue"
     And I click the "Example" button
     And I click the "FirstPosition" button
     And I click the "Exhibition" button
@@ -231,9 +231,9 @@ Feature: 日志展现_6其它
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Xaxis" button
-    And I choose the "<xValue>" from the "FieldValue" in config
+    And I choose the "<xValue>" from the "FieldValue"
     And I click the "Yaxis" button
-    And I choose the "<yValue>" from the "FieldValue" in config
+    And I choose the "<yValue>" from the "FieldValue"
     And I set the parameter "Segments" with value "<segNum>"
     And I wait for "1000" millsecond
     And I click the "Generate" button
@@ -268,23 +268,23 @@ Feature: 日志展现_6其它
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "<function>" from the "Function" in config
-    And I choose the "<parentIDvalue>" from the "ParentId" in config
-    And I choose the "<childIDvalue>" from the "ChildId" in config
+    And I choose the "<function>" from the "Function"
+    And I choose the "<parentIDvalue>" from the "ParentId"
+    And I choose the "<childIDvalue>" from the "ChildId"
     And I click the "Time" button
-    And I choose the "<starttime>" from the "StartTime" in config
-    And I choose the "<duration>" from the "KeepTime" in config
+    And I choose the "<starttime>" from the "StartTime"
+    And I choose the "<duration>" from the "KeepTime"
     And I click the "Info" button
     And I wait for "2000" millsecond
     And I cancel all selections from the "InfoColumn" except value "<column>"
-    And I choose the "<infoValue>" from the "InfoField" in config
+    And I choose the "<infoValue>" from the "InfoField"
     And I click the "Divide" button
-    And I choose the "<childIDvalue>" from the "FieldValue" in config
+    And I choose the "<childIDvalue>" from the "FieldValue"
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
     And I wait for "1000" millsecond
-    And I choose the "<precision>" from the "Precision" in config
+    And I choose the "<precision>" from the "Precision"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -319,15 +319,15 @@ Feature: 日志展现_6其它
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "TimeSequence" button
-    And I choose the "<timeSeq>" from the "FieldValue" in config
+    And I choose the "<timeSeq>" from the "FieldValue"
     And I click the "Source" button
-    And I choose the "<source>" from the "FieldValue" in config
+    And I choose the "<source>" from the "FieldValue"
     And I click the "Target" button
-    And I choose the "<target>" from the "FieldValue" in config
+    And I choose the "<target>" from the "FieldValue"
     And I click the "Divide" button
-    And I choose the "<segmentation>" from the "FieldValue" in config
+    And I choose the "<segmentation>" from the "FieldValue"
     And I click the "Mark" button
-    And I choose the "<mark>" from the "FieldValue" in config
+    And I choose the "<mark>" from the "FieldValue"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -355,14 +355,14 @@ Feature: 日志展现_6其它
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "<function>" from the "Function" in config
-    And I choose the "<parentIDvalue>" from the "ParentId" in config
-    And I choose the "<childIDvalue>" from the "ChildId" in config
+    And I choose the "<function>" from the "Function"
+    And I choose the "<parentIDvalue>" from the "ParentId"
+    And I choose the "<childIDvalue>" from the "ChildId"
     And I click the "Time" button
-    And I choose the "<starttime>" from the "StartTime" in config
-    And I choose the "<duration>" from the "KeepTime" in config
+    And I choose the "<starttime>" from the "StartTime"
+    And I choose the "<duration>" from the "KeepTime"
     And I click the "Divide" button
-    And I choose the "<childIDvalue>" from the "FieldValue" in config
+    And I choose the "<childIDvalue>" from the "FieldValue"
     And I click the "Info" button
     And I wait for "2000" millsecond
     And I cancel all selections from the "InfoColumn" except value "<infoValue>"
@@ -370,8 +370,8 @@ Feature: 日志展现_6其它
     And I click the "AddColor" button
     And I click the "<color>" button
     And I wait for "1000" millsecond
-    And I choose the "<precision>" from the "Precision" in config
-    And I choose the "tree" from the "TracingType" in config
+    And I choose the "<precision>" from the "Precision"
+    And I choose the "tree" from the "TracingType"
     And I wait for "1000" millsecond
     And I click the "Generate" button
 
@@ -456,7 +456,7 @@ Feature: 日志展现_6其它
     And I click the "Settings" button
     And I click the "Indicators" button
     And I click the "AddIndicator" button
-    And I choose the "cnt" from the "FieldValue" in config
+    And I choose the "cnt" from the "FieldValue"
     And I wait for "2000" millsecond
     And I click the "AddRange" button
     And I set the parameter "MinRange" with value "5"

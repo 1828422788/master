@@ -63,7 +63,7 @@ Feature: 字典_标签
     Then I click the "Ensure" button
     Then I refresh the website
     And I wait for loading invisible
-    And I choose the "<tag>" from the "ResourceDropdown" in config
+    And I choose the "<tag>" from the "ResourceDropdown"
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'0','name':'<dictionaryName>.csv'}"
 

@@ -8,8 +8,7 @@ Feature: 事件管理界面-处理统计功能前置条件
     And I wait for "2000" millsecond
     And I will see the "MainDom" is display
 
-#    And I choose the "待分配" from the "StatusList"
-    And I choose5 the status "待分配" on the path "incident-active-option" from the "StatusList"
+    And I choose the "待分配" from the "StatusList"
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
     When I click the "SearchButton" button
     And I wait for "2000" millsecond
@@ -26,8 +25,7 @@ Feature: 事件管理界面-处理统计功能前置条件
     And I wait for "2000" millsecond
     And I will see the "MainDom" is display
 
-#    And I choose the "待分配" from the "StatusList"
-    And I choose5 the status "待分配" on the path "incident-active-option" from the "StatusList"
+    And I choose the "待分配" from the "StatusList"
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
     When I click the "SearchButton" button
     And I wait for "2000" millsecond
@@ -46,12 +44,10 @@ Feature: 事件管理界面-处理统计功能前置条件
     And I wait for "2000" millsecond
     And I will see the "MainDom" is display
 
-#    And I choose the "工作中" from the "StatusList"
-    And I choose5 the status "工作中" on the path "incident-wip-option" from the "StatusList"
+    And I choose the "工作中" from the "StatusList"
     Given I wait for loading complete
     And I wait for "1000" millsecond
-#    And I choose the "Leibniz" from the "OwnerList"
-    And I choose the item "Leibniz" on the path "span" from the "OwnerList"
+    And I choose the "Leibniz" from the "OwnerList"
 
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
     When I click the "SearchButton" button
@@ -76,8 +72,7 @@ Feature: 事件管理界面-处理统计功能前置条件
     And I wait for "2000" millsecond
     And I will see the "MainDom" is display
 
-#    And I choose the "待分配" from the "StatusList"
-    And I choose5 the status "待分配" on the path "incident-active-option" from the "StatusList"
+    And I choose the "待分配" from the "StatusList"
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
     When I click the "SearchButton" button
     And I wait for "2000" millsecond
@@ -96,12 +91,10 @@ Feature: 事件管理界面-处理统计功能前置条件
     And I wait for "2000" millsecond
     And I will see the "MainDom" is display
 
-#    And I choose the "工作中" from the "StatusList"
-    And I choose5 the status "工作中" on the path "incident-wip-option" from the "StatusList"
+    And I choose the "工作中" from the "StatusList"
     Given I wait for loading complete
     And I wait for "1000" millsecond
-#    And I choose the "Derek" from the "OwnerList"
-    And I choose the item "Derek" on the path "span" from the "OwnerList"
+    And I choose the "Derek" from the "OwnerList"
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
     When I click the "SearchButton" button
     And I wait for "2000" millsecond
@@ -110,7 +103,7 @@ Feature: 事件管理界面-处理统计功能前置条件
     When in incident page i click 10 times the "标记为" and "已解决" button in more menu
     Given I wait for loading complete
     And I wait for "1000" millsecond
-    And I choose5 the status "已解决" on the path "incident-resolved-option" from the "StatusList"
+    And I choose the "已解决" from the "StatusList"
     Given I wait for loading complete
     And I wait for "1000" millsecond
     When I click the "SearchButton" button
@@ -133,8 +126,7 @@ Feature: 事件管理界面-处理统计功能前置条件
     And I wait for "2000" millsecond
     And I will see the "MainDom" is display
 
-#    And I choose the "待分配" from the "StatusList"
-    And I choose5 the status "待分配" on the path "incident-active-option" from the "StatusList"
+    And I choose the "待分配" from the "StatusList"
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
     When I click the "SearchButton" button
     And I wait for "2000" millsecond
@@ -153,12 +145,10 @@ Feature: 事件管理界面-处理统计功能前置条件
     And I wait for "2000" millsecond
     And I will see the "MainDom" is display
 
-#    And I choose the "工作中" from the "StatusList"
-    And I choose5 the status "工作中" on the path "incident-wip-option" from the "StatusList"
+    And I choose the "工作中" from the "StatusList"
     Given I wait for loading complete
     And I wait for "1000" millsecond
-#    And I choose the "钟阿城" from the "OwnerList"
-    And I choose the item "钟阿城" on the path "span" from the "OwnerList"
+    And I choose the "钟阿城" from the "OwnerList"
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
     When I click the "SearchButton" button
     And I wait for "2000" millsecond

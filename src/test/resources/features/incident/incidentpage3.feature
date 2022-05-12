@@ -8,7 +8,7 @@ Feature: 事件管理界面--按钮功能
     And I wait for "2000" millsecond
     And I will see the "MainDom" is display
 
-    And I choose5 the status "待分配" on the path "incident-active-option" from the "StatusList"
+    And I choose the "待分配" from the "StatusList"
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
     When I click the "SearchButton" button
     And I wait for "2000" millsecond
@@ -26,20 +26,17 @@ Feature: 事件管理界面--按钮功能
     And I wait for "2000" millsecond
     And I will see the "MainDom" is display
 
-#    And I choose the "工作中" from the "StatusList"
-    And I choose5 the status "工作中" on the path "incident-wip-option" from the "StatusList"
+    And I choose the "工作中" from the "StatusList"
     Given I wait for loading complete
     And I wait for "2000" millsecond
-#    And I choose the "admin" from the "OwnerList"
-    And I choose the item "admin" on the path "span" from the "OwnerList"
+    And I choose the "admin" from the "OwnerList"
 
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
     When I click the "SearchButton" button
     And I wait for "2000" millsecond
     Then I will see the element "NameCell13" contains "<alertref>"
 #    Then I will see the "TotalItem" result will be "<totalItem>"
-#    And I choose the "10" from the "EveryPageList"
-    And I choose the item "10" on the path "span" from the "EveryPageList"
+    And I choose the "10" from the "EveryPageList"
 
     And I click the "AriaLabelRight" button
     Then I will see the element "NameCell13" contains "<alertref>"
@@ -56,8 +53,7 @@ Feature: 事件管理界面--按钮功能
     And I wait for "2000" millsecond
     And I will see the "MainDom" is display
 
-#    And I choose the "待分配" from the "StatusList"
-    And I choose5 the status "待分配" on the path "incident-active-option" from the "StatusList"
+    And I choose the "待分配" from the "StatusList"
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
     When I click the "SearchButton" button
     And I wait for "2000" millsecond
@@ -75,20 +71,17 @@ Feature: 事件管理界面--按钮功能
     And I wait for "2000" millsecond
     And I will see the "MainDom" is display
 
-#    And I choose the "工作中" from the "StatusList"
-    And I choose5 the status "工作中" on the path "incident-wip-option" from the "StatusList"
+    And I choose the "工作中" from the "StatusList"
     Given I wait for loading complete
     And I wait for "2000" millsecond
 
-#    And I choose the "ctest" from the "OwnerList"
-    And I choose the item "ctest" on the path "span" from the "OwnerList"
+    And I choose the "ctest" from the "OwnerList"
 
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
     When I click the "SearchButton" button
     And I wait for "2000" millsecond
     Then I will see the element "NameCell13" contains "<alertref>"
-#    And I choose the "30" from the "EveryPageList"
-    And I choose the item "30" on the path "span" from the "EveryPageList"
+    And I choose the "30" from the "EveryPageList"
     Given I wait for loading complete
     And I wait for "2000" millsecond
 
@@ -109,8 +102,7 @@ Feature: 事件管理界面--按钮功能
     And I wait for "2000" millsecond
     And I will see the "MainDom" is display
 
-#    And I choose the "ctest" from the "OwnerList"
-    And I choose the item "ctest" on the path "span" from the "OwnerList"
+    And I choose the "ctest" from the "OwnerList"
 
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
     When I click the "SearchButton" button
@@ -128,8 +120,7 @@ Feature: 事件管理界面--按钮功能
     And I wait for "2000" millsecond
     And I will see the "MainDom" is display
 
-#    And I choose the "待分配" from the "StatusList"
-    And I choose5 the status "待分配" on the path "incident-active-option" from the "StatusList"
+    And I choose the "待分配" from the "StatusList"
 
     And I set the parameter "SearchInput" with value "alertcef.summary:<alertref>"
     When I click the "SearchButton" button

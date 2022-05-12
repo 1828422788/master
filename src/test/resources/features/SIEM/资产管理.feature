@@ -115,7 +115,7 @@ Feature: 新建资产管理
     When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
     And I will see the url contains "/app/siem/assets/edit"
     And I wait for loading invisible
-    And I choose the "<assetkind>" from the "AssetKind" in config
+    And I choose the "<assetkind>" from the "AssetKind"
     And I click the "Save" button
     When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
     And I wait for loading invisible
@@ -145,7 +145,7 @@ Feature: 新建资产管理
     When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
     And I will see the url contains "/app/siem/assets/edit"
     And I wait for loading invisible
-    And I choose the "<oskind>" from the "OsKind" in config
+    And I choose the "<oskind>" from the "OsKind"
     And I click the "Save" button
     When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
     And I wait for element "OsKindValue" value change text to "<oskind>"

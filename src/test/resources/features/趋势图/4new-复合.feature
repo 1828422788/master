@@ -24,13 +24,13 @@ Feature: 趋势图新建_复合
     And I click the "Type" button
     And I click the "Settings" button
     And I click the "Xaxis" button
-    And I choose the "<xValue>" from the "FieldValue" in config
+    And I choose the "<xValue>" from the "FieldValue"
     And I click the "Yaxis" button
-    And I choose the "<actualValue>" from the "Actual" in config
-    And I choose the "<predictedValue>" from the "Predict" in config
-    And I choose the "<upperValue>" from the "Outlier" in config
-    And I choose the "<upperValue>" from the "TopLimit" in config
-    And I choose the "<lowerValue>" from the "LowerLimit" in config
+    And I choose the "<actualValue>" from the "Actual"
+    And I choose the "<predictedValue>" from the "Predict"
+    And I choose the "<upperValue>" from the "Outlier"
+    And I choose the "<upperValue>" from the "TopLimit"
+    And I choose the "<lowerValue>" from the "LowerLimit"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -85,7 +85,7 @@ Feature: 趋势图新建_复合
 
     And I click the "Settings" button
     And I click the "Xaxis" button
-    And I choose the "apache.resp_len" from the "FieldValue" in config
+    And I choose the "apache.resp_len" from the "FieldValue"
     And I click the "FirstLabel" button
     And I click the "AscendingOrder" button
 
@@ -93,8 +93,8 @@ Feature: 趋势图新建_复合
     And I set the parameter "Min" with value "1"
     And I set the parameter "Max" with value "170000"
     And I set the parameter "Unit" with value "面"
-    And I choose the "max(apache.resp_len)" from the "FieldValue" in config
-    And I choose the "面积图" from the "TypeChartField" in config
+    And I choose the "max(apache.resp_len)" from the "FieldValue"
+    And I choose the "面积图" from the "TypeChartField"
     And I click the "Smooth" button
     And I click the "ConnectEmptyData" button
 
@@ -104,8 +104,8 @@ Feature: 趋势图新建_复合
     And I set the parameter "Min" with value "2"
     And I set the parameter "Max" with value ""
     And I click the "AddConfigFields" button
-    And I choose the "min(apache.resp_len)" from the "FieldValue" in config
-    And I choose the "柱状图" from the "TypeChartField" in config
+    And I choose the "min(apache.resp_len)" from the "FieldValue"
+    And I choose the "柱状图" from the "TypeChartField"
 
     And I click the "AddField" button
     And I click the "Yaxis3" button
@@ -113,8 +113,8 @@ Feature: 趋势图新建_复合
     And I set the parameter "Min" with value ""
     And I set the parameter "Max" with value "49000"
     And I click the "AddConfigFields" button
-    And I choose the "sum(apache.status)" from the "FieldValue" in config
-    And I choose the "散点图" from the "TypeChartField" in config
+    And I choose the "sum(apache.status)" from the "FieldValue"
+    And I choose the "散点图" from the "TypeChartField"
 
     And I click the "Exhibition" button
     And I click the "AddColor" button
@@ -174,7 +174,7 @@ Feature: 趋势图新建_复合
 
     And I click the "Settings" button
     And I click the "Xaxis" button
-    And I choose the "apache.resp_len" from the "FieldValue" in config
+    And I choose the "apache.resp_len" from the "FieldValue"
     And I click the "FirstLabel" button
     And I click the "AscendingOrder" button
     And I click the "Group" button
@@ -184,8 +184,8 @@ Feature: 趋势图新建_复合
     And I set the parameter "Min" with value "1"
     And I set the parameter "Max" with value "170000"
     And I set the parameter "Unit" with value "面"
-    And I choose the "max(apache.resp_len)" from the "FieldValue" in config
-    And I choose the "面积图" from the "TypeChartField" in config
+    And I choose the "max(apache.resp_len)" from the "FieldValue"
+    And I choose the "面积图" from the "TypeChartField"
     And I drag the element "SliderHandle" by "-60" pixels
     And I click the "AddColor" button
     And I click the "Green" button
@@ -198,8 +198,8 @@ Feature: 趋势图新建_复合
     And I set the parameter "Min" with value "2"
     And I set the parameter "Max" with value ""
     And I click the "AddConfigFields" button
-    And I choose the "min(apache.resp_len)" from the "FieldValue" in config
-    And I choose the "柱状图" from the "TypeChartField" in config
+    And I choose the "min(apache.resp_len)" from the "FieldValue"
+    And I choose the "柱状图" from the "TypeChartField"
     And I click the "AddColor" button
     And I click the "Red" button
 
@@ -209,8 +209,8 @@ Feature: 趋势图新建_复合
     And I set the parameter "Min" with value ""
     And I set the parameter "Max" with value "49000"
     And I click the "AddConfigFields" button
-    And I choose the "sum(apache.status)" from the "FieldValue" in config
-    And I choose the "散点图" from the "TypeChartField" in config
+    And I choose the "sum(apache.status)" from the "FieldValue"
+    And I choose the "散点图" from the "TypeChartField"
     And I click the "AddColor" button
     And I click the "Orange" button
 

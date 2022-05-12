@@ -6,7 +6,7 @@ Feature: 已存搜索弹框界面
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for loading complete
-    Then I choose1 the "打开列表" from the "SavedSearchList"
+    Then I choose the "打开列表" from the "SavedSearchList"
     And I wait for loading complete
 
     And I set the parameter "SavedSearchInput" with value "<name>"
@@ -33,7 +33,7 @@ Feature: 已存搜索弹框界面
 
     Then I will see the success message "创建成功"
 
-    Then I choose1 the "打开列表" from the "SavedSearchList"
+    Then I choose the "打开列表" from the "SavedSearchList"
     And I wait for loading complete
     And I set the parameter "SavedSearchInput" with value "<name>_new"
     Given I wait for loading complete
