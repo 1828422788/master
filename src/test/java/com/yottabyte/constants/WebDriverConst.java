@@ -18,5 +18,5 @@ public class WebDriverConst {
     public static final int WAIT_FOR_DOM_READY_TIMEOUT = 30 * 1000;
 
     //等待元素消失
-    public static final int WAIT_FOR_ELEMENT_INVISIBLE = 1;
+    public static final int WAIT_FOR_ELEMENT_INVISIBLE = 1000;
 }

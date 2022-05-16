@@ -52,7 +52,7 @@ public class WaitForElement {
     }
 
     public static void waitUntilElementLocatedByAttributeDisappear(By locator) {
-        webDriver.manage().timeouts().implicitlyWait(WebDriverConst.WAIT_FOR_ELEMENT_INVISIBLE, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(WebDriverConst.WAIT_FOR_ELEMENT_INVISIBLE, TimeUnit.MILLISECONDS);
         if (ElementExist.isElementExist(webDriver, locator)) {
             try {
                 WebElement element = webDriver.findElement(locator);
