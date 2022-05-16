@@ -14,12 +14,6 @@ Feature: 路由编辑
     When I choose the "<index>" from the "IndexName"
     And I click the "SavedButton" button
     And I will see the success message "保存成功"
-    When open the "localUpload.ListPage" page for uri "/sources/input/os/"
-    And I set the parameter "AppName" with value "iis1"
-    And I set the parameter "Tag" with value "heka"
-    And I upload a file with name "/src/test/resources/testdata/log/apache_10.txt"
-    And I click the "UploadButton" button
-    And I wait for element "VerifyText" change text to "上传完成"
 
     Examples:
       | index | appName | tag  |
@@ -34,12 +28,19 @@ Feature: 路由编辑
     And I choose the "indexerror" from the "IndexName"
     And I click the "SavedButton" button
     And I will see the success message "保存成功"
+
+  Scenario Outline: 上传编辑索引所需日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
-    And I set the parameter "AppName" with value "sunxctest"
-    And I set the parameter "Tag" with value "sunxctest"
+    And I set the parameter "AppName" with value "<appname>"
+    And I set the parameter "Tag" with value "<tag>"
     And I upload a file with name "/src/test/resources/testdata/log/apache_10.txt"
     And I click the "UploadButton" button
     Then I wait for element "VerifyText" change text to "上传完成"
+
+    Examples:
+    | appname | tag   |
+    | iis1    |heka   |
+    | sunxctest| sunxctest|
 
   Scenario Outline: 验证RZY-1484搜索结果
     Given open the "splSearch.SearchPage" page for uri "/search/"

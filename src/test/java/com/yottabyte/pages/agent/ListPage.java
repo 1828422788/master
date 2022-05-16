@@ -266,7 +266,7 @@ public class ListPage extends EditorPage {
         WebElement element =  webDriver.findElement(By.xpath(xpath));
         return element;
     }
-    @FindBy(xpath = "//span[@class='events-title']")
+    @FindBy(xpath = "//span[contains(@class,'events-title')]")
     private WebElement EventsTitle;
     public WebElement getEventsTitle(){
         return EventsTitle;

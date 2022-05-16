@@ -88,7 +88,7 @@ public class SearchPage extends ListPageFactory {
         return newSavedSearch;
     }
 
-    @FindBy(xpath = "//span[@class='events-title']")
+    @FindBy(xpath = "//span[contains(@class,'events-title')]")
     private WebElement EventsTitle;
 
     public WebElement getEventsTitle() {
@@ -663,7 +663,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//div/div[2]/span//span[text()='hostname:']/parent::span//span[@yotta-test='event_list-field_value-dom']")
     private WebElement clientip;
 
-    @FindBy(xpath = "//div/div[2]/span//span[text()='appname:']/parent::span//span[@yotta-test='event_list-field_value-dom']")
+    @FindBy(xpath = "//div/div[2]/span//span[contains(text(),'appname')]//ancestor::span//span[@yotta-test='event_list-field_value-dom']")
     private WebElement appname;
 
     @FindBy(xpath = "//div/div[2]/span//span[text()='tag:']/parent::span//span[@yotta-test='event_list-field_value-dom']")
