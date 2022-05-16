@@ -1,5 +1,25 @@
-@configs @configsSmoke @configs06
+@configs @configs06
 Feature: 字段提取GEO解析
+
+  @configsSmoke
+  Scenario Outline: GEO解析_ip
+    Given open the "configs.ListPage" page for uri "/configs/"
+    And I click the "Create" button
+    Then I will see the "configs.CreatePage" page
+    When I set the parameter "LogSample" with value "221.226.97.92"
+    And I click the "AddRule" button
+    And I choose the "geo解析" from the "ParseRule"
+    And I wait for "1000" millsecond
+    And I choose the "raw_message" from the "SourceField"
+    Then I wait for "1000" millsecond
+    And I click the "EnsureAddParseRule" button
+    And I wait for loading invisible
+    And I click the "ParseButton" button
+    And I wait for "CheckSuccess" will be visible
+    And I will see the field extraction result "<result>"
+    Examples:
+      | result |
+      | {'city':'"南京市"','country':'"中国"','ip':'"221.226.97.92"','isp':'"中国电信"','latitude':'32.05324','longitude':'118.76635','province':'"江苏"','raw_message':'"221.226.97.92"'}|
 
 
   Scenario Outline: RZY-1549:选中解析到顶层字段

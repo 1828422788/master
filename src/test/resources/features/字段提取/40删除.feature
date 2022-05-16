@@ -13,7 +13,6 @@ Feature: 字段提取删除
     @configsSmoke
     Examples:
       | name                        |
-      | RZY1548添加GEO解析          |
       | RZY1547syslog_pri解析       |
       | RZY1540配置UserAgent解析    |
       | RZY2870创建dissect解析      |
@@ -42,6 +41,7 @@ Feature: 字段提取删除
       | RZY1559tag替换                      |
       | RZY1556内容替换                     |
       | RZY1539添加URL解析                  |
+      | RZY1548添加GEO解析                  |
       | RZY2798group_regex                  |
       | RZY1535KeyValue正则匹配             |
       | RZY1533保留key                      |
