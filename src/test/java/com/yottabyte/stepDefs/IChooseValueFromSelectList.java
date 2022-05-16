@@ -213,6 +213,8 @@ public class IChooseValueFromSelectList {
             }
             if (!success)
                 Assert.fail("No such option in the list:" + value + " is missing");
+            //选择下拉列表的内容以后，等待下拉列表不可见了
+            WaitForElement.waitUntilElementLocatedByAttributeDisappear(By.className("yotta-select-option-selected"));
         }
     }
 

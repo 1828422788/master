@@ -11,9 +11,7 @@ Feature: 仪表盘01新建（RZY-208至RZY-210）
     And I set the parameter "DashBoardName" with value "<name>"
     And I will see the text "浏览者" exist in page
     And I choose the "<datauser>" from the "DataUser"
-    And I wait for "500" millsecond
     And I choose the "test_app" from the "AppField"
-    And I wait for "500" millsecond
     And I choose the "auto_package" from the "TagField"
     And I click the "Ensure" button
     Then I will see the success message "新建仪表盘成功"
