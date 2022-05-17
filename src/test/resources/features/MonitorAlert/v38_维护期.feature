@@ -101,14 +101,14 @@ Feature: 监控维护期
     And I choose the "一" from the "BeginWeeklyDayList"
     And I wait for loading complete
     And I set the parameter "MaintainBeginTimeInput" with value "02:00"
-    And I choose2 the "02" from the "MaintainBeginTimeList"
+    And I choose the "02" from the "MaintainBeginTimeList" in the time list
     And I wait for loading complete
     And I hide the time picker popover
     And I choose the "六" from the "EndWeeklyDayList"
     And I click the "BeginTimeLabel" button
     And I wait for "1000" millsecond
     And I set the parameter "MaintainEndTimeInput" with value "23:00"
-    And I choose2 the "23" from the "MaintainEndTimeList"
+    And I choose the "23" from the "MaintainEndTimeList" in the time list
     And I wait for "2000" millsecond
     And I hide the time picker popover
     And I wait for "1000" millsecond
@@ -141,12 +141,12 @@ Feature: 监控维护期
     And I choose the "1日" from the "BeginWeeklyDayList"
     And I wait for loading complete
     And I set the parameter "MaintainBeginTimeInput" with value "02:00"
-    And I choose2 the "02" from the "MaintainBeginTimeList"
+    And I choose the "02" from the "MaintainBeginTimeList" in the time list
     And I wait for loading complete
     And I choose the "28日" from the "EndWeeklyDayList"
     And I wait for "1000" millsecond
     And I set the parameter "MaintainEndTimeInput" with value "23:00"
-    And I choose2 the "23" from the "MaintainEndTimeList"
+    And I choose the "23" from the "MaintainEndTimeList" in the time list
     And I wait for "2000" millsecond
     And I hide the time picker popover
     And I wait for "1000" millsecond
