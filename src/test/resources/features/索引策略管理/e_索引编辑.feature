@@ -149,8 +149,7 @@ Feature: 索引信息编辑（RZY-1477至1480）
     And I click the "Next" button
     And I wait for "1000" millsecond
     And I click the "Next" button
-    And I switch the "IndexSink" button to "unchecked"
-    And I wait for "1000" millsecond
+    And I switch the "Sinkswitch" button to "unchecked"
     And I click the "Next" button
     And I click the "Finish" button
     And I will see the element "Message" name is "索引配置完成!"

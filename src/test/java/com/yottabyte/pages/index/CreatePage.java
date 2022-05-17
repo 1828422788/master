@@ -14,72 +14,36 @@ public class CreatePage extends EditorPage {
         super(driver);
     }
 
-    @FindBy(xpath = "//label[text()='保存时间']/ancestor::div[1]/following-sibling::div[1]//span[@class='yotta-select-selection-icon']")
-    private WebElement savedTimeDropDown;
-
-    @FindBy(xpath = "//input[@yotta-test='indexsetting-index_sink-switch']/ancestor::span")
-    private WebElement sinkswitch;
     public WebElement getSinkswitch() {
-        return sinkswitch;
+        return super.getYottaCheckbox("indexsetting-index_sink-switch");
     }
 
-    @FindBy(xpath = "//button[@yotta-test='step-next-button']")
-    private WebElement Next;
     public WebElement getNext(){
-        return Next;
+        return super.getYottaButton("step-next-button");
     }
 
-    @FindBy(xpath = "//button[@yotta-test='step-done-button']")
-    private WebElement finish;
     public WebElement getFinish(){
-        return finish;
+        return super.getYottaButton("step-done-button");
     }
-
 
     public WebElement getDivideNumber() {
         return super.getYottaInput("indexsetting-number_of_shards-input");
     }
-
 
     public WebElement getDivideTimeDropDown() {
         return dropdownUtils.getDropdownListByLabel("切分时间");
     }
 
     public WebElement getSavedSizeButton() {
-        return SavedSizeButton;
+        return super.getYottaCheckbox("indexsetting-quota-switch");
     }
 
-    @FindBy(xpath = "//input[@yotta-test='indexsetting-quota-switch']/ancestor::span")
-    private WebElement SavedSizeButton;
-
-    @FindBy(xpath = "//input[@yotta-test='indexsetting-index_sink-switch']/ancestor::span")
-    private WebElement IndexSink;
-
-    public WebElement getAdvance() {
-        return getIndexSwitchButton("正排优化");
-    }
-
-    @FindBy(xpath = "//input[@yotta-test='indexsetting-index_freeze-switch']/ancestor::span")
-    public WebElement IndexFrezee;
-
-    @FindBy(xpath = "//input[@yotta-test='indexsetting-copy_retention-switch']/ancestor::span")
-    public WebElement copySaveButton;
     public WebElement getCopySaveButton(){
-        return copySaveButton;
+        return super.getYottaInput("indexsetting-copy_retention-switch");
     }
-
-
 
     public WebElement getIndexFrezee() {
-        return IndexFrezee;
-    }
-
-    public WebElement getIndexSink() {
-        return IndexSink;
-    }
-
-    public WebElement getOpenDataConf() {
-        return getIndexSwitchButton("启用字段配置");
+        return super.getYottaInput("indexsetting-index_freeze-switch");
     }
 
     public WebElement getColdTimeDropDown() {
@@ -105,18 +69,12 @@ public class CreatePage extends EditorPage {
         return super.getButton("保存");
     }
 
-    @FindBy(xpath = "//label[text()='名称']/ancestor::div/following-sibling::div[1]//input" )
-    private WebElement Name;
-
     public WebElement getName() {
-        return Name;
+        return super.getYottaInput("indexsetting-name-input");
     }
 
-    @FindBy(xpath = "//label[text()='描述']/ancestor::div/following-sibling::div[1]//textarea" )
-    private WebElement Desc;
-
     public WebElement getDesc() {
-        return Desc;
+        return super.getYottaTextarea("indexsetting-description-textarea");
     }
 
     public WebElement getSavedTime() {
@@ -127,31 +85,18 @@ public class CreatePage extends EditorPage {
         return super.getYottaInput("indexsetting-rotation_period-input");
     }
 
-    public WebElement getColdTime() {
-        return getInputElement("冷却时间");
-    }
-
     public WebElement getSavedSize() {
         return super.getYottaInput("indexsetting-quota-input");
     }
 
-    public WebElement getSavedCopy() { return getInputElementWithoutLabel("天后删除副本"); }
+    public WebElement getSavedCopy() { return super.getYottaInput("indexsetting-discard_backup-input"); }
 
-    @FindBy(xpath = "//input[@yotta-test='indexsetting-freeze-input']")
-    public WebElement Freeze;
+    public WebElement getFreeze() { return super.getYottaInput("indexsetting-freeze-input"); }
 
-    public WebElement getFreeze() { return Freeze; }
-
-    @FindBy(xpath ="//input[@yotta-test='indexsetting-sink_hdd-input']")
-    private WebElement SinkHDD;
-
-    public WebElement getSinkHDD() { return SinkHDD;}
-
-    @FindBy(xpath = "//input[@yotta-test='indexsetting-sink_nas-input']")
-    private WebElement SinkNAS;
+    public WebElement getSinkHDD() { return super.getYottaInput("indexsetting-sink_hdd-input");}
 
     public WebElement getSinkNAS() {
-        return SinkNAS;
+        return super.getYottaInput("indexsetting-sink_nas-input");
     }
 
     public WebElement getCreateButton() {
@@ -165,27 +110,25 @@ public class CreatePage extends EditorPage {
         return message;
     }
 
-    @FindBy(xpath = "//div[@class='yotta-form-field-help-text']")
-    private WebElement helpMessage;
-    public WebElement getHelpMessage(){
-            return helpMessage;
-        }
+    public WebElement getDialogMessage() {return super.getMessage();}
 
-    @FindBy(xpath = "//span[text()='压缩模式']/preceding-sibling::span")
-    private WebElement CompactModel;
     public WebElement getCompactModel(){
-            return CompactModel;
+            return super.getButtonsByText("压缩模式").get(0);
     }
-    @FindBy(xpath = "//span[text()='数值模式']/preceding-sibling::span")
-    private WebElement NumbertModel;
+
+    public WebElement getCustomModel(){
+        return super.getButtonsByText("自定义模式").get(0);
+    }
+
     public WebElement getNumbertModel(){
-        return NumbertModel;
+        return super.getButtonsByText("数值模式").get(0);
     }
     @FindBy(xpath = "//label[text()='高级配置']/../following-sibling::div//button")
     private WebElement AdvanceSetting;
     public WebElement getAdvanceSetting(){
         return AdvanceSetting;
     }
+
     public WebElement getErrorMessage() {
         return super.getErrorMessage();
     }
@@ -198,15 +141,46 @@ public class CreatePage extends EditorPage {
         return webDriver.findElement(By.xpath("//label[text()='" + name + "']/ancestor::div/following-sibling::div[1]//input[@class='yotta-input yotta-input-large']"));
     }
 
-    public WebElement getLastDropdownList() {
-        return webDriver.findElement(By.xpath("(//div[@class='yotta-select-menu'])[last()]"));
+    public WebElement getReduceInnerFieldsSwitch(){
+       return super.getYottaCheckbox("indexsetting-reduce_inner_fields-switch");
     }
 
-    public WebElement getInputElementWithoutLabel(String name) {
-        return webDriver.findElement(By.xpath("//div[text()='" + name + "']/../../input"));
+    public WebElement getDataReduceSwitch(){
+        return super.getYottaCheckbox("indexsetting-data_reduce-switch");
     }
 
-    public WebElement getIndexSwitchButton(String name){
-        return webDriver.findElement(By.xpath("//label[contains(text(),'" +name+ "')]/parent::div/following-sibling::div//span[@class='yotta-switch-input']"));
+    public WebElement getReduceAfterInput(){
+        return super.getYottaInput("indexsetting-reduce_after-input");
     }
+
+    public WebElement getAddAdvancedStrategy(){
+        return super.getYottaButton("indexsetting-add_advanced_strategy-button");
+    }
+
+    @FindBy(xpath ="(//input[contains(@yotta-test,'indexsetting-strategy_fields_')])[last()]")
+    private WebElement StrategyFieldsInput;
+    public WebElement getStrategyFieldsInput(){
+        return StrategyFieldsInput;
+    }
+
+    public WebElement getDataReduceMessage(){
+        return getVerifyMessage("字段删减配置:");
+    }
+
+    public WebElement getReduceInnerFields(){
+        return getVerifyMessage("丢弃部分内置字段:");
+    }
+
+    public WebElement getVerifyMessage(String name){
+        return webDriver.findElement(By.xpath("//div[contains(text(),'"+name+"')]"));
+    }
+
+    public WebElement getSimpleStrategyList(){
+        return dropdownUtils.getYottaDropdownList("indexsetting-simple_strategy-select");
+    }
+
+    public WebElement getAdvancedStrategyList(){
+        return dropdownUtils.getDropdownListbyPath("(//div[contains(@yotta-test,'indexsetting-strategy_')])[last()]//span[@class='yotta-select-selection-icon']");
+    }
+
 }

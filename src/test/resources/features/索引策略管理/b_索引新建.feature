@@ -9,6 +9,7 @@ Feature: 索引信息新建
   Scenario Outline: RZY-1474:自定义模式新建
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "CustomModel" button
     And I click the "Next" button
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Desc" with value "<desc>"
@@ -40,6 +41,7 @@ Feature: 索引信息新建
   Scenario: RZY-1474:新建索引
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "CustomModel" button
     And I click the "Next" button
     When I set the parameter "Name" with value "error"
     And I set the parameter "Desc" with value "AutoTest"
@@ -55,6 +57,7 @@ Feature: 索引信息新建
   Scenario Outline: RZY-1478:新建索引（保存时间）
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "CustomModel" button
     And I click the "Next" button
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Desc" with value "<desc>"
@@ -100,6 +103,7 @@ Feature: 索引信息新建
   Scenario Outline: RZY-1479:新建索引（保存大小）
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "CustomModel" button
     And I click the "Next" button
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Desc" with value "<desc>"
@@ -118,6 +122,7 @@ Feature: 索引信息新建
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
     When I choose the "<name>" from the "IndexName"
+    And I wait for "Desc" will be visible
     And I set the parameter "Desc" with value "<desc>"
     And I set the parameter "Tag" with value "<name>"
     And I set the parameter "AppName" with value "<name>"
@@ -138,6 +143,7 @@ Feature: 索引信息新建
   Scenario: RZY-1481:新建索引-用于路由测试
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "CustomModel" button
     And I click the "Next" button
     When I set the parameter "Name" with value "iisidx"
     And I set the parameter "Desc" with value "AutoCreate"
@@ -168,6 +174,7 @@ Feature: 索引信息新建
   Scenario Outline: 新建失败
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "CustomModel" button
     And I click the "Next" button
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Desc" with value "<desc>"
@@ -209,6 +216,7 @@ Feature: 索引信息新建
   Scenario: 新建索引(索引数据和副本存留)
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "CustomModel" button
     And I click the "Next" button
     When I set the parameter "Name" with value "index_data"
     And I set the parameter "Desc" with value "AutoTestIndexData"
@@ -228,6 +236,7 @@ Feature: 索引信息新建
   Scenario: 新建索引(索引冻结)
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "CustomModel" button
     And I click the "Next" button
     When I set the parameter "Name" with value "index_freez"
     And I set the parameter "Desc" with value "AutoTestIndexSink"
@@ -252,6 +261,7 @@ Feature: 索引信息新建
   Scenario Outline: 新建索引(索引冻结新建失败)
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "CustomModel" button
     And I click the "Next" button
     When I set the parameter "Name" with value "index_sink"
     And I set the parameter "Desc" with value "AutoTestIndexSink"
@@ -279,6 +289,7 @@ Feature: 索引信息新建
   Scenario: 新建索引(索引下沉)
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "CustomModel" button
     And I click the "Next" button
     When I set the parameter "Name" with value "index_sink"
     And I set the parameter "Desc" with value "AutoTestIndexSink"
@@ -297,6 +308,7 @@ Feature: 索引信息新建
   Scenario Outline: 新建索引(索引下沉失败)
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "CustomModel" button
     And I click the "Next" button
     When I set the parameter "Name" with value "index_sink"
     And I set the parameter "Desc" with value "AutoTestIndexSink"
@@ -322,6 +334,7 @@ Feature: 索引信息新建
   Scenario Outline: 新建索引(开启索引冻结)失败
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "CustomModel" button
     And I click the "Next" button
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Desc" with value "<desc>"
@@ -344,6 +357,7 @@ Feature: 索引信息新建
   Scenario Outline: 新建索引(开启索引下沉)失败
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
+    And I click the "CustomModel" button
     And I click the "Next" button
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Desc" with value "<desc>"
@@ -526,5 +540,245 @@ Feature: 索引信息新建
       |    1     |      nishi  |  索引下沉到NAS时间应为正整数            |
       |     -2   |             |  索引下沉到HDD时间应为正整数            |
       |    0.1   |             |  索引下沉到HDD时间应为正整数            |
+
+  Scenario Outline: 丢弃部分内置字段
+    Given I click the "AddButton" button
+    Then I will see the "index.CreatePage" page
+    And I click the "CustomModel" button
+    And I click the "Next" button
+    When I set the parameter "Name" with value "<name>"
+    And I set the parameter "Desc" with value "<desc>"
+    And I set the parameter "SavedTime" with value "<savedTime>"
+    And I set the parameter "DivideTime" with value "<divideTime>"
+    And I set the parameter "DivideNumber" with value "<divideNumber>"
+    And I click the "Next" button
+    And I switch the "ReduceInnerFieldsSwitch" button to "checked"
+    And I wait for "1000" millsecond
+    And I click the "Next" button
+    And I wait for element "ReduceInnerFields" change text to "丢弃部分内置字段: 已启用"
+    And I click the "Finish" button
+    And I will see the element "Message" name is "索引配置完成!"
+
+    Examples: 新建成功
+      | name                   | desc                   | savedTime | divideTime | divideNumber |
+      | ln_reduce_inner_fields | ln_reduce_inner_fields | 2         | 1          |  2           |
+
+  Scenario Outline: 字段删减配置_简易模式
+    Given I click the "AddButton" button
+    Then I will see the "index.CreatePage" page
+    And I click the "CustomModel" button
+    And I click the "Next" button
+    When I set the parameter "Name" with value "<name>"
+    And I set the parameter "Desc" with value "<desc>"
+    And I set the parameter "SavedTime" with value "<savedTime>"
+    And I set the parameter "DivideTime" with value "<divideTime>"
+    And I wait for "1000" millsecond
+    And I choose the "小时" from the "DivideTimeDropDown"
+    And I click the "Next" button
+    And I switch the "DataReduceSwitch" button to "checked"
+    And I set the parameter "ReduceAfterInput" with value "5"
+    When I choose the "<SimpleStrategyData>" from the "SimpleStrategyList"
+    And I wait for "1000" millsecond
+    And I click the "Next" button
+    And I wait for element "DataReduceMessage" change text to "<dataReduceMessage>"
+    And I click the "Finish" button
+    And I will see the element "Message" name is "索引配置完成!"
+
+    Examples: 新建成功
+      | name                          | desc                            | savedTime | divideTime| SimpleStrategyData              | dataReduceMessage|
+      | ln_data_reduce_keep_all_inner | ln_data_reduce_keep_all_inner   | 10        | 6         | 只保留内部字段的倒排、正排和docvalue | 字段删减配置: 已启用 (5天后只保留内部字段的倒排、正排和docvalue; 无高级模式)|
+      | ln_data_reduce_search_only     | ln_data_reduce_search_only  | 10        | 6         | 只保留内部字段的倒排和正排，丢弃docvalue| 字段删减配置: 已启用 (5天后只保留内部字段的倒排和正排，丢弃docvalue; 无高级模式)|
+      | ln_data_reduce_without_docvalue | ln_data_reduce_without_docvalue | 10        | 6         |丢弃所有的docvalue                    | 字段删减配置: 已启用 (5天后丢弃所有的docvalue; 无高级模式)            |
+
+  Scenario Outline: 字段删减配置_简易模式执行计划校验
+    Given I click the "AddButton" button
+    Then I will see the "index.CreatePage" page
+    And I click the "CustomModel" button
+    And I click the "Next" button
+    When I set the parameter "Name" with value "<name>"
+    And I set the parameter "Desc" with value "<desc>"
+    And I set the parameter "SavedTime" with value "<savedTime>"
+    And I set the parameter "DivideTime" with value "<divideTime>"
+    And I wait for "1000" millsecond
+    And I choose the "小时" from the "DivideTimeDropDown"
+    And I click the "Next" button
+    And I switch the "DataReduceSwitch" button to "checked"
+    And I set the parameter "ReduceAfterInput" with value "5"
+    When I choose the "<SimpleStrategyData>" from the "SimpleStrategyList"
+    And I wait for "1000" millsecond
+    And I click the "Next" button
+    And I wait for element "DialogMessage" change text to "字段配置由于执行代价大，优先级低，不建议配置执行计划小于切分时间*15，是否确定下一步？"
+    And I click the "Ensure" button
+    And I wait for element "DataReduceMessage" change text to "<dataReduceMessage>"
+    And I click the "Finish" button
+    And I will see the element "Message" name is "索引配置完成!"
+
+    Examples: 新建成功
+      | name                   | desc                   | savedTime | divideTime| SimpleStrategyData              | dataReduceMessage|
+      | ln_data_reduce_sample_dialog | ln_data_reduce_sample_dialog | 10        | 12         | 只保留内部字段的倒排、正排和docvalue | 字段删减配置: 已启用 (5天后只保留内部字段的倒排、正排和docvalue; 无高级模式)|
+
+  Scenario Outline: 字段删减配置_高级模式_保留
+    Given I click the "AddButton" button
+    Then I will see the "index.CreatePage" page
+    And I click the "CustomModel" button
+    And I click the "Next" button
+    When I set the parameter "Name" with value "<name>"
+    And I set the parameter "Desc" with value "<desc>"
+    And I set the parameter "SavedTime" with value "<savedTime>"
+    And I set the parameter "DivideTime" with value "<divideTime>"
+    And I wait for "1000" millsecond
+    And I choose the "小时" from the "DivideTimeDropDown"
+    And I click the "Next" button
+    And I switch the "DataReduceSwitch" button to "checked"
+    And I set the parameter "ReduceAfterInput" with value "5"
+
+    And I click the "AddAdvancedStrategy" button
+    When I choose the "保留倒排索引的字段" from the "AdvancedStrategyList"
+    And I set the parameter "StrategyFieldsInput" with value "apache.status,apache.clientip,appname,tag,hostname"
+
+    And I click the "AddAdvancedStrategy" button
+    When I choose the "保留正排索引的字段" from the "AdvancedStrategyList"
+    And I set the parameter "StrategyFieldsInput" with value "raw_message,appname,hostname,logtype,tag,apache.status,apache.clientip,apache.geo.city"
+
+    And I click the "AddAdvancedStrategy" button
+    When I choose the "保留docvalue的字段" from the "AdvancedStrategyList"
+    And I set the parameter "StrategyFieldsInput" with value "apache.status"
+
+    And I wait for "1000" millsecond
+    And I click the "Next" button
+    And I wait for element "DataReduceMessage" change text to "字段删减配置: 已启用 (5天后无简易模式; 保留倒排索引的字段为apache.status,apache.clientip,appname,tag,hostname;保留正排索引的字段为raw_message,appname,hostname,logtype,tag,apache.status,apache.clientip,apache.geo.city;保留docvalue的字段为apache.status;)"
+    And I click the "Finish" button
+    And I will see the element "Message" name is "索引配置完成!"
+
+    Examples: 新建成功
+      | name                      | desc                      | savedTime | divideTime |
+      | ln_data_reduce_senior_keep | ln_data_reduce_senior_keep | 10         | 6          |
+
+  Scenario Outline: 字段删减配置_高级模式_丢弃
+    Given I click the "AddButton" button
+    Then I will see the "index.CreatePage" page
+    And I click the "CustomModel" button
+    And I click the "Next" button
+    When I set the parameter "Name" with value "<name>"
+    And I set the parameter "Desc" with value "<desc>"
+    And I set the parameter "SavedTime" with value "<savedTime>"
+    And I set the parameter "DivideTime" with value "<divideTime>"
+    And I wait for "1000" millsecond
+    And I choose the "小时" from the "DivideTimeDropDown"
+    And I click the "Next" button
+    And I switch the "DataReduceSwitch" button to "checked"
+    And I set the parameter "ReduceAfterInput" with value "5"
+
+    And I click the "AddAdvancedStrategy" button
+    When I choose the "丢弃倒排索引的字段" from the "AdvancedStrategyList"
+    And I set the parameter "StrategyFieldsInput" with value "apache.status"
+
+    And I click the "AddAdvancedStrategy" button
+    When I choose the "丢弃正排索引的字段" from the "AdvancedStrategyList"
+    And I set the parameter "StrategyFieldsInput" with value "apache.clientip"
+
+    And I click the "AddAdvancedStrategy" button
+    When I choose the "丢弃docvalue的字段" from the "AdvancedStrategyList"
+    And I set the parameter "StrategyFieldsInput" with value "apache.geo.city"
+
+    And I wait for "1000" millsecond
+    And I click the "Next" button
+    And I wait for element "DataReduceMessage" change text to "字段删减配置: 已启用 (5天后无简易模式; 丢弃倒排索引的字段为apache.status;丢弃正排索引的字段为apache.clientip;丢弃docvalue的字段为apache.geo.city;)"
+    And I click the "Finish" button
+    And I will see the element "Message" name is "索引配置完成!"
+
+    Examples: 新建成功
+      | name                   | desc                  | savedTime | divideTime |
+      | ln_data_reduce_senior_abandon | ln_data_reduce_senior_abandon | 10         | 6          |
+
+  Scenario Outline: 字段删减配置_高级模式_为空失败
+    Given I click the "AddButton" button
+    Then I will see the "index.CreatePage" page
+    And I click the "CustomModel" button
+    And I click the "Next" button
+    When I set the parameter "Name" with value "<name>"
+    And I set the parameter "Desc" with value "<desc>"
+    And I set the parameter "SavedTime" with value "<savedTime>"
+    And I set the parameter "DivideTime" with value "<divideTime>"
+    And I wait for "1000" millsecond
+    And I choose the "小时" from the "DivideTimeDropDown"
+
+    And I click the "Next" button
+    And I switch the "DataReduceSwitch" button to "checked"
+    And I set the parameter "ReduceAfterInput" with value "5"
+
+    And I click the "AddAdvancedStrategy" button
+    When I choose the "丢弃倒排索引的字段" from the "AdvancedStrategyList"
+
+    And I wait for "1000" millsecond
+    And I click the "Next" button
+
+    And I wait for element "DialogMessage" change text to "高级模式 字段 不能为空"
+    And I click the "Ensure" button
+
+    Examples: 新建成功
+      | name                   | desc                  | savedTime | divideTime |
+      | ln_data_reduce_senior_abandon | ln_data_reduce_senior_abandon | 10         | 6          |
+
+  Scenario Outline: 字段删减配置_高级模式_执行计划校验失败
+    Given I click the "AddButton" button
+    Then I will see the "index.CreatePage" page
+    And I click the "CustomModel" button
+    And I click the "Next" button
+    When I set the parameter "Name" with value "<name>"
+    And I set the parameter "Desc" with value "<desc>"
+    And I set the parameter "SavedTime" with value "<savedTime>"
+    And I set the parameter "DivideTime" with value "<divideTime>"
+    And I click the "Next" button
+    And I switch the "DataReduceSwitch" button to "checked"
+    And I set the parameter "ReduceAfterInput" with value "<ReduceAfterInput>"
+
+    And I click the "AddAdvancedStrategy" button
+    When I choose the "丢弃倒排索引的字段" from the "AdvancedStrategyList"
+    And I set the parameter "StrategyFieldsInput" with value "apache.status"
+
+    And I wait for "1000" millsecond
+    And I click the "Next" button
+    And I will see the element "HelpMessage" name is "<helpmessage>"
+
+    Examples: 新建成功
+      | name                          | desc                          | savedTime  | divideTime | ReduceAfterInput|  helpmessage|
+      | ln_data_reduce_senior_abandon | ln_data_reduce_senior_abandon | 10         | 1          |1                |执行计划时间至少为5天 |
+      | ln_data_reduce_senior_abandon | ln_data_reduce_senior_abandon | 10         | 1          |5                |执行计划时间应大于等于7倍的切分时间，小于保存时间。建议配置执行计划=切分时间*30 |
+
+  Scenario Outline: 字段删减配置_组合
+    Given I click the "AddButton" button
+    Then I will see the "index.CreatePage" page
+    And I click the "CustomModel" button
+    And I click the "Next" button
+    When I set the parameter "Name" with value "<name>"
+    And I set the parameter "Desc" with value "<desc>"
+    And I set the parameter "SavedTime" with value "<savedTime>"
+    And I set the parameter "DivideTime" with value "<divideTime>"
+    And I wait for "1000" millsecond
+    And I choose the "小时" from the "DivideTimeDropDown"
+
+    And I click the "Next" button
+    And I switch the "DataReduceSwitch" button to "checked"
+    And I set the parameter "ReduceAfterInput" with value "5"
+
+    When I choose the "只保留内部字段的倒排、正排和docvalue" from the "SimpleStrategyList"
+    And I wait for "1000" millsecond
+
+    And I click the "AddAdvancedStrategy" button
+    When I choose the "丢弃docvalue的字段" from the "AdvancedStrategyList"
+    And I set the parameter "StrategyFieldsInput" with value "apache.geo.city"
+
+    And I wait for "1000" millsecond
+    And I click the "Next" button
+    And I wait for element "DataReduceMessage" change text to "字段删减配置: 已启用 (5天后只保留内部字段的倒排、正排和docvalue; 丢弃docvalue的字段为apache.geo.city;)"
+    And I click the "Finish" button
+    And I will see the element "Message" name is "索引配置完成!"
+
+    Examples: 新建成功
+      | name                   | desc                  | savedTime | divideTime |
+      | ln_data_reduce_collocation | ln_data_reduce_collocation | 10         | 6          |
+
+
 
 
