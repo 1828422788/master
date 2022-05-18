@@ -25,7 +25,7 @@ Feature:2添加表格
     And I wait for "SuccessMessage" will be invisible
     Then I click the "AddEventButton" button
     And I click the "AddChart" button
-    And I wait for "SpinDot" will be invisible
+    And I wait for loading invisible
     And I set the parameter "SearchChartInput" with value "报表测试"
     And I wait for loading invisible
     And I click the "{'Checkbox':'报表测试'}" button

@@ -64,9 +64,9 @@ Feature: 仪表盘_3_3_力图
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
     And I click the "AddChart" button
-    And I wait for "SpinDot" will be invisible
+    And I wait for loading invisible
     And I set the parameter "SearchChartInput" with value "<name>"
-    And I wait for "SpinDot" will be invisible
+    And I wait for loading invisible
     And I click the "{'Checkbox':'<name>'}" button
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible

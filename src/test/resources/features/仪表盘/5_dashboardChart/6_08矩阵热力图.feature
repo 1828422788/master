@@ -68,7 +68,7 @@ Feature: 仪表盘_6_08_矩阵热力图
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
     And I click the "AddChart" button
-    And I wait for "SpinDot" will be invisible
+    And I wait for loading invisible
     And I set the parameter "SearchChartInput" with value "仪表盘矩阵热力图"
     And I wait for loading invisible
     And I click the "{'Checkbox':'仪表盘矩阵热力图'}" button

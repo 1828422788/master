@@ -105,7 +105,7 @@ Feature: 仪表盘输入项
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
     And I click the "AddChart" button
-    And I wait for "SpinDot" will be invisible
+    And I wait for loading invisible
     And I set the parameter "SearchChartInput" with value "仪表盘1669所用趋势图"
     And I wait for loading invisible
     And I click the "{'Checkbox':'仪表盘1669所用趋势图'}" button
@@ -167,7 +167,7 @@ Feature: 仪表盘输入项
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
     And I click the "AddChart" button
-    And I wait for "SpinDot" will be invisible
+    And I wait for loading invisible
     And I set the parameter "SearchChartInput" with value "仪表盘所用趋势图"
     And I wait for loading invisible
     And I "checked" the checkbox which name is "仪表盘所用趋势图"
@@ -317,7 +317,7 @@ Feature: 仪表盘输入项
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
     And I click the "AddChart" button
-    And I wait for "SpinDot" will be invisible
+    And I wait for loading invisible
     And I set the parameter "SearchChartInput" with value "仪表盘所用趋势图"
     And I wait for loading invisible
     And I click the "{'Checkbox':'仪表盘所用趋势图'}" button

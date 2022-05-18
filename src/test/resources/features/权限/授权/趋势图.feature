@@ -594,9 +594,9 @@ Feature: 权限-趋势图
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
     And I click the "AddChart" button
-    And I wait for "SpinDot" will be invisible
+    And I wait for loading invisible
     And I set the parameter "SearchChartInput" with value "<name>"
-  #  And I wait for "SpinDot" will be invisible
+  #  And I wait for loading invisible
     Then I wait for "AutotestCopy" will be visible
     Then I logout current user
 
@@ -629,9 +629,9 @@ Feature: 权限-趋势图
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
     And I click the "AddChart" button
-    And I wait for "SpinDot" will be invisible
+    And I wait for loading invisible
     And I set the parameter "SearchChartInput" with value "<name>"
-   # And I wait for "SpinDot" will be invisible
+   # And I wait for loading invisible
     Then I will see the "AutotestCopy" doesn't exist
     Then I logout current user
 

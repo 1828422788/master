@@ -67,7 +67,7 @@ Feature: 仪表盘_6_00_表格样式设置
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
     And I click the "AddChart" button
-    And I wait for "SpinDot" will be invisible
+    And I wait for loading invisible
     And I set the parameter "SearchChartInput" with value "<name>"
     And I wait for loading invisible
     And I click the "{'Checkbox':'<name>'}" button

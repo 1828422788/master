@@ -73,7 +73,7 @@ Feature: 仪表盘钻取配置二
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
     And I click the "AddChart" button
-    And I wait for "SpinDot" will be invisible
+    And I wait for loading invisible
     And I set the parameter "SearchChartInput" with value "钻取配置"
     And I wait for loading invisible
     And I click the "{'Checkbox':'钻取配置1'}" button

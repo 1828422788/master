@@ -104,7 +104,7 @@ Feature:所有趋势图添加到仪表盘
     And I wait for "2000" millsecond
     Then I click the "AddEventButton" button
     And I click the "AddChart" button
-    And I wait for "SpinDot" will be invisible
+    And I wait for loading invisible
     And I set the parameter "SearchChartInput" with value "<chart>"
     And I wait for loading invisible
     And I click the "{'Checkbox':'<chart>'}" button
