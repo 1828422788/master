@@ -213,7 +213,7 @@ Feature: 仪表盘过滤项
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
     And I click the "FilterName" button
-    And I click the "DeleteTag" button
+    And I click the "DeleteFilter" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
 
@@ -426,7 +426,7 @@ Feature: 仪表盘过滤项
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
     And I click the "FilterName" button
-    And I click the "DeleteTag" button
+    And I click the "DeleteFilter" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
 
@@ -550,7 +550,7 @@ Feature: 仪表盘过滤项
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
     And I click the "FilterName" button
-    And I click the "DeleteTag" button
+    And I click the "DeleteFilter" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     When I click the "AddEventButton" button

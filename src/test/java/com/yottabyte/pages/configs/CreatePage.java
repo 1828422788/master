@@ -196,7 +196,7 @@ public class CreatePage extends EditorPage {
     }
 
     public WebElement getChangeToJson() {
-        return super.getYottaIcon("config-json_swap-icon");
+        return super.getYottaSpan("config-json_swap-icon");
     }
 
     public WebElement getCode() {

@@ -270,7 +270,7 @@ Feature: 仪表盘03详情页
     And I switch the dashboard "FilterAutoRefresh" button to "enable"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
-    And I wait for "Progress" will be invisible
+    And I wait for loading invisible
     Then I will see the "DropdownLink" result will be "昨天"
 
   Scenario: 关闭过滤输入项自动更新(RZY-4637,)
