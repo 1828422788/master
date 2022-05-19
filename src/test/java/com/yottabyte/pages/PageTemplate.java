@@ -180,11 +180,6 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return webDriver.findElement(By.xpath(xpath));
     }
 
-    public WebElement getYottaIcon(String test) {
-        String xpath = "//span[@yotta-test='" + test +"']";
-        return webDriver.findElement(By.xpath(xpath));
-    }
-
     public WebElement getYottaButtonByText(String text) {
         String xpath = "//span[text()='" + text + "']//ancestor::button";
         return webDriver.findElement(By.xpath(xpath));

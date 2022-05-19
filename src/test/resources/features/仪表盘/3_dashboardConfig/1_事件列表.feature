@@ -570,7 +570,7 @@ Feature: 仪表盘1事件列表
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "TimeName" button
-    And I click the "DeleteTag" button
+    And I click the "DeleteFilter" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I wait for "TimeName" will be invisible

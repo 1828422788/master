@@ -180,7 +180,7 @@ Feature: 仪表盘04详情行布局
     And I set the parameter "FilterToken" with value "filter"
     And I set the parameter "FilterDefaultValue" with value "apache.geo.city"
     Then I click the "Ensure" button
-    Then I wait for "FilterName" will be visible
+    Then I wait for element "SuccessMessage" change text to "添加输入项成功"
 
   @dashboardSmoke
   Scenario: 行布局添加行内输入项(RZY-4633)
@@ -340,7 +340,7 @@ Feature: 仪表盘04详情行布局
     And I set the parameter "FilterToken" with value "filter"
     And I set the parameter "FilterDefaultValue" with value "apache.geo.city"
     Then I click the "Ensure" button
-    Then I wait for "FilterName" will be visible
+    Then I wait for element "SuccessMessage" change text to "添加输入项成功"
 
     Examples:
       | dashboardName |

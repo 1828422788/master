@@ -66,9 +66,6 @@ public class DetailPage extends EditorPage {
     @FindBy(xpath = "(//span[text()='全局时间']/following-sibling::i)[last()]")
     private WebElement deleteTimeTag;
 
-    @FindBy(xpath = "//span[@yotta-test='dashboard-delete_filter-icon']")
-    private WebElement deleteTag;
-
     @FindBy(xpath = "//*[@yotta-test='dashboard-filter_setting-icon']")
     private WebElement editTime;
 
@@ -496,9 +493,6 @@ public class DetailPage extends EditorPage {
     @FindBy(xpath = "//span[text()='单选']/ancestor::label")
     private WebElement singleChoice;
 
-    @FindBy(xpath = "//span[text()='filter']/ancestor::div/following-sibling::div/input")
-    private WebElement filterInput;
-
     @FindBy(xpath = "//span[text()='南京市']")
     private WebElement nanjingshi;
 
@@ -520,20 +514,8 @@ public class DetailPage extends EditorPage {
     @FindBy(xpath = "//div[@class='yotta-message-content']")
     private WebElement noticeMessage;
 
-    @FindBy(xpath = "//p[text()='缺少选中的字段']")
-    private WebElement lackField;
-
     @FindBy(xpath = "//div[text()='该选项为必填项不能为空']")
     private WebElement emptyNotice;
-
-    @FindBy(xpath = "//div[text()='无效标识 包含（.）']")
-    private WebElement errorContainPoin;
-
-    @FindBy(xpath = "//div[text()='请填写查询语句']")
-    private WebElement errorNoSpl;
-
-    @FindBy(xpath = "//p[text()='搜索语句须为stats类型']")
-    private WebElement errorSpl;
 
     @FindBy(xpath = "//*[@yotta-test='dashboard-filter_value-select']/div")
     private WebElement filterDropDown1;
@@ -1260,7 +1242,7 @@ public class DetailPage extends EditorPage {
     }
 
     public WebElement getFilterInput() {
-        return filterInput;
+        return super.getYottaInput("dashboard-filter_value-input");
     }
 
     public WebElement getFilterDropDown1() {
@@ -1272,7 +1254,7 @@ public class DetailPage extends EditorPage {
     }
 
     public WebElement getFilterSetting() {
-        return filterSetting;
+        return super.getYottaSpan("dashboard-filter_setting-icon");
     }
 
     public WebElement getFilterName() {
@@ -1405,24 +1387,8 @@ public class DetailPage extends EditorPage {
         return noticeMessage;
     }
 
-    public WebElement getLackField() {
-        return lackField;
-    }
-
     public WebElement getEmptyNotice() {
         return emptyNotice;
-    }
-
-    public WebElement getErrorContainPoin() {
-        return errorContainPoin;
-    }
-
-    public WebElement getErrorNoSpl() {
-        return errorNoSpl;
-    }
-
-    public WebElement getErrorSpl() {
-        return errorSpl;
     }
 
     public WebElement getDashboardMenu() {
@@ -1974,8 +1940,8 @@ public class DetailPage extends EditorPage {
         return addEventButton;
     }
 
-    public WebElement getDeleteTag() {
-        return deleteTag;
+    public WebElement getDeleteFilter() {
+        return super.getYottaSpan("dashboard-delete_filter-icon");
     }
 
     public WebElement getEditTime() {
@@ -2165,11 +2131,8 @@ public class DetailPage extends EditorPage {
         return e;
     }
 
-    @FindBy(xpath = "//*[@yotta-test='dashboard-new_filter_search-button']")
-    private WebElement searchFilterButton;
-
     public WebElement getSearchFilterButton() {
-        return searchFilterButton;
+        return super.getYottaButton("dashboard-new_filter_search-button");
     }
 
     @FindBy(xpath = "//*[@yotta-test='dashboard-chart_more_config-dropdown']/span/span")
@@ -2341,5 +2304,9 @@ public class DetailPage extends EditorPage {
 
     public WebElement getRowMenu() {
         return dropdownUtils.getDropdownListbyPath("//div[@yotta-test='dashboard-add_chart_row-select' or @yotta-test='dashboard-new_filter_row-select' or @yotta-test='dashboard-add_events_row-select']//span");
+    }
+
+    public WebElement getDialogMessage() {
+        return super.getYottaDiv("dashboard-confirm_content-dom");
     }
 }
