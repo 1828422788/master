@@ -321,19 +321,19 @@ public class CreatePage extends EditorPage {
     }
 
     public WebElement getAutoTransformInNum_ch(){
-        return super.getButton("AutoTransformInNum");
+        return super.getButtonByText("AutoTransformInNum");
     }
 
     public WebElement getAutoTransformInQu_ch(){
-        return super.getButton("AutoTransformInQu");
+        return super.getButtonByText("AutoTransformInQu");
     }
 
     public WebElement getAutoChange_ch(){
-        return super.getButton("AutoChange");
+        return super.getButtonByText("AutoChange");
     }
 
     public WebElement getAutoTransform_ch(){
-        return super.getButton("AutoTransform");
+        return super.getButtonByText("AutoTransform");
     }
 
     public WebElement getMultiValueSwitch(){
