@@ -19,7 +19,7 @@ Feature: 字段提取GEO解析
     And I will see the field extraction result "<result>"
     Examples:
       | result |
-      | {'city':'"南京市"','country':'"中国"','ip':'"221.226.97.92"','isp':'"中国电信"','latitude':'32.05324','longitude':'118.76635','province':'"江苏"','raw_message':'"221.226.97.92"'}|
+      | {'city':'"南京市"','country':'"中国"','isp':'"中国电信"','latitude':'32.05324','longitude':'118.76635','province':'"江苏"','raw_message':'"221.226.97.92"'}|
 
 
   Scenario Outline: RZY-1549:选中解析到顶层字段
