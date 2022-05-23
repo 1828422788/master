@@ -152,6 +152,10 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return webDriver.findElements(By.xpath(xpath));
     }
 
+    public WebElement getButtonByText(String text) {
+        return webDriver.findElement(By.xpath("(//span[text()='" + text + "'])[last()]"));
+    }
+
     public WebElement getInputByPlaceholder(String placeholder) {
         return webDriver.findElement(By.xpath("//input[@placeholder='" + placeholder + "']"));
     }

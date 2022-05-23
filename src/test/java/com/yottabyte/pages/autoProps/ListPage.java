@@ -22,7 +22,7 @@ public class ListPage extends EditorPage {
     }
 
     public WebElement getHelpMessage(){
-        return super.getButton("请不要选择重复的应用");
+        return super.getButtonByText("请不要选择重复的应用");
     }
 
     public WebElement getAppName(){
