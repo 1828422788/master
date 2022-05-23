@@ -9,6 +9,7 @@ Feature: 应用路由管理
     And I click the "Indexsetting" button
     And I will see the element "Title" name is "AutoTestAppWithAllResources"
     Then I will see the "index.ListPage" page
+    And I wait for loading invisible
 
 #  Scenario: 新建topic配置
 #    When I click the "Topic" button

@@ -12,11 +12,9 @@ Feature: 监控维护期
     And I click the "ChooseAlertButton" button
     And I set the parameter "AlertNameSearchInput" with value "<alert_name>"
     And I click the "AlertNameSearchIcon" button
-    And I wait for loading complete
-    And I wait for "3000" millsecond
+    And I wait for loading invisible
     And I click the "AlertNameBody" button
-    And I wait for "3000" millsecond
-    And I wait for loading complete
+    And I wait for loading invisible
     And I click the "AlertNameEnsure" button
 
     And I wait for loading complete
@@ -50,11 +48,9 @@ Feature: 监控维护期
     And I click the "ChooseAlertButton" button
     And I set the parameter "AlertNameSearchInput" with value "<alert_name>"
     And I click the "AlertNameSearchIcon" button
-    And I wait for loading complete
-    And I wait for "3000" millsecond
+    And I wait for loading invisible
     And I click the "AlertNameBody" button
-    And I wait for "3000" millsecond
-    And I wait for loading complete
+    And I wait for loading invisible
     And I click the "AlertNameEnsure" button
 
     And I wait for loading complete
@@ -88,11 +84,9 @@ Feature: 监控维护期
     And I click the "ChooseAlertButton" button
     And I set the parameter "AlertNameSearchInput" with value "<alert_name>"
     And I click the "AlertNameSearchIcon" button
-    And I wait for loading complete
-    And I wait for "3000" millsecond
+    And I wait for loading invisible
     And I click the "AlertNameBody" button
-    And I wait for "3000" millsecond
-    And I wait for loading complete
+    And I wait for loading invisible
     And I click the "AlertNameEnsure" button
 
     And I wait for loading complete
@@ -128,11 +122,9 @@ Feature: 监控维护期
     And I click the "ChooseAlertButton" button
     And I set the parameter "AlertNameSearchInput" with value "<alert_name>"
     And I click the "AlertNameSearchIcon" button
-    And I wait for loading complete
-    And I wait for "3000" millsecond
+    And I wait for loading invisible
     And I click the "AlertNameBody" button
-    And I wait for "3000" millsecond
-    And I wait for loading complete
+    And I wait for loading invisible
     And I click the "AlertNameEnsure" button
 
     And I wait for loading complete

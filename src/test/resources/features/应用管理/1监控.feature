@@ -99,6 +99,7 @@ Feature: 应用监控模块（RZY-2122）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AlertApp"
     Then I will see the "alert.ListPage" page
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'AutoTestAppAlert'}" then i click the "编辑" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AlertApp"

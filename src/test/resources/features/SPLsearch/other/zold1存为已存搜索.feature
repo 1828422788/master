@@ -13,7 +13,7 @@ Feature: 已存搜索新建（RZY-150）
     And I click the "SavedSearch" button
     And I wait for loading invisible
     And I set the parameter "OfflineTaskName" with value "<name>"
-    And I choose the "<group>" from the "GroupComboBox"
+    And I choose the new value "<group>" from the "GroupComboBox"
     And I click the "EnsureCreateSavedSearch" button
     Then I will see the success message "<message>"
 

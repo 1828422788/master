@@ -42,7 +42,9 @@ Feature: 日志展现_7timechart
     And I click the "Yaxis" button
     And I wait for "2000" millsecond
     And I set the parameter "Unit" with value "个"
+    And I wait for "1000" millsecond
     And I switch the "Smooth" button to "enable"
+    And I wait for "1000" millsecond
     And I switch the "ConnectEmptyData" button to "enable"
     And I wait for "1000" millsecond
     And I set the parameter "Min" with value "<minVal>"

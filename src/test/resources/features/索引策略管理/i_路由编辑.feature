@@ -3,6 +3,7 @@ Feature: 路由编辑
 
   Background:
     Given open the "index.ListPage" page for uri "/indexmatchrules/"
+    And I wait for loading invisible
 
 
   Scenario Outline: RZY-1483、1484编辑appname、tag、索引
