@@ -1,4 +1,4 @@
-@bvtalert @uplugins @alertSmoke
+@pre00 @uplugins
 Feature: 监控上传告警插件
 
   Background:
