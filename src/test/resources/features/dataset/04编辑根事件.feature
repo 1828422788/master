@@ -46,9 +46,9 @@ Feature: 数据集_04编辑根事件
     When I click the "Return" button
     Then I will see the "dataset.ListPage" page
     And I wait for loading invisible
-    Then I will see the data "{'column':'0','name':'edit'}" values "{'column':'4','name':'test_app'}"
     And the data name is "{'column':'0','name':'edit'}" then I "expand" the item
     And I will see the element "ExpandedRow" contains "资源标签..............auto_package"
+    And I will see the element "ExpandedRow" contains "所属应用..............test_app"
 
   Scenario: 修改父子行为为汇聚-RZY-4125:修改父子行为
     When the data name is "edit" then i click the "编辑" button
