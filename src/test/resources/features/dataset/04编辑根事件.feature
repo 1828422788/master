@@ -20,7 +20,7 @@ Feature: 数据集_04编辑根事件
   Scenario: RZY-4122:修改别名
     When the data name is "edit" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
-    When I click the "EditEvent" button
+    When I choose the "编辑根事件" from the "MoreList"
     And I set the parameter "Alias" with value "new_alias"
     When I click the "Ensure" button
     And I will see the success message "修改成功"
@@ -29,7 +29,7 @@ Feature: 数据集_04编辑根事件
   Scenario: RZY-4123:修改约束语句
     When the data name is "edit" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
-    When I click the "EditEvent" button
+    When I choose the "编辑根事件" from the "MoreList"
     And I set the parameter "Spl" with value "tag:heka"
     And I click the "Ensure" button
     And I will see the success message "修改成功"
@@ -38,7 +38,7 @@ Feature: 数据集_04编辑根事件
   Scenario: RZY-4124:修改所属应用和分组
     When the data name is "edit" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
-    When I click the "EditEvent" button
+    When I choose the "编辑根事件" from the "MoreList"
     And I choose the "test_app" from the "AppField"
     And I set the parameter "Spl" with value "*"
     And I choose the "auto_package" from the "TagField"
@@ -53,7 +53,7 @@ Feature: 数据集_04编辑根事件
   Scenario: 修改父子行为为汇聚-RZY-4125:修改父子行为
     When the data name is "edit" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
-    When I click the "EditEvent" button
+    When I choose the "编辑根事件" from the "MoreList"
     And I click the Element with text "汇聚"
     And I click the "Ensure" button
     And I will see the success message "修改成功"
@@ -62,7 +62,7 @@ Feature: 数据集_04编辑根事件
   Scenario: 修改父子行为为继承-RZY-4125:修改父子行为
     When the data name is "edit" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
-    When I click the "EditEvent" button
+    When I choose the "编辑根事件" from the "MoreList"
     And I click the Element with text "继承"
     When I click the "Ensure" button
     And I will see the success message "修改成功"
@@ -71,7 +71,7 @@ Feature: 数据集_04编辑根事件
   Scenario: 修改父子行为为无-RZY-4125:修改父子行为
     When the data name is "edit" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
-    When I click the "EditEvent" button
+    When I choose the "编辑根事件" from the "MoreList"
     And I click the Element with text "无"
     When I click the "Ensure" button
     And I will see the success message "修改成功"
@@ -80,7 +80,7 @@ Feature: 数据集_04编辑根事件
   Scenario: RZY-4121:修改名称(最后测试修改名称)
     When the data name is "edit" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
-    When I click the "EditEvent" button
+    When I choose the "编辑根事件" from the "MoreList"
     And I set the parameter "Name" with value "new_name"
     When I click the "Ensure" button
     And I will see the success message "修改成功"

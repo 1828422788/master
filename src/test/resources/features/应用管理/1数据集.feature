@@ -80,7 +80,7 @@ Feature: 应用数据集
     Then I will see the element "Title" name is "DatasetApp"
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
-#    When I click the "EditEvent" button
+#    When I choose the "编辑根事件" from the "MoreList"
 #    And I set the parameter "EditYuJu" with value "tag:heka"
 #    And I click the "RootSave" button
 #    And I wait for loading invisible
@@ -166,7 +166,7 @@ Feature: 应用数据集
     Then I will see the element "Title" name is "DatasetApp"
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
-    When I click the "EditEvent" button
+    When I choose the "编辑根事件" from the "MoreList"
     Then I will see the "dataset.ListPage" page
     And I wait for "BeforeDeleteApp" will be visible
     And I move the mouse pointer to the "BeforeDeleteApp"

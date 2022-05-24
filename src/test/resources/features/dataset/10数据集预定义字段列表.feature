@@ -51,7 +51,7 @@ Feature: 数据集_10预定义字段列表
     And I wait for loading invisible
     When the data name is "{'column':'0','name':'have_root_field'}" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
-    When I click the "EditEvent" button
+    When I choose the "编辑根事件" from the "MoreList"
     And I click the "FieldAdd" button
     And I set the parameter "FieldName" with value "ip"
     And I choose the "字符串" from the "FieldType"
@@ -64,7 +64,7 @@ Feature: 数据集_10预定义字段列表
     And I wait for loading invisible
     When the data name is "have_root_field" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
-    When I click the "EditEvent" button
+    When I choose the "编辑根事件" from the "MoreList"
     When I click the "DeleteField" button
     When I click the "Ensure" button
     And I wait for "SuccessMessage" will be invisible

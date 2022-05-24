@@ -22,10 +22,10 @@ Feature: 数据集_01新建
     And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'2','name':'jnd'}"
     And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'3','name':'无'}"
-    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'4','name':'test_app'}"
     And the data name is "{'column':'0','name':'JNDTest'}" then I "expand" the item
     And I will see the element "ExpandedRow" contains "创建者..................admin"
     And I will see the element "ExpandedRow" contains "资源标签..............auto_package"
+    And I will see the element "ExpandedRow" contains "所属应用..............test_app"
 
     Examples: 新建成功
       | name    | alias | spl |
@@ -55,8 +55,9 @@ Feature: 数据集_01新建
   Scenario: RZY-4074:按应用查询
     And I choose the "test_app" from the "AppFilter"
     And I wait for loading invisible
-    Then I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'4','name':'test_app'}"
     Then I will see the search result "{'column':'0','name':'all_','contains':'no'}"
+    And the data name is "{'column':'0','name':'JNDTest'}" then I "expand" the item
+    And I will see the element "ExpandedRow" contains "所属应用..............test_app"
 
   Scenario Outline: RZY-4078:标签
     When the data name is "{'column':'0','name':'<name>'}" then i click the "标签" button in more menu

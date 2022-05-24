@@ -62,7 +62,7 @@ Feature: 趋势图加速_2趋势图使用数据集
     And I wait for loading invisible
     When the data name is "数据集-1" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
-    When I click the "EditEvent" button
+    When I choose the "编辑根事件" from the "MoreList"
     And I set the parameter "Spl" with value "tag:sample04061424_display"
     And I click the "Ensure" button
 

@@ -156,7 +156,7 @@ Feature: 权限-数据集
     When the data name is "<name>" then i click the "编辑" button
     And I will see the "dataset.DetailPage" page
     And I wait for loading invisible
-    And I click the "EditEvent" button
+    When I choose the "编辑根事件" from the "MoreList"
     And I set the parameter "Name" with value "AutoAuthEdit"
     And I click the "Ensure" button
     Then I logout current user
@@ -208,7 +208,7 @@ Feature: 权限-数据集
     When the data name is "<name>" then i click the "编辑" button
     And I wait for loading invisible
     Then I will see the "dataset.DetailPage" page
-    And I click the "EditEvent" button
+    When I choose the "编辑根事件" from the "MoreList"
     And I set the parameter "Name" with value "AutoAuth"
     And I click the "Ensure" button
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -376,7 +376,7 @@ Feature: 权限-数据集
     When the data name is "<name>" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
-    And I click the "EditEvent" button
+    When I choose the "编辑根事件" from the "MoreList"
     And I set the parameter "Name" with value "AutoAuthEdit"
     And I click the "Ensure" button
     Then I logout current user
@@ -460,7 +460,7 @@ Feature: 权限-数据集
     When the data name is "<name>" then i click the "编辑" button
     And I wait for loading invisible
     Then I will see the "dataset.DetailPage" page
-    And I click the "EditEvent" button
+    When I choose the "编辑根事件" from the "MoreList"
     And I set the parameter "Name" with value "AutoAuthForEdit"
     And I click the "Ensure" button
     And I wait for "2000" millsecond
@@ -562,7 +562,7 @@ Feature: 权限-数据集
     When the data name is "<name>" then i click the "编辑" button
     And I wait for loading invisible
     And I will see the "dataset.DetailPage" page
-    And I click the "EditEvent" button
+    When I choose the "编辑根事件" from the "MoreList"
     And I set the parameter "Name" with value "<name>Edit"
     And I click the "Ensure" button
 
@@ -607,7 +607,7 @@ Feature: 权限-数据集
     When the data name is "<name>" then i click the "编辑" button
     And I will see the "dataset.DetailPage" page
     And I wait for loading invisible
-    And I click the "EditEvent" button
+    When I choose the "编辑根事件" from the "MoreList"
     And I set the parameter "Name" with value "测试二次授权EditAgain"
     And I click the "Ensure" button
     Given open the "dataset.ListPage" page for uri "/dataset/"

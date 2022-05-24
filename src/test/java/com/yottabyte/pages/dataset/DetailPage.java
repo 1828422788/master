@@ -16,8 +16,8 @@ public class DetailPage extends EditorPage {
         driver.manage().window().fullscreen();
     }
 
-    public WebElement getEditEvent() {
-        return super.getButton("编辑根事件");
+    public WebElement getMoreList() {
+        return dropdownUtils.getParentElementOfMenuListByXpath("//span[text()='更多']/parent::button");
     }
 
     public WebElement getName() {
@@ -54,13 +54,13 @@ public class DetailPage extends EditorPage {
         return splDetail;
     }
 
-    @FindBy(xpath = "//span[text()='父子行为：']/following-sibling::span")
+    @FindBy(xpath = "//span[contains(text(),'父子行为')]/following-sibling::span")
     private WebElement behaviourDetail;
     public WebElement getBehaviourDetail() {
         return behaviourDetail;
     }
 
-    @FindBy(xpath = "//span[contains(text(),'字段列表')]/parent::*")
+    @FindBy(xpath = "//span[contains(text(),'字段')]/parent::*")
     private WebElement fieldsDetail;
     public WebElement getFieldsDetail() {
         return fieldsDetail;
