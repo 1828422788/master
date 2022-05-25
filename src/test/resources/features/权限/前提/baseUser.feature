@@ -37,15 +37,14 @@ Feature: 基础用户创建
 
   Scenario Outline: 修改密码（首次登录需修改）
     Given I logout current user
-    And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
+    And I wait for title change text to "登录"
     When I set the parameter "Username" with value "<name>"
     And I set the parameter "Password" with value "All!123456"
     And I click the "LoginButton" button
     And I wait for "Modify" will be visible
     And I click the "Modify" button
     And I set the parameter "NewPassword" with value "All#123456"
-  #  And I hide the element "InnerContent"
     And I set the parameter "RepeatPassword" with value "All#123456"
     And I click the "Update" button
 
