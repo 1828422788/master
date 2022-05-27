@@ -4,12 +4,11 @@ Feature: 报表_富文本编辑_统一样式
   @reportSmoke
   Scenario: 添加文件
     Given open the "system.CustomConfigs" page for uri "/system/"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I drag the scroll bar to the element "UnifiedStyleReport"
     And I upload a file "UnifiedStyleReport" with name "/src/test/resources/testdata/reportStyle/unifiedStyle.docx"
     And I wait for "StyleUploadSuccess" will be visible
     When I choose the "WORD" from the "ReportType"
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
   @reportSmoke
@@ -72,8 +71,7 @@ Feature: 报表_富文本编辑_统一样式
     And I click the element "Header" in word report
     And I click the element "Content" in word report
     And I wait for "ContentMenu" will be visible
-    When I click the "FinishButton" button
-    And I wait for "ResultMessage" will be visible
+    When I click the "Complete" button
     And I will see the element "ResultMessage" contains "新建成功"
 
   @reportSmoke
@@ -90,8 +88,7 @@ Feature: 报表_富文本编辑_统一样式
     And I wait for "SuccessMessage" will be visible
     And I will see the element "SuccessMessage" contains "正在生成测试报表，请稍后查看报表历史页"
     And I wait for "40000" millsecond
-    When I click the "FinishButton" button
-    And I wait for "ResultMessage" will be visible
+    When I click the "Complete" button
     And I will see the element "ResultMessage" contains "更新成功"
 
   @reportSmoke
@@ -112,19 +109,17 @@ Feature: 报表_富文本编辑_统一样式
     And I wait for element "SelectedUser" change text to username
     And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
-    When I click the "FinishButton" button
-    And I wait for "ResultMessage" will be visible
+    When I click the "Complete" button
     And I will see the element "ResultMessage" contains "更新成功"
 
   @reportSmoke
   Scenario:  删除统一样式
     Given open the "system.CustomConfigs" page for uri "/system/"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I drag the scroll bar to the element "DeleteUnifiedStyle"
     When I click the "DeleteUnifiedStyle" button
     Then I will see the "UnifiedStyleReport" is display
     When I choose the "PDF" from the "ReportType"
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
   Scenario: 检查报表配置

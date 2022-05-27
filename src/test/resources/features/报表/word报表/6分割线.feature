@@ -21,6 +21,5 @@ Feature:报表_富文本编辑_6_分割线
     And I click the element "DividingLine" in word report
     And I wait for "DividingLineElement" will be visible
     And I choose the "报表测试" from the "ChartList"
-    When I click the "FinishButton" button
-    And I wait for "ResultMessage" will be visible
+    When I click the "Complete" button
     And I will see the element "ResultMessage" contains "新建成功"

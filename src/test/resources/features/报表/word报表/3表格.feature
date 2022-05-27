@@ -26,33 +26,32 @@ Feature:报表_富文本编辑_3_表格
     And I set the table cell in row "1" and column "1" with value "Cell 1 1" in word report
     And I select all text in row "1" and column "1" of the table in word report
     And I click the element "Color" in word report
-    And I click the button with title "#CC4125"
+    And I click the button with data-color "#CC4125"
     And I set the table cell in row "1" and column "2" with value "Cell 1 2" in word report
     And I select all text in row "1" and column "2" of the table in word report
     And I click the element "Color" in word report
-    And I click the button with title "#E69138"
+    And I click the button with data-color "#E69138"
     And I set the table cell in row "1" and column "3" with value "Cell 1 3" in word report
     And I select all text in row "1" and column "3" of the table in word report
     And I click the element "Color" in word report
-    And I click the button with title "#3D85C6"
+    And I click the button with data-color "#3D85C6"
     And I set the table cell in row "2" and column "1" with value "Cell 2 1" in word report
     And I select all text in row "2" and column "1" of the table in word report
     And I click the element "Color" in word report
-    And I click the button with title "#B45F06"
+    And I click the button with data-color "#B45F06"
     And I set the table cell in row "2" and column "2" with value "Cell 2 2" in word report
     And I select all text in row "2" and column "2" of the table in word report
     And I click the element "Color" in word report
-    And I click the button with title "#38761D"
+    And I click the button with data-color "#38761D"
     And I set the table cell in row "2" and column "3" with value "Cell 2 3" in word report
     And I select all text in row "2" and column "3" of the table in word report
     And I click the element "Color" in word report
-    And I click the button with title "#733554"
+    And I click the button with data-color "#733554"
 
     And I select all text in "NewLine" element
     And I click the element "NewLine" in word report
     And I choose the "报表测试" from the "ChartList"
-    When I click the "FinishButton" button
-    And I wait for "ResultMessage" will be visible
+    When I click the "Complete" button
     And I will see the element "ResultMessage" contains "新建成功"
 
   Scenario: table_alignment
@@ -94,8 +93,7 @@ Feature:报表_富文本编辑_3_表格
     And I select all text in "NewLine" element
     And I click the element "NewLine" in word report
     And I choose the "报表测试" from the "ChartList"
-    When I click the "FinishButton" button
-    And I wait for "ResultMessage" will be visible
+    When I click the "Complete" button
     And I will see the element "ResultMessage" contains "新建成功"
 
 
@@ -131,8 +129,7 @@ Feature:报表_富文本编辑_3_表格
     And I select all text in "NewLine" element
     And I click the element "NewLine" in word report
     And I choose the "报表测试" from the "ChartList"
-    When I click the "FinishButton" button
-    And I wait for "ResultMessage" will be visible
+    When I click the "Complete" button
     And I will see the element "ResultMessage" contains "新建成功"
 
   Examples:
@@ -176,19 +173,18 @@ Feature:报表_富文本编辑_3_表格
     And I set the table cell in row "<row1>" and column "<col1>" with value "ADD" in word report
     And I select all text in row "<row1>" and column "<col1>" of the table in word report
     And I click the element "Color" in word report
-    And I click the button with title "#FF0000"
+    And I click the button with data-color "#FF0000"
     And I set the table cell in row "<row2>" and column "<col2>" with value "ADD" in word report
     And I select all text in row "<row2>" and column "<col2>" of the table in word report
     And I click the element "Color" in word report
-    And I click the button with title "#FF0000"
+    And I click the button with data-color "#FF0000"
     And I set the table cell in row "<row3>" and column "<col3>" with value "ADD" in word report
     And I select all text in row "<row3>" and column "<col3>" of the table in word report
     And I click the element "Color" in word report
-    And I click the button with title "#FF0000"
+    And I click the button with data-color "#FF0000"
     And I will see the "TableElement" is display
 
-    When I click the "FinishButton" button
-    And I wait for "ResultMessage" will be visible
+    When I click the "Complete" button
     And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
@@ -220,7 +216,7 @@ Feature:报表_富文本编辑_3_表格
     And I set the table cell in row "2" and column "3" with value "Cell 2 3" in word report
     And I select all text in row "2" and column "2" of the table in word report
     And I click the element "Color" in word report
-    And I click the button with title "#FF0000"
+    And I click the button with data-color "#FF0000"
     And I click the element "Cell22" in word report
 
     And I wait for "VerticalAlignment" will be visible
@@ -236,8 +232,7 @@ Feature:报表_富文本编辑_3_表格
     And I will see the element "Cell22" style contains "<style1>"
     And I will see the element "Cell22" style contains "<style2>"
 
-    When I click the "FinishButton" button
-    And I wait for "ResultMessage" will be visible
+    When I click the "Complete" button
     And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
@@ -278,6 +273,5 @@ Feature:报表_富文本编辑_3_表格
     # check that width has changed
     And I will see the element "TableElement" style contains "width: 2"
 
-    When I click the "FinishButton" button
-    And I wait for "ResultMessage" will be visible
+    When I click the "Complete" button
     And I will see the element "ResultMessage" contains "新建成功"

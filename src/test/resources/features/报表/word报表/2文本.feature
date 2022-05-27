@@ -16,28 +16,25 @@ Feature:报表_富文本编辑_2_本文
     And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
     And I wait for "TextArea" will be visible
-    And I set the parameter "TextArea" with value "<text> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis aliquet nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. textclick"
+    And I set the parameter "TextArea" with value "<text> Lorem ipsum dolor sit amet, consectetur adipiscing elit, non tempus lorem hendrerit. textclick"
+
+    And I choose the "报表测试" from the "ChartList"
     And I click the element "Header" in word report
     And I set the parameter "HeaderText" with value "<text> header" in word report
     And I click the element "Footer" in word report
     And I set the parameter "FooterText" with value "<text> footer" in word report
-
     And I select all text in "TextArea" element
     And I click the element "Color" in word report
-    And I click the button with title "#6AA84F"
-
-    And I click the element "TextAreaLocator" in word report
-    And I choose the "报表测试" from the "ChartList"
-    And I select all text in "TextArea" element
+    And I click the button with data-color "#6AA84F"
     And I click the element "<button>" in word report
+
     And I will see the element "TextAreaLocator" style contains "font-size: 48px;"
     And I will see the element "HeaderTextStyle" style contains "font-size: 48px;"
     And I will see the element "FooterTextStyle" style contains "font-size: 48px;"
     And I will see the element "TextAreaLocator" style contains "color: rgb(106, 168, 79);"
     And I will see the element "HeaderTextStyle" style contains "color: rgb(106, 168, 79);"
     And I will see the element "FooterTextStyle" style contains "color: rgb(106, 168, 79);"
-    When I click the "FinishButton" button
-    And I wait for "ResultMessage" will be visible
+    When I click the "Complete" button
     And I will see the element "ResultMessage" contains "新建成功"
 
   Examples:
@@ -49,27 +46,22 @@ Feature:报表_富文本编辑_2_本文
     When I set the parameter "Name" with value "<name>"
     And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
-
     And I wait for "TextArea" will be visible
     And I set the parameter "TextArea" with value "<text> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis aliquet nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempor nisi urna, sed pulvinar sem molestie in. Fusce scelerisque eleifend accumsan. Phasellus laoreet ligula id orci congue rhoncus non rutrum quam. Donec hendrerit faucibus consequat. Etiam tellus tortor, ultrices et tellus eget, sollicitudin scelerisque risus. Integer mattis velit et nunc sollicitudin, non tempus lorem hendrerit. textclick"
+    And I choose the "报表测试" from the "ChartList"
     And I click the element "Header" in word report
     And I set the parameter "HeaderText" with value "<text> header" in word report
     And I click the element "Footer" in word report
     And I set the parameter "FooterText" with value "<text> footer" in word report
-
     And I click the element "TextArea" in word report
-    And I choose the "报表测试" from the "ChartList"
-
     And I select all text in "TextArea" element
     And I click the element "Color" in word report
-    And I click the button with title "<color>"
+    And I click the button with data-color "<color>"
     And I click the element "<button>" in word report
     And I wait for "<button>Element" will be visible
-
     And I will see the element "HeaderTextStyle" style contains "<colorstyle>"
     And I will see the element "FooterTextStyle" style contains "<colorstyle>"
-    When I click the "FinishButton" button
-    And I wait for "ResultMessage" will be visible
+    When I click the "Complete" button
     And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
@@ -82,17 +74,16 @@ Feature:报表_富文本编辑_2_本文
     When I set the parameter "Name" with value "<button>"
     And I click the "NextButton" button
     And I will see the "report.CreatePageWORD" page
-
     And I wait for "TextArea" will be visible
     And I set the parameter "TextArea" with value "<text> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis aliquet nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempor nisi urna, sed pulvinar sem molestie in. Fusce scelerisque eleifend accumsan. Phasellus laoreet ligula id orci congue rhoncus non rutrum quam. Donec hendrerit faucibus consequat. Etiam tellus tortor, ultrices et tellus eget, sollicitudin scelerisque risus. Integer mattis velit et nunc sollicitudin, non tempus lorem hendrerit. textclick"
+    And I choose the "报表测试" from the "ChartList"
     And I click the element "Header" in word report
     And I set the parameter "HeaderText" with value "<text> header" in word report
     And I click the element "Footer" in word report
     And I set the parameter "FooterText" with value "<text> footer" in word report
-
     And I select all text in "TextArea" element
     And I click the element "Color" in word report
-    And I click the button with title "<color>"
+    And I click the button with data-color "<color>"
     And I click the element "Alignment" in word report
     And I click the element "Alignment" in word report
     And I click the element "<button>" in word report
@@ -102,11 +93,8 @@ Feature:报表_富文本编辑_2_本文
     And I will see the element "TextAreaLocator" style contains "<colorstyle>"
     And I will see the element "HeaderTextStyle" style contains "<colorstyle>"
     And I will see the element "FooterTextStyle" style contains "<colorstyle>"
-
-    And I click the element "TextAreaLocator" in word report
-    And I choose the "报表测试" from the "ChartList"
-    When I click the "FinishButton" button
-    And I wait for "ResultMessage" will be visible
+    And I click the element "TextArea" in word report
+    When I click the "Complete" button
     And I will see the element "ResultMessage" contains "新建成功"
 
    Examples:

@@ -20,7 +20,6 @@ Feature:报表_富文本编辑_7_撤销
 
     And I select all text in "TextArea" element
     And I click the element "<button1>" in word report
-    And I click the element "<button1>" in word report
     And I click the element "<button2>" in word report
     And I wait for "<text_area>" will be visible
     And I click the element "Undo" in word report

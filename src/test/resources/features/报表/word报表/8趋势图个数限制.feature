@@ -30,18 +30,20 @@ Feature: 报表_富文本编辑_8_限制
     And I choose the "报表测试" from the "ChartList"
     And I wait for "1000" millsecond
     And I will see the element "LastAddedTrend" contains "报表测试"
+    And I click the element "TextArea" in word report
     And I select all text in row "1" and column "2" of the table in word report
     And I choose the "报表测试" from the "ChartList"
     And I wait for "1000" millsecond
     And I will see the element "LastAddedTrend" contains "报表测试(1)"
+    And I click the element "TextArea" in word report
     And I select all text in row "1" and column "3" of the table in word report
     And I choose the "报表测试" from the "ChartList"
     And I wait for "1000" millsecond
     And I will see the element "LastAddedTrend" contains "报表测试(2)"
+    And I click the element "TextArea" in word report
     And I select all text in row "2" and column "1" of the table in word report
     And I choose the "报表测试" from the "ChartList"
-    And I will see the message "每个报表最多保存3个趋势图" in alert window
-    And I accept alert window
+    And I will see the message contains "每个报表最多保存3个趋势图"
 
 
   Scenario: change_limit_default

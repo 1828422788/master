@@ -126,30 +126,6 @@ public class ClickSomeButton {
     }
 
     /**
-     * 如果元素存在则点击（word报表）
-     *
-     * @param title 元素名称 (颜色码)
-     */
-    @When("^I click the button with title \"([^\"]*)\"$")
-    public void clickTheButtonWithTitle(String title) {
-        String xpath = "//a[@title='" + title + "']";
-        WebElement button = webDriver.findElement(By.xpath(xpath));
-        if (ElementExist.isElementExist(webDriver, button))
-            button.click();
-    }
-
-    @When("^I click the element \"([^\"]*)\" in word report$")
-    public void clickTheButtonWordReport(String buttonName) {
-        if (buttonName != null && buttonName.trim().length() != 0) {
-            WebElement button = findButton(buttonName);
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", button);
-            button.click();
-        } else {
-            System.out.println("skip this step!");
-        }
-    }
-
-    /**
      * 点击某个icon(可以点击地图上的<svg>元素，<g>元素等等)
      *
      * @param buttonName 仪表盘记录名称
@@ -204,7 +180,7 @@ public class ClickSomeButton {
      *
      * @param buttonName 字符串：按钮的名称，或者json：{'buttonName':'parameters'}
      */
-    private WebElement findButton(String buttonName){
+    static public WebElement findButton(String buttonName){
         String parameters = "";
         WebElement button;
         if (JsonStringPaser.isJson(buttonName)) {

@@ -62,8 +62,7 @@ Feature:报表_富文本编辑_5_目录
     And I click the element "Header" in word report
     And I click the element "Content" in word report
     And I wait for "ContentMenu" will be visible
-    When I click the "FinishButton" button
-    And I wait for "ResultMessage" will be visible
+    When I click the "Complete" button
     And I will see the element "ResultMessage" contains "新建成功"
 
   Scenario: content_place
@@ -94,6 +93,5 @@ Feature:报表_富文本编辑_5_目录
     And I set the parameter "NewLine" with value "2  Lorem ipsum dolor sit amet. Aliquam in luctus. Proin condimentum lorem." and press enter in word report
 
     And I choose the "报表测试" from the "ChartList"
-    When I click the "FinishButton" button
-    And I wait for "ResultMessage" will be visible
+    When I click the "Complete" button
     And I will see the element "ResultMessage" contains "新建成功"

@@ -15,23 +15,14 @@ public class CreatePageWORD extends EditorPage {
         driver.manage().window().setSize(new Dimension(1600,900));
     }
 
-    @FindBy(className = "yotta-message-content")
-    private WebElement successMessage;
-
     @FindBy(xpath = "//span[text()='完成']/ancestor::button")
     private WebElement finishButton;
 
     @FindBy(xpath = "//span[text()='确定']/ancestor::button")
     private WebElement EnsureButton;
 
-    @FindBy(xpath = "//a[@aria-label='选择趋势图']/span")
-    private WebElement addTrendWord;
-
     @FindBy(xpath = "//label[@name='operate_edit']")
     private WebElement editButton;
-
-    @FindBy(xpath = "//a[@aria-label='文本中嵌入单值趋势图']")
-    private WebElement singleTrendList;
 
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']//p[@class= 'editor_block_trend']")
     private WebElement trendElement;
@@ -81,38 +72,20 @@ public class CreatePageWORD extends EditorPage {
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']//strong")
     private WebElement textAreaBold;
 
-    @FindBy(xpath = "//span[text()='上传']/following-sibling::input")
+    @FindBy(xpath = "//span[text()='上传']/ancestor::span//input")
     private WebElement uploadImage;
 
     @FindBy(xpath = "(//div[@class='jodit_wysiwyg']//img)[last()]")
     private WebElement imageElement;
 
-    @FindBy(xpath = "//a[@aria-label='字号']/ancestor::li")
-    private WebElement textFontSize;
-
-    @FindBy(xpath = "//a[@aria-label='粗体']/ancestor::li")
-    private WebElement bold;
-
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']//strong")
     private WebElement boldElement;
-
-    @FindBy(xpath = "//a[@aria-label='斜体']/ancestor::li")
-    private WebElement italics;
 
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']//em")
     private WebElement italicsElement;
 
-    @FindBy(xpath = "//a[@aria-label='下划线']/ancestor::li")
-    private WebElement underline;
-
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']//u")
     private WebElement underlineElement;
-
-    @FindBy(xpath = "//a[@aria-label='页眉']/ancestor::li")
-    private WebElement header;
-
-    @FindBy(xpath = "//a[@aria-label='页脚']/ancestor::li")
-    private WebElement footer;
 
     @FindBy(xpath = "//p[@name='pageheader']")
     private WebElement headerText;
@@ -126,49 +99,37 @@ public class CreatePageWORD extends EditorPage {
     @FindBy(xpath = "//p[@name='pagefooter']/*")
     private WebElement footerTextStyle;
 
-    @FindBy(xpath = "(//a[@aria-label='对齐方式']/ancestor::li)[last()]")
-    private WebElement alignment;
-
-    @FindBy(xpath = "(//a[@aria-label='居中']/ancestor::li)[last()]")
-    private WebElement centerAlignment;
-
-    @FindBy(xpath = "(//a[@aria-label='右对齐']/ancestor::li)[last()]")
-    private WebElement rightAlignment;
-
-    @FindBy(xpath = "(//a[@aria-label='左对齐']/ancestor::li)[last()]")
+    @FindBy(xpath = "//ul[contains(@class,'yotta-menu')]/li[1]")
     private WebElement leftAlignment;
 
-    @FindBy(xpath = "(//a[@aria-label='对齐文本']/ancestor::li)[last()]")
-    private WebElement justifyAlignment;
+    @FindBy(xpath = "//ul[contains(@class,'yotta-menu')]/li[2]")
+    private WebElement centerAlignment;
 
-    @FindBy(xpath = "//a[@aria-label='分割线']/ancestor::li")
-    private WebElement dividingLine;
+    @FindBy(xpath = "//ul[contains(@class,'yotta-menu')]/li[3]")
+    private WebElement rightAlignment;
+
+    @FindBy(xpath = "//ul[contains(@class,'yotta-menu')]/li[4]")
+    private WebElement justifyAlignment;
 
     @FindBy(xpath = "//hr")
     private WebElement dividingLineElement;
 
-    @FindBy(xpath = "//a[@aria-label='目录']/ancestor::li")
-    private WebElement content;
-
     @FindBy(xpath = "//p[@name='wordmenu']")
     private WebElement contentMenu;
 
-    @FindBy(xpath = "//a[@aria-label='表格']/ancestor::li")
-    private WebElement addTable;
-
-    @FindBy(xpath = "//div[@data-index='12']")
+    @FindBy(xpath = "//a[@row='2' and @col='3']")
     private WebElement addTable3x2;
 
-    @FindBy(xpath = "//div[@data-index='22']")
+    @FindBy(xpath = "//a[@row='3' and @col='3']")
     private WebElement addTable3x3;
 
-    @FindBy(xpath = "//div[@data-index='13']")
+    @FindBy(xpath = "//a[@row='2' and @col='4']")
     private WebElement addTable4x2;
 
-    @FindBy(xpath = "//div[@data-index='79']")
+    @FindBy(xpath = "//a[@row='10' and @col='8']")
     private WebElement addTable8x10;
 
-    @FindBy(xpath = "//input[@value = 'no_border_table']")
+    @FindBy(xpath = "//span[text()='无边框']")
     private WebElement noBorders;
 
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']//table")
@@ -180,38 +141,26 @@ public class CreatePageWORD extends EditorPage {
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']//*[not(@name ='pageheader') and not(@name='pagefooter') and contains(text(), 'textclick')]")
     private WebElement textAreaLocator;
 
-    @FindBy(xpath = "//a[@aria-label='颜色']/ancestor::li")
-    private WebElement color;
-
-    @FindBy(xpath = "//a[@title='#FF00FF']")
+    @FindBy(xpath = "//a[@data-color='#FF00FF']")
     private WebElement pink;
 
     @FindBy(xpath = "//div[@class='jodit_wysiwyg']/*[last()]")
     private WebElement newLine;
 
-    @FindBy(xpath = "//a[@aria-label='格式块']/ancestor::li")
-    private WebElement heading;
-
-    @FindBy(xpath = "//a[@aria-label='格式块']/following-sibling::div//span[text() = '标题1']")
+    @FindBy(xpath = "//*[text()='标题1' and name()='h1']/ancestor::li")
     private WebElement heading_1;
 
-    @FindBy(xpath = "//a[@aria-label='格式块']/following-sibling::div//span[text() = '标题2']")
+    @FindBy(xpath = "//*[text()='标题2' and name()='h2']/ancestor::li")
     private WebElement heading_2;
 
-    @FindBy(xpath = "//a[@aria-label='格式块']/following-sibling::div//span[text() = '标题3']")
+    @FindBy(xpath = "//*[text()='标题3' and name()='h3']/ancestor::li")
     private WebElement heading_3;
 
-    @FindBy(xpath = "//a[@aria-label='格式块']/following-sibling::div//span[text() = '标题4']")
+    @FindBy(xpath = "//*[text()='标题4' and name()='h4']/ancestor::li")
     private WebElement heading_4;
 
     @FindBy(xpath = "(//div[@class='jodit_wysiwyg']/h1) | (//div[@class='jodit_wysiwyg']/h2) | (//div[@class='jodit_wysiwyg']/h3) | (//div[@class='jodit_wysiwyg']/h4)")
     private WebElement headingElement;
-
-    @FindBy(xpath = "//a[@aria-label='撤销']/ancestor::li")
-    private WebElement undo;
-
-    @FindBy(xpath = "//a[@aria-label='重做']/ancestor::li")
-    private WebElement redo;
 
     @FindBy(xpath = "//a[@role = 'button' and @aria-label='删除']")
     private WebElement deleteElement;
@@ -279,25 +228,88 @@ public class CreatePageWORD extends EditorPage {
     @FindBy(xpath = "//span[@aria-label='CloseCircle']/ancestor::div[1]/following-sibling::div/p")
     private WebElement errorMessage;
 
-    @FindBy(xpath = " //a[@aria-label='预览']")
-    private WebElement preview;
-
     @FindBy(xpath = "(//ul[contains(@class,'toolbar')])[2]")
     private WebElement dropdownList;
 
-    public WebElement getPreview() {
-        preview.click();
-        return dropdownList;
-    }
-
     public WebElement getChartList() {
-        addTrendWord.click();
-        return dropdownList;
+        getToolbarButton("选择趋势图").click();
+        return dropdownUtils.getParentElementOfMenuList();
     }
 
     public WebElement getSingleChartList() {
-        singleTrendList.click();
-        return dropdownList;
+        getToolbarButton("文本中嵌入单值趋势图").click();
+        return dropdownUtils.getParentElementOfMenuList();
+    }
+
+    public WebElement getAddTable() {
+        return getToolbarButton("表格");
+    }
+
+    public WebElement getContent() {
+        return getToolbarButton("目录");
+    }
+
+    public WebElement getColor() {
+        return getToolbarButton("颜色");
+    }
+
+    public WebElement getTextFontSize48() {
+        getToolbarButton("字号").click();
+        return webDriver.findElement(By.xpath("//li//*[text()='48']"));
+    }
+
+    public WebElement getHeading() {
+        return getToolbarButton("格式块");
+    }
+
+    public WebElement getItalics() {
+        return getToolbarButton("斜体");
+    }
+
+    public WebElement getBold() {
+        return getToolbarButton("粗体");
+    }
+
+    public WebElement getUnderline() {
+        return getToolbarButton("下划线");
+    }
+
+    public WebElement getAlignment() {
+        return getToolbarButton("对齐方式");
+    }
+
+    public WebElement getUploadImage(){
+        getToolbarButton("图片").click();
+        return uploadImage;
+    }
+
+    public WebElement getHeader() {
+        return getToolbarButton("页眉");
+    }
+
+    public WebElement getFooter() {
+        return getToolbarButton("页脚");
+    }
+
+    public WebElement getDividingLine() {
+        return getToolbarButton("分割线");
+    }
+
+    public WebElement getUndo() {
+        return getToolbarButton("撤销");
+    }
+
+    public WebElement getRedo() {
+        return getToolbarButton("重做");
+    }
+
+    public WebElement getPreview() {
+        getToolbarButton("预览").click();
+        return dropdownUtils.getParentElementOfMenuList();
+    }
+
+    private WebElement getToolbarButton(String text) {
+        return webDriver.findElement(By.xpath("//div[text()='" + text + "']/ancestor::li"));
     }
 
     public WebElement getErrorMessage() {
@@ -306,10 +318,6 @@ public class CreatePageWORD extends EditorPage {
 
     public WebElement getTrendNameField() {
         return getYottaInput("report-name-input");
-    }
-
-    public WebElement getSuccessMessage() {
-        return successMessage;
     }
 
     public WebElement getFinishButton() {
@@ -384,51 +392,20 @@ public class CreatePageWORD extends EditorPage {
         return textAlignment;
     }
 
-    public WebElement getUploadImage(){
-        WebElement button = webDriver.findElement(By.xpath("//a[@aria-label='图片']"));
-        button.click();
-        return uploadImage;
-    }
-
     public WebElement getImageElement() {
         return imageElement;
-    }
-
-    public WebElement getTextFontSize48() {
-        textFontSize.click();
-        return webDriver.findElement(By.xpath("((//ul[@class='jodit_toolbar'])[last()])//span[text()='48']"));
-    }
-
-    public WebElement getBold() {
-        return bold;
     }
 
     public WebElement getBoldElement() {
         return boldElement;
     }
 
-    public WebElement getItalics() {
-        return italics;
-    }
-
     public WebElement getItalicsElement() {
         return italicsElement;
     }
 
-    public WebElement getUnderline() {
-        return underline;
-    }
-
     public WebElement getUnderlineElement() {
         return underlineElement;
-    }
-
-    public WebElement getHeader() {
-        return header;
-    }
-
-    public WebElement getFooter() {
-        return footer;
     }
 
     public WebElement getFooterText() {
@@ -447,11 +424,6 @@ public class CreatePageWORD extends EditorPage {
         return footerTextStyle;
     }
 
-    public WebElement getAlignment() {
-        alignment.click();
-        return alignment;
-    }
-
     public WebElement getCenterAlignment() {
         return centerAlignment;
     }
@@ -468,24 +440,12 @@ public class CreatePageWORD extends EditorPage {
         return justifyAlignment;
     }
 
-    public WebElement getDividingLine() {
-        return dividingLine;
-    }
-
     public WebElement getDividingLineElement() {
         return dividingLineElement;
     }
 
-    public WebElement getContent() {
-        return content;
-    }
-
     public WebElement getContentMenu() {
         return contentMenu;
-    }
-
-    public WebElement getAddTable() {
-        return addTable;
     }
 
     public WebElement getAddTable3x2() {
@@ -520,17 +480,9 @@ public class CreatePageWORD extends EditorPage {
         return textAreaLocator;
     }
 
-    public WebElement getColor() {
-        return color;
-    }
-
     public WebElement getNewLine() {
         newLine.click();
         return newLine;
-    }
-
-    public WebElement getHeading() {
-        return heading;
     }
 
     public WebElement getHeading_1() {
@@ -551,14 +503,6 @@ public class CreatePageWORD extends EditorPage {
 
     public WebElement getHeadingElement() {
         return headingElement;
-    }
-
-    public WebElement getUndo() {
-        return undo;
-    }
-
-    public WebElement getRedo() {
-        return redo;
     }
 
     public WebElement getPink() {
@@ -648,20 +592,5 @@ public class CreatePageWORD extends EditorPage {
 
     public WebElement getBottomRightCorner() {
         return bottomRightCorner;
-    }
-
-    public WebElement getLastPartition(){
-//        int sourceX = cell22.getLocation().getX();
-//        int loc_y = cell22.getLocation().getY();
-//        int width = cell22.getSize().getWidth();
-//        System.out.println(width);
-//        System.out.println(sourceX);
-//        System.out.println(loc_y);
-//        int loc_x = sourceX + width;
-//        ((JavascriptExecutor) webDriver).executeScript("document.elementFromPoint(" + loc_x + ", "+ loc_y +").click()");
-//        WebDriverWait wait = new WebDriverWait(webDriver,10);
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='jodit_table_resizer'])[last()]")));
-        WebElement lastPartition = webDriver.findElement(By.xpath("(//div[@class='jodit_table_resizer'])[last()]"));
-        return lastPartition;
     }
 }

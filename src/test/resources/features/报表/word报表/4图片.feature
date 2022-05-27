@@ -25,8 +25,7 @@ Feature:报表_富文本编辑_4_图片
     And I click the element "Undo" in word report
     And I will see the "ImageElement" is display
     And I choose the "报表测试" from the "ChartList"
-    When I click the "FinishButton" button
-    And I wait for "ResultMessage" will be visible
+    When I click the "Complete" button
     And I will see the element "ResultMessage" contains "新建成功"
 
   Scenario: image_20kb
@@ -60,8 +59,7 @@ Feature:报表_富文本编辑_4_图片
     When I upload a file "UploadImage" with name "/src/test/resources/testdata/image/smallRobbot.png"
     And I wait for "ImageElement" will be visible
 
-    When I click the "FinishButton" button
-    And I wait for "ResultMessage" will be visible
+    When I click the "Complete" button
     And I will see the element "ResultMessage" contains "新建成功"
 
   Scenario: image_table
@@ -80,6 +78,5 @@ Feature:报表_富文本编辑_4_图片
 
     And I select all text in row "1" and column "3" of the table in word report
     And I choose the "报表测试" from the "ChartList"
-    When I click the "FinishButton" button
-    And I wait for "ResultMessage" will be visible
+    When I click the "Complete" button
     And I will see the element "ResultMessage" contains "新建成功"
