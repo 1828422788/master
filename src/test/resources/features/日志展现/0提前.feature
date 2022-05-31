@@ -16,8 +16,8 @@ Feature: 创建用户和上传log
   Scenario: 更改密码
     Given open the "users.ListPage" page for uri "/account/users/"
     And I logout current user
-    And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
+    And I wait for title change text to "登录"
     When I set the parameter "Username" with value "logdisplay"
     And I set the parameter "Password" with value "All!123456"
     And I click the "LoginButton" button
