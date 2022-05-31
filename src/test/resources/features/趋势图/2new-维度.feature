@@ -268,7 +268,7 @@ Feature: 趋势图新建_维度
     And I wait for "FlameElement" will be visible
     And I click the Circle "ShenZhen" button
     And I wait for "BackToChart" will be visible
-    And I click the "HideElement" button
+    And I click the Circle "HideElement" button
     And I wait for "2000" millsecond
     And I wait for "FlameElement" will be visible
     And I move the mouse pointer to the "Type"
@@ -333,7 +333,7 @@ Feature: 趋势图新建_维度
     And I wait for "FlameElement" will be visible
     And I click the Circle "ShenZhen" button
     And I will see the "BackToChart" doesn't exist
-    And I click the "HideElement" button
+    And I click the Circle "HideElement" button
     And I wait for "2000" millsecond
     And I wait for "FlameElement" will be visible
     And I move the mouse pointer to the "Type"

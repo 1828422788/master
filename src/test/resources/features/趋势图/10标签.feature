@@ -23,15 +23,13 @@ Feature: 趋势图标签
 
   Scenario: tag_trend
     When the data name is "Tag_Test" then i click the "标签" button in more menu
-    And I click the "TagToInput" button
-    And I set the parameter "Tag" with value "auto_package"
     And I choose the "auto_package" from the "TagField"
     And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I refresh the website
-    And I wait for "AppOfTheLastItem" will be visible
-    Then I will see the data "Tag_Test" values "{'column':'4','name':'auto_package'}"
+    And I wait for loading invisible
+    And the data name is "Tag_Test" then I "expand" the item
+    And I will see the element "ExpandedRow" contains "资源标签..............auto_package"
 
 
   Scenario: verify_tag
@@ -49,20 +47,17 @@ Feature: 趋势图标签
     And I click the "Complete" button
     Then I wait for "SuccessUpdate" will be visible
     When open the "trend.ListPage" page for uri "/trend/"
-    And I wait for "AppOfTheLastItem" will be visible
-    Then I will see the data "Tag_Test" values "{'column':'4','name':'-'}"
-    And I will see the data "Tag_Test" values "{'column':'3','name':'-'}"
+    And I wait for loading invisible
+    And the data name is "Tag_Test" then I "expand" the item
+    And I will see the element "ExpandedRow" contains "资源标签..............无"
 
 
   Scenario Outline: delete_trend
     When the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
     Then I will see the message "确认删除 [<name>] ?"
     When I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
 
     Examples:
     | name             |
     | Tag_Test         |
-

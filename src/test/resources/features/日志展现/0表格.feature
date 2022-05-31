@@ -185,7 +185,6 @@ Feature: 日志展现_0表格
     And I wait for "ColorPanel" will be visible
     And I choose the "值" from the "ColorType"
 
-    And I wait for "<button>" will be visible
     And I click the "<button>" button
     And I click the "EnsureButton" button
 
@@ -205,7 +204,6 @@ Feature: 日志展现_0表格
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
     And I choose the "值" from the "ColorType"
-    And I wait for "CustomColor" will be visible
     And I click the "CustomColor" button
     And I click the "AddValue" button
     And I set the parameter "InputValue" with value "5"
@@ -250,7 +248,6 @@ Feature: 日志展现_0表格
     When I click the "PencilFirst" button
     And I wait for "ColorPanel" will be visible
     And I choose the "值" from the "ColorType"
-    And I wait for "CustomColor" will be visible
     And I click the "CustomColor" button
     And I click the "AddValue" button
     And I set the parameter "InputValue" with value "117.136.79.162"

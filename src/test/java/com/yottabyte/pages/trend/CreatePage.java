@@ -308,7 +308,7 @@ public class CreatePage extends EditorPage {
     @FindBy(xpath = "(//*[text()='405'])[last()]")
     private WebElement status405;
 
-    @FindBy(xpath = "(//span[@yotta-test='search-dataset_resize_handler-dom']) | (//*[text()='配置'])")
+    @FindBy(xpath = "(//span[@yotta-test='search-dataset_resize_handler-dom']) | (//*[text()='图表配置'])")
     private WebElement hideElement;
 
     @FindBy(xpath = "//*[local-name()='g' and @class='vx-group']/ancestor::div[1]")
@@ -1619,15 +1619,15 @@ public class CreatePage extends EditorPage {
     }
 
     public WebElement getDefaultColor() {
-        return getButton("默认");
+        return getYottaRadio("table_chart-default_values_color-radio");
     }
 
     public WebElement getAutoColor() {
-        return getButton("随机");
+        return getYottaRadio("table_chart-auto_values_color-radio");
     }
 
     public WebElement getCustomColor() {
-        return getButton("自定义");
+        return getYottaRadio("table_chart-define_values_color-radio");
     }
 
     public WebElement getAddValue() {

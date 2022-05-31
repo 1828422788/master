@@ -296,7 +296,40 @@ Feature: 日志展现_普通统计视图
       | 7        | 天   | 2725_时间直方图_7d | SaveAsTrend | NameInput | Ensure  |
       | 1        | 周   | 2725_时间直方图_1w | SaveAsTrend | NameInput | Ensure  |
 
-  Scenario Outline: 数值直方图(RZY-816)
+  Scenario Outline: 数值直方图(RZY-816)_500
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    Given I click the "DataHistogram" button
+    And I wait for "1000" millsecond
+    When I choose the "apache.resp_len" from the "FieldValue"
+    And I wait for "1000" millsecond
+    And I set the parameter "DataSpan" with value "<number>"
+    And I click the "Generate" button
+    And I wait for "4000" millsecond
+    And I wait for "Chart" will be visible
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/816_数值直方图_<number>"
+
+    And I click the "<save>" button
+    When I set the parameter "<input>" with value "816_数值直方图_<number>"
+    And I click the "<ok>" button
+    Then I compare source image "actual/普通统计视图/816_数值直方图_<number>" with target image "expect/普通统计视图/816_数值直方图_<number>"
+
+    @logDisplay @logDisplayGeneral
+    Examples:
+      | number | save        | input     | ok      |
+      | 500    |             |           |         |
+
+    @saveAsTrendStatistics
+    Examples:
+      | number | save        | input     | ok      |
+      | 500    | SaveAsTrend | NameInput | Ensure  |
+
+  Scenario Outline: 数值直方图(RZY-816)_5000
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -324,11 +357,6 @@ Feature: 日志展现_普通统计视图
     And I click the "<ok>" button
     Then I compare source image "actual/普通统计视图/816_数值直方图_<number>" with target image "expect/普通统计视图/816_数值直方图_<number>"
 
-    @logDisplay @logDisplayGeneral
-    Examples:
-      | number | tooltip1    | tooltip2 | save        | input     | ok      |
-      | 500    | count : 220 | 0 - 500  |             |           |         |
-
     @logDisplay @logDisplayGeneral @logDisplaySmoke
     Examples:
       | number | tooltip1    | tooltip2 | save        | input     | ok      |
@@ -337,7 +365,6 @@ Feature: 日志展现_普通统计视图
     @saveAsTrendStatistics
     Examples:
       | number | tooltip1    | tooltip2 | save        | input     | ok      |
-      | 500    | count : 220 | 0 - 500  | SaveAsTrend | NameInput | Ensure  |
       | 5000   | count : 244 | 0 - 5000 | SaveAsTrend | NameInput | Ensure  |
 
   Scenario Outline: 字段值分类(RZY-817)

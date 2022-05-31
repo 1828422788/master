@@ -47,9 +47,7 @@ Feature: 趋势图复制(RZY-1889)
 
     When I set the parameter "NameInput" with value "Copy_Test"
     And I choose the "test_app" from the "AppField"
-    And I wait for "2000" millsecond
-    And I set the parameter "TagInput" with value "auto_package"
-    And I click the "SelectAddedTag" button
+    And I choose the new value "auto_package" from the "TagField"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "Complete" button
     Then I wait for "SuccessCreate" will be visible
@@ -57,31 +55,38 @@ Feature: 趋势图复制(RZY-1889)
   @trendSmoke
   Scenario: 复制
     When the data name is "Copy_Test" then i click the "复制" button in more menu
-    And I wait for "Ensure" will be visible
     Then I will see the message "复制成功"
     When I click the "Ensure" button
-    And I wait for "3000" millsecond
+    And I wait for loading invisible
     Then I will see the search result contains "{'column':'0','name':'Copy_Test_副本'}"
+
+  Scenario: 复制-2
+    When the data name is "Copy_Test_副本" then i click the "复制" button in more menu
+    Then I will see the message "复制成功"
+    When I click the "Ensure" button
+    And I wait for loading invisible
+    Then I will see the search result contains "{'column':'0','name':'Copy_Test_副本_副本'}"
+    When the data name is "Copy_Test_副本_副本" then i click the "标签" button in more menu
+    And I cancel selection "auto_package" from the "TagField"
+    And I click the "Ensure" button
+    Then I will see the success message "更新成功"
 
   Scenario: global_tag_app
     When I choose the "auto_package" from the "TagFilter"
-    And I click the "HideElement" button
+    And I choose the "test_app" from the "AppFilter"
     And I wait for loading invisible
-    And I choose the "test_app" from the "AppDropdown"
-    And I wait for loading invisible
-    When I will see the data "{'column':'0','name':'Copy_Test_副本'}" values "{'column':'3','name':'test_app'}"
-    Then I will see the data "{'column':'0','name':'Copy_Test_副本'}" values "{'column':'4','name':'auto_package'}"
-    And I wait for "2000" millsecond
-    Then I will see the data "{'column':'0','name':'Copy_Test'}" values "{'column':'4','name':'auto_package'}"
-    When I will see the data "{'column':'0','name':'Copy_Test'}" values "{'column':'3','name':'test_app'}"
-    And I wait for "2000" millsecond
-    And I will see the element "TagOfTheLastItem" contains "auto_package"
-    And I will see the element "AppOfTheLastItem" contains "test_app"
+    And the data name is "Copy_Test_副本" then I "expand" the item
+    And I will see the element "ExpandedRow" contains "资源标签..............auto_package"
+    And I will see the element "ExpandedRow" contains "所属应用..............test_app"
+    And the data name is "Copy_Test_副本" then I "close" the item
+    And the data name is "Copy_Test" then I "expand" the item
+    And I will see the element "ExpandedRow" contains "资源标签..............auto_package"
+    And I will see the element "ExpandedRow" contains "所属应用..............test_app"
+    And the data name is "Copy_Test" then I "close" the item
+    Then I will see the search result "{'column':'1','name':'Copy_Test_副本_副本','contains':'no'}"
 
   @trendSmoke
   Scenario: 验证
-    And I will see the data "{'column':'0','name':'Copy_Test_副本'}" values "{'column':'4','name':'auto_package'}"
-    And I will see the data "{'column':'0','name':'Copy_Test_副本'}" values "{'column':'3','name':'test_app'}"
     When the data name is "Copy_Test_副本" then i click the "编辑" button
     And I will see the "trend.CreatePage" page
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -108,14 +113,13 @@ Feature: 趋势图复制(RZY-1889)
   @trendSmoke
   Scenario Outline: 删除
     When the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
     Then I will see the message "确认删除 [<name>] ?"
     When I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
 
     Examples:
-    | name             |
-    | Copy_Test        |
-    | Copy_Test_副本  |
+    | name               |
+    | Copy_Test          |
+    | Copy_Test_副本     |
+    | Copy_Test_副本_副本|
 

@@ -42,9 +42,15 @@ Feature: 趋势图批量操作
   Scenario: 验证标签
     When I set the parameter "TextFilter" with value "test_multi_"
     And I wait for loading invisible
-    Then I will see the data "test_multi_1" values "{'column':'4','name':'auto_package'}"
-    Then I will see the data "test_multi_2" values "{'column':'4','name':'auto_package'}"
-    Then I will see the data "test_multi_3" values "{'column':'4','name':'auto_package'}"
+    And the data name is "test_multi_1" then I "expand" the item
+    And I will see the element "ExpandedRow" contains "资源标签..............auto_package"
+    And the data name is "test_multi_1" then I "close" the item
+    And the data name is "test_multi_2" then I "expand" the item
+    And I will see the element "ExpandedRow" contains "资源标签..............auto_package"
+    And the data name is "test_multi_2" then I "close" the item
+    And the data name is "test_multi_3" then I "expand" the item
+    And I will see the element "ExpandedRow" contains "资源标签..............auto_package"
+    And the data name is "test_multi_3" then I "close" the item
 
   Scenario: 批量操作_删除
     When I set the parameter "TextFilter" with value "test_multi_"
@@ -55,10 +61,8 @@ Feature: 趋势图批量操作
     Then I will see the message "您选中的 3 个资源将被删除，是否继续？"
     And I click the "Cancel" button
     When the data name is "{'column':'1','name':'test_multi_3'}" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
     Then I will see the message "确认删除 [test_multi_3] ?"
     When I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
     And I wait for "SuccessMessage" will be invisible
     And I choose the "删除" from the "BatchOperation"

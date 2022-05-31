@@ -8,7 +8,7 @@ Feature: 趋势图加速_2趋势图使用数据集
     And I set the parameter "Alias" with value "数据集-1"
     And I set the parameter "Spl" with value "tag:sample04061424_chart"
     And I click the "Ensure" button
-    And I wait for "Ensure" will be invisible
+    Then I wait for title change text to "数据集详情"
 
   Scenario: 创建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
