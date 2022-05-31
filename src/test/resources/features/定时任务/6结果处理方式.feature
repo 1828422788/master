@@ -42,9 +42,6 @@ Feature: 定时任务_结果处理方式
     And I will see the "timedTask.EditPage" page
     And I wait for "2000" millsecond
     And I wait for element "SelectedUser" change text to username
-    And I wait for "ResultHandling" will be visible
-    When I click the "ResultHandling" button
-    And I wait for "AddJDBC" will be visible
     And I click the "AddJDBC" button
     And I click the "Jdbc" button
     And I wait for "2000" millsecond

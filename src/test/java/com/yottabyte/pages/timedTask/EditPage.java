@@ -220,7 +220,7 @@ public class EditPage extends EditorPage {
     }
 
     public WebElement getBasicSettings() {
-        return getYottaDiv("schedule-nav_basic-dom");
+        return super.findElementByXpath("//*[@yotta-test='schedule-nav_basic-dom']");
     }
 
     public WebElement getDbType() {

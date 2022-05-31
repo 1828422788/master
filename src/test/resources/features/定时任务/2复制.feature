@@ -29,13 +29,10 @@ Feature: 定时任务复制
     And I click the "StartTimeInput" button
     And I click the Circle "BasicSettings" button
     And I will see the "timedTask.ListPage" page
-    And I click the "TagToInput" button
-    And I set the parameter "Tag" with value "auto_package"
     And I choose the "auto_package" from the "TagField"
     Then I will see the "timedTask.EditPage" page
     And I set the parameter "Name" with value "<taskName>"
     And I click the "Submit" button
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -47,52 +44,46 @@ Feature: 定时任务复制
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'copytask'}" then I "expand" the item
-    And I will see the element "TagOfTheLastItem" contains "auto_package"
-    And I will see the element "AppOfTheLastItem" contains "test_app"
+    And I will see the element "ExpandedRow" contains "资源标签..............auto_package"
+    And I will see the element "ExpandedRow" contains "所属应用..............test_app"
     When the data name is "{'column':'1','name':'copytask'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
-    And I wait for "5000" millsecond
     And I wait for element "SelectedUser" change text to username
     And I will see the input element "Number" value will be "20"
     And I set the parameter "Number" with value "123"
     And I click the "SaveButton" button
-    And I wait for "EnsureButton" will be visible
     And I will see the success message "保存成功"
     And I click the "EnsureButton" button
     Then I will see the "timedTask.ListPage" page
 
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'copytask'}" then i click the "复制" button in more menu
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "复制成功"
     And I wait for "SuccessMessage" will be invisible
     And I will see the search result contains "{'column':'1','name':'copytask(副本)'}"
     And the data name is "{'column':'1','name':'copytask(副本)'}" then I "open" the switch
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "开启成功"
     And the data name is "{'column':'1','name':'copytask(副本)'}" then I "expand" the item
-    And I will see the element "TagOfTheLastItem" contains "auto_package"
-    And I will see the element "AppOfTheLastItem" contains "test_app"
+    And I will see the element "ExpandedRow" contains "资源标签..............auto_package"
+    And I will see the element "ExpandedRow" contains "所属应用..............test_app"
 
   Scenario: 检查应用和标签
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
     When I choose the "auto_package" from the "TagFilter"
-    And I click the "HideElement" button
-    And I wait for loading invisible
-    And I choose the "test_app" from the "AppDropdown"
+    And I choose the "test_app" from the "AppFilter"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'copytask'}" then I "expand" the item
-    And I will see the element "TagOfTheLastItem" contains "auto_package"
-    And I will see the element "AppOfTheLastItem" contains "test_app"
+    And I will see the element "ExpandedRow" contains "资源标签..............auto_package"
+    And I will see the element "ExpandedRow" contains "所属应用..............test_app"
     And the data name is "{'column':'1','name':'copytask'}" then I "close" the item
     And the data name is "{'column':'1','name':'copytask(副本)'}" then I "expand" the item
-    And I will see the element "TagOfTheLastItem" contains "auto_package"
-    And I will see the element "AppOfTheLastItem" contains "test_app"
+    And I will see the element "ExpandedRow" contains "资源标签..............auto_package"
+    And I will see the element "ExpandedRow" contains "所属应用..............test_app"
     And the data name is "{'column':'1','name':'copytask(副本)'}" then I "close" the item
     And I click the "ExpandLastItem" button
-    And I will see the element "TagOfTheLastItem" contains "auto_package"
-    And I will see the element "AppOfTheLastItem" contains "test_app"
+    And I will see the element "ExpandedRow" contains "资源标签..............auto_package"
+    And I will see the element "ExpandedRow" contains "所属应用..............test_app"
 
   Scenario: 检查新定时任务的细节
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -110,7 +101,6 @@ Feature: 定时任务复制
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'copytask(副本)'}" then i click the "编辑" button
     Then I will see the "timedTask.EditPage" page
-    And I wait for "5000" millsecond
     And I wait for element "SelectedUser" change text to username
     And I will see the input element "Name" value will be "copytask(副本)"
     And I will see the input element "Describe" value will be "testing"
@@ -123,8 +113,6 @@ Feature: 定时任务复制
     And I will see the element "SelectedApp" contains "test_app"
     And I will see the input element "Period" value will be "5"
     And I click the "Parse" button
-    And I wait for "EnsureButton" will be visible
-    And I wait for "ParseResult" will be visible
     And I click the "EnsureButton" button
 
   Scenario Outline: 删除
@@ -132,14 +120,9 @@ Feature: 定时任务复制
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button in more menu
     And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
 
     Examples:
       |    name          |
       |  copytask        |
       |  copytask(副本)  |
-
-
-
-

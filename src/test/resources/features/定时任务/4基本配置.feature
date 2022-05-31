@@ -22,12 +22,9 @@ Feature: 定时任务_基本配置
     And I click the "StartTimeInput" button
     And I click the Circle "BasicSettings" button
     And I click the "Parse" button
-    And I wait for "EnsureButton" will be visible
-    And I wait for "ParseResult" will be visible
     And I will see the element "ParseResult" contains " 00:04:10"
     And I click the "EnsureButton" button
     And I click the "Submit" button
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario: 新建已存搜索
@@ -103,10 +100,10 @@ Feature: 定时任务_基本配置
     And I will see the element "<element>" contains "<result>"
 
     Examples:
-      |  crontab     |   result                                    | element      | button     |
-      | 0            | crontab模式下, 执行计划不能为零或空         | TipText      | SaveButton |
-      | 0 */57 * * ? | crontab格式错误！                           | ErrorMessage | SaveButton |
-      | 0 */57 * * ? | 解析时间表达式失败，原因：crontab格式错误！ | ErrorMessage | Parse      |
+      |  crontab     |   result                                                                   | element      | button     |
+      | 0            | crontab模式下, 执行计划不能为零或空                                        | TipText      | SaveButton |
+      | 0 */57 * * ? | crontab格式错误！                                                          | ErrorMessage | SaveButton |
+      | 0 */57 * * ? | 解析时间表达式失败，原因：解析错误: parse expression '0 */57 * * ?' failed | ErrorMessage | Parse      |
 
 
   Scenario: 修改定时任务
