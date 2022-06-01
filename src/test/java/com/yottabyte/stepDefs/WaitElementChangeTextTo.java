@@ -106,6 +106,8 @@ public class WaitElementChangeTextTo {
     @And("^I wait for element \"([^\"]*)\" change text to \"([^\"]*)\"$")
     public void  waitUntilTextChange(String elementName, String text) {
         WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
+        if (elementName.equals("SearchStatus") && (text.contains("搜索完成")))
+            webDriver.manage().timeouts().implicitlyWait(WebDriverConst.WAIT_FOR_SEARCH_TO_END, TimeUnit.MILLISECONDS);
         WebElement element = getWebElementWithName(elementName);
         ExpectedCondition expectedCondition = new ExpectedCondition<Boolean>() {
             @Override
@@ -116,6 +118,7 @@ public class WaitElementChangeTextTo {
         };
 
         this.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+        webDriver.manage().timeouts().implicitlyWait(WebDriverConst.WAIT_FOR_ELEMENT_TIMEOUT, TimeUnit.MILLISECONDS);
     }
 
     /**

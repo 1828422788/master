@@ -19,4 +19,7 @@ public class WebDriverConst {
 
     //等待元素消失
     public static final int WAIT_FOR_ELEMENT_INVISIBLE = 1000;
+
+    //等待搜索结束
+    public static final int WAIT_FOR_SEARCH_TO_END = 15 * 1000;
 }
