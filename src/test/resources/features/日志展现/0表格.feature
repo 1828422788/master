@@ -68,7 +68,6 @@ Feature: 日志展现_0表格
   Scenario Outline: 梯度2
     Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
-    And I wait for "ColorPanel" will be visible
     And I choose the "梯度" from the "ColorType"
 
     And I click the "SelectColor" button
@@ -95,7 +94,6 @@ Feature: 日志展现_0表格
   Scenario Outline: 范围
     Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
-    And I wait for "ColorPanel" will be visible
     And I choose the "范围" from the "ColorType"
 
     #RED
@@ -142,7 +140,6 @@ Feature: 日志展现_0表格
   Scenario Outline: 范围_删除
     Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
-    And I wait for "ColorPanel" will be visible
     And I choose the "范围" from the "ColorType"
 
     #RED
@@ -182,7 +179,6 @@ Feature: 日志展现_0表格
   Scenario Outline: 值
     Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
-    And I wait for "ColorPanel" will be visible
     And I choose the "值" from the "ColorType"
 
     And I click the "<button>" button
@@ -202,7 +198,6 @@ Feature: 日志展现_0表格
   Scenario Outline: 值_自定义
     Then I will see the "trend.CreatePage" page
     When I click the "Pencil" button
-    And I wait for "ColorPanel" will be visible
     And I choose the "值" from the "ColorType"
     And I click the "CustomColor" button
     And I click the "AddValue" button
@@ -246,7 +241,6 @@ Feature: 日志展现_0表格
   Scenario Outline: 值_自定义2
     Then I will see the "trend.CreatePage" page
     When I click the "PencilFirst" button
-    And I wait for "ColorPanel" will be visible
     And I choose the "值" from the "ColorType"
     And I click the "CustomColor" button
     And I click the "AddValue" button
@@ -277,10 +271,7 @@ Feature: 日志展现_0表格
     And I will see the element "SelectedValueColorType" contains "无"
 
     And I choose the "值" from the "ColorType"
-
-    And I wait for "AutoColor" will be visible
     And I click the "AutoColor" button
-
     And I click the "ThousandSeparatorCheckbox" button
     And I choose the "3" from the "PrecisionTable"
     And I click the "EnsureButton" button
@@ -306,7 +297,6 @@ Feature: 日志展现_0表格
 
     And I set the parameter "<param>" with value "<value>"
     And I click the "<ensure>" button
-    And I wait for "ErrorMessage" will be visible
     And I will see the element "ErrorMessage" contains "<message>"
 
     Examples:
