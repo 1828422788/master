@@ -1800,7 +1800,7 @@ public class SearchPage extends ListPageFactory {
         return fieldOne;
     }
 
-    @FindBy(xpath = "//span[text()='a']/following-sibling::span")
+    @FindBy(xpath = "//span[text()='A']/following-sibling::span")
     private WebElement fieldTwo;
 
     public WebElement getFieldTwo() {
