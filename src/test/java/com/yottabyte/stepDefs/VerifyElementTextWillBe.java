@@ -24,27 +24,26 @@ public class VerifyElementTextWillBe {
      * 验证某一元素文本内容是否正确
      *
      * @param elementName
-     * @param excpText
+     * @param expectText
      */
     @Then("^I will see the \"([^\"]*)\" result will be \"([^割]*)\"$")
-    public void iWillSeeTheResultWillBe(String elementName, String excpText) {
+    public void iWillSeeTheResultWillBe(String elementName, String expectText) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         String realText = element.getText();
-        assertEquals(excpText, realText);
+        assertEquals(expectText, realText);
     }
 
     /**
      * 验证某一元素文本内容是否包含
      *
      * @param elementName
-     * @param excpText
+     * @param expectText
      */
     @Then("^I will see the \"([^\"]*)\" result will contain \"([^割]*)\"$")
-    public void iWillSeeTheResultWillContain(String elementName, String excpText) {
+    public void iWillSeeTheResultWillContain(String elementName, String expectText) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         String realText = element.getText();
-        assertTrue(realText.contains(excpText));
-//        assertEquals(excpText, realText);
+        assertTrue(realText.contains(expectText));
     }
 
     /**
