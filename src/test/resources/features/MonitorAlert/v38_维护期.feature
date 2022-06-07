@@ -7,29 +7,19 @@ Feature: 监控维护期
   @maintain1
   Scenario Outline: api_维护期每天9-13点_字段统计_总计resplen_邮件
     Given I click the "CreateButton" button
-    When I set the parameter "MaintainReason" with value "<reason>"
-
     And I click the "ChooseAlertButton" button
     And I set the parameter "AlertNameSearchInput" with value "<alert_name>"
     And I click the "AlertNameSearchIcon" button
     And I wait for loading invisible
-    And I click the "AlertNameBody" button
+    And I "checked" the checkbox which name is "<alert_name>"
     And I wait for loading invisible
     And I click the "AlertNameEnsure" button
-
-    And I wait for loading complete
     And I set the parameter "MaintainBeginTimeInput" with value "02:00"
     And I choose the "02" from the "MaintainBeginTimeList" in the time list
-    Given I wait for loading complete
-    And I wait for "2000" millsecond
-    And I hide the time picker popover
-    And I wait for "1000" millsecond
+    And I wait for loading invisible
+    When I set the parameter "MaintainReason" with value "<reason>"
     And I set the parameter "MaintainEndTimeInput" with value "23:00"
     And I choose the "23" from the "MaintainEndTimeList" in the time list
-    Given I wait for loading complete
-    And I wait for "2000" millsecond
-    And I hide the time picker popover
-    And I wait for "1000" millsecond
 
     And I click the "SaveButton" button
     Then I will see the success message "创建成功"
@@ -49,23 +39,15 @@ Feature: 监控维护期
     And I set the parameter "AlertNameSearchInput" with value "<alert_name>"
     And I click the "AlertNameSearchIcon" button
     And I wait for loading invisible
-    And I click the "AlertNameBody" button
+    And I "checked" the checkbox which name is "<alert_name>"
     And I wait for loading invisible
     And I click the "AlertNameEnsure" button
-
-    And I wait for loading complete
     And I click the "SingleButton" button
-
     And I click the "SingleBeginTimeButton" button
     And I click the "BeginTimeDiv" button
-#    And I choose2 the "02" from the "SingleStartTimeList"
     And I click the "SingleCurrentTimeButton" button
-    And I wait for loading complete
-#    And I click the "BeginTimeConfirmButton" button
-
     And I click the "SaveButton" button
     Then I will see the success message "创建成功"
-
 
     Examples:
       | reason                           | alert_name                       |
@@ -79,34 +61,22 @@ Feature: 监控维护期
   @maintain3 @alertSmoke
   Scenario Outline:每周一至周六
     Given I click the "CreateButton" button
-    When I set the parameter "MaintainReason" with value "<reason>"
-
     And I click the "ChooseAlertButton" button
     And I set the parameter "AlertNameSearchInput" with value "<alert_name>"
     And I click the "AlertNameSearchIcon" button
     And I wait for loading invisible
-    And I click the "AlertNameBody" button
+    And I "checked" the checkbox which name is "<alert_name>"
     And I wait for loading invisible
     And I click the "AlertNameEnsure" button
-
-    And I wait for loading complete
     And I choose the "每周" from the "PerformPlanList"
-    And I wait for loading complete
     And I choose the "一" from the "BeginWeeklyDayList"
-    And I wait for loading complete
     And I set the parameter "MaintainBeginTimeInput" with value "02:00"
     And I choose the "02" from the "MaintainBeginTimeList" in the time list
-    And I wait for loading complete
-    And I hide the time picker popover
+    When I set the parameter "MaintainReason" with value "<reason>"
     And I choose the "六" from the "EndWeeklyDayList"
-    And I click the "BeginTimeLabel" button
-    And I wait for "1000" millsecond
+    And I click the Circle "BeginTimeLabel" button
     And I set the parameter "MaintainEndTimeInput" with value "23:00"
     And I choose the "23" from the "MaintainEndTimeList" in the time list
-    And I wait for "2000" millsecond
-    And I hide the time picker popover
-    And I wait for "1000" millsecond
-
     And I click the "SaveButton" button
     Then I will see the success message "创建成功"
 
@@ -117,32 +87,21 @@ Feature: 监控维护期
   @maintain4
   Scenario Outline:每月
     Given I click the "CreateButton" button
-    When I set the parameter "MaintainReason" with value "<reason>"
-
     And I click the "ChooseAlertButton" button
     And I set the parameter "AlertNameSearchInput" with value "<alert_name>"
     And I click the "AlertNameSearchIcon" button
     And I wait for loading invisible
-    And I click the "AlertNameBody" button
+    And I "checked" the checkbox which name is "<alert_name>"
     And I wait for loading invisible
     And I click the "AlertNameEnsure" button
-
-    And I wait for loading complete
     And I choose the "每月" from the "PerformPlanList"
-    And I wait for loading complete
     And I choose the "1日" from the "BeginWeeklyDayList"
-    And I wait for loading complete
     And I set the parameter "MaintainBeginTimeInput" with value "02:00"
     And I choose the "02" from the "MaintainBeginTimeList" in the time list
-    And I wait for loading complete
+    When I set the parameter "MaintainReason" with value "<reason>"
     And I choose the "28日" from the "EndWeeklyDayList"
-    And I wait for "1000" millsecond
     And I set the parameter "MaintainEndTimeInput" with value "23:00"
     And I choose the "23" from the "MaintainEndTimeList" in the time list
-    And I wait for "2000" millsecond
-    And I hide the time picker popover
-    And I wait for "1000" millsecond
-
     And I click the "SaveButton" button
     Then I will see the success message "创建成功"
 
@@ -154,8 +113,7 @@ Feature: 监控维护期
   Scenario Outline: 搜索维护期
     And I set the parameter "ReasonNameSearchInput" with value "<reasonName>"
     And I click the "ReasonNameSearchIcon" button
-    Given I wait for loading complete
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     Then I will see the search result "{'column':'0','name':'<reasonName>'}"
 
     Examples:
@@ -167,12 +125,8 @@ Feature: 监控维护期
     Given open the "alert.ListPage" page for uri "/alerts/"
     When I set the parameter "AlertListSearchInput" with value "<alert_name>"
     And I click the "AlertListSearchInputButton" button
-    And I wait for loading complete
-#    When choose from "{'DropdownMenu':'维护期0_字段统计_独立数status_邮件_每月1-30'}"
-#    Then I will see the search result contains "{'column':'0','name':'正在维护'}"
-#    And I wait for element "<string>" change text to "<string>"
+    And I wait for loading invisible
     And I wait for "MaintainFlag" will be visible
-#    Then I click the "MaintainFlag" button
 
     @alertSmoke
     Examples:
@@ -191,7 +145,6 @@ Feature: 监控维护期
     Given open the "alert.MaintenancePage" page for uri "/alerts/maintenance/"
     When the data name is "<reasonName>" then i click the "删除" button
     And I click the "EnsureDelete" button
-#    Then I will see the success message "删除成功"
     And I set the parameter "ReasonNameSearchInput" with value "<reasonName>"
     And I will see the "TmpNoData" is display
     
