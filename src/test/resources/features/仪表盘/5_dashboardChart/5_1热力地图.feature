@@ -1,91 +1,21 @@
 @dashboard5_1 @dashboardChart
 Feature: 仪表盘_5_1_热力地图
 
-  Scenario Outline: 新建仪表盘
+  Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I click the "Create" button
-    When I set the parameter "DashBoardName" with value "<name>"
-    And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "新建仪表盘成功"
-
-    Examples:
-      | name    |
-      | 仪表盘热力地图 |
-
-  Scenario Outline: 创建仪表盘所用趋势图
-    And open the "trend.ListPage" page for uri "/trend/"
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePageDash" page
-    And I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I set the parameter "TextFilter" with value "仪表盘热力地图"
     And I wait for loading invisible
-    And I wait for "Header" will be visible
-    And I click the "NextButton" button
-    When I set the parameter "NameInput" with value "<name>"
-    And I click the "Complete" button
-    And I wait for "SuccessCreate" will be visible
-
-    Examples:
-      | spl                                       | name    |
-      | appname:apache \| stats count() by apache.geo.city | 仪表盘热力地图 |
-
-  Scenario Outline: 新建标签页
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    When I set the parameter "TagName" with value "<name>"
-    And I click the "Ensure" button
-    Then I wait for "SettingIcon" will be visible
-
-    Examples:
-      | name |
-      | 热力地图 |
-
-  Scenario Outline: 添加图表
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
+    And I click the detail which name is "仪表盘热力地图"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "AddEventButton" will be visible
-    When I click the "AddEventButton" button
-    And I wait for "500" millsecond
-    And I click the "AddChart" button
-    And I wait for loading invisible
-    And I set the parameter "SearchChartInput" with value "<name>"
-    And I wait for loading invisible
-    And I click the "{'Checkbox':'<name>'}" button
-    And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
-    Then I wait for element "SuccessMessage" change text to "添加成功"
-
-    Examples:
-      | name    |
-      | 仪表盘热力地图 |
+    And I wait for "SuccessMessage" will be invisible
 
   Scenario Outline: 修改为热力地图 RZY-313
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
     And I click the "ChartType" button
     And I wait for "1000" millsecond
     Then I will see the "trend.CreatePageDash" page
@@ -109,16 +39,6 @@ Feature: 仪表盘_5_1_热力地图
       | 仪表盘热力地图 | Heatmap    |
 
   Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3758
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I will see the dashboard highEditor text will contain "<json>"
@@ -129,16 +49,6 @@ Feature: 仪表盘_5_1_热力地图
 
 
   Scenario: 修改field为空 RZY-3759
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘热力地图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘热力地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I wait for "500" millsecond
@@ -151,16 +61,6 @@ Feature: 仪表盘_5_1_热力地图
 
 
   Scenario: 修改field为不存在 RZY-3759
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘热力地图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘热力地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘热力地图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "appname:apache | stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "heatmap","field": "qwertcount()","category": "apache.geo.city"}}" to json editor
@@ -177,16 +77,6 @@ Feature: 仪表盘_5_1_热力地图
 
 
   Scenario: 修改field为'apache.clientip' RZY-3759
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘热力地图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘热力地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{"title": "仪表盘热力地图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "appname:apache | stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "heatmap","field": "apache.geo.city","category": ""}}" to json editor
@@ -203,16 +93,6 @@ Feature: 仪表盘_5_1_热力地图
 
 
   Scenario: 修改category为其他值 RZY-3760
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘热力地图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘热力地图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{"title": "仪表盘热力地图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "appname:apache | stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "heatmap","field": "count()","category": "qwerty"}}" to json editor

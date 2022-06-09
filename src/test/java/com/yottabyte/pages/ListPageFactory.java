@@ -14,6 +14,7 @@ public class ListPageFactory extends PageTemplate {
 
     public ListPageFactory(WebDriver driver) {
         super(driver);
+        driver.manage().window().fullscreen();
     }
 
     public WebElement getTagFilter() {

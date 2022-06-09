@@ -7,7 +7,6 @@ Feature: 仪表盘图表删除
     And I set the parameter "TextFilter" with value "<name>"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除仪表盘成功"
 
@@ -31,7 +30,7 @@ Feature: 仪表盘图表删除
       | 仪表盘攻击地图     |
       | 仪表盘区划地图     |
       | 仪表盘统计地图     |
-      | 仪表盘表格样式设置 |
+      | 仪表盘表格         |
       | 仪表盘单值         |
       | 仪表盘环形比例图   |
       | 仪表盘水球图       |
@@ -47,8 +46,9 @@ Feature: 仪表盘图表删除
   Scenario Outline: 删除仪表盘所建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
+    And I set the parameter "TextFilter" with value "<name>"
+    And I wait for loading invisible
     When the data name is "<name>" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I will see the success message "删除成功"
 
@@ -72,7 +72,7 @@ Feature: 仪表盘图表删除
       | 仪表盘攻击地图     |
       | 仪表盘区划地图     |
       | 仪表盘统计地图     |
-      | 仪表盘表格样式     |
+      | 仪表盘表格         |
       | 仪表盘单值         |
       | 仪表盘环形比例图   |
       | 仪表盘水球图       |
@@ -88,7 +88,6 @@ Feature: 仪表盘图表删除
     Given open the "ListPageFactory" page for uri "/download/"
     And I wait for loading invisible
     And the data name contains "汉字Abc" then i click the "删除" button
-    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
 

@@ -1,96 +1,22 @@
 @dashboard2_1 @dashboardChart
 Feature: 仪表盘_2_1_饼状图
 
-  @dashboardChartSmoke
-  Scenario Outline: 新建仪表盘
+  Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I click the "Create" button
-    When I set the parameter "DashBoardName" with value "<name>"
-    And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "新建仪表盘成功"
-
-    Examples:
-      | name   |
-      | 仪表盘饼状图 |
-
-  @dashboardChartSmoke
-  Scenario Outline: 创建仪表盘所用趋势图
-    And open the "trend.ListPage" page for uri "/trend/"
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePageDash" page
-    And I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I set the parameter "TextFilter" with value "仪表盘饼状图"
     And I wait for loading invisible
-    And I wait for "Header" will be visible
-    And I click the "NextButton" button
-    When I set the parameter "NameInput" with value "<name>"
-    And I click the "Complete" button
-    And I wait for "SuccessCreate" will be visible
-
-    Examples:
-      | spl                                                                          | name   |
-      | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | 仪表盘饼状图 |
-
-  @dashboardChartSmoke
-  Scenario Outline: 新建标签页
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    When I set the parameter "TagName" with value "<name>"
-    And I click the "Ensure" button
-    Then I wait for "SettingIcon" will be visible
-
-    Examples:
-      | name |
-      | 饼状图  |
-
-  @dashboardChartSmoke
-  Scenario Outline: 添加图表
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
+    And I click the detail which name is "仪表盘饼状图"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "AddEventButton" will be visible
-    When I click the "AddEventButton" button
-    And I wait for "500" millsecond
-    And I click the "AddChart" button
-    And I wait for loading invisible
-    And I set the parameter "SearchChartInput" with value "<name>"
-    And I wait for loading invisible
-    And I click the "{'Checkbox':'<name>'}" button
-    And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
-    Then I wait for element "SuccessMessage" change text to "添加成功"
-
-    Examples:
-      | name   |
-      | 仪表盘饼状图 |
+    And I wait for "SuccessMessage" will be invisible
 
   @dashboardChartSmoke
   Scenario Outline: 修改为饼状图 RZY-298
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
     And I click the "ChartType" button
     And I wait for "1000" millsecond
     Then I will see the "trend.CreatePageDash" page
@@ -117,16 +43,6 @@ Feature: 仪表盘_2_1_饼状图
 
 
   Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3695
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I wait for "300" millsecond
@@ -138,16 +54,6 @@ Feature: 仪表盘_2_1_饼状图
 
 
   Scenario: 修改为不存在的字段 RZY-3697
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘饼状图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘饼状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I wait for "300" millsecond
@@ -165,16 +71,6 @@ Feature: 仪表盘_2_1_饼状图
 
  
   Scenario Outline: chartType字段 RZY-1317,RZY-1318,RZY-1319,RZY-3692
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘饼状图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘饼状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I wait for "300" millsecond
@@ -204,16 +100,6 @@ Feature: 仪表盘_2_1_饼状图
       | pie     | 维度图_chartType_pie   |
 
   Scenario Outline: field byFields RZY-3696
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘饼状图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘饼状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I wait for "300" millsecond

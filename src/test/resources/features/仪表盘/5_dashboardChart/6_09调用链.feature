@@ -1,69 +1,10 @@
 @dashboard6_09 @dashboardChart
 Feature: 仪表盘_6_09_调用链
 
-  
-  Scenario: 上传日志
-    Given open the "localUpload.ListPage" page for uri "/sources/input/os/"
-    When I set the parameter "AppName" with value "zipkin"
-    And I set the parameter "Tag" with value "zipkin"
-    And I upload a file with name "/src/test/resources/testdata/log/zipkin.txt"
-    And I click the "UploadButton" button
-    And I wait for "VerifyText" will be visible
-    And I will see the element "VerifyText" contains "上传完成"
-    And I wait for "5000" millsecond
-
-  
-  Scenario Outline: 新建仪表盘
+  Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I click the "Create" button
-    When I set the parameter "DashBoardName" with value "<name>"
-    And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "新建仪表盘成功"
-
-    Examples:
-      | name   |
-      | 仪表盘调用链 |
-
-  Scenario Outline: 新建标签页
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    When I set the parameter "TagName" with value "<name>"
-    And I click the "Ensure" button
-    Then I wait for "SettingIcon" will be visible
-    Examples:
-      | name |
-      | 调用链  |
-
-  Scenario Outline: 创建仪表盘所用趋势图
-    And open the "trend.ListPage" page for uri "/trend/"
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePageDash" page
-    And I wait for "2000" millsecond
-    And I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for "Header" will be visible
-    And I click the "NextButton" button
-    And I wait for loading invisible
-    And I wait for "Header" will be visible
-    And I click the "NextButton" button
-    When I set the parameter "NameInput" with value "<name>"
-    And I click the "Complete" button
-    And I wait for "SuccessCreate" will be visible
-
-    Examples:
-      | spl                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | name   |
-      | appname:zipkin \| parse \"^(?<datetime>\\\d{4}\/\\\d\\\d\/\\\d\\\d \\\d\\\d:\\\d\\\d:\\\d\\\d.\\\d{3})\\\s\\\[(?<threadname>\\\S+)\\\]\\\s(?<level>\\\S+)\\\s+(?<functionname>\\\S+)\\\s\\\S+\\\s\\\S+\\\s(?<jsonstring>.*)\" \| jpath input=jsonstring output=traceid path=\"traceId\" \| jpath input=jsonstring output=spanid path=\"id\" \| jpath input=jsonstring output=parentid path=\"parentId\" \| jpath input=jsonstring output=binnaryannotations path=\"binaryAnnotations[*].value\" \| jpath input=jsonstring output=duration path=\"duration\" \| jpath input=jsonstring output=modulename path=\"name\" \| where mvindex(duration, 0)>0 && mvindex(traceid,0)==\"511f8756ce1d0b8a\" \| jpath input=jsonstring output=timestamp path=\"timestamp\" \| table spanid, parentid, duration, timestamp, binnaryannotations, modulename | 仪表盘调用链 |
-
-  Scenario Outline: 添加图表
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I set the parameter "TextFilter" with value "仪表盘调用链"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘调用链"
     And switch to window "仪表盘"
@@ -72,32 +13,9 @@ Feature: 仪表盘_6_09_调用链
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "AddEventButton" will be visible
-    When I click the "AddEventButton" button
-    And I wait for "500" millsecond
-    And I click the "AddChart" button
-    And I wait for loading invisible
-    And I set the parameter "SearchChartInput" with value "<name>"
-    And I wait for loading invisible
-    And I click the "{'Checkbox':'<name>'}" button
-    And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
-    Then I wait for element "SuccessMessage" change text to "添加成功"
-
-    Examples:
-      | name       |
-      | 仪表盘调用链 |
+    And I wait for "SuccessMessage" will be invisible
 
   Scenario Outline: 修改为调用链 RZY-RZY-3404
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
     And I click the "ChartType" button
     And I wait for "1000" millsecond
     Then I will see the "trend.CreatePageDash" page
@@ -140,16 +58,6 @@ Feature: 仪表盘_6_09_调用链
       | 仪表盘调用链 |
 
   Scenario Outline: trace表格展示优化 RZY-4855
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘调用链" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
 #    And I click the "SettingChart" button
     And I click the "Configs" button
@@ -170,30 +78,12 @@ Feature: 仪表盘_6_09_调用链
       | 仪表盘调用链 | 调用链_trace表格优化   |
 
   Scenario: 调用链table折叠 RZY-4858
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘调用链"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
     And I click the Circle "FoldIcon" button
     Then I will see the "CallChainTextChildNode" doesn't exist
     And I click the Circle "FoldIcon" button
     Then I wait for "CallChainTextChildNode" will be visible
 
   Scenario Outline: 展示修改为-tree RZY-RZY-4837
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
     And I click the "ChartType" button
     Then I will see the "trend.CreatePageDash" page
     And I wait for "Other" will be visible
@@ -218,16 +108,6 @@ Feature: 仪表盘_6_09_调用链
       | 仪表盘调用链 |
 
   Scenario Outline: 再次添加相同图表
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
     And I wait for "500" millsecond
     And I click the "AddChart" button
@@ -244,15 +124,6 @@ Feature: 仪表盘_6_09_调用链
       | 仪表盘调用链 |
 
   Scenario Outline: 修改为调用链，显示为tree验证显示正常
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
     And I click the "SecondChartType" button
     Then I will see the "trend.CreatePageDash" page
     And I wait for "Other" will be visible

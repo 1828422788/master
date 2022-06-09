@@ -1,65 +1,12 @@
 @dashboard1_1 @dashboardChart
 Feature: 仪表盘_1_1_曲线图
 
-  @dashboardChartSmoke
-  Scenario Outline: 新建仪表盘
+  Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I click the "Create" button
-    When I set the parameter "DashBoardName" with value "<name>"
-    And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "新建仪表盘成功"
-
-    Examples:
-      | name   |
-      | 仪表盘曲线图 |
-
-  @dashboardChartSmoke
-  Scenario Outline: 创建仪表盘所用趋势图
-    And open the "trend.ListPage" page for uri "/trend/"
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePageDash" page
-    And I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I set the parameter "TextFilter" with value "仪表盘曲线图"
     And I wait for loading invisible
-    And I wait for "Header" will be visible
-    And I click the "NextButton" button
-    When I set the parameter "NameInput" with value "<name>"
-    And I click the "Complete" button
-    And I wait for "SuccessCreate" will be visible
-
-    Examples:
-      | spl                                                              | name   |
-      | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len | 仪表盘曲线图 |
-
-  @dashboardChartSmoke
-  Scenario Outline: 新建标签页
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    When I set the parameter "TagName" with value "<name>"
-    And I click the "Ensure" button
-    Then I wait for "SettingIcon" will be visible
-
-    Examples:
-      | name |
-      | 曲线图  |
-
-  @dashboardChartSmoke
-  Scenario Outline: 添加图表
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I set the parameter "TextFilter" with value "<name>"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
+    And I click the detail which name is "仪表盘曲线图"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
@@ -67,34 +14,9 @@ Feature: 仪表盘_1_1_曲线图
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
     And I wait for "SuccessMessage" will be invisible
-    And I wait for "AddEventButton" will be visible
-    When I click the "AddEventButton" button
-    And I wait for "500" millsecond
-    And I click the "AddChart" button
-    And I wait for loading invisible
-    And I set the parameter "SearchChartInput" with value "<name>"
-    And I wait for loading invisible
-    And I click the "{'Checkbox':'<name>'}" button
-    And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
-    Then I wait for element "SuccessMessage" change text to "添加成功"
-
-    Examples:
-      | name   |
-      | 仪表盘曲线图 |
 
   @dashboardChartSmoke
   Scenario Outline: 修改为曲线图 RZY-301
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     And I click the "ChartType" button
     And I wait for "1000" millsecond
     Then I will see the "trend.CreatePageDash" page
@@ -145,16 +67,6 @@ Feature: 仪表盘_1_1_曲线图
 
 
   Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3693
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I will see the dashboard highEditor text will contain "<json>"
@@ -166,16 +78,6 @@ Feature: 仪表盘_1_1_曲线图
 
 
   Scenario: 修改chartType为不存在的类型 RZY-1281
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘曲线图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘曲线图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "1a","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
@@ -187,16 +89,6 @@ Feature: 仪表盘_1_1_曲线图
 
 
   Scenario: 修改chartType为空 RZY-1271
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘曲线图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘曲线图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
@@ -207,16 +99,6 @@ Feature: 仪表盘_1_1_曲线图
 #    Then I wait for element "ErrorMessage" change text to "chart -> chartType 字段值不支持"
 
   Scenario Outline: chartType字段-置为序列图其他类型 RZY-1282,RZY-1283,RZY-1284
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘曲线图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘曲线图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "<chartType>","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
@@ -242,16 +124,6 @@ Feature: 仪表盘_1_1_曲线图
 
 
   Scenario: 修改xAxis field字段值置为空 RZY-1285
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘曲线图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘曲线图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
@@ -263,16 +135,6 @@ Feature: 仪表盘_1_1_曲线图
 
   @dashboardChartSmoke
   Scenario Outline: field byFields RZY-1286,RZY-1287,RZY-1299
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘曲线图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘曲线图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "<field>","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["<byField>"],"legend": {"placement": "bottom"}}}" to json editor
@@ -297,16 +159,6 @@ Feature: 仪表盘_1_1_曲线图
 
   @dashboardChartSmoke
   Scenario Outline: labelRotate-right-horizontal-vertical RZY-1291,RZY-1292,RZY-1293
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "<labelRotate>","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
@@ -330,16 +182,6 @@ Feature: 仪表盘_1_1_曲线图
 
   @dashboardChartSmoke
   Scenario Outline: sortOrder-asc-desc-default RZY-1295,RZY-1296,RZY-1297
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "left","sortOrder": "<sortOrder>"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
@@ -365,16 +207,6 @@ Feature: 仪表盘_1_1_曲线图
 
 
   Scenario: 修改yAxis field字段值置为空 RZY-1301
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘曲线图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘曲线图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
@@ -386,16 +218,6 @@ Feature: 仪表盘_1_1_曲线图
 
 
   Scenario Outline: 修改yAxis field字段值置为错误值 RZY-1302
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "<field>","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
@@ -418,16 +240,6 @@ Feature: 仪表盘_1_1_曲线图
       | 仪表盘曲线图 |    cou    |  序列图_Yfield_error      |
 
   Scenario: smooth为false RZY-1300
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘曲线图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘曲线图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": false,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
@@ -446,16 +258,6 @@ Feature: 仪表盘_1_1_曲线图
 #    And I compare source image "actual/多Y轴图_smooth_false" with target image "expect/多Y轴图_smooth_false"
 
   Scenario Outline: range-min/max RZY-1303,RZY-1305,RZY-1306,RZY-1307
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘曲线图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘曲线图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": false,"unit": "个","connectNull": true,"range": { "min": "<min>","max": "<max>"}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
@@ -485,16 +287,6 @@ Feature: 仪表盘_1_1_曲线图
       |     1     |    8     |  序列图_range_manLTmax   |
 
   Scenario Outline: range-min大于max RZY-1308
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘曲线图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘曲线图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": false,"unit": "个","connectNull": true,"range": { "min": "<min>","max": "<max>"}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
@@ -510,16 +302,6 @@ Feature: 仪表盘_1_1_曲线图
 
   @dashboardChartSmoke
   Scenario Outline: legend RZY-1312,RZY-1313
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘曲线图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘曲线图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "<legend>"}}}" to json editor
@@ -544,16 +326,6 @@ Feature: 仪表盘_1_1_曲线图
 
   @dashboardChartSmoke
   Scenario Outline: legend为none RZY-1311
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘曲线图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘曲线图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     Then I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "<legend>"}}}" to json editor
@@ -574,16 +346,6 @@ Feature: 仪表盘_1_1_曲线图
       |  none    |
 
   Scenario: 修改legend字段值置为空 RZY-1314
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘曲线图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘曲线图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": ""}}}" to json editor
@@ -594,16 +356,6 @@ Feature: 仪表盘_1_1_曲线图
 #    Then I wait for element "ErrorMessage" change text to "chart -> placement 字段值不能为空"
 
   Scenario: 修改legend字段值置为任意值 RZY-1315
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘曲线图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘曲线图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "111"}}}" to json editor
@@ -615,16 +367,6 @@ Feature: 仪表盘_1_1_曲线图
 
 
   Scenario Outline: byfield-为空 RZY-1309,RZY-1310
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["<byFields>"],"legend": {"placement": "bottom"}}}" to json editor
@@ -646,4 +388,3 @@ Feature: 仪表盘_1_1_曲线图
       | name       |   byFields   |    image                 |
       | 仪表盘曲线图 |              |  序列图_byFields_null      |
       | 仪表盘曲线图 | apache.resp_len |  序列图_byFields_rightValue |
-

@@ -1,91 +1,21 @@
 @dashboard1_4 @dashboardChart
 Feature: 仪表盘_1_4_柱状图
 
-  Scenario Outline: 新建仪表盘
+  Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I click the "Create" button
-    When I set the parameter "DashBoardName" with value "<name>"
-    And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "新建仪表盘成功"
-
-    Examples:
-      | name   |
-      | 仪表盘柱状图 |
-
-  Scenario Outline: 创建仪表盘所用趋势图
-    And open the "trend.ListPage" page for uri "/trend/"
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePageDash" page
-    And I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I set the parameter "TextFilter" with value "仪表盘柱状图"
     And I wait for loading invisible
-    And I wait for "Header" will be visible
-    And I click the "NextButton" button
-    When I set the parameter "NameInput" with value "<name>"
-    And I click the "Complete" button
-    And I wait for "SuccessCreate" will be visible
-
-    Examples:
-      | spl                                                              | name   |
-      | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len | 仪表盘柱状图 |
-
-  Scenario Outline: 新建标签页
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    When I set the parameter "TagName" with value "<name>"
-    And I click the "Ensure" button
-    Then I wait for "SettingIcon" will be visible
-
-    Examples:
-      | name |
-      | 柱状图  |
-
-  Scenario Outline: 添加图表
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
+    And I click the detail which name is "仪表盘柱状图"
     And switch to window "仪表盘"
     And I close all tabs except main tab
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "AddEventButton" will be visible
-    When I click the "AddEventButton" button
-    And I wait for "500" millsecond
-    And I click the "AddChart" button
-    And I wait for loading invisible
-    And I set the parameter "SearchChartInput" with value "<name>"
-    And I wait for loading invisible
-    And I click the "{'Checkbox':'<name>'}" button
-    And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
-    Then I wait for element "SuccessMessage" change text to "添加成功"
-
-    Examples:
-      | name   |
-      | 仪表盘柱状图 |
+    And I wait for "SuccessMessage" will be invisible
 
   Scenario Outline: 修改为柱状图 RZY-303
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
     And I click the "ChartType" button
     And I wait for "1000" millsecond
     Then I will see the "trend.CreatePageDash" page
@@ -126,16 +56,6 @@ Feature: 仪表盘_1_4_柱状图
 
 
   Scenario: 序列图支持的钻取变量预置
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘柱状图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -150,16 +70,6 @@ Feature: 仪表盘_1_4_柱状图
 
 
   Scenario: 序列图支持的钻取变量click.name RZY-3255
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘柱状图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -180,16 +90,6 @@ Feature: 仪表盘_1_4_柱状图
 
 
   Scenario: 序列图支持的钻取变量click.value RZY-3257
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘柱状图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -212,16 +112,6 @@ Feature: 仪表盘_1_4_柱状图
 
 
   Scenario: 序列图支持的钻取变量click.name2 RZY-3258
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘柱状图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -244,16 +134,6 @@ Feature: 仪表盘_1_4_柱状图
 
 
   Scenario: 序列图支持的钻取变量click.value2 RZY-3259
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘柱状图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -274,16 +154,6 @@ Feature: 仪表盘_1_4_柱状图
 
 
   Scenario Outline: 序列图支持的钻取变量start end RZY-3262,RZY-3263
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond
@@ -311,16 +181,6 @@ Feature: 仪表盘_1_4_柱状图
 
 
   Scenario Outline: 序列图支持的钻取变量start,end钻取到标签页 RZY-3264
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<name>"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "<name>" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
@@ -353,16 +213,6 @@ Feature: 仪表盘_1_4_柱状图
 
 
   Scenario: 序列图支持的钻取变量row.fieldname RZY-3260
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘柱状图"
-    And switch to window "仪表盘"
-    And I close all tabs except main tab
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I switch the dashboard "OpenEdit" button to "enable"
-    And I click the "SettingIcon" button
-    And I wait for "SuccessMessage" will be invisible
     When the chart title is "仪表盘柱状图" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "DrillSetting" button
     And I wait for "1500" millsecond

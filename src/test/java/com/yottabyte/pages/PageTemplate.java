@@ -29,7 +29,6 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
 
     public PageTemplate(WebDriver driver) {
         this.webDriver = driver;
-        driver.manage().window().fullscreen();
         PageFactory.initElements(driver, this);
     }
 
