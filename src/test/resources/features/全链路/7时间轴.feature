@@ -22,6 +22,8 @@ Feature: 全链路_7时间轴
     And I will see the element "DatePicker" contains "今天"
     And I set the time parameter "StartTimeInput" as "1" minutes later from now
     And I click the Circle "BasicSettings" button
+    And I click the "AddIndex" button
+    And I will see the element "IndexPanel" contains "schedule"
     And I click the "Submit" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"

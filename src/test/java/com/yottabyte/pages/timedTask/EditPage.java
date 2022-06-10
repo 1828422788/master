@@ -333,4 +333,12 @@ public class EditPage extends EditorPage {
     public WebElement getDeleteApp() {
         return deleteApp;
     }
+
+    public WebElement getAddIndex() {
+        return getYottaButton("schedule-add_index-dom");
+    }
+
+    public WebElement getIndexPanel() {
+        return getYottaDiv("schedule-index_list-panel");
+    }
 }
