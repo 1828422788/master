@@ -22,8 +22,12 @@ Feature: 仪表盘01新建（RZY-208至RZY-210）
       | FirstAutoTest | 创建者      |
 
   Scenario: 验证新建成功RZY-208，RZY-4472，RZY-4473）
-    Then I will see the data "FirstAutoTest" values "{'column':'3','name':'test_app'}"
-    Then I will see the data "UIautotest" values "{'column':'3','name':'test_app'}"
+    And the data name is "FirstAutoTest" then I "expand" the item
+    And I will see the element "ExpandedRow" contains "所属应用..............test_app"
+    And the data name is "FirstAutoTest" then I "close" the item
+    And the data name is "UIautotest" then I "expand" the item
+    And I will see the element "ExpandedRow" contains "所属应用..............test_app"
+    And the data name is "UIautotest" then I "close" the item
 
   @dashboardSmoke
   Scenario Outline: 仪表盘授权-数据用户浏览者

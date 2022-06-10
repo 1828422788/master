@@ -249,6 +249,7 @@ Feature: 仪表盘03详情页
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I choose the "添加输入项" from the "AddItemMenu"
     And I choose the "时间范围" from the "FilterType"
     And I set the parameter "inputSettingTitle" with value "全局时间"

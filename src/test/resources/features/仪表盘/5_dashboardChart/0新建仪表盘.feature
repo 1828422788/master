@@ -79,7 +79,7 @@ Feature: 仪表盘_0_新建仪表盘和趋势图
     And I wait for loading invisible
     And I set the parameter "SearchChartInput" with value "仪表盘<name>"
     And I wait for loading invisible
-    And  I "checked" the checkbox which name is "仪表盘<name>"
+    And I click the "{'Checkbox':'仪表盘<name>'}" button
     And I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
