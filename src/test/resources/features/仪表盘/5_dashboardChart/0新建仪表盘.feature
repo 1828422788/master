@@ -1,6 +1,21 @@
 @dashboardChart
 Feature: 仪表盘_0_新建仪表盘和趋势图
 
+  Scenario Outline: 上传日志
+    Given open the "localUpload.ListPage" page for uri "/sources/input/os/"
+    When I set the parameter "AppName" with value "<tag>"
+    And I set the parameter "Tag" with value "<tag>"
+    And I upload a file with name "/src/test/resources/testdata/log/<tag>.txt"
+    And I click the "UploadButton" button
+    And I wait for "VerifyText" will be visible
+    And I will see the element "VerifyText" contains "上传完成"
+    And I wait for "5000" millsecond
+
+    Examples:
+      | tag      |
+      | geostats |
+      | zipkin   |
+
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
@@ -118,18 +133,3 @@ Feature: 仪表盘_0_新建仪表盘和趋势图
       | 矩阵热力图|
       | 调用链    |
       | 网络节点图|
-
-  Scenario Outline: 上传日志
-    Given open the "localUpload.ListPage" page for uri "/sources/input/os/"
-    When I set the parameter "AppName" with value "<tag>"
-    And I set the parameter "Tag" with value "<tag>"
-    And I upload a file with name "/src/test/resources/testdata/log/<tag>.txt"
-    And I click the "UploadButton" button
-    And I wait for "VerifyText" will be visible
-    And I will see the element "VerifyText" contains "上传完成"
-    And I wait for "5000" millsecond
-
-  Examples:
-    | tag      |
-    | geostats |
-    | zipkin   |
