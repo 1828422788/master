@@ -78,6 +78,7 @@ Feature: 基础用户创建
     Then I click the "HiddenRole" button
     And I will see the message "更新成功"
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     Then the data name is "<name>" then i will see "<function>" button
 
     Examples:
