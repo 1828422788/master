@@ -22,6 +22,7 @@ Feature: download_事件搜索下载part1
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     When I set the parameter "DbListPageSearchInput" with value "<name>.txt"
+    And I wait for loading invisible
     And I click the "ListDownloadButton" button
 
     Examples:

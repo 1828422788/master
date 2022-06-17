@@ -24,6 +24,7 @@ Feature: download_table下载part0
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     When I set the parameter "DbListPageSearchInput" with value "<name>.csv"
+    And I wait for loading invisible
     And I click the "ListDownloadButton" button
 
     Examples: 新建成功

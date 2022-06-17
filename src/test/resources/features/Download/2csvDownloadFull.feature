@@ -23,6 +23,7 @@ Feature: download_collect验证
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     And I set the parameter "DbListPageSearchInput" with value "<name>.csv"
+    And I wait for loading invisible
     And I click the "ListDownloadButton" button
 
     Examples:

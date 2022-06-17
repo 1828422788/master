@@ -22,6 +22,7 @@ Feature: download_事件下载part0
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     And I set the parameter "DbListPageSearchInput" with value "<name>.txt"
+    And I wait for loading invisible
     And I click the "ListDownloadButton" button
 
     Examples:
@@ -111,6 +112,7 @@ Feature: download_事件下载part0
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     When I set the parameter "DbListPageSearchInput" with value "<name>.json"
+    And I wait for loading invisible
     And I click the "ListDownloadButton" button
 
     Examples:
@@ -123,7 +125,7 @@ Feature: download_事件下载part0
       | transaction_status_sortfield_clientip           | tag:sample04061424 AND (NOT apache.status:499 AND NOT apache.status:206) \| transaction apache.status keepevicted=true sortfield=apache.clientip \| limit 2                                                              |
       | transaction_clientip_sortfield_resplen_xforward | tag:sample04061424 AND (NOT apache.status:499 AND NOT apache.status:206) \| transaction apache.clientip keepevicted=true sortfield=apache.resp_len,apache.x_forward \| limit 2                                           |
       | transaction_clientip_sortfield_resplen          | tag:sample04061424 AND (NOT apache.status:499 AND NOT apache.status:206) \| transaction apache.clientip keepevicted=true sortfield=+apache.resp_len \| limit 2                                                           |
-      | tran_ip_maxopen_max                             | (logtype:apache AND tag:sample04061424) \| transaction apache.clientip maxopenevents=10 maxevents=10                                                                                                                     |
+      | tran_ip_maxopen_max                             | (logtype:apache AND tag:sample04061424) \| transaction apache.clientip maxevents=10 maxopenevents=10                                                                                                                  |
       #add
       | tran_apachelen_sort                             | tag:sample04061424 \| transaction  apache.resp_len keepevicted=true \| sort by apache.resp_len                                                                                                                           |
       #add
@@ -131,9 +133,9 @@ Feature: download_事件下载part0
       | tran_param_max_txn_maxopen10                    | tag:sample04061424 \| transaction apache.status maxevents=10 maxopentxn=100 maxopenevents=100                                                                                                                            |
       | tran_param_max_txn_maxopen3                     | tag:sample04061424 AND apache.status:\"200\" \| transaction apache.status maxevents=3 maxopentxn=100 maxopenevents=100                                                                                                   |
       #add
-      | tran_status_contains_maxevents_10               | tag:sample04061424 AND clientconfig \| transaction apache.status keepevicted=true maxevents=10 maxopenevents=100 contains=\"clientconfig\"                                                                               |
+      | tran_status_contains_maxevents_10               | tag:sample04061424 AND clientconfig \| transaction apache.status keepevicted=true maxevents=10 contains=\"clientconfig\" maxopenevents=100                                                                                |
       #add
-      | tran_status_contains_maxevents_100              | tag:sample04061424 AND clientconfig \| transaction apache.status  keepevicted=true maxevents=100 maxopenevents=100 contains=\"clientconfig\"                                                                             |
+      | tran_status_contains_maxevents_100              | tag:sample04061424 AND clientconfig \| transaction apache.status  keepevicted=true maxevents=100 contains=\"clientconfig\" maxopenevents=100                                                                              |
       | tran_method_max_maxopen_contains1               | \"clientconfig\" AND tag:sample04061424 \| transaction apache.method contains=\"clientconfig\"  maxevents=10 maxopenevents=100                                                                                           |
       #add
       | tran_method_max_maxopen_contains2               | \"GET /index/portal/\" AND tag:sample04061424 \| transaction apache.method contains=\"GET /index/portal/\" keepevicted=true maxevents=300 maxopenevents=1000                                                             |
