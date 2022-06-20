@@ -47,7 +47,7 @@ Feature: 权限-字典
     And I upload a file with name "/src/test/resources/testdata/dictionary/AutoTestUserCreate.csv"
   #  And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "权限测试"
-    And I click the "EnsureUpload" button
+    And I click the "UploadConfirm" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建字典成功"
     Then I logout current user
@@ -183,7 +183,7 @@ Feature: 权限-字典
     And I upload a file with name "/src/test/resources/testdata/dictionary/<name>"
   #  And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "AutoTest"
-    And I click the "EnsureUpload" button
+    And I click the "UploadConfirm" button
     And I wait for "1000" millsecond
     Then I will see the success message "创建字典成功"
 
@@ -263,7 +263,7 @@ Feature: 权限-字典
     And I upload a file with name "/src/test/resources/testdata/dictionary/<name>"
   #  And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "AutoTestUserCreate"
-    And I click the "EnsureUpload" button
+    And I click the "UploadConfirm" button
     And I wait for "1000" millsecond
     Then I will see the success message "创建字典成功"
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -499,7 +499,7 @@ Feature: 权限-字典
     And I upload a file with name "/src/test/resources/testdata/dictionary/AutoTestUserCreate.csv"
   #  And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "AutoTestUserCreate"
-    And I click the "EnsureUpload" button
+    And I click the "UploadConfirm" button
     Then I will see the success message "创建字典成功"
 
   Scenario Outline: 授权所有权限
@@ -595,7 +595,7 @@ Feature: 权限-字典
     And I upload a file with name "/src/test/resources/testdata/dictionary/AuthTest.csv"
   #  And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "AuthTest"
-    And I click the "EnsureUpload" button
+    And I click the "UploadConfirm" button
     And I wait for "1500" millsecond
     Then I will see the success message "创建字典成功"
 
