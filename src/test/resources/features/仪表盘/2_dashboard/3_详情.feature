@@ -269,6 +269,8 @@ Feature: 仪表盘03详情页
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I switch the dashboard "FilterAutoRefresh" button to "enable"
+    And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I click the "DateEditor" button
     And I click the "Yesterday" button
     And I wait for loading invisible

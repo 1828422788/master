@@ -268,7 +268,7 @@ Feature:仪表盘输入项_5动态菜单
     And I click the "Ensure" button
     And I wait for element "SuccessMessage" change text to "配置成功"
     And I wait for "SuccessMessage" will be invisible
-    And I move the mouse pointer to the text "filter"
+    And I move the mouse pointer to the "FilterSetting"
     And I click the "FilterSetting" button
     And I choose the "文本输入" from the "InputType"
     Then I click the "Ensure" button

@@ -99,7 +99,6 @@ Feature: 仪表盘04详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for element "SuccessMessage" change text to "编辑功能已启用"
     And I wait for "SuccessMessage" will be invisible
     And I choose the "添加行" from the "AddItemMenu"
     And I wait for loading invisible
