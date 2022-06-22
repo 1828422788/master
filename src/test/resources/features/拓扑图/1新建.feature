@@ -8,14 +8,13 @@ Feature: 拓扑图新建
   Scenario Outline: 成功新建拓扑图
     When I click the "Create" button
     And I set the parameter "NameInput" with value "<name>"
-    Then I set the parameter "TagInput" with value "<Type>"
-    And I choose the "<Type>" from the "TagDropdown"
-    Then I wait for "1000" millsecond
+    And I choose the new value "AutoTestTag" from the "TagField"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
 
     Examples:
-      | name        | Type             |
-      | 拓扑图AutoTest | test |
+      | name        |
+      | 拓扑图AutoTest |
 
   @topologySmoke
   Scenario Outline: 新建拓扑图（不包含标签）
