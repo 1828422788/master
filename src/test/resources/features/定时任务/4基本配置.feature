@@ -115,13 +115,9 @@ Feature: 定时任务_基本配置
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Name" with value "Schedule_Test"
     And I set the parameter "Describe" with value "testing schedule"
-    And I will see the "timedTask.ListPage" page
-    And I click the "TagToInput" button
-    And I set the parameter "Tag" with value "auto_package"
-    And I choose the "auto_package" from the "TagField"
-    Then I will see the "timedTask.EditPage" page
     And I set the value "tag:*| stats count() by appname | limit 10" to the textarea "SearchTextarea"
     And I choose the "test_app" from the "AppDropdown"
+    And I choose the new value "auto_package" from the "TagField"
     And I will see the input element "Period" value will be "5"
     And I set the parameter "CrontabInput" with value "0 */57 * * * ?"
     And I click the "Parse" button
