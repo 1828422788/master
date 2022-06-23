@@ -45,4 +45,5 @@ Feature: 知识编辑（RZY-879）
 
   Scenario: 验证知识上传附件成功
     When I click the detail which name is "{'column':'0','name':'知识名'}"
+    Then I will see the "knowledge.DetailPage" page
     Then I will see the element "FileName" value is "testAlertPlugins.txt,csv.log"
