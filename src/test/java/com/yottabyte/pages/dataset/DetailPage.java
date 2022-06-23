@@ -48,7 +48,7 @@ public class DetailPage extends EditorPage {
         return pageSubtitle;
     }
 
-    @FindBy(xpath = "//span[contains(text(),'约束语句')]/following-sibling::span")
+    @FindBy(xpath = "//span[contains(text(),'约束语句')]/following-sibling::*")
     private WebElement splDetail;
     public WebElement getSplDetail() {
         return splDetail;
