@@ -9,7 +9,8 @@ Feature: 用户分组修改（RZY-1179）
     And I wait for element "UserGroupName" value change text to "<UserGroupName>"
     When I set the parameter "UserGroupName" with value "<NewUserGroupName>"
     And I set the parameter "UserGroupDes" with value "<NewUserGroupDes>"
-    And I click the "Save" button
+    And I click the "UserGroupName" button
+    And I will see the message "更新成功"
 
   @smoke @userGroupsSmoke
     Examples:
@@ -23,10 +24,7 @@ Feature: 用户分组修改（RZY-1179）
     And I wait for element "UserGroupName" value change text to "<UserGroupName>"
     When I set the parameter "UserGroupName" with value "<NewUserGroupName>"
     And I set the parameter "UserGroupDes" with value "<NewUserGroupDes>"
-    And I click the "Save" button
-    And I wait for "ErrorExplainMessage" will be visible
-    Then I will see the element "<ErrorExplainMessage>" value contains "AUTH: 更新失败, account_group_name: AutoTestForEdit  已存在"
-
+    Then I will see the element "ErrorExplainMessage" contains "更新失败, account_group_name: AutoTestGroup 已存在"
 
     Examples:
       | UserGroupName   | NewUserGroupName | NewUserGroupDes |
