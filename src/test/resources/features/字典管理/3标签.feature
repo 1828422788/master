@@ -21,7 +21,8 @@ Feature: 字典_标签
     And I will see the success message "修改成功"
     Then I click the "Ensure" button
     And I wait for loading invisible
-    And I will see the data "{'column':'0','name':'<dictionaryName>.csv'}" values "{'column':'4','name':'<newTag>'}"
+    And the data name is "<dictionaryName>.csv" then I "expand" the item
+    And I will see the element "ExpandedRow" contains "资源标签..............<newTag>"
 
     Examples:
       | dictionaryName             | newTag       |
@@ -45,7 +46,8 @@ Feature: 字典_标签
     And I will see the success message "修改成功"
     Then I click the "Ensure" button
     And I wait for loading invisible
-    And I will see the data "{'column':'0','name':'<dictionaryName>.csv'}" values "{'column':'4','name':'<newTag>'}"
+    And the data name is "<dictionaryName>.csv" then I "expand" the item
+    And I will see the element "ExpandedRow" contains "资源标签..............<newTag>"
 
     Examples:
       | dictionaryName             | newTag      | oldTag       |
@@ -82,6 +84,9 @@ Feature: 字典_标签
     Then I click the "Ensure" button
     Then I refresh the website
     And I wait for loading invisible
+    And the data name is "<dictionaryName>.csv" then I "expand" the item
+    And I will see the element "ExpandedRow" contains "auto_package"
+    And I will see the element "ExpandedRow" contains "pre_package"
     Then the data name is "{'column':'0','name':'<dictionaryName>.csv'}" then i click the "标签" button in more menu
     Then I click the "DeleteIcon" button
     Then I click the "DeleteIcon" button
@@ -89,11 +94,12 @@ Feature: 字典_标签
     And I will see the success message "修改成功"
     Then I click the "Ensure" button
     Then I wait for loading invisible
-    And I will see the data "{'column':'0','name':'<dictionaryName>.csv'}" values "{'column':'4','name':'<newTag>'}"
+    And the data name is "<dictionaryName>.csv" then I "expand" the item
+    And I will see the element "ExpandedRow" contains "资源标签..............<newTag>"
 
     Examples:
       | dictionaryName            | newTag | twoTag                   |
-      | wymtestcleartagatlistpage | -      | auto_package,pre_package |
+      | wymtestcleartagatlistpage | 无     | auto_package,pre_package |
 
   Scenario Outline: RZY-4158删除字典
     Then I set the parameter "TextFilter" with value "<dictionaryName>.csv"

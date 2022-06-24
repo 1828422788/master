@@ -7,10 +7,7 @@ Feature: 知识分组（RZY-880）
 
   Scenario Outline: 修改标签
     When the data name is "<name>" then i click the "标签" button in more menu
-    And I click the "TagInput" button
-    And I wait for "1000" millsecond
-    And I set the parameter "Tag" with value "<Type>"
-    And I choose the "<Type>" from the "TagDropdown"
+    And I choose the new value "<Type>" from the "TagField"
     And I click the "Ensure" button
     Then I will see the success message "修改成功"
 
@@ -19,5 +16,6 @@ Feature: 知识分组（RZY-880）
       | 知识名  | testTag |
 
   Scenario: 验证标签修改成功
-    When the data name is "知识名" then i will see "testTag" button
+    When the data name is "知识名" then I "expand" the item
+    Then I will see the element "ExpandedRow" contains "资源标签..............testTag"
 
