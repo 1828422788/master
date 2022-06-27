@@ -195,7 +195,7 @@ Feature: 字段转换
     And I wait for element "EventsTitle" change text to "事件列表"
     And I click the "RightIcon" button
     Then I will see the field "City城市:" exist
-    Then I will see the spl search result "{'C国家':'中国'}"
+    Then I will see the spl search result "{'C国家':'CHINA中国'}"
     Then I will see the field "IP地址:" exist
     Then I will see the field "M方法:" exist
 
@@ -226,7 +226,7 @@ Feature: 字段转换
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for element "EventsTitle" change text to "事件列表"
     And I click the "RightIcon" button
-    Then I will see the spl search result "{'C______':'中国'}"
+    Then I will see the spl search result "{'C______':'CHINA中国'}"
     Then I will see the field "City______:" exist
     Then I will see the field "IP______:" exist
     Then I will see the field "M______:" exist
