@@ -288,7 +288,7 @@ public class CreatePage extends EditorPage {
 
 
     public WebElement getHostConnectInput() {
-        return super.getButton("HostConnectInput");
+        return super.getButtonByText("HostConnectInput");
     }
 
     public WebElement getCleanInputCache() {
@@ -503,7 +503,7 @@ public class CreatePage extends EditorPage {
     private WebElement DeleteMysql;
 
     public WebElement getDelete(){
-        return super.getButton("删除");
+        return super.getButtonByText("删除");
     }
 
     public WebElement getDeleteMysql139() {

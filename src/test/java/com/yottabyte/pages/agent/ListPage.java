@@ -17,7 +17,7 @@ public class ListPage extends EditorPage {
 
 
     public WebElement getMemoButton() {
-        return super.getButton("修改备注");
+        return super.getButtonByText("修改备注");
     }
 
     @FindBy(className = "_2FuqHHfRc-c7BJzf3RvYta")
