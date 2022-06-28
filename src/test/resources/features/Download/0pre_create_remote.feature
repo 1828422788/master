@@ -1,5 +1,4 @@
 @remote_index
-#@pre00
 Feature: 新建远端索引
 
   @new_remote_cluster

@@ -1,5 +1,4 @@
 @remoteindex_creat @remoteindex
-#@indexSetting
 Feature: 新建远端索引
 
   Scenario Outline: 新建远端集群成功
