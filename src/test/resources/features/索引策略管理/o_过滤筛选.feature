@@ -1,4 +1,5 @@
-@remoteindex_creat @remoteindex  @indexSetting
+@remoteindex_creat @remoteindex
+#@indexSetting
 Feature: 索引信息过滤
   Scenario Outline: 远端集群过滤
     Given open the "remoteIndex.ListPage" page for uri "/remoteindex/"
