@@ -184,7 +184,7 @@ Feature: 仪表盘_6_00_表格
     And I wait for "1000" millsecond
     And I set the parameter "DownloadFileName" with value "汉字Abc！@#¥123"
     And I click the "Ensure" button
-    Then I wait for "DuplicateName" will be visible
+    And I will see the message contains "下载错误: Duplicate file name"
 
   Scenario Outline: 编辑图表列位置-左移-右移
     And I wait for "Table" will be visible

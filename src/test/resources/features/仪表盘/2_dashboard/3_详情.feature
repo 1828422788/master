@@ -194,6 +194,7 @@ Feature: 仪表盘03详情页
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I choose the "添加图表" from the "AddItemMenu"
     And I wait for loading invisible
     And I click the "{'Checkbox':'验证仪表盘全局时间'}" button

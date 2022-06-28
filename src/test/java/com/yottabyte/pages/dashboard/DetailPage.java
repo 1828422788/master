@@ -535,9 +535,6 @@ public class DetailPage extends EditorPage {
     @FindBy(xpath = "//div[contains(text(),'仪表盘workflow')]/following-sibling::div//table")
     private List<WebElement> workflowList;
 
-    @FindBy(xpath = "//div[@class='yotta-modal-body']/div/p[contains(text(),'下载错误: Duplicate file name:')]")
-    private WebElement duplicateName;
-
     @FindBy(xpath = "//span[text()='在搜索中打开']")
     private WebElement openInSearch;
 
@@ -822,7 +819,7 @@ public class DetailPage extends EditorPage {
     @FindBy(xpath = "//tr[1]/td[2]")
     private WebElement secondColumnFirstValue;
 
-    @FindBy(xpath = "//div[text()='仪表盘表格样式' and @yotta-test='dashboard-chart_title-dom']/parent::div")
+    @FindBy(xpath = "//div[text()='仪表盘表格' and @yotta-test='dashboard-chart_title-dom']/parent::div")
     private WebElement chartStyleTable;
 
     @FindBy(xpath = "(//span[contains(@yotta-test,'setting')]//ancestor::div[contains(@class,'config')]/following-sibling::div[contains(@class,'action')]//span[contains(@yotta-test,'refresh')])[last()]")
@@ -1227,10 +1224,6 @@ public class DetailPage extends EditorPage {
 
     public WebElement getDownloadFileName() {
         return downloadFileName;
-    }
-
-    public WebElement getDuplicateName() {
-        return duplicateName;
     }
 
     public WebElement getMultiSelect() {
