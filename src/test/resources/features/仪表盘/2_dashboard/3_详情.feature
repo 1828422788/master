@@ -149,6 +149,7 @@ Feature: 仪表盘03详情页
     And I click the "Ensure" button
     And I wait for "SettingIcon" will be visible
 
+  @dashboardSmoke
   Scenario: 验证标签搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
