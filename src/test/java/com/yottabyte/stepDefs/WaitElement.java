@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import com.yottabyte.utils.WaitForElement;
 
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class WaitElement {
     public void waitForElementInvisible(String elementName) {
         try {
             WebElement element = GetElementFromPage.getWebElementWithName(elementName);
-            com.yottabyte.utils.WaitForElement.waitElementInvisible(element);
+            WaitForElement.waitElementInvisible(element);
         } catch (ElementNotFoundException exception) {
             return;
         }
@@ -61,7 +62,7 @@ public class WaitElement {
      */
     @Then("^I wait for loading invisible$")
     public void iWaitForLoadingInvisible() {
-        com.yottabyte.utils.WaitForElement.waitUntilLoadingDisappear();
+        WaitForElement.waitUntilLoadingDisappear();
     }
 
     /**
@@ -87,6 +88,17 @@ public class WaitElement {
 
     public void elementVisible(WebElement element) {
         ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(element);
-        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+    }
+
+    /**
+     * 等待元素enabled和displayed
+     *
+     * @param elementName 元素名称
+     */
+    @When("^I wait for \"([^\"]*)\" to be clickable")
+    public void iWaitForElementToBeClickable(String elementName) {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
     }
 }
