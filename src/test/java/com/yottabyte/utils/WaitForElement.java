@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -48,15 +49,17 @@ public class WaitForElement {
     }
 
     public static void waitUntilLoadingDisappear() {
-        waitUntilElementLocatedByAttributeDisappear(By.className("yotta-spinner-spin"));
+        waitUntilElementLocatedByAttributeDisappear(By.className("yotta-spinner-spinning"));
     }
 
     public static void waitUntilElementLocatedByAttributeDisappear(By locator) {
         webDriver.manage().timeouts().implicitlyWait(WebDriverConst.WAIT_FOR_ELEMENT_INVISIBLE, TimeUnit.MILLISECONDS);
         if (ElementExist.isElementExist(webDriver, locator)) {
             try {
-                WebElement element = webDriver.findElement(locator);
-                WaitForElement.waitElementInvisible(element);
+                List<WebElement> elements = webDriver.findElements(locator);
+                for(int i = 0; i < elements.size(); i++) {
+                    WaitForElement.waitElementInvisible(elements.get(i));
+                }
             } catch (Exception e) {
             }
         }
