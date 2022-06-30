@@ -58,7 +58,10 @@ public class WaitForElement {
             try {
                 List<WebElement> elements = webDriver.findElements(locator);
                 for(int i = 0; i < elements.size(); i++) {
-                    WaitForElement.waitElementInvisible(elements.get(i));
+                    try {
+                        WaitForElement.waitElementInvisible(elements.get(i));
+                    } catch (Exception e) {
+                    }
                 }
             } catch (Exception e) {
             }
