@@ -9,7 +9,8 @@ Feature: Cruxee下载插件
     Given I wait for loading complete
     And I click the "PluginButton" button
     And I set the parameter "noticeReceiveGroupNameSearchInput" with value "<inputFileName>"
-    Then I click the Element with text "下载"
+    And I wait for loading invisible
+    Then the data name is "<inputFileName>" then i click the "下载" button
 
     Examples:
       | inputFileName  |

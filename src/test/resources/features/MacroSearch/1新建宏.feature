@@ -8,20 +8,18 @@ Feature: 新建搜索宏
   Scenario Outline: 创建宏，使用基于eval的定义，1个
     When I click the "CreateMacroButton" button
     Then I will see the "macroSearch.CreatePage" page
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I set the parameter "MacroName" with value "<name>"
     And I set the parameter "Definition" with value "<definition>"
     And I click the "MacroEvalCheckbox" button
     And I set the parameter "MacroParam" with value "<macroParam>"
     And I set the parameter "ValidateExpression" with value "<validateExpression>"
     And I set the parameter "ValidateFalseInfo" with value "<validateFalseInfo>"
-    And I wait for "2000" millsecond
     And I click the "SaveMacroButton" button
     Then I will see the success message "保存成功"
 
     Examples:
       | name           | definition         | macroParam | validateExpression | validateFalseInfo |
-      #暂时存在bug
       | me_substr_1(1) | "substring($x$,2)" | x          | isstr(x)           | 请 输入字符串           |
 
   @newmacro2
@@ -29,18 +27,13 @@ Feature: 新建搜索宏
     Given open the "macroSearch.ListPage" page for uri "/macro/"
     When I click the "CreateMacroButton" button
     Then I will see the "macroSearch.CreatePage" page
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I set the parameter "MacroName" with value "<name>"
-#    And I choose the "1pre_package" from the "MacroResTag"
-#    And I choose the "无数集app之api全部测试用例" from the "BelongToApps"
     And I set the parameter "Definition" with value "<definition>"
     And I click the "MacroEvalCheckbox" button
     And I set the parameter "MacroParam" with value "<macroParam>"
-#    And I set the parameter "ValidateExpression" with value "<validateExpression>"
-#    And I set the parameter "ValidateFalseInfo" with value "<validateFalseInfo>"
-    And I wait for "2000" millsecond
     And I click the "SaveMacroButton" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
     Examples: 新建成功
       | name            | definition                                   | macroParam | macroSearch                                              | query                                                                      |
@@ -54,15 +47,12 @@ Feature: 新建搜索宏
     Given open the "macroSearch.ListPage" page for uri "/macro/"
     When I click the "CreateMacroButton" button
     Then I will see the "macroSearch.CreatePage" page
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I set the parameter "MacroName" with value "<name>"
     And I set the parameter "Definition" with value "<definition>"
     And I set the parameter "MacroParam" with value "<macroParam>"
-#    And I set the parameter "ValidateExpression" with value "<validateExpression>"
-#    And I set the parameter "ValidateFalseInfo" with value "<validateFalseInfo>"
-    And I wait for "2000" millsecond
     And I click the "SaveMacroButton" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
     Examples: 新建成功
       | name    | definition                                   | macroParam | macroSearch                                         | query                                                                        |
@@ -74,16 +64,12 @@ Feature: 新建搜索宏
     Given open the "macroSearch.ListPage" page for uri "/macro/"
     When I click the "CreateMacroButton" button
     Then I will see the "macroSearch.CreatePage" page
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I set the parameter "MacroName" with value "<name>"
-#    And I choose the "1pre_package" from the "MacroResTag"
-#    And I choose the "无数集app之api全部测试用例" from the "BelongToApps"
     And I set the parameter "Definition" with value "<definition>"
     And I set the parameter "MacroParam" with value "<macroParam>"
-    And I wait for "2000" millsecond
-
     And I click the "SaveMacroButton" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
     Examples: 新建成功
       | name        | definition                                 | macroParam | macroSearch                                             | query                                                                      |
@@ -94,19 +80,14 @@ Feature: 新建搜索宏
     Given open the "macroSearch.ListPage" page for uri "/macro/"
     When I click the "CreateMacroButton" button
     Then I will see the "macroSearch.CreatePage" page
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     When I set the parameter "MacroName" with value "<name>"
-#    And I choose the "1pre_package" from the "MacroResTag"
-#    And I choose the "无数集app之api全部测试用例" from the "BelongToApps"
     And I set the parameter "Definition" with value "<definition>"
-#    And I click the "MacroEvalCheckbox" button
     And I set the parameter "MacroParam" with value "<macroParam>"
     And I set the parameter "ValidateExpression" with value "<validateExpression>"
     And I set the parameter "ValidateFalseInfo" with value "<validateFalseInfo>"
-    And I wait for "2000" millsecond
-
     And I click the "SaveMacroButton" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
     Examples: 新建成功
       | name                               | definition                                                                                                                            | macroParam            | validateExpression   | validateFalseInfo | ResultMessage |
@@ -122,18 +103,15 @@ Feature: 新建搜索宏
     Given open the "macroSearch.ListPage" page for uri "/macro/"
     When I click the "CreateMacroButton" button
     Then I will see the "macroSearch.CreatePage" page
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
 
     When I set the parameter "MacroName" with value "<name>"
-#    And I choose the "无数集app之api全部测试用例" from the "BelongToApps"
     And I set the parameter "Definition" with value "<definition>"
     And I set the parameter "MacroParam" with value "<macroParam>"
     And I set the parameter "ValidateExpression" with value "<validateExpression>"
     And I set the parameter "ValidateFalseInfo" with value "<validateFalseInfo>"
-    And I wait for "2000" millsecond
-
     And I click the "SaveMacroButton" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
     Examples: 新建成功
       | name        | definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | macroParam | validateExpression | validateFalseInfo |
@@ -145,19 +123,14 @@ Feature: 新建搜索宏
     Given open the "macroSearch.ListPage" page for uri "/macro/"
     When I click the "CreateMacroButton" button
     Then I will see the "macroSearch.CreatePage" page
-    And I wait for "2000" millsecond
-
+    And I wait for loading invisible
     When I set the parameter "MacroName" with value "<name>"
-#    And I choose the "1pre_package" from the "MacroResTag"
-#    And I choose the "无数集app之api全部测试用例" from the "BelongToApps"
     And I set the parameter "Definition" with value "<definition>"
     And I set the parameter "MacroParam" with value "<macroParam>"
     And I set the parameter "ValidateExpression" with value "<validateExpression>"
     And I set the parameter "ValidateFalseInfo" with value "<validateFalseInfo>"
-    And I wait for "2000" millsecond
-
     And I click the "SaveMacroButton" button
-#    Then I will see the "<ResultMessage>"
+    Then I will see the success message "保存成功"
 
     Examples: 新建成功
       | name                         | definition                                                                                                                                                                                                    | macroParam     | validateExpression | validateFalseInfo | ResultMessage          |
@@ -173,18 +146,13 @@ Feature: 新建搜索宏
     Given open the "macroSearch.ListPage" page for uri "/macro/"
     When I click the "CreateMacroButton" button
     Then I will see the "macroSearch.CreatePage" page
-    And I wait for "2000" millsecond
-
+    And I wait for loading invisible
     When I set the parameter "MacroName" with value "<name>"
-#    And I choose the "1pre_package" from the "MacroResTag"
-#    And I choose the "无数集app之api全部测试用例" from the "BelongToApps"
     And I set the parameter "Definition" with value "<definition>"
     And I set the parameter "ValidateExpression" with value "<validateExpression>"
     And I set the parameter "ValidateFalseInfo" with value "<validateFalseInfo>"
-    And I wait for "2000" millsecond
-
     And I click the "SaveMacroButton" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
     Examples: 新建成功
       | name                                        | definition                                                                                                                                                                                                                                                                                                                             | validateExpression | validateFalseInfo |

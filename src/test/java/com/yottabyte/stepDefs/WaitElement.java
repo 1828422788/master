@@ -101,6 +101,7 @@ public class WaitElement {
         this.elementVisible(element);
     }
 
+
     public void elementVisible(WebElement element) {
         ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(element);
         WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);

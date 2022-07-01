@@ -24,7 +24,7 @@ Feature: download_collect验证
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     And I set the parameter "DbListPageSearchInput" with value "<name>.csv"
     And I wait for loading invisible
-    And I click the "ListDownloadButton" button
+    And the data name is "<name>.csv" then i click the "下载" button
 
     Examples:
       | name                                   | splQuery                                                                                                                        |
@@ -43,7 +43,6 @@ Feature: download_collect验证
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then take a screenshot with name "downloadpng/<name>"
 
-    And I wait for "1000" millsecond
     Then I will see the "NoDataInfo" result will be "搜索无数据"
 
     Examples:
@@ -59,7 +58,18 @@ Feature: download_collect验证
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then take a screenshot with name "downloadpng/<name>"
 
-    And I wait for "1000" millsecond
+    And I wait for "downloadEvent" will be visible
+    And I click the "downloadEvent" button
+    And I set the parameter "DownloadName" with value "<name>"
+    And I set the parameter "MaxLineNum" with value "100"
+    When I click the "CreateDownloadTask" button
+    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
+
+    #下载到本地
+    Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
+    And I set the parameter "DbListPageSearchInput" with value "<name>.csv"
+    And I wait for loading invisible
+    And the data name is "<name>.csv" then i click the "下载" button
 
     Examples:
       | name                                   | splQuery                           |

@@ -28,7 +28,8 @@ Feature: download_xlsx格式
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     When I set the parameter "DbListPageSearchInput" with value "<name>.xlsx"
-    And I click the "ListDownloadButton" button
+    And I wait for loading invisible
+    Then the data name is "<name>.xlsx" then i click the "下载" button
 
     Examples: 新建成功
       | maxLineNum | name                     | splQuery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |

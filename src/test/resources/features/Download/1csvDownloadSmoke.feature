@@ -23,7 +23,8 @@ Feature: SearchAndDownload
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     And I set the parameter "DbListPageSearchInput" with value "<name>.txt"
-    And I click the "ListDownloadButton" button
+    And I wait for loading invisible
+    Then the data name is "<name>.txt" then i click the "下载" button
 
     Examples:
       | name                                   | splQuery                                                                                                                                                        |
@@ -54,7 +55,8 @@ Feature: SearchAndDownload
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     And I wait the "1" row "4" column change text to "下载" in "300000" milliseconds
     And I set the parameter "DbListPageSearchInput" with value "<name>.txt"
-    And I click the "ListDownloadButton" button
+    And I wait for loading invisible
+    Then the data name is "<name>.txt" then i click the "下载" button
 
     Examples:
       | name                                   | splQuery  |

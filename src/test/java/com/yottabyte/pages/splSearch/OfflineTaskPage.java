@@ -50,11 +50,6 @@ public class OfflineTaskPage extends EditorPage {
         return super.getButton("确定");
     }
 
-    @FindBy(xpath = "//span[text()='下载']/parent::button")
-    private WebElement listDownloadButton;
-    public WebElement getListDownloadButton() {
-        return listDownloadButton;
-    }
     @FindBy(xpath = "//span[contains(text(),'确定')]/parent::button")
     private WebElement ensureButton;
 
