@@ -108,15 +108,16 @@ Feature: 权限-KV字典
     And I set the parameter "KVFieldInput3" with value "appname"
     And I click the "CreateKVStore" button
     And I click the "SaveButton" button
+    Then I will see the "MessageContent" is display
 
   Scenario: 授权读取权限
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "KVAuth" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I choose the "授权" from the "KVDropdownList"
-    And I wait for loading invisible
-    When I "check" the function "读取" which name is "AutoTest" in tiny table
-    And I wait for "1000" millsecond
+    And I wait for "Ensure" will be visible in "10000" milliseconds
+    When I "check" the function "读取" which name is "AutoTest (-)" in tiny table
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
     And I logout current user
