@@ -1,6 +1,9 @@
 package com.yottabyte.utils;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -35,5 +38,17 @@ public class StringUtils {
             }
         }
         return resultList;
+    }
+
+    /**
+     * 根据当前日期时间返回一个字符串
+     *
+     * @param
+     * @return
+     */
+    public static String timeString(){
+        SimpleDateFormat myFmt = new SimpleDateFormat("yyMMddHHmmss");
+        Date date = new Date();
+        return myFmt.format(date);
     }
 }
