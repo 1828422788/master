@@ -1,8 +1,10 @@
 package com.yottabyte.stepDefs;
 
+import com.yottabyte.constants.WebDriverConst;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.Agent;
 import com.yottabyte.utils.ClickEvent;
+import com.yottabyte.utils.ElementExist;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.JsonStringPaser;
 import cucumber.api.PendingException;
@@ -14,8 +16,10 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 检查元素是否包含某属性
@@ -253,33 +257,14 @@ public class CheckButtonAttribute {
      */
     @And("^I will see the \"([^\"]*)\" doesn't exist$")
     public void elementNotExist(String name) {
-        if (name.startsWith("get")) {
-            name = name.split("get")[1];
-        }
-        if (Character.isLowerCase(name.charAt(0))) {
-            System.out.println("\n Wanning: name is " + name + " , might be UpperCase in the first! \n");
-            name = "get" + name.substring(0, 1).toUpperCase() + name.substring(1);
-        } else {
-            name = "get" + name;
-        }
-        Object page = LoginBeforeAllTests.getPageFactory();
-        Method method;
+        webDriver.manage().timeouts().implicitlyWait(WebDriverConst.WAIT_FOR_ELEMENT_INVISIBLE, TimeUnit.MILLISECONDS);
         try {
-            Object object = page.getClass().getDeclaredMethod(name).invoke(page);
-            method = page.getClass().getDeclaredMethod(name);
-            WebElement element = (WebElement) object;
-            this.ifExist(element);
-        } catch (Exception e) {
-            method = null;
-        }
-        if (method == null) {
-            try {
-                method = page.getClass().getSuperclass().getDeclaredMethod(name);
-                Object object = method.invoke(page);
-                this.ifExist((WebElement) object);
-            } catch (Exception e) {
-                Assert.assertTrue(true);
-            }
+            WebElement element = GetElementFromPage.getWebElementWithName(name);
+            Assert.assertFalse(ElementExist.isElementExist(webDriver, element));
+        } catch (NoSuchElementException e) {
+            Assert.assertTrue(true);
+        } finally {
+            webDriver.manage().timeouts().implicitlyWait(WebDriverConst.WAIT_FOR_ELEMENT_TIMEOUT, TimeUnit.MILLISECONDS);
         }
     }
 
