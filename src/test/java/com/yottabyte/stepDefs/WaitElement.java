@@ -4,6 +4,7 @@ import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 import com.yottabyte.constants.WebDriverConst;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
+import com.yottabyte.utils.JsonStringPaser;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -14,6 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import com.yottabyte.utils.WaitForElement;
 
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.List;
 
@@ -42,6 +44,96 @@ public class WaitElement {
             WebElement element = GetElementFromPage.getWebElementWithName(elementName);
             this.elementVisible(element);
         }
+    }
+
+    /**
+     * 等待元素可点击, enabled, visible
+     *
+     * @param buttonName 元素名称,对应的getxpath方法名字, 这个方法需要在page中定义
+     * example: And I wait for "ButtonXpath" will be clickable by xpath
+     *     or   And I wait for "{'ButtonXpath':'确定'}" will be clickable by xpath
+     */
+    @When("^I wait for \"([^\"]*)\" will be clickable by xpath$")
+    public void iWaitForWillBeClickableByXpath(String buttonName) {
+        String xpath = getXpathFromPage(buttonName);
+        ExpectedCondition expectedCondition = ExpectedConditions.elementToBeClickable(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+    }
+
+    /**
+     * 等待元素可见, visible
+     *
+     * @param buttonName 元素名称,对应的getxpath方法名字, 这个方法需要在page中定义
+     * example: And I wait for "ButtonXpath" will be clickable by xpath
+     *     or   And I wait for "{'ButtonXpath':'确定'}" will be clickable by xpath
+     */
+    @When("^I wait for \"([^\"]*)\" will be visible by xpath$")
+    public void iWaitForWillBeVisibleByXpath(String buttonName) {
+        String xpath = getXpathFromPage(buttonName);
+        ExpectedCondition expectedCondition = ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+    }
+
+    /**
+     * 等待元素不可见, invisible
+     *
+     * @param buttonName 元素名称,对应的getxpath方法名字, 这个方法需要在page中定义
+     * example: And I wait for "ButtonXpath" will be clickable by xpath
+     *     or   And I wait for "{'ButtonXpath':'确定'}" will be clickable by xpath
+     */
+    @When("^I wait for \"([^\"]*)\" will be invisible by xpath$")
+    public void iWaitForWillBeInvisibleByXpath(String buttonName) {
+        String xpath = getXpathFromPage(buttonName);
+        ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOfElementLocated(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+    }
+
+    /**
+     * Returns: the WebElement once it is located,也就是元素存在
+     * @param buttonName 元素名称,对应的getxpath方法名字, 这个方法需要在page中定义
+     * example: And I wait for "ButtonXpath" will be clickable by xpath
+     *     or   And I wait for "{'ButtonXpath':'确定'}" will be clickable by xpath
+     */
+    @When("^I wait for \"([^\"]*)\" will be Located by xpath$")
+    public void iWaitForWillBeLocatedByXpath(String buttonName) {
+        String xpath = getXpathFromPage(buttonName);
+        ExpectedCondition expectedCondition = ExpectedConditions.presenceOfElementLocated(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+    }
+
+    /**
+     * An expectation for checking WebElement with given locator has attribute with a specific value
+     * Params:
+     * locator – used to find the element
+     * attribute – used to define css or html attribute
+     * value – used as expected attribute value
+     * Returns:
+     * Boolean true when element has css or html attribute with the value
+     *
+     * example: And I wait for "ButtonXpath" will be clickable by xpath
+     *     or   And I wait for "{'ButtonXpath':'确定'}" will be clickable by xpath
+     */
+    @When("^I wait for \"([^\"]*)\" attribute \"([^\"]*)\" value be \"([^\"]*)\" by xpath$")
+    public void iWaitForElementBeLocatedByXpath(String buttonName, String attributeName, String expectAttributeValue) {
+        String xpath = getXpathFromPage(buttonName);
+        ExpectedCondition expectedCondition = ExpectedConditions.attributeToBe(By.xpath(xpath), attributeName, expectAttributeValue);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+    }
+
+    private String getXpathFromPage(String buttonName) {
+        String parameters = "";
+        String xpath;
+        if (JsonStringPaser.isJson(buttonName)) {
+            Map<String, Object> map = JsonStringPaser.json2Stirng(buttonName);
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
+                buttonName = entry.getKey();
+                parameters = (String) entry.getValue();
+            }
+            xpath = GetElementFromPage.getWebElementWithName(buttonName, parameters);
+        } else {
+            xpath = GetElementFromPage.getWebElementWithName(buttonName);
+        }
+        return xpath;
     }
 
     /**
