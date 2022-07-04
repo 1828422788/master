@@ -260,7 +260,7 @@ Feature: 仪表盘04详情行布局
     And I click the "DeleteTrend1" button
     And I click the "Ensure" button
     And I wait for element "SuccessMessage" change text to "删除成功"
-    Then I will see the "TrendOne" is not exist
+    Then I will see the "TrendOne" doesn't exist
 
   @dashboardSmoke
   Scenario: 展示条件-文本输入项预置

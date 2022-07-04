@@ -16,20 +16,6 @@ public class VerifyButtonIsExist {
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
     /**
-     * 判断元素是否存在
-     *
-     * @param buttonName
-     */
-    @Then("^I will see the \"([^\"]*)\" is not exist$")
-    public void elementNotExist(String buttonName) {
-        try {
-            GetElementFromPage.getWebElementWithName(buttonName);
-        } catch (Exception e) {
-            Assert.assertTrue(true);
-        }
-    }
-
-    /**
      * 判断文本在页面中存在
      *
      * @param text

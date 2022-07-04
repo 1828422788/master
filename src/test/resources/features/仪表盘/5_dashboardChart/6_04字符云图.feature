@@ -114,7 +114,7 @@ Feature: 仪表盘_6_04_字符云图
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "配置成功"
     And I wait for "2000" millsecond
-    Then I will see the "NoData" is not exist
+    Then I will see the "NoData" doesn't exist
 #    Then I wait for "NoData" will be visible
 
 

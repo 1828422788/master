@@ -67,7 +67,7 @@ Feature: 报表_3_布局设计
     And I will see the "Badge1" is display
     And I will see the "Badge2" is display
     And I will see the "Badge3" is display
-    And I will see the "Badge4" is not exist
+    And I will see the "Badge4" doesn't exist
     When I click the "FinishButton" button
     And I wait for "ResultMessage" will be visible
     And I will see the element "ResultMessage" contains "新建成功"
