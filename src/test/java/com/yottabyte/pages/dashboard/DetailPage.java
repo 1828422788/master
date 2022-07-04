@@ -103,18 +103,6 @@ public class DetailPage extends EditorPage {
     @FindBy(xpath = "//*[@yotta-test='dashboard-add_input-menu_item']")
     private WebElement addInput;
 
-    @FindBy(xpath = "//*[@name='title']")
-    private WebElement inputSettingTitle;
-
-    @FindBy(xpath = "//span[text()='文本输入']")
-    private WebElement inputSettingType;
-
-    @FindBy(xpath = "//span[text()='时间范围']")
-    private WebElement timeRangee;
-
-    @FindBy(xpath = "//span[text()='设为全局时间']")
-    private WebElement setGlobalTimeRange;
-
     @FindBy(xpath = "//label[contains(text(),'搜索内容')]/following-sibling::div//textarea")
     private WebElement searchInput;
 
@@ -123,9 +111,6 @@ public class DetailPage extends EditorPage {
 
     @FindBy(xpath = "//a[contains(text(),'UIautotest')]")
     private WebElement uiautotest;
-
-    @FindBy(xpath = "//span[contains(text(),' 测试市')]")
-    private WebElement ceshishi;
 
     @FindBy(xpath = "//a[contains(text(),'测试标签页移出')]")
     private WebElement testMoveTag;
@@ -328,21 +313,6 @@ public class DetailPage extends EditorPage {
     @FindBy(xpath = "//span[text()='phplib/xiaomi/Model/Device/Event.php:451']")
     private WebElement jsonCallerText;
 
-    @FindBy(xpath = "//span[text()='江苏']")
-    private WebElement jiangsu;
-
-    @FindBy(xpath = "//span[text()='上海市']")
-    private WebElement shanghai;
-
-    @FindBy(xpath = "//span[text()='成都市 ']")
-    private WebElement chengdushi;
-
-    @FindBy(xpath = "(//span[text()='成都市'])[last()]")
-    private WebElement chengDuShi;
-
-    @FindBy(xpath = "//div[contains(@class,'yotta-select-menu')]//span[text()='成都市']")
-    private WebElement chengdushiList;
-
     @FindBy(xpath = "(//*[name()='rect'and @height=22])")
     private WebElement zhutiao;
 
@@ -421,9 +391,6 @@ public class DetailPage extends EditorPage {
     @FindBy(xpath = "//div[text()='=']//span")
     private WebElement paramValue;
 
-    @FindBy(xpath = "//*[@yotta-test='dashboard-drilldown_filter_value-select']")
-    private WebElement paramValue1;
-
     @FindBy(xpath = "//span[text()='${click.value2}']")
     private WebElement clickValue;
 
@@ -434,19 +401,13 @@ public class DetailPage extends EditorPage {
     private WebElement startEnd;
 
     @FindBy(xpath = "//*[@yotta-test='dashboard-drilldown_filter_add-input']")
-    private WebElement newCreat;
+    private WebElement addDrilldownFilter;
 
     @FindBy(xpath = "//*[@yotta-test='dashboard-drilldown_filter_action-select']")
     private WebElement optionItems;
 
-    @FindBy(xpath = "//*[@yotta-test='dashboard-drilldown_filter_token-input']")
-    private WebElement tokenInput;
-
     @FindBy(xpath = "//input[@yotta-test='dashboard-filter_value-input']")
     private WebElement geoCity;
-
-    @FindBy(xpath = "//div[contains(@class,'filter')]/div[1]//span[text()]")
-    private WebElement firstFilter;
 
     @FindBy(xpath = "//div[contains(@class,'filter')]/div[1]")
     private WebElement firstFilterElement;
@@ -493,33 +454,6 @@ public class DetailPage extends EditorPage {
     @FindBy(xpath = "//span[text()='单选']/ancestor::label")
     private WebElement singleChoice;
 
-    @FindBy(xpath = "//span[text()='南京市']")
-    private WebElement nanjingshi;
-
-    @FindBy(xpath = "//div[contains(@class,'yotta-select-menu')]//span[text()='南京市']")
-    private WebElement nanjingshiList;
-
-    @FindBy(xpath = "//div[text()='南京市']")
-    private WebElement nanJing;
-
-    @FindBy(xpath = "//div[text()='成都市']")
-    private WebElement chengDu;
-
-    @FindBy(xpath = "//div[text()='缺少动态字段值']")
-    private WebElement tipOfLack;
-
-    @FindBy(xpath = "//div[text()='请填写查询语句']")
-    private WebElement splOfLack;
-
-    @FindBy(xpath = "//div[@class='yotta-message-content']")
-    private WebElement noticeMessage;
-
-    @FindBy(xpath = "//div[text()='该选项为必填项不能为空']")
-    private WebElement emptyNotice;
-
-    @FindBy(xpath = "//*[@yotta-test='dashboard-filter_value-select']/div")
-    private WebElement filterDropDown1;
-
     @FindBy(xpath = "//th//span[text()='appname']/following-sibling::input")
     private WebElement appname;
 
@@ -561,9 +495,6 @@ public class DetailPage extends EditorPage {
 
     @FindBy(xpath = "//*[@yotta-test='dashboard-general_config_condition_value-input']")
     private WebElement showValue;
-
-    @FindBy(xpath = "//div[text()='请补全展示条件']")
-    private WebElement tipErrorShowCondition;
 
     @FindBy(xpath = "//span[text()='仪表盘测试事件列表']")
     private WebElement event;
@@ -876,10 +807,6 @@ public class DetailPage extends EditorPage {
         return cleanShowConditio;
     }
 
-    public WebElement getTipErrorShowCondition() {
-        return tipErrorShowCondition;
-    }
-
     public WebElement getMoreConfig() {
         return moreConfig;
     }
@@ -892,20 +819,8 @@ public class DetailPage extends EditorPage {
         return addInput;
     }
 
-    public WebElement getInputSettingType() {
-        return inputSettingType;
-    }
-
-    public WebElement getTimeRangee() {
-        return timeRangee;
-    }
-
     public WebElement getTimeRangeDanzhi() {
         return timeRangeDanzhi;
-    }
-
-    public WebElement getSetGlobalTimeRange() {
-        return setGlobalTimeRange;
     }
 
     public WebElement getAddEvent() {
@@ -1027,10 +942,6 @@ public class DetailPage extends EditorPage {
 
     public WebElement getReturnToList() {
         return returnToList;
-    }
-
-    public WebElement getCeshishi() {
-        return ceshishi;
     }
 
     public WebElement getCurrentDashboard() {
@@ -1238,10 +1149,6 @@ public class DetailPage extends EditorPage {
         return super.getYottaInput("dashboard-filter_value-input");
     }
 
-    public WebElement getFilterDropDown1() {
-        return filterDropDown1;
-    }
-
     public WebElement getSingleChoice() {
         return singleChoice;
     }
@@ -1291,10 +1198,6 @@ public class DetailPage extends EditorPage {
         return geoCity;
     }
 
-    public WebElement getFirstFilter() {
-        return firstFilter;
-    }
-
     public WebElement getFirstFilterElement() {
         return firstFilterElement;
     }
@@ -1323,65 +1226,24 @@ public class DetailPage extends EditorPage {
         return startEnd;
     }
 
-    public WebElement getNewCreat() {
-        return newCreat;
+    public WebElement getAddDrilldownFilter() {
+        return getYottaSpan("dashboard-drilldown_filter_add-input");
     }
 
     public WebElement getTokenInput() {
-        return tokenInput;
-    }
-
-    public WebElement getParamDropdown() {
-        return super.getLastDropdownList();
+        return getYottaInput("dashboard-drilldown_filter_token-input");
     }
 
     public WebElement getParamValue() {
         return paramValue;
     }
 
-    public WebElement getParamValue1() {
-        paramValue1.click();
-        return super.getLastDropdownList();
-    }
-
-    public WebElement getInputSettingTitle() {
-        return inputSettingTitle;
+    public WebElement getParameterValue() {
+        return dropdownUtils.getYottaDropdownList("dashboard-drilldown_filter_value-select");
     }
 
     public WebElement getTargetParam() {
         return targetParam;
-    }
-
-    public WebElement getNanjingshi() {
-        return nanjingshi;
-    }
-
-    public WebElement getNanjingshiList() {
-        return nanjingshiList;
-    }
-
-    public WebElement getNanjing() {
-        return nanJing;
-    }
-
-    public WebElement getChengdu() {
-        return chengDu;
-    }
-
-    public WebElement getTipOfLack() {
-        return tipOfLack;
-    }
-
-    public WebElement getSplOfLack() {
-        return splOfLack;
-    }
-
-    public WebElement getNoticeMessage() {
-        return noticeMessage;
-    }
-
-    public WebElement getEmptyNotice() {
-        return emptyNotice;
     }
 
     public WebElement getDashboardMenu() {
@@ -1446,26 +1308,6 @@ public class DetailPage extends EditorPage {
 
     public WebElement getJsonCallerText() {
         return jsonCallerText;
-    }
-
-    public WebElement getJiangsu() {
-        return jiangsu;
-    }
-
-    public WebElement getShanghai() {
-        return shanghai;
-    }
-
-    public WebElement getChengdushi() {
-        return chengdushi;
-    }
-
-    public WebElement getChengDuShi() {
-        return chengDuShi;
-    }
-
-    public WebElement getChengdushiList() {
-        return chengdushiList;
     }
 
     public WebElement getZhutiao() {
@@ -1882,7 +1724,7 @@ public class DetailPage extends EditorPage {
     }
 
     public WebElement getFilterTitle() {
-        return getInput("标题");
+        return getYottaInput("dashboard-new_filter_option_alias-input");
     }
 
     public WebElement getChoiceValue() {
@@ -1894,7 +1736,7 @@ public class DetailPage extends EditorPage {
     }
 
     public WebElement getFilterToken() {
-        return getInput("标识");
+        return getYottaInput("dashboard-new_filter_token-input");
     }
 
     public WebElement getFilterField() {

@@ -254,7 +254,7 @@ Feature: 仪表盘03详情页
     And I wait for "SuccessMessage" will be invisible
     And I choose the "添加输入项" from the "AddItemMenu"
     And I choose the "时间范围" from the "FilterType"
-    And I set the parameter "inputSettingTitle" with value "全局时间"
+    And I set the parameter "FilterTitle" with value "全局时间"
     Then I "checked" the checkbox which name is "设为全局时间"
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
