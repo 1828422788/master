@@ -109,12 +109,6 @@ public class CreatePage extends EditorPage {
     @FindBy(xpath = "//*[@class='ant-spin-container ant-spin-blur']")
     private WebElement searchLoading;
 
-    @FindBy(xpath = "//span[text()='事件操作']")
-    private WebElement event;
-
-    @FindBy(xpath = "//span[text()='添加']")
-    private WebElement addKVStore;
-
     @FindBy(xpath = "//input[@yotta-test='application-kvstore_modal_name-input']")
     private WebElement KVName;
 
@@ -177,9 +171,6 @@ public class CreatePage extends EditorPage {
     @FindBy(xpath = "(//div[contains(@id,'.match_type')])[last()]")
     private WebElement matchType;
 
-    @FindBy(xpath = "//a[text()='添加查找输出字段']")
-    private WebElement addOutputField;
-
     @FindBy(xpath = "(//input[contains(@id,'.output')])[last()]")
     private WebElement outputField;
 
@@ -219,9 +210,6 @@ public class CreatePage extends EditorPage {
     @FindBy(xpath = "//div[@class='yotta-modal-footer yotta-modal-footer-with-divider']//span[text()='保存']")
     private WebElement fieldSavedButton;
 
-    @FindBy(xpath = "//p[@class='yotta-dialog-contenttext']")
-    private WebElement updatemessage;
-
     @FindBy(xpath = "//td[text()='AutoAlias']/following-sibling::td[2]")
     private WebElement AliasGlobal;
 
@@ -236,8 +224,6 @@ public class CreatePage extends EditorPage {
 
     @FindBy(xpath = "//input[@value='autoeval']/ancestor::div[@class='yotta-form-field']/following-sibling::div[3]/span")
     private WebElement AutoEvalGlobal;
-
-    public WebElement getUpdatemessage() { return updatemessage; }
 
     public WebElement getFieldSavedButton() { return fieldSavedButton; }
 
@@ -625,6 +611,11 @@ public class CreatePage extends EditorPage {
 
     @FindBy(xpath = "//input[@yotta-test='application-logo-file_upload']")
     private WebElement logoInput;
+
+    private String appButtonXpath = "(//span[text()='%s']//ancestor::span)[last()]";
+    public String getAppButtonXpath(String name){
+        return String.format(appButtonXpath, name);
+    }
 
     public WebElement getLogoInput() {
         return logoInput;

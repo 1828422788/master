@@ -3,26 +3,30 @@ Feature: 权限-KV字典
 
   Scenario Outline: 授权可使用应用功能
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
     And I "checked" the checkbox which name is "全选" in trend page
     And I "unchecked" the checkbox which name is "全选" in trend page
     And I "checked" the checkbox which name is "可查看搜索页"
-    And I wait for "1000" millsecond
+    And I "checked" the checkbox which name is "可查看统计菜单"
     And I click the "Resource" button
     And I "checked" the checkbox which name is "可查看仪表盘"
-    And I wait for "1000" millsecond
     And I click the "App" button
     And I "checked" the checkbox which name is "可查看应用"
     And I click the "SaveButton" button
 
+    @authSmoke
     Examples:
       | name              |
       | __user_AutoTest__ |
+
+    Examples:
+      | name              |
       | __user_验证授权用户__   |
 
+  @authSmoke
   Scenario: 新建拓扑图资源
     Given open the "topology.ListPage" page for uri "/topology/"
     And I wait for loading invisible
@@ -31,6 +35,7 @@ Feature: 权限-KV字典
     And I set the parameter "NameInput" with value "KVAuthTopo"
     And I click the "Ensure" button
 
+  @authSmoke
   Scenario Outline: 新建KV字典应用
     Given open the "app.ListPage" page for uri "/app/list/"
     And I click the "CreateButton" button
@@ -60,6 +65,7 @@ Feature: 权限-KV字典
       | name   |
       | KVAuth |
 
+  @authSmoke
   Scenario Outline: 安装资源成功
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for "CreateButton" will be visible
@@ -70,7 +76,6 @@ Feature: 权限-KV字典
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "__admin__" from the "Role"
     And I click the "NextButton" button
-    And I wait for "1000" millsecond
     And I click the "DoneButton" button
     And I wait for "ImportSuccess" will be visible
     And I will see the element "ImportSuccess" name is "添加成功"
@@ -79,9 +84,10 @@ Feature: 权限-KV字典
       | appName |
       | KVAuth  |
 
+  @authSmoke
   Scenario Outline: 授权app所有权限给其他用户
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And I wait for "1000" millsecond
+    And I wait for loading invisible
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I click the "ResourceAuth" button
@@ -95,6 +101,7 @@ Feature: 权限-KV字典
       | __user_AutoTest__ |
       | __user_验证授权用户__   |
 
+  @authSmoke
   Scenario: 添加KV字典
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "KVAuth" then i click the "编辑" button
@@ -116,10 +123,13 @@ Feature: 权限-KV字典
     When the data name is "KVAuth" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I choose the "授权" from the "KVDropdownList"
-    And I wait for "Ensure" will be visible in "10000" milliseconds
-    When I "check" the function "读取" which name is "AutoTest (-)" in tiny table
+    And I wait for "{'ButtonXpath':'确定'}" will be clickable by xpath
+    When I "check" the function "读取" which name is "AutoTest" in tiny table
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
+    And I click the "Ensure" button
+    And I click the "SaveButton" button
+    And I wait for "Message" will be visible in "8000" milliseconds
     And I logout current user
 
   Scenario: 验证读取权限
@@ -128,7 +138,9 @@ Feature: 权限-KV字典
     And I wait for loading invisible
     When the data name is "KVAuth" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
+    And I wait for loading invisible
     And I click the "KvDropdown" button
+    And I wait for "{'AppButtonXpath':'删除'}" will be visible by xpath
     Then I will see the "ChangeTag" is "disabled"
     Then I will see the "DeleteKV" is "disabled"
     And open the "app.ListPage" page for uri "/app/list/"
@@ -136,35 +148,43 @@ Feature: 权限-KV字典
     When the data name is "KVAuth" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I choose the "授权" from the "KVDropdownList"
-    And I wait for loading invisible
+    And I wait for "{'ButtonXpath':'确定'}" will be visible by xpath
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
     And I logout current user
 
+  @authSmoke
   Scenario: 授权读取+编辑权限
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
     When the data name is "KVAuth" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
-    And I wait for "1000" millsecond
-    And I choose the "授权" from the "KVDropdownList"
     And I wait for loading invisible
+    And I choose the "授权" from the "KVDropdownList"
+    And I wait for "{'ButtonXpath':'确定'}" will be visible by xpath
+    And I "check" the checkbox which name is "AutoTest" in tiny table
+    And I "uncheck" the checkbox which name is "AutoTest" in tiny table
     When I "check" the function "读取,编辑" which name is "AutoTest" in tiny table
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
+    And I click the "Ensure" button
+    And I click the "SaveButton" button
+    And I wait for "Message" will be visible in "8000" milliseconds
     And I logout current user
 
+  @authSmoke
   Scenario: 验证读取+编辑权限
     Given I login user "AutoTest" with password "All#123456"
     And open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
     When the data name is "KVAuth" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
+    And I wait for loading invisible
     And I click the "KvDropdown" button
+    And I wait for "{'AppButtonXpath':'删除'}" will be visible by xpath
     Then I will see the "DeleteKV" is "disabled"
     And I click the "ChangeTag" button
     And I wait for "KVTag" will be visible
-    And I wait for "1000" millsecond
     And I click the "KVTag" button
-    And I wait for "1000" millsecond
     And I set the parameter "KVTagInput" with value "test"
     And I click the "Ensure" button
     Then I will see the element "MessageContent" value is "修改成功"
@@ -175,12 +195,17 @@ Feature: 权限-KV字典
     And I wait for loading invisible
     When the data name is "KVAuth" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
-    And I wait for "1000" millsecond
-    And I choose the "授权" from the "KVDropdownList"
     And I wait for loading invisible
-    When I "check" the function "转授" which name is "AutoTest" in tiny table
+    And I choose the "授权" from the "KVDropdownList"
+    And I wait for "{'ButtonXpath':'确定'}" will be clickable by xpath
+    And I "check" the checkbox which name is "AutoTest" in tiny table
+    And I "uncheck" the checkbox which name is "AutoTest" in tiny table
+    When I "check" the function "读取,编辑,转授" which name is "AutoTest" in tiny table
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
+    And I click the "Ensure" button
+    And I click the "SaveButton" button
+    And I wait for "Message" will be visible in "8000" milliseconds
     And I logout current user
 
   Scenario: 验证读取+编辑+转授权限
@@ -188,19 +213,23 @@ Feature: 权限-KV字典
     And open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
     When the data name is "KVAuth" then i click the "编辑" button
+    And I wait for loading invisible
     Then I will see the "app.CreatePage" page
     And I click the "KvDropdown" button
+    And I wait for "{'AppButtonXpath':'删除'}" will be visible by xpath
     Then I will see the "DeleteKV" is "disabled"
     And open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
     When the data name is "KVAuth" then i click the "编辑" button
     Then I will see the "app.CreatePage" page
     And I choose the "授权" from the "KVDropdownList"
-    And I wait for loading invisible
+    And I wait for "{'ButtonXpath':'确定'}" will be clickable by xpath
     And I "check" the checkbox which name is "验证授权用户" in tiny table
-    And I wait for "800" millsecond
     And I click the "Ensure" button
-    Then I will see the message "保存成功"
+    Then I will see the success message "保存成功"
+    And I click the "Ensure" button
+    And I click the "SaveButton" button
+    And I wait for "Message" will be visible in "8000" milliseconds
     And I logout current user
 
   Scenario: 验证
@@ -208,8 +237,10 @@ Feature: 权限-KV字典
     And open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
     When the data name is "KVAuth" then i click the "编辑" button
+    And I wait for loading invisible
     Then I will see the "app.CreatePage" page
     And I click the "KvDropdown" button
+    And I wait for "{'AppButtonXpath':'删除'}" will be visible by xpath
     Then I will see the "DeleteKV" is "disabled"
     And I logout current user
 
@@ -223,37 +254,45 @@ Feature: 权限-KV字典
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I logout current user
 
-  Scenario: 验证是否成功
+  Scenario Outline: 验证是否成功
     Given I login user "AutoTest" with password "All#123456"
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
     And I click the detail which name is "KVAuth"
+    And I wait for loading invisible
     Then I will see the "splSearch.SearchPage" page
     Given I set the parameter "SearchInput" with value "* | stats count() by apache.geo.city | lookup appname AutoAuthKV on apache.geo.city=apachecity"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I wait for "1000" millsecond
-    #################
-  ######  Then I will see the element "Thead" name is "apache.geo.city  count()  appname  apachecity "
-     And I logout current user
+    Then I will see the element "Thead" name is "<head>"
+    And I logout current user
+
+    Examples:
+      | head              |
+      | apache.geo.city\ncount()\nappname |
+
 
   Scenario: 授权读取+编辑+转授+删除权限
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
     When the data name is "KVAuth" then i click the "编辑" button
+    And I wait for loading invisible
     Then I will see the "app.CreatePage" page
     And I choose the "授权" from the "KVDropdownList"
-    And I wait for loading invisible
-    When I "check" the function "删除" which name is "AutoTest" in tiny table
+    And I wait for "{'ButtonXpath':'确定'}" will be clickable by xpath
+    And I "check" the checkbox which name is "AutoTest" in tiny table
+    And I "uncheck" the checkbox which name is "AutoTest" in tiny table
+    When I "check" the function "读取,编辑,删除,转授" which name is "AutoTest" in tiny table
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
+    And I click the "Ensure" button
+    And I click the "SaveButton" button
+    And I wait for "Message" will be visible in "8000" milliseconds
     And I logout current user
 
   Scenario: 验证读取+编辑+转授+删除权限
