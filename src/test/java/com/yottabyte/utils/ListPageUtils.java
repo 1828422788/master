@@ -156,10 +156,11 @@ public class ListPageUtils {
             Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
             name = map.get("name").toString();
         }
-        String nextPageXpath = "//div[@class='yotta-modal-body']//span[@class='yotta-icon yotta-icon-RightOutlined']";
+        WebElement nextPageElement = EditorPage.getNextPageButton();
         String trListXpath = "//div[@class='yotta-modal-body']//tr";
-        return this.clickNextPage(trListXpath, nextPageXpath, name);
+        return this.clickNextPage(trListXpath, nextPageElement, name);
     }
+
 
     public WebElement getTrWithoutPaging(String dataName) {
         WebElement tr;
@@ -210,12 +211,12 @@ public class ListPageUtils {
     }
 
     public WebElement getRowWithoutTotalPage(String name) {
-        String nextPageXpath = "//span[@class='yotta-icon yotta-icon-PlusRight']";
+        WebElement nextPageElement = EditorPage.getNextPageButton();
         String trListXpath = "//tr";
-        return this.clickNextPage(trListXpath, nextPageXpath, name);
+        return this.clickNextPage(trListXpath, nextPageElement, name);
     }
 
-    private WebElement clickNextPage(String trListXpath, String nextPageXpath, String name) {
+    private WebElement clickNextPage(String trListXpath, WebElement nextPage, String name) {
         while (true) {
             List<WebElement> trList = webDriver.findElements(By.xpath(trListXpath));
             while (trList.size() == 1) {
@@ -226,7 +227,6 @@ public class ListPageUtils {
                     return tr;
                 }
             }
-            WebElement nextPage = webDriver.findElement(By.xpath(nextPageXpath));
             if (nextPage.getAttribute("class").contains("disabled")) {
                 return null;
             } else {
@@ -235,6 +235,7 @@ public class ListPageUtils {
             }
         }
     }
+
 
     /**
      * 匹配包含name的tr并返回
