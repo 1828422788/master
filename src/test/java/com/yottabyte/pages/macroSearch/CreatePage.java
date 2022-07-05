@@ -102,10 +102,6 @@ public class CreatePage extends EditorPage {
     }
 
 
-    public WebElement getGroup() {
-        return dropdownUtils.getDropdownListByLabel("分组");
-    }
-
     public WebElement getSave() {
         return save;
     }
