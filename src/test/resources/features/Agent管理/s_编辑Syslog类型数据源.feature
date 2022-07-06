@@ -186,7 +186,7 @@ Feature: Agent编辑Syslog类型数据源
     Given the data name ":514" in table "SyslogTable" then i click the "编辑" button
     And I wait for element "SyslogEditIpLast" value change text to "2.2.2.3"
     And I click the "SyslogDelete" button
-    And I wait for element "SyslogEditIpLast" value change text to "192.168.1.24"
+    And I wait for element "SyslogEditIpLast" value change text to "192.168.1.25"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
 
