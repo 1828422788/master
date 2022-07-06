@@ -607,7 +607,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "(//*[@yotta-test='event_list-expand-icon'])[1]")
     private WebElement rightIcon;
 
-    @FindBy(xpath = "//span[text()='x']/ancestor::td/following-sibling::td/span")
+    @FindBy(xpath = "//span[text()='x:']/following-sibling::span/span")
     private WebElement xValue;
 
     //    @FindBy(xpath = "//span[text()='事件操作']/i")

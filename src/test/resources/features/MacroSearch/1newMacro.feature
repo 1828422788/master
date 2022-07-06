@@ -1,10 +1,37 @@
-@newmacro @autoui02
+@searchMacro
 Feature: 新建搜索宏
 
   Background:
     Given open the "macroSearch.ListPage" page for uri "/macro/"
+    And I wait for loading invisible
 
-  @newmacro1 @searchMacro @searchMacroSmoke
+  @searchMacroSmoke
+  Scenario Outline:新建成功
+    When I click the "CreateMacroButton" button
+    Then I will see the "macroSearch.CreatePage" page
+    And I wait for loading invisible
+    When I set the parameter "MacroName" with value "<name>"
+    And I set the parameter "Definition" with value "<definition>"
+    And I set the parameter "MacroParam" with value "<macroParam>"
+    And I set the parameter "ValidateExpression" with value "<validateExpression>"
+    And I set the parameter "ValidateFalseInfo" with value "<validateFalseInfo>"
+    And I click the "SaveMacroButton" button
+    Then I will see the message "<message>"
+
+    Examples:
+      | name           | definition                                                                                                                  | macroParam | validateExpression   | validateFalseInfo      | message    |
+      | UIAutoTest(1)  | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==$x$                        | x          | isstr(x)             | 请输⼊字符串             | 保存成功    |
+      | UIAutoTest(2)  | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==$x$ && apache.version==$y$ | x,y        | isstr(x) && isstr(y) | 参数错误，请输⼊正确的参数 | 保存成功    |
+      | UIAutoTest(3)  | "if(isstr($z$),$x$-$y$,$x$+$y$)"                                                                                            | x,y,z      |                      |                        | 保存成功    |
+      | UIAutoTest1(1) | "substring($x$,2)"                                                                                                          | x          | isstr(x)             | 请输入字符串             | 保存成功    |
+
+  Scenario:不输入名称直接点击保存提示"请输入宏的名称"
+    When I click the "CreateMacroButton" button
+    Then I will see the "macroSearch.CreatePage" page
+    And I wait for loading invisible
+    And I click the "SaveMacroButton" button
+    Then I will see the text "请输入宏的名称" exist in page
+
   Scenario Outline: 创建宏，使用基于eval的定义，1个
     When I click the "CreateMacroButton" button
     Then I will see the "macroSearch.CreatePage" page
@@ -20,11 +47,9 @@ Feature: 新建搜索宏
 
     Examples:
       | name           | definition         | macroParam | validateExpression | validateFalseInfo |
-      | me_substr_1(1) | "substring($x$,2)" | x          | isstr(x)           | 请 输入字符串           |
+      | me_substr_1(1) | "substring($x$,2)" | x          | isstr(x)           | 请 输入字符串       |
 
-  @newmacro2
   Scenario Outline: 创建宏，使用基于eval的定义
-    Given open the "macroSearch.ListPage" page for uri "/macro/"
     When I click the "CreateMacroButton" button
     Then I will see the "macroSearch.CreatePage" page
     And I wait for loading invisible
@@ -42,69 +67,10 @@ Feature: 新建搜索宏
       | m1_eval_2(2)    | if(isstr(apache.clientip),$x$-$y$,$x$+$y$)   | x,y        | tag:sample04061424 \| eval x=`m1_eval_2(1,2)` \| table x | tag:sample04061424 \| eval x=if(isstr(apache.clientip),1-2,1+2) \| table x |
       | m2_eval_2(2)    | "if(isstr(apache.clientip),$x$-$y$,$x$+$y$)" | x,y        | tag:sample04061424 \| eval x=`m2_eval_2(1,2)` \| table x | tag:sample04061424 \| eval x="3" \| table x                                |
 
-  @newmacro2_1
-  Scenario Outline: 创建宏，无eval的定义
-    Given open the "macroSearch.ListPage" page for uri "/macro/"
-    When I click the "CreateMacroButton" button
-    Then I will see the "macroSearch.CreatePage" page
-    And I wait for loading invisible
-    When I set the parameter "MacroName" with value "<name>"
-    And I set the parameter "Definition" with value "<definition>"
-    And I set the parameter "MacroParam" with value "<macroParam>"
-    And I click the "SaveMacroButton" button
-    Then I will see the success message "保存成功"
-
-    Examples: 新建成功
-      | name    | definition                                   | macroParam | macroSearch                                         | query                                                                        |
-      | m1_2(2) | if(isstr(apache.clientip),$x$-$y$,$x$+$y$)   | x,y        | tag:sample04061424 \| eval x=`m1_2(1,2)` \| table x | tag:sample04061424 \| eval x=if(isstr(apache.clientip),1-2,1+2) \| table x   |
-      | m2_2(2) | "if(isstr(apache.clientip),$x$-$y$,$x$+$y$)" | x,y        | tag:sample04061424 \| eval x=`m2_2(1,2)` \| table x | tag:sample04061424 \| eval x="if(isstr(apache.clientip),1-2,1+2)" \| table x |
-
-  @newmacro3
-  Scenario Outline:创建，1个
-    Given open the "macroSearch.ListPage" page for uri "/macro/"
-    When I click the "CreateMacroButton" button
-    Then I will see the "macroSearch.CreatePage" page
-    And I wait for loading invisible
-    When I set the parameter "MacroName" with value "<name>"
-    And I set the parameter "Definition" with value "<definition>"
-    And I set the parameter "MacroParam" with value "<macroParam>"
-    And I click the "SaveMacroButton" button
-    Then I will see the success message "保存成功"
-
-    Examples: 新建成功
-      | name        | definition                                 | macroParam | macroSearch                                             | query                                                                      |
-      | mne_if_2(2) | "if(isstr(apache.method),$x$-$y$,$x$+$y$)" | x,y        | tag:sample04061424 \| eval x=`mne_if_2(1,2)` \| table x | tag:sample04061424 \| eval x="if(isstr(apache.method),1-2,1+2)" \| table x |
-
-  @newmacro4
-  Scenario Outline:创建，4个
-    Given open the "macroSearch.ListPage" page for uri "/macro/"
-    When I click the "CreateMacroButton" button
-    Then I will see the "macroSearch.CreatePage" page
-    And I wait for loading invisible
-    When I set the parameter "MacroName" with value "<name>"
-    And I set the parameter "Definition" with value "<definition>"
-    And I set the parameter "MacroParam" with value "<macroParam>"
-    And I set the parameter "ValidateExpression" with value "<validateExpression>"
-    And I set the parameter "ValidateFalseInfo" with value "<validateFalseInfo>"
-    And I click the "SaveMacroButton" button
-    Then I will see the success message "保存成功"
-
-    Examples: 新建成功
-      | name                               | definition                                                                                                                            | macroParam            | validateExpression   | validateFalseInfo | ResultMessage |
-      | map_eval_resplen_stats_count_2(2)  | tag:sample04061424 \| eval resp_len=$int_resp_len$ \| limit 1 \| table resp_len \| map " tag:sample04061424 \| stats $fun_name$() "   | fun_name,int_resp_len | isnum(int_resp_len)  | 输入参数需要整数类型        |               |
-      | two_param(2)                       | tag:sample04061424 \| stats count() as ip_cnt by apache.clientip, apache.version \| where apache.clientip==$x$ && apache.version==$y$ | x,y                   | isstr(x) && isstr(y) | 参数错误，请输入正确的参数     |               |
-      | map_opt_count_2(2)                 | tag:"sample04061424" \| eval txt=$p_count$\| limit 1 \| table txt \| map " tag:"sample04061424" \| stats $txt$(timestamp) "           | p_count,txt           | isstr(p_count)       | 输入参数需要字符串         |               |
-      #有bug
-      | app_permission_sample_two_param(2) | tag:sample04061424 \| stats count() as ip_cnt by apache.clientip, apache.version \| where apache.clientip==$x$ && apache.version==$y$ | x,y                   | isstr(x) && isstr(y) | 参数错误，请输入正确的参数     |               |
-      | external_chart_2(2)                | starttime="now/d" endtime="now/d+$x$h" tag:sample04061424 \| chart count() as cnt over apache.resp_len span="$y$"                     | x,y                   | isnum(x) && isnum(y) | 参数错误，请输入正确的参数     |               |
-
-  @newmacro5
   Scenario Outline:创建宏，售前，1个
-    Given open the "macroSearch.ListPage" page for uri "/macro/"
     When I click the "CreateMacroButton" button
     Then I will see the "macroSearch.CreatePage" page
     And I wait for loading invisible
-
     When I set the parameter "MacroName" with value "<name>"
     And I set the parameter "Definition" with value "<definition>"
     And I set the parameter "MacroParam" with value "<macroParam>"
@@ -115,12 +81,9 @@ Feature: 新建搜索宏
 
     Examples: 新建成功
       | name        | definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | macroParam | validateExpression | validateFalseInfo |
-       #有bug
       | huanbi_2(2) | starttime="now/d" endtime="now/d+24h" tag:$arg1$ \| bucket timestamp span=1h as ts\|stats $arg2$() as count_ by ts\| eval hour=formatdate(tolong(ts),"HH")\|eval line="今天"\|append [[starttime="-1d/d" endtime="now/d" tag:$arg1$ \| bucket timestamp span=1h as ts\|stats $arg2$() as count_ by ts\| eval hour=formatdate(tolong(ts),"HH")\|eval line="昨天"]] \| append [[starttime="-7d/d" endtime="-6d/d" tag:$arg1$ \| bucket timestamp span=1h as ts\|stats $arg2$() as count_ by ts\| eval hour=formatdate(tolong(ts),"HH")\|eval line="一周前"]]\|rename count_ as "请求量" | arg1,arg2  |                    |                   |
 
-  @newmacro6
-  Scenario Outline:创建，6个
-    Given open the "macroSearch.ListPage" page for uri "/macro/"
+  Scenario Outline:创建
     When I click the "CreateMacroButton" button
     Then I will see the "macroSearch.CreatePage" page
     And I wait for loading invisible
@@ -141,9 +104,7 @@ Feature: 新建搜索宏
       | sub_join_left_1(1)           | tag:"sample04061424" \| stats avg(apache.status) by $cip$ \| join type=left $cip$ [[ tag:"sample04061424" AND $cip$:23.166.125.53 \| stats sum(apache.status) by $cip$ ]]                                     | cip            |                    |                   |                        |
       | dup_names_1(1)               | tag:"sample04061424" \| stats avg(apache.status) by $cip$ \| join type=left $cip$ [[ tag:"sample04061424" AND $cip$:23.166.125.53 \| stats sum(apache.status) by $cip$ ]]                                     | cip            |                    |                   |                        |
 
-  @newmacro7
   Scenario Outline:创建宏，20个
-    Given open the "macroSearch.ListPage" page for uri "/macro/"
     When I click the "CreateMacroButton" button
     Then I will see the "macroSearch.CreatePage" page
     And I wait for loading invisible
