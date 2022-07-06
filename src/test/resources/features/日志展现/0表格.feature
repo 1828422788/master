@@ -6,7 +6,7 @@ Feature: 日志展现_0表格
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I drag the element "SearchPageSvg" to the "left" side
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count,apache.clientip | limit 13"
-    And I click the "SearchButton" button
+    And I click the element "Button" with the value "搜索"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario Outline: 表格_默认

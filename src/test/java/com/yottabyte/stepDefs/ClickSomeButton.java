@@ -34,6 +34,28 @@ public class ClickSomeButton {
         }
     }
 
+    /**
+     * 点击包含value的元素
+     *
+     * @param elementName 元素名称
+     * @param value 元素的参数
+     *
+     * 比如：在PageTemplate中有getButton(String name)方法，需要点击搜索页面上的【搜索】按钮：
+     *              I click the element "Button" with the value "搜索"
+     *       在这个step中，可以使用不仅包含text的元素，也可以定位其他的元素，包含attribute value的元素
+     *
+     */
+    @When("^I click the element \"([^\"]*)\" with the value \"([^\"]*)\"$")
+    public void clickElementWithTheText(String elementName, String value) {
+        if (elementName != null && elementName.trim().length() != 0) {
+            WebElement button = GetElementFromPage.getWebElementWithName(elementName, value);
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", button);
+            ClickEvent.clickUnderneathButton(button);
+        } else {
+            System.out.println("skip this step!");
+        }
+    }
+
     public void clickElement(WebElement button) {
         WaitForElement.waitForElementWithExpectedCondition(
                 LoginBeforeAllTests.getWebDriver(), ExpectedConditions.elementToBeClickable(button));
