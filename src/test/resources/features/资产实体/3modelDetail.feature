@@ -1,4 +1,4 @@
-@assetsModelSmoke
+@assetsModelSmoke @assetsModel
 Feature: 模型详情
 
   Background:
@@ -10,7 +10,9 @@ Feature: 模型详情
 
   Scenario:变更资产分组图标
     And I click the Element with text "编辑模型"
+    And I wait for loading invisible
     And I click the Element with text "替换"
+    And I wait for loading invisible
     And I click the Element with text "网络"
     And I click the "ConfirmButtonInChoseIcon" button
     And I click the Element with text "确定"
@@ -46,17 +48,16 @@ Feature: 模型详情
     Then I will see the success message "删除成功"
     Then I will see the text "测试新建字段Edited(新建字段的唯一标识)" is not existed in page
 
-  Scenario:新建模型关联
+  Scenario:新建模型关联后删除模型关联
     And I click the "ModelContactButton" button
+    And I wait for loading invisible
     And I click the Element with text "新建"
     And I wait for loading invisible
     And I choose the "主机" from the "GroupList"
     And I set the parameter "Input" with value "测试新建connect(连接)"
     And I click the Element with text "保存"
     Then I will see the success message "保存成功"
-
-  Scenario:删除模型关联
-    And I click the "ModelContactButton" button
+    And I wait for loading invisible
     And I move the mouse pointer to the text "连接"
     And I click the "ModelContactDeleteButton" button
     And I click the Element with text "保存"

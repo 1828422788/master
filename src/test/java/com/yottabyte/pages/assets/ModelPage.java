@@ -14,12 +14,20 @@ public class ModelPage extends EditorPage {
         return super.getButtonByClassName("yotta-icon yotta-icon-AddSquare");
     }
 
+    //鼠标移动到"+"上时的气泡
+    public WebElement getTooltip(){return super.getTooltip();}
+
     public WebElement getInput(){
         return super.getInputByPlaceholder("请输入");
     }
 
     public WebElement getGroupList(){
         return dropdownUtils.getDownListByText("请选择");
+    }
+
+    //页面左上角的记录数
+    public WebElement getRecordNumber() {
+        return super.getButtonByClassName("yotta-pageheader-subtitle");
     }
 
     public WebElement getFieldTypeList(){

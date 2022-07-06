@@ -1,4 +1,4 @@
-package com.yottabyte.pages.tenant;
+package com.yottabyte.pages.saas;
 
 import com.yottabyte.pages.EditorPage;
 import org.openqa.selenium.WebDriver;

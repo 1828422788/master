@@ -114,6 +114,11 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return successMessage;
     }
 
+    //鼠标移动到元素上时展示的气泡
+    @FindBy(className = "yotta-tooltip-content")
+    public WebElement Tooltip;
+    public WebElement getTooltip(){return Tooltip;}
+
     public WebElement getErrorMessage() {
         return message;
     }
@@ -147,8 +152,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     }
 
     public WebElement getButtonByClassName(String className) {
-        String xpath = "//span[@class='" + className + "']";
-        return webDriver.findElement(By.xpath(xpath));
+        return webDriver.findElement(By.xpath("(//span[@class='" + className + "'])[last()]"));
     }
 
     public List<WebElement> getButtonsByText(String text) {

@@ -1,9 +1,10 @@
-@assetsModelSmoke
+@assetsModel
 Feature: 新建模型
 
   Background:
     Given open the "assets.ModelPage" page for uri "/assets/model/"
 
+  @assetsModelSmoke
   Scenario:点击右上角的新建模型按钮新建模型
     And I click the Element with text "新建模型"
     And I wait for loading invisible
@@ -16,7 +17,9 @@ Feature: 新建模型
     And I click the Element with text "确定"
     Then I will see the text "Router" exist in page
     And I will see the text "192.168.1.1" exist in page
+    Then I will see the "recordNumber" result will be "2个记录"
 
+  @assetsModelSmoke
   Scenario:点击"+ 新建模型"按钮新建模型
     And I click the Element with text "+ 新建模型"
     And I wait for loading invisible
@@ -29,6 +32,19 @@ Feature: 新建模型
     And I click the Element with text "确定"
     Then I will see the text "Nginx" exist in page
     And I will see the text "192.168.1.2" exist in page
+    Then I will see the "recordNumber" result will be "3个记录"
+
+  Scenario:RZY-6351:模型_新建模型弹窗异常提示
+    And I click the Element with text "新建模型"
+    And I wait for loading invisible
+    And I click the Element with text "确定"
+    Then I will see the text "所属分组不能为空" exist in page
+    Then I will see the text "展示名称不能为空" exist in page
+    Then I will see the text "唯一标识不能为空" exist in page
+    And I set the parameter "InputForName" with value "主机"
+    Then I will see the text "展示名称重复" exist in page
+    And I set the parameter "InputForIdentifier" with value "host"
+    Then I will see the text "唯一标识重复" exist in page
 
   Scenario:点击取消按钮取消新建
     And I click the Element with text "新建模型"
@@ -41,7 +57,8 @@ Feature: 新建模型
     And I click the "CancelButtonInChoseIcon" button
     And I click the Element with text "取消"
     Then I will see the text "cancel" is not existed in page
-    
+
+  @assetsModelSmoke
   Scenario:重命名资产分组
     And I move the mouse pointer to the text "路由"
     And I click the Element with text "编辑"
@@ -52,10 +69,15 @@ Feature: 新建模型
     Then I will see the text "路由1" exist in page
     And I will see the text "路由" is not existed in page
 
+  @assetsModelSmoke
   Scenario:删除资产分组
     And I move the mouse pointer to the text "nginx"
     And I click the Element with text "删除"
     And I wait table element "Message" change text to "删除模型分组会将组内模型以及资产全部删除，请谨慎操作。"
     And I click the Element with text "确定"
+    And I wait for loading invisible
+    And I will see the message "删除成功"
+    And I click the Element with text "确定"
     Then I will see the text "路由1" is not existed in page
+    Then I will see the "recordNumber" result will be "2个记录"
 
