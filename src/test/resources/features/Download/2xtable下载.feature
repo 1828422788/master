@@ -23,7 +23,7 @@ Feature: download_bucket下载part0
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     When I set the parameter "DbListPageSearchInput" with value "<name>.csv"
     And I wait for loading invisible
-    And I click the "ListDownloadButton" button
+    Then the data name is "<name>.csv" then i click the "下载" button
 
     Examples:
       | name        | splQuery                                                                                                                                                                                                                 |
@@ -50,7 +50,7 @@ Feature: download_bucket下载part0
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     When I set the parameter "DbListPageSearchInput" with value "<name>.csv"
     And I wait for loading invisible
-    And I click the "ListDownloadButton" button
+    Then the data name is "<name>.csv" then i click the "下载" button
 
     Examples:
       | name                                                | splQuery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |

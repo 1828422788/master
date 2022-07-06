@@ -24,7 +24,8 @@ Feature: download_eval下载
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     When I set the parameter "DbListPageSearchInput" with value "<name>.csv"
-    And I click the "ListDownloadButton" button
+    And I wait for loading invisible
+    Then the data name is "<name>.csv" then i click the "下载" button
 
 
     Examples:
@@ -69,7 +70,8 @@ Feature: download_eval下载
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     When I set the parameter "DbListPageSearchInput" with value "<name>.csv"
-    And I click the "ListDownloadButton" button
+    And I wait for loading invisible
+    Then the data name is "<name>.csv" then i click the "下载" button
 
     Examples:
       | name                                                   | splQuery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |

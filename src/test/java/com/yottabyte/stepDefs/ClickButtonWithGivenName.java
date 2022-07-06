@@ -729,6 +729,7 @@ public class ClickButtonWithGivenName {
 
     /**
      * 勾选弹出框中，特定功能前面的checkbox，比如勾选授权弹框中某一数据的读取权限
+     * getTinyTr若传人json格式参数，colum无实际意义
      *
      * @param status       check/uncheck
      * @param functionName 可为list，需要勾选按钮的名称
@@ -736,9 +737,9 @@ public class ClickButtonWithGivenName {
      */
     @When("^I \"([^\"]*)\" the function \"([^\"]*)\" which name is \"([^\"]*)\" in tiny table$")
     public void iTheFunctionWhichNameIsInTinyTable(String status, List<String> functionName, String name) {
-        WebElement tr = listPageUtils.getTinyTr("{'column':'0','name':'" + name + "'}");
+        WebElement tr = listPageUtils.getTinyTr("{'column':'1','name':'" + name + "'}");
         for (String function : functionName) {
-            WebElement checkbox = tr.findElement(By.xpath(".//span[text()='" + function + "']/preceding-sibling::label"));
+            WebElement checkbox = tr.findElement(By.xpath(".//span[text()='" + function + "']/parent::span//input"));
             String currentStatus = checkbox.getAttribute("class");
             if (currentStatus.contains("checked") && "uncheck".equals(status) || !currentStatus.contains("checked") && "check".equals(status)) {
                 checkbox.click();

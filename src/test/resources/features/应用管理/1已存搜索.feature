@@ -161,7 +161,7 @@ Feature: 应用已存搜索（RZY-2125）
     And I wait for loading invisible
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
-    Then I will see the "Updatemessage" is display
+    And I wait for "Message" will be visible in "8000" milliseconds
 
     Examples:
       | name             |

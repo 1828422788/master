@@ -23,9 +23,6 @@ public class CreatePage extends EditorPage {
     @FindBy(xpath = "//span[text()='本地上传']")
     private WebElement uploadButton;
 
-    @FindBy(xpath = "//span[text()='系统内选择']")
-    private WebElement chooseFromSystemButton;
-
     @FindBy(xpath = "//div[text()='* 仅支持 .tar 格式文件']/preceding-sibling::div//input")
     private WebElement fileInput;
 
@@ -94,9 +91,6 @@ public class CreatePage extends EditorPage {
     @FindBy(xpath = "//div[@class='yotta-dialog-content']//p")
     private WebElement message;
 
-    @FindBy(xpath = "//span[text()='添加一级菜单']")
-    private WebElement addMenu;
-
     @FindBy(xpath = "//input[@yotta-test='application-nav_modal_name-input']/parent::div/following-sibling::div")
     private WebElement nameMessage;
 
@@ -109,20 +103,11 @@ public class CreatePage extends EditorPage {
     @FindBy(xpath = "//input[@yotta-test='application-nav_modal_url-input']/parent::div/following-sibling::div")
     private WebElement urlMessage;
 
-    @FindBy(xpath = "//span[text()='已选择 0 个资源']")
-    private WebElement addResource;
-
     @FindBy(xpath = "//input[@yotta-test='table-filter_text-input']")
     private WebElement searchResourceInput;
 
     @FindBy(xpath = "//*[@class='ant-spin-container ant-spin-blur']")
     private WebElement searchLoading;
-
-    @FindBy(xpath = "//span[text()='事件操作']")
-    private WebElement event;
-
-    @FindBy(xpath = "//span[text()='添加']")
-    private WebElement addKVStore;
 
     @FindBy(xpath = "//input[@yotta-test='application-kvstore_modal_name-input']")
     private WebElement KVName;
@@ -135,9 +120,6 @@ public class CreatePage extends EditorPage {
 
     @FindBy(xpath = "//div[@class='d1ba667c0198c8a39f8bf7f9563eb67e'][3]//input")
     private WebElement KVFieldInput3;
-
-    @FindBy(xpath = "//span[text()='添加字段']")
-    private WebElement addKVField;
 
     @FindBy(xpath = "//*[@yotta-test='application-resource_modal_filter_type-select']/div")
     private WebElement resourceType;
@@ -157,9 +139,6 @@ public class CreatePage extends EditorPage {
     @FindBy(className = "yotta-select-selection-search")
     private WebElement KVTagInput;
 
-    @FindBy(xpath = "//div[text()='字段配置']")
-    private WebElement fieldConfig;
-
     @FindBy(xpath = "//*[@yotta-test='application-field_transform_name-input']")
     private WebElement fieldConfigName;
 
@@ -172,20 +151,8 @@ public class CreatePage extends EditorPage {
     @FindBy(xpath = "(//input[@yotta-test='application-field_alias_mappings_alias-input'])[last()]")
     private WebElement fieldAlias;
 
-    @FindBy(xpath = "//span[text()='添加别名映射']")
-    private WebElement addAlias;
-
     @FindBy(xpath = "(//span[text()='删除'])[last()]")
     private WebElement deleteAlias;
-
-    @FindBy(xpath = "//div[text()='字段查找']")
-    private WebElement fieldSearch;
-
-    @FindBy(xpath = "//div[text()='字段转换']")
-    private WebElement fieldConvert;
-
-    @FindBy(xpath = "//div[text()='字段萃取']")
-    private WebElement fieldExtract;
 
    // @FindBy(id = "FieldConfig_name")
     @FindBy(xpath = "//input[@yotta-test='application-field_lookup_name-input']")
@@ -203,9 +170,6 @@ public class CreatePage extends EditorPage {
 
     @FindBy(xpath = "(//div[contains(@id,'.match_type')])[last()]")
     private WebElement matchType;
-
-    @FindBy(xpath = "//a[text()='添加查找输出字段']")
-    private WebElement addOutputField;
 
     @FindBy(xpath = "(//input[contains(@id,'.output')])[last()]")
     private WebElement outputField;
@@ -246,9 +210,6 @@ public class CreatePage extends EditorPage {
     @FindBy(xpath = "//div[@class='yotta-modal-footer yotta-modal-footer-with-divider']//span[text()='保存']")
     private WebElement fieldSavedButton;
 
-    @FindBy(xpath = "//p[@class='yotta-dialog-contenttext']")
-    private WebElement updatemessage;
-
     @FindBy(xpath = "//td[text()='AutoAlias']/following-sibling::td[2]")
     private WebElement AliasGlobal;
 
@@ -263,8 +224,6 @@ public class CreatePage extends EditorPage {
 
     @FindBy(xpath = "//input[@value='autoeval']/ancestor::div[@class='yotta-form-field']/following-sibling::div[3]/span")
     private WebElement AutoEvalGlobal;
-
-    public WebElement getUpdatemessage() { return updatemessage; }
 
     public WebElement getFieldSavedButton() { return fieldSavedButton; }
 
@@ -313,7 +272,7 @@ public class CreatePage extends EditorPage {
     }
 
     public WebElement getFieldExtract() {
-        return fieldExtract;
+        return getAppConfigButton("字段萃取");
     }
 
     public WebElement getFieldConfigFormat() {
@@ -329,11 +288,11 @@ public class CreatePage extends EditorPage {
     }
 
     public WebElement getFieldConvert() {
-        return fieldConvert;
+        return getAppConfigButton("字段转换");
     }
 
     public WebElement getAddOutputField() {
-        return addOutputField;
+        return getAppConfigButton("添加查找输出字段");
     }
 
     public WebElement getOutputField() {
@@ -366,7 +325,7 @@ public class CreatePage extends EditorPage {
     }
 
     public WebElement getFieldSearch() {
-        return fieldSearch;
+        return getAppConfigButton("字段查找");
     }
 
     public WebElement getDeleteAlias() {
@@ -374,7 +333,7 @@ public class CreatePage extends EditorPage {
     }
 
     public WebElement getAddAlias() {
-        return addAlias;
+        return super.getButton("添加别名映射");
     }
 
     public WebElement getFieldConfigName() {
@@ -394,7 +353,7 @@ public class CreatePage extends EditorPage {
     }
 
     public WebElement getFieldConfig() {
-        return fieldConfig;
+        return getAppConfigButton("字段配置");
     }
 
     public WebElement getKVTag() {
@@ -441,7 +400,7 @@ public class CreatePage extends EditorPage {
     }
 
     public WebElement getAddKVField() {
-        return addKVField;
+        return super.getButton("添加字段");
     }
 
     public WebElement getKVFieldInput1() {
@@ -461,11 +420,11 @@ public class CreatePage extends EditorPage {
     }
 
     public WebElement getAddKVStore() {
-        return addKVStore;
+        return super.getButton("添加");
     }
 
     public WebElement getEvent() {
-        return event;
+        return super.getButton("事件操作");
     }
 
     public WebElement getSearchLoading() {
@@ -477,7 +436,7 @@ public class CreatePage extends EditorPage {
     }
 
     public WebElement getAddResource() {
-        return addResource;
+        return super.getButton("已选择 0 个资源");
     }
 
     public WebElement getUrlMessage() {
@@ -513,7 +472,7 @@ public class CreatePage extends EditorPage {
     }
 
     public WebElement getAddMenuButton() {
-        return addMenu;
+        return super.getButton("添加一级菜单");
     }
 
     public WebElement getSaveButton() {
@@ -574,10 +533,6 @@ public class CreatePage extends EditorPage {
         return menuName;
     }
 
-    public WebElement getChooseFromSystemButton() {
-        return chooseFromSystemButton;
-    }
-
     public WebElement getEnsureButton() {
         return ensureButton;
     }
@@ -614,9 +569,14 @@ public class CreatePage extends EditorPage {
         return currentApp;
     }
 
+    public WebElement getAppConfigButton(String name) {
+        return webDriver.findElement(By.xpath("(//*[text()='" + name + "']"));
+    }
+
     public WebElement getAliasGlobal() {
         return AliasGlobal;
     }
+
     public WebElement getDialogWrapper() {
         return dialogWrapper;
     }
@@ -651,6 +611,11 @@ public class CreatePage extends EditorPage {
 
     @FindBy(xpath = "//input[@yotta-test='application-logo-file_upload']")
     private WebElement logoInput;
+
+    private String appButtonXpath = "(//span[text()='%s']//ancestor::span)[last()]";
+    public String getAppButtonXpath(String name){
+        return String.format(appButtonXpath, name);
+    }
 
     public WebElement getLogoInput() {
         return logoInput;

@@ -34,7 +34,7 @@ Feature: 仪表盘_6_00_表格
     And I click the "ColorValueRandom" button
     And I wait for "500" millsecond
     And I click the "ChartEditorEnsure" button
-    Then I will see the "ValueOfNanjing" is not exist
+    Then I will see the "ValueOfNanjing" doesn't exist
     Then I will see the element "ValueOfNanjing" style contains "background-color: rgb(3, 169, 244);"
 
   
@@ -49,7 +49,7 @@ Feature: 仪表盘_6_00_表格
     And I set the parameter "FirstValueColor" with value "43"
     And I wait for "500" millsecond
     And I click the "ChartEditorEnsure" button
-    Then I will see the "ValueOfNanjing" is not exist
+    Then I will see the "ValueOfNanjing" doesn't exist
     Then I will see the element "ValueOfNanjing" style contains "background-color: rgb(3, 169, 244)"
 
   @dashboardChartSmoke
@@ -65,7 +65,7 @@ Feature: 仪表盘_6_00_表格
     And I click the "AddRangeColor" button
     And I wait for "500" millsecond
     And I click the "ChartEditorEnsure" button
-    Then I will see the "ValueOfNanjing" is not exist
+    Then I will see the "ValueOfNanjing" doesn't exist
     Then I will see the element "ValueOfNanjing" style contains "background-color: rgb(37, 155, 36)"
     Then I will see the element "ValueOfShenzhenTd" style contains "background-color: rgb(0, 188, 212)"
 
@@ -80,7 +80,7 @@ Feature: 仪表盘_6_00_表格
     And I set the parameter "UpperLimitValue" with value "100"
     And I wait for "500" millsecond
     And I click the "ChartEditorEnsure" button
-    Then I will see the "ValueOfNanjing" is not exist
+    Then I will see the "ValueOfNanjing" doesn't exist
     Then I will see the element "ValueOfNanjing" style contains "background-color: rgb(142, 217, 251)"
     Then I will see the element "ValueOfShenzhenTd" style contains "background-color: rgb(189, 232, 252)"
 

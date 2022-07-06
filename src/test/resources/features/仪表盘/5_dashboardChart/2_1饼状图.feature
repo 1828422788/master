@@ -67,7 +67,7 @@ Feature: 仪表盘_2_1_饼状图
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "配置成功"
     And I wait for "3000" millsecond
-    Then I will see the "PieData" is not exist
+    Then I will see the "PieData" doesn't exist
 
  
   Scenario Outline: chartType字段 RZY-1317,RZY-1318,RZY-1319,RZY-3692

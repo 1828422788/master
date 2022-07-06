@@ -39,15 +39,7 @@ public class GetElementFromPage {
             if (paras != null && paras.length != 0) {
                 invokeMethod(name, paras);
             } else {
-                if (name.startsWith("get")) {
-                    name = name.split("get")[1];
-                }
-                if (Character.isLowerCase(name.charAt(0))) {
-                    System.out.println("\n Warning: name is " + name + " , might be UpperCase in the first! \n");
-                    name = "get" + name.substring(0, 1).toUpperCase() + name.substring(1);
-                } else {
-                    name = "get" + name;
-                }
+                name = getMethodNameWithGet(name);
                 Object page = LoginBeforeAllTests.getPageFactory();
                 Method method = null;
                 Class<?> pageClass = page.getClass();
@@ -88,17 +80,6 @@ public class GetElementFromPage {
         return (T) object;
     }
 
-//    public static <T>T getWebElementWithName(String name) {
-//        Object page = LoginBeforeAllTests.getPageFactory();
-//        Object object = null;
-//        name = getMethodNameWithGet(name);
-//        try {
-//            object = page.getClass().getDeclaredMethod(name).invoke(page);
-//        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-//            e.printStackTrace();
-//        }
-//        return (T) object;
-//    }
 
     public static String getCurrentPageTitle() {
         return LoginBeforeAllTests.getWebDriver().getTitle();
@@ -136,12 +117,26 @@ public class GetElementFromPage {
             c[i] = typeParse(c[i].getName());
         }
         methodName = getMethodNameWithGet(methodName);
-        try {
-            Object page = LoginBeforeAllTests.getPageFactory();
-            type = page.getClass().getDeclaredMethod(methodName, c).getAnnotatedReturnType().getType();
-            object = page.getClass().getDeclaredMethod(methodName, c).invoke(page, paras);
-        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-            e.printStackTrace();
+        Method method = null;
+        Object page = LoginBeforeAllTests.getPageFactory();
+        Class<?> pageClass = page.getClass();
+        while (!pageClass.getName().equals("java.lang.Object")) {
+            try {
+                page = LoginBeforeAllTests.getPageFactory();
+                method = pageClass.getDeclaredMethod(methodName, c);
+//                type = page.getClass().getDeclaredMethod(methodName, c).getAnnotatedReturnType().getType();
+                object = method.invoke(page, paras);
+            } catch (NoSuchMethodException e) {
+                //如果method是找不到的，Superclass是最高层，这样throw异常，否则继续循环
+                if (method == null && pageClass.getSuperclass().getName().equals("java.lang.Object")){
+                    throw new NoSuchElementException("Method " + methodName + "()  is not declared on the page " + page.getClass().getName());
+                }
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                e.printStackTrace();
+                throw new NoSuchElementException("Cannot locate the method " + methodName +"() on the page " + page.getClass().getName());
+            }
+            //把pageClass为pageclass的父类
+            pageClass = pageClass.getSuperclass();
         }
     }
 

@@ -8,82 +8,65 @@ Feature: 宏下载验证
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-#   And I wait for element "SearchStatus" change text to "搜索出错!"
-#yotta-test='search_control-message-text'
     And take a screenshot with name "macro_<name>.png"
+    Then I will see the element "searchErrorStatus" contains "执行错误"
 
     Examples:
       | name         | macroSearch                                                 | splQuery1                                                                  |
       | m1_eval_2(2) | tag:sample04061424 \| eval x=`m1_eval_2(1,2)` \| table x    | tag:sample04061424 \| eval x=if(isstr(apache.clientip),1-2,1+2) \| table x |
-      | me_if_2      | tag:sample04061424 \| eval x=`me_if_2(1,2)` \| table x      | tag:sample04061424 \| eval x=`me_if_2(1,2)` \| table x                     |
-      | m2_eval_2    | tag:sample04061424 \| eval x=`m2_eval_2(1,2)` \| table x    | tag:sample04061424 \| eval x=\"3\" \| table x                              |
       | me_if_excp_2 | tag:sample04061424 \| eval x=`me_if_excp_2(1,2)` \| table x | tag:sample04061424 \| eval x=if(isstr(apache.status),1-2,1+2) \| table x   |
 
   @dlmacro1
-  Scenario Outline:
+  Scenario Outline:使用宏和使用spl搜索后下载的csv文件一样
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "<macroSearch>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
-#    And I save the result "{'ClientIp':'Column1','Version':'Column2','Count':'Column3'}"
-
-    And I wait for "2000" millsecond
     And take a screenshot with name "macro_<name>.png"
 
     When I wait for "SaveAsOther" will be visible
     And I choose the "下载" from the "SaveAsList"
-    And I wait for "1000" millsecond
+    And I wait for loading invisible
     Then I set the parameter "DownloadName" with value "macro_<name>"
     Then I set the parameter "MaxLineNum" with value "100"
-#    Then I choose the "<unit>" from the "MaxLineDropdown"
     Then I choose the "CSV" from the "DocumentTypeList"
-    And I wait for "2000" millsecond
     Then I choose the "UTF-8" from the "DocumentEncodeList"
-    And I wait for "2000" millsecond
     Then I click the "CreateDownloadTask" button
-#    And I wait for "2000" millsecond
-#    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
+    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
 
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     When I set the parameter "DbListPageSearchInput" with value "macro_<name>.csv"
-    And I wait for "2000" millsecond
-    Given the data name is "macro_<name>.csv" then i click the "下载" button
+    And I wait for loading invisible
+    Then the data name is "macro_<name>.csv" then i click the "下载" button
 
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "<splQuery1>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
-
-#    Then I compare with "{'ClientIp':'Column1','Version':'Column2','Count':'Column3'}"
-    And I wait for "2000" millsecond
     And take a screenshot with name "<name>.png"
 
     And I wait for "SaveAsOther" will be visible
-#    Then I click the "DownloadButton" button
     And I choose the "下载" from the "SaveAsList"
+    And I wait for loading invisible
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"
-#    Then I choose the "<unit>" from the "MaxLineDropdown"
     Then I choose the "CSV" from the "DocumentTypeList"
-    And I wait for "2000" millsecond
     Then I choose the "UTF-8" from the "DocumentEncodeList"
-    And I wait for "2000" millsecond
     Then I click the "CreateDownloadTask" button
-#    And I wait for "2000" millsecond
-#    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
+    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
 
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/"
     When I set the parameter "DbListPageSearchInput" with value "<name>.csv"
-    And I wait for "2000" millsecond
-    Given the data name is "<name>.csv" then i click the "下载" button
+    And I wait for loading invisible
+    Then the data name is "<name>.csv" then i click the "下载" button
+
+    #Then I compare source file "macro_<name>.csv" with target macro files "<name>.csv"
 
     Examples:
       | name                            | macroSearch                                                                | splQuery1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -97,7 +80,6 @@ Feature: 宏下载验证
       | map_opt_count_2                 | `map_opt_count_2(count, count)`                                            | tag:\"sample04061424\" \| eval txt=\"count\"\| limit 1 \| table txt \| map \" tag:\"sample04061424\" \| stats count(timestamp) \"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
       | app_permission_sample_two_param | `app_permission_sample_two_param(\"23.166.125.53\", \"1.1\")`              | tag:sample04061424 \| stats count() as ip_cnt by apache.clientip, apache.version \| where apache.clientip==\"23.166.125.53\" && apache.version==\"1.1\"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
       | app_permission_sample_two_param | `app_permission_sample_two_param(\"23.166.125.53\", \"1.1\")`              | tag:sample04061424 \| stats count() as ip_cnt by apache.clientip, apache.version \| where apache.clientip==\"23.166.125.53\" && apache.version==\"1.1\"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-      #huanbi_2原始语句：starttime="now/d" endtime="now/d+24h" tag:sample04061424_display | bucket timestamp span=1h as ts |stats count() as count_ by ts | eval hour=formatdate(tolong(ts),"HH") | eval line="今天"|append [[starttime="-1d/d" endtime="now/d" tag:sample04061424_display | bucket timestamp span=1h as ts |stats count() as count_ by ts | eval hour=formatdate(tolong(ts),"HH") |eval line="昨天"]] | append [[starttime="-7d/d" endtime="-6d/d" tag:sample04061424_display | bucket timestamp span=1h as ts |stats count() as count_ by ts | eval hour=formatdate(tolong(ts),"HH") |eval line="一周前"]] | rename count_ as "请求量" |
       | huanbi_2                        | `huanbi_2(\"sample04061424_display\",count)`                               | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display \| bucket timestamp span=1h as ts \|stats count() as count_ by ts\| eval hour=formatdate(tolong(ts),\"HH\")\|eval line=\"今天\"\|append [[starttime=\"-1d/d\" endtime=\"now/d\" tag:sample04061424_display \| bucket timestamp span=1h as ts\|stats count() as count_ by ts\| eval hour=formatdate(tolong(ts),\"HH\")\|eval line=\"昨天\"]] \| append [[starttime=\"-7d/d\" endtime=\"-6d/d\" tag:sample04061424_display \| bucket timestamp span=1h as ts\|stats count() as count_ by ts\| eval hour=formatdate(tolong(ts),\"HH\") \|eval line=\"一周前\"]] \| rename count_ as \"请求量\" |
       | timechart_hour_1                | `timechart_hour_1(1)`                                                      | tag:sample04061424 \| timechart span=1h count() as res_count \| where res_count>0 \| eval f_time=formatdate(_time)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
       | one_param                       | `one_param(\"23.166.125.53\")`                                             | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==\"23.166.125.53\"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -105,68 +87,56 @@ Feature: 宏下载验证
       | dup_names_1                     | `dup_names_1(apache.clientip)`                                             | tag:\"sample04061424\" \| stats avg(apache.status) by apache.clientip \| join type=left apache.clientip [[ tag:\"sample04061424\" AND apache.clientip:23.166.125.53 \| stats sum(apache.status) by apache.clientip ]]                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
   @dlmacro11
-  Scenario Outline:
+  Scenario Outline:使用宏和使用spl搜索后下载的json文件一样
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "<macroSearch>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
-#    And I save the result "{'ClientIp':'Column1','Version':'Column2','Count':'Column3'}"
-
-    And I wait for "2000" millsecond
     And take a screenshot with name "macro_<name>.png"
 
     And I wait for "DownloadEvent" will be visible
-    Then I click the "DownloadEvent" button
-    Then I set the parameter "DownloadName" with value "macro_<name>"
-    Then I set the parameter "MaxLineNum" with value "100"
-#    Then I choose the "<unit>" from the "MaxLineDropdown"
-    Then I choose the "JSON" from the "DocumentTypeList"
-    And I wait for "2000" millsecond
-    Then I choose the "UTF-8" from the "DocumentEncodeList"
-    And I wait for "2000" millsecond
-    Then I click the "CreateDownloadTask" button
-#    And I wait for "2000" millsecond
-#    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
+    And I click the "DownloadEvent" button
+    And I wait for loading invisible
+    And I set the parameter "DownloadName" with value "macro_<name>"
+    And I set the parameter "MaxLineNum" with value "100"
+    And I choose the "JSON" from the "DocumentTypeList"
+    And I choose the "UTF-8" from the "DocumentEncodeList"
+    And I click the "CreateDownloadTask" button
+    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
 
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/"
     When I set the parameter "DbListPageSearchInput" with value "macro_<name>.json"
-    And I wait for "2000" millsecond
-    Given the data name is "macro_<name>.json" then i click the "下载" button
+    And I wait for loading invisible
+    Then the data name is "macro_<name>.json" then i click the "下载" button
 
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "<splQuery1>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
-
-#    Then I compare with "{'ClientIp':'Column1','Version':'Column2','Count':'Column3'}"
-    And I wait for "2000" millsecond
     And take a screenshot with name "<name>.png"
 
     And I wait for "DownloadEvent" will be visible
-    Then I click the "DownloadEvent" button
-    Then I set the parameter "DownloadName" with value "<name>"
-    Then I set the parameter "MaxLineNum" with value "100"
-#    Then I choose the "<unit>" from the "MaxLineDropdown"
-    Then I choose the "JSON" from the "DocumentTypeList"
-    And I wait for "2000" millsecond
-    Then I choose the "UTF-8" from the "DocumentEncodeList"
-    And I wait for "2000" millsecond
-    Then I click the "CreateDownloadTask" button
-#    And I wait for "2000" millsecond
-#    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
+    And I click the "DownloadEvent" button
+    And I wait for loading invisible
+    And I set the parameter "DownloadName" with value "<name>"
+    And I set the parameter "MaxLineNum" with value "100"
+    And I choose the "JSON" from the "DocumentTypeList"
+    And I choose the "UTF-8" from the "DocumentEncodeList"
+    And I click the "CreateDownloadTask" button
+    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
 
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/"
     When I set the parameter "DbListPageSearchInput" with value "<name>.json"
-    And I wait for "2000" millsecond
-    Given the data name is "<name>.json" then i click the "下载" button
+    And I wait for loading invisible
+    Then the data name is "<name>.json" then i click the "下载" button
+
+    #Then I compare source file "macro_<name>.json" with target macro files "<name>.json"
 
     Examples:
       | name                      | macroSearch                       | splQuery1                                                                                                                                                                                 |
@@ -174,37 +144,30 @@ Feature: 宏下载验证
       | sub_tran_resp_len_param_1 | `sub_tran_resp_len_param_1(1955)` | tag: sample04061424 AND [[ apache.resp_len:1955 \| stats count(appname) by apache.resp_len \| fields apache.resp_len ]] \| transaction apache.resp_len keepevicted=true contains=\"1955\" |
 
   @dlmacro3
-  Scenario Outline: 验证1
+  Scenario Outline: 使用宏和使用spl搜索后下载的xlsx文件一样
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "`<name>`"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
-#    And I save the result "{'ClientIp':'Column1','Version':'Column2','Count':'Column3'}"
-
-    And I wait for "2000" millsecond
     And take a screenshot with name "macro_<name>.png"
+
     And I wait for "SaveAsOther" will be visible
-#    Then I click the "downloadButton" button
     And I choose the "下载" from the "SaveAsList"
+    And I wait for loading invisible
     Then I set the parameter "DownloadName" with value "macro_<name>"
     Then I set the parameter "MaxLineNum" with value "100"
-#    Then I choose the "<unit>" from the "MaxLineDropdown"
-    Then I choose the "CSV" from the "DocumentTypeList"
-    And I wait for "2000" millsecond
+    Then I choose the "XLSX" from the "DocumentTypeList"
     Then I choose the "UTF-8" from the "DocumentEncodeList"
-    And I wait for "2000" millsecond
     Then I click the "CreateDownloadTask" button
-#    And I wait for "2000" millsecond
-#    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
+    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
 
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/"
-    When I set the parameter "DbListPageSearchInput" with value "macro_<name>.csv"
-    And I wait for "2000" millsecond
-    Given the data name is "macro_<name>.csv" then i click the "下载" button
+    When I set the parameter "DbListPageSearchInput" with value "macro_<name>.xlsx"
+    And I wait for loading invisible
+    Then the data name is "macro_<name>.xlsx" then i click the "下载" button
 
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "<definition>"
@@ -212,26 +175,26 @@ Feature: 宏下载验证
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I wait for "5000" millsecond
     And take a screenshot with name "<name>.png"
 
     And I wait for "SaveAsOther" will be visible
-#    Then I click the "downloadButton" button
     And I choose the "下载" from the "SaveAsList"
+    And I wait for loading invisible
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"
-#    Then I choose the "<unit>" from the "MaxLineDropdown"
-    Then I choose the "CSV" from the "DocumentTypeList"
-    And I wait for "2000" millsecond
+    Then I choose the "XLSX" from the "DocumentTypeList"
     Then I choose the "UTF-8" from the "DocumentEncodeList"
-    And I wait for "2000" millsecond
     Then I click the "CreateDownloadTask" button
+    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
 
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/"
-    When I set the parameter "DbListPageSearchInput" with value "<name>.csv"
-    And I wait for "2000" millsecond
-    Given the data name is "<name>.csv" then i click the "下载" button
+    When I set the parameter "DbListPageSearchInput" with value "<name>.xlsx"
+    And I wait for loading invisible
+    Then the data name is "<name>.xlsx" then i click the "下载" button
+
+    #Then I compare source file "macro_<name>.xlsx" with target macro files "<name>.xlsx"
+
 
     Examples:
       | name                                        | definition                                                                                                                                                                                                                                                                                                                             | validateExpression | validateFalseInfo |
@@ -261,27 +224,23 @@ Feature: 宏下载验证
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
-
-    And I wait for "2000" millsecond
     And take a screenshot with name "macro_<macroname>.png"
+
     And I wait for "SaveAsOther" will be visible
-#    Then I click the "downloadButton" button
     And I choose the "下载" from the "SaveAsList"
+    And I wait for loading invisible
     Then I set the parameter "DownloadName" with value "macro_<macroname>"
     Then I set the parameter "MaxLineNum" with value "100"
     Then I choose the "CSV" from the "DocumentTypeList"
-    And I wait for "2000" millsecond
     Then I choose the "UTF-8" from the "DocumentEncodeList"
-    And I wait for "2000" millsecond
     Then I click the "CreateDownloadTask" button
 
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/"
     When I set the parameter "DbListPageSearchInput" with value "macro_<macroname>.csv"
-    And I wait for "2000" millsecond
-    Given the data name is "macro_<macroname>.csv" then i click the "下载" button
+    And I wait for loading invisible
+    Then the data name is "macro_<macroname>.csv" then i click the "下载" button
 
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "<definition>"
@@ -289,24 +248,23 @@ Feature: 宏下载验证
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I wait for "5000" millsecond
     And take a screenshot with name "<macroname>.png"
 
     And I wait for "SaveAsOther" will be visible
-#    Then I click the "downloadButton" button
     And I choose the "下载" from the "SaveAsList"
+    And I wait for loading invisible
     Then I set the parameter "DownloadName" with value "<macroname>"
     Then I set the parameter "MaxLineNum" with value "100"
     Then I choose the "CSV" from the "DocumentTypeList"
-    And I wait for "2000" millsecond
     Then I choose the "UTF-8" from the "DocumentEncodeList"
-    And I wait for "2000" millsecond
     Then I click the "CreateDownloadTask" button
 
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/"
     When I set the parameter "DbListPageSearchInput" with value "<macroname>.csv"
-    And I wait for "2000" millsecond
-    Given the data name is "<macroname>.csv" then i click the "下载" button
+    And I wait for loading invisible
+    Then the data name is "<macroname>.csv" then i click the "下载" button
+
+    #Then I compare source file "macro_<name>.csv" with target macro files "<name>.csv"
 
     Examples:
       | macroname    | name        | definition                                       | validateExpression | validateFalseInfo |

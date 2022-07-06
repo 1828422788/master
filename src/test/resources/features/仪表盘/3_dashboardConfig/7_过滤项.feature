@@ -1,4 +1,4 @@
-@dashboard0330 @dashboard35 @dashboardConfig
+@dashboardFilter @dashboardConfig
 Feature: 仪表盘过滤项
 
   @dashboardConfigSmoke
@@ -7,7 +7,6 @@ Feature: 仪表盘过滤项
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
     Examples:
@@ -41,14 +40,14 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "AddEventButton" will be visible
-    When I click the "AddEventButton" button
-    And I click the "AddEvent" button
+    And I wait for "SuccessMessage" will be invisible
+    And I choose the "添加事件列表" from the "AddItemMenu"
     And I set the parameter "EventName" with value "测试过滤项"
     And I set the parameter "Spl" with value "*"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "Ensure" button
+    Then I wait for "SuccessMessage" will be visible
 
   @dashboardConfigSmoke
   Scenario Outline: 添加下拉菜单类型的过滤项（RZY-253,RZY-1869,RZY-266）
@@ -61,13 +60,12 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    When I click the "AddEventButton" button
-    And I click the "AddFilter" button
+    And I wait for "SuccessMessage" will be invisible
+    And I choose the "添加过滤项" from the "AddItemMenu"
     And I set the parameter "FilterTitle" with value "<title>"
     And I set the parameter "FilterToken" with value "<token>"
     And I set the parameter "FilterField" with value "<field>"
     And I choose the "<inputType>" from the "InputType"
-    And I wait for "1000" millsecond
     And I set the parameter "ChoiceValue" with value "苏州市"
     And I click the "AddChoiceValueButton" button
     And I set the parameter "ChoiceValue" with value "<choiceValue>"
@@ -77,7 +75,6 @@ Feature: 仪表盘过滤项
     And I set the parameter "ChoiceValue" with value "测试市"
     And I click the "AddChoiceValueButton" button
     And I choose the "<choiceValue>" from the "DefaultDropdownList"
-    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "测试过滤项"
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
@@ -97,13 +94,12 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
+    And I wait for "SuccessMessage" will be invisible
     And I choose the "<city>" from the "FilterDropdown"
     And I click the "Update" button
-    And I wait for "Progress" will be invisible
-    And I wait for "HoverElement" will be visible
+    And I wait for loading invisible
     And I click the "HoverElement" button
     And I click the "IconRight" button
-#    Then I will see the element "CityTd" name is "<city> "
     Then I will see the "CityTd" result will be "<city>"
 
     Examples:
@@ -122,16 +118,11 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
-    And I wait for "1000" millsecond
+    And I wait for "SuccessMessage" will be invisible
     And I click the "TrendTitle" button
-    And I wait for "500" millsecond
     And I choose the "<cityNo>" from the "FilterDropdown"
-#    And I click the "Nanjingshi" button
-#    And I set the parameter "FilterDropDown1" with value "<cityNo>"
-#    And I click the "Ceshishi" button
-    And I wait for "2000" millsecond
     And I click the "Update" button
-    And I wait for "Progress" will be invisible
+    And I wait for loading invisible
     Then I wait for "NoData" will be visible
 
     Examples:
@@ -149,10 +140,9 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for loading invisible
+    And I wait for "SuccessMessage" will be invisible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
-    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "当过滤项值改变时自动搜索"
     Then I click the "Ensure" button
 
@@ -166,15 +156,11 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "FilterDropdown" will be visible
-    And I wait for "1000" millsecond
+    And I wait for "SuccessMessage" will be invisible
     And I choose the "<city>" from the "FilterDropdown"
-    And I wait for "1000" millsecond
-#    And I wait for "Progress" will be invisible
-    And I wait for "HoverElement" will be visible
+    And I wait for loading invisible
     And I click the "HoverElement" button
     And I click the "IconRight" button
-#    Then I will see the element "CityTd" name is "<city> "
     Then I will see the "CityTd" result will be "<city>"
 
     Examples:
@@ -192,14 +178,14 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for loading invisible
+    And I wait for "SuccessMessage" will be invisible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
     And I click the "MultiSelect" button
     Then I click the "Ensure" button
     And I choose the "苏州市,成都市" from the "FilterDropdown"
     And I click the "Update" button
-    And I wait for "Progress" will be invisible
+    And I wait for loading invisible
     Then I will see the "NoData" doesn't exist
 
   Scenario: 删除下拉过滤项
@@ -212,9 +198,10 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I click the "FilterName" button
     And I click the "DeleteFilter" button
-    And I wait for "Ensure" will be visible
+    And I will see the element "DialogMessage" contains "是否删除过滤/输入项 filter ？"
     And I click the "Ensure" button
 
   Scenario: 添加动态菜单(RZY-258,RZY-263,RZY-264)
@@ -227,26 +214,22 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    When I click the "AddEventButton" button
-    And I click the "AddFilter" button
+    And I wait for "SuccessMessage" will be invisible
+    And I choose the "添加过滤项" from the "AddItemMenu"
     And I set the parameter "FilterTitle" with value "filter"
     And I set the parameter "FilterToken" with value "filter"
     And I set the parameter "FilterField" with value "apache.geo.city"
     And I choose the "动态菜单" from the "InputType"
-    And I wait for "1000" millsecond
     And I set the parameter "DynamicField" with value "apache.geo.city"
     And I set the parameter "Spl" with value "tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 | stats count() by apache.geo.city"
-    And I wait for "1000" millsecond
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchFilterButton" button
     And I wait for loading invisible
     And I choose the "成都市" from the "DefaultDropdownList"
-    And I wait for "1000" millsecond
     And I set the parameter "ChoiceValue" with value "测试市"
     And I click the "AddChoiceValueButton" button
     And I "checked" the checkbox which name is "测试过滤项"
-#    And I wait for "500" millsecond
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
@@ -260,11 +243,9 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "Progress" will be invisible
-    And I wait for "HoverElement" will be visible
+    And I wait for "SuccessMessage" will be invisible
     And I click the "HoverElement" button
     And I click the "IconRight" button
-#    Then I will see the element "CityTd" name is "成都市 "
     Then I will see the "CityTd" result will be "成都市"
 
   Scenario Outline: 验证动态过滤字段校验(RZY-259)
@@ -276,13 +257,11 @@ Feature: 仪表盘过滤项
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
-    And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "disable"
     And I set the parameter "FilterDropdownInput" with value "<cityNo>"
     And I click the Element with text "<cityNo>"
-    And I wait for "2000" millsecond
     And I click the "Update" button
-    And I wait for "Progress" will be invisible
+    And I wait for loading invisible
     Then I wait for "NoData" will be visible
 
     Examples:
@@ -299,17 +278,13 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "FilterDropdown" will be visible
+    And I wait for "SuccessMessage" will be invisible
     And I choose the "<city>" from the "FilterDropdown"
-    And I wait for "1000" millsecond
     And I click the "Update" button
-#    And I wait for "Progress" will be invisible
-    And I wait for "HoverElement" will be visible
+    And I wait for loading invisible
     And I click the "HoverElement" button
     And I click the "IconRight" button
-#    Then I will see the element "CityTd" name is "<city> "
     Then I will see the "CityTd" result will be "<city>"
-
 
     Examples:
       | city |
@@ -325,25 +300,20 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for loading invisible
+    And I wait for "SuccessMessage" will be invisible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
     And I set the parameter "DynamicField" with value ""
-    And I wait for "500" millsecond
     And I click the "SearchFilterButton" button
-    And I wait for "500" millsecond
-    Then I wait for "EmptyNotice" will be visible
+    Then I will see the error message "缺少动态字段值"
+    And I wait for "ErrorMessage" will be invisible
     And I set the parameter "DynamicField" with value "hhhhhhhhhhhhh"
-    And I wait for "500" millsecond
     And I click the "SearchFilterButton" button
-    And I wait for loading invisible
     Then I will see the error message "缺少选中的字段"
-    And I wait for "2500" millsecond
+    And I wait for "ErrorMessage" will be invisible
     And I set the parameter "DynamicField" with value "apache.geo.city"
     And I set the parameter "Spl" with value "hello goodbey"
-    And I wait for "500" millsecond
     And I click the "SearchFilterButton" button
-    And I wait for loading invisible
     Then I will see the error message "搜索语句须为stats类型"
 
   Scenario: 设置动态菜单自动搜索
@@ -356,12 +326,10 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for loading invisible
+    And I wait for "SuccessMessage" will be invisible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
-    And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "当过滤项值改变时自动搜索"
-    And I wait for "500" millsecond
     Then I click the "Ensure" button
 
   Scenario Outline: 验证动态菜单自动搜索(RZY-266)
@@ -374,15 +342,12 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "1000" millsecond
+    And I wait for "SuccessMessage" will be invisible
     And I set the parameter "FilterDropdownInput" with value "<city>"
     And I click the Element with text "<city>"
-    And I wait for "1000" millsecond
-    And I wait for "Progress" will be invisible
-    And I wait for "HoverElement" will be visible
+    And I wait for loading invisible
     And I click the "HoverElement" button
     And I click the "IconRight" button
-#    Then I will see the element "CityTd" name is "<city> "
     Then I will see the "CityTd" result will be "<city>"
 
     Examples:
@@ -399,20 +364,15 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for loading invisible
+    And I wait for "SuccessMessage" will be invisible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
-    And I wait for "1000" millsecond
     And I click the "MultiSelect" button
-    And I wait for "1000" millsecond
     And I choose the "南京市" from the "DefaultDropdownList"
-    And I wait for "1000" millsecond
     Then I click the "Ensure" button
-    And I wait for "1500" millsecond
+    And I wait for loading invisible
     And I choose the "成都市" from the "FilterDropdown"
-    And I wait for "1000" millsecond
-#    And I click the "Update" button
-    And I wait for "Progress" will be invisible
+    And I wait for loading invisible
     Then I will see the "NoData" doesn't exist
 
   Scenario: 删除动态菜单过滤项(RZY-3419)
@@ -427,7 +387,7 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I click the "FilterName" button
     And I click the "DeleteFilter" button
-    And I wait for "Ensure" will be visible
+    And I will see the element "DialogMessage" contains "是否删除过滤/输入项 filter ？"
     And I click the "Ensure" button
 
   Scenario: 添加文本过滤项(RZY-248)
@@ -440,14 +400,12 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    When I click the "AddEventButton" button
-    And I click the "AddFilter" button
+    And I wait for "SuccessMessage" will be invisible
+    And I choose the "添加过滤项" from the "AddItemMenu"
     And I set the parameter "FilterTitle" with value "filter"
     And I set the parameter "FilterToken" with value "filter"
     And I set the parameter "FilterField" with value "apache.geo.city"
-    And I wait for "1000" millsecond
     And I set the parameter "FilterDefaultValue" with value "成都市"
-    And I wait for "1500" millsecond
     Then I "checked" the checkbox which name is "测试过滤项"
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
@@ -462,11 +420,9 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for "Progress" will be invisible
-    And I wait for "HoverElement" will be visible
+    And I wait for "SuccessMessage" will be invisible
     And I click the "HoverElement" button
     And I click the "IconRight" button
-#    Then I will see the element "CityTd" name is "成都市 "
     Then I will see the "CityTd" result will be "成都市"
 
   Scenario Outline: 验证修改文本值搜索内容是否正确(RZY-252)
@@ -479,26 +435,22 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for loading invisible
+    And I wait for "SuccessMessage" will be invisible
     And I wait for "FilterInput" will be visible
     And I set the parameter "FilterInput" with value "<city>"
     And I click the "Update" button
-    And I wait for "Progress" will be invisible
-    And I wait for "HoverElement" will be visible
+    And I wait for loading invisible
     And I click the "HoverElement" button
     And I click the "IconRight" button
-#    Then I will see the element "CityTd" name is "<city> "
     Then I will see the "CityTd" result will be "<city>"
-    And I wait for "1000" millsecond
     And I set the parameter "FilterInput" with value "<cityNo>"
     And I click the "Update" button
-    And I wait for "3000" millsecond
+    And I wait for loading invisible
     Then I wait for "NoData" will be visible
 
     Examples:
       | city  | cityNo |
       | 苏州市 | 测试市  |
-
 
   Scenario: 修改文本过滤为自动搜索(RZY-251)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -510,7 +462,7 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    And I wait for loading invisible
+    And I wait for "SuccessMessage" will be invisible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
     And I "checked" the checkbox which name is "当过滤项值改变时自动搜索"
@@ -526,13 +478,12 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I set the parameter "FilterInput" with value "<city>"
     And I let element "FilterInput" lose focus
-    And I wait for "Progress" will be invisible
-    And I wait for "HoverElement" will be visible
+    And I wait for loading invisible
     And I click the "HoverElement" button
     And I click the "IconRight" button
-#    Then I will see the element "CityTd" name is "<city> "
     Then I will see the "CityTd" result will be "<city>"
 
     Examples:
@@ -549,12 +500,13 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I click the "FilterName" button
     And I click the "DeleteFilter" button
-    And I wait for "Ensure" will be visible
+    And I will see the element "DialogMessage" contains "是否删除过滤/输入项 filter ？"
     And I click the "Ensure" button
-    When I click the "AddEventButton" button
-    And I click the "AddFilter" button
+    And I wait for loading invisible
+    And I choose the "添加过滤项" from the "AddItemMenu"
     And I set the parameter "FilterTitle" with value "filter"
     And I set the parameter "FilterToken" with value "filter"
     And I set the parameter "FilterField" with value "apache.status"
@@ -565,13 +517,10 @@ Feature: 仪表盘过滤项
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
-#    And I click the "Create" button
     Then I will see the "trend.CreatePageDash" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
-#    And I click the "FenPianQuYang" button
-#    And I alter the input element "FenPianQuYang" value to "0"
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -599,8 +548,9 @@ Feature: 仪表盘过滤项
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
     When the chart title is "测试过滤项" then I click the button which classname is "yotta-icon yotta-icon-Delete" in dashboard
+    And I will see the element "DialogMessage" contains "是否删除图表 测试过滤项 ？"
     And I click the "Ensure" button
-
+    And I wait for element "SuccessMessage" change text to "删除成功"
 
   Scenario: 验证绑定图表默认 RZY-265
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -612,12 +562,11 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
     Then I will see the "ListForBang" doesn't exist
-#    And I "checked" the checkbox which name is "当过滤项值改变时自动搜索"
     Then I click the "Ensure" button
-
 
   Scenario: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -629,28 +578,20 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    When I click the "AddEventButton" button
-    And I wait for "500" millsecond
-    And I click the "AddChart" button
-    And I wait for loading invisible
+    And I wait for "SuccessMessage" will be invisible
+    And I choose the "添加图表" from the "AddItemMenu"
     And I set the parameter "SearchChartInput" with value "测试仪表盘eval"
     And I wait for loading invisible
     And I click the "{'Checkbox':'测试仪表盘eval'}" button
     And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
     Then I wait for element "SuccessMessage" change text to "添加成功"
-    And I wait for loading invisible
-    And I click the "AddEventButton" button
-    And I wait for "500" millsecond
-    And I click the "AddChart" button
-    And I wait for loading invisible
+    And I wait for "SuccessMessage" will be invisible
+    And I choose the "添加图表" from the "AddItemMenu"
     And I set the parameter "SearchChartInput" with value "仪表盘过滤项所用趋势图"
     And I wait for loading invisible
     And I click the "{'Checkbox':'仪表盘过滤项所用趋势图'}" button
     And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
     Then I wait for element "SuccessMessage" change text to "添加成功"
-
 
   Scenario: 验证绑定图表默认 RZY-265,RZY-267
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -662,14 +603,13 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
+    And I wait for "SuccessMessage" will be invisible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
     Then I wait for "ListForBang" will be visible
     And I "checked" the checkbox which name is "测试仪表盘eval"
     And I "checked" the checkbox which name is "仪表盘过滤项所用趋势图"
     Then I click the "Ensure" button
-    And I wait for loading invisible
-
 
   Scenario: 验证eval RZY-1835
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -689,11 +629,10 @@ Feature: 仪表盘过滤项
     And I click the "Check" button
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
-    And I wait for "Progress" will be invisible
+    And I wait for element "SuccessMessage" change text to "配置成功"
     Then I wait for "FilterName" will be visible
     And I click the "NumberOf404" button
     Then I will see the element "FilterValue" value is "200"
-
 
   Scenario Outline: 标题、标识校验（RZY-249,RZY-250）
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -705,13 +644,12 @@ Feature: 仪表盘过滤项
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenEdit" button to "enable"
     And I click the "SettingIcon" button
-    When I click the "AddEventButton" button
-    And I click the "AddFilter" button
+    And I wait for "SuccessMessage" will be invisible
+    And I choose the "添加过滤项" from the "AddItemMenu"
     And I set the parameter "FilterTitle" with value "<title>"
     And I set the parameter "FilterToken" with value "<token>"
     And I set the parameter "FilterField" with value "<field>"
     Then I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "添加过滤项成功"
 
     Examples:
@@ -722,9 +660,7 @@ Feature: 仪表盘过滤项
   Scenario Outline: 删除仪表盘所建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
-    And I wait for "500" millsecond
     And I will see the success message "删除成功"
 
     Examples:
@@ -736,9 +672,7 @@ Feature: 仪表盘过滤项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "删除" button in more menu
-    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
-    And I wait for "500" millsecond
     Then I will see the success message "删除仪表盘成功"
 
     Examples:

@@ -260,7 +260,7 @@ Feature: 仪表盘04详情行布局
     And I click the "DeleteTrend1" button
     And I click the "Ensure" button
     And I wait for element "SuccessMessage" change text to "删除成功"
-    Then I will see the "TrendOne" is not exist
+    Then I will see the "TrendOne" doesn't exist
 
   @dashboardSmoke
   Scenario: 展示条件-文本输入项预置
@@ -716,7 +716,7 @@ Feature: 仪表盘04详情行布局
     And I click the "ShowFilterConfig" button
     And I click the "CleanShowFilterConfig" button
     And I click the "Ensure" button
-    Then I wait for "TipErrorShowCondition" will be visible
+    Then I will see the text "请补全展示条件" exist in page
     And I click the "ShowCondition" button
     And I click the "CleanShowConditio" button
     And I set the parameter "ShowValue" with value ""

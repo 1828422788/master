@@ -202,7 +202,6 @@ public class SendPolicyPage extends EditorPage {
         return dropdownUtils.getDownListByText("请选择插件类型");
     }
 
-
     @FindBy(xpath = "//span[contains(text(),'返回列表')]/parent::button")
     private WebElement OKButton;
 

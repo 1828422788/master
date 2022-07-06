@@ -16,7 +16,7 @@ Feature: 事件操作启用禁用
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "RightIcon" button
     And I click the "EventOperate" button
-    Then I will see the "Context" is not exist
+    Then I will see the "Context" doesn't exist
 
   Scenario: 事件操作启用
     When the data name is "{'column':'1','name':'查看上下文'}" then I "open" the switch

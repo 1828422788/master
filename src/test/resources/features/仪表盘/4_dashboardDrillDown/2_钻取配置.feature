@@ -208,7 +208,7 @@ Feature: 仪表盘钻取配置
     And I "unchecked" the checkbox which name is "在浏览器新标签页中打开"
     And I wait for "500" millsecond
     And I click the "Ensure" button
-    And I click the "Jiangsu" button
+    And I click the Element with text "江苏"
     Then I wait for title change text to "搜索"
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 'apache.geo.province':江苏"
@@ -234,7 +234,7 @@ Feature: 仪表盘钻取配置
     And I wait for "500" millsecond
     And I click the "Ensure" button
     And I wait for "500" millsecond
-    And I click the "Jiangsu" button
+    And I click the Element with text "江苏"
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
@@ -265,7 +265,7 @@ Feature: 仪表盘钻取配置
     And I "unchecked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "500" millsecond
-    And I click the "Jiangsu" button
+    And I click the Element with text "江苏"
     Then I wait for title change text to "搜索"
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len | limit 10"
@@ -298,7 +298,7 @@ Feature: 仪表盘钻取配置
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "500" millsecond
-    And I click the "Jiangsu" button
+    And I click the Element with text "江苏"
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
@@ -329,7 +329,7 @@ Feature: 仪表盘钻取配置
     And I "unchecked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "500" millsecond
-    And I click the "Jiangsu" button
+    And I click the Element with text "江苏"
     Then I wait for title change text to "<title>"
 
     Examples:
@@ -361,8 +361,7 @@ Feature: 仪表盘钻取配置
     And I wait for "1500" millsecond
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
-    And I wait for "Jiangsu" will be visible
-    And I click the "Jiangsu" button
+    And I click the Element with text "江苏"
     And switch to another window
     And I close all tabs except main tab
     Then the page's title will be "<title>"
@@ -404,7 +403,7 @@ Feature: 仪表盘钻取配置
     And I click the "ClickValue" button
     And I click the "Ensure" button
     And I wait for "2000" millsecond
-    And I click the "Nanjingshi" button
+    And I click the Element with text "南京市"
     And switch to another window
     And I close all tabs except main tab
     And I wait for "Progress" will be invisible

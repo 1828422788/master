@@ -1,13 +1,15 @@
 package com.yottabyte.stepDefs;
 
+import com.alibaba.fastjson.JSON;
 import com.yottabyte.config.ConfigManager;
+import com.yottabyte.constants.WebDriverConst;
 import com.yottabyte.hooks.LoginBeforeAllTests;
-import com.yottabyte.utils.Agent;
-import com.yottabyte.utils.GetElementFromPage;
-import com.yottabyte.utils.JdbcUtils;
+import com.yottabyte.utils.*;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import edu.emory.mathcs.backport.java.util.Arrays;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 
@@ -17,11 +19,17 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 public class SetKeyWithValue {
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
+
+
+    public String randomValue,randomTagname,randomAppname;
+
 
     /**
      * 为指定变量elementName赋值 elementName需要与page中的getElement方法名一致，可以省略get
@@ -478,4 +486,90 @@ public class SetKeyWithValue {
         element.sendKeys(Keys.ENTER);
     }
 
+    /**
+     * 为指定变量elementName赋随机值 ，只适用于"数据一致性检查"，非通用方法
+     *
+     * @param elementName 元素名称
+     * @param value       输入的值
+     */
+    @And("^I set the Parameter \"([^\"]*)\" with randomvalue \"([^\"]*)\"$")
+    public void iSetTheParameterWithRandomvalue(String elementName, String value) throws Throwable {
+        if (elementName != null && elementName.trim().length() != 0) {
+            WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+            //如果传过来的是单一参数，不是spl，直接替换成随机值
+            if(!value.contains("tag:")){
+                if(SharedMap.getInstance().getValue(value)!=null && SharedMap.getInstance().getValue(value).trim().length()!=0){
+                    randomValue = SharedMap.getInstance().getValue(value);
+                }else{
+                    randomValue = value+StringUtils.timeString();
+                    SharedMap.getInstance().setValue(value,randomValue);
+                }
+            }else{//如果传过来的是spl，由于spl格式不固定，暂时写死
+                if(randomTagname !=null && randomAppname!=null){
+                    randomValue="tag:" + randomTagname + " AND appname:" + randomAppname;//通过接口上传
+                }else{
+                    randomValue="appname:" + randomValue ;//通过页面上传
+                }
+
+            }
+
+            if (element.getAttribute("class").contains("CodeMirror")) {
+                WebElement element1 = webDriver.findElement(By.className("CodeMirror"));
+                JavascriptExecutor js = (JavascriptExecutor) webDriver;
+                js.executeScript("arguments[0].CodeMirror.setValue(\"" +  randomValue+ "\");", element1);
+            } else {
+                iSetTheParameterWithValue(element, randomValue);
+            }
+        }
+    }
+
+    /**
+     * 优先取SharedMap中有key为value的值，如果没有则根据value生成value+时间后缀，并set到sharedMap中，后续循环中调用。
+     * @param value 元素的值
+     */
+    public String getRandomValue(String value){
+
+        String randomname;
+        if(SharedMap.getInstance().getValue(value)!=null && SharedMap.getInstance().getValue(value).trim().length()!=0){
+            randomname = SharedMap.getInstance().getValue(value);
+        }else{
+            randomname = value+StringUtils.timeString();
+            SharedMap.getInstance().setValue(value,randomname);
+        }
+        return randomname;
+    }
+
+    /**
+     * 封装上传文件的step，传file，appname，tag ，counts，
+     * @param
+     * @param
+     * @example：  I upload files "<filename>" for "<counts>" and "Tag" with "<tag>" "AppName" with"<appname>"
+     */
+    @When("^I upload files \"([^\"]*)\" for \"([^\"]*)\" and \"([^\"]*)\" with \"([^\"]*)\" \"([^\"]*)\" with\"([^\"]*)\"$")
+    public void iUploadFilesForAndWithWith(String filename, String count, String elementName1, String value1, String elementName2, String value2) throws Throwable {
+        randomTagname = getRandomValue(value1);
+        randomAppname = getRandomValue(value2);
+        //循环count次：赋值、上传
+        UploadFile uploadFile = new UploadFile();
+        ClickSomeButton clickSomeButton = new ClickSomeButton();
+        CheckButtonAttribute checkButtonAttribute = new CheckButtonAttribute();
+        SetKeyWithValue setKeyWithValue = new SetKeyWithValue();
+        int i;
+        for(i = 0; i < Integer.parseInt(count); i++){
+            //为第一个元素赋值
+            setKeyWithValue.iSetTheParameterWithValue(elementName1,randomTagname);
+            //为第二个元素赋值
+            setKeyWithValue.iSetTheParameterWithValue(elementName2,randomAppname);
+            //上传
+            uploadFile.iUploadAFileWithName(filename);
+            //点击上传按钮
+            clickSomeButton.clickButton("UploadButton");
+            //等待上传成功
+            checkButtonAttribute.ConfigsAppcheckElementName(Arrays.asList(("VerifyText").split(" ")),Arrays.asList(("上传完成").split(" ")));
+
+        }
+
+
+
+    }
 }

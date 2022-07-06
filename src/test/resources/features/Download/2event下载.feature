@@ -23,7 +23,7 @@ Feature: download_事件下载part0
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     And I set the parameter "DbListPageSearchInput" with value "<name>.txt"
     And I wait for loading invisible
-    And I click the "ListDownloadButton" button
+    Then the data name is "<name>.txt" then i click the "下载" button
 
     Examples:
       | name                                        | splQuery                                                                                                                                                                                                                                                                            |
@@ -113,7 +113,7 @@ Feature: download_事件下载part0
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     When I set the parameter "DbListPageSearchInput" with value "<name>.json"
     And I wait for loading invisible
-    And I click the "ListDownloadButton" button
+    Then the data name is "<name>.json" then i click the "下载" button
 
     Examples:
       | name                                            | splQuery                                                                                                                                                                                                                 |

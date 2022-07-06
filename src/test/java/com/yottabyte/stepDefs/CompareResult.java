@@ -434,7 +434,7 @@ public class CompareResult {
      */
     @And("^I compare source file \"([^\"]*)\" with target macro files \"([^\"]*)\"$")
     public void compareMacroFile(String sourceDownloadFile, String targetDownloadFile) {
-        String curPath = System.getProperty("user.dir");
+        //String curPath = System.getProperty("user.dir");
 
         FileInputStream fis1 = null;
         FileInputStream fis2 = null;
