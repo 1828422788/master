@@ -13,7 +13,7 @@ Feature: 测试运行-邮件
 
     Examples:
       | EmailPassword    |
-      | EDMIEMFKTIRAYEFI |
+      | UtOiRnil&.6Co4 |
 
 
   @testrun0 @bvtalert0
@@ -30,6 +30,7 @@ Feature: 测试运行-邮件
 
     And I click the "AlertNoteTypeTab" button
     Given I wait for loading complete
+    And I wait for "MailAlertLabelXpath" will be clickable by xpath
     And I click the "MailAlertLabel" button
     Given I wait for loading complete
 
@@ -45,9 +46,7 @@ Feature: 测试运行-邮件
 #    And I wait for "2000" millsecond
 
     And I click the "MailTestRunButton" button
-    And I wait for "30000" millsecond
-    Given I wait for loading complete
-
+    And I wait for "TestRunReminder" will be visible
     And I wait for element "TestRunReminder" change text to "提示"
     Then take a screenshot with name "actual/trm_<name>"
     And I wait for element "TestRunReminderText" change text to "<name>"
@@ -93,6 +92,7 @@ Feature: 测试运行-邮件
 
     And I click the "AlertNoteTypeTab" button
     Given I wait for loading complete
+    And I wait for "MailAlertLabelXpath" will be clickable by xpath
     And I click the "MailAlertLabel" button
     Given I wait for loading complete
 
@@ -108,9 +108,7 @@ Feature: 测试运行-邮件
 #    And I wait for "2000" millsecond
 
     And I click the "MailTestRunButton" button
-    Given I wait for loading complete
-    And I wait for "20000" millsecond
-
+    And I wait for "TestRunReminder" will be visible
     And I wait for element "TestRunReminder" change text to "提示"
     Then take a screenshot with name "actual/trm_<name>"
     And I wait for element "TestRunReminderText" change text to "<name>"

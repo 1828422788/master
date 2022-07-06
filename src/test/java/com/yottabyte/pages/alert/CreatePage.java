@@ -982,6 +982,11 @@ public class CreatePage extends EditorPage {
     @FindBy(xpath = "//div[@yotta-test='alert-alert_methods-panel']//span[contains(text(),'邮件告警')]")
     private WebElement mailAlertLabel;
 
+    public String getMailAlertLabelXpath(){
+        return "//div[@yotta-test='alert-alert_methods-panel']//span[contains(text(),'邮件告警')]";
+    }
+
+
     public WebElement getMailAlertLabel() {
         return mailAlertLabel;
     }

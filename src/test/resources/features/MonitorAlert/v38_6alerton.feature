@@ -13,7 +13,7 @@ Feature: 监控启用
 
     Examples:
       | EmailPassword    |
-      | EDMIEMFKTIRAYEFI |
+      | UtOiRnil&.6Co4 |
 
   @onalert0
   Scenario Outline: 启用高优先级用例

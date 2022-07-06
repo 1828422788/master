@@ -12,7 +12,7 @@ Feature: 系统测试，测试运行-邮件
 
     Examples:
       | EmailPassword    |
-      | EDMIEMFKTIRAYEFI |
+      | UtOiRnil&.6Co4 |
 
   Scenario Outline:  Scenario Outline:
     Given I wait for loading complete
@@ -27,13 +27,12 @@ Feature: 系统测试，测试运行-邮件
 
     And I click the "AlertNoteTypeTab" button
     Given I wait for loading complete
+    And I wait for "MailAlertLabelXpath" will be clickable by xpath
     And I click the "MailAlertLabel" button
     Given I wait for loading complete
 
     And I click the "MailTestRunButton" button
-    And I wait for "30000" millsecond
-    Given I wait for loading complete
-
+    And I wait for "TestRunReminder" will be visible
     And I wait for element "TestRunReminder" change text to "提示"
     Then take a screenshot with name "actual/trm_<name>"
     And I wait for element "TestRunReminderText" change text to "<name>"
@@ -46,7 +45,7 @@ Feature: 系统测试，测试运行-邮件
       | api01_字段统计_最大数status_扩展chart键值_邮件 |
 
 
-  Scenario Outline:
+  Scenario Outline:预览
     Given open the "alert.ListPage" page for uri "/alerts/"
     Given I wait for loading complete
     When I set the parameter "AlertListSearchInput" with value "<name>"
@@ -59,13 +58,12 @@ Feature: 系统测试，测试运行-邮件
 
     And I click the "AlertNoteTypeTab" button
     Given I wait for loading complete
+    And I wait for "MailAlertLabelXpath" will be clickable by xpath
     And I click the "MailAlertLabel" button
     Given I wait for loading complete
 
     When I click the "MailPreviewButton" button
-    Given I wait for loading complete
-    And I wait for "20000" millsecond
-
+    And I wait for "PreviewReminder" will be visible
     And I wait for element "PreviewReminder" change text to "提示"
     Then take a screenshot with name "actual/preview_<name>"
     And I wait for element "PreviewAlertReminderText" change text to "<name>"

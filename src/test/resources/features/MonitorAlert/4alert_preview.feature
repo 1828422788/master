@@ -13,7 +13,7 @@ Feature:监控预览
 
     Examples:
       | EmailPassword    |
-      | EDMIEMFKTIRAYEFI |
+      | UtOiRnil&.6Co4 |
 
 
   @bvtalert0 @preview0
@@ -30,6 +30,7 @@ Feature:监控预览
 
     And I click the "AlertNoteTypeTab" button
     Given I wait for loading complete
+    And I wait for "MailAlertLabelXpath" will be clickable by xpath
     And I click the "MailAlertLabel" button
     Given I wait for loading complete
 
@@ -46,7 +47,7 @@ Feature:监控预览
 
     When I click the "MailPreviewButton" button
     Given I wait for loading complete
-    And I wait for "30000" millsecond
+    And I wait for "3000" millsecond
 
     And I wait for element "PreviewReminder" change text to "提示"
     Then take a screenshot with name "actual/preview_<name>"
@@ -99,6 +100,7 @@ Feature:监控预览
 
     And I click the "AlertNoteTypeTab" button
     Given I wait for loading complete
+    And I wait for "MailAlertLabelXpath" will be clickable by xpath
     And I click the "MailAlertLabel" button
     Given I wait for loading complete
 
@@ -115,7 +117,7 @@ Feature:监控预览
 
     When I click the "MailPreviewButton" button
     Given I wait for loading complete
-    And I wait for "20000" millsecond
+    And I wait for "2000" millsecond
 
     And I wait for element "PreviewReminder" change text to "提示"
     Then take a screenshot with name "actual/preview_<name>"
