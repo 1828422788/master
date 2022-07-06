@@ -16,7 +16,7 @@ Feature: Agent编辑Beats类型数据源
     And I click the "Create" button
     And I click the "BeatsType" button
     And I click the "Next" button
-    And I set the agent parameter "Listenaddress" with running ip in beats
+    And I set the agent parameter "Listenaddress" with running ip and port with "299"
     And I set the parameter "Appname" with value "autoBeatstest"
     And I set the parameter "Tag" with value "autoBeatstest"
     And I click the "Next" button

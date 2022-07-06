@@ -57,17 +57,18 @@ public class SetKeyWithValue {
     }
 
     /**
-     * 在agent中使用，自动输入运行中Agent的ip，只需定位输入框即可
+     * 在agent中使用，自动输入运行中Agent的ip，只需定位输入框及使用的端口地址即可
      *
      * @param elementName 输入框元素名称
      */
-    @And("^I set the agent parameter \"([^\"]*)\" with running ip in beats$")
-    public void setParamInAgentBeat(String elementName) {
+
+    @And("^I set the agent parameter \"([^\"]*)\" with running ip and port with \"([^\"]*)\"$")
+    public void setParameterInAgentBeat(String elementName,String port) {
         Agent agent = new Agent();
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         String ip = agent.getIp();
         Assert.assertNotNull("无正在运行中的Agent！", ip);
-        String dataName = ip + ":" + "299";
+        String dataName = ip + ":" + port;
         iSetTheParameterWithValue(element, dataName);
     }
 

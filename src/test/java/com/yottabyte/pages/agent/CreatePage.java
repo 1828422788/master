@@ -65,48 +65,88 @@ public class CreatePage extends EditorPage {
     @FindBy(xpath = "//span[contains(text(),'添加新映射')]")
     private WebElement AddNewMap;
 
+    @FindBy(xpath = "(//input[contains(@yotta-test,'ip-input')])[last()]")
+    private WebElement Syslogip;
     public WebElement getSyslogip() {
         return Syslogip;
     }
 
-    @FindBy(xpath = "//tr/td[1]//div//input")
-    private WebElement Syslogip;
+    @FindBy(xpath = "(//input[contains(@yotta-test,'ip-input')])[1]")
+    private WebElement SyslogIpFirst;
+    public WebElement getSyslogIpFirst() {
+        return SyslogIpFirst;
+    }
 
-    @FindBy(xpath = "//tr/td[2]//div/input")
+    @FindBy(xpath = "(//input[contains(@yotta-test,'ip-input')])[last()-1]")
+    private WebElement SyslogIpPenult;
+    public WebElement getSyslogIpPenult() {
+        return SyslogIpPenult;
+    }
+
+    @FindBy(xpath = "(//div[contains(@yotta-test,'appname-autocomplete')])[last()]//input")
     private WebElement Syslogappname;
 
-    @FindBy(xpath = "//tr/td[3]/div//input")
+    @FindBy(xpath = "(//div[contains(@yotta-test,'tag-autocomplete')])[last()]//input")
     private WebElement Syslogtag;
-    @FindBy(xpath = "//span[text()='Syslog 配置修改']//ancestor::div[@role='dialog']//div[@class='yotta-spinner-overlay']/div/div/div[2]/div[1]//input")
-    private WebElement SyslogEditip;
-    public WebElement getSyslogEditip() {
-        return SyslogEditip;
+
+    @FindBy(xpath = "(//span[@aria-label='ToTop'])[last()]")
+    private WebElement ToTop;
+    public WebElement getToTop(){
+        return ToTop;
     }
-    @FindBy(xpath = "//span[text()='Syslog 配置修改']//ancestor::div[@role='dialog']//div[@class='yotta-spinner-overlay']/div/div/div[2]/div[2]//input")
+
+    @FindBy(xpath = "(//span[@aria-label='ToBottom'])[1]")
+    private WebElement ToBottom;
+    public WebElement getToBottom(){
+        return ToBottom;
+    }
+
+    @FindBy(xpath = "(//span[@aria-label='MoveUp'])[last()]")
+    private WebElement moveUp;
+    public WebElement getMoveUp(){
+        return moveUp;
+    }
+    @FindBy(xpath = "(//span[@aria-label='MoveDown'])[last()-1]")
+    private WebElement MoveDown;
+    public WebElement getMoveDown(){
+        return MoveDown;
+    }
+
+    @FindBy(xpath = "(//input[contains(@class,'yotta-input')])[2]")
+    private WebElement SyslogEditIp;
+    public WebElement getSyslogEditIp() {
+        return SyslogEditIp;
+    }
+    @FindBy(xpath = "(//input[contains(@class,'yotta-input')])[last()]")
+    private WebElement SyslogEditIpLast;
+    public WebElement getSyslogEditIpLast() {
+        return SyslogEditIpLast;
+    }
+    @FindBy(xpath = "(//input[contains(@class,'yotta-input')])[last()-1]")
+    private WebElement SyslogEditIpPenult;
+    public WebElement getSyslogEditIpPenult() {
+        return SyslogEditIpPenult;
+    }
+
+    @FindBy(xpath = "(//div[@class='yotta-auto-complete-input'])[1]//input")
     private WebElement SyslogEditappname;
     public WebElement getSyslogEditappname() {
         return SyslogEditappname;
     }
-    @FindBy(xpath = "//span[text()='Syslog 配置修改']//ancestor::div[@role='dialog']//div[@class='yotta-spinner-overlay']/div/div/div[2]/div[3]//input")
+    @FindBy(xpath = "(//div[@class='yotta-auto-complete-input'])[2]//input")
     private WebElement SyslogEdittag;
     public WebElement getSyslogEdittag() {
         return SyslogEdittag;
     }
 
-    public WebElement getSyslogEditdelete() {
-        return SyslogEditdelete;
+    @FindBy(xpath = "(//span[@aria-label='Delete'])[last()]")
+    private WebElement SyslogDelete;
+    public WebElement getSyslogDelete() {
+        return SyslogDelete;
     }
 
-    @FindBy(xpath = "//span[text()='Syslog 配置修改']//ancestor::div[@role='dialog']//div[@class='yotta-spinner-overlay']/div/div[2]/div[1]//span")
-    private WebElement SyslogEditdelete;
-
     public WebElement getSyslogChar() {
-        DropdownUtils dropdownUtils = new DropdownUtils();
-        WebElement element = webDriver.findElement(By.xpath("//span[@class='yotta-select-selection-value']"));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-        ClickEvent.clickUnderneathButton(element);
-        return webDriver.findElement(By.xpath("//div[contains(@class,'yotta-select-menu')]"));
-//        return dropdownUtils.getLastDropdownList();
+        return dropdownUtils.getDropdownListbyPath("//span[@class='yotta-select-selection-value']");
     }
 
     public WebElement getCheckListenaddress() {
@@ -211,15 +251,14 @@ public class CreatePage extends EditorPage {
     }
 
     public WebElement getAddNewMap() {
-        return AddNewMap;
-    }
-
-    public WebElement getAddsuccessmsg() {
-        return Addsuccessmsg;
+        return super.getYottaSpan("agent-syslog_add-dom");
     }
 
     @FindBy(xpath = "//div[@class='yotta-spinner-overlay']//p[1]")
     private WebElement Addsuccessmsg;
+    public WebElement getAddsuccessmsg() {
+        return Addsuccessmsg;
+    }
 
     public WebElement getContinueAdd() {
         return super.getYottaButtonByText("继续添加");
@@ -371,7 +410,7 @@ public class CreatePage extends EditorPage {
     }
 
     public WebElement getSyslogSwitchStatus() {
-        return getSwitchStatus("192.168.1.253:514");
+        return getSwitchStatus(":514");
     }
 
     public WebElement getBeatsSwitchStatus() {
@@ -1063,7 +1102,7 @@ public class CreatePage extends EditorPage {
     }
 
     public WebElement getSwitchStatus(String name) {
-        return webDriver.findElement(By.xpath("//td[text()='"+name+"']/preceding-sibling::td[last()]/span"));
+        return webDriver.findElement(By.xpath("//td[contains(text(),'"+name+"')]/preceding-sibling::td[last()]/span"));
     }
     public WebElement getSwitchStatus1(String name) {
         return webDriver.findElement(By.xpath("//td[text()='"+name+"']/../td[6]/span"));
