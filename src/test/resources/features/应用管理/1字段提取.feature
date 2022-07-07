@@ -101,7 +101,7 @@ Feature: 应用字段提取（RZY-2129）
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "auto_test_csv"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
     And I click the "Return" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
@@ -144,7 +144,7 @@ Feature: 应用字段提取（RZY-2129）
     And I click the "DeleteApp" button
     And I click the "SwitchButton" button
     Then I click the "Done" button
-    And I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "更新成功"
 
   Scenario: 验证所属app生效及修改标签
     Given open the "app.ListPage" page for uri "/app/list/"

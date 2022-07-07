@@ -1,6 +1,5 @@
-@configs @configs21
+@configs @configsStructure
 Feature: 字段提取结构体解析
-
 
   @configsSmoke
   Scenario Outline: RZY-2863:非严格解析
@@ -11,9 +10,7 @@ Feature: 字段提取结构体解析
     When I set the parameter "LogSample" with value "aaa 111"
     And I click the "AddRule" button
     And I choose the "结构体解析" from the "ParseRule"
-    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField"
-    Then I wait for "1000" millsecond
     And I set the value "<struct>" to the textarea "Struct"
     And I click the "EnsureAddParseRule" button
     And I wait for loading invisible
@@ -23,8 +20,7 @@ Feature: 字段提取结构体解析
 
     Examples:
       | struct         | result                                                |
-      | name:3,val:3:i | {'name':'"aaa"','val':'11','raw_message':'"aaa 111"'} |
-
+      | name:3,val:3:i | {'name':'aaa','val':'11','raw_message':'aaa 111'} |
 
   Scenario Outline: RZY-2862:严格解析
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -34,9 +30,7 @@ Feature: 字段提取结构体解析
     When I set the parameter "LogSample" with value "aaa 111"
     And I click the "AddRule" button
     And I choose the "结构体解析" from the "ParseRule"
-    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField"
-    Then I wait for "1000" millsecond
     And I set the value "<struct>" to the textarea "Struct"
     And I click the "StrictMode" button
     And I click the "EnsureAddParseRule" button
@@ -52,12 +46,11 @@ Feature: 字段提取结构体解析
     And I set the parameter "Tag" with value "<appName>"
     And I switch the "SwitchButton" button to "enable"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
-      | struct         | result                                                 | appName        |
-      | name:3,val:4:i | {'name':'"aaa"','val':'111','raw_message':'"aaa 111"'} | wym_test_codec |
-
+      | struct         | result                                             | appName        |
+      | name:3,val:4:i | {'name':'aaa','val':'111','raw_message':'aaa 111'} | wym_test_codec |
 
   Scenario Outline: RZY-2862:严格解析,上传日志，验证结果
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"

@@ -1,6 +1,5 @@
-@configs @configs09
+@configs @configsKeyValue
 Feature: 字段提取KeyValue分解
-
 
   @configsSmoke
   Scenario Outline: RZY-1531:配置KeyValue分解规则
@@ -11,9 +10,7 @@ Feature: 字段提取KeyValue分解
     When I set the parameter "LogSample" with value "<logSample>"
     And I click the "AddRule" button
     And I choose the "KeyValue分解" from the "ParseRule"
-    And I wait for "1000" millsecond
     And I choose the "<sourceField>" from the "SourceField"
-    Then I wait for "1000" millsecond
     And I set the parameter "FieldSeparator" with value "&"
     And I set the parameter "KVSeparator" with value "="
     And I click the "EnsureAddParseRule" button
@@ -24,8 +21,7 @@ Feature: 字段提取KeyValue分解
 
     Examples:
       | logSample                                                                                                                                              | sourceField | result                                                                                                                                                                                                                                                                                                                                                |
-      | field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields | raw_message | {'field':'"tag"','order':'"desc"','page':'"1"','query':'"*"','size':'"50"','sourcegroup':'"all"','sourcegroupCn':'"%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97"','time_range':'"-2d,now"','type':'"fields"','raw_message':'"field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields"'} |
-
+      | field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields | raw_message | {'field':'tag','order':'desc','page':'1','query':'*','size':'50','sourcegroup':'all','sourcegroupCn':'%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97','time_range':'-2d,now','type':'fields','raw_message':'field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields'} |
 
   Scenario Outline: RZY-1532、1533 添加KeyValue分解规则
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -34,11 +30,8 @@ Feature: 字段提取KeyValue分解
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<logSample>"
     And I click the "AddRule" button
-    Then I wait for "1000" millsecond
     And I choose the "KeyValue分解" from the "ParseRule"
-    Then I wait for "1000" millsecond
     And I choose the "<sourceField>" from the "SourceField"
-    Then I wait for "1000" millsecond
     And I set the parameter "FieldSeparator" with value "&"
     And I set the parameter "KVSeparator" with value "="
     And I set the parameter "KeepKey" with value "<keepKey>"
@@ -56,13 +49,12 @@ Feature: 字段提取KeyValue分解
     And I set the parameter "Tag" with value "<appName>"
     And I switch the "SwitchButton" button to "enable"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
       | name           | logSample                                                                                                                                              | sourceField | keepKey | dumpKey | result                                                                                                                                                                                                                                                                                                                                                        | appName           |
-      | RZY1532丢弃key | field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields | raw_message |         | order   | {'field':'"tag"','page':'"1"','query':'"*"','size':'"50"','sourcegroup':'"all"','sourcegroupCn':'"%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97"','time_range':'"-2d,now"','type':'"fields"','raw_message':'"field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields"'} | wym_test_dump_key |
-      | RZY1533保留key | field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields | raw_message | order   |         | {'order':'"desc"','raw_message':'"field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields"'}                                                                                                                                                                   | wym_test_keep_key |
-
+      | RZY1532丢弃key | field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields | raw_message |         | order   | {'field':'tag','page':'1','query':'*','size':'50','sourcegroup':'all','sourcegroupCn':'%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97','time_range':'-2d,now','type':'fields','raw_message':'field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields'} | wym_test_dump_key |
+      | RZY1533保留key | field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields | raw_message | order   |         | {'order':'desc','raw_message':'field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields'}                                                                                                                                                                   | wym_test_keep_key |
 
   Scenario Outline: RZY-1532、1533 上传日志，验证结果
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"

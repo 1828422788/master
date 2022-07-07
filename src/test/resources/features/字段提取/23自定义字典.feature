@@ -1,6 +1,5 @@
-@configs @configs23
+@configs @configsDictionary
 Feature: 字段提取自定义字典
-
 
   Scenario: 新建字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
@@ -12,7 +11,6 @@ Feature: 字段提取自定义字典
     And I click the "UploadConfirm" button
     Then I will see the success message "创建字典成功"
 
-
   Scenario Outline: RZY-2819: 配置自定义字典解析规则
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
@@ -21,9 +19,7 @@ Feature: 字段提取自定义字典
     When I set the parameter "LogSample" with value "{"Category":"","ComputerName":"WIN-999OGBVAHMI","EventCode":7036,"EventIdentifier":1073748860,"EventType":3,"Logfile":"System","Message":"Application Experience 服务处于 正在运行 状态。","RecordNumber":108343,"SourceName":"Service Control Manager","User":"","TimeGenerated":"2015-01-04T20:45:09+08:00"}"
     And I click the "AddRule" button
     And I choose the "JSON解析" from the "ParseRule"
-    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField"
-    Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
     And I wait for loading invisible
     And I click the "ParseButton" button
@@ -32,18 +28,11 @@ Feature: 字段提取自定义字典
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "自定义字典" from the "ParseRule"
-    Then I wait for "1000" millsecond
     And I choose the "SourceName" from the "SourceField"
-    Then I wait for "1000" millsecond
     And I choose the "win_sys_sourcename.csv" from the "Dictionary"
-    Then I wait for "1000" millsecond
     And I choose the "sourcename" from the "BaseField"
-    Then I wait for "1000" millsecond
     And I choose the "level,source" from the "ExtendField"
-    Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
-    And I wait for "ParseButton" will be visible
-    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
     Then I will see the field extraction result "<result>"
@@ -55,12 +44,11 @@ Feature: 字段提取自定义字典
     And I set the parameter "Tag" with value "<appName>"
     And I switch the "SwitchButton" button to "enable"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
       | appName             | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | result1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-      | wym_test_dictionary | {'ComputerName':'"WIN-999OGBVAHMI"','EventCode':'7036','EventIdentifier':'1073748860','EventType':'3','Logfile':'"System"','Message':'"Application Experience 服务处于 正在运行 状态。"','RecordNumber':'108343','SourceName':'"Service Control Manager"','TimeGenerated':'"2015-01-04T20:45:09+08:00"','User':'""','level':'"2"','source':'"sys"','raw_message':'"{"Category":"","ComputerName":"WIN-999OGBVAHMI","EventCode":7036,"EventIdentifier":1073748860,"EventType":3,"Logfile":"System","Message":"Application Experience 服务处于 正在运行 状态。","RecordNumber":108343,"SourceName":"Service Control Manager","User":"","TimeGenerated":"2015-01-04T20:45:09+08:00"}"'} | {'Category':'""','ComputerName':'"WIN-999OGBVAHMI"','EventCode':'7036','EventIdentifier':'1073748860','EventType':'3','Logfile':'"System"','Message':'"Application Experience 服务处于 正在运行 状态。"','RecordNumber':'108343','SourceName':'"Service Control Manager"','TimeGenerated':'"2015-01-04T20:45:09+08:00"','User':'""','raw_message':'"{"Category":"","ComputerName":"WIN-999OGBVAHMI","EventCode":7036,"EventIdentifier":1073748860,"EventType":3,"Logfile":"System","Message":"Application Experience 服务处于 正在运行 状态。","RecordNumber":108343,"SourceName":"Service Control Manager","User":"","TimeGenerated":"2015-01-04T20:45:09+08:00"}"'} |
-
+      | wym_test_dictionary | {'ComputerName':'WIN-999OGBVAHMI','EventCode':'7036','EventIdentifier':'1073748860','EventType':'3','Logfile':'System','Message':'Application Experience 服务处于 正在运行 状态。','RecordNumber':'108343','SourceName':'Service Control Manager','TimeGenerated':'2015-01-04T20:45:09+08:00','User':'','level':'2','source':'sys','raw_message':'{"Category":"","ComputerName":"WIN-999OGBVAHMI","EventCode":7036,"EventIdentifier":1073748860,"EventType":3,"Logfile":"System","Message":"Application Experience 服务处于 正在运行 状态。","RecordNumber":108343,"SourceName":"Service Control Manager","User":"","TimeGenerated":"2015-01-04T20:45:09+08:00"}'} | {'Category':'','ComputerName':'WIN-999OGBVAHMI','EventCode':'7036','EventIdentifier':'1073748860','EventType':'3','Logfile':'System','Message':'Application Experience 服务处于 正在运行 状态。','RecordNumber':'108343','SourceName':'Service Control Manager','TimeGenerated':'2015-01-04T20:45:09+08:00','User':'','raw_message':'{"Category":"","ComputerName":"WIN-999OGBVAHMI","EventCode":7036,"EventIdentifier":1073748860,"EventType":3,"Logfile":"System","Message":"Application Experience 服务处于 正在运行 状态。","RecordNumber":108343,"SourceName":"Service Control Manager","User":"","TimeGenerated":"2015-01-04T20:45:09+08:00"}'} |
 
   Scenario Outline: RZY-2819: 上传日志，验证结果
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
@@ -82,7 +70,6 @@ Feature: 字段提取自定义字典
       | appName             | log            | searchResult                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
       | wym_test_dictionary | dictionary.log | {'json.Category':'','json.ComputerName':'WIN-999OGBVAHMI','json.EventCode':'7036','json.EventIdentifier':'1073748860','json.EventType':'3','json.Logfile':'System','json.Message':'Application Experience 服务处于 正在运行 状态。','json.RecordNumber':'108343','json.SourceName':'Service Control Manager','json.TimeGenerated':'2015-01-04T20:45:09+08:00','json.level':'2','json.source':'sys'} |
 
-
   Scenario: 删除字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
@@ -91,5 +78,4 @@ Feature: 字段提取自定义字典
     When the data name is "{'column':'0','name':'win_sys_sourcename.csv'}" then i click the "删除" button in more menu
     Then I will see the success message "确认删除 [win_sys_sourcename.csv] ?"
     When I click the "Ensure" button
-    And I wait for loading invisible
-    Then I will see the success message "删除成功"
+    Then I wait for element "SuccessMessage" change text to "删除成功"

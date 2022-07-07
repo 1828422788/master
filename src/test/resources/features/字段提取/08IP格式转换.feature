@@ -1,6 +1,5 @@
-@configs @configs08
+@configs @configsIP
 Feature: 字段提取IP格式转换
-
 
   Scenario Outline: RZY-1555:IP格式转换
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -10,25 +9,22 @@ Feature: 字段提取IP格式转换
     When I set the parameter "LogSample" with value "3651919938"
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule"
-    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField"
-    Then I wait for "1000" millsecond
     And I set the value "(?<ip>.*)" to the textarea "Regex"
     And I click the "EnsureAddParseRule" button
     And I wait for loading invisible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
-    Then I will see the element value in json "{'Result':'<result>'}"
+    Then I will see the field extraction result "<result>"
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "ip格式转换" from the "ParseRule"
-    And I wait for "1000" millsecond
     And I choose the "ip" from the "SourceField"
     And I click the "EnsureAddParseRule" button
     And I wait for loading invisible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
-    Then I will see the element value in json "{'Result':'<result1>'}"
+    Then I will see the field extraction result "<result1>"
     And I click the "Collapse" button
     And I click the "NextButton" button
     When I set the parameter "Name" with value "RZY1555IP格式转换"
@@ -37,12 +33,11 @@ Feature: 字段提取IP格式转换
     And I set the parameter "Tag" with value "<appName>"
     And I switch the "SwitchButton" button to "enable"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
-      | appName     | result                                            | result1                                               |
-      | wym_test_ip | Object\nip:"3651919938"\nraw_message:"3651919938" | Object\nip:"217.171.224.66"\nraw_message:"3651919938" |
-
+      | appName     | result                                         | result1                                            |
+      | wym_test_ip | {'ip':'3651919938','raw_message':'3651919938'} | {'ip':'217.171.224.66','raw_message':'3651919938'} |
 
   Scenario Outline: RZY-1555:上传日志，验证结果
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"

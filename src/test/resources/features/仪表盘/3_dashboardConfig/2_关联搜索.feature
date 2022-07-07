@@ -18,7 +18,7 @@ Feature: 仪表盘2关联搜索
     And I set the parameter "AppName" with value "<appname>"
     And I set the parameter "Tag" with value "<appname>"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
       | regex                                                                                        | name             | logtype  | appname                      |

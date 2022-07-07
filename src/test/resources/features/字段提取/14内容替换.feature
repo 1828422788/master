@@ -1,6 +1,5 @@
-@configs @configs14
+@configs @configsReplaceContent
 Feature: 字段提取内容替换
-
 
   @configsSmoke
   Scenario Outline: RZY-1557:不勾选 只替换第一个
@@ -11,9 +10,7 @@ Feature: 字段提取内容替换
     When I set the parameter "LogSample" with value "123abc456qwe"
     And I click the "AddRule" button
     And I choose the "内容替换" from the "ParseRule"
-    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField"
-    Then I wait for "1000" millsecond
     And I set the value "(\d+)[a-z]+" to the textarea "Regex"
     And I set the value "$1" to the textarea "ReplaceContent"
     And I click the "ReplaceFirst" button
@@ -21,12 +18,11 @@ Feature: 字段提取内容替换
     And I wait for loading invisible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
-    Then I will see the element value in json "{'Result':'<result>'}"
+    Then I will see the field extraction result "<result>"
 
     Examples:
-      | result                       |
-      | Object\nraw_message:"123456" |
-
+      | result                   |
+      | {'raw_message':'123456'} |
 
   Scenario Outline: RZY-1556:内容替换
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -36,16 +32,14 @@ Feature: 字段提取内容替换
     When I set the parameter "LogSample" with value "123abc456qwe"
     And I click the "AddRule" button
     And I choose the "内容替换" from the "ParseRule"
-    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField"
-    Then I wait for "1000" millsecond
     And I set the value "(\d+)[a-z]+" to the textarea "Regex"
     And I set the value "<replaceContent>" to the textarea "ReplaceContent"
     And I click the "EnsureAddParseRule" button
     And I wait for loading invisible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
-    Then I will see the element value in json "{'Result':'<result>'}"
+    Then I will see the field extraction result "<result>"
     And I click the "Collapse" button
     And I click the "NextButton" button
     When I set the parameter "Name" with value "RZY1556内容替换"
@@ -54,12 +48,11 @@ Feature: 字段提取内容替换
     And I set the parameter "Tag" with value "<appName>"
     And I switch the "SwitchButton" button to "enable"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
-      | appName                 | replaceContent | result                          |
-      | wym_test_replaceContent | $1             | Object\nraw_message:"123456qwe" |
-
+      | appName                 | replaceContent | result                      |
+      | wym_test_replaceContent | $1             | {'raw_message':'123456qwe'} |
 
   Scenario Outline: RZY-1556:上传日志，验证结果
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
@@ -82,7 +75,6 @@ Feature: 字段提取内容替换
       | appName                 | log                | searchResult                |
       | wym_test_replaceContent | replaceContent.log  | {'raw_message':'123456qwe'} |
 
-
   Scenario Outline: RZY-1559:tag替换搜索页验证
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
@@ -90,14 +82,11 @@ Feature: 字段提取内容替换
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
     And I choose the "JSON解析" from the "ParseRule"
-    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField"
-    Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
     And I wait for loading invisible
     And I click the "AddRule" button
     And I choose the "内容替换" from the "ParseRule"
-    And I wait for "1000" millsecond
     And I choose the "@tag" from the "SourceField"
     And I set the value "(.*)" to the textarea "Regex"
     And I set the value "$1,newinfo" to the textarea "ReplaceContent"
@@ -110,12 +99,11 @@ Feature: 字段提取内容替换
     And I set the parameter "Tag" with value "<tag>"
     And I switch the "SwitchButton" button to "enable"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
       | tag                 |
       | wym_test_replaceTag |
-
 
   Scenario Outline: RZY-1559:上传日志，验证结果
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"

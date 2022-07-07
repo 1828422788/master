@@ -248,7 +248,7 @@ Feature: 仪表盘1事件列表
     When I set the parameter "Name" with value "仪表盘配置字段提取"
     And I set the parameter "Logtype" with value "other"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
     
   Scenario: 添加到知识库 RZY-3413
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

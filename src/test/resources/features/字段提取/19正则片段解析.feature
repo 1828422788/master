@@ -1,6 +1,5 @@
-@configs @configs19
+@configs @configsRegularFragment
 Feature: 字段提取正则片段解析
-
 
   Scenario Outline: RZY-2872:建立正则片段解析规则
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -10,13 +9,12 @@ Feature: 字段提取正则片段解析
     When I set the parameter "LogSample" with value "2014-11-07 11:18:33 192.168.1.1 FW-LZQ-MGJZZS-ASA5505-01 %ASA-5-502103: User priv level changed: Uname: enable_15 From: 1 To: 15"
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule"
-    Then I wait for "1000" millsecond
     And I click the "ChangeToJson" button
     And I set the parameter "{"source": "raw_message","multiline": false,"extract": [[{"regex": "[Uu]ser\\s[\"|']([^'\"]*)[\"|']","fields": {"user": "$1"},"name": "user_for_cisco"}, {"regex": "\\sUname:\\s(.*?)\\s","fields": {"user": "$1"},"name": "uname_for_cisco"}]],"add_fields": []}" to json editor in field parsing
     And I click the "EnsureAddParseRule" button
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
-    Then I will see the element value in json "{'Result':'<result>'}"
+    Then I will see the field extraction result "<result>"
     And I click the "Collapse" button
     And I click the "NextButton" button
     When I set the parameter "Name" with value "RZY2872正则片段解析"
@@ -25,11 +23,11 @@ Feature: 字段提取正则片段解析
     And I set the parameter "Tag" with value "<appName>"
     And I switch the "SwitchButton" button to "enable"
     And I click the "Done" button
+    And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
-      | appName                 | result                                                                                                                                                                   |
-      | wym_test_regexfragment1 | Object\nuser:"enable_15"\nraw_message:"2014-11-07 11:18:33 192.168.1.1 FW-LZQ-MGJZZS-ASA5505-01 %ASA-5-502103: User priv level changed: Uname: enable_15 From: 1 To: 15" |
-
+      | appName                 | result                                                                                                                                                                |
+      | wym_test_regexfragment1 | {'user':'enable_15','raw_message':'2014-11-07 11:18:33 192.168.1.1 FW-LZQ-MGJZZS-ASA5505-01 %ASA-5-502103: User priv level changed: Uname: enable_15 From: 1 To: 15'} |
 
   Scenario Outline: RZY-2872:上传日志，验证结果
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"

@@ -1,6 +1,5 @@
-@configs @configsSmoke @configs11
+@configs @configsSmoke @configsSyslogPri
 Feature: 字段提取Syslog_pri解析
-
 
   Scenario Outline: RZY-1547:syslog_pri解析
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -10,9 +9,7 @@ Feature: 字段提取Syslog_pri解析
     When I set the parameter "LogSample" with value "<30>Oct 9 22:33:20 hlfedora auditd[1787]: The audit daemon is exiting."
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule"
-    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField"
-    Then I wait for "1000" millsecond
     And I set the value "<(?<pri>\d+)>.*" to the textarea "Regex"
     And I click the "EnsureAddParseRule" button
     And I wait for loading invisible
@@ -22,7 +19,6 @@ Feature: 字段提取Syslog_pri解析
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "syslog_pri解析" from the "ParseRule"
-    And I wait for "1000" millsecond
     And I choose the "pri" from the "SourceField"
     And I click the "EnsureAddParseRule" button
     And I wait for loading invisible
@@ -37,14 +33,14 @@ Feature: 字段提取Syslog_pri解析
     And I set the parameter "Tag" with value "<appName>"
     And I switch the "SwitchButton" button to "enable"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
       | appName         | result                                                                                                  | result1                                                                                                                                           |
-      | wym_test_syslog | {'pri':'"30"','raw_message':'"<30>Oct 9 22:33:20 hlfedora auditd[1787]: The audit daemon is exiting."'} | {'facility':'"daemon"','pri':'"30"','severity':'"info"','raw_message':'"<30>Oct 9 22:33:20 hlfedora auditd[1787]: The audit daemon is exiting."'} |
+      | wym_test_syslog | {'pri':'30','raw_message':'<30>Oct 9 22:33:20 hlfedora auditd[1787]: The audit daemon is exiting.'} | {'facility':'daemon','pri':'30','severity':'info','raw_message':'<30>Oct 9 22:33:20 hlfedora auditd[1787]: The audit daemon is exiting.'} |
 
 
-  Scenario Outline: RZY-1547:syslog_pri解析
+  Scenario Outline: RZY-1547:syslog_pri解析, 上传日志，验证结果
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "<appName>"
     And I set the parameter "Tag" with value "<appName>"

@@ -24,13 +24,7 @@ public class CreatePage extends EditorPage {
     @FindBy(className = "ReactCodeMirror")
     private WebElement searchInput;
 
-    @FindBy(xpath = "//div[@yotta-test='search_bar-time-date_time_picker']")
-    private WebElement dateEditor;
-
-    @FindBy(xpath = "//label[@class='yotta-date-time-picker-label' and text()='最近1小时']")
-    private WebElement oneHour;
-
-    @FindBy(xpath = "//table[@yotta-test='config-log_field-table']/thead/tr/th")
+    @FindBy(xpath = "//table[@yotta-test='config-eventlist-table']/thead/tr/th")
     private List<WebElement> fieldTitle;
 
     @FindBy(xpath = "//table[@yotta-test='config-log_field-table']/tbody/tr/td")
@@ -45,26 +39,11 @@ public class CreatePage extends EditorPage {
     @FindBy(xpath = "//div[@yotta-test='config-rule-list']/div")
     private List<WebElement> ruleList;
 
-    @FindBy(xpath = "//span[contains(@class, 'yotta-modal-close-icon')]")
-    private WebElement clearIcon;
-
-    @FindBy(xpath = "//div[text()='新建成功' or text()='更新成功']")
-    private WebElement configDone;
-
-    @FindBy(className = "json-formatter-boolean")
-    private List<WebElement> booleanList;
-
-    @FindBy(className = "yw-extract-sample")
-    private WebElement extractSample;
-
     @FindBy(id = "yw-extract-side-result")
     private WebElement result;
 
     @FindBy(xpath = "//span[text()='解析失败']")
     private WebElement failedMessage;
-
-    @FindBy(className = "el-message__group")
-    private WebElement successMessage;
 
     @FindBy(xpath = "//span[text()='解析成功']")
     private WebElement checkSuccess;
@@ -84,27 +63,21 @@ public class CreatePage extends EditorPage {
     @FindBy(xpath = "(//span[text()='解析失败])")
     private WebElement checkFailed;
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
-    private WebElement message;
-
     @FindBy(className = "yotta-select-selection-icon")
     private WebElement deleteAppicon;
 
     @FindBy(xpath = "//span[@aria-label='CloseCircle']")
     private WebElement deleteApp;
 
-    @FindBy(xpath = "//div[@yotta-test='config-collapse-button']")
+    @FindBy(xpath = "//span[@aria-label='Shrink']")
     private WebElement Collapse;
-
-    @FindBy(xpath = "//div[@yotta-test='config-event_list-button']")
-    private WebElement EventList;
 
     public WebElement getCollapse() {
         return Collapse;
     }
 
     public WebElement getEventList() {
-        return EventList;
+        return getYottaButton("config-event_list-button");
     }
 
     public WebElement getCheckSuccess4() {
@@ -133,14 +106,6 @@ public class CreatePage extends EditorPage {
 
     public WebElement getErrorMessage() {
         return failedMessage;
-    }
-
-    public WebElement getExtractSample() {
-        return extractSample;
-    }
-
-    public WebElement getConfigDone() {
-        return configDone;
     }
 
     public WebElement getDeleteApp() {
@@ -348,8 +313,7 @@ public class CreatePage extends EditorPage {
     }
 
     public WebElement getPathInput() {
-        WebElement plusButton = super.getYottaButton("config-add_path-button");
-        plusButton.click();
+        super.getYottaButton("config-add_path-button").click();
         return super.getYottaInput("config-path-input");
     }
 
@@ -381,10 +345,6 @@ public class CreatePage extends EditorPage {
         return super.getYottaInput("config-another_name-input");
     }
 
-    public WebElement getMessage() {
-        return message;
-    }
-
     public WebElement getResult() {
         return result;
     }
@@ -410,10 +370,6 @@ public class CreatePage extends EditorPage {
         return super.getYottaButton("config-save_log-button");
     }
 
-    public WebElement getClearIcon() {
-        return clearIcon;
-    }
-
     public List<WebElement> getRuleList() {
         return ruleList;
     }
@@ -423,7 +379,7 @@ public class CreatePage extends EditorPage {
     }
 
     public WebElement getUseCheckLog() {
-        return super.getYottaButton("config-check_log-button");
+        return super.getButtonByText("使用当前日志验证");
     }
 
     public WebElement getStatus() {
@@ -431,7 +387,7 @@ public class CreatePage extends EditorPage {
     }
 
     public WebElement getField() {
-        return super.getYottaButton("config-log_field-button");
+        return super.getButtonByText("查看字段结果");
     }
 
     public WebElement getParseField() {
@@ -470,20 +426,10 @@ public class CreatePage extends EditorPage {
         return searchInput;
     }
 
-    public WebElement getDateEditor() {
-        return dateEditor;
-    }
-
-    public WebElement getRecentOneHour() {
-        return oneHour;
-//        return (new DateEditorPage(webDriver)).getOneHour();
-    }
-
     public WebElement getSearchButton() {
         String xpath = "//span[text()='搜索']/parent::button[@yotta-test='search_bar-submit-button']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         return element;
-//        return super.getYottaButtonByText("搜索");
     }
 
     public WebElement getRawLog() {
@@ -494,46 +440,8 @@ public class CreatePage extends EditorPage {
         return super.getYottaButton("config-save_search_log-button");
     }
 
-    public WebElement getBoolean1() {
-        return booleanList.get(0);
-    }
-
-    public WebElement getSuccessMessage() {
-        return successMessage;
-    }
-
-    @FindBy(xpath = "//input[@yotta-test='config-another_name-input']")
-    private WebElement anotherName;
-
     public WebElement getAnotherName() {
-        return anotherName;
-    }
-
-    @FindBy(xpath = "//label[contains(text(),'重定向规则')]/following::div[@yotta-test='config-rule-select']//span[@aria-label='PlusDownOutlined']")
-    private WebElement redirectNameSpan;
-
-    public WebElement getRedirectrNameSpan() {
-        return redirectNameSpan;
-    }
-
-    @FindBy(xpath = "//label[contains(text(),'重定向规则')]/following::div[@yotta-test='config-rule-select']//input")
-    private WebElement redirectNameInput;
-    public WebElement getRedirectrNameInput() {
-        return redirectNameInput;
-    }
-
-    @FindBy(xpath = "//div[@yotta-test='config-rule-select']//input")
-    private WebElement redirectListInput;
-    public WebElement getRedirectListInput(){
-        WebElement element = webDriver.findElement(By.xpath("//div[@yotta-test='config-rule-select']"));
-        element.click();
-        return redirectListInput;
-    }
-
-    @FindBy(xpath = "//div[contains(@class,'yotta-select-option')][1]")
-    private WebElement firstOptionInList;
-    public WebElement getFirstOptionInList(){
-        return firstOptionInList;
+        return getYottaInput("config-another_name-input");
     }
 
     public WebElement getRedirectList(){

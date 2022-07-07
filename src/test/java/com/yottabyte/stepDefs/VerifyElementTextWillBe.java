@@ -121,7 +121,7 @@ public class VerifyElementTextWillBe {
     public void iWillSeeTheFieldExtractionResult(String json) {
         Map<String, Object> map = JsonStringPaser.json2Stirng(json);
         for (String key : map.keySet()) {
-            WebElement tr = webDriver.findElement(By.xpath("(//span[text()='" + key + ":']/following-sibling::*)[last()]"));
+            WebElement tr = webDriver.findElement(By.xpath("(//div[text()='" + key + "']//ancestor::td//following-sibling::td)[last()]"));
             String actualValue = tr.getText();
             Assert.assertEquals(map.get(key), actualValue);
         }

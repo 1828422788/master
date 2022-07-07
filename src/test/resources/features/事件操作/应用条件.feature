@@ -21,7 +21,7 @@ Feature: 事件操作应用条件
     And I set the parameter "AppName" with value "eventTest"
     And I set the parameter "Tag" with value "eventTest"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
   Scenario: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"

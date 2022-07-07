@@ -66,7 +66,7 @@ Feature: 权限-字段提取
     When I set the parameter "Name" with value "AutoTestUserCreate"
     And I set the parameter "Logtype" with value "other"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
     Then I logout current user
 
   Scenario: 取消读取权限
@@ -182,7 +182,7 @@ Feature: 权限-字段提取
     And I click the "NextButton" button
     When I set the parameter "Name" with value "AutoTestUserRename"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "更新成功"
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'AutoTestUserRename'}" then i click the "更多" button
@@ -245,7 +245,7 @@ Feature: 权限-字段提取
     And I click the "NextButton" button
     When I set the parameter "Name" with value "副本"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "更新成功"
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'副本'}" then i click the "更多" button
@@ -470,7 +470,7 @@ Feature: 权限-字段提取
     And I click the "NextButton" button
     When I set the parameter "Name" with value "Auto副本"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "更新成功"
     Then I logout current user
 
     Examples:
@@ -564,7 +564,7 @@ Feature: 权限-字段提取
     When I set the parameter "Name" with value "副本(副本)"
     And I set the parameter "Logtype" with value "other"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
   Scenario Outline: 授权所有权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -632,7 +632,7 @@ Feature: 权限-字段提取
     And I click the "NextButton" button
     When I set the parameter "Name" with value "副本"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "更新成功"
     Then I logout current user
 
     Examples:
@@ -666,7 +666,7 @@ Feature: 权限-字段提取
     And I click the "NextButton" button
     When I set the parameter "Name" with value "测试有效期限"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "更新成功"
     Then I logout current user
 
     Examples:
@@ -691,7 +691,7 @@ Feature: 权限-字段提取
     When I set the parameter "Name" with value "测试Auth相关"
     And I set the parameter "Logtype" with value "other"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
   Scenario Outline: 验证二次授权读取
     Given I login user "AutoTest" with password "All#123456"
@@ -755,7 +755,7 @@ Feature: 权限-字段提取
     And I click the "NextButton" button
     When I set the parameter "Name" with value "测试AuthRename"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "更新成功"
     Then I logout current user
 
     Examples:
@@ -800,7 +800,7 @@ Feature: 权限-字段提取
     And I click the "NextButton" button
     When I set the parameter "Name" with value "副本"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "更新成功"
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'副本'}" then i click the "更多" button

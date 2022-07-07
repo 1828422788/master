@@ -1,6 +1,5 @@
-@configs @configs25
+@configs @configsRename
 Feature: 字段提取重命名字段
-
 
   Scenario Outline: 字段重命名（RZY-1590）
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -10,9 +9,7 @@ Feature: 字段提取重命名字段
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button
     And I choose the "JSON解析" from the "ParseRule"
-    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField"
-    Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
     And I wait for loading invisible
     And I click the "ParseButton" button
@@ -20,7 +17,6 @@ Feature: 字段提取重命名字段
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "字段重命名" from the "ParseRule"
-    Then I wait for "1000" millsecond
     And I set the parameter "SourceFieldInput" with value "a.b.c"
     And I set the parameter "TargetFieldInput" with value "c"
     And I click the "EnsureAddParseRule" button
@@ -36,12 +32,11 @@ Feature: 字段提取重命名字段
     And I set the parameter "Tag" with value "<appName>"
     And I switch the "SwitchButton" button to "enable"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
       | appName         | log                   | result                                              |
-      | wym_test_rename | {"a":{"b":{"c":"d"}}} | {'c':'"d"','raw_message':'"{"a":{"b":{"c":"d"}}}"'} |
-
+      | wym_test_rename | {"a":{"b":{"c":"d"}}} | {'c':'d','raw_message':'{"a":{"b":{"c":"d"}}}'} |
 
   Scenario Outline: 字段重命名,上传日志，验证结果
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"

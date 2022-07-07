@@ -1,4 +1,4 @@
-@configs @configs30
+@configs @configsVerify
 Feature: 字段提取详情验证
 
   Background:

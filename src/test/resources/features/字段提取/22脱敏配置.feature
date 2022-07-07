@@ -1,6 +1,5 @@
-@configs @configs22
+@configs @configsSensitiveInfo
 Feature: 字段提取脱敏配置
-
 
   Scenario Outline: RZY-2827: 新建脱敏配置规则
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -10,9 +9,7 @@ Feature: 字段提取脱敏配置
     When I set the parameter "LogSample" with value "qweqwe15998418361qwe 15998418361"
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule"
-    And I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField"
-    Then I wait for "1000" millsecond
     And I set the value "(?<phone>.*)" to the textarea "Regex"
     And I click the "EnsureAddParseRule" button
     And I wait for loading invisible
@@ -22,9 +19,7 @@ Feature: 字段提取脱敏配置
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "脱敏配置" from the "ParseRule"
-    And I wait for "1000" millsecond
     And I choose the "phone" from the "SourceField"
-    Then I wait for "1000" millsecond
     And I set the value "(\d{3})(\d{4})(\d{4})" to the textarea "Regex"
     And I set the value "$1****$3" to the textarea "ReplaceContent"
     And I set the parameter "Prefix" with value "\w+"
@@ -37,9 +32,7 @@ Feature: 字段提取脱敏配置
     And I click the "Collapse" button
     And I click the "AddRule" button
     And I choose the "脱敏配置" from the "ParseRule"
-    And I wait for "1000" millsecond
     And I choose the "phone" from the "SourceField"
-    Then I wait for "1000" millsecond
     And I set the value "(\d{3})(\d{4})(\d{4})" to the textarea "Regex"
     And I set the value "$1****$3" to the textarea "ReplaceContent"
     And I set the parameter "Prefix" with value "\s+"
@@ -55,12 +48,11 @@ Feature: 字段提取脱敏配置
     And I set the parameter "Tag" with value "<appName>"
     And I switch the "SwitchButton" button to "enable"
     And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
+    And I will see the element "ResultMessage" contains "新建成功"
 
     Examples:
       | appName  | regexResult                                                                                       | result                                                                                                                                                 | result1                                                                                                                                                |
-      | replacer | {'phone':'"qweqwe15998418361qwe 15998418361"','raw_message':'"qweqwe15998418361qwe 15998418361"'} | {'phone':'"qweqwe159****8361qwe 15998418361"','raw_message':'"qweqwe15998418361qwe 15998418361"','raw_message_r':'"qweqwe159****8361qwe 15998418361"'} | {'phone':'"qweqwe159****8361qwe 159****8361"','raw_message':'"qweqwe15998418361qwe 15998418361"','raw_message_r':'"qweqwe159****8361qwe 159****8361"'} |
-
+      | replacer | {'phone':'qweqwe15998418361qwe 15998418361','raw_message':'qweqwe15998418361qwe 15998418361'} | {'phone':'qweqwe159****8361qwe 15998418361','raw_message':'qweqwe15998418361qwe 15998418361','raw_message_r':'qweqwe159****8361qwe 15998418361'} | {'phone':'qweqwe159****8361qwe 159****8361','raw_message':'qweqwe15998418361qwe 15998418361','raw_message_r':'qweqwe159****8361qwe 159****8361'} |
 
   Scenario Outline: RZY-2827: 新建脱敏配置规则,上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
@@ -74,7 +66,6 @@ Feature: 字段提取脱敏配置
     Examples:
       | log          | appName  |
       | replacer.log | replacer |
-
 
   Scenario: 新建搜索权限
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
@@ -109,7 +100,6 @@ Feature: 字段提取脱敏配置
     Then I click the "SaveButton" button
     And I wait for "SuccessMessage" will be invisible
 
-
   Scenario Outline: 搜索页，验证结果
     Given I login user "wym" with password "All#123456"
     And open the "splSearch.SearchPage" page for uri "/search/"
@@ -126,7 +116,6 @@ Feature: 字段提取脱敏配置
     Examples:
       | appName  | searchResult|
       | replacer | {'replace.phone':'qweqwe159****8361qwe 159****8361','raw_message':'qweqwe159****8361qwe 159****8361'}|
-
 
   Scenario: 删除搜索权限
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
