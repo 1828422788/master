@@ -424,7 +424,7 @@ public class CreatePage extends EditorPage {
     }
 
     public WebElement getEvent() {
-        return super.getButton("事件操作");
+        return super.getButtonByText("事件操作");
     }
 
     public WebElement getSearchLoading() {
@@ -570,7 +570,7 @@ public class CreatePage extends EditorPage {
     }
 
     public WebElement getAppConfigButton(String name) {
-        return webDriver.findElement(By.xpath("(//*[text()='" + name + "']"));
+        return webDriver.findElement(By.xpath("//*[text()='" + name + "']"));
     }
 
     public WebElement getAliasGlobal() {
