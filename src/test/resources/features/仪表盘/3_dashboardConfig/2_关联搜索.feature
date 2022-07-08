@@ -201,6 +201,7 @@ Feature: 仪表盘2关联搜索
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I set value with element "TableList"
+    And take a screenshot
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘关联搜索"
@@ -220,6 +221,7 @@ Feature: 仪表盘2关联搜索
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I set value with element "TableList"
+    And take a screenshot
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘关联搜索"
