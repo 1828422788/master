@@ -445,7 +445,7 @@ public class DetailPage extends EditorPage {
     @FindBy(xpath = "//span[text()='全局时间']")
     private WebElement timeName;
 
-    @FindBy(xpath = "(//span[text()='000000001203094955'])[2]")
+    @FindBy(xpath = "//span[contains(text(),'16:33:25')]/ancestor::tr//span[text()='000000001203094955']")
     private WebElement entry;
 
     @FindBy(xpath = "//span[text()='filter']/following-sibling::span")

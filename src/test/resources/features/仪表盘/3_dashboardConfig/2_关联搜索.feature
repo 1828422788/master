@@ -147,7 +147,7 @@ Feature: 仪表盘2关联搜索
     Examples:
       | name       | json                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
       | 仪表盘message | {"title": "仪表盘message","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:auto_test_dashboard_message \| table tag ,message.PRE_ENTRY_ID,message.CREATE_DATE \| rename tag as tag, message.PRE_ENTRY_ID as PRE_ENTRY, message.CREATE_DATE as CREAT_DATE","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "set","name": "return","value": "${click.value2}"}]}} |
-      | 仪表盘return  | {"title": "仪表盘return","description": "","x": 0,"y": 20,"w": 12,"h": 5,"search": {"query": "tag:auto_test_dashboard_return AND return.EPORT_ID:${return}\| table return.EPORT_ID,tag,return.CUS_ID \| rename return.CUS_ID as CUS_ID,return.EPORT_ID as EPORT_ID","startTime": "now/d","endTime": "now","done": {"type": "local","targets": [{"action": "eval","name": "workflow","value": "${result.CUS_ID}"}]}},"chart": {"chartType": "table"}}                |
+      | 仪表盘return  | {"title": "仪表盘return","description": "","x": 0,"y": 20,"w": 12,"h": 5,"search": {"query": "tag:auto_test_dashboard_return AND return.EPORT_ID:${return}\| table return.EPORT_ID,tag,return.CUS_ID \| sort by return.CUS_ID \| rename return.CUS_ID as CUS_ID,return.EPORT_ID as EPORT_ID","startTime": "now/d","endTime": "now","done": {"type": "local","targets": [{"action": "eval","name": "workflow","value": "${result.CUS_ID}"}]}},"chart": {"chartType": "table"}}                |
 
   Scenario: 修改表格workflow查询语句
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -163,7 +163,7 @@ Feature: 仪表盘2关联搜索
     When the chart title is "仪表盘workflow" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "tag:auto_test_dashboard_workflow AND workflow.ENTRY_ID:${workflow} | table tag,workflow.ENTRY_ID | rename workflow.ENTRY_ID as ENTRY_ID"
+    And I set the parameter "Spl" with value "tag:auto_test_dashboard_workflow AND workflow.ENTRY_ID:${workflow} | table tag,workflow.ENTRY_ID | sort by workflow.ENTRY_ID | rename workflow.ENTRY_ID as ENTRY_ID"
     Then I click the "Ensure" button
     And I wait for element "SuccessMessage" change text to "配置成功"
 
@@ -195,7 +195,7 @@ Feature: 仪表盘2关联搜索
   Scenario: 验证return搜索结果 RZY-3226
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    When I set the parameter "SearchInput" with value "tag:auto_test_dashboard_return AND return.EPORT_ID:000000001203094955 | table return.EPORT_ID,tag,return.CUS_ID | rename return.CUS_ID as CUS_ID,return.EPORT_ID as EPORT_ID"
+    When I set the parameter "SearchInput" with value "tag:auto_test_dashboard_return AND return.EPORT_ID:000000001203094955 | table return.EPORT_ID,tag,return.CUS_ID | sort by return.CUS_ID | rename return.CUS_ID as CUS_ID,return.EPORT_ID as EPORT_ID"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -215,7 +215,7 @@ Feature: 仪表盘2关联搜索
   Scenario: 验证workflow搜索结果 RZY-3227,RZY-3228
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    When I set the parameter "SearchInput" with value "tag:auto_test_dashboard_workflow AND workflow.ENTRY_ID:531620160167359680 | table tag,workflow.ENTRY_ID | rename workflow.ENTRY_ID as ENTRY_ID"
+    When I set the parameter "SearchInput" with value "tag:auto_test_dashboard_workflow AND workflow.ENTRY_ID:531620160167365049 | table tag,workflow.ENTRY_ID | sort by workflow.ENTRY_ID | rename workflow.ENTRY_ID as ENTRY_ID"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button

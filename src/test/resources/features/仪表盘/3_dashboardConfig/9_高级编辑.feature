@@ -76,7 +76,6 @@ Feature: 仪表盘高级编辑
     When the chart title is "仪表盘所有" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
-    And I wait for "Check" to be clickable
     And I click the "Check" button
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
@@ -98,7 +97,6 @@ Feature: 仪表盘高级编辑
     When the chart title is "仪表盘所有" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-2d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
-    And I wait for "Check" to be clickable
     And I click the "Check" button
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
@@ -121,7 +119,6 @@ Feature: 仪表盘高级编辑
     When the chart title is "仪表盘所有" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "<start>","endTime": "<end>"},"chart": {"chartType": "table"}}" to json editor
-    And I wait for "Check" to be clickable
     And I click the "Check" button
     Then I will see the error message "<message>"
 
@@ -144,7 +141,6 @@ Feature: 仪表盘高级编辑
     When the chart title is "仪表盘所有" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘所有","description": "","x": <x>,"y": <y>,"w": <w>,"h": <h>,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
-    And I wait for "Check" to be clickable
     And I click the "Check" button
     And I will see the error message "<message>"
 
@@ -175,7 +171,6 @@ Feature: 仪表盘高级编辑
     When the chart title is "仪表盘所有" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘高级编辑","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
-    And I wait for "Check" to be clickable
     And I click the "Check" button
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
@@ -197,7 +192,6 @@ Feature: 仪表盘高级编辑
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
-    And I wait for "Check" to be clickable
     And I click the "Check" button
     Then I will see the success message "校验通过"
 
@@ -215,7 +209,6 @@ Feature: 仪表盘高级编辑
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘高级编辑","description": "测试描述","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
-    And I wait for "Check" to be clickable
     And I click the "Check" button
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
@@ -238,7 +231,6 @@ Feature: 仪表盘高级编辑
     And I click the "Edit" button
     And I click the "Operate" button
     And I choose the "清空JSON" from the "ChartDropdown"
-    And I wait for "Check" to be clickable
     And I click the "Check" button
     Then I will see the error message "title 字段为必填项"
 
@@ -256,12 +248,10 @@ Feature: 仪表盘高级编辑
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘所有","description": "","x": -1,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-2d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
-    And I wait for "Check" to be clickable
     And I click the "Check" button
     Then I will see the error message "x 字段值的有效区间范围为'0'至'12'"
     And I click the "Operate" button
     And I choose the "重置JSON" from the "ChartDropdown"
-    And I wait for "Check" to be clickable
     And I click the "Check" button
     Then I will see the success message "校验通过"
 
@@ -300,7 +290,6 @@ Feature: 仪表盘高级编辑
     And I click the "Operate" button
     And I choose the "切换主题" from the "ChartDropdown"
     And I will see the "HighJsonEditor" is "ace-github"
-    And I wait for "Check" to be clickable
     And I click the "Check" button
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
@@ -358,7 +347,6 @@ Feature: 仪表盘高级编辑
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘高级编辑","description": "测试描述","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "search","blank": true,"mode": "auto"}}" to json editor
-    And I wait for "Check" to be clickable
     And I click the "Check" button
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
@@ -385,7 +373,6 @@ Feature: 仪表盘高级编辑
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘高级编辑","description": "测试描述","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "search","blank": false,"mode": "auto"}}" to json editor
-    And I wait for "Check" to be clickable
     And I click the "Check" button
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
@@ -411,7 +398,6 @@ Feature: 仪表盘高级编辑
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘高级编辑","description": "测试描述","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "search","blank": false,"mode": "custom","query": "tag:sample04061424 | where apache.status<400 && apache.status>200 | stats count() as cnt","timeRange": "-1d/d,now/d"}}" to json editor
-    And I wait for "Check" to be clickable
     And I click the "Check" button
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
@@ -437,7 +423,6 @@ Feature: 仪表盘高级编辑
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘高级编辑","description": "测试描述","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "search","blank": false,<json>}}" to json editor
-    And I wait for "Check" to be clickable
     And I click the "Check" button
     And I wait for element "ErrorMessage" change text to "<message>"
 
@@ -477,7 +462,6 @@ Feature: 仪表盘高级编辑
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display|stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "eval","name": "filter","value": "${click.value2}+200"}]}}" to json editor
-    And I wait for "Check" to be clickable
     And I click the "Check" button
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
@@ -549,12 +533,10 @@ Feature: 仪表盘高级编辑
     When the chart title is "仪表盘所有" then I click the button which classname is "yotta-icon yotta-icon-DotEmblem" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display|stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "search","blank": true,"mode": "custom"}}" to json editor
-    And I wait for "Check" to be clickable
     And I click the "Check" button
     And I wait for element "ErrorMessage" change text to "drilldown -> query 字段为必填项"
     And I wait for "ErrorMessage" will be invisible
     And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display|stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "search","blank": true,"mode": "custom","query": "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10","timeRange": "-1000d,+1d"}}" to json editor
-    And I wait for "Check" to be clickable
     And I click the "Check" button
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
@@ -581,7 +563,6 @@ Feature: 仪表盘高级编辑
     And I click the "Edit" button
     Then I will see the "TextLayer" result will contain "<json>"
     And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display|stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "custom","blank": true,"link": "/alerts/new/"}}" to json editor
-    And I wait for "Check" to be clickable
     And I click the "Check" button
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
@@ -610,7 +591,6 @@ Feature: 仪表盘高级编辑
     And I click the "Edit" button
     Then I will see the "TextLayer" result will contain "<json>"
     And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display|stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "<chartType>"},"drilldown": {"type": "custom","blank": true,"link": "/alerts/new/"}}" to json editor
-    And I wait for "Check" to be clickable
     And I click the "Check" button
     And I wait for element "ErrorMessage" change text to "chart -> field 字段为必填项"
 
