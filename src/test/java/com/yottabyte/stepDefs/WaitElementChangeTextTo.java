@@ -25,8 +25,9 @@ import static com.yottabyte.utils.GetTableElement.getTableElementWithRowAndCol;
  * @author by A on 2017/4/13.
  */
 public class WaitElementChangeTextTo {
+    static WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
-    public void waitForElementWithExpectedCondition(WebDriver driver, ExpectedCondition expectedCondition) {
+    public static void waitForElementWithExpectedCondition(WebDriver driver, ExpectedCondition expectedCondition) {
         FluentWait wait = new FluentWait(driver)
                 .withTimeout(WebDriverConst.WAIT_FOR_ELEMENT_TIMEOUT, TimeUnit.MILLISECONDS)
                 .pollingEvery(WebDriverConst.WAIT_FOR_ELEMENT_POLLING_DURING, TimeUnit.MILLISECONDS)
@@ -54,7 +55,6 @@ public class WaitElementChangeTextTo {
      */
     @And("^I wait table element \"([^\"]*)\" change text to \"([^\"]*)\"$")
     public void iWaitTableElementChangeTextTo(String tableAddress, String text) {
-        WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
         if (tableAddress.contains("-") && tableAddress.contains(".")) {
             String realTableName = tableAddress.split("-")[0];
             String address = tableAddress.split("-")[1];
@@ -79,8 +79,7 @@ public class WaitElementChangeTextTo {
      * @param timeout     指定时间
      */
     @And("^I wait the \"([^\"]*)\" row \"([^\"]*)\" column change text to \"([^\"]*)\" in \"([^\"]*)\" milliseconds$")
-    public void  waitUntilTextChange(int rowNum, int colNum, String text, int timeout) {
-        WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
+    public void waitUntilElementContainsText(int rowNum, int colNum, String text, int timeout) {
         WebElement table = webDriver.findElement(By.xpath("(//tbody)"));
         WebElement tr = table.findElements(By.xpath("./tr")).get(rowNum-1);
         WebElement td = tr.findElements(By.xpath("./td")).get(colNum-1);
@@ -101,24 +100,49 @@ public class WaitElementChangeTextTo {
      * 验证元素的text变为某一值
      *
      * @param elementName 元素名称
-     * @param text        文本值
+     * @param expectText        文本值
      */
     @And("^I wait for element \"([^\"]*)\" change text to \"([^\"]*)\"$")
-    public void  waitUntilTextChange(String elementName, String text) {
-        WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
-        if (elementName.equals("SearchStatus") && (text.contains("搜索完成")))
+    public static void waitUntilElementContainsText(String elementName, String expectText){
+        if (elementName.equals("SearchStatus") && (expectText.contains("搜索完成")))
             webDriver.manage().timeouts().implicitlyWait(WebDriverConst.WAIT_FOR_SEARCH_TO_END, TimeUnit.MILLISECONDS);
         WebElement element = getWebElementWithName(elementName);
+        final String[] realText = {""};
         ExpectedCondition expectedCondition = new ExpectedCondition<Boolean>() {
             @Override
             public Boolean apply(WebDriver driver) {
-                Boolean flag = element.getText().contains(text);
-                return flag;
+                realText[0] = element.getText();
+                return realText[0].contains(expectText);
             }
         };
+        try{
+            waitForElementWithExpectedCondition(webDriver, expectedCondition);
+        } catch (NoSuchElementException e) {
+            throw new NoSuchElementException("Element not found");
+        } catch (Exception e) {
+            throw new Error("element's text is expected to contain: [" + expectText + "], but was [" + realText[0] + "]");
+        } finally {
+            webDriver.manage().timeouts().implicitlyWait(WebDriverConst.WAIT_FOR_ELEMENT_TIMEOUT, TimeUnit.MILLISECONDS);
+        }
+    }
 
-        this.waitForElementWithExpectedCondition(webDriver, expectedCondition);
-        webDriver.manage().timeouts().implicitlyWait(WebDriverConst.WAIT_FOR_ELEMENT_TIMEOUT, TimeUnit.MILLISECONDS);
+    public static void waitUntilElementsTextEqualsTo(String elementName, String expectText) {
+        WebElement element = getWebElementWithName(elementName);
+        final String[] realText = {""};
+        ExpectedCondition expectedCondition = new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver driver) {
+                realText[0] = element.getText();
+                return realText[0].equals(expectText);
+            }
+        };
+        try{
+            waitForElementWithExpectedCondition(webDriver, expectedCondition);
+        } catch (NoSuchElementException e) {
+            throw new NoSuchElementException("Element not found");
+        } catch (Exception e) {
+            throw new Error("element's text is expected to be equal to: [" + expectText + "], but was [" + realText[0] + "]");
+        }
     }
 
     /**
@@ -129,7 +153,6 @@ public class WaitElementChangeTextTo {
      */
     @And("^I wait for element \"([^\"]*)\" value change text to \"([^\"]*)\"$")
     public void iWaitForElementValueChangeTextTo(String elementName, String text) {
-        WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
         WebElement element = getWebElementWithName(elementName);
         ExpectedCondition expectedCondition = new ExpectedCondition<Boolean>() {
             @Override
@@ -151,7 +174,6 @@ public class WaitElementChangeTextTo {
      */
     @And("^I wait for element \"([^\"]*)\" change text to username$")
     public void waitUntilTextChangeToUser(String elementName) {
-        WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
         WebElement element = getWebElementWithName(elementName);
         ConfigManager config = new ConfigManager();
         String username = config.get("username").split("@")[0];

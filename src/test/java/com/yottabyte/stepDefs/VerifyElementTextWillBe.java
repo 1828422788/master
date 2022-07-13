@@ -28,9 +28,7 @@ public class VerifyElementTextWillBe {
      */
     @Then("^I will see the \"([^\"]*)\" result will be \"([^割]*)\"$")
     public void iWillSeeTheResultWillBe(String elementName, String expectText) {
-        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
-        String realText = element.getText();
-        assertEquals(expectText, realText);
+        WaitElementChangeTextTo.waitUntilElementsTextEqualsTo(elementName, expectText);
     }
 
     /**
@@ -41,9 +39,7 @@ public class VerifyElementTextWillBe {
      */
     @Then("^I will see the \"([^\"]*)\" result will contain \"([^割]*)\"$")
     public void iWillSeeTheResultWillContain(String elementName, String expectText) {
-        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
-        String realText = element.getText();
-        assertTrue(realText.contains(expectText));
+        WaitElementChangeTextTo.waitUntilElementContainsText(elementName, expectText);
     }
 
     /**
@@ -80,71 +76,40 @@ public class VerifyElementTextWillBe {
         Assert.assertTrue("实际值" + realValue, realValue.contains(value));
     }
 
-    /**
-     * 验证弹框内容
-     *
-     * @param errorMessage
-     */
-    @Then("^I will see the alertErrorMessage \"([^\"]*)\"$")
-    public void iWillSeeAlertErrorMessage(String errorMessage) {
-        WebElement element = GetElementFromPage.getWebElementWithName("Alert");
-        String realResult = element.getText();
-        assertEquals(errorMessage, realResult);
-    }
-
-    @Then("^I will see the alertMessage \"([^\"]*)\"$")
-    public void iWillSeeAlertMessage(String alertMessage) {
-        WebElement element = GetElementFromPage.getWebElementWithName("AlertMessage");
-        String realResult = element.getText();
-        assertEquals(alertMessage, realResult);
-    }
-
     @Then("^I will see the message \"([^\"]*)\" in alert window$")
     public void iWillSeeAlert(String alertMessage) {
         String realResult = webDriver.switchTo().alert().getText();;
         assertEquals(alertMessage, realResult);
     }
 
-    @Then("^I will see the success message \"([^\"]*)\"$")
-    public void iWillSeeTheSuccessMessage(String messageText) {
-        WebElement element = GetElementFromPage.getWebElementWithName("getSuccessMessage");
-        String realText = element.getText();
-        assertEquals(messageText, realText);
-    }
-
     @Then("^I will see the message \"([^\"]*)\"$")
     public void iWillSeeTheMessage(String messageText) {
-        WebElement element = GetElementFromPage.getWebElementWithName("getMessage");
-        String realText = element.getText();
-        assertEquals(messageText, realText);
+        WaitElementChangeTextTo.waitUntilElementsTextEqualsTo("Message", messageText);
     }
 
     @Then("^I will see the message contains \"([^\"]*)\"$")
     public void seeTheMessageContains(String messageText) {
-        WebElement element = GetElementFromPage.getWebElementWithName("getMessage");
-        String realText = element.getText();
-        assertTrue("实际值:" + realText, realText.contains(messageText));
+        WaitElementChangeTextTo.waitUntilElementContainsText("Message", messageText);
     }
 
     @Then("^I will see the success message contains \"([^\"]*)\"$")
     public void iWillSeeTheSuccessMessageContains(String messageText) {
-        WebElement element = GetElementFromPage.getWebElementWithName("getSuccessMessage");
-        String realText = element.getText();
-        assertTrue(realText.contains(messageText));
+        WaitElementChangeTextTo.waitUntilElementContainsText("SuccessMessage", messageText);
+    }
+
+    @Then("^I will see the success message \"([^\"]*)\"$")
+    public void iWillSeeTheSuccessMessage(String messageText) {
+        WaitElementChangeTextTo.waitUntilElementsTextEqualsTo("SuccessMessage", messageText);
     }
 
     @Then("^I will see the error message \"([^\"]*)\"$")
     public void iWillSeeErrorMessage(String errorMessage) {
-        WebElement element = GetElementFromPage.getWebElementWithName("ErrorMessage");
-        String realResult = element.getText();
-        assertEquals(errorMessage, realResult);
+        WaitElementChangeTextTo.waitUntilElementsTextEqualsTo("ErrorMessage",errorMessage);
     }
 
     @Then("^I will see the error message contains \"([^\"]*)\"$")
     public void iWillSeeTheErrorMessageContains(String errorMessage) {
-        WebElement element = GetElementFromPage.getWebElementWithName("ErrorMessage");
-        String realResult = element.getText();
-        assertTrue("实际值：" + realResult, realResult.contains(errorMessage));
+        WaitElementChangeTextTo.waitUntilElementContainsText("ErrorMessage", errorMessage);
     }
 
     /**
