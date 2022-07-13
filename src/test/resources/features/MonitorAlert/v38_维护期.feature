@@ -7,6 +7,12 @@ Feature: 监控维护期
   @maintain1
   Scenario Outline: api_维护期每天9-13点_字段统计_总计resplen_邮件
     Given I click the "CreateButton" button
+    And I set the parameter "MaintainBeginTimeInput" with value "02:00"
+    And I choose the "02" from the "MaintainBeginTimeList" in the time list
+    And I wait for loading invisible
+    When I set the parameter "MaintainReason" with value "<reason>"
+    And I set the parameter "MaintainEndTimeInput" with value "23:00"
+    And I choose the "23" from the "MaintainEndTimeList" in the time list
     And I click the "ChooseAlertButton" button
     And I set the parameter "AlertNameSearchInput" with value "<alert_name>"
     And I click the "AlertNameSearchIcon" button
@@ -14,13 +20,6 @@ Feature: 监控维护期
     And I "checked" the checkbox which name is "<alert_name>"
     And I wait for loading invisible
     And I click the "AlertNameEnsure" button
-    And I set the parameter "MaintainBeginTimeInput" with value "02:00"
-    And I choose the "02" from the "MaintainBeginTimeList" in the time list
-    And I wait for loading invisible
-    When I set the parameter "MaintainReason" with value "<reason>"
-    And I set the parameter "MaintainEndTimeInput" with value "23:00"
-    And I choose the "23" from the "MaintainEndTimeList" in the time list
-
     And I click the "SaveButton" button
     Then I will see the success message "创建成功"
 
@@ -69,14 +68,13 @@ Feature: 监控维护期
     And I wait for loading invisible
     And I click the "AlertNameEnsure" button
     And I choose the "每周" from the "PerformPlanList"
-    And I choose the "一" from the "BeginWeeklyDayList"
     And I set the parameter "MaintainBeginTimeInput" with value "02:00"
     And I choose the "02" from the "MaintainBeginTimeList" in the time list
     When I set the parameter "MaintainReason" with value "<reason>"
-    And I choose the "六" from the "EndWeeklyDayList"
-    And I click the Circle "BeginTimeLabel" button
+    And I choose the "一" from the "BeginWeeklyDayList"
     And I set the parameter "MaintainEndTimeInput" with value "23:00"
     And I choose the "23" from the "MaintainEndTimeList" in the time list
+    And I choose the "六" from the "EndWeeklyDayList"
     And I click the "SaveButton" button
     Then I will see the success message "创建成功"
 
@@ -95,13 +93,13 @@ Feature: 监控维护期
     And I wait for loading invisible
     And I click the "AlertNameEnsure" button
     And I choose the "每月" from the "PerformPlanList"
-    And I choose the "1日" from the "BeginWeeklyDayList"
     And I set the parameter "MaintainBeginTimeInput" with value "02:00"
     And I choose the "02" from the "MaintainBeginTimeList" in the time list
+    And I choose the "1日" from the "BeginWeeklyDayList"
     When I set the parameter "MaintainReason" with value "<reason>"
-    And I choose the "28日" from the "EndWeeklyDayList"
     And I set the parameter "MaintainEndTimeInput" with value "23:00"
     And I choose the "23" from the "MaintainEndTimeList" in the time list
+    And I choose the "28日" from the "EndWeeklyDayList"
     And I click the "SaveButton" button
     Then I will see the success message "创建成功"
 
