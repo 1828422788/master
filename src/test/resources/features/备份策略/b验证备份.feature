@@ -57,6 +57,7 @@ Feature: 备份数据验证
 
   Scenario: 上传非yotta索引数据
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
+    And I wait for "50000" millsecond
     And I set the parameter "AppName" with value "testnyt"
     And I set the parameter "Tag" with value "testnyt"
     And I upload a file with name "/src/test/resources/testdata/log/apache_10.txt"
