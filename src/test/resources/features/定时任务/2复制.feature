@@ -88,7 +88,7 @@ Feature: 定时任务_2复制
   Scenario: 检查新定时任务的细节
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
-    When I will see the data "{'column':'1','name':'copytask(副本)'}" values "{'column':'4','name':'5 分钟'}"
+    When I will see the data "{'column':'1','name':'copytask(副本)'}" values "{'column':'5','name':'5 分钟'}"
     When the data name is "{'column':'1','name':'copytask(副本)'}" then i click the "copytask(副本)" button
     Then I will see the "timedTask.DetailPage" page
     And I will see the element "DetailDataSet" contains "(*)"

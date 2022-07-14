@@ -140,7 +140,7 @@ Feature: 定时任务_3基本配置
   Scenario: 验证
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
-    When I will see the data "{'column':'1','name':'Schedule_Test'}" values "{'column':'4','name':'0 */57 * * * ?'}"
+    When I will see the data "{'column':'1','name':'Schedule_Test'}" values "{'column':'5','name':'0 */57 * * * ?'}"
     And the data name is "{'column':'1','name':'Schedule_Test'}" then I "expand" the item
     And I will see the element "TagOfTheLastItem" contains "auto_package"
     And I will see the element "AppOfTheLastItem" contains "test_app"
