@@ -11,9 +11,13 @@ import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import com.yottabyte.utils.WaitForElement;
+import org.openqa.selenium.support.ui.FluentWait;
 
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -143,10 +147,14 @@ public class WaitElement {
      */
     @And("^I wait for \"([^\"]*)\" will be visible in \"([^\"]*)\" milliseconds$")
     public void iWaitForWillBeVisibleInMilliseconds(String elementName, int timeout) {
-        webDriver.manage().timeouts().implicitlyWait(timeout, TimeUnit.MILLISECONDS);
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
-        assert element.isDisplayed();
-        webDriver.manage().timeouts().implicitlyWait(WebDriverConst.WAIT_FOR_ELEMENT_TIMEOUT_WHEN_PAGE_LOADING, TimeUnit.MILLISECONDS);
+        FluentWait wait = new FluentWait(webDriver)
+                .withTimeout(timeout, TimeUnit.MILLISECONDS)
+                .pollingEvery(WebDriverConst.WAIT_FOR_ELEMENT_POLLING_DURING, TimeUnit.MILLISECONDS)
+                .ignoring(NoSuchElementException.class)
+                .ignoring(TimeoutException.class)
+                .ignoring(StaleElementReferenceException.class);
+        wait.until(ExpectedConditions.visibilityOf(element));
     }
 
     /**
