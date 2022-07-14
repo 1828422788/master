@@ -98,7 +98,6 @@ Feature: 趋势图_拖拽_维度
     When I click the "CloseSPL" button
     And I click the Circle "Status405" button
     And I wait for "<element>" will be visible
-#    And I will see the "<element>" doesn't exist
     And I click the "HideElement" button
     Then I wait for "Chart" will be visible
     And I wait for "2000" millsecond
@@ -125,17 +124,16 @@ Feature: 趋势图_拖拽_维度
     Then I will see the "trend.CreatePage" page
     And I wait for "FlameElement" will be visible
     And I click the Circle "Status405" button
-    And I wait for "1500" millsecond
-    And I will see the "<element1>" doesn't exist
+    And I wait for "<element>" will be visible
 
     @trendSmoke
     Examples:
-      | chartType | drill    | element    | element1    |
-      | Flame     | DrillIn  | BackToChart| FlameElement|
+      | chartType | drill    | element    |
+      | Flame     | DrillIn  | BackToChart|
 
     Examples:
-      | chartType | drill    | element    | element1    |
-      | Flame     | DrillOut | DrillOut   | BackToChart |
+      | chartType | drill    | element    |
+      | Flame     | DrillOut | Status405  |
 
   Scenario Outline: drag_and_drop_sunburst
     And I "checked" the checkbox which name is "apache.geo.province" in trend page
