@@ -1,7 +1,6 @@
 @JDBCtimedTask
-Feature: 定时任务_结果处理方式
+Feature: 定时任务_5结果处理方式
 
-  @timedTask
   Scenario Outline: 新建定时任务
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -24,57 +23,13 @@ Feature: 定时任务_结果处理方式
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
-    @timedTaskSmoke
     Examples:
       |    name     |   caseNum    |
       |  oracle     |  3301        |
-
-    Examples:
-      |    name     |   caseNum    |
       |  mysql      |  3357        |
       |  sql_server |  3358        |
 
-  @timedTask
-  Scenario Outline: 添加jdbc_检查提示
-    Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And I wait for loading invisible
-    When the data name is "{'column':'1','name':'oracle_3301'}" then i click the "编辑" button
-    And I will see the "timedTask.EditPage" page
-    And I wait for "2000" millsecond
-    And I wait for element "SelectedUser" change text to username
-    And I click the "AddJDBC" button
-    And I click the "Jdbc" button
-    And I wait for "2000" millsecond
-    And I wait for "ConnectName" will be visible
-    And I will see the input element "ConnectName" value will be ""
-
-    Then I set the parameter "ConnectName" with value "<connectName>"
-    Then I set the parameter "UserName" with value "<userName>"
-    Then I set the parameter "Password" with value "<password>"
-    Then I set the parameter "Host" with value "<host>"
-    Then I set the parameter "Port" with value "<port>"
-    Then I choose the "<dbType>" from the "DbType"
-    Then I set the parameter "DbName" with value "<dbName>"
-    Then I set the parameter "TableName" with value "<tableName>"
-    Then I click the "Verify" button
-    And I wait for "TipText" will be visible
-    And I will see the element "TipText" contains "<result>"
-
-    Examples:
-      | connectName | userName | password     | host          | port | dbType | dbName         | tableName | result                |
-      |             |          |              |               |      |        |                |           | 连接名称 不能为空     |
-      | mysqlrzy    |          |              |               |      |        |                |           | 用户名 不能为空       |
-      | mysqlrzy    | root     |              |               |      |        |                |           | 密码 不能为空         |
-      | mysqlrzy    | root     | rizhiyi&2014 |               |      |        |                |           | 主机 不能为空         |
-      | mysqlrzy    | root     | rizhiyi&2014 | 192.168.1.139 |      |        |                |           | 端口 不能为空         |
-      | mysqlrzy    | root     | rizhiyi&2014 | 192.168.1.139 | 3306 |        |                |           | 数据库类型 不能为空   |
-      | mysqlrzy    | root     | rizhiyi&2014 | 192.168.1.139 | 3306 | mysql  |                |           | 数据库名 不能为空     |
-
-    @timedTaskSmoke
-    Examples:
-      | connectName | userName | password     | host          | port | dbType | dbName         | tableName | result                |
-      | mysqlrzy    | root     | rizhiyi&2014 | 192.168.1.139 | 3306 | mysql  | rizhiyi_system |           | 数据库表名称 不能为空 |
-
+  #TODO: 需要修改，添加存在的DB
   Scenario Outline: 添加jdbc
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible

@@ -1,7 +1,7 @@
 @timedTask
-Feature: 定时任务新建
+Feature: 定时任务_1新建
 
-  @startTomorrowTask @timedTaskSmoke
+  @timedTaskSmoke
   Scenario: 明天开始的定时任务
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -23,25 +23,19 @@ Feature: 定时任务新建
     And I set the parameter "StartTimeInput" with value "23:59:10"
     And I click the "StartTimeInput" button
     And I click the Circle "BasicSettings" button
+    And I click the "AddIndex" button
+    And I will see the element "IndexPanel" contains "schedule"
     And I will see the element "WhenToStart" contains "今天开始"
     And I set the parameter "StartTimeInput" with value "00:01:10"
     And I click the "StartTimeInput" button
     And I click the Circle "BasicSettings" button
     And I will see the element "WhenToStart" contains "明天开始"
     And I click the "Submit" button
-    And I wait for "Message" will be visible
     Then I will see the element "Message" contains "明天开始，是否继续"
     When I click the "Cancel" button
-    And I wait for "Cancel" will be invisible
-    And I wait for "1500" millsecond
     And I click the "Submit" button
-    And I wait for "Message" will be visible
     Then I will see the element "Message" contains "明天开始，是否继续"
     And I click the "EnsureButton" button
-    And I wait for "1500" millsecond
-    And I wait for "Cancel" will be invisible
-    And I wait for "1000" millsecond
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
     When open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
@@ -69,9 +63,10 @@ Feature: 定时任务新建
     And I set the parameter "StartTimeInput" with value "23:58:10"
     And I click the "StartTimeInput" button
     And I click the Circle "BasicSettings" button
+    And I click the "AddIndex" button
+    And I will see the element "IndexPanel" contains "schedule"
     And I will see the element "DatePicker" contains "<timeDisplay>"
     And I click the "Submit" button
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -117,9 +112,10 @@ Feature: 定时任务新建
     And I set the parameter "StartTimeInput" with value "23:58:10"
     And I click the "StartTimeInput" button
     And I click the Circle "BasicSettings" button
+    And I click the "AddIndex" button
+    And I will see the element "IndexPanel" contains "schedule"
     And I will see the element "DatePicker" contains "2020-06-01 - 2020-06-09"
     And I click the "Submit" button
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -144,8 +140,9 @@ Feature: 定时任务新建
     And I set the parameter "Describe" with value "testing"
 
     And I set the parameter "CrontabInput" with value "<crontab>"
+    And I click the "AddIndex" button
+    And I will see the element "IndexPanel" contains "schedule"
     And I click the "Submit" button
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -178,7 +175,6 @@ Feature: 定时任务新建
     And I set the parameter "Describe" with value "testing"
     And I set the parameter "CrontabInput" with value "<crontab>"
     And I click the "Submit" button
-    And I wait for "<element>" will be visible
     And I will see the element "<element>" contains "<message>"
 
     Examples:
@@ -216,7 +212,6 @@ Feature: 定时任务新建
     And I set the parameter "Name" with value "<name>"
     Then I set the parameter "Period" with value "<period>"
     And I click the "Submit" button
-    And I wait for "TipText" will be visible
     And I will see the element "TipText" contains "<message>"
 
     Examples:
@@ -244,7 +239,6 @@ Feature: 定时任务新建
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Name" with value " "
     And I click the "Submit" button
-    And I wait for "TipText" will be visible
     And I will see the element "TipText" contains "名称 不能为空"
 
   Scenario Outline: 定时任务_检查时间范围(RZY-396,397,403,404,2695,2696,2698)

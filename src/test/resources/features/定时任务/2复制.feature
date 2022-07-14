@@ -1,5 +1,5 @@
 @timedTask @copyTimedTask @timedTaskSmoke
-Feature: 定时任务复制
+Feature: 定时任务_2复制
 
   Scenario Outline: 新建定时任务
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -88,13 +88,12 @@ Feature: 定时任务复制
   Scenario: 检查新定时任务的细节
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
+    When I will see the data "{'column':'1','name':'copytask(副本)'}" values "{'column':'4','name':'5 分钟'}"
     When the data name is "{'column':'1','name':'copytask(副本)'}" then i click the "copytask(副本)" button
     Then I will see the "timedTask.DetailPage" page
-#    And I will see the element "DetailDataSet" contains "(*)"
+    And I will see the element "DetailDataSet" contains "(*)"
     And I will see the element "SearchContent" contains "tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>1000000,1,0)"
     And I will see the element "TimePeriod" contains "-1d ~ now"
-    And I will see the element "Description" contains "testing"
-    And I will see the element "ExecutionPeriod" contains "5 分钟"
 
   Scenario: 检查新定时任务的编辑页
     Given open the "timedTask.ListPage" page for uri "/schedule/"

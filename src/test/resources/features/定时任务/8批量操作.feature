@@ -1,5 +1,5 @@
 @timedTask @timedTaskMulti
-Feature: 定时任务批量操作
+Feature: 定时任务_8批量操作
 
   @timedTaskSmoke
   Scenario Outline: 新建定时任务
@@ -23,7 +23,6 @@ Feature: 定时任务批量操作
     And I click the "StartTimeInput" button
     And I click the Circle "BasicSettings" button
     And I click the "Submit" button
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Examples:
@@ -84,7 +83,6 @@ Feature: 定时任务批量操作
     And I choose the "启动" from the "BatchOperation"
     And I will see the message "确定启用 3 个资源"
     When I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     And I click the "Complete" button
 

@@ -1,5 +1,5 @@
 @timedTask @editTimedTask
-Feature: 定时任务_基本配置
+Feature: 定时任务_3基本配置
 
   Scenario: 新建定时任务
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -36,10 +36,8 @@ Feature: 定时任务_基本配置
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "NewSavedSearch" button
-    And I wait for "SavedSearchName" will be visible
     And I set the parameter "SavedSearchName" with value "schedule_test"
     And I click the "EnsureCreateSavedSearch" button
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
 
   Scenario: 新建已存搜索时检查提示
@@ -51,10 +49,8 @@ Feature: 定时任务_基本配置
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "NewSavedSearch" button
-    And I wait for "SavedSearchName" will be visible
     And I set the parameter "SavedSearchName" with value " "
     And I click the "EnsureCreateSavedSearch" button
-    And I wait for "TipText" will be visible
     And I will see the element "TipText" contains "名称格式有误，仅支持中文、数字、字母、中划线、下划线以及括号的组合"
 
   Scenario Outline: 在编辑页上检查提示
@@ -62,7 +58,6 @@ Feature: 定时任务_基本配置
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'Test_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
-    And I wait for "2000" millsecond
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Name" with value "   "
     And I wait for "TipText" will be visible
@@ -75,7 +70,6 @@ Feature: 定时任务_基本配置
     And I set the value "<spl>" to the textarea "SearchTextarea"
     And I set the parameter "Period" with value "<period>"
     And I click the "SaveButton" button
-    And I wait for "<element>" will be visible
     And I will see the element "<element>" contains "<result>"
 
     Examples:
@@ -92,11 +86,9 @@ Feature: 定时任务_基本配置
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'Test_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
-    And I wait for "2000" millsecond
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "CrontabInput" with value "<crontab>"
     And I click the "<button>" button
-    And I wait for "<element>" will be visible
     And I will see the element "<element>" contains "<result>"
 
     Examples:
@@ -111,7 +103,6 @@ Feature: 定时任务_基本配置
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'Test_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
-    And I wait for "2000" millsecond
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Name" with value "Schedule_Test"
     And I set the parameter "Describe" with value "testing schedule"
@@ -121,13 +112,10 @@ Feature: 定时任务_基本配置
     And I will see the input element "Period" value will be "5"
     And I set the parameter "CrontabInput" with value "0 */57 * * * ?"
     And I click the "Parse" button
-    And I wait for "EnsureButton" will be visible
-    And I wait for "ParseResult" will be visible
     And I will see the element "ParseResult" contains ":57:00"
     And I will see the element "ParseResult" contains ":00:00"
     And I click the "EnsureButton" button
     And I click the "SaveButton" button
-    And I wait for "SuccessMessage" will be visible
     And I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
@@ -136,7 +124,6 @@ Feature: 定时任务_基本配置
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'Schedule_Test'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
-    And I wait for "2000" millsecond
     And I wait for element "SelectedUser" change text to username
     And I will see the input element "Name" value will be "Schedule_Test"
     And I will see the input element "Describe" value will be "testing schedule"
@@ -147,14 +134,13 @@ Feature: 定时任务_基本配置
     And I choose the "schedule_test" from the "SavedSearch"
     And I will see the input element "SearchTextarea" value will be "tag:sample04061424_chart | stats count()"
     And I click the "SaveButton" button
-    And I wait for "SuccessMessage" will be visible
     And I will see the success message "保存成功"
     And I click the "EnsureButton" button
-    Then I will see the "timedTask.ListPage" page
 
   Scenario: 验证
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
+    When I will see the data "{'column':'1','name':'Schedule_Test'}" values "{'column':'4','name':'0 */57 * * * ?'}"
     And the data name is "{'column':'1','name':'Schedule_Test'}" then I "expand" the item
     And I will see the element "TagOfTheLastItem" contains "auto_package"
     And I will see the element "AppOfTheLastItem" contains "test_app"
@@ -162,15 +148,12 @@ Feature: 定时任务_基本配置
     Then I will see the "timedTask.DetailPage" page
     And I will see the element "SearchContent" contains "tag:sample04061424_chart | stats count()"
     And I will see the element "TimePeriod" contains "now/d ~ now"
-    And I will see the element "Description" contains "testing schedule"
-    And I will see the element "ExecutionPeriod" contains "0 */57 * * * ?"
 
   Scenario: 删除定时任务
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'Schedule_Test'}" then i click the "删除" button in more menu
     And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
 
   Scenario: 删除已存搜索
@@ -182,6 +165,5 @@ Feature: 定时任务_基本配置
     And I wait for "Cancel" will be visible
     And I will see the element "ConfirmMessage" contains "确认删除 schedule_test?"
     And I click the "EnsureButton" button
-    And I wait for "Message" will be visible
     And I will see the message "删除成功"
 

@@ -1,5 +1,5 @@
 @timedTask @complementTimedTask
-Feature:定时任务补采
+Feature:定时任务_6补采
 
   Scenario Outline: 新建定时任务
     Given open the "splSearch.SearchPage" page for uri "/search/"

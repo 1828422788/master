@@ -1,5 +1,5 @@
 @timedTask @timedTaskLookUp @timedTaskSmoke
-Feature: 定时任务查看
+Feature: 定时任务_7查看
 
   Scenario Outline: 查看定时任务
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -8,7 +8,6 @@ Feature: 定时任务查看
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "<name>" button
     Then I will see the "timedTask.DetailPage" page
-    And I wait for "LookUpButton" will be visible
     And I click the "LookUpButton" button
     And I wait for "5000" millsecond
     And switch to another window

@@ -1,5 +1,5 @@
 @timedTask @tagTimedTask
-Feature: 定时任务标签
+Feature: 定时任务_4标签
 
   Scenario: 新建定时任务
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -23,7 +23,6 @@ Feature: 定时任务标签
     And I click the "StartTimeInput" button
     And I click the Circle "BasicSettings" button
     And I click the "Submit" button
-    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario: 添加标签
