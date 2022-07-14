@@ -34,8 +34,8 @@ Feature: 趋势图_已存搜索
     Then I will see the success message "创建成功"
     And I click the "EnsureButton" button
     And I click the "OpenSavedSearchList" button
-    And I wait for "2000" millsecond
-    And "删除" the data "trend_test" in tiny saved search
+    And I wait for loading invisible
+    When the data is "trend_test" then i click the button "删除" in more menu in the saved search table
     And I wait for "ConfirmMessage" will be visible
     And I will see the text "取消" exist in page
     And I will see the text "确定" exist in page
@@ -48,7 +48,7 @@ Feature: 趋势图_已存搜索
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SavedSearch" button
     And I wait for loading invisible
-    And "加载" the data "trend_test" in tiny saved search
+    When the data is "trend_test" then i click the button "加载" in the saved search table
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Header" will be visible
@@ -66,8 +66,8 @@ Feature: 趋势图_已存搜索
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "OpenSavedSearchList" button
-    And I wait for "2000" millsecond
-    And "删除" the data "trend_test" in tiny saved search
+    And I wait for loading invisible
+    When the data is "trend_test" then i click the button "删除" in more menu in the saved search table
     And I wait for "Cancel" will be visible
     And I will see the element "ConfirmMessage" contains "确认删除 trend_test?"
     And I wait for "EnsureButton" will be visible

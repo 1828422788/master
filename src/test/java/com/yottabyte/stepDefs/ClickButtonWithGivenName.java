@@ -750,14 +750,35 @@ public class ClickButtonWithGivenName {
     /**
      * 点击在搜索页中已存搜索弹窗对应数据的按钮
      *
-     * @param function 按钮名称
      * @param name     数据名称
+     * @param buttonName 按钮名称
      */
-    @And("^\"([^\"]*)\" the data \"([^\"]*)\" in tiny saved search$")
-    public void operateDataInTinySavedSearch(String function, String name) {
+    @And("^the data is \"([^\"]*)\" then i click the button \"([^\"]*)\" in the saved search table$")
+    public void clickButtonInTheSavedSearchTable(String name, String buttonName) {
         WebElement table = webDriver.findElement(By.xpath("(//table[@yotta-test='search-savedsearch-table']) | ((//table[contains(@class,'yotta-table')])[last()])"));
         WebElement tr = listPageUtils.getRowWithoutPaging(name, table);
-        this.click(function, tr);
+        this.click(buttonName, tr);
+    }
+
+    /**
+     * 在搜索页中已存搜索弹窗，在更多操作中寻找对应名称的操作按钮并点击
+     *
+     * @param name     数据名称
+     * @param buttonName 按钮名称
+     */
+    @And("^the data is \"([^\"]*)\" then i click the button \"([^\"]*)\" in more menu in the saved search table$")
+    public void clickButtonInMoreMenuInTheSavedSearchTable(String name, String buttonName) {
+        clickButtonInTheSavedSearchTable(name, "更多");
+        List<WebElement> elements = dropdownUtils.getParentElementOfMenuList().findElements(By.tagName("span"));
+        if (buttonName != null && buttonName.trim().length() != 0) {
+            for (WebElement e : elements) {
+                ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+                if (buttonName.equals(e.getText())) {
+                    e.click();
+                    break;
+                }
+            }
+        }
     }
 
     @When("^the data name is \"([^\"]*)\" then I click the \"([^\"]*)\" button in auth table$")

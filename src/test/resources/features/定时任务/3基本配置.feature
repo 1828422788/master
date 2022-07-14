@@ -160,8 +160,8 @@ Feature: 定时任务_3基本配置
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "OpenSavedSearchList" button
-    And I wait for "2000" millsecond
-    And "删除" the data "schedule_test" in tiny saved search
+    And I wait for loading invisible
+    When the data is "schedule_test" then i click the button "删除" in more menu in the saved search table
     And I wait for "Cancel" will be visible
     And I will see the element "ConfirmMessage" contains "确认删除 schedule_test?"
     And I click the "EnsureButton" button

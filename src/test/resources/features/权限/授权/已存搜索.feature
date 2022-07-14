@@ -135,7 +135,7 @@ Feature: 权限-已存搜索
   #  And I wait for loading invisible
   #  And I click the "getOpenSavedSearchList" button
   #  And I wait for loading invisible
-  #  And "删除" the data "AutoTestCreate" in tiny saved search
+  #  When the data is "AutoTestCreate" then i click the button "删除" in more menu in the saved search table
   #  And I wait for loading invisible
   #  And I click the "DeleteSavedSearch" button
   #  Then I will see the success message "删除失败: 没有相关资源权限"
@@ -201,7 +201,7 @@ Feature: 权限-已存搜索
     And I click the star before "{'column':'2','name':'<name>'}" in saved search
     Then I will see the message "更新成功"
     ###3.7没有删除按钮
-   # And "删除" the data "AutoTestCreate" in tiny saved search
+   # When the data is "AutoTestCreate" then i click the button "删除" in more menu in the saved search table
    # And I click the "DeleteSavedSearch" button
    # And I wait for "SuccessMessage" will be visible
    # Then I will see the success message "删除失败: 没有相关资源权限"
@@ -296,7 +296,7 @@ Feature: 权限-已存搜索
     And I click the "OpenSavedSearchList" button
     And I wait for loading invisible
     #########3.8定位范围
-    And "删除" the data "<name>" in tiny saved search
+    When the data is "<name>" then i click the button "删除" in more menu in the saved search table
     And I click the "DeleteSavedSearch" button
     Then I will see the message "删除成功"
     Given open the "splSearch.SavedSearchPage" page for uri "/savedsearches/"
@@ -372,7 +372,7 @@ Feature: 权限-已存搜索
     Then I will see the message "更新成功"
     And I wait for "Message" will be invisible
     #######3.8定位范围
-    And "删除" the data "AutoTestCreate" in tiny saved search
+    When the data is "AutoTestCreate" then i click the button "删除" in more menu in the saved search table
     And I click the "DeleteSavedSearch" button
     Then I will see the message "删除成功"
     Given open the "splSearch.SavedSearchPage" page for uri "/savedsearches/"
@@ -440,7 +440,7 @@ Feature: 权限-已存搜索
   # Given open the "splSearch.SearchPage" page for uri "/search/"
   #  And I wait for loading invisible
   #  And I click the "OpenSavedSearchButton" button
-  #  And "删除" the data "AutoTestCreate" in tiny saved search
+  #  When the data is "AutoTestCreate" then i click the button "删除" in more menu in the saved search table
   #  And I click the "DeleteSavedSearch" button
   #  Then I will see the success message "删除失败: 没有相关资源权限"
 
@@ -503,7 +503,7 @@ Feature: 权限-已存搜索
     #Given open the "splSearch.SearchPage" page for uri "/search/"
     #And I wait for loading invisible
     #And I click the "OpenSavedSearchButton" button
-    #And "删除" the data "AutoTestCreate" in tiny saved search
+    #When the data is "AutoTestCreate" then i click the button "删除" in more menu in the saved search table
     #And I click the "DeleteSavedSearch" button
     #Then I will see the success message "删除失败: 没有相关资源权限"
 
@@ -568,7 +568,7 @@ Feature: 权限-已存搜索
     And I wait for loading invisible
     And I click the "OpenSavedSearchList" button
     And I wait for loading invisible
-    And "删除" the data "AutoTestCreate" in tiny saved search
+    When the data is "AutoTestCreate" then i click the button "删除" in more menu in the saved search table
     And I click the "DeleteSavedSearch" button
     Then I will see the message "删除成功"
 
@@ -630,7 +630,7 @@ Feature: 权限-已存搜索
     And I click the "OpenSavedSearchList" button
     And I wait for loading invisible
   #  And I click the "OpenSavedSearchButton" button
-    And "删除" the data "<name>" in tiny saved search
+    When the data is "<name>" then i click the button "删除" in more menu in the saved search table
     And I click the "DeleteSavedSearch" button
     Then I will see the message "删除成功"
 
@@ -692,7 +692,7 @@ Feature: 权限-已存搜索
     #Given open the "splSearch.SearchPage" page for uri "/search/"
     #And I wait for loading invisible
     #And I click the "OpenSavedSearchButton" button
-    #And "删除" the data "<name>" in tiny saved search
+    #When the data is "<name>" then i click the button "删除" in more menu in the saved search table
     #And I click the "DeleteSavedSearch" button
     #Then I will see the success message "删除失败: 没有相关资源权限"
 
@@ -746,7 +746,7 @@ Feature: 权限-已存搜索
     And I click the star before "{'column':'2','name':'<name>'}" in saved search
     Then I will see the message "更新成功"
     ###3.7版本无删除权限时没有删除按钮
-    #And "删除" the data "<name>" in tiny saved search
+    #When the data is "<name>" then i click the button "删除" in more menu in the saved search table
     #And I click the "DeleteSavedSearch" button
     #Then I will see the success message "删除失败: 没有相关资源权限"
 
@@ -799,7 +799,7 @@ Feature: 权限-已存搜索
     And I click the star before "{'column':'2','name':'<name>'}" in saved search
     Then I will see the message "更新成功"
     And I wait for "Message" will be invisible
-    And "删除" the data "<name>" in tiny saved search
+    When the data is "<name>" then i click the button "删除" in more menu in the saved search table
     And I click the "DeleteSavedSearch" button
     Then I will see the message "删除成功"
 

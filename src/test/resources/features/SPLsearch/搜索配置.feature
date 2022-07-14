@@ -38,7 +38,6 @@ Feature: 搜索配置
     Given I wait for loading complete
     And I wait for "2000" millsecond
 
-#    And "加载" the data "<name>" in tiny saved search
     Given I click the which saved name is "<name>"
     Then I will see the input element "SearchInput" value will be "<spl>"
 
