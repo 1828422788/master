@@ -31,10 +31,11 @@ Feature: 定时任务_1新建
     And I click the Circle "BasicSettings" button
     And I will see the element "WhenToStart" contains "明天开始"
     And I click the "Submit" button
-    Then I will see the element "Message" contains "明天开始，是否继续"
+    And I will see the message contains "明天开始，是否继续"
     When I click the "Cancel" button
+    And I wait for "Cancel" will be invisible
     And I click the "Submit" button
-    Then I will see the element "Message" contains "明天开始，是否继续"
+    And I will see the message contains "明天开始，是否继续"
     And I click the "EnsureButton" button
     Then I will see the success message "保存成功"
     When open the "timedTask.ListPage" page for uri "/schedule/"
