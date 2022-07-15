@@ -32,13 +32,11 @@ Feature: Agent编辑Syslog类型数据源
     Given the data name ":514" in agent table "SyslogTable" then i click the "close" switch
     Then I wait for loading invisible
     And I wait for "{'DisableXpath':':514'}" will be visible by xpath
-#    And I wait for element "SyslogSwitchStatus" change text to "已禁用"
 
   Scenario: 修改Syslog数据源启用
     Given the data name ":514" in agent table "SyslogTable" then i click the "open" switch
     Then I wait for loading invisible
     And I wait for "{'EnableXpath':':514'}" will be visible by xpath
-#    And I wait for element "SyslogSwitchStatus" change text to "已启用"
 
   @agentCollectSmoke
   Scenario Outline: 修改Syslog数据源charset
@@ -136,7 +134,6 @@ Feature: Agent编辑Syslog类型数据源
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
 
-    @aabb
   Scenario: 新建Syslog数据源-页面配置测试
     And I click the "Create" button
     And I click the "SyslogType" button
@@ -168,7 +165,6 @@ Feature: Agent编辑Syslog类型数据源
     And I click the "Finish" button
     And I wait for "{'Addsuccessmsg':'添加成功'}" will be visible by xpath
 
-      @aabb
   Scenario: 编辑Syslog数据源-页面配置测试
     Given the data name ":514" in table "SyslogTable" then i click the "编辑" button
     And I wait for "ToTop" will be visible
