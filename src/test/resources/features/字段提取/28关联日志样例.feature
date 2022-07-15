@@ -130,7 +130,7 @@ Feature: 字段提取关联日志样例
     And I wait for element "Status" change text to "成功"
     Then I click the "Field" button
     And I will see the element "FieldTitle" value contains "字段,字段值(出现次数)"
-    And I will see the field extraction result "{'date':'20180821(1)'}"
+    And I will see the field extraction result "{'date':'20180821（1）'}"
     Then I click the "GoBack" button
     And I wait for element "Status" change text to "成功"
 
@@ -241,7 +241,7 @@ Feature: 字段提取关联日志样例
     Then I click the "UseCheckLog" button
     Then I click the "Field" button
     And I will see the element "FieldTitle" value contains "字段,字段值(出现次数)"
-    And I will see the field extraction result "{'Name':'John Smith(1)'}"
+    And I will see the field extraction result "{'Name':'John Smith （1）'}"
 
     Examples:
       | appName                  | rule   | log           |
