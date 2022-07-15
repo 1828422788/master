@@ -23,7 +23,7 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I set the parameter "Tag" with value "autotop_info"
     And I click the "Next" button
     And I click the "Finish" button
-    And I will see the element "Addsuccessmsg" name is "添加成功"
+    And I wait for "{'Addsuccessmsg':'添加成功'}" will be visible by xpath
 
   @agentConfigSmoke
   Scenario: 清理输入源缓存

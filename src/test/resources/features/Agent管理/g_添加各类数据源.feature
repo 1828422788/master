@@ -30,8 +30,7 @@ Feature: Agent添加各类数据源
     And I set the parameter "Charset" with value "<charsetKind1>"
     And I click the "Next" button
     And I click the "Finish" button
-    And I wait for "Addsuccessmsg" will be visible
-    And I will see the element "Addsuccessmsg" name is "添加成功"
+    And I wait for "{'Addsuccessmsg':'添加成功'}" will be visible by xpath
     And I click the "CurrentConfiguration" button
     And I wait for loading invisible
     Given the data name "autohekafiletest" in table "AppNameTable" then i click the "更多" button
@@ -71,11 +70,10 @@ Feature: Agent添加各类数据源
     And I set the parameter "Tag" with value "<tag>"
     And I click the "Next" button
     And I click the "Finish" button
-    And I wait for "Addsuccessmsg" will be visible
-    And I will see the element "Addsuccessmsg" name is "添加成功"
+    And I wait for "{'Addsuccessmsg':'添加成功'}" will be visible by xpath
     And I click the "SearchThis" button
     And I wait for loading invisible
-    And I will see the "agent.ListPage" page
+    And I will see the "splSearch.SearchPage" page
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for element "EventsTitle" change text to "事件列表"
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
@@ -108,7 +106,7 @@ Feature: Agent添加各类数据源
     And I click the "Next" button
     And I click the "Finish" button
     And I wait for loading invisible
-    And I will see the element "Addsuccessmsg" name is "添加成功"
+    And I wait for "{'Addsuccessmsg':'添加成功'}" will be visible by xpath
     And I click the "CurrentConfiguration" button
     Given the data name "192.168.1.139:514" in table "SyslogTable" then i click the "更多" button
     And I click the "Delete" button
@@ -133,7 +131,7 @@ Feature: Agent添加各类数据源
     And I click the "Next" button
     And I click the "Finish" button
     And I wait for loading invisible
-    And I will see the element "Addsuccessmsg" name is "添加成功"
+    And I wait for "{'Addsuccessmsg':'添加成功'}" will be visible by xpath
     And I wait for "2000" millsecond
     And I click the "CurrentConfiguration" button
     Given the data name "/sbin/service" in table "ScriptTable" then i click the "更多" button

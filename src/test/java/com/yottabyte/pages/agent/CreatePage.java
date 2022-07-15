@@ -254,11 +254,11 @@ public class CreatePage extends EditorPage {
         return super.getYottaSpan("agent-syslog_add-dom");
     }
 
-    @FindBy(xpath = "//div[@class='yotta-spinner-overlay']//p[1]")
-    private WebElement Addsuccessmsg;
-    public WebElement getAddsuccessmsg() {
-        return Addsuccessmsg;
+    private String Addsuccessmsg = "//div[@class='yotta-spinner-overlay']//p[contains(text(),'%s')]";
+    public String getAddsuccessmsg(String name) {
+        return String.format(Addsuccessmsg, name);
     }
+
 
     public WebElement getContinueAdd() {
         return super.getYottaButtonByText("继续添加");
@@ -353,18 +353,9 @@ public class CreatePage extends EditorPage {
         return super.getYottaButtonByText("编辑");
     }
 
-
-    public WebElement getDataSourceSwitchStatus() {
-        return getSwitchStatus("autohekafiletest");
-    }
     public WebElement getDataSourceSwitchStatus1(){
         return getSwitchStatus1("autohekafiletest");
     }
-
-    public WebElement getPacketbeatSwitchStatus() {
-        return getSwitchStatus("autoPacketbeattest");
-    }
-
     public WebElement getDiskQuota() {
         return getBackUpSwitchStatus("磁盘指标");
     }
@@ -401,22 +392,6 @@ public class CreatePage extends EditorPage {
         return getBackUpSwitchStatus("删日志源");
     }
 
-    public WebElement getScriptSwitchStatus() {
-        return getSwitchStatus("autohekascripttest");
-    }
-
-    public WebElement getBackUpSwitchStatus() {
-        return getSwitchStatus("hekabackup");
-    }
-
-    public WebElement getSyslogSwitchStatus() {
-        return getSwitchStatus(":514");
-    }
-
-    public WebElement getBeatsSwitchStatus() {
-        return getSwitchStatus("autoBeatstest");
-    }
-
     @FindBy(xpath = "//span[contains(text(),'磁盘指标')]/ancestor::td/preceding-sibling::td[last()]/span")
     private WebElement FuctionTypeSwitchStatus;
     public WebElement getFuctionTypeSwitchStatus() {
@@ -428,10 +403,15 @@ public class CreatePage extends EditorPage {
         return BackUpSwitchStatus1;
     }
 
-
-    public WebElement getDatabaseTypeSwitchStatus() {
-        return getSwitchStatus("autotestmysql");
+    private String disableXpath = "//td[contains(text(),'%s')]/preceding-sibling::td[last()]//label[not(contains(@class,'switch-checked'))]";
+    public String getDisableXpath(String name) {
+        return String.format(disableXpath, name);
     }
+    private String enableXpath = "//td[contains(text(),'%s')]/preceding-sibling::td[last()]//label[contains(@class,'switch-checked')]";
+    public String getEnableXpath(String name) {
+        return String.format(enableXpath, name);
+    }
+
 
     public WebElement getSyslogType() {
         return getSoureceTypeElement("Syslog");
@@ -916,7 +896,7 @@ public class CreatePage extends EditorPage {
     }
 
     public WebElement getParam() {
-        return getInputElement("参数");
+        return getInputElement("执行参数");
     }
 
     public WebElement getChangeRowRule() {
@@ -1101,13 +1081,9 @@ public class CreatePage extends EditorPage {
         return webDriver.findElement(By.xpath("//div[text()='" + name +"']/following-sibling::div//tbody"));
     }
 
-    public WebElement getSwitchStatus(String name) {
-        return webDriver.findElement(By.xpath("//td[contains(text(),'"+name+"')]/preceding-sibling::td[last()]/span"));
-    }
     public WebElement getSwitchStatus1(String name) {
         return webDriver.findElement(By.xpath("//td[text()='"+name+"']/../td[6]/span"));
     }
-
     public WebElement getBackUpSwitchStatus(String name) {
         return webDriver.findElement(By.xpath("//label[text()='" + name + "']/parent::div/following-sibling::div//span[@class='yotta-switch-slider']"));
     }

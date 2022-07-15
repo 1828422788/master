@@ -48,8 +48,7 @@ Feature: Agent备份功能
     And I click the "Next" button
     And I wait for "1000" millsecond
     And I click the "Finish" button
-    And I wait for "Addsuccessmsg" will be visible
-    And I will see the element "Addsuccessmsg" name is "添加成功"
+    And I wait for "{'Addsuccessmsg':'添加成功'}" will be visible by xpath
 
   Scenario: 备份策略禁用
     Given the data name "hekabackup" in agent table "BackUpTable" then i click the "close" switch
@@ -167,8 +166,7 @@ Feature: Agent备份功能
     And I click the "Next" button
     And I wait for "1000" millsecond
     And I click the "Finish" button
-    And I wait for "Addsuccessmsg" will be visible
-    And I will see the element "Addsuccessmsg" name is "添加成功"
+    And I wait for "{'Addsuccessmsg':'添加成功'}" will be visible by xpath
 
   Scenario: 备份策略目的对象删除失败
     And I click the "AddBackUP" button
@@ -197,8 +195,7 @@ Feature: Agent备份功能
     And I click the "Next" button
     And I wait for "1000" millsecond
     And I click the "Finish" button
-    And I wait for "Addsuccessmsg" will be visible
-    And I will see the element "Addsuccessmsg" name is "修改成功"
+    And I wait for "{'Addsuccessmsg':'修改成功'}" will be visible by xpath
 
   @agentConfigSmoke
   Scenario: 备份策略目的对象删除成功

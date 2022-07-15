@@ -22,17 +22,15 @@ Feature: Agent编辑Packetbeat类型数据源
     And I click the "Next" button
     And I wait for "1000" millsecond
     And I click the "Finish" button
-    And I will see the element "Addsuccessmsg" name is "添加成功"
+    And I wait for "{'Addsuccessmsg':'添加成功'}" will be visible by xpath
 
   Scenario: Packetbeat数据源禁用
     Given the data name "autoPacketbeattest" in agent table "PacketbeatTable" then i click the "close" switch
-    And I wait for "PacketbeatSwitchStatus" will be visible
-    And I wait for element "PacketbeatSwitchStatus" change text to "已禁用"
+    And I wait for "{'DisableXpath':'autoPacketbeattest'}" will be visible by xpath
 
   Scenario: Packetbeat数据源启用
     Given the data name "autoPacketbeattest" in agent table "PacketbeatTable" then i click the "open" switch
-    And I wait for "PacketbeatSwitchStatus" will be visible
-    And I wait for element "PacketbeatSwitchStatus" change text to "已启用"
+    And I wait for "{'EnableXpath':'autoPacketbeattest'}" will be visible by xpath
 
   @agentCollectSmoke
   Scenario Outline: Packetbeat数据源修改appname成功

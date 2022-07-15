@@ -31,17 +31,17 @@ Feature: Agent编辑脚本类型数据源
     And I will see the element "CheckInternal" name is "120 秒"
     And I wait for "Finish" will be visible
     And I click the "Finish" button
-    And I will see the element "Addsuccessmsg" name is "添加成功"
+    And I wait for "{'Addsuccessmsg':'添加成功'}" will be visible by xpath
 
   Scenario: 脚本数据源禁用
     Given the data name "autohekascripttest" in agent table "ScriptTable" then i click the "close" switch
     Then I wait for loading invisible
-    And I wait for element "ScriptSwitchStatus" change text to "已禁用"
+    And I wait for "{'DisableXpath':'autohekascripttest'}" will be visible by xpath
 
   Scenario: 脚本数据源启用
     Given the data name "autohekascripttest" in agent table "ScriptTable" then i click the "open" switch
     Then I wait for loading invisible
-    And I wait for element "ScriptSwitchStatus" change text to "已启用"
+    And I wait for "{'EnableXpath':'autohekascripttest'}" will be visible by xpath
 
   @agentCollectSmoke
   Scenario:脚本数据源修改可执行文件

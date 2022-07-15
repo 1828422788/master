@@ -28,7 +28,7 @@ Feature: Agent编辑文件性能类型数据源
     And I wait for "Finish" will be visible
     And I click the "Finish" button
     And I wait for "1000" millsecond
-    And I will see the element "Addsuccessmsg" name is "添加成功"
+    And I wait for "{'Addsuccessmsg':'添加成功'}" will be visible by xpath
 
   Scenario: 性能数据源禁用
     Given the data name ".*" in agent table "FuctionTypeTable" then i click the "close" switch

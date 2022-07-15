@@ -32,6 +32,7 @@ Feature: 路由编辑
 
   Scenario Outline: 上传编辑索引所需日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
+    And I wait for "400000" millsecond
     And I set the parameter "AppName" with value "<appname>"
     And I set the parameter "Tag" with value "<tag>"
     And I upload a file with name "/src/test/resources/testdata/log/apache_10.txt"

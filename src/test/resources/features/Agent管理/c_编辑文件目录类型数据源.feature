@@ -40,18 +40,18 @@ Feature: Agent编辑文件目录类型数据源
     And I will see the element "CheckAppname" name is "autohekafiletest"
     And I click the "Finish" button
     And I wait for loading invisible
-    And I will see the element "Addsuccessmsg" name is "添加成功"
+    And I wait for "{'Addsuccessmsg':'添加成功'}" will be visible by xpath
     And I click the "CurrentConfiguration" button
 
   Scenario: 文件目录数据源禁用
     Given the data name "autohekafiletest" in agent table "AppNameTable" then i click the "close" switch
     Then I wait for loading invisible
-    And I wait for element "DataSourceSwitchStatus" change text to "已禁用"
+    And I wait for "{'DisableXpath':'autohekafiletest'}" will be visible by xpath
 
   Scenario: 文件目录数据源启用
     Given the data name "autohekafiletest" in agent table "AppNameTable" then i click the "open" switch
     Then I wait for loading invisible
-    And I wait for element "DataSourceSwitchStatus" change text to "已启用"
+    And I wait for "{'EnableXpath':'autohekafiletest'}" will be visible by xpath
 
   Scenario: 文件目录配置修改文件路径黑名单
     Given the data name "autohekafiletest" in table "AppNameTable" then i click the "编辑" button

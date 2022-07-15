@@ -38,19 +38,17 @@ Feature: Agent编辑数据库数据类型数据源
     And I click the "Next" button
     And I wait for "Finish" will be visible
     And I click the "Finish" button
-    And I will see the element "Addsuccessmsg" name is "添加成功"
+    And I wait for "{'Addsuccessmsg':'添加成功'}" will be visible by xpath
 
   @agentCollectSmoke
   Scenario: mysql数据库类型数据源禁用
     Given the data name "autotestmysql" in agent table "DatabaseTypeTable" then i click the "close" switch
-    Then I wait for loading invisible
-    And I wait for element "DatabaseTypeSwitchStatus" change text to "已禁用"
+    And I wait for "{'DisableXpath':'autotestmysql'}" will be visible by xpath
 
   @agentCollectSmoke
   Scenario: mysql数据库类型数据源启用
     Given the data name "autotestmysql" in agent table "DatabaseTypeTable" then i click the "open" switch
-    And I wait for "DatabaseTypeSwitchStatus" will be visible
-    And I wait for element "DatabaseTypeSwitchStatus" change text to "已启用"
+    And I wait for "{'EnableXpath':'autotestmysql'}" will be visible by xpath
 
   @agentCollectSmoke
   Scenario:编辑Sql语句

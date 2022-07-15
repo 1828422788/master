@@ -22,8 +22,7 @@ Feature: Agent页面跳转
     And I click the "Next" button
     And I wait for "Finish" will be visible
     And I click the "Finish" button
-    And I wait for "Addsuccessmsg" will be visible
-    And I will see the element "Addsuccessmsg" name is "添加成功"
+    And I wait for "{'Addsuccessmsg':'添加成功'}" will be visible by xpath
 
   @agentConfigSmoke
   Scenario: 跳转到Agent具体配置页面

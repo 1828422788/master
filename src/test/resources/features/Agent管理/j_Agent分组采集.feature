@@ -54,7 +54,7 @@ Feature: Agent分组采集
     And I will see the element "Monitoring" name is "是"
     And I will see the element "CheckAppname" name is "autohekafiletest"
     And I click the "Finish" button
-    And I wait for "Addsuccessmsg" will be visible
+    And I wait for "{'Addsuccessmsg':'添加成功'}" will be visible by xpath
 
   Scenario: 分组采集数据源禁用
     And I click the "OpenGroupButton" button

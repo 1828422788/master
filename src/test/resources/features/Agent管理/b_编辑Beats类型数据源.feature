@@ -22,19 +22,16 @@ Feature: Agent编辑Beats类型数据源
     And I click the "Next" button
     And I click the "Finish" button
     And I wait for loading invisible
-    And I will see the element "Addsuccessmsg" name is "添加成功"
+    And I wait for "{'Addsuccessmsg':'添加成功'}" will be visible by xpath
 
   @agentCollectSmoke
   Scenario: 修改beats数据源禁用
     Given the data name "autoBeatstest" in agent table "BeatsTable" then i click the "close" switch
-    Then I wait for "getBeatsSwitchStatus" will be visible
-    And I wait for element "getBeatsSwitchStatus" change text to "已禁用"
-
+    And I wait for "{'DisableXpath':'autoBeatstest'}" will be visible by xpath
   @agentCollectSmoke
   Scenario: 修改beats数据源启用
     Given the data name "autoBeatstest" in agent table "BeatsTable" then i click the "open" switch
-    Then I wait for "getBeatsSwitchStatus" will be visible
-    And I wait for element "getBeatsSwitchStatus" change text to "已启用"
+    And I wait for "{'EnableXpath':'autoBeatstest'}" will be visible by xpath
 
   Scenario Outline: Beats数据源修改appname成功
     Given the data name in beats table "BeatsTable" then i click the "编辑" button
