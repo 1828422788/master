@@ -2,6 +2,7 @@ Feature: 角色编辑（RZY-522）
 
   Background:
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
 
   @role
   Scenario Outline: 编辑角色

@@ -39,6 +39,7 @@ Feature: 角色可转授功能权限
 
   Scenario: 添加AutoTestRole的可管理角色
     Given open the "users.ListPage" page for uri "/account/users/"
+    And I wait for loading invisible
     When I click the detail which name is "{'column':'1','name':'AutoTestRole'}"
     And I will see the "users.CreatePage" page
     And I click the "EditButton" button
@@ -47,6 +48,7 @@ Feature: 角色可转授功能权限
 
   Scenario: 分配搜索权限
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
+    And I wait for loading invisible
     When the data name is "SearchAuth" then i click the "授权" button in more menu
     And I wait for loading invisible
     And I "check" the checkbox which name is "AutoTestRole" in tiny table
@@ -55,6 +57,7 @@ Feature: 角色可转授功能权限
 
   Scenario: 给角色授权
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     When the data name is "AutoTestEdit" then i click the "授权" button in more menu
     And I will see the "roles.AuthorizationPage" page
     When I "checked" the checkbox which name is "全选"
@@ -68,6 +71,7 @@ Feature: 角色可转授功能权限
 
   Scenario: 给角色授权
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     When the data name is "AutoTestCopy" then i click the "授权" button in more menu
     And I will see the "roles.AuthorizationPage" page
     When I "checked" the checkbox which name is "全选"
@@ -111,6 +115,7 @@ Feature: 角色可转授功能权限
 
   Scenario: 授权无可转授功能权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     When the data name is "AutoTestEdit" then i click the "授权" button in more menu
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
@@ -130,6 +135,7 @@ Feature: 角色可转授功能权限
 
   Scenario Outline: 删除用户
     Given open the "users.ListPage" page for uri "/account/users/"
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button

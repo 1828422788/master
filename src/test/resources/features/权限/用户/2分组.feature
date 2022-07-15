@@ -11,6 +11,7 @@ Feature: 用户分组（RZY-1167）
 
   Scenario Outline: 用户分组成功
     Given open the "users.ListPage" page for uri "/account/users/"
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "分组" button in more menu
     And I choose the "测试用户所需分组" from the "UserGroups"
     And I wait for "2000" millsecond

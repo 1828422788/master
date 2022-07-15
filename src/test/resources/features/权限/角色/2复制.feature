@@ -3,6 +3,7 @@ Feature: 角色复制
 
   Background:
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
 
   Scenario: 授权角色所有功能权限
     When the data name is "AutoTestEdit" then i click the "授权" button in more menu

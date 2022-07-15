@@ -3,7 +3,7 @@ Feature: 用户编辑（RZY-1554）
 
   Background:
     Given open the "users.ListPage" page for uri "/account/users/"
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
 
   Scenario Outline: 编辑用户信息成功（RZY-2214）
     When I click the detail which name is "{'column':'1','name':'<UserName>'}"

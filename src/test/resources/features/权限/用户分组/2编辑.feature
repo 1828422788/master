@@ -19,6 +19,7 @@ Feature: 用户分组修改（RZY-1179）
 
   Scenario Outline: 验证编辑是否校验重名
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
+    And I wait for loading invisible
     When the data name is "{'column':'1','name':'<UserGroupName>'}" then i click the "编辑" button
     And I will see the "userGroups.CreatePage" page
     And I wait for element "UserGroupName" value change text to "<UserGroupName>"

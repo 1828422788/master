@@ -6,7 +6,7 @@ Feature: 用户分组搜索
 
   Scenario: 搜索
     When I set the parameter "TextFilter" with value "AutoTestForEdit"
-    And I wait for "3000" millsecond
+    And I wait for loading invisible
     Then I will see the search result "{'column':'1','name':'AutoTestForEdit'}"
 
 
