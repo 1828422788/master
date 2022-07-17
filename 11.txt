@@ -2,3 +2,4 @@ username:admin1231
 password:All#123456
 123
 host:
+master
